@@ -1,0 +1,19 @@
+{
+  "name": "yugioh-25d-holograms",
+  "version": "1.0.0",
+  "description": "Yu-Gi-Oh! 2.5D Hologram Duel Simulator using CSS 3D transforms and Web Audio API",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "node --test",
+    "check": "npm run test && npm run build",
+    "preview": "vite preview"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "devDependencies": {
+    "vite": "^8.1.5"
+  }
+}

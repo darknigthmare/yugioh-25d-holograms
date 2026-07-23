@@ -1,0 +1,361 @@
+import { playClick } from './audio.js';
+import { escapeHtml, safeImageUrl } from './security.js';
+
+/**
+ * Initializes the 3D board tilt parallax effect based on mouse move.
+ */
+export function initBoardTilt(containerSelector, boardSelector) {
+  const container = document.querySelector(containerSelector);
+  const board = document.querySelector(boardSelector);
+  if (!container || !board) return;
+
+  container.addEventListener('mousemove', (e) => {
+    const rect = container.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+
+    // Normalize mouse coords (-1 to 1)
+    const normX = x / (rect.width / 2);
+    const normY = y / (rect.height / 2);
+
+    // Calculate rotation angles
+    // Base pitch: 52 degrees, tilts up/down by 8 degrees
+    // Base roll/yaw: 0 degrees, tilts left/right by 10 degrees
+    const pitch = 52 - normY * 8;
+    const roll = normX * 10;
+
+    board.style.transform = `rotateX(${pitch}deg) rotateZ(${roll}deg) translateY(-20px)`;
+  });
+
+  container.addEventListener('mouseleave', () => {
+    // Smooth reset
+    board.style.transform = `rotateX(52deg) rotateZ(0deg) translateY(-20px)`;
+  });
+}
+
+/**
+ * Creates a card DOM element
+ */
+export function createCardDOM(card, faceDown = false) {
+  const cardEl = document.createElement('div');
+  cardEl.className = `card-entity ${card.card_type}`;
+  cardEl.dataset.id = card.id;
+  cardEl.dataset.cardType = card.card_type;
+  cardEl.draggable = !faceDown; // Draggable only if not face-down (or hand)
+  cardEl.setAttribute('role', 'button');
+  cardEl.setAttribute('aria-label', `${card.name || 'Carte'}${faceDown ? ' face cachée' : ''}`);
+  cardEl.tabIndex = faceDown ? -1 : 0;
+
+  const customCardBack = safeImageUrl(localStorage.getItem('custom_card_back') || '');
+  const frontImage = safeImageUrl(
+    card.image_url,
+    `https://images.ygoprodeck.com/images/cards/${encodeURIComponent(card.id)}.jpg`
+  );
+
+  const cardInner = document.createElement('div');
+  cardInner.className = `card-inner ${faceDown ? 'face-down' : ''}`;
+
+  const cardFront = document.createElement('div');
+  cardFront.className = 'card-front';
+  cardFront.style.backgroundImage = `url("${frontImage}")`;
+
+  const glow = document.createElement('div');
+  glow.className = 'card-glow-effect';
+  cardFront.appendChild(glow);
+
+  const cardBack = document.createElement('div');
+  cardBack.className = `card-back ${customCardBack ? 'custom-back-active' : ''}`;
+  if (customCardBack) {
+    cardBack.style.backgroundImage = `url("${customCardBack}")`;
+    cardBack.style.backgroundSize = 'cover';
+    cardBack.style.backgroundColor = 'transparent';
+  }
+
+  cardInner.append(cardFront, cardBack);
+  cardEl.appendChild(cardInner);
+
+  // Play click sound on hover
+  cardEl.addEventListener('mouseenter', () => {
+    if (!faceDown) {
+      cardEl.classList.add('hovered');
+    }
+  });
+
+  cardEl.addEventListener('mouseleave', () => {
+    cardEl.classList.remove('hovered');
+  });
+
+  return cardEl;
+}
+
+/**
+ * Creates a 2.5D monster hologram DOM element
+ */
+export function createMonsterHologramDOM(card, isOpponent = false) {
+  const holo = document.createElement('div');
+  const attrClass = card.attribute
+    ? String(card.attribute).toLowerCase().replace(/[^a-z0-9_-]/g, '')
+    : 'light';
+  const isDefense = card.position === 'defense';
+  const isFaceDown = card.isSetFaceDown || false;
+
+  const atk = typeof card.getAtk === 'function' ? card.getAtk() : card.atk;
+  const def = typeof card.getDef === 'function' ? card.getDef() : card.def;
+  const isPowerhouse = atk >= 2500;
+
+  holo.className = `monster-hologram-entity attr-${attrClass} ${isOpponent ? 'opponent-holo' : ''} ${isDefense ? 'defense-mode' : ''} ${isFaceDown ? 'face-down' : ''} ${isPowerhouse ? 'power-aura' : ''}`;
+  holo.dataset.id = card.id;
+
+  const imageUrl = safeImageUrl(
+    card.image_url_cropped,
+    `https://images.ygoprodeck.com/images/cards_cropped/${encodeURIComponent(card.id)}.jpg`
+  );
+  const cardName = escapeHtml(card.name);
+
+  holo.innerHTML = `
+    <div class="holo-beam"></div>
+    <div class="holo-base-ring attr-${attrClass}"></div>
+    <div class="holo-sprite-container">
+      <img src="${imageUrl}" alt="${cardName}" class="holo-sprite" crossorigin="anonymous">
+      <div class="holo-scanlines"></div>
+      <div class="holo-glow-aura"></div>
+
+      <!-- Defensive Hexagonal Shield -->
+      <div class="holo-defense-shield">
+        <div class="shield-hexagon"></div>
+      </div>
+    </div>
+    <div class="holo-stats">
+      <div class="holo-stat-name">${cardName}</div>
+      <div class="holo-stat-atkdef">
+        <span class="stat-badge atk">ATK ${atk}</span>
+        <span class="stat-badge def">DEF ${def !== null ? def : '—'}</span>
+      </div>
+    </div>
+  `;
+
+  return holo;
+}
+
+/**
+ * Triggers summoning animations and holographic spawning
+ */
+export function spawnHologram(zoneEl, card, isOpponent = false) {
+  // Clear any existing contents of the zone
+  zoneEl.innerHTML = '';
+
+  // Set defense class on the parent zone to rotate card flat on the board
+  if (card.position === 'defense') {
+    zoneEl.classList.add('defense-position');
+  } else {
+    zoneEl.classList.remove('defense-position');
+  }
+
+  // Create flat card inside zone (face-down if card is set face-down)
+  const flatCard = createCardDOM(card, card.isSetFaceDown || false);
+  flatCard.classList.add('card-flat-on-board');
+  zoneEl.appendChild(flatCard);
+
+  // If it's a monster, spawn the vertical hologram!
+  if (card.card_type === 'monster') {
+    const holo = createMonsterHologramDOM(card, isOpponent);
+    zoneEl.appendChild(holo);
+
+    // Trigger animation flow
+    requestAnimationFrame(() => {
+      holo.classList.add('spawning');
+
+      // After spawning animation finishes (approx 800ms)
+      setTimeout(() => {
+        holo.classList.remove('spawning');
+        holo.classList.add('active-hologram');
+      }, 800);
+    });
+  } else {
+    // Spells and traps just show the flat card
+    requestAnimationFrame(() => {
+      flatCard.classList.add('placed');
+    });
+  }
+}
+
+/**
+ * Helper to calculate local 2D coordinates relative to board container.
+ * This is crucial when zones are nested inside split containers (like board halves).
+ */
+export function getLocalCoords(element, boardEl) {
+  let x = 0;
+  let y = 0;
+  let curr = element;
+  while (curr && curr !== boardEl) {
+    x += curr.offsetLeft;
+    y += curr.offsetTop;
+    curr = curr.offsetParent;
+  }
+  return {
+    x: x + element.clientWidth / 2,
+    y: y + element.clientHeight / 2
+  };
+}
+
+/**
+ * Creates a 3D laser/beam attack projectile from source zone to target zone
+ */
+export function animateAttack(boardEl, srcZone, destZone, color = '#00ffff', projType = 'beam') {
+  return new Promise((resolve) => {
+    // Calculate offsets within the board robustly
+    const srcCoords = getLocalCoords(srcZone, boardEl);
+    const destCoords = getLocalCoords(destZone, boardEl);
+    const srcX = srcCoords.x;
+    const srcY = srcCoords.y;
+    const destX = destCoords.x;
+    const destY = destCoords.y;
+
+    // Create projectile element
+    const proj = document.createElement('div');
+    proj.className = `attack-projectile ${projType}`;
+    proj.style.left = `${srcX}px`;
+    proj.style.top = `${srcY}px`;
+    proj.style.background = `radial-gradient(circle, ${color} 0%, rgba(255,255,255,0.8) 20%, transparent 70%)`;
+    proj.style.boxShadow = `0 0 25px ${color}, 0 0 50px ${color}`;
+    proj.style.transform = `translate3d(-50%, -50%, 60px)`; // Float 60px above the board
+
+    // Create tail line
+    const tail = document.createElement('div');
+    tail.className = 'projectile-tail';
+    tail.style.backgroundColor = color;
+    tail.style.boxShadow = `0 0 10px ${color}`;
+    proj.appendChild(tail);
+
+    boardEl.appendChild(proj);
+
+    // Trigger projectile movement using requestAnimationFrame & CSS transitions
+    requestAnimationFrame(() => {
+      // Calculate angle and distance for the tail stretching
+      const dx = destX - srcX;
+      const dy = destY - srcY;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      const angle = Math.atan2(dy, dx) * (180 / Math.PI);
+
+      tail.style.width = `${dist}px`;
+      // Rotate tail to point towards destination
+      tail.style.transform = `rotateZ(${angle}deg)`;
+
+      // Animate projectile position
+      proj.style.transition = 'all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      proj.style.left = `${destX}px`;
+      proj.style.top = `${destY}px`;
+    });
+
+    // After animation finishes
+    setTimeout(() => {
+      proj.remove();
+
+      // Trigger hit explosion in the target zone
+      createExplosion(boardEl, destX, destY, color);
+      resolve();
+    }, 500);
+  });
+}
+
+/**
+ * Spawns a beautiful particle explosion at local coordinates
+ */
+export function createExplosion(boardEl, x, y, color = '#ff3300') {
+  const expl = document.createElement('div');
+  expl.className = 'explosion-container';
+  expl.style.left = `${x}px`;
+  expl.style.top = `${y}px`;
+  expl.style.transform = `translate3d(-50%, -50%, 60px)`;
+
+  // Add flashing flash ring
+  const ring = document.createElement('div');
+  ring.className = 'explosion-ring';
+  ring.style.borderColor = color;
+  ring.style.boxShadow = `0 0 20px ${color}`;
+  expl.appendChild(ring);
+
+  // Add particles
+  const particleCount = 20;
+  for (let i = 0; i < particleCount; i++) {
+    const p = document.createElement('div');
+    p.className = 'explosion-particle';
+    p.style.backgroundColor = color;
+    p.style.boxShadow = `0 0 8px ${color}`;
+
+    // Random direction and distance
+    const angle = Math.random() * Math.PI * 2;
+    const speed = 50 + Math.random() * 80;
+    const tx = Math.cos(angle) * speed;
+    const ty = Math.sin(angle) * speed;
+    const tz = (Math.random() - 0.5) * 60; // Spread in Z space too!
+
+    p.style.setProperty('--tx', `${tx}px`);
+    p.style.setProperty('--ty', `${ty}px`);
+    p.style.setProperty('--tz', `${tz}px`);
+
+    expl.appendChild(p);
+  }
+
+  boardEl.appendChild(expl);
+
+  // Remove after animation finishes
+  setTimeout(() => {
+    expl.remove();
+  }, 1000);
+}
+
+/**
+ * Triggers lightning rain cinematic across target side monster zones
+ */
+export function triggerRaigekiCinematic(boardEl, targetSide) {
+  const monsterZones = boardEl.querySelectorAll(`.card-zone.${targetSide}-m-zone`);
+  monsterZones.forEach((zone) => {
+    const coords = getLocalCoords(zone, boardEl);
+    const lightning = document.createElement('div');
+    lightning.className = 'raigeki-lightning';
+    lightning.style.left = `${coords.x}px`;
+    lightning.style.top = `${coords.y - 120}px`;
+    boardEl.appendChild(lightning);
+
+    setTimeout(() => lightning.remove(), 800);
+  });
+}
+
+/**
+ * Triggers a protective mirror force barrier fanning up in front of defending side
+ */
+export function triggerMirrorForceCinematic(boardEl, side) {
+  const barrier = document.createElement('div');
+  barrier.className = 'mirror-force-barrier';
+
+  // Place on defending half
+  barrier.style.top = side === 'player' ? '65%' : '35%';
+  boardEl.appendChild(barrier);
+
+  setTimeout(() => barrier.remove(), 1500);
+}
+
+/**
+ * Triggers a golden Egyptian Ankh cross floating above target zone
+ */
+export function triggerRebornCinematic(boardEl, side, zoneIndex) {
+  const zoneQuery = `.card-zone.${side}-m-zone[data-index="${zoneIndex}"]`;
+  const zoneEl = boardEl.querySelector(zoneQuery);
+  if (!zoneEl) return;
+
+  const coords = getLocalCoords(zoneEl, boardEl);
+  const ankh = document.createElement('div');
+  ankh.className = 'reborn-ankh';
+  ankh.style.left = `${coords.x}px`;
+  ankh.style.top = `${coords.y}px`;
+
+  ankh.innerHTML = `
+    <svg class="ankh-svg" viewBox="0 0 100 100">
+      <path d="M 50 15 C 40 15, 35 35, 50 45 C 65 35, 60 15, 50 15 Z M 50 45 L 50 85 M 25 50 L 75 50" />
+    </svg>
+  `;
+  boardEl.appendChild(ankh);
+
+  setTimeout(() => ankh.remove(), 1500);
+}
