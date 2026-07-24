@@ -22,6 +22,10 @@ function createMaterial({
     level
   });
   card.currentLevel = currentLevel;
+  card.location = 'monster_zone';
+  card.controllerId = 'player';
+  card.ownerId = 'player';
+  card.isSetFaceDown = false;
   return card;
 }
 
@@ -69,6 +73,26 @@ test('Synchro validation uses current CardState levels instead of stale base val
   assert.equal(tuner.level, 4);
   assert.equal(summons.validateSynchroSummon([tuner, nonTuner], 8), true);
   assert.equal(summons.validateSynchroSummon([tuner, nonTuner], 7), false);
+});
+
+test('Synchro validation rejects face-down and non-field materials', () => {
+  const summons = new SummonEngine();
+  const tuner = createMaterial({
+    uid: 'face-down-tuner',
+    type: 'Tuner Monster',
+    level: 3
+  });
+  const nonTuner = createMaterial({
+    uid: 'face-up-non-tuner',
+    level: 5
+  });
+
+  tuner.isSetFaceDown = true;
+  assert.equal(summons.validateSynchroSummon([tuner, nonTuner], 8), false);
+
+  tuner.isSetFaceDown = false;
+  nonTuner.location = 'graveyard';
+  assert.equal(summons.validateSynchroSummon([tuner, nonTuner], 8), false);
 });
 
 test('Xyz validation accepts matching dynamic levels and rejects a mismatch', () => {

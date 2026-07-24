@@ -4,19 +4,21 @@ Simulateur de duel solo dans le navigateur, inspiré des arènes holographiques 
 
 ## Fonctionnalités vérifiées
 
-- trois decks de 40 cartes et un constructeur personnalisé de 40 à 60 cartes ;
-- duel contre une IA avec pioche, phases, invocations normales et par Sacrifice ;
-- positions Attaque/Défense, combats, dégâts et conditions de victoire ;
-- Fusion du Dragon Ultime aux Yeux Bleus et Synchro avec validation Syntoniseur/non-Syntoniseur ;
-- effets scriptés pour Pot de Cupidité, Raigeki et Monster Reborn ;
-- timings scriptés pour Force de Miroir et Trappe ;
-- recherche YGOPRODeck en mode Sandbox pendant la Main Phase ;
-- interface desktop et mobile, avec glisser-déposer ou sélection carte → zone ;
-- navigation clavier : `Entrée`/`Espace` pour sélectionner et `R` pour changer une position.
+- mode **TCG Advanced strict** par défaut : decks de 40 cartes validés, limite de trois copies, Pot de Cupidité interdit et Monster Reborn limité selon la liste du 18 mai 2026 ;
+- mode **Anime Sandbox** séparé pour la recherche YGOPRODeck et l’expérimentation ;
+- duel solo contre trois profils d’IA avec pioche, six phases, invocations normales, Sacrifice, Fusion et Synchro ;
+- positions Attaque/Défense, Damage Step, dégâts, Deck Out, limite de six cartes en End Phase et conditions de victoire ;
+- chaînes en résolution LIFO avec priorité, fenêtres de réponse et sélection explicite des cibles ;
+- effets scriptés pour Raigeki, Monster Reborn, Polymérisation, Force de Miroir, Trappe, Magicienne Sombre, Magicien du Temps, Kuriboh, Robot Synchronique, Arcanite Magician et Stardust Dragon ;
+- cartes face cachée adverses anonymisées dans le DOM et journal de pioche adverse sans fuite d’identité ;
+- interface desktop/mobile, glisser-déposer, sélection carte → zone, parcours clavier, modales accessibles et réduction des animations ;
+- préférences locales persistées : mode, difficulté, son, dos de carte, deck personnalisé et statistiques.
 
-## Limites assumées
+## Portée du moteur
 
-Ce projet est un simulateur Sandbox, pas un moteur officiel complet du JCC. Les cartes récupérées par l’API peuvent être ajoutées à la main, mais seuls les effets listés ci-dessus sont exécutés. Les autres cartes Monstre utilisent leurs statistiques ; un effet non scripté est signalé dans le journal.
+Le mode strict applique les règles et la banlist au **sous-ensemble local explicitement pris en charge**. Il refuse les procédures non implémentées plutôt que de simuler un comportement faux. Les Invocations Xyz, Link, Pendule et Rituel, le Side Deck, les Matchs et le multijoueur ne sont pas encore jouables.
+
+Les trois decks intégrés sont des presets légaux et équilibrés **inspirés** de Kaiba, Yugi et Joey ; ils ne reproduisent pas au détail près une liste historique de l’anime. En Sandbox, une carte issue de l’API peut être inspectée ou ajoutée pendant la Main Phase, mais seuls les effets listés ci-dessus possèdent une résolution dédiée.
 
 ## Développement
 
@@ -33,7 +35,7 @@ Contrôle complet :
 npm run check
 ```
 
-Le contrôle exécute les tests Node puis produit le build Vite dans `dist/`.
+Le contrôle exécute les tests Node de règles/régression puis produit le build Vite dans `dist/`.
 
 ## Sources externes et propriété intellectuelle
 

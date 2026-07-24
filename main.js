@@ -25,7 +25,12 @@ import {
   setBGMStyle
 } from './src/audio.js';
 import { searchCards, getCardById } from './src/api.js';
-import { STARTER_CARDS, EXTRA_DECK_CARDS } from './src/cards.js';
+import {
+  STARTER_CARDS,
+  EXTRA_DECK_CARDS,
+  getCardCroppedImageUrl,
+  getCardImageUrl
+} from './src/cards.js';
 import { escapeHtml, safeImageUrl } from './src/security.js';
 
 let game = null;
@@ -33,36 +38,187 @@ let selectedAttackerIndex = null;
 let currentDraggedUid = null;
 let selectedHandUid = null;
 let pendingAction = null;
+const recordedFinishedGames = new WeakSet();
+const lpAnimationFrames = new Map();
+
+const STORAGE_KEYS = Object.freeze({
+  muted: 'ygo_muted',
+  gameMode: 'ygo_game_mode',
+  difficulty: 'ygo_ai_difficulty',
+  customDeck: 'ygo_custom_deck',
+  statistics: 'ygo_duel_statistics'
+});
+
+function readStoredJson(key, fallback) {
+  try {
+    const value = JSON.parse(localStorage.getItem(key));
+    return value && typeof value === 'object' ? value : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+function announceStatus(message) {
+  const announcer = document.getElementById('sr-announcer');
+  if (!announcer) return;
+  announcer.textContent = '';
+  window.setTimeout(() => {
+    announcer.textContent = message;
+  }, 20);
+}
+
+let activeDialog = null;
+let dialogReturnFocus = null;
+const focusableSelector = [
+  'button:not([disabled])',
+  '[href]',
+  'input:not([disabled])',
+  'select:not([disabled])',
+  'textarea:not([disabled])',
+  '[tabindex]:not([tabindex="-1"])'
+].join(',');
+
+function openDialog(dialog, preferredFocus = null) {
+  if (!dialog) return;
+
+  if (activeDialog && activeDialog !== dialog) {
+    activeDialog.classList.add('hidden');
+  }
+
+  dialogReturnFocus = document.activeElement instanceof HTMLElement
+    ? document.activeElement
+    : null;
+  dialog.classList.remove('hidden');
+  document.body.classList.add('modal-open');
+  activeDialog = dialog;
+
+  requestAnimationFrame(() => {
+    const target = preferredFocus
+      || dialog.querySelector('[autofocus]')
+      || dialog.querySelector(focusableSelector)
+      || dialog.querySelector('.modal-content')
+      || dialog;
+    target?.focus();
+  });
+}
+
+function closeDialog(dialog, { restoreFocus = true } = {}) {
+  if (!dialog) return;
+  dialog.classList.add('hidden');
+
+  if (activeDialog === dialog) {
+    activeDialog = null;
+    document.body.classList.remove('modal-open');
+    if (restoreFocus && dialogReturnFocus?.isConnected) {
+      dialogReturnFocus.focus();
+    }
+    dialogReturnFocus = null;
+  }
+}
+
+function dismissActiveDialog() {
+  if (!activeDialog || activeDialog.dataset.dismissible !== 'true') return;
+
+  if (activeDialog.id === 'decision-modal') {
+    finishDecision(null);
+    return;
+  }
+  if (activeDialog.id === 'action-modal') {
+    pendingAction = null;
+  }
+  closeDialog(activeDialog);
+}
+
+document.addEventListener('keydown', event => {
+  if (!activeDialog || activeDialog.classList.contains('hidden')) return;
+
+  if (event.key === 'Escape' && activeDialog.dataset.dismissible === 'true') {
+    event.preventDefault();
+    dismissActiveDialog();
+    return;
+  }
+
+  if (event.key !== 'Tab') return;
+  const focusable = [...activeDialog.querySelectorAll(focusableSelector)]
+    .filter(element => !element.closest('.hidden') && element.getClientRects().length > 0);
+  if (focusable.length === 0) {
+    event.preventDefault();
+    activeDialog.focus();
+    return;
+  }
+
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
+  }
+});
 
 // Initialize board tilt
 initBoardTilt('#parallax-container', '#duel-board');
 
+function updateResponsiveBoardScale() {
+  const field = document.getElementById('parallax-container');
+  const boardWrapper = document.querySelector('.duel-board-shadow-box');
+  if (!field || !boardWrapper) return;
+
+  if (window.innerWidth <= 1050) {
+    const availableWidth = Math.max(280, field.clientWidth - 16);
+    const scale = Math.min(1, availableWidth / 960);
+    boardWrapper.style.setProperty('--responsive-board-scale', String(scale));
+  } else {
+    boardWrapper.style.removeProperty('--responsive-board-scale');
+  }
+}
+
+window.addEventListener('resize', updateResponsiveBoardScale, { passive: true });
+requestAnimationFrame(updateResponsiveBoardScale);
+
 // Setup Mute Toggle
 const muteBtn = document.getElementById('btn-mute');
+let uiMuted = localStorage.getItem(STORAGE_KEYS.muted) === 'true';
+if (uiMuted) {
+  toggleMute();
+}
+
+function updateMuteControl() {
+  muteBtn.textContent = `SON : ${uiMuted ? 'OFF' : 'ON'}`;
+  muteBtn.setAttribute('aria-pressed', uiMuted ? 'true' : 'false');
+  muteBtn.classList.toggle('btn-magenta', !uiMuted);
+}
+
+updateMuteControl();
 muteBtn.addEventListener('click', () => {
-  const isMuted = toggleMute();
-  speechAnnouncerEnabled = !isMuted;
-  if (isMuted && window.speechSynthesis !== undefined) {
+  uiMuted = toggleMute();
+  localStorage.setItem(STORAGE_KEYS.muted, String(uiMuted));
+  speechAnnouncerEnabled = !uiMuted;
+  if (uiMuted && window.speechSynthesis !== undefined) {
     window.speechSynthesis.cancel();
   }
-  muteBtn.textContent = `SON : ${isMuted ? 'OFF' : 'ON'}`;
-  muteBtn.classList.toggle('btn-magenta', isMuted);
+  updateMuteControl();
+  announceStatus(uiMuted ? 'Son désactivé' : 'Son activé');
 });
 
 // Setup Start game trigger (safeguard for Web Audio)
 const startModal = document.getElementById('start-modal');
 const startBtn = document.getElementById('btn-start-duel');
 startBtn.addEventListener('click', () => {
-  startModal.classList.add('hidden');
+  closeDialog(startModal, { restoreFocus: false });
   startHologramHum();
   initGameInstance();
 });
+openDialog(startModal, document.querySelector('.deck-choice-card.active'));
 
 // Setup Restart Game trigger
 const gameoverModal = document.getElementById('gameover-modal');
 const restartBtn = document.getElementById('btn-restart-duel');
 restartBtn.addEventListener('click', () => {
-  gameoverModal.classList.add('hidden');
+  closeDialog(gameoverModal, { restoreFocus: false });
+  document.body.classList.remove('duel-ended');
   startHologramHum();
   initGameInstance();
 });
@@ -81,24 +237,45 @@ const extraList = document.getElementById('extra-deck-list');
 const closeExtraBtn = document.getElementById('close-extra-modal');
 
 if (extraZone && extraModal && extraList && closeExtraBtn) {
-  extraZone.addEventListener('click', () => {
+  const openExtraDeck = () => {
     if (!game || game.currentTurn !== 'player' || !game.currentPhase.startsWith('main') || game.isResolvingAction || game.pendingSummon || game.pendingExtraSummon) return;
 
     extraList.innerHTML = '';
+    if (game.playerExtraDeck.length === 0) {
+      extraList.innerHTML = '<p class="modal-empty-state">Votre Extra Deck est vide.</p>';
+    }
+
     game.playerExtraDeck.forEach(card => {
       const cardEl = createCardDOM(card, false);
+      cardEl.setAttribute('role', 'button');
+      cardEl.setAttribute('tabindex', '0');
+      cardEl.setAttribute('aria-label', `Tenter d’invoquer ${card.name} depuis l’Extra Deck`);
       cardEl.addEventListener('click', async () => {
-        extraModal.classList.add('hidden');
+        closeDialog(extraModal);
         await game.summonExtraDeck(card.uid);
+      });
+      cardEl.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          cardEl.click();
+        }
       });
       extraList.appendChild(cardEl);
     });
 
-    extraModal.classList.remove('hidden');
+    openDialog(extraModal, extraList.querySelector('[role="button"]') || closeExtraBtn);
+  };
+
+  extraZone.addEventListener('click', openExtraDeck);
+  extraZone.addEventListener('keydown', event => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      openExtraDeck();
+    }
   });
 
   closeExtraBtn.addEventListener('click', () => {
-    extraModal.classList.add('hidden');
+    closeDialog(extraModal);
   });
 }
 
@@ -111,7 +288,7 @@ const btnCancel = document.getElementById('btn-action-cancel');
 if (actionModal && btnFaceUp && btnFaceDown && btnCancel) {
   btnFaceUp.addEventListener('click', async () => {
     if (!pendingAction || !game) return;
-    actionModal.classList.add('hidden');
+    closeDialog(actionModal);
     const { uid, zoneType, index } = pendingAction;
     pendingAction = null;
 
@@ -124,7 +301,7 @@ if (actionModal && btnFaceUp && btnFaceDown && btnCancel) {
 
   btnFaceDown.addEventListener('click', async () => {
     if (!pendingAction || !game) return;
-    actionModal.classList.add('hidden');
+    closeDialog(actionModal);
     const { uid, zoneType, index } = pendingAction;
     pendingAction = null;
 
@@ -136,8 +313,115 @@ if (actionModal && btnFaceUp && btnFaceDown && btnCancel) {
   });
 
   btnCancel.addEventListener('click', () => {
-    actionModal.classList.add('hidden');
     pendingAction = null;
+    closeDialog(actionModal);
+  });
+}
+
+const decisionModal = document.getElementById('decision-modal');
+const decisionTitle = document.getElementById('decision-modal-title');
+const decisionDescription = document.getElementById('decision-modal-description');
+const decisionOptions = document.getElementById('decision-options');
+const decisionCancelBtn = document.getElementById('btn-decision-cancel');
+let pendingDecisionResolver = null;
+
+function finishDecision(value) {
+  const resolver = pendingDecisionResolver;
+  pendingDecisionResolver = null;
+  closeDialog(decisionModal);
+  resolver?.(value);
+}
+
+function requestUiDecision(request) {
+  if (!request || request.side !== 'player' || !decisionModal) return null;
+
+  return new Promise(resolve => {
+    if (pendingDecisionResolver) {
+      pendingDecisionResolver(null);
+    }
+    pendingDecisionResolver = resolve;
+    decisionOptions.innerHTML = '';
+
+    if (['activate-monster-effect', 'activate-hand-effect', 'activate-field-effect'].includes(request.type)) {
+      decisionTitle.textContent = 'ACTIVER UN EFFET ?';
+      const damageText = request.damage ? ` pour éviter ${request.damage} dommages` : '';
+      decisionDescription.textContent = request.card?.name
+        ? `Souhaitez-vous activer l’effet optionnel de ${request.card.name}${damageText} ?`
+        : 'Souhaitez-vous activer cet effet optionnel ?';
+
+      [
+        { label: 'OUI, ACTIVER', value: true, className: 'btn btn-magenta' },
+        { label: 'NON', value: false, className: 'btn' }
+      ].forEach(option => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = option.className;
+        button.textContent = option.label;
+        button.addEventListener('click', () => finishDecision(option.value));
+        decisionOptions.appendChild(button);
+      });
+      decisionCancelBtn.classList.add('hidden');
+    } else if (Array.isArray(request.choices) && request.choices.length > 0) {
+      decisionTitle.textContent = request.title || (request.type === 'coin-call' ? 'ANNONCER LE PILE OU FACE' : 'CHOISIR UNE ACTION');
+      decisionDescription.textContent = request.description
+        || (request.type === 'coin-call' ? 'Choisissez votre annonce avant le lancer.' : 'Sélectionnez une option.');
+      request.choices.forEach(choice => {
+        const value = typeof choice === 'object' ? choice.value : choice;
+        const label = typeof choice === 'object'
+          ? choice.label
+          : ({ heads: 'PILE', tails: 'FACE' }[choice] || String(choice));
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'btn';
+        button.textContent = label;
+        button.addEventListener('click', () => finishDecision(value));
+        decisionOptions.appendChild(button);
+      });
+      decisionCancelBtn.textContent = 'ANNULER';
+      decisionCancelBtn.classList.toggle('hidden', request.required === true);
+    } else if (Array.isArray(request.candidates) && request.candidates.length > 0) {
+      decisionTitle.textContent = 'CHOISIR UNE CARTE';
+      decisionDescription.textContent = 'Sélectionnez la cible de l’effet.';
+      request.candidates.forEach(candidate => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'decision-card-option';
+        const stats = candidate.atk === undefined
+          ? ''
+          : ` — ATK ${candidate.atk} / DEF ${candidate.def ?? '—'}`;
+        button.textContent = `${candidate.name}${stats}`;
+        button.addEventListener('click', () => finishDecision(candidate.uid));
+        decisionOptions.appendChild(button);
+      });
+      decisionCancelBtn.textContent = request.type === 'chain-response'
+        ? 'PASSER LA PRIORITÉ'
+        : 'UTILISER LE CHOIX CONSEILLÉ';
+      decisionCancelBtn.classList.remove('hidden');
+    } else {
+      pendingDecisionResolver = null;
+      resolve(null);
+      return;
+    }
+
+    openDialog(decisionModal, decisionOptions.querySelector('button'));
+  });
+}
+
+decisionCancelBtn?.addEventListener('click', () => finishDecision(null));
+
+function requestUiChainOpportunity(request) {
+  if (!request || request.side !== 'player' || !request.candidates?.length) return null;
+  return requestUiDecision({
+    type: 'chain-response',
+    side: 'player',
+    title: 'RÉPONDRE À LA CHAÎNE ?',
+    description: 'Sélectionnez une réponse légale ou passez la priorité.',
+    candidates: request.candidates.map(candidate => ({
+      uid: candidate.cardUid,
+      name: candidate.name,
+      atk: undefined,
+      def: undefined
+    }))
   });
 }
 
@@ -151,7 +435,8 @@ const presetBackButtons = document.querySelectorAll('.btn-preset-back');
 if (settingsModal && settingsBtn && closeSettingsBtn && inputCardBack) {
   settingsBtn.addEventListener('click', () => {
     inputCardBack.value = localStorage.getItem('custom_card_back') || '';
-    settingsModal.classList.remove('hidden');
+    inputCardBack.removeAttribute('aria-invalid');
+    openDialog(settingsModal, inputCardBack);
   });
 
   presetBackButtons.forEach(btn => {
@@ -164,12 +449,16 @@ if (settingsModal && settingsBtn && closeSettingsBtn && inputCardBack) {
     const requestedUrl = inputCardBack.value.trim();
     const validatedUrl = requestedUrl ? safeImageUrl(requestedUrl) : '';
     if (requestedUrl && !validatedUrl) {
-      alert("L'URL du dos de carte doit utiliser HTTP ou HTTPS.");
+      inputCardBack.setAttribute('aria-invalid', 'true');
+      announceStatus("L’URL du dos de carte doit utiliser HTTP ou HTTPS.");
+      inputCardBack.focus();
       return;
     }
 
     localStorage.setItem('custom_card_back', validatedUrl);
-    settingsModal.classList.add('hidden');
+    inputCardBack.removeAttribute('aria-invalid');
+    closeDialog(settingsModal);
+    announceStatus('Dos de carte appliqué.');
     if (game) {
       updateUI(game);
     }
@@ -226,29 +515,58 @@ nextPhaseBtn.addEventListener('click', () => {
   }
 });
 
-// Setup Inspector hover events for the whole app
-document.addEventListener('mouseover', async (e) => {
-  const cardEl = e.target.closest('.card-entity');
-  const holoEl = e.target.closest('.monster-hologram-entity');
+function findLiveCardByUid(uid) {
+  if (!game || !uid) return null;
+  const collections = [
+    game.playerHand,
+    game.opponentHand,
+    game.playerDeck,
+    game.opponentDeck,
+    game.playerMonsters,
+    game.opponentMonsters,
+    game.playerSpells,
+    game.opponentSpells,
+    game.playerGraveyard,
+    game.opponentGraveyard,
+    game.playerBanished,
+    game.opponentBanished,
+    game.playerExtraDeck,
+    game.opponentExtraDeck,
+    [game.playerFieldSpell, game.opponentFieldSpell]
+  ];
+  return collections
+    .flat()
+    .find(card => card && String(card.uid) === String(uid)) || null;
+}
 
-  if (cardEl) {
-    const cardId = cardEl.dataset.id;
-    const card = await getCardById(cardId);
-    if (card) updateInspector(card);
-  } else if (holoEl) {
-    const cardId = holoEl.dataset.id;
-    const card = await getCardById(cardId);
-    if (card) updateInspector(card);
+// Inspector works with mouse, touch, and keyboard, but only for public cards.
+async function inspectVisibleCard(target) {
+  const inspectable = target.closest?.(
+    '.card-entity[data-card-visible="true"], .monster-hologram-entity[data-card-visible="true"]'
+  );
+  if (!inspectable?.dataset.id) return;
+
+  const liveCard = findLiveCardByUid(inspectable.dataset.uid);
+  if (liveCard) {
+    updateInspector(liveCard);
+    return;
   }
-});
+
+  const card = await getCardById(inspectable.dataset.id);
+  if (card) updateInspector(card);
+}
+
+document.addEventListener('mouseover', event => inspectVisibleCard(event.target));
+document.addEventListener('focusin', event => inspectVisibleCard(event.target));
+document.addEventListener('pointerup', event => inspectVisibleCard(event.target));
 
 // Premade decks definition
-const PREMADE_DECKS = {
+const SANDBOX_PREMADE_DECKS = {
   kaiba: {
     main: [
       '89631139', '89631139', '89631139', // Blue-Eyes
       '13039848', '13039848', '13039848', // Giant Soldier
-      '88819079', '88819079', '88819079', // Baby Dragon
+      '88819587', '88819587', '88819587', // Baby Dragon
       '83764718', '83764718', '83764718', // Reborn
       '12580477', '12580477', '12580477', // Raigeki
       '55144522', '55144522', '55144522', // Pot of Greed
@@ -278,7 +596,7 @@ const PREMADE_DECKS = {
       '44095762', '44095762', '44095762', // Mirror Force
       '70781052', '70781052', '70781052', // Summoned Skull
       '71625222', '71625222', // Time Wizard
-      '88819079', '88819079' // Baby Dragon
+      '88819587', '88819587' // Baby Dragon
     ],
     extra: ['31924889']
   },
@@ -286,7 +604,7 @@ const PREMADE_DECKS = {
     main: [
       '74677422', '74677422', '74677422', // Red-Eyes
       '71625222', '71625222', '71625222', // Time Wizard
-      '88819079', '88819079', '88819079', // Baby Dragon
+      '88819587', '88819587', '88819587', // Baby Dragon
       '91152256', '91152256', '91152256', // Celtic Guardian
       '44095762', '44095762', '44095762', // Mirror Force
       '04206964', '04206964', '04206964', // Trap Hole
@@ -303,34 +621,194 @@ const PREMADE_DECKS = {
   }
 };
 
+// Legal Advanced-format presets built only from locally supported cards.
+// Signature cards stay with their canonical Duel Monsters owner where the
+// current pool permits it; generic cards complete the 40-card minimum.
+const PREMADE_DECKS = {
+  kaiba: {
+    main: [
+      '89631139', '89631139', '89631139', // Blue-Eyes White Dragon
+      '05053103', '05053103', '05053103', // Battle Ox
+      '97590747', '97590747', '97590747', // La Jinn
+      '14898066', '14898066', '14898066', // Vorse Raider
+      '66602787', '66602787', '66602787', // Saggi
+      '13039848', '13039848', '13039848', // defensive neutral monster
+      '48305365', '48305365', '48305365', // Axe Raider
+      '49791927', '49791927', '49791927', // Tiger Axe
+      '24094653', '24094653', '24094653', // Polymerization
+      '12580477', '12580477', '12580477', // Raigeki
+      '44095762', '44095762', '44095762', // Mirror Force
+      '04206964', '04206964', '04206964', // Trap Hole
+      '83764718', // Monster Reborn — Limited 1
+      '88819587', '88819587', '88819587' // neutral Dragon support
+    ],
+    extra: ['23995346']
+  },
+  yugi: {
+    main: [
+      '46986414', '46986414', '46986414', // Dark Magician
+      '38033121', '38033121', '38033121', // Dark Magician Girl
+      '40640057', '40640057', '40640057', // Kuriboh
+      '91152256', '91152256', '91152256', // Celtic Guardian
+      '13039848', '13039848', '13039848', // Giant Soldier of Stone
+      '15025844', '15025844', '15025844', // Mystical Elf
+      '41392891', '41392891', '41392891', // Feral Imp
+      '32452818', '32452818', '32452818', // Beaver Warrior
+      '28279543', '28279543', // Curse of Dragon
+      '06368038', '06368038', // Gaia
+      '70781052', '70781052', // Summoned Skull
+      '12580477', '12580477', '12580477', // Raigeki
+      '44095762', '44095762', '44095762', // Mirror Force
+      '04206964', '04206964', '04206964', // Trap Hole
+      '83764718' // Monster Reborn — Limited 1
+    ],
+    extra: []
+  },
+  joey: {
+    main: [
+      '74677422', '74677422', '74677422', // Red-Eyes Black Dragon
+      '71625222', '71625222', '71625222', // Time Wizard
+      '88819587', '88819587', '88819587', // Baby Dragon
+      '48305365', '48305365', '48305365', // Axe Raider
+      '64428736', '64428736', '64428736', // Alligator's Sword
+      '44287299', '44287299', '44287299', // Masaki
+      '49791927', '49791927', '49791927', // Tiger Axe
+      '05053103', '05053103', '05053103', // Battle Ox
+      '91152256', '91152256', '91152256', // warrior support
+      '12580477', '12580477', '12580477', // Raigeki
+      '44095762', '44095762', '44095762', // Mirror Force
+      '04206964', '04206964', '04206964', // Trap Hole
+      '83764718', // Monster Reborn — Limited 1
+      '13039848', '13039848', '13039848' // defensive neutral monster
+    ],
+    extra: []
+  }
+};
+
+let selectedGameMode = localStorage.getItem(STORAGE_KEYS.gameMode) === 'sandbox'
+  ? 'sandbox'
+  : 'strict';
+let selectedAiDifficulty = ['easy', 'normal', 'hard'].includes(localStorage.getItem(STORAGE_KEYS.difficulty))
+  ? localStorage.getItem(STORAGE_KEYS.difficulty)
+  : 'normal';
 let currentSelectedDeckId = 'kaiba';
-let customDeckMainIds = [];
-let customDeckExtraIds = [];
+
+const savedCustomDeck = readStoredJson(STORAGE_KEYS.customDeck, { main: [], extra: [] });
+let customDeckMainIds = Array.isArray(savedCustomDeck.main) ? savedCustomDeck.main.map(String) : [];
+let customDeckExtraIds = Array.isArray(savedCustomDeck.extra) ? savedCustomDeck.extra.map(String) : [];
+let duelStatistics = {
+  duels: Math.max(0, Number(readStoredJson(STORAGE_KEYS.statistics, {}).duels) || 0),
+  wins: Math.max(0, Number(readStoredJson(STORAGE_KEYS.statistics, {}).wins) || 0),
+  losses: Math.max(0, Number(readStoredJson(STORAGE_KEYS.statistics, {}).losses) || 0),
+  draws: Math.max(0, Number(readStoredJson(STORAGE_KEYS.statistics, {}).draws) || 0)
+};
 
 // Setup choice selector interaction
 const choiceCards = document.querySelectorAll('.deck-choice-card');
 const deckBuilderSec = document.getElementById('deck-builder-section');
+const gameModeInputs = document.querySelectorAll('input[name="game-mode"]');
+const difficultyInputs = document.querySelectorAll('input[name="ai-difficulty"]');
+const modeDescription = document.getElementById('mode-description');
+const sandboxPanel = document.getElementById('sandbox-panel');
+const statisticsDisplay = document.getElementById('duel-statistics');
+
+function saveCustomDeck() {
+  localStorage.setItem(STORAGE_KEYS.customDeck, JSON.stringify({
+    main: customDeckMainIds,
+    extra: customDeckExtraIds
+  }));
+}
+
+function renderDuelStatistics() {
+  if (!statisticsDisplay) return;
+  const drawText = duelStatistics.draws > 0 ? ` · ${duelStatistics.draws} nul` : '';
+  statisticsDisplay.textContent = `${duelStatistics.duels} duel${duelStatistics.duels > 1 ? 's' : ''}`
+    + ` · ${duelStatistics.wins} victoire${duelStatistics.wins > 1 ? 's' : ''}`
+    + ` · ${duelStatistics.losses} défaite${duelStatistics.losses > 1 ? 's' : ''}${drawText}`;
+}
+
+function selectDeckChoice(card) {
+  if (!card || card.disabled) return;
+  choiceCards.forEach(choice => {
+    choice.classList.toggle('active', choice === card);
+    choice.setAttribute('aria-pressed', choice === card ? 'true' : 'false');
+  });
+
+  currentSelectedDeckId = card.dataset.deckId;
+  const isCustom = currentSelectedDeckId === 'custom';
+  deckBuilderSec.classList.toggle('hidden', !isCustom);
+  if (isCustom) {
+    initDeckBuilderUI();
+  } else {
+    startBtn.disabled = false;
+    startBtn.setAttribute('aria-disabled', 'false');
+  }
+}
+
+function updateModeControls() {
+  gameModeInputs.forEach(input => {
+    input.checked = input.value === selectedGameMode;
+  });
+  difficultyInputs.forEach(input => {
+    input.checked = input.value === selectedAiDifficulty;
+  });
+
+  const strictMode = selectedGameMode === 'strict';
+  const customChoice = document.querySelector('.deck-choice-card[data-deck-id="custom"]');
+  if (customChoice) {
+    customChoice.disabled = strictMode;
+    customChoice.classList.toggle('hidden', strictMode);
+    customChoice.setAttribute('aria-hidden', strictMode ? 'true' : 'false');
+  }
+
+  if (strictMode && currentSelectedDeckId === 'custom') {
+    selectDeckChoice(document.querySelector('.deck-choice-card[data-deck-id="kaiba"]'));
+  }
+
+  if (sandboxPanel) {
+    sandboxPanel.classList.toggle('hidden', strictMode);
+    sandboxPanel.setAttribute('aria-hidden', strictMode ? 'true' : 'false');
+  }
+  const sandboxSearchInput = document.getElementById('search-input');
+  if (sandboxSearchInput) {
+    sandboxSearchInput.disabled = strictMode;
+    sandboxSearchInput.setAttribute('aria-disabled', strictMode ? 'true' : 'false');
+  }
+
+  if (modeDescription) {
+    modeDescription.textContent = strictMode
+      ? 'Mode strict : decks intégrés légaux ; invocations et effets non pris en charge refusés.'
+      : 'Anime Sandbox : recherche API et expérimentations libres activées.';
+  }
+}
+
+gameModeInputs.forEach(input => {
+  input.addEventListener('change', () => {
+    if (!input.checked) return;
+    selectedGameMode = input.value === 'sandbox' ? 'sandbox' : 'strict';
+    localStorage.setItem(STORAGE_KEYS.gameMode, selectedGameMode);
+    updateModeControls();
+    announceStatus(selectedGameMode === 'strict' ? 'Mode TCG Advanced strict sélectionné.' : 'Mode Anime Sandbox sélectionné.');
+  });
+});
+
+difficultyInputs.forEach(input => {
+  input.addEventListener('change', () => {
+    if (!input.checked) return;
+    selectedAiDifficulty = ['easy', 'hard'].includes(input.value) ? input.value : 'normal';
+    localStorage.setItem(STORAGE_KEYS.difficulty, selectedAiDifficulty);
+    announceStatus(`Difficulté ${input.parentElement.textContent.trim()} sélectionnée.`);
+  });
+});
 
 choiceCards.forEach(card => {
   card.addEventListener('click', () => {
-    choiceCards.forEach(c => {
-      c.classList.remove('active');
-      c.setAttribute('aria-pressed', 'false');
-    });
-    card.classList.add('active');
-    card.setAttribute('aria-pressed', 'true');
-
-    const deckId = card.dataset.deckId;
-    currentSelectedDeckId = deckId;
-
-    if (deckId === 'custom') {
-      deckBuilderSec.classList.remove('hidden');
-      initDeckBuilderUI();
-    } else {
-      deckBuilderSec.classList.add('hidden');
-    }
+    selectDeckChoice(card);
   });
 });
+
+updateModeControls();
+renderDuelStatistics();
 
 // Render the catalog of cards and current custom deck items
 function initDeckBuilderUI() {
@@ -344,8 +822,9 @@ function initDeckBuilderUI() {
     const cardItem = document.createElement('button');
     cardItem.type = 'button';
     cardItem.className = 'builder-card-item';
-    cardItem.style.backgroundImage = `url(https://images.ygoprodeck.com/images/cards_cropped/${template.id}.jpg)`;
+    cardItem.style.backgroundImage = `url("${getCardCroppedImageUrl(template.id)}")`;
     cardItem.title = `${template.name} - ATK: ${template.atk} / DEF: ${template.def}`;
+    cardItem.setAttribute('aria-label', `Ajouter ${template.name} au deck`);
 
     // Add event to add to my custom deck
     cardItem.addEventListener('click', () => {
@@ -356,9 +835,10 @@ function initDeckBuilderUI() {
       const count = targetList.filter(id => id === template.id).length;
       if (count < 3) {
         targetList.push(template.id);
+        saveCustomDeck();
         updateDeckBuilderList();
       } else {
-        alert(`Vous ne pouvez pas ajouter plus de 3 copies de ${template.name}.`);
+        announceStatus(`Maximum atteint : trois copies de ${template.name}.`);
       }
     });
 
@@ -383,8 +863,9 @@ function updateDeckBuilderList() {
     const cardItem = document.createElement('button');
     cardItem.type = 'button';
     cardItem.className = 'builder-card-item';
-    cardItem.style.backgroundImage = `url(https://images.ygoprodeck.com/images/cards_cropped/${template.id}.jpg)`;
+    cardItem.style.backgroundImage = `url("${getCardCroppedImageUrl(template.id)}")`;
     cardItem.title = `${template.name} (Cliquez pour retirer)`;
+    cardItem.setAttribute('aria-label', `Retirer ${template.name} du deck`);
 
     cardItem.addEventListener('click', () => {
       const isExtra = template.type.includes('Fusion') || template.type.includes('Synchro') || template.type.includes('Link');
@@ -395,6 +876,7 @@ function updateDeckBuilderList() {
         const targetIndex = customDeckMainIds.indexOf(template.id);
         if (targetIndex !== -1) customDeckMainIds.splice(targetIndex, 1);
       }
+      saveCustomDeck();
       updateDeckBuilderList();
     });
 
@@ -406,12 +888,19 @@ function updateDeckBuilderList() {
   document.getElementById('deck-size-val').textContent = `Main: ${totalCount} / Extra: ${customDeckExtraIds.length}`;
 
   const validityBadge = document.getElementById('deck-validity-badge');
-  if (totalCount >= 40 && totalCount <= 60 && customDeckExtraIds.length <= 15) {
+  const customDeckIsValid = totalCount >= 40 && totalCount <= 60 && customDeckExtraIds.length <= 15;
+  validityBadge.setAttribute('aria-live', 'polite');
+  if (customDeckIsValid) {
     validityBadge.textContent = "Taille valide";
     validityBadge.className = "badge-status success";
   } else {
     validityBadge.textContent = "40 à 60 cartes requises";
     validityBadge.className = "badge-status danger";
+  }
+
+  if (currentSelectedDeckId === 'custom') {
+    startBtn.disabled = !customDeckIsValid;
+    startBtn.setAttribute('aria-disabled', customDeckIsValid ? 'false' : 'true');
   }
 }
 
@@ -419,13 +908,29 @@ function updateDeckBuilderList() {
  * Initializes the game core
  */
 function initGameInstance() {
+  lpAnimationFrames.forEach(frameId => cancelAnimationFrame(frameId));
+  lpAnimationFrames.clear();
+
+  if (typeof game?.dispose === 'function') game.dispose();
+  else if (typeof game?.destroy === 'function') game.destroy();
+  else game?.cancelPendingAsyncWork?.();
+
+  if (pendingDecisionResolver) {
+    finishDecision(null);
+  }
+
   // Clear any old UI elements on board
   document.querySelectorAll('.card-zone').forEach(z => z.innerHTML = '');
   document.getElementById('log-content').innerHTML = '';
+  document.body.classList.remove('duel-ended');
+  closeDialog(actionModal, { restoreFocus: false });
+  closeDialog(extraModal, { restoreFocus: false });
+  closeDialog(settingsModal, { restoreFocus: false });
 
   selectedAttackerIndex = null;
   currentDraggedUid = null;
   selectedHandUid = null;
+  pendingAction = null;
 
   // 1. Resolve selected deck
   let mainIds = [];
@@ -433,14 +938,17 @@ function initGameInstance() {
 
   if (currentSelectedDeckId === 'custom') {
     if (customDeckMainIds.length < 40 || customDeckMainIds.length > 60 || customDeckExtraIds.length > 15) {
-      alert("Votre deck personnalisé doit contenir 40 à 60 cartes principales et au maximum 15 cartes Extra !");
-      document.getElementById('start-modal').classList.remove('hidden');
+      announceStatus("Votre deck personnalisé doit contenir 40 à 60 cartes principales et au maximum 15 cartes Extra.");
+      openDialog(startModal, document.getElementById('deck-validity-badge'));
       return;
     }
     mainIds = [...customDeckMainIds];
     extraIds = [...customDeckExtraIds];
   } else {
-    const premade = PREMADE_DECKS[currentSelectedDeckId] || PREMADE_DECKS.kaiba;
+    const deckCollection = selectedGameMode === 'strict'
+      ? PREMADE_DECKS
+      : SANDBOX_PREMADE_DECKS;
+    const premade = deckCollection[currentSelectedDeckId] || deckCollection.kaiba;
     mainIds = [...premade.main];
     extraIds = [...premade.extra];
   }
@@ -450,21 +958,46 @@ function initGameInstance() {
   const playerMainCards = mainIds.map(id => allTemplates.find(t => t.id === id)).filter(Boolean);
   const playerExtraCards = extraIds.map(id => allTemplates.find(t => t.id === id)).filter(Boolean);
 
-  // Opponent uses Yugi deck as default
-  const opponentMainCards = PREMADE_DECKS.yugi.main.map(id => allTemplates.find(t => t.id === id)).filter(Boolean);
-  const opponentExtraCards = PREMADE_DECKS.yugi.extra.map(id => allTemplates.find(t => t.id === id)).filter(Boolean);
+  // Avoid mirror-character duels: Yugi faces Kaiba, the other presets face Yugi.
+  const opponentDeckId = currentSelectedDeckId === 'yugi' ? 'kaiba' : 'yugi';
+  const deckCollection = selectedGameMode === 'strict'
+    ? PREMADE_DECKS
+    : SANDBOX_PREMADE_DECKS;
+  const opponentPreset = deckCollection[opponentDeckId];
+  const opponentMainCards = opponentPreset.main.map(id => allTemplates.find(t => t.id === id)).filter(Boolean);
+  const opponentExtraCards = opponentPreset.extra.map(id => allTemplates.find(t => t.id === id)).filter(Boolean);
+
+  const playerLabel = document.getElementById('player-label');
+  const opponentLabel = document.getElementById('opponent-label');
+  const characterNames = { kaiba: 'KAIBA', yugi: 'YUGI', joey: 'JOEY', custom: 'DUELLISTE' };
+  if (playerLabel) playerLabel.textContent = `${characterNames[currentSelectedDeckId] || 'DUELLISTE'} (VOUS)`;
+  if (opponentLabel) opponentLabel.textContent = `${characterNames[opponentDeckId]} (IA)`;
 
   game = new DuelGame({
     onStateChange: updateUI,
     onLog: (msg, type) => {
-      addLogEntry(msg, type);
-      handleLogSpeech(msg, type);
+      const safeMessage = sanitizePublicLogMessage(msg, type);
+      addLogEntry(safeMessage, type);
+      handleLogSpeech(safeMessage, type);
     },
     onAnimation: handleGameAnimations,
-    onGameOver: handleGameOver
+    onGameOver: handleGameOver,
+    onDecision: requestUiDecision,
+    onChainOpportunity: requestUiChainOpportunity
+  }, {
+    rulesMode: selectedGameMode,
+    aiDifficulty: selectedAiDifficulty
   });
 
-  game.startDuel(playerMainCards, opponentMainCards, playerExtraCards, opponentExtraCards);
+  const duelStarted = game.startDuel(playerMainCards, opponentMainCards, playerExtraCards, opponentExtraCards);
+  if (duelStarted === false) {
+    stopHologramHum();
+    openDialog(startModal, startBtn);
+    announceStatus('Le deck a été refusé. Consultez le journal de combat pour connaître les erreurs.');
+    return;
+  }
+  updateModeControls();
+  announceStatus(`Duel lancé en mode ${selectedGameMode === 'strict' ? 'TCG Advanced strict' : 'Anime Sandbox'}, difficulté ${selectedAiDifficulty}.`);
   startBGM();
   setBGMStyle('normal');
 }
@@ -504,6 +1037,8 @@ function updateUI(gameState) {
   // 4. Update phase transition button text based on TCG phases
   if (gameState.currentTurn === 'player' && !gameState.isDiscarding) {
     nextPhaseBtn.style.display = 'block';
+    nextPhaseBtn.disabled = false;
+    nextPhaseBtn.setAttribute('aria-disabled', 'false');
     if (gameState.currentPhase === 'main1') {
       if (gameState.turnCount === 1) {
         nextPhaseBtn.textContent = 'TERMINER LE TOUR';
@@ -519,7 +1054,43 @@ function updateUI(gameState) {
     }
   } else {
     nextPhaseBtn.style.display = 'none';
+    nextPhaseBtn.disabled = true;
+    nextPhaseBtn.setAttribute('aria-disabled', 'true');
   }
+
+  const turnStatus = document.getElementById('turn-status');
+  const discardStatus = document.getElementById('discard-status');
+  const phaseNames = {
+    draw: 'Pioche',
+    standby: 'Standby',
+    main1: 'Main Phase 1',
+    battle: 'Battle Phase',
+    main2: 'Main Phase 2',
+    end: 'End Phase'
+  };
+  if (gameState.isDiscarding) {
+    const cardsToDiscard = Math.max(1, gameState.playerHand.length - 6);
+    if (turnStatus) {
+      turnStatus.textContent = `Défausse obligatoire : ${cardsToDiscard} carte${cardsToDiscard > 1 ? 's' : ''} à choisir.`;
+    }
+    discardStatus?.classList.remove('hidden');
+  } else {
+    if (turnStatus) {
+      turnStatus.textContent = gameState.currentTurn === 'player'
+        ? `Votre tour — ${phaseNames[gameState.currentPhase] || gameState.currentPhase}`
+        : `Tour de l’adversaire — ${phaseNames[gameState.currentPhase] || gameState.currentPhase}`;
+    }
+    discardStatus?.classList.add('hidden');
+  }
+
+  const canOpenExtraDeck = gameState.currentTurn === 'player'
+    && String(gameState.currentPhase).startsWith('main')
+    && !gameState.isResolvingAction
+    && !gameState.pendingSummon
+    && !gameState.pendingExtraSummon
+    && !gameState.isDiscarding;
+  extraZone?.setAttribute('aria-disabled', canOpenExtraDeck ? 'false' : 'true');
+  extraZone?.classList.toggle('zone-disabled', !canOpenExtraDeck);
 
   // 5. Render Hand
   renderHand(gameState.playerHand);
@@ -563,6 +1134,12 @@ function updateUI(gameState) {
  */
 function animateLpChange(elId, targetValue) {
   const el = document.getElementById(elId);
+  if (!el) return;
+  const previousFrame = lpAnimationFrames.get(elId);
+  if (previousFrame !== undefined) {
+    cancelAnimationFrame(previousFrame);
+    lpAnimationFrames.delete(elId);
+  }
   const currentValue = parseInt(el.textContent) || 0;
   if (currentValue === targetValue) return;
 
@@ -580,11 +1157,13 @@ function animateLpChange(elId, targetValue) {
     el.textContent = value;
 
     if (progress < 1) {
-      requestAnimationFrame(step);
+      lpAnimationFrames.set(elId, requestAnimationFrame(step));
+    } else {
+      lpAnimationFrames.delete(elId);
     }
   }
 
-  requestAnimationFrame(step);
+  lpAnimationFrames.set(elId, requestAnimationFrame(step));
 }
 
 /**
@@ -624,11 +1203,25 @@ function renderHand(handCards) {
     const cardEl = createCardDOM(card, false);
     cardEl.dataset.uid = card.uid;
     cardEl.dataset.handIndex = idx;
+    cardEl.setAttribute('role', 'button');
+    cardEl.tabIndex = 0;
+    cardEl.setAttribute(
+      'aria-label',
+      game?.isDiscarding
+        ? `Défausser ${card.name}`
+        : `${card.name}. Sélectionner cette carte pour la jouer.`
+    );
     cardEl.classList.toggle('selected-hand-card', selectedHandUid === card.uid);
+    cardEl.classList.toggle('discard-candidate', Boolean(game?.isDiscarding));
     cardEl.setAttribute('aria-pressed', selectedHandUid === card.uid ? 'true' : 'false');
+    cardEl.draggable = !game?.isDiscarding;
 
     // Bind Drag & Drop Events
     cardEl.addEventListener('dragstart', (e) => {
+      if (game?.isDiscarding) {
+        e.preventDefault();
+        return;
+      }
       currentDraggedUid = card.uid;
       cardEl.classList.add('dragging');
       e.dataTransfer.setData('text/plain', card.uid);
@@ -644,16 +1237,15 @@ function renderHand(handCards) {
       clearDropZoneHighlights();
     });
 
-    // Double click to discard if in Hand Size Discard state
-    cardEl.addEventListener('dblclick', () => {
+    // A single activation works equally with mouse, touch, Enter, and Space.
+    cardEl.addEventListener('click', () => {
       if (game && game.isDiscarding) {
         game.discardCard(card.uid);
+        announceStatus(`${card.name} défaussé.`);
+        return;
       }
-    });
 
-    // Touch and keyboard alternative to drag-and-drop: select a card, then a zone.
-    cardEl.addEventListener('click', () => {
-      if (!game || game.isDiscarding || game.currentTurn !== 'player' || !game.currentPhase.startsWith('main') || game.isResolvingAction) {
+      if (!game || game.currentTurn !== 'player' || !game.currentPhase.startsWith('main') || game.isResolvingAction) {
         return;
       }
 
@@ -701,6 +1293,34 @@ function clearDropZoneHighlights() {
   });
 }
 
+async function openMonsterActionMenu(zoneIndex) {
+  if (!game || game.currentTurn !== 'player' || !game.currentPhase.startsWith('main')) return;
+  const card = game.playerMonsters[zoneIndex];
+  if (!card || card.isSetFaceDown || game.isResolvingAction) return;
+
+  const availableEffects = game.getAvailableActions?.('player')?.monsterEffects || [];
+  const effectIsAvailable = availableEffects.some(action => action.zoneIndex === zoneIndex);
+  const choices = [];
+  if (effectIsAvailable) {
+    choices.push({ value: 'effect', label: `ACTIVER L’EFFET DE ${card.name.toUpperCase()}` });
+  }
+  choices.push({ value: 'position', label: 'CHANGER LA POSITION DE COMBAT' });
+
+  const choice = await requestUiDecision({
+    type: 'monster-field-action',
+    side: 'player',
+    title: card.name,
+    description: 'Choisissez une action disponible pour ce monstre.',
+    choices
+  });
+
+  if (choice === 'effect' && effectIsAvailable) {
+    await game.activateMonsterEffect?.(zoneIndex, 'player');
+  } else if (choice === 'position') {
+    game.toggleMonsterPosition(zoneIndex);
+  }
+}
+
 // Set up Drop Zones event listeners
 document.querySelectorAll('.card-zone').forEach(zone => {
   const zoneSideLabel = zone.dataset.side === 'player' ? 'joueur' : 'adversaire';
@@ -744,7 +1364,7 @@ document.querySelectorAll('.card-zone').forEach(zone => {
       // Set pending action and show choices modal
       pendingAction = { uid, zoneType, index };
       const actionChoiceModal = document.getElementById('action-modal');
-      actionChoiceModal.classList.remove('hidden');
+      openDialog(actionChoiceModal, btnFaceUp);
     }
 
     clearDropZoneHighlights();
@@ -781,8 +1401,13 @@ document.querySelectorAll('.card-zone').forEach(zone => {
           await game.summonMonster(uid, index);
         } else {
           pendingAction = { uid, zoneType, index };
-          actionModal.classList.remove('hidden');
+          openDialog(actionModal, btnFaceUp);
         }
+        return;
+      }
+
+      if (selectedHandUid) {
+        announceStatus('Cette zone ne peut pas recevoir la carte sélectionnée.');
         return;
       }
     }
@@ -814,6 +1439,17 @@ document.querySelectorAll('.card-zone').forEach(zone => {
       }
     }
 
+    if (
+      side === 'player'
+      && zoneType === 'monster'
+      && game.currentTurn === 'player'
+      && game.currentPhase.startsWith('main')
+      && game.playerMonsters[index] !== null
+    ) {
+      await openMonsterActionMenu(index);
+      return;
+    }
+
     // 3. Standard Battle Phase attacks
     if (game.currentTurn !== 'player' || game.currentPhase !== 'battle') return;
 
@@ -843,19 +1479,6 @@ document.querySelectorAll('.card-zone').forEach(zone => {
       game.executeAttack(selectedAttackerIndex, index);
       selectedAttackerIndex = null;
       document.querySelectorAll('.player-m-zone').forEach(z => z.classList.remove('attacker-active'));
-    }
-  });
-
-  // Double click handler to change battle position (Attack/Defense) during Main Phase 1 or 2
-  zone.addEventListener('dblclick', () => {
-    if (!game || game.currentTurn !== 'player' || !game.currentPhase.startsWith('main') || game.isResolvingAction || game.pendingSummon || game.pendingExtraSummon) return;
-
-    const zoneType = zone.dataset.zoneType;
-    const side = zone.dataset.side;
-    const index = parseInt(zone.dataset.index);
-
-    if (side === 'player' && zoneType === 'monster' && game.playerMonsters[index] !== null) {
-      game.toggleMonsterPosition(index);
     }
   });
 
@@ -947,13 +1570,22 @@ function updateBattleHighlights() {
 /**
  * Adds an entry to the glass log sidebar
  */
+function sanitizePublicLogMessage(message, type = 'system') {
+  const text = String(message ?? '');
+  if (type === 'opponent' && /^L['’]adversaire pioche\s*:/i.test(text)) {
+    return "L’adversaire pioche une carte.";
+  }
+  return text;
+}
+
 function addLogEntry(message, type = 'system') {
   const logContent = document.getElementById('log-content');
   const entry = document.createElement('div');
   entry.className = `log-entry ${type}`;
 
   // Basic markdown bolding parsing: **text** -> <strong>text</strong>
-  const parsed = escapeHtml(message).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  const publicMessage = sanitizePublicLogMessage(message, type);
+  const parsed = escapeHtml(publicMessage).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
   entry.innerHTML = parsed;
 
   logContent.appendChild(entry);
@@ -977,7 +1609,7 @@ function updateInspector(card) {
   const def = typeof card.getDef === 'function' ? card.getDef() : (card.def !== undefined ? card.def : 0);
   const imgUrl = safeImageUrl(
     card.image_url,
-    `https://images.ygoprodeck.com/images/cards/${encodeURIComponent(card.id)}.jpg`
+    getCardImageUrl(card.id)
   );
   const safeName = escapeHtml(card.name);
   const safeType = escapeHtml(card.type);
@@ -996,7 +1628,7 @@ function updateInspector(card) {
 
   display.innerHTML = `
     <div class="inspector-image-wrapper">
-      <img src="${imgUrl}" alt="${safeName}" crossorigin="anonymous">
+      <img src="${imgUrl}" alt="${safeName}">
     </div>
     <div class="inspector-title">${safeName}</div>
     <div class="inspector-type">${safeType}</div>
@@ -1010,20 +1642,39 @@ function updateInspector(card) {
  */
 function handleGameOver(winner) {
   stopHologramHum();
+  if (pendingDecisionResolver) finishDecision(null);
   const gameoverTitle = document.getElementById('gameover-title');
   const gameoverText = document.getElementById('gameover-text');
+
+  if (game && !recordedFinishedGames.has(game)) {
+    recordedFinishedGames.add(game);
+    duelStatistics.duels += 1;
+    if (winner === 'player') duelStatistics.wins += 1;
+    else if (winner === 'opponent') duelStatistics.losses += 1;
+    else duelStatistics.draws += 1;
+    localStorage.setItem(STORAGE_KEYS.statistics, JSON.stringify(duelStatistics));
+    renderDuelStatistics();
+  }
 
   if (winner === 'player') {
     gameoverTitle.textContent = "VICTOIRE !";
     gameoverTitle.style.color = "var(--neon-cyan)";
-    gameoverText.innerHTML = "Félicitations, vous avez vaincu l'intelligence artificielle adverse !<br>Votre sens tactique fait honneur à Yugi Muto.";
-  } else {
+    gameoverText.textContent = "Vous avez vaincu l’intelligence artificielle adverse. Le rapport du duel a été enregistré.";
+  } else if (winner === 'opponent') {
     gameoverTitle.textContent = "DÉFAITE...";
     gameoverTitle.style.color = "var(--neon-magenta)";
-    gameoverText.innerHTML = "Vous avez succombé aux attaques de l'adversaire...<br>Croyez en l'âme des cartes et réessayez !";
+    gameoverText.textContent = "Vos Life Points ont atteint zéro. Analysez le journal puis tentez une nouvelle stratégie.";
+  } else {
+    gameoverTitle.textContent = "MATCH NUL";
+    gameoverTitle.style.color = "var(--neon-gold)";
+    gameoverText.textContent = "Le duel se termine sans vainqueur. Le résultat a été enregistré.";
   }
 
-  gameoverModal.classList.remove('hidden');
+  document.body.classList.add('duel-ended');
+  nextPhaseBtn.disabled = true;
+  pendingAction = null;
+  openDialog(gameoverModal, restartBtn);
+  announceStatus(`${gameoverTitle.textContent}. ${gameoverText.textContent}`);
 }
 
 /**
@@ -1074,7 +1725,7 @@ function displaySearchResults(cards) {
     thumbnail.className = 'result-card-img';
     const thumbnailUrl = safeImageUrl(
       card.image_url_cropped,
-      `https://images.ygoprodeck.com/images/cards_cropped/${encodeURIComponent(card.id)}.jpg`
+      getCardCroppedImageUrl(card.id)
     );
     thumbnail.style.backgroundImage = `url("${thumbnailUrl}")`;
 
@@ -1086,6 +1737,10 @@ function displaySearchResults(cards) {
     // Click on search result adds it to player's hand! Extremely fun sandbox feature
     div.addEventListener('click', () => {
       if (!game || game.winner) return;
+      if (selectedGameMode !== 'sandbox' || game.rulesMode !== 'sandbox') {
+        addLogEntry("La recherche API est disponible uniquement en mode Anime Sandbox.", 'system');
+        return;
+      }
       if (game.currentTurn !== 'player' || !game.currentPhase.startsWith('main') || game.isResolvingAction) {
         addLogEntry("Le mode Sandbox peut ajouter une carte uniquement pendant votre Main Phase.", 'system');
         return;
@@ -1197,7 +1852,7 @@ function handleGameAnimations(event) {
 
     if (zoneEl) {
       zoneEl.innerHTML = '';
-      const flatCard = createCardDOM(card, faceDown || side === 'opponent');
+      const flatCard = createCardDOM(card, faceDown, Boolean(faceDown && side === 'opponent'));
       flatCard.classList.add('card-flat-on-board');
       zoneEl.appendChild(flatCard);
 
@@ -1219,9 +1874,13 @@ function handleGameAnimations(event) {
     if (zoneEl) {
       const cardEl = zoneEl.querySelector('.card-entity');
       if (cardEl) {
+        const duelAtAnimation = game;
         cardEl.style.transition = 'opacity 0.5s';
         cardEl.style.opacity = '0';
-        setTimeout(() => { zoneEl.innerHTML = ''; }, 500);
+        setTimeout(() => {
+          if (game !== duelAtAnimation || !zoneEl.contains(cardEl)) return;
+          zoneEl.innerHTML = '';
+        }, 500);
       }
     }
   }
@@ -1252,9 +1911,13 @@ function handleGameAnimations(event) {
         flatCard.style.opacity = '0';
       }
 
+      const duelAtAnimation = game;
       setTimeout(() => {
-        zoneEl.innerHTML = '';
-        zoneEl.classList.remove('defense-position');
+        if (game !== duelAtAnimation) return;
+        if ((holo && zoneEl.contains(holo)) || (flatCard && zoneEl.contains(flatCard))) {
+          zoneEl.innerHTML = '';
+          zoneEl.classList.remove('defense-position');
+        }
       }, 500);
     }
   }
@@ -1412,7 +2075,7 @@ function handleGameAnimations(event) {
 // CENTRAL SPEECH SYNTHESIS & COMMENTATOR SYSTEM
 // ----------------------------------------------------
 
-let speechAnnouncerEnabled = true;
+let speechAnnouncerEnabled = !uiMuted;
 
 function speakAnnounce(text) {
   if (!speechAnnouncerEnabled || window.speechSynthesis === undefined) return;
@@ -1532,9 +2195,24 @@ function syncZoneCard(zoneEl, card, side) {
   if (!zoneEl) return;
 
   if (card) {
-    // Check if card is already rendered
-    const existingCardEl = zoneEl.querySelector(`.card-entity[data-id="${card.id}"]`);
     const faceDown = card.isSetFaceDown || (side === 'opponent' && card.location === 'hand');
+    const concealIdentity = faceDown && side === 'opponent';
+    // Concealed cards intentionally have no data-id, so locate them by their
+    // non-sensitive state marker instead.
+    const existingCardEl = concealIdentity
+      ? zoneEl.querySelector('.card-entity[data-concealed="true"]')
+      : [...zoneEl.querySelectorAll('.card-entity[data-card-visible="true"]')]
+        .find(element => String(element.dataset.uid) === String(card.uid));
+    const zoneTypeLabel = zoneEl.dataset.zoneType === 'monster'
+      ? 'monstre'
+      : (zoneEl.dataset.zoneType === 'field' ? 'Terrain' : 'magie ou piège');
+    const zoneNumber = zoneEl.dataset.index === undefined ? '' : ` ${Number(zoneEl.dataset.index) + 1}`;
+    zoneEl.setAttribute(
+      'aria-label',
+      concealIdentity
+        ? `Zone ${zoneTypeLabel}${zoneNumber} ${side === 'player' ? 'joueur' : 'adversaire'}, carte face cachée`
+        : `Zone ${zoneTypeLabel}${zoneNumber} ${side === 'player' ? 'joueur' : 'adversaire'}, ${card.name}${faceDown ? ', face cachée' : ''}${side === 'player' ? '. Ouvrir les actions' : ''}`
+    );
 
     if (!existingCardEl) {
       zoneEl.innerHTML = '';
@@ -1545,7 +2223,7 @@ function syncZoneCard(zoneEl, card, side) {
         zoneEl.classList.remove('defense-position');
       }
 
-      const flatCard = createCardDOM(card, faceDown);
+      const flatCard = createCardDOM(card, faceDown, concealIdentity);
       flatCard.classList.add('card-flat-on-board');
       if (faceDown) flatCard.classList.add('placed-facedown');
       else flatCard.classList.add('placed');
@@ -1571,11 +2249,23 @@ function syncZoneCard(zoneEl, card, side) {
 
       const holo = zoneEl.querySelector('.monster-hologram-entity');
       if (holo) {
+        const atk = typeof card.getAtk === 'function' ? card.getAtk() : card.atk;
+        const def = typeof card.getDef === 'function' ? card.getDef() : card.def;
         if (card.position === 'defense') holo.classList.add('defense-mode');
         else holo.classList.remove('defense-mode');
 
         if (faceDown) holo.classList.add('face-down');
         else holo.classList.remove('face-down');
+
+        if (!concealIdentity) {
+          holo.dataset.uid = card.uid;
+          holo.setAttribute('aria-label', `${card.name}, ATK ${atk}, DEF ${def ?? 'non applicable'}`);
+          holo.classList.toggle('power-aura', atk >= 2500);
+          const atkBadge = holo.querySelector('.stat-badge.atk');
+          const defBadge = holo.querySelector('.stat-badge.def');
+          if (atkBadge) atkBadge.textContent = `ATK ${atk}`;
+          if (defBadge) defBadge.textContent = `DEF ${def !== null ? def : '—'}`;
+        }
       }
 
       const inner = existingCardEl.querySelector('.card-inner');
@@ -1590,5 +2280,13 @@ function syncZoneCard(zoneEl, card, side) {
   } else {
     zoneEl.innerHTML = '';
     zoneEl.classList.remove('defense-position');
+    const zoneTypeLabel = zoneEl.dataset.zoneType === 'monster'
+      ? 'monstre'
+      : (zoneEl.dataset.zoneType === 'field' ? 'Terrain' : 'magie ou piège');
+    const zoneNumber = zoneEl.dataset.index === undefined ? '' : ` ${Number(zoneEl.dataset.index) + 1}`;
+    zoneEl.setAttribute(
+      'aria-label',
+      `Zone ${zoneTypeLabel}${zoneNumber} ${side === 'player' ? 'joueur' : 'adversaire'}, vide`
+    );
   }
 }

@@ -1,4 +1,5 @@
 import { playClick } from './audio.js';
+import { getCardCroppedImageUrl, getCardImageUrl } from './cards.js';
 import { escapeHtml, safeImageUrl } from './security.js';
 
 /**
@@ -9,7 +10,12 @@ export function initBoardTilt(containerSelector, boardSelector) {
   const board = document.querySelector(boardSelector);
   if (!container || !board) return;
 
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const coarsePointer = window.matchMedia('(pointer: coarse)');
+
   container.addEventListener('mousemove', (e) => {
+    if (reduceMotion.matches || coarsePointer.matches) return;
+
     const rect = container.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
@@ -28,6 +34,8 @@ export function initBoardTilt(containerSelector, boardSelector) {
   });
 
   container.addEventListener('mouseleave', () => {
+    if (reduceMotion.matches || coarsePointer.matches) return;
+
     // Smooth reset
     board.style.transform = `rotateX(52deg) rotateZ(0deg) translateY(-20px)`;
   });
@@ -36,28 +44,41 @@ export function initBoardTilt(containerSelector, boardSelector) {
 /**
  * Creates a card DOM element
  */
-export function createCardDOM(card, faceDown = false) {
+export function createCardDOM(card, faceDown = false, concealIdentity = faceDown) {
   const cardEl = document.createElement('div');
-  cardEl.className = `card-entity ${card.card_type}`;
-  cardEl.dataset.id = card.id;
-  cardEl.dataset.cardType = card.card_type;
-  cardEl.draggable = !faceDown; // Draggable only if not face-down (or hand)
-  cardEl.setAttribute('role', 'button');
-  cardEl.setAttribute('aria-label', `${card.name || 'Carte'}${faceDown ? ' face cachée' : ''}`);
-  cardEl.tabIndex = faceDown ? -1 : 0;
+  cardEl.className = `card-entity${concealIdentity ? ' concealed-card' : ` ${card.card_type}`}`;
+  cardEl.draggable = !faceDown;
+  cardEl.setAttribute('role', 'img');
+  cardEl.setAttribute('aria-label', concealIdentity ? 'Carte face cachée' : (card.name || 'Carte'));
+  cardEl.tabIndex = -1;
+
+  // Do not expose private card information through DOM attributes or assistive
+  // technology. Visible cards keep their identifiers for the inspector.
+  if (concealIdentity) {
+    cardEl.dataset.concealed = 'true';
+  } else {
+    cardEl.dataset.id = card.id;
+    if (card.uid) cardEl.dataset.uid = card.uid;
+    cardEl.dataset.cardType = card.card_type;
+    cardEl.dataset.cardVisible = 'true';
+  }
 
   const customCardBack = safeImageUrl(localStorage.getItem('custom_card_back') || '');
-  const frontImage = safeImageUrl(
-    card.image_url,
-    `https://images.ygoprodeck.com/images/cards/${encodeURIComponent(card.id)}.jpg`
-  );
+  const frontImage = concealIdentity
+    ? ''
+    : safeImageUrl(
+      card.image_url,
+      getCardImageUrl(card.id)
+    );
 
   const cardInner = document.createElement('div');
   cardInner.className = `card-inner ${faceDown ? 'face-down' : ''}`;
 
   const cardFront = document.createElement('div');
   cardFront.className = 'card-front';
-  cardFront.style.backgroundImage = `url("${frontImage}")`;
+  if (frontImage) {
+    cardFront.style.backgroundImage = `url("${frontImage}")`;
+  }
 
   const glow = document.createElement('div');
   glow.className = 'card-glow-effect';
@@ -104,19 +125,38 @@ export function createMonsterHologramDOM(card, isOpponent = false) {
   const isPowerhouse = atk >= 2500;
 
   holo.className = `monster-hologram-entity attr-${attrClass} ${isOpponent ? 'opponent-holo' : ''} ${isDefense ? 'defense-mode' : ''} ${isFaceDown ? 'face-down' : ''} ${isPowerhouse ? 'power-aura' : ''}`;
-  holo.dataset.id = card.id;
+  const concealIdentity = isFaceDown && isOpponent;
+  if (concealIdentity) {
+    holo.dataset.concealed = 'true';
+    holo.setAttribute('aria-hidden', 'true');
+  } else {
+    holo.dataset.id = card.id;
+    if (card.uid) holo.dataset.uid = card.uid;
+    holo.dataset.cardVisible = 'true';
+    holo.setAttribute('role', 'img');
+    holo.setAttribute('aria-label', `${card.name}, ATK ${atk}, DEF ${def ?? 'non applicable'}`);
+  }
 
-  const imageUrl = safeImageUrl(
-    card.image_url_cropped,
-    `https://images.ygoprodeck.com/images/cards_cropped/${encodeURIComponent(card.id)}.jpg`
-  );
-  const cardName = escapeHtml(card.name);
+  const imageUrl = concealIdentity
+    ? ''
+    : safeImageUrl(
+      card.image_url_cropped,
+      getCardCroppedImageUrl(card.id)
+    );
+  const cardName = concealIdentity ? '' : escapeHtml(card.name);
 
-  holo.innerHTML = `
+  holo.innerHTML = concealIdentity ? `
+    <div class="holo-beam"></div>
+    <div class="holo-base-ring concealed-hologram-ring"></div>
+    <div class="holo-sprite-container concealed-hologram-card">
+      <div class="holo-scanlines"></div>
+      <div class="holo-glow-aura"></div>
+    </div>
+  ` : `
     <div class="holo-beam"></div>
     <div class="holo-base-ring attr-${attrClass}"></div>
     <div class="holo-sprite-container">
-      <img src="${imageUrl}" alt="${cardName}" class="holo-sprite" crossorigin="anonymous">
+      <img src="${imageUrl}" alt="${cardName}" class="holo-sprite">
       <div class="holo-scanlines"></div>
       <div class="holo-glow-aura"></div>
 
@@ -152,7 +192,11 @@ export function spawnHologram(zoneEl, card, isOpponent = false) {
   }
 
   // Create flat card inside zone (face-down if card is set face-down)
-  const flatCard = createCardDOM(card, card.isSetFaceDown || false);
+  const flatCard = createCardDOM(
+    card,
+    card.isSetFaceDown || false,
+    Boolean(isOpponent && card.isSetFaceDown)
+  );
   flatCard.classList.add('card-flat-on-board');
   zoneEl.appendChild(flatCard);
 

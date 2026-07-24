@@ -21,16 +21,22 @@ export class MatchEngine {
       }
     };
 
-    // Official TCG European Banlist (Effective May 18, 2026)
+    // Official TCG European Forbidden & Limited List (effective 18 May 2026).
+    // Only IDs relevant to the local pool are required for deterministic deck QA.
     this.banlists = {
       TCG_EU_2026_05_18: {
         // Forbidden cards (Max 0)
         'forbidden': [
-          '44095762' // Mirror Force (just for testing / showcase banlist checks!)
+          '55144522' // Pot of Greed
         ],
         // Limited cards (Max 1)
         'limited': [
-          '33396948' // Exodia the Forbidden One
+          '83764718', // Monster Reborn
+          '33396948', // Exodia the Forbidden One
+          '7902349',
+          '44519536',
+          '15303296',
+          '70903634'
         ],
         // Semi-limited cards (Max 2)
         'semi_limited': []
@@ -42,6 +48,11 @@ export class MatchEngine {
    * Validate a deck registration against format rules and active banlist
    */
   validateDeck(deck, formatId = 'TCG_ADVANCED', banlistId = 'TCG_EU_2026_05_18') {
+    deck = {
+      mainDeck: Array.isArray(deck?.mainDeck) ? deck.mainDeck : [],
+      extraDeck: Array.isArray(deck?.extraDeck) ? deck.extraDeck : [],
+      sideDeck: Array.isArray(deck?.sideDeck) ? deck.sideDeck : []
+    };
     const format = this.formats[formatId] || this.formats.TCG_ADVANCED;
     const banlist = this.banlists[banlistId] || { forbidden: [], limited: [], semi_limited: [] };
     const issues = [];
@@ -59,12 +70,12 @@ export class MatchEngine {
 
     // 2. Validate card types per section
     deck.mainDeck.forEach(c => {
-      if (c.belongsInExtraDeck) {
+      if (this.belongsInExtraDeck(c)) {
         issues.push({ code: 'INVALID_MAIN_CARD', message: `${c.name} belongs in the Extra Deck, not Main Deck.` });
       }
     });
     deck.extraDeck.forEach(c => {
-      if (!c.belongsInExtraDeck) {
+      if (!this.belongsInExtraDeck(c)) {
         issues.push({ code: 'INVALID_EXTRA_CARD', message: `${c.name} belongs in the Main Deck, not Extra Deck.` });
       }
     });
@@ -73,23 +84,23 @@ export class MatchEngine {
     const allCards = [...deck.mainDeck, ...deck.extraDeck, ...deck.sideDeck];
     const counts = {};
     allCards.forEach(c => {
-      const name = c.name;
-      counts[name] = (counts[name] || 0) + 1;
+      const id = String(c.id);
+      counts[id] = (counts[id] || 0) + 1;
     });
 
-    for (const [name, count] of Object.entries(counts)) {
+    for (const [id, count] of Object.entries(counts)) {
       // Find card template ID
-      const card = allCards.find(c => c.name === name);
+      const card = allCards.find(c => String(c.id) === id);
       let allowed = format.baseCopyLimit;
 
-      if (banlist.forbidden.includes(card.id)) allowed = 0;
-      else if (banlist.limited.includes(card.id)) allowed = 1;
-      else if (banlist.semi_limited.includes(card.id)) allowed = 2;
+      if (banlist.forbidden.includes(id)) allowed = 0;
+      else if (banlist.limited.includes(id)) allowed = 1;
+      else if (banlist.semi_limited.includes(id)) allowed = 2;
 
       if (count > allowed) {
         issues.push({
           code: 'COPY_LIMIT_EXCEEDED',
-          message: `Too many copies of ${name}. Allowed: ${allowed}, Found: ${count}.`
+          message: `Too many copies of ${card.name}. Allowed: ${allowed}, Found: ${count}.`
         });
       }
     }
@@ -98,6 +109,14 @@ export class MatchEngine {
       valid: issues.length === 0,
       issues
     };
+  }
+
+  belongsInExtraDeck(card) {
+    return Boolean(
+      card?.belongsInExtraDeck
+      || card?.extra_type
+      || /Fusion|Synchro|Xyz|Link/i.test(card?.type || '')
+    );
   }
 
   /**

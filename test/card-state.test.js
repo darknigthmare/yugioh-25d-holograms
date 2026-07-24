@@ -29,6 +29,13 @@ test('CardState exposes initial monster stats through methods and legacy propert
   assert.equal(card.level, card.getLevel());
 });
 
+test('card image URLs normalize passcodes with leading zeroes for the CDN', () => {
+  const card = createMonster({ id: '05053103' });
+
+  assert.match(card.image_url, /\/5053103\.jpg$/);
+  assert.match(card.image_url_cropped, /\/5053103\.jpg$/);
+});
+
 test('legacy stat properties remain live aliases of the dynamic getters', () => {
   const card = createMonster();
 

@@ -7,32 +7,67 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a class="skip-link" href="#parallax-container">Aller au plateau de duel</a>
+  <div id="sr-announcer" class="sr-only" role="status" aria-live="assertive" aria-atomic="true"></div>
 
   <!-- Start Game Modal (Audio Context Activation) -->
-  <div id="start-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="start-modal-title">
-    <div class="modal-content modal-large">
+  <div id="start-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="start-modal-title" aria-describedby="start-modal-description">
+    <div class="modal-content modal-large" tabindex="-1">
       <h2 id="start-modal-title" class="modal-title">DUEL SIMULATOR 2.5D</h2>
-      <p class="modal-text">
+      <p id="start-modal-description" class="modal-text">
         Bienvenue dans l'arène holographique de KaibaCorp. Choisissez votre Deck de départ ou construisez-le sur mesure avant de commencer le duel.
       </p>
 
+      <div class="duel-config-grid">
+        <fieldset class="config-group">
+          <legend>MODE DE JEU</legend>
+          <label class="config-option">
+            <input type="radio" name="game-mode" value="strict" checked>
+            <span>
+              <strong>TCG Advanced (strict)</strong>
+              <small>Liste Advanced du 18/05/2026 appliquée aux cartes prises en charge.</small>
+            </span>
+          </label>
+          <label class="config-option">
+            <input type="radio" name="game-mode" value="sandbox">
+            <span>
+              <strong>Anime Sandbox</strong>
+              <small>Recherche API et liberté d’expérimentation activées.</small>
+            </span>
+          </label>
+        </fieldset>
+
+        <fieldset class="config-group">
+          <legend>DIFFICULTÉ DE L’IA</legend>
+          <div class="difficulty-options">
+            <label><input type="radio" name="ai-difficulty" value="easy"> Facile</label>
+            <label><input type="radio" name="ai-difficulty" value="normal" checked> Normal</label>
+            <label><input type="radio" name="ai-difficulty" value="hard"> Difficile</label>
+          </div>
+          <p id="mode-description" class="config-description" aria-live="polite">
+            Mode strict : decks intégrés légaux ; invocations et effets non pris en charge refusés.
+          </p>
+          <p id="duel-statistics" class="duel-statistics">0 duel · 0 victoire · 0 défaite</p>
+        </fieldset>
+      </div>
+
       <!-- Deck Choice Selector -->
-      <div class="deck-choices-container">
+      <div class="deck-choices-container" role="group" aria-label="Choix du deck">
         <button type="button" class="deck-choice-card active" data-deck-id="kaiba" aria-pressed="true">
-          <div class="deck-choice-header">DECK KAIBA</div>
-          <div class="deck-choice-desc">Puissance brute des Dragons Blancs et Synchros stellaires.</div>
+          <span class="deck-choice-header">DECK KAIBA</span>
+          <span class="deck-choice-desc">Preset légal inspiré de Kaiba : Dragons Blancs et Fusion légendaire.</span>
         </button>
         <button type="button" class="deck-choice-card" data-deck-id="yugi" aria-pressed="false">
-          <div class="deck-choice-header">DECK YUGI</div>
-          <div class="deck-choice-desc">Sorts puissants, Magiciens et fusions magiques légendaires.</div>
+          <span class="deck-choice-header">DECK YUGI</span>
+          <span class="deck-choice-desc">Preset légal inspiré de Yugi : Magiciens et défenses tactiques.</span>
         </button>
         <button type="button" class="deck-choice-card" data-deck-id="joey" aria-pressed="false">
-          <div class="deck-choice-header">DECK JOEY</div>
-          <div class="deck-choice-desc">Guerriers combatifs, dragons et cartes de pure chance.</div>
+          <span class="deck-choice-header">DECK JOEY</span>
+          <span class="deck-choice-desc">Preset légal inspiré de Joey : guerriers, dragons et hasard.</span>
         </button>
         <button type="button" class="deck-choice-card" data-deck-id="custom" aria-pressed="false">
-          <div class="deck-choice-header">CRÉER MON DECK</div>
-          <div class="deck-choice-desc">Composez librement votre deck depuis la base de cartes complète.</div>
+          <span class="deck-choice-header">CRÉER MON DECK</span>
+          <span class="deck-choice-desc">Composez librement votre deck depuis la base de cartes complète.</span>
         </button>
       </div>
 
@@ -61,16 +96,16 @@
         </div>
       </div>
 
-      <button id="btn-start-duel" class="btn btn-magenta">DÉMARRER DUEL</button>
+      <button type="button" id="btn-start-duel" class="btn btn-magenta">DÉMARRER LE DUEL</button>
     </div>
   </div>
 
   <!-- Game Over Modal -->
-  <div id="gameover-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="gameover-title">
-    <div class="modal-content">
+  <div id="gameover-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="gameover-title" aria-describedby="gameover-text">
+    <div class="modal-content" tabindex="-1">
       <h2 id="gameover-title" class="modal-title">DUEL TERMINÉ</h2>
       <p id="gameover-text" class="modal-text">Le gagnant est déterminé.</p>
-      <button id="btn-restart-duel" class="btn btn-magenta">RECOMMENCER</button>
+      <button type="button" id="btn-restart-duel" class="btn btn-magenta">RECOMMENCER</button>
     </div>
   </div>
 
@@ -86,7 +121,7 @@
       <div class="scoreboard">
         <!-- Opponent Score -->
         <div class="player-score opponent">
-          <span class="player-label">OPPONENT (IA)</span>
+          <span id="opponent-label" class="player-label">ADVERSAIRE (IA)</span>
           <div class="lp-display-wrapper">
             <div id="opponent-lp" class="lp-value" aria-live="polite">8000</div>
             <div id="opponent-lp-loss" class="lp-loss-indicator hidden"></div>
@@ -102,15 +137,15 @@
             <div id="player-lp" class="lp-value" aria-live="polite">8000</div>
             <div id="player-lp-loss" class="lp-loss-indicator hidden"></div>
           </div>
-          <span class="player-label">PLAYER (YOU)</span>
+          <span id="player-label" class="player-label">JOUEUR (VOUS)</span>
         </div>
       </div>
 
       <div class="header-controls">
-        <button id="btn-toggle-view" class="btn">VUE : ARÈNE</button>
-        <button id="btn-mute" class="btn btn-magenta">SON : ON</button>
-        <button id="btn-settings" class="btn">CONFIG DOS</button>
-        <button id="btn-reset" class="btn">REINITIALISER</button>
+        <button type="button" id="btn-toggle-view" class="btn">VUE : ARÈNE</button>
+        <button type="button" id="btn-mute" class="btn btn-magenta" aria-pressed="false">SON : ON</button>
+        <button type="button" id="btn-settings" class="btn">CONFIG DOS</button>
+        <button type="button" id="btn-reset" class="btn">RÉINITIALISER</button>
       </div>
     </header>
 
@@ -128,7 +163,7 @@
       </div>
 
       <!-- Card Search Engine -->
-      <div class="search-panel">
+      <div id="sandbox-panel" class="search-panel hidden" aria-hidden="true">
         <div class="panel-header">
           <span>MODE SANDBOX — CARTES API</span>
         </div>
@@ -144,7 +179,7 @@
     </aside>
 
     <!-- Center Section: 3D Arena -->
-    <main class="field-container" id="parallax-container">
+    <main class="field-container" id="parallax-container" tabindex="-1">
       <!-- Stadium Holographic Searchlights -->
       <div class="stadium-searchlight searchlight-1"></div>
       <div class="stadium-searchlight searchlight-2"></div>
@@ -237,7 +272,7 @@
             <div class="field-zone player-field-pos" id="player-field-zone" data-zone-type="field" data-side="player">
               <span>Terrain</span>
             </div>
-            <div class="extra-deck-zone player-extra-pos" id="player-extra-zone" data-zone-type="extra" data-side="player">
+            <div class="extra-deck-zone player-extra-pos" id="player-extra-zone" data-zone-type="extra" data-side="player" role="button" tabindex="0" aria-label="Ouvrir votre Extra Deck">
               <span>Extra</span>
               <div id="player-extra-count" class="deck-count">3</div>
             </div>
@@ -260,7 +295,7 @@
           <span>INSPECTEUR DE CARTE</span>
         </div>
         <div id="inspector-display" class="inspector-details">
-          <div class="inspector-no-card">Survolez une carte ou un hologramme pour afficher ses détails.</div>
+          <div class="inspector-no-card">Survolez, touchez ou placez le focus sur une carte visible pour afficher ses détails.</div>
         </div>
       </div>
 
@@ -274,7 +309,7 @@
           <li><strong>Tribut :</strong> Niv. 5-6 requiert 1 sacrifice, Niv. 7+ en requiert 2.</li>
           <li><strong>Magie/Piège :</strong> Placez-la dans une zone dédiée ; les pièges réagissent à leur timing.</li>
           <li><strong>Combat :</strong> Passez en Battle Phase, cliquez sur votre monstre puis sur une cible rouge.</li>
-          <li><strong>Position :</strong> Double-cliquez, faites un clic droit ou appuyez sur R sur une zone Monstre.</li>
+          <li><strong>Effet/position :</strong> Cliquez ou touchez votre monstre puis choisissez l’action ; R change directement sa position.</li>
         </ul>
       </div>
     </aside>
@@ -288,6 +323,10 @@
 
       <!-- Control Panel -->
       <div class="command-panel">
+        <p id="turn-status" class="turn-status" role="status" aria-live="polite">Choisissez un deck pour commencer.</p>
+        <p id="discard-status" class="discard-status hidden" role="alert">
+          Limite de main : sélectionnez une carte à défausser avec un clic, un toucher, Entrée ou Espace.
+        </p>
         <div class="phase-indicator-box" aria-live="polite" aria-label="Phase actuelle">
           <span class="phase-step" id="phase-draw">PIOC</span>
           <span class="phase-step" id="phase-standby">STDBY</span>
@@ -296,50 +335,62 @@
           <span class="phase-step" id="phase-main2">MAIN 2</span>
           <span class="phase-step" id="phase-end">FIN</span>
         </div>
-        <button id="btn-next-phase" class="btn">PHASE SUIVANTE</button>
+        <button type="button" id="btn-next-phase" class="btn">PHASE SUIVANTE</button>
       </div>
     </footer>
 
     <!-- Extra Deck Summon Overlay Modal -->
-    <div id="extra-deck-modal" class="modal glass-panel hidden" role="dialog" aria-modal="true" aria-labelledby="extra-deck-title">
+    <div id="extra-deck-modal" class="modal glass-panel hidden" role="dialog" aria-modal="true" aria-labelledby="extra-deck-title" aria-describedby="extra-deck-help" data-dismissible="true" tabindex="-1">
       <div class="modal-header">
         <span id="extra-deck-title">EXTRA DECK - INVOCATION SPÉCIALE</span>
-        <button id="close-extra-modal" class="cyber-button-sm">FERMER</button>
+        <button type="button" id="close-extra-modal" class="cyber-button-sm" aria-label="Fermer l’Extra Deck">FERMER</button>
       </div>
+      <p id="extra-deck-help" class="modal-inline-help">Sélectionnez une carte avec un clic, un toucher, Entrée ou Espace. Échap ferme cette fenêtre.</p>
       <div id="extra-deck-list" class="extra-deck-list">
         <!-- Dynamically populated from playerExtraDeck -->
       </div>
     </div>
 
     <!-- Action Choice Modal (Face Up / Face Down) -->
-    <div id="action-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="action-modal-title">
-      <div class="modal-content">
+    <div id="action-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="action-modal-title" aria-describedby="action-modal-description" data-dismissible="true">
+      <div class="modal-content" tabindex="-1">
         <h3 id="action-modal-title" class="modal-title">ACTION SUR LE TERRAIN</h3>
-        <p class="modal-text">Comment souhaitez-vous placer cette carte ?</p>
-        <div style="display:flex; gap:15px; justify-content:center; margin-bottom:15px;">
-          <button id="btn-action-faceup" class="btn">FACE RECTO (ACTIVER/INV.)</button>
-          <button id="btn-action-facedown" class="btn btn-magenta">POSER FACE CACHÉE</button>
+        <p id="action-modal-description" class="modal-text">Choisissez l’action autorisée pour cette carte et cette zone.</p>
+        <div class="modal-actions">
+          <button type="button" id="btn-action-faceup" class="btn">FACE RECTO (ACTIVER/INVOQUER)</button>
+          <button type="button" id="btn-action-facedown" class="btn btn-magenta">POSER FACE CACHÉE</button>
         </div>
-        <button id="btn-action-cancel" class="btn" style="background:transparent; border:1px solid var(--text-dim); color:var(--text-dim); width:100%;">ANNULER</button>
+        <button type="button" id="btn-action-cancel" class="btn btn-cancel">ANNULER</button>
+      </div>
+    </div>
+
+    <!-- Generic engine decision modal -->
+    <div id="decision-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="decision-modal-title" aria-describedby="decision-modal-description" data-dismissible="true">
+      <div class="modal-content" tabindex="-1">
+        <h3 id="decision-modal-title" class="modal-title">DÉCISION DE DUEL</h3>
+        <p id="decision-modal-description" class="modal-text">Choisissez une option.</p>
+        <div id="decision-options" class="decision-options"></div>
+        <button type="button" id="btn-decision-cancel" class="btn btn-cancel">UTILISER LE CHOIX CONSEILLÉ</button>
       </div>
     </div>
 
     <!-- Custom Card Back Settings Modal -->
-    <div id="settings-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="settings-modal-title">
-      <div class="modal-content">
+    <div id="settings-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="settings-modal-title" data-dismissible="true">
+      <div class="modal-content" tabindex="-1">
         <h2 id="settings-modal-title" class="modal-title">OPTIONS DE PERSONNALISATION</h2>
-        <div style="text-align: left; margin-bottom: 20px;">
-          <label style="display:block; margin-bottom:8px; font-family:var(--font-display); font-size:0.9rem;">DOS DE CARTE PERSONNALISÉ (URL) :</label>
-          <input type="url" id="input-card-back" class="search-input" placeholder="https://example.com/cardback.png" style="width:100%; box-sizing:border-box; margin-bottom:15px; background:rgba(0,0,0,0.5); border:1px solid var(--panel-border); color:#fff; padding:10px; border-radius:4px;">
+        <div class="settings-form">
+          <label for="input-card-back">DOS DE CARTE PERSONNALISÉ (URL) :</label>
+          <input type="url" id="input-card-back" class="search-input settings-url-input" placeholder="https://example.com/cardback.png" aria-describedby="card-back-help">
+          <p id="card-back-help" class="modal-inline-help">Laissez vide pour utiliser le dos classique.</p>
 
-          <label style="display:block; margin-bottom:8px; font-family:var(--font-display); font-size:0.9rem;">OU CHOISIR UN STYLE PRÉDÉFINI :</label>
-          <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
-            <button class="btn btn-preset-back" data-url="./custom_card_back.png">KC Holo Blue</button>
-            <button class="btn btn-preset-back" data-url="https://images.ygoprodeck.com/images/cards/89631139.jpg">Yeux Bleus</button>
-            <button class="btn btn-preset-back" data-url="">Style Classique</button>
+          <span class="settings-label">OU CHOISIR UN STYLE PRÉDÉFINI :</span>
+          <div class="card-back-presets" role="group" aria-label="Styles de dos prédéfinis">
+            <button type="button" class="btn btn-preset-back" data-url="/custom-card-back.png">KC Holo Blue</button>
+            <button type="button" class="btn btn-preset-back" data-url="https://images.ygoprodeck.com/images/cards/89631139.jpg">Yeux Bleus</button>
+            <button type="button" class="btn btn-preset-back" data-url="">Style Classique</button>
           </div>
         </div>
-        <button id="btn-close-settings" class="btn btn-magenta" style="width:100%;">APPLIQUER</button>
+        <button type="button" id="btn-close-settings" class="btn btn-magenta btn-block">APPLIQUER</button>
       </div>
     </div>
 

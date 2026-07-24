@@ -32,6 +32,17 @@ export class SummonEngine {
     return this.normalSummonAllowance.used < this.normalSummonAllowance.baseMaximum;
   }
 
+  /**
+   * Extra Deck monsters and unsupported Ritual/Pendulum procedures never enter
+   * play through the generic Normal Summon path.
+   */
+  canUseNormalSummonProcedure(card) {
+    if (!card || card.card_type !== 'monster') return false;
+    if (card.belongsInExtraDeck || card.extra_type) return false;
+    if (card.isRitualMonster || card.isPendulumMonster) return false;
+    return !/Fusion|Synchro|Xyz|Link|Ritual|Pendulum/i.test(card.type || '');
+  }
+
   consumeNormalSummon() {
     this.normalSummonAllowance.used += 1;
     this.turnSummonHistory.totalNormalSummons += 1;
@@ -92,6 +103,8 @@ export class SummonEngine {
 
     for (const mat of materials) {
       if (mat.card_type !== 'monster') return false;
+      // Synchro Materials must be face-up monsters controlled on the field.
+      if (mat.location !== 'monster_zone' || mat.isSetFaceDown) return false;
       levelSum += mat.getLevel ? mat.getLevel() : (mat.level || 0);
 
       const isTuner = mat.type && mat.type.includes('Tuner');
@@ -123,6 +136,7 @@ export class SummonEngine {
    */
   validateXyzSummon(materials, targetRank) {
     if (!materials || materials.length < 2) return false;
+    if (materials.some(mat => mat.location !== 'monster_zone' || mat.isSetFaceDown)) return false;
 
     const firstLevel = materials[0].getLevel ? materials[0].getLevel() : (materials[0].level || 0);
     if (firstLevel !== targetRank) return false;

@@ -104,7 +104,7 @@ export const STARTER_CARDS = [
     card_type: "monster"
   },
   {
-    id: "88819079",
+    id: "88819587",
     name: "Bébé Dragon",
     name_en: "Baby Dragon",
     type: "Normal Monster",
@@ -206,15 +206,202 @@ export const STARTER_CARDS = [
     race: "Normal",
     attribute: "TRAP",
     card_type: "trap"
+  },
+  {
+    id: "24094653",
+    name: "Polymérisation",
+    name_en: "Polymerization",
+    type: "Spell Card",
+    desc: "Invoquez par Fusion 1 Monstre Fusion depuis votre Extra Deck, en utilisant des monstres depuis votre main ou Terrain comme Matériel Fusion.",
+    atk: 0,
+    def: 0,
+    level: 0,
+    race: "Normal",
+    attribute: "SPELL",
+    card_type: "spell"
+  },
+  {
+    id: "05053103",
+    name: "Bœuf de Combat",
+    name_en: "Battle Ox",
+    type: "Normal Monster",
+    desc: "Un monstre à la puissance foudroyante qui détruit ses ennemis d'un simple coup de hache.",
+    atk: 1700,
+    def: 1000,
+    level: 4,
+    race: "Beast-Warrior",
+    attribute: "EARTH",
+    card_type: "monster"
+  },
+  {
+    id: "97590747",
+    name: "La Jinn, Génie Mystique de la Lampe",
+    name_en: "La Jinn the Mystical Genie of the Lamp",
+    type: "Normal Monster",
+    desc: "Un génie de la lampe au service de son maître.",
+    atk: 1800,
+    def: 1000,
+    level: 4,
+    race: "Fiend",
+    attribute: "DARK",
+    card_type: "monster"
+  },
+  {
+    id: "14898066",
+    name: "Vorse Raider",
+    name_en: "Vorse Raider",
+    type: "Normal Monster",
+    desc: "Cette bête guerrière manipule une grande variété d'armes.",
+    atk: 1900,
+    def: 1200,
+    level: 4,
+    race: "Beast-Warrior",
+    attribute: "DARK",
+    card_type: "monster"
+  },
+  {
+    id: "66602787",
+    name: "Saggi le Bouffon des Ténèbres",
+    name_en: "Saggi the Dark Clown",
+    type: "Normal Monster",
+    desc: "Un bouffon des ténèbres qui utilise des attaques étranges.",
+    atk: 600,
+    def: 1500,
+    level: 3,
+    race: "Spellcaster",
+    attribute: "DARK",
+    card_type: "monster"
+  },
+  {
+    id: "15025844",
+    name: "Elfe Mystique",
+    name_en: "Mystical Elf",
+    type: "Normal Monster",
+    desc: "Une elfe délicate possédant une défense renforcée par un pouvoir mystique.",
+    atk: 800,
+    def: 2000,
+    level: 4,
+    race: "Spellcaster",
+    attribute: "LIGHT",
+    card_type: "monster"
+  },
+  {
+    id: "41392891",
+    name: "Démon Sauvage",
+    name_en: "Feral Imp",
+    type: "Normal Monster",
+    desc: "Un petit démon agile qui attaque avec ses griffes.",
+    atk: 1300,
+    def: 1400,
+    level: 4,
+    race: "Fiend",
+    attribute: "DARK",
+    card_type: "monster"
+  },
+  {
+    id: "32452818",
+    name: "Guerrier Castor",
+    name_en: "Beaver Warrior",
+    type: "Normal Monster",
+    desc: "Cette créature se retranche en défense lorsqu'elle combat dans la prairie.",
+    atk: 1200,
+    def: 1500,
+    level: 4,
+    race: "Beast-Warrior",
+    attribute: "EARTH",
+    card_type: "monster"
+  },
+  {
+    id: "28279543",
+    name: "Malédiction du Dragon",
+    name_en: "Curse of Dragon",
+    type: "Normal Monster",
+    desc: "Un dragon malfaisant qui exploite les forces des ténèbres.",
+    atk: 2000,
+    def: 1500,
+    level: 5,
+    race: "Dragon",
+    attribute: "DARK",
+    card_type: "monster"
+  },
+  {
+    id: "06368038",
+    name: "Gaïa le Chevalier Implacable",
+    name_en: "Gaia The Fierce Knight",
+    type: "Normal Monster",
+    desc: "Un chevalier dont le cheval voyage plus vite que le vent.",
+    atk: 2300,
+    def: 2100,
+    level: 7,
+    race: "Warrior",
+    attribute: "EARTH",
+    card_type: "monster"
+  },
+  {
+    id: "48305365",
+    name: "Assaillant à la Hache",
+    name_en: "Axe Raider",
+    type: "Normal Monster",
+    desc: "Un guerrier maniant une hache avec une force extraordinaire.",
+    atk: 1700,
+    def: 1150,
+    level: 4,
+    race: "Warrior",
+    attribute: "EARTH",
+    card_type: "monster"
+  },
+  {
+    id: "64428736",
+    name: "Épée de l'Alligator",
+    name_en: "Alligator's Sword",
+    type: "Normal Monster",
+    desc: "Un alligator guerrier expert dans le maniement de l'épée.",
+    atk: 1500,
+    def: 1200,
+    level: 4,
+    race: "Beast",
+    attribute: "EARTH",
+    card_type: "monster"
+  },
+  {
+    id: "44287299",
+    name: "Masaki le Spadassin Légendaire",
+    name_en: "Masaki the Legendary Swordsman",
+    type: "Normal Monster",
+    desc: "Un épéiste de légende reconnu pour ses attaques rapides.",
+    atk: 1100,
+    def: 1100,
+    level: 4,
+    race: "Warrior",
+    attribute: "EARTH",
+    card_type: "monster"
+  },
+  {
+    id: "49791927",
+    name: "Hache du Tigre",
+    name_en: "Tiger Axe",
+    type: "Normal Monster",
+    desc: "Un guerrier tigre armé d'une hache redoutable.",
+    atk: 1300,
+    def: 1100,
+    level: 4,
+    race: "Beast-Warrior",
+    attribute: "EARTH",
+    card_type: "monster"
   }
 ];
 
+export function normalizeCardImageId(id) {
+  const value = String(id ?? '');
+  return /^\d+$/.test(value) ? value.replace(/^0+(?=\d)/, '') : value;
+}
+
 export function getCardImageUrl(id) {
-  return `https://images.ygoprodeck.com/images/cards/${id}.jpg`;
+  return `https://images.ygoprodeck.com/images/cards/${normalizeCardImageId(id)}.jpg`;
 }
 
 export function getCardCroppedImageUrl(id) {
-  return `https://images.ygoprodeck.com/images/cards_cropped/${id}.jpg`;
+  return `https://images.ygoprodeck.com/images/cards_cropped/${normalizeCardImageId(id)}.jpg`;
 }
 
 export const EXTRA_DECK_CARDS = [
@@ -230,13 +417,16 @@ export const EXTRA_DECK_CARDS = [
     race: "Dragon",
     attribute: "LIGHT",
     card_type: "monster",
-    extra_type: "fusion"
+    extra_type: "fusion",
+    belongsInExtraDeck: true,
+    fusionMaterials: ["89631139", "89631139", "89631139"]
   },
   {
     id: "44508094",
     name: "Dragon Poussière d'Étoile",
     name_en: "Stardust Dragon",
     type: "Synchro Monster",
+    rulesText: "1 Syntoniseur + 1 monstre non-Syntoniseur ou plus. Lorsqu'une carte ou un effet qui va détruire une ou plusieurs cartes sur le Terrain est activé (Effet Rapide) : vous pouvez Sacrifier cette carte ; annulez l'activation, et si vous le faites, détruisez-la. Durant la End Phase, Invoquez Spécialement cette carte si elle a activé cet effet ce tour.",
     desc: "1 Syntoniseur + 1 monstre non-Syntoniseur ou plus. (ATK 2500 / DEF 2000)",
     atk: 2500,
     def: 2000,
@@ -244,13 +434,16 @@ export const EXTRA_DECK_CARDS = [
     race: "Dragon",
     attribute: "WIND",
     card_type: "monster",
-    extra_type: "synchro"
+    extra_type: "synchro",
+    belongsInExtraDeck: true,
+    effectCode: "STARDUST_NEGATE_DESTRUCTION"
   },
   {
     id: "31924889",
     name: "Magicien des Arcanes",
     name_en: "Arcanite Magician",
     type: "Synchro Monster",
+    rulesText: "1 Syntoniseur + 1 monstre non-Syntoniseur Magicien ou plus. Lors de son Invocation Synchro, placez 2 Compteurs Magie sur cette carte. Elle gagne 1000 ATK pour chaque Compteur Magie. Vous pouvez retirer 1 Compteur Magie, puis ciblez 1 carte contrôlée par votre adversaire ; détruisez la cible.",
     desc: "1 Syntoniseur + 1 monstre non-Syntoniseur Magicien ou plus. Lors de son Invocation Synchro, il reçoit 2 Compteurs Magie et gagne 1000 ATK par compteur.",
     atk: 400,
     def: 1800,
@@ -259,6 +452,8 @@ export const EXTRA_DECK_CARDS = [
     attribute: "LIGHT",
     card_type: "monster",
     extra_type: "synchro",
+    belongsInExtraDeck: true,
+    effectCode: "ARCANITE_COUNTERS",
     synchroNonTunerRace: "Spellcaster"
   }
 ];

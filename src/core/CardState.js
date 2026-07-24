@@ -1,3 +1,5 @@
+import { getCardCroppedImageUrl, getCardImageUrl } from '../cards.js';
+
 /**
  * CardState represents a dynamic instance of a card in the duel.
  * It manages modifications to statistics, locations, combat positions, and active status.
@@ -8,7 +10,7 @@ export class CardState {
     this.id = baseCard.id;
     this.name = baseCard.name;
     this.name_en = baseCard.name_en;
-    this.desc = baseCard.desc;
+    this.desc = baseCard.rulesText || baseCard.desc;
     this.card_type = baseCard.card_type; // 'monster', 'spell', 'trap'
     this.type = baseCard.type; // 'Normal Monster', 'Effect Monster', 'Fusion Monster', 'Synchro Monster', 'Spell Card', 'Trap Card'
 
@@ -18,9 +20,26 @@ export class CardState {
     this.baseLevel = baseCard.level || 0;
     this.race = baseCard.race || '';
     this.attribute = baseCard.attribute || '';
-    this.extra_type = baseCard.extra_type || null; // 'fusion', 'synchro'
+    this.extra_type = baseCard.extra_type || null; // 'fusion', 'synchro', 'xyz', 'link'
+    this.belongsInExtraDeck = Boolean(
+      baseCard.belongsInExtraDeck
+      || this.extra_type
+      || (this.type && /Fusion|Synchro|Xyz|Link/i.test(this.type))
+    );
+    this.isRitualMonster = Boolean(
+      baseCard.isRitualMonster
+      || (this.type && /Ritual/i.test(this.type))
+    );
+    this.isPendulumMonster = Boolean(
+      baseCard.isPendulumMonster
+      || (this.type && /Pendulum/i.test(this.type))
+    );
     this.linkRating = baseCard.linkRating || null;
     this.synchroNonTunerRace = baseCard.synchroNonTunerRace || null;
+    this.fusionMaterials = Array.isArray(baseCard.fusionMaterials)
+      ? [...baseCard.fusionMaterials]
+      : [];
+    this.effectCode = baseCard.effectCode || null;
 
     // Dynamic Stats
     this.currentAtk = this.baseAtk;
@@ -42,6 +61,12 @@ export class CardState {
     this.hasAttacked = false;
     this.hasChangedPositionThisTurn = false;
     this.turnSet = -1;
+    this.effectUsage = {};
+    this.effectsNegatedUntilEndTurn = false;
+    this.wasProperlySpecialSummoned = Boolean(baseCard.wasProperlySpecialSummoned);
+    this.summonType = null;
+    this.stardustReturnEligibleTurn = -1;
+    this.stardustReturnController = null;
 
     // Battle and damage step counters
     this.attacksDeclaredThisTurn = 0;
@@ -73,14 +98,22 @@ export class CardState {
   resetTurnStatus() {
     this.hasAttacked = false;
     this.hasChangedPositionThisTurn = false;
+    this.attacksDeclaredThisTurn = 0;
+    this.attacksCompletedThisTurn = 0;
+    this.monstersDestroyedByBattleThisTurn = 0;
+    this.directAttacksDeclaredThisTurn = 0;
+    if (this.effectsNegatedUntilEndTurn) {
+      this.effectNegated = false;
+      this.effectsNegatedUntilEndTurn = false;
+    }
   }
 
   get image_url() {
-    return `https://images.ygoprodeck.com/images/cards/${this.id}.jpg`;
+    return getCardImageUrl(this.id);
   }
 
   get image_url_cropped() {
-    return `https://images.ygoprodeck.com/images/cards_cropped/${this.id}.jpg`;
+    return getCardCroppedImageUrl(this.id);
   }
 
   // Legacy-compatible stat accessors.
@@ -101,7 +134,11 @@ export class CardState {
 
   getAtk() {
     if (this.effectNegated) return this.baseAtk;
-    return Math.max(0, this.currentAtk);
+    // Arcanite Magician gains 1000 ATK for each Spell Counter it currently has.
+    const counterBonus = String(this.id) === '31924889'
+      ? (this.counters.spell || 0) * 1000
+      : 0;
+    return Math.max(0, this.currentAtk + counterBonus);
   }
 
   getDef() {

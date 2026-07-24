@@ -98,6 +98,24 @@ export class GameStateStabilizer {
       }
     });
 
+    // Dark Magician Girl: +300 ATK for every Dark Magician or Magician of
+    // Black Chaos in both Graveyards.
+    const spellcastersInGrave = [
+      ...game.field.playerGraveyard,
+      ...game.field.opponentGraveyard
+    ].filter(card => (
+      String(card.id) === '46986414'
+      || /Dark Magician$|Magicien Sombre$|Magician of Black Chaos|Magicien Sombre du Chaos/i.test(
+        card.name_en || card.name || ''
+      )
+    )).length;
+
+    [...game.field.playerMonsterZones, ...game.field.opponentMonsterZones].forEach(monster => {
+      if (monster && String(monster.id) === '38033121' && !monster.effectNegated) {
+        monster.currentAtk += spellcastersInGrave * 300;
+      }
+    });
+
     // Reapply continuous mods (like field spells)
     const fieldSpell = game.field.playerFieldSpellZone;
     if (fieldSpell && !fieldSpell.effectNegated) {
@@ -145,16 +163,21 @@ export class GameStateStabilizer {
   verifyWinConditions(game) {
     if (game.winner) return;
 
+    const finish = winner => {
+      if (typeof game.endGame === 'function') game.endGame(winner);
+      else {
+        game.winner = winner;
+        game.callbacks.onGameOver(winner);
+      }
+    };
+
     // 1. LP verification
     if (game.playerLP <= 0 && game.opponentLP <= 0) {
-      game.winner = 'draw';
-      game.callbacks.onGameOver('draw');
+      finish('draw');
     } else if (game.playerLP <= 0) {
-      game.winner = 'opponent';
-      game.callbacks.onGameOver('opponent');
+      finish('opponent');
     } else if (game.opponentLP <= 0) {
-      game.winner = 'player';
-      game.callbacks.onGameOver('player');
+      finish('player');
     }
 
     // 2. Exodia condition (5 parts in hand)
@@ -174,14 +197,11 @@ export class GameStateStabilizer {
     );
 
     if (playerHasAllExodia && opponentHasAllExodia) {
-      game.winner = 'draw';
-      game.callbacks.onGameOver('draw');
+      finish('draw');
     } else if (playerHasAllExodia) {
-      game.winner = 'player';
-      game.callbacks.onGameOver('player');
+      finish('player');
     } else if (opponentHasAllExodia) {
-      game.winner = 'opponent';
-      game.callbacks.onGameOver('opponent');
+      finish('opponent');
     }
   }
 }

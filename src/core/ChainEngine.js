@@ -7,12 +7,16 @@ export class ChainEngine {
     this.chainStack = [];
     this.chainStatus = 'idle'; // 'idle', 'building', 'resolving'
     this.triggerQueue = []; // Queued trigger events that occurred during chain resolutions
+    this.priorityPlayerId = null;
+    this.consecutivePasses = 0;
   }
 
   reset() {
     this.chainStack = [];
     this.chainStatus = 'idle';
     this.triggerQueue = [];
+    this.priorityPlayerId = null;
+    this.consecutivePasses = 0;
   }
 
   getSpellSpeed(card) {
@@ -26,7 +30,8 @@ export class ChainEngine {
       return 1;
     }
     // Monsters
-    if (card.desc && card.desc.toLowerCase().includes('quick effect')) {
+    if (String(card.id) === '44508094') return 2; // Stardust Dragon
+    if (card.desc && /quick effect|effet rapide/i.test(card.desc)) {
       return 2;
     }
     return 1;
@@ -40,7 +45,7 @@ export class ChainEngine {
     return cardSpeed >= lastLinkSpeed && cardSpeed >= 2;
   }
 
-  pushChainLink(activatingPlayerId, cardState, targets = []) {
+  pushChainLink(activatingPlayerId, cardState, targets = [], options = {}) {
     const linkSpeed = this.getSpellSpeed(cardState);
     const linkId = this.chainStack.length + 1;
 
@@ -50,6 +55,9 @@ export class ChainEngine {
       sourceCard: cardState,
       spellSpeed: linkSpeed,
       targets: [...targets],
+      resolver: typeof options.resolver === 'function' ? options.resolver : null,
+      context: options.context || {},
+      zoneIndex: options.zoneIndex ?? cardState?.zoneIndex ?? -1,
       activationNegated: false,
       effectNegated: false,
       resolvedSuccessfully: false,
@@ -58,7 +66,40 @@ export class ChainEngine {
 
     this.chainStack.push(link);
     this.chainStatus = 'building';
+    this.priorityPlayerId = activatingPlayerId === 'player' ? 'opponent' : 'player';
+    this.consecutivePasses = 0;
     return link;
+  }
+
+  getLastLink() {
+    return this.chainStack[this.chainStack.length - 1] || null;
+  }
+
+  getLastLinkSpeed() {
+    return this.getLastLink()?.spellSpeed || 1;
+  }
+
+  openResponseWindow(priorityPlayerId) {
+    this.chainStatus = 'building';
+    this.priorityPlayerId = priorityPlayerId;
+    this.consecutivePasses = 0;
+  }
+
+  passPriority(playerId) {
+    if (playerId !== this.priorityPlayerId) return false;
+    this.consecutivePasses += 1;
+    this.priorityPlayerId = playerId === 'player' ? 'opponent' : 'player';
+    if (this.consecutivePasses >= 2) {
+      this.chainStatus = 'ready';
+      return true;
+    }
+    return false;
+  }
+
+  closeResponseWindow() {
+    this.chainStatus = this.chainStack.length > 0 ? 'ready' : 'idle';
+    this.priorityPlayerId = null;
+    this.consecutivePasses = 0;
   }
 
   queueTriggeredEvent(event) {

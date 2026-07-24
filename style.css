@@ -41,6 +41,27 @@ body, html {
   background-size: 100% 100%, 40px 40px, 40px 40px;
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 5000;
+  padding: 10px 14px;
+  border-radius: 6px;
+  background: #05020c;
+  color: var(--neon-cyan);
+  border: 2px solid var(--neon-cyan);
+  transform: translateY(-150%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
 /* App Layout */
 .app-container {
   display: grid;
@@ -431,6 +452,14 @@ body, html {
   overflow-y: auto;
   flex: 1;
   min-height: 80px;
+}
+
+.inspector-desc,
+.log-content,
+.modal-text,
+.tutorial-panel,
+.config-description {
+  user-select: text;
 }
 
 .tutorial-panel {
@@ -966,11 +995,44 @@ body, html {
   cursor: grab;
 }
 
+.card-entity.discard-candidate {
+  cursor: pointer;
+  outline: 2px solid var(--neon-gold);
+  outline-offset: 3px;
+  box-shadow: 0 0 18px rgba(255, 215, 0, 0.55);
+}
+
+.card-entity.discard-candidate:hover,
+.card-entity.discard-candidate:focus-visible {
+  transform: translateY(-24px) scale(1.08);
+}
+
 .command-panel {
   display: flex;
   flex-direction: column;
   gap: 10px;
   justify-content: center;
+}
+
+.turn-status,
+.discard-status {
+  padding: 7px 9px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 255, 255, 0.25);
+}
+
+.turn-status {
+  color: var(--text-main);
+}
+
+.discard-status {
+  color: var(--neon-gold);
+  border-color: rgba(255, 215, 0, 0.65);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.18);
 }
 
 .phase-indicator-box {
@@ -1385,9 +1447,95 @@ body, html {
 
 .modal-large {
   max-width: 950px;
-  width: 90%;
+  width: min(950px, calc(100vw - 32px));
   max-height: 90vh;
   overflow-y: auto;
+}
+
+.duel-config-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.config-group {
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid var(--panel-border);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.config-group legend {
+  padding: 0 6px;
+  color: var(--neon-cyan);
+  font: 700 0.78rem var(--font-display);
+  letter-spacing: 0.06em;
+}
+
+.config-option {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 9px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.config-option:hover,
+.config-option:has(input:checked) {
+  background: rgba(0, 255, 255, 0.08);
+}
+
+.config-option input,
+.difficulty-options input {
+  margin-top: 3px;
+  accent-color: var(--neon-cyan);
+}
+
+.config-option span,
+.deck-choice-header,
+.deck-choice-desc {
+  display: block;
+}
+
+.config-option strong {
+  display: block;
+  font-size: 0.82rem;
+}
+
+.config-option small,
+.config-description {
+  display: block;
+  margin-top: 4px;
+  color: var(--text-dim);
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+.difficulty-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.difficulty-options label {
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.duel-statistics {
+  margin-top: 10px;
+  color: var(--neon-gold);
+  font: 700 0.68rem var(--font-display);
 }
 
 .deck-choices-container {
@@ -1421,7 +1569,7 @@ body, html {
 .deck-choice-header {
   font-family: var(--font-display);
   font-size: 1.1rem;
-  color: var(--text-color);
+  color: var(--text-main);
   margin-bottom: 5px;
 }
 
@@ -1444,6 +1592,7 @@ body, html {
 }
 
 .builder-panel {
+  min-width: 0;
   display: flex;
   flex-direction: column;
   background: rgba(0, 0, 0, 0.2);
@@ -1471,7 +1620,7 @@ body, html {
 
 .builder-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(68px, 1fr));
   gap: 10px;
   overflow-y: auto;
   flex-grow: 1;
@@ -1502,7 +1651,7 @@ body, html {
   border-radius: 3px;
   padding: 1px 4px;
   font-size: 0.7rem;
-  color: var(--text-color);
+  color: var(--text-main);
 }
 
 .badge-status {
@@ -1545,6 +1694,91 @@ body, html {
   display: none !important;
   opacity: 0;
   pointer-events: none;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.btn-cancel {
+  width: 100%;
+  background: transparent;
+  border-color: var(--text-dim);
+  color: var(--text-dim);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.modal-inline-help {
+  margin-bottom: 12px;
+  color: var(--text-dim);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.modal-empty-state {
+  padding: 24px 12px;
+  color: var(--text-dim);
+}
+
+.settings-form {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.settings-form label,
+.settings-label {
+  display: block;
+  margin-bottom: 8px;
+  font: 700 0.8rem var(--font-display);
+}
+
+.settings-url-input {
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 10px;
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+.settings-url-input[aria-invalid="true"] {
+  border-color: var(--neon-red);
+  box-shadow: 0 0 0 2px rgba(255, 51, 0, 0.25);
+}
+
+.card-back-presets {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.decision-options {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.decision-card-option {
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--neon-cyan);
+  border-radius: 6px;
+  background: rgba(0, 255, 255, 0.08);
+  color: var(--text-main);
+  text-align: left;
+  cursor: pointer;
+}
+
+.decision-card-option:hover,
+.decision-card-option:focus-visible {
+  background: rgba(0, 255, 255, 0.2);
 }
 
 /* Special hover state for board card drops */
@@ -2032,6 +2266,10 @@ body, html {
   display: none !important; /* Hide actual monster artwork */
 }
 
+.monster-hologram-entity.face-down .holo-stats {
+  display: none !important;
+}
+
 .monster-hologram-entity.face-down .holo-sprite-container {
   background: linear-gradient(135deg, #2b0050 0%, #030008 100%) !important;
   border: 2px solid var(--neon-gold) !important;
@@ -2249,9 +2487,27 @@ button.result-card-item {
 .result-card-item:focus-visible,
 .card-entity:focus-visible,
 .card-zone:focus-visible,
+.extra-deck-zone:focus-visible,
+.cyber-button-sm:focus-visible,
+.decision-card-option:focus-visible,
+input[type="radio"]:focus-visible,
 input:focus-visible {
   outline: 3px solid var(--neon-gold);
   outline-offset: 3px;
+}
+
+.extra-deck-zone[aria-disabled="true"],
+.zone-disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn:disabled,
+.deck-choice-card:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 .card-entity.selected-hand-card {
@@ -2353,15 +2609,20 @@ input:focus-visible {
     grid-row: 2;
     width: 100%;
     min-width: 0;
-    overflow-x: auto;
-    overflow-y: hidden;
-    justify-content: flex-start;
-    scrollbar-color: var(--neon-cyan) rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    justify-content: center;
   }
 
   .duel-board-shadow-box {
-    flex: 0 0 960px;
-    margin-inline: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    flex: none;
+    width: 960px;
+    height: 520px;
+    margin: 0;
+    transform: translate(-50%, -50%) scale(var(--responsive-board-scale, 1));
+    transform-origin: center center;
   }
 
   .bottom-bar {
@@ -2429,7 +2690,7 @@ input:focus-visible {
 
 @media (max-width: 600px) {
   .app-container {
-    grid-template-rows: auto 470px auto auto auto;
+    grid-template-rows: auto 300px auto auto auto;
   }
 
   .header-bar {
@@ -2489,12 +2750,7 @@ input:focus-visible {
   }
 
   .field-container {
-    height: 470px;
-    scroll-snap-type: x proximity;
-  }
-
-  .duel-board-shadow-box {
-    scroll-snap-align: center;
+    height: 300px;
   }
 
   .bottom-bar {
@@ -2564,7 +2820,8 @@ input:focus-visible {
   }
 
   .deck-choices-container,
-  .builder-panels {
+  .builder-panels,
+  .duel-config-grid {
     grid-template-columns: 1fr;
   }
 
@@ -2574,6 +2831,23 @@ input:focus-visible {
 
   .modal {
     width: calc(100vw - 24px);
+  }
+
+  .modal-actions,
+  .card-back-presets {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+
+  .difficulty-options {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .difficulty-options label {
+    justify-content: center;
+    padding-inline: 4px;
+    font-size: 0.72rem;
   }
 }
 
