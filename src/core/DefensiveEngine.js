@@ -10,6 +10,10 @@
  */
 export class DefensiveEngine {
   constructor() {
+    this.reset();
+  }
+
+  reset() {
     this.restrictions = [];
     this.negatedCards = new Set();
     this.negatedChainLinks = new Set();
@@ -56,12 +60,23 @@ export class DefensiveEngine {
     this.negatedCards.delete(cardUid);
   }
 
-  negateChainLink(linkId) {
-    this.negatedChainLinks.add(linkId);
+  getChainLinkKey(linkOrId) {
+    if (linkOrId && typeof linkOrId === 'object') {
+      return linkOrId.key || `${linkOrId.chainId ?? 'legacy'}:${linkOrId.id}`;
+    }
+    return `legacy:${linkOrId}`;
   }
 
-  isChainLinkNegated(linkId) {
-    return this.negatedChainLinks.has(linkId);
+  negateChainLink(linkOrId) {
+    this.negatedChainLinks.add(this.getChainLinkKey(linkOrId));
+  }
+
+  isChainLinkNegated(linkOrId) {
+    return this.negatedChainLinks.has(this.getChainLinkKey(linkOrId));
+  }
+
+  clearChainNegations() {
+    this.negatedChainLinks.clear();
   }
 
   // === PROTECTIONS ===

@@ -29,7 +29,7 @@
             </span>
           </label>
           <label class="config-option">
-            <input type="radio" name="game-mode" value="sandbox">
+            <input type="radio" name="game-mode" value="sandbox" aria-describedby="mode-description">
             <span>
               <strong>Anime Sandbox</strong>
               <small>Recherche API et liberté d’expérimentation activées.</small>
@@ -48,6 +48,24 @@
             Mode strict : decks intégrés légaux ; invocations et effets non pris en charge refusés.
           </p>
           <p id="duel-statistics" class="duel-statistics">0 duel · 0 victoire · 0 défaite</p>
+        </fieldset>
+
+        <fieldset class="config-group series-config">
+          <legend>FORMAT DE SESSION</legend>
+          <label class="config-option">
+            <input type="radio" name="duel-series" value="single" checked>
+            <span>
+              <strong>Duel unique</strong>
+              <small>Une partie indépendante, idéale pour une session rapide.</small>
+            </span>
+          </label>
+          <label class="config-option">
+            <input type="radio" name="duel-series" value="match">
+            <span>
+              <strong>Match officiel</strong>
+              <small>Premier à deux victoires ; un Duel nul peut prolonger le Match au-delà de trois Duels.</small>
+            </span>
+          </label>
         </fieldset>
       </div>
 
@@ -105,7 +123,33 @@
     <div class="modal-content" tabindex="-1">
       <h2 id="gameover-title" class="modal-title">DUEL TERMINÉ</h2>
       <p id="gameover-text" class="modal-text">Le gagnant est déterminé.</p>
-      <button type="button" id="btn-restart-duel" class="btn btn-magenta">RECOMMENCER</button>
+      <div class="modal-actions">
+        <button type="button" id="btn-return-config" class="btn btn-cancel">RETOUR À LA CONFIGURATION</button>
+        <button type="button" id="btn-restart-duel" class="btn btn-magenta">RECOMMENCER</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Match Side Deck Modal -->
+  <div id="side-deck-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="side-deck-title" aria-describedby="side-deck-description" data-dismissible="false">
+    <div class="modal-content side-deck-content" tabindex="-1">
+      <h2 id="side-deck-title" class="modal-title">PRÉPARATION DU DUEL SUIVANT</h2>
+      <p id="side-deck-description" class="modal-text">
+        Échangez une carte de votre Main/Extra Deck avec une carte compatible du Side Deck. Les tailles doivent rester identiques.
+      </p>
+      <p id="side-deck-score" class="match-score-line" aria-live="polite"></p>
+      <p id="side-deck-feedback" class="config-description" role="status" aria-live="polite"></p>
+      <div id="side-deck-editor" class="side-deck-editor"></div>
+      <fieldset id="first-player-choice" class="config-group first-player-choice">
+        <legend>QUI COMMENCE LE PROCHAIN DUEL ?</legend>
+        <label><input type="radio" name="next-first-player" value="player"> Vous</label>
+        <label><input type="radio" name="next-first-player" value="opponent"> Adversaire</label>
+      </fieldset>
+      <div class="modal-actions">
+        <button type="button" id="btn-abandon-match" class="btn btn-cancel">ABANDONNER LE MATCH</button>
+        <button type="button" id="btn-clear-side-selection" class="btn">ANNULER LA SÉLECTION</button>
+        <button type="button" id="btn-start-next-duel" class="btn btn-magenta">DÉMARRER LE DUEL SUIVANT</button>
+      </div>
     </div>
   </div>
 
@@ -116,6 +160,7 @@
     <header class="header-bar glass-panel">
       <div class="title-container">
         <h1>KC HOLOGRAPHICS</h1>
+        <span id="match-status" class="match-status hidden" aria-live="polite"></span>
       </div>
 
       <div class="scoreboard">
@@ -123,7 +168,7 @@
         <div class="player-score opponent">
           <span id="opponent-label" class="player-label">ADVERSAIRE (IA)</span>
           <div class="lp-display-wrapper">
-            <div id="opponent-lp" class="lp-value" aria-live="polite">8000</div>
+            <div id="opponent-lp" class="lp-value" aria-hidden="true">8000</div>
             <div id="opponent-lp-loss" class="lp-loss-indicator hidden"></div>
           </div>
         </div>
@@ -134,7 +179,7 @@
         <!-- Player Score -->
         <div class="player-score player">
           <div class="lp-display-wrapper">
-            <div id="player-lp" class="lp-value" aria-live="polite">8000</div>
+            <div id="player-lp" class="lp-value" aria-hidden="true">8000</div>
             <div id="player-lp-loss" class="lp-loss-indicator hidden"></div>
           </div>
           <span id="player-label" class="player-label">JOUEUR (VOUS)</span>
@@ -145,8 +190,9 @@
         <button type="button" id="btn-toggle-view" class="btn">VUE : ARÈNE</button>
         <button type="button" id="btn-mute" class="btn btn-magenta" aria-pressed="false">SON : ON</button>
         <button type="button" id="btn-settings" class="btn">CONFIG DOS</button>
-        <button type="button" id="btn-reset" class="btn">RÉINITIALISER</button>
+        <button type="button" id="btn-reset" class="btn btn-cancel">ABANDONNER LE DUEL</button>
       </div>
+      <p id="lp-announcer" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
     </header>
 
     <!-- Left Sidebar: Logs and search engine -->
@@ -179,10 +225,13 @@
     </aside>
 
     <!-- Center Section: 3D Arena -->
-    <main class="field-container" id="parallax-container" tabindex="-1">
+    <main class="field-container" id="parallax-container" tabindex="0" aria-describedby="mobile-board-help">
       <!-- Stadium Holographic Searchlights -->
       <div class="stadium-searchlight searchlight-1"></div>
       <div class="stadium-searchlight searchlight-2"></div>
+      <p id="mobile-board-help" class="mobile-board-help">
+        Sur petit écran, faites glisser le plateau horizontalement et verticalement pour atteindre toutes les zones.
+      </p>
 
       <div class="duel-board-shadow-box">
         <div class="duel-board" id="duel-board">
@@ -198,7 +247,7 @@
               <span>Cimetière</span>
               <div id="opponent-gy-count" class="deck-count">0</div>
             </div>
-            <div class="field-zone opponent-field-pos" id="opponent-field-zone" data-zone-type="field" data-side="opponent">
+            <div class="field-zone opponent-field-pos" id="opponent-field-zone" data-zone-type="field" data-side="opponent" role="group">
               <span>Terrain</span>
             </div>
             <div class="extra-deck-zone opponent-extra-pos" id="opponent-extra-zone" data-zone-type="extra" data-side="opponent">
@@ -229,6 +278,12 @@
                 <div class="card-zone opponent-m-zone" data-zone-type="monster" data-side="opponent" data-index="0"></div>
               </div>
             </div>
+          </div>
+
+          <!-- Zones Monstre Extra partagées -->
+          <div class="extra-monster-zones" role="group" aria-label="Zones Monstre Extra partagées">
+            <div class="card-zone extra-m-zone" data-zone-type="extra-monster" data-side="shared" data-index="0"></div>
+            <div class="card-zone extra-m-zone" data-zone-type="extra-monster" data-side="shared" data-index="1"></div>
           </div>
 
           <!-- Arène Centrale Dépliable -->
@@ -269,7 +324,7 @@
               <span>Cimetière</span>
               <div id="player-gy-count" class="deck-count">0</div>
             </div>
-            <div class="field-zone player-field-pos" id="player-field-zone" data-zone-type="field" data-side="player">
+            <div class="field-zone player-field-pos" id="player-field-zone" data-zone-type="field" data-side="player" role="group">
               <span>Terrain</span>
             </div>
             <div class="extra-deck-zone player-extra-pos" id="player-extra-zone" data-zone-type="extra" data-side="player" role="button" tabindex="0" aria-label="Ouvrir votre Extra Deck">
@@ -306,11 +361,19 @@
         </div>
         <ul class="tutorial-list">
           <li><strong>Invocation :</strong> Glissez une carte, ou sélectionnez-la puis choisissez une zone vide.</li>
+          <li><strong>Invocation Normale :</strong> Une seule Invocation ou Pose Normale est autorisée par tour.</li>
           <li><strong>Tribut :</strong> Niv. 5-6 requiert 1 sacrifice, Niv. 7+ en requiert 2.</li>
           <li><strong>Magie/Piège :</strong> Placez-la dans une zone dédiée ; les pièges réagissent à leur timing.</li>
           <li><strong>Combat :</strong> Passez en Battle Phase, cliquez sur votre monstre puis sur une cible rouge.</li>
+          <li><strong>Fin du tour :</strong> Le bouton dédié permet de sauter la Battle Phase depuis Main 1.</li>
           <li><strong>Effet/position :</strong> Cliquez ou touchez votre monstre puis choisissez l’action ; R change directement sa position.</li>
+          <li><strong>Extra Deck :</strong> Fusion, Synchro, Xyz et Lien utilisent les matériels légaux et les Zones Monstre Extra.</li>
+          <li><strong>Pendule :</strong> Activez deux Échelles aux extrémités, puis utilisez le bouton dédié quand il apparaît.</li>
+          <li><strong>Match :</strong> Entre les Duels, échangez une carte compatible avec le Side Deck ; le Dueliste autorisé choisit qui commence.</li>
         </ul>
+        <p class="legal-note">
+          Projet fan non officiel. Yu-Gi-Oh! et les visuels de cartes appartiennent à leurs ayants droit ; aucune affiliation avec Konami.
+        </p>
       </div>
     </aside>
 
@@ -327,7 +390,7 @@
         <p id="discard-status" class="discard-status hidden" role="alert">
           Limite de main : sélectionnez une carte à défausser avec un clic, un toucher, Entrée ou Espace.
         </p>
-        <div class="phase-indicator-box" aria-live="polite" aria-label="Phase actuelle">
+        <div class="phase-indicator-box" role="status" aria-live="polite" aria-label="Phase actuelle">
           <span class="phase-step" id="phase-draw">PIOC</span>
           <span class="phase-step" id="phase-standby">STDBY</span>
           <span class="phase-step" id="phase-main1">MAIN 1</span>
@@ -335,7 +398,12 @@
           <span class="phase-step" id="phase-main2">MAIN 2</span>
           <span class="phase-step" id="phase-end">FIN</span>
         </div>
-        <button type="button" id="btn-next-phase" class="btn">PHASE SUIVANTE</button>
+        <div class="command-actions">
+          <button type="button" id="btn-pendulum-summon" class="btn btn-magenta hidden" aria-describedby="pendulum-status">INVOCATION PENDULE</button>
+          <button type="button" id="btn-next-phase" class="btn">PHASE SUIVANTE</button>
+          <button type="button" id="btn-end-turn" class="btn btn-cancel">FIN DU TOUR</button>
+        </div>
+        <p id="pendulum-status" class="pendulum-status hidden" role="status" aria-live="polite"></p>
       </div>
     </footer>
 
@@ -348,6 +416,16 @@
       <p id="extra-deck-help" class="modal-inline-help">Sélectionnez une carte avec un clic, un toucher, Entrée ou Espace. Échap ferme cette fenêtre.</p>
       <div id="extra-deck-list" class="extra-deck-list">
         <!-- Dynamically populated from playerExtraDeck -->
+      </div>
+    </div>
+
+    <!-- Public pile inspection (Graveyards and banished cards) -->
+    <div id="public-zone-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="public-zone-title" aria-describedby="public-zone-help" data-dismissible="true">
+      <div class="modal-content modal-large public-zone-content" tabindex="-1">
+        <h2 id="public-zone-title" class="modal-title">ZONE PUBLIQUE</h2>
+        <p id="public-zone-help" class="modal-inline-help">Les cartes publiques sont consultables au clavier, au toucher et à la souris. Les cartes bannies face verso restent masquées.</p>
+        <div id="public-zone-list" class="extra-deck-list public-zone-list"></div>
+        <button type="button" id="btn-close-public-zone" class="btn btn-magenta">FERMER</button>
       </div>
     </div>
 
@@ -386,9 +464,10 @@
           <span class="settings-label">OU CHOISIR UN STYLE PRÉDÉFINI :</span>
           <div class="card-back-presets" role="group" aria-label="Styles de dos prédéfinis">
             <button type="button" class="btn btn-preset-back" data-url="/custom-card-back.png">KC Holo Blue</button>
-            <button type="button" class="btn btn-preset-back" data-url="https://images.ygoprodeck.com/images/cards/89631139.jpg">Yeux Bleus</button>
+            <button type="button" class="btn btn-preset-back" data-url="/cards/small/89631139.jpg">Yeux Bleus</button>
             <button type="button" class="btn btn-preset-back" data-url="">Style Classique</button>
           </div>
+          <button type="button" id="btn-toggle-commentary" class="btn" aria-pressed="true">COMMENTAIRE VOCAL : ON</button>
         </div>
         <button type="button" id="btn-close-settings" class="btn btn-magenta btn-block">APPLIQUER</button>
       </div>

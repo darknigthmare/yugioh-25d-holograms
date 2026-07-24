@@ -40,10 +40,11 @@ export const STARTER_CARDS = [
   },
   {
     id: "38033121",
-    name: "Magicienne Sombre",
+    name: "Magicienne des Ténèbres",
     name_en: "Dark Magician Girl",
     type: "Effect Monster",
-    desc: "Gagne 300 ATK pour chaque 'Magicien Sombre' ou 'Magicien Sombre du Chaos' dans les Cimetières.",
+    rulesText: "Gagne 300 ATK pour chaque « Magicien Sombre » ou « Magicien du Chaos Sombre » dans les Cimetières.",
+    desc: "Gagne 300 ATK pour chaque « Magicien Sombre » ou « Magicien du Chaos Sombre » dans les Cimetières.",
     atk: 2000,
     def: 1700,
     level: 6,
@@ -82,13 +83,16 @@ export const STARTER_CARDS = [
     name: "Kuriboh",
     name_en: "Kuriboh",
     type: "Effect Monster",
-    desc: "Durant le calcul des dommages, vous pouvez défausser cette carte pour réduire les dommages de combat de ce combat à 0.",
+    rulesText: "Durant le calcul des dommages, si vous allez recevoir des dommages de combat d'une attaque de monstre de l'adversaire (Effet Rapide) : vous pouvez défausser cette carte ; vous ne recevez aucun dommage de combat de ce combat.",
+    desc: "Durant le calcul des dommages, défaussez cette carte pour ne recevoir aucun dommage de combat de ce combat.",
     atk: 300,
     def: 200,
     level: 1,
     race: "Fiend",
     attribute: "DARK",
-    card_type: "monster"
+    card_type: "monster",
+    effectCode: "KURIBOH_PREVENT_BATTLE_DAMAGE",
+    timing: { event: "DAMAGE_CALCULATION", spellSpeed: 2 }
   },
   {
     id: "13039848",
@@ -121,39 +125,46 @@ export const STARTER_CARDS = [
     name: "Magicien du Temps",
     name_en: "Time Wizard",
     type: "Effect Monster",
-    desc: "Une fois par tour : vous pouvez lancer une pièce. Si vous gagnez, détruisez tous les monstres contrôlés par votre adversaire. Si vous perdez, détruisez tous vos propres monstres.",
+    rulesText: "Une fois par tour : vous pouvez lancer une pièce et appeler pile ou face. Si vous gagnez, détruisez tous les monstres contrôlés par votre adversaire. Si vous perdez, détruisez autant de monstres que possible que vous contrôlez, et si vous le faites, recevez des dommages égaux à la moitié de la somme de l'ATK que ces monstres détruits avaient face recto sur le Terrain.",
+    desc: "Lancez une pièce : détruisez les monstres adverses si l'appel est correct, sinon vos monstres et recevez la moitié de leur ATK face recto actuelle.",
     atk: 500,
     def: 400,
     level: 2,
     race: "Spellcaster",
     attribute: "LIGHT",
-    card_type: "monster"
+    card_type: "monster",
+    effectCode: "TIME_WIZARD_COIN_TOSS"
   },
   {
     id: "63977008",
     name: "Robot Synchronique",
     name_en: "Junk Synchron",
-    type: "Tuner Monster",
-    desc: "Lorsqu'il est Invoqué Normalement, il peut ramener un monstre de Niveau 2 ou moins du Cimetière en Défense avec ses effets annulés.",
+    type: "Tuner Effect Monster",
+    rulesText: "Lorsque cette carte est Invoquée Normalement : vous pouvez cibler 1 monstre de Niveau 2 ou moins dans votre Cimetière ; Invoquez Spécialement la cible en Position de Défense, mais annulez ses effets.",
+    desc: "À son Invocation Normale, ciblez un monstre de Niveau 2 ou moins dans votre Cimetière et Invoquez-le en Défense avec ses effets annulés.",
     atk: 1300,
     def: 500,
     level: 3,
     race: "Warrior",
     attribute: "DARK",
-    card_type: "monster"
+    card_type: "monster",
+    effectCode: "JUNK_SYNCHRON_REVIVE",
+    timing: { event: "SUMMON_SUCCESS", optional: true }
   },
   {
     id: "83764718",
     name: "Monster Reborn",
     name_en: "Monster Reborn",
     type: "Spell Card",
-    desc: "Ciblez 1 monstre dans l'un des Cimetières ; Invoquez-le Spécialement sur votre Terrain.",
+    rulesText: "Ciblez 1 monstre dans l'un des Cimetières ; Invoquez-le Spécialement.",
+    desc: "Ciblez 1 monstre dans l'un des Cimetières ; Invoquez-le Spécialement.",
     atk: 0,
     def: 0,
     level: 0,
     race: "Normal",
     attribute: "SPELL",
-    card_type: "spell"
+    card_type: "spell",
+    effectCode: "MONSTER_REBORN"
   },
   {
     id: "12580477",
@@ -192,7 +203,9 @@ export const STARTER_CARDS = [
     level: 0,
     race: "Normal",
     attribute: "TRAP",
-    card_type: "trap"
+    card_type: "trap",
+    effectCode: "MIRROR_FORCE",
+    timing: { event: "ATTACK_DECLARED", optional: true }
   },
   {
     id: "04206964",
@@ -205,7 +218,9 @@ export const STARTER_CARDS = [
     level: 0,
     race: "Normal",
     attribute: "TRAP",
-    card_type: "trap"
+    card_type: "trap",
+    effectCode: "TRAP_HOLE",
+    timing: { event: "SUMMON_SUCCESS", optional: true }
   },
   {
     id: "24094653",
@@ -219,6 +234,76 @@ export const STARTER_CARDS = [
     race: "Normal",
     attribute: "SPELL",
     card_type: "spell"
+  },
+  {
+    id: "55761792",
+    name: "Rituel du Lustre Noir",
+    name_en: "Black Luster Ritual",
+    type: "Ritual Spell Card",
+    rulesText: "Cette carte est utilisée pour Invoquer Rituellement « Soldat du Lustre Noir ». Vous devez aussi Sacrifier des monstres depuis votre main ou Terrain dont le Niveau total est égal à min. 8.",
+    desc: "Invoquez Rituellement Soldat du Lustre Noir en Sacrifiant depuis la main ou le Terrain des monstres dont la somme des Niveaux est au moins 8.",
+    atk: 0,
+    def: 0,
+    level: 0,
+    race: "Ritual",
+    attribute: "SPELL",
+    card_type: "spell",
+    effectCode: "BLACK_LUSTER_RITUAL",
+    ritualMonsterIds: ["05405694"],
+    requiredRitualLevel: 8
+  },
+  {
+    id: "05405694",
+    name: "Soldat du Lustre Noir",
+    name_en: "Black Luster Soldier",
+    type: "Ritual Monster",
+    rulesText: "Vous pouvez Invoquer Rituellement cette carte avec « Rituel du Lustre Noir ».",
+    desc: "Guerrier Rituel légendaire de Niveau 8.",
+    atk: 3000,
+    def: 2500,
+    level: 8,
+    race: "Warrior",
+    attribute: "EARTH",
+    card_type: "monster",
+    isRitualMonster: true,
+    ritualSpellId: "55761792"
+  },
+  {
+    id: "94415058",
+    name: "Magicien Observateur des Étoiles",
+    name_en: "Stargazer Magician",
+    type: "Pendulum Effect Monster",
+    rulesText: "Effet Pendule (Échelle 1) : si un Monstre Pendule que vous contrôlez combat, votre adversaire ne peut pas activer de Cartes Magie jusqu'à la fin de la Damage Step. Sauf si vous avez une carte « Magicien » ou « Yeux Impairs » dans votre autre Zone Pendule, l'Échelle Pendule de cette carte devient 4. Effet de monstre : une fois par tour, lorsqu'exactement 1 autre Monstre Pendule que vous contrôlez (et aucune autre carte) est renvoyé à votre main par un effet de carte de votre adversaire (sauf durant la Damage Step), vous pouvez Invoquer Spécialement depuis votre main 1 monstre du même nom que le monstre renvoyé.",
+    desc: "Magicien Pendule d'Échelle 1 utilisé avec un autre Magicien Pendule.",
+    atk: 1200,
+    def: 2400,
+    level: 5,
+    race: "Spellcaster",
+    attribute: "DARK",
+    card_type: "monster",
+    isPendulumMonster: true,
+    pendulumScale: 1,
+    pendulumArchetypes: ["Magician"],
+    effectCode: "STARGAZER_MAGICIAN"
+  },
+  {
+    id: "20409757",
+    name: "Magicien Observateur du Temps",
+    name_en: "Timegazer Magician",
+    type: "Pendulum Effect Monster",
+    rulesText: "Effet Pendule (Échelle 8) : vous ne devez contrôler aucun monstre pour activer cette carte. Si un Monstre Pendule que vous contrôlez combat, votre adversaire ne peut pas activer de Cartes Piège jusqu'à la fin de la Damage Step. Sauf si vous avez une carte « Magicien » ou « Yeux Impairs » dans votre autre Zone Pendule, l'Échelle Pendule de cette carte devient 4. Effet de monstre : chaque tour, la première fois qu'une ou plusieurs cartes dans votre Zone Pendule devraient être détruites par un effet de carte de votre adversaire, elles ne sont pas détruites.",
+    desc: "Magicien Pendule d'Échelle 8 qui doit être activé lorsque vous ne contrôlez aucun monstre.",
+    atk: 1200,
+    def: 600,
+    level: 3,
+    race: "Spellcaster",
+    attribute: "DARK",
+    card_type: "monster",
+    isPendulumMonster: true,
+    pendulumScale: 8,
+    pendulumArchetypes: ["Magician"],
+    pendulumActivationRequiresEmptyMonsterField: true,
+    effectCode: "TIMEGAZER_MAGICIAN"
   },
   {
     id: "05053103",
@@ -397,11 +482,11 @@ export function normalizeCardImageId(id) {
 }
 
 export function getCardImageUrl(id) {
-  return `https://images.ygoprodeck.com/images/cards/${normalizeCardImageId(id)}.jpg`;
+  return `/cards/small/${normalizeCardImageId(id)}.jpg`;
 }
 
 export function getCardCroppedImageUrl(id) {
-  return `https://images.ygoprodeck.com/images/cards_cropped/${normalizeCardImageId(id)}.jpg`;
+  return `/cards/cropped/${normalizeCardImageId(id)}.jpg`;
 }
 
 export const EXTRA_DECK_CARDS = [
@@ -425,8 +510,8 @@ export const EXTRA_DECK_CARDS = [
     id: "44508094",
     name: "Dragon Poussière d'Étoile",
     name_en: "Stardust Dragon",
-    type: "Synchro Monster",
-    rulesText: "1 Syntoniseur + 1 monstre non-Syntoniseur ou plus. Lorsqu'une carte ou un effet qui va détruire une ou plusieurs cartes sur le Terrain est activé (Effet Rapide) : vous pouvez Sacrifier cette carte ; annulez l'activation, et si vous le faites, détruisez-la. Durant la End Phase, Invoquez Spécialement cette carte si elle a activé cet effet ce tour.",
+    type: "Synchro Effect Monster",
+    rulesText: "1 Syntoniseur + 1+ monstre non-Syntoniseur. Lorsqu'une carte ou un effet qui va détruire une ou plusieurs cartes sur le Terrain est activé (Effet Rapide) : vous pouvez Sacrifier cette carte ; annulez l'activation, et si vous le faites, détruisez-la. Durant la End Phase, si cet effet a été activé ce tour et n'a pas été annulé : vous pouvez Invoquer Spécialement cette carte depuis votre Cimetière.",
     desc: "1 Syntoniseur + 1 monstre non-Syntoniseur ou plus. (ATK 2500 / DEF 2000)",
     atk: 2500,
     def: 2000,
@@ -436,14 +521,15 @@ export const EXTRA_DECK_CARDS = [
     card_type: "monster",
     extra_type: "synchro",
     belongsInExtraDeck: true,
-    effectCode: "STARDUST_NEGATE_DESTRUCTION"
+    effectCode: "STARDUST_NEGATE_DESTRUCTION",
+    timing: { event: "CHAIN_BUILDING", spellSpeed: 2, optional: true }
   },
   {
     id: "31924889",
     name: "Magicien des Arcanes",
     name_en: "Arcanite Magician",
-    type: "Synchro Monster",
-    rulesText: "1 Syntoniseur + 1 monstre non-Syntoniseur Magicien ou plus. Lors de son Invocation Synchro, placez 2 Compteurs Magie sur cette carte. Elle gagne 1000 ATK pour chaque Compteur Magie. Vous pouvez retirer 1 Compteur Magie, puis ciblez 1 carte contrôlée par votre adversaire ; détruisez la cible.",
+    type: "Synchro Effect Monster",
+    rulesText: "1 Syntoniseur + 1+ monstre non-Syntoniseur Magicien. Si cette carte est Invoquée par Synchronisation : placez 2 Compteurs Magie sur elle. Cette carte gagne 1000 ATK pour chaque Compteur Magie sur elle. Vous pouvez retirer 1 Compteur Magie d'une carte que vous contrôlez, puis ciblez 1 carte contrôlée par votre adversaire ; détruisez la cible.",
     desc: "1 Syntoniseur + 1 monstre non-Syntoniseur Magicien ou plus. Lors de son Invocation Synchro, il reçoit 2 Compteurs Magie et gagne 1000 ATK par compteur.",
     atk: 400,
     def: 1800,
@@ -455,5 +541,46 @@ export const EXTRA_DECK_CARDS = [
     belongsInExtraDeck: true,
     effectCode: "ARCANITE_COUNTERS",
     synchroNonTunerRace: "Spellcaster"
+  },
+  {
+    id: "84013237",
+    name: "Numéro 39 : Utopie",
+    name_en: "Number 39: Utopia",
+    type: "Xyz Effect Monster",
+    rulesText: "2 monstres de Niveau 4. Lorsqu'un monstre déclare une attaque : vous pouvez détacher 1 Matériel de cette carte ; annulez l'attaque. Si cette carte est ciblée par une attaque tant qu'elle n'a aucun Matériel : détruisez cette carte.",
+    desc: "2 monstres de Niveau 4. Peut détacher 1 Matériel pour annuler une attaque.",
+    atk: 2500,
+    def: 2000,
+    level: 0,
+    rank: 4,
+    race: "Warrior",
+    attribute: "LIGHT",
+    card_type: "monster",
+    extra_type: "xyz",
+    belongsInExtraDeck: true,
+    xyzMaterialCount: 2,
+    effectCode: "UTOPIA_NEGATE_ATTACK",
+    timing: { event: "ATTACK_DECLARED", optional: true }
+  },
+  {
+    id: "77637979",
+    name: "LANphorhynchus",
+    name_en: "LANphorhynchus",
+    type: "Link Monster",
+    rulesText: "2 monstres.",
+    desc: "2 monstres. Monstre Lien-2 sans effet.",
+    atk: 1200,
+    def: 0,
+    level: 0,
+    race: "Cyberse",
+    attribute: "LIGHT",
+    card_type: "monster",
+    extra_type: "link",
+    belongsInExtraDeck: true,
+    linkRating: 2,
+    minimumMaterialCount: 2,
+    maximumMaterialCount: 2,
+    requiresEffectMonsters: false,
+    linkArrows: ["bottom-left", "bottom-right"]
   }
 ];

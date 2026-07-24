@@ -7,6 +7,8 @@ import { createCardDOM, createMonsterHologramDOM } from '../src/board.js';
 import { CardState } from '../src/core/CardState.js';
 import { ChainEngine } from '../src/core/ChainEngine.js';
 import { MatchEngine } from '../src/core/MatchEngine.js';
+import { isStrictCardSupported } from '../src/core/StrictCardRegistry.js';
+import { EXTRA_DECK_CARDS, STARTER_CARDS } from '../src/cards.js';
 import { DuelGame } from '../src/game.js';
 
 const POT_OF_GREED_ID = '55144522';
@@ -238,6 +240,23 @@ test('all premade decks meet Main Deck size, copy-limit, and current banlist rul
   }
 });
 
+test('every local card template is accepted by its explicitly registered strict procedure', () => {
+  for (const card of STARTER_CARDS) {
+    assert.equal(
+      isStrictCardSupported(card, 'main'),
+      true,
+      `${card.name}: Main Deck strict procedure must match its card type`
+    );
+  }
+  for (const card of EXTRA_DECK_CARDS) {
+    assert.equal(
+      isStrictCardSupported(card, 'extra'),
+      true,
+      `${card.name}: Extra Deck strict procedure must match its card type`
+    );
+  }
+});
+
 test('strict mode rejects unsupported Extra Deck and Ritual cards from sandbox search', () => {
   const game = new DuelGame({}, { rulesMode: 'strict' });
   const synchro = createCard({
@@ -321,6 +340,7 @@ test('available-action API exposes only actions legal in the current phase', () 
   assert.deepEqual(mainActions.normalSummonCardUids, [normalMonster.uid]);
   assert.deepEqual(mainActions.monsterEffects, [{
     zoneIndex: 0,
+    zoneType: 'main',
     cardUid: timeWizard.uid,
     effect: 'time-wizard'
   }]);
@@ -644,7 +664,7 @@ test('Polymerization may use a face-down monster controlled by its player as Fus
 test('a legal Arcanite Magician Synchro Summon grants two counters and its effect consumes one chosen target', async () => {
   let targetUid = null;
   const game = new DuelGame({
-    onDecision: () => targetUid
+    onDecision: () => targetUid ?? undefined
   });
   game.phases.currentPhase = 'main1';
   game.phases.turnCount = 2;
@@ -735,9 +755,27 @@ test('Dark Magician Girl gains 300 ATK for each relevant magician in either Grav
   opponentMagician.ownerId = 'opponent';
   game.field.sendToGraveyard(opponentMagician, 'opponent');
 
+  const magicianOfBlackChaos = createCard({
+    uid: 'magician-of-black-chaos',
+    id: '30208479',
+    name: 'Magician of Black Chaos',
+    name_en: 'Magician of Black Chaos'
+  });
+  magicianOfBlackChaos.ownerId = 'player';
+  game.field.sendToGraveyard(magicianOfBlackChaos, 'player');
+
+  const falsePartialMatch = createCard({
+    uid: 'skilled-dark-magician',
+    id: '9156135',
+    name: 'Skilled Dark Magician',
+    name_en: 'Skilled Dark Magician'
+  });
+  falsePartialMatch.ownerId = 'opponent';
+  game.field.sendToGraveyard(falsePartialMatch, 'opponent');
+
   game.stateChanged();
 
-  assert.equal(darkMagicianGirl.getAtk(), 2600);
+  assert.equal(darkMagicianGirl.getAtk(), 2900);
 });
 
 test('Time Wizard resolves a chosen coin call and remains once per turn', async () => {
@@ -852,7 +890,11 @@ test('Junk Synchron revives the explicitly chosen level-2 monster in Defense wit
   revived.location = 'graveyard';
 
   const game = new DuelGame({
-    onDecision: () => revived.uid
+    onDecision: request => {
+      if (request?.type === 'activate-monster-effect') return true;
+      if (request?.type === 'select-junk-synchron-target') return revived.uid;
+      return undefined;
+    }
   });
   game.phases.currentPhase = 'main1';
   game.phases.turnCount = 2;
@@ -881,6 +923,47 @@ test('Junk Synchron revives the explicitly chosen level-2 monster in Defense wit
   assert.equal(revived.position, 'defense');
   assert.equal(revived.effectNegated, true);
   assert.equal(revived.effectsNegatedUntilEndTurn, true);
+});
+
+test('Junk Synchron cannot target a properly Summoned monster without a Level', async () => {
+  const rankMonster = createCard({
+    uid: 'junk-synchron-rank-target',
+    name: 'Rank Monster',
+    type: 'Xyz Effect Monster',
+    level: 0,
+    rank: 1,
+    extra_type: 'xyz',
+    belongsInExtraDeck: true
+  });
+  rankMonster.ownerId = 'player';
+  rankMonster.controllerId = 'player';
+  rankMonster.location = 'graveyard';
+  rankMonster.wasProperlySpecialSummoned = true;
+
+  const game = new DuelGame({ onDecision: () => true });
+  game.phases.currentPhase = 'main1';
+  game.phases.turnCount = 2;
+  game.playerGraveyard.push(rankMonster);
+
+  const junkSynchron = createCard({
+    uid: 'junk-synchron-no-level-check',
+    id: '63977008',
+    name: 'Junk Synchron',
+    type: 'Tuner Effect Monster',
+    level: 3,
+    atk: 1300,
+    def: 500
+  });
+  junkSynchron.ownerId = 'player';
+  junkSynchron.controllerId = 'player';
+  junkSynchron.location = 'hand';
+  game.playerHand.push(junkSynchron);
+
+  assert.equal(await withImmediateTimers(
+    () => game.summonMonster(junkSynchron.uid, 0)
+  ), true);
+  assert.ok(game.playerGraveyard.includes(rankMonster));
+  assert.equal(game.playerMonsters.includes(rankMonster), false);
 });
 
 test('Kuriboh can be chosen from hand to reduce direct battle damage to zero', async () => {
@@ -944,7 +1027,11 @@ test('Monster Reborn honors an explicit legal target choice instead of auto-sele
   stronger.location = 'graveyard';
 
   const game = new DuelGame({
-    onDecision: () => chosen.uid
+    onDecision: request => (
+      request?.type === 'select-monster-reborn-target'
+        ? chosen.uid
+        : undefined
+    )
   });
   game.playerGraveyard.push(chosen);
   game.opponentGraveyard.push(stronger);
@@ -1075,6 +1162,11 @@ test('face-down card DOM contains no real name, id, image, ATK, or DEF', () => {
     assert.doesNotMatch(serialized, /99999999/);
     assert.doesNotMatch(serialized, /3141/);
     assert.doesNotMatch(serialized, /2718/);
+    assert.doesNotMatch(
+      hologram.className,
+      /(?:^|\s)attr-[^\s]+|(?:^|\s)power-aura(?:\s|$)/,
+      'observable CSS classes must not reveal a face-down opponent monster attribute or ATK threshold'
+    );
   } finally {
     if (originalDocument === undefined) delete globalThis.document;
     else globalThis.document = originalDocument;

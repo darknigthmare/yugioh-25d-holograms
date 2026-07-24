@@ -8,6 +8,7 @@ let bgmInterval = null;
 let bgmTempo = 95;
 let bgmStep = 0;
 let bgmIsRunning = false;
+let bgmRequested = false;
 let bgmStyle = 'normal'; // 'normal', 'battle', 'danger'
 
 function getAudioContext() {
@@ -329,7 +330,8 @@ export function stopHologramHum() {
 // ----------------------------------------------------
 
 export function startBGM() {
-  if (isMuted || bgmIsRunning) return;
+  bgmRequested = true;
+  if (isMuted || bgmIsRunning || (typeof document !== 'undefined' && document.hidden)) return;
   bgmIsRunning = true;
 
   const ctx = getAudioContext();
@@ -347,11 +349,27 @@ export function startBGM() {
 }
 
 export function stopBGM() {
+  bgmRequested = false;
+  stopBGMScheduler();
+}
+
+function stopBGMScheduler() {
   if (bgmInterval) {
     clearInterval(bgmInterval);
     bgmInterval = null;
   }
   bgmIsRunning = false;
+}
+
+if (typeof document !== 'undefined') {
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      stopBGMScheduler();
+      audioCtx?.suspend?.().catch?.(() => {});
+    } else if (bgmRequested && !isMuted) {
+      startBGM();
+    }
+  });
 }
 
 export function setBGMStyle(style) {

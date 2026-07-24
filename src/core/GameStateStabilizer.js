@@ -5,6 +5,32 @@
  * - Verifies victory conditions (LP to 0, Deck-out, Exodia).
  * - Prevents infinite loops using state hashes.
  */
+const DARK_MAGICIAN_GIRL_GRAVE_IDS = new Set([
+  '46986414', // Dark Magician
+  '30208479' // Magician of Black Chaos
+]);
+
+const DARK_MAGICIAN_GIRL_GRAVE_ALIASES = new Set([
+  'dark magician',
+  'magicien sombre',
+  'magician of black chaos',
+  'magicien du chaos sombre'
+]);
+
+function normalizeExactCardAlias(value) {
+  return String(value || '')
+    .trim()
+    .replace(/\s+/g, ' ')
+    .toLocaleLowerCase('fr');
+}
+
+function countsForDarkMagicianGirl(card) {
+  if (DARK_MAGICIAN_GIRL_GRAVE_IDS.has(String(card?.id))) return true;
+  return [card?.name_en, card?.name]
+    .map(normalizeExactCardAlias)
+    .some(name => DARK_MAGICIAN_GIRL_GRAVE_ALIASES.has(name));
+}
+
 export class GameStateStabilizer {
   constructor() {
     this.maxStabilizationPasses = 100;
@@ -103,12 +129,7 @@ export class GameStateStabilizer {
     const spellcastersInGrave = [
       ...game.field.playerGraveyard,
       ...game.field.opponentGraveyard
-    ].filter(card => (
-      String(card.id) === '46986414'
-      || /Dark Magician$|Magicien Sombre$|Magician of Black Chaos|Magicien Sombre du Chaos/i.test(
-        card.name_en || card.name || ''
-      )
-    )).length;
+    ].filter(countsForDarkMagicianGirl).length;
 
     [...game.field.playerMonsterZones, ...game.field.opponentMonsterZones].forEach(monster => {
       if (monster && String(monster.id) === '38033121' && !monster.effectNegated) {

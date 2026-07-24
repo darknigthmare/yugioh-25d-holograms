@@ -1,6 +1,6 @@
 {
   "name": "yugioh-25d-holograms",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Yu-Gi-Oh! 2.5D Hologram Duel Simulator using CSS 3D transforms and Web Audio API",
   "type": "module",
   "scripts": {

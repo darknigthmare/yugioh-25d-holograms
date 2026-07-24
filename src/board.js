@@ -2,6 +2,37 @@ import { playClick } from './audio.js';
 import { getCardCroppedImageUrl, getCardImageUrl } from './cards.js';
 import { escapeHtml, safeImageUrl } from './security.js';
 
+const boardAnimationTimeouts = new Map();
+let boardAnimationGeneration = 0;
+
+function boardMotionDuration(duration) {
+  return window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ? 0 : duration;
+}
+
+function scheduleBoardAnimation(callback, duration, onCancel = null) {
+  const generation = boardAnimationGeneration;
+  const timeoutId = window.setTimeout(() => {
+    boardAnimationTimeouts.delete(timeoutId);
+    if (generation === boardAnimationGeneration) callback();
+    else onCancel?.();
+  }, boardMotionDuration(duration));
+  boardAnimationTimeouts.set(timeoutId, onCancel);
+  return timeoutId;
+}
+
+export function cancelBoardAnimations(boardEl = null) {
+  boardAnimationGeneration += 1;
+  boardAnimationTimeouts.forEach((onCancel, timeoutId) => {
+    window.clearTimeout(timeoutId);
+    onCancel?.();
+  });
+  boardAnimationTimeouts.clear();
+  boardEl?.querySelectorAll?.(
+    '.attack-projectile, .explosion-container, .raigeki-lightning, '
+    + '.mirror-force-barrier, .reborn-ankh'
+  ).forEach(element => element.remove());
+}
+
 /**
  * Initializes the 3D board tilt parallax effect based on mouse move.
  */
@@ -63,7 +94,13 @@ export function createCardDOM(card, faceDown = false, concealIdentity = faceDown
     cardEl.dataset.cardVisible = 'true';
   }
 
-  const customCardBack = safeImageUrl(localStorage.getItem('custom_card_back') || '');
+  let storedCardBack = '';
+  try {
+    storedCardBack = localStorage.getItem('custom_card_back') || '';
+  } catch {
+    storedCardBack = '';
+  }
+  const customCardBack = safeImageUrl(storedCardBack);
   const frontImage = concealIdentity
     ? ''
     : safeImageUrl(
@@ -114,18 +151,27 @@ export function createCardDOM(card, faceDown = false, concealIdentity = faceDown
  */
 export function createMonsterHologramDOM(card, isOpponent = false) {
   const holo = document.createElement('div');
+  const isDefense = card.position === 'defense';
+  const isFaceDown = card.isSetFaceDown || false;
+  const concealIdentity = isFaceDown && isOpponent;
   const attrClass = card.attribute
     ? String(card.attribute).toLowerCase().replace(/[^a-z0-9_-]/g, '')
     : 'light';
-  const isDefense = card.position === 'defense';
-  const isFaceDown = card.isSetFaceDown || false;
 
   const atk = typeof card.getAtk === 'function' ? card.getAtk() : card.atk;
   const def = typeof card.getDef === 'function' ? card.getDef() : card.def;
   const isPowerhouse = atk >= 2500;
 
-  holo.className = `monster-hologram-entity attr-${attrClass} ${isOpponent ? 'opponent-holo' : ''} ${isDefense ? 'defense-mode' : ''} ${isFaceDown ? 'face-down' : ''} ${isPowerhouse ? 'power-aura' : ''}`;
-  const concealIdentity = isFaceDown && isOpponent;
+  // Attribute and ATK-threshold classes are observable DOM data. Never attach
+  // them to an opponent's face-down monster.
+  holo.className = [
+    'monster-hologram-entity',
+    concealIdentity ? 'concealed-hologram' : `attr-${attrClass}`,
+    isOpponent ? 'opponent-holo' : '',
+    isDefense ? 'defense-mode' : '',
+    isFaceDown ? 'face-down' : '',
+    !concealIdentity && isPowerhouse ? 'power-aura' : ''
+  ].filter(Boolean).join(' ');
   if (concealIdentity) {
     holo.dataset.concealed = 'true';
     holo.setAttribute('aria-hidden', 'true');
@@ -210,7 +256,7 @@ export function spawnHologram(zoneEl, card, isOpponent = false) {
       holo.classList.add('spawning');
 
       // After spawning animation finishes (approx 800ms)
-      setTimeout(() => {
+      scheduleBoardAnimation(() => {
         holo.classList.remove('spawning');
         holo.classList.add('active-hologram');
       }, 800);
@@ -221,6 +267,86 @@ export function spawnHologram(zoneEl, card, isOpponent = false) {
       flatCard.classList.add('placed');
     });
   }
+}
+
+/**
+ * Resolves either a legacy Main Monster Zone reference or a shared Extra
+ * Monster Zone reference to its DOM node. Extra Monster Zones are shared, so
+ * their current controller is stored on the zone instead of encoded in a
+ * player/opponent class name.
+ */
+export function findMonsterZoneElement(boardEl, side, reference) {
+  if (!boardEl) return null;
+  const zoneType = reference?.zoneType === 'extra' || reference?.zoneType === 'extra_monster'
+    ? 'extra'
+    : 'main';
+  const zoneIndex = Number(reference?.zoneIndex ?? reference);
+  if (!Number.isInteger(zoneIndex)) return null;
+  if (zoneType === 'extra') {
+    return boardEl.querySelector(
+      `[data-zone-type="extra-monster"][data-index="${zoneIndex}"], `
+      + `.extra-monster-zone[data-index="${zoneIndex}"]`
+    );
+  }
+  return boardEl.querySelector(`.card-zone.${side}-m-zone[data-index="${zoneIndex}"]`);
+}
+
+/**
+ * Renders the two shared Extra Monster Zones whenever the matching DOM nodes
+ * are present. The optional renderer makes this helper deterministic in unit
+ * tests and lets UI adapters reuse their own animation policy.
+ */
+export function syncExtraMonsterZones(boardEl, gameState, renderer = spawnHologram) {
+  if (!boardEl || !gameState) return 0;
+  const entries = Array.isArray(gameState.extraMonsterZones)
+    ? gameState.extraMonsterZones
+    : [];
+  let synced = 0;
+
+  for (let zoneIndex = 0; zoneIndex < 2; zoneIndex += 1) {
+    const zoneEl = findMonsterZoneElement(boardEl, null, {
+      zoneType: 'extra',
+      zoneIndex
+    });
+    if (!zoneEl) continue;
+    synced += 1;
+
+    const entry = entries[zoneIndex] || null;
+    const card = entry?.card || null;
+    const controllerId = entry?.controllerId || '';
+    zoneEl.dataset.controllerId = controllerId;
+    zoneEl.classList?.toggle?.('player-controlled', controllerId === 'player');
+    zoneEl.classList?.toggle?.('opponent-controlled', controllerId === 'opponent');
+
+    if (!card) {
+      zoneEl.innerHTML = '';
+      delete zoneEl.dataset.renderedCardUid;
+      zoneEl.dataset.ownerLabel = 'LIBRE';
+      zoneEl.tabIndex = -1;
+      zoneEl.setAttribute?.('aria-disabled', 'true');
+      zoneEl.setAttribute?.(
+        'aria-label',
+        `Zone Monstre Extra partagée ${zoneIndex + 1}, libre`
+      );
+      continue;
+    }
+
+    zoneEl.dataset.ownerLabel = controllerId === 'opponent' ? 'IA' : 'VOUS';
+    zoneEl.tabIndex = 0;
+    zoneEl.setAttribute?.('aria-disabled', 'false');
+    zoneEl.setAttribute?.(
+      'aria-label',
+      `Zone Monstre Extra ${zoneIndex + 1}, ${controllerId === 'opponent' ? 'adversaire' : 'joueur'}, ${card.name}`
+    );
+    const renderedUid = zoneEl.dataset.renderedCardUid;
+    if (String(renderedUid || '') !== String(card.uid || '')) {
+      renderer(zoneEl, card, controllerId === 'opponent');
+      zoneEl.dataset.renderedCardUid = String(card.uid || '');
+    } else {
+      zoneEl.classList?.toggle?.('defense-position', card.position === 'defense');
+    }
+  }
+  return synced;
 }
 
 /**
@@ -286,19 +412,24 @@ export function animateAttack(boardEl, srcZone, destZone, color = '#00ffff', pro
       tail.style.transform = `rotateZ(${angle}deg)`;
 
       // Animate projectile position
-      proj.style.transition = 'all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      proj.style.transition = boardMotionDuration(500) === 0
+        ? 'none'
+        : 'all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
       proj.style.left = `${destX}px`;
       proj.style.top = `${destY}px`;
     });
 
     // After animation finishes
-    setTimeout(() => {
+    scheduleBoardAnimation(() => {
       proj.remove();
 
       // Trigger hit explosion in the target zone
       createExplosion(boardEl, destX, destY, color);
       resolve();
-    }, 500);
+    }, 500, () => {
+      proj.remove();
+      resolve();
+    });
   });
 }
 
@@ -344,7 +475,7 @@ export function createExplosion(boardEl, x, y, color = '#ff3300') {
   boardEl.appendChild(expl);
 
   // Remove after animation finishes
-  setTimeout(() => {
+  scheduleBoardAnimation(() => {
     expl.remove();
   }, 1000);
 }
@@ -353,7 +484,16 @@ export function createExplosion(boardEl, x, y, color = '#ff3300') {
  * Triggers lightning rain cinematic across target side monster zones
  */
 export function triggerRaigekiCinematic(boardEl, targetSide) {
-  const monsterZones = boardEl.querySelectorAll(`.card-zone.${targetSide}-m-zone`);
+  const mainMonsterZones = [
+    ...boardEl.querySelectorAll(`.card-zone.${targetSide}-m-zone`)
+  ];
+  const extraMonsterZones = [
+    ...boardEl.querySelectorAll(
+      `[data-zone-type="extra-monster"][data-controller-id="${targetSide}"], `
+      + `.extra-monster-zone[data-controller-id="${targetSide}"]`
+    )
+  ];
+  const monsterZones = [...new Set([...mainMonsterZones, ...extraMonsterZones])];
   monsterZones.forEach((zone) => {
     const coords = getLocalCoords(zone, boardEl);
     const lightning = document.createElement('div');
@@ -362,7 +502,7 @@ export function triggerRaigekiCinematic(boardEl, targetSide) {
     lightning.style.top = `${coords.y - 120}px`;
     boardEl.appendChild(lightning);
 
-    setTimeout(() => lightning.remove(), 800);
+    scheduleBoardAnimation(() => lightning.remove(), 800);
   });
 }
 
@@ -377,7 +517,7 @@ export function triggerMirrorForceCinematic(boardEl, side) {
   barrier.style.top = side === 'player' ? '65%' : '35%';
   boardEl.appendChild(barrier);
 
-  setTimeout(() => barrier.remove(), 1500);
+  scheduleBoardAnimation(() => barrier.remove(), 1500);
 }
 
 /**
@@ -401,5 +541,5 @@ export function triggerRebornCinematic(boardEl, side, zoneIndex) {
   `;
   boardEl.appendChild(ankh);
 
-  setTimeout(() => ankh.remove(), 1500);
+  scheduleBoardAnimation(() => ankh.remove(), 1500);
 }

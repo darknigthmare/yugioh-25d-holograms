@@ -4,9 +4,18 @@ const API_BASE_URL = 'https://db.ygoprodeck.com/api/v7/cardinfo.php';
 
 // Cache in localStorage to respect YGOPRODeck's guidelines and avoid rate-limiting
 const CACHE_PREFIX = 'ygo_card_';
-const CACHE_VERSION = 2;
+const CACHE_VERSION = 3;
 const CACHE_TTL_MS = 7 * 24 * 60 * 60 * 1000;
 const LOCAL_CARDS = [...STARTER_CARDS, ...EXTRA_DECK_CARDS];
+
+function hasSameOriginCachedImages(card) {
+  return (
+    typeof card?.image_url === 'string'
+    && card.image_url.startsWith('/')
+    && typeof card?.image_url_cropped === 'string'
+    && card.image_url_cropped.startsWith('/')
+  );
+}
 
 function getCachedCard(id) {
   try {
@@ -19,6 +28,7 @@ function getCachedCard(id) {
       parsed?.version !== CACHE_VERSION
       || typeof parsed.cachedAt !== 'number'
       || Date.now() - parsed.cachedAt > CACHE_TTL_MS
+      || !hasSameOriginCachedImages(parsed.card)
     ) {
       localStorage.removeItem(CACHE_PREFIX + id);
       return null;
@@ -48,8 +58,6 @@ function setCachedCard(id, data) {
  * Normalizes card data from YGOPRODeck API format to our app format
  */
 export function normalizeCardData(apiCard) {
-  const imageObj = apiCard.card_images?.[0] || {};
-
   const type = apiCard.type || 'Normal Monster';
   const typeLower = type.toLowerCase();
   let cardType = 'monster';
@@ -96,9 +104,11 @@ export function normalizeCardData(apiCard) {
     // API cards remain sandbox-only until their complete effect/procedure is
     // explicitly registered by the local rules engine.
     supportedInStrict: false,
-    // Store image URLs directly
-    image_url: imageObj.image_url || `https://images.ygoprodeck.com/images/cards/${apiCard.id}.jpg`,
-    image_url_cropped: imageObj.image_url_cropped || `https://images.ygoprodeck.com/images/cards_cropped/${apiCard.id}.jpg`
+    // Remote Sandbox cards keep their text and stats, but deliberately use a
+    // same-origin placeholder. YGOPRODeck asks consumers not to hotlink its
+    // image CDN; only the explicitly supported local pool is re-hosted.
+    image_url: '/custom-card-back.png',
+    image_url_cropped: '/custom-card-back.png'
   };
 }
 

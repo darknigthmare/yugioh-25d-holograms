@@ -4,6 +4,7 @@
  */
 export class ChainEngine {
   constructor() {
+    this.nextChainId = 1;
     this.chainStack = [];
     this.chainStatus = 'idle'; // 'idle', 'building', 'resolving'
     this.triggerQueue = []; // Queued trigger events that occurred during chain resolutions
@@ -11,12 +12,14 @@ export class ChainEngine {
     this.consecutivePasses = 0;
   }
 
-  reset() {
+  reset({ preserveSequence = false } = {}) {
     this.chainStack = [];
     this.chainStatus = 'idle';
     this.triggerQueue = [];
     this.priorityPlayerId = null;
     this.consecutivePasses = 0;
+    this.activeChainId = null;
+    if (!preserveSequence) this.nextChainId = 1;
   }
 
   getSpellSpeed(card) {
@@ -47,10 +50,16 @@ export class ChainEngine {
 
   pushChainLink(activatingPlayerId, cardState, targets = [], options = {}) {
     const linkSpeed = this.getSpellSpeed(cardState);
+    if (this.chainStack.length === 0) {
+      this.activeChainId = this.nextChainId;
+      this.nextChainId += 1;
+    }
     const linkId = this.chainStack.length + 1;
 
     const link = {
       id: linkId,
+      chainId: this.activeChainId,
+      key: `${this.activeChainId}:${linkId}`,
       activatingPlayerId,
       sourceCard: cardState,
       spellSpeed: linkSpeed,
