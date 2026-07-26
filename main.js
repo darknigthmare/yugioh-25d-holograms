@@ -1,6 +1,8 @@
 import { DuelGame } from './src/game.js';
 import { MatchController } from './src/ui/MatchController.js';
+import { DuelViewController } from './src/ui/DuelViewController.js';
 import { isHandPlacementDestinationLegal } from './src/ui/HandPlacement.js';
+import { isFieldSpellCard } from './src/core/FieldSpellRules.js';
 import {
   initBoardTilt,
   createCardDOM,
@@ -39,6 +41,7 @@ import { escapeHtml, safeImageUrl } from './src/security.js';
 
 let game = null;
 let matchController = null;
+let duelViewController = null;
 let pendingMatchLaunch = null;
 let sideDeckDraft = null;
 let selectedSideDeckCard = null;
@@ -64,7 +67,8 @@ const STORAGE_KEYS = Object.freeze({
   duelSeries: 'ygo_duel_series',
   customDeck: 'ygo_custom_deck',
   statistics: 'ygo_duel_statistics',
-  activeMatch: 'ygo_active_match_v1'
+  activeMatch: 'ygo_active_match_v1',
+  realBaseEnvironment: 'ygo_real_base_environment'
 });
 
 function readStoredValue(key, fallback = null) {
@@ -277,6 +281,9 @@ requestAnimationFrame(updateResponsiveBoardScale);
 const muteBtn = document.getElementById('btn-mute');
 let uiMuted = readStoredValue(STORAGE_KEYS.muted) === 'true';
 let voiceCommentaryPreferred = readStoredValue(STORAGE_KEYS.voiceCommentary, 'true') !== 'false';
+let realBaseEnvironmentId = readStoredValue(STORAGE_KEYS.realBaseEnvironment) === 'cave'
+  ? 'cave'
+  : 'clearing';
 let speechAnnouncerEnabled = voiceCommentaryPreferred && !uiMuted;
 if (uiMuted) {
   toggleMute();
@@ -581,6 +588,16 @@ function prepareActionDialog(card, { zoneType, index, isPendulumScale }) {
     return;
   }
 
+  if (zoneType === 'field') {
+    actionModalTitle.textContent = 'MAGIE DE TERRAIN';
+    actionModalDescription.textContent =
+      `Activez ${card?.name || 'cette carte'} ou posez-la face cachée dans votre Zone Terrain.`;
+    btnFaceUp.textContent = 'ACTIVER LE TERRAIN';
+    btnFaceDown.textContent = 'POSER FACE CACHÉE';
+    btnFaceDown.classList.remove('hidden');
+    return;
+  }
+
   actionModalTitle.textContent = 'ACTION SUR LE TERRAIN';
   actionModalDescription.textContent = 'Choisissez l’action autorisée pour cette carte et cette zone.';
   btnFaceUp.textContent = zoneType === 'monster'
@@ -602,6 +619,8 @@ if (actionModal && btnFaceUp && btnFaceDown && btnCancel) {
       await game.summonMonster(uid, index);
     } else if (isPendulumScale) {
       await game.activatePendulumScale(uid, index, 'player');
+    } else if (zoneType === 'field') {
+      await game.activateFieldSpellFromHand(uid, 'player');
     } else if (zoneType === 'spell') {
       await game.playSpellTrap(uid, index);
     }
@@ -616,6 +635,8 @@ if (actionModal && btnFaceUp && btnFaceDown && btnCancel) {
 
     if (zoneType === 'monster') {
       await game.setMonsterFaceDown(uid, index);
+    } else if (zoneType === 'field') {
+      await game.setFieldSpellFaceDownFromHand(uid, 'player');
     } else if (zoneType === 'spell') {
       await game.setSpellTrapFaceDown(uid, index);
     }
@@ -894,6 +915,7 @@ const closeSettingsBtn = document.getElementById('btn-close-settings');
 const inputCardBack = document.getElementById('input-card-back');
 const presetBackButtons = document.querySelectorAll('.btn-preset-back');
 const commentaryToggleBtn = document.getElementById('btn-toggle-commentary');
+const realEnvironmentSelect = document.getElementById('select-real-environment');
 
 function updateCommentaryControl() {
   if (!commentaryToggleBtn) return;
@@ -910,6 +932,9 @@ if (settingsModal && settingsBtn && closeSettingsBtn && inputCardBack) {
   settingsBtn.addEventListener('click', () => {
     inputCardBack.value = readStoredValue('custom_card_back', '');
     inputCardBack.removeAttribute('aria-invalid');
+    if (realEnvironmentSelect) {
+      realEnvironmentSelect.value = realBaseEnvironmentId;
+    }
     openDialog(settingsModal, inputCardBack);
   });
 
@@ -930,6 +955,11 @@ if (settingsModal && settingsBtn && closeSettingsBtn && inputCardBack) {
     }
 
     writeStoredValue('custom_card_back', validatedUrl);
+    realBaseEnvironmentId = realEnvironmentSelect?.value === 'cave'
+      ? 'cave'
+      : 'clearing';
+    writeStoredValue(STORAGE_KEYS.realBaseEnvironment, realBaseEnvironmentId);
+    duelViewController?.setEnvironmentOptions({ baseEnvironmentId: realBaseEnvironmentId });
     inputCardBack.removeAttribute('aria-invalid');
     closeDialog(settingsModal);
     announceStatus('Dos de carte appliqué.');
@@ -952,35 +982,29 @@ commentaryToggleBtn?.addEventListener('click', () => {
   );
 });
 
-// Setup View Toggle (Arena vs Compact)
+// The three presentations share the exact same DuelGame instance.  Only the
+// immersive decorative layer is lazy-loaded when "Vue Réelle" is requested.
 const toggleViewBtn = document.getElementById('btn-toggle-view');
 const boardEl = document.getElementById('duel-board');
-toggleViewBtn.addEventListener('click', () => {
-  if (!boardEl.classList.contains('arena-mode') && !boardEl.classList.contains('real-mode')) {
-    // Transition from Compact to Arena
-    boardEl.classList.add('arena-mode');
-    toggleViewBtn.textContent = 'VUE : ARÈNE';
-    toggleViewBtn.classList.remove('btn-magenta');
-    toggleViewBtn.style.borderColor = 'var(--neon-cyan)';
+duelViewController = new DuelViewController({
+  buttonElement: toggleViewBtn,
+  boardElement: boardEl,
+  gameState: game,
+  environmentOptions: { baseEnvironmentId: realBaseEnvironmentId },
+  onModeChange: mode => {
     playSummon();
-    addLogEntry("Mode Arène activé ! Séparation du plateau et projection des hologrammes dans l'arène.", "system");
-  } else if (boardEl.classList.contains('arena-mode')) {
-    // Transition from Arena to Real Mode (Taille réelle)
-    boardEl.classList.remove('arena-mode');
-    boardEl.classList.add('real-mode');
-    toggleViewBtn.textContent = 'VUE : RÉELLE';
-    toggleViewBtn.classList.add('btn-magenta');
-    toggleViewBtn.style.borderColor = 'var(--neon-magenta)';
-    playSummon();
-    addLogEntry("Mode Réel activé ! Les monstres apparaissent à TAILLE RÉELLE au centre !", "system");
-  } else {
-    // Transition from Real Mode to Compact
-    boardEl.classList.remove('real-mode');
-    toggleViewBtn.textContent = 'VUE : COMPACTE';
-    toggleViewBtn.classList.remove('btn-magenta');
-    toggleViewBtn.style.borderColor = 'var(--neon-cyan)';
-    playSummon();
-    addLogEntry("Mode Compact activé ! Réunification du plateau de jeu.", "system");
+    const messages = {
+      compact: 'Vue Compacte activée.',
+      arena: 'Vue Arène activée : le plateau et les hologrammes sont espacés.',
+      real: 'Vue Réelle activée : console, plateforme et environnement immersif.'
+    };
+    addLogEntry(messages[mode] || 'Vue du duel modifiée.', 'system');
+    announceStatus(messages[mode] || 'Vue du duel modifiée.');
+  },
+  onError: error => {
+    console.error('Vue Réelle indisponible :', error);
+    addLogEntry('La Vue Réelle est indisponible. La vue classique reste jouable.', 'danger');
+    announceStatus('Vue Réelle indisponible. Retour à la vue précédente.');
   }
 });
 
@@ -1571,6 +1595,9 @@ async function resolveOpeningFirstPlayer(sessionLabel = 'Duel') {
  * Initializes the game core
  */
 async function initGameInstance(matchLaunch = null) {
+  // Every Duel starts in the unchanged compact presentation.  Switching views
+  // later never resets the game state.
+  await duelViewController?.setMode('compact');
   lpAnimationFrames.forEach(frameId => cancelAnimationFrame(frameId));
   lpAnimationFrames.clear();
   cancelUiAnimations();
@@ -1962,6 +1989,7 @@ function updateUI(gameState) {
     });
   }
   updateBoardZoneAccessibility();
+  duelViewController?.update(gameState);
 }
 
 /**
@@ -2074,7 +2102,10 @@ function renderHand(handCards) {
         canUseHand
         && (
           (card.card_type === 'monster' && legalNormalSummons.has(String(card.uid)))
-          || (card.card_type !== 'monster' && hasOpenSpellZone)
+          || (
+            card.card_type !== 'monster'
+            && (isFieldSpellCard(card) || hasOpenSpellZone)
+          )
         )
       )
     );
@@ -2175,10 +2206,14 @@ function renderHand(handCards) {
  * Drag and drop zone highlighting helper
  */
 function highlightValidDropZones(card) {
-  const selectors = card?.card_type === 'monster'
-    ? ['.player-m-zone']
-    : ['.player-s-zone'];
-  if (card?.isPendulumMonster) selectors.push('.player-s-zone');
+  const selectors = isFieldSpellCard(card)
+    ? ['.player-field-pos']
+    : card?.card_type === 'monster'
+      ? ['.player-m-zone']
+      : ['.player-s-zone'];
+  if (card?.isPendulumMonster && !selectors.includes('.player-s-zone')) {
+    selectors.push('.player-s-zone');
+  }
   const controlledMonsterCount = game?.getMonsterEntries?.('player')?.length || 0;
   document.querySelectorAll(selectors.join(',')).forEach(zone => {
     const legal = isHandPlacementDestinationLegal({
@@ -2200,6 +2235,15 @@ function clearDropZoneHighlights() {
     zone.classList.remove('active-zone', 'drag-over');
   });
   updateBoardZoneAccessibility();
+}
+
+function clearSelectedHandCard() {
+  selectedHandUid = null;
+  clearDropZoneHighlights();
+  document.querySelectorAll('#player-hand .card-entity').forEach(element => {
+    element.classList.remove('selected-hand-card');
+    element.setAttribute('aria-pressed', 'false');
+  });
 }
 
 async function openMonsterActionMenu(zoneReference) {
@@ -2249,11 +2293,15 @@ document.querySelectorAll('.card-zone').forEach(zone => {
     ? 'monstre'
     : zone.dataset.zoneType === 'extra-monster'
       ? 'Monstre Extra'
-      : 'magie ou piège';
+      : zone.dataset.zoneType === 'field'
+        ? 'Terrain'
+        : 'magie ou piège';
   zone.setAttribute('role', 'button');
   zone.tabIndex = -1;
   zone.setAttribute('aria-disabled', 'true');
-  const initialZoneLabel = `Zone ${zoneTypeLabel} ${zoneSideLabel} ${Number(zone.dataset.index) + 1}`;
+  const initialZoneLabel = zone.dataset.zoneType === 'field'
+    ? `Zone ${zoneTypeLabel} ${zoneSideLabel}`
+    : `Zone ${zoneTypeLabel} ${zoneSideLabel} ${Number(zone.dataset.index) + 1}`;
   zone.dataset.baseAriaLabel = initialZoneLabel;
   zone.setAttribute('aria-label', initialZoneLabel);
 
@@ -2333,8 +2381,7 @@ document.querySelectorAll('.card-zone').forEach(zone => {
 
       if (selectedCard && placementIsLegal) {
         const uid = selectedHandUid;
-        selectedHandUid = null;
-        clearDropZoneHighlights();
+        clearSelectedHandCard();
 
         if (selectedCard.type?.includes('Link')) {
           await game.summonMonster(uid, index);
@@ -2374,11 +2421,22 @@ document.querySelectorAll('.card-zone').forEach(zone => {
     }
 
     // Intercept click to activate a face-down Spell/Trap card during Main Phase
-    if (side === 'player' && zoneType === 'spell' && game.currentTurn === 'player' && game.currentPhase.startsWith('main')) {
-      const card = game.playerSpells[index];
+    if (
+      side === 'player'
+      && ['spell', 'field'].includes(zoneType)
+      && game.currentTurn === 'player'
+      && game.currentPhase.startsWith('main')
+    ) {
+      const card = zoneType === 'field'
+        ? game.playerFieldSpell
+        : game.playerSpells[index];
       if (card && card.isSetFaceDown) {
         if (confirm(`Voulez-vous activer la carte face cachée : ${card.name} ?`)) {
-          game.activateSetSpellTrap(index);
+          if (zoneType === 'field') {
+            await game.activateSetFieldSpell('player');
+          } else {
+            await game.activateSetSpellTrap(index);
+          }
         }
         return;
       }
@@ -2481,6 +2539,30 @@ document.querySelectorAll('.card-zone').forEach(zone => {
   });
 });
 
+// Some browsers flatten nested CSS-3D hit testing to the board plane. If a
+// visible legal zone is inside the pointer coordinates but the compositor
+// reports the board itself, forward the activation to that exact DOM zone.
+// The synthetic zone click then follows the normal shared placement handler.
+document.getElementById('duel-board')?.addEventListener('click', event => {
+  if (event.target.closest?.('.card-zone')) return;
+
+  const matchingZone = [...document.querySelectorAll('.card-zone.active-zone')]
+    .find(zone => {
+      const bounds = zone.getBoundingClientRect();
+      return (
+        event.clientX >= bounds.left
+        && event.clientX <= bounds.right
+        && event.clientY >= bounds.top
+        && event.clientY <= bounds.bottom
+      );
+    });
+
+  if (!matchingZone) return;
+  event.preventDefault();
+  event.stopPropagation();
+  matchingZone.click();
+});
+
 // Click outside board zones cancels attacker select, tribute summon or synchro summon
 document.addEventListener('click', (e) => {
   if (
@@ -2510,12 +2592,7 @@ document.addEventListener('click', (e) => {
       }
     }
     if (selectedHandUid !== null) {
-      selectedHandUid = null;
-      clearDropZoneHighlights();
-      document.querySelectorAll('#player-hand .card-entity').forEach(element => {
-        element.classList.remove('selected-hand-card');
-        element.setAttribute('aria-pressed', 'false');
-      });
+      clearSelectedHandCard();
     }
   }
 });
@@ -2793,6 +2870,10 @@ function restorePersistedMatchBetweenDuels() {
 }
 
 function returnToConfiguration({ announce = false } = {}) {
+  // Leaving the Duel also tears down the active immersive presentation. The
+  // cached module may be reused later, but no Real-view animation remains
+  // visible behind the configuration dialog.
+  void duelViewController?.setMode('compact');
   activeDuelInProgress = false;
   duelStartedAt = 0;
   lastDuelResult = null;
@@ -3459,10 +3540,12 @@ function handleGameAnimations(event) {
     const card = event.card;
     const faceDown = event.faceDown || false;
 
-    const zoneQuery = `.card-zone.${side}-s-zone[data-index="${idx}"]`;
+    const zoneQuery = event.zoneType === 'field'
+      ? `#${side}-field-zone`
+      : `.card-zone.${side}-s-zone[data-index="${idx}"]`;
     const zoneEl = boardEl.querySelector(zoneQuery);
 
-    if (zoneEl) {
+    if (zoneEl && card) {
       zoneEl.innerHTML = '';
       const flatCard = createCardDOM(card, faceDown, Boolean(faceDown && side === 'opponent'));
       flatCard.classList.add('card-flat-on-board');
@@ -3474,6 +3557,13 @@ function handleGameAnimations(event) {
         flatCard.classList.add('placed');
         playClick(getZonePan(side, idx));
       }
+    }
+    if (event.zoneType === 'field' && side === 'player' && !event.fromSet) {
+      // The live card has already left the hand while its activation Chain is
+      // pending. Refresh only the hand representation; a full environment
+      // update would incorrectly replace the previous scenery before the
+      // activation resolves successfully.
+      renderHand(game?.playerHand || []);
     }
   }
   else if (event.type === 'clear-spell') {
@@ -3851,7 +3941,9 @@ function syncZoneCard(zoneEl, card, side) {
     const zoneTypeLabel = ['monster', 'extra-monster'].includes(zoneEl.dataset.zoneType)
       ? (zoneEl.dataset.zoneType === 'extra-monster' ? 'Monstre Extra' : 'monstre')
       : (zoneEl.dataset.zoneType === 'field' ? 'Terrain' : 'magie ou piège');
-    const zoneNumber = zoneEl.dataset.index === undefined ? '' : ` ${Number(zoneEl.dataset.index) + 1}`;
+    const zoneNumber = zoneEl.dataset.zoneType === 'field' || zoneEl.dataset.index === undefined
+      ? ''
+      : ` ${Number(zoneEl.dataset.index) + 1}`;
     const baseAriaLabel = concealIdentity
       ? `Zone ${zoneTypeLabel}${zoneNumber} ${zoneSideLabel}, carte face cachée`
       : `Zone ${zoneTypeLabel}${zoneNumber} ${zoneSideLabel}, ${card.name}${faceDown ? ', face cachée' : ''}${side === 'player' ? '. Ouvrir les actions' : ''}`;
@@ -3939,7 +4031,9 @@ function syncZoneCard(zoneEl, card, side) {
     const zoneTypeLabel = ['monster', 'extra-monster'].includes(zoneEl.dataset.zoneType)
       ? (zoneEl.dataset.zoneType === 'extra-monster' ? 'Monstre Extra' : 'monstre')
       : (zoneEl.dataset.zoneType === 'field' ? 'Terrain' : 'magie ou piège');
-    const zoneNumber = zoneEl.dataset.index === undefined ? '' : ` ${Number(zoneEl.dataset.index) + 1}`;
+    const zoneNumber = zoneEl.dataset.zoneType === 'field' || zoneEl.dataset.index === undefined
+      ? ''
+      : ` ${Number(zoneEl.dataset.index) + 1}`;
     const baseAriaLabel = `Zone ${zoneTypeLabel}${zoneNumber} ${zoneSideLabel}, vide`;
     zoneEl.dataset.baseAriaLabel = baseAriaLabel;
     zoneEl.setAttribute('aria-label', baseAriaLabel);
@@ -3955,6 +4049,8 @@ if (import.meta.env.DEV) {
     configurable: true,
     value: Object.freeze({
       getGame: () => game,
+      getViewMode: () => duelViewController?.getMode() || 'compact',
+      setViewMode: mode => duelViewController?.setMode(mode),
       getMatchView: () => matchController?.getViewModel() || null,
       finishDuel: (winner, reason = 'lp_zero') => game?.endGame(winner, reason)
     })

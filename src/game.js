@@ -12,6 +12,13 @@ import { TurnEngine } from './core/TurnEngine.js';
 import { DefensiveEngine } from './core/DefensiveEngine.js';
 import { CardScriptAPI } from './core/CardScriptAPI.js';
 import { isStrictCardSupported } from './core/StrictCardRegistry.js';
+import {
+  hasResolvedFieldSpellActivation,
+  isFieldSpellCard,
+  markFieldSpellPending,
+  markFieldSpellResolved,
+  markFieldSpellSet
+} from './core/FieldSpellRules.js';
 
 export class DuelGame {
   constructor(callbacks = {}, options = {}) {
@@ -55,6 +62,7 @@ export class DuelGame {
   reset() {
     this.cancelPendingAsyncWork();
     this._duelGeneration += 1;
+    this._fieldSpellActivationSequence = 0;
     this.playerLP = 8000;
     this.opponentLP = 8000;
 
@@ -747,6 +755,10 @@ export class DuelGame {
     const hasPlayableCard = this.playerHand.some(card => {
       if (card.card_type === 'monster') {
         return !this.normalSummonedThisTurn && this.playerMonsters.some(m => m === null);
+      }
+      if (isFieldSpellCard(card)) {
+        return this.rulesMode === 'sandbox'
+          || this.isStrictlySupportedMainDeckCard(card);
       }
       return this.playerSpells.some(s => s === null);
     });
@@ -2746,6 +2758,10 @@ export class DuelGame {
     if (!card || card.card_type !== 'spell') return false;
     const state = this.getSideState(side);
     const opponentState = this.getSideState(this.getOpponentSide(side));
+    if (isFieldSpellCard(card)) {
+      return this.rulesMode === 'sandbox'
+        || this.isStrictlySupportedMainDeckCard(card);
+    }
     if (String(card.id) === '55144522') return state.deck.length >= 2 || this.rulesMode === 'sandbox';
     if (String(card.id) === '12580477') {
       return this.getMonsterEntries(this.getOpponentSide(side)).length > 0;
@@ -2786,6 +2802,185 @@ export class DuelGame {
     };
   }
 
+  canStartFieldSpellAction(side) {
+    return (
+      (side === 'player' || side === 'opponent')
+      && this.currentTurn === side
+      && this.currentPhase.startsWith('main')
+      && !this.winner
+      && !this._duelEnded
+      && !this.isResolvingAction
+      && !this.pendingSummon
+      && !this.pendingExtraSummon
+      && !this.isDiscarding
+    );
+  }
+
+  getFieldSpellForSide(side) {
+    return this.field.getFieldSpell(side);
+  }
+
+  /**
+   * Mark a successfully activated Field Spell as the newest visual
+   * environment source. Runtime identity and duel generation checks prevent a
+   * stale chain from a reset duel from becoming active later.
+   */
+  resolveFieldSpellActivation(side, card, {
+    expectedGeneration = this._duelGeneration,
+    expectedRuntimeInstanceId = card?.runtimeInstanceId
+  } = {}) {
+    if (
+      !this.isDuelGenerationCurrent(expectedGeneration)
+      || this._duelEnded
+      || !card
+      || this.getFieldSpellForSide(side) !== card
+      || card.location !== 'field_zone'
+      || card.controllerId !== side
+      || card.isSetFaceDown
+      || card.runtimeInstanceId !== expectedRuntimeInstanceId
+    ) return false;
+
+    if (hasResolvedFieldSpellActivation(card)) return true;
+    if (card.fieldActivationState !== 'pending') return false;
+
+    this._fieldSpellActivationSequence += 1;
+    return markFieldSpellResolved(card, this._fieldSpellActivationSequence);
+  }
+
+  async runFieldSpellActivationChain(side, card, generation, {
+    fromSet = false
+  } = {}) {
+    if (
+      !this.isDuelGenerationCurrent(generation)
+      || this.getFieldSpellForSide(side) !== card
+      || !markFieldSpellPending(card)
+    ) return false;
+
+    const sourceRuntimeInstanceId = card.runtimeInstanceId;
+    const subject = side === 'player' ? 'Vous activez' : "L'adversaire active";
+    this.log(`${subject} la Magie de Terrain **${card.name}** !`, side);
+    this.callbacks.onAnimation({
+      type: 'activate',
+      target: side,
+      card,
+      zoneIndex: 0,
+      zoneType: 'field',
+      fromSet
+    });
+
+    this.isResolvingAction = true;
+    const link = this.chain.pushChainLink(side, card, [], {
+      zoneIndex: 0,
+      context: {
+        event: 'card-activation',
+        activationType: 'field-spell',
+        fieldSpellActivation: true,
+        sourceRuntimeInstanceId
+      },
+      resolver: async () => this.resolveFieldSpellActivation(side, card, {
+        expectedGeneration: generation,
+        expectedRuntimeInstanceId: sourceRuntimeInstanceId
+      })
+    });
+    this.callbacks.onAnimation({ type: 'chain-pop', linkNumber: link.id, card });
+
+    await this.openChainResponseWindow(this.getOpponentSide(side), {
+      event: 'card-activation',
+      sourceCard: card,
+      activationType: 'field-spell',
+      fieldSpellActivation: true
+    });
+    if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) return false;
+    if (!(await this.delay(1200))) return false;
+
+    const completed = await this.resolveChainStack();
+    return Boolean(
+      completed
+      && this.isDuelGenerationCurrent(generation)
+      && this.getFieldSpellForSide(side) === card
+      && hasResolvedFieldSpellActivation(card)
+    );
+  }
+
+  async activateFieldSpellFromHand(handCardUid, side = 'player') {
+    const generation = this._duelGeneration;
+    if (!this.canStartFieldSpellAction(side)) return false;
+
+    const state = this.getSideState(side);
+    const cardIndex = state.hand.findIndex(card => card.uid === handCardUid);
+    if (cardIndex === -1) return false;
+
+    const card = state.hand[cardIndex];
+    if (!isFieldSpellCard(card) || !this.canActivateSpell(card, side)) {
+      this.log(`La Magie de Terrain **${card.name}** n'est pas prise en charge dans ce mode.`, 'danger');
+      return false;
+    }
+
+    state.hand.splice(cardIndex, 1);
+    card.isSetFaceDown = false;
+    card.turnSet = -1;
+    this.field.placeFieldSpell(side, card);
+    return this.runFieldSpellActivationChain(side, card, generation);
+  }
+
+  async setFieldSpellFaceDownFromHand(handCardUid, side = 'player') {
+    if (!this.canStartFieldSpellAction(side)) return false;
+
+    const state = this.getSideState(side);
+    const cardIndex = state.hand.findIndex(card => card.uid === handCardUid);
+    if (cardIndex === -1) return false;
+
+    const card = state.hand[cardIndex];
+    if (
+      !isFieldSpellCard(card)
+      || (
+        this.rulesMode !== 'sandbox'
+        && !this.isStrictlySupportedMainDeckCard(card)
+      )
+    ) {
+      this.log(`La Magie de Terrain **${card.name}** n'est pas prise en charge dans ce mode.`, 'danger');
+      return false;
+    }
+
+    state.hand.splice(cardIndex, 1);
+    card.isSetFaceDown = true;
+    card.turnSet = this.turnCount;
+    this.field.placeFieldSpell(side, card);
+    markFieldSpellSet(card);
+
+    const subject = side === 'player' ? 'Vous posez' : "L'adversaire pose";
+    this.log(`${subject} une Magie de Terrain face cachÃ©e.`, side);
+    this.callbacks.onAnimation({
+      type: 'activate',
+      target: side,
+      card: side === 'opponent' ? null : card,
+      hidden: side === 'opponent',
+      zoneIndex: 0,
+      zoneType: 'field',
+      faceDown: true
+    });
+    this.stateChanged();
+    return true;
+  }
+
+  async activateSetFieldSpell(side = 'player') {
+    const generation = this._duelGeneration;
+    if (!this.canStartFieldSpellAction(side)) return false;
+
+    const card = this.getFieldSpellForSide(side);
+    if (
+      !card
+      || !card.isSetFaceDown
+      || !isFieldSpellCard(card)
+      || !this.canActivateSpell(card, side)
+    ) return false;
+
+    card.isSetFaceDown = false;
+    return this.runFieldSpellActivationChain(side, card, generation, {
+      fromSet: true
+    });
+  }
+
   async playSpellTrap(handCardUid, zoneIndex) {
     const generation = this._duelGeneration;
     if (this.currentTurn !== 'player' || !this.currentPhase.startsWith('main') || this.isResolvingAction || this.pendingSummon || this.isDiscarding) return false;
@@ -2795,6 +2990,9 @@ export class DuelGame {
 
     const card = this.playerHand[cardIndex];
     if (card.card_type === 'monster') return false;
+    if (isFieldSpellCard(card)) {
+      return this.activateFieldSpellFromHand(handCardUid, 'player');
+    }
     if (this.field.getSpellZone('player', zoneIndex) !== null) return false;
 
     // Trap Pose
@@ -2859,6 +3057,9 @@ export class DuelGame {
 
     const card = this.playerHand[cardIndex];
     if (card.card_type === 'monster') return false;
+    if (isFieldSpellCard(card)) {
+      return this.setFieldSpellFaceDownFromHand(handCardUid, 'player');
+    }
     if (this.field.getSpellZone('player', zoneIndex) !== null) return false;
 
     this.playerHand.splice(cardIndex, 1);
@@ -2873,6 +3074,13 @@ export class DuelGame {
   }
 
   async activateSetSpellTrap(zoneIndex) {
+    if (
+      zoneIndex === 'field'
+      || zoneIndex === 'field:0'
+      || zoneIndex?.zoneType === 'field'
+    ) {
+      return this.activateSetFieldSpell('player');
+    }
     const generation = this._duelGeneration;
     if (this.currentTurn !== 'player' || !this.currentPhase.startsWith('main') || this.isResolvingAction || this.pendingSummon || this.isDiscarding) return false;
 
@@ -3211,13 +3419,33 @@ export class DuelGame {
         if (link.activationNegated || this.defense.isChainLinkNegated(link)) {
           link.activationNegated = true;
           this.log(`Chain Link ${link.id} : activation annulée.`, 'system');
-          if (link.sourceCard.location === 'spell_zone') {
+          if (
+            link.sourceCard.location === 'spell_zone'
+            || (
+              link.sourceCard.location === 'field_zone'
+              && link.context?.fieldSpellActivation === true
+            )
+          ) {
             this.removeCardFromCurrentZone(link.sourceCard);
           }
         } else if (link.effectNegated || link.sourceCard.effectNegated) {
           link.effectNegated = true;
           this.log(`Chain Link ${link.id} : effet annulé.`, 'system');
-          if (link.sourceCard.location === 'spell_zone') {
+          if (link.context?.fieldSpellActivation === true) {
+            // The card activation succeeded even though this link's effect was
+            // negated. Keep the Field Spell face-up and environment-eligible.
+            this.resolveFieldSpellActivation(
+              link.activatingPlayerId,
+              link.sourceCard,
+              {
+                expectedGeneration: generation,
+                expectedRuntimeInstanceId: link.context.sourceRuntimeInstanceId
+              }
+            );
+            link.resolvedSuccessfully = false;
+            link.appliedAnything = false;
+            link.sourceCard.appliedAnything = false;
+          } else if (link.sourceCard.location === 'spell_zone') {
             this.removeCardFromCurrentZone(link.sourceCard);
           }
         } else if (link.resolver) {
@@ -5610,9 +5838,13 @@ export class DuelGame {
     }
     const spellIdx = spellOptions[0]?.index ?? -1;
     if (spellIdx !== -1) {
+      const card = this.opponentHand[spellIdx];
       const emptySpellZone = this.opponentSpells.findIndex(s => s === null);
-      if (emptySpellZone !== -1) {
-        const card = this.opponentHand[spellIdx];
+      if (isFieldSpellCard(card)) {
+        await this.activateFieldSpellFromHand(card.uid, 'opponent');
+        if (this.winner || this._duelEnded) return false;
+        if (!(await this.delay(800))) return false;
+      } else if (emptySpellZone !== -1) {
         const activationContext = await this.prepareSpellActivationContext(
           card,
           'opponent'

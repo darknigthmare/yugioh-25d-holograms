@@ -1,4 +1,8 @@
 import { getCardCroppedImageUrl, getCardImageUrl } from '../cards.js';
+import {
+  clearFieldSpellActivation,
+  isFieldSpellCard
+} from './FieldSpellRules.js';
 
 /**
  * CardState represents a dynamic instance of a card in the duel.
@@ -44,6 +48,12 @@ export class CardState {
       this.card_type === 'spell'
       && (baseCard.isRitualSpell || (this.type && /Ritual/i.test(this.type)))
     );
+    this.isFieldSpell = isFieldSpellCard({
+      card_type: this.card_type,
+      type: this.type,
+      race: this.race,
+      isFieldSpell: baseCard.isFieldSpell
+    });
     this.isEffectMonster = baseCard.isEffectMonster !== undefined
       ? Boolean(baseCard.isEffectMonster)
       : Boolean(this.type && /Effect/i.test(this.type));
@@ -138,6 +148,7 @@ export class CardState {
     this.effectNegated = false;
     this.resolvedSuccessfully = false;
     this.appliedAnything = false;
+    clearFieldSpellActivation(this);
 
     this.counters = {}; // counterName -> count
     this.activeModifiers = []; // { sourceCardId, type: 'atk'|'def'|'level'|'negate', value }
@@ -201,6 +212,7 @@ export class CardState {
     }
 
     this.refreshRuntimeIdentity();
+    clearFieldSpellActivation(this);
     this.currentAtk = this.baseAtk;
     this.currentDef = this.baseDef;
     this.currentLevel = this.baseLevel;

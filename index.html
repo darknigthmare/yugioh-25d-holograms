@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yu-Gi-Oh! 2.5D Hologram Duel Simulator</title>
+  <link rel="icon" type="image/png" href="/custom-card-back.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -187,7 +188,14 @@
       </div>
 
       <div class="header-controls">
-        <button type="button" id="btn-toggle-view" class="btn">VUE : ARÈNE</button>
+        <button
+          type="button"
+          id="btn-toggle-view"
+          class="btn"
+          aria-pressed="false"
+          aria-controls="parallax-container"
+          aria-label="Vue du duel : compacte. Passer à la vue Arène."
+        >VUE : COMPACTE</button>
         <button type="button" id="btn-mute" class="btn btn-magenta" aria-pressed="false">SON : ON</button>
         <button type="button" id="btn-settings" class="btn">CONFIG DOS</button>
         <button type="button" id="btn-reset" class="btn btn-cancel">ABANDONNER LE DUEL</button>
@@ -247,7 +255,7 @@
               <span>Cimetière</span>
               <div id="opponent-gy-count" class="deck-count">0</div>
             </div>
-            <div class="field-zone opponent-field-pos" id="opponent-field-zone" data-zone-type="field" data-side="opponent" role="group">
+            <div class="card-zone field-zone opponent-field-pos" id="opponent-field-zone" data-zone-type="field" data-side="opponent" data-index="0" role="group">
               <span>Terrain</span>
             </div>
             <div class="extra-deck-zone opponent-extra-pos" id="opponent-extra-zone" data-zone-type="extra" data-side="opponent">
@@ -324,7 +332,7 @@
               <span>Cimetière</span>
               <div id="player-gy-count" class="deck-count">0</div>
             </div>
-            <div class="field-zone player-field-pos" id="player-field-zone" data-zone-type="field" data-side="player" role="group">
+            <div class="card-zone field-zone player-field-pos" id="player-field-zone" data-zone-type="field" data-side="player" data-index="0" role="group">
               <span>Terrain</span>
             </div>
             <div class="extra-deck-zone player-extra-pos" id="player-extra-zone" data-zone-type="extra" data-side="player" role="button" tabindex="0" aria-label="Ouvrir votre Extra Deck">
@@ -467,6 +475,14 @@
             <button type="button" class="btn btn-preset-back" data-url="/cards/small/89631139.jpg">Yeux Bleus</button>
             <button type="button" class="btn btn-preset-back" data-url="">Style Classique</button>
           </div>
+          <label for="select-real-environment">ENVIRONNEMENT DE BASE DE LA VUE RÉELLE :</label>
+          <select id="select-real-environment" class="search-input" aria-describedby="real-environment-help">
+            <option value="clearing">Clairière boisée</option>
+            <option value="cave">Grotte / Ruines</option>
+          </select>
+          <p id="real-environment-help" class="modal-inline-help">
+            Utilisé uniquement en Vue Réelle lorsqu’aucune Magie de Terrain résolue n’est active.
+          </p>
           <button type="button" id="btn-toggle-commentary" class="btn" aria-pressed="true">COMMENTAIRE VOCAL : ON</button>
         </div>
         <button type="button" id="btn-close-settings" class="btn btn-magenta btn-block">APPLIQUER</button>

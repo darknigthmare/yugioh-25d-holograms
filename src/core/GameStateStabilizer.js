@@ -137,22 +137,6 @@ export class GameStateStabilizer {
       }
     });
 
-    // Reapply continuous mods (like field spells)
-    const fieldSpell = game.field.playerFieldSpellZone;
-    if (fieldSpell && !fieldSpell.effectNegated) {
-      // e.g. KaibaCorp Arena Field Spell adds 500 ATK to all Dragons in play
-      const bonusValue = 500;
-      game.field.playerMonsterZones.forEach(m => {
-        if (m && m.race === 'Dragon') {
-          m.currentAtk += bonusValue;
-        }
-      });
-      game.field.opponentMonsterZones.forEach(m => {
-        if (m && m.race === 'Dragon') {
-          m.currentAtk += bonusValue;
-        }
-      });
-    }
   }
 
   performRuleCleanup(game) {

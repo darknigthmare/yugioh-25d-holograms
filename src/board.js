@@ -45,7 +45,7 @@ export function initBoardTilt(containerSelector, boardSelector) {
   const coarsePointer = window.matchMedia('(pointer: coarse)');
 
   container.addEventListener('mousemove', (e) => {
-    if (reduceMotion.matches || coarsePointer.matches) return;
+    if (reduceMotion.matches || coarsePointer.matches || board.classList.contains('real-mode')) return;
 
     const rect = container.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
@@ -65,7 +65,7 @@ export function initBoardTilt(containerSelector, boardSelector) {
   });
 
   container.addEventListener('mouseleave', () => {
-    if (reduceMotion.matches || coarsePointer.matches) return;
+    if (reduceMotion.matches || coarsePointer.matches || board.classList.contains('real-mode')) return;
 
     // Smooth reset
     board.style.transform = `rotateX(52deg) rotateZ(0deg) translateY(-20px)`;

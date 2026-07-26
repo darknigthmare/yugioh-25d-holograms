@@ -26,6 +26,23 @@ L’interface publiée reste **solo contre l’IA**. Le dépôt contient un prot
 
 La reprise persistante concerne le Match entre deux Duels. Un Duel en cours n’est pas sérialisé intégralement ; quitter la page déclenche donc un avertissement.
 
+## Vues du duel et environnements
+
+La vue **Compacte** reste la vue initiale et conserve son plateau historique. La vue **Arène** reste disponible. La **Vue Réelle**, chargée seulement à son premier affichage, propose une mise en scène inspirée des arènes de l’anime : console du joueur au premier plan, plateforme physique en perspective, console adverse au fond et décor original autour du terrain. Les trois vues consomment la même instance du moteur ; changer de vue ne recrée ni le Duel, ni les cartes, ni l’IA.
+
+La Vue Réelle possède deux décors de base sélectionnables dans les paramètres : **Clairière KaibaCorp** et **Grotte / Ruines**. Une Magie de Terrain utilise sa Zone Terrain dédiée. Une carte simplement Posée ou une activation encore en chaîne ne révèle pas et ne change pas le décor. Le nouvel environnement apparaît uniquement après une résolution réussie ; une négation conserve le décor précédent et le retrait ou remplacement de la carte restaure l’environnement approprié.
+
+Le registre visuel se trouve dans `src/ui/FieldEnvironmentRegistry.js`. Il associe les identifiants canoniques des cartes aux thèmes Yami, Umi, Forest, Mountain, Sogen et Wasteland, avec un thème générique pour une Magie de Terrain inconnue. Toon World reste un thème disponible mais n’est volontairement pas associé à son identifiant, car la carte est une Magie Continue et non une Magie de Terrain.
+
+Pour ajouter un environnement :
+
+1. placer un visuel original optimisé dans `public/environments/` ;
+2. ajouter une configuration immuable dans `FieldEnvironmentRegistry.js` avec son `id`, ses `associatedCardIds`, sa classe CSS, son éclairage, sa brume et sa transition ;
+3. définir la classe correspondante dans `style.css`, sans y ajouter de règle de jeu ;
+4. compléter les tests du résolveur et vérifier les états face verso, en chaîne, résolu, négation, retrait et remplacement.
+
+Les visuels `kaibacorp-clearing-original.webp` et `cave-ruins-original.webp` sont des créations originales générées pour le projet. Les captures de l’anime ont servi uniquement de références de composition et ne sont pas utilisées comme textures.
+
 ## Développement
 
 Prérequis : Node.js 20.19 ou plus récent.

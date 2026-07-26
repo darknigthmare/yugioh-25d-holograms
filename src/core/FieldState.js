@@ -1,3 +1,5 @@
+import { clearFieldSpellActivation } from './FieldSpellRules.js';
+
 /**
  * FieldState manages all playmat zones of the board, including Main/Extra zones,
  * Graveyards, Banished cards, and Field Spells.
@@ -8,6 +10,9 @@ export class FieldState {
   }
 
   reset() {
+    clearFieldSpellActivation(this.playerFieldSpellZone);
+    clearFieldSpellActivation(this.opponentFieldSpellZone);
+
     this.playerMonsterZones = Array(5).fill(null);
     this.opponentMonsterZones = Array(5).fill(null);
     this.playerSpellZones = Array(5).fill(null);
@@ -175,12 +180,32 @@ export class FieldState {
     return true;
   }
 
+  getFieldSpell(controllerId) {
+    return controllerId === 'player'
+      ? this.playerFieldSpellZone
+      : this.opponentFieldSpellZone;
+  }
+
   placeFieldSpell(controllerId, cardState) {
     if (!cardState) {
       if (controllerId === 'player') this.playerFieldSpellZone = null;
       else this.opponentFieldSpellZone = null;
       return true;
     }
+
+    const currentFieldSpell = this.getFieldSpell(controllerId);
+    if (currentFieldSpell === cardState) return true;
+
+    // Under current TCG rules, each player owns one Field Zone. Placing or
+    // activating another Field Spell sends that player's previous one to its
+    // owner's Graveyard before the replacement occupies the zone.
+    if (currentFieldSpell) {
+      this.sendToGraveyard(
+        currentFieldSpell,
+        currentFieldSpell.ownerId || currentFieldSpell.controllerId || controllerId
+      );
+    }
+
     this.transitionCard(cardState, 'field_zone', controllerId, 0);
     if (controllerId === 'player') {
       this.playerFieldSpellZone = cardState;

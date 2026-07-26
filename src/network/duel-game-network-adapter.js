@@ -1,3 +1,4 @@
+import { isFieldSpellCard } from '../core/FieldSpellRules.js';
 import { isPlainObject, validateJsonValue } from './protocol.js';
 
 const SIDES = Object.freeze(['player', 'opponent']);
@@ -15,6 +16,9 @@ export const DUEL_GAME_NETWORK_ACTION_KINDS = Object.freeze([
   'NORMAL_SUMMON',
   'SET_MONSTER',
   'SET_SPELL_TRAP',
+  'ACTIVATE_FIELD_SPELL',
+  'SET_FIELD_SPELL',
+  'ACTIVATE_SET_FIELD_SPELL',
   'TOGGLE_POSITION',
   'SELECT_TRIBUTE',
   'CANCEL_TRIBUTE',
@@ -61,6 +65,18 @@ const ACTION_SCHEMAS = Object.freeze({
   },
   SET_SPELL_TRAP: {
     required: ['cardUid', 'zoneIndex'],
+    optional: []
+  },
+  ACTIVATE_FIELD_SPELL: {
+    required: ['cardUid'],
+    optional: []
+  },
+  SET_FIELD_SPELL: {
+    required: ['cardUid'],
+    optional: []
+  },
+  ACTIVATE_SET_FIELD_SPELL: {
+    required: ['cardUid'],
     optional: []
   },
   TOGGLE_POSITION: {
@@ -137,6 +153,9 @@ const MAIN_PHASE_ACTIONS = new Set([
   'NORMAL_SUMMON',
   'SET_MONSTER',
   'SET_SPELL_TRAP',
+  'ACTIVATE_FIELD_SPELL',
+  'SET_FIELD_SPELL',
+  'ACTIVATE_SET_FIELD_SPELL',
   'TOGGLE_POSITION',
   'BEGIN_SYNCHRO_SUMMON',
   'XYZ_SUMMON',
@@ -208,6 +227,35 @@ function cloneSmallRecord(value) {
   return validation.ok ? cloneJson(value) : {};
 }
 
+function publicFieldSpellActivationMetadata(card) {
+  if (!isFieldSpellCard(card)) return null;
+
+  const sequence = safeInteger(card.fieldActivationSequence, 0);
+  if (
+    !card.isSetFaceDown
+    && card.fieldActivationState === 'resolved'
+    && sequence > 0
+  ) {
+    return {
+      isFieldSpell: true,
+      fieldActivationState: 'resolved',
+      fieldActivationSequence: sequence
+    };
+  }
+  if (!card.isSetFaceDown && card.fieldActivationState === 'pending') {
+    return {
+      isFieldSpell: true,
+      fieldActivationState: 'pending',
+      fieldActivationSequence: 0
+    };
+  }
+  return {
+    isFieldSpell: true,
+    fieldActivationState: card.isSetFaceDown ? 'set' : 'pending',
+    fieldActivationSequence: 0
+  };
+}
+
 function visibleCard(card, { includeMaterials = true } = {}) {
   if (!card) return null;
   const attack = typeof card.getAtk === 'function'
@@ -225,6 +273,7 @@ function visibleCard(card, { includeMaterials = true } = {}) {
   const materials = includeMaterials && Array.isArray(card.xyzMaterials)
     ? card.xyzMaterials.map(material => visibleCard(material, { includeMaterials: false }))
     : [];
+  const fieldSpellActivation = publicFieldSpellActivationMetadata(card);
 
   return {
     uid: String(card.uid || ''),
@@ -259,7 +308,8 @@ function visibleCard(card, { includeMaterials = true } = {}) {
     hasChangedPositionThisTurn: Boolean(card.hasChangedPositionThisTurn),
     effectsNegated: Boolean(card.effectNegated || card.effectsNegatedUntilEndTurn),
     counters: cloneSmallRecord(card.counters),
-    xyzMaterials: materials
+    xyzMaterials: materials,
+    ...(fieldSpellActivation || {})
   };
 }
 
@@ -408,6 +458,10 @@ function internalCardFingerprint(card) {
     String(card.controllerId || ''),
     String(card.position || ''),
     Boolean(card.isSetFaceDown),
+    Boolean(card.isFieldSpell),
+    String(card.fieldActivationState || ''),
+    safeInteger(card.fieldActivationSequence, 0),
+    String(card.fieldActivationRuntimeInstanceId || ''),
     safeFiniteNumber(card.currentAtk ?? card.atk ?? card.baseAtk),
     safeFiniteNumber(card.currentDef ?? card.def ?? card.baseDef),
     cloneSmallRecord(card.counters),
@@ -426,6 +480,10 @@ function fingerprintGame(game) {
       deck: state.deck.map(card => String(card?.uid || '')),
       monsters: state.monsters.map(internalCardFingerprint),
       spells: state.spells.map(internalCardFingerprint),
+      fieldSpell: internalCardFingerprint(
+        game.getFieldSpellForSide?.(side)
+          ?? (side === 'player' ? game.playerFieldSpell : game.opponentFieldSpell)
+      ),
       graveyard: state.graveyard.map(internalCardFingerprint),
       extraDeck: state.extraDeck.map(internalCardFingerprint),
       faceUpExtraDeck: state.faceUpExtraDeck.map(internalCardFingerprint)
@@ -458,6 +516,63 @@ function fingerprintGame(game) {
         : null),
     sides
   });
+}
+
+function validateFieldSpellSnapshot(card, isViewer) {
+  if (card === null) return { ok: true };
+  if (!isPlainObject(card)) {
+    return fail('INVALID_SNAPSHOT', 'Field Spell Zone must contain an object or null.');
+  }
+
+  const privateRuntimeKeys = [
+    'runtimeInstanceId',
+    'fieldActivationRuntimeInstanceId'
+  ];
+  if (privateRuntimeKeys.some(key => Object.hasOwn(card, key))) {
+    return fail(
+      'PRIVATE_DATA_VIOLATION',
+      'Public Field Spell snapshots must not expose runtime instance identifiers.'
+    );
+  }
+
+  if (card.hidden === true) {
+    const hiddenKeys = ['hidden', 'location', 'zoneIndex', 'position', 'faceDown'];
+    if (
+      isViewer
+      || !ownKeysExactly(card, hiddenKeys)
+      || card.faceDown !== true
+    ) {
+      return fail(
+        'PRIVATE_DATA_VIOLATION',
+        'A hidden opposing Field Spell may expose only public placement metadata.'
+      );
+    }
+    return { ok: true };
+  }
+
+  if (!isViewer && card.faceDown === true) {
+    return fail(
+      'PRIVATE_DATA_VIOLATION',
+      'An opposing face-down Field Spell must not expose its identity.'
+    );
+  }
+  if (
+    card.isFieldSpell !== true
+    || !['set', 'pending', 'resolved'].includes(card.fieldActivationState)
+    || !Number.isSafeInteger(card.fieldActivationSequence)
+    || card.fieldActivationSequence < 0
+  ) {
+    return fail('INVALID_SNAPSHOT', 'Visible Field Spell activation metadata is invalid.');
+  }
+  if (
+    (card.fieldActivationState === 'resolved' && card.fieldActivationSequence <= 0)
+    || (card.fieldActivationState !== 'resolved' && card.fieldActivationSequence !== 0)
+    || (card.faceDown === true && card.fieldActivationState !== 'set')
+    || (card.faceDown !== true && card.fieldActivationState === 'set')
+  ) {
+    return fail('INVALID_SNAPSHOT', 'Field Spell activation state and sequence disagree.');
+  }
+  return { ok: true };
 }
 
 function assertSnapshotKeys(snapshot) {
@@ -561,6 +676,11 @@ function assertSnapshotKeys(snapshot) {
     ) {
       return fail('INVALID_SNAPSHOT', `${side} public zones are invalid.`);
     }
+    const fieldSpellValidation = validateFieldSpellSnapshot(
+      sideState.fieldSpell,
+      isViewer
+    );
+    if (!fieldSpellValidation.ok) return fieldSpellValidation;
   }
 
   if (
@@ -767,8 +887,72 @@ export class DuelGameNetworkAdapter {
         if (!cardInHand || cardInHand.card_type === 'monster') {
           return fail('CARD_NOT_IN_HAND', 'The requested Spell/Trap UID is not in the actor hand.');
         }
+        if (isFieldSpellCard(cardInHand)) {
+          return fail(
+            'FIELD_SPELL_ACTION_REQUIRED',
+            'Field Spells must use the dedicated Field Spell action.'
+          );
+        }
         if (this.game.field.getSpellZone(side, action.zoneIndex) !== null) {
           return fail('ZONE_OCCUPIED', 'The selected Spell & Trap Zone is occupied.');
+        }
+        return { ok: true };
+      }
+      case 'ACTIVATE_FIELD_SPELL': {
+        if (!cardInHand || !isFieldSpellCard(cardInHand)) {
+          return fail('CARD_NOT_IN_HAND', 'The requested Field Spell UID is not in the actor hand.');
+        }
+        if (
+          typeof this.game.activateFieldSpellFromHand !== 'function'
+          || this.game.canActivateSpell?.(cardInHand, side) !== true
+        ) {
+          return fail('FIELD_SPELL_UNAVAILABLE', 'The Field Spell cannot be activated now.');
+        }
+        return { ok: true };
+      }
+      case 'SET_FIELD_SPELL': {
+        if (!cardInHand || !isFieldSpellCard(cardInHand)) {
+          return fail('CARD_NOT_IN_HAND', 'The requested Field Spell UID is not in the actor hand.');
+        }
+        if (
+          typeof this.game.setFieldSpellFaceDownFromHand !== 'function'
+          || (
+            this.game.rulesMode !== 'sandbox'
+            && this.game.isStrictlySupportedMainDeckCard?.(cardInHand) !== true
+          )
+        ) {
+          return fail('FIELD_SPELL_UNAVAILABLE', 'The Field Spell cannot be Set now.');
+        }
+        return { ok: true };
+      }
+      case 'ACTIVATE_SET_FIELD_SPELL': {
+        const fieldSpell = this.game.getFieldSpellForSide?.(side)
+          ?? (side === 'player' ? this.game.playerFieldSpell : this.game.opponentFieldSpell);
+        if (
+          !fieldSpell
+          || fieldSpell.uid !== action.cardUid
+          || !fieldSpell.isSetFaceDown
+          || !isFieldSpellCard(fieldSpell)
+        ) {
+          return fail(
+            'CARD_ZONE_MISMATCH',
+            'The requested UID is not a Set card in the actor Field Spell Zone.'
+          );
+        }
+        if (
+          fieldSpell.fieldActivationState !== undefined
+          && fieldSpell.fieldActivationState !== 'set'
+        ) {
+          return fail(
+            'FIELD_SPELL_STATE_MISMATCH',
+            'The Set Field Spell activation metadata is invalid.'
+          );
+        }
+        if (
+          typeof this.game.activateSetFieldSpell !== 'function'
+          || this.game.canActivateSpell?.(fieldSpell, side) !== true
+        ) {
+          return fail('FIELD_SPELL_UNAVAILABLE', 'The Set Field Spell cannot be activated now.');
         }
         return { ok: true };
       }
@@ -961,6 +1145,12 @@ export class DuelGameNetworkAdapter {
         return this.game.setMonsterFaceDown(action.cardUid, action.zoneIndex);
       case 'SET_SPELL_TRAP':
         return this.game.setSpellTrapFaceDown(action.cardUid, action.zoneIndex);
+      case 'ACTIVATE_FIELD_SPELL':
+        return this.game.activateFieldSpellFromHand(action.cardUid, action.actor);
+      case 'SET_FIELD_SPELL':
+        return this.game.setFieldSpellFaceDownFromHand(action.cardUid, action.actor);
+      case 'ACTIVATE_SET_FIELD_SPELL':
+        return this.game.activateSetFieldSpell(action.actor);
       case 'TOGGLE_POSITION':
         return this.game.toggleMonsterPosition(action.zoneIndex, action.actor);
       case 'SELECT_TRIBUTE':
@@ -1016,10 +1206,30 @@ export class DuelGameNetworkAdapter {
     this.pending = true;
     this._notify('onPendingChange', { pending: true, action: validation.action });
     const before = fingerprintGame(this.game);
+    const beforeDuelGeneration = Number(this.game?._duelGeneration);
     try {
-      const engineResult = await this._dispatch(validation.action);
+      await this._dispatch(validation.action);
       const changed = fingerprintGame(this.game) !== before;
-      if (engineResult === false || !changed) {
+      const duelGenerationChanged = Number.isFinite(beforeDuelGeneration)
+        && Number(this.game?._duelGeneration) !== beforeDuelGeneration;
+      if (duelGenerationChanged) {
+        this.requestResync('DUEL_GENERATION_CHANGED', {
+          actionKind: validation.action.kind
+        });
+        const rejection = {
+          accepted: false,
+          revision: this.revision,
+          code: 'DUEL_GENERATION_CHANGED',
+          reason: 'The Duel generation changed while the action was pending.'
+        };
+        this._notify('onActionRejected', rejection);
+        return rejection;
+      }
+      // A legal action can be applied and still resolve unsuccessfully (for
+      // example, a Field Spell activation that is negated). The authoritative
+      // state transition must still receive a revision and ACK so peers do not
+      // diverge. Only a true no-op is rejected.
+      if (!changed) {
         const rejection = {
           accepted: false,
           revision: this.revision,

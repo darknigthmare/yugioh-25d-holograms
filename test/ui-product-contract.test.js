@@ -134,3 +134,36 @@ test('an occupied Main Monster Zone is projected only for a legal Tribute Summon
   assert.match(mainSource, /function highlightValidDropZones\(card\)[\s\S]*isHandPlacementDestinationLegal\(/);
   assert.match(mainSource, /const placementIsLegal = isHandPlacementDestinationLegal\([\s\S]*if \(selectedCard && placementIsLegal\)/);
 });
+
+test('Field Spells use only their dedicated replaceable Field Zone', () => {
+  const fieldSpell = {
+    card_type: 'spell',
+    type: 'Spell Card',
+    race: 'Field'
+  };
+
+  assert.equal(isHandPlacementDestinationLegal({
+    card: fieldSpell,
+    zoneType: 'field',
+    zoneIndex: 0,
+    occupied: false
+  }), true);
+  assert.equal(isHandPlacementDestinationLegal({
+    card: fieldSpell,
+    zoneType: 'field',
+    zoneIndex: 0,
+    occupied: true
+  }), true, 'a new Field Spell may replace the current one');
+  assert.equal(isHandPlacementDestinationLegal({
+    card: fieldSpell,
+    zoneType: 'spell',
+    zoneIndex: 2,
+    occupied: false
+  }), false, 'a Field Spell cannot be placed in a regular Spell/Trap Zone');
+  assert.equal(isHandPlacementDestinationLegal({
+    card: { card_type: 'spell', race: 'Continuous' },
+    zoneType: 'field',
+    zoneIndex: 0,
+    occupied: false
+  }), false, 'a non-Field Spell cannot use the Field Zone');
+});

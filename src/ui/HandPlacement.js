@@ -1,3 +1,5 @@
+import { isFieldSpellCard } from '../core/FieldSpellRules.js';
+
 export function getNormalSummonTributeCount(card) {
   const level = Number(card?.level) || 0;
   if (level >= 7) return 2;
@@ -20,6 +22,13 @@ export function isHandPlacementDestinationLegal({
   controlledMonsterCount = 0
 }) {
   if (!card) return false;
+
+  // A Field Spell uses its dedicated Field Zone. An occupied slot remains a
+  // legal projected destination because the engine performs the TCG-compliant
+  // replacement transaction.
+  if (isFieldSpellCard(card)) {
+    return zoneType === 'field' && Number(zoneIndex) === 0;
+  }
 
   if (card.card_type === 'monster' && zoneType === 'monster') {
     const tributesRequired = getNormalSummonTributeCount(card);
