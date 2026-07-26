@@ -1,11 +1,39 @@
 import {
   resolveFieldEnvironmentSelection
 } from './FieldEnvironmentRegistry.js';
+import { RealDuelScene3D } from './RealDuelScene3D.js';
+import { RealDuelDOM3DAdapter } from './RealDuelDOM3DAdapter.js';
 
 export const REAL_DUEL_LAYER_SELECTOR = '[data-real-duel-view-layer="true"]';
 
 function resolveElement(documentRef, explicitElement, selector) {
   return explicitElement || documentRef?.querySelector?.(selector) || null;
+}
+
+function finiteNumber(value, fallback = 0) {
+  const number = Number(value);
+  return Number.isFinite(number) ? number : fallback;
+}
+
+/**
+ * Strict privacy boundary between DuelGame and the decorative WebGL scene.
+ * Card objects, IDs, names and hidden state never cross this boundary.
+ */
+export function createPublicDuelSceneSummary(gameState) {
+  return Object.freeze({
+    playerLP: Math.max(0, finiteNumber(gameState?.playerLP, 8000)),
+    opponentLP: Math.max(0, finiteNumber(gameState?.opponentLP, 8000)),
+    currentTurn: gameState?.currentTurn === 'opponent' ? 'opponent' : 'player',
+    currentPhase: String(gameState?.currentPhase || 'draw').slice(0, 24),
+    turnCount: Math.max(0, finiteNumber(gameState?.turnCount, 0)),
+    playerHandCount: Array.isArray(gameState?.playerHand)
+      ? gameState.playerHand.length
+      : 0,
+    opponentHandCount: Array.isArray(gameState?.opponentHand)
+      ? gameState.opponentHand.length
+      : 0,
+    duelEnded: Boolean(gameState?.winner || gameState?._duelEnded)
+  });
 }
 
 function setStyleProperty(element, property, value) {
@@ -26,10 +54,11 @@ function clearEnvironmentStyles(element) {
 }
 
 /**
- * Lifecycle owner for the visual-only immersive environment.
+ * Lifecycle owner for the visual-only immersive 3D environment.
  *
  * This class never creates a card, a zone, a HUD, or a second game state. It
- * mounts one pointer-transparent sibling behind the existing duel board.
+ * synchronises one inert WebGL scene with CSS3D projections of the exact
+ * existing board and hand nodes.
  */
 export class RealDuelView {
   constructor(options = {}) {
@@ -47,16 +76,41 @@ export class RealDuelView {
       options.boardElement,
       '#duel-board'
     );
+    this.handElement = resolveElement(
+      this.documentRef,
+      options.handElement,
+      '#player-hand'
+    );
+    this.windowRef = options.windowRef
+      || this.documentRef?.defaultView
+      || globalThis.window
+      || null;
     this.environmentResolver = options.environmentResolver
       || resolveFieldEnvironmentSelection;
     this.environmentOptions = Object.freeze({ ...(options.environmentOptions || {}) });
+    this.sceneFactory = options.sceneFactory
+      || (sceneOptions => new RealDuelScene3D(sceneOptions));
+    this.domAdapterFactory = options.domAdapterFactory
+      || (adapterOptions => new RealDuelDOM3DAdapter(adapterOptions));
+    // Lightweight DOM-only fixtures and non-browser renderers keep the safe
+    // original fallback. The shipped app always has both nodes and a window.
+    this.enable3D = options.enable3D ?? Boolean(
+      this.boardElement
+      && this.handElement
+      && this.windowRef
+    );
     this.layerElement = null;
+    this.scene3D = null;
+    this.dom3DAdapter = null;
     this.gameState = null;
     this.selection = null;
     this.active = false;
     this.disposed = false;
     this._visibilityListenerAttached = false;
     this._boundVisibilityChange = () => this._syncLayerActivity();
+    this._bound3DResize = () => this._resize3D();
+    this._resizeListenerAttached = false;
+    this._resizeObserver = null;
   }
 
   get isMounted() {
@@ -87,7 +141,10 @@ export class RealDuelView {
     if (!this.fieldElement || !this.documentRef?.createElement) {
       throw new Error('RealDuelView requires the existing duel field element.');
     }
-    if (this.isMounted) return this.layerElement;
+    if (this.isMounted) {
+      this._mount3D();
+      return this.layerElement;
+    }
     if (this.layerElement?.parentNode) {
       this.layerElement.remove?.();
     }
@@ -100,6 +157,7 @@ export class RealDuelView {
       this.selection = null;
       this._prepareLayer(existingLayer);
       this._attachVisibilityListener();
+      this._mount3D();
       return existingLayer;
     }
 
@@ -120,7 +178,82 @@ export class RealDuelView {
     this.layerElement = layer;
     this.selection = null;
     this._attachVisibilityListener();
+    this._mount3D();
     return layer;
+  }
+
+  _mount3D() {
+    if (!this.enable3D || this.scene3D || !this.layerElement) return false;
+    const scene3D = this.sceneFactory({
+      documentRef: this.documentRef,
+      windowRef: this.windowRef,
+      hostElement: this.layerElement,
+      pixelRatioLimit: 1.5
+    });
+    scene3D.mount?.(this.layerElement);
+    if (scene3D.webglAvailable === false || !scene3D.getCamera?.()) {
+      scene3D.dispose?.();
+      throw new Error('WebGL 3D is unavailable; the classic duel remains active.');
+    }
+
+    let domAdapter = null;
+    try {
+      domAdapter = this.domAdapterFactory({
+        documentRef: this.documentRef,
+        boardElement: this.boardElement,
+        handElement: this.handElement,
+        interactionHostElement: this.fieldElement
+      });
+      domAdapter.mount?.(scene3D.getCamera());
+      this.scene3D = scene3D;
+      this.dom3DAdapter = domAdapter;
+      this._attach3DResizeListener();
+      this._resize3D();
+      return true;
+    } catch (error) {
+      domAdapter?.dispose?.();
+      scene3D.dispose?.();
+      throw error;
+    }
+  }
+
+  _attach3DResizeListener() {
+    if (!this._resizeListenerAttached && this.windowRef?.addEventListener) {
+      this.windowRef.addEventListener('resize', this._bound3DResize, { passive: true });
+      this._resizeListenerAttached = true;
+    }
+    const ResizeObserverClass = this.windowRef?.ResizeObserver
+      || globalThis.ResizeObserver;
+    if (!this._resizeObserver && typeof ResizeObserverClass === 'function') {
+      this._resizeObserver = new ResizeObserverClass(this._bound3DResize);
+      this._resizeObserver.observe?.(this.fieldElement);
+    }
+  }
+
+  _detach3DResizeListener() {
+    if (this._resizeListenerAttached) {
+      this.windowRef?.removeEventListener?.('resize', this._bound3DResize);
+      this._resizeListenerAttached = false;
+    }
+    this._resizeObserver?.disconnect?.();
+    this._resizeObserver = null;
+  }
+
+  _resize3D() {
+    if (!this.scene3D || !this.dom3DAdapter || !this.fieldElement) return false;
+    const bounds = this.fieldElement.getBoundingClientRect?.();
+    const width = Math.max(
+      1,
+      Math.round(Number(bounds?.width) || this.fieldElement.clientWidth || 1)
+    );
+    const height = Math.max(
+      1,
+      Math.round(Number(bounds?.height) || this.fieldElement.clientHeight || 1)
+    );
+    this.scene3D.resize?.(width, height);
+    this.dom3DAdapter.resize?.(width, height);
+    this.dom3DAdapter.render?.();
+    return true;
   }
 
   _attachVisibilityListener() {
@@ -144,6 +277,18 @@ export class RealDuelView {
       this.layerElement.style.animationPlayState = shouldRender
         ? 'running'
         : 'paused';
+    }
+    const interactionRoot = this.dom3DAdapter?.getElement?.();
+    if (interactionRoot) interactionRoot.hidden = !shouldRender;
+    if (shouldRender) {
+      if (this.scene3D?.publicSummary?.duelEnded) {
+        this.scene3D.pause?.();
+      } else {
+        this.scene3D?.start?.();
+      }
+      this.dom3DAdapter?.render?.();
+    } else {
+      this.scene3D?.pause?.();
     }
   }
 
@@ -174,9 +319,28 @@ export class RealDuelView {
     if (!selection?.environment || !selection.environmentId) {
       throw new TypeError('RealDuelView could not resolve a safe environment.');
     }
-    this.active = true;
-    this._syncLayerActivity();
-    return layer;
+    try {
+      if (this.enable3D) {
+        const sceneActivated = await this.scene3D?.activate?.(
+          selection,
+          createPublicDuelSceneSummary(gameState)
+        );
+        if (sceneActivated !== true) {
+          throw new Error('The true 3D renderer could not be activated.');
+        }
+        this.dom3DAdapter?.activate?.();
+        this._resize3D();
+      }
+      this.active = true;
+      this._syncLayerActivity();
+      return layer;
+    } catch (error) {
+      this.dom3DAdapter?.deactivate?.();
+      this.scene3D?.deactivate?.();
+      this.active = false;
+      this._syncLayerActivity();
+      throw error;
+    }
   }
 
   update(gameState) {
@@ -187,6 +351,12 @@ export class RealDuelView {
     if (!this.active) return this.selection;
     if (!this.isMounted) this.mount();
     const selection = this._applyCurrentEnvironment();
+    if (this.enable3D) {
+      this.scene3D?.updatePublicSummary?.(
+        createPublicDuelSceneSummary(gameState)
+      );
+      this.dom3DAdapter?.render?.();
+    }
     this._syncLayerActivity();
     return selection;
   }
@@ -194,6 +364,9 @@ export class RealDuelView {
   deactivate() {
     if (this.disposed) return false;
     this.active = false;
+    // Restore the exact board/hand nodes before Classic/Arena styles resume.
+    this.dom3DAdapter?.deactivate?.();
+    this.scene3D?.deactivate?.();
     this._syncLayerActivity();
     return true;
   }
@@ -208,6 +381,11 @@ export class RealDuelView {
       );
       this._visibilityListenerAttached = false;
     }
+    this._detach3DResizeListener();
+    this.dom3DAdapter?.dispose?.();
+    this.scene3D?.dispose?.();
+    this.dom3DAdapter = null;
+    this.scene3D = null;
     this.layerElement?.remove?.();
     clearEnvironmentStyles(this.fieldElement);
     this.layerElement = null;
@@ -290,6 +468,10 @@ export class RealDuelView {
     );
 
     this.selection = selection;
+    if (this.active && this.enable3D) {
+      this.scene3D?.updateEnvironment?.(selection);
+      this.dom3DAdapter?.render?.();
+    }
     return selection;
   }
 }

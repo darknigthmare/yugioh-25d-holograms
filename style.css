@@ -3813,3 +3813,277 @@ body.duel-ended .app-container.real-duel-view-active .bottom-bar::after {
     padding-inline: 8px;
   }
 }
+
+/* ==================================================== */
+/* TRUE 3D REAL VIEW — shared WebGL/CSS3D camera         */
+/* ==================================================== */
+
+.app-container.real-duel-view-active .field-container {
+  grid-row: 2 / 4;
+  z-index: 2;
+  display: block;
+  min-width: 0;
+  padding: 0;
+  overflow: hidden;
+  isolation: isolate;
+  perspective: none;
+  touch-action: manipulation;
+  scrollbar-gutter: auto;
+  background: #07100d;
+}
+
+.real-duel-view-layer {
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  contain: layout paint style;
+}
+
+.real-duel-view-layer::after {
+  opacity: 0.38;
+}
+
+.real-duel-scene-3d {
+  z-index: 3;
+}
+
+.real-duel-scene-3d-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.real-duel-css3d-root {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 5;
+  overflow: visible !important;
+  pointer-events: none !important;
+  transform-style: preserve-3d;
+}
+
+.real-duel-css3d-root #duel-board,
+.real-duel-css3d-root #player-hand {
+  pointer-events: auto !important;
+}
+
+/* Keep the existing visibility class authoritative inside CSS3D. Explicit
+   stacking avoids browser-specific nested backface inversion. */
+.real-duel-css3d-root .card-inner:not(.face-down) {
+  transform: none;
+}
+
+.real-duel-css3d-root .card-inner:not(.face-down) .card-front {
+  z-index: 2;
+  display: block;
+  backface-visibility: visible;
+  -webkit-backface-visibility: visible;
+}
+
+.real-duel-css3d-root .card-inner:not(.face-down) .card-back {
+  display: none;
+}
+
+.real-duel-css3d-root .card-inner.face-down .card-back {
+  z-index: 2;
+  display: flex;
+  transform: none !important;
+  backface-visibility: visible;
+  -webkit-backface-visibility: visible;
+}
+
+.field-container.real-duel-view-active::before {
+  content: none;
+  display: none;
+}
+
+.field-container.real-duel-view-active .duel-board-shadow-box {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  width: 1px;
+  height: 1px;
+  transform: none;
+  pointer-events: none;
+}
+
+/* Three's CSS3D matrix is the only perspective transform in this mode. */
+.duel-board.real-mode {
+  width: 900px;
+  height: 1125px;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  transition: none;
+  transform-style: preserve-3d;
+}
+
+.duel-board.real-mode::before {
+  content: none;
+}
+
+.real-mode .board-half {
+  flex: 0 0 450px;
+  height: 450px;
+}
+
+.real-mode .opponent-side,
+.real-mode .player-side {
+  transform: none;
+}
+
+.real-mode .arena-center-gap {
+  flex: 0 0 225px;
+  height: 225px;
+  border-color: color-mix(
+    in srgb,
+    var(--real-environment-accent, #00ffff) 54%,
+    transparent
+  );
+  background: transparent;
+  box-shadow: none;
+}
+
+.real-mode .arena-hologrid {
+  opacity: 0.18;
+}
+
+/* The real hand sits on the physical foreground console. */
+.real-duel-css3d-root #player-hand {
+  box-sizing: border-box;
+  height: 220px;
+  min-height: 220px;
+  overflow-x: auto;
+  overflow-y: visible;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 18px 24px 8px;
+  border: 1px solid color-mix(
+    in srgb,
+    var(--real-environment-accent, #00ffff) 42%,
+    transparent
+  );
+  border-radius: 8px;
+  background: rgba(3, 12, 16, 0.68);
+  box-shadow:
+    inset 0 0 20px rgba(0, 255, 255, 0.08),
+    0 0 12px rgba(0, 0, 0, 0.45);
+}
+
+.real-duel-css3d-root #player-hand .hand-card-wrapper {
+  flex: 0 0 140px;
+  width: 140px;
+  height: 202px;
+  margin-left: -8px;
+}
+
+.real-duel-css3d-root #player-hand .hand-card-wrapper:first-child {
+  margin-left: 0;
+}
+
+/* The footer is no longer a fake console; it only holds the command dock. */
+.app-container.real-duel-view-active .bottom-bar {
+  z-index: 12;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  min-height: 0;
+  margin: 0;
+  padding: 0 14px 12px;
+  overflow: visible;
+  clip-path: none;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  pointer-events: none;
+}
+
+.app-container.real-duel-view-active .bottom-bar::before,
+.app-container.real-duel-view-active .bottom-bar::after {
+  content: none;
+  display: none;
+}
+
+.app-container.real-duel-view-active .command-panel {
+  width: min(220px, 30vw);
+  margin: 0;
+  padding: 8px;
+  border-color: rgba(0, 255, 255, 0.28);
+  background: rgba(3, 9, 13, 0.82);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(8px);
+  pointer-events: auto;
+}
+
+.app-container.real-duel-view-active .mobile-board-help {
+  display: none;
+}
+
+@media (max-width: 1050px) {
+  .app-container.real-duel-view-active {
+    grid-template-rows: auto 620px 0 auto auto;
+  }
+
+  .app-container.real-duel-view-active .field-container {
+    grid-row: 2;
+    height: 620px;
+  }
+
+  .app-container.real-duel-view-active .bottom-bar {
+    position: absolute;
+    z-index: 12;
+    top: calc(var(--real-header-height, 110px) + 472px);
+    right: 0;
+    width: min(240px, 42vw);
+    height: 138px;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-container.real-duel-view-active {
+    grid-template-rows: auto 560px 0 auto auto;
+  }
+
+  .app-container.real-duel-view-active .field-container {
+    grid-row: 2;
+    height: 560px;
+    overflow: hidden;
+    padding: 0;
+    touch-action: manipulation;
+  }
+
+  .app-container.real-duel-view-active .header-bar {
+    min-height: 0;
+  }
+
+  .real-duel-css3d-root #player-hand {
+    height: 220px;
+    min-height: 220px;
+    justify-content: flex-start;
+    padding-inline: 12px;
+    scrollbar-width: thin;
+  }
+
+  .app-container.real-duel-view-active .bottom-bar {
+    top: auto;
+    right: 4px;
+    bottom: auto;
+    width: min(200px, 54vw);
+    height: auto;
+    padding: 0 4px 5px;
+    transform: translateY(-48px);
+  }
+
+  .app-container.real-duel-view-active .command-panel {
+    width: 100%;
+    max-height: 134px;
+    overflow-y: auto;
+  }
+}

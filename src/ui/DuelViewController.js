@@ -42,6 +42,11 @@ export class DuelViewController {
       options.fieldElement,
       '#parallax-container'
     );
+    this.handElement = resolveElement(
+      this.documentRef,
+      options.handElement,
+      '#player-hand'
+    );
     this.appElement = resolveElement(
       this.documentRef,
       options.appElement,
@@ -223,6 +228,7 @@ export class DuelViewController {
             documentRef: this.documentRef,
             fieldElement: this.fieldElement,
             boardElement: this.boardElement,
+            handElement: this.handElement,
             environmentOptions: this.environmentOptions
           });
         });

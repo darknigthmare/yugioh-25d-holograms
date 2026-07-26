@@ -250,6 +250,14 @@ function updateResponsiveBoardScale() {
   const boardWrapper = document.querySelector('.duel-board-shadow-box');
   if (!field || !boardWrapper) return;
 
+  // Vue Réelle projects this exact board with the shared Three/CSS3D camera.
+  // A second mobile-pan or wrapper transform would desynchronise its hitboxes.
+  if (field.classList.contains('real-duel-view-active')) {
+    field.classList.remove('board-pan-mode');
+    boardWrapper.style.removeProperty('--responsive-board-scale');
+    return;
+  }
+
   if (window.innerWidth <= 600) {
     field.classList.add('board-pan-mode');
     boardWrapper.style.removeProperty('--responsive-board-scale');
@@ -267,7 +275,7 @@ function updateResponsiveBoardScale() {
 function positionMobileBoardForPlayer() {
   if (window.innerWidth > 600) return;
   const field = document.getElementById('parallax-container');
-  if (!field) return;
+  if (!field || field.classList.contains('real-duel-view-active')) return;
   requestAnimationFrame(() => {
     field.scrollLeft = Math.max(0, (field.scrollWidth - field.clientWidth) / 2);
     field.scrollTop = Math.max(0, field.scrollHeight - field.clientHeight);
@@ -992,11 +1000,12 @@ duelViewController = new DuelViewController({
   gameState: game,
   environmentOptions: { baseEnvironmentId: realBaseEnvironmentId },
   onModeChange: mode => {
+    updateResponsiveBoardScale();
     playSummon();
     const messages = {
       compact: 'Vue Compacte activée.',
       arena: 'Vue Arène activée : le plateau et les hologrammes sont espacés.',
-      real: 'Vue Réelle activée : console, plateforme et environnement immersif.'
+      real: 'Vue Réelle 3D activée : vous êtes derrière votre console, face à l’adversaire.'
     };
     addLogEntry(messages[mode] || 'Vue du duel modifiée.', 'system');
     announceStatus(messages[mode] || 'Vue du duel modifiée.');
