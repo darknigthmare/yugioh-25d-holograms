@@ -2585,6 +2585,7 @@ document.addEventListener('click', (e) => {
     && !e.target.closest('#public-zone-modal')
     && !e.target.closest('#settings-modal')
     && !e.target.closest('#gameover-modal')
+    && !e.target.closest('.real-duel-camera-controls')
   ) {
     if (selectedAttackerIndex !== null) {
       selectedAttackerIndex = null;

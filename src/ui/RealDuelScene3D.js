@@ -1,4 +1,8 @@
 import * as THREE from 'three';
+import {
+  normalizeRealDuelCameraPreset,
+  resolveRealDuelCameraPose
+} from './RealDuelCameraPresets.js';
 
 const DEFAULT_ENVIRONMENT = Object.freeze({
   id: 'clearing',
@@ -175,6 +179,7 @@ export class RealDuelScene3D {
     this.renderer = null;
     this.scene = null;
     this.camera = null;
+    this.cameraPreset = normalizeRealDuelCameraPreset(options.cameraPreset);
     this.environment = DEFAULT_ENVIRONMENT;
     this.publicSummary = null;
     this.active = false;
@@ -189,6 +194,9 @@ export class RealDuelScene3D {
     this._groundMaterial = null;
     this._hemiLight = null;
     this._directionalLight = null;
+    this._cameraLookTarget = new THREE.Vector3();
+    this._cameraTransition = null;
+    this._cameraUpdateCallback = null;
     this._boundFrame = () => this._onFrame();
     this._boundVisibility = () => {
       if (this.documentRef?.hidden === true) this.pause();
@@ -199,6 +207,113 @@ export class RealDuelScene3D {
 
   getCamera() {
     return this.camera;
+  }
+
+  getCameraPreset() {
+    return this.cameraPreset;
+  }
+
+  setCameraUpdateCallback(callback) {
+    this._cameraUpdateCallback = typeof callback === 'function' ? callback : null;
+    return this._cameraUpdateCallback;
+  }
+
+  setCameraPreset(presetId, options = {}) {
+    if (this.disposed) return false;
+    const nextPreset = normalizeRealDuelCameraPreset(presetId);
+    const pose = resolveRealDuelCameraPose(nextPreset, this._width);
+    const reducedMotion = this.windowRef?.matchMedia?.(
+      '(prefers-reduced-motion: reduce)'
+    )?.matches === true;
+    const immediate = options.immediate === true
+      || reducedMotion
+      || !this.camera
+      || this.publicSummary?.duelEnded === true;
+    this.cameraPreset = nextPreset;
+    if (this.root?.dataset) this.root.dataset.cameraPreset = nextPreset;
+
+    if (immediate) {
+      this._cameraTransition = null;
+      this.root?.removeAttribute?.('data-camera-transitioning');
+      this._applyCameraPose(pose);
+      this.render();
+      this._notifyCameraUpdate();
+      return true;
+    }
+
+    const duration = Math.min(
+      1200,
+      Math.max(180, Number(options.duration) || 420)
+    );
+    this._cameraTransition = {
+      startedAt: this._now(),
+      duration,
+      fromPosition: this.camera.position.clone(),
+      fromTarget: this._cameraLookTarget.clone(),
+      fromFov: this.camera.fov,
+      toPosition: new THREE.Vector3(...pose.position),
+      toTarget: new THREE.Vector3(...pose.target),
+      toFov: pose.fov
+    };
+    if (this.root?.dataset) this.root.dataset.cameraTransitioning = 'true';
+    this.start();
+    return true;
+  }
+
+  _now() {
+    return this.windowRef?.performance?.now?.()
+      ?? globalThis.performance?.now?.()
+      ?? Date.now();
+  }
+
+  _applyCameraPose(pose) {
+    if (!this.camera || !pose) return false;
+    this.camera.position.set(...pose.position);
+    this._cameraLookTarget.set(...pose.target);
+    this.camera.fov = pose.fov;
+    this.camera.lookAt(this._cameraLookTarget);
+    this.camera.updateProjectionMatrix();
+    return true;
+  }
+
+  _notifyCameraUpdate() {
+    try {
+      this._cameraUpdateCallback?.(this.camera, this.cameraPreset);
+    } catch {
+      // A CSS projection failure is contained by its lifecycle owner.
+    }
+  }
+
+  _updateCameraTransition(now = this._now()) {
+    const transition = this._cameraTransition;
+    if (!transition || !this.camera) return false;
+    const linearProgress = Math.min(
+      1,
+      Math.max(0, (now - transition.startedAt) / transition.duration)
+    );
+    const progress = linearProgress < 0.5
+      ? 4 * linearProgress ** 3
+      : 1 - ((-2 * linearProgress + 2) ** 3) / 2;
+    this.camera.position.lerpVectors(
+      transition.fromPosition,
+      transition.toPosition,
+      progress
+    );
+    this._cameraLookTarget.lerpVectors(
+      transition.fromTarget,
+      transition.toTarget,
+      progress
+    );
+    this.camera.fov = transition.fromFov
+      + (transition.toFov - transition.fromFov) * progress;
+    this.camera.lookAt(this._cameraLookTarget);
+    this.camera.updateProjectionMatrix();
+
+    if (linearProgress >= 1) {
+      this._cameraTransition = null;
+      this.root?.removeAttribute?.('data-camera-transitioning');
+    }
+    return true;
   }
 
   mount(hostElement = this.hostElement) {
@@ -281,8 +396,9 @@ export class RealDuelScene3D {
   _createScene() {
     this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera(36, 1, 0.1, 120);
-    this.camera.position.set(0, 15, 25);
-    this.camera.lookAt(0, 0, 0);
+    this._applyCameraPose(
+      resolveRealDuelCameraPose(this.cameraPreset, this._width)
+    );
 
     this._hemiLight = new THREE.HemisphereLight('#cce7db', '#18221f', 1);
     this.scene.add(this._hemiLight);
@@ -616,19 +732,16 @@ export class RealDuelScene3D {
     if (nextWidth === this._width && nextHeight === this._height) return true;
     this._width = nextWidth;
     this._height = nextHeight;
-    const isMobile = nextWidth <= 600;
-    const isTablet = !isMobile && nextWidth <= 1050;
-    this.camera.fov = isMobile ? 54 : (isTablet ? 43 : 36);
-    this.camera.position.set(
-      0,
-      isMobile ? 16 : (isTablet ? 15.5 : 15),
-      isMobile ? 27 : (isTablet ? 26 : 25)
+    this._cameraTransition = null;
+    this.root?.removeAttribute?.('data-camera-transitioning');
+    this._applyCameraPose(
+      resolveRealDuelCameraPose(this.cameraPreset, nextWidth)
     );
-    this.camera.lookAt(0, isMobile ? 0.8 : (isTablet ? 2.2 : 0), 0);
     this.camera.aspect = nextWidth / nextHeight;
     this.camera.updateProjectionMatrix();
     this.renderer.setSize(nextWidth, nextHeight, false);
     this.render();
+    this._notifyCameraUpdate();
     return true;
   }
 
@@ -680,7 +793,9 @@ export class RealDuelScene3D {
   _onFrame() {
     this._frameHandle = null;
     if (!this.running) return;
+    const cameraChanged = this._updateCameraTransition();
     this.render();
+    if (cameraChanged) this._notifyCameraUpdate();
     this._scheduleFrame();
   }
 
@@ -704,6 +819,8 @@ export class RealDuelScene3D {
     this.renderer = null;
     this.scene = null;
     this.camera = null;
+    this._cameraTransition = null;
+    this._cameraUpdateCallback = null;
     this._accentMaterials = [];
     this._platformMaterial = null;
     this._groundMaterial = null;

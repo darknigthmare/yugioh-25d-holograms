@@ -3,6 +3,11 @@ import {
 } from './FieldEnvironmentRegistry.js';
 import { RealDuelScene3D } from './RealDuelScene3D.js';
 import { RealDuelDOM3DAdapter } from './RealDuelDOM3DAdapter.js';
+import {
+  REAL_DUEL_CAMERA_PRESET_IDS,
+  REAL_DUEL_CAMERA_PRESETS,
+  normalizeRealDuelCameraPreset
+} from './RealDuelCameraPresets.js';
 
 export const REAL_DUEL_LAYER_SELECTOR = '[data-real-duel-view-layer="true"]';
 
@@ -13,6 +18,12 @@ function resolveElement(documentRef, explicitElement, selector) {
 function finiteNumber(value, fallback = 0) {
   const number = Number(value);
   return Number.isFinite(number) ? number : fallback;
+}
+
+function isTypingTarget(target) {
+  const tagName = String(target?.tagName || '').toLowerCase();
+  return target?.isContentEditable === true
+    || ['input', 'select', 'textarea'].includes(tagName);
 }
 
 /**
@@ -102,6 +113,12 @@ export class RealDuelView {
     this.layerElement = null;
     this.scene3D = null;
     this.dom3DAdapter = null;
+    this.cameraPreset = normalizeRealDuelCameraPreset(options.cameraPreset);
+    this.cameraControlsElement = null;
+    this.cameraStatusElement = null;
+    this.cameraButtons = new Map();
+    this._cameraControlCleanups = [];
+    this._cameraShortcutAttached = false;
     this.gameState = null;
     this.selection = null;
     this.active = false;
@@ -111,6 +128,21 @@ export class RealDuelView {
     this._bound3DResize = () => this._resize3D();
     this._resizeListenerAttached = false;
     this._resizeObserver = null;
+    this._boundCameraShortcut = event => {
+      if (
+        !this.active
+        || event.altKey !== true
+        || event.ctrlKey
+        || event.metaKey
+        || event.shiftKey
+        || isTypingTarget(event.target)
+      ) return;
+      const index = Number(event.key) - 1;
+      const presetId = REAL_DUEL_CAMERA_PRESET_IDS[index];
+      if (!presetId) return;
+      event.preventDefault?.();
+      this.setCameraPreset(presetId);
+    };
   }
 
   get isMounted() {
@@ -126,6 +158,26 @@ export class RealDuelView {
 
   getSelection() {
     return this.selection;
+  }
+
+  getCameraPreset() {
+    return this.cameraPreset;
+  }
+
+  setCameraPreset(presetId, options = {}) {
+    if (this.disposed) return null;
+    const nextPreset = normalizeRealDuelCameraPreset(
+      presetId,
+      this.cameraPreset
+    );
+    this.cameraPreset = nextPreset;
+    this.scene3D?.setCameraPreset?.(nextPreset, {
+      duration: options.duration,
+      immediate: options.immediate === true || !this.active
+    });
+    this.dom3DAdapter?.render?.();
+    this._syncCameraControls();
+    return nextPreset;
   }
 
   setEnvironmentOptions(options = {}) {
@@ -207,6 +259,11 @@ export class RealDuelView {
       domAdapter.mount?.(scene3D.getCamera());
       this.scene3D = scene3D;
       this.dom3DAdapter = domAdapter;
+      scene3D.setCameraUpdateCallback?.(() => {
+        this.dom3DAdapter?.render?.();
+      });
+      scene3D.setCameraPreset?.(this.cameraPreset, { immediate: true });
+      this._ensureCameraControls();
       this._attach3DResizeListener();
       this._resize3D();
       return true;
@@ -237,6 +294,112 @@ export class RealDuelView {
     }
     this._resizeObserver?.disconnect?.();
     this._resizeObserver = null;
+  }
+
+  _ensureCameraControls() {
+    if (!this.enable3D || !this.documentRef?.createElement || !this.fieldElement) {
+      return null;
+    }
+    if (this.cameraControlsElement?.parentNode === this.fieldElement) {
+      this._syncCameraControls();
+      return this.cameraControlsElement;
+    }
+    this._destroyCameraControls();
+
+    const controls = this.documentRef.createElement('div');
+    controls.className = 'real-duel-camera-controls';
+    controls.dataset.realDuelCameraControls = 'true';
+    controls.setAttribute('role', 'toolbar');
+    controls.setAttribute('aria-label', 'Angles de caméra de la Vue Réelle');
+    controls.setAttribute('aria-orientation', 'horizontal');
+    controls.hidden = true;
+
+    const title = this.documentRef.createElement('span');
+    title.className = 'real-duel-camera-title';
+    title.textContent = 'CAMÉRA';
+    title.setAttribute('aria-hidden', 'true');
+    controls.appendChild(title);
+
+    for (const [index, presetId] of REAL_DUEL_CAMERA_PRESET_IDS.entries()) {
+      const config = REAL_DUEL_CAMERA_PRESETS[presetId];
+      const button = this.documentRef.createElement('button');
+      button.type = 'button';
+      button.className = 'real-duel-camera-button';
+      button.dataset.cameraPreset = presetId;
+      button.textContent = config.label;
+      button.setAttribute('aria-label', `${config.accessibleLabel}. ${config.shortcut}.`);
+      button.setAttribute('title', `${config.accessibleLabel} (${config.shortcut})`);
+      const onClick = () => this.setCameraPreset(presetId);
+      const onKeyDown = event => {
+        if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+        event.preventDefault?.();
+        let nextIndex = index;
+        if (event.key === 'ArrowLeft') {
+          nextIndex = (index - 1 + REAL_DUEL_CAMERA_PRESET_IDS.length)
+            % REAL_DUEL_CAMERA_PRESET_IDS.length;
+        } else if (event.key === 'ArrowRight') {
+          nextIndex = (index + 1) % REAL_DUEL_CAMERA_PRESET_IDS.length;
+        } else if (event.key === 'Home') {
+          nextIndex = 0;
+        } else if (event.key === 'End') {
+          nextIndex = REAL_DUEL_CAMERA_PRESET_IDS.length - 1;
+        }
+        this.cameraButtons.get(
+          REAL_DUEL_CAMERA_PRESET_IDS[nextIndex]
+        )?.focus?.();
+      };
+      button.addEventListener('click', onClick);
+      button.addEventListener('keydown', onKeyDown);
+      this._cameraControlCleanups.push(() => {
+        button.removeEventListener('click', onClick);
+        button.removeEventListener('keydown', onKeyDown);
+      });
+      this.cameraButtons.set(presetId, button);
+      controls.appendChild(button);
+    }
+
+    const status = this.documentRef.createElement('span');
+    status.className = 'sr-only';
+    status.setAttribute('role', 'status');
+    status.setAttribute('aria-live', 'polite');
+    status.setAttribute('aria-atomic', 'true');
+    controls.appendChild(status);
+
+    this.fieldElement.appendChild(controls);
+    this.cameraControlsElement = controls;
+    this.cameraStatusElement = status;
+    if (!this._cameraShortcutAttached && this.documentRef?.addEventListener) {
+      this.documentRef.addEventListener('keydown', this._boundCameraShortcut);
+      this._cameraShortcutAttached = true;
+    }
+    this._syncCameraControls();
+    return controls;
+  }
+
+  _syncCameraControls() {
+    if (!this.cameraControlsElement) return;
+    this.cameraControlsElement.dataset.cameraPreset = this.cameraPreset;
+    for (const [presetId, button] of this.cameraButtons) {
+      const isActive = presetId === this.cameraPreset;
+      button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      button.classList?.toggle?.('is-active', isActive);
+    }
+    const config = REAL_DUEL_CAMERA_PRESETS[this.cameraPreset];
+    if (this.cameraStatusElement && config) {
+      this.cameraStatusElement.textContent = `Caméra : ${config.accessibleLabel}.`;
+    }
+  }
+
+  _destroyCameraControls() {
+    for (const cleanup of this._cameraControlCleanups.splice(0)) cleanup();
+    if (this._cameraShortcutAttached) {
+      this.documentRef?.removeEventListener?.('keydown', this._boundCameraShortcut);
+      this._cameraShortcutAttached = false;
+    }
+    this.cameraControlsElement?.remove?.();
+    this.cameraControlsElement = null;
+    this.cameraStatusElement = null;
+    this.cameraButtons.clear();
   }
 
   _resize3D() {
@@ -280,6 +443,9 @@ export class RealDuelView {
     }
     const interactionRoot = this.dom3DAdapter?.getElement?.();
     if (interactionRoot) interactionRoot.hidden = !shouldRender;
+    if (this.cameraControlsElement) {
+      this.cameraControlsElement.hidden = !shouldRender;
+    }
     if (shouldRender) {
       if (this.scene3D?.publicSummary?.duelEnded) {
         this.scene3D.pause?.();
@@ -382,6 +548,7 @@ export class RealDuelView {
       this._visibilityListenerAttached = false;
     }
     this._detach3DResizeListener();
+    this._destroyCameraControls();
     this.dom3DAdapter?.dispose?.();
     this.scene3D?.dispose?.();
     this.dom3DAdapter = null;
