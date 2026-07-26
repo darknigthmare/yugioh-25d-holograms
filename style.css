@@ -4051,9 +4051,9 @@ body.duel-ended .app-container.real-duel-view-active .bottom-bar::after {
     transparent
   );
   border-radius: 8px;
-  background: rgba(3, 12, 16, 0.68);
+  background: rgba(3, 12, 16, 0.22);
   box-shadow:
-    inset 0 0 20px rgba(0, 255, 255, 0.08),
+    inset 0 0 20px rgba(0, 255, 255, 0.05),
     0 0 12px rgba(0, 0, 0, 0.45);
 }
 

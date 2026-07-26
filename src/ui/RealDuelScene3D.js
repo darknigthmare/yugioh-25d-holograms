@@ -4,6 +4,9 @@ import {
   resolveRealDuelCameraPose
 } from './RealDuelCameraPresets.js';
 
+const PLAYER_CONSOLE_PLAYMAT_URL =
+  '/playmats/player-console-playmat-original.webp';
+
 const DEFAULT_ENVIRONMENT = Object.freeze({
   id: 'clearing',
   environmentTint: '#243d32',
@@ -173,6 +176,8 @@ export class RealDuelScene3D {
     this.hostElement = options.hostElement || null;
     this.rendererFactory = options.rendererFactory
       || (rendererOptions => new THREE.WebGLRenderer(rendererOptions));
+    this.textureLoaderFactory = options.textureLoaderFactory
+      || (() => new THREE.TextureLoader());
     this.pixelRatioLimit = Math.max(1, Number(options.pixelRatioLimit) || 1.75);
     this.root = null;
     this.canvas = null;
@@ -194,6 +199,8 @@ export class RealDuelScene3D {
     this._groundMaterial = null;
     this._hemiLight = null;
     this._directionalLight = null;
+    this._playerPlaymatMaterial = null;
+    this._playerPlaymatTexture = null;
     this._cameraLookTarget = new THREE.Vector3();
     this._cameraTransition = null;
     this._cameraUpdateCallback = null;
@@ -498,7 +505,8 @@ export class RealDuelScene3D {
       z: 11.4,
       rotationY: 0,
       widthFront: 14.5,
-      widthBack: 12.6
+      widthBack: 12.6,
+      withPlaymat: true
     }));
     this.scene.add(this._createConsole({
       name: 'opponent-console',
@@ -517,7 +525,8 @@ export class RealDuelScene3D {
     rotationY,
     widthFront,
     widthBack,
-    scale = 1
+    scale = 1,
+    withPlaymat = false
   }) {
     const group = new THREE.Group();
     group.name = name;
@@ -539,20 +548,24 @@ export class RealDuelScene3D {
     shell.receiveShadow = true;
     group.add(shell);
 
-    const panelMaterial = new THREE.MeshStandardMaterial({
-      color: '#17272e',
-      emissive: '#0c3d49',
-      emissiveIntensity: 0.6,
-      metalness: 0.68,
-      roughness: 0.28
-    });
-    const panel = new THREE.Mesh(
-      new THREE.BoxGeometry(widthBack * 0.7, 0.14, 2.35),
-      panelMaterial
-    );
-    panel.position.set(0, 1.42, -0.15);
-    panel.rotation.x = 0.3;
-    group.add(panel);
+    if (withPlaymat) {
+      this._addPlayerConsolePlaymat(group);
+    } else {
+      const panelMaterial = new THREE.MeshStandardMaterial({
+        color: '#17272e',
+        emissive: '#0c3d49',
+        emissiveIntensity: 0.6,
+        metalness: 0.68,
+        roughness: 0.28
+      });
+      const panel = new THREE.Mesh(
+        new THREE.BoxGeometry(widthBack * 0.7, 0.14, 2.35),
+        panelMaterial
+      );
+      panel.position.set(0, 1.42, -0.15);
+      panel.rotation.x = 0.3;
+      group.add(panel);
+    }
 
     const accentMaterial = new THREE.MeshStandardMaterial({
       color: '#80dce7',
@@ -563,13 +576,109 @@ export class RealDuelScene3D {
     });
     this._accentMaterials.push(accentMaterial);
     const display = new THREE.Mesh(
-      new THREE.BoxGeometry(3.1, 0.18, 0.8),
+      new THREE.BoxGeometry(3.1, 0.18, withPlaymat ? 0.36 : 0.8),
       accentMaterial
     );
-    display.position.set(0, 1.6, -0.45);
+    display.position.set(0, withPlaymat ? 1.72 : 1.6, withPlaymat ? -1.82 : -0.45);
     display.rotation.x = 0.3;
     group.add(display);
     return group;
+  }
+
+  _addPlayerConsolePlaymat(group) {
+    const frameMaterial = new THREE.MeshStandardMaterial({
+      color: '#29151c',
+      metalness: 0.68,
+      roughness: 0.34
+    });
+    const frame = new THREE.Mesh(
+      new THREE.BoxGeometry(12, 0.18, 4),
+      frameMaterial
+    );
+    frame.name = 'player-console-playmat-frame';
+    frame.position.set(0, 1.32, -0.2);
+    frame.rotation.x = 0.3;
+    frame.castShadow = true;
+    frame.receiveShadow = true;
+    group.add(frame);
+
+    this._playerPlaymatMaterial = new THREE.MeshStandardMaterial({
+      color: '#102433',
+      emissive: '#061923',
+      emissiveIntensity: 0.28,
+      metalness: 0.14,
+      roughness: 0.76
+    });
+    const playmat = new THREE.Mesh(
+      new THREE.BoxGeometry(11.4, 0.025, 3.8),
+      this._playerPlaymatMaterial
+    );
+    playmat.name = 'player-console-playmat';
+    playmat.position.set(0, 1.45, -0.2);
+    playmat.rotation.x = 0.3;
+    playmat.receiveShadow = true;
+    group.add(playmat);
+    this._loadPlayerConsolePlaymatTexture(this._playerPlaymatMaterial);
+    return playmat;
+  }
+
+  _loadPlayerConsolePlaymatTexture(material) {
+    let requestedTexture = null;
+    const applyTexture = texture => {
+      if (!texture) return;
+      if (this.disposed) {
+        texture.dispose?.();
+        return;
+      }
+      if (
+        this._playerPlaymatTexture
+        && this._playerPlaymatTexture !== texture
+      ) {
+        this._playerPlaymatTexture.dispose?.();
+      }
+      texture.colorSpace = THREE.SRGBColorSpace;
+      texture.wrapS = THREE.ClampToEdgeWrapping;
+      texture.wrapT = THREE.ClampToEdgeWrapping;
+      texture.anisotropy = Math.min(
+        4,
+        Number(this.renderer?.capabilities?.getMaxAnisotropy?.()) || 1
+      );
+      this._playerPlaymatTexture = texture;
+      material.map = texture;
+      material.color.set('#ffffff');
+      material.needsUpdate = true;
+      if (this.root?.dataset) this.root.dataset.playerPlaymatLoaded = 'true';
+      this.render();
+    };
+    const keepFallback = () => {
+      if (requestedTexture) {
+        if (this._playerPlaymatTexture === requestedTexture) {
+          this._playerPlaymatTexture = null;
+        }
+        requestedTexture.dispose?.();
+      }
+      material.map = null;
+      material.color.set('#102433');
+      material.needsUpdate = true;
+      if (this.root?.dataset) this.root.dataset.playerPlaymatLoaded = 'false';
+      this.render();
+    };
+
+    try {
+      const loader = this.textureLoaderFactory?.();
+      if (!loader?.load) throw new Error('No texture loader is available.');
+      requestedTexture = loader.load(
+        PLAYER_CONSOLE_PLAYMAT_URL,
+        applyTexture,
+        undefined,
+        keepFallback
+      );
+      if (requestedTexture && material.map !== requestedTexture) {
+        applyTexture(requestedTexture);
+      }
+    } catch {
+      keepFallback();
+    }
   }
 
   _createOpponent() {
@@ -826,6 +935,8 @@ export class RealDuelScene3D {
     this._groundMaterial = null;
     this._hemiLight = null;
     this._directionalLight = null;
+    this._playerPlaymatMaterial = null;
+    this._playerPlaymatTexture = null;
   }
 
   dispose() {
