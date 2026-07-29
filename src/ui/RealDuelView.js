@@ -52,11 +52,22 @@ function setStyleProperty(element, property, value) {
 }
 
 const ENVIRONMENT_STYLE_PROPERTIES = Object.freeze([
+  '--real-environment-backdrop',
+  '--real-environment-backdrop-filter',
+  '--real-environment-backdrop-opacity',
   '--real-environment-accent',
   '--real-environment-tint',
   '--real-environment-fog',
   '--real-environment-transition-duration'
 ]);
+
+function toSafeBackdropCssValue(value) {
+  const publicUrl = String(value ?? '').trim();
+  if (!/^\/environments\/[a-z0-9]+(?:-[a-z0-9]+)*\.webp$/.test(publicUrl)) {
+    throw new TypeError('RealDuelView received an unsafe environment backdrop URL.');
+  }
+  return `url("${publicUrl}")`;
+}
 
 function clearEnvironmentStyles(element) {
   for (const property of ENVIRONMENT_STYLE_PROPERTIES) {
@@ -589,6 +600,21 @@ export class RealDuelView {
     this.layerElement.dataset.environmentFallback = selection.isFallback ? 'true' : 'false';
     this.layerElement.dataset.transitionDuration = String(
       Number(environment.transitionDuration) || 0
+    );
+    setStyleProperty(
+      this.layerElement,
+      '--real-environment-backdrop',
+      toSafeBackdropCssValue(environment.backdropUrl)
+    );
+    setStyleProperty(
+      this.layerElement,
+      '--real-environment-backdrop-opacity',
+      1
+    );
+    setStyleProperty(
+      this.layerElement,
+      '--real-environment-backdrop-filter',
+      environment.backdropFilter || 'none'
     );
     setStyleProperty(
       this.layerElement,

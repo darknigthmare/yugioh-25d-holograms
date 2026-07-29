@@ -3394,70 +3394,51 @@ input:focus-visible {
 
 /*
  * The anime captures guide composition only and are never shipped as
- * textures. Each visible theme uses one of the two original generated raster
- * environments; gradients below are atmosphere/tint overlays, not scenery.
+ * textures. The canonical environment registry supplies one vetted local
+ * OpenAI-generated backdrop per visual family; these gradients only tune the
+ * atmosphere of the original six themes.
  */
-.real-duel-view-layer.is-environment-cave,
-.real-duel-view-layer.is-environment-generic,
-.real-duel-view-layer.is-environment-yami,
-.real-duel-view-layer.is-environment-umi,
-.real-duel-view-layer.is-environment-mountain,
-.real-duel-view-layer.is-environment-wasteland {
-  --real-environment-backdrop: url("/environments/cave-ruins-original.webp");
-  --real-environment-backdrop-opacity: 1;
-}
-
 .real-duel-view-layer.is-environment-cave {
-  --real-environment-backdrop-filter: none;
   --real-environment-overlay:
     linear-gradient(180deg, rgba(8, 12, 19, 0.05) 0 48%, rgba(6, 9, 15, 0.44) 100%);
 }
 
 .real-duel-view-layer.is-environment-generic {
-  --real-environment-backdrop-filter: saturate(0.72) hue-rotate(8deg);
   --real-environment-overlay:
     linear-gradient(180deg, rgba(8, 16, 37, 0.16), rgba(5, 9, 20, 0.48));
 }
 
 .real-duel-view-layer.is-environment-yami {
-  --real-environment-backdrop-filter: saturate(0.72) hue-rotate(34deg) brightness(0.72);
   --real-environment-overlay:
     linear-gradient(180deg, rgba(38, 7, 54, 0.16), rgba(11, 2, 17, 0.54));
 }
 
 .real-duel-view-layer.is-environment-umi {
-  --real-environment-backdrop-filter: saturate(1.28) hue-rotate(-8deg) brightness(1.06);
   --real-environment-overlay:
     linear-gradient(180deg, rgba(26, 111, 153, 0.18), rgba(4, 42, 72, 0.46));
 }
 
 .real-duel-view-layer.is-environment-forest {
-  --real-environment-backdrop-opacity: 0;
   --real-environment-overlay:
     linear-gradient(180deg, rgba(20, 75, 41, 0.08), rgba(4, 20, 10, 0.44));
 }
 
 .real-duel-view-layer.is-environment-mountain {
-  --real-environment-backdrop-filter: saturate(0.48) brightness(0.94);
   --real-environment-overlay:
     linear-gradient(180deg, rgba(64, 75, 94, 0.14), rgba(18, 25, 35, 0.48));
 }
 
 .real-duel-view-layer.is-environment-sogen {
-  --real-environment-backdrop-opacity: 0;
   --real-environment-overlay:
     linear-gradient(180deg, rgba(255, 244, 191, 0.08), rgba(50, 73, 37, 0.38));
 }
 
 .real-duel-view-layer.is-environment-wasteland {
-  --real-environment-backdrop-filter: sepia(0.72) saturate(1.35) brightness(0.88);
   --real-environment-overlay:
     linear-gradient(180deg, rgba(117, 66, 43, 0.16), rgba(40, 23, 17, 0.5));
 }
 
 .real-duel-view-layer.is-environment-toon-world {
-  --real-environment-backdrop-opacity: 0;
-  --real-environment-backdrop-filter: saturate(1.45);
   --real-environment-overlay:
     linear-gradient(180deg, rgba(140, 112, 232, 0.18), rgba(121, 58, 152, 0.42));
 }

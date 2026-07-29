@@ -10,6 +10,9 @@ import {
   getCardCroppedImageUrl,
   getCardImageUrl
 } from '../src/cards.js';
+import {
+  FIELD_ENVIRONMENT_REGISTRY
+} from '../src/ui/FieldEnvironmentRegistry.js';
 
 const localCards = [...STARTER_CARDS, ...EXTRA_DECK_CARDS];
 
@@ -94,5 +97,27 @@ test('legacy or poisoned image caches cannot shadow a local card with a hotlink'
   } finally {
     if (previousStorage === undefined) delete globalThis.localStorage;
     else globalThis.localStorage = previousStorage;
+  }
+});
+
+test('every immersive environment uses a valid same-origin WebP backdrop', async () => {
+  const backdropUrls = new Set(
+    Object.values(FIELD_ENVIRONMENT_REGISTRY)
+      .map(environment => environment.backdropUrl)
+  );
+  assert.equal(backdropUrls.size, 25);
+
+  for (const publicUrl of backdropUrls) {
+    assert.match(publicUrl, /^\/environments\/[a-z0-9-]+-original\.webp$/);
+    assert.equal(publicUrl.includes('://'), false);
+
+    const path = diskPath(publicUrl);
+    const details = await stat(path);
+    assert.ok(details.isFile(), `${publicUrl} must be a file`);
+    assert.ok(details.size > 50_000, `${publicUrl} is unexpectedly small`);
+
+    const bytes = await readFile(path);
+    assert.equal(bytes.subarray(0, 4).toString('ascii'), 'RIFF');
+    assert.equal(bytes.subarray(8, 12).toString('ascii'), 'WEBP');
   }
 });

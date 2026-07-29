@@ -627,14 +627,6 @@ export class RealDuelScene3D {
       widthBack: 12.6,
       withPlaymat: true
     }));
-    this.scene.add(this._createConsole({
-      name: 'opponent-console',
-      z: -12.05,
-      rotationY: Math.PI,
-      widthFront: 10.5,
-      widthBack: 8.8,
-      scale: 0.88
-    }));
     this.scene.add(this._createOpponent());
   }
 

@@ -9,6 +9,10 @@ import {
   resolveFieldEnvironment,
   resolveFieldEnvironmentSelection
 } from '../src/ui/FieldEnvironmentRegistry.js';
+import {
+  EXPECTED_FIELD_SPELL_ENVIRONMENT_COUNT,
+  FIELD_SPELL_ENVIRONMENT_CATALOG
+} from '../src/ui/FieldSpellEnvironmentCatalog.js';
 import { RealDuelView } from '../src/ui/RealDuelView.js';
 import {
   DUEL_VIEW_MODES,
@@ -284,10 +288,37 @@ test('Field Environment registry contains every required immutable environment',
       'mountain',
       'sogen',
       'wasteland',
-      'toon-world'
+      'toon-world',
+      'swamp',
+      'volcanic',
+      'ice',
+      'graveyard',
+      'city-modern',
+      'city-fantasy',
+      'castle-palace',
+      'temple-sanctuary',
+      'arena-stadium',
+      'theater-amusement',
+      'industrial-lab',
+      'mechanical-fortress',
+      'digital-cyber',
+      'cosmic-dimensional',
+      'celestial-light'
     ]
   );
   assert.ok(Object.values(FIELD_ENVIRONMENT_REGISTRY).every(Object.isFrozen));
+  assert.ok(Object.values(FIELD_ENVIRONMENT_REGISTRY).every(environment => (
+    Object.isFrozen(environment.associatedCardIds)
+    && /^\/environments\/[a-z0-9-]+-original\.webp$/.test(environment.backdropUrl)
+  )));
+  const mappedCardIds = new Set(
+    Object.values(FIELD_ENVIRONMENT_REGISTRY)
+      .flatMap(environment => environment.associatedCardIds)
+  );
+  assert.equal(mappedCardIds.size, EXPECTED_FIELD_SPELL_ENVIRONMENT_COUNT);
+  for (const entry of FIELD_SPELL_ENVIRONMENT_CATALOG) {
+    assert.equal(getFieldEnvironmentForCardId(entry.cardId)?.id, entry.environmentId);
+  }
   assert.equal(getFieldEnvironmentForCardId('59197169').id, 'yami');
   assert.equal(getFieldEnvironmentForCardId(22702055).id, 'umi');
   assert.equal(getFieldEnvironmentForCardId('87430998').id, 'forest');
@@ -436,6 +467,9 @@ test('an active unknown Field Spell safely selects the generic fallback', () => 
   assert.equal(selection.isFallback, true);
 
   assert.equal(normalizeCardId(' 59197169 '), '59197169');
+  assert.equal(normalizeCardId('00059197169'), '59197169');
+  assert.equal(normalizeCardId('000'), '0');
+  assert.equal(normalizeCardId(0), '0');
   assert.equal(normalizeCardId('not-an-id'), null);
   assert.equal(
     resolveFieldEnvironment({ playerFieldSpell: { id: '<unsafe>' } }).id,
@@ -467,6 +501,14 @@ test('RealDuelView lazily mounts one non-interactive layer without moving the bo
   assert.equal(layer.inert, true);
   assert.equal(layer.hidden, false);
   assert.equal(layer.dataset.environmentId, 'yami');
+  assert.equal(
+    layer.style.getPropertyValue('--real-environment-backdrop'),
+    'url("/environments/field-occult-dark-original.webp")'
+  );
+  assert.equal(
+    layer.style.getPropertyValue('--real-environment-backdrop-opacity'),
+    '1'
+  );
   assert.equal(
     fixture.field.style.getPropertyValue('--real-environment-accent'),
     FIELD_ENVIRONMENT_REGISTRY.yami.accentColor
@@ -554,6 +596,34 @@ test('RealDuelView selects the base environment without a game and sanitizes an 
     'secret'
   );
   assert.equal(fixture.field.children.length, 2);
+});
+
+test('RealDuelView rejects a poisoned remote backdrop before exposing it to CSS', async () => {
+  const fixture = createDomFixture();
+  const view = new RealDuelView({
+    documentRef: fixture.documentRef,
+    fieldElement: fixture.field,
+    boardElement: fixture.board,
+    environmentResolver: () => ({
+      environmentId: 'clearing',
+      isFallback: false,
+      environment: {
+        ...FIELD_ENVIRONMENT_REGISTRY.clearing,
+        backdropUrl: 'https://example.com/poisoned.webp'
+      }
+    })
+  });
+
+  await assert.rejects(
+    view.activate(null),
+    /unsafe environment backdrop URL/
+  );
+  const layer = fixture.field.querySelector('[data-real-duel-view-layer="true"]');
+  assert.equal(
+    layer.style.getPropertyValue('--real-environment-backdrop'),
+    ''
+  );
+  view.dispose();
 });
 
 test('RealDuelView can switch the configured base environment without touching duel state', async () => {

@@ -144,9 +144,16 @@ test('the player console owns one wide rectangular playmat and matching frame', 
   const scene = createScene(harness);
 
   const consoleGroup = scene.scene.getObjectByName('player-console');
+  const opponent = scene.scene.getObjectByName('opponent-character');
   const playmat = scene.scene.getObjectByName('player-console-playmat');
   const frame = scene.scene.getObjectByName('player-console-playmat-frame');
   assert.ok(consoleGroup, 'the physical player console must remain present');
+  assert.ok(opponent, 'the opposing duelist must remain visible at the far end');
+  assert.equal(
+    scene.scene.getObjectByName('opponent-console'),
+    undefined,
+    'the opposing duelist stands at the far end without a duplicate console'
+  );
   assert.ok(playmat, 'the player console must expose its playmat mesh');
   assert.ok(frame, 'the playmat must have a physical console frame');
   assert.equal(playmat.parent, consoleGroup);
@@ -213,14 +220,19 @@ test('a playmat completing after scene disposal is immediately released', () => 
   assert.equal(harness.getDisposals(), 1);
 });
 
-test('the console playmat and central arena follow Yami, Umi and Forest together before restoring the base terrain', () => {
+test('the console playmat and central arena follow every Field family before restoring the base terrain', () => {
   const harness = createTextureHarness();
   const scene = createScene(harness);
   scene.root = { dataset: {} };
   const { playmat, arenaSurface } = getTerrainSurfaces(scene);
   const signatures = new Map();
+  const environmentIds = [
+    'clearing',
+    ...Object.keys(FIELD_ENVIRONMENT_REGISTRY)
+      .filter(environmentId => environmentId !== 'clearing')
+  ];
 
-  for (const environmentId of ['clearing', 'yami', 'umi', 'forest']) {
+  for (const environmentId of environmentIds) {
     const environment = FIELD_ENVIRONMENT_REGISTRY[environmentId];
     scene.updateEnvironment({
       environment,
@@ -248,7 +260,7 @@ test('the console playmat and central arena follow Yami, Umi and Forest together
     });
   }
 
-  for (const environmentId of ['yami', 'umi', 'forest']) {
+  for (const environmentId of environmentIds.slice(1)) {
     assert.notDeepEqual(
       signatures.get(environmentId).playmat,
       signatures.get('clearing').playmat,
