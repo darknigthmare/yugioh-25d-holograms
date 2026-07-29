@@ -4,6 +4,10 @@ import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 import { Texture, Vector3 } from 'three';
 
+import {
+  FIELD_ENVIRONMENT_REGISTRY,
+  resolveFieldEnvironmentSelection
+} from '../src/ui/FieldEnvironmentRegistry.js';
 import { RealDuelScene3D } from '../src/ui/RealDuelScene3D.js';
 
 const PLAYER_CONSOLE_PLAYMAT_URL =
@@ -84,6 +88,38 @@ function assertNear(actual, expected, message) {
     Math.abs(actual - expected) < 0.001,
     `${message}: expected ${expected}, received ${actual}`
   );
+}
+
+function getTerrainSurfaces(scene) {
+  const playmat = scene.scene.getObjectByName('player-console-playmat');
+  const arenaSurface = scene.scene.getObjectByName('arena-platform-surface');
+  assert.ok(playmat, 'the player-console playmat surface must remain present');
+  assert.ok(arenaSurface, 'the central arena must expose its terrain surface');
+  return { playmat, arenaSurface };
+}
+
+function materialSignature(material) {
+  return {
+    color: material.color?.getHexString?.() || null,
+    emissive: material.emissive?.getHexString?.() || null,
+    emissiveIntensity: material.emissiveIntensity ?? null,
+    metalness: material.metalness ?? null,
+    roughness: material.roughness ?? null
+  };
+}
+
+function activeFieldCard(id, sequence = 1, extra = {}) {
+  return {
+    id,
+    uid: `field-${id}-${sequence}`,
+    card_type: 'spell',
+    type: 'Field Spell',
+    race: 'Field',
+    isFieldSpell: true,
+    location: 'field_zone',
+    fieldActivationSequence: sequence,
+    ...extra
+  };
 }
 
 test('the original player-console playmat is a valid same-origin WebP asset', async () => {
@@ -175,4 +211,146 @@ test('a playmat completing after scene disposal is immediately released', () => 
   assert.equal(harness.getDisposals(), 0);
   harness.completeLoad();
   assert.equal(harness.getDisposals(), 1);
+});
+
+test('the console playmat and central arena follow Yami, Umi and Forest together before restoring the base terrain', () => {
+  const harness = createTextureHarness();
+  const scene = createScene(harness);
+  scene.root = { dataset: {} };
+  const { playmat, arenaSurface } = getTerrainSurfaces(scene);
+  const signatures = new Map();
+
+  for (const environmentId of ['clearing', 'yami', 'umi', 'forest']) {
+    const environment = FIELD_ENVIRONMENT_REGISTRY[environmentId];
+    scene.updateEnvironment({
+      environment,
+      environmentId,
+      sourceCardId: environment.associatedCardIds[0] || null,
+      sourceUid: environmentId === 'clearing' ? null : `private-${environmentId}`
+    });
+
+    assert.equal(playmat.material.userData.environmentId, environmentId);
+    assert.equal(arenaSurface.material.userData.environmentId, environmentId);
+    assert.equal(
+      playmat.material.userData.arenaMaterial,
+      environment.arenaMaterial
+    );
+    assert.equal(
+      arenaSurface.material.userData.arenaMaterial,
+      environment.arenaMaterial
+    );
+    assert.equal(scene.root.dataset.environmentId, environmentId);
+    assert.equal(scene.root.dataset.arenaMaterial, environment.arenaMaterial);
+
+    signatures.set(environmentId, {
+      playmat: materialSignature(playmat.material),
+      arena: materialSignature(arenaSurface.material)
+    });
+  }
+
+  for (const environmentId of ['yami', 'umi', 'forest']) {
+    assert.notDeepEqual(
+      signatures.get(environmentId).playmat,
+      signatures.get('clearing').playmat,
+      `the console playmat must visibly adopt ${environmentId}`
+    );
+    assert.notDeepEqual(
+      signatures.get(environmentId).arena,
+      signatures.get('clearing').arena,
+      `the central arena must visibly adopt ${environmentId}`
+    );
+  }
+
+  scene.updateEnvironment(FIELD_ENVIRONMENT_REGISTRY.clearing);
+  assert.deepEqual(
+    materialSignature(playmat.material),
+    signatures.get('clearing').playmat
+  );
+  assert.deepEqual(
+    materialSignature(arenaSurface.material),
+    signatures.get('clearing').arena
+  );
+  assert.equal(playmat.material.userData.environmentId, 'clearing');
+  assert.equal(arenaSurface.material.userData.environmentId, 'clearing');
+
+  scene.dispose();
+});
+
+test('terrain surfaces consume canonical public identity only and never localized or concealed card data', () => {
+  const harness = createTextureHarness();
+  const scene = createScene(harness);
+  scene.root = { dataset: {} };
+  const { playmat, arenaSurface } = getTerrainSurfaces(scene);
+  const localizedName = 'Nom traduit qui ne doit jamais piloter le terrain';
+  const privateUid = 'private-field-card-identity';
+  const yami = activeFieldCard('59197169', 7, {
+    uid: privateUid,
+    name: localizedName,
+    name_en: 'Localized alias'
+  });
+
+  const publicSelection = resolveFieldEnvironmentSelection({
+    playerFieldSpell: yami
+  });
+  scene.updateEnvironment(publicSelection);
+  assert.equal(playmat.material.userData.environmentId, 'yami');
+  assert.equal(arenaSurface.material.userData.environmentId, 'yami');
+
+  const exposedVisualState = JSON.stringify({
+    environment: scene.environment,
+    root: scene.root.dataset,
+    playmat: playmat.material.userData,
+    arena: arenaSurface.material.userData
+  });
+  assert.equal(exposedVisualState.includes(localizedName), false);
+  assert.equal(exposedVisualState.includes('Localized alias'), false);
+  assert.equal(exposedVisualState.includes(privateUid), false);
+  assert.equal(exposedVisualState.includes('59197169'), false);
+  assert.deepEqual(
+    Object.keys(playmat.material.userData).sort(),
+    ['arenaMaterial', 'environmentId']
+  );
+  assert.deepEqual(
+    Object.keys(arenaSurface.material.userData).sort(),
+    ['arenaMaterial', 'environmentId']
+  );
+  assert.deepEqual(
+    Object.keys(scene.root.dataset).sort(),
+    ['arenaMaterial', 'environmentId']
+  );
+  assert.deepEqual(
+    Object.keys(scene.environment).sort(),
+    [
+      'accentColor',
+      'arenaMaterial',
+      'environmentTint',
+      'fog',
+      'id',
+      'lighting'
+    ]
+  );
+
+  const concealedSelection = resolveFieldEnvironmentSelection({
+    activeFieldSpells: [{
+      hidden: true,
+      card: activeFieldCard('22702055', 8, {
+        uid: 'secret-opponent-umi',
+        name: 'Mer secrète'
+      })
+    }]
+  });
+  assert.equal(concealedSelection.environmentId, 'clearing');
+  scene.updateEnvironment(concealedSelection);
+  assert.equal(playmat.material.userData.environmentId, 'clearing');
+  assert.equal(arenaSurface.material.userData.environmentId, 'clearing');
+  assert.equal(
+    JSON.stringify({
+      root: scene.root.dataset,
+      playmat: playmat.material.userData,
+      arena: arenaSurface.material.userData
+    }).includes('secret-opponent-umi'),
+    false
+  );
+
+  scene.dispose();
 });

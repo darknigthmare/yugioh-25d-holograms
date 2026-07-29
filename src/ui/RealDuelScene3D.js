@@ -9,6 +9,7 @@ const PLAYER_CONSOLE_PLAYMAT_URL =
 
 const DEFAULT_ENVIRONMENT = Object.freeze({
   id: 'clearing',
+  arenaMaterial: 'kaibacorp-steel',
   environmentTint: '#243d32',
   accentColor: '#48d9ff',
   lighting: Object.freeze({
@@ -17,6 +18,110 @@ const DEFAULT_ENVIRONMENT = Object.freeze({
     intensity: 0.9
   }),
   fog: Object.freeze({ color: '#678075', density: 0.018 })
+});
+
+const DEFAULT_ARENA_MATERIAL_PROFILE = Object.freeze({
+  platformTintBlend: 0.34,
+  platformMetalness: 0.42,
+  platformRoughness: 0.5,
+  platformEmissiveIntensity: 0.08,
+  playmatTintBlend: 0.34,
+  playmatMetalness: 0.14,
+  playmatRoughness: 0.76,
+  playmatEmissiveIntensity: 0.12
+});
+
+const ARENA_MATERIAL_PROFILES = Object.freeze({
+  'kaibacorp-steel': Object.freeze({
+    ...DEFAULT_ARENA_MATERIAL_PROFILE,
+    platformTintBlend: 0.2,
+    platformMetalness: 0.58,
+    platformRoughness: 0.42,
+    playmatTintBlend: 0.22
+  }),
+  'weathered-holographic-stone': Object.freeze({
+    ...DEFAULT_ARENA_MATERIAL_PROFILE,
+    platformTintBlend: 0.46,
+    platformMetalness: 0.16,
+    platformRoughness: 0.82,
+    platformEmissiveIntensity: 0.12,
+    playmatTintBlend: 0.42,
+    playmatRoughness: 0.84
+  }),
+  'neutral-hologram': Object.freeze({
+    ...DEFAULT_ARENA_MATERIAL_PROFILE,
+    platformTintBlend: 0.42,
+    platformMetalness: 0.34,
+    platformRoughness: 0.4,
+    platformEmissiveIntensity: 0.18,
+    playmatTintBlend: 0.38,
+    playmatEmissiveIntensity: 0.18
+  }),
+  'dark-hologram': Object.freeze({
+    ...DEFAULT_ARENA_MATERIAL_PROFILE,
+    platformTintBlend: 0.52,
+    platformMetalness: 0.28,
+    platformRoughness: 0.5,
+    platformEmissiveIntensity: 0.22,
+    playmatTintBlend: 0.5,
+    playmatEmissiveIntensity: 0.22
+  }),
+  'aquatic-hologram': Object.freeze({
+    ...DEFAULT_ARENA_MATERIAL_PROFILE,
+    platformTintBlend: 0.56,
+    platformMetalness: 0.38,
+    platformRoughness: 0.34,
+    platformEmissiveIntensity: 0.2,
+    playmatTintBlend: 0.46,
+    playmatRoughness: 0.58,
+    playmatEmissiveIntensity: 0.2
+  }),
+  'verdant-hologram': Object.freeze({
+    ...DEFAULT_ARENA_MATERIAL_PROFILE,
+    platformTintBlend: 0.5,
+    platformMetalness: 0.2,
+    platformRoughness: 0.68,
+    platformEmissiveIntensity: 0.14,
+    playmatTintBlend: 0.44,
+    playmatRoughness: 0.8
+  }),
+  'storm-hologram': Object.freeze({
+    ...DEFAULT_ARENA_MATERIAL_PROFILE,
+    platformTintBlend: 0.44,
+    platformMetalness: 0.5,
+    platformRoughness: 0.36,
+    platformEmissiveIntensity: 0.17,
+    playmatTintBlend: 0.38,
+    playmatMetalness: 0.22,
+    playmatRoughness: 0.62
+  }),
+  'plains-hologram': Object.freeze({
+    ...DEFAULT_ARENA_MATERIAL_PROFILE,
+    platformTintBlend: 0.48,
+    platformMetalness: 0.18,
+    platformRoughness: 0.72,
+    platformEmissiveIntensity: 0.1,
+    playmatTintBlend: 0.4,
+    playmatRoughness: 0.82
+  }),
+  'dust-hologram': Object.freeze({
+    ...DEFAULT_ARENA_MATERIAL_PROFILE,
+    platformTintBlend: 0.58,
+    platformMetalness: 0.12,
+    platformRoughness: 0.86,
+    platformEmissiveIntensity: 0.1,
+    playmatTintBlend: 0.48,
+    playmatRoughness: 0.88
+  }),
+  'toon-hologram': Object.freeze({
+    ...DEFAULT_ARENA_MATERIAL_PROFILE,
+    platformTintBlend: 0.54,
+    platformMetalness: 0.22,
+    platformRoughness: 0.46,
+    platformEmissiveIntensity: 0.24,
+    playmatTintBlend: 0.42,
+    playmatEmissiveIntensity: 0.24
+  })
 });
 
 const ENVIRONMENT_PALETTES = Object.freeze({
@@ -88,10 +193,17 @@ function resolveEnvironment(value) {
   const id = String(candidate.id || value?.environmentId || 'generic')
     .trim()
     .toLowerCase();
+  const arenaMaterial = String(candidate.arenaMaterial ?? '')
+    .trim()
+    .toLowerCase();
   return {
-    ...DEFAULT_ENVIRONMENT,
-    ...candidate,
     id: /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(id) ? id : 'generic',
+    arenaMaterial: Object.hasOwn(ARENA_MATERIAL_PROFILES, arenaMaterial)
+      ? arenaMaterial
+      : 'neutral-hologram',
+    environmentTint: candidate.environmentTint
+      || DEFAULT_ENVIRONMENT.environmentTint,
+    accentColor: candidate.accentColor || DEFAULT_ENVIRONMENT.accentColor,
     lighting: {
       ...DEFAULT_ENVIRONMENT.lighting,
       ...(candidate.lighting || {})
@@ -109,6 +221,11 @@ function color(value, fallback) {
   } catch {
     return new THREE.Color(fallback);
   }
+}
+
+function resolveArenaMaterialProfile(value) {
+  const id = String(value ?? '').trim().toLowerCase();
+  return ARENA_MATERIAL_PROFILES[id] || DEFAULT_ARENA_MATERIAL_PROFILE;
 }
 
 function createTrapezoidGeometry(widthFront, widthBack, depth, height) {
@@ -200,6 +317,7 @@ export class RealDuelScene3D {
     this._hemiLight = null;
     this._directionalLight = null;
     this._playerPlaymatMaterial = null;
+    this._playerPlaymatFrameMaterial = null;
     this._playerPlaymatTexture = null;
     this._cameraLookTarget = new THREE.Vector3();
     this._cameraTransition = null;
@@ -446,6 +564,7 @@ export class RealDuelScene3D {
       roughness: 0.52
     });
     const platform = new THREE.Mesh(platformGeometry, this._platformMaterial);
+    platform.name = 'arena-platform-surface';
     platform.receiveShadow = true;
     platform.castShadow = true;
     arena.add(platform);
@@ -586,14 +705,14 @@ export class RealDuelScene3D {
   }
 
   _addPlayerConsolePlaymat(group) {
-    const frameMaterial = new THREE.MeshStandardMaterial({
+    this._playerPlaymatFrameMaterial = new THREE.MeshStandardMaterial({
       color: '#29151c',
       metalness: 0.68,
       roughness: 0.34
     });
     const frame = new THREE.Mesh(
       new THREE.BoxGeometry(12, 0.18, 4),
-      frameMaterial
+      this._playerPlaymatFrameMaterial
     );
     frame.name = 'player-console-playmat-frame';
     frame.position.set(0, 1.32, -0.2);
@@ -645,7 +764,7 @@ export class RealDuelScene3D {
       );
       this._playerPlaymatTexture = texture;
       material.map = texture;
-      material.color.set('#ffffff');
+      this._applyEnvironmentSurfaceMaterials();
       material.needsUpdate = true;
       if (this.root?.dataset) this.root.dataset.playerPlaymatLoaded = 'true';
       this.render();
@@ -658,7 +777,7 @@ export class RealDuelScene3D {
         requestedTexture.dispose?.();
       }
       material.map = null;
-      material.color.set('#102433');
+      this._applyEnvironmentSurfaceMaterials();
       material.needsUpdate = true;
       if (this.root?.dataset) this.root.dataset.playerPlaymatLoaded = 'false';
       this.render();
@@ -787,6 +906,7 @@ export class RealDuelScene3D {
     const palette = ENVIRONMENT_PALETTES[this.environment.id]
       || ENVIRONMENT_PALETTES.generic;
     const accent = color(this.environment.accentColor, palette.rail);
+    const tint = color(this.environment.environmentTint, palette.ground);
     // Keep the generated original scenic bitmap visible behind the transparent
     // renderer while all gameplay-critical volumes remain genuine geometry.
     this.scene.background = null;
@@ -795,7 +915,7 @@ export class RealDuelScene3D {
       Math.min(0.065, Math.max(0.002, Number(this.environment.fog?.density) * 0.09 || 0.012))
     );
     this._groundMaterial?.color?.set('#0b0f0d');
-    this._platformMaterial?.color?.set(palette.platform);
+    this._applyEnvironmentSurfaceMaterials(palette, accent, tint);
     for (const material of this._accentMaterials) {
       material.color.copy(accent);
       material.emissive.copy(accent).multiplyScalar(0.48);
@@ -814,9 +934,66 @@ export class RealDuelScene3D {
         Number(this.environment.lighting?.intensity) || 0.8
       );
     }
-    if (this.root) this.root.dataset.environmentId = this.environment.id;
+    if (this.root) {
+      this.root.dataset.environmentId = this.environment.id;
+      this.root.dataset.arenaMaterial = this.environment.arenaMaterial
+        || 'neutral-hologram';
+    }
     this.render();
     return this.environment;
+  }
+
+  _applyEnvironmentSurfaceMaterials(
+    palette = ENVIRONMENT_PALETTES[this.environment.id]
+      || ENVIRONMENT_PALETTES.generic,
+    accent = color(this.environment.accentColor, palette.rail),
+    tint = color(this.environment.environmentTint, palette.ground)
+  ) {
+    const arenaMaterial = this.environment.arenaMaterial
+      || 'neutral-hologram';
+    const environmentId = this.environment.id || 'generic';
+    const profile = resolveArenaMaterialProfile(arenaMaterial);
+
+    if (this._platformMaterial) {
+      this._platformMaterial.color.copy(
+        color(palette.platform, '#303b4c').lerp(
+          tint,
+          profile.platformTintBlend
+        )
+      );
+      this._platformMaterial.emissive.copy(accent);
+      this._platformMaterial.emissiveIntensity =
+        profile.platformEmissiveIntensity;
+      this._platformMaterial.metalness = profile.platformMetalness;
+      this._platformMaterial.roughness = profile.platformRoughness;
+      this._platformMaterial.userData.environmentId = environmentId;
+      this._platformMaterial.userData.arenaMaterial = arenaMaterial;
+      this._platformMaterial.needsUpdate = true;
+    }
+
+    if (this._playerPlaymatMaterial) {
+      const playmatBase = this._playerPlaymatMaterial.map
+        ? color('#ffffff', '#ffffff').lerp(tint, profile.playmatTintBlend)
+        : color('#102433', '#102433').lerp(tint, 0.62);
+      this._playerPlaymatMaterial.color.copy(playmatBase);
+      this._playerPlaymatMaterial.emissive.copy(accent);
+      this._playerPlaymatMaterial.emissiveIntensity =
+        profile.playmatEmissiveIntensity;
+      this._playerPlaymatMaterial.metalness = profile.playmatMetalness;
+      this._playerPlaymatMaterial.roughness = profile.playmatRoughness;
+      this._playerPlaymatMaterial.userData.environmentId = environmentId;
+      this._playerPlaymatMaterial.userData.arenaMaterial = arenaMaterial;
+      this._playerPlaymatMaterial.needsUpdate = true;
+    }
+
+    if (this._playerPlaymatFrameMaterial) {
+      this._playerPlaymatFrameMaterial.color.copy(
+        color('#29151c', '#29151c').lerp(tint, 0.16)
+      );
+      this._playerPlaymatFrameMaterial.emissive.copy(accent);
+      this._playerPlaymatFrameMaterial.emissiveIntensity = 0.05;
+      this._playerPlaymatFrameMaterial.needsUpdate = true;
+    }
   }
 
   updatePublicSummary(publicSummary) {
@@ -936,6 +1113,7 @@ export class RealDuelScene3D {
     this._hemiLight = null;
     this._directionalLight = null;
     this._playerPlaymatMaterial = null;
+    this._playerPlaymatFrameMaterial = null;
     this._playerPlaymatTexture = null;
   }
 
