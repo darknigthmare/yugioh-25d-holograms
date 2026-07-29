@@ -7,29 +7,49 @@
 
 import { isFieldSpellCard } from '../core/FieldSpellRules.js';
 import { FIELD_SPELL_CARD_IDS_BY_ENVIRONMENT } from './FieldSpellEnvironmentCatalog.js';
+import {
+  FIELD_SPELL_RUNTIME_MANIFEST,
+  FIELD_SPELL_RUNTIME_MANIFEST_COUNT
+} from './FieldSpellRuntimeManifest.js';
 
 export const DEFAULT_FIELD_ENVIRONMENT_ID = 'clearing';
 export const FALLBACK_FIELD_ENVIRONMENT_ID = 'generic';
 
+const STATIC_ENVIRONMENT_BACKDROP_URL_PATTERN =
+  /^\/environments\/[a-z0-9]+(?:-[a-z0-9]+)*\.webp$/;
+const DEDICATED_FIELD_SPELL_BACKDROP_URL_PATTERN =
+  /^\/environments\/field-spells\/(?:0|[1-9]\d{0,11})-[a-z0-9]+(?:-[a-z0-9]+)*-original\.webp$/;
+
+export function isSafeFieldEnvironmentBackdropUrl(value) {
+  const publicUrl = String(value ?? '').trim();
+  return STATIC_ENVIRONMENT_BACKDROP_URL_PATTERN.test(publicUrl)
+    || DEDICATED_FIELD_SPELL_BACKDROP_URL_PATTERN.test(publicUrl);
+}
+
 function normalizeBackdropUrl(value) {
   const publicUrl = String(value ?? '').trim();
-  if (!/^\/environments\/[a-z0-9]+(?:-[a-z0-9]+)*\.webp$/.test(publicUrl)) {
+  if (!isSafeFieldEnvironmentBackdropUrl(publicUrl)) {
     throw new TypeError(`Invalid Field environment backdrop URL: ${value}`);
   }
   return publicUrl;
 }
 
 function freezeEnvironment(config) {
+  const backdropUrl = normalizeBackdropUrl(config.backdropUrl);
   return Object.freeze({
     ...config,
-    backdropUrl: normalizeBackdropUrl(config.backdropUrl),
+    backdropUrl,
+    fallbackBackdropUrl: normalizeBackdropUrl(
+      config.fallbackBackdropUrl || backdropUrl
+    ),
     associatedCardIds: Object.freeze(
       [...new Set((config.associatedCardIds || []).map(normalizeCardId).filter(Boolean))]
     ),
     props: Object.freeze([...(config.props || [])]),
     lighting: Object.freeze({ ...(config.lighting || {}) }),
     fog: Object.freeze({ ...(config.fog || {}) }),
-    particles: Object.freeze({ ...(config.particles || {}) })
+    particles: Object.freeze({ ...(config.particles || {}) }),
+    surfacePalette: Object.freeze({ ...(config.surfacePalette || {}) })
   });
 }
 
@@ -478,14 +498,106 @@ export const FIELD_ENVIRONMENT_REGISTRY = Object.freeze(
   Object.fromEntries(environments.map(environment => [environment.id, environment]))
 );
 
-const environmentByCardId = new Map();
+const familyEnvironmentByCardId = new Map();
 for (const environment of environments) {
   for (const cardId of environment.associatedCardIds) {
-    if (environmentByCardId.has(cardId)) {
+    if (familyEnvironmentByCardId.has(cardId)) {
       throw new RangeError(`Duplicate Field environment card ID: ${cardId}`);
     }
-    environmentByCardId.set(cardId, environment);
+    familyEnvironmentByCardId.set(cardId, environment);
   }
+}
+
+const dedicatedBackdropUrlByCardId = {};
+const environmentByCardId = new Map();
+for (const runtimeEntry of FIELD_SPELL_RUNTIME_MANIFEST) {
+  const familyEnvironment = familyEnvironmentByCardId.get(runtimeEntry.cardId);
+  if (!familyEnvironment) {
+    throw new RangeError(
+      `Missing Field environment family for card ID: ${runtimeEntry.cardId}`
+    );
+  }
+  if (familyEnvironment.id !== runtimeEntry.environmentFamily) {
+    throw new RangeError(
+      `Field environment family mismatch for card ID ${runtimeEntry.cardId}: `
+      + `${familyEnvironment.id} !== ${runtimeEntry.environmentFamily}`
+    );
+  }
+
+  const dedicatedBackdropUrl = normalizeBackdropUrl(runtimeEntry.assetPath);
+  dedicatedBackdropUrlByCardId[runtimeEntry.cardId] = dedicatedBackdropUrl;
+  environmentByCardId.set(runtimeEntry.cardId, freezeEnvironment({
+    ...familyEnvironment,
+    associatedCardIds: [runtimeEntry.cardId],
+    displayName: runtimeEntry.name,
+    fieldSpellCardId: runtimeEntry.cardId,
+    backdropUrl: dedicatedBackdropUrl,
+    fallbackBackdropUrl: familyEnvironment.backdropUrl,
+    environmentTint: runtimeEntry.palette.dominant,
+    accentColor: runtimeEntry.palette.signatureAccent,
+    lighting: {
+      ...familyEnvironment.lighting,
+      ambient: runtimeEntry.palette.secondary,
+      directional: runtimeEntry.palette.light
+    },
+    fog: {
+      ...familyEnvironment.fog,
+      color: runtimeEntry.palette.shadow
+    },
+    surfacePalette: {
+      background: runtimeEntry.palette.shadow,
+      ground: runtimeEntry.palette.dominant,
+      platform: runtimeEntry.palette.secondary,
+      rail: runtimeEntry.palette.signatureAccent
+    }
+  }));
+}
+
+export const FIELD_SPELL_DEDICATED_BACKDROP_URL_BY_CARD_ID = Object.freeze(
+  dedicatedBackdropUrlByCardId
+);
+export const FIELD_SPELL_DEDICATED_BACKDROP_URLS = Object.freeze(
+  Object.values(FIELD_SPELL_DEDICATED_BACKDROP_URL_BY_CARD_ID)
+);
+export const FIELD_SPELL_DEDICATED_BACKDROP_VALIDATION = Object.freeze({
+  valid: (
+    environmentByCardId.size === FIELD_SPELL_RUNTIME_MANIFEST_COUNT
+    && FIELD_SPELL_DEDICATED_BACKDROP_URLS.length === FIELD_SPELL_RUNTIME_MANIFEST_COUNT
+    && new Set(FIELD_SPELL_DEDICATED_BACKDROP_URLS).size
+      === FIELD_SPELL_RUNTIME_MANIFEST_COUNT
+  ),
+  expectedCount: FIELD_SPELL_RUNTIME_MANIFEST_COUNT,
+  mappedCardIdCount: environmentByCardId.size,
+  uniqueBackdropUrlCount: new Set(FIELD_SPELL_DEDICATED_BACKDROP_URLS).size
+});
+
+if (!FIELD_SPELL_DEDICATED_BACKDROP_VALIDATION.valid) {
+  throw new RangeError('Incomplete dedicated Field Spell backdrop mapping.');
+}
+
+export function getFieldSpellBackdropAssetProgress(availableAssetPaths = []) {
+  if (
+    availableAssetPaths === null
+    || availableAssetPaths === undefined
+    || typeof availableAssetPaths[Symbol.iterator] !== 'function'
+  ) {
+    throw new TypeError('Available Field Spell asset paths must be iterable.');
+  }
+  const availablePathSet = new Set(
+    [...availableAssetPaths].map(path => String(path ?? '').trim())
+  );
+  const generatedCount = FIELD_SPELL_DEDICATED_BACKDROP_URLS.reduce(
+    (count, assetPath) => count + Number(availablePathSet.has(assetPath)),
+    0
+  );
+  const expectedCount = FIELD_SPELL_DEDICATED_BACKDROP_VALIDATION.expectedCount;
+  return Object.freeze({
+    expectedCount,
+    generatedCount,
+    remainingCount: expectedCount - generatedCount,
+    completionPercent: Number(((generatedCount / expectedCount) * 100).toFixed(2)),
+    complete: generatedCount === expectedCount
+  });
 }
 
 export function getFieldEnvironment(environmentId) {
@@ -524,7 +636,7 @@ function readFiniteSequence(candidate, card) {
   return Number.NEGATIVE_INFINITY;
 }
 
-function isCandidateFaceUpAndResolved(candidate, card, fromFieldZone) {
+function isCandidateFaceUpAndResolved(candidate, card) {
   const states = [candidate, card];
   if (states.some(state => (
     state?.hidden === true
@@ -575,18 +687,22 @@ function isCandidateFaceUpAndResolved(candidate, card, fromFieldZone) {
   const location = String(card?.location ?? candidate?.location ?? '').trim().toLowerCase();
   if (location && !['field_zone', 'field-zone', 'field'].includes(location)) return false;
 
-  // A direct FieldState zone reference is authoritative. Generic candidate
-  // arrays must explicitly identify themselves as active/resolved or located
-  // in the Field Zone.
-  if (!fromFieldZone && !location) {
-    return states.some(state => (
-      state?.active === true
-      || state?.activationResolved === true
-      || state?.resolved === true
-      || state?.resolvedSuccessfully === true
-    ));
-  }
-  return true;
+  const explicitlyResolved = states.some(state => (
+    String(state?.fieldActivationState ?? '').trim().toLowerCase() === 'resolved'
+    || state?.activationResolved === true
+    || state?.resolved === true
+    || state?.resolvedSuccessfully === true
+  ));
+  const resolutionSequence = readFiniteSequence(candidate, card);
+  const hasPositiveResolutionSequence = (
+    Number.isFinite(resolutionSequence)
+    && resolutionSequence > 0
+  );
+
+  // Merely occupying the Field Zone never proves that activation resolved.
+  // This keeps face-up pending/replacement cards from leaking their identity
+  // through the Real View environment.
+  return explicitlyResolved || hasPositiveResolutionSequence;
 }
 
 function isFieldSpellCandidate(candidate, card) {
@@ -645,7 +761,7 @@ function collectActiveCandidates(gameState) {
     if (
       !cardId
       || !isFieldSpellCandidate(entry.candidate, card)
-      || !isCandidateFaceUpAndResolved(entry.candidate, card, entry.fromFieldZone)
+      || !isCandidateFaceUpAndResolved(entry.candidate, card)
     ) {
       continue;
     }

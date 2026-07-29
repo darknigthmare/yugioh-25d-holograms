@@ -44,13 +44,17 @@ test('sandbox API cards are wrapped in CardState before entering the hand', () =
     desc: '',
     atk: 1300,
     def: 500,
-    level: 3
+    level: 3,
+    image_url: '/custom-card-back.png',
+    image_url_cropped: '/custom-card-back.png'
   });
 
   assert.ok(card instanceof CardState);
   assert.equal(card.location, 'hand');
   assert.equal(card.ownerId, 'player');
   assert.equal(card.getAtk(), 1300);
+  assert.equal(card.image_url, '/custom-card-back.png');
+  assert.equal(card.image_url_cropped, '/custom-card-back.png');
   assert.equal(game.playerHand[0], card);
 });
 

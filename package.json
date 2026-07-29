@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "test": "node --test",
-    "check": "npm run test && npm run build",
+    "audit:field-assets": "node scripts/audit-field-spell-backdrops.mjs",
+    "check": "npm run test && npm run audit:field-assets && npm run build",
     "preview": "vite preview"
   },
   "engines": {

@@ -4,6 +4,26 @@ import {
   isFieldSpellCard
 } from './FieldSpellRules.js';
 
+function normalizeRuntimeImageUrl(value, fallback) {
+  const candidate = String(value ?? '').trim();
+  if (
+    !/^\/(?!\/)[a-z0-9._~/-]+\.(?:jpe?g|png|webp)$/i.test(candidate)
+  ) {
+    return fallback;
+  }
+  const segments = candidate.split('/').slice(1);
+  if (
+    segments.some(segment => (
+      !segment
+      || segment === '.'
+      || segment === '..'
+    ))
+  ) {
+    return fallback;
+  }
+  return candidate;
+}
+
 /**
  * CardState represents a dynamic instance of a card in the duel.
  * It manages modifications to statistics, locations, combat positions, and active status.
@@ -17,6 +37,26 @@ export class CardState {
     this.desc = baseCard.rulesText || baseCard.desc;
     this.card_type = baseCard.card_type; // 'monster', 'spell', 'trap'
     this.type = baseCard.type; // 'Normal Monster', 'Effect Monster', 'Fusion Monster', 'Synchro Monster', 'Spell Card', 'Trap Card'
+    Object.defineProperties(this, {
+      _imageUrl: {
+        value: normalizeRuntimeImageUrl(
+          baseCard.image_url,
+          getCardImageUrl(this.id)
+        ),
+        enumerable: false,
+        configurable: false,
+        writable: false
+      },
+      _imageCroppedUrl: {
+        value: normalizeRuntimeImageUrl(
+          baseCard.image_url_cropped,
+          getCardCroppedImageUrl(this.id)
+        ),
+        enumerable: false,
+        configurable: false,
+        writable: false
+      }
+    });
 
     // Monster specifics
     this.baseAtk = baseCard.atk || 0;
@@ -260,11 +300,11 @@ export class CardState {
   }
 
   get image_url() {
-    return getCardImageUrl(this.id);
+    return this._imageUrl;
   }
 
   get image_url_cropped() {
-    return getCardCroppedImageUrl(this.id);
+    return this._imageCroppedUrl;
   }
 
   // Legacy-compatible stat accessors.

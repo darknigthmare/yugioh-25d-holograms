@@ -204,6 +204,10 @@ function resolveEnvironment(value) {
     environmentTint: candidate.environmentTint
       || DEFAULT_ENVIRONMENT.environmentTint,
     accentColor: candidate.accentColor || DEFAULT_ENVIRONMENT.accentColor,
+    surfacePalette: {
+      ...(ENVIRONMENT_PALETTES[id] || ENVIRONMENT_PALETTES.generic),
+      ...(candidate.surfacePalette || {})
+    },
     lighting: {
       ...DEFAULT_ENVIRONMENT.lighting,
       ...(candidate.lighting || {})
@@ -321,8 +325,9 @@ export class RealDuelScene3D {
     this._playerPlaymatTexture = null;
     this._cameraLookTarget = new THREE.Vector3();
     this._cameraTransition = null;
+    this._animatedVisualsActive = false;
     this._cameraUpdateCallback = null;
-    this._boundFrame = () => this._onFrame();
+    this._boundFrame = timestamp => this._onFrame(timestamp);
     this._boundVisibility = () => {
       if (this.documentRef?.hidden === true) this.pause();
       else if (this.active) this.start();
@@ -360,6 +365,7 @@ export class RealDuelScene3D {
     if (immediate) {
       this._cameraTransition = null;
       this.root?.removeAttribute?.('data-camera-transitioning');
+      if (!this._animatedVisualsActive) this._stopFrameLoop();
       this._applyCameraPose(pose);
       this.render();
       this._notifyCameraUpdate();
@@ -378,7 +384,8 @@ export class RealDuelScene3D {
       fromFov: this.camera.fov,
       toPosition: new THREE.Vector3(...pose.position),
       toTarget: new THREE.Vector3(...pose.target),
-      toFov: pose.fov
+      toFov: pose.fov,
+      pausedAt: null
     };
     if (this.root?.dataset) this.root.dataset.cameraTransitioning = 'true';
     this.start();
@@ -389,6 +396,48 @@ export class RealDuelScene3D {
     return this.windowRef?.performance?.now?.()
       ?? globalThis.performance?.now?.()
       ?? Date.now();
+  }
+
+  _requiresAnimationFrame() {
+    return Boolean(this._cameraTransition || this._animatedVisualsActive);
+  }
+
+  _pauseCameraTransitionClock() {
+    if (this._cameraTransition && this._cameraTransition.pausedAt === null) {
+      this._cameraTransition.pausedAt = this._now();
+    }
+  }
+
+  _resumeCameraTransitionClock() {
+    const transition = this._cameraTransition;
+    if (!transition || transition.pausedAt === null) return;
+    transition.startedAt += Math.max(0, this._now() - transition.pausedAt);
+    transition.pausedAt = null;
+  }
+
+  _stopFrameLoop() {
+    this.running = false;
+    if (this._frameHandle !== null) {
+      const cancel = this.windowRef?.cancelAnimationFrame
+        || globalThis.cancelAnimationFrame;
+      cancel?.(this._frameHandle);
+      this._frameHandle = null;
+    }
+  }
+
+  /**
+   * Future genuinely animated WebGL props can opt into continuous rendering.
+   * The shipped scene is static, so this remains false and costs no idle RAF.
+   */
+  setAnimatedVisualsActive(active) {
+    if (this.disposed) return false;
+    this._animatedVisualsActive = active === true;
+    if (this._animatedVisualsActive && this.active) {
+      this.start();
+    } else if (!this._requiresAnimationFrame()) {
+      this._stopFrameLoop();
+    }
+    return this._animatedVisualsActive;
   }
 
   _applyCameraPose(pose) {
@@ -627,6 +676,7 @@ export class RealDuelScene3D {
       widthBack: 12.6,
       withPlaymat: true
     }));
+    this.scene.add(this._createOpponentConsole());
     this.scene.add(this._createOpponent());
   }
 
@@ -654,6 +704,7 @@ export class RealDuelScene3D {
       createTrapezoidGeometry(widthFront, widthBack, 4.1, 2.25),
       shellMaterial
     );
+    shell.name = `${name}-shell`;
     shell.position.y = 1.25;
     shell.castShadow = true;
     shell.receiveShadow = true;
@@ -673,6 +724,7 @@ export class RealDuelScene3D {
         new THREE.BoxGeometry(widthBack * 0.7, 0.14, 2.35),
         panelMaterial
       );
+      panel.name = `${name}-public-panel`;
       panel.position.set(0, 1.42, -0.15);
       panel.rotation.x = 0.3;
       group.add(panel);
@@ -690,10 +742,69 @@ export class RealDuelScene3D {
       new THREE.BoxGeometry(3.1, 0.18, withPlaymat ? 0.36 : 0.8),
       accentMaterial
     );
+    display.name = `${name}-display`;
     display.position.set(0, withPlaymat ? 1.72 : 1.6, withPlaymat ? -1.82 : -0.45);
     display.rotation.x = 0.3;
     group.add(display);
     return group;
+  }
+
+  _createOpponentConsole() {
+    // The opposing terminal is deliberately static geometry. It receives no
+    // hand or card objects, so perspective can never expose private faces.
+    const console = this._createConsole({
+      name: 'opponent-console',
+      z: -12.05,
+      rotationY: Math.PI,
+      widthFront: 10.5,
+      widthBack: 8.8,
+      scale: 0.88
+    });
+
+    const terminalMaterial = new THREE.MeshStandardMaterial({
+      color: '#56636b',
+      metalness: 0.68,
+      roughness: 0.34
+    });
+    const terminalColumn = new THREE.Mesh(
+      new THREE.BoxGeometry(3.55, 2.4, 1.05),
+      terminalMaterial
+    );
+    terminalColumn.name = 'opponent-console-terminal-column';
+    terminalColumn.position.set(0, 2.9, 0.85);
+    terminalColumn.castShadow = true;
+    terminalColumn.receiveShadow = true;
+    console.add(terminalColumn);
+
+    const terminalFrame = new THREE.Mesh(
+      new THREE.BoxGeometry(5.15, 1.85, 0.38),
+      terminalMaterial
+    );
+    terminalFrame.name = 'opponent-console-terminal-frame';
+    terminalFrame.position.set(0, 4.45, 0.72);
+    terminalFrame.rotation.x = -0.08;
+    terminalFrame.castShadow = true;
+    console.add(terminalFrame);
+
+    const publicDisplayMaterial = new THREE.MeshStandardMaterial({
+      color: '#18353d',
+      emissive: '#0e7388',
+      emissiveIntensity: 0.78,
+      metalness: 0.52,
+      roughness: 0.24
+    });
+    this._accentMaterials.push(publicDisplayMaterial);
+    const publicDisplay = new THREE.Mesh(
+      new THREE.BoxGeometry(4.5, 1.22, 0.08),
+      publicDisplayMaterial
+    );
+    publicDisplay.name = 'opponent-console-terminal-public-display';
+    publicDisplay.position.set(0, 4.45, 0.28);
+    publicDisplay.rotation.x = -0.08;
+    console.add(publicDisplay);
+
+    console.userData.visibility = 'public-only';
+    return console;
   }
 
   _addPlayerConsolePlaymat(group) {
@@ -895,7 +1006,8 @@ export class RealDuelScene3D {
   updateEnvironment(selectionOrEnvironment) {
     this.environment = resolveEnvironment(selectionOrEnvironment);
     if (!this.scene) return this.environment;
-    const palette = ENVIRONMENT_PALETTES[this.environment.id]
+    const palette = this.environment.surfacePalette
+      || ENVIRONMENT_PALETTES[this.environment.id]
       || ENVIRONMENT_PALETTES.generic;
     const accent = color(this.environment.accentColor, palette.rail);
     const tint = color(this.environment.environmentTint, palette.ground);
@@ -936,7 +1048,8 @@ export class RealDuelScene3D {
   }
 
   _applyEnvironmentSurfaceMaterials(
-    palette = ENVIRONMENT_PALETTES[this.environment.id]
+    palette = this.environment.surfacePalette
+      || ENVIRONMENT_PALETTES[this.environment.id]
       || ENVIRONMENT_PALETTES.generic,
     accent = color(this.environment.accentColor, palette.rail),
     tint = color(this.environment.environmentTint, palette.ground)
@@ -1012,6 +1125,7 @@ export class RealDuelScene3D {
     this._height = nextHeight;
     this._cameraTransition = null;
     this.root?.removeAttribute?.('data-camera-transitioning');
+    if (!this._animatedVisualsActive) this._stopFrameLoop();
     this._applyCameraPose(
       resolveRealDuelCameraPose(this.cameraPreset, nextWidth)
     );
@@ -1032,19 +1146,20 @@ export class RealDuelScene3D {
       || this.documentRef?.hidden === true
     ) return false;
     if (this.running) return true;
-    this.running = true;
-    this._scheduleFrame();
+    this._resumeCameraTransitionClock();
+    // Static geometry is rendered exactly once when made visible. A RAF loop
+    // is reserved for a camera interpolation or an explicitly animated prop.
+    this.render();
+    if (this._requiresAnimationFrame()) {
+      this.running = true;
+      this._scheduleFrame();
+    }
     return true;
   }
 
   pause() {
-    this.running = false;
-    if (this._frameHandle !== null) {
-      const cancel = this.windowRef?.cancelAnimationFrame
-        || globalThis.cancelAnimationFrame;
-      cancel?.(this._frameHandle);
-      this._frameHandle = null;
-    }
+    this._pauseCameraTransitionClock();
+    this._stopFrameLoop();
     return true;
   }
 
@@ -1061,20 +1176,33 @@ export class RealDuelScene3D {
     const request = this.windowRef?.requestAnimationFrame
       || globalThis.requestAnimationFrame;
     if (!request) {
+      const transition = this._cameraTransition;
+      if (transition) {
+        this._updateCameraTransition(
+          transition.startedAt + transition.duration
+        );
+        this._notifyCameraUpdate();
+      }
       this.render();
-      this.running = false;
+      this._stopFrameLoop();
       return;
     }
     this._frameHandle = request(this._boundFrame);
   }
 
-  _onFrame() {
+  _onFrame(timestamp) {
     this._frameHandle = null;
     if (!this.running) return;
-    const cameraChanged = this._updateCameraTransition();
-    this.render();
+    const cameraChanged = this._updateCameraTransition(
+      Number.isFinite(timestamp) ? timestamp : this._now()
+    );
+    if (cameraChanged || this._animatedVisualsActive) this.render();
     if (cameraChanged) this._notifyCameraUpdate();
-    this._scheduleFrame();
+    if (this._requiresAnimationFrame()) {
+      this._scheduleFrame();
+    } else {
+      this.running = false;
+    }
   }
 
   render() {
@@ -1098,6 +1226,7 @@ export class RealDuelScene3D {
     this.scene = null;
     this.camera = null;
     this._cameraTransition = null;
+    this._animatedVisualsActive = false;
     this._cameraUpdateCallback = null;
     this._accentMaterials = [];
     this._platformMaterial = null;

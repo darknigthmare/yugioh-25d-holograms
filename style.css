@@ -3208,6 +3208,7 @@ input:focus-visible {
 
 .real-duel-view-layer {
   --real-environment-backdrop: url("/environments/kaibacorp-clearing-original.webp");
+  --real-environment-backdrop-fallback: url("/environments/kaibacorp-clearing-original.webp");
   --real-environment-backdrop-opacity: 0;
   --real-environment-backdrop-filter: none;
   --real-environment-overlay:
@@ -3232,17 +3233,28 @@ input:focus-visible {
   opacity: 1;
 }
 
-.real-duel-view-layer::before {
-  content: "";
+.real-duel-environment-backdrop {
   position: absolute;
   z-index: 1;
   inset: 0;
-  background: var(--real-environment-backdrop) center / cover no-repeat;
+  pointer-events: none;
+  background-image:
+    var(--real-environment-backdrop),
+    var(--real-environment-backdrop-fallback);
+  background-position: center, center;
+  background-size: cover, cover;
+  background-repeat: no-repeat, no-repeat;
   filter: var(--real-environment-backdrop-filter);
-  opacity: var(--real-environment-backdrop-opacity);
+  opacity: 0;
   transition:
     opacity var(--real-environment-transition-duration, 800ms) ease,
     filter var(--real-environment-transition-duration, 800ms) ease;
+  will-change: opacity;
+  contain: strict;
+}
+
+.real-duel-environment-backdrop[data-active="true"] {
+  opacity: var(--real-environment-backdrop-opacity);
 }
 
 .real-duel-view-layer::after {
@@ -3266,6 +3278,12 @@ input:focus-visible {
   background-size: auto, auto, auto;
   opacity: 0.84;
   animation: real-environment-drift 9s ease-in-out infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .real-duel-environment-backdrop {
+    transition: none !important;
+  }
 }
 
 /* Original procedural scenery: no anime capture or remote texture is used. */
@@ -3395,8 +3413,8 @@ input:focus-visible {
 /*
  * The anime captures guide composition only and are never shipped as
  * textures. The canonical environment registry supplies one vetted local
- * OpenAI-generated backdrop per visual family; these gradients only tune the
- * atmosphere of the original six themes.
+ * OpenAI-generated backdrop per Field Spell; family gradients only remain as
+ * a lightweight loading/error fallback and never choose the final scene.
  */
 .real-duel-view-layer.is-environment-cave {
   --real-environment-overlay:

@@ -2,10 +2,11 @@ import assert from 'node:assert/strict';
 import { readFile, stat } from 'node:fs/promises';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
-import { Texture, Vector3 } from 'three';
+import { Box3, Texture, Vector3 } from 'three';
 
 import {
   FIELD_ENVIRONMENT_REGISTRY,
+  getFieldEnvironmentForCardId,
   resolveFieldEnvironmentSelection
 } from '../src/ui/FieldEnvironmentRegistry.js';
 import { RealDuelScene3D } from '../src/ui/RealDuelScene3D.js';
@@ -145,14 +146,14 @@ test('the player console owns one wide rectangular playmat and matching frame', 
 
   const consoleGroup = scene.scene.getObjectByName('player-console');
   const opponent = scene.scene.getObjectByName('opponent-character');
+  const opponentConsole = scene.scene.getObjectByName('opponent-console');
   const playmat = scene.scene.getObjectByName('player-console-playmat');
   const frame = scene.scene.getObjectByName('player-console-playmat-frame');
   assert.ok(consoleGroup, 'the physical player console must remain present');
   assert.ok(opponent, 'the opposing duelist must remain visible at the far end');
-  assert.equal(
-    scene.scene.getObjectByName('opponent-console'),
-    undefined,
-    'the opposing duelist stands at the far end without a duplicate console'
+  assert.ok(
+    opponentConsole,
+    'the opposing duelist must own a perspective console at the far end'
   );
   assert.ok(playmat, 'the player console must expose its playmat mesh');
   assert.ok(frame, 'the playmat must have a physical console frame');
@@ -182,6 +183,96 @@ test('the player console owns one wide rectangular playmat and matching frame', 
 
   scene.dispose();
   assert.equal(harness.getDisposals(), 1);
+});
+
+test('the opponent console stays behind the arena, mirrored and public-only', () => {
+  const harness = createTextureHarness();
+  const scene = createScene(harness);
+
+  const playerConsole = scene.scene.getObjectByName('player-console');
+  const opponentConsole = scene.scene.getObjectByName('opponent-console');
+  const opponentShell = scene.scene.getObjectByName('opponent-console-shell');
+  const opponentPanel = scene.scene.getObjectByName(
+    'opponent-console-public-panel'
+  );
+  const opponentDisplay = scene.scene.getObjectByName(
+    'opponent-console-display'
+  );
+  const opponentTerminal = scene.scene.getObjectByName(
+    'opponent-console-terminal-column'
+  );
+  const opponentTerminalFrame = scene.scene.getObjectByName(
+    'opponent-console-terminal-frame'
+  );
+  const opponentTerminalDisplay = scene.scene.getObjectByName(
+    'opponent-console-terminal-public-display'
+  );
+  const opponent = scene.scene.getObjectByName('opponent-character');
+
+  assert.ok(playerConsole);
+  assert.ok(opponentConsole);
+  assert.ok(opponentShell);
+  assert.ok(opponentPanel);
+  assert.ok(opponentDisplay);
+  assert.ok(opponentTerminal);
+  assert.ok(opponentTerminalFrame);
+  assert.ok(opponentTerminalDisplay);
+  assert.ok(opponent);
+  assert.equal(opponentConsole.parent, scene.scene);
+  assert.equal(opponentShell.parent, opponentConsole);
+  assert.equal(opponentPanel.parent, opponentConsole);
+  assert.equal(opponentDisplay.parent, opponentConsole);
+  assert.equal(opponentTerminal.parent, opponentConsole);
+  assert.equal(opponentTerminalFrame.parent, opponentConsole);
+  assert.equal(opponentTerminalDisplay.parent, opponentConsole);
+  assert.equal(
+    scene.scene.getObjectsByProperty('name', 'opponent-console').length,
+    1
+  );
+
+  assertNear(opponentConsole.position.x, 0, 'opponent console x');
+  assertNear(opponentConsole.position.z, -12.05, 'opponent console z');
+  assertNear(opponentConsole.rotation.y, Math.PI, 'opponent console facing');
+  assertNear(opponentConsole.scale.x, 0.88, 'opponent console scale x');
+  assertNear(opponentConsole.scale.y, 0.88, 'opponent console scale y');
+  assertNear(opponentConsole.scale.z, 0.88, 'opponent console scale z');
+  assert.ok(
+    opponentConsole.position.z < -10.18,
+    'the console must sit beyond the arena far rail'
+  );
+  assert.ok(
+    opponentConsole.position.z > opponent.position.z,
+    'the console must remain between the arena and the opposing duelist'
+  );
+  assert.equal(opponentConsole.userData.visibility, 'public-only');
+
+  const playerBounds = new Box3().setFromObject(playerConsole);
+  const opponentBounds = new Box3().setFromObject(opponentConsole);
+  const playerSize = playerBounds.getSize(new Vector3());
+  const opponentSize = opponentBounds.getSize(new Vector3());
+  assert.ok(
+    opponentSize.x < playerSize.x,
+    'perspective must keep the far console narrower than the player console'
+  );
+  assert.ok(
+    opponentSize.z < playerSize.z,
+    'perspective must keep the far console shallower than the player console'
+  );
+
+  const exposedOpponentGeometry = [];
+  opponentConsole.traverse(object => {
+    exposedOpponentGeometry.push({
+      name: object.name,
+      userData: object.userData
+    });
+  });
+  assert.equal(
+    /card|hand|uid|passcode/i.test(JSON.stringify(exposedOpponentGeometry)),
+    false,
+    'the public console geometry must never carry hidden hand or card identity'
+  );
+
+  scene.dispose();
 });
 
 test('a failed playmat texture keeps the physical fallback and leaks no card identity', async () => {
@@ -288,6 +379,40 @@ test('the console playmat and central arena follow every Field family before res
   scene.dispose();
 });
 
+test('two dedicated Field Spells in one family keep distinct arena and playmat palettes', () => {
+  const harness = createTextureHarness();
+  const scene = createScene(harness);
+  scene.root = { dataset: {} };
+  const { playmat, arenaSurface } = getTerrainSurfaces(scene);
+  const gatewayToChaos = getFieldEnvironmentForCardId('40089744');
+  const chaosZone = getFieldEnvironmentForCardId('94243005');
+
+  assert.ok(gatewayToChaos);
+  assert.ok(chaosZone);
+  assert.equal(gatewayToChaos.id, chaosZone.id);
+  assert.notDeepEqual(
+    gatewayToChaos.surfacePalette,
+    chaosZone.surfacePalette,
+    'cards in the same visual family must still own dedicated surface palettes'
+  );
+
+  scene.updateEnvironment(gatewayToChaos);
+  const gatewaySignature = {
+    playmat: materialSignature(playmat.material),
+    arena: materialSignature(arenaSurface.material)
+  };
+
+  scene.updateEnvironment(chaosZone);
+  const chaosSignature = {
+    playmat: materialSignature(playmat.material),
+    arena: materialSignature(arenaSurface.material)
+  };
+
+  assert.notDeepEqual(chaosSignature.playmat, gatewaySignature.playmat);
+  assert.notDeepEqual(chaosSignature.arena, gatewaySignature.arena);
+  scene.dispose();
+});
+
 test('terrain surfaces consume canonical public identity only and never localized or concealed card data', () => {
   const harness = createTextureHarness();
   const scene = createScene(harness);
@@ -338,7 +463,8 @@ test('terrain surfaces consume canonical public identity only and never localize
       'environmentTint',
       'fog',
       'id',
-      'lighting'
+      'lighting',
+      'surfacePalette'
     ]
   );
 

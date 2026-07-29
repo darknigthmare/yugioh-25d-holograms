@@ -36,6 +36,30 @@ test('card image URLs normalize passcodes with leading zeroes for the CDN', () =
   assert.match(card.image_url_cropped, /\/5053103\.jpg$/);
 });
 
+test('CardState preserves safe Sandbox placeholders and rejects remote image hotlinks', () => {
+  const sandboxCard = createMonster({
+    id: '59197169',
+    image_url: '/custom-card-back.png',
+    image_url_cropped: '/custom-card-back.png'
+  });
+  const poisonedCard = createMonster({
+    id: '59197169',
+    image_url: 'https://images.ygoprodeck.com/images/cards/59197169.jpg',
+    image_url_cropped: '//images.ygoprodeck.com/images/cards_cropped/59197169.jpg'
+  });
+
+  assert.equal(sandboxCard.image_url, '/custom-card-back.png');
+  assert.equal(sandboxCard.image_url_cropped, '/custom-card-back.png');
+  assert.equal(sandboxCard.image_url.includes('ygoprodeck.com'), false);
+  assert.equal(sandboxCard.image_url_cropped.includes('ygoprodeck.com'), false);
+  assert.equal(poisonedCard.image_url, '/cards/small/59197169.jpg');
+  assert.equal(poisonedCard.image_url_cropped, '/cards/cropped/59197169.jpg');
+  assert.equal(Object.keys(sandboxCard).includes('_imageUrl'), false);
+  assert.equal(Object.keys(sandboxCard).includes('_imageCroppedUrl'), false);
+  assert.equal(JSON.stringify(sandboxCard).includes('_imageUrl'), false);
+  assert.equal(JSON.stringify(sandboxCard).includes('ygoprodeck.com'), false);
+});
+
 test('legacy stat properties remain live aliases of the dynamic getters', () => {
   const card = createMonster();
 

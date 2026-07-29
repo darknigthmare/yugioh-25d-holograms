@@ -4,7 +4,12 @@ import {
   DEFAULT_FIELD_ENVIRONMENT_ID,
   FALLBACK_FIELD_ENVIRONMENT_ID,
   FIELD_ENVIRONMENT_REGISTRY,
+  FIELD_SPELL_DEDICATED_BACKDROP_URL_BY_CARD_ID,
+  FIELD_SPELL_DEDICATED_BACKDROP_URLS,
+  FIELD_SPELL_DEDICATED_BACKDROP_VALIDATION,
   getFieldEnvironmentForCardId,
+  getFieldSpellBackdropAssetProgress,
+  isSafeFieldEnvironmentBackdropUrl,
   normalizeCardId,
   resolveFieldEnvironment,
   resolveFieldEnvironmentSelection
@@ -13,7 +18,13 @@ import {
   EXPECTED_FIELD_SPELL_ENVIRONMENT_COUNT,
   FIELD_SPELL_ENVIRONMENT_CATALOG
 } from '../src/ui/FieldSpellEnvironmentCatalog.js';
-import { RealDuelView } from '../src/ui/RealDuelView.js';
+import {
+  getFieldSpellIllustrationBrief
+} from '../src/ui/FieldSpellIllustrationBriefManifest.js';
+import {
+  REAL_DUEL_BACKDROP_LAYER_COUNT,
+  RealDuelView
+} from '../src/ui/RealDuelView.js';
 import {
   DUEL_VIEW_MODES,
   DuelViewController
@@ -222,6 +233,58 @@ class FakeDocument {
   }
 }
 
+function createDeferredImageHarness() {
+  const requests = [];
+  const imageFactory = () => {
+    let source = '';
+    let resolveDecode = null;
+    let rejectDecode = null;
+    const decodePromise = new Promise((resolve, reject) => {
+      resolveDecode = resolve;
+      rejectDecode = reject;
+    });
+    const image = {
+      decoding: '',
+      complete: false,
+      naturalWidth: 0,
+      onload: null,
+      onerror: null,
+      decode: () => decodePromise
+    };
+    Object.defineProperty(image, 'src', {
+      get: () => source,
+      set(value) {
+        source = String(value);
+      }
+    });
+    const request = {
+      image,
+      get src() {
+        return source;
+      },
+      resolve() {
+        image.complete = true;
+        image.naturalWidth = 1280;
+        resolveDecode();
+      },
+      reject() {
+        image.complete = true;
+        image.naturalWidth = 0;
+        rejectDecode(new Error('Synthetic decode failure'));
+      }
+    };
+    requests.push(request);
+    return image;
+  };
+  return { imageFactory, requests };
+}
+
+async function flushBackdropDecode() {
+  await Promise.resolve();
+  await Promise.resolve();
+  await Promise.resolve();
+}
+
 function createDomFixture() {
   const documentRef = new FakeDocument();
   const app = documentRef.createElement('div');
@@ -310,6 +373,7 @@ test('Field Environment registry contains every required immutable environment',
   assert.ok(Object.values(FIELD_ENVIRONMENT_REGISTRY).every(environment => (
     Object.isFrozen(environment.associatedCardIds)
     && /^\/environments\/[a-z0-9-]+-original\.webp$/.test(environment.backdropUrl)
+    && environment.fallbackBackdropUrl === environment.backdropUrl
   )));
   const mappedCardIds = new Set(
     Object.values(FIELD_ENVIRONMENT_REGISTRY)
@@ -317,7 +381,28 @@ test('Field Environment registry contains every required immutable environment',
   );
   assert.equal(mappedCardIds.size, EXPECTED_FIELD_SPELL_ENVIRONMENT_COUNT);
   for (const entry of FIELD_SPELL_ENVIRONMENT_CATALOG) {
-    assert.equal(getFieldEnvironmentForCardId(entry.cardId)?.id, entry.environmentId);
+    const brief = getFieldSpellIllustrationBrief(entry.cardId);
+    const environment = getFieldEnvironmentForCardId(entry.cardId);
+    assert.equal(environment?.id, entry.environmentId);
+    assert.equal(environment.displayName, brief.name);
+    assert.deepEqual(environment.associatedCardIds, [entry.cardId]);
+    assert.equal(environment.backdropUrl, brief.assetPath);
+    assert.equal(
+      environment.fallbackBackdropUrl,
+      FIELD_ENVIRONMENT_REGISTRY[entry.environmentId].backdropUrl
+    );
+    assert.deepEqual(environment.surfacePalette, {
+      background: brief.palette.shadow,
+      ground: brief.palette.dominant,
+      platform: brief.palette.secondary,
+      rail: brief.palette.signatureAccent
+    });
+    assert.equal(environment.environmentTint, brief.palette.dominant);
+    assert.equal(environment.accentColor, brief.palette.signatureAccent);
+    assert.equal(environment.lighting.ambient, brief.palette.secondary);
+    assert.equal(environment.lighting.directional, brief.palette.light);
+    assert.equal(environment.fog.color, brief.palette.shadow);
+    assert.ok(Object.isFrozen(environment.surfacePalette));
   }
   assert.equal(getFieldEnvironmentForCardId('59197169').id, 'yami');
   assert.equal(getFieldEnvironmentForCardId(22702055).id, 'umi');
@@ -329,6 +414,62 @@ test('Field Environment registry contains every required immutable environment',
     getFieldEnvironmentForCardId('15259703'),
     null,
     'Toon World is a Continuous Spell and must not drive a Field environment'
+  );
+});
+
+test('every canonical Field Spell owns one strict dedicated asset path and measurable progress', () => {
+  assert.deepEqual(FIELD_SPELL_DEDICATED_BACKDROP_VALIDATION, {
+    valid: true,
+    expectedCount: 336,
+    mappedCardIdCount: 336,
+    uniqueBackdropUrlCount: 336
+  });
+  assert.equal(FIELD_SPELL_DEDICATED_BACKDROP_URLS.length, 336);
+  assert.equal(new Set(FIELD_SPELL_DEDICATED_BACKDROP_URLS).size, 336);
+  for (const [cardId, assetPath] of Object.entries(
+    FIELD_SPELL_DEDICATED_BACKDROP_URL_BY_CARD_ID
+  )) {
+    const brief = getFieldSpellIllustrationBrief(cardId);
+    assert.equal(assetPath, brief.assetPath);
+    assert.match(
+      assetPath,
+      new RegExp(
+        `^/environments/field-spells/${cardId}-[a-z0-9]+`
+        + `(?:-[a-z0-9]+)*-original\\.webp$`
+      )
+    );
+    assert.equal(isSafeFieldEnvironmentBackdropUrl(assetPath), true);
+  }
+
+  const threeGeneratedPaths = FIELD_SPELL_DEDICATED_BACKDROP_URLS.slice(0, 3);
+  assert.deepEqual(getFieldSpellBackdropAssetProgress(threeGeneratedPaths), {
+    expectedCount: 336,
+    generatedCount: 3,
+    remainingCount: 333,
+    completionPercent: 0.89,
+    complete: false
+  });
+  assert.deepEqual(
+    getFieldSpellBackdropAssetProgress(FIELD_SPELL_DEDICATED_BACKDROP_URLS),
+    {
+      expectedCount: 336,
+      generatedCount: 336,
+      remainingCount: 0,
+      completionPercent: 100,
+      complete: true
+    }
+  );
+  assert.throws(
+    () => getFieldSpellBackdropAssetProgress(null),
+    /must be iterable/
+  );
+  assert.equal(
+    isSafeFieldEnvironmentBackdropUrl('/environments/field-spells/yami.webp'),
+    false
+  );
+  assert.equal(
+    isSafeFieldEnvironmentBackdropUrl('/environments/field-spells/59197169-yami.png'),
+    false
   );
 });
 
@@ -503,6 +644,10 @@ test('RealDuelView lazily mounts one non-interactive layer without moving the bo
   assert.equal(layer.dataset.environmentId, 'yami');
   assert.equal(
     layer.style.getPropertyValue('--real-environment-backdrop'),
+    'url("/environments/field-spells/59197169-yami-original.webp")'
+  );
+  assert.equal(
+    layer.style.getPropertyValue('--real-environment-backdrop-fallback'),
     'url("/environments/field-occult-dark-original.webp")'
   );
   assert.equal(
@@ -511,11 +656,162 @@ test('RealDuelView lazily mounts one non-interactive layer without moving the bo
   );
   assert.equal(
     fixture.field.style.getPropertyValue('--real-environment-accent'),
-    FIELD_ENVIRONMENT_REGISTRY.yami.accentColor
+    getFieldEnvironmentForCardId('59197169').accentColor
   );
 
   assert.equal(await view.activate(gameState), layer);
   assert.equal(fixture.field.children.length, 2);
+});
+
+test('RealDuelView crossfades safe dedicated backdrops without moving gameplay nodes', async () => {
+  const fixture = createDomFixture();
+  const view = new RealDuelView({
+    documentRef: fixture.documentRef,
+    fieldElement: fixture.field,
+    boardElement: fixture.board
+  });
+  const yamiState = { playerFieldSpell: activeFieldCard('59197169', 1) };
+  const umiState = { playerFieldSpell: activeFieldCard('22702055', 2) };
+
+  const layer = await view.activate(yamiState);
+  const backdropLayers = layer.children.filter(
+    child => child.dataset.realDuelBackdropLayer === 'true'
+  );
+  assert.equal(backdropLayers.length, REAL_DUEL_BACKDROP_LAYER_COUNT);
+  const yamiLayer = backdropLayers.find(
+    child => child.dataset.active === 'true'
+  );
+  assert.equal(
+    yamiLayer.style.backgroundImage,
+    'url("/environments/field-spells/59197169-yami-original.webp"), '
+      + 'url("/environments/field-occult-dark-original.webp")'
+  );
+
+  view.update(umiState);
+  const umiLayer = backdropLayers.find(
+    child => child.dataset.active === 'true'
+  );
+  assert.equal(
+    umiLayer.style.backgroundImage,
+    'url("/environments/field-spells/22702055-umi-original.webp"), '
+      + 'url("/environments/field-ocean-original.webp")'
+  );
+  assert.equal(fixture.board.parentNode, fixture.wrapper);
+  assert.equal(fixture.existingCard.parentNode, fixture.existingZone);
+
+  // Reapplying an unchanged public environment must not restart the fade.
+  view.update(umiState);
+  assert.equal(
+    backdropLayers.find(child => child.dataset.active === 'true'),
+    umiLayer
+  );
+
+  // Dedicated scenes must also fade when two cards share one family ID.
+  const gatewayToChaos = getFieldEnvironmentForCardId('40089744');
+  const chaosZone = getFieldEnvironmentForCardId('94243005');
+  assert.equal(gatewayToChaos.id, chaosZone.id);
+  view.update({
+    playerFieldSpell: activeFieldCard('40089744', 3)
+  });
+  const gatewayLayer = backdropLayers.find(
+    child => child.dataset.active === 'true'
+  );
+  const gatewayBackdrop = gatewayLayer.style.backgroundImage;
+  view.update({
+    playerFieldSpell: activeFieldCard('94243005', 4)
+  });
+  const chaosLayer = backdropLayers.find(
+    child => child.dataset.active === 'true'
+  );
+  assert.notEqual(chaosLayer.style.backgroundImage, gatewayBackdrop);
+});
+
+test('RealDuelView exposes only fallback until decode and rejects stale or disposed loads', async () => {
+  const fixture = createDomFixture();
+  const imageHarness = createDeferredImageHarness();
+  const view = new RealDuelView({
+    documentRef: fixture.documentRef,
+    fieldElement: fixture.field,
+    boardElement: fixture.board,
+    imageFactory: imageHarness.imageFactory
+  });
+  const yamiDedicatedUrl =
+    '/environments/field-spells/59197169-yami-original.webp';
+  const umiDedicatedUrl =
+    '/environments/field-spells/22702055-umi-original.webp';
+
+  const layer = await view.activate({
+    playerFieldSpell: activeFieldCard('59197169', 1)
+  });
+  const backdropLayers = layer.children.filter(
+    child => child.dataset.realDuelBackdropLayer === 'true'
+  );
+  assert.equal(imageHarness.requests.length, 1);
+  assert.equal(imageHarness.requests[0].src, yamiDedicatedUrl);
+  assert.equal(
+    backdropLayers.find(child => child.dataset.active === 'true')
+      .style.backgroundImage,
+    'url("/environments/field-occult-dark-original.webp")'
+  );
+  assert.equal(
+    backdropLayers.some(child => child.style.backgroundImage.includes(
+      yamiDedicatedUrl
+    )),
+    false,
+    'the dedicated bitmap must stay off-DOM until decode completes'
+  );
+
+  view.update({
+    playerFieldSpell: activeFieldCard('22702055', 2)
+  });
+  assert.equal(imageHarness.requests.length, 2);
+  assert.equal(imageHarness.requests[0].src, '');
+  assert.equal(imageHarness.requests[1].src, umiDedicatedUrl);
+  assert.equal(
+    backdropLayers.find(child => child.dataset.active === 'true')
+      .style.backgroundImage,
+    'url("/environments/field-ocean-original.webp")'
+  );
+
+  imageHarness.requests[0].resolve();
+  await flushBackdropDecode();
+  assert.equal(
+    backdropLayers.some(child => child.style.backgroundImage.includes(
+      yamiDedicatedUrl
+    )),
+    false,
+    'a stale decode must never expose its old dedicated backdrop'
+  );
+  assert.equal(
+    backdropLayers.some(child => child.style.backgroundImage.includes(
+      umiDedicatedUrl
+    )),
+    false
+  );
+
+  imageHarness.requests[1].resolve();
+  await flushBackdropDecode();
+  const decodedLayer = backdropLayers.find(
+    child => child.dataset.active === 'true'
+  );
+  assert.ok(decodedLayer.style.backgroundImage.includes(umiDedicatedUrl));
+  assert.ok(decodedLayer.style.backgroundImage.includes(
+    '/environments/field-ocean-original.webp'
+  ));
+
+  view.update({
+    playerFieldSpell: activeFieldCard('40089744', 3)
+  });
+  assert.equal(imageHarness.requests.length, 3);
+  const disposedRequest = imageHarness.requests[2];
+  assert.notEqual(disposedRequest.src, '');
+  assert.equal(view.dispose(), true);
+  assert.equal(disposedRequest.src, '');
+  assert.equal(disposedRequest.image.onload, null);
+  assert.equal(disposedRequest.image.onerror, null);
+  disposedRequest.resolve();
+  await flushBackdropDecode();
+  assert.equal(fixture.field.children.length, 1);
 });
 
 test('RealDuelView pauses inactive visuals and reopens directly on current state', async () => {
@@ -623,6 +919,40 @@ test('RealDuelView rejects a poisoned remote backdrop before exposing it to CSS'
     layer.style.getPropertyValue('--real-environment-backdrop'),
     ''
   );
+  assert.ok(layer.children.every(
+    child => child.style.backgroundImage === ''
+  ));
+  view.dispose();
+});
+
+test('RealDuelView rejects an unsafe fallback backdrop before exposing it to CSS', async () => {
+  const fixture = createDomFixture();
+  const view = new RealDuelView({
+    documentRef: fixture.documentRef,
+    fieldElement: fixture.field,
+    boardElement: fixture.board,
+    environmentResolver: () => ({
+      environmentId: 'clearing',
+      isFallback: false,
+      environment: {
+        ...FIELD_ENVIRONMENT_REGISTRY.clearing,
+        fallbackBackdropUrl: 'https://example.com/poisoned-fallback.webp'
+      }
+    })
+  });
+
+  await assert.rejects(
+    view.activate(null),
+    /unsafe environment backdrop URL/
+  );
+  const layer = fixture.field.querySelector('[data-real-duel-view-layer="true"]');
+  assert.equal(
+    layer.style.getPropertyValue('--real-environment-backdrop-fallback'),
+    ''
+  );
+  assert.ok(layer.children.every(
+    child => child.style.backgroundImage === ''
+  ));
   view.dispose();
 });
 

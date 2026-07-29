@@ -1,4 +1,5 @@
 import {
+  isSafeFieldEnvironmentBackdropUrl,
   resolveFieldEnvironmentSelection
 } from './FieldEnvironmentRegistry.js';
 import { RealDuelScene3D } from './RealDuelScene3D.js';
@@ -10,6 +11,7 @@ import {
 } from './RealDuelCameraPresets.js';
 
 export const REAL_DUEL_LAYER_SELECTOR = '[data-real-duel-view-layer="true"]';
+export const REAL_DUEL_BACKDROP_LAYER_COUNT = 2;
 
 function resolveElement(documentRef, explicitElement, selector) {
   return explicitElement || documentRef?.querySelector?.(selector) || null;
@@ -53,6 +55,7 @@ function setStyleProperty(element, property, value) {
 
 const ENVIRONMENT_STYLE_PROPERTIES = Object.freeze([
   '--real-environment-backdrop',
+  '--real-environment-backdrop-fallback',
   '--real-environment-backdrop-filter',
   '--real-environment-backdrop-opacity',
   '--real-environment-accent',
@@ -63,7 +66,7 @@ const ENVIRONMENT_STYLE_PROPERTIES = Object.freeze([
 
 function toSafeBackdropCssValue(value) {
   const publicUrl = String(value ?? '').trim();
-  if (!/^\/environments\/[a-z0-9]+(?:-[a-z0-9]+)*\.webp$/.test(publicUrl)) {
+  if (!isSafeFieldEnvironmentBackdropUrl(publicUrl)) {
     throw new TypeError('RealDuelView received an unsafe environment backdrop URL.');
   }
   return `url("${publicUrl}")`;
@@ -107,6 +110,11 @@ export class RealDuelView {
       || this.documentRef?.defaultView
       || globalThis.window
       || null;
+    this.imageFactory = options.imageFactory
+      || (() => {
+        const ImageClass = this.windowRef?.Image || globalThis.Image;
+        return typeof ImageClass === 'function' ? new ImageClass() : null;
+      });
     this.environmentResolver = options.environmentResolver
       || resolveFieldEnvironmentSelection;
     this.environmentOptions = Object.freeze({ ...(options.environmentOptions || {}) });
@@ -122,6 +130,13 @@ export class RealDuelView {
       && this.windowRef
     );
     this.layerElement = null;
+    this.backdropLayers = [];
+    this._activeBackdropLayerIndex = -1;
+    this._backdropVisualKey = null;
+    this._backdropTargetVisualKey = null;
+    this._backdropRequestToken = 0;
+    this._backdropPreload = null;
+    this._decodedBackdropUrls = new Set();
     this.scene3D = null;
     this.dom3DAdapter = null;
     this.cameraPreset = normalizeRealDuelCameraPreset(options.cameraPreset);
@@ -213,6 +228,7 @@ export class RealDuelView {
     }
     this.layerElement = null;
     this.selection = null;
+    this._resetBackdropLayers();
 
     const existingLayer = this.fieldElement.querySelector?.(REAL_DUEL_LAYER_SELECTOR);
     if (existingLayer) {
@@ -473,6 +489,7 @@ export class RealDuelView {
     // An adopted or externally reinserted layer must not retain stale theme
     // classes, provenance, or custom properties from another view instance.
     layer.className = 'real-duel-view-layer';
+    layer.dataset.realDuelViewLayer = 'true';
     layer.dataset.active = 'false';
     delete layer.dataset.environmentId;
     delete layer.dataset.environmentFallback;
@@ -487,6 +504,230 @@ export class RealDuelView {
       layer.style.animationPlayState = 'paused';
       clearEnvironmentStyles(layer);
     }
+    this._prepareBackdropLayers(layer);
+  }
+
+  _resetBackdropLayers() {
+    this._cancelBackdropPreload();
+    this._backdropRequestToken += 1;
+    this.backdropLayers = [];
+    this._activeBackdropLayerIndex = -1;
+    this._backdropVisualKey = null;
+    this._backdropTargetVisualKey = null;
+  }
+
+  _prepareBackdropLayers(layer) {
+    const existingLayers = Array.from(layer?.children || []).filter(
+      child => child?.dataset?.realDuelBackdropLayer === 'true'
+    );
+    const layers = [];
+
+    for (let index = 0; index < REAL_DUEL_BACKDROP_LAYER_COUNT; index += 1) {
+      const backdropLayer = existingLayers[index]
+        || this.documentRef?.createElement?.('div');
+      if (!backdropLayer) continue;
+      backdropLayer.className = 'real-duel-environment-backdrop';
+      backdropLayer.dataset.realDuelBackdropLayer = 'true';
+      backdropLayer.dataset.backdropSlot = String(index);
+      backdropLayer.dataset.active = 'false';
+      backdropLayer.setAttribute?.('aria-hidden', 'true');
+      backdropLayer.setAttribute?.('role', 'presentation');
+      backdropLayer.inert = true;
+      if (backdropLayer.style) {
+        backdropLayer.style.backgroundImage = '';
+        backdropLayer.style.filter = 'none';
+      }
+      if (backdropLayer.parentNode !== layer) layer.appendChild?.(backdropLayer);
+      layers.push(backdropLayer);
+    }
+    for (const extraLayer of existingLayers.slice(REAL_DUEL_BACKDROP_LAYER_COUNT)) {
+      extraLayer.remove?.();
+    }
+
+    this.backdropLayers = layers;
+    this._activeBackdropLayerIndex = -1;
+    this._backdropVisualKey = null;
+    return layers;
+  }
+
+  _applyBackdropCrossfade({
+    backgroundImage,
+    backdropFilter,
+    visualKey
+  }) {
+    if (this.backdropLayers.length !== REAL_DUEL_BACKDROP_LAYER_COUNT) {
+      this._prepareBackdropLayers(this.layerElement);
+    }
+    if (visualKey === this._backdropVisualKey) return false;
+
+    const isInitialBackdrop = this._activeBackdropLayerIndex < 0;
+    const nextIndex = isInitialBackdrop
+      ? 0
+      : (this._activeBackdropLayerIndex + 1) % REAL_DUEL_BACKDROP_LAYER_COUNT;
+    const nextLayer = this.backdropLayers[nextIndex];
+    if (!nextLayer) return false;
+
+    nextLayer.style.backgroundImage = backgroundImage;
+    nextLayer.style.filter = backdropFilter;
+    nextLayer.dataset.active = 'true';
+    for (const [index, backdropLayer] of this.backdropLayers.entries()) {
+      if (index !== nextIndex) backdropLayer.dataset.active = 'false';
+    }
+
+    this._activeBackdropLayerIndex = nextIndex;
+    this._backdropVisualKey = visualKey;
+    return true;
+  }
+
+  _cancelBackdropPreload() {
+    const preload = this._backdropPreload;
+    this._backdropPreload = null;
+    preload?.cancel?.();
+  }
+
+  _startBackdropPreload({
+    backdropUrl,
+    finalBackgroundImage,
+    backdropFilter,
+    finalVisualKey,
+    requestToken
+  }) {
+    let image = null;
+    try {
+      image = this.imageFactory?.();
+    } catch {
+      return false;
+    }
+    if (!image) return false;
+
+    let cancelled = false;
+    let settled = false;
+    let decodeStarted = false;
+    const cleanup = () => {
+      image.onload = null;
+      image.onerror = null;
+    };
+    const finish = success => {
+      if (cancelled || settled) return;
+      settled = true;
+      cleanup();
+      if (this._backdropPreload?.image === image) {
+        this._backdropPreload = null;
+      }
+      if (success) this._decodedBackdropUrls.add(backdropUrl);
+      if (
+        !success
+        || this.disposed
+        || requestToken !== this._backdropRequestToken
+        || finalVisualKey !== this._backdropTargetVisualKey
+        || !this.isMounted
+      ) return;
+      this._applyBackdropCrossfade({
+        backgroundImage: finalBackgroundImage,
+        backdropFilter,
+        visualKey: finalVisualKey
+      });
+    };
+    const decodeOrFinish = () => {
+      if (cancelled || settled || decodeStarted) return;
+      if (typeof image.decode !== 'function') {
+        finish(Number(image.naturalWidth) > 0);
+        return;
+      }
+      decodeStarted = true;
+      Promise.resolve()
+        .then(() => image.decode())
+        .then(
+          () => finish(true),
+          () => finish(
+            image.complete === true && Number(image.naturalWidth) > 0
+          )
+        );
+    };
+    const cancel = () => {
+      if (cancelled || settled) return;
+      cancelled = true;
+      cleanup();
+      try {
+        // Clearing src releases the element's pending network/decode work.
+        image.src = '';
+      } catch {
+        // Synthetic loaders and already-disposed documents may reject writes.
+      }
+    };
+    const preloadRecord = { image, cancel, requestToken };
+    this._backdropPreload = preloadRecord;
+
+    image.onload = decodeOrFinish;
+    image.onerror = () => finish(false);
+    try {
+      image.decoding = 'async';
+      image.src = backdropUrl;
+      if (typeof image.decode === 'function') {
+        decodeOrFinish();
+      } else if (image.complete === true) {
+        Promise.resolve().then(decodeOrFinish);
+      }
+    } catch {
+      cancel();
+      if (this._backdropPreload === preloadRecord) {
+        this._backdropPreload = null;
+      }
+      return false;
+    }
+    return true;
+  }
+
+  _requestBackdropTransition({
+    backdropUrl,
+    backdropCss,
+    fallbackBackdropCss,
+    backdropFilter,
+    finalVisualKey
+  }) {
+    if (finalVisualKey === this._backdropTargetVisualKey) return false;
+    this._cancelBackdropPreload();
+    this._backdropRequestToken += 1;
+    const requestToken = this._backdropRequestToken;
+    this._backdropTargetVisualKey = finalVisualKey;
+    const finalBackgroundImage = `${backdropCss}, ${fallbackBackdropCss}`;
+
+    if (
+      backdropCss === fallbackBackdropCss
+      || this._decodedBackdropUrls.has(backdropUrl)
+    ) {
+      return this._applyBackdropCrossfade({
+        backgroundImage: finalBackgroundImage,
+        backdropFilter,
+        visualKey: finalVisualKey
+      });
+    }
+
+    // The family fallback becomes the complete visible layer while the
+    // dedicated bitmap loads and decodes off-DOM. It therefore cannot pop in
+    // halfway through a CSS fade.
+    this._applyBackdropCrossfade({
+      backgroundImage: fallbackBackdropCss,
+      backdropFilter,
+      visualKey: `pending|${fallbackBackdropCss}|${backdropFilter}`
+    });
+    const preloadStarted = this._startBackdropPreload({
+      backdropUrl,
+      finalBackgroundImage,
+      backdropFilter,
+      finalVisualKey,
+      requestToken
+    });
+    if (!preloadStarted) {
+      // Non-browser fixtures have no Image constructor. Preserve their inert
+      // deterministic rendering while real browsers always use decode().
+      return this._applyBackdropCrossfade({
+        backgroundImage: finalBackgroundImage,
+        backdropFilter,
+        visualKey: finalVisualKey
+      });
+    }
+    return true;
   }
 
   async activate(gameState = this.gameState) {
@@ -567,6 +808,8 @@ export class RealDuelView {
     this.layerElement?.remove?.();
     clearEnvironmentStyles(this.fieldElement);
     this.layerElement = null;
+    this._resetBackdropLayers();
+    this._decodedBackdropUrls.clear();
     this.selection = null;
     this.gameState = null;
     this.disposed = true;
@@ -587,15 +830,26 @@ export class RealDuelView {
       throw new TypeError('RealDuelView received an unsafe environment ID.');
     }
 
+    const environment = selection.environment;
+    // Validate both URLs before mutating any DOM-backed visual state. This
+    // keeps a poisoned dedicated or fallback URL out of CSS entirely.
+    const backdropCss = toSafeBackdropCssValue(environment.backdropUrl);
+    const fallbackBackdropCss = toSafeBackdropCssValue(
+      environment.fallbackBackdropUrl || environment.backdropUrl
+    );
+    const backdropFilter = environment.backdropFilter || 'none';
+    const backdropVisualKey = [
+      backdropCss,
+      fallbackBackdropCss,
+      backdropFilter
+    ].join('|');
+
     const previousEnvironmentId = this.selection?.environmentId || null;
-    if (previousEnvironmentId !== safeEnvironmentId) {
-      if (previousEnvironmentId) {
-        this.layerElement.classList?.remove?.(`is-environment-${previousEnvironmentId}`);
-      }
+    if (previousEnvironmentId !== safeEnvironmentId && previousEnvironmentId) {
+      this.layerElement.classList?.remove?.(`is-environment-${previousEnvironmentId}`);
     }
     this.layerElement.classList?.add?.(`is-environment-${safeEnvironmentId}`);
 
-    const environment = selection.environment;
     this.layerElement.dataset.environmentId = safeEnvironmentId;
     this.layerElement.dataset.environmentFallback = selection.isFallback ? 'true' : 'false';
     this.layerElement.dataset.transitionDuration = String(
@@ -604,7 +858,12 @@ export class RealDuelView {
     setStyleProperty(
       this.layerElement,
       '--real-environment-backdrop',
-      toSafeBackdropCssValue(environment.backdropUrl)
+      backdropCss
+    );
+    setStyleProperty(
+      this.layerElement,
+      '--real-environment-backdrop-fallback',
+      fallbackBackdropCss
     );
     setStyleProperty(
       this.layerElement,
@@ -614,7 +873,7 @@ export class RealDuelView {
     setStyleProperty(
       this.layerElement,
       '--real-environment-backdrop-filter',
-      environment.backdropFilter || 'none'
+      backdropFilter
     );
     setStyleProperty(
       this.layerElement,
@@ -636,6 +895,13 @@ export class RealDuelView {
       '--real-environment-transition-duration',
       `${Number(environment.transitionDuration) || 0}ms`
     );
+    this._requestBackdropTransition({
+      backdropUrl: environment.backdropUrl,
+      backdropCss,
+      fallbackBackdropCss,
+      backdropFilter,
+      finalVisualKey: backdropVisualKey
+    });
     // The existing board is a sibling of the decorative layer. Mirror only
     // non-sensitive visual values to their common field ancestor so the board
     // material can inherit the resolved public environment accent.

@@ -28,20 +28,21 @@ La reprise persistante concerne le Match entre deux Duels. Un Duel en cours n’
 
 ## Vues du duel et environnements
 
-La vue **Compacte** reste la vue initiale et conserve son plateau historique. La vue **Arène** reste disponible. La **Vue Réelle**, chargée seulement à son premier affichage, propose une mise en scène inspirée des arènes de l’anime : console et tapis du joueur au premier plan, plateforme physique en perspective et duelliste adverse debout au fond, sans seconde console. Les trois vues consomment la même instance du moteur ; changer de vue ne recrée ni le Duel, ni les cartes, ni l’IA.
+La vue **Compacte** reste la vue initiale et conserve son plateau historique. La vue **Arène** reste disponible. La **Vue Réelle**, chargée seulement à son premier affichage, propose une mise en scène inspirée des arènes de l’anime : console et tapis du joueur au premier plan, plateforme physique en perspective, console adverse réduite au fond et duelliste adverse placé derrière son terminal. Les trois vues consomment la même instance du moteur ; changer de vue ne recrée ni le Duel, ni les cartes, ni l’IA. La console adverse est une géométrie publique : elle n’embarque ni main, ni face de carte, ni identifiant privé.
 
 La Vue Réelle possède deux décors de base sélectionnables dans les paramètres : **Clairière KaibaCorp** et **Grotte / Ruines**. Une Magie de Terrain utilise sa Zone Terrain dédiée. Une carte simplement Posée ou une activation encore en chaîne ne révèle pas et ne change pas le décor. Le nouvel environnement apparaît uniquement après une résolution réussie ; une négation conserve le décor précédent et le retrait ou remplacement de la carte restaure l’environnement approprié.
 
-Le catalogue `src/ui/FieldSpellEnvironmentCatalog.js` couvre les **336 Magies de Terrain TCG/OCG connues au 29 juillet 2026** par passcode canonique. Elles sont réparties dans 24 familles visuelles originales, puis branchées au rendu par `src/ui/FieldEnvironmentRegistry.js`. Une nouvelle carte absente du snapshot reçoit toujours le terrain holographique générique au lieu de casser la Vue Réelle.
+Le catalogue `src/ui/FieldSpellEnvironmentCatalog.js` couvre les **336 Magies de Terrain TCG/OCG connues au 29 juillet 2026** par passcode canonique. Chaque passcode possède son propre brief, son propre chemin WebP et son illustration originale dédiée dans `public/environments/field-spells/`. Les familles visuelles ne servent plus que de profil matériel et de repli technique : l’illustration, la palette du tapis, la lumière, la brume et les accents du plateau sont calculés pour la carte précise. Une nouvelle carte absente du snapshot reçoit toujours le terrain holographique générique au lieu de casser la Vue Réelle.
 
 Pour ajouter un environnement :
 
-1. placer un visuel original optimisé dans `public/environments/` ;
-2. ajouter l’entrée `[passcode, nom d’audit, environmentId]` au catalogue ;
-3. créer une famille immuable dans `FieldEnvironmentRegistry.js` uniquement si aucune famille existante ne convient ;
-4. compléter les tests du catalogue et du résolveur, puis vérifier les états face verso, en chaîne, résolu, négation, retrait et remplacement.
+1. ajouter l’entrée `[passcode, nom d’audit, environmentId]` au catalogue ;
+2. actualiser l’instantané de données avec `scripts/generate-field-spell-card-data-snapshot.mjs` ;
+3. générer le brief et placer une illustration originale 1280 × 720 au chemin dédié `/environments/field-spells/<passcode>-<slug>-original.webp` ;
+4. créer une famille immuable dans `FieldEnvironmentRegistry.js` uniquement si aucun profil matériel existant ne convient ;
+5. compléter les tests du catalogue, du manifeste et du résolveur, puis vérifier les états face verso, en chaîne, résolu, négation, retrait et remplacement.
 
-Les 25 décors sont des créations originales générées avec OpenAI pour le projet. Les captures de l’anime ont servi uniquement de références de composition et ne sont pas utilisées comme textures. Le catalogue est visuel : il ne prétend pas ajouter au mode strict les effets de cartes qui ne sont pas encore scriptés.
+Les 336 décors dédiés et les décors de base sont des créations originales générées avec OpenAI pour le projet. Les captures de l’anime ont servi uniquement de références de composition et ne sont pas utilisées comme textures. Le catalogue est visuel : il ne prétend pas ajouter au mode strict les effets de cartes qui ne sont pas encore scriptés.
 
 ## Développement
 
