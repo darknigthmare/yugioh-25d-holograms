@@ -29,8 +29,8 @@ function isFaceUpLinkMonster(card) {
  * `links` contains directed arrows, including those pointing at empty zones;
  * `coLinks` contains reciprocal arrows between face-up Link Monsters.
  *
- * This graph does not itself authorize occupying both Extra Monster Zones.
- * Extra Link legality also needs the incoming monster and its final co-links.
+ * Extra Link legality is checked separately with the incoming monster in its
+ * candidate zone, after removing the chosen summon materials.
  */
 export function createLinkZoneGraph(field, { excludedCards = [] } = {}) {
   const excluded = new Set([...excludedCards].map(entry => entry?.card || entry));
@@ -88,4 +88,51 @@ export function getLinkedMainMonsterZoneIndices(field, side, options = {}) {
   return zones
     .filter(zone => zone.zoneType === 'main' && zone.side === side && !zone.card && pointedZones.has(zone.key))
     .map(zone => zone.zoneIndex);
+}
+
+/** All co-linked monsters in the component connecting the two shared EMZs. */
+export function getExtraLinkedZoneKeys(field, options = {}) {
+  const { zones, coLinks } = createLinkZoneGraph(field, options);
+  const visited = new Set(['extra:0']);
+  const pending = ['extra:0'];
+  while (pending.length) {
+    for (const target of coLinks.get(pending.pop())) {
+      if (visited.has(target)) continue;
+      visited.add(target);
+      pending.push(target);
+    }
+  }
+  if (!visited.has('extra:1')) return [];
+  return zones.filter(zone => visited.has(zone.key)).map(zone => zone.key);
+}
+
+/**
+ * Ordinary EMZ availability plus the Extra Link exception. The candidate Link
+ * must complete a continuous chain of reciprocal arrows between both EMZs;
+ * pointing at the second EMZ alone is insufficient. Opposing Main Zone Links
+ * can form part of that chain (Konami's official Extra Link diagram).
+ */
+export function getAvailableExtraMonsterZoneIndices(field, side, {
+  excludedCards = [], summoningCard = null
+} = {}) {
+  if (!['player', 'opponent'].includes(side)) return [];
+  const excluded = new Set([...excludedCards].map(entry => entry?.card || entry));
+  const extraMonsterZones = field.extraMonsterZones.map(entry => (
+    entry && excluded.has(entry.card) ? null : entry
+  ));
+  const empty = extraMonsterZones.map((entry, index) => entry ? -1 : index).filter(index => index >= 0);
+  const ownCount = extraMonsterZones.filter(entry => entry?.controllerId === side).length;
+  if (ownCount === 0) return empty;
+  if (ownCount !== 1 || !summoningCard) return [];
+  const incoming = { ...summoningCard, isSetFaceDown: false };
+  if (!isFaceUpLinkMonster(incoming)) return [];
+  return empty.filter(zoneIndex => {
+    const projected = {
+      playerMonsterZones: field.playerMonsterZones,
+      opponentMonsterZones: field.opponentMonsterZones,
+      extraMonsterZones: [...extraMonsterZones]
+    };
+    projected.extraMonsterZones[zoneIndex] = { card: incoming, controllerId: side };
+    return getExtraLinkedZoneKeys(projected, { excludedCards: excluded }).length > 0;
+  });
 }

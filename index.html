@@ -14,11 +14,21 @@
   <!-- Start Game Modal (Audio Context Activation) -->
   <div id="start-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="start-modal-title" aria-describedby="start-modal-description">
     <div class="modal-content modal-large" tabindex="-1">
-      <h2 id="start-modal-title" class="modal-title">DUEL SIMULATOR 2.5D</h2>
+      <h2 id="start-modal-title" class="modal-title" tabindex="-1">DUEL SIMULATOR 2.5D</h2>
       <p id="start-modal-description" class="modal-text">
         Bienvenue dans l'arène holographique de KaibaCorp. Choisissez votre Deck de départ ou construisez-le sur mesure avant de commencer le duel.
       </p>
 
+      <div class="campaign-entry">
+        <div><strong>PARCOURS SOLO · 12 DÉFIS</strong><p id="campaign-summary">Découvrez les mécaniques, puis visez les médailles.</p></div>
+        <button type="button" id="btn-open-campaign" class="btn btn-magenta">OUVRIR LE PARCOURS</button>
+      </div>
+      <details class="coverage-disclosure"><summary>Ce que ce simulateur prend réellement en charge</summary>
+        <p>Projet fan non officiel, sans licence commerciale annoncée. Le mode strict porte sur les 45 cartes locales implémentées, pas sur toutes les cartes Yu-Gi-Oh! Les 336 illustrations de Terrain ne signifient pas 336 effets jouables.</p>
+        <p>Duels solo contre l’IA, Match avec Side Deck et parcours d’entraînement original. Pas de multijoueur en ligne ni de reprise d’un duel interrompu. La progression solo, les decks personnalisés et les statistiques sont locaux à ce navigateur.</p>
+        <p>Clavier : Tab pour naviguer, Entrée/Espace pour choisir, Échap pour fermer une sélection annulable. La Vue Réelle ne change que la présentation ; toutes les vues partagent le même duel.</p>
+      </details>
+      <h3 class="free-duel-heading">DUEL LIBRE</h3>
       <div class="duel-config-grid">
         <fieldset class="config-group">
           <legend>MODE DE JEU</legend>
@@ -115,7 +125,23 @@
         </div>
       </div>
 
-      <button type="button" id="btn-start-duel" class="btn btn-magenta">DÉMARRER LE DUEL</button>
+      <div class="start-action-bar"><button type="button" id="btn-start-duel" class="btn btn-magenta">DÉMARRER LE DUEL LIBRE</button></div>
+    </div>
+  </div>
+
+  <div id="campaign-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="campaign-title" data-dismissible="true">
+    <div class="modal-content modal-large campaign-content" tabindex="-1">
+      <h2 id="campaign-title" class="modal-title" tabindex="-1">PARCOURS SOLO</h2>
+      <p>12 défis, 3 chapitres, 36 médailles. Gagnez pour avancer ; les objectifs bonus servent à maîtriser chaque mécanique, sans achat ni attente.</p>
+      <p class="config-description">Entraînements originaux, pas une adaptation des épisodes. Decks imposés et règles strictes. Seuls les résultats terminés sont sauvegardés : fermer la page interrompt le duel.</p>
+      <div class="campaign-tools">
+        <button type="button" id="btn-campaign-back" class="btn">RETOUR</button>
+        <button type="button" id="btn-campaign-export" class="btn">EXPORTER LA PROGRESSION</button>
+        <label class="campaign-import-label">Importer la progression <input id="campaign-import" type="file" accept="application/json,.json"></label>
+        <button type="button" id="btn-campaign-reset" class="btn btn-cancel">RÉINITIALISER LE PARCOURS</button>
+      </div>
+      <p id="campaign-feedback" role="status" aria-live="polite"></p>
+      <div id="campaign-chapters"></div>
     </div>
   </div>
 
@@ -127,6 +153,7 @@
       <div class="modal-actions">
         <button type="button" id="btn-return-config" class="btn btn-cancel">RETOUR À LA CONFIGURATION</button>
         <button type="button" id="btn-restart-duel" class="btn btn-magenta">RECOMMENCER</button>
+        <button type="button" id="btn-result-campaign" class="btn hidden">VOIR LE PARCOURS SOLO</button>
       </div>
     </div>
   </div>
@@ -162,6 +189,7 @@
       <div class="title-container">
         <h1>KC HOLOGRAPHICS</h1>
         <span id="match-status" class="match-status hidden" aria-live="polite"></span>
+        <span id="campaign-duel-status" class="match-status hidden"></span>
       </div>
 
       <div class="scoreboard">
@@ -197,7 +225,7 @@
           aria-label="Vue du duel : compacte. Passer à la vue Arène."
         >VUE : COMPACTE</button>
         <button type="button" id="btn-mute" class="btn btn-magenta" aria-pressed="false">SON : ON</button>
-        <button type="button" id="btn-settings" class="btn">CONFIG DOS</button>
+        <button type="button" id="btn-settings" class="btn">OPTIONS</button>
         <button type="button" id="btn-reset" class="btn btn-cancel">ABANDONNER LE DUEL</button>
       </div>
       <p id="lp-announcer" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
@@ -211,7 +239,7 @@
         <div class="panel-header">
           <span>JOURNAL DE COMBAT</span>
         </div>
-        <div id="log-content" class="log-content" role="log" aria-live="polite" aria-relevant="additions">
+        <div id="log-content" class="log-content" role="log" aria-live="polite" aria-relevant="additions" tabindex="0" aria-label="Journal de combat, zone défilable">
           <!-- Populated dynamically -->
         </div>
       </div>
@@ -363,7 +391,7 @@
       </div>
 
       <!-- Quick Help Guide -->
-      <div class="tutorial-panel glass-panel">
+      <div class="tutorial-panel glass-panel" tabindex="0" role="region" aria-label="Guide rapide, zone défilable">
         <div class="panel-header">
           <span>GUIDE RAPIDE</span>
         </div>
@@ -398,13 +426,13 @@
         <p id="discard-status" class="discard-status hidden" role="alert">
           Limite de main : sélectionnez une carte à défausser avec un clic, un toucher, Entrée ou Espace.
         </p>
-        <div class="phase-indicator-box" role="status" aria-live="polite" aria-label="Phase actuelle">
-          <span class="phase-step" id="phase-draw">PIOC</span>
-          <span class="phase-step" id="phase-standby">STDBY</span>
-          <span class="phase-step" id="phase-main1">MAIN 1</span>
-          <span class="phase-step" id="phase-battle">COMBAT</span>
-          <span class="phase-step" id="phase-main2">MAIN 2</span>
-          <span class="phase-step" id="phase-end">FIN</span>
+        <div class="phase-indicator-box" role="status" aria-live="polite" aria-label="Phase actuelle : aucune partie en cours">
+          <span class="phase-step" id="phase-draw" title="Phase de Pioche" data-phase-label="Phase de Pioche" aria-hidden="true">DP</span>
+          <span class="phase-step" id="phase-standby" title="Standby Phase" data-phase-label="Standby Phase" aria-hidden="true">SP</span>
+          <span class="phase-step" id="phase-main1" title="Main Phase 1" data-phase-label="Main Phase 1" aria-hidden="true">M1</span>
+          <span class="phase-step" id="phase-battle" title="Battle Phase" data-phase-label="Battle Phase" aria-hidden="true">BP</span>
+          <span class="phase-step" id="phase-main2" title="Main Phase 2" data-phase-label="Main Phase 2" aria-hidden="true">M2</span>
+          <span class="phase-step" id="phase-end" title="End Phase" data-phase-label="End Phase" aria-hidden="true">EP</span>
         </div>
         <div class="command-actions">
           <button type="button" id="btn-pendulum-summon" class="btn btn-magenta hidden" aria-describedby="pendulum-status">INVOCATION PENDULE</button>

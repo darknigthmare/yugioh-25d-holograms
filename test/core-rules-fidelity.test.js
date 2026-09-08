@@ -608,10 +608,11 @@ test('Time Wizard failure uses current face-up ATK only for monsters actually de
   const game = new DuelGame({
     onDecision: request => (
       request.type === 'coin-call'
-        ? { call: 'heads', result: 'tails' }
+        ? 'heads'
         : undefined
     )
   });
+  game.rollCoin = () => 'tails';
   prepareMain(game);
   const wizard = control(monster({
     uid: 'time-current',
@@ -748,10 +749,11 @@ test('AI skips the Battle Phase on turn 1 and its effect loop is bounded', async
   const effectGame = new DuelGame({
     onDecision: request => (
       request.type === 'coin-call'
-        ? { call: 'heads', result: 'heads' }
+        ? 'heads'
         : undefined
     )
   });
+  effectGame.rollCoin = () => 'heads';
   prepareMain(effectGame, 'opponent');
   const wizard = control(monster({
     uid: 'ai-time-wizard',

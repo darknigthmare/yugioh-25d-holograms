@@ -1,6 +1,9 @@
 import { DuelGame } from './src/game.js';
 import { MatchController } from './src/ui/MatchController.js';
 import { DuelViewController } from './src/ui/DuelViewController.js';
+import { SoloCampaignController } from './src/ui/SoloCampaignController.js';
+import { getMission, buildMissionDecks } from './src/content/SoloCampaign.js';
+import { createCampaignDuelTracker } from './src/content/CampaignDuelTracker.js';
 import { isHandPlacementDestinationLegal } from './src/ui/HandPlacement.js';
 import { isFieldSpellCard } from './src/core/FieldSpellRules.js';
 import {
@@ -53,6 +56,9 @@ let previousPendulumAvailable = false;
 let duelStartedAt = 0;
 let activeDuelInProgress = false;
 let lastDuelResult = null;
+let activeCampaignMissionId = null;
+let campaignTracker = null;
+let campaignPreviousPreferences = null;
 const recordedFinishedGames = new WeakSet();
 const lpAnimationFrames = new Map();
 const uiAnimationTimeouts = new Set();
@@ -174,6 +180,9 @@ function openDialog(dialog, preferredFocus = null) {
     : null;
   dialog.classList.remove('hidden');
   document.body.classList.add('modal-open');
+  const appContainer = document.querySelector('.app-container');
+  if (appContainer && !appContainer.contains(dialog)) appContainer.setAttribute('inert', '');
+  else appContainer?.removeAttribute('inert');
   activeDialog = dialog;
 
   requestAnimationFrame(() => {
@@ -182,7 +191,10 @@ function openDialog(dialog, preferredFocus = null) {
       || dialog.querySelector(focusableSelector)
       || dialog.querySelector('.modal-content')
       || dialog;
-    target?.focus();
+    target?.focus({ preventScroll: true });
+    if (['start-modal', 'campaign-modal'].includes(dialog.id)) {
+      dialog.querySelector('.modal-content')?.scrollTo(0, 0);
+    }
   });
 }
 
@@ -193,6 +205,7 @@ function closeDialog(dialog, { restoreFocus = true } = {}) {
   if (activeDialog === dialog) {
     activeDialog = null;
     document.body.classList.remove('modal-open');
+    document.querySelector('.app-container')?.removeAttribute('inert');
     if (restoreFocus && dialogReturnFocus?.isConnected) {
       dialogReturnFocus.focus();
     }
@@ -202,6 +215,12 @@ function closeDialog(dialog, { restoreFocus = true } = {}) {
 
 function dismissActiveDialog() {
   if (!activeDialog || activeDialog.dataset.dismissible !== 'true') return;
+
+  if (activeDialog.id === 'campaign-modal') {
+    closeDialog(activeDialog, { restoreFocus: false });
+    openDialog(startModal, document.getElementById('btn-open-campaign'));
+    return;
+  }
 
   if (activeDialog.id === 'decision-modal') {
     finishDecision(null);
@@ -320,7 +339,43 @@ muteBtn.addEventListener('click', () => {
 // Setup Start game trigger (safeguard for Web Audio)
 const startModal = document.getElementById('start-modal');
 const startBtn = document.getElementById('btn-start-duel');
+const campaignController = new SoloCampaignController({
+  openDialog, closeDialog,
+  onBack: () => {
+    closeDialog(document.getElementById('campaign-modal'), { restoreFocus: false });
+    openDialog(startModal, document.getElementById('btn-open-campaign'));
+  },
+  onLaunch: async mission => {
+    campaignPreviousPreferences ||= { mode: selectedGameMode, difficulty: selectedAiDifficulty, series: selectedDuelSeries };
+    selectedGameMode = 'strict';
+    selectedAiDifficulty = mission.aiDifficulty;
+    selectedDuelSeries = 'single';
+    activeCampaignMissionId = mission.id;
+    clearPersistedMatch();
+    matchController = null;
+    pendingMatchLaunch = null;
+    startHologramHum();
+    await initGameInstance();
+  }
+});
+document.getElementById('btn-open-campaign').addEventListener('click', () => campaignController.open());
+document.getElementById('btn-result-campaign').addEventListener('click', () => {
+  returnToConfiguration();
+  campaignController.open();
+});
+function leaveCampaign() {
+  activeCampaignMissionId = null;
+  campaignTracker = null;
+  if (campaignPreviousPreferences) {
+    selectedGameMode = campaignPreviousPreferences.mode;
+    selectedAiDifficulty = campaignPreviousPreferences.difficulty;
+    selectedDuelSeries = campaignPreviousPreferences.series;
+    campaignPreviousPreferences = null;
+  }
+  document.getElementById('campaign-duel-status').classList.add('hidden');
+}
 startBtn.addEventListener('click', async () => {
+  leaveCampaign();
   clearPersistedMatch();
   matchController = null;
   pendingMatchLaunch = null;
@@ -330,7 +385,7 @@ startBtn.addEventListener('click', async () => {
   startHologramHum();
   await initGameInstance();
 });
-openDialog(startModal, document.querySelector('.deck-choice-card.active'));
+openDialog(startModal, document.getElementById('start-modal-title'));
 
 // Setup Restart Game trigger
 const gameoverModal = document.getElementById('gameover-modal');
@@ -1605,6 +1660,8 @@ async function resolveOpeningFirstPlayer(sessionLabel = 'Duel') {
  * Initializes the game core
  */
 async function initGameInstance(matchLaunch = null) {
+  const campaignMission = getMission(activeCampaignMissionId);
+  campaignTracker = null;
   // Every Duel starts in the unchanged compact presentation.  Switching views
   // later never resets the game state.
   await duelViewController?.setMode('compact');
@@ -1644,7 +1701,7 @@ async function initGameInstance(matchLaunch = null) {
   let extraIds = [];
   let sideIds = [];
 
-  if (currentSelectedDeckId === 'custom') {
+  if (currentSelectedDeckId === 'custom' && !campaignMission) {
     const normalized = normalizeCustomDeckIds(customDeckMainIds, customDeckExtraIds);
     customDeckMainIds = normalized.main;
     customDeckExtraIds = normalized.extra;
@@ -1684,7 +1741,17 @@ async function initGameInstance(matchLaunch = null) {
     .filter(Boolean);
 
   let singleStartingPlayer = 'player';
-  if (selectedDuelSeries === 'match') {
+  if (campaignMission) {
+    const missionDecks = buildMissionDecks(campaignMission.id);
+    playerMainCards = missionDecks.player.mainDeck;
+    playerExtraCards = missionDecks.player.extraDeck;
+    opponentMainCards = missionDecks.opponent.mainDeck;
+    opponentExtraCards = missionDecks.opponent.extraDeck;
+    singleStartingPlayer = campaignMission.firstPlayerId;
+    matchController = null;
+    pendingMatchLaunch = null;
+    campaignTracker = createCampaignDuelTracker(crypto.randomUUID());
+  } else if (selectedDuelSeries === 'match') {
     if (!matchLaunch) {
       const opening = await resolveOpeningFirstPlayer('Duel 1');
       const openingChooser = opening.chooser;
@@ -1736,6 +1803,10 @@ async function initGameInstance(matchLaunch = null) {
   const characterNames = { kaiba: 'KAIBA', yugi: 'YUGI', joey: 'JOEY', custom: 'DUELLISTE' };
   if (playerLabel) playerLabel.textContent = `${characterNames[currentSelectedDeckId] || 'DUELLISTE'} (VOUS)`;
   if (opponentLabel) opponentLabel.textContent = `${characterNames[opponentDeckId]} (IA)`;
+  if (campaignMission) {
+    playerLabel.textContent = 'PARCOURS SOLO (VOUS)';
+    opponentLabel.textContent = `${campaignMission.opponentName.toUpperCase()} (IA)`;
+  }
 
   game = new DuelGame({
     onStateChange: updateUI,
@@ -1786,6 +1857,17 @@ async function initGameInstance(matchLaunch = null) {
  * Update the user interface based on game state
  */
 function updateUI(gameState) {
+  campaignTracker?.observeState(gameState);
+  const campaignMission = getMission(activeCampaignMissionId);
+  const campaignStatus = document.getElementById('campaign-duel-status');
+  campaignStatus.classList.toggle('hidden', !campaignMission);
+  if (campaignMission) {
+    const facts = campaignTracker?.snapshot(gameState) || {};
+    const technical = campaignMission.objectives[0];
+    const value = technical.comparison === 'distinct' ? (facts[technical.stat]?.length || 0) : (facts[technical.stat] || 0);
+    campaignStatus.textContent = `DÉFI ${campaignMission.number}/12 · ${campaignMission.title} · Objectif bonus ${value}/${technical.target}`;
+    campaignStatus.title = `${technical.label} ${campaignMission.objectives[1].label}`;
+  }
   const matchStatus = document.getElementById('match-status');
   const matchView = matchController?.getViewModel();
   if (matchStatus) {
@@ -1840,7 +1922,13 @@ function updateUI(gameState) {
   // 3. Phase display highlights
   document.querySelectorAll('.phase-step').forEach(el => el.classList.remove('active'));
   const phaseEl = document.getElementById(`phase-${gameState.currentPhase}`);
-  if (phaseEl) phaseEl.classList.add('active');
+  if (phaseEl) {
+    phaseEl.classList.add('active');
+    document.querySelector('.phase-indicator-box')?.setAttribute(
+      'aria-label',
+      `Phase actuelle : ${phaseEl.dataset.phaseLabel || phaseEl.title || gameState.currentPhase}`
+    );
+  }
 
   // 4. Keep sequential phase navigation and expose an explicit legal End turn action.
   const canChoosePlayerPhase = gameState.currentTurn === 'player'
@@ -2881,6 +2969,7 @@ function restorePersistedMatchBetweenDuels() {
 }
 
 function returnToConfiguration({ announce = false } = {}) {
+  leaveCampaign();
   // Leaving the Duel also tears down the active immersive presentation. The
   // cached module may be reused later, but no Real-view animation remains
   // visible behind the configuration dialog.
@@ -3374,6 +3463,14 @@ function handleGameOver(resultOrWinner, legacyDetails = null) {
     restartBtn.textContent = 'RECOMMENCER';
   }
 
+  document.getElementById('btn-result-campaign').classList.toggle('hidden', !activeCampaignMissionId);
+  if (activeCampaignMissionId && campaignTracker && game) {
+    campaignTracker.observeState(game);
+    const campaignResult = campaignController.complete(activeCampaignMissionId, result.winner || 'draw', campaignTracker.snapshot(game));
+    gameoverText.textContent += ` ${campaignResult.summary}`;
+    restartBtn.textContent = 'RÉESSAYER CE DÉFI';
+  }
+
   document.body.classList.add('duel-ended');
   nextPhaseBtn.disabled = true;
   endTurnBtn?.classList.add('hidden');
@@ -3510,6 +3607,7 @@ function getAttackProjType(card) {
  * Central event visual routing system
  */
 function handleGameAnimations(event) {
+  campaignTracker?.recordAnimation(event);
   const boardEl = document.getElementById('duel-board');
 
   if (event.type === 'summon') {
@@ -4069,6 +4167,8 @@ if (import.meta.env.DEV) {
       getViewMode: () => duelViewController?.getMode() || 'compact',
       setViewMode: mode => duelViewController?.setMode(mode),
       getMatchView: () => matchController?.getViewModel() || null,
+      getCampaignProgress: () => structuredClone(campaignController.progress),
+      getActiveCampaignMissionId: () => activeCampaignMissionId,
       finishDuel: (winner, reason = 'lp_zero') => game?.endGame(winner, reason)
     })
   });

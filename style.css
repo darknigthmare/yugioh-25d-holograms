@@ -1142,8 +1142,9 @@ body.modal-open {
 }
 
 .phase-indicator-box {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 2px;
   background: rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 6px;
@@ -1154,6 +1155,8 @@ body.modal-open {
 }
 
 .phase-step {
+  min-width: 0;
+  text-align: center;
   color: var(--text-dim);
   opacity: 0.4;
   transition: all 0.2s ease;
@@ -1528,10 +1531,60 @@ body.modal-open {
   100% { opacity: 1; transform: translateX(0); }
 }
 
+/* Campaign screens reuse the existing panel, button and typography tokens. */
+.campaign-entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  margin-bottom: 16px;
+  text-align: left;
+  border: 1px solid var(--neon-cyan);
+  border-radius: 8px;
+  background: var(--panel-bg);
+}
+.campaign-entry p { margin: 6px 0 0; font-size: 0.85rem; }
+.coverage-disclosure { text-align: left; margin: 16px 0 24px; line-height: 1.6; }
+.coverage-disclosure summary, .campaign-mission summary { cursor: pointer; padding: 8px 0; }
+.free-duel-heading { text-align: left; margin: 12px 0; font-size: 1rem; }
+.start-action-bar {
+  position: sticky;
+  bottom: 0;
+  padding: 12px 0;
+  border-top: 1px solid var(--panel-border);
+  background: rgba(8, 5, 18, 0.97);
+  z-index: 2;
+}
+.campaign-content { text-align: left; }
+.campaign-content > p { line-height: 1.55; margin: 12px 0; }
+.campaign-tools { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 20px 0; }
+.campaign-import-label { display: grid; gap: 6px; font-size: 0.85rem; max-width: 100%; }
+.campaign-import-label input { max-width: 100%; }
+#campaign-feedback { color: var(--neon-gold); }
+.campaign-chapter { margin-top: 28px; }
+.campaign-chapter h3 { color: var(--neon-cyan); margin-bottom: 8px; }
+.campaign-chapter > p { color: var(--text-dim); margin-bottom: 16px; }
+.campaign-missions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.campaign-mission { padding: 18px; border: 1px solid var(--panel-border); border-radius: 8px; background: var(--panel-bg); }
+.campaign-mission h4 { margin: 8px 0 12px; font-size: 1.1rem; }
+.campaign-mission p { font-size: 0.85rem; line-height: 1.55; margin: 8px 0; }
+.campaign-mission > .btn { width: 100%; white-space: normal; min-height: 44px; margin-top: 12px; }
+.campaign-kicker { color: var(--neon-gold); font-weight: bold; }
+.mission-locked > .btn { opacity: 0.65; }
+#campaign-duel-status { max-width: 265px; white-space: normal; font-size: 0.65rem; line-height: 1.4; }
+@media (max-width: 650px) {
+  .campaign-entry { align-items: stretch; flex-direction: column; }
+  .campaign-missions { grid-template-columns: minmax(0, 1fr); }
+  .campaign-tools > .btn { flex: 1 1 150px; white-space: normal; }
+  .start-action-bar { position: static; }
+}
+
 /* Modals / Screen Overlay (Start/Game Over) */
 .modal-overlay {
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100dvh;
+  padding: 16px;
   background: rgba(4, 2, 10, 0.9);
   backdrop-filter: blur(15px);
   z-index: 1000;
@@ -1544,6 +1597,8 @@ body.modal-open {
 .modal-content {
   text-align: center;
   max-width: 500px;
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
   padding: 40px;
   border-radius: 16px;
   border: 1px solid var(--panel-border);
@@ -1554,7 +1609,7 @@ body.modal-open {
 .modal-large {
   max-width: 950px;
   width: min(950px, calc(100vw - 32px));
-  max-height: 90vh;
+  max-height: calc(100dvh - 32px);
   overflow-y: auto;
 }
 

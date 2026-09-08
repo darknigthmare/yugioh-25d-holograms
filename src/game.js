@@ -5,7 +5,7 @@ import { PSCTParser } from './core/PSCTParser.js';
 import { ChainEngine } from './core/ChainEngine.js';
 import { PhaseEngine } from './core/PhaseEngine.js';
 import { SummonEngine } from './core/SummonEngine.js';
-import { getLinkedMainMonsterZoneIndices } from './core/LinkZoneRules.js';
+import { getLinkedMainMonsterZoneIndices, getAvailableExtraMonsterZoneIndices } from './core/LinkZoneRules.js';
 import { EffectEngine } from './core/EffectEngine.js';
 import { GameStateStabilizer } from './core/GameStateStabilizer.js';
 import { MatchEngine } from './core/MatchEngine.js';
@@ -898,7 +898,7 @@ export class DuelGame {
     this.summons.consumeNormalSummon();
 
     this.log(`Vous invoquez **${card.name}** en Position d'Attaque !`, 'player');
-    this.callbacks.onAnimation({ type: 'summon', target: 'player', card, zoneIndex, position: 'attack' });
+    this.callbacks.onAnimation({ type: 'summon', target: 'player', card, zoneIndex, position: 'attack', summonType: 'normal', tributeCount: 0 });
     await this.resolveSummonSuccessEvent(card, 'player', {
       zoneType: 'main',
       zoneIndex
@@ -957,7 +957,7 @@ export class DuelGame {
     this.summons.consumeNormalSummon();
 
     this.log(`Vous posez un monstre face cachée en Position de Défense.`, 'player');
-    this.callbacks.onAnimation({ type: 'summon', target: 'player', card, zoneIndex, position: 'defense' });
+    this.callbacks.onAnimation({ type: 'summon', target: 'player', card, zoneIndex, position: 'defense', summonType: 'normal', tributeCount: 0 });
     this.stateChanged();
     return true;
   }
@@ -982,52 +982,6 @@ export class DuelGame {
 
     if (list.length === this.pendingSummon.tributesRequired) {
       return this.completePendingTributeSummon();
-      this.isResolvingAction = true;
-      const summonState = this.pendingSummon;
-      this.pendingSummon = null;
-
-      // Tribute selected monsters
-      summonState.selectedTributeIndices.forEach(reference => {
-        const selectedEntry = this.getMonsterEntry('player', reference);
-        if (!selectedEntry) return;
-        const sacrificed = selectedEntry.card;
-        this.removeMonsterEntry('player', selectedEntry);
-        this.field.sendToGraveyard(sacrificed, sacrificed.ownerId);
-        this.emitMonsterAnimation('destroy', 'player', selectedEntry);
-      });
-
-      if (!(await this.delay(600))) return false;
-
-      const handCardIndex = this.playerHand.findIndex(c => c.uid === summonState.handCardUid);
-      if (handCardIndex !== -1) {
-        this.playerHand.splice(handCardIndex, 1);
-      }
-
-      const card = summonState.card;
-      card.position = summonState.isSet ? 'defense' : 'attack';
-      card.isSetFaceDown = summonState.isSet;
-      card.turnSummoned = this.turnCount;
-      this.field.setMonsterZone('player', summonState.zoneIndex, card);
-      this.summons.consumeNormalSummon();
-
-      this.log(`Vous ${summonState.isSet ? 'posez' : 'invoquez'} **${card.name}** en sacrifiant vos monstres.`, 'player');
-      this.callbacks.onAnimation({
-        type: 'summon',
-        target: 'player',
-        card,
-        zoneIndex: summonState.zoneIndex,
-        position: card.position
-      });
-
-      if (!summonState.isSet) {
-        await this.resolveSummonSuccessEvent(card, 'player', {
-          zoneType: 'main',
-          zoneIndex: summonState.zoneIndex
-        }, { summonType: 'normal' });
-      }
-
-      this.isResolvingAction = false;
-      this.stateChanged();
     }
   }
 
@@ -1132,7 +1086,9 @@ export class DuelGame {
       target: 'player',
       card,
       zoneIndex: summonState.zoneIndex,
-      position: card.position
+      position: card.position,
+      summonType: 'tribute',
+      tributeCount: liveEntries.length
     });
     if (!summonState.isSet) {
       await this.resolveSummonSuccessEvent(card, 'player', {
@@ -1310,7 +1266,8 @@ export class DuelGame {
    */
   getProjectedSpecialSummonDestinations(side, materialEntries = [], {
     mainMode = 'any',
-    preferExtra = false
+    preferExtra = false,
+    summoningCard = null
   } = {}) {
     const state = this.getSideState(side);
     const materialCards = new Set(
@@ -1333,17 +1290,10 @@ export class DuelGame {
       });
     }
 
-    const projectedExtraZones = this.field.extraMonsterZones.map(entry => (
-      entry && materialCards.has(entry.card) ? null : entry
-    ));
-    const projectedOwnExtraCount = projectedExtraZones.filter(
-      entry => entry?.controllerId === side
-    ).length;
-    const extraZones = projectedOwnExtraCount > 0
-      ? []
-      : projectedExtraZones
-        .map((entry, index) => (entry === null ? index : -1))
-        .filter(index => index >= 0);
+    const extraZones = getAvailableExtraMonsterZoneIndices(this.field, side, {
+      excludedCards: materialCards,
+      summoningCard
+    });
     const mainDestinations = mainZones.map(zoneIndex => ({
       zoneType: 'main',
       zoneIndex
@@ -1592,7 +1542,7 @@ export class DuelGame {
     properlySummoned = true
   } = {}) {
     if (!card || this.winner) return false;
-    const availableZones = this.field.getAvailableExtraMonsterZones(side);
+    const availableZones = getAvailableExtraMonsterZoneIndices(this.field, side, { summoningCard: card });
     const destination = extraZoneIndex ?? availableZones[0];
     if (!availableZones.includes(destination)) return false;
     if (this.defense.isActionProhibited(side, 'SPECIAL_SUMMON', card)) return false;
@@ -2748,8 +2698,8 @@ export class DuelGame {
 
   canActivateSpell(card, side) {
     if (!card || card.card_type !== 'spell') return false;
+    if (this.defense.isActionProhibited(side, 'ACTIVATE_EFFECT', card)) return false;
     const state = this.getSideState(side);
-    const opponentState = this.getSideState(this.getOpponentSide(side));
     if (isFieldSpellCard(card)) {
       return this.rulesMode === 'sandbox'
         || this.isStrictlySupportedMainDeckCard(card);
@@ -2762,12 +2712,15 @@ export class DuelGame {
       return state.monsters.some(monster => monster === null)
         && [...this.playerGraveyard, ...this.opponentGraveyard].some(
           monster => this.canSpecialSummonFromGrave(monster)
+            && !this.defense.isActionProhibited(side, 'SPECIAL_SUMMON', monster)
         );
     }
-    if (String(card.id) === '24094653') return this.getFusionOptions(side).length > 0;
+    if (String(card.id) === '24094653') return this.getFusionOptions(side)
+      .some(option => !this.defense.isActionProhibited(side, 'SPECIAL_SUMMON', option.card));
     if (card.isRitualSpell || String(card.id) === '55761792') {
       return this.getRitualOptions(side, card).some(option => (
-        this.getProjectedSpecialSummonDestination(side, option.materials)?.zoneType === 'main'
+        !this.defense.isActionProhibited(side, 'SPECIAL_SUMMON', option.monster)
+        && this.getProjectedSpecialSummonDestination(side, option.materials)?.zoneType === 'main'
       ));
     }
     return this.rulesMode === 'sandbox';
@@ -2778,14 +2731,21 @@ export class DuelGame {
     const candidates = [
       ...this.playerGraveyard,
       ...this.opponentGraveyard
-    ].filter(monster => this.canSpecialSummonFromGrave(monster));
+    ].filter(monster => this.canSpecialSummonFromGrave(monster)
+      && !this.defense.isActionProhibited(side, 'SPECIAL_SUMMON', monster));
+    const targetInstances = new Map(candidates.map(candidate => [candidate, candidate.runtimeInstanceId]));
     const target = await this.chooseCard(
       'select-monster-reborn-target',
       side,
       candidates,
       cards => [...cards].sort((a, b) => b.getAtk() - a.getAtk())[0]
     );
-    if (!target) return null;
+    if (!target
+      || ![...this.playerGraveyard, ...this.opponentGraveyard].includes(target)
+      || target.runtimeInstanceId !== targetInstances.get(target)
+      || !this.canSpecialSummonFromGrave(target)
+      || this.defense.isActionProhibited(side, 'SPECIAL_SUMMON', target)
+    ) return null;
     return {
       targetCard: target,
       targetUid: target.uid,
@@ -3006,12 +2966,21 @@ export class DuelGame {
       this.log(`Les conditions d'activation de **${card.name}** ne sont pas remplies.`, 'danger');
       return false;
     }
+    const activationSourceInstance = card.runtimeInstanceId;
     const activationContext = await this.prepareSpellActivationContext(card, 'player');
     if (!this.isDuelGenerationCurrent(generation)) return false;
     if (activationContext === null) return false;
 
+    const liveCardIndex = this.playerHand.indexOf(card);
+    if (liveCardIndex === -1
+      || card.runtimeInstanceId !== activationSourceInstance
+      || this.field.getSpellZone('player', zoneIndex) !== null
+      || !this.canStartFieldSpellAction('player')
+      || !this.canActivateSpell(card, 'player')
+    ) return false;
+
     // Spell activation triggering Chain
-    this.playerHand.splice(cardIndex, 1);
+    this.playerHand.splice(liveCardIndex, 1);
     this.field.setSpellZone('player', zoneIndex, card);
 
     this.log(`Vous activez la Carte Magie **${card.name}** !`, 'player');
@@ -3098,9 +3067,16 @@ export class DuelGame {
         return false;
       }
     }
+    const activationSourceInstance = card.runtimeInstanceId;
     const activationContext = await this.prepareSpellActivationContext(card, 'player');
     if (!this.isDuelGenerationCurrent(generation)) return false;
     if (activationContext === null) return false;
+    if (this.field.getSpellZone('player', zoneIndex) !== card
+      || card.runtimeInstanceId !== activationSourceInstance
+      || !card.isSetFaceDown
+      || !this.canStartFieldSpellAction('player')
+      || !this.canActivateSpell(card, 'player')
+    ) return false;
 
     card.isSetFaceDown = false;
     this.log(`Vous activez la Carte face cachée **${card.name}** !`, 'player');
@@ -3679,27 +3655,49 @@ export class DuelGame {
 
   getAvailableActions(side = 'player') {
     const state = this.getSideState(side);
-    const ownTurn = this.currentTurn === side;
-    const inMain = this.currentPhase.startsWith('main');
+    const canAct = this.canStartFieldSpellAction(side) && !this.isResolvingEffect;
+    const canSpecialSummon = card => !this.defense.isActionProhibited(side, 'SPECIAL_SUMMON', card);
+    const hasSpellSpace = state.spells.some(card => card === null);
+    const hasActivatablePolymerization = (
+      hasSpellSpace
+      && state.hand.some(card => (
+        String(card.id) === '24094653'
+        && this.canActivateSpell(card, side)
+      ))
+    ) || state.spells.some(card => (
+      card?.isSetFaceDown
+      && String(card.id) === '24094653'
+      && this.canActivateSpell(card, side)
+    ));
+    const normalSummonCardUids = canAct && this.summons.canNormalSummon() ? state.hand
+      .filter(card => {
+        if (!this.summons.canUseNormalSummonProcedure(card)) return false;
+        const tributeCount = card.level >= 7 ? 2 : card.level >= 5 ? 1 : 0;
+        return this.getTributeCombinations(this.getMonsterEntries(side), tributeCount)
+          .some(tributes => state.monsters.some(occupant => (
+            occupant === null || tributes.some(entry => entry.card === occupant)
+          )));
+      }).map(card => card.uid) : [];
     return {
-      canNormalSummon: ownTurn && inMain && this.summons.canNormalSummon(),
-      normalSummonCardUids: ownTurn && inMain ? state.hand
-        .filter(card => this.summons.canUseNormalSummonProcedure(card))
-        .map(card => card.uid) : [],
-      activatableSpellUids: ownTurn && inMain ? state.hand
+      canNormalSummon: normalSummonCardUids.length > 0,
+      normalSummonCardUids,
+      activatableSpellUids: canAct ? state.hand
+        .filter(card => isFieldSpellCard(card) || hasSpellSpace)
         .filter(card => this.canActivateSpell(card, side))
         .map(card => card.uid) : [],
-      monsterEffects: ownTurn && inMain ? this.getMonsterEntries(side)
+      monsterEffects: canAct ? this.getMonsterEntries(side)
         .filter(({ card }) => (
           card
           && !card.isSetFaceDown
           && !card.effectNegated
+          && !this.defense.isActionProhibited(side, 'ACTIVATE_EFFECT', card)
           && (
             (String(card.id) === '71625222' && card.effectUsage.timeWizardTurn !== this.turnCount)
             || (
               String(card.id) === '31924889'
               && this.getControlledFieldCards(side)
                 .some(candidate => (candidate.counters?.spell || 0) > 0)
+              && this.getControlledFieldCards(this.getOpponentSide(side)).length > 0
             )
           )
         ))
@@ -3709,30 +3707,38 @@ export class DuelGame {
           cardUid: card.uid,
           effect: String(card.id) === '71625222' ? 'time-wizard' : 'arcanite-destroy'
         })) : [],
-      fusionExtraUids: ownTurn && inMain
-        ? this.getFusionOptions(side).map(option => option.card.uid)
+      fusionExtraUids: canAct && hasActivatablePolymerization
+        ? this.getFusionOptions(side).filter(option => canSpecialSummon(option.card)).map(option => option.card.uid)
         : [],
-      synchroExtraUids: ownTurn && inMain ? state.extraDeck
+      synchroExtraUids: canAct ? state.extraDeck
         .filter(card => card.extra_type === 'synchro')
+        .filter(canSpecialSummon)
         .filter(card => this.canAutoSynchroSummon(card, side))
         .map(card => card.uid) : [],
-      xyzExtraUids: ownTurn && inMain ? state.extraDeck
+      xyzExtraUids: canAct ? state.extraDeck
         .filter(card => card.extra_type === 'xyz')
+        .filter(canSpecialSummon)
         .filter(card => this.getXyzMaterialCombination(card, side))
         .map(card => card.uid) : [],
-      linkExtraUids: ownTurn && inMain ? state.extraDeck
+      linkExtraUids: canAct ? state.extraDeck
         .filter(card => card.extra_type === 'link')
+        .filter(canSpecialSummon)
         .filter(card => this.getLinkMaterialCombination(card, side))
         .map(card => card.uid) : [],
-      canPendulumSummon: ownTurn
-        && inMain
+      canPendulumSummon: canAct
         && this.summons.canPendulumSummon()
         && (() => {
           const options = this.getPendulumOptions(side);
           return options.valid
-            && (options.fromHand.length > 0 || options.fromExtraDeck.length > 0);
+            && ((state.monsters.some(card => card === null) && options.fromHand.some(canSpecialSummon))
+              || (this.getPendulumExtraDestinations(side).length > 0 && options.fromExtraDeck.some(canSpecialSummon)));
         })()
     };
+  }
+
+  rollCoin() {
+    // Random outcomes belong to the duel engine, never to an interactive call.
+    return Math.random() < 0.5 ? 'heads' : 'tails';
   }
 
   async activateMonsterEffect(zoneReference, side = 'player') {
@@ -3742,6 +3748,7 @@ export class DuelGame {
     const sourceEntry = this.getMonsterEntry(side, zoneReference);
     const card = sourceEntry?.card;
     if (!card || card.isSetFaceDown || card.effectNegated) return false;
+    if (this.defense.isActionProhibited(side, 'ACTIVATE_EFFECT', card)) return false;
 
     if (String(card.id) === '71625222') {
       if (card.effectUsage.timeWizardTurn === this.turnCount) return false;
@@ -3754,15 +3761,15 @@ export class DuelGame {
             type: 'coin-call',
             effect: 'time-wizard',
             side,
+            required: true,
             choices: ['heads', 'tails']
           }, 'heads');
-          if (coinDecision === null) return false;
-          const call = typeof coinDecision === 'object'
-            ? (coinDecision.call || 'heads')
-            : coinDecision;
-          const result = typeof coinDecision === 'object' && coinDecision.result
-            ? coinDecision.result
-            : (Math.random() < 0.5 ? 'heads' : 'tails');
+          if (!this.isDuelGenerationCurrent(generation)) return false;
+          const requestedCall = coinDecision && typeof coinDecision === 'object' ? coinDecision.call : coinDecision;
+          const call = ['heads', 'tails'].includes(requestedCall) ? requestedCall : 'heads';
+          const sandboxOutcome = this.rulesMode === 'sandbox'
+            && ['heads', 'tails'].includes(coinDecision?.result) ? coinDecision.result : null;
+          const result = sandboxOutcome || this.rollCoin();
           const won = call === result;
           const destroyedSide = won ? this.getOpponentSide(side) : side;
           const targets = this.getMonsterEntries(destroyedSide);
@@ -4906,7 +4913,7 @@ export class DuelGame {
         side,
         materials,
         summonType === 'link'
-          ? { mainMode: 'linked', preferExtra: true }
+          ? { mainMode: 'linked', preferExtra: true, summoningCard: extraCard }
           : {}
       ).length > 0
     ));
@@ -5044,7 +5051,7 @@ export class DuelGame {
       this.getProjectedSpecialSummonDestinations(
         side,
         initialMaterialEntries,
-        { mainMode: 'linked', preferExtra: true }
+        { mainMode: 'linked', preferExtra: true, summoningCard: extraCard }
       ),
       'link'
     );
@@ -5058,7 +5065,7 @@ export class DuelGame {
     const currentDestinationKeys = this.getProjectedSpecialSummonDestinations(
       side,
       materialEntries.filter(Boolean),
-      { mainMode: 'linked', preferExtra: true }
+      { mainMode: 'linked', preferExtra: true, summoningCard: extraCard }
     ).map(candidate => this.getSummonDestinationKey(candidate));
     if (
       extraCardIndex === -1
@@ -5160,9 +5167,16 @@ export class DuelGame {
         return false;
       }
 
-      const polymerizationInHand = this.playerHand.find(card => String(card.id) === '24094653');
+      const spellZone = this.playerSpells.findIndex(card => card === null);
+      const polymerizationInHand = spellZone === -1 ? null : this.playerHand.find(card => (
+        String(card.id) === '24094653'
+        && this.canActivateSpell(card, 'player')
+      ));
       const polymerizationZone = this.playerSpells.findIndex(card => (
-        card && String(card.id) === '24094653' && card.isSetFaceDown
+        card
+        && String(card.id) === '24094653'
+        && card.isSetFaceDown
+        && this.canActivateSpell(card, 'player')
       ));
       if (!polymerizationInHand && polymerizationZone === -1) {
         this.log(`Règle TCG : **${extraCard.name}** nécessite l'activation de **Polymérisation**.`, 'danger');
@@ -5170,15 +5184,14 @@ export class DuelGame {
       }
 
       this.pendingFusionTargets.player = extraCard.uid;
-      if (polymerizationInHand) {
-        const spellZone = this.playerSpells.findIndex(card => card === null);
-        if (spellZone === -1) {
-          this.pendingFusionTargets.player = null;
-          return false;
+      try {
+        if (polymerizationInHand) {
+          return await this.playSpellTrap(polymerizationInHand.uid, spellZone);
         }
-        return this.playSpellTrap(polymerizationInHand.uid, spellZone);
+        return await this.activateSetSpellTrap(polymerizationZone);
+      } finally {
+        this.pendingFusionTargets.player = null;
       }
-      return this.activateSetSpellTrap(polymerizationZone);
     }
 
     const emptyZoneIdx = this.playerMonsters.findIndex(m => m === null);
@@ -5671,7 +5684,9 @@ export class DuelGame {
       target: 'opponent',
       card: plan.card,
       zoneIndex: plan.destination,
-      position: plan.card.position
+      position: plan.card.position,
+      summonType: liveEntries.length ? 'tribute' : 'normal',
+      tributeCount: liveEntries.length
     });
     if (isSet) {
       this.log("L'adversaire pose un monstre face cachée.", 'opponent');
@@ -5710,12 +5725,20 @@ export class DuelGame {
         if (this.winner || this._duelEnded) return false;
         if (!(await this.delay(800))) return false;
       } else if (emptySpellZone !== -1) {
+        const activationSourceInstance = card.runtimeInstanceId;
         const activationContext = await this.prepareSpellActivationContext(
           card,
           'opponent'
         );
         if (activationContext === null) return false;
-        this.opponentHand.splice(spellIdx, 1);
+        const liveCardIndex = this.opponentHand.indexOf(card);
+        if (liveCardIndex === -1
+          || card.runtimeInstanceId !== activationSourceInstance
+          || this.field.getSpellZone('opponent', emptySpellZone) !== null
+          || !this.canStartFieldSpellAction('opponent')
+          || !this.canActivateSpell(card, 'opponent')
+        ) return false;
+        this.opponentHand.splice(liveCardIndex, 1);
         this.field.setSpellZone('opponent', emptySpellZone, card);
 
         this.log(`L'adversaire active la Carte Magie **${card.name}** !`, 'opponent');

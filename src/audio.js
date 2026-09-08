@@ -10,15 +10,35 @@ let bgmStep = 0;
 let bgmIsRunning = false;
 let bgmRequested = false;
 let bgmStyle = 'normal'; // 'normal', 'battle', 'danger'
+let resumePending = false;
 
 function getAudioContext() {
-  if (!audioCtx) {
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  // Audio is optional: missing devices/APIs and autoplay denial must never
+  // interrupt the duel action which requested a sound.
+  try {
+    if (!audioCtx || audioCtx.state === 'closed') {
+      const AudioContext = globalThis.window?.AudioContext || globalThis.window?.webkitAudioContext;
+      if (typeof AudioContext !== 'function') return null;
+      stopBGMScheduler();
+      stopHologramHum();
+      noiseBuffer = null;
+      resumePending = false;
+      audioCtx = new AudioContext();
+    }
+    if (audioCtx.state === 'suspended' && !resumePending) {
+      resumePending = true;
+      const resumingContext = audioCtx;
+      Promise.resolve(resumingContext.resume()).catch(() => {
+        if (audioCtx === resumingContext) stopBGMScheduler();
+      }).finally(() => {
+        if (audioCtx === resumingContext) resumePending = false;
+      });
+    }
+    return audioCtx;
+  } catch {
+    resumePending = false;
+    return null;
   }
-  if (audioCtx.state === 'suspended') {
-    audioCtx.resume();
-  }
-  return audioCtx;
 }
 
 // Generate 1.5 seconds of white noise for explosions and snare drums
@@ -57,8 +77,8 @@ export function toggleMute() {
     humGain.gain.setValueAtTime(isMuted ? 0 : 0.05, audioCtx ? audioCtx.currentTime : 0);
   }
   if (isMuted) {
-    stopBGM();
-  } else {
+    stopBGMScheduler();
+  } else if (bgmRequested) {
     startBGM();
   }
   return isMuted;
@@ -67,6 +87,7 @@ export function toggleMute() {
 export function playClick(pan = 0) {
   if (isMuted) return;
   const ctx = getAudioContext();
+  if (!ctx) return;
   const osc = ctx.createOscillator();
   const gain = ctx.createGain();
 
@@ -87,6 +108,7 @@ export function playClick(pan = 0) {
 export function playDrawCard(pan = 0) {
   if (isMuted) return;
   const ctx = getAudioContext();
+  if (!ctx) return;
   const osc = ctx.createOscillator();
   const filter = ctx.createBiquadFilter();
   const gain = ctx.createGain();
@@ -115,6 +137,7 @@ export function playDrawCard(pan = 0) {
 export function playSummon(pan = 0) {
   if (isMuted) return;
   const ctx = getAudioContext();
+  if (!ctx) return;
   const now = ctx.currentTime;
 
   const osc1 = ctx.createOscillator();
@@ -149,7 +172,8 @@ export function playSummon(pan = 0) {
   osc2.stop(now + 0.8);
 
   setTimeout(() => {
-    if (isMuted) return;
+    if (isMuted || ctx !== audioCtx || ctx.state === 'closed'
+      || (typeof document !== 'undefined' && document.hidden)) return;
     const chimeOsc = ctx.createOscillator();
     const chimeGain = ctx.createGain();
 
@@ -172,6 +196,7 @@ export function playSummon(pan = 0) {
 export function playAttack(pan = 0, destPan = pan) {
   if (isMuted) return;
   const ctx = getAudioContext();
+  if (!ctx) return;
   const now = ctx.currentTime;
 
   const osc = ctx.createOscillator();
@@ -210,6 +235,7 @@ export function playAttack(pan = 0, destPan = pan) {
 export function playExplosion(pan = 0) {
   if (isMuted) return;
   const ctx = getAudioContext();
+  if (!ctx) return;
   const now = ctx.currentTime;
 
   const noiseSource = ctx.createBufferSource();
@@ -251,6 +277,7 @@ export function playExplosion(pan = 0) {
 export function playLpLoss(pan = 0) {
   if (isMuted) return;
   const ctx = getAudioContext();
+  if (!ctx) return;
   const now = ctx.currentTime;
 
   const duration = 0.5;
@@ -279,7 +306,7 @@ export function startHologramHum() {
   if (isMuted) return;
   try {
     const ctx = getAudioContext();
-    if (humNode) return;
+    if (!ctx || humNode) return;
 
     const now = ctx.currentTime;
 
@@ -314,15 +341,15 @@ export function startHologramHum() {
 
 export function stopHologramHum() {
   if (!humNode) return;
-  try {
-    const now = audioCtx ? audioCtx.currentTime : 0;
-    humNode.osc.stop(now);
-    humNode.lfo.stop(now);
-    humNode = null;
-    humGain = null;
-  } catch (e) {
-    console.error('Failed to stop ambient hum:', e);
+  const now = audioCtx ? audioCtx.currentTime : 0;
+  for (const source of [humNode.osc, humNode.lfo]) {
+    try { source.stop(now); } catch { /* Already stopped or device closed. */ }
   }
+  for (const node of [humNode.osc, humNode.lfo, humNode.lfoGain, humGain]) {
+    try { node?.disconnect(); } catch { /* Teardown is best effort. */ }
+  }
+  humNode = null;
+  humGain = null;
 }
 
 // ----------------------------------------------------
@@ -332,12 +359,18 @@ export function stopHologramHum() {
 export function startBGM() {
   bgmRequested = true;
   if (isMuted || bgmIsRunning || (typeof document !== 'undefined' && document.hidden)) return;
-  bgmIsRunning = true;
-
   const ctx = getAudioContext();
+  if (!ctx) return;
+  bgmIsRunning = true;
   let nextNoteTime = ctx.currentTime;
 
   function schedule() {
+    if (ctx !== audioCtx || ctx.state === 'closed') {
+      stopBGMScheduler();
+      return;
+    }
+    // A stalled tab must not synthesize minutes of missed notes on one tick.
+    nextNoteTime = Math.max(nextNoteTime, ctx.currentTime);
     while (nextNoteTime < ctx.currentTime + 0.1) {
       playBgmStep(ctx, nextNoteTime);
       const stepDuration = 60.0 / bgmTempo / 2; // Eighth notes scheduler
@@ -354,7 +387,7 @@ export function stopBGM() {
 }
 
 function stopBGMScheduler() {
-  if (bgmInterval) {
+  if (bgmInterval !== null) {
     clearInterval(bgmInterval);
     bgmInterval = null;
   }
@@ -365,9 +398,11 @@ if (typeof document !== 'undefined') {
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
       stopBGMScheduler();
-      audioCtx?.suspend?.().catch?.(() => {});
+      try { audioCtx?.suspend?.().catch?.(() => {}); } catch { /* Optional audio device. */ }
     } else if (bgmRequested && !isMuted) {
       startBGM();
+    } else if (humNode && !isMuted) {
+      getAudioContext();
     }
   });
 }

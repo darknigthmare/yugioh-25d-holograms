@@ -7,6 +7,7 @@ Simulateur de duel solo dans le navigateur, inspiré des arènes holographiques 
 - mode **TCG Advanced strict** par défaut : decks de 40 cartes validés, limite de trois copies et liste de cartes limitée/interdite du 18 mai 2026 pour le sous-ensemble local ;
 - mode **Anime Sandbox** séparé pour la recherche de métadonnées YGOPRODeck et l’expérimentation ;
 - duel unique ou **Match au premier à deux victoires**, avec score, Side Deck et choix réglementaire du premier joueur ; les Duels nuls peuvent prolonger le Match au-delà de trois Duels ;
+- **parcours solo de 12 défis** en trois chapitres, avec 24 constructions de Deck dédiées, objectifs issus des événements réels, 36 médailles et progression exportable/importable ;
 - duel solo contre trois profils d’IA avec pioche, six phases, Invocations Normale, Sacrifice, Rituel, Fusion, Synchro, Xyz, Lien et Pendule ;
 - Zones Monstre Extra partagées, Matériels Xyz, Monstres Pendule face recto dans l’Extra Deck et limitation d’une Invocation Pendule par tour ;
 - positions Attaque/Défense, Damage Step, attaques directes, dégâts, Deck Out, limite de six cartes en End Phase et conditions de victoire ;
@@ -17,7 +18,8 @@ Simulateur de duel solo dans le navigateur, inspiré des arènes holographiques 
 - effets continus des six Terrains classiques **Yami, Umi, Forêt, Montagne, Sogen et Terre Dévastée**, avec bonus/malus sur les deux camps après résolution ;
 - cartes adverses cachées anonymisées dans le DOM et snapshots réseau expurgés des informations privées ;
 - interface desktop/mobile, glisser-déposer, sélection carte → zone, plateau mobile panoramique, parcours clavier, zones publiques inspectables, modales accessibles et réduction des animations ;
-- préférences locales persistées : mode, difficulté, son/voix, dos de carte, deck personnalisé, statistiques et reprise d’un Match entre deux Duels.
+- préférences locales persistées : mode, difficulté, son/voix, dos de carte, deck personnalisé, statistiques, progression solo et reprise d’un Match entre deux Duels ;
+- cache distant borné et validé, délai réseau maximal, audio facultatif résilient, dépendances auditées et CI de livraison épinglée.
 
 ## Portée et fidélité
 
@@ -30,6 +32,8 @@ Les trois decks intégrés sont des presets légaux et équilibrés **inspirés*
 L’interface publiée reste **solo contre l’IA**. Le dépôt contient un protocole WebRTC pair-à-pair, une session avec accusés de réception/résynchronisation et des snapshots publics testés, mais ce socle n’est pas présenté comme un multijoueur jouable : combat, chaînes/effets, Fusion et Rituel distants demandent encore une autorité de jeu commune et des décisions privées sûres.
 
 La reprise persistante concerne le Match entre deux Duels. Un Duel en cours n’est pas sérialisé intégralement ; quitter la page déclenche donc un avertissement.
+
+Le parcours solo est un entraînement original, pas une adaptation des épisodes. Une victoire suffit toujours à avancer ; Argent et Or récompensent la maîtrise sans bloquer la progression. Aucune durée en heures n’est revendiquée sans campagne de playtests chronométrés.
 
 ## Vues du duel et environnements
 
@@ -65,6 +69,8 @@ npm run check
 ```
 
 Le contrôle exécute les tests Node de règles, Match, réseau et régression, audite les 336 illustrations de Terrain, puis produit le build Vite dans `dist/`. Le projet JavaScript ne définit pas de script lint ou typecheck séparé.
+
+L’[audit de préparation commerciale du 8 septembre 2026](docs/audits/commercial-readiness-2026-09-08.md) distingue les correctifs livrés des prérequis encore bloquants. Le projet doit rester non commercial tant qu’aucune autorisation appropriée des ayants droit n’a été obtenue.
 
 ## Références de règles
 

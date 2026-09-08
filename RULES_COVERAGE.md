@@ -17,6 +17,7 @@ Ce document décrit la couverture réellement testée, pas une certification exh
 | Terrains classiques | Yami, Umi, Forêt, Montagne, Sogen, Terre Dévastée : +200/-200 selon le Type courant, sur les deux camps ; cumul de deux Terrains valides ; aucun bonus avant résolution ou sous annulation. |
 | Synchro/Rituel | Matériaux distincts, contrôle, Niveaux et recettes ; validation du nombre de Syntoniseurs/non-Syntoniseurs ; pas de sacrifices rituels superflus ; pas de carte Rituel utilisée pour son propre coût. |
 | Lien | Contributions 1 ou valeur Lien, recette exacte, Jetons autorisés pour LANphorhynchus ; graphe des huit flèches, orientation adverse, liens Main/Extra et retrait des matériaux avant le calcul des destinations. |
+| Extra Link | Projection du Monstre Lien entrant, chemin co-lié réciproque entre les deux Zones Monstre Extra, revalidation après le choix asynchrone et transaction sans mutation en cas d’échec. |
 | Pendule | Niveaux strictement compris entre deux échelles, une fois par tour ; destinations pointées partagées avec le graphe Lien ; historique d’Invocation correcte des hybrides conservé face recto dans l’Extra Deck. |
 | Conditions de victoire | LP/Deck Out immédiats ; Exodia vérifié à la fin d’un effet et non au milieu ; raison Exodia affichée et enregistrée séparément. Exodia n’est pas ajouté au pool strict. |
 
@@ -27,7 +28,6 @@ Les règles déjà existantes de phases, Invocations Normales/Sacrifices, Fusion
 - **Scripts de cartes** : les milliers de cartes absentes du registre strict, leurs coûts, cibles, restrictions, conditions et exceptions. Le parser PSCT analyse du texte ; il ne transforme pas arbitrairement une description en effet exécutable.
 - **Événements et timing universels** : SEGOC connecté à une file complète de déclencheurs, effets Flip/fin de combat, chaque fenêtre de phase, annulation d’Invocation hors chaîne et règles de timing propres à chaque carte. Les helpers existants ne suffisent pas à revendiquer toute cette couverture.
 - **Procédures alternatives** : Contact Fusion/substitutions, Rituels utilisant l’ATK ou d’autres sources de matériaux, Rank-Up/Xyz alternatifs, Niveaux de remplacement d’hybrides Xyz-Pendule, Invocations Normales additionnelles.
-- **Extra Link** : le graphe calcule les liens/co-liens, mais la validation de l’occupation simultanée des deux Zones Monstre Extra avec le monstre entrant n’est pas encore exposée. Le garde conservateur empêche cette procédure au lieu de l’autoriser à tort.
 - **Effets génériques complexes** : superposition de substitutions/protections, réinitialisations propres à chaque texte, restrictions par nom de carte et durées. Les limites d’usage par joueur/effet et les conjonctions PSCT disposent de tests de primitives, pas de scripts universels.
 - **Formats et plateforme** : distinctions complètes TCG/OCG, Rush/Speed Duel, règlement de tournoi chronométré, multijoueur jouable et sauvegarde intégrale d’un duel ne sont pas livrés par cette version.
 
@@ -36,7 +36,7 @@ Le mode Sandbox permet de consulter des cartes hors registre ; cela ne garantit 
 ## Architecture et points d’extension
 
 - `ClassicFieldSpellEffects.js` contient les six règles continues, identifiées par passcode canonique. `GameStateStabilizer` les applique au même état de duel dans toutes les vues. Le décor ne calcule jamais de statistiques.
-- `LinkZoneRules.js` fournit une projection pure des zones et flèches ; les procédures Lien et Pendule consomment ces destinations après retrait virtuel des matériaux.
+- `LinkZoneRules.js` fournit une projection pure des zones et flèches ; les procédures Lien, Extra Link et Pendule consomment ces destinations après retrait virtuel des matériaux.
 - `BattleEngine.js` calcule le résultat symétrique du combat ; `DuelGame` orchestre décisions, chaînes, Damage Step et animations.
 - `FieldState` et `CardState` contrôlent destinations, propriétaire et identité d’instance. Les protections sont décrites par `DefensiveEngine`, pas déduites de mots présents dans la description.
 - Pour ajouter une carte : texte/ruling officiel → données locales → procédure/effet et fenêtres → tests positifs/négatifs et deux camps → ajout explicite au registre strict → test du parcours UI. Ajouter un décor seul ne suffit pas.
@@ -52,7 +52,7 @@ git diff --check
 
 `check` lance tous les tests Node, l’audit des 336 WebP de Terrain puis le build. Aucun script lint/typecheck séparé n’existe. Le chunk chargé paresseusement de la Vue Réelle reste au-dessus de l’avertissement Vite de 500 kB ; il n’est pas chargé au démarrage de la vue Compacte.
 
-Résultats du lot : **410 tests réussis (147 supplémentaires)**, 336/336 illustrations distinctes valides, build de production et vérifications syntaxiques réussis. Parcours Chromium isolé à 1366 × 768 : choix du premier joueur, Invocation via carte → zone → action, activation de Yami via la Zone Terrain (+200 ATK), Vue Réelle avec le WebP dédié, retour Compacte conservant phase/LP/cartes ; aucune erreur JavaScript sur ce parcours. Le fixture de test utilise le hook de développement existant, absent du build public.
+Résultats du gate final : **506 tests réussis**, 336/336 illustrations distinctes valides, build de production et vérifications syntaxiques réussis. Parcours Chromium isolés desktop et mobile : configuration, défi solo, fin de Duel, médaille, déverrouillage et persistance après rechargement ; aucune erreur JavaScript observée. Le fixture de fin de Duel utilise le hook de développement existant, absent du build public.
 
 ## Sources primaires consultées
 
