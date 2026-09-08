@@ -5,11 +5,13 @@ import { PSCTParser } from './core/PSCTParser.js';
 import { ChainEngine } from './core/ChainEngine.js';
 import { PhaseEngine } from './core/PhaseEngine.js';
 import { SummonEngine } from './core/SummonEngine.js';
+import { getLinkedMainMonsterZoneIndices } from './core/LinkZoneRules.js';
 import { EffectEngine } from './core/EffectEngine.js';
 import { GameStateStabilizer } from './core/GameStateStabilizer.js';
 import { MatchEngine } from './core/MatchEngine.js';
 import { TurnEngine } from './core/TurnEngine.js';
 import { DefensiveEngine } from './core/DefensiveEngine.js';
+import { calculateBattleOutcome, snapshotBattleField, hasBattleFieldChanged } from './core/BattleEngine.js';
 import { CardScriptAPI } from './core/CardScriptAPI.js';
 import { isStrictCardSupported } from './core/StrictCardRegistry.js';
 import {
@@ -85,6 +87,7 @@ export class DuelGame {
     this.attackedMonsters = new Set();
     this.winner = null;
     this.isResolvingAction = false;
+    this.isResolvingEffect = false;
 
     this.pendingSummon = null;
     this.pendingExtraSummon = null;
@@ -1241,6 +1244,8 @@ export class DuelGame {
   }
 
   hasMonsterAttacked(reference) {
+    const card = reference?.card || this.getMonsterEntry(this.currentTurn, reference)?.card;
+    if (card) return Boolean(card.hasAttacked || card.attacksDeclaredThisTurn > 0);
     const normalized = this.normalizeMonsterZoneReference(reference);
     if (!normalized) return false;
     const key = this.getMonsterZoneKey(normalized);
@@ -1249,6 +1254,8 @@ export class DuelGame {
   }
 
   markMonsterAttacked(reference) {
+    const card = reference?.card || this.getMonsterEntry(this.currentTurn, reference)?.card;
+    if (card) card.hasAttacked = true;
     const normalized = this.normalizeMonsterZoneReference(reference);
     if (!normalized) return false;
     this.attackedMonsters.add(this.getMonsterZoneKey(normalized));
@@ -1259,6 +1266,8 @@ export class DuelGame {
   }
 
   unmarkMonsterAttacked(reference) {
+    const card = reference?.card || this.getMonsterEntry(this.currentTurn, reference)?.card;
+    if (card) card.hasAttacked = false;
     const normalized = this.normalizeMonsterZoneReference(reference);
     if (!normalized) return false;
     this.attackedMonsters.delete(this.getMonsterZoneKey(normalized));
@@ -1319,19 +1328,9 @@ export class DuelGame {
         .map((card, index) => (card === null ? index : -1))
         .filter(index => index >= 0);
     } else if (mainMode === 'linked') {
-      const linkedZoneCandidates = new Set();
-      this.field.getControlledExtraMonsters(side)
-        .filter(entry => !materialCards.has(entry.card))
-        .forEach(({ card, zoneIndex }) => {
-          if (card.linkArrows?.includes('bottom-left')) {
-            linkedZoneCandidates.add(zoneIndex === 0 ? 0 : 2);
-          }
-          if (card.linkArrows?.includes('bottom-right')) {
-            linkedZoneCandidates.add(zoneIndex === 0 ? 2 : 4);
-          }
-        });
-      mainZones = [...linkedZoneCandidates]
-        .filter(zoneIndex => projectedMainZones[zoneIndex] === null);
+      mainZones = getLinkedMainMonsterZoneIndices(this.field, side, {
+        excludedCards: materialCards
+      });
     }
 
     const projectedExtraZones = this.field.extraMonsterZones.map(entry => (
@@ -2344,17 +2343,9 @@ export class DuelGame {
   }
 
   getLinkedMainMonsterZoneIndices(side) {
-    const linked = new Set();
-    this.field.getControlledExtraMonsters(side).forEach(({ card, zoneIndex }) => {
-      if (!card.linkArrows?.length) return;
-      if (card.linkArrows.includes('bottom-left')) {
-        linked.add(zoneIndex === 0 ? 0 : 2);
-      }
-      if (card.linkArrows.includes('bottom-right')) {
-        linked.add(zoneIndex === 0 ? 2 : 4);
-      }
-    });
-    return [...linked].filter(index => this.getSideState(side).monsters[index] === null);
+    return this.getProjectedSpecialSummonDestinations(side, [], { mainMode: 'linked' })
+      .filter(destination => destination.zoneType === 'main')
+      .map(destination => destination.zoneIndex);
   }
 
   getPendulumExtraDestinations(side) {
@@ -2425,6 +2416,7 @@ export class DuelGame {
       zoneIndex,
       context: {
         event: 'card-activation',
+        cardActivation: true,
         activationType: 'pendulum-scale'
       },
       resolver: async () => {
@@ -2810,6 +2802,8 @@ export class DuelGame {
       && !this.winner
       && !this._duelEnded
       && !this.isResolvingAction
+      && this.chain.chainStack.length === 0
+      && this.chain.chainStatus === 'idle'
       && !this.pendingSummon
       && !this.pendingExtraSummon
       && !this.isDiscarding
@@ -3098,7 +3092,7 @@ export class DuelGame {
     }
 
     // TCG restriction: Trap and Quick-Play Spells cannot be activated the turn they are set
-    if (card.card_type === 'trap' || (card.type && card.type.includes('Quick-Play'))) {
+    if (card.card_type === 'trap' || this.chain.getSpellSpeed(card) === 2) {
       if (card.turnSet === this.turnCount) {
         this.log("Règle TCG : Les cartes Piège et Magie Jeu Rapide ne peuvent pas être activées le tour où elles ont été posées !", "danger");
         return false;
@@ -3184,7 +3178,8 @@ export class DuelGame {
         }
         return;
       }
-      if (!card.type?.includes('Quick-Play')) return;
+      if (card.card_type !== 'spell' || this.chain.getSpellSpeed(card) !== 2) return;
+      if (!this.canActivateSpell(card, side)) return;
       if (this.isPendulumBattleActivationForbidden(side, card, context)) return;
       if (!this.chain.canChain(card, lastSpeed)) return;
       candidates.push({ card, zoneIndex, source: 'field' });
@@ -3207,7 +3202,7 @@ export class DuelGame {
   }
 
   async openChainResponseWindow(startingSide, context = {}) {
-    if (!this.chain.chainStack.length) return false;
+    if (!this.chain.chainStack.length && context.allowEmptyChain !== true) return false;
     const generation = this._duelGeneration;
     const rootContext = {
       ...context,
@@ -3292,7 +3287,7 @@ export class DuelGame {
         selected.card.isSetFaceDown = false;
         const link = this.chain.pushChainLink(side, selected.card, [], {
           zoneIndex: selected.zoneIndex,
-          context: { event: 'chain-response' }
+          context: { event: 'chain-response', cardActivation: true }
         });
         this.callbacks.onAnimation({
           type: 'chain-pop',
@@ -3332,10 +3327,17 @@ export class DuelGame {
       resolver: async () => {
         targetLink.activationNegated = true;
         this.defense.negateChainLink(targetLink);
-        this.removeCardFromCurrentZone(targetLink.sourceCard, {
-          byCardEffect: true,
-          sourceSide: side
-        });
+        if (this.chain.isSourceStillSameInstance(targetLink)) {
+          if (targetLink.context?.cardActivation === true
+            || targetLink.context?.event === 'card-activation'
+            || targetLink.context?.fieldSpellActivation === true) {
+            targetLink.sourceCard.activationNegated = true;
+          }
+          this.removeCardFromCurrentZone(targetLink.sourceCard, {
+            byCardEffect: true,
+            sourceSide: side
+          });
+        }
         const graveyard = stardust.ownerId === 'player'
           ? this.playerGraveyard
           : this.opponentGraveyard;
@@ -3364,6 +3366,10 @@ export class DuelGame {
   } = {}) {
     if (!card) return false;
     const side = card.controllerId;
+    if (byCardEffect && (
+      this.defense.hasProtection(card, 'DESTROY_BY_EFFECT', { sourceSide })
+      || this.defense.tryReplaceEvent({ type: 'DESTROY', reason: 'effect', targetCard: card, sourceSide }).replaced
+    )) return false;
     if (
       byCardEffect
       && this.tryProtectPendulumCardWithTimegazer(card, sourceSide)
@@ -3409,26 +3415,35 @@ export class DuelGame {
 
     this.chain.chainStatus = 'resolving';
     let completed = true;
+    const resolvedLinks = [];
     try {
       while (this.chain.chainStack.length > 0) {
         const link = this.chain.chainStack.pop();
+        resolvedLinks.push(link);
         this.log(`Chain Link ${link.id} : Effet de **${link.sourceCard.name}** se résout !`, 'system');
 
         this.callbacks.onAnimation({ type: 'chain-resolve', linkNumber: link.id, card: link.sourceCard });
+        this.isResolvingEffect = true;
 
         if (link.activationNegated || this.defense.isChainLinkNegated(link)) {
           link.activationNegated = true;
           this.log(`Chain Link ${link.id} : activation annulée.`, 'system');
           if (
-            link.sourceCard.location === 'spell_zone'
+            this.chain.isSourceStillSameInstance(link)
+            && ((link.sourceCard.location === 'spell_zone'
+              && (link.context?.cardActivation === true
+                || link.context?.event === 'card-activation'))
             || (
               link.sourceCard.location === 'field_zone'
               && link.context?.fieldSpellActivation === true
-            )
+            ))
           ) {
+            link.sourceCard.activationNegated = true;
             this.removeCardFromCurrentZone(link.sourceCard);
           }
-        } else if (link.effectNegated || link.sourceCard.effectNegated) {
+        } else if (link.effectNegated || (
+          this.chain.isSourceStillSameInstance(link) && link.sourceCard.effectNegated
+        )) {
           link.effectNegated = true;
           this.log(`Chain Link ${link.id} : effet annulé.`, 'system');
           if (link.context?.fieldSpellActivation === true) {
@@ -3445,9 +3460,18 @@ export class DuelGame {
             link.resolvedSuccessfully = false;
             link.appliedAnything = false;
             link.sourceCard.appliedAnything = false;
-          } else if (link.sourceCard.location === 'spell_zone') {
-            this.removeCardFromCurrentZone(link.sourceCard);
+          } else if (link.context?.activationType === 'pendulum-scale'
+            && this.chain.canResolveLink(link)) {
+            // Negating this activation's effect does not negate placing the
+            // Pendulum card as a face-up Spell in its Pendulum Zone.
+            link.sourceCard.isPendingPendulumActivation = false;
+            link.sourceCard.isPendulumScale = true;
+            link.sourceCard.location = 'pendulum_zone';
           }
+        } else if (!this.chain.canResolveLink(link)) {
+          link.resolvedSuccessfully = false;
+          link.appliedAnything = false;
+          this.log(`Chain Link ${link.id} : la source doit rester face recto sur le Terrain.`, 'system');
         } else if (link.resolver) {
           link.resolvedSuccessfully = Boolean(await link.resolver(link, this));
           if (!this.isDuelGenerationCurrent(generation)) {
@@ -3456,7 +3480,7 @@ export class DuelGame {
           }
           link.appliedAnything = link.resolvedSuccessfully;
         } else {
-          await this.executeSpellTrapResolution(
+          const applied = await this.executeSpellTrapResolution(
             link.sourceCard,
             link.activatingPlayerId,
             link.zoneIndex,
@@ -3466,9 +3490,12 @@ export class DuelGame {
             completed = false;
             break;
           }
-          link.resolvedSuccessfully = true;
-          link.appliedAnything = true;
+          link.resolvedSuccessfully = applied === true;
+          link.appliedAnything = applied === true;
         }
+        this.isResolvingEffect = false;
+        this.stabilizer.stabilize(this);
+        if (this.winner || this._duelEnded) break;
         if (!(await this.delay(1000))) {
           completed = false;
           break;
@@ -3476,9 +3503,25 @@ export class DuelGame {
       }
     } finally {
       if (this.isDuelGenerationCurrent(generation)) {
+        // Normal/Quick-Play Spells and Normal/Counter Traps remain on the
+        // field until the entire chain finishes, unless another effect moves
+        // them. Never clean a returned/new instance or a replacement card.
+        for (const link of resolvedLinks) {
+          if (this.chain.isSourceStillSameInstance(link)
+            && link.sourceLocation === 'spell_zone'
+            && !this.chain.requiresFaceUpSource(link)
+            && ['spell', 'trap'].includes(link.sourceCard.card_type)) {
+            const side = link.sourceCard.controllerId;
+            const zoneIndex = link.sourceCard.zoneIndex;
+            if (this.removeCardFromCurrentZone(link.sourceCard)) {
+              this.callbacks.onAnimation({ type: 'clear-spell', target: side, zoneIndex });
+            }
+          }
+        }
         this.defense.clearChainNegations();
         this.chain.reset({ preserveSequence: true });
         this.isResolvingAction = false;
+        this.isResolvingEffect = false;
         this.stateChanged();
       }
     }
@@ -3487,6 +3530,8 @@ export class DuelGame {
 
   async executeSpellTrapResolution(card, user, zoneIndex, activationContext = {}) {
     const isPlayer = user === 'player';
+    const sourceRuntimeInstanceId = card?.runtimeInstanceId;
+    let applied = false;
     const myMonsters = isPlayer ? this.playerMonsters : this.opponentMonsters;
     // Legacy callers may invoke resolution directly in tests/adapters. The
     // normal activation path always supplies the pre-locked target above.
@@ -3500,25 +3545,26 @@ export class DuelGame {
       this.log(`[PSCT Log] Conjonction détectée : ${psct.conjunctions[0].type}`, 'system');
     }
 
-    if (card.id === '55144522') {
+    if (String(card.id) === '55144522') {
       this.log(`${isPlayer ? 'Vous activez' : "L'adversaire active"} Pot de Cupidité : Piochez 2 cartes !`, 'system');
       this.drawCard(user);
       if (!(await this.delay(400))) return false;
       if (!this.winner) this.drawCard(user);
+      applied = true;
     }
-    else if (card.id === '12580477') {
+    else if (String(card.id) === '12580477') {
       this.log(`${isPlayer ? 'Vous activez' : "L'adversaire active"} Raigeki : Destruction des monstres adverses !`, 'system');
       this.callbacks.onAnimation({ type: 'raigeki-cinematic', target: isPlayer ? 'opponent' : 'player' });
       if (!(await this.delay(1000))) return false;
 
       const opponentSide = isPlayer ? 'opponent' : 'player';
       for (const entry of this.getMonsterEntries(opponentSide)) {
-        if (!this.removeMonsterEntry(opponentSide, entry)) continue;
-        this.field.sendToGraveyard(entry.card, entry.card.ownerId);
+        if (!this.removeCardFromCurrentZone(entry.card, { byCardEffect: true, sourceSide: user })) continue;
+        applied = true;
         this.emitMonsterAnimation('destroy', opponentSide, entry);
       }
     }
-    else if (card.id === '83764718') {
+    else if (String(card.id) === '83764718') {
       const lockedTarget = activationContext.targetCard;
       const lockedOwner = activationContext.targetOwnerId;
       const lockedGraveyard = lockedOwner === 'player'
@@ -3596,6 +3642,7 @@ export class DuelGame {
               choice.card.controllerId = choice.card.ownerId;
               this.log("Monster Reborn ne peut pas terminer l'Invocation ; la cible reste au CimetiÃ¨re.", "danger");
             } else {
+              applied = true;
               this.log(`Monster Reborn ressuscite **${choice.card.name}** !`, 'system');
             }
           }
@@ -3606,9 +3653,10 @@ export class DuelGame {
     } else if (String(card.id) === '24094653') {
       const requestedUid = this.pendingFusionTargets[user];
       this.pendingFusionTargets[user] = null;
-      await this.performFusionSummon(user, requestedUid);
+      applied = Boolean(await this.performFusionSummon(user, requestedUid));
     } else if (card.isRitualSpell || String(card.id) === '55761792') {
       const summoned = await this.performRitualSummon(user, card);
+      applied = Boolean(summoned);
       if (!summoned) {
         this.log("L'Invocation Rituelle ne peut plus être résolue légalement.", 'danger');
       }
@@ -3616,13 +3664,17 @@ export class DuelGame {
       this.log(`L'effet de **${card.name}** n'est pas encore scripté dans ce simulateur Sandbox.`, "system");
     }
 
-    // Move Spell to Graveyard
-    if (card) {
-      this.field.setSpellZone(user, zoneIndex, null);
-      this.field.sendToGraveyard(card, card.ownerId);
+    // Direct legacy calls still clean their exact source. Normal chain calls
+    // defer this rule action until all links have resolved.
+    if (this.chain.chainStatus !== 'resolving' && card
+      && card.runtimeInstanceId === sourceRuntimeInstanceId
+      && this.field.getSpellZone(user, zoneIndex) === card
+      && !/continuous|equip|field/i.test(`${card.type} ${card.race}`)) {
+      this.removeCardFromCurrentZone(card);
       this.callbacks.onAnimation({ type: 'clear-spell', target: user, zoneIndex });
       this.stateChanged();
     }
+    return applied;
   }
 
   getAvailableActions(side = 'player') {
@@ -3719,9 +3771,8 @@ export class DuelGame {
             const currentAtk = target.card.isSetFaceDown
               ? 0
               : Math.max(0, target.card.getAtk());
-            if (!this.removeMonsterEntry(destroyedSide, target)) continue;
+            if (!this.removeCardFromCurrentZone(target.card, { byCardEffect: true, sourceSide: side })) continue;
             destroyedFaceUpCurrentAtk += currentAtk;
-            this.field.sendToGraveyard(target.card, target.card.ownerId);
             this.emitMonsterAnimation('destroy', destroyedSide, target);
           }
           if (!won) {
@@ -3849,6 +3900,7 @@ export class DuelGame {
         )
       ));
       for (const stardust of candidates) {
+        const sourceInstance = stardust.runtimeInstanceId;
         // The opportunity exists once in this End Phase. Declining it, losing
         // the target, or lacking a zone all expire the delayed trigger.
         stardust.stardustReturnEligibleTurn = -1;
@@ -3864,36 +3916,37 @@ export class DuelGame {
         }, true);
         if (!this.isDuelGenerationCurrent(generation)) return 0;
         if (!activate) continue;
-        const summonPosition = await this.chooseSummonPosition(
-          stardust,
-          side,
-          'stardust-return'
-        );
-        if (!this.isDuelGenerationCurrent(generation)) return 0;
-        if (!summonPosition) continue;
-        const destination = await this.chooseSummonDestination(
-          stardust,
-          side,
-          this.getMainMonsterZoneDestinations(side),
-          'stardust-return'
-        );
-        if (!this.isDuelGenerationCurrent(generation)) return 0;
-        const graveIndex = state.graveyard.indexOf(stardust);
-        const destinationZone = destination
-          && state.monsters[destination.zoneIndex] === null
-          ? destination.zoneIndex
-          : -1;
-        if (graveIndex === -1 || destinationZone === -1) continue;
-        state.graveyard.splice(graveIndex, 1);
-        if (this.specialSummonCard(stardust, side, destinationZone, {
-          position: summonPosition,
-          summonType: 'stardust-return'
-        }) === false) {
-          state.graveyard.push(stardust);
-          continue;
-        }
-        this.log(`Durant la End Phase, **${stardust.name}** revient du Cimetière.`, side);
-        returned += 1;
+        const stillEligible = () => this.isDuelGenerationCurrent(generation)
+          && !this.winner && !this._duelEnded
+          && state.graveyard.includes(stardust)
+          && stardust.runtimeInstanceId === sourceInstance;
+        if (!stillEligible()) continue;
+        this.isResolvingAction = true;
+        // This delayed Trigger Effect is Spell Speed 1, not Stardust's
+        // destruction-negating Quick Effect. The opponent can respond.
+        const link = this.chain.pushChainLink(side, stardust, [], {
+          spellSpeed: 1,
+          context: { event: 'stardust-end-phase-return' },
+          resolver: async () => {
+            if (!stillEligible()) return false;
+            const position = await this.chooseSummonPosition(stardust, side, 'stardust-return');
+            if (!position || !stillEligible()) return false;
+            const destination = await this.chooseSummonDestination(
+              stardust, side, this.getMainMonsterZoneDestinations(side), 'stardust-return'
+            );
+            if (!destination || !stillEligible()) return false;
+            if (this.specialSummonCard(stardust, side, destination.zoneIndex, {
+              position, summonType: 'stardust-return'
+            }) === false) return false;
+            this.log(`Durant la End Phase, **${stardust.name}** revient du Cimetière.`, side);
+            returned += 1;
+            return true;
+          }
+        });
+        this.callbacks.onAnimation({ type: 'chain-pop', card: stardust, linkNumber: link.id });
+        await this.openChainResponseWindow(this.getOpponentSide(side), link.context);
+        if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) return 0;
+        await this.resolveChainStack();
       }
     }
     if (!this.isDuelGenerationCurrent(generation)) return 0;
@@ -3976,6 +4029,7 @@ export class DuelGame {
       zoneIndex: trapIndex,
       context: {
         event: 'SUMMON_SUCCESS',
+        cardActivation: true,
         trigger: 'trap-hole',
         wouldDestroy: true,
         targetUid: summonedCard.uid,
@@ -3987,21 +4041,15 @@ export class DuelGame {
         if (
           currentEntry
           && summonedCard.runtimeInstanceId === summonedRuntimeInstanceId
+          && !summonedCard.isSetFaceDown
+          && summonedCard.getAtk() >= 1000
         ) {
-          this.removeMonsterEntry(summoningSide, currentEntry);
-          this.field.sendToGraveyard(summonedCard, summonedCard.ownerId);
-          this.emitMonsterAnimation('destroy', summoningSide, currentEntry);
+          if (this.removeCardFromCurrentZone(summonedCard, { byCardEffect: true, sourceSide: defendingSide })) {
+            this.emitMonsterAnimation('destroy', summoningSide, currentEntry);
+            return true;
+          }
         }
-        if (this.field.getSpellZone(defendingSide, trapIndex) === trapCard) {
-          this.field.setSpellZone(defendingSide, trapIndex, null);
-          this.field.sendToGraveyard(trapCard, trapCard.ownerId);
-          this.callbacks.onAnimation({
-            type: 'clear-spell',
-            target: defendingSide,
-            zoneIndex: trapIndex
-          });
-        }
-        return true;
+        return false;
       }
     });
     this.callbacks.onAnimation({ type: 'chain-pop', linkNumber: link.id, card: trapCard });
@@ -4259,6 +4307,10 @@ export class DuelGame {
     const attackerRuntimeInstanceId = attacker.runtimeInstanceId;
     const defender = attackContext.defender || null;
     const defenderRuntimeInstanceId = defender?.runtimeInstanceId || null;
+    const defendingFieldBefore = snapshotBattleField(
+      this.getMonsterEntries(defendingSide),
+      this.field.monsterFieldRevision?.[defendingSide] ?? null
+    );
 
     const mandatoryUtopiaOutcome = this.buildMandatoryEmptyUtopiaTrigger(
       defender,
@@ -4287,23 +4339,27 @@ export class DuelGame {
       return abortedResult();
     }
     const lastLink = this.chain.getLastLink();
-    if (lastLink) {
-      await this.openChainResponseWindow(
-        this.getOpponentSide(lastLink.activatingPlayerId),
-        {
-          event: 'ATTACK_DECLARED',
-          timingEvent: 'ATTACK_DECLARED',
-          sourceCard: lastLink.sourceCard,
-          wouldDestroy: Boolean(lastLink.context?.wouldDestroy),
-          attacker,
-          defender,
-          attackingSide,
-          defendingSide
-        }
-      );
-      if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) {
-        return abortedResult();
+    // An attack is an action that does not itself start a Chain. With no
+    // Trigger Effect, the turn player gets the first Fast Effect opportunity.
+    await this.openChainResponseWindow(
+      lastLink ? this.getOpponentSide(lastLink.activatingPlayerId) : attackingSide,
+      {
+        event: 'ATTACK_DECLARED',
+        timingEvent: 'ATTACK_DECLARED',
+        allowEmptyChain: true,
+        sourceCard: lastLink?.sourceCard || null,
+        wouldDestroy: Boolean(lastLink?.context?.wouldDestroy),
+        attacker,
+        defender,
+        attackingSide,
+        defendingSide
       }
+    );
+    if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) {
+      return abortedResult();
+    }
+    const responseChainActivated = this.chain.chainStack.length > 0;
+    if (responseChainActivated) {
       await this.resolveChainStack();
       if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) {
         return abortedResult();
@@ -4315,6 +4371,9 @@ export class DuelGame {
     const attackerStillValid = Boolean(
       currentAttackerEntry
       && attacker.runtimeInstanceId === attackerRuntimeInstanceId
+      && !attacker.isSetFaceDown
+      && attacker.position === 'attack'
+      && !this.defense.isActionProhibited(attackingSide, 'DECLARE_ATTACK', attacker)
     );
     const currentDefenderEntry = defender
       ? this.getMonsterEntries(defendingSide).find(entry => entry.card === defender)
@@ -4326,16 +4385,22 @@ export class DuelGame {
       )
       : true;
     const attackNegated = utopiaOutcomes.some(outcome => outcome.applied);
+    const defendingFieldAfter = snapshotBattleField(
+      this.getMonsterEntries(defendingSide),
+      this.field.monsterFieldRevision?.[defendingSide] ?? null
+    );
 
     return {
       event: 'ATTACK_DECLARED',
-      activated: Boolean(mandatoryUtopiaOutcome)
+      activated: responseChainActivated || Boolean(mandatoryUtopiaOutcome)
         || utopiaOutcomes.length > 0
         || Boolean(mirrorOutcome?.activated),
       attackNegated,
       attackerStillValid,
       targetStillValid,
-      replayRequired: Boolean(defender && attackerStillValid && !targetStillValid),
+      replayRequired: Boolean(attackerStillValid && !attackNegated && (
+        !targetStillValid || hasBattleFieldChanged(defendingFieldBefore, defendingFieldAfter)
+      )),
       mandatoryUtopiaDestruction: Boolean(mandatoryUtopiaOutcome),
       mandatoryUtopiaOutcome,
       mirrorResolved: Boolean(mirrorOutcome?.applied),
@@ -4475,23 +4540,13 @@ export class DuelGame {
     };
     const link = this.chain.pushChainLink(defendingSide, trapCard, [], {
       zoneIndex: trapIndex,
-      context: { event: 'attack-response', wouldDestroy: true },
+      context: { event: 'attack-response', cardActivation: true, wouldDestroy: true },
       resolver: async () => {
         outcome.applied = true;
         for (const entry of this.getMonsterEntries(attackingSide)) {
-          if (entry.card.position !== 'attack') continue;
-          if (!this.removeMonsterEntry(attackingSide, entry)) continue;
-          this.field.sendToGraveyard(entry.card, entry.card.ownerId);
+          if (entry.card.position !== 'attack' || entry.card.isSetFaceDown) continue;
+          if (!this.removeCardFromCurrentZone(entry.card, { byCardEffect: true, sourceSide: defendingSide })) continue;
           this.emitMonsterAnimation('destroy', attackingSide, entry);
-        }
-        if (this.field.getSpellZone(defendingSide, trapIndex) === trapCard) {
-          this.field.setSpellZone(defendingSide, trapIndex, null);
-          this.field.sendToGraveyard(trapCard, trapCard.ownerId);
-          this.callbacks.onAnimation({
-            type: 'clear-spell',
-            target: defendingSide,
-            zoneIndex: trapIndex
-          });
         }
         return true;
       }
@@ -4616,376 +4671,186 @@ export class DuelGame {
       : { action: 'cancel', entry: null };
   }
 
-  async resolveDirectAttackDamage(
-    attacker,
-    attackerEntry,
-    attackingSide,
-    generation = this._duelGeneration
-  ) {
+  async resolveDirectAttackDamage(attacker, attackerEntry, attackingSide, generation = this._duelGeneration) {
+    return this.resolveBattleDamage(attacker, attackerEntry, attackingSide, null, generation);
+  }
+
+  /** Same Damage Step and damage/destruction rules for both duelists. */
+  async resolveBattleDamage(attacker, attackerEntry, attackingSide, defenderEntry, generation = this._duelGeneration) {
     const defendingSide = this.getOpponentSide(attackingSide);
-    this.callbacks.onAnimation({
-      type: 'attack-direct',
-      target: defendingSide,
-      atkZoneIndex: attackerEntry.zoneIndex,
-      atkZoneType: attackerEntry.zoneType,
+    const defender = defenderEntry?.card || null;
+    const attackerInstance = attacker.runtimeInstanceId;
+    const defenderInstance = defender?.runtimeInstanceId;
+    const participantsValid = () => (
+      this.isDuelGenerationCurrent(generation)
+      && !this._duelEnded
+      && this.getMonsterEntries(attackingSide).some(entry => entry.card === attacker)
+      && attacker.runtimeInstanceId === attackerInstance
+      && !attacker.isSetFaceDown
+      && attacker.position === 'attack'
+      && (!defender || (
+        this.getMonsterEntries(defendingSide).some(entry => entry.card === defender)
+        && defender.runtimeInstanceId === defenderInstance
+      ))
+    );
+    if (!participantsValid()) return false;
+    this.phases.setBattleStep('damage_step');
+    this.phases.setDamageStepSubPhase('start');
+    if (!(await this.delay(200)) || !participantsValid()) return false;
+
+    this.phases.setDamageStepSubPhase('before_calc');
+    if (defender?.isSetFaceDown) {
+      defender.isSetFaceDown = false;
+      defender.wasFlippedFaceUpByBattle = true;
+      this.log(`Le monstre caché est révélé : **${defender.name}** !`, 'system');
+      this.emitMonsterAnimation('flip-summon', defendingSide, defenderEntry, { card: defender });
+      if (!(await this.delay(450)) || !participantsValid()) return false;
+    }
+    this.callbacks.onAnimation(defender ? {
+      type: 'attack-monster', attackerSide: attackingSide,
+      atkZoneIndex: attackerEntry.zoneIndex, atkZoneType: attackerEntry.zoneType,
+      defZoneIndex: defenderEntry.zoneIndex, defZoneType: defenderEntry.zoneType
+    } : {
+      type: 'attack-direct', target: defendingSide,
+      atkZoneIndex: attackerEntry.zoneIndex, atkZoneType: attackerEntry.zoneType,
       card: attacker
     });
+    if (!(await this.delay(600)) || !participantsValid()) return false;
 
-    if (!(await this.delay(600))) return false;
-    if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) return false;
-    const directDamage = await this.tryKuribohBattleDamage(
-      defendingSide,
-      attacker.getAtk(),
-      {
-        directAttack: true,
-        attackerUid: attacker.uid,
-        attackerSide: attackingSide
-      }
+    this.phases.setDamageStepSubPhase('calc');
+    this.stabilizer.recalculateContinuousState(this);
+    const outcome = calculateBattleOutcome(attacker, defender, this.defense);
+    const damageContext = {
+      directAttack: !defender, attackerUid: attacker.uid,
+      attackerSide: attackingSide, defenderUid: defender?.uid
+    };
+    const attackerDamage = await this.tryKuribohBattleDamage(
+      attackingSide, outcome.attackerDamage, damageContext
     );
-    if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) return false;
-
-    if (defendingSide === 'opponent') {
-      this.opponentLP = Math.max(0, this.opponentLP - directDamage);
-      this.log(
-        `Attaque Directe ! L'adversaire subit **${directDamage}** points de dommages !`,
-        'danger'
-      );
-    } else {
-      this.playerLP = Math.max(0, this.playerLP - directDamage);
-      this.log(
-        `Attaque Directe ! Vous subissez **${directDamage}** points de dommages !`,
-        'danger'
-      );
-    }
-    if (directDamage > 0) {
-      this.callbacks.onAnimation({
-        type: 'lp-loss',
-        target: defendingSide,
-        damage: directDamage
-      });
+    if (!participantsValid()) return false;
+    const defenderDamage = await this.tryKuribohBattleDamage(
+      defendingSide, outcome.defenderDamage, damageContext
+    );
+    if (!participantsValid()) return false;
+    for (const [side, damage] of [[attackingSide, attackerDamage], [defendingSide, defenderDamage]]) {
+      if (damage <= 0) continue;
+      if (side === 'player') this.playerLP = Math.max(0, this.playerLP - damage);
+      else this.opponentLP = Math.max(0, this.opponentLP - damage);
+      this.callbacks.onAnimation({ type: 'lp-loss', target: side, damage });
+      if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) return false;
+      this.log(`${side === 'player' ? 'Vous subissez' : "L'adversaire subit"} **${damage}** dommages de combat !`, side === 'player' ? 'danger' : 'player');
+      if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) return false;
     }
     attacker.attacksCompletedThisTurn += 1;
-    if (this.playerLP === 0) this.endGame('opponent');
-    else if (this.opponentLP === 0) this.endGame('player');
+    // A Duel ends at 0 LP immediately, before later Damage Step effects or GY moves.
+    if (this.playerLP <= 0 || this.opponentLP <= 0) {
+      this.endGame(this.playerLP <= 0 && this.opponentLP <= 0 ? 'draw' : this.playerLP <= 0 ? 'opponent' : 'player');
+      return true;
+    }
+
+    attacker.pendingBattleDestruction = outcome.attackerDestroyed;
+    attacker.battleResult = outcome.attackerDestroyed ? 'destroyed' : 'none';
+    if (defender) {
+      defender.pendingBattleDestruction = outcome.defenderDestroyed;
+      defender.battleResult = outcome.defenderDestroyed ? 'destroyed' : 'none';
+    }
+    this.phases.setDamageStepSubPhase('after_calc');
+    if (!(await this.delay(200)) || !this.isDuelGenerationCurrent(generation) || this._duelEnded) return false;
+    this.phases.setDamageStepSubPhase('end');
+
+    const destroyParticipant = (card, side, instance) => {
+      if (!card?.pendingBattleDestruction || card.runtimeInstanceId !== instance) return false;
+      const entry = this.getMonsterEntries(side).find(candidate => candidate.card === card);
+      if (!entry) return false;
+      const event = this.defense.tryReplaceEvent({
+        type: 'DESTROY', reason: 'battle', targetCard: card,
+        attacker, defender, sourceCard: card === attacker ? defender : attacker
+      });
+      if (event.replaced) {
+        card.pendingBattleDestruction = false;
+        card.battleResult = 'prevented';
+        return false;
+      }
+      this.removeMonsterEntry(side, entry);
+      this.field.sendToGraveyard(card, card.ownerId);
+      this.emitMonsterAnimation('destroy', side, entry);
+      return true;
+    };
+    const defenderDestroyed = destroyParticipant(defender, defendingSide, defenderInstance);
+    const attackerDestroyed = destroyParticipant(attacker, attackingSide, attackerInstance);
+    if (defenderDestroyed && attacker.runtimeInstanceId === attackerInstance) attacker.monstersDestroyedByBattleThisTurn += 1;
+    if (attackerDestroyed && defender?.runtimeInstanceId === defenderInstance) defender.monstersDestroyedByBattleThisTurn += 1;
+    if (attacker.runtimeInstanceId === attackerInstance) attacker.pendingBattleDestruction = false;
+    if (defender && defender.runtimeInstanceId === defenderInstance) {
+      defender.pendingBattleDestruction = false;
+      defender.wasFlippedFaceUpByBattle = false;
+    }
+    this.phases.setBattleStep('battle_step');
     return true;
   }
 
-  /**
-   * Combat flow incorporating the 5 Damage Step sub-phases
-   */
   async executeAttack(atkReference, defReference) {
     const generation = this._duelGeneration;
     const attackerEntry = this.getMonsterEntry('player', atkReference);
-    const defenderEntry = defReference !== undefined && defReference !== null
-      ? this.getMonsterEntry('opponent', defReference)
-      : null;
-    const attacker = attackerEntry?.card || null;
-    const defender = defenderEntry?.card || null;
-
-    // --- 1. ATTACK LEGALITY CHECKS ---
-    const legality = {
-      attackerExists: !!attacker,
-      attackerIsFaceUp: attacker ? !attacker.isSetFaceDown : false,
-      attackerIsInAttackPosition: attacker ? attacker.position === 'attack' : false,
-      attackerCanAttack: attacker ? !this.hasMonsterAttacked(attackerEntry) : false,
-      controllerIsTurnPlayer: this.currentTurn === 'player',
-      currentPhaseIsBattlePhase: this.currentPhase === 'battle'
-    };
-
-    if (!legality.attackerExists || !legality.attackerIsFaceUp || !legality.attackerIsInAttackPosition || !legality.attackerCanAttack || !legality.controllerIsTurnPlayer || !legality.currentPhaseIsBattlePhase) {
-      this.log("Déclaration d'attaque illégale annulée selon les règles du TCG !", "danger");
+    const attacker = attackerEntry?.card;
+    const targets = this.getMonsterEntries('opponent');
+    let targetEntry = defReference !== undefined && defReference !== null
+      ? this.getMonsterEntry('opponent', defReference) : null;
+    if (this._duelEnded || this.winner || this.isResolvingAction || this.pendingSummon || this.isDiscarding) return;
+    if (!attacker || attacker.isSetFaceDown || attacker.position !== 'attack'
+      || attacker.hasAttacked || this.hasMonsterAttacked(attackerEntry)
+      || this.currentTurn !== 'player' || this.currentPhase !== 'battle'
+      || !this.turn.isBattlePhaseLegal(this.turnCount)
+      || this.defense.isActionProhibited('player', 'DECLARE_ATTACK', attacker)) {
+      this.log("Déclaration d'attaque illégale annulée selon les règles du TCG !", 'danger');
       return;
     }
-
-    if (this.isResolvingAction || this.pendingSummon || this.isDiscarding) return;
-
+    if (targets.length && !targetEntry) {
+      this.log('Sélectionnez une cible valide !', 'system');
+      return;
+    }
+    // Once a declaration is legal, even a negation or a cancelled replay consumes it.
     this.isResolvingAction = true;
     this.phases.setBattleStep('battle_step');
     attacker.attacksDeclaredThisTurn += 1;
-
-    const hasOpponentMonsters = this.getMonsterEntries('opponent').length > 0;
-
-    if (!hasOpponentMonsters) {
-      // Direct Attack!
-      this.markMonsterAttacked(attackerEntry);
+    attacker.hasAttacked = true;
+    this.markMonsterAttacked(attackerEntry);
+    if (!targets.length) {
+      targetEntry = null;
       attacker.directAttacksDeclaredThisTurn += 1;
-      this.log(`**${attacker.name}** déclare une attaque directe !`, 'player');
-
+    }
+    const target = targetEntry?.card;
+    this.log(`**${attacker.name}** déclare ${target ? `une attaque sur **${target.isSetFaceDown ? 'le monstre caché' : target.name}**` : 'une attaque directe'} !`, 'player');
+    try {
       const declaration = await this.resolveAttackDeclarationEvent({
-        attacker,
-        attackerEntry,
-        attackingSide: 'player'
+        attacker, attackerEntry, attackingSide: 'player',
+        defender: target, defenderEntry: targetEntry
       });
       if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) return false;
       this.isResolvingAction = true;
-      if (declaration.attackNegated || !declaration.attackerStillValid) {
-        this.isResolvingAction = false;
-        this.phases.setBattleStep('battle_step');
-        this.stateChanged();
-        return declaration;
-      }
-
-      if (!await this.resolveDirectAttackDamage(
-        attacker,
-        attackerEntry,
-        'player',
-        generation
-      )) return false;
-    } else {
-      if (!defenderEntry || !defender) {
-        this.log("Sélectionnez une cible valide !", "system");
-        this.isResolvingAction = false;
-        return;
-      }
-
-      this.markMonsterAttacked(attackerEntry);
-      this.log(`**${attacker.name}** déclare une attaque sur **${defender.isSetFaceDown ? 'le monstre caché' : defender.name}** !`, 'player');
-      let targetDefender = defender;
-      let targetDefEntry = defenderEntry;
-
-      const declaration = await this.resolveAttackDeclarationEvent({
-        attacker,
-        attackerEntry,
-        attackingSide: 'player',
-        defender,
-        defenderEntry
-      });
-      if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) return false;
-      this.isResolvingAction = true;
-      if (
-        declaration.attackNegated
-        || !declaration.attackerStillValid
-      ) {
-        this.isResolvingAction = false;
-        this.phases.setBattleStep('battle_step');
-        this.stateChanged();
-        return declaration;
-      }
+      if (declaration.attackNegated || !declaration.attackerStillValid) return declaration;
+      let replayTarget;
       if (declaration.replayRequired) {
-        this.log(
-          "Replay de combat requis : continuez immédiatement avec le même attaquant ou annulez l'attaque.",
-          'system'
-        );
         const replay = await this.choosePlayerBattleReplay(attacker);
         if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) return false;
-        if (replay.action === 'cancel') {
-          this.isResolvingAction = false;
-          this.phases.setBattleStep('battle_step');
-          this.stateChanged();
-          return {
-            ...declaration,
-            replayCancelled: true,
-            replayResolved: true
-          };
-        }
-        if (replay.action === 'direct') {
-          attacker.directAttacksDeclaredThisTurn += 1;
-          this.log(
-            `**${attacker.name}** poursuit son attaque directement après le replay !`,
-            'player'
-          );
-          const directResolved = await this.resolveDirectAttackDamage(
-            attacker,
-            attackerEntry,
-            'player',
-            generation
-          );
-          if (!directResolved) return false;
-          this.isResolvingAction = false;
-          this.phases.setBattleStep('battle_step');
-          this.stateChanged();
-          return {
-            ...declaration,
-            replayResolved: true,
-            replayTarget: 'direct'
-          };
-        }
-        targetDefEntry = replay.entry;
-        targetDefender = replay.entry?.card || null;
-        this.log(
-          `**${attacker.name}** poursuit son attaque sur **${targetDefender?.isSetFaceDown ? 'le monstre caché' : targetDefender?.name}** après le replay.`,
-          'player'
-        );
+        if (replay.action === 'cancel') return { ...declaration, replayCancelled: true, replayResolved: true };
+        targetEntry = replay.entry;
+        replayTarget = replay.action === 'direct' ? 'direct' : targetEntry?.card.uid;
+        if (replay.action === 'direct' && target) attacker.directAttacksDeclaredThisTurn += 1;
       }
-
-      // --- 2. BATTLE REPLAY CHECK ---
-      // If the number of opponent monsters changed during battle declarations (simulate dynamic ruling)
-      const opponentMonsterCount = this.getMonsterEntries('opponent').length;
-
-      // --- 3. DAMAGE STEP SUB-PHASES ---
-      this.phases.setBattleStep('damage_step');
-
-      // Step 1: Start of Damage Step
-      this.phases.setDamageStepSubPhase('start');
-      this.log("[Damage Step] Étape 1 : Début de la Damage Step", "system");
-
-      // Check if target participants still exist
-      if (
-        !targetDefender
-        || !['monster_zone', 'extra_monster_zone'].includes(targetDefender.location)
-        || this.getMonsterEntry('opponent', targetDefEntry)?.card !== targetDefender
-      ) {
-        this.log("Cible manquante. Combat annulé sans calcul des dommages.", "system");
+      const resolved = targetEntry
+        ? await this.resolveBattleDamage(attacker, attackerEntry, 'player', targetEntry, generation)
+        : await this.resolveDirectAttackDamage(attacker, attackerEntry, 'player', generation);
+      if (!resolved) return false;
+      if (declaration.replayRequired) return { ...declaration, replayResolved: true, replayTarget };
+      return declaration;
+    } finally {
+      if (this.isDuelGenerationCurrent(generation)) {
         this.isResolvingAction = false;
-        this.phases.setBattleStep('battle_step');
-        return;
+        if (!this._duelEnded) this.phases.setBattleStep('battle_step');
+        this.stateChanged();
       }
-      if (!(await this.delay(400))) return false;
-
-      // Step 2: Before Damage Calculation
-      this.phases.setDamageStepSubPhase('before_calc');
-      this.log("[Damage Step] Étape 2 : Avant le calcul des dommages", "system");
-
-      if (targetDefender.isSetFaceDown) {
-        targetDefender.isSetFaceDown = false;
-        targetDefender.wasFlippedFaceUpByBattle = true;
-        this.log(`Le monstre adverse caché est révélé : **${targetDefender.name}** (DEF ${targetDefender.getDef()}) !`, 'system');
-        this.callbacks.onAnimation({
-          type: 'flip-summon',
-          target: 'opponent',
-          zoneType: targetDefEntry.zoneType,
-          zoneIndex: targetDefEntry.zoneIndex,
-          card: targetDefender
-        });
-        if (!(await this.delay(450))) return false;
-      }
-
-      // Attack project visual animation
-      this.callbacks.onAnimation({
-        type: 'attack-monster',
-        attackerSide: 'player',
-        atkZoneIndex: attackerEntry.zoneIndex,
-        atkZoneType: attackerEntry.zoneType,
-        defZoneIndex: targetDefEntry.zoneIndex,
-        defZoneType: targetDefEntry.zoneType
-      });
-      if (!(await this.delay(600))) return false;
-
-      // Step 3: During Damage Calculation
-      this.phases.setDamageStepSubPhase('calc');
-      this.log("[Damage Step] Étape 3 : Calcul des dommages", "system");
-
-      let defenderDestroyed = false;
-      let attackerDestroyed = false;
-      let pDamage = 0;
-      let oDamage = 0;
-
-      const atkValue = attacker.getAtk();
-      const defValue = targetDefender.position === 'defense' ? targetDefender.getDef() : targetDefender.getAtk();
-
-      // Rule: 0 ATK vs 0 ATK monsters in attack position cannot destroy each other
-      if (atkValue === 0 && defValue === 0 && targetDefender.position === 'attack') {
-        this.log("Combat entre deux monstres à 0 ATK : aucune destruction, aucun dommage.", "system");
-        defenderDestroyed = false;
-        attackerDestroyed = false;
-      }
-      else if (targetDefender.position === 'defense') {
-        // Piercing damage checks (e.g. description includes transperce/piercing)
-        const isPiercing = attacker.desc.toLowerCase().includes("transperce") || attacker.desc.toLowerCase().includes("pierce");
-
-        if (atkValue > defValue) {
-          defenderDestroyed = true;
-          if (isPiercing) {
-            oDamage = atkValue - defValue;
-          }
-        } else if (atkValue < defValue) {
-          pDamage = defValue - atkValue;
-        }
-      }
-      else {
-        // Attack vs Attack comparison
-        if (atkValue > defValue) {
-          defenderDestroyed = true;
-          oDamage = atkValue - defValue;
-        } else if (atkValue === defValue) {
-          defenderDestroyed = true;
-          attackerDestroyed = true;
-        } else {
-          attackerDestroyed = true;
-          pDamage = defValue - atkValue;
-        }
-      }
-
-      pDamage = await this.tryKuribohBattleDamage('player', pDamage, {
-        directAttack: false,
-        attackerUid: attacker.uid,
-        attackerSide: 'player',
-        defenderUid: targetDefender.uid
-      });
-      if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) return false;
-      oDamage = await this.tryKuribohBattleDamage('opponent', oDamage, {
-        directAttack: false,
-        attackerUid: attacker.uid,
-        attackerSide: 'player',
-        defenderUid: targetDefender.uid
-      });
-      if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) return false;
-
-      // Apply Damage to LP
-      if (pDamage > 0) {
-        this.playerLP = Math.max(0, this.playerLP - pDamage);
-        this.callbacks.onAnimation({ type: 'lp-loss', target: 'player', damage: pDamage });
-        this.log(`Vous subissez **${pDamage}** dommages de combat !`, 'danger');
-      }
-      if (oDamage > 0) {
-        this.opponentLP = Math.max(0, this.opponentLP - oDamage);
-        this.callbacks.onAnimation({ type: 'lp-loss', target: 'opponent', damage: oDamage });
-        this.log(`L'adversaire subit **${oDamage}** dommages de combat !`, 'player');
-      }
-
-      // Mark for battle destruction (not sent to GY yet)
-      if (defenderDestroyed) {
-        targetDefender.pendingBattleDestruction = true;
-        targetDefender.battleResult = 'destroyed';
-      }
-      if (attackerDestroyed) {
-        attacker.pendingBattleDestruction = true;
-        attacker.battleResult = 'destroyed';
-      }
-
-      // Step 4: After Damage Calculation
-      this.phases.setDamageStepSubPhase('after_calc');
-      this.log("[Damage Step] Étape 4 : Après le calcul des dommages", "system");
-
-      // Trigger Flip effects if defender was flipped
-      if (targetDefender.wasFlippedFaceUpByBattle) {
-        this.log(`Effet Flip de **${targetDefender.name}** activé après le calcul des dommages !`, 'system');
-      }
-      if (!(await this.delay(400))) return false;
-
-      // Step 5: End of Damage Step
-      this.phases.setDamageStepSubPhase('end');
-      this.log("[Damage Step] Étape 5 : Fin de la Damage Step", "system");
-
-      // Final movement to GY/Exil based on pendingBattleDestruction
-      if (defenderDestroyed && targetDefender.pendingBattleDestruction) {
-        this.removeMonsterEntry('opponent', targetDefEntry);
-        this.field.sendToGraveyard(targetDefender, targetDefender.ownerId);
-        this.emitMonsterAnimation('destroy', 'opponent', targetDefEntry);
-        attacker.monstersDestroyedByBattleThisTurn += 1;
-      }
-      if (attackerDestroyed && attacker.pendingBattleDestruction) {
-        this.removeMonsterEntry('player', attackerEntry);
-        this.field.sendToGraveyard(attacker, attacker.ownerId);
-        this.emitMonsterAnimation('destroy', 'player', attackerEntry);
-      }
-
-      // Reset Combat contexts
-      if (targetDefender) {
-        targetDefender.pendingBattleDestruction = false;
-        targetDefender.wasFlippedFaceUpByBattle = false;
-      }
-      attacker.pendingBattleDestruction = false;
-
-      this.phases.setBattleStep('none');
-      attacker.attacksCompletedThisTurn += 1;
-
-      if (this.playerLP === 0) this.endGame('opponent');
-      else if (this.opponentLP === 0) this.endGame('player');
     }
-
-    this.isResolvingAction = false;
-    this.stateChanged();
   }
 
   getSynchroMaterialCombination(extraCard, side = 'player') {
@@ -5026,7 +4891,7 @@ export class DuelGame {
           : this.summons.validateLinkSummon(cards, extraCard, {
             controllerId: side,
             requiresEffectMonsters: extraCard.requiresEffectMonsters ?? false,
-            allowTokens: false
+            allowTokens: !extraCard.requiresEffectMonsters
           });
         if (valid) validCombinations.push([...selected]);
       }
@@ -5204,7 +5069,7 @@ export class DuelGame {
         {
           controllerId: side,
           requiresEffectMonsters: extraCard.requiresEffectMonsters ?? false,
-          allowTokens: false
+          allowTokens: !extraCard.requiresEffectMonsters
         }
       )
       || !currentDestinationKeys.includes(this.getSummonDestinationKey(destination))
@@ -5528,7 +5393,7 @@ export class DuelGame {
 
   endGame(winner, reason = 'lp_zero') {
     if (this._duelEnded) return false;
-    const allowedReasons = new Set(['deck_out', 'lp_zero', 'surrender', 'draw']);
+    const allowedReasons = new Set(['deck_out', 'lp_zero', 'surrender', 'draw', 'exodia']);
     const stableReason = allowedReasons.has(reason) ? reason : 'lp_zero';
     this.winner = winner;
     this.endReason = stableReason;
@@ -6027,217 +5892,68 @@ export class DuelGame {
   }
 
   async runAIBattlePhase() {
-    if (this.winner || this._duelEnded) return false;
     const generation = this._duelGeneration;
+    if (this.winner || this._duelEnded || this.currentTurn !== 'opponent'
+      || this.currentPhase !== 'battle' || !this.turn.isBattlePhaseLegal(this.turnCount)
+      || this._runningAIBattleGeneration === generation) return false;
+    this._runningAIBattleGeneration = generation;
     const profile = this.getAIDecisionProfile();
-    const aiMonsterEntries = this.getMonsterEntries('opponent');
-
-    for (const originalAttackerEntry of aiMonsterEntries) {
-      if (this.winner) break;
-
-      const attackerEntry = this.getMonsterEntry('opponent', originalAttackerEntry);
-      const attacker = attackerEntry?.card;
-      if (!attacker || attacker.position === 'defense' || attacker.isSetFaceDown) continue;
-      attacker.attacksDeclaredThisTurn += 1;
-      this.markMonsterAttacked(attackerEntry);
-
-      const hasPlayerMonsters = this.getMonsterEntries('player').length > 0;
-
-      if (!hasPlayerMonsters) {
-        attacker.directAttacksDeclaredThisTurn += 1;
-        this.log(`L'adversaire déclare une attaque directe avec **${attacker.name}** !`, 'opponent');
-
-        const declaration = await this.resolveAttackDeclarationEvent({
-          attacker,
-          attackerEntry,
-          attackingSide: 'opponent'
-        });
+    const originalAttackers = this.getMonsterEntries('opponent');
+    const shouldAttack = (attacker, target) => !target || target.card.isSetFaceDown
+      || !profile.avoidsLosingBattles
+      || attacker.getAtk() >= (target.card.position === 'defense' ? target.card.getDef() : target.card.getAtk());
+    try {
+      for (const originalEntry of originalAttackers) {
         if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) return false;
-        if (declaration.attackNegated || !declaration.attackerStillValid) continue;
-
-        if (!await this.resolveDirectAttackDamage(
-          attacker,
-          attackerEntry,
-          'opponent',
-          generation
-        )) return false;
-        if (!(await this.delay(800))) return false;
-      } else {
+        const attackerEntry = this.getMonsterEntries('opponent')
+          .find(entry => entry.card === originalEntry.card);
+        const attacker = attackerEntry?.card;
+        if (!attacker || attacker.position !== 'attack' || attacker.isSetFaceDown
+          || attacker.hasAttacked || attacker.attacksDeclaredThisTurn > 0
+          || this.defense.isActionProhibited('opponent', 'DECLARE_ATTACK', attacker)) continue;
         const targets = this.getMonsterEntries('player');
-
-        let target = this.chooseAIAttackTarget(attacker, targets);
-        if (!target) continue;
-        const targetStat = target.card.isSetFaceDown
-          ? null
-          : (target.card.position === 'defense' ? target.card.getDef() : target.card.getAtk());
-        if (
-          targetStat !== null
-          && attacker.getAtk() < targetStat
-          && profile.avoidsLosingBattles
-        ) continue;
-
-        this.log(`L'adversaire attaque votre **${target.card.isSetFaceDown ? 'monstre caché' : target.card.name}** avec **${attacker.name}** !`, 'opponent');
-
+        let target = targets.length ? this.chooseAIAttackTarget(attacker, targets) : null;
+        if ((targets.length && !target) || !shouldAttack(attacker, target)) continue;
+        this.isResolvingAction = true;
+        this.phases.setBattleStep('battle_step');
+        attacker.attacksDeclaredThisTurn += 1;
+        attacker.hasAttacked = true;
+        this.markMonsterAttacked(attackerEntry);
+        if (!target) attacker.directAttacksDeclaredThisTurn += 1;
+        this.log(`L'adversaire déclare ${target ? `une attaque sur **${target.card.isSetFaceDown ? 'votre monstre caché' : target.card.name}**` : 'une attaque directe'} avec **${attacker.name}** !`, 'opponent');
         const declaration = await this.resolveAttackDeclarationEvent({
-          attacker,
-          attackerEntry,
-          attackingSide: 'opponent',
-          defender: target.card,
-          defenderEntry: target
+          attacker, attackerEntry, attackingSide: 'opponent',
+          defender: target?.card, defenderEntry: target
         });
         if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) return false;
-        if (
-          declaration.attackNegated
-          || !declaration.attackerStillValid
-        ) continue;
+        this.isResolvingAction = true;
+        if (declaration.attackNegated || !declaration.attackerStillValid) continue;
         if (declaration.replayRequired) {
           const replayTargets = this.getMonsterEntries('player');
-          if (replayTargets.length === 0) {
-            attacker.directAttacksDeclaredThisTurn += 1;
-            this.log(
-              `L'adversaire poursuit directement l'attaque de **${attacker.name}** après le replay !`,
-              'opponent'
-            );
-            if (!await this.resolveDirectAttackDamage(
-              attacker,
-              attackerEntry,
-              'opponent',
-              generation
-            )) return false;
-            if (!(await this.delay(800))) return false;
-            continue;
-          }
-          target = this.chooseAIAttackTarget(attacker, replayTargets);
-          if (!target) continue;
-          const replayTargetStat = target.card.isSetFaceDown
-            ? null
-            : (
-              target.card.position === 'defense'
-                ? target.card.getDef()
-                : target.card.getAtk()
-            );
-          if (
-            replayTargetStat !== null
-            && attacker.getAtk() < replayTargetStat
-            && profile.avoidsLosingBattles
-          ) continue;
-          this.log(
-            `L'adversaire poursuit l'attaque de **${attacker.name}** sur **${target.card.isSetFaceDown ? 'votre monstre caché' : target.card.name}** après le replay.`,
-            'opponent'
-          );
+          const hadTarget = Boolean(target);
+          target = replayTargets.length ? this.chooseAIAttackTarget(attacker, replayTargets) : null;
+          if ((replayTargets.length && !target) || !shouldAttack(attacker, target)) continue;
+          if (!target && hadTarget) attacker.directAttacksDeclaredThisTurn += 1;
+          this.log(`L'adversaire poursuit l'attaque de **${attacker.name}** après le replay.`, 'opponent');
         }
-
-        this.phases.setBattleStep('damage_step');
-
-        // 1. Start of Damage Step
-        this.phases.setDamageStepSubPhase('start');
-        if (!(await this.delay(200))) return false;
-
-        // 2. Before Damage Calculation (Flip face-down defender)
-        this.phases.setDamageStepSubPhase('before_calc');
-        if (target.card.isSetFaceDown) {
-          target.card.isSetFaceDown = false;
-          this.log(`Le monstre caché est révélé : **${target.card.name}** !`, 'system');
-          this.emitMonsterAnimation('flip-summon', 'player', target, { card: target.card });
-          if (!(await this.delay(450))) return false;
-        }
-
-        this.callbacks.onAnimation({
-          type: 'attack-monster',
-          attackerSide: 'opponent',
-          atkZoneIndex: attackerEntry.zoneIndex,
-          atkZoneType: attackerEntry.zoneType,
-          defZoneIndex: target.zoneIndex,
-          defZoneType: target.zoneType
-        });
-        if (!(await this.delay(600))) return false;
-
-        // 3. Damage Calculation
-        this.phases.setDamageStepSubPhase('calc');
-        const defender = target.card;
-        const defenderEntry = target;
-
-        let defDestroyed = false;
-        let atkDestroyed = false;
-        let pDamage = 0;
-        let oDamage = 0;
-
-        if (defender.position === 'attack' && attacker.getAtk() === 0 && defender.getAtk() === 0) {
-          // Symmetric TCG ruling: two 0 ATK monsters do not destroy each other.
-          defDestroyed = false;
-          atkDestroyed = false;
-        } else if (defender.position === 'defense') {
-          if (attacker.atk > defender.getDef()) {
-            defDestroyed = true;
-          } else if (attacker.atk < defender.getDef()) {
-            oDamage = defender.getDef() - attacker.atk;
-          }
-        } else {
-          if (attacker.atk > defender.getAtk()) {
-            defDestroyed = true;
-            pDamage = attacker.atk - defender.getAtk();
-          } else if (attacker.atk === defender.getAtk()) {
-            defDestroyed = true;
-            atkDestroyed = true;
-          } else {
-            atkDestroyed = true;
-            oDamage = defender.getAtk() - attacker.atk;
-          }
-        }
-
-        pDamage = await this.tryKuribohBattleDamage('player', pDamage, {
-          directAttack: false,
-          attackerUid: attacker.uid,
-          attackerSide: 'opponent',
-          defenderUid: defender.uid
-        });
-        if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) return false;
-        oDamage = await this.tryKuribohBattleDamage('opponent', oDamage, {
-          directAttack: false,
-          attackerUid: attacker.uid,
-          attackerSide: 'opponent',
-          defenderUid: defender.uid
-        });
-        if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) return false;
-
-        if (pDamage > 0) {
-          this.playerLP = Math.max(0, this.playerLP - pDamage);
-          this.callbacks.onAnimation({ type: 'lp-loss', target: 'player', damage: pDamage });
-          this.log(`Vous perdez **${pDamage}** points de vie.`, 'danger');
-        }
-        if (oDamage > 0) {
-          this.opponentLP = Math.max(0, this.opponentLP - oDamage);
-          this.callbacks.onAnimation({ type: 'lp-loss', target: 'opponent', damage: oDamage });
-          this.log(`L'adversaire perd **${oDamage}** points de vie.`, 'player');
-        }
-
-        // 4. After Damage Calculation
-        this.phases.setDamageStepSubPhase('after_calc');
-        if (!(await this.delay(200))) return false;
-
-        // 5. End of Damage Step
-        this.phases.setDamageStepSubPhase('end');
-        if (defDestroyed) {
-          this.removeMonsterEntry('player', defenderEntry);
-          this.field.sendToGraveyard(defender, defender.ownerId);
-          this.emitMonsterAnimation('destroy', 'player', defenderEntry);
-        }
-        if (atkDestroyed) {
-          this.removeMonsterEntry('opponent', attackerEntry);
-          this.field.sendToGraveyard(attacker, attacker.ownerId);
-          this.emitMonsterAnimation('destroy', 'opponent', attackerEntry);
-        }
-
+        const resolved = target
+          ? await this.resolveBattleDamage(attacker, attackerEntry, 'opponent', target, generation)
+          : await this.resolveDirectAttackDamage(attacker, attackerEntry, 'opponent', generation);
+        if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) return resolved;
+        this.isResolvingAction = false;
         this.phases.setBattleStep('battle_step');
-
-        if (this.playerLP === 0) this.endGame('opponent');
-        else if (this.opponentLP === 0) this.endGame('player');
-
-        if (!(await this.delay(1000))) return false;
+        this.stateChanged();
+        if (!(await this.delay(800))) return false;
       }
+      if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) return false;
+      this.isResolvingAction = false;
+      this.phases.currentPhase = 'end';
+      this.phases.setBattleStep('none');
+      this.startPhaseFlow();
+      return true;
+    } finally {
+      if (this._runningAIBattleGeneration === generation) this._runningAIBattleGeneration = null;
+      if (this.isDuelGenerationCurrent(generation)) this.isResolvingAction = false;
     }
-
-    this.phases.currentPhase = 'end';
-    this.startPhaseFlow();
   }
 }

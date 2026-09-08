@@ -107,18 +107,30 @@ export class PSCTParser {
     keywords.forEach(kw => {
       let index = lowerText.indexOf(kw.key);
       while (index !== -1) {
-        conjunctions.push({
-          keyword: kw.key,
-          type: kw.type,
-          simultaneous: kw.simultaneous,
-          dependent: kw.dependent,
-          index
-        });
+        const end = index + kw.key.length;
+        const isWordCharacter = character => /[\p{L}\p{N}_]/u.test(character || '');
+        if (!isWordCharacter(lowerText[index - 1]) && !isWordCharacter(lowerText[end])) {
+          conjunctions.push({
+            keyword: kw.key,
+            type: kw.type,
+            simultaneous: kw.simultaneous,
+            dependent: kw.dependent,
+            index
+          });
+        }
         index = lowerText.indexOf(kw.key, index + kw.key.length);
       }
     });
 
-    // Sort by appearance index
-    return conjunctions.sort((a, b) => a.index - b.index);
+    // Select the complete phrase first: AND inside AND_IF_YOU_DO and ALSO
+    // inside ALSO_AFTER_THAT are not additional resolution instructions.
+    const accepted = [];
+    conjunctions.sort((a, b) => b.keyword.length - a.keyword.length || a.index - b.index)
+      .forEach(conjunction => {
+        const end = conjunction.index + conjunction.keyword.length;
+        if (!accepted.some(other => conjunction.index < other.index + other.keyword.length
+          && end > other.index)) accepted.push(conjunction);
+      });
+    return accepted.sort((a, b) => a.index - b.index);
   }
 }

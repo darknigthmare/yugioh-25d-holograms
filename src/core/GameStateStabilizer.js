@@ -1,8 +1,11 @@
+import { hasResolvedFieldSpellActivation } from './FieldSpellRules.js';
+import { getClassicFieldSpellModifier } from './ClassicFieldSpellEffects.js';
+
 /**
  * GameStateStabilizer implements TCG Game State Check and Rule Cleanup loops:
  * - Recalculates continuous card modifications (ATK/DEF, levels, types).
- * - Performs mandatory rule cleaning (orphaned Xyz materials, token deletions, invalid counter cleanups).
- * - Verifies victory conditions (LP to 0, Deck-out, Exodia).
+ * - Performs mandatory rule cleaning for stale Token entries and Link positions.
+ * - Verifies LP and Exodia victories (failed draws are handled by DuelGame).
  * - Prevents infinite loops using state hashes.
  */
 const DARK_MAGICIAN_GIRL_GRAVE_IDS = new Set([
@@ -40,12 +43,15 @@ export class GameStateStabilizer {
    * Run the state checking loop until the game state hash stabilizes
    */
   stabilize(game) {
-    let changed = false;
     let passes = 0;
-    let previousHash = '';
+    const observedStates = new Set();
 
-    do {
-      previousHash = this.computeStateHash(game);
+    while (passes < this.maxStabilizationPasses) {
+      const previousHash = this.computeStateHash(game);
+      if (observedStates.has(previousHash)) {
+        return { stable: false, passes, reason: 'repeated-state' };
+      }
+      observedStates.add(previousHash);
 
       // 1. Recalculate derived statistics & continuous modifiers
       this.recalculateContinuousState(game);
@@ -57,71 +63,77 @@ export class GameStateStabilizer {
       this.verifyWinConditions(game);
 
       const currentHash = this.computeStateHash(game);
-      changed = currentHash !== previousHash;
       passes += 1;
+      if (currentHash === previousHash) return { stable: true, passes };
+    }
+    return { stable: false, passes, reason: 'pass-limit' };
+  }
 
-      if (passes > this.maxStabilizationPasses) {
-        console.error("[ERROR] Game state stabilization loop exceeded max passes!");
-        break;
-      }
-    } while (changed);
-
-    return { stable: true, passes };
+  getFieldMonsters(game) {
+    return [
+      ...game.field.playerMonsterZones,
+      ...game.field.opponentMonsterZones,
+      ...(game.field.extraMonsterZones || []).map(entry => entry?.card)
+    ].filter(Boolean);
   }
 
   computeStateHash(game) {
-    // Generate a simple string hash of LP, monster presence, and their current statistics
+    // Include the shared Extra Monster Zones and cleanup state; changes there
+    // must drive another recalculation pass just like Main Zone changes.
     const parts = [
       game.playerLP,
       game.opponentLP,
       game.winner
     ];
 
-    game.field.playerMonsterZones.forEach((m, idx) => {
-      if (m) {
-        parts.push(`p_mon_${idx}:${m.uid}:${m.getAtk()}:${m.getDef()}:${m.location}`);
-      } else {
-        parts.push(`p_mon_${idx}:null`);
-      }
+    this.getFieldMonsters(game).forEach(m => {
+      parts.push([
+        m.uid, m.runtimeInstanceId, m.getAtk(), m.getDef(), m.getLevel(),
+        m.location, m.zoneIndex, m.controllerId, m.position, m.isSetFaceDown,
+        m.effectNegated, JSON.stringify(m.counters || {})
+      ].join(':'));
     });
-
-    game.field.opponentMonsterZones.forEach((m, idx) => {
-      if (m) {
-        parts.push(`o_mon_${idx}:${m.uid}:${m.getAtk()}:${m.getDef()}:${m.location}`);
-      } else {
-        parts.push(`o_mon_${idx}:null`);
+    for (const side of ['player', 'opponent']) {
+      for (const key of ['Graveyard', 'Banished', 'FaceUpExtraDeck']) {
+        parts.push((game.field[`${side}${key}`] || []).map(card => card.uid).join(','));
       }
-    });
+      parts.push((game[`${side}Hand`] || []).map(card => card.uid).join(','));
+    }
 
     return parts.join("|");
   }
 
   recalculateContinuousState(game) {
-    // Reset all monsters on the board to base stats before applying continuous modifiers
-    game.field.playerMonsterZones.forEach(m => {
-      if (m) {
-        m.currentAtk = m.baseAtk;
-        m.currentDef = m.baseDef;
-        m.currentLevel = m.baseLevel;
-        m.activeModifiers.forEach(mod => {
-          if (mod.type === 'atk') m.currentAtk += mod.value;
-          if (mod.type === 'def') m.currentDef += mod.value;
-          if (mod.type === 'level') m.currentLevel += mod.value;
-        });
-      }
+    // Both Main and Extra Monster Zones share exactly the same modifier rules.
+    const monsters = this.getFieldMonsters(game);
+    monsters.forEach(m => {
+      m.currentAtk = m.baseAtk;
+      m.currentDef = m.baseDef;
+      m.currentLevel = m.baseLevel;
+      m.currentAttribute = m.attribute;
+      m.currentRace = m.race;
+      if (m.isSetFaceDown) return;
+      (m.activeModifiers || []).forEach(mod => {
+        const ownEffect = [String(m.uid), String(m.id)].includes(String(mod.sourceCardId));
+        if (m.effectNegated && mod.requiresSourceEffectActive && ownEffect) return;
+        if (mod.type === 'atk') m.currentAtk += mod.value;
+        if (mod.type === 'def') m.currentDef += mod.value;
+        if (mod.type === 'level') m.currentLevel += mod.value;
+        if (mod.type === 'attribute') m.currentAttribute = mod.value;
+        if (mod.type === 'race') m.currentRace = mod.value;
+      });
     });
 
-    game.field.opponentMonsterZones.forEach(m => {
-      if (m) {
-        m.currentAtk = m.baseAtk;
-        m.currentDef = m.baseDef;
-        m.currentLevel = m.baseLevel;
-        m.activeModifiers.forEach(mod => {
-          if (mod.type === 'atk') m.currentAtk += mod.value;
-          if (mod.type === 'def') m.currentDef += mod.value;
-          if (mod.type === 'level') m.currentLevel += mod.value;
-        });
-      }
+    const fieldSpells = [game.field.playerFieldSpellZone, game.field.opponentFieldSpellZone]
+      .filter(card => card && !card.isSetFaceDown && !card.effectNegated
+        && hasResolvedFieldSpellActivation(card));
+    monsters.filter(monster => !monster.isSetFaceDown).forEach(monster => {
+      fieldSpells.forEach(fieldSpell => {
+        const modifier = getClassicFieldSpellModifier(monster, fieldSpell);
+        if (!modifier) return;
+        monster.currentAtk += modifier.atk;
+        monster.currentDef += modifier.def;
+      });
     });
 
     // Dark Magician Girl: +300 ATK for every Dark Magician or Magician of
@@ -131,8 +143,8 @@ export class GameStateStabilizer {
       ...game.field.opponentGraveyard
     ].filter(countsForDarkMagicianGirl).length;
 
-    [...game.field.playerMonsterZones, ...game.field.opponentMonsterZones].forEach(monster => {
-      if (monster && String(monster.id) === '38033121' && !monster.effectNegated) {
+    monsters.forEach(monster => {
+      if (String(monster.id) === '38033121' && !monster.isSetFaceDown && !monster.effectNegated) {
         monster.currentAtk += spellcastersInGrave * 300;
       }
     });
@@ -153,14 +165,10 @@ export class GameStateStabilizer {
     });
 
     // 2. Link monsters can never be in defense position
-    game.field.playerMonsterZones.forEach(m => {
-      if (m && m.type && m.type.includes('Link') && m.position === 'defense') {
+    this.getFieldMonsters(game).forEach(m => {
+      if (m.type && m.type.includes('Link')) {
         m.position = 'attack';
-      }
-    });
-    game.field.opponentMonsterZones.forEach(m => {
-      if (m && m.type && m.type.includes('Link') && m.position === 'defense') {
-        m.position = 'attack';
+        m.isSetFaceDown = false;
       }
     });
   }
@@ -168,11 +176,11 @@ export class GameStateStabilizer {
   verifyWinConditions(game) {
     if (game.winner) return;
 
-    const finish = winner => {
-      if (typeof game.endGame === 'function') game.endGame(winner);
+    const finish = (winner, reason = 'lp_zero') => {
+      if (typeof game.endGame === 'function') game.endGame(winner, reason);
       else {
         game.winner = winner;
-        game.callbacks.onGameOver(winner);
+        game.callbacks?.onGameOver?.(winner);
       }
     };
 
@@ -184,6 +192,11 @@ export class GameStateStabilizer {
     } else if (game.opponentLP <= 0) {
       finish('player');
     }
+    if (game.winner) return;
+
+    // An effect that draws and then discards must finish before Exodia is
+    // checked. LP defeat above still applies immediately during resolution.
+    if (game.isResolvingEffect) return;
 
     // 2. Exodia condition (5 parts in hand)
     const exodiaIds = [
@@ -195,18 +208,18 @@ export class GameStateStabilizer {
     ];
 
     const playerHasAllExodia = exodiaIds.every(id =>
-      game.playerHand.some(c => c.id === id)
+      game.playerHand.some(c => String(c.id) === id)
     );
     const opponentHasAllExodia = exodiaIds.every(id =>
-      game.opponentHand.some(c => c.id === id)
+      game.opponentHand.some(c => String(c.id) === id)
     );
 
     if (playerHasAllExodia && opponentHasAllExodia) {
-      finish('draw');
+      finish('draw', 'exodia');
     } else if (playerHasAllExodia) {
-      finish('player');
+      finish('player', 'exodia');
     } else if (opponentHasAllExodia) {
-      finish('opponent');
+      finish('opponent', 'exodia');
     }
   }
 }

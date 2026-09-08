@@ -518,8 +518,8 @@ test('a monster that attacked cannot manually change battle position in Main Pha
   attacker.ownerId = 'player';
   attacker.controllerId = 'player';
   attacker.turnSummoned = 1;
-  attacker.hasAttacked = true;
   game.field.setMonsterZone('player', 0, attacker);
+  attacker.hasAttacked = true;
   game.attackedMonsters.add(0);
 
   await game.toggleMonsterPosition(0);
@@ -1242,7 +1242,7 @@ test('a selected set Quick-Play Spell joins the real response window and resolve
       const candidate = request.candidates.find(item => item.cardUid === response.uid);
       return candidate ? { cardUid: candidate.cardUid } : null;
     }
-  });
+  }, { rulesMode: 'sandbox' });
   game.phases.currentPhase = 'main1';
   game.phases.turnCount = 2;
   game.field.setSpellZone('opponent', 0, response);

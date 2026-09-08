@@ -1311,6 +1311,7 @@ let duelStatistics = {
   reasons: {
     lp_zero: Math.max(0, Number(storedStatistics.reasons?.lp_zero) || 0),
     deck_out: Math.max(0, Number(storedStatistics.reasons?.deck_out) || 0),
+    exodia: Math.max(0, Number(storedStatistics.reasons?.exodia) || 0),
     surrender: Math.max(0, Number(storedStatistics.reasons?.surrender) || 0),
     draw: Math.max(0, Number(storedStatistics.reasons?.draw) || 0),
     other: Math.max(0, Number(storedStatistics.reasons?.other) || 0)
@@ -3253,6 +3254,11 @@ function getDuelResultMessage(result) {
     return 'Le Duel se termine sans vainqueur.';
   }
   const playerWon = result.winner === 'player';
+  if (result.reason === 'exodia') {
+    return playerWon
+      ? 'Victoire par Exodia : vous avez réuni les cinq parties en main.'
+      : 'Défaite par Exodia : l’adversaire a réuni les cinq parties en main.';
+  }
   if (result.reason === 'deck_out') {
     return playerWon
       ? 'Victoire par Deck Out : l’adversaire ne pouvait plus piocher.'
@@ -3277,6 +3283,7 @@ function getDuelReasonLabel(reason) {
   return {
     lp_zero: 'Life Points à zéro',
     deck_out: 'Deck Out',
+    exodia: 'Exodia',
     surrender: 'abandon',
     draw: 'nul',
     other: 'autre'
@@ -3304,7 +3311,7 @@ function handleGameOver(resultOrWinner, legacyDetails = null) {
     if (result.winner === 'player') duelStatistics.wins += 1;
     else if (result.winner === 'opponent') duelStatistics.losses += 1;
     else duelStatistics.draws += 1;
-    const statisticsReason = ['lp_zero', 'deck_out', 'surrender', 'draw'].includes(result.reason)
+    const statisticsReason = ['lp_zero', 'deck_out', 'surrender', 'draw', 'exodia'].includes(result.reason)
       ? result.reason
       : 'other';
     duelStatistics.reasons[statisticsReason] += 1;

@@ -11,7 +11,10 @@ Simulateur de duel solo dans le navigateur, inspiré des arènes holographiques 
 - Zones Monstre Extra partagées, Matériels Xyz, Monstres Pendule face recto dans l’Extra Deck et limitation d’une Invocation Pendule par tour ;
 - positions Attaque/Défense, Damage Step, attaques directes, dégâts, Deck Out, limite de six cartes en End Phase et conditions de victoire ;
 - chaînes en résolution LIFO, fenêtres de réponse et sélection explicite des cibles pour les effets locaux pris en charge ;
+- rejeu d’attaque après modification du Terrain adverse, fenêtre d’Effets Rapides à la déclaration, calcul des combats commun au joueur et à l’IA ;
+- flèches Lien dans les huit directions, depuis les Zones Main et Extra des deux camps, partagées par les procédures Lien et Pendule ;
 - effets scriptés pour Raigeki, Monster Reborn, Polymérisation, Force de Miroir, Trappe, Magicienne des Ténèbres, Magicien du Temps, Kuriboh, Robot Synchronique, Magicien des Arcanes, Dragon Poussière d’Étoile et Numéro 39 : Utopie ;
+- effets continus des six Terrains classiques **Yami, Umi, Forêt, Montagne, Sogen et Terre Dévastée**, avec bonus/malus sur les deux camps après résolution ;
 - cartes adverses cachées anonymisées dans le DOM et snapshots réseau expurgés des informations privées ;
 - interface desktop/mobile, glisser-déposer, sélection carte → zone, plateau mobile panoramique, parcours clavier, zones publiques inspectables, modales accessibles et réduction des animations ;
 - préférences locales persistées : mode, difficulté, son/voix, dos de carte, deck personnalisé, statistiques et reprise d’un Match entre deux Duels.
@@ -20,7 +23,9 @@ Simulateur de duel solo dans le navigateur, inspiré des arènes holographiques 
 
 Le mode strict applique les règles officielles au **sous-ensemble local explicitement pris en charge**. Le moteur refuse une procédure absente au lieu d’inventer une résolution. Il ne constitue pas un arbitre universel : les milliers de cartes et interactions du TCG complet ne sont pas toutes scriptées.
 
-Les trois decks intégrés sont des presets légaux et équilibrés **inspirés** de Kaiba, Yugi et Joey ; ils ne reproduisent pas au détail près une liste historique de l’anime. En Sandbox, une carte issue de l’API peut être inspectée ou ajoutée pendant la Main Phase, mais seuls les effets listés ci-dessus possèdent une résolution dédiée. Une carte distante non intégrée affiche un visuel local neutre afin de ne pas hotlinker le CDN du fournisseur.
+Le pool local comporte désormais **45 cartes distinctes** (40 Main Deck, 5 Extra Deck), indépendamment du nombre de copies dans un deck de duel. Voir [la couverture détaillée des règles et ses limites](RULES_COVERAGE.md) pour distinguer les comportements testés du travail restant.
+
+Les trois decks intégrés sont des presets légaux et équilibrés **inspirés** de Kaiba, Yugi et Joey ; ils ne reproduisent pas au détail près une liste historique de l’anime. En Sandbox, une carte issue de l’API peut être inspectée ou ajoutée pendant la Main Phase, mais seuls les effets explicitement pris en charge par le moteur possèdent une résolution dédiée. Une carte distante non intégrée affiche un visuel local neutre afin de ne pas hotlinker le CDN du fournisseur.
 
 L’interface publiée reste **solo contre l’IA**. Le dépôt contient un protocole WebRTC pair-à-pair, une session avec accusés de réception/résynchronisation et des snapshots publics testés, mais ce socle n’est pas présenté comme un multijoueur jouable : combat, chaînes/effets, Fusion et Rituel distants demandent encore une autorité de jeu commune et des décisions privées sûres.
 
@@ -59,7 +64,7 @@ Contrôle complet :
 npm run check
 ```
 
-Le contrôle exécute les tests Node de règles, Match, réseau et régression, puis produit le build Vite dans `dist/`.
+Le contrôle exécute les tests Node de règles, Match, réseau et régression, audite les 336 illustrations de Terrain, puis produit le build Vite dans `dist/`. Le projet JavaScript ne définit pas de script lint ou typecheck séparé.
 
 ## Références de règles
 
@@ -70,6 +75,6 @@ Le contrôle exécute les tests Node de règles, Match, réseau et régression, 
 
 ## Données, images et propriété intellectuelle
 
-Les métadonnées Sandbox proviennent de l’API YGOPRODeck et sont mises en cache localement pour limiter les requêtes. Les deux variantes d’images nécessaires aux 39 cartes du pool local sont réhébergées dans `public/cards/`, conformément à la [consigne de téléchargement et réhébergement de YGOPRODeck](https://api.ygoprodeck.com/api-guide/). L’application ne hotlinke plus leurs images.
+Les métadonnées Sandbox proviennent de l’API YGOPRODeck et sont mises en cache localement pour limiter les requêtes. Les deux variantes d’images des 39 cartes historiques sont réhébergées dans `public/cards/`, conformément à la [consigne de téléchargement et réhébergement de YGOPRODeck](https://api.ygoprodeck.com/api-guide/). Les six nouveaux Terrains réutilisent leurs illustrations originales OpenAI déjà présentes dans `public/environments/field-spells/` ; aucune nouvelle illustration officielle n’est téléchargée. L’application ne hotlinke pas leurs images.
 
 Yu-Gi-Oh! et les cartes associées appartiennent à leurs ayants droit. Ce projet de démonstration fan, non commercial et non officiel n’est ni produit, ni approuvé, ni soutenu par Konami ou ses sociétés affiliées.

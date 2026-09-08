@@ -51,6 +51,8 @@ test('zone transitions purge zone-only Pendulum, Extra Deck, and face-down flags
   field.setSpellZone('player', 4, pendingScale);
   assert.equal(pendingScale.isPendingPendulumActivation, true);
 
+  // Only a negated card activation bypasses the Pendulum-to-Extra rule.
+  pendingScale.activationNegated = true;
   const pendingDestination = field.sendToGraveyard(pendingScale, 'player');
   assert.equal(pendingDestination.destination, 'graveyard');
   assert.equal(pendingScale.isPendingPendulumActivation, false);

@@ -99,23 +99,29 @@ export class SummonEngine {
   }
 
   createLinkSummonPlan(materials, linkMonster, options = {}) {
-    if (!linkMonster || !/Link/i.test(linkMonster.type || '') || !linkMonster.linkRating) {
+    if (
+      !linkMonster
+      || !/Link/i.test(linkMonster.type || '')
+      || !Number.isInteger(Number(linkMonster.linkRating))
+      || Number(linkMonster.linkRating) <= 0
+    ) {
       return { valid: false, reason: 'INVALID_LINK_MONSTER' };
     }
-    const common = this._validateFaceUpFieldMaterials(materials, {
-      controllerId: options.controllerId,
-      // Tokens are only legal when the printed recipe permits them. The
-      // project strict subset uses Effect Monsters, which excludes Tokens.
-      allowTokens: options.allowTokens ?? false
-    });
-    if (!common.valid) return common;
-
     const requiresEffectMonsters = options.requiresEffectMonsters
       ?? linkMonster.requiresEffectMonsters
       ?? true;
+    const common = this._validateFaceUpFieldMaterials(materials, {
+      controllerId: options.controllerId,
+      // Tokens are Normal Monsters and can satisfy a generic monster recipe.
+      allowTokens: options.allowTokens ?? !requiresEffectMonsters
+    });
+    if (!common.valid) return common;
+
     if (
       requiresEffectMonsters
-      && materials.some(material => !material.isEffectMonster && !/Effect/i.test(material.type || ''))
+      && materials.some(material => material.isToken || (
+        !material.isEffectMonster && !/Effect/i.test(material.type || '')
+      ))
     ) {
       return { valid: false, reason: 'LINK_REQUIRES_EFFECT_MONSTERS' };
     }
@@ -193,8 +199,24 @@ export class SummonEngine {
    * - Materials must contain exactly 1 Tuner (or matching replacement) and 1+ non-Tuners.
    * - Sum of levels must equal target level.
    */
-  validateSynchroSummon(materials, targetLevel, synchroMonster = null) {
-    if (!materials || materials.length < 2) return false;
+  validateSynchroSummon(materials, targetLevel, synchroMonster = null, options = {}) {
+    if (!Array.isArray(materials) || materials.length < 2) return false;
+    if (!Number.isInteger(Number(targetLevel)) || Number(targetLevel) <= 0) return false;
+    if (!this._validateFaceUpFieldMaterials(materials, {
+      controllerId: options.controllerId,
+      allowTokens: true
+    }).valid) return false;
+    if (synchroMonster && !/Synchro/i.test(synchroMonster.type || '')) return false;
+
+    const minimumMaterialCount = options.minimumMaterialCount
+      ?? synchroMonster?.minimumMaterialCount
+      ?? 2;
+    const maximumMaterialCount = options.maximumMaterialCount
+      ?? synchroMonster?.maximumMaterialCount
+      ?? Number.POSITIVE_INFINITY;
+    if (materials.length < minimumMaterialCount || materials.length > maximumMaterialCount) {
+      return false;
+    }
 
     // Check level sum
     let levelSum = 0;
@@ -212,7 +234,7 @@ export class SummonEngine {
       if (!Number.isInteger(materialLevel) || materialLevel <= 0) return false;
       levelSum += materialLevel;
 
-      const isTuner = mat.type && mat.type.includes('Tuner');
+      const isTuner = mat.isTuner ?? /Tuner/i.test(mat.type || '');
       if (isTuner) {
         tunerCount++;
       } else {
@@ -220,17 +242,24 @@ export class SummonEngine {
       }
     }
 
-    if (levelSum !== targetLevel || tunerCount !== 1 || nonTunerCount < 1) {
+    const requiredTuners = options.tunerMaterialCount ?? synchroMonster?.tunerMaterialCount ?? 1;
+    const minimumNonTuners = options.minimumNonTunerCount
+      ?? synchroMonster?.minimumNonTunerCount
+      ?? 1;
+    if (levelSum !== Number(targetLevel) || tunerCount !== requiredTuners || nonTunerCount < minimumNonTuners) {
       return false;
     }
 
     const requiredNonTunerRace = synchroMonster?.synchroNonTunerRace;
     if (requiredNonTunerRace) {
-      const nonTuners = materials.filter(mat => !(mat.type && mat.type.includes('Tuner')));
-      if (!nonTuners.every(mat => mat.race === requiredNonTunerRace)) {
+      const nonTuners = materials.filter(mat => !(mat.isTuner ?? /Tuner/i.test(mat.type || '')));
+      if (!nonTuners.every(mat => (mat.currentRace ?? mat.race) === requiredNonTunerRace)) {
         return false;
       }
     }
+
+    const materialFilter = options.materialFilter || synchroMonster?.materialFilter;
+    if (typeof materialFilter === 'function' && !materials.every(materialFilter)) return false;
 
     return true;
   }
@@ -284,7 +313,7 @@ export class SummonEngine {
     const levels = materials.map(material => (
       material.getLevel ? material.getLevel() : Number(material.level || 0)
     ));
-    if (levels.some(level => level <= 0 || level !== targetRank)) {
+    if (levels.some(level => !Number.isInteger(level) || level <= 0 || level !== targetRank)) {
       return { valid: false, reason: 'XYZ_LEVEL_RANK_MISMATCH' };
     }
 
@@ -306,14 +335,18 @@ export class SummonEngine {
   attachXyzMaterials(xyzMonster, materials) {
     if (
       !xyzMonster
+      || !/Xyz/i.test(xyzMonster.type || '')
       || !Array.isArray(materials)
       || !materials.every(Boolean)
       || !this._validateDistinctCards(materials)
+      || materials.some(material => material.isToken || material === xyzMonster || (
+        material.uid && material.uid === xyzMonster.uid
+      ))
     ) {
       return false;
     }
     if (!Array.isArray(xyzMonster.xyzMaterials)) xyzMonster.xyzMaterials = [];
-    if (materials.some(material => xyzMonster.xyzMaterials.includes(material))) return false;
+    if (!this._validateDistinctCards([...xyzMonster.xyzMaterials, ...materials])) return false;
     for (const material of materials) {
       this.fieldState.transitionCard(
         material,
@@ -351,6 +384,11 @@ export class SummonEngine {
    * - scaleL < level < scaleR (strictly between scales)
    */
   validatePendulumScales(leftScale, rightScale, options = {}) {
+    if (
+      typeof leftScale !== 'number'
+      && typeof rightScale !== 'number'
+      && !this._validateDistinctCards([leftScale, rightScale])
+    ) return { valid: false, reason: 'PENDULUM_SCALES_MUST_BE_DISTINCT' };
     const readScale = value => (
       typeof value === 'number'
         ? value
@@ -408,13 +446,15 @@ export class SummonEngine {
     const level = Number(
       typeof monsterOrLevel === 'number'
         ? monsterOrLevel
-        : (monsterOrLevel?.getLevel?.() || monsterOrLevel?.level || 0)
+        : (monsterOrLevel?.getLevel?.() ?? monsterOrLevel?.level ?? 0)
     );
+    if (!Number.isInteger(level) || level <= 0) return false;
     if (level <= scales.minimum || level >= scales.maximum) return false;
     if (typeof monsterOrLevel === 'number') return true;
 
     const monster = monsterOrLevel;
     if (!monster || monster.card_type !== 'monster' || level <= 0) return false;
+    if (options.controllerId && monster.controllerId !== options.controllerId) return false;
     if (
       (monster.belongsInExtraDeck && !monster.isPendulumMonster)
       || monster.isRitualMonster
@@ -423,7 +463,13 @@ export class SummonEngine {
     ) {
       return false;
     }
-    if (monster.location === 'hand') return true;
+    if (monster.location === 'hand') return !monster.belongsInExtraDeck;
+    // Fusion/Synchro Pendulum Monsters must first have been properly Summoned.
+    // A face-up Extra Deck entry alone cannot grant their revival permission.
+    if (
+      /Fusion|Synchro|Xyz|Link/i.test(monster.type || '')
+      && !monster.wasProperlySpecialSummoned
+    ) return false;
     return monster.location === 'extra_deck'
       && monster.isPendulumMonster
       && monster.isFaceUpInExtraDeck;
@@ -524,15 +570,7 @@ export class SummonEngine {
 
   sendPendulumMonsterToFaceUpExtraDeck(card) {
     if (!card?.isPendulumMonster) return false;
-    if (typeof card.placeFaceUpInExtraDeck === 'function') {
-      return card.placeFaceUpInExtraDeck();
-    }
-    card.location = 'extra_deck';
-    card.zoneIndex = -1;
-    card.isSetFaceDown = false;
-    card.isFaceUpInExtraDeck = true;
-    card.controllerId = card.ownerId;
-    return true;
+    return Boolean(this.fieldState.sendToFaceUpExtraDeck(card, card.ownerId));
   }
 
   validateRitualSummon(ritualMonster, ritualSpell, materials, options = {}) {
@@ -570,6 +608,12 @@ export class SummonEngine {
       || ritualMonster.controllerId
       || materials[0]?.controllerId
       || null;
+    if (controllerId && ritualMonster.controllerId !== controllerId) {
+      return { valid: false, reason: 'RITUAL_MONSTER_WRONG_CONTROLLER' };
+    }
+    if (materials.some(material => material === ritualMonster || (
+      material?.uid && material.uid === ritualMonster.uid
+    ))) return { valid: false, reason: 'RITUAL_MONSTER_CANNOT_TRIBUTE_ITSELF' };
     const allowedIds = ritualSpell.ritualMonsterIds?.map(String);
     const allowedNames = ritualSpell.ritualMonsterNames;
     if (allowedIds?.length && !allowedIds.includes(String(ritualMonster.id))) {
@@ -584,6 +628,7 @@ export class SummonEngine {
     }
 
     let totalLevels = 0;
+    const materialLevels = [];
     for (const material of materials) {
       if (!material || material.card_type !== 'monster') {
         return { valid: false, reason: 'RITUAL_MATERIAL_NOT_MONSTER' };
@@ -594,11 +639,12 @@ export class SummonEngine {
       if (controllerId && material.controllerId !== controllerId) {
         return { valid: false, reason: 'RITUAL_MATERIAL_WRONG_CONTROLLER' };
       }
-      const level = Number(material.getLevel?.() || material.level || 0);
-      if (level <= 0) {
+      const level = Number(material.getLevel?.() ?? material.level ?? 0);
+      if (!Number.isInteger(level) || level <= 0) {
         return { valid: false, reason: 'RITUAL_MATERIAL_HAS_NO_LEVEL' };
       }
       totalLevels += level;
+      materialLevels.push(level);
     }
 
     const requiredLevel = Number(
@@ -611,6 +657,9 @@ export class SummonEngine {
     const exactLevel = Boolean(
       options.exactLevel ?? ritualSpell.requiresExactLevel
     );
+    if (!Number.isInteger(requiredLevel) || requiredLevel <= 0) {
+      return { valid: false, reason: 'INVALID_REQUIRED_RITUAL_LEVEL' };
+    }
     const levelsValid = exactLevel
       ? totalLevels === requiredLevel
       : totalLevels >= requiredLevel;
@@ -621,6 +670,12 @@ export class SummonEngine {
         totalLevels,
         requiredLevel
       };
+    }
+
+    // Even for equal-or-exceed recipes, every selected Tribute is necessary.
+    // For a Level 8 Ritual, 8 + 1 is illegal; 5 + 5 is a legal combination.
+    if (!exactLevel && materialLevels.some(level => totalLevels - level >= requiredLevel)) {
+      return { valid: false, reason: 'EXTRANEOUS_RITUAL_MATERIALS', totalLevels, requiredLevel };
     }
 
     const materialFilter = options.materialFilter || ritualSpell.materialFilter;

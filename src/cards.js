@@ -1,3 +1,5 @@
+import { CLASSIC_FIELD_SPELLS } from './core/ClassicFieldSpellEffects.js';
+
 export const STARTER_CARDS = [
   {
     id: "89631139",
@@ -476,16 +478,42 @@ export const STARTER_CARDS = [
   }
 ];
 
+const CLASSIC_RACE_LABELS = {
+  Fiend: 'Démon', Spellcaster: 'Magicien', Fairy: 'Elfe', Fish: 'Poisson',
+  'Sea Serpent': 'Serpent de Mer', Thunder: 'Tonnerre', Aqua: 'Aqua',
+  Machine: 'Machine', Pyro: 'Pyro', Insect: 'Insecte', Beast: 'Bête',
+  Plant: 'Plante', 'Beast-Warrior': 'Bête-Guerrier', Dragon: 'Dragon',
+  'Winged Beast': 'Bête Ailée', Warrior: 'Guerrier', Dinosaur: 'Dinosaure',
+  Zombie: 'Zombie', Rock: 'Rocher'
+};
+for (const terrain of CLASSIC_FIELD_SPELLS) {
+  const bonuses = terrain.boostedRaces.map(race => CLASSIC_RACE_LABELS[race]).join(', ');
+  const penalties = terrain.weakenedRaces.map(race => CLASSIC_RACE_LABELS[race]).join(', ');
+  const description = `Tous les monstres ${bonuses} sur le Terrain gagnent 200 ATK/DEF.`
+    + (penalties ? ` Tous les monstres ${penalties} sur le Terrain perdent 200 ATK/DEF.` : '');
+  STARTER_CARDS.push({
+    id: terrain.id, name: terrain.name, name_en: terrain.name_en,
+    type: 'Spell Card', card_type: 'spell', race: 'Field', attribute: 'SPELL',
+    atk: 0, def: 0, level: 0, rulesText: description, desc: description,
+    effectCode: 'CLASSIC_FIELD_STATS'
+  });
+}
+
 export function normalizeCardImageId(id) {
   const value = String(id ?? '');
   return /^\d+$/.test(value) ? value.replace(/^0+(?=\d)/, '') : value;
 }
 
 export function getCardImageUrl(id) {
+  const terrain = CLASSIC_FIELD_SPELLS.find(card => card.id === normalizeCardImageId(id));
+  if (terrain) {
+    return `/environments/field-spells/${terrain.id}-${terrain.name_en.toLowerCase()}-original.webp`;
+  }
   return `/cards/small/${normalizeCardImageId(id)}.jpg`;
 }
 
 export function getCardCroppedImageUrl(id) {
+  if (CLASSIC_FIELD_SPELLS.some(card => card.id === normalizeCardImageId(id))) return getCardImageUrl(id);
   return `/cards/cropped/${normalizeCardImageId(id)}.jpg`;
 }
 

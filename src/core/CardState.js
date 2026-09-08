@@ -139,10 +139,20 @@ export class CardState {
       ? [...baseCard.xyzMaterials]
       : [];
     this.synchroNonTunerRace = baseCard.synchroNonTunerRace || null;
+    this.tunerMaterialCount = baseCard.tunerMaterialCount == null
+      ? null : Number(baseCard.tunerMaterialCount);
+    this.minimumNonTunerCount = baseCard.minimumNonTunerCount == null
+      ? null : Number(baseCard.minimumNonTunerCount);
+    // Undefined means the printed monster type determines Tuner status.
+    // Effects can temporarily override it without rewriting the card type.
+    this.baseIsTuner = baseCard.isTuner == null ? undefined : Boolean(baseCard.isTuner);
+    this.isTuner = this.baseIsTuner;
     this.fusionMaterials = Array.isArray(baseCard.fusionMaterials)
       ? [...baseCard.fusionMaterials]
       : [];
     this.effectCode = baseCard.effectCode || null;
+    this.isToken = Boolean(baseCard.isToken || /Token/i.test(this.type || ''));
+    this.piercingBattleDamage = baseCard.piercingBattleDamage === true;
     this.timing = baseCard.timing ? { ...baseCard.timing } : null;
     // External card adapters may explicitly disallow a card in strict mode.
     // Keep that flag on the runtime wrapper so validation cannot lose it.
@@ -223,9 +233,9 @@ export class CardState {
    * Reset all state that cannot follow it, while retaining the "properly
    * Summoned" fact only in public zones from which revival remains legal.
    */
-  resetForZoneChange(destination) {
+  resetForZoneChange(destination, { faceUpExtraDeck = false } = {}) {
     const keepProperSummon = ['monster_zone', 'extra_monster_zone', 'graveyard', 'banished']
-      .includes(destination);
+      .includes(destination) || (destination === 'extra_deck' && faceUpExtraDeck);
     if (!keepProperSummon) this.wasProperlySpecialSummoned = false;
 
     // These flags describe the card's presentation in one precise zone. They
@@ -259,6 +269,7 @@ export class CardState {
     this.currentAttribute = this.attribute;
     this.currentRace = this.race;
     this.activeModifiers = [];
+    this.isTuner = this.baseIsTuner;
     this.counters = {};
     this.effectUsage = {};
     this.activationNegated = false;
@@ -328,9 +339,8 @@ export class CardState {
   }
 
   getAtk() {
-    if (this.effectNegated) return this.baseAtk;
     // Arcanite Magician gains 1000 ATK for each Spell Counter it currently has.
-    const counterBonus = String(this.id) === '31924889'
+    const counterBonus = String(this.id) === '31924889' && !this.effectNegated
       ? (this.counters.spell || 0) * 1000
       : 0;
     return Math.max(0, this.currentAtk + counterBonus);
@@ -338,13 +348,11 @@ export class CardState {
 
   getDef() {
     if (this.type && this.type.includes('Link')) return null;
-    if (this.effectNegated) return this.baseDef;
     return Math.max(0, this.currentDef);
   }
 
   getLevel() {
     if (this.type && /Xyz|Link/i.test(this.type)) return 0;
-    if (this.effectNegated) return this.baseLevel;
     return Math.max(1, this.currentLevel);
   }
 

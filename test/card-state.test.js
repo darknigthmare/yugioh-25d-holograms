@@ -52,8 +52,8 @@ test('CardState preserves safe Sandbox placeholders and rejects remote image hot
   assert.equal(sandboxCard.image_url_cropped, '/custom-card-back.png');
   assert.equal(sandboxCard.image_url.includes('ygoprodeck.com'), false);
   assert.equal(sandboxCard.image_url_cropped.includes('ygoprodeck.com'), false);
-  assert.equal(poisonedCard.image_url, '/cards/small/59197169.jpg');
-  assert.equal(poisonedCard.image_url_cropped, '/cards/cropped/59197169.jpg');
+  assert.equal(poisonedCard.image_url, '/environments/field-spells/59197169-yami-original.webp');
+  assert.equal(poisonedCard.image_url_cropped, '/environments/field-spells/59197169-yami-original.webp');
   assert.equal(Object.keys(sandboxCard).includes('_imageUrl'), false);
   assert.equal(Object.keys(sandboxCard).includes('_imageCroppedUrl'), false);
   assert.equal(JSON.stringify(sandboxCard).includes('_imageUrl'), false);
@@ -83,19 +83,19 @@ test('legacy stat properties remain live aliases of the dynamic getters', () => 
   assert.equal(card.level, 1);
 });
 
-test('effect negation restores base stats for both access styles', () => {
+test('effect negation preserves already applied external stat and Level changes', () => {
   const card = createMonster();
   card.currentAtk = 4000;
   card.currentDef = 3500;
   card.currentLevel = 10;
   card.effectNegated = true;
 
-  assert.equal(card.getAtk(), 2500);
-  assert.equal(card.getDef(), 2100);
-  assert.equal(card.getLevel(), 7);
-  assert.equal(card.atk, 2500);
-  assert.equal(card.def, 2100);
-  assert.equal(card.level, 7);
+  assert.equal(card.getAtk(), 4000);
+  assert.equal(card.getDef(), 3500);
+  assert.equal(card.getLevel(), 10);
+  assert.equal(card.atk, 4000);
+  assert.equal(card.def, 3500);
+  assert.equal(card.level, 10);
 });
 
 test('Link monsters consistently expose no DEF value', () => {

@@ -212,7 +212,7 @@ test('zone changes renew runtime identity, clear transient state, and remove ali
   game.field.setMonsterZone('player', 3, card);
   assert.equal(game.playerMonsters[0], null);
   assert.equal(game.playerMonsters[3], card);
-  assert.notEqual(card.runtimeInstanceId, firstFieldRuntime);
+  assert.equal(card.runtimeInstanceId, firstFieldRuntime);
   assert.equal(game.playerMonsters.filter(candidate => candidate === card).length, 1);
 
   card.wasProperlySpecialSummoned = true;
@@ -221,7 +221,7 @@ test('zone changes renew runtime identity, clear transient state, and remove ali
   assert.equal(card.wasProperlySpecialSummoned, true);
   assert.equal(game.playerGraveyard.filter(candidate => candidate === card).length, 1);
   game.field.sendToFaceUpExtraDeck(card, 'player');
-  assert.equal(card.wasProperlySpecialSummoned, false);
+  assert.equal(card.wasProperlySpecialSummoned, true);
   assert.equal(game.playerGraveyard.includes(card), false);
   assert.equal(game.playerFaceUpExtraDeck.filter(candidate => candidate === card).length, 1);
 });

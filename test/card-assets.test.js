@@ -20,15 +20,15 @@ function diskPath(publicUrl) {
   return fileURLToPath(new URL(`../public${publicUrl}`, import.meta.url));
 }
 
-test('every locally supported card has valid same-origin card and cropped JPEG assets', async () => {
-  assert.equal(localCards.length, 39);
+test('every locally supported card has valid same-origin card and cropped image assets', async () => {
+  assert.equal(localCards.length, 45);
 
   for (const card of localCards) {
     for (const publicUrl of [
       getCardImageUrl(card.id),
       getCardCroppedImageUrl(card.id)
     ]) {
-      assert.match(publicUrl, /^\/cards\/(?:small|cropped)\/\d+\.jpg$/);
+      assert.match(publicUrl, /^\/(?:cards\/(?:small|cropped)\/\d+\.jpg|environments\/field-spells\/\d+-[a-z]+-original\.webp)$/);
       assert.equal(publicUrl.includes('ygoprodeck.com'), false);
 
       const path = diskPath(publicUrl);
@@ -37,6 +37,11 @@ test('every locally supported card has valid same-origin card and cropped JPEG a
       assert.ok(details.size > 1_000, `${publicUrl} is unexpectedly small`);
 
       const bytes = await readFile(path);
+      if (publicUrl.endsWith('.webp')) {
+        assert.equal(bytes.toString('ascii', 0, 4), 'RIFF');
+        assert.equal(bytes.toString('ascii', 8, 12), 'WEBP');
+        continue;
+      }
       assert.deepEqual(
         [...bytes.subarray(0, 3)],
         [0xff, 0xd8, 0xff],

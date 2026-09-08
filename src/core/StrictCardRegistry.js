@@ -4,6 +4,12 @@
  * strict-compatible merely because its generic card type looks familiar.
  */
 const STRICT_CARD_REGISTRY = new Map([
+  ['59197169', { section: 'main', procedure: 'spell' }],
+  ['22702055', { section: 'main', procedure: 'spell' }],
+  ['87430998', { section: 'main', procedure: 'spell' }],
+  ['50913601', { section: 'main', procedure: 'spell' }],
+  ['86318356', { section: 'main', procedure: 'spell' }],
+  ['23424603', { section: 'main', procedure: 'spell' }],
   // Main Deck monsters using the normal Summon/Set procedure.
   ['89631139', { section: 'main', procedure: 'normal' }],
   ['46986414', { section: 'main', procedure: 'normal' }],

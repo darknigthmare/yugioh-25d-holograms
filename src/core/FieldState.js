@@ -20,6 +20,7 @@ export class FieldState {
 
     // Shared Extra Monster Zones (0: left, 1: right)
     this.extraMonsterZones = Array(2).fill(null); // Each slot stores { card, controllerId }
+    this.monsterFieldRevision = { player: 0, opponent: 0 };
     this.playerFaceUpExtraDeck = [];
     this.opponentFaceUpExtraDeck = [];
 
@@ -41,9 +42,15 @@ export class FieldState {
     }
   }
 
-  detachCard(cardState) {
+  detachCard(cardState, { trackMonsterChange = true } = {}) {
     if (!cardState) return false;
     let detached = false;
+    const previousSides = new Set();
+    if (this.playerMonsterZones.includes(cardState)) previousSides.add('player');
+    if (this.opponentMonsterZones.includes(cardState)) previousSides.add('opponent');
+    for (const entry of this.extraMonsterZones) {
+      if (entry?.card === cardState) previousSides.add(entry.controllerId);
+    }
     const clearArray = array => {
       for (let index = array.length - 1; index >= 0; index -= 1) {
         if (array[index] === cardState) {
@@ -87,17 +94,29 @@ export class FieldState {
       this.playerFaceUpExtraDeck,
       this.opponentFaceUpExtraDeck
     ]) clearArray(pile);
+    if (trackMonsterChange) {
+      for (const side of previousSides) this.monsterFieldRevision[side] += 1;
+    }
     return detached;
   }
 
-  transitionCard(cardState, destination, controllerId, zoneIndex = -1) {
+  transitionCard(cardState, destination, controllerId, zoneIndex = -1, options = {}) {
     if (!cardState) return false;
+    const monsterZones = ['monster_zone', 'extra_monster_zone'];
+    const remainsMonster = monsterZones.includes(cardState.location)
+      && monsterZones.includes(destination);
+    const sameMonsterSide = remainsMonster && cardState.controllerId === controllerId;
     const changesZone = (
       cardState.location !== destination
       || Number(cardState.zoneIndex) !== Number(zoneIndex)
     );
-    this.detachCard(cardState);
-    if (changesZone) cardState.resetForZoneChange(destination);
+    this.detachCard(cardState, { trackMonsterChange: !sameMonsterSide });
+    // Moving between Monster Zones or changing control does not make a
+    // monster leave the field: counters, targeting and attack history persist.
+    if (changesZone && !remainsMonster) cardState.resetForZoneChange(destination, options);
+    if (monsterZones.includes(destination) && !sameMonsterSide) {
+      this.monsterFieldRevision[controllerId] += 1;
+    }
     cardState.location = destination;
     cardState.zoneIndex = zoneIndex;
     cardState.controllerId = controllerId;
@@ -107,6 +126,7 @@ export class FieldState {
   setMonsterZone(controllerId, index, cardState) {
     if (!Number.isInteger(index) || index < 0 || index >= 5) return false;
     if (!cardState) {
+      if (this.getMonsterZone(controllerId, index)) this.monsterFieldRevision[controllerId] += 1;
       if (controllerId === 'player') this.playerMonsterZones[index] = null;
       else this.opponentMonsterZones[index] = null;
       return true;
@@ -125,8 +145,10 @@ export class FieldState {
   }
 
   setExtraMonsterZone(index, controllerId, cardState) {
-    if (index < 0 || index >= this.extraMonsterZones.length) return false;
+    if (!Number.isInteger(index) || index < 0 || index >= this.extraMonsterZones.length) return false;
     if (!cardState) {
+      const oldSide = this.extraMonsterZones[index]?.controllerId;
+      if (oldSide) this.monsterFieldRevision[oldSide] += 1;
       this.extraMonsterZones[index] = null;
       return true;
     }
@@ -217,6 +239,8 @@ export class FieldState {
 
   sendToGraveyard(cardState, ownerId) {
     if (cardState) {
+      ownerId = cardState.ownerId || ownerId;
+      if (cardState.isToken) return this.removeToken(cardState);
       const previousLocation = cardState.location;
       if (Array.isArray(cardState.xyzMaterials) && cardState.xyzMaterials.length > 0) {
         const detachedMaterials = cardState.xyzMaterials.splice(0);
@@ -226,9 +250,14 @@ export class FieldState {
       }
       const cameFromField = ['monster_zone', 'spell_zone', 'pendulum_zone', 'field_zone', 'extra_monster_zone']
         .includes(previousLocation);
-      const pendingPendulumActivation = Boolean(cardState.isPendingPendulumActivation);
+      // A Pendulum card already occupies the field while its activation is
+      // pending. Destruction sends it to the face-up Extra Deck; only a
+      // negated card activation bypasses that destination and goes to GY.
+      const negatedPendulumActivation = Boolean(
+        cardState.isPendingPendulumActivation && cardState.activationNegated
+      );
       cardState.isPendingPendulumActivation = false;
-      if (cardState.isPendulumMonster && cameFromField && !pendingPendulumActivation) {
+      if (cardState.isPendulumMonster && cameFromField && !negatedPendulumActivation) {
         return this.sendToFaceUpExtraDeck(cardState, ownerId);
       }
       this.transitionCard(cardState, 'graveyard', ownerId, -1);
@@ -244,7 +273,8 @@ export class FieldState {
 
   sendToFaceUpExtraDeck(cardState, ownerId) {
     if (!cardState) return null;
-    this.transitionCard(cardState, 'extra_deck', ownerId, -1);
+    ownerId = cardState.ownerId || ownerId;
+    this.transitionCard(cardState, 'extra_deck', ownerId, -1, { faceUpExtraDeck: true });
     cardState.isSetFaceDown = false;
     cardState.isFaceUpInExtraDeck = true;
     const destination = ownerId === 'player'
@@ -256,6 +286,12 @@ export class FieldState {
 
   sendToBanished(cardState, ownerId, faceDown = false) {
     if (cardState) {
+      ownerId = cardState.ownerId || ownerId;
+      // Tokens cannot be banished face-down, even as a cost.
+      if (cardState.isToken) return faceDown ? false : this.removeToken(cardState);
+      for (const material of cardState.xyzMaterials.splice(0)) {
+        this.sendToGraveyard(material, material.ownerId);
+      }
       this.transitionCard(cardState, 'banished', ownerId, -1);
       cardState.isSetFaceDown = faceDown;
       if (ownerId === 'player') {
@@ -288,10 +324,7 @@ export class FieldState {
 
     // Tokens cease to exist when leaving the field
     if (card.isToken && (toLocation === 'graveyard' || toLocation === 'hand' || toLocation === 'deck' || toLocation === 'banished' || toLocation === 'extra_deck')) {
-      card.location = 'none';
-      card.zoneIndex = -1;
-      card.controllerId = card.ownerId;
-      return { success: true, ceasedToExist: true };
+      return this.removeToken(card);
     }
 
     // Normalize destination to card owner for Hand, Deck, Extra Deck
@@ -300,5 +333,10 @@ export class FieldState {
     this.transitionCard(card, toLocation, finalPlayer, -1);
 
     return { success: true, finalDestination: toLocation, finalPlayer };
+  }
+
+  removeToken(card) {
+    this.transitionCard(card, 'none', card.ownerId, -1);
+    return { success: true, ceasedToExist: true, destination: 'none', card };
   }
 }
