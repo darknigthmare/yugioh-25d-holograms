@@ -749,11 +749,11 @@ function requestUiDecision(request) {
       'activate-graveyard-effect',
       'activate-trap'
     ].includes(request.type)) {
-      decisionTitle.textContent = 'ACTIVER UN EFFET ?';
+      decisionTitle.textContent = request.title || 'ACTIVER UN EFFET ?';
       const damageText = request.damage ? ` pour éviter ${request.damage} dommages` : '';
-      decisionDescription.textContent = request.card?.name
+      decisionDescription.textContent = request.description || (request.card?.name
         ? `Souhaitez-vous activer l’effet optionnel de ${request.card.name}${damageText} ?`
-        : 'Souhaitez-vous activer cet effet optionnel ?';
+        : 'Souhaitez-vous activer cet effet optionnel ?');
 
       [
         { label: 'OUI, ACTIVER', value: true, className: 'btn btn-magenta' },
@@ -947,7 +947,7 @@ function requestUiDecision(request) {
       decisionCancelBtn.textContent = request.type === 'chain-response'
         ? 'PASSER LA PRIORITÉ'
         : 'UTILISER LE CHOIX CONSEILLÉ';
-      decisionCancelBtn.classList.remove('hidden');
+      decisionCancelBtn.classList.toggle('hidden', request.required === true);
     } else {
       pendingDecisionResolver = null;
       resolve(undefined);
@@ -1265,8 +1265,8 @@ const PREMADE_DECKS = {
       '05053103', '05053103', '05053103', // Battle Ox
       '97590747', '97590747', '97590747', // La Jinn
       '14898066', '14898066', '14898066', // Vorse Raider
-      '66602787', '66602787', '66602787', // Saggi
-      '13039848', '13039848', '13039848', // defensive neutral monster
+      '66602787', '66602787', '26202165', // Saggi and Sangan search support
+      '13039848', '13039848', '54652250', // defensive neutral and Flip destruction
       '48305365', '48305365', '48305365', // Axe Raider
       '49791927', '49791927', '49791927', // Tiger Axe
       '24094653', '24094653', '24094653', // Polymerization
@@ -1275,7 +1275,7 @@ const PREMADE_DECKS = {
       '44095762', '44095762', '44095762', // Mirror Force
       '04206964', '04206964', '04206964', // Trap Hole
       '83764718', // Monster Reborn — Limited 1
-      '88819587', '88819587', '88819587' // neutral Dragon support
+      '88819587', '88819587', '31560081' // Dragon support and Flip spell recovery
     ],
     extra: ['23995346', '84013237', '77637979'],
     side: ['40640057', '71625222', '46986414', '15025844', '70781052']
@@ -1284,10 +1284,10 @@ const PREMADE_DECKS = {
     main: [
       '46986414', '46986414', '46986414', // Dark Magician
       '38033121', '38033121', '38033121', // Dark Magician Girl
-      '40640057', '40640057', '40640057', // Kuriboh
+      '40640057', '40640057', '26202165', // Kuriboh and Sangan search support
       '91152256', '91152256', '91152256', // Celtic Guardian
-      '13039848', '13039848', '13039848', // Giant Soldier of Stone
-      '15025844', '15025844', '15025844', // Mystical Elf
+      '13039848', '13039848', '54652250', // Giant Soldier and Flip destruction
+      '15025844', '15025844', '31560081', // Mystical Elf and Magician of Faith
       '05405694', '05405694', // Black Luster Soldier
       '55761792', '55761792', // Black Luster Ritual
       '94415058', '94415058', // Stargazer Magician
@@ -1310,8 +1310,8 @@ const PREMADE_DECKS = {
       '88819587', '88819587', '88819587', // Baby Dragon
       '48305365', '48305365', '48305365', // Axe Raider
       '64428736', '64428736', '64428736', // Alligator's Sword
-      '44287299', '44287299', '44287299', // Masaki
-      '49791927', '49791927', '49791927', // Tiger Axe
+      '44287299', '44287299', '54652250', // Masaki and Flip destruction
+      '49791927', '49791927', '26202165', // Tiger Axe and Sangan search support
       '05053103', '05053103', '05053103', // Battle Ox
       '91152256', '91152256', '91152256', // warrior support
       '12580477', // Raigeki
@@ -1319,7 +1319,7 @@ const PREMADE_DECKS = {
       '44095762', '44095762', '44095762', // Mirror Force
       '04206964', '04206964', '04206964', // Trap Hole
       '83764718', // Monster Reborn — Limited 1
-      '13039848', '13039848', '13039848' // defensive neutral monster
+      '13039848', '13039848', '31560081' // defensive neutral and Flip spell recovery
     ],
     extra: ['84013237', '77637979'],
     side: ['40640057', '46986414', '38033121', '15025844', '97590747']
@@ -2362,12 +2362,15 @@ function clearSelectedHandCard() {
 
 async function openMonsterActionMenu(zoneReference) {
   if (!game || game.currentTurn !== 'player' || !game.currentPhase.startsWith('main')) return;
-  const entry = game.getMonsterEntry?.('player', zoneReference);
+  const actionGame = game;
+  const entry = actionGame.getMonsterEntry?.('player', zoneReference);
   const card = entry?.card;
-  if (!card || card.isSetFaceDown || game.isResolvingAction) return;
+  if (!card || game.isResolvingAction || game.pendingSummon || game.pendingExtraSummon || game.isDiscarding
+    || game.chain?.chainStatus !== 'idle') return;
+  const sourceInstance = card.runtimeInstanceId;
 
   const availableEffects = game.getAvailableActions?.('player')?.monsterEffects || [];
-  const effectIsAvailable = availableEffects.some(action => (
+  const effectIsAvailable = !card.isSetFaceDown && availableEffects.some(action => (
     action.zoneIndex === entry.zoneIndex
     && (action.zoneType || 'main') === entry.zoneType
   ));
@@ -2375,8 +2378,12 @@ async function openMonsterActionMenu(zoneReference) {
   if (effectIsAvailable) {
     choices.push({ value: 'effect', label: `ACTIVER L’EFFET DE ${card.name.toUpperCase()}` });
   }
-  if (!card.isLinkMonster && card.extra_type !== 'link') {
-    choices.push({ value: 'position', label: 'CHANGER LA POSITION DE COMBAT' });
+  if (!card.isLinkMonster && card.extra_type !== 'link'
+    && card.turnSummoned !== game.turnCount && !card.hasChangedPositionThisTurn
+    && !card.hasAttacked && !(card.attacksDeclaredThisTurn > 0)
+    && !game.hasMonsterAttacked?.(entry)) {
+    choices.push({ value: 'position', label: card.isSetFaceDown
+      ? 'FLIPO-INVOQUER EN POSITION D’ATTAQUE' : 'CHANGER LA POSITION DE COMBAT' });
   }
   if (!choices.length) {
     announceStatus(`${card.name} n’a aucune action manuelle disponible actuellement.`);
@@ -2391,11 +2398,45 @@ async function openMonsterActionMenu(zoneReference) {
     choices
   });
 
+  const currentCard = game?.getMonsterEntry?.('player', zoneReference)?.card;
+  if (game !== actionGame || currentCard !== card || card.runtimeInstanceId !== sourceInstance
+    || game.currentTurn !== 'player' || !game.currentPhase.startsWith('main')
+    || game.isResolvingAction || game.pendingSummon || game.pendingExtraSummon || game.isDiscarding
+    || game.chain?.chainStatus !== 'idle') return;
+
   if (choice === 'effect' && effectIsAvailable) {
     await game.activateMonsterEffect?.(zoneReference, 'player');
   } else if (choice === 'position') {
-    game.toggleMonsterPosition(zoneReference);
+    await game.toggleMonsterPosition(zoneReference);
   }
+}
+
+async function openSetCardActionMenu(zoneType, zoneIndex) {
+  const actionGame = game;
+  if (!actionGame || actionGame.currentTurn !== 'player' || !actionGame.currentPhase.startsWith('main')
+    || actionGame.isResolvingAction || actionGame.pendingSummon || actionGame.pendingExtraSummon
+    || actionGame.isDiscarding || actionGame.chain?.chainStatus !== 'idle') return;
+  const currentCard = () => zoneType === 'field'
+    ? actionGame.playerFieldSpell : actionGame.playerSpells[zoneIndex];
+  const card = currentCard();
+  if (!card?.isSetFaceDown) return;
+  if (card.card_type === 'trap') {
+    announceStatus(`${card.name} s’active dans une fenêtre de réponse correspondant à son effet.`);
+    return;
+  }
+  const sourceInstance = card.runtimeInstanceId;
+  const choice = await requestUiDecision({
+    type: 'set-card-field-action', side: 'player', title: card.name,
+    description: 'L’adversaire pourra répondre à l’activation.',
+    choices: [{ value: 'activate', label: 'ACTIVER FACE RECTO' }]
+  });
+  if (choice !== 'activate' || game !== actionGame || currentCard() !== card
+    || card.runtimeInstanceId !== sourceInstance || !card.isSetFaceDown
+    || actionGame.currentTurn !== 'player' || !actionGame.currentPhase.startsWith('main')
+    || actionGame.isResolvingAction || actionGame.pendingSummon || actionGame.pendingExtraSummon
+    || actionGame.isDiscarding || actionGame.chain?.chainStatus !== 'idle') return;
+  if (zoneType === 'field') await actionGame.activateSetFieldSpell('player');
+  else await actionGame.activateSetSpellTrap(zoneIndex);
 }
 
 // Set up Drop Zones event listeners
@@ -2545,13 +2586,7 @@ document.querySelectorAll('.card-zone').forEach(zone => {
         ? game.playerFieldSpell
         : game.playerSpells[index];
       if (card && card.isSetFaceDown) {
-        if (confirm(`Voulez-vous activer la carte face cachée : ${card.name} ?`)) {
-          if (zoneType === 'field') {
-            await game.activateSetFieldSpell('player');
-          } else {
-            await game.activateSetSpellTrap(index);
-          }
-        }
+        await openSetCardActionMenu(zoneType, index);
         return;
       }
     }
@@ -2684,6 +2719,7 @@ document.addEventListener('click', (e) => {
     !e.target.closest('.card-zone')
     && !e.target.closest('.hand-card-wrapper')
     && !e.target.closest('#btn-next-phase')
+    && !e.target.closest('#btn-toggle-view')
     && !e.target.closest('#extra-deck-modal')
     && !e.target.closest('#action-modal')
     && !e.target.closest('#decision-modal')
@@ -2721,17 +2757,21 @@ function updateBoardZoneAccessibility() {
     const hasVisibleCard = Boolean(zone.querySelector(
       '.card-entity[data-card-visible="true"], .monster-hologram-entity[data-card-visible="true"]'
     ));
+    const hasOwnSetCard = zone.dataset.side === 'player'
+      && Boolean(zone.querySelector('.card-entity[data-card-visible="false"]'));
     const isPlacementTarget = zone.classList.contains('active-zone');
     const isTributeCandidate = zone.classList.contains('tribute-candidate');
     const isTributeSelected = zone.classList.contains('tribute-selected');
     const isAttackTarget = zone.classList.contains('can-target');
     const isAttacker = zone.classList.contains('attacker-active');
     const interactive = hasVisibleCard
+      || hasOwnSetCard
       || isPlacementTarget
       || isTributeCandidate
       || isAttackTarget
       || isAttacker;
     const states = [];
+    if (hasOwnSetCard) states.push('votre carte face verso ; sélectionner pour les actions disponibles');
     if (isPlacementTarget) states.push('destination légale pour la carte sélectionnée');
     if (isTributeCandidate) {
       states.push(isTributeSelected ? 'matériel ou sacrifice sélectionné' : 'matériel ou sacrifice disponible');

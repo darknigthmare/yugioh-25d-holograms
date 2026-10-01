@@ -72,6 +72,14 @@ export function createPublicCombatVisual(event, game, positionResolver = () => u
     kind = 'activate';
     source = zoneRef(owner, event.zoneType, event.zoneIndex);
     card = publicCard(event.card);
+  } else if (['flip-destroy-cinematic', 'spell-recovery-cinematic', 'deck-search-cinematic'].includes(type)) {
+    owner = event.sourceSide || event.target;
+    kind = 'activate';
+    source = zoneRef(owner, event.sourceZoneType, event.sourceZoneIndex);
+    card = publicCard(event.card);
+    target = type === 'flip-destroy-cinematic'
+      ? zoneRef(event.target, event.zoneType, event.zoneIndex)
+      : { owner, direct: true };
   } else if (['activate', 'activate-monster-effect', 'effect-protect', 'raigeki-cinematic', 'mirror-force-cinematic'].includes(type)) {
     kind = ['effect-protect', 'mirror-force-cinematic'].includes(type) ? 'shield' : 'activate';
     source = zoneRef(owner, event.zoneType || (type === 'activate' ? 'spell' : 'main'), event.zoneIndex);
@@ -90,5 +98,17 @@ export function createPublicCombatVisual(event, game, positionResolver = () => u
   };
   const profile = type === 'mystical-space-typhoon-cinematic' ? 'typhoon'
     : type === 'book-of-moon-cinematic' ? 'moon' : undefined;
-  return Object.freeze({ kind, source: locate(source), ...(target ? { target: locate(target) } : {}), ...(card ? { card } : {}), ...(profile ? { profile } : {}) });
+  // Retain public zone coordinates separately from absolute aim points so a
+  // creature can animate without exposing the duel's internal card instance.
+  const sourceRef = source && SIDES.includes(source.owner)
+    && ['main', 'extra'].includes(source.zoneType)
+    && Number.isInteger(source.zoneIndex)
+      ? Object.freeze({ ...source }) : undefined;
+  const targetRef = target && !target.direct && SIDES.includes(target.owner)
+    && ['main', 'extra'].includes(target.zoneType)
+    && Number.isInteger(target.zoneIndex)
+      ? Object.freeze({ ...target }) : undefined;
+  return Object.freeze({ kind, source: locate(source), ...(sourceRef ? { sourceRef } : {}),
+    ...(target ? { target: locate(target) } : {}), ...(targetRef ? { targetRef } : {}),
+    ...(card ? { card } : {}), ...(profile ? { profile } : {}) });
 }

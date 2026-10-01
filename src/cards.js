@@ -154,6 +154,54 @@ export const STARTER_CARDS = [
     timing: { event: "SUMMON_SUCCESS", optional: true }
   },
   {
+    id: "54652250",
+    name: "Insecte Mangeur d'Hommes",
+    name_en: "Man-Eater Bug",
+    type: "Flip Effect Monster",
+    rulesText: "FLIP : Ciblez 1 monstre sur le Terrain ; détruisez-le.",
+    desc: "FLIP : Ciblez 1 monstre sur le Terrain ; détruisez-le.",
+    atk: 450,
+    def: 600,
+    level: 2,
+    race: "Insect",
+    attribute: "EARTH",
+    card_type: "monster",
+    effectCode: "MAN_EATER_BUG_DESTROY",
+    timing: { event: "FLIPPED_FACE_UP", spellSpeed: 1, usableInDamageStep: true, allowedDamageTimings: ["AFTER_DAMAGE_CALCULATION"] }
+  },
+  {
+    id: "31560081",
+    name: "Magicien de la Foi",
+    name_en: "Magician of Faith",
+    type: "Flip Effect Monster",
+    rulesText: "FLIP : Ciblez 1 Magie dans votre Cimetière ; ajoutez la cible à votre main.",
+    desc: "FLIP : Ciblez 1 Magie dans votre Cimetière ; ajoutez la cible à votre main.",
+    atk: 300,
+    def: 400,
+    level: 1,
+    race: "Spellcaster",
+    attribute: "LIGHT",
+    card_type: "monster",
+    effectCode: "MAGICIAN_OF_FAITH_RECOVER",
+    timing: { event: "FLIPPED_FACE_UP", spellSpeed: 1, usableInDamageStep: true, allowedDamageTimings: ["AFTER_DAMAGE_CALCULATION"] }
+  },
+  {
+    id: "26202165",
+    name: "Sangan",
+    name_en: "Sangan",
+    type: "Effect Monster",
+    rulesText: "Si cette carte est envoyée depuis le Terrain au Cimetière : ajoutez 1 monstre avec max. 1500 ATK depuis votre Deck à votre main, mais vous ne pouvez activer ni de cartes ni d'effets de carte de ce nom le reste de ce tour. Vous ne pouvez utiliser cet effet de \"Sangan\" qu'une fois par tour.",
+    desc: "Si cette carte est envoyée depuis le Terrain au Cimetière : ajoutez 1 monstre avec max. 1500 ATK depuis votre Deck à votre main, mais vous ne pouvez activer ni de cartes ni d'effets de carte de ce nom le reste de ce tour. Vous ne pouvez utiliser cet effet de \"Sangan\" qu'une fois par tour.",
+    atk: 1000,
+    def: 600,
+    level: 3,
+    race: "Fiend",
+    attribute: "DARK",
+    card_type: "monster",
+    effectCode: "SANGAN_SEARCH",
+    timing: { event: "SENT_FROM_FIELD_TO_GRAVEYARD", spellSpeed: 1, usableInDamageStep: true, allowedDamageTimings: ["START_OF_DAMAGE_STEP", "BEFORE_DAMAGE_CALCULATION", "DURING_DAMAGE_CALCULATION", "AFTER_DAMAGE_CALCULATION", "END_OF_DAMAGE_STEP"] }
+  },
+  {
     id: "83764718",
     name: "Monster Reborn",
     name_en: "Monster Reborn",
@@ -582,7 +630,8 @@ export const EXTRA_DECK_CARDS = [
     extra_type: "synchro",
     belongsInExtraDeck: true,
     effectCode: "STARDUST_NEGATE_DESTRUCTION",
-    timing: { event: "CHAIN_BUILDING", spellSpeed: 2, optional: true }
+    timing: { event: "CHAIN_BUILDING", spellSpeed: 2, optional: true, usableInDamageStep: true,
+      allowedDamageTimings: ["START_OF_DAMAGE_STEP", "BEFORE_DAMAGE_CALCULATION", "DURING_DAMAGE_CALCULATION", "AFTER_DAMAGE_CALCULATION", "END_OF_DAMAGE_STEP"] }
   },
   {
     id: "31924889",

@@ -87,6 +87,28 @@ function bookResponseTarget(game, request, targets) {
   return null;
 }
 
+function chooseAITriggerTarget(game, request) {
+  const candidates = request.candidates || [];
+  if (request.effect === 'MAN_EATER_BUG_DESTROY') {
+    const enemy = candidates.filter(candidate => candidate.controllerId === ENEMY_SIDE);
+    const visible = enemy.filter(candidate => !candidate.hidden);
+    // Hidden opposing monster statistics and identities are never consulted.
+    if (visible.length) return [...visible].sort((a, b) => (Number(b.atk) || 0) - (Number(a.atk) || 0))[0].uid;
+    if (enemy.length) return enemy[0].uid;
+    // A mandatory Flip effect still targets an own monster when necessary.
+    return [...candidates].sort((a, b) => (Number(a.atk) || 0) - (Number(b.atk) || 0))[0]?.uid || null;
+  }
+  if (request.effect !== 'MAGICIAN_OF_FAITH_RECOVER') return undefined;
+  const priorities = { '83764718': 100, '12580477': 90, '14087893': 80,
+    '05318639': 75, '24094653': 65, '55761792': 60 };
+  const graveyard = game.getSideState(AI_SIDE).graveyard;
+  return candidates.map(candidate => {
+    const card = graveyard.find(entry => String(entry.uid) === String(candidate.uid));
+    return { uid: candidate.uid, score: card
+      ? (priorities[passcode(card)] || 40) + (game.canActivateSpell(card, AI_SIDE) ? 50 : 0) : 0 };
+  }).sort((a, b) => b.score - a.score)[0]?.uid || null;
+}
+
 /** Returns an already legal response UID; easy AI preserves its pass policy. */
 export function chooseAIChainResponse(game, request) {
   if (!game || request?.side !== AI_SIDE || game.aiDifficulty === 'easy') return null;
@@ -122,8 +144,9 @@ export function chooseAIChainResponse(game, request) {
  * with no useful opposing target rather than targeting the AI's own field.
  */
 export function chooseAIResponseTarget(game, request) {
-  if (!game || request?.side !== AI_SIDE
-    || !['select-mst-target', 'select-book-of-moon-target'].includes(request.type)) return undefined;
+  if (!game || request?.side !== AI_SIDE) return undefined;
+  if (request.type === 'select-trigger-target') return chooseAITriggerTarget(game, request);
+  if (!['select-mst-target', 'select-book-of-moon-target'].includes(request.type)) return undefined;
 
   const planned = plannedTargets.get(game);
   if (planned?.type === request.type) plannedTargets.delete(game);

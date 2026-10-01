@@ -558,6 +558,15 @@ for (const runtimeEntry of FIELD_SPELL_RUNTIME_MANIFEST) {
 export const FIELD_SPELL_DEDICATED_BACKDROP_URL_BY_CARD_ID = Object.freeze(
   dedicatedBackdropUrlByCardId
 );
+export const FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE = Object.freeze({
+  count: [...environmentByCardId.values()].filter(
+    environment => environment.geometryProfile.hasDedicatedLandmark
+  ).length,
+  cardIds: Object.freeze([...environmentByCardId.entries()]
+    .filter(([, environment]) => environment.geometryProfile.hasDedicatedLandmark)
+    .map(([cardId]) => cardId)
+    .sort((left, right) => Number(left) - Number(right)))
+});
 export const FIELD_SPELL_DEDICATED_BACKDROP_URLS = Object.freeze(
   Object.values(FIELD_SPELL_DEDICATED_BACKDROP_URL_BY_CARD_ID)
 );

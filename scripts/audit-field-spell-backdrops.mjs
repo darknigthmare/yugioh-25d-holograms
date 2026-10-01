@@ -8,6 +8,7 @@ import {
 } from '../src/ui/FieldSpellIllustrationBriefManifest.js';
 import {
   FIELD_ENVIRONMENT_REGISTRY,
+  FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE,
   getFieldEnvironmentForCardId,
   resolveFieldEnvironmentSelection
 } from '../src/ui/FieldEnvironmentRegistry.js';
@@ -209,4 +210,5 @@ if (errors.length) {
     `${expectedRelativePaths.length} resolved cards select their dedicated backdrop and geometry; `
     + `${familyBackdropPaths.size} family/base backdrops are usable.`
   );
+  console.log(`${FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.count} cards have dedicated physical landmarks.`);
 }

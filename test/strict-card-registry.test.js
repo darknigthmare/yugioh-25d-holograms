@@ -12,11 +12,11 @@ import {
   normalizeStrictCardId
 } from '../src/core/StrictCardRegistry.js';
 
-test('strict registry and local templates cover exactly the same 47 distinct cards', () => {
+test('strict registry and local templates cover exactly the same 50 distinct cards', () => {
   const localIds = new Set([...STARTER_CARDS, ...EXTRA_DECK_CARDS].map(card => normalizeStrictCardId(card.id)));
-  assert.equal(STARTER_CARDS.length, 42);
+  assert.equal(STARTER_CARDS.length, 45);
   assert.equal(EXTRA_DECK_CARDS.length, 5);
-  assert.equal(localIds.size, 47);
+  assert.equal(localIds.size, 50);
   assert.deepEqual(new Set(STRICT_CARD_REGISTRY.keys()), localIds);
 });
 

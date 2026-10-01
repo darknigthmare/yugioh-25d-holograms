@@ -5,7 +5,8 @@ import { clearFieldSpellActivation } from './FieldSpellRules.js';
  * Graveyards, Banished cards, and Field Spells.
  */
 export class FieldState {
-  constructor() {
+  constructor({ onTransition = null } = {}) {
+    this.onTransition = typeof onTransition === 'function' ? onTransition : null;
     this.reset();
   }
 
@@ -32,6 +33,7 @@ export class FieldState {
 
     this.playerBanished = [];
     this.opponentBanished = [];
+    this._transitionSnapshots = new WeakMap();
   }
 
   getMonsterZone(controllerId, index) {
@@ -102,6 +104,13 @@ export class FieldState {
 
   transitionCard(cardState, destination, controllerId, zoneIndex = -1, options = {}) {
     if (!cardState) return false;
+    const previous = Object.freeze({
+      location: cardState.location,
+      controllerId: cardState.controllerId,
+      zoneIndex: cardState.zoneIndex,
+      runtimeInstanceId: cardState.runtimeInstanceId,
+      isSetFaceDown: cardState.isSetFaceDown
+    });
     const monsterZones = ['monster_zone', 'extra_monster_zone'];
     const remainsMonster = monsterZones.includes(cardState.location)
       && monsterZones.includes(destination);
@@ -120,7 +129,25 @@ export class FieldState {
     cardState.location = destination;
     cardState.zoneIndex = zoneIndex;
     cardState.controllerId = controllerId;
+    if (changesZone || previous.controllerId !== controllerId) {
+      this._transitionSnapshots.set(cardState, Object.freeze({
+        card: cardState,
+        from: previous,
+        to: Object.freeze({
+          location: destination, controllerId, zoneIndex,
+          runtimeInstanceId: cardState.runtimeInstanceId,
+          isSetFaceDown: cardState.isSetFaceDown
+        })
+      }));
+      if (options.deferNotification !== true) this.notifyTransition(cardState);
+    }
     return true;
+  }
+
+  notifyTransition(cardState) {
+    const event = this._transitionSnapshots.get(cardState);
+    this._transitionSnapshots.delete(cardState);
+    if (event && this.onTransition) this.onTransition(event);
   }
 
   setMonsterZone(controllerId, index, cardState) {
@@ -131,12 +158,13 @@ export class FieldState {
       else this.opponentMonsterZones[index] = null;
       return true;
     }
-    this.transitionCard(cardState, 'monster_zone', controllerId, index);
+    this.transitionCard(cardState, 'monster_zone', controllerId, index, { deferNotification: true });
     if (controllerId === 'player') {
       this.playerMonsterZones[index] = cardState;
     } else {
       this.opponentMonsterZones[index] = cardState;
     }
+    this.notifyTransition(cardState);
     return true;
   }
 
@@ -152,8 +180,9 @@ export class FieldState {
       this.extraMonsterZones[index] = null;
       return true;
     }
-    this.transitionCard(cardState, 'extra_monster_zone', controllerId, index);
+    this.transitionCard(cardState, 'extra_monster_zone', controllerId, index, { deferNotification: true });
     this.extraMonsterZones[index] = { card: cardState, controllerId };
+    this.notifyTransition(cardState);
     return true;
   }
 
@@ -193,12 +222,13 @@ export class FieldState {
       else this.opponentSpellZones[index] = null;
       return true;
     }
-    this.transitionCard(cardState, 'spell_zone', controllerId, index);
+    this.transitionCard(cardState, 'spell_zone', controllerId, index, { deferNotification: true });
     if (controllerId === 'player') {
       this.playerSpellZones[index] = cardState;
     } else {
       this.opponentSpellZones[index] = cardState;
     }
+    this.notifyTransition(cardState);
     return true;
   }
 
@@ -228,12 +258,13 @@ export class FieldState {
       );
     }
 
-    this.transitionCard(cardState, 'field_zone', controllerId, 0);
+    this.transitionCard(cardState, 'field_zone', controllerId, 0, { deferNotification: true });
     if (controllerId === 'player') {
       this.playerFieldSpellZone = cardState;
     } else {
       this.opponentFieldSpellZone = cardState;
     }
+    this.notifyTransition(cardState);
     return true;
   }
 
@@ -260,12 +291,13 @@ export class FieldState {
       if (cardState.isPendulumMonster && cameFromField && !negatedPendulumActivation) {
         return this.sendToFaceUpExtraDeck(cardState, ownerId);
       }
-      this.transitionCard(cardState, 'graveyard', ownerId, -1);
+      this.transitionCard(cardState, 'graveyard', ownerId, -1, { deferNotification: true });
       if (ownerId === 'player') {
         if (!this.playerGraveyard.includes(cardState)) this.playerGraveyard.push(cardState);
       } else {
         if (!this.opponentGraveyard.includes(cardState)) this.opponentGraveyard.push(cardState);
       }
+      this.notifyTransition(cardState);
       return { destination: 'graveyard', card: cardState };
     }
     return null;
@@ -274,13 +306,14 @@ export class FieldState {
   sendToFaceUpExtraDeck(cardState, ownerId) {
     if (!cardState) return null;
     ownerId = cardState.ownerId || ownerId;
-    this.transitionCard(cardState, 'extra_deck', ownerId, -1, { faceUpExtraDeck: true });
+    this.transitionCard(cardState, 'extra_deck', ownerId, -1, { faceUpExtraDeck: true, deferNotification: true });
     cardState.isSetFaceDown = false;
     cardState.isFaceUpInExtraDeck = true;
     const destination = ownerId === 'player'
       ? this.playerFaceUpExtraDeck
       : this.opponentFaceUpExtraDeck;
     if (!destination.includes(cardState)) destination.push(cardState);
+    this.notifyTransition(cardState);
     return { destination: 'extra_deck_face_up', card: cardState };
   }
 
@@ -292,13 +325,14 @@ export class FieldState {
       for (const material of cardState.xyzMaterials.splice(0)) {
         this.sendToGraveyard(material, material.ownerId);
       }
-      this.transitionCard(cardState, 'banished', ownerId, -1);
+      this.transitionCard(cardState, 'banished', ownerId, -1, { deferNotification: true });
       cardState.isSetFaceDown = faceDown;
       if (ownerId === 'player') {
         if (!this.playerBanished.includes(cardState)) this.playerBanished.push(cardState);
       } else {
         if (!this.opponentBanished.includes(cardState)) this.opponentBanished.push(cardState);
       }
+      this.notifyTransition(cardState);
     }
   }
 

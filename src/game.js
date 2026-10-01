@@ -13,6 +13,19 @@ import { TurnEngine } from './core/TurnEngine.js';
 import { DefensiveEngine } from './core/DefensiveEngine.js';
 import { calculateBattleOutcome, snapshotBattleField, hasBattleFieldChanged } from './core/BattleEngine.js';
 import { CardScriptAPI } from './core/CardScriptAPI.js';
+import { TriggerEventEngine } from './core/TriggerEventEngine.js';
+import {
+  chooseAINormalSummonPlan,
+  chooseAIMonsterPosition,
+  chooseAIAttackTarget as chooseStrategicAIAttackTarget,
+  scoreAIFieldSpell,
+  chooseAIHandDiscard
+} from './content/AIStrategy.js';
+import {
+  getScriptedTriggerDescriptors,
+  getScriptedMonsterEffectTargets,
+  resolveScriptedMonsterEffect
+} from './core/ClassicMonsterEffectScripts.js';
 import { isStrictCardSupported } from './core/StrictCardRegistry.js';
 import {
   hasResolvedFieldSpellActivation,
@@ -48,7 +61,8 @@ export class DuelGame {
       ...callbacks
     };
 
-    this.field = new FieldState();
+    this.triggers = new TriggerEventEngine();
+    this.field = new FieldState({ onTransition: event => this.handleFieldTransition(event) });
     this.chain = new ChainEngine();
     this.phases = new PhaseEngine();
     this.summons = new SummonEngine(this.field);
@@ -68,6 +82,8 @@ export class DuelGame {
   reset() {
     this.cancelPendingAsyncWork();
     this._duelGeneration += 1;
+    this.triggers.reset();
+    this._flushingScriptedTriggersGeneration = null;
     this._fieldSpellActivationSequence = 0;
     this.playerLP = 8000;
     this.opponentLP = 8000;
@@ -149,6 +165,8 @@ export class DuelGame {
 
   chooseAIAttackTarget(attacker, targets) {
     if (!attacker || !targets?.length) return null;
+    const strategic = chooseStrategicAIAttackTarget(this, attacker, targets);
+    if (strategic !== undefined) return strategic;
     const visibleStat = target => {
       if (target.card.isSetFaceDown) {
         // The AI must not inspect private DEF; hard mode uses a conservative
@@ -733,7 +751,8 @@ export class DuelGame {
         return false;
       } else {
         for (let i = 0; i < cardsToDiscard; i++) {
-          const card = this.opponentHand.pop();
+          const card = chooseAIHandDiscard(this, this.opponentHand) || this.opponentHand.at(-1);
+          this.opponentHand.splice(this.opponentHand.indexOf(card), 1);
           this.field.sendToGraveyard(card, 'opponent');
           this.log(`L'adversaire se défausse de **${card.name}** pour la limite de main.`, 'opponent');
           this.callbacks.onAnimation({ type: 'lp-loss', target: 'opponent', damage: 0 });
@@ -760,6 +779,7 @@ export class DuelGame {
     if (this.playerHand.length <= this.turn.handLimit) {
       this.isDiscarding = false;
       this.log("Limite de main respectée. Fin du tour.", "system");
+      this.stateChanged();
 
       this.scheduleAction(() => {
         this.phases.currentTurnOwner = 'opponent';
@@ -773,34 +793,44 @@ export class DuelGame {
     return true;
   }
 
-  checkAutoPass() {
-    if (this.currentTurn !== 'player') return;
-
-    const hasPlayableCard = this.playerHand.some(card => {
-      if (card.card_type === 'monster') {
-        return !this.normalSummonedThisTurn && this.playerMonsters.some(m => m === null);
-      }
-      if (isFieldSpellCard(card)) {
-        return this.rulesMode === 'sandbox'
-          || this.isStrictlySupportedMainDeckCard(card);
-      }
-      return this.playerSpells.some(s => s === null);
-    });
-
-    const canChangePosition = this.getMonsterEntries('player')
-      .some(({ card }) => !card.isLinkMonster && card.extra_type !== 'link');
-    let canAttack = false;
+  hasAvailablePlayerAction() {
     if (this.currentPhase === 'battle') {
-      canAttack = this.getMonsterEntries('player').some(entry => (
+      return this.getLegalChainCandidates('player').length > 0
+        || this.getMonsterEntries('player').some(entry => (
         entry.card.position !== 'defense'
         && !entry.card.isSetFaceDown
         && !this.hasMonsterAttacked(entry)
+        && !this.defense.isActionProhibited('player', 'DECLARE_ATTACK', entry.card)
       ));
     }
+    if (!this.currentPhase.startsWith('main')) return true;
+    const actions = this.getAvailableActions('player');
+    if (actions.canNormalSummon || actions.canPendulumSummon || actions.activatableSpellUids.length
+      || actions.monsterEffects.length || actions.fusionExtraUids.length || actions.synchroExtraUids.length
+      || actions.xyzExtraUids.length || actions.linkExtraUids.length) return true;
+    if (this.playerSpells.some(card => card?.isSetFaceDown && card.card_type === 'spell'
+      && (this.chain.getSpellSpeed(card) !== 2 || card.turnSet < this.turnCount)
+      && this.canActivateSpell(card, 'player'))) return true;
+    if (this.getFieldSpellForSide('player')?.isSetFaceDown
+      && this.canActivateSpell(this.getFieldSpellForSide('player'), 'player')) return true;
+    if (this.playerHand.some(card => ['spell', 'trap'].includes(card.card_type)
+      && (isFieldSpellCard(card) || this.playerSpells.includes(null)))) return true;
+    return this.getMonsterEntries('player').some(({ card }) => (
+      !card.isLinkMonster && card.extra_type !== 'link'
+      && card.turnSummoned !== this.turnCount && !card.hasChangedPositionThisTurn
+      && !card.hasAttacked && card.attacksDeclaredThisTurn === 0
+    ));
+  }
 
-    if (!hasPlayableCard && !canChangePosition && !canAttack && !this.isResolvingAction && !this.pendingSummon) {
+  checkAutoPass() {
+    if (this.currentTurn !== 'player') return;
+    const phase = this.currentPhase;
+    const turnCount = this.turnCount;
+    if (!this.hasAvailablePlayerAction() && !this.isResolvingAction && !this.pendingSummon) {
       this.scheduleAction(async () => {
-        if (this.isResolvingAction || this.pendingSummon || this.pendingExtraSummon || this.isDiscarding) return;
+        if (this.currentTurn !== 'player' || this.currentPhase !== phase || this.turnCount !== turnCount
+          || this.isResolvingAction || this.pendingSummon || this.pendingExtraSummon || this.isDiscarding
+          || this.hasAvailablePlayerAction()) return;
         if (this.currentPhase === 'main1' && this.turnCount > 1) {
           this.log("Système : Aucune action disponible. Entrée en Phase de Combat.", "system");
           await this.changePhase('battle');
@@ -816,7 +846,7 @@ export class DuelGame {
   }
 
   async toggleMonsterPosition(zoneReference, target = 'player') {
-    if (this.currentTurn !== 'player' || !this.currentPhase.startsWith('main') || this.isResolvingAction || this.pendingSummon || this.isDiscarding) return;
+    if (target !== 'player' || this.currentTurn !== 'player' || !this.currentPhase.startsWith('main') || this.isResolvingAction || this.pendingSummon || this.isDiscarding) return;
 
     const entry = this.getMonsterEntry(target, zoneReference);
     const card = entry?.card;
@@ -846,17 +876,12 @@ export class DuelGame {
     }
 
     if (card.isSetFaceDown) {
-      card.isSetFaceDown = false;
+      this.revealMonsterFaceUp(card, target, entry);
       card.position = 'attack';
       card.hasChangedPositionThisTurn = true;
       this.log(`Vous Flipo-Invoquez **${card.name}** en Position d'Attaque !`, 'player');
       this.emitMonsterAnimation('flip-summon', target, entry, { card });
-      if (entry.zoneType === 'main') {
-        await this.resolveSummonSuccessEvent(card, target, entry, {
-          summonType: 'flip',
-          includeJunk: false
-        });
-      }
+      await this.resolveSummonSuccessEvent(card, target, entry, { summonType: 'flip', includeJunk: false });
     } else {
       card.position = card.position === 'defense' ? 'attack' : 'defense';
       card.hasChangedPositionThisTurn = true;
@@ -1114,6 +1139,8 @@ export class DuelGame {
         zoneType: 'main',
         zoneIndex: summonState.zoneIndex
       }, { summonType: 'normal' });
+    } else {
+      await this.flushScriptedTriggers();
     }
     this.isResolvingAction = false;
     this.callbacks.onAnimation({ type: 'tribute-selection-clear' });
@@ -1579,6 +1606,7 @@ export class DuelGame {
       position: resolvedPosition
     });
     this.handleSynchroSummoned(card, side, summonType);
+    this.queueScriptedTriggerEvent(card, 'SUMMON_SUCCESS', { summonType, controllerId: side });
     return destination;
   }
 
@@ -1625,6 +1653,7 @@ export class DuelGame {
       position: resolvedPosition
     });
     this.handleSynchroSummoned(card, side, summonType);
+    this.queueScriptedTriggerEvent(card, 'SUMMON_SUCCESS', { summonType, controllerId: side });
     return destination;
   }
 
@@ -1638,7 +1667,8 @@ export class DuelGame {
   }
 
   async buildJunkSynchronSummonTrigger(card, side, zoneIndex) {
-    if (!card || String(card.id) !== '63977008' || card.effectNegated) return false;
+    if (!card || String(card.id) !== '63977008') return false;
+    const sourceInstance = card.runtimeInstanceId;
     const state = this.getSideState(side);
     const candidates = state.graveyard.filter(candidate => (
       candidate.card_type === 'monster'
@@ -1647,6 +1677,7 @@ export class DuelGame {
       && this.canSpecialSummonFromGrave(candidate)
     ));
     if (!candidates.length || !state.monsters.some(monster => monster === null)) return false;
+    const targetInstances = new Map(candidates.map(target => [target, target.runtimeInstanceId]));
 
     const activate = await this.requestDecision({
       type: 'activate-monster-effect',
@@ -1663,7 +1694,11 @@ export class DuelGame {
       candidates,
       cards => [...cards].sort((a, b) => b.getAtk() - a.getAtk())[0]
     );
-    if (!target) return false;
+    if (!target || !this.getMonsterEntries(side).some(entry => entry.card === card)
+      || card.isSetFaceDown || card.runtimeInstanceId !== sourceInstance
+      || card.controllerId !== side || !state.graveyard.includes(target)
+      || target.runtimeInstanceId !== targetInstances.get(target)
+      || this.defense.isActionProhibited(side, 'ACTIVATE_EFFECT', card)) return false;
     const targetUid = target.uid;
     const targetRuntimeInstanceId = target.runtimeInstanceId;
 
@@ -1722,6 +1757,245 @@ export class DuelGame {
     }, { summonType: 'normal' });
   }
 
+  handleFieldTransition(transition) {
+    if (!transition || this._duelEnded) return;
+    const { card, from, to } = transition;
+    if (to.location === 'graveyard'
+      && ['monster_zone', 'extra_monster_zone', 'spell_zone', 'pendulum_zone', 'field_zone'].includes(from.location)) {
+      this.queueScriptedTriggerEvent(card, 'SENT_FROM_FIELD_TO_GRAVEYARD', {
+        from, to,
+        controllerId: card.ownerId || to.controllerId,
+        sourceSide: from.controllerId,
+        sourceZoneType: from.location === 'extra_monster_zone' ? 'extra' : 'main',
+        sourceZoneIndex: from.zoneIndex
+      });
+    }
+  }
+
+  revealMonsterFaceUp(card, side, entry, { byBattle = false } = {}) {
+    if (!card?.isSetFaceDown || !entry || this.getMonsterEntry(side, entry)?.card !== card) return false;
+    card.isSetFaceDown = false;
+    this.queueScriptedTriggerEvent(card, 'FLIPPED_FACE_UP', {
+      controllerId: side, byBattle,
+      boundary: byBattle ? 'after_calc' : 'immediate',
+      sourceSide: side, sourceZoneType: entry.zoneType, sourceZoneIndex: entry.zoneIndex
+    });
+    return true;
+  }
+
+  /** Effects that reveal several monsters queue the complete simultaneous set. */
+  async flipMonstersFaceUp(cards, { position = null } = {}) {
+    const generation = this._duelGeneration;
+    const flipped = [];
+    for (const card of cards || []) {
+      const side = card.controllerId;
+      const entry = this.getMonsterEntries(side).find(value => value.card === card);
+      if (!this.revealMonsterFaceUp(card, side, entry)) continue;
+      if (position === 'attack' || position === 'defense') card.position = position;
+      this.emitMonsterAnimation('flip-summon', side, entry, { card, byEffect: true });
+      flipped.push(card);
+    }
+    if (this.chain.chainStatus === 'idle') await this.flushScriptedTriggers();
+    if (!this.isDuelGenerationCurrent(generation)) return [];
+    this.stateChanged();
+    return flipped;
+  }
+
+  getMonsterTriggerDescriptors(card, event) {
+    const descriptors = [...getScriptedTriggerDescriptors(card, event)];
+    const script = this.scriptApi.getScript(scriptCardId(card)) || this.scriptApi.getScript(String(card.id));
+    for (const descriptor of script?.triggerEffects || []) {
+      if (descriptor.eventType === event.type) descriptors.push(descriptor);
+    }
+    if (scriptCardId(card) === '63977008' && event.type === 'SUMMON_SUCCESS'
+      && event.summonType === 'normal' && event.includeJunk !== false) {
+      descriptors.push({
+        effectId: 'JUNK_SYNCHRON_REVIVE', kind: 'junk-synchron',
+        mandatory: false, spellSpeed: 1, requiresTarget: true
+      });
+    }
+    return descriptors;
+  }
+
+  queueScriptedTriggerEvent(card, type, details = {}) {
+    if (!card || this.winner || this._duelEnded) return null;
+    const event = {
+      ...details, type, card,
+      sourceSide: details.sourceSide || card.controllerId,
+      sourceZoneType: details.sourceZoneType || (card.location === 'extra_monster_zone' ? 'extra' : 'main'),
+      sourceZoneIndex: details.sourceZoneIndex ?? card.zoneIndex
+    };
+    if (!this.getMonsterTriggerDescriptors(card, event).length) return null;
+    return this.triggers.enqueue(card, type, event);
+  }
+
+  isTriggerSourceAvailable(candidate) {
+    const { card, event, descriptor, controllerId } = candidate;
+    if (this.winner || this._duelEnded || card.uid !== event.sourceUid || card.runtimeInstanceId !== event.sourceRuntimeInstanceId
+      || card.location !== event.sourceLocation || card.controllerId !== controllerId) return false;
+    if (['monster_zone', 'extra_monster_zone'].includes(card.location)) {
+      if (card.isSetFaceDown || !this.getMonsterEntries(controllerId).some(entry => entry.card === card)) return false;
+    } else if (card.location === 'graveyard') {
+      if (!this.getSideState(controllerId).graveyard.includes(card)) return false;
+    } else return false;
+    if (this.defense.isActionProhibited(controllerId, 'ACTIVATE_EFFECT', card)) return false;
+    if (descriptor.hardOncePerTurn && this.effects.hasUsedHOPT(
+      descriptor.canonicalName || card.name_en || card.name,
+      this.turnCount, { playerId: controllerId, effectId: descriptor.effectId }
+    )) return false;
+    return true;
+  }
+
+  isTriggerTargetStillValid(context) {
+    const target = context.targetCard;
+    if (!target || target.runtimeInstanceId !== context.targetRuntimeInstanceId
+      || String(target.uid) !== String(context.targetUid)) return false;
+    if (['monster_zone', 'extra_monster_zone'].includes(context.targetLocation)) {
+      return ['player', 'opponent'].some(side => this.getMonsterEntries(side).some(entry => entry.card === target));
+    }
+    if (context.targetLocation === 'graveyard') {
+      return ['player', 'opponent'].some(side => this.getSideState(side).graveyard.includes(target));
+    }
+    return target.location === context.targetLocation;
+  }
+
+  getTriggerTargets(candidate) {
+    if (typeof candidate.descriptor.getTargets === 'function') {
+      return candidate.descriptor.getTargets(this, candidate.card, candidate.controllerId, candidate.event);
+    }
+    return getScriptedMonsterEffectTargets(this, candidate.card, candidate.controllerId, candidate.descriptor);
+  }
+
+  /** Append all four SEGOC groups before offering any Fast Effect response. */
+  async appendPendingScriptedTriggers(boundary = 'immediate') {
+    if (this.chain.chainStatus === 'resolving') return [];
+    const generation = this._duelGeneration;
+    const events = this.triggers.takeReadyEvents(boundary);
+    const candidates = events.flatMap(event => this.getMonsterTriggerDescriptors(event.card, event)
+      .map(descriptor => ({
+        card: event.card, event, descriptor, controllerId: event.controllerId,
+        mandatory: descriptor.mandatory !== false,
+        key: `trigger:${event.eventId}:${descriptor.effectId}`
+      })));
+    const links = [];
+    for (const group of this.triggers.getSEGOCGroups(candidates, this.currentTurn)) {
+      const remaining = [...group.candidates];
+      while (remaining.length && this.isDuelGenerationCurrent(generation) && !this._duelEnded) {
+        const legal = remaining.filter(candidate => this.isTriggerSourceAvailable(candidate));
+        if (!legal.length) break;
+        let candidate = legal[0];
+        if (legal.length > 1) {
+          const decision = await this.requestDecision({
+            type: 'order-trigger-effects', side: group.controllerId,
+            title: "ORDRE DES EFFETS DÉCLENCHÉS",
+            description: "Choisissez le prochain effet à placer sur la Chaîne.",
+            required: true, mandatory: group.mandatory,
+            choices: legal.map(effect => ({
+              value: effect.key,
+              label: `${effect.card.name} — Zone ${effect.event.sourceZoneType === 'extra' ? 'Extra ' : ''}${effect.event.sourceZoneIndex + 1}`,
+              effectId: effect.descriptor.effectId
+            }))
+          }, candidate.key);
+          if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) return links;
+          candidate = legal.find(effect => effect.key === decision) || candidate;
+        }
+        remaining.splice(remaining.indexOf(candidate), 1);
+        if (!this.isTriggerSourceAvailable(candidate)) continue;
+        const { card, event, descriptor, controllerId: side } = candidate;
+        if (descriptor.kind === 'junk-synchron') {
+          const link = await this.buildJunkSynchronSummonTrigger(card, side, card.zoneIndex);
+          if (!this.isDuelGenerationCurrent(generation)) return links;
+          if (link) links.push(link);
+          continue;
+        }
+        if (!candidate.mandatory) {
+          const activate = await this.requestDecision({
+            type: 'activate-monster-effect', effect: descriptor.effectId, side,
+            card: { uid: card.uid, id: card.id, name: card.name }, optional: true
+          }, true);
+          if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) return links;
+          if (!activate || !this.isTriggerSourceAvailable(candidate)) continue;
+        }
+        let target = null;
+        if (descriptor.requiresTarget) {
+          const targets = this.getTriggerTargets(candidate);
+          const instances = new Map(targets.map(value => [value, value.runtimeInstanceId]));
+          if (!targets.length) continue;
+          target = await this.chooseCard('select-trigger-target', side, targets,
+            cards => cards.find(value => value.controllerId !== side) || cards[0], {
+              required: candidate.mandatory, effect: descriptor.effectId,
+              sourceCard: { uid: card.uid, id: card.id, name: card.name }
+            });
+          if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) return links;
+          if (!target && candidate.mandatory) target = targets.find(value => (
+            instances.get(value) === value.runtimeInstanceId && this.getTriggerTargets(candidate).includes(value)
+          ));
+          if (!target || instances.get(target) !== target.runtimeInstanceId
+            || !this.getTriggerTargets(candidate).includes(target)) continue;
+        }
+        if (!this.isTriggerSourceAvailable(candidate)) continue;
+        if (descriptor.hardOncePerTurn) this.effects.registerHOPT(
+          descriptor.canonicalName || card.name_en || card.name,
+          this.turnCount, { playerId: side, effectId: descriptor.effectId }
+        );
+        const context = {
+          event: 'scripted-trigger', triggerEvent: event.type,
+          effectId: descriptor.effectId, descriptor, triggerSnapshot: event,
+          sourceRuntimeInstanceId: event.sourceRuntimeInstanceId,
+          sourceSide: event.sourceSide, sourceZoneType: event.sourceZoneType,
+          sourceZoneIndex: event.sourceZoneIndex,
+          wouldDestroy: descriptor.kind === 'destroy-monster',
+          targetCard: target, targetUid: target?.uid,
+          targetRuntimeInstanceId: target?.runtimeInstanceId, targetLocation: target?.location
+        };
+        const link = this.chain.pushChainLink(side, card, target ? [target] : [], {
+          spellSpeed: descriptor.spellSpeed || 1,
+          context,
+          resolver: async () => typeof descriptor.resolve === 'function'
+            ? descriptor.resolve(this, card, side, context)
+            : resolveScriptedMonsterEffect(this, card, side, context)
+        });
+        links.push(link);
+        this.callbacks.onAnimation({
+          type: 'activate-monster-effect', target: event.sourceSide,
+          card, zoneType: event.sourceZoneType, zoneIndex: event.sourceZoneIndex
+        });
+        this.callbacks.onAnimation({ type: 'chain-pop', card, linkNumber: link.id });
+      }
+    }
+    return links;
+  }
+
+  async flushScriptedTriggers(boundary = 'immediate') {
+    const generation = this._duelGeneration;
+    if (this._flushingScriptedTriggersGeneration === generation || this.chain.chainStack.length
+      || this.chain.chainStatus !== 'idle') return false;
+    const previousLock = this.isResolvingAction;
+    this._flushingScriptedTriggersGeneration = generation;
+    this.isResolvingAction = true;
+    try {
+      while (this.triggers.hasReadyEvents(boundary) && this.isDuelGenerationCurrent(generation)
+        && !this.winner && !this._duelEnded) {
+        const links = await this.appendPendingScriptedTriggers(boundary);
+        if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) return false;
+        if (!links.length) continue;
+        const lastLink = this.chain.getLastLink();
+        await this.openChainResponseWindow(this.getOpponentSide(lastLink.activatingPlayerId), {
+          ...lastLink.context, timingEvent: 'SCRIPTED_TRIGGER'
+        });
+        if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) return false;
+        if (!(await this.resolveChainStack({ openPostChainWindow: false }))) return false;
+        this.isResolvingAction = true;
+      }
+      return this.isDuelGenerationCurrent(generation) && !this._duelEnded;
+    } finally {
+      if (this.isDuelGenerationCurrent(generation)) {
+        this._flushingScriptedTriggersGeneration = null;
+        this.isResolvingAction = previousLock;
+      }
+    }
+  }
+
   async resolveProcedureSummonWindow(card, side, summonType) {
     // A Summon during an effect never interrupts the resolving Chain. Its
     // response opportunity belongs to the state after the complete Chain.
@@ -1746,17 +2020,16 @@ export class DuelGame {
 
     const previousLock = this.isResolvingAction;
     this.isResolvingAction = true;
-    const links = [];
-    if (includeJunk && summonType === 'normal') {
-      const junkLink = await this.buildJunkSynchronSummonTrigger(
-        summonedCard,
-        summoningSide,
-        entry.zoneIndex
-      );
-      if (!this.isDuelGenerationCurrent(generation)) {
-        return { event: 'SUMMON_SUCCESS', activated: false, resolved: false, links: [] };
-      }
-      if (junkLink) links.push(junkLink);
+    // Special Summon helpers record the event synchronously, including during
+    // a resolving Chain. Its later procedure window must not enqueue it twice.
+    if (!this.triggers.events.some(event => event.type === 'SUMMON_SUCCESS'
+      && event.card === summonedCard && event.sourceRuntimeInstanceId === summonedCard.runtimeInstanceId
+      && event.summonType === summonType)) {
+      this.queueScriptedTriggerEvent(summonedCard, 'SUMMON_SUCCESS', { summonType, includeJunk, controllerId: summoningSide });
+    }
+    const links = await this.appendPendingScriptedTriggers();
+    if (!this.isDuelGenerationCurrent(generation)) {
+      return { event: 'SUMMON_SUCCESS', activated: false, resolved: false, links: [] };
     }
     if (summonType === 'normal' || summonType === 'flip') {
       const trapLink = await this.resolveTrapHoleOnSummon(
@@ -2281,6 +2554,7 @@ export class DuelGame {
         String(entry.card.id) === '94415058'
         && entry.card !== returnedCard
         && !entry.card.effectNegated
+        && !this.defense.isActionProhibited(side, 'ACTIVATE_EFFECT', entry.card)
         && entry.card.effectUsage.stargazerReturnTurn !== this.turnCount
       ));
     const candidates = state.hand.filter(card => (
@@ -2329,6 +2603,7 @@ export class DuelGame {
     const handIndex = state.hand.indexOf(target);
     if (
       currentStargazer?.card !== stargazerEntry.card
+      || this.defense.isActionProhibited(side, 'ACTIVATE_EFFECT', stargazerEntry.card)
       || handIndex === -1
       || !destination
       || state.monsters[destination.zoneIndex] !== null
@@ -2399,7 +2674,8 @@ export class DuelGame {
     const state = this.getSideState(side);
     const cardIndex = state.hand.findIndex(card => card.uid === handCardUid);
     const card = state.hand[cardIndex];
-    if (!card?.isPendulumMonster || state.spells[zoneIndex] !== null) return false;
+    if (!card?.isPendulumMonster || state.spells[zoneIndex] !== null
+      || this.defense.isActionProhibited(side, 'ACTIVATE_EFFECT', card)) return false;
     if (
       card.pendulumActivationRequiresEmptyMonsterField
       && this.getMonsterEntries(side).length > 0
@@ -3287,7 +3563,9 @@ export class DuelGame {
       });
     }
 
-    if (context.wouldDestroy && !inDamageStep) {
+    // Activation-negating Quick Effects such as Stardust's are permitted in
+    // the Damage Step, including a response to a destructive Flip effect.
+    if (context.wouldDestroy) {
       this.getMonsterEntries(side).forEach(({ card, zoneIndex, zoneType }) => {
         if (
           card
@@ -3312,6 +3590,8 @@ export class DuelGame {
     const previousLock = this.isResolvingAction;
     this.isResolvingAction = true;
     try {
+      if (this._flushingScriptedTriggersGeneration !== generation && this.triggers.hasReadyEvents()
+        && !(await this.flushScriptedTriggers())) return false;
       // After a Chain resolves, the turn player gets the first Fast Effect
       // opportunity again. One Chain does not automatically finish a phase.
       while (this.isDuelGenerationCurrent(generation) && !this._duelEnded) {
@@ -3466,6 +3746,7 @@ export class DuelGame {
       || !entry
       || entry.card !== stardust
       || !['monster_zone', 'extra_monster_zone'].includes(stardust.location)
+      || this.defense.isActionProhibited(side, 'ACTIVATE_EFFECT', stardust)
     ) return false;
 
     // Tributing Stardust is the activation cost, before priority passes again.
@@ -3685,7 +3966,11 @@ export class DuelGame {
     // A resolved effect can create new valid Fast Effect targets (notably a
     // monster revived by Monster Reborn). Give both players their response
     // before allowing an Ignition Effect, another Summon, or an attack.
-    if (completed && openPostChainWindow && this.isDuelGenerationCurrent(generation)
+    if (completed && this.isDuelGenerationCurrent(generation) && !this.winner && !this._duelEnded
+      && this._flushingScriptedTriggersGeneration !== generation && this.triggers.hasReadyEvents()) {
+      completed = await this.flushScriptedTriggers();
+    }
+    if (completed && openPostChainWindow && this._flushingScriptedTriggersGeneration !== generation && this.isDuelGenerationCurrent(generation)
       && !this.winner && !this._duelEnded
       && ['player', 'opponent'].some(side => this.getLegalChainCandidates(side, { event: 'CHAIN_RESOLVED' }).length)) {
       completed = await this.resolveFastEffectWindow({ event: 'CHAIN_RESOLVED' });
@@ -4154,6 +4439,7 @@ export class DuelGame {
         if (!activate) continue;
         const stillEligible = () => this.isDuelGenerationCurrent(generation)
           && !this.winner && !this._duelEnded
+          && !this.defense.isActionProhibited(side, 'ACTIVATE_EFFECT', stardust)
           && state.graveyard.includes(stardust)
           && stardust.runtimeInstanceId === sourceInstance;
         if (!stillEligible()) continue;
@@ -4374,6 +4660,7 @@ export class DuelGame {
       || String(defender.id) !== '84013237'
       || defender.isSetFaceDown
       || defender.effectNegated
+      || this.defense.isActionProhibited(defendingSide, 'ACTIVATE_EFFECT', defender)
       || !Array.isArray(defender.xyzMaterials)
       || defender.xyzMaterials.length !== 0
     ) return null;
@@ -4438,6 +4725,7 @@ export class DuelGame {
         .filter(({ card }) => (
           String(card.id) === '84013237'
           && !card.effectNegated
+          && !this.defense.isActionProhibited(side, 'ACTIVATE_EFFECT', card)
           && Array.isArray(card.xyzMaterials)
           && card.xyzMaterials.length > 0
         ));
@@ -4472,7 +4760,8 @@ export class DuelGame {
       if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) return [];
       const utopiaEntry = this.getMonsterEntries(side, { faceUpOnly: true })
         .find(entry => entry.card === utopia);
-      if (!utopiaEntry || !utopia.xyzMaterials.length) continue;
+      if (!utopiaEntry || !utopia.xyzMaterials.length
+        || this.defense.isActionProhibited(side, 'ACTIVATE_EFFECT', utopia)) continue;
       const material = utopia.xyzMaterials.length === 1
         ? utopia.xyzMaterials[0]
         : await this.chooseCard(
@@ -4483,7 +4772,7 @@ export class DuelGame {
         );
       if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) return [];
       const materialIndex = utopia.xyzMaterials.indexOf(material);
-      if (materialIndex === -1) continue;
+      if (materialIndex === -1 || this.defense.isActionProhibited(side, 'ACTIVATE_EFFECT', utopia)) continue;
 
       utopia.xyzMaterials.splice(materialIndex, 1);
       this.field.sendToGraveyard(material, material.ownerId);
@@ -4684,6 +4973,7 @@ export class DuelGame {
       .find(({ card }) => (
         String(card.id) === '84013237'
         && !card.effectNegated
+        && !this.defense.isActionProhibited(defendingSide, 'ACTIVATE_EFFECT', card)
         && Array.isArray(card.xyzMaterials)
         && card.xyzMaterials.length > 0
       ));
@@ -4705,7 +4995,7 @@ export class DuelGame {
       optional: true
     }, true);
     if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) return false;
-    if (!activate) return false;
+    if (!activate || this.defense.isActionProhibited(defendingSide, 'ACTIVATE_EFFECT', utopia)) return false;
 
     const detached = this.summons.detachXyzMaterials(utopia, 1);
     if (!detached.length) return false;
@@ -4753,6 +5043,7 @@ export class DuelGame {
       || this.field.getSpellZone(defendingSide, trapIndex) !== trapCard
       || !trapCard.isSetFaceDown
       || trapCard.turnSet >= this.turnCount
+      || this.defense.isActionProhibited(defendingSide, 'ACTIVATE_EFFECT', trapCard)
       || !this.getMonsterEntries(attackingSide)
         .some(entry => entry.card.position === 'attack')
       || this.isPendulumBattleActivationForbidden(
@@ -4947,7 +5238,7 @@ export class DuelGame {
 
     this.phases.setDamageStepSubPhase('before_calc');
     if (defender?.isSetFaceDown) {
-      defender.isSetFaceDown = false;
+      this.revealMonsterFaceUp(defender, defendingSide, defenderEntry, { byBattle: true });
       defender.wasFlippedFaceUpByBattle = true;
       this.log(`Le monstre caché est révélé : **${defender.name}** !`, 'system');
       this.emitMonsterAnimation('flip-summon', defendingSide, defenderEntry, { card: defender });
@@ -5003,6 +5294,8 @@ export class DuelGame {
     }
     this.phases.setDamageStepSubPhase('after_calc');
     if (!(await this.delay(200)) || !this.isDuelGenerationCurrent(generation) || this._duelEnded) return false;
+    if (!(await this.flushScriptedTriggers('after_calc'))) return false;
+    if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) return false;
     this.phases.setDamageStepSubPhase('end');
 
     const destroyParticipant = (card, side, instance) => {
@@ -5032,6 +5325,7 @@ export class DuelGame {
       defender.pendingBattleDestruction = false;
       defender.wasFlippedFaceUpByBattle = false;
     }
+    if (!(await this.flushScriptedTriggers())) return false;
     this.phases.setBattleStep('battle_step');
     if (['player', 'opponent'].some(side => this.getLegalChainCandidates(side, { event: 'DAMAGE_STEP_END' }).length)) {
       if (!(await this.resolveFastEffectWindow({ event: 'DAMAGE_STEP_END' }))) return false;
@@ -5794,9 +6088,13 @@ export class DuelGame {
         || card.hasChangedPositionThisTurn
         || card.attacksDeclaredThisTurn > 0
       ) continue;
+      const legalEffectTargets = this.defense.isActionProhibited('opponent', 'ACTIVATE_EFFECT', card)
+        ? [] : getScriptedMonsterEffectTargets(this, card, 'opponent');
+      const strategicPosition = chooseAIMonsterPosition(this, card, { legalEffectTargets });
       if (card.isSetFaceDown) {
-        if (card.getAtk() < strongestPlayerAtk && card.getDef() >= card.getAtk()) continue;
-        card.isSetFaceDown = false;
+        if (strategicPosition === 'defense' || (strategicPosition === undefined
+          && card.getAtk() < strongestPlayerAtk && card.getDef() >= card.getAtk())) continue;
+        this.revealMonsterFaceUp(card, 'opponent', entry);
         card.position = 'attack';
         card.hasChangedPositionThisTurn = true;
         this.emitMonsterAnimation('flip-summon', 'opponent', entry, { card });
@@ -5805,7 +6103,8 @@ export class DuelGame {
           includeJunk: false
         });
         actions += 1;
-      } else if (card.position === 'defense' && card.getAtk() >= strongestPlayerAtk) {
+      } else if (card.position === 'defense' && (strategicPosition === 'attack'
+        || (strategicPosition === undefined && card.getAtk() >= strongestPlayerAtk))) {
         card.position = 'attack';
         card.hasChangedPositionThisTurn = true;
         this.emitMonsterAnimation('toggle-position', 'opponent', entry, {
@@ -5814,8 +6113,8 @@ export class DuelGame {
         actions += 1;
       } else if (
         card.position === 'attack'
-        && strongestPlayerAtk > card.getAtk()
-        && card.getDef() > card.getAtk()
+        && (strategicPosition === 'defense' || (strategicPosition === undefined
+          && strongestPlayerAtk > card.getAtk() && card.getDef() > card.getAtk()))
       ) {
         card.position = 'defense';
         card.hasChangedPositionThisTurn = true;
@@ -5841,6 +6140,7 @@ export class DuelGame {
       ));
     const entries = this.getMonsterEntries('opponent');
     let plan = null;
+    const legalPlans = [];
 
     for (const card of candidates) {
       const tributesRequired = card.level >= 7 ? 2 : (card.level >= 5 ? 1 : 0);
@@ -5860,15 +6160,20 @@ export class DuelGame {
           ))
           .filter(zoneIndex => zoneIndex >= 0);
         if (!destinations.length) continue;
-        plan = {
+        const candidatePlan = {
           card,
           tributes,
           destination: destinations[0]
         };
-        break;
+        legalPlans.push(candidatePlan);
+        if (profile.level === 'easy') {
+          plan = candidatePlan;
+          break;
+        }
       }
       if (plan) break;
     }
+    if (profile.level !== 'easy') plan = chooseAINormalSummonPlan(this, legalPlans);
     if (!plan) return false;
 
     const strongestVisiblePlayerAtk = Math.max(
@@ -5876,7 +6181,7 @@ export class DuelGame {
       ...this.getMonsterEntries('player', { faceUpOnly: true })
         .map(entry => entry.card.getAtk())
     );
-    const isSet = profile.level === 'easy'
+    const isSet = typeof plan.isSet === 'boolean' ? plan.isSet : profile.level === 'easy'
       ? false
       : profile.level === 'hard'
         ? plan.card.getAtk() < strongestVisiblePlayerAtk
@@ -5936,6 +6241,7 @@ export class DuelGame {
     });
     if (isSet) {
       this.log("L'adversaire pose un monstre face cachée.", 'opponent');
+      await this.flushScriptedTriggers();
     } else {
       this.log(`L'adversaire invoque **${plan.card.name}** !`, 'opponent');
       await this.resolveSummonSuccessEvent(plan.card, 'opponent', {
@@ -5959,6 +6265,7 @@ export class DuelGame {
     const spellOptions = this.opponentHand
       .map((card, index) => ({ card, index }))
       .filter(({ card }) => card.card_type === 'spell' && this.canActivateSpell(card, 'opponent'))
+      .filter(({ card }) => !isFieldSpellCard(card) || (scoreAIFieldSpell(this, card) ?? 1) > 0)
       .filter(({ card }) => !['05318639', '14087893'].includes(scriptCardId(card))
         || this.getSpellTargetCandidates(card, 'opponent').some(target => (
           target.controllerId === 'player'
@@ -6047,15 +6354,15 @@ export class DuelGame {
     // Monster Zone whose destination is freed by one of the chosen Tributes.
     await this.tryAINormalSummon(profile);
 
-    // Legacy fallback is retained for compatibility but is skipped whenever
-    // the shared path consumed the once-per-turn Normal Summon.
+    // Easy mode retains its simple fallback. Strategic refusal of a costly
+    // Tribute must preserve the board rather than force the same plan again.
     // AI Summon monster
     const monsters = this.opponentHand.filter(
       card => this.summons.canUseNormalSummonProcedure(card)
     );
     const emptyZone = this.opponentMonsters.findIndex(m => m === null);
 
-    if (monsters.length > 0 && emptyZone !== -1 && this.summons.canNormalSummon()) {
+    if (profile.level === 'easy' && monsters.length > 0 && emptyZone !== -1 && this.summons.canNormalSummon()) {
       monsters.sort((a, b) => profile.valuesCardAdvantage
         ? b.getAtk() - a.getAtk()
         : a.getAtk() - b.getAtk());

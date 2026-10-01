@@ -210,3 +210,42 @@ test('a planned AI target that changed zones is cancelled instead of following a
     candidates: [{ uid: attacker.uid, location: attacker.location, zoneIndex: 0 }]
   }), null);
 });
+
+test('AI Flip destruction selects a public threat without inspecting hidden monster choices', () => {
+  const game = duel();
+  const hidden = { uid: 'hidden-target:0', hidden: true, controllerId: 'player' };
+  for (const key of ['id', 'name', 'atk', 'def']) Object.defineProperty(hidden, key, {
+    get: () => assert.fail(`read hidden Flip target ${key}`)
+  });
+  const request = { side: 'opponent', type: 'select-trigger-target', effect: 'MAN_EATER_BUG_DESTROY',
+    candidates: [hidden, { uid: 'visible-threat', controllerId: 'player', atk: 3000, hidden: false },
+      { uid: 'own-bug', controllerId: 'opponent', atk: 450 }] };
+  assert.equal(chooseAIResponseTarget(game, request), 'visible-threat');
+  request.candidates = [hidden];
+  assert.equal(chooseAIResponseTarget(game, request), 'hidden-target:0');
+});
+
+test('mandatory AI Flip targeting can use its own weakest monster when no opposing target exists', () => {
+  const game = duel();
+  assert.equal(chooseAIResponseTarget(game, {
+    side: 'opponent', type: 'select-trigger-target', effect: 'MAN_EATER_BUG_DESTROY',
+    candidates: [{ uid: 'own-dragon', controllerId: 'opponent', atk: 3000 },
+      { uid: 'own-bug', controllerId: 'opponent', atk: 450 }]
+  }), 'own-bug');
+});
+
+test('Magician of Faith AI recovers a useful Spell from its own publicly known GY', () => {
+  const game = duel();
+  const raigeki = local('12580477', 'opponent');
+  const book = local('14087893', 'opponent');
+  game.field.sendToGraveyard(raigeki, 'opponent');
+  game.field.sendToGraveyard(book, 'opponent');
+  game.field.setMonsterZone('player', 0, local('89631139'));
+  assert.equal(chooseAIResponseTarget(game, {
+    side: 'opponent', type: 'select-trigger-target', effect: 'MAGICIAN_OF_FAITH_RECOVER',
+    candidates: [{ uid: book.uid }, { uid: raigeki.uid }]
+  }), raigeki.uid);
+  assert.equal(chooseAIResponseTarget(game, {
+    side: 'opponent', type: 'select-trigger-target', effect: 'UNSCRIPTED_EFFECT', candidates: []
+  }), undefined);
+});

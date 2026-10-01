@@ -16,16 +16,28 @@ const CARD_PROFILES = Object.freeze({
   '70781052': { id: 'summoned-skull', family: 'fiend', body: '#d4c7bb', accent: '#b976b5', eye: '#fb7774', attack: 'lightning' },
   '13039848': { id: 'stone-soldier', family: 'rock', body: '#658181', accent: '#9bbbb4', eye: '#b8f3ff', attack: 'impact' },
   '71625222': { id: 'time-wizard', family: 'clock', body: '#e87867', accent: '#f2d378', eye: '#82c9ff', attack: 'time-magic' },
-  '44508094': { id: 'stardust-dragon', family: 'dragon', body: '#a8d6d9', accent: '#65f5ea', eye: '#68dbff', attack: 'stardust' }
+  '44508094': { id: 'stardust-dragon', family: 'dragon', body: '#a8d6d9', accent: '#65f5ea', eye: '#68dbff', attack: 'stardust' },
+  '54652250': { id: 'man-eater-bug', family: 'insect', body: '#547b3c', accent: '#a6b758', eye: '#ffcf73', attack: 'pincer' },
+  '31560081': { id: 'magician-of-faith', family: 'faith', body: '#d9a0c4', accent: '#eb92ba', eye: '#74dbef', hair: '#3d956b', attack: 'faith-light' },
+  '26202165': { id: 'sangan', family: 'sangan', body: '#976246', accent: '#c28d60', eye: '#f3d7f0', attack: 'impact' },
+  '77637979': { id: 'lanphorhynchus', family: 'dragon', digital: true, body: '#35518e', accent: '#68e7ff', eye: '#edfe6d', attack: 'cyber-beam' }
 });
 
+export const SUPPORTED_HOLOGRAM_MODEL_IDS = Object.freeze(Object.keys(CARD_PROFILES));
+export const SUPPORTED_PROCEDURAL_MODEL_FAMILIES = Object.freeze([
+  'dragon', 'magician', 'faith', 'warrior', 'machine', 'rock', 'kuriboh',
+  'sangan', 'fiend', 'clock', 'insect', 'aquatic', 'avian', 'beast', 'token', 'spirit'
+]);
+
 export function resolveHologramMonsterProfile(card = {}) {
-  const exact = CARD_PROFILES[String(card.id || '')];
+  const exact = CARD_PROFILES[String(card.id || '').replace(/^0+(?=\d)/, '')];
   if (exact) return Object.freeze({ ...exact });
   const race = String(card.race || '').toLowerCase();
   const attribute = String(card.attribute || '').toUpperCase();
   const accent = ATTRIBUTE_COLORS[attribute] || '#87d8ed';
-  const family = /dragon|wyrm|dinosaur/.test(race) ? 'dragon'
+  const digital = /link/i.test(card.type || '');
+  const family = /token/i.test(card.type || '') || card.isToken === true ? 'token'
+    : /dragon|wyrm|dinosaur/.test(race) ? 'dragon'
     : /spellcaster/.test(race) ? 'magician'
       : /warrior/.test(race) ? 'warrior'
         : /machine|cyberse/.test(race) ? 'machine'
@@ -33,13 +45,15 @@ export function resolveHologramMonsterProfile(card = {}) {
             : /fiend|zombie/.test(race) ? 'fiend'
               : /aqua|fish|sea serpent/.test(race) ? 'aquatic'
                 : /winged beast/.test(race) ? 'avian'
-                  : /beast|insect|plant/.test(race) ? 'beast' : 'spirit';
-  const attack = family === 'dragon' ? (attribute === 'FIRE' ? 'dragon-flame' : 'dragon-burst')
+                  : /insect/.test(race) ? 'insect'
+                    : /beast|plant/.test(race) ? 'beast' : 'spirit';
+  const attack = digital ? 'cyber-beam'
+    : family === 'dragon' ? (attribute === 'FIRE' ? 'dragon-flame' : 'dragon-burst')
     : family === 'magician' ? 'dark-magic'
       : family === 'warrior' ? 'blade'
         : attribute === 'LIGHT' && family === 'fiend' ? 'lightning'
-          : family === 'aquatic' ? 'water' : 'impact';
-  return Object.freeze({ id: `generic-${family}-${attribute.toLowerCase() || 'neutral'}`, family, body: accent, accent, eye: '#efffff', attack });
+          : family === 'aquatic' ? 'water' : family === 'insect' ? 'pincer' : 'impact';
+  return Object.freeze({ id: `generic-${digital ? 'link-' : ''}${family}-${attribute.toLowerCase() || 'neutral'}`, family, digital, body: digital ? '#35518e' : accent, accent, eye: '#efffff', attack });
 }
 
 /** Select effects from public identity/rules identifiers, never card prose. */
@@ -60,6 +74,9 @@ export function resolveCombatVisualProfile({ kind = 'attack', card = {}, profile
     else if (cardId === '12580477' || cardId === '53129443') id = 'lightning';
     else if (cardId === '83764718' || /REBORN|REVIVE/.test(effectCode)) id = 'revival';
     else if (cardId === '71625222' || /COIN_TOSS/.test(effectCode)) id = 'time-magic';
+    else if (kind !== 'attack' && cardId === '54652250') id = 'pincer';
+    else if (kind !== 'attack' && cardId === '31560081') id = 'faith-light';
+    else if (kind !== 'attack' && cardId === '26202165') id = 'search';
     else if (kind === 'attack') id = resolveHologramMonsterProfile(card).attack;
     else id = /trap/i.test(card.type || card.card_type || '') ? 'trap-rune' : 'spell-rune';
   }
@@ -73,6 +90,10 @@ export function resolveCombatVisualProfile({ kind = 'attack', card = {}, profile
     impact: { color: '#ffc979', secondary: '#fff3da', duration: 650, shape: 'impact' },
     water: { color: '#2ebeff', secondary: '#b1ffff', duration: 850, shape: 'orb' },
     stardust: { color: '#93fff2', secondary: '#ffffff', duration: 950, shape: 'beam' },
+    'cyber-beam': { color: '#6bcbff', secondary: '#e7fbff', duration: 880, shape: 'beam' },
+    pincer: { color: '#bfd777', secondary: '#f0ffd2', duration: 720, shape: 'pincer' },
+    'faith-light': { color: '#ffcae7', secondary: '#fff4c0', duration: 1000, shape: 'faith' },
+    search: { color: '#ebb782', secondary: '#fff5db', duration: 850, shape: 'search' },
     shield: { color: '#8ee9ff', secondary: '#ebffff', duration: 900, shape: 'shield' },
     revival: { color: '#62ffb3', secondary: '#ffefa0', duration: 1100, shape: 'rune' },
     'spell-rune': { color: '#61ebc3', secondary: '#e6ffff', duration: 900, shape: 'rune' },

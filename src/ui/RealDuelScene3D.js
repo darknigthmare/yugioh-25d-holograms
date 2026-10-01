@@ -6,6 +6,7 @@ import {
 import { createHologramMonsterModel } from './HologramMonsterModels.js';
 import { resolveHologramMonsterProfile } from './CombatVisualProfiles.js';
 import { createCombatVisualEffect } from './CombatVisualEffects.js';
+import { createHologramPoseAnimation } from './HologramPoseAnimation.js';
 import {
   createFieldEnvironmentGeometry,
   disposeFieldEnvironmentGeometry,
@@ -16,6 +17,7 @@ import {
 // The environment builder needs only these geometry/material constructors.
 const FIELD_GEOMETRY_THREE = Object.freeze(Object.fromEntries([
   ['Group', THREE.Group], ['Mesh', THREE.Mesh],
+  ['InstancedMesh', THREE.InstancedMesh], ['Vector3', THREE.Vector3],
   ['MeshStandardMaterial', THREE.MeshStandardMaterial],
   ['BoxGeometry', THREE.BoxGeometry], ['DodecahedronGeometry', THREE.DodecahedronGeometry],
   ['ConeGeometry', THREE.ConeGeometry], ['CylinderGeometry', THREE.CylinderGeometry],
@@ -353,6 +355,7 @@ export class RealDuelScene3D {
     this._animatedVisualsActive = false;
     this._fieldHolograms = new Map();
     this._combatEffects = [];
+    this._monsterPoses = new Map();
     this._fieldEnvironmentGeometry = null;
     this._fieldEnvironmentGeometrySignature = null;
     this._effectsPausedAt = null;
@@ -429,7 +432,7 @@ export class RealDuelScene3D {
   }
 
   _requiresAnimationFrame() {
-    return Boolean(this._cameraTransition || this._animatedVisualsActive || this._combatEffects.length);
+    return Boolean(this._cameraTransition || this._animatedVisualsActive || this._combatEffects.length || this._monsterPoses.size);
   }
 
   _pauseCameraTransitionClock() {
@@ -1178,7 +1181,11 @@ export class RealDuelScene3D {
       const signature = JSON.stringify([resolveHologramMonsterProfile(publicCard).id, defense]);
       let entry = this._fieldHolograms.get(key);
       if (entry?.signature !== signature) {
-        if (entry) { entry.object.removeFromParent(); disposeObject3D(entry.object); }
+        if (entry) {
+          this._cancelMonsterPose(entry.object);
+          entry.object.removeFromParent();
+          disposeObject3D(entry.object);
+        }
         const object = createHologramMonsterModel(publicCard, { defense });
         this.scene.add(object);
         entry = { object, signature, owner, zoneType, zoneIndex };
@@ -1195,6 +1202,7 @@ export class RealDuelScene3D {
     }
     for (const [key, entry] of this._fieldHolograms) {
       if (retained.has(key)) continue;
+      this._cancelMonsterPose(entry.object);
       entry.object.removeFromParent();
       disposeObject3D(entry.object);
       this._fieldHolograms.delete(key);
@@ -1238,7 +1246,7 @@ export class RealDuelScene3D {
     // The accessible DOM already shows action feedback with reduced motion.
     // Avoid flashes, camera motion and a hidden animation loop in this mode.
     if (this.windowRef?.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches === true) return false;
-    const owner = event.source?.owner === 'opponent' ? 'opponent' : 'player';
+    const owner = (event.sourceRef?.owner || event.source?.owner) === 'opponent' ? 'opponent' : 'player';
     const aimAtMonster = event.kind === 'attack';
     const source = this._resolveCombatEndpoint(event.source, owner, aimAtMonster);
     const target = event.target ? this._resolveCombatEndpoint(event.target, owner, aimAtMonster) : source;
@@ -1248,7 +1256,50 @@ export class RealDuelScene3D {
     effect.startedAt = this._now();
     this._combatEffects.push(effect);
     this.scene.add(effect.group);
+    const sourceRef = event.sourceRef || event.source;
+    const targetRef = event.targetRef || event.target;
+    const poseKind = event.kind === 'attack' ? 'attack'
+      : event.kind === 'summon' ? 'summon'
+        : event.kind === 'destroy' ? 'recoil' : 'casting';
+    this._startMonsterPose(sourceRef, poseKind, effect.startedAt, effect.duration);
+    if (event.kind === 'attack') {
+      this._startMonsterPose(targetRef, 'recoil', effect.startedAt + effect.duration * 0.55, 360);
+    }
     this.start();
+    return true;
+  }
+
+  _cancelMonsterPose(object) {
+    const pose = this._monsterPoses.get(object);
+    if (!pose) return false;
+    pose.animation.dispose();
+    this._monsterPoses.delete(object);
+    return true;
+  }
+
+  _startMonsterPose(reference, kind, startedAt, duration) {
+    if (!reference || Array.isArray(reference) || reference.direct
+      || !['player', 'opponent'].includes(reference.owner)) return false;
+    const zoneType = reference.zoneType || 'main';
+    if (!['main', 'extra'].includes(zoneType) || !Number.isInteger(reference.zoneIndex)) return false;
+    const entry = [...this._fieldHolograms.values()].find(value => (
+      value.owner === reference.owner && value.zoneType === zoneType && value.zoneIndex === reference.zoneIndex
+    ));
+    if (!entry) return false;
+    this._cancelMonsterPose(entry.object);
+    const animation = createHologramPoseAnimation(entry.object, { kind, duration });
+    this._monsterPoses.set(entry.object, { animation, startedAt });
+    return true;
+  }
+
+  _updateMonsterPoses(now) {
+    if (!this._monsterPoses.size) return false;
+    for (const [object, pose] of this._monsterPoses) {
+      if (now < pose.startedAt) continue;
+      if (pose.animation.update((now - pose.startedAt) / pose.animation.duration)) continue;
+      pose.animation.dispose();
+      this._monsterPoses.delete(object);
+    }
     return true;
   }
 
@@ -1266,13 +1317,16 @@ export class RealDuelScene3D {
     if (this._effectsPausedAt === null) return;
     const pausedDuration = Math.max(0, this._now() - this._effectsPausedAt);
     this._combatEffects.forEach(effect => { effect.startedAt += pausedDuration; });
+    this._monsterPoses.forEach(pose => { pose.startedAt += pausedDuration; });
     this._effectsPausedAt = null;
   }
 
   clearCombatEffects() {
-    const hadEffects = this._combatEffects.length > 0;
+    const hadEffects = this._combatEffects.length > 0 || this._monsterPoses.size > 0;
     this._combatEffects.forEach(effect => effect.dispose());
     this._combatEffects = [];
+    this._monsterPoses.forEach(pose => pose.animation.dispose());
+    this._monsterPoses.clear();
     this._effectsPausedAt = null;
     if (!this._requiresAnimationFrame()) this._stopFrameLoop();
     if (hadEffects) this.render();
@@ -1330,7 +1384,7 @@ export class RealDuelScene3D {
 
   pause() {
     this._pauseCameraTransitionClock();
-    if (this._combatEffects.length && this._effectsPausedAt === null) this._effectsPausedAt = this._now();
+    if ((this._combatEffects.length || this._monsterPoses.size) && this._effectsPausedAt === null) this._effectsPausedAt = this._now();
     this._stopFrameLoop();
     return true;
   }
@@ -1370,7 +1424,8 @@ export class RealDuelScene3D {
     const now = Number.isFinite(timestamp) ? timestamp : this._now();
     const cameraChanged = this._updateCameraTransition(now);
     const combatChanged = this._updateCombatEffects(now);
-    if (cameraChanged || combatChanged || this._animatedVisualsActive) this.render();
+    const poseChanged = this._updateMonsterPoses(now);
+    if (cameraChanged || combatChanged || poseChanged || this._animatedVisualsActive) this.render();
     if (cameraChanged) this._notifyCameraUpdate();
     if (this._requiresAnimationFrame()) {
       this._scheduleFrame();
@@ -1390,6 +1445,7 @@ export class RealDuelScene3D {
   _destroyRenderer() {
     this.pause();
     this.clearCombatEffects();
+    disposeFieldEnvironmentGeometry(this._fieldEnvironmentGeometry);
     disposeObject3D(this.scene);
     this.scene?.clear?.();
     this.renderer?.renderLists?.dispose?.();

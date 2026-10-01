@@ -21,7 +21,7 @@ function diskPath(publicUrl) {
 }
 
 test('every locally supported card has valid same-origin card and cropped image assets', async () => {
-  assert.equal(localCards.length, 47);
+  assert.equal(localCards.length, 50);
 
   for (const card of localCards) {
     for (const publicUrl of [

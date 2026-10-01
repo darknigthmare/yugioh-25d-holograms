@@ -144,6 +144,62 @@ export function createCombatVisualEffect(options = {}) {
       pillar.position.copy(center).add(new THREE.Vector3(0, 1.4, 0));
       animated.push(progress => { pillar.scale.y = Math.sin(progress * Math.PI); });
     }
+  } else if (profile.shape === 'pincer') {
+    for (const side of [-1, 1]) {
+      const pincer = circle(`pincer-strike-${side}`, 0.7, travel, false, brightMaterial, Math.PI * 0.82);
+      const fang = mesh(`pincer-fang-${side}`, new THREE.ConeGeometry(0.09, 0.54, 7), material);
+      fang.rotation.z = side * Math.PI / 2;
+      animated.push(progress => {
+        const close = Math.sin(Math.min(1, progress * 1.6) * Math.PI);
+        pincer.position.x = travel.x + side * (0.64 - close * 0.44);
+        pincer.rotation.z = side > 0 ? Math.PI / 2 : -Math.PI / 2;
+        pincer.scale.setScalar(0.75 + close * 0.3);
+        fang.position.copy(travel);
+        fang.position.x += side * (0.59 - close * 0.47);
+        fang.visible = progress > 0.1 && progress < 0.82;
+      });
+    }
+  } else if (profile.shape === 'faith') {
+    const book = new THREE.Group();
+    book.name = 'faith-restored-spellbook';
+    book.position.copy(travel);
+    group.add(book);
+    for (const side of [-1, 1]) {
+      const page = new THREE.Mesh(new THREE.BoxGeometry(0.34, 0.49, 0.035), brightMaterial);
+      page.name = `faith-book-page-${side}`;
+      page.position.set(side * 0.18, 0, 0);
+      page.rotation.y = side * 0.27;
+      book.add(page);
+    }
+    const blessing = circle('faith-blessing-halo', 0.77, travel, true, material);
+    for (let i = 0; i < 3; i += 1) {
+      const ray = mesh(`faith-ray-${i}`, new THREE.CylinderGeometry(0.025, 0.04, 1.25, 6), dimMaterial);
+      ray.position.copy(travel);
+      ray.position.x += (i - 1) * 0.43;
+      ray.position.y += 0.65;
+    }
+    animated.push(progress => {
+      book.position.y = travel.y + Math.sin(progress * Math.PI) * 0.68;
+      book.rotation.y = Math.sin(progress * Math.PI) * 0.25;
+      blessing.scale.setScalar(0.7 + progress);
+    });
+  } else if (profile.shape === 'search') {
+    const lens = circle('sangan-search-lens', 0.43, travel, false, brightMaterial);
+    const card = mesh('revealed-search-card', new THREE.BoxGeometry(0.4, 0.57, 0.035), dimMaterial);
+    card.position.copy(travel);
+    for (let i = 0; i < 3; i += 1) {
+      const eye = mesh(`sangan-search-eye-${i}`, new THREE.IcosahedronGeometry(0.075, 1), material);
+      eye.position.copy(travel);
+      eye.position.y += i === 0 ? 0.21 : -0.04;
+      eye.position.x += i === 0 ? 0 : i === 1 ? -0.13 : 0.13;
+      eye.position.z += 0.055;
+    }
+    animated.push(progress => {
+      lens.scale.setScalar(0.6 + Math.sin(progress * Math.PI) * 0.6);
+      lens.rotation.z = progress * 1.5;
+      card.position.y = travel.y + Math.sin(progress * Math.PI) * 0.3;
+      card.rotation.y = progress * 0.6;
+    });
   } else if (profile.shape === 'vortex') {
     for (let i = 0; i < 6; i += 1) {
       const swirl = circle(`typhoon-spiral-${i}`, 0.35 + i * 0.12, travel, true, i % 2 ? dimMaterial : material, Math.PI * 1.7);

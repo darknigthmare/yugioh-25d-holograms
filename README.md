@@ -27,7 +27,7 @@ Simulateur de duel solo dans le navigateur, inspiré des arènes holographiques 
 
 Le mode strict applique les règles officielles au **sous-ensemble local explicitement pris en charge**. Le moteur refuse une procédure absente au lieu d’inventer une résolution. Il ne constitue pas un arbitre universel : les milliers de cartes et interactions du TCG complet ne sont pas toutes scriptées.
 
-Le pool local comporte désormais **47 cartes distinctes** (42 Main Deck, 5 Extra Deck), indépendamment du nombre de copies dans un deck de duel. Voir [la couverture détaillée des règles et ses limites](RULES_COVERAGE.md) pour distinguer les comportements testés du travail restant.
+Le pool local comporte désormais **50 cartes distinctes** (45 Main Deck, 5 Extra Deck), indépendamment du nombre de copies dans un deck de duel. Insecte Mangeur d’Hommes, Magicien de la Foi et Sangan complètent les interactions rapides avec des effets Flip et déclenchés : ciblage à l’activation, collecte des événements et ordre SEGOC, déclencheurs différés après la chaîne et pendant le Damage Step. Voir [la couverture détaillée des règles et ses limites](RULES_COVERAGE.md) pour distinguer les comportements testés du travail restant.
 
 Les trois decks intégrés sont des presets légaux et équilibrés **inspirés** de Kaiba, Yugi et Joey ; ils ne reproduisent pas au détail près une liste historique de l’anime. En Sandbox, une carte issue de l’API peut être inspectée ou ajoutée pendant la Main Phase, mais seuls les effets explicitement pris en charge par le moteur possèdent une résolution dédiée. Une carte distante non intégrée affiche un visuel local neutre afin de ne pas hotlinker le CDN du fournisseur.
 
@@ -45,7 +45,9 @@ La Vue Réelle possède deux décors de base sélectionnables dans les paramètr
 
 Le catalogue `src/ui/FieldSpellEnvironmentCatalog.js` couvre les **336 Magies de Terrain TCG/OCG connues au 29 juillet 2026** par passcode canonique. Chaque passcode possède son propre brief, son propre chemin WebP et son illustration originale dédiée dans `public/environments/field-spells/`. Les familles visuelles ne servent plus que de profil matériel et de repli technique : l’illustration, la palette du tapis, la lumière, la brume et les accents du plateau sont calculés pour la carte précise. Une nouvelle carte absente du snapshot reçoit toujours le terrain holographique générique au lieu de casser la Vue Réelle.
 
-La Vue Réelle ajoute des modèles procéduraux pour 13 profils de monstres emblématiques et des familles de repli, avec attaques de dragon, magie, foudre, lames, protections, invocations, Typhon et Livre de la Lune. Les monstres face verso ne produisent aucun modèle identifiable. Les scènes utilisent 25 familles de géométrie et des repères propres à 21 cartes de Terrain, tout en conservant les 336 illustrations dédiées. Ces géométries interprètent les références ; elles ne constituent pas une reproduction officielle 1:1 certifiée.
+La Vue Réelle ajoute des modèles procéduraux pour 17 cartes emblématiques et 16 familles de repli, avec attaques de dragon, magie, foudre, lames, protections, invocations, Typhon et Livre de la Lune. Les ailes, bâtons, épées et pinces s’animent sur GPU lors des actions ; apparition et recul restent synchronisés aux événements du duel. Les poses conservent les ancrages des zones, s’arrêtent avec les effets et respectent le mouvement réduit. Chaque modèle utilise au plus cinq appels de rendu. Les monstres face verso ne produisent aucun modèle identifiable.
+
+Les scènes utilisent 25 familles de géométrie et des repères propres à **45 cartes de Terrain**, tout en conservant les 336 illustrations dédiées. Les accessoires statiques sont regroupés par géométrie et matériau, avec au plus 17 appels de rendu par décor audité. Ces géométries interprètent les références ; elles ne constituent pas une reproduction officielle 1:1 certifiée.
 
 Pour ajouter un environnement :
 

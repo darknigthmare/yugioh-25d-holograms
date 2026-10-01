@@ -34,8 +34,32 @@ test('attack routing locates both camps and shared Extra zones without forwardin
   assert.equal(visual.card.id, card.id);
   assert.notEqual(visual.card, card);
   assert.equal('uid' in visual.card, false);
+  assert.deepEqual(visual.sourceRef, { owner: 'player', zoneType: 'main', zoneIndex: 0 });
+  assert.deepEqual(visual.targetRef, { owner: 'opponent', zoneType: 'extra', zoneIndex: 1 });
+  assert.equal(Object.isFrozen(visual.sourceRef), true);
   const direct = createPublicCombatVisual({ type: 'attack-direct', target: 'opponent', atkZoneIndex: 0, card }, game);
   assert.deepEqual(direct.target, { owner: 'opponent', direct: true });
+});
+
+test('trigger cinematics use revealed source and public zones without reading a hidden target identity', () => {
+  const hiddenTarget = { get id() { throw new Error('hidden target identity accessed'); } };
+  const visual = createPublicCombatVisual({
+    type: 'flip-destroy-cinematic', target: 'opponent', zoneType: 'main', zoneIndex: 1,
+    sourceSide: 'player', sourceZoneType: 'main', sourceZoneIndex: 0,
+    card: { id: '54652250', name: 'Insecte Mangeur d’Hommes' }, targetCard: hiddenTarget
+  }, {}, ref => [ref.zoneIndex, 0.62, ref.owner === 'player' ? 4 : -4]);
+  assert.deepEqual(visual.source, [0, 0.62, 4]);
+  assert.deepEqual(visual.target, [1, 0.62, -4]);
+  assert.equal(visual.card.id, '54652250');
+  assert.equal('targetCard' in visual, false);
+  assert.deepEqual(visual.targetRef, { owner: 'opponent', zoneType: 'main', zoneIndex: 1 });
+  const search = createPublicCombatVisual({
+    type: 'deck-search-cinematic', target: 'opponent', sourceSide: 'opponent',
+    sourceZoneType: 'main', sourceZoneIndex: 2, card: { id: '26202165' },
+    targetCard: { get id() { throw new Error('search result forwarded to renderer'); } }
+  }, {});
+  assert.deepEqual(search.target, { owner: 'opponent', direct: true });
+  assert.equal(search.card.id, '26202165');
 });
 
 test('hidden cards and unrelated events cannot trigger identity-based visuals', () => {

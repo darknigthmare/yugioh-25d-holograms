@@ -1,8 +1,9 @@
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { resolveHologramMonsterProfile } from './CombatVisualProfiles.js';
+import { installHologramPoseRig, resolveHologramPartJoint } from './HologramPoseAnimation.js';
 
-/** Static, texture-free silhouettes: merged by material to bound draw calls. */
+/** Texture-free articulated silhouettes, merged by material to bound draw calls. */
 export function createHologramMonsterModel(card = {}, { defense = false } = {}) {
   const profile = resolveHologramMonsterProfile(card);
   const root = new THREE.Group();
@@ -12,11 +13,18 @@ export function createHologramMonsterModel(card = {}, { defense = false } = {}) 
   const materials = {
     body: new THREE.MeshStandardMaterial({ color: profile.body, emissive: profile.accent, emissiveIntensity: 0.12, metalness: 0.55, roughness: 0.32 }),
     accent: new THREE.MeshStandardMaterial({ color: profile.accent, emissive: profile.accent, emissiveIntensity: 0.24, metalness: 0.65, roughness: 0.25 }),
-    dark: new THREE.MeshStandardMaterial({ color: '#263447', emissive: profile.accent, emissiveIntensity: 0.08, metalness: 0.45, roughness: 0.46 }),
+    dark: new THREE.MeshStandardMaterial({ color: profile.hair || '#263447', emissive: profile.accent, emissiveIntensity: 0.08, metalness: 0.45, roughness: 0.46, side: THREE.DoubleSide }),
     eye: new THREE.MeshBasicMaterial({ color: profile.eye, toneMapped: false }),
     glow: new THREE.MeshBasicMaterial({ color: profile.accent, transparent: true, opacity: 0.32, depthWrite: false, side: THREE.DoubleSide, blending: THREE.AdditiveBlending, toneMapped: false })
   };
   const batches = new Map(Object.keys(materials).map(key => [key, []]));
+  function registerGeometry(name, geometry, material) {
+    const joint = new Float32Array(geometry.attributes.position.count);
+    joint.fill(resolveHologramPartJoint(name));
+    geometry.setAttribute('hologramJoint', new THREE.BufferAttribute(joint, 1));
+    batches.get(material).push(geometry);
+    root.userData.partNames.push(name);
+  }
   function part(name, geometry, material, position, scale = [1, 1, 1], rotation = [0, 0, 0]) {
     const transform = new THREE.Object3D();
     transform.position.set(...position);
@@ -25,8 +33,7 @@ export function createHologramMonsterModel(card = {}, { defense = false } = {}) 
     transform.updateMatrix();
     geometry.applyMatrix4(transform.matrix);
     // All families use indexed positions, normals and UVs, including membranes.
-    batches.get(material).push(geometry);
-    root.userData.partNames.push(name);
+    registerGeometry(name, geometry, material);
   }
   const sphere = (name, material, position, scale, detail = 1) => part(name, new THREE.IcosahedronGeometry(1, detail), material, position, scale);
   const box = (name, material, position, scale, rotation) => part(name, new THREE.BoxGeometry(1, 1, 1), material, position, scale, rotation);
@@ -42,8 +49,7 @@ export function createHologramMonsterModel(card = {}, { defense = false } = {}) 
     transform.updateMatrix();
     const geometry = new THREE.CylinderGeometry(endRadius, radius, direction.length(), 8);
     geometry.applyMatrix4(transform.matrix);
-    batches.get(material).push(geometry);
-    root.userData.partNames.push(name);
+    registerGeometry(name, geometry, material);
   }
   function membrane(name, material, vertices) {
     const shape = new THREE.Shape();
@@ -127,14 +133,35 @@ export function createHologramMonsterModel(card = {}, { defense = false } = {}) 
     const tail = [[0, 1.1, -0.38], [0.25, 0.65, -0.9], [0.68, 0.4, -1.4], [1.14, 0.54, -1.75]];
     for (let i = 1; i < tail.length; i += 1) rod(`tail-${i}`, 'body', tail[i - 1], tail[i], 0.21 / i, 0.12 / i);
     for (let i = 0; i < 5; i += 1) cone(`spine-${i}`, 'accent', [0, 2.6 - i * 0.29, -0.38 - i * 0.09], [0.09, 0.35, 0.09], [-0.7, 0, 0]);
-  } else if (profile.family === 'magician') {
+    if (profile.digital) {
+      for (let i = 0; i < 4; i += 1) {
+        box(`cyber-chest-panel-${i}`, 'dark', [0, 1.27 + i * 0.23, 0.56], [0.55 - i * 0.04, 0.09, 0.06]);
+        for (const side of [-1, 1]) {
+          rod(`wing-${side}-circuit-${i}`, 'eye', [side * (0.52 + i * 0.3), 2.67, -0.1], [side * (0.72 + i * 0.3), 2.9, -0.1], 0.018);
+        }
+      }
+      cone('cyber-beak', 'accent', [0, 3.03, 0.95], [0.13, 0.75, 0.12], [Math.PI / 2, 0, 0]);
+      sphere('cyber-core', 'eye', [0, 2.14, 0.54], [0.12, 0.13, 0.06]);
+    }
+  } else if (profile.family === 'magician' || profile.family === 'faith') {
     cone('layered-robe', 'body', [0, 1.35, 0], [0.71, 1.91, 0.51]);
     cone('robe-hem', 'accent', [0, 0.5, 0], [0.76, 0.2, 0.55]);
     sphere('mage-torso', 'body', [0, 2.18, 0], [0.42, 0.52, 0.3]);
     sphere('mage-face', 'accent', [0, 2.96, 0.05], [0.26, 0.32, 0.25]);
-    cone('pointed-hat', 'body', [0, 3.58, -0.07], [0.41, 1.18, 0.32], [-0.15, 0, 0]);
-    ring('hat-brim', 'accent', [0, 3.15, 0], 0.34, [Math.PI / 2, 0, 0], 0.055);
-    for (let i = 0; i < 3; i += 1) ring(`hat-gilding-${i}`, 'accent', [0, 3.25 + i * 0.21, -i * 0.025], 0.27 - i * 0.062, [Math.PI / 2, 0, 0], 0.018);
+    if (profile.family === 'faith') {
+      sphere('faith-hair-crown', 'dark', [0, 3.13, -0.05], [0.31, 0.23, 0.3]);
+      for (const side of [-1, 1]) {
+        rod(`faith-hair-lock-${side}`, 'dark', [side * 0.24, 3.08, 0.04], [side * 0.31, 2.57, -0.11], 0.095, 0.04);
+        membrane(`faith-cape-${side}`, 'body', [[side * 0.18, 2.59], [side * 0.85, 2.18], [side * 0.74, 0.64], [side * 0.24, 0.33]]);
+      }
+      ring('faith-halo', 'glow', [0, 3.5, -0.09], 0.36, [Math.PI / 2, 0, 0], 0.035);
+      sphere('faith-heart-gem', 'eye', [0, 2.24, 0.3], [0.1, 0.14, 0.045]);
+      ring('faith-orb-aureole', 'glow', [0.91, 3.46, 0.49], 0.35, [0, 0, 0], 0.018);
+    } else {
+      cone('pointed-hat', 'body', [0, 3.58, -0.07], [0.41, 1.18, 0.32], [-0.15, 0, 0]);
+      ring('hat-brim', 'accent', [0, 3.15, 0], 0.34, [Math.PI / 2, 0, 0], 0.055);
+      for (let i = 0; i < 3; i += 1) ring(`hat-gilding-${i}`, 'accent', [0, 3.25 + i * 0.21, -i * 0.025], 0.27 - i * 0.062, [Math.PI / 2, 0, 0], 0.018);
+    }
     eyePair(3.02, 0.28, 0.12, 0.035);
     for (const side of [-1, 1]) {
       cone(`pauldron-${side}`, 'accent', [side * 0.56, 2.52, 0], [0.36, 0.36, 0.34], [0, 0, side * 0.9]);
@@ -145,9 +172,13 @@ export function createHologramMonsterModel(card = {}, { defense = false } = {}) 
     rod('staff', 'dark', [0.91, 0.25, 0.49], [0.91, 3.44, 0.49], 0.055);
     ring('staff-crown', 'accent', [0.91, 3.46, 0.49], 0.24, [0, 0, 0], 0.045);
     sphere('staff-crystal', 'eye', [0.91, 3.46, 0.49], [0.12, 0.17, 0.12]);
+    if (profile.digital) {
+      part('staff-digital-core', new THREE.OctahedronGeometry(0.2), 'accent', [0.91, 3.46, 0.49]);
+      ring('cyber-mage-halo', 'glow', [0, 2.75, -0.24], 0.68, [0, 0, 0], 0.025);
+    }
   } else if (['warrior', 'machine', 'rock'].includes(profile.family)) {
     armoredHumanoid({ machine: profile.family === 'machine', rock: profile.family === 'rock' });
-  } else if (profile.family === 'kuriboh') {
+  } else if (profile.family === 'kuriboh' || profile.family === 'sangan') {
     sphere('fur-body', 'body', [0, 1.1, 0], [0.8, 0.82, 0.67], 2);
     for (let i = 0; i < 34; i += 1) {
       const angle = i * 2.399963;
@@ -160,14 +191,54 @@ export function createHologramMonsterModel(card = {}, { defense = false } = {}) 
       transform.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), axis);
       transform.updateMatrix();
       geometry.applyMatrix4(transform.matrix);
-      batches.get(i % 3 ? 'body' : 'accent').push(geometry);
-      root.userData.partNames.push(`fur-tuft-${i}`);
+      registerGeometry(`fur-tuft-${i}`, geometry, i % 3 ? 'body' : 'accent');
+    }
+    if (profile.family === 'sangan') {
+      sphere('sangan-third-eye', 'eye', [0, 1.69, 0.61], [0.18, 0.21, 0.09]);
+      sphere('sangan-third-pupil', 'dark', [0, 1.69, 0.7], [0.08, 0.115, 0.025]);
+      box('sangan-mouth', 'dark', [0, 0.94, 0.67], [0.31, 0.1, 0.04]);
+      for (const side of [-1, 1]) cone(`sangan-fang-${side}`, 'accent', [side * 0.09, 0.89, 0.69], [0.04, 0.15, 0.03], [Math.PI, 0, 0]);
     }
     for (const side of [-1, 1]) {
       sphere(`wide-eye-${side}`, 'eye', [side * 0.25, 1.34, 0.61], [0.17, 0.21, 0.09]);
       sphere(`pupil-${side}`, 'dark', [side * 0.25, 1.32, 0.69], [0.08, 0.12, 0.032]);
       sphere(`paw-${side}`, 'accent', [side * 0.6, 0.45, 0.4], [0.24, 0.14, 0.29]);
       for (let i = 0; i < 3; i += 1) cone(`paw-claw-${side}-${i}`, 'body', [side * 0.6 + (i - 1) * 0.1, 0.44, 0.67], [0.045, 0.23, 0.045], [Math.PI / 2, 0, 0]);
+    }
+  } else if (profile.family === 'insect') {
+    sphere('insect-carapace', 'body', [0, 1.45, -0.06], [0.51, 0.78, 0.42]);
+    sphere('insect-abdomen', 'dark', [0, 0.94, -0.14], [0.55, 0.57, 0.48]);
+    for (let i = 0; i < 4; i += 1) ring(`insect-carapace-segment-${i}`, 'accent', [0, 1.11 + i * 0.2, 0], 0.38 + Math.sin(i) * 0.05, [Math.PI / 2, 0, 0], 0.035);
+    sphere('insect-head', 'body', [0, 2.21, 0.13], [0.38, 0.31, 0.28]);
+    for (const side of [-1, 1]) {
+      sphere(`insect-compound-eye-${side}`, 'eye', [side * 0.29, 2.27, 0.32], [0.15, 0.18, 0.09]);
+      rod(`insect-antenna-${side}`, 'accent', [side * 0.21, 2.46, 0.13], [side * 0.35, 2.9, 0.06], 0.025);
+      sphere(`insect-antenna-tip-${side}`, 'dark', [side * 0.35, 2.9, 0.06], [0.06, 0.06, 0.06]);
+      rod(`insect-mandible-${side}`, 'accent', [side * 0.21, 2.09, 0.29], [side * 0.16, 1.93, 0.48], 0.065, 0.025);
+      rod(`pincer-upper-arm-${side}`, 'body', [side * 0.41, 1.96, 0.06], [side * 0.99, 1.8, 0.16], 0.085);
+      rod(`pincer-blade-${side}`, 'accent', [side * 0.99, 1.8, 0.16], [side * 0.72, 2.44, 0.31], 0.11, 0.025);
+      for (let tooth = 0; tooth < 4; tooth += 1) cone(`pincer-tooth-${side}-${tooth}`, 'dark', [side * (0.95 - tooth * 0.055), 1.91 + tooth * 0.12, 0.2], [0.04, 0.14, 0.04], [0, 0, side * Math.PI / 2]);
+      for (let leg = 0; leg < 3; leg += 1) {
+        const y = 0.94 + leg * 0.24;
+        rod(`insect-leg-upper-${side}-${leg}`, 'body', [side * 0.39, y, 0.02], [side * (0.79 + leg * 0.09), y - 0.16, 0.05 - leg * 0.1], 0.057);
+        rod(`insect-leg-lower-${side}-${leg}`, 'accent', [side * (0.79 + leg * 0.09), y - 0.16, 0.05 - leg * 0.1], [side * (1.05 + leg * 0.07), 0.23, 0.36 - leg * 0.28], 0.04, 0.018);
+      }
+    }
+  } else if (profile.family === 'token') {
+    sphere('token-fleece-core', 'body', [0, 1.04, 0], [0.64, 0.56, 0.49]);
+    for (let i = 0; i < 12; i += 1) {
+      const angle = i * Math.PI / 6;
+      sphere(`token-fleece-curl-${i}`, i % 3 ? 'body' : 'accent', [Math.cos(angle) * 0.53, 1.06 + (i % 2) * 0.16, Math.sin(angle) * 0.39], [0.23, 0.23, 0.23]);
+    }
+    sphere('token-goat-face', 'dark', [0, 1.4, 0.49], [0.28, 0.31, 0.3]);
+    eyePair(1.49, 0.75, 0.145, 0.045);
+    for (const side of [-1, 1]) {
+      cone(`token-horn-${side}`, 'accent', [side * 0.22, 1.77, 0.41], [0.075, 0.36, 0.075], [0, 0, side * -0.3]);
+      sphere(`token-ear-${side}`, 'body', [side * 0.4, 1.48, 0.47], [0.2, 0.07, 0.11]);
+      for (const z of [-0.24, 0.29]) {
+        rod(`token-leg-${side}-${z}`, 'dark', [side * 0.39, 0.83, z], [side * 0.42, 0.28, z], 0.055);
+        box(`token-hoof-${side}-${z}`, 'accent', [side * 0.42, 0.21, z + 0.03], [0.18, 0.16, 0.2]);
+      }
     }
   } else if (profile.family === 'fiend') {
     sphere('fiend-pelvis', 'accent', [0, 1.3, 0], [0.48, 0.34, 0.34]);
@@ -232,6 +303,9 @@ export function createHologramMonsterModel(card = {}, { defense = false } = {}) 
     const angle = i * Math.PI / 4;
     box(`projection-glyph-${i}`, 'glow', [Math.sin(angle) * 0.82, 0.08, Math.cos(angle) * 0.82], [0.04, 0.015, 0.14], [0, angle, 0]);
   }
+  if (profile.digital) {
+    for (const side of [-1, 1]) cone(`projection-link-arrow-${side}`, 'eye', [side * 0.59, 0.09, 0.62], [0.15, 0.31, 0.015], [Math.PI / 2, 0, side * -Math.PI / 4]);
+  }
   if (defense) {
     part('defense-barrier', new THREE.SphereGeometry(1, 16, 10, 0, Math.PI), 'glow', [0, 1.6, 0.15], [1.12, 1.64, 0.93]);
     ring('defense-barrier-rim', 'glow', [0, 1.6, 0.18], 1, [0, 0, 0], 0.035);
@@ -254,5 +328,8 @@ export function createHologramMonsterModel(card = {}, { defense = false } = {}) 
   }
   root.scale.setScalar(profile.family === 'kuriboh' ? 0.77 : 0.7);
   root.userData.meshCount = root.children.length;
+  root.userData.triangleCount = root.children.reduce((count, mesh) => count + mesh.geometry.attributes.position.count / 3, 0);
+  root.userData.fidelity = 'procedural-interpretation';
+  installHologramPoseRig(root, profile);
   return root;
 }
