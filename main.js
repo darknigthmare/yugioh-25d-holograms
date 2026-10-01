@@ -1267,8 +1267,8 @@ const PREMADE_DECKS = {
       '14898066', '14898066', '14898066', // Vorse Raider
       '66602787', '66602787', '26202165', // Saggi and Sangan search support
       '13039848', '13039848', '54652250', // defensive neutral and Flip destruction
-      '48305365', '48305365', '48305365', // Axe Raider
-      '49791927', '49791927', '49791927', // Tiger Axe
+      '48305365', '48305365', '81777047', // Axe Raider and Luminous Spark
+      '49791927', '49791927', '50913601', // Tiger Axe and Mountain
       '24094653', '24094653', '24094653', // Polymerization
       '12580477', // Raigeki
       '05318639', '14087893', // Quick-Play interaction: MST and Book of Moon
@@ -1286,13 +1286,13 @@ const PREMADE_DECKS = {
       '38033121', '38033121', '38033121', // Dark Magician Girl
       '40640057', '40640057', '26202165', // Kuriboh and Sangan search support
       '91152256', '91152256', '91152256', // Celtic Guardian
-      '13039848', '13039848', '54652250', // Giant Soldier and Flip destruction
+      '13039848', '81380218', '54652250', // Giant Soldier, Chorus and Flip destruction
       '15025844', '15025844', '31560081', // Mystical Elf and Magician of Faith
       '05405694', '05405694', // Black Luster Soldier
       '55761792', '55761792', // Black Luster Ritual
       '94415058', '94415058', // Stargazer Magician
       '20409757', '20409757', // Timegazer Magician
-      '06368038', '06368038', // Gaia
+      '06368038', '18161786', // Gaia and Mystic Plasma Zone
       '70781052', '70781052', // Summoned Skull
       '12580477', // Raigeki
       '05318639', '14087893', // Quick-Play interaction: MST and Book of Moon
@@ -1309,10 +1309,10 @@ const PREMADE_DECKS = {
       '71625222', '71625222', '71625222', // Time Wizard
       '88819587', '88819587', '88819587', // Baby Dragon
       '48305365', '48305365', '48305365', // Axe Raider
-      '64428736', '64428736', '64428736', // Alligator's Sword
+      '64428736', '64428736', '56594520', // Alligator's Sword and Gaia Power
       '44287299', '44287299', '54652250', // Masaki and Flip destruction
       '49791927', '49791927', '26202165', // Tiger Axe and Sangan search support
-      '05053103', '05053103', '05053103', // Battle Ox
+      '05053103', '05053103', '86318356', // Battle Ox and Sogen
       '91152256', '91152256', '91152256', // warrior support
       '12580477', // Raigeki
       '05318639', '14087893', // Quick-Play interaction: MST and Book of Moon

@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import {
   FIELD_SPELL_ILLUSTRATION_BRIEF_MANIFEST
 } from '../src/ui/FieldSpellIllustrationBriefManifest.js';
+import { getFieldSpellReferenceArtEntry } from '../src/ui/FieldSpellReferenceArtManifest.js';
 import {
   FIELD_ENVIRONMENT_REGISTRY,
   FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE,
@@ -120,8 +121,9 @@ for (const brief of FIELD_SPELL_ILLUSTRATION_BRIEF_MANIFEST) {
       fieldActivationSequence: 1
     }
   });
-  if (!environment || environment.backdropUrl !== brief.assetPath) {
-    errors.push(`${brief.cardId}: dedicated illustration is not connected to the registry`);
+  if (!environment || environment.backdropUrl !== getFieldSpellReferenceArtEntry(brief.cardId)?.assetPath
+    || environment.fallbackBackdropUrl !== brief.assetPath) {
+    errors.push(`${brief.cardId}: source illustration or generated fallback is not connected to the registry`);
   }
   if (selection.isFallback || selection.environment !== environment) {
     errors.push(`${brief.cardId}: a resolved Field Spell does not select its environment`);

@@ -1,5 +1,5 @@
 const DEFAULT_FORMAT_ID = 'TCG_ADVANCED';
-const DEFAULT_BANLIST_ID = 'TCG_EU_2026_05_18';
+const DEFAULT_BANLIST_ID = 'TCG_EU_2026_09_21';
 const SERIALIZATION_VERSION = 2;
 const MAX_SERIALIZED_LENGTH = 2_000_000;
 const UNSAFE_OBJECT_KEYS = new Set(['__proto__', 'prototype', 'constructor']);
@@ -29,8 +29,11 @@ export class MatchEngine {
       }
     };
 
-    // Official TCG European Forbidden & Limited List (effective 18 May 2026).
-    // Only IDs relevant to the local pool are required for deterministic deck QA.
+    // Verified local subset of the official Advanced list effective 21 September
+    // 2026: https://www.yugioh-card.com/en/limited/list_2026-09-21/
+    // Local limits are unchanged since May. Keep the previous snapshot so saved
+    // Matches continue under their registered list; these entries do not cover
+    // every card on the full official list.
     this.banlists = {
       TCG_EU_2026_05_18: {
         forbidden: [
@@ -43,6 +46,20 @@ export class MatchEngine {
           '44519536',
           '15303296',
           '70903634'
+        ],
+        semi_limited: []
+      },
+      TCG_EU_2026_09_21: {
+        forbidden: [
+          '55144522' // Pot of Greed
+        ],
+        limited: [
+          '83764718', // Monster Reborn
+          '33396948', // Exodia the Forbidden One
+          '07902349', // Left Leg of the Forbidden One (printed passcode)
+          '44519536', // Right Leg of the Forbidden One
+          '15303296', // Left Arm of the Forbidden One
+          '70903634'  // Right Arm of the Forbidden One
         ],
         semi_limited: []
       }

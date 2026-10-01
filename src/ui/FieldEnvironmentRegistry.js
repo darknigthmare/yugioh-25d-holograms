@@ -7,7 +7,11 @@
 
 import { isFieldSpellCard } from '../core/FieldSpellRules.js';
 import { FIELD_SPELL_CARD_IDS_BY_ENVIRONMENT } from './FieldSpellEnvironmentCatalog.js';
-import { resolveFieldEnvironmentGeometryProfile } from './FieldEnvironmentGeometry.js';
+import {
+  resolveFieldEnvironmentGeometryProfile,
+  FIELD_ENVIRONMENT_GEOMETRY_BUDGET
+} from './FieldEnvironmentGeometry.js';
+import { getFieldSpellReferenceArtEntry } from './FieldSpellReferenceArtManifest.js';
 import {
   FIELD_SPELL_RUNTIME_MANIFEST,
   FIELD_SPELL_RUNTIME_MANIFEST_COUNT
@@ -20,11 +24,14 @@ const STATIC_ENVIRONMENT_BACKDROP_URL_PATTERN =
   /^\/environments\/[a-z0-9]+(?:-[a-z0-9]+)*\.webp$/;
 const DEDICATED_FIELD_SPELL_BACKDROP_URL_PATTERN =
   /^\/environments\/field-spells\/(?:0|[1-9]\d{0,11})-[a-z0-9]+(?:-[a-z0-9]+)*-original\.webp$/;
+const REFERENCE_FIELD_SPELL_BACKDROP_URL_PATTERN =
+  /^\/environments\/field-art\/(?:0|[1-9]\d{0,11})\.jpg$/;
 
 export function isSafeFieldEnvironmentBackdropUrl(value) {
   const publicUrl = String(value ?? '').trim();
   return STATIC_ENVIRONMENT_BACKDROP_URL_PATTERN.test(publicUrl)
-    || DEDICATED_FIELD_SPELL_BACKDROP_URL_PATTERN.test(publicUrl);
+    || DEDICATED_FIELD_SPELL_BACKDROP_URL_PATTERN.test(publicUrl)
+    || REFERENCE_FIELD_SPELL_BACKDROP_URL_PATTERN.test(publicUrl);
 }
 
 function normalizeBackdropUrl(value) {
@@ -526,7 +533,10 @@ for (const runtimeEntry of FIELD_SPELL_RUNTIME_MANIFEST) {
     );
   }
 
-  const dedicatedBackdropUrl = normalizeBackdropUrl(runtimeEntry.assetPath);
+  const referenceArt = getFieldSpellReferenceArtEntry(runtimeEntry.cardId);
+  if (!referenceArt) throw new RangeError(`Missing Field reference art: ${runtimeEntry.cardId}`);
+  const dedicatedBackdropUrl = normalizeBackdropUrl(referenceArt.assetPath);
+  const palette = referenceArt.palette;
   dedicatedBackdropUrlByCardId[runtimeEntry.cardId] = dedicatedBackdropUrl;
   environmentByCardId.set(runtimeEntry.cardId, freezeEnvironment({
     ...familyEnvironment,
@@ -534,23 +544,26 @@ for (const runtimeEntry of FIELD_SPELL_RUNTIME_MANIFEST) {
     displayName: runtimeEntry.name,
     fieldSpellCardId: runtimeEntry.cardId,
     backdropUrl: dedicatedBackdropUrl,
-    fallbackBackdropUrl: familyEnvironment.backdropUrl,
-    environmentTint: runtimeEntry.palette.dominant,
-    accentColor: runtimeEntry.palette.signatureAccent,
+    fallbackBackdropUrl: runtimeEntry.assetPath,
+    referenceArt,
+    backdropFit: referenceArt.backgroundFit,
+    backdropFilter: 'none',
+    environmentTint: palette.dominant,
+    accentColor: palette.signatureAccent,
     lighting: {
       ...familyEnvironment.lighting,
-      ambient: runtimeEntry.palette.secondary,
-      directional: runtimeEntry.palette.light
+      ambient: palette.secondary,
+      directional: palette.light
     },
     fog: {
       ...familyEnvironment.fog,
-      color: runtimeEntry.palette.shadow
+      color: palette.shadow
     },
     surfacePalette: {
-      background: runtimeEntry.palette.shadow,
-      ground: runtimeEntry.palette.dominant,
-      platform: runtimeEntry.palette.secondary,
-      rail: runtimeEntry.palette.signatureAccent
+      background: palette.shadow,
+      ground: palette.dominant,
+      platform: palette.secondary,
+      rail: palette.signatureAccent
     }
   }));
 }
@@ -565,7 +578,15 @@ export const FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE = Object.freeze({
   cardIds: Object.freeze([...environmentByCardId.entries()]
     .filter(([, environment]) => environment.geometryProfile.hasDedicatedLandmark)
     .map(([cardId]) => cardId)
-    .sort((left, right) => Number(left) - Number(right)))
+    .sort((left, right) => Number(left) - Number(right))),
+  inspectedReferenceArtCount: [...environmentByCardId.values()].filter(
+    environment => environment.geometryProfile.inspectedArt
+  ).length,
+  inspectedReferenceCardIds: Object.freeze([...environmentByCardId.entries()]
+    .filter(([, environment]) => environment.geometryProfile.inspectedArt)
+    .map(([cardId]) => cardId)
+    .sort((left, right) => Number(left) - Number(right))),
+  budget: FIELD_ENVIRONMENT_GEOMETRY_BUDGET
 });
 export const FIELD_SPELL_DEDICATED_BACKDROP_URLS = Object.freeze(
   Object.values(FIELD_SPELL_DEDICATED_BACKDROP_URL_BY_CARD_ID)

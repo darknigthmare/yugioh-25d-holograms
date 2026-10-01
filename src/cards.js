@@ -1,4 +1,4 @@
-import { CLASSIC_FIELD_SPELLS } from './core/ClassicFieldSpellEffects.js';
+import { ADDITIONAL_FIELD_SPELLS, CLASSIC_FIELD_SPELLS } from './core/ClassicFieldSpellEffects.js';
 
 export const STARTER_CARDS = [
   {
@@ -576,6 +576,15 @@ for (const terrain of CLASSIC_FIELD_SPELLS) {
     type: 'Spell Card', card_type: 'spell', race: 'Field', attribute: 'SPELL',
     atk: 0, def: 0, level: 0, rulesText: description, desc: description,
     effectCode: 'CLASSIC_FIELD_STATS'
+  });
+}
+
+for (const terrain of ADDITIONAL_FIELD_SPELLS) {
+  STARTER_CARDS.push({
+    id: terrain.id, name: terrain.name, name_en: terrain.name_en,
+    type: 'Spell Card', card_type: 'spell', race: 'Field', attribute: 'SPELL',
+    atk: 0, def: 0, level: 0, rulesText: terrain.rulesText, desc: terrain.rulesText,
+    rulesSourceUrl: terrain.rulesSourceUrl, effectCode: 'CLASSIC_FIELD_STATS'
   });
 }
 

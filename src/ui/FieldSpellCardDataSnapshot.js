@@ -8,6 +8,7 @@
 
 export const FIELD_SPELL_CARD_DATA_SNAPSHOT_METADATA = Object.freeze({
   retrievedOn: '2026-07-29',
+  correctedOn: '2026-10-01',
   sourceUrl: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?type=Spell%20Card&race=Field',
   expectedCount: 336
 });
@@ -1688,10 +1689,10 @@ const snapshot = {
     "archetype": "Ghostrick",
     "effectText": "Monsters cannot attack face-down Defense Position monsters, but can attack directly if all monsters their opponent controls are face-down Defense Position. All effect damage, and battle damage inflicted by monsters other than \"Ghostrick\" monsters, is halved."
   },
-  "100458006": {
-    "name": "Beresennet Em Heru",
-    "archetype": "Sennet",
-    "effectText": "Once per turn: You can Ritual Summon 1 \"Sennet\" Ritual Monster from your hand or GY, by sending Normal Monster Cards with different names from each other from your hand, Deck, and/or face-up field to the GY whose total Levels equal or exceed its Level, then you can equip 1 Normal Monster from your GY to it as an Equip Spell. If you Special Summon a non-Token Normal Monster(s): You can draw 1 card. You can only use this effect of \"Beresennet Em Heru\" once per turn."
+  "46273941": {
+    "name": "Pere-Zenet Em Heru",
+    "archetype": "Zenet",
+    "effectText": "Once per turn: You can Ritual Summon 1 \"Zenet\" Ritual Monster from your hand or GY, by sending Normal Monster Cards with different names from each other from your hand, Deck, and/or face-up field to the GY whose total Levels equal or exceed its Level, then you can equip 1 Normal Monster from your GY to it as an Equip Spell. If you Special Summon a non-Token Normal Monster(s) (except during the Damage Step): You can draw 1 card. You can only use this effect of \"Pere-Zenet Em Heru\" once per turn."
   }
 };
 

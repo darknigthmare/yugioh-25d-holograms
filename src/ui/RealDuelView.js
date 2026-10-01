@@ -560,6 +560,7 @@ export class RealDuelView {
   _applyBackdropCrossfade({
     backgroundImage,
     backdropFilter,
+    backdropFit = 'cover',
     visualKey
   }) {
     if (this.backdropLayers.length !== REAL_DUEL_BACKDROP_LAYER_COUNT) {
@@ -576,6 +577,7 @@ export class RealDuelView {
 
     nextLayer.style.backgroundImage = backgroundImage;
     nextLayer.style.filter = backdropFilter;
+    nextLayer.style.backgroundSize = backdropFit === 'contain' ? 'contain' : 'cover, cover';
     nextLayer.dataset.active = 'true';
     for (const [index, backdropLayer] of this.backdropLayers.entries()) {
       if (index !== nextIndex) backdropLayer.dataset.active = 'false';
@@ -596,6 +598,7 @@ export class RealDuelView {
     backdropUrl,
     finalBackgroundImage,
     backdropFilter,
+    backdropFit = 'cover',
     finalVisualKey,
     requestToken
   }) {
@@ -632,6 +635,7 @@ export class RealDuelView {
       this._applyBackdropCrossfade({
         backgroundImage: finalBackgroundImage,
         backdropFilter,
+        backdropFit,
         visualKey: finalVisualKey
       });
     };
@@ -690,6 +694,7 @@ export class RealDuelView {
     backdropCss,
     fallbackBackdropCss,
     backdropFilter,
+    backdropFit = 'cover',
     finalVisualKey
   }) {
     if (finalVisualKey === this._backdropTargetVisualKey) return false;
@@ -697,7 +702,8 @@ export class RealDuelView {
     this._backdropRequestToken += 1;
     const requestToken = this._backdropRequestToken;
     this._backdropTargetVisualKey = finalVisualKey;
-    const finalBackgroundImage = `${backdropCss}, ${fallbackBackdropCss}`;
+    const finalBackgroundImage = backdropFit === 'contain'
+      ? backdropCss : `${backdropCss}, ${fallbackBackdropCss}`;
 
     if (
       backdropCss === fallbackBackdropCss
@@ -706,6 +712,7 @@ export class RealDuelView {
       return this._applyBackdropCrossfade({
         backgroundImage: finalBackgroundImage,
         backdropFilter,
+        backdropFit,
         visualKey: finalVisualKey
       });
     }
@@ -722,6 +729,7 @@ export class RealDuelView {
       backdropUrl,
       finalBackgroundImage,
       backdropFilter,
+      backdropFit,
       finalVisualKey,
       requestToken
     });
@@ -731,6 +739,7 @@ export class RealDuelView {
       return this._applyBackdropCrossfade({
         backgroundImage: finalBackgroundImage,
         backdropFilter,
+        backdropFit,
         visualKey: finalVisualKey
       });
     }
@@ -908,10 +917,12 @@ export class RealDuelView {
       environment.fallbackBackdropUrl || environment.backdropUrl
     );
     const backdropFilter = environment.backdropFilter || 'none';
+    const backdropFit = environment.backdropFit === 'contain' ? 'contain' : 'cover';
     const backdropVisualKey = [
       backdropCss,
       fallbackBackdropCss,
-      backdropFilter
+      backdropFilter,
+      backdropFit
     ].join('|');
 
     const previousEnvironmentId = this.selection?.environmentId || null;
@@ -922,6 +933,8 @@ export class RealDuelView {
 
     this.layerElement.dataset.environmentId = safeEnvironmentId;
     this.layerElement.dataset.environmentFallback = selection.isFallback ? 'true' : 'false';
+    this.layerElement.dataset.referenceArt = environment.referenceArt?.kind === 'card-illustration'
+      ? 'true' : 'false';
     this.layerElement.dataset.transitionDuration = String(
       Number(environment.transitionDuration) || 0
     );
@@ -970,6 +983,7 @@ export class RealDuelView {
       backdropCss,
       fallbackBackdropCss,
       backdropFilter,
+      backdropFit,
       finalVisualKey: backdropVisualKey
     });
     // The existing board is a sibling of the decorative layer. Mirror only

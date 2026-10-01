@@ -21,6 +21,7 @@ import {
 import {
   getFieldSpellIllustrationBrief
 } from '../src/ui/FieldSpellIllustrationBriefManifest.js';
+import { getFieldSpellReferenceArtEntry } from '../src/ui/FieldSpellReferenceArtManifest.js';
 import {
   REAL_DUEL_BACKDROP_LAYER_COUNT,
   RealDuelView
@@ -382,26 +383,29 @@ test('Field Environment registry contains every required immutable environment',
   assert.equal(mappedCardIds.size, EXPECTED_FIELD_SPELL_ENVIRONMENT_COUNT);
   for (const entry of FIELD_SPELL_ENVIRONMENT_CATALOG) {
     const brief = getFieldSpellIllustrationBrief(entry.cardId);
+    const reference = getFieldSpellReferenceArtEntry(entry.cardId);
     const environment = getFieldEnvironmentForCardId(entry.cardId);
     assert.equal(environment?.id, entry.environmentId);
     assert.equal(environment.displayName, brief.name);
     assert.deepEqual(environment.associatedCardIds, [entry.cardId]);
-    assert.equal(environment.backdropUrl, brief.assetPath);
+    assert.equal(environment.backdropUrl, reference.assetPath);
     assert.equal(
       environment.fallbackBackdropUrl,
-      FIELD_ENVIRONMENT_REGISTRY[entry.environmentId].backdropUrl
+      brief.assetPath
     );
     assert.deepEqual(environment.surfacePalette, {
-      background: brief.palette.shadow,
-      ground: brief.palette.dominant,
-      platform: brief.palette.secondary,
-      rail: brief.palette.signatureAccent
+      background: reference.palette.shadow,
+      ground: reference.palette.dominant,
+      platform: reference.palette.secondary,
+      rail: reference.palette.signatureAccent
     });
-    assert.equal(environment.environmentTint, brief.palette.dominant);
-    assert.equal(environment.accentColor, brief.palette.signatureAccent);
-    assert.equal(environment.lighting.ambient, brief.palette.secondary);
-    assert.equal(environment.lighting.directional, brief.palette.light);
-    assert.equal(environment.fog.color, brief.palette.shadow);
+    assert.equal(environment.environmentTint, reference.palette.dominant);
+    assert.equal(environment.accentColor, reference.palette.signatureAccent);
+    assert.equal(environment.lighting.ambient, reference.palette.secondary);
+    assert.equal(environment.lighting.directional, reference.palette.light);
+    assert.equal(environment.fog.color, reference.palette.shadow);
+    assert.equal(environment.referenceArt, reference);
+    assert.equal(environment.backdropFit, 'contain');
     assert.ok(Object.isFrozen(environment.surfacePalette));
   }
   assert.equal(getFieldEnvironmentForCardId('59197169').id, 'yami');
@@ -429,13 +433,12 @@ test('every canonical Field Spell owns one strict dedicated asset path and measu
   for (const [cardId, assetPath] of Object.entries(
     FIELD_SPELL_DEDICATED_BACKDROP_URL_BY_CARD_ID
   )) {
-    const brief = getFieldSpellIllustrationBrief(cardId);
-    assert.equal(assetPath, brief.assetPath);
+    const reference = getFieldSpellReferenceArtEntry(cardId);
+    assert.equal(assetPath, reference.assetPath);
     assert.match(
       assetPath,
       new RegExp(
-        `^/environments/field-spells/${cardId}-[a-z0-9]+`
-        + `(?:-[a-z0-9]+)*-original\\.webp$`
+        `^/environments/field-art/${cardId}\\.jpg$`
       )
     );
     assert.equal(isSafeFieldEnvironmentBackdropUrl(assetPath), true);
@@ -644,11 +647,11 @@ test('RealDuelView lazily mounts one non-interactive layer without moving the bo
   assert.equal(layer.dataset.environmentId, 'yami');
   assert.equal(
     layer.style.getPropertyValue('--real-environment-backdrop'),
-    'url("/environments/field-spells/59197169-yami-original.webp")'
+    'url("/environments/field-art/59197169.jpg")'
   );
   assert.equal(
     layer.style.getPropertyValue('--real-environment-backdrop-fallback'),
-    'url("/environments/field-occult-dark-original.webp")'
+    'url("/environments/field-spells/59197169-yami-original.webp")'
   );
   assert.equal(
     layer.style.getPropertyValue('--real-environment-backdrop-opacity'),
@@ -683,8 +686,7 @@ test('RealDuelView crossfades safe dedicated backdrops without moving gameplay n
   );
   assert.equal(
     yamiLayer.style.backgroundImage,
-    'url("/environments/field-spells/59197169-yami-original.webp"), '
-      + 'url("/environments/field-occult-dark-original.webp")'
+    'url("/environments/field-art/59197169.jpg")'
   );
 
   view.update(umiState);
@@ -693,8 +695,7 @@ test('RealDuelView crossfades safe dedicated backdrops without moving gameplay n
   );
   assert.equal(
     umiLayer.style.backgroundImage,
-    'url("/environments/field-spells/22702055-umi-original.webp"), '
-      + 'url("/environments/field-ocean-original.webp")'
+    'url("/environments/field-art/22702055.jpg")'
   );
   assert.equal(fixture.board.parentNode, fixture.wrapper);
   assert.equal(fixture.existingCard.parentNode, fixture.existingZone);
@@ -736,9 +737,9 @@ test('RealDuelView exposes only fallback until decode and rejects stale or dispo
     imageFactory: imageHarness.imageFactory
   });
   const yamiDedicatedUrl =
-    '/environments/field-spells/59197169-yami-original.webp';
+    '/environments/field-art/59197169.jpg';
   const umiDedicatedUrl =
-    '/environments/field-spells/22702055-umi-original.webp';
+    '/environments/field-art/22702055.jpg';
 
   const layer = await view.activate({
     playerFieldSpell: activeFieldCard('59197169', 1)
@@ -751,7 +752,7 @@ test('RealDuelView exposes only fallback until decode and rejects stale or dispo
   assert.equal(
     backdropLayers.find(child => child.dataset.active === 'true')
       .style.backgroundImage,
-    'url("/environments/field-occult-dark-original.webp")'
+    'url("/environments/field-spells/59197169-yami-original.webp")'
   );
   assert.equal(
     backdropLayers.some(child => child.style.backgroundImage.includes(
@@ -770,7 +771,7 @@ test('RealDuelView exposes only fallback until decode and rejects stale or dispo
   assert.equal(
     backdropLayers.find(child => child.dataset.active === 'true')
       .style.backgroundImage,
-    'url("/environments/field-ocean-original.webp")'
+    'url("/environments/field-spells/22702055-umi-original.webp")'
   );
 
   imageHarness.requests[0].resolve();
@@ -795,9 +796,10 @@ test('RealDuelView exposes only fallback until decode and rejects stale or dispo
     child => child.dataset.active === 'true'
   );
   assert.ok(decodedLayer.style.backgroundImage.includes(umiDedicatedUrl));
-  assert.ok(decodedLayer.style.backgroundImage.includes(
-    '/environments/field-ocean-original.webp'
-  ));
+  assert.equal(decodedLayer.style.backgroundImage, `url("${umiDedicatedUrl}")`);
+  assert.equal(decodedLayer.style.backgroundSize, 'contain');
+  assert.equal(decodedLayer.style.filter, 'none');
+  assert.equal(layer.dataset.referenceArt, 'true');
 
   view.update({
     playerFieldSpell: activeFieldCard('40089744', 3)

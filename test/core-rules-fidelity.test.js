@@ -226,7 +226,7 @@ test('zone changes renew runtime identity, clear transient state, and remove ali
   assert.equal(game.playerFaceUpExtraDeck.filter(candidate => candidate === card).length, 1);
 });
 
-test('Junk Synchron negation follows the same face-up instance and Arcanite revives with zero counters', () => {
+test('Junk Synchron negation follows the same face-up instance and Arcanite revives with zero counters', async () => {
   const game = new DuelGame();
   game.phases.turnCount = 2;
   const revived = control(monster({ uid: 'junk-revived', level: 2 }), 'player', 'graveyard');
@@ -255,6 +255,8 @@ test('Junk Synchron negation follows the same face-up instance and Arcanite revi
     summonType: 'synchro',
     properlySummoned: true
   });
+  assert.equal(arcanite.counters.spell, undefined, 'counters wait for the mandatory Trigger Chain');
+  await withImmediateTimers(() => game.resolveProcedureSummonWindow(arcanite, 'player', 'synchro'));
   assert.equal(arcanite.counters.spell, 2);
   assert.equal(arcanite.getAtk(), 2400);
   const entry = game.getMonsterEntry('player', 1);

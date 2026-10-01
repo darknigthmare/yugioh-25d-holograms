@@ -10,6 +10,34 @@ export class TriggerEventEngine {
   reset() {
     this.events = [];
     this.nextEventId = 1;
+    this.nextTimingEventId = 1;
+    this.lastTimingEventId = null;
+    this.resolvingLinkNumber = null;
+  }
+
+  /** Actual game operations advance timing; end-of-Chain cleanup does not. */
+  recordTimingEvent() {
+    this.lastTimingEventId = this.nextTimingEventId++;
+    return this.lastTimingEventId;
+  }
+
+  beginResolutionLink(link, { activationNegated = false } = {}) {
+    this.resolvingLinkNumber = link.id;
+    // Effect negation still has a resolution timing (Konami FAQ23535).
+    // An activation-negated link does not resolve an effect.
+    if (!activationNegated) this.recordTimingEvent();
+  }
+
+  endResolutionLink() {
+    this.resolvingLinkNumber = null;
+  }
+
+  isEventAtActivationTiming(event, descriptor) {
+    // Optional "when" effects must see their condition as the last event and
+    // cannot survive a later resolving link. Mandatory/"if" effects wait for
+    // the next Trigger window even if another operation follows.
+    if (descriptor.mandatory !== false || descriptor.triggerCondition !== 'when') return true;
+    return event.timingEventId === this.lastTimingEventId;
   }
 
   enqueue(card, type, details = {}) {
@@ -22,6 +50,8 @@ export class TriggerEventEngine {
       sourceUid: card.uid,
       sourceRuntimeInstanceId: card.runtimeInstanceId,
       sourceLocation: card.location,
+      timingEventId: details.timingEventId ?? this.recordTimingEvent(),
+      resolvingLinkNumber: this.resolvingLinkNumber,
       controllerId: details.controllerId || card.controllerId,
       boundary: details.boundary || 'immediate'
     });

@@ -66,7 +66,7 @@ const RAW_FIELD_SPELL_ENVIRONMENT_CATALOG = [
   ['975299', 'B.E.F. Zelos', 'mechanical-fortress'],
   ['30761649', 'Barian Untopia', 'cosmic-dimensional'],
   ['64213017', 'Beetrooper Formation', 'forest'],
-  ['100458006', 'Beresennet Em Heru', 'temple-sanctuary'],
+  ['46273941', 'Pere-Zenet Em Heru', 'temple-sanctuary'],
   ['71645242', 'Black Garden', 'forest'],
   ['36668118', 'Boot Sector Launch', 'mechanical-fortress'],
   ['85668449', 'Brain Research Lab', 'industrial-lab'],

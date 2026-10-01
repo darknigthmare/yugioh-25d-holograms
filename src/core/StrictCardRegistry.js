@@ -10,6 +10,13 @@ const STRICT_CARD_REGISTRY = new Map([
   ['50913601', { section: 'main', procedure: 'spell' }],
   ['86318356', { section: 'main', procedure: 'spell' }],
   ['23424603', { section: 'main', procedure: 'spell' }],
+  ['56594520', { section: 'main', procedure: 'spell' }],
+  ['82999629', { section: 'main', procedure: 'spell' }],
+  ['81777047', { section: 'main', procedure: 'spell' }],
+  ['18161786', { section: 'main', procedure: 'spell' }],
+  ['45778932', { section: 'main', procedure: 'spell' }],
+  ['19384334', { section: 'main', procedure: 'spell' }],
+  ['81380218', { section: 'main', procedure: 'spell' }],
   // Main Deck monsters using the normal Summon/Set procedure.
   ['89631139', { section: 'main', procedure: 'normal' }],
   ['46986414', { section: 'main', procedure: 'normal' }],

@@ -8,6 +8,8 @@ import {
   getFieldEnvironmentGeometrySignature,
   hasFieldEnvironmentLandmarkGeometry,
   FIELD_ENVIRONMENT_CARD_LANDMARKS,
+  FIELD_ENVIRONMENT_INSPECTED_ART_PROFILES,
+  FIELD_ENVIRONMENT_GEOMETRY_BUDGET,
   resolveFieldEnvironmentGeometryProfile
 } from '../src/ui/FieldEnvironmentGeometry.js';
 import {
@@ -92,7 +94,8 @@ test('all 336 resolved Field Spells retain dedicated illustration and geometry c
     } });
     assert.equal(selection.isFallback, false, entry.name);
     assert.equal(selection.environment, environment);
-    assert.match(environment.backdropUrl, new RegExp(`/field-spells/${entry.cardId}-`));
+    assert.equal(environment.backdropUrl, `/environments/field-art/${entry.cardId}.jpg`);
+    assert.match(environment.fallbackBackdropUrl, new RegExp(`/field-spells/${entry.cardId}-`));
     const group = createFieldEnvironmentGeometry(THREE, environment);
     const corridor = new THREE.Box3(new THREE.Vector3(-9, -3, -18), new THREE.Vector3(9, 30, 17));
     assert.ok(group.userData.meshCount < 220, `${entry.name}: excessive draw count`);
@@ -191,10 +194,57 @@ test('24 additional named terrains contain distinct physical props beyond the fa
     assert.ok(group.children.every(object => object.isInstancedMesh), 'static props must be GPU batched');
     disposeFieldEnvironmentGeometry(group);
   }
-  assert.equal(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.count, 45);
+  assert.equal(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.count, 66);
   assert.deepEqual(new Set(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.cardIds), new Set(Object.keys(FIELD_ENVIRONMENT_CARD_LANDMARKS)));
   assert.equal(getFieldEnvironmentForCardId('15259703'), null, 'Toon World is a Continuous Spell');
   assert.equal(getFieldEnvironmentForCardId('43175858').geometryProfile.landmark, 'storybook-castle');
+});
+
+test('21 inspected original illustrations produce their concrete motifs without divergent family monuments', () => {
+  const expectations = [
+    ['56594520', 'gaia-colossal-oak-trunk', 'rock-spire'],
+    ['82999629', 'umiiruka-water-splash', 'coral-spire'],
+    ['81777047', 'luminous-black-diagonal-ray', 'fluted-column'],
+    ['18161786', 'plasma-cyan-forked-lightning', 'occult-monolith'],
+    ['45778932', 'rising-diagonal-cloud-wisp', 'column-base'],
+    ['19384334', 'molten-branching-lava-stream', 'volcanic-caldera'],
+    ['81380218', 'chorus-pink-heaven-gate-post', 'fluted-column'],
+    ['59197169', 'yami-concave-magenta-mist', 'occult-monolith'],
+    ['22702055', 'ocean-long-white-crest', 'coral-spire'],
+    ['87430998', 'forest-distant-conifer-wall', 'exposed-root'],
+    ['50913601', 'mountain-tall-right-peak', 'glacier-spire'],
+    ['86318356', 'sogen-right-grass-fissure', 'weathered-rock'],
+    ['23424603', 'wasteland-bare-dead-tree', 'rock-spire'],
+    ['48179391', 'orichalcos-six-point-star', 'dimensional-ring'],
+    ['14001430', 'madolche-cream-piping-ring', 'castle-curtain-wall'],
+    ['87624166', 'ancient-forest-white-light-shaft', 'exposed-root'],
+    ['84171830', 'monarch-massive-shadow-throne-back', 'castle-crenellation'],
+    ['33407125', 'labrynth-pointed-blue-roof', 'castle-curtain-wall'],
+    ['10080320', 'jurassic-hanging-vine', 'exposed-root'],
+    ['16625614', 'dark-sanctuary-sky-eye-pupil', 'occult-monolith'],
+    ['61583217', 'cynet-cyan-hexagonal-lattice', 'data-node']
+  ];
+  for (const [cardId, motif, forbidden] of expectations) {
+    const environment = getFieldEnvironmentForCardId(cardId);
+    const profile = environment.geometryProfile.inspectedArt;
+    assert.equal(profile.sourceUrl, environment.referenceArt.sourceUrl);
+    assert.equal(Object.isFrozen(profile.palette), true);
+    assert.ok(profile.motifs.length >= 3);
+    const group = createFieldEnvironmentGeometry(THREE, environment);
+    assert.equal(group.userData.fidelity, 'reference-informed-geometry');
+    assert.ok(hasFieldEnvironmentLandmarkGeometry(group, motif), `${cardId}: ${motif}`);
+    assert.equal(hasFieldEnvironmentLandmarkGeometry(group, forbidden), false, `${cardId}: divergent ${forbidden}`);
+    const sourceBounds = new THREE.Box3();
+    forEachPrimitiveBounds(group, bounds => sourceBounds.union(bounds));
+    for (const [index, axis] of ['x', 'y', 'z'].entries()) {
+      assert.ok(Math.abs(group.userData.bounds.min[index] - sourceBounds.min[axis]) < 0.00002);
+      assert.ok(Math.abs(group.userData.bounds.max[index] - sourceBounds.max[axis]) < 0.00002);
+    }
+    disposeFieldEnvironmentGeometry(group);
+  }
+  assert.equal(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.inspectedReferenceArtCount, 21);
+  assert.deepEqual(new Set(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.inspectedReferenceCardIds), new Set(Object.keys(FIELD_ENVIRONMENT_INSPECTED_ART_PROFILES)));
+  assert.equal(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.budget, FIELD_ENVIRONMENT_GEOMETRY_BUDGET);
 });
 
 test('replacing scenery disposes shared resources once and is safe to repeat', () => {
@@ -217,4 +267,65 @@ test('replacing scenery disposes shared resources once and is safe to repeat', (
   assert.equal(group.children.length, 0);
   assert.equal(group.userData.disposed, true);
   for (const resource of resources) assert.equal(counts.get(resource), 1);
+});
+
+test('Molten lava and connected branches clear the actual octagonal cone surface by their entire tube radius', () => {
+  const group = createFieldEnvironmentGeometry(THREE, getFieldEnvironmentForCardId('19384334'));
+  const findInstances = name => {
+    const result = [];
+    group.traverse(object => {
+      if (!object.isInstancedMesh) return;
+      object.userData.instanceNames.forEach((instanceName, index) => {
+        if (instanceName !== name) return;
+        const matrix = new THREE.Matrix4();
+        object.getMatrixAt(index, matrix);
+        result.push({ object, matrix });
+      });
+    });
+    return result;
+  };
+  const [{ object: coneBatch, matrix: coneMatrix }] = findInstances('molten-wide-black-volcano');
+  const cone = new THREE.Mesh(coneBatch.geometry, coneBatch.material);
+  cone.matrixAutoUpdate = false;
+  cone.matrix.copy(coneMatrix);
+  cone.updateMatrixWorld(true);
+  assert.equal(cone.geometry.parameters.radialSegments, 8);
+  const normalMatrix = new THREE.Matrix3().getNormalMatrix(cone.matrixWorld);
+  const ray = new THREE.Raycaster();
+  const primary = findInstances('molten-branching-lava-stream');
+  const branches = findInstances('molten-lava-side-branch');
+  assert.equal(primary.length, 8);
+  assert.equal(branches.length, 16, 'each primary stream has two visible branching segments');
+  const paths = [...primary, ...branches].map(({ matrix }) => {
+    const position = new THREE.Vector3();
+    const quaternion = new THREE.Quaternion();
+    const scale = new THREE.Vector3();
+    matrix.decompose(position, quaternion, scale);
+    return {
+      start: new THREE.Vector3(0, -0.5, 0).applyMatrix4(matrix),
+      end: new THREE.Vector3(0, 0.5, 0).applyMatrix4(matrix),
+      radius: Math.max(scale.x, scale.z)
+    };
+  });
+  for (const path of paths) {
+    for (let sample = 0; sample <= 16; sample += 1) {
+      const point = path.start.clone().lerp(path.end, sample / 16);
+      ray.set(new THREE.Vector3(point.x, 30, point.z), new THREE.Vector3(0, -1, 0));
+      const [hit] = ray.intersectObject(cone);
+      assert.ok(hit, 'every lava sample stays above a real volcano face');
+      const normal = hit.face.normal.clone().applyMatrix3(normalMatrix).normalize();
+      const clearance = point.clone().sub(hit.point).dot(normal);
+      assert.ok(clearance > path.radius + 0.06,
+        `tube at ${point.toArray()} clips volcano: clearance=${clearance}, radius=${path.radius}`);
+    }
+  }
+  for (let index = 0; index < primary.length; index += 1) {
+    const main = paths[index];
+    const firstBranch = paths[primary.length + index * 2];
+    const secondBranch = paths[primary.length + index * 2 + 1];
+    assert.ok(new THREE.Line3(main.start, main.end).closestPointToPoint(firstBranch.start, true, new THREE.Vector3())
+      .distanceTo(firstBranch.start) < 0.00001, 'branch begins on its primary stream');
+    assert.ok(firstBranch.end.distanceTo(secondBranch.start) < 0.00001, 'branch bends stay connected');
+  }
+  disposeFieldEnvironmentGeometry(group);
 });

@@ -27,6 +27,13 @@ function normalizeExactCardAlias(value) {
     .toLocaleLowerCase('fr');
 }
 
+function normalizeCardPasscode(value) {
+  // Database imports may use a number or the printed eight-digit passcode.
+  // Preserve exact identity instead of coercing malformed values to numbers.
+  const passcode = String(value ?? '').trim();
+  return /^\d{1,8}$/.test(passcode) ? passcode.replace(/^0+(?=\d)/, '') : null;
+}
+
 function countsForDarkMagicianGirl(card) {
   if (DARK_MAGICIAN_GIRL_GRAVE_IDS.has(String(card?.id))) return true;
   return [card?.name_en, card?.name]
@@ -207,12 +214,10 @@ export class GameStateStabilizer {
       '70903634'  // Right Arm of the Forbidden One
     ];
 
-    const playerHasAllExodia = exodiaIds.every(id =>
-      game.playerHand.some(c => String(c.id) === id)
-    );
-    const opponentHasAllExodia = exodiaIds.every(id =>
-      game.opponentHand.some(c => String(c.id) === id)
-    );
+    const playerPasscodes = new Set(game.playerHand.map(card => normalizeCardPasscode(card.id)));
+    const opponentPasscodes = new Set(game.opponentHand.map(card => normalizeCardPasscode(card.id)));
+    const playerHasAllExodia = exodiaIds.every(id => playerPasscodes.has(id));
+    const opponentHasAllExodia = exodiaIds.every(id => opponentPasscodes.has(id));
 
     if (playerHasAllExodia && opponentHasAllExodia) {
       finish('draw', 'exodia');

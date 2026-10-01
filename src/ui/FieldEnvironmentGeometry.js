@@ -3,7 +3,9 @@
  * backdrop stays the illustration source; these volumes add parallax and
  * environmental detail without obscuring the playable area or private cards.
  *
- * This is a procedural interpretation, not a recreation of official artwork.
+ * Inspected illustrations have explicit scenery motifs and palettes below;
+ * other profiles retain procedural interpretations. Dimensions are adapted to
+ * the playable corridor, so source fidelity is described per profile.
  * No renderer, DOM, card textures, random global state or animation is needed.
  */
 
@@ -17,6 +19,16 @@ export const FIELD_ENVIRONMENT_GEOMETRY_FAMILIES = Object.freeze([
 ]);
 
 const FAMILY_SET = new Set(FIELD_ENVIRONMENT_GEOMETRY_FAMILIES);
+export const FIELD_ENVIRONMENT_GEOMETRY_BUDGET = Object.freeze({
+  maxDrawCallCount: 18,
+  maxMaterialCount: 10,
+  maxPrimitiveCount: 220,
+  maxHorizontalExtent: 48,
+  playableCorridor: Object.freeze({
+    min: Object.freeze([-9, -3, -18]),
+    max: Object.freeze([9, 30, 17])
+  })
+});
 export const FIELD_ENVIRONMENT_CARD_LANDMARKS = Object.freeze({
   '295517': 'submerged-ruins',
   '71645242': 'thorn-garden',
@@ -62,8 +74,62 @@ export const FIELD_ENVIRONMENT_CARD_LANDMARKS = Object.freeze({
   '1050355': 'nightmare-mirror',
   '74665651': 'radiant-mirror',
   '94585852': 'archfiend-court',
-  '56111151': 'waterfront-counter-tower'
+  '56111151': 'waterfront-counter-tower',
+  '56594520': 'gaia-ancient-oak',
+  '82999629': 'umiiruka-breaking-waves',
+  '81777047': 'luminous-diagonal-rays',
+  '18161786': 'plasma-storm-spiral',
+  '45778932': 'rising-sky-currents',
+  '19384334': 'molten-erupting-volcano',
+  '81380218': 'chorus-cloud-garden',
+  '59197169': 'yami-magenta-void',
+  '22702055': 'umi-cobalt-swell',
+  '87430998': 'forest-forked-clearing',
+  '50913601': 'mountain-twin-ridges',
+  '86318356': 'sogen-grass-terraces',
+  '23424603': 'wasteland-stratified-escarpment',
+  '48179391': 'orichalcos-six-point-seal',
+  '14001430': 'madolche-cake-palace',
+  '87624166': 'ancient-forest-canopy',
+  '84171830': 'monarch-shadow-hall',
+  '33407125': 'labrynth-white-palace',
+  '10080320': 'jurassic-caldera-grove',
+  '16625614': 'dark-sanctuary-eye-castle',
+  '61583217': 'cynet-hexagonal-cosmos'
 });
+
+// Individually inspected, original cropped illustrations. These palettes and
+// motifs describe the source, not a title-derived/generative scene. The game
+// keeps illustrated creatures in the preserved background; peripheral props
+// reconstruct the surrounding scenery while leaving the duel corridor clear.
+export const FIELD_ENVIRONMENT_INSPECTED_ART_PROFILES = Object.freeze(Object.fromEntries([
+  ['56594520', ['#70884f','#775137','#1e4e2b','#bce0ce','#744527','#dce7be'], ['massive branching oak', 'broad exposed roots', 'deep green crown']],
+  ['82999629', ['#0879b8','#55796c','#1c75ae','#ecf8ff','#305442','#f5fbff'], ['stacked blue breakers', 'white crests', 'thin distant shoreline']],
+  ['81777047', ['#fafafa','#161519','#121217','#ec353e','#222025','#ffffff'], ['white void', 'black diagonal rays', 'red edge streaks']],
+  ['18161786', ['#626866','#705d51','#513a8b','#66eaff','#332757','#9e87d3'], ['purple cloud spiral', 'cyan forked lightning', 'low sloping rock']],
+  ['45778932', ['#3877ba','#a7bfd2','#729bba','#e1ecf2','#698094','#edf3fa'], ['blue sky', 'diagonal wispy cloud bands', 'open aerial space']],
+  ['19384334', ['#2c1b13','#291a13','#493429','#fff03a','#371d13','#ffa137'], ['wide black volcano', 'branching orange lava', 'yellow eruption and debris']],
+  ['81380218', ['#b9d4e9','#e6dfc1','#427a43','#e6d781','#a9784e','#f0f3f4'], ['cloud sea', 'pink horizon gate', 'red corner roses and musical notes']],
+  ['59197169', ['#080508','#33112d','#5e224f','#e588b4','#301523','#a95783'], ['large black void', 'concave magenta edge mist', 'descending pink rays']],
+  ['22702055', ['#0367ab','#156b9c','#0783b5','#b9eef8','#1a628f','#edfaff'], ['cobalt ocean', 'long pale foam lines', 'slanted wave horizon']],
+  ['87430998', ['#90ae4c','#759158','#43753e','#c6d797','#758458','#e5ebbf'], ['forked trunks at right', 'dark conifer wall', 'yellow green clearing']],
+  ['50913601', ['#6d645f','#796255','#616974','#b7d5e9','#675245','#c3d8e8'], ['tall right rock peak', 'lower left ridge', 'blue mist valley']],
+  ['86318356', ['#6d9f43','#637159','#3a8a3b','#abd26c','#577143','#c9dbab'], ['open green plain', 'low distant mountain chain', 'right grassy fissure']],
+  ['23424603', ['#8d7861','#8e7764','#474439','#c2ac91','#79604c','#d0c2ae'], ['horizontal barren terraces', 'angular foreground escarpment', 'two bare trees']],
+  ['48179391', ['#282d3a','#414855','#424e52','#40ff65','#313845','#e6fff0'], ['two neon green circles', 'six point star', 'dark smoky space']],
+  ['14001430', ['#dcc481','#a37544','#aa88bb','#ed94b5','#b2804d','#fff1bd'], ['stacked wafer cake towers', 'cream piping', 'pink strawberry roofs']],
+  ['87624166', ['#173d45','#53625b','#43a28e','#c7f5dd','#5e6d5f','#eafff2'], ['tall enclosing trunks', 'cyan green canopy', 'central white light shafts']],
+  ['84171830', ['#272634','#4e4b60','#393441','#bbb4c9','#3d3a46','#d8d4e0'], ['tall gray hall columns', 'two immense shadow thrones', 'white overhead light']],
+  ['33407125', ['#d6e5f0','#e8eefa','#86b8e9','#ba8bea','#bcc8e8','#faffff'], ['tiered white blue palace', 'pointed blue turrets', 'curved elevated access ramps']],
+  ['10080320', ['#345d35','#8e8c7b','#3d8053','#bad0ef','#485d43','#b8cae4'], ['fern jungle and hanging vines', 'encircling stone caldera', 'smoking volcano beyond']],
+  ['16625614', ['#4e1738','#341528','#622947','#ae4082','#45202d','#bd659d'], ['dark spired castle on jagged rock', 'red violet sky', 'large surrounding eyes']],
+  ['61583217', ['#062d55','#1b4874','#247f99','#7ce9ff','#123459','#b9f7ff'], ['cyan hexagon lattice', 'calibrated orbit discs', 'bright connected nodes']]
+].map(([cardId, colors, motifs]) => [cardId, Object.freeze({
+  cardId,
+  sourceUrl: `https://images.ygoprodeck.com/images/cards_cropped/${cardId}.jpg`,
+  motifs: Object.freeze(motifs),
+  palette: Object.freeze({ ground: colors[0], stone: colors[1], foliage: colors[2], accent: colors[3], wood: colors[4], foam: colors[5] })
+})])));
 
 function canonicalCardId(value) {
   const id = String(value ?? '').trim();
@@ -83,13 +149,15 @@ export function resolveFieldEnvironmentGeometryProfile(environmentFamily, cardId
   const normalizedFamily = String(environmentFamily ?? '').trim().toLowerCase();
   const family = FAMILY_SET.has(normalizedFamily) ? normalizedFamily : 'generic';
   const normalizedCardId = canonicalCardId(cardId);
+  const inspectedArt = FIELD_ENVIRONMENT_INSPECTED_ART_PROFILES[normalizedCardId] || null;
   return Object.freeze({
     family,
     cardId: normalizedCardId,
     landmark: FIELD_ENVIRONMENT_CARD_LANDMARKS[normalizedCardId] || family,
     hasDedicatedLandmark: Object.hasOwn(FIELD_ENVIRONMENT_CARD_LANDMARKS, normalizedCardId),
     seed: hash(`${family}:${normalizedCardId || 'base'}`),
-    fidelity: 'procedural-interpretation'
+    inspectedArt,
+    fidelity: inspectedArt ? 'reference-informed-geometry' : 'procedural-interpretation'
   });
 }
 
@@ -131,13 +199,15 @@ export function createFieldEnvironmentGeometry(THREE, environment = {}) {
     landmark: profile.landmark,
     hasDedicatedLandmark: profile.hasDedicatedLandmark,
     fidelity: profile.fidelity,
+    inspectedArt: profile.inspectedArt,
     publicOnly: true
   };
 
   const palette = environment.surfacePalette || {};
-  const tint = palette.ground || environment.environmentTint || '#34425f';
-  const stone = palette.platform || '#647078';
-  const accent = environment.accentColor || '#79d9ff';
+  const sourcePalette = profile.inspectedArt?.palette || {};
+  const tint = sourcePalette.ground || palette.ground || environment.environmentTint || '#34425f';
+  const stone = sourcePalette.stone || palette.platform || '#647078';
+  const accent = sourcePalette.accent || environment.accentColor || '#79d9ff';
   const material = (color, options = {}) => new THREE.MeshStandardMaterial({
     color, roughness: 0.85, metalness: 0.04, ...options
   });
@@ -146,16 +216,16 @@ export function createFieldEnvironmentGeometry(THREE, environment = {}) {
     ground: material(tint),
     dark: material('#181e23'),
     metal: material('#465158', { metalness: 0.72, roughness: 0.4 }),
-    wood: material('#453629'),
-    leaves: material(['yami', 'graveyard'].includes(profile.family) ? '#292330' : tint),
+    wood: material(sourcePalette.wood || '#453629'),
+    leaves: material(sourcePalette.foliage || (['yami', 'graveyard'].includes(profile.family) ? '#292330' : tint)),
     light: material(accent, { emissive: accent, emissiveIntensity: 0.65, roughness: 0.35 }),
-    water: material(profile.family === 'swamp' ? '#2c5045' : '#14738b', {
+    water: material(['umiiruka-breaking-waves','umi-cobalt-swell'].includes(profile.landmark) ? tint : (profile.family === 'swamp' ? '#2c5045' : '#14738b'), {
       roughness: 0.16, metalness: 0.5, transparent: true, opacity: 0.72
     }),
     ice: material('#93d9ee', { roughness: 0.24, metalness: 0.15 }),
     gold: material('#c79b44', { metalness: 0.62, roughness: 0.42 }),
     lava: material('#f04a12', { emissive: '#e53105', emissiveIntensity: 1.1 }),
-    paper: material('#e8cfa0', { side: THREE.DoubleSide })
+    paper: material(sourcePalette.foam || '#e8cfa0', { side: THREE.DoubleSide })
   };
   const geometries = new Map();
   const geometry = (key, create) => {
@@ -259,8 +329,20 @@ export function createFieldEnvironmentGeometry(THREE, environment = {}) {
     add('basin-carved-rim', basinRim, mat, [x, y + height, z], [radius, radius, radius], [Math.PI / 2, 0, 0]);
     add('basin-water', cylinder, materials.water, [x, y + height * 0.9, z], [radius * 0.92, 0.025, radius * 0.92]);
   };
+  const cloudBank = (name, x, y, z, width, mat = materials.paper) => {
+    for (let puff = 0; puff < 4; puff += 1) add(name, crown, mat,
+      [x + (puff - 1.5) * width * 0.32, y + Math.sin(puff * 1.6) * width * 0.08, z],
+      [width * 0.4, width * 0.17, width * 0.28]);
+  };
+  const bareTree = (name, x, z, height, mat = materials.wood) => {
+    beam(name, [x, 0, z], [x + 0.3, height, z], mat, 0.14);
+    for (const side of [-1, 1]) {
+      beam(name, [x, height * 0.58, z], [x + side * 1.4, height * 0.87, z], mat, 0.07);
+      beam(name, [x + side * 1.2, height * 0.82, z], [x + side * 1.8, height, z], mat, 0.045);
+    }
+  };
 
-  switch (profile.family) {
+  if (!profile.inspectedArt) switch (profile.family) {
     case 'clearing':
     case 'forest':
     case 'swamp': {
@@ -546,6 +628,315 @@ export function createFieldEnvironmentGeometry(THREE, environment = {}) {
   // Named landmarks translate the audited title/effect/illustration contract
   // into real volumes. They use the same peripheral footprint as the families.
   switch (profile.landmark) {
+    case 'gaia-ancient-oak': {
+      add('gaia-colossal-oak-trunk', cylinder, materials.wood, [0, 7, -33], [2.7, 14, 2.7]);
+      const bark = material('#4c311f');
+      for (let ridge = 0; ridge < 12; ridge += 1) {
+        const angle = ridge * Math.PI / 6;
+        const x = Math.cos(angle) * 2.73;
+        const z = -33 + Math.sin(angle) * 2.73;
+        beam('gaia-deep-bark-furrow', [x, 0.8, z], [x * 0.97, 11.5 + ridge % 3, z], bark, 0.065);
+      }
+      for (let i = 0; i < 7; i += 1) {
+        const angle = i * Math.PI * 2 / 7;
+        const x = Math.cos(angle) * 7;
+        const z = -33 + Math.sin(angle) * 5;
+        beam('gaia-exposed-buttress-root', [0, 3, -33], [x, 0.25, z], materials.wood, 0.5);
+        beam('gaia-spreading-oak-limb', [0, 8 + i * 0.7, -33], [x, 15 + i % 3, z], materials.wood, 0.52);
+        add('gaia-deep-green-crown', crown, materials.leaves, [x * 0.65, 16 + i % 3, z], [5, 3.7, 4]);
+      }
+      for (const side of [-1, 1]) {
+        tree(side * 20, -20, 9);
+        tree(side * 18, -7, 7);
+      }
+      break;
+    }
+    case 'umiiruka-breaking-waves':
+    case 'umi-cobalt-swell': {
+      for (const side of [-1, 1]) {
+        waterShelf(side);
+        for (let row = 0; row < 4; row += 1) {
+          const z = -20 + row * 7.5;
+          add('ocean-swell-face', cylinder, materials.water, [side * 17, 0.45 + row * 0.12, z],
+            [1.1, 9.3, 1.1], [0, 0, Math.PI / 2]);
+          beam('ocean-long-white-crest', [side * 12.8, 1.4 + row * 0.12, z],
+            [side * 21.5, 1.4 + row * 0.12, z + (profile.landmark === 'umi-cobalt-swell' ? 2 : 0.2)], materials.paper, 0.14);
+          for (let spray = 0; spray < 3; spray += 1) add('breaking-wave-foam', crown, materials.paper,
+            [side * (14 + spray * 2.5), 1.4 + row * 0.12, z], [0.65, 0.22, 0.38]);
+        }
+      }
+      if (profile.landmark === 'umiiruka-breaking-waves') {
+        block('umiiruka-thin-distant-shore', materials.wood, 0, 0.12, -34, 36, 0.25, 1.2);
+        for (let i = 0; i < 5; i += 1) beam('umiiruka-water-splash',
+          [-17 + i * 0.3, 1.5, -14], [-17 + i * 0.55, 3.5 + i % 2, -14], materials.paper, 0.04);
+      }
+      break;
+    }
+    case 'luminous-diagonal-rays': {
+      const black = material('#09090c');
+      const white = material('#ffffff', { emissive: '#ffffff', emissiveIntensity: 0.4 });
+      for (const side of [-1, 1]) for (let ray = 0; ray < 9; ray += 1) {
+        const x = side * (12.7 + ray * 1.1);
+        const z = -20 + ray * 2.7;
+        beam('luminous-black-diagonal-ray', [x, 1.5, z], [x + side * 4, 18 + ray * 0.4, z - 5], black, 0.12);
+        beam('luminous-white-ray', [x + side * 0.25, 1.5, z], [x + side * 4.25, 18 + ray * 0.4, z - 5], white, 0.1);
+        if (ray % 2 === 0) beam('luminous-red-edge-streak', [x - side * 0.18, 1.5, z],
+          [x + side * 3.82, 18 + ray * 0.4, z - 5], materials.light, 0.035);
+      }
+      break;
+    }
+    case 'plasma-storm-spiral': {
+      for (let i = 0; i < 9; i += 1) {
+        const angle = i * Math.PI * 2 / 9;
+        const x = Math.cos(angle) * 8;
+        const y = 16 + Math.sin(angle) * 4;
+        cloudBank('plasma-purple-spiral-cloud', x, y, -33, 5, materials.leaves);
+      }
+      for (const side of [-1, 1]) {
+        boulder(side * 17, -15, 3, materials.ground);
+        const points = [[side * 8, 17, -32], [side * 13, 14, -29], [side * 12, 11, -26], [side * 17, 7, -24], [side * 16, 1, -23]];
+        for (let i = 1; i < points.length; i += 1) beam('plasma-cyan-forked-lightning', points[i - 1], points[i], materials.light, 0.07);
+        beam('plasma-lightning-side-fork', points[2], [side * 19, 12, -26], materials.light, 0.045);
+      }
+      break;
+    }
+    case 'rising-sky-currents': {
+      for (const side of [-1, 1]) {
+        for (let i = 0; i < 5; i += 1) {
+          cloudBank('rising-diagonal-cloud-wisp', side * 18, 7 + i * 2.7, -20 + i * 5, 5);
+          beam('rising-white-aerial-current', [side * 13, 5 + i * 2.8, -20 + i * 4],
+            [side * 23, 12 + i * 2.8, -21 + i * 4], materials.paper, 0.035);
+        }
+      }
+      cloudBank('rising-back-sky-wisp', 0, 21, -33, 9);
+      break;
+    }
+    case 'molten-erupting-volcano': {
+      add('molten-wide-black-volcano', cone, materials.stone, [0, 5.5, -34], [10, 11, 10]);
+      add('molten-summit-crater', basinRim, materials.lava, [0, 10.5, -34], [1.2, 1.2, 1.2], [Math.PI / 2, 0, 0]);
+      const eruption = material('#ffeb38', { emissive: '#ffaf05', emissiveIntensity: 1.4 });
+      // The cone is octagonal: points between vertices meet a planar face,
+      // whose base radius is smaller than the circumradius. Account for that
+      // face and lift each tube by its full radius plus an outward clearance.
+      const faceSpan = Math.PI * 2 / cone.parameters.radialSegments;
+      const apothem = 10 * Math.cos(faceSpan / 2);
+      const faceSlope = apothem / 11;
+      const surfacePoint = (radialDistance, angle, tubeRadius) => {
+        const phase = ((angle % faceSpan) + faceSpan) % faceSpan;
+        const baseRadius = apothem / Math.cos(phase - faceSpan / 2);
+        const surfaceY = 11 * (1 - radialDistance / baseRadius);
+        const clearanceY = (tubeRadius + 0.08) * Math.hypot(1, faceSlope) / faceSlope;
+        return [Math.cos(angle) * radialDistance, surfaceY + clearanceY, -34 + Math.sin(angle) * radialDistance];
+      };
+      for (let i = 0; i < 8; i += 1) {
+        const angle = i * Math.PI / 4;
+        const x = Math.cos(angle);
+        const z = Math.sin(angle);
+        beam('molten-branching-lava-stream', surfacePoint(1.2, angle, 0.22), surfacePoint(9.4, angle, 0.22), materials.lava, 0.22);
+        const turn = i % 2 ? -1 : 1;
+        const junction = surfacePoint(4.2, angle, 0.22);
+        const bend = surfacePoint(6.1, angle + turn * 0.15, 0.1);
+        const toe = surfacePoint(8.8, angle + turn * 0.29, 0.1);
+        // Each branch remains within one face, so its two segments follow
+        // that actual plane and stay visible all the way to the lower flank.
+        beam('molten-lava-side-branch', junction, bend, materials.lava, 0.1);
+        beam('molten-lava-side-branch', bend, toe, materials.lava, 0.1);
+        add('molten-yellow-eruption-jet', cone, eruption, [x * 0.5, 13 + i % 3, -34 + z * 0.5], [0.3, 5 + i % 3, 0.3], [0, 0, x * 0.12]);
+        add('molten-airborne-ejected-rock', rock, materials.stone, [x * 7, 14 + i % 4, -34 + z * 5], [0.45, 0.65, 0.45], [i * 0.3, i, 0]);
+      }
+      for (const side of [-1, 1]) boulder(side * 15, -15, 2.6, materials.stone);
+      break;
+    }
+    case 'chorus-cloud-garden': {
+      const rose = material('#d96675');
+      const pink = material('#c7a5ca');
+      for (const side of [-1, 1]) {
+        cloudBank('chorus-white-cloud-sea', side * 18, 0.4, -10, 9);
+        for (let i = 0; i < 8; i += 1) {
+          add('chorus-corner-rose', crown, rose, [side * (12.5 + i * 0.7), 0.6 + i % 3 * 0.25, 3 + i * 0.5], [0.62, 0.5, 0.6]);
+        }
+      }
+      for (const side of [-1, 1]) block('chorus-pink-heaven-gate-post', pink, side * 2.7, 2.2, -29, 0.22, 4.4, 0.22);
+      block('chorus-pink-heaven-gate-lintel', pink, 0, 4.3, -29, 5.8, 0.25, 0.25);
+      for (let i = -9; i <= 9; i += 1) block('chorus-thin-pink-horizon-fence', pink, i, 1.8, -29, 0.055, 3.6, 0.055);
+      for (let i = 0; i < 6; i += 1) {
+        const x = i % 2 ? 15 : -15;
+        const y = 5 + i * 1.4;
+        add('chorus-floating-musical-note', crown, materials.dark, [x, y, -20 + i * 3], [0.3, 0.14, 0.22]);
+        beam('chorus-musical-note-stem', [x + 0.23, y, -20 + i * 3], [x + 0.23, y + 1.3, -20 + i * 3], materials.dark, 0.035);
+      }
+      break;
+    }
+    case 'yami-magenta-void': {
+      for (const side of [-1, 1]) {
+        for (let i = 0; i < 4; i += 1) {
+          cloudBank('yami-concave-magenta-mist', side * (15 + i * 2), 0.8 + i * 0.3, -23 + i * 8, 3.5, materials.leaves);
+          add('yami-descending-magenta-ray', cone, materials.light, [side * (13 + i * 3), 14 + i, -29 + i * 3], [0.55, 6, 0.2], [0, 0, side * 0.45]);
+        }
+      }
+      break;
+    }
+    case 'forest-forked-clearing': {
+      for (let i = 0; i < 3; i += 1) {
+        const x = 15 + i * 4;
+        const z = -17 + i * 5;
+        tree(x, z, 9 + i, false);
+        for (const side of [-1, 1]) beam('forest-forked-trunk-limb', [x, 4.5, z],
+          [x + side * 2.1, 8.5 + i, z - 0.4], materials.wood, 0.22);
+      }
+      for (let i = 0; i < 10; i += 1) {
+        add('forest-distant-conifer-wall', cone, materials.leaves, [(i - 4.5) * 3, 4, -33], [2, 8, 2]);
+        add('forest-yellow-green-clearing-grass', cone, materials.ground, [i % 2 ? 12.5 : -12.5, 0.45, -19 + i * 2.8], [0.3, 0.9, 0.3]);
+      }
+      tree(-19, -14, 8);
+      break;
+    }
+    case 'mountain-twin-ridges': {
+      add('mountain-tall-right-peak', cone, materials.stone, [12, 8.5, -33], [8, 17, 8], [0, 0.25, 0]);
+      add('mountain-lower-left-ridge', cone, materials.stone, [-13, 4.5, -29], [9, 9, 7], [0, -0.25, 0]);
+      for (const side of [-1, 1]) {
+        for (let i = 0; i < 4; i += 1) boulder(side * (15 + i * 3), -24 + i * 5, 1.8 + i * 0.2, materials.stone);
+        cloudBank('mountain-blue-valley-mist', side * 17, 1.2, -21, 6);
+      }
+      break;
+    }
+    case 'sogen-grass-terraces': {
+      for (const side of [-1, 1]) {
+        for (let row = 0; row < 5; row += 1) block('sogen-low-grass-bank', materials.ground,
+          side * 17, row * 0.12, -22 + row * 7, 8, 0.35, 6.7);
+        for (let i = 0; i < 12; i += 1) add('sogen-foreground-grass', cone, materials.leaves,
+          [side * (12.5 + i % 3 * 0.5), 0.4, -18 + i * 2.5], [0.15, 0.8, 0.15]);
+      }
+      for (let i = 0; i < 9; i += 1) add('sogen-low-horizon-mountain', cone, materials.stone,
+        [(i - 4) * 4.5, 1.5 + i % 3 * 0.4, -35], [3.3, 3 + i % 3 * 0.8, 2.4]);
+      block('sogen-right-grass-fissure', materials.dark, 15, 0.12, -4, 0.7, 0.25, 12);
+      break;
+    }
+    case 'wasteland-stratified-escarpment': {
+      for (const side of [-1, 1]) {
+        for (let layer = 0; layer < 4; layer += 1) block('wasteland-horizontal-earth-stratum', materials.ground,
+          side * (16 + layer * 0.8), layer * 0.6, -4, 7 - layer * 0.5, 0.6, 32);
+        bareTree('wasteland-bare-dead-tree', side * 18, -28, 6);
+        for (let i = 0; i < 4; i += 1) boulder(side * (13 + i * 3), -20 + i * 7, 0.65 + i * 0.15, materials.stone);
+      }
+      for (let i = 0; i < 6; i += 1) add('wasteland-angular-foreground-escarpment', rock, materials.stone,
+        [16 + i * 1.8, 0.7 + i * 0.35, 6], [1.3, 2 + i * 0.3, 1.2], [0, 0.3, 0]);
+      break;
+    }
+    case 'orichalcos-six-point-seal': {
+      for (const side of [-1, 1]) for (let orbit = 0; orbit < 2; orbit += 1) add('orichalcos-neon-green-ring', ring, materials.light,
+        [side * 17, 0.25, -11], [4 + orbit * 0.7, 4 + orbit * 0.7, 1], [Math.PI / 2, 0, 0]);
+      for (let orbit = 0; orbit < 2; orbit += 1) add('orichalcos-rear-seal-circle', ring, materials.light,
+        [0, 7, -31], [6 + orbit * 0.7, 6 + orbit * 0.7, 1]);
+      const points = Array.from({ length: 6 }, (_, i) => [Math.sin(i * Math.PI / 3) * 6, 7 + Math.cos(i * Math.PI / 3) * 6, -31]);
+      for (let i = 0; i < 6; i += 1) beam('orichalcos-six-point-star', points[i], points[(i + 2) % 6], materials.light, 0.055);
+      break;
+    }
+    case 'madolche-cake-palace': {
+      const pink = material('#e991ad');
+      const chocolate = material('#87552f');
+      const cream = materials.paper;
+      for (const side of [-1, 1]) {
+        for (let tier = 0; tier < 5; tier += 1) {
+          add('madolche-wafer-cake-tier', cylinder, tier % 2 ? chocolate : materials.stone, [side * 8, 1 + tier * 1.5, -30], [2.8, 1.2, 2.8]);
+          add('madolche-cream-piping-ring', basinRim, cream, [side * 8, 1.6 + tier * 1.5, -30], [2.7, 2.7, 2.7], [Math.PI / 2, 0, 0]);
+        }
+        add('madolche-pink-strawberry-dome', crown, pink, [side * 8, 8.6, -30], [2.8, 1.2, 2.8]);
+        for (let i = 0; i < 4; i += 1) add('madolche-roof-cream-swirl', cone, cream,
+          [side * 8 + (i - 1.5) * 1.2, 9.3, -30], [0.45, 1.3, 0.45]);
+      }
+      block('madolche-central-cake-wall', materials.stone, 0, 3, -31, 12, 6, 3);
+      add('madolche-round-pink-door', cylinder, pink, [0, 2.7, -29.45], [2.1, 0.05, 2.5], [Math.PI / 2, 0, 0]);
+      block('madolche-cake-cream-cornice', cream, 0, 6.3, -31, 12.5, 0.5, 3.5);
+      break;
+    }
+    case 'ancient-forest-canopy': {
+      for (const side of [-1, 1]) for (let i = 0; i < 5; i += 1) {
+        const x = side * (17 + i * 2.5);
+        const z = -24 + i * 6;
+        bareTree('ancient-forest-tall-enclosing-trunk', x, z, 15 + i % 3 * 2);
+        add('ancient-forest-cyan-canopy', crown, materials.leaves, [x, 16 + i % 3 * 2, z], [4, 2.3, 3.5]);
+      }
+      for (let ray = 0; ray < 6; ray += 1) beam('ancient-forest-white-light-shaft',
+        [-3 + ray, 21, -33], [-8 + ray * 1.5, 8, -29], materials.paper, 0.025);
+      break;
+    }
+    case 'monarch-shadow-hall': {
+      for (const side of [-1, 1]) {
+        columns(side * 16, -24, 3, 17, materials.stone);
+        block('monarch-massive-shadow-throne-back', materials.dark, side * 5, 8, -33, 6, 16, 1.3);
+        block('monarch-massive-throne-seat', materials.stone, side * 5, 4, -31, 6, 1.3, 4);
+        for (const arm of [-1, 1]) block('monarch-throne-arm', materials.dark, side * 5 + arm * 2.5, 5.2, -30.5, 1, 3.2, 3.7);
+      }
+      for (let ray = 0; ray < 4; ray += 1) beam('monarch-overhead-white-light',
+        [ray - 1.5, 22, -34], [ray - 1.5, 10, -30], materials.paper, 0.1);
+      break;
+    }
+    case 'labrynth-white-palace': {
+      for (let tier = 0; tier < 3; tier += 1) add('labrynth-tiered-white-palace', cylinder, materials.paper,
+        [0, 1.5 + tier * 3, -32], [7 - tier * 1.8, 3, 7 - tier * 1.8]);
+      for (const side of [-1, 1]) {
+        for (let i = 0; i < 3; i += 1) {
+          const x = side * (7 + i * 4);
+          const z = -30 + i * 2;
+          add('labrynth-white-turret', cylinder, materials.paper, [x, 4 + i, z], [1.3, 8 + i * 2, 1.3]);
+          add('labrynth-pointed-blue-roof', cone, materials.leaves, [x, 9.5 + i * 2, z], [1.8, 3, 1.8]);
+          add('labrynth-turret-blue-trim', basinRim, materials.leaves, [x, 6.7 + i * 2, z], [1.4, 1.4, 1.4], [Math.PI / 2, 0, 0]);
+        }
+        beam('labrynth-elevated-palace-ramp', [side * 17, 0.4, -21], [side * 5, 5, -32], materials.paper, 0.4);
+      }
+      add('labrynth-central-blue-spire', cone, materials.leaves, [0, 13.5, -32], [1.7, 7, 1.7]);
+      break;
+    }
+    case 'jurassic-caldera-grove': {
+      for (const side of [-1, 1]) {
+        for (let i = 0; i < 5; i += 1) {
+          const z = -22 + i * 7;
+          tree(side * 19, z, 7);
+          block('jurassic-caldera-stone-wall', materials.stone, side * 23, 2.8, z, 3, 5.6, 7);
+          for (let fern = 0; fern < 3; fern += 1) add('jurassic-foreground-fern', cone, materials.leaves,
+            [side * 13, 0.7, z], [0.25, 2, 0.4], [0.4, fern * Math.PI * 2 / 3, 0.9]);
+          beam('jurassic-hanging-vine', [side * 19, 7, z], [side * 17.5, 4, z], materials.leaves, 0.045);
+        }
+      }
+      add('jurassic-distant-gray-volcano', cone, materials.stone, [0, 5, -35], [9, 10, 8]);
+      cloudBank('jurassic-volcanic-white-smoke', 0, 12, -35, 3.7);
+      basin(-15, -12, 2.4, 0.18, materials.ground);
+      break;
+    }
+    case 'dark-sanctuary-eye-castle': {
+      add('dark-sanctuary-jagged-rock-foundation', rock, materials.stone, [0, 2, -33], [7, 3.3, 6]);
+      tower(0, -33, 11, 4, materials.dark, true);
+      for (const side of [-1, 1]) {
+        tower(side * 4, -31, 7, 1.8, materials.dark, true);
+        add('dark-sanctuary-needle-spire', cone, materials.dark, [side * 4, 12, -31], [0.7, 10, 0.7]);
+        for (let i = 0; i < 3; i += 1) {
+          const x = side * (13 + i * 4);
+          const y = 9 + i * 3;
+          add('dark-sanctuary-oval-sky-eye', cylinder, materials.paper, [x, y, -30], [1.5, 0.04, 0.65], [Math.PI / 2, 0, 0]);
+          add('dark-sanctuary-sky-eye-iris', cylinder, materials.leaves, [x, y, -29.94], [0.55, 0.03, 0.55], [Math.PI / 2, 0, 0]);
+          add('dark-sanctuary-sky-eye-pupil', cylinder, materials.dark, [x, y, -29.89], [0.24, 0.03, 0.36], [Math.PI / 2, 0, 0]);
+        }
+      }
+      break;
+    }
+    case 'cynet-hexagonal-cosmos': {
+      for (const side of [-1, 1]) {
+        for (let row = 0; row < 3; row += 1) for (let col = 0; col < 3; col += 1) {
+          const x = side * (14 + col * 4.1);
+          const y = 2 + row * 4;
+          const z = -24 + col * 5;
+          const vertices = Array.from({ length: 6 }, (_, i) => [x + Math.cos(i * Math.PI / 3) * 2.1, y + Math.sin(i * Math.PI / 3) * 2.1, z]);
+          for (let i = 0; i < 6; i += 1) beam('cynet-cyan-hexagonal-lattice', vertices[i], vertices[(i + 1) % 6], materials.light, 0.035);
+          if ((row + col) % 2 === 0) {
+            add('cynet-calibrated-network-disc', ring, materials.light, [x, y, z - 0.15], [0.8, 0.8, 1]);
+            add('cynet-bright-network-node', crown, materials.paper, [x, y, z], [0.2, 0.2, 0.2]);
+          }
+        }
+        add('cynet-curved-global-orbit', ring, materials.light, [side * 17, 6, -18], [5, 8, 5], [0.4, side * 0.35, 0]);
+      }
+      break;
+    }
     case 'golden-castle': {
       block('golden-castle-drawbridge', materials.wood, 0, 0.25, -24.5, 3.7, 0.5, 5);
       for (const side of [-1, 1]) {
@@ -890,6 +1281,18 @@ export function createFieldEnvironmentGeometry(THREE, environment = {}) {
 
 function batchStaticEnvironmentMeshes(THREE, root) {
   const sourceMeshes = root.children.filter(object => object.isMesh);
+  const min = [Infinity, Infinity, Infinity];
+  const max = [-Infinity, -Infinity, -Infinity];
+  for (const mesh of sourceMeshes) {
+    mesh.updateMatrix();
+    mesh.geometry.computeBoundingBox();
+    const bounds = mesh.geometry.boundingBox.clone().applyMatrix4(mesh.matrix);
+    for (const [index, axis] of ['x', 'y', 'z'].entries()) {
+      min[index] = Math.min(min[index], bounds.min[axis]);
+      max[index] = Math.max(max[index], bounds.max[axis]);
+    }
+  }
+  root.userData.bounds = Object.freeze({ min: Object.freeze(min), max: Object.freeze(max) });
   if (!THREE.InstancedMesh) return sourceMeshes.length;
   const batches = new Map();
   for (const mesh of sourceMeshes) {

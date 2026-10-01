@@ -129,6 +129,20 @@ export class FieldState {
     cardState.location = destination;
     cardState.zoneIndex = zoneIndex;
     cardState.controllerId = controllerId;
+    // Xyz Materials are not on the field. Every departure of their host
+    // from a Monster Zone sends them to their owners' GY, including a return
+    // to hand/Deck or using the host as another monster's material. Control
+    // changes and moving between Monster Zones retain the stack (Rulebook,
+    // p. 51). Update the host first so material observers see a coherent field.
+    if (
+      monsterZones.includes(previous.location)
+      && !remainsMonster
+      && Array.isArray(cardState.xyzMaterials)
+    ) {
+      for (const material of cardState.xyzMaterials.splice(0)) {
+        this.sendToGraveyard(material, material.ownerId);
+      }
+    }
     if (changesZone || previous.controllerId !== controllerId) {
       this._transitionSnapshots.set(cardState, Object.freeze({
         card: cardState,
@@ -273,12 +287,6 @@ export class FieldState {
       ownerId = cardState.ownerId || ownerId;
       if (cardState.isToken) return this.removeToken(cardState);
       const previousLocation = cardState.location;
-      if (Array.isArray(cardState.xyzMaterials) && cardState.xyzMaterials.length > 0) {
-        const detachedMaterials = cardState.xyzMaterials.splice(0);
-        detachedMaterials.forEach(material => {
-          this.sendToGraveyard(material, material.ownerId);
-        });
-      }
       const cameFromField = ['monster_zone', 'spell_zone', 'pendulum_zone', 'field_zone', 'extra_monster_zone']
         .includes(previousLocation);
       // A Pendulum card already occupies the field while its activation is
@@ -322,9 +330,6 @@ export class FieldState {
       ownerId = cardState.ownerId || ownerId;
       // Tokens cannot be banished face-down, even as a cost.
       if (cardState.isToken) return faceDown ? false : this.removeToken(cardState);
-      for (const material of cardState.xyzMaterials.splice(0)) {
-        this.sendToGraveyard(material, material.ownerId);
-      }
       this.transitionCard(cardState, 'banished', ownerId, -1, { deferNotification: true });
       cardState.isSetFaceDown = faceDown;
       if (ownerId === 'player') {
@@ -351,7 +356,8 @@ export class FieldState {
 
   /**
    * Moves a card to a target location, refreshing its runtime identity,
-   * respecting tokens, and redirecting hand/deck/extra_deck to owner.
+   * respecting destination rules. Public piles are inserted here; callers
+   * insert the returned card in private Hand/Deck/face-down Extra Deck piles.
    */
   moveCard(card, toLocation, targetPlayerId = 'player') {
     if (!card) return null;
@@ -361,12 +367,28 @@ export class FieldState {
       return this.removeToken(card);
     }
 
-    // Normalize destination to card owner for Hand, Deck, Extra Deck
-    const finalPlayer = (toLocation === 'hand' || toLocation === 'deck' || toLocation === 'extra_deck') ? card.ownerId : targetPlayerId;
+    const ownerId = card.ownerId || targetPlayerId;
+    // Fusion/Synchro/Xyz/Link cards cannot enter a hand or Main Deck.
+    const returnsToExtraDeck = ['hand', 'deck'].includes(toLocation) && (
+      card.belongsInExtraDeck || card.extra_type || /Fusion|Synchro|Xyz|Link/i.test(card.type || '')
+    );
+    const finalDestination = returnsToExtraDeck ? 'extra_deck' : toLocation;
+    const ownerDestinations = ['hand', 'deck', 'extra_deck', 'graveyard', 'banished'];
+    const finalPlayer = ownerDestinations.includes(finalDestination) ? ownerId : targetPlayerId;
 
-    this.transitionCard(card, toLocation, finalPlayer, -1);
+    if (finalDestination === 'graveyard') {
+      this.sendToGraveyard(card, ownerId);
+      return { success: true, finalDestination: card.location, finalPlayer: card.controllerId };
+    }
+    if (finalDestination === 'banished') {
+      this.sendToBanished(card, ownerId);
+      return { success: true, finalDestination: card.location, finalPlayer: card.controllerId };
+    }
 
-    return { success: true, finalDestination: toLocation, finalPlayer };
+    this.transitionCard(card, finalDestination, finalPlayer, -1);
+    if (finalDestination === 'extra_deck') card.isFaceUpInExtraDeck = false;
+
+    return { success: true, finalDestination, finalPlayer };
   }
 
   removeToken(card) {

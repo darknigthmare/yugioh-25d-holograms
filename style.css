@@ -3294,6 +3294,16 @@ input:focus-visible {
   opacity: 1;
 }
 
+.real-duel-view-layer[data-reference-art="true"] {
+  background: var(--real-environment-fog, #101624);
+  filter: none;
+}
+
+.real-duel-view-layer[data-reference-art="true"]::after {
+  opacity: 0;
+  animation: none;
+}
+
 .real-duel-environment-backdrop {
   position: absolute;
   z-index: 1;

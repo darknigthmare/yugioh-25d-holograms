@@ -1,9 +1,9 @@
-import { CLASSIC_FIELD_SPELLS } from '../core/ClassicFieldSpellEffects.js';
+import { CONTINUOUS_FIELD_SPELLS, getContinuousFieldSpellStatModifier } from '../core/ClassicFieldSpellEffects.js';
 import { hasResolvedFieldSpellActivation } from '../core/FieldSpellRules.js';
 
 const OWN_SIDE = 'opponent';
 const ENEMY_SIDE = 'player';
-const fieldDefinitions = new Map(CLASSIC_FIELD_SPELLS.map(definition => [definition.id, definition]));
+const fieldDefinitions = new Map(CONTINUOUS_FIELD_SPELLS.map(definition => [definition.id, definition]));
 
 function passcode(card) {
   return String(card?.id ?? '').replace(/^0+(?=\d)/, '');
@@ -191,13 +191,10 @@ export function chooseAINormalSummonPlan(game, legalPlans) {
 }
 
 function fieldModifier(definition, card) {
-  if (!definition) return 0;
-  const race = card.currentRace || card.race;
-  return definition.boostedRaces.includes(race) ? 200
-    : definition.weakenedRaces.includes(race) ? -200 : 0;
+  return getContinuousFieldSpellStatModifier(card, definition);
 }
 
-/** Score the six implemented global stat Field Spells, including replacement. */
+/** Score implemented continuous Field Spells with their actual ATK/DEF rules. */
 export function scoreAIFieldSpell(game, card) {
   if (!enabled(game)) return undefined;
   const next = fieldDefinitions.get(passcode(card));
@@ -207,16 +204,23 @@ export function scoreAIFieldSpell(game, card) {
   const previous = current && !current.isSetFaceDown && !current.effectNegated
     && !current.activationNegated && hasResolvedFieldSpellActivation(current)
     ? fieldDefinitions.get(passcode(current)) : null;
-  const delta = monster => fieldModifier(next, monster) - fieldModifier(previous, monster);
+  const delta = (monster, statistic) => fieldModifier(next, monster)[statistic]
+    - fieldModifier(previous, monster)[statistic];
+  const battleStatistic = monster => monster.position === 'defense' ? 'def' : 'atk';
   const allies = monsters(game, OWN_SIDE).filter(entry => !entry.card.isSetFaceDown);
   const enemies = visibleEnemies(game);
-  let score = allies.reduce((sum, entry) => sum + delta(entry.card), 0)
-    - enemies.reduce((sum, entry) => sum + delta(entry.card), 0);
+  let score = allies.reduce((sum, entry) => sum + delta(entry.card, battleStatistic(entry.card)), 0)
+    - enemies.reduce((sum, entry) => sum + delta(entry.card, battleStatistic(entry.card)), 0);
   // Credit one plausible future summon from the AI's own hand, not a guessed
   // opposing Set monster or a future draw from either player's Deck.
   const futureGain = ownHand(game).filter(candidate => candidate.card_type === 'monster'
     && !candidate.belongsInExtraDeck && !candidate.isRitualMonster)
-    .reduce((best, candidate) => Math.max(best, delta(candidate)), 0);
+    .reduce((best, candidate) => {
+      const position = chooseAIMonsterPosition(game, candidate, { forSummon: true });
+      const projection = Object.create(candidate);
+      projection.position = position;
+      return Math.max(best, delta(projection, battleStatistic(projection)));
+    }, 0);
   score += futureGain * 0.4;
   for (const ally of allies) {
     for (const enemy of enemies) {
@@ -225,8 +229,8 @@ export function scoreAIFieldSpell(game, card) {
       const previousDefense = stat(enemy.card, defensive ? 'def' : 'atk');
       const before = defensive ? previousAttack > previousDefense : previousAttack >= previousDefense;
       const after = defensive
-        ? previousAttack + delta(ally.card) > previousDefense + delta(enemy.card)
-        : previousAttack + delta(ally.card) >= previousDefense + delta(enemy.card);
+        ? previousAttack + delta(ally.card, 'atk') > previousDefense + delta(enemy.card, 'def')
+        : previousAttack + delta(ally.card, 'atk') >= previousDefense + delta(enemy.card, 'atk');
       if (before !== after) score += after ? 120 : -120;
     }
   }
