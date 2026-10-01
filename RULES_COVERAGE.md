@@ -1,8 +1,19 @@
-# Couverture des règles — 8 septembre 2026
+# Couverture des règles — 1er octobre 2026
 
-Ce document décrit la couverture réellement testée, pas une certification exhaustive TCG. Le mode strict repose sur un registre explicite de 45 cartes locales. Le catalogue de 336 décors de Terrain est **visuel** : il ne signifie pas que 336 effets de cartes sont implémentés.
+Ce document décrit la couverture réellement testée, pas une certification exhaustive TCG. Le mode strict repose sur un registre explicite de 47 cartes locales. Le catalogue de 336 décors de Terrain est **visuel** : il ne signifie pas que 336 effets de cartes sont implémentés.
 
-## Corrections de cette version
+## Reprise du 1er octobre 2026
+
+- Deux nouvelles cartes explicitement scriptées : Typhon d’Espace Mystique et Livre de la Lune, incluses dans les trois presets stricts. Typhon détruit sa cible sans annuler automatiquement son effet ; Livre cible un monstre face recto non-Lien et non-Jeton, et le retourne face verso en Défense.
+- Réponses Jeu Rapide depuis la Main seulement pendant son propre tour, ou depuis une carte Posée lors d’un tour antérieur ; cibles et sources revalidées après chaque décision asynchrone.
+- Fenêtres d’Effets Rapides de Pioche, Standby, entrée/sortie de Battle et sortie de Main, après chaîne et après Invocation réussie sans chaîne ; restrictions du Damage Step et première Main Phase 2 inaccessible sans Battle Phase.
+- Ciblage des cartes adverses face verso anonymisé, sans passcode, nom réel ni statistiques dans le choix UI. Modèles et effets décoratifs utilisent uniquement les monstres révélés sur le Terrain.
+- IA normale/difficile : réponses défensives Livre de la Lune, Typhon et Stardust, ciblage de la menace exacte et décision fondée sur les informations publiques. L’IA facile conserve ses décisions simplifiées.
+- Mise en scène Vue Réelle : modèles et effets distincts, géométrie de 25 familles de Terrain, 336 profils et 21 repères spécifiques. Les 336 illustrations préexistantes sont présentes et auditées ; elles ne représentent pas 336 scripts de cartes.
+
+Validation du lot du 1er octobre : **573 cas réussis dans 52 fichiers de tests**, audit des 336 illustrations/raccords de Terrain, build, syntaxe et `git diff --check` réussis ; audit npm à zéro vulnérabilité. Chromium desktop/mobile : choix puis résolution de Livre de la Lune, destruction de Yami par Typhon et retour au décor de base, attaque de la première Zone Main vers une Zone Extra (1500 dégâts et envoi au Cimetière), effet 3D effectivement lancé et changements de vue sans recréer le Duel. Les fixtures de rendu utilisent uniquement le hook DEV existant, absent du build publié. Le chunk paresseux Vue Réelle mesure environ 665 ko minifiés / 176 ko gzip ; l’avertissement de taille Vite persiste.
+
+## Corrections de la version du 8 septembre
 
 | Domaine | Comportement intégré et testé |
 | --- | --- |
@@ -52,7 +63,7 @@ git diff --check
 
 `check` lance tous les tests Node, l’audit des 336 WebP de Terrain puis le build. Aucun script lint/typecheck séparé n’existe. Le chunk chargé paresseusement de la Vue Réelle reste au-dessus de l’avertissement Vite de 500 kB ; il n’est pas chargé au démarrage de la vue Compacte.
 
-Résultats du gate final : **506 tests réussis**, 336/336 illustrations distinctes valides, build de production et vérifications syntaxiques réussis. Parcours Chromium isolés desktop et mobile : configuration, défi solo, fin de Duel, médaille, déverrouillage et persistance après rechargement ; aucune erreur JavaScript observée. Le fixture de fin de Duel utilise le hook de développement existant, absent du build public.
+Résultats du gate du 8 septembre : **506 tests réussis**, 336/336 illustrations distinctes valides, build de production et vérifications syntaxiques réussis. Parcours Chromium isolés desktop et mobile : configuration, défi solo, fin de Duel, médaille, déverrouillage et persistance après rechargement ; aucune erreur JavaScript observée. Le fixture de fin de Duel utilise le hook de développement existant, absent du build public.
 
 ## Sources primaires consultées
 

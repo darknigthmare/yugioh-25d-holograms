@@ -182,6 +182,38 @@ export const STARTER_CARDS = [
     card_type: "spell"
   },
   {
+    id: "05318639",
+    name: "Typhon d'Espace Mystique",
+    name_en: "Mystical Space Typhoon",
+    type: "Spell Card",
+    rulesText: "Ciblez 1 Magie/Piège sur le Terrain ; détruisez la cible.",
+    desc: "Ciblez 1 Magie/Piège sur le Terrain ; détruisez la cible.",
+    atk: 0,
+    def: 0,
+    level: 0,
+    race: "Quick-Play",
+    attribute: "SPELL",
+    card_type: "spell",
+    effectCode: "MYSTICAL_SPACE_TYPHOON",
+    timing: { spellSpeed: 2 }
+  },
+  {
+    id: "14087893",
+    name: "Livre de la Lune",
+    name_en: "Book of Moon",
+    type: "Spell Card",
+    rulesText: "Ciblez 1 monstre face recto sur le Terrain ; changez la cible en Position de Défense face verso.",
+    desc: "Ciblez 1 monstre face recto sur le Terrain ; changez la cible en Position de Défense face verso.",
+    atk: 0,
+    def: 0,
+    level: 0,
+    race: "Quick-Play",
+    attribute: "SPELL",
+    card_type: "spell",
+    effectCode: "BOOK_OF_MOON",
+    timing: { spellSpeed: 2 }
+  },
+  {
     id: "55144522",
     name: "Pot de Cupidité",
     name_en: "Pot of Greed",

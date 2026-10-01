@@ -39,6 +39,8 @@ const STRICT_CARD_REGISTRY = new Map([
   // Locally scripted Main Deck procedures.
   ['83764718', { section: 'main', procedure: 'spell' }],
   ['12580477', { section: 'main', procedure: 'spell' }],
+  ['05318639', { section: 'main', procedure: 'spell' }],
+  ['14087893', { section: 'main', procedure: 'spell' }],
   ['55144522', { section: 'main', procedure: 'spell' }],
   ['44095762', { section: 'main', procedure: 'trap' }],
   ['04206964', { section: 'main', procedure: 'trap' }],

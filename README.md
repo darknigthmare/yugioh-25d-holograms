@@ -15,7 +15,9 @@ Simulateur de duel solo dans le navigateur, inspiré des arènes holographiques 
 - rejeu d’attaque après modification du Terrain adverse, fenêtre d’Effets Rapides à la déclaration, calcul des combats commun au joueur et à l’IA ;
 - flèches Lien dans les huit directions, depuis les Zones Main et Extra des deux camps, partagées par les procédures Lien et Pendule ;
 - effets scriptés pour Raigeki, Monster Reborn, Polymérisation, Force de Miroir, Trappe, Magicienne des Ténèbres, Magicien du Temps, Kuriboh, Robot Synchronique, Magicien des Arcanes, Dragon Poussière d’Étoile et Numéro 39 : Utopie ;
+- Typhon d’Espace Mystique et Livre de la Lune : choix de cible, réponses depuis la Main pendant son tour ou depuis une carte Posée un tour précédent, revalidation de la cible et restrictions du Damage Step ;
 - effets continus des six Terrains classiques **Yami, Umi, Forêt, Montagne, Sogen et Terre Dévastée**, avec bonus/malus sur les deux camps après résolution ;
+- IA normale/difficile capable de répondre avec Livre de la Lune, Typhon et Stardust, sans lire les cartes adverses cachées ;
 - cartes adverses cachées anonymisées dans le DOM et snapshots réseau expurgés des informations privées ;
 - interface desktop/mobile, glisser-déposer, sélection carte → zone, plateau mobile panoramique, parcours clavier, zones publiques inspectables, modales accessibles et réduction des animations ;
 - préférences locales persistées : mode, difficulté, son/voix, dos de carte, deck personnalisé, statistiques, progression solo et reprise d’un Match entre deux Duels ;
@@ -25,7 +27,7 @@ Simulateur de duel solo dans le navigateur, inspiré des arènes holographiques 
 
 Le mode strict applique les règles officielles au **sous-ensemble local explicitement pris en charge**. Le moteur refuse une procédure absente au lieu d’inventer une résolution. Il ne constitue pas un arbitre universel : les milliers de cartes et interactions du TCG complet ne sont pas toutes scriptées.
 
-Le pool local comporte désormais **45 cartes distinctes** (40 Main Deck, 5 Extra Deck), indépendamment du nombre de copies dans un deck de duel. Voir [la couverture détaillée des règles et ses limites](RULES_COVERAGE.md) pour distinguer les comportements testés du travail restant.
+Le pool local comporte désormais **47 cartes distinctes** (42 Main Deck, 5 Extra Deck), indépendamment du nombre de copies dans un deck de duel. Voir [la couverture détaillée des règles et ses limites](RULES_COVERAGE.md) pour distinguer les comportements testés du travail restant.
 
 Les trois decks intégrés sont des presets légaux et équilibrés **inspirés** de Kaiba, Yugi et Joey ; ils ne reproduisent pas au détail près une liste historique de l’anime. En Sandbox, une carte issue de l’API peut être inspectée ou ajoutée pendant la Main Phase, mais seuls les effets explicitement pris en charge par le moteur possèdent une résolution dédiée. Une carte distante non intégrée affiche un visuel local neutre afin de ne pas hotlinker le CDN du fournisseur.
 
@@ -42,6 +44,8 @@ La vue **Compacte** reste la vue initiale et conserve son plateau historique. La
 La Vue Réelle possède deux décors de base sélectionnables dans les paramètres : **Clairière KaibaCorp** et **Grotte / Ruines**. Une Magie de Terrain utilise sa Zone Terrain dédiée. Une carte simplement Posée ou une activation encore en chaîne ne révèle pas et ne change pas le décor. Le nouvel environnement apparaît uniquement après une résolution réussie ; une négation conserve le décor précédent et le retrait ou remplacement de la carte restaure l’environnement approprié.
 
 Le catalogue `src/ui/FieldSpellEnvironmentCatalog.js` couvre les **336 Magies de Terrain TCG/OCG connues au 29 juillet 2026** par passcode canonique. Chaque passcode possède son propre brief, son propre chemin WebP et son illustration originale dédiée dans `public/environments/field-spells/`. Les familles visuelles ne servent plus que de profil matériel et de repli technique : l’illustration, la palette du tapis, la lumière, la brume et les accents du plateau sont calculés pour la carte précise. Une nouvelle carte absente du snapshot reçoit toujours le terrain holographique générique au lieu de casser la Vue Réelle.
+
+La Vue Réelle ajoute des modèles procéduraux pour 13 profils de monstres emblématiques et des familles de repli, avec attaques de dragon, magie, foudre, lames, protections, invocations, Typhon et Livre de la Lune. Les monstres face verso ne produisent aucun modèle identifiable. Les scènes utilisent 25 familles de géométrie et des repères propres à 21 cartes de Terrain, tout en conservant les 336 illustrations dédiées. Ces géométries interprètent les références ; elles ne constituent pas une reproduction officielle 1:1 certifiée.
 
 Pour ajouter un environnement :
 

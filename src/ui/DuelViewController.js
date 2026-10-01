@@ -142,6 +142,16 @@ export class DuelViewController {
     return this.setMode(nextMode);
   }
 
+  playAnimation(event) {
+    if (this._disposed || this.mode !== 'real') return false;
+    try {
+      return this.realView?.playAnimation?.(event) === true;
+    } catch (error) {
+      this._notifyError(error);
+      return false;
+    }
+  }
+
   async setMode(requestedMode) {
     if (this._disposed) return false;
     const nextMode = normalizeMode(requestedMode);

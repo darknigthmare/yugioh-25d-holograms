@@ -4,11 +4,13 @@ import { DuelViewController } from './src/ui/DuelViewController.js';
 import { SoloCampaignController } from './src/ui/SoloCampaignController.js';
 import { getMission, buildMissionDecks } from './src/content/SoloCampaign.js';
 import { createCampaignDuelTracker } from './src/content/CampaignDuelTracker.js';
+import { chooseAIChainResponse, chooseAIResponseTarget } from './src/content/AIResponsePolicy.js';
 import { isHandPlacementDestinationLegal } from './src/ui/HandPlacement.js';
 import { isFieldSpellCard } from './src/core/FieldSpellRules.js';
 import {
   initBoardTilt,
   createCardDOM,
+  createMonsterHologramDOM,
   spawnHologram,
   animateAttack,
   createExplosion,
@@ -727,6 +729,10 @@ function finishDecision(value) {
 }
 
 function requestUiDecision(request) {
+  if (request?.side === 'opponent') {
+    const choice = chooseAIResponseTarget(game, request);
+    if (choice !== undefined) return choice;
+  }
   if (!request || request.side !== 'player' || !decisionModal) return undefined;
 
   return new Promise(resolve => {
@@ -925,8 +931,8 @@ function requestUiDecision(request) {
       decisionCancelBtn.textContent = 'ANNULER';
       decisionCancelBtn.classList.toggle('hidden', request.required === true);
     } else if (Array.isArray(request.candidates) && request.candidates.length > 0) {
-      decisionTitle.textContent = 'CHOISIR UNE CARTE';
-      decisionDescription.textContent = 'Sélectionnez la cible de l’effet.';
+      decisionTitle.textContent = request.title || 'CHOISIR UNE CARTE';
+      decisionDescription.textContent = request.description || 'Sélectionnez la cible de l’effet.';
       request.candidates.forEach(candidate => {
         const button = document.createElement('button');
         button.type = 'button';
@@ -956,11 +962,18 @@ function requestUiDecision(request) {
 decisionCancelBtn?.addEventListener('click', () => finishDecision(null));
 
 function requestUiChainOpportunity(request) {
+  if (request?.side === 'opponent') return chooseAIChainResponse(game, request);
   if (!request || request.side !== 'player' || !request.candidates?.length) return null;
+  const timing = request.context?.timingEvent || request.context?.event;
+  const title = request.lastLink ? 'RÉPONDRE À LA CHAÎNE ?'
+    : timing === 'PHASE_END' ? 'AVANT DE QUITTER LA PHASE'
+      : timing === 'SUMMON_SUCCESS' ? 'RÉPONDRE À L’INVOCATION'
+        : timing === 'ATTACK_DECLARATION' ? 'RÉPONDRE À L’ATTAQUE'
+          : 'ACTIVER UN EFFET RAPIDE ?';
   return requestUiDecision({
     type: 'chain-response',
     side: 'player',
-    title: 'RÉPONDRE À LA CHAÎNE ?',
+    title,
     description: 'Sélectionnez une réponse légale ou passez la priorité.',
     candidates: request.candidates.map(candidate => ({
       uid: candidate.cardUid,
@@ -1257,7 +1270,8 @@ const PREMADE_DECKS = {
       '48305365', '48305365', '48305365', // Axe Raider
       '49791927', '49791927', '49791927', // Tiger Axe
       '24094653', '24094653', '24094653', // Polymerization
-      '12580477', '12580477', '12580477', // Raigeki
+      '12580477', // Raigeki
+      '05318639', '14087893', // Quick-Play interaction: MST and Book of Moon
       '44095762', '44095762', '44095762', // Mirror Force
       '04206964', '04206964', '04206964', // Trap Hole
       '83764718', // Monster Reborn — Limited 1
@@ -1280,7 +1294,8 @@ const PREMADE_DECKS = {
       '20409757', '20409757', // Timegazer Magician
       '06368038', '06368038', // Gaia
       '70781052', '70781052', // Summoned Skull
-      '12580477', '12580477', '12580477', // Raigeki
+      '12580477', // Raigeki
+      '05318639', '14087893', // Quick-Play interaction: MST and Book of Moon
       '44095762', '44095762', '44095762', // Mirror Force
       '04206964', '04206964', '04206964', // Trap Hole
       '83764718' // Monster Reborn — Limited 1
@@ -1299,7 +1314,8 @@ const PREMADE_DECKS = {
       '49791927', '49791927', '49791927', // Tiger Axe
       '05053103', '05053103', '05053103', // Battle Ox
       '91152256', '91152256', '91152256', // warrior support
-      '12580477', '12580477', '12580477', // Raigeki
+      '12580477', // Raigeki
+      '05318639', '14087893', // Quick-Play interaction: MST and Book of Moon
       '44095762', '44095762', '44095762', // Mirror Force
       '04206964', '04206964', '04206964', // Trap Hole
       '83764718', // Monster Reborn — Limited 1
@@ -2572,7 +2588,8 @@ document.querySelectorAll('.card-zone').forEach(zone => {
       document.querySelectorAll('.player-m-zone, .extra-m-zone.player-controlled')
         .forEach(z => z.classList.remove('attacker-active'));
 
-      const selectedKey = game.getMonsterZoneKey?.(selectedAttackerIndex);
+      const selectedKey = selectedAttackerIndex === null
+        ? null : game.getMonsterZoneKey?.(selectedAttackerIndex);
       const clickedKey = game.getMonsterZoneKey?.(monsterReference);
       if (selectedKey === clickedKey) {
         selectedAttackerIndex = null;
@@ -3608,7 +3625,23 @@ function getAttackProjType(card) {
  */
 function handleGameAnimations(event) {
   campaignTracker?.recordAnimation(event);
+  duelViewController?.playAnimation?.(event);
   const boardEl = document.getElementById('duel-board');
+
+  // A Chain may continue after a card changes visibility. Refresh that public
+  // zone at resolution instead of leaving its old artwork until the Chain ends.
+  if (event.type === 'set-monster' || event.type === 'flip-summon') {
+    const reference = { zoneType: event.zoneType || 'main', zoneIndex: event.zoneIndex };
+    syncZoneCard(findMonsterZoneElement(boardEl, event.target, reference),
+      game?.getMonsterEntry?.(event.target, reference)?.card || null, event.target);
+  } else if (event.type === 'mystical-space-typhoon-cinematic') {
+    const zone = event.zoneType === 'field' ? document.getElementById(`${event.target}-field-zone`)
+      : boardEl.querySelector(`.${event.target}-s-zone[data-index="${event.zoneIndex}"]`);
+    const card = event.zoneType === 'field' ? game?.[`${event.target}FieldSpell`]
+      : game?.getSideState?.(event.target)?.spells[event.zoneIndex];
+    syncZoneCard(zone, card || null, event.target);
+    duelViewController?.update(game);
+  }
 
   if (event.type === 'summon') {
     const side = event.target;

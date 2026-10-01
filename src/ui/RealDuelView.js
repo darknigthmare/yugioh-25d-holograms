@@ -4,6 +4,12 @@ import {
 } from './FieldEnvironmentRegistry.js';
 import { RealDuelScene3D } from './RealDuelScene3D.js';
 import { RealDuelDOM3DAdapter } from './RealDuelDOM3DAdapter.js';
+import { Vector3 } from 'three';
+import {
+  createPublicCombatVisual,
+  createPublicFieldHolograms,
+  publicMonsterVisualKey
+} from './PublicDuelVisuals.js';
 import {
   REAL_DUEL_CAMERA_PRESET_IDS,
   REAL_DUEL_CAMERA_PRESETS,
@@ -30,7 +36,8 @@ function isTypingTarget(target) {
 
 /**
  * Strict privacy boundary between DuelGame and the decorative WebGL scene.
- * Card objects, IDs, names and hidden state never cross this boundary.
+ * This aggregate contains no card identity. Revealed field monsters use the
+ * separate allow-listed PublicDuelVisuals boundary.
  */
 export function createPublicDuelSceneSummary(gameState) {
   return Object.freeze({
@@ -748,6 +755,7 @@ export class RealDuelView {
         }
         this.dom3DAdapter?.activate?.();
         this._resize3D();
+        this._syncFieldHolograms();
       }
       this.active = true;
       this._syncLayerActivity();
@@ -774,14 +782,76 @@ export class RealDuelView {
         createPublicDuelSceneSummary(gameState)
       );
       this.dom3DAdapter?.render?.();
+      this._syncFieldHolograms();
     }
     this._syncLayerActivity();
     return selection;
   }
 
+  _monsterZoneElement({ owner, zoneType, zoneIndex }) {
+    const selector = zoneType === 'field' ? `#${owner}-field-zone`
+      : zoneType === 'extra' ? `.extra-m-zone[data-index="${zoneIndex}"]`
+        : zoneType === 'spell' ? `.${owner}-s-zone[data-index="${zoneIndex}"]`
+          : `.${owner}-m-zone[data-index="${zoneIndex}"]`;
+    return this.boardElement?.querySelector?.(selector) || null;
+  }
+
+  _publicZonePosition(reference) {
+    const zone = this._monsterZoneElement(reference);
+    const object = this.dom3DAdapter?.boardObject;
+    if (!zone || typeof object?.localToWorld !== 'function') return undefined;
+    let x = (Number(zone.offsetWidth) || 0) / 2;
+    let y = (Number(zone.offsetHeight) || 0) / 2;
+    let node = zone;
+    for (let depth = 0; node && node !== this.boardElement && depth < 20; depth += 1) {
+      x += Number(node.offsetLeft) || 0;
+      y += Number(node.offsetTop) || 0;
+      node = node.offsetParent;
+    }
+    if (node !== this.boardElement) return undefined;
+    // CSS pixels run downwards; the Three.js local Y axis runs upwards.
+    const position = object.localToWorld(new Vector3(
+      x - (Number(this.boardElement.offsetWidth) || 900) / 2,
+      -(y - (Number(this.boardElement.offsetHeight) || 1125) / 2),
+      0
+    ));
+    return [position.x, position.y, position.z];
+  }
+
+  _syncFieldHolograms() {
+    const descriptors = createPublicFieldHolograms(
+      this.gameState, reference => this._publicZonePosition(reference)
+    );
+    const result = this.scene3D?.updateFieldHolograms?.(descriptors);
+    const keys = new Set(result?.renderedKeys || []);
+    for (const zone of this.boardElement?.querySelectorAll?.('.player-m-zone, .opponent-m-zone, .extra-m-zone') || []) {
+      const zoneType = zone.classList?.contains?.('extra-m-zone') ? 'extra' : 'main';
+      const index = Number(zone.dataset?.index);
+      const owners = zoneType === 'extra' ? ['player', 'opponent']
+        : [zone.classList?.contains?.('player-m-zone') ? 'player' : 'opponent'];
+      const hasModel = owners.some(owner => keys.has(publicMonsterVisualKey(owner, zoneType, index)));
+      zone.classList?.toggle?.('has-real-hologram-model', hasModel);
+    }
+  }
+
+  playAnimation(event) {
+    if (!this.active || this.disposed || this.documentRef?.hidden === true) return false;
+    // A resolving Chain can delay the next state callback. Update revealed
+    // models immediately when a card is Set, destroyed or otherwise moved.
+    this._syncFieldHolograms();
+    const visual = createPublicCombatVisual(
+      event, this.gameState, reference => this._publicZonePosition(reference)
+    );
+    if (!visual) return false;
+    return this.scene3D?.playCombatEffect?.(visual) === true;
+  }
+
   deactivate() {
     if (this.disposed) return false;
     this.active = false;
+    for (const zone of this.boardElement?.querySelectorAll?.('.has-real-hologram-model') || []) {
+      zone.classList?.remove?.('has-real-hologram-model');
+    }
     // Restore the exact board/hand nodes before Classic/Arena styles resume.
     this.dom3DAdapter?.deactivate?.();
     this.scene3D?.deactivate?.();

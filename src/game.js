@@ -22,6 +22,10 @@ import {
   markFieldSpellSet
 } from './core/FieldSpellRules.js';
 
+// API passcodes can be numbers (and therefore lose their leading zero).
+// Card scripts use the printed eight-digit passcode independently of storage.
+const scriptCardId = card => String(card?.id ?? '').padStart(8, '0');
+
 export class DuelGame {
   constructor(callbacks = {}, options = {}) {
     const callbackOptions = callbacks.options || {};
@@ -247,6 +251,7 @@ export class DuelGame {
       );
     if (summoned === false) return false;
     this.log(`L'adversaire réalise l'Invocation Synchro de **${option.card.name}** !`, 'opponent');
+    await this.resolveProcedureSummonWindow(option.card, 'opponent', 'synchro');
     this.stateChanged();
     return true;
   }
@@ -582,6 +587,7 @@ export class DuelGame {
   }
 
   async startPhaseFlow() {
+    const generation = this._duelGeneration;
     if (this.winner || this._duelEnded) return false;
     this.stateChanged();
 
@@ -612,6 +618,7 @@ export class DuelGame {
       }
 
       if (!(await this.delay(600))) return false;
+      if (!(await this.resolveFastEffectWindow({ event: 'PHASE_START', phase: 'draw' }))) return false;
       this.phases.nextPhase(); // To Standby
       this.startPhaseFlow();
     }
@@ -620,6 +627,7 @@ export class DuelGame {
 
       // Trigger Standby Maintenance effects (SEGOC)
       if (!(await this.delay(600))) return false;
+      if (!(await this.resolveFastEffectWindow({ event: 'PHASE_START', phase: 'standby' }))) return false;
 
       this.phases.nextPhase(); // To Main 1
       this.startPhaseFlow();
@@ -637,6 +645,8 @@ export class DuelGame {
     }
     else if (this.currentPhase === 'battle') {
       this.log(`--- Phase de Combat ---`, 'phase');
+      if (!(await this.resolveFastEffectWindow({ event: 'PHASE_START', phase: 'battle' }))) return false;
+      this.phases.setBattleStep('battle_step');
       this.stateChanged();
 
       if (this.currentTurn === 'opponent') {
@@ -652,6 +662,7 @@ export class DuelGame {
 
       if (this.currentTurn === 'opponent') {
         if (!(await this.delay(1000))) return false;
+        if (!(await this.resolveFastEffectWindow({ event: 'PHASE_END', phase: 'main2' }))) return false;
         this.phases.nextPhase(); // To End
         this.startPhaseFlow();
       } else {
@@ -665,7 +676,7 @@ export class DuelGame {
       if (this._endPhaseProcessedKey !== endPhaseKey) {
         this._endPhaseProcessedKey = endPhaseKey;
         await this.processEndPhaseEffects();
-        if (this.winner) return false;
+        if (!this.isDuelGenerationCurrent(generation) || this.winner || this._duelEnded) return false;
       }
 
       const ready = await this.checkHandSizeLimit();
@@ -678,13 +689,20 @@ export class DuelGame {
     }
   }
 
-  changePhase(phase) {
-    if (this.currentTurn !== 'player' || this.isResolvingAction || this.pendingSummon || this.pendingExtraSummon || this.isDiscarding) return;
+  async changePhase(phase) {
+    if (this.currentTurn !== 'player' || this.isResolvingAction || this.chain.chainStatus !== 'idle' || this.pendingSummon || this.pendingExtraSummon || this.isDiscarding) return false;
 
     if (phase === 'battle' && !this.turn.isBattlePhaseLegal(this.turnCount)) {
       this.log("Règle TCG : Pas de Battle Phase au tout premier tour du duel !", "danger");
-      return;
+      return false;
     }
+
+    const currentPhase = this.currentPhase;
+    const valid = (phase === 'battle' && currentPhase === 'main1')
+      || (phase === 'main2' && currentPhase === 'battle')
+      || (phase === 'end' && ['main1', 'battle', 'main2'].includes(currentPhase));
+    if (!valid || !(await this.resolveFastEffectWindow({ event: 'PHASE_END', phase: currentPhase }))) return false;
+    if (this.currentPhase !== currentPhase) return false;
 
     if (phase === 'battle' && this.currentPhase === 'main1') {
       this.phases.currentPhase = 'battle';
@@ -693,12 +711,15 @@ export class DuelGame {
     }
     else if (phase === 'main2' && this.currentPhase === 'battle') {
       this.phases.currentPhase = 'main2';
+      this.phases.setBattleStep('none');
       this.startPhaseFlow();
     }
     else if (phase === 'end' && (this.currentPhase === 'main1' || this.currentPhase === 'battle' || this.currentPhase === 'main2')) {
       this.phases.currentPhase = 'end';
+      this.phases.setBattleStep('none');
       this.startPhaseFlow();
     }
+    return true;
   }
 
   async checkHandSizeLimit() {
@@ -778,19 +799,17 @@ export class DuelGame {
     }
 
     if (!hasPlayableCard && !canChangePosition && !canAttack && !this.isResolvingAction && !this.pendingSummon) {
-      this.scheduleAction(() => {
+      this.scheduleAction(async () => {
+        if (this.isResolvingAction || this.pendingSummon || this.pendingExtraSummon || this.isDiscarding) return;
         if (this.currentPhase === 'main1' && this.turnCount > 1) {
           this.log("Système : Aucune action disponible. Entrée en Phase de Combat.", "system");
-          this.phases.currentPhase = 'battle';
-          this.startPhaseFlow();
+          await this.changePhase('battle');
         } else if (this.currentPhase === 'main1' && this.turnCount === 1) {
           this.log("Système : Aucune action disponible. Fin de tour.", "system");
-          this.phases.currentPhase = 'end';
-          this.startPhaseFlow();
+          await this.changePhase('end');
         } else if (this.currentPhase === 'battle' || this.currentPhase === 'main2') {
           this.log("Système : Aucune action de combat disponible. Fin de tour.", "system");
-          this.phases.currentPhase = 'end';
-          this.startPhaseFlow();
+          await this.changePhase('end');
         }
       }, 3500);
     }
@@ -1420,26 +1439,53 @@ export class DuelGame {
     const fallback = fallbackSelector
       ? fallbackSelector(candidates)
       : candidates[0];
+    const exposedCandidates = candidates.map((card, index) => {
+      const hidden = card.isSetFaceDown && card.controllerId !== side;
+      if (hidden) {
+        const zone = card.location === 'field_zone' ? 'Terrain' : `Magie/Piège ${card.zoneIndex + 1}`;
+        return {
+          // Duel UIDs often include passcodes. Never expose them for an
+          // unidentified opposing Set card; this request-local key maps back
+          // to the exact candidate without revealing its printed identity.
+          uid: `hidden-target:${index}`,
+          name: `Carte adverse face verso — Zone ${zone}`,
+          hidden: true,
+          location: card.location,
+          zoneIndex: card.zoneIndex,
+          controllerId: card.controllerId,
+          isSetFaceDown: true
+        };
+      }
+      return {
+        uid: card.uid, id: card.id, name: card.name,
+        ...(card.card_type === 'monster' ? {
+          atk: card.getAtk ? card.getAtk() : card.atk,
+          def: card.getDef ? card.getDef() : card.def,
+          level: card.getLevel ? card.getLevel() : card.level
+        } : {}),
+        location: card.location,
+        zoneIndex: card.zoneIndex,
+        controllerId: card.controllerId,
+        isSetFaceDown: card.isSetFaceDown,
+        card_type: card.card_type,
+        type: card.type,
+        race: card.race
+      };
+    });
+    const fallbackUid = exposedCandidates[candidates.indexOf(fallback)]?.uid || null;
     const decision = await this.requestDecision({
       type,
       side,
-      candidates: candidates.map(card => ({
-        uid: card.uid,
-        id: card.id,
-        name: card.name,
-        atk: card.getAtk ? card.getAtk() : card.atk,
-        def: card.getDef ? card.getDef() : card.def,
-        level: card.getLevel ? card.getLevel() : card.level,
-        location: card.location
-      })),
+      candidates: exposedCandidates,
       ...extra
-    }, fallback?.uid || null);
+    }, fallbackUid);
     if (decision === null) return null;
     const uid = this.decisionUid(decision);
     // A broad legacy callback may answer a different decision type with a
     // boolean or an unrelated UID. Only explicit null cancels; malformed
     // answers use the already validated deterministic fallback.
-    return candidates.find(card => String(card.uid) === uid) || fallback || null;
+    const selectedIndex = exposedCandidates.findIndex(card => String(card.uid) === uid);
+    return candidates[selectedIndex] || fallback || null;
   }
 
   async chooseSummonPosition(card, side, summonType = 'special') {
@@ -1676,6 +1722,16 @@ export class DuelGame {
     }, { summonType: 'normal' });
   }
 
+  async resolveProcedureSummonWindow(card, side, summonType) {
+    // A Summon during an effect never interrupts the resolving Chain. Its
+    // response opportunity belongs to the state after the complete Chain.
+    if (this.chain.chainStatus === 'resolving') return true;
+    const entry = this.getMonsterEntries(side).find(candidate => candidate.card === card);
+    if (!entry) return false;
+    const result = await this.resolveSummonSuccessEvent(card, side, entry, { summonType, includeJunk: false });
+    return result.resolved;
+  }
+
   async resolveSummonSuccessEvent(
     summonedCard,
     summoningSide,
@@ -1688,6 +1744,8 @@ export class DuelGame {
       return { event: 'SUMMON_SUCCESS', activated: false, resolved: false, links: [] };
     }
 
+    const previousLock = this.isResolvingAction;
+    this.isResolvingAction = true;
     const links = [];
     if (includeJunk && summonType === 'normal') {
       const junkLink = await this.buildJunkSynchronSummonTrigger(
@@ -1712,34 +1770,34 @@ export class DuelGame {
       if (trapLink) links.push(trapLink);
     }
 
-    if (!links.length) {
-      return { event: 'SUMMON_SUCCESS', activated: false, resolved: true, links: [] };
-    }
-
     const lastLink = this.chain.getLastLink();
     await this.openChainResponseWindow(
-      this.getOpponentSide(lastLink.activatingPlayerId),
+      lastLink ? this.getOpponentSide(lastLink.activatingPlayerId) : this.currentTurn,
       {
         event: 'SUMMON_SUCCESS',
         timingEvent: 'SUMMON_SUCCESS',
-        sourceCard: lastLink.sourceCard,
-        wouldDestroy: Boolean(lastLink.context?.wouldDestroy),
+        sourceCard: lastLink?.sourceCard || summonedCard,
+        wouldDestroy: Boolean(lastLink?.context?.wouldDestroy),
         summonedCard,
-        summoningSide
+        summoningSide,
+        summonType,
+        allowEmptyChain: true
       }
     );
     if (!this.isDuelGenerationCurrent(generation)) {
       return { event: 'SUMMON_SUCCESS', activated: false, resolved: false, links: [] };
     }
-    const chainResult = await this.resolveChainStack();
+    const responseLinks = [...this.chain.chainStack];
+    const chainResult = responseLinks.length ? await this.resolveChainStack() : true;
     if (!this.isDuelGenerationCurrent(generation)) {
       return { event: 'SUMMON_SUCCESS', activated: false, resolved: false, links: [] };
     }
+    this.isResolvingAction = previousLock;
     return {
       event: 'SUMMON_SUCCESS',
-      activated: true,
+      activated: responseLinks.length > 0,
       resolved: chainResult !== false,
-      links
+      links: responseLinks
     };
   }
 
@@ -1922,6 +1980,7 @@ export class DuelGame {
       });
     if (summoned === false) return false;
     this.log(`Invocation Fusion de **${option.card.name}** avec Polymérisation !`, side);
+    await this.resolveProcedureSummonWindow(option.card, side, 'fusion');
     return true;
   }
 
@@ -2089,6 +2148,7 @@ export class DuelGame {
       `Invocation Rituelle de **${option.monster.name}** : ${currentPlan.totalLevels} Niveaux ont été Sacrifiés.`,
       side
     );
+    await this.resolveProcedureSummonWindow(option.monster, side, 'ritual');
     return true;
   }
 
@@ -2691,6 +2751,7 @@ export class DuelGame {
       state.faceUpExtraDeck.splice(extraIndex, 1);
     }
     this.log(`Invocation Pendule de ${selected.length} monstre(s) entre les Échelles ${plan.scales.minimum} et ${plan.scales.maximum}.`, side);
+    await this.resolveProcedureSummonWindow(plan.monsters[0], side, 'pendulum');
     this.isResolvingAction = false;
     this.stateChanged();
     return true;
@@ -2700,6 +2761,10 @@ export class DuelGame {
     if (!card || card.card_type !== 'spell') return false;
     if (this.defense.isActionProhibited(side, 'ACTIVATE_EFFECT', card)) return false;
     const state = this.getSideState(side);
+    if (['05318639', '14087893'].includes(scriptCardId(card))) {
+      return this.phases.battleStep !== 'damage_step'
+        && this.getSpellTargetCandidates(card, side).length > 0;
+    }
     if (isFieldSpellCard(card)) {
       return this.rulesMode === 'sandbox'
         || this.isStrictlySupportedMainDeckCard(card);
@@ -2727,6 +2792,24 @@ export class DuelGame {
   }
 
   async prepareSpellActivationContext(card, side) {
+    if (['05318639', '14087893'].includes(scriptCardId(card))) {
+      const candidates = this.getSpellTargetCandidates(card, side);
+      const instances = new Map(candidates.map(target => [target, target.runtimeInstanceId]));
+      const target = await this.chooseCard(
+        scriptCardId(card) === '05318639' ? 'select-mst-target' : 'select-book-of-moon-target',
+        side,
+        candidates,
+        cards => cards.find(candidate => candidate.controllerId !== side) || cards[0]
+      );
+      if (!target || instances.get(target) !== target.runtimeInstanceId
+        || !this.getSpellTargetCandidates(card, side).includes(target)) return null;
+      return {
+        targetCard: target,
+        targetUid: target.uid,
+        targetRuntimeInstanceId: target.runtimeInstanceId,
+        targetLocation: target.location
+      };
+    }
     if (String(card?.id) !== '83764718') return {};
     const candidates = [
       ...this.playerGraveyard,
@@ -2752,6 +2835,24 @@ export class DuelGame {
       targetRuntimeInstanceId: target.runtimeInstanceId,
       targetOwnerId: target.ownerId
     };
+  }
+
+  getSpellTargetCandidates(card, side) {
+    let candidates = [];
+    if (scriptCardId(card) === '05318639') {
+      candidates = [
+        ...this.playerSpells, ...this.opponentSpells,
+        this.getFieldSpellForSide('player'), this.getFieldSpellForSide('opponent')
+      ].filter(target => target && target !== card
+        && ['spell_zone', 'pendulum_zone', 'field_zone'].includes(target.location));
+    } else if (scriptCardId(card) === '14087893') {
+      candidates = ['player', 'opponent'].flatMap(controller => (
+        this.getMonsterEntries(controller, { faceUpOnly: true }).map(entry => entry.card)
+      )).filter(target => !target.isLinkMonster && target.extra_type !== 'link' && !target.isToken);
+    }
+    return candidates.filter(target => !this.defense.hasProtection(target, 'TARGET', {
+      sourceSide: side, sourceCard: card
+    }));
   }
 
   canStartFieldSpellAction(side) {
@@ -2989,11 +3090,11 @@ export class DuelGame {
     this.isResolvingAction = true;
 
     // Add to stack using ChainEngine
-    const link = this.chain.pushChainLink('player', card, [], {
+    const link = this.chain.pushChainLink('player', card, activationContext.targetCard ? [activationContext.targetCard] : [], {
       zoneIndex,
       context: {
         event: 'card-activation',
-        wouldDestroy: String(card.id) === '12580477',
+        wouldDestroy: ['12580477', '05318639'].includes(scriptCardId(card)),
         ...activationContext
       }
     });
@@ -3002,7 +3103,7 @@ export class DuelGame {
     await this.openChainResponseWindow('opponent', {
       event: 'card-activation',
       sourceCard: card,
-      wouldDestroy: String(card.id) === '12580477'
+      wouldDestroy: ['12580477', '05318639'].includes(scriptCardId(card))
     });
     if (!this.isDuelGenerationCurrent(generation)) return false;
     if (!(await this.delay(1200))) return false;
@@ -3085,11 +3186,11 @@ export class DuelGame {
     this.isResolvingAction = true;
 
     // Add to stack using ChainEngine
-    const link = this.chain.pushChainLink('player', card, [], {
+    const link = this.chain.pushChainLink('player', card, activationContext.targetCard ? [activationContext.targetCard] : [], {
       zoneIndex,
       context: {
         event: 'card-activation',
-        wouldDestroy: String(card.id) === '12580477',
+        wouldDestroy: ['12580477', '05318639'].includes(scriptCardId(card)),
         ...activationContext
       }
     });
@@ -3098,7 +3199,7 @@ export class DuelGame {
     await this.openChainResponseWindow('opponent', {
       event: 'card-activation',
       sourceCard: card,
-      wouldDestroy: String(card.id) === '12580477'
+      wouldDestroy: ['12580477', '05318639'].includes(scriptCardId(card))
     });
     if (!this.isDuelGenerationCurrent(generation)) return false;
     if (!(await this.delay(1200))) return false;
@@ -3113,9 +3214,20 @@ export class DuelGame {
     const lastSpeed = this.chain.getLastLinkSpeed();
     const candidates = [];
     const timingEvent = context.timingEvent || context.event;
+    const damageTimings = {
+      start: 'START_OF_DAMAGE_STEP', before_calc: 'BEFORE_DAMAGE_CALCULATION',
+      calc: 'DURING_DAMAGE_CALCULATION', after_calc: 'AFTER_DAMAGE_CALCULATION',
+      end: 'END_OF_DAMAGE_STEP'
+    };
+    const inDamageStep = this.phases.battleStep === 'damage_step';
+    const allowedAtTiming = card => !inDamageStep || this.chain.canActivateInDamageStep(
+      card, damageTimings[this.phases.damageStepSubPhase]
+    );
 
     state.spells.forEach((card, zoneIndex) => {
       if (!card || !card.isSetFaceDown || card.turnSet >= this.turnCount) return;
+      if (!allowedAtTiming(card)
+        || this.defense.isActionProhibited(side, 'ACTIVATE_EFFECT', card)) return;
       if (card.card_type === 'trap') {
         const summonedCard = context.summonedCard;
         const summonedStillPresent = Boolean(
@@ -3126,11 +3238,13 @@ export class DuelGame {
         );
         const isTrapHoleAtSummonTiming = (
           timingEvent === 'SUMMON_SUCCESS'
-          && String(card.id) === '04206964'
+          && scriptCardId(card) === '04206964'
+          && (!context.summonType || ['normal', 'flip'].includes(context.summonType))
           && side === this.getOpponentSide(context.summoningSide)
           && summonedStillPresent
           && !summonedCard.isSetFaceDown
           && summonedCard.getAtk() >= 1000
+          && !this.defense.hasProtection(summonedCard, 'TARGET', { sourceSide: side, sourceCard: card })
         );
         const isMirrorForceAtAttackTiming = (
           timingEvent === 'ATTACK_DECLARED'
@@ -3161,13 +3275,26 @@ export class DuelGame {
       candidates.push({ card, zoneIndex, source: 'field' });
     });
 
-    if (context.wouldDestroy) {
+    // A Quick-Play Spell in hand can be activated only during its owner's
+    // turn. On the opponent's turn it must already have been Set.
+    if (side === this.currentTurn && state.spells.includes(null)) {
+      state.hand.forEach(card => {
+        if (card.card_type !== 'spell' || this.chain.getSpellSpeed(card) !== 2
+          || !allowedAtTiming(card) || !this.canActivateSpell(card, side)
+          || this.isPendulumBattleActivationForbidden(side, card, context)
+          || !this.chain.canChain(card, lastSpeed)) return;
+        candidates.push({ card, zoneIndex: state.spells.indexOf(null), source: 'hand' });
+      });
+    }
+
+    if (context.wouldDestroy && !inDamageStep) {
       this.getMonsterEntries(side).forEach(({ card, zoneIndex, zoneType }) => {
         if (
           card
           && String(card.id) === '44508094'
           && !card.isSetFaceDown
           && !card.effectNegated
+          && !this.defense.isActionProhibited(side, 'ACTIVATE_EFFECT', card)
           && this.chain.canChain(card, lastSpeed)
         ) {
           candidates.push({ card, zoneIndex, zoneType, source: 'monster' });
@@ -3175,6 +3302,30 @@ export class DuelGame {
       });
     }
     return candidates;
+  }
+
+  /** Phase boundaries remain in the old phase until both players pass. */
+  async resolveFastEffectWindow(context = {}, startingSide = this.currentTurn) {
+    const generation = this._duelGeneration;
+    if (this.winner || this._duelEnded || this.chain.chainStack.length
+      || this.chain.chainStatus !== 'idle') return false;
+    const previousLock = this.isResolvingAction;
+    this.isResolvingAction = true;
+    try {
+      // After a Chain resolves, the turn player gets the first Fast Effect
+      // opportunity again. One Chain does not automatically finish a phase.
+      while (this.isDuelGenerationCurrent(generation) && !this._duelEnded) {
+        this.isResolvingAction = true;
+        const opened = await this.openChainResponseWindow(startingSide, { ...context, allowEmptyChain: true });
+        if (!opened || !this.isDuelGenerationCurrent(generation) || this._duelEnded) return false;
+        if (!this.chain.chainStack.length) return true;
+        if (!(await this.resolveChainStack({ openPostChainWindow: false }))) return false;
+        startingSide = this.currentTurn;
+      }
+      return false;
+    } finally {
+      if (this.isDuelGenerationCurrent(generation)) this.isResolvingAction = previousLock;
+    }
   }
 
   async openChainResponseWindow(startingSide, context = {}) {
@@ -3196,6 +3347,7 @@ export class DuelGame {
         timingEvent: rootContext.timingEvent
       };
       const candidates = this.getLegalChainCandidates(side, currentContext);
+      const candidateInstances = new Map(candidates.map(candidate => [candidate.card, candidate.card.runtimeInstanceId]));
       let decision = null;
       try {
         decision = await this.callbacks.onChainOpportunity({
@@ -3220,7 +3372,11 @@ export class DuelGame {
       }
 
       const requestedUid = this.decisionUid(decision);
-      const selected = candidates.find(candidate => String(candidate.card.uid) === requestedUid);
+      const selected = this.getLegalChainCandidates(side, currentContext).find(candidate => (
+        String(candidate.card.uid) === requestedUid
+        && candidateInstances.get(candidate.card) === candidate.card.runtimeInstanceId
+        && candidates.some(previous => previous.card === candidate.card && previous.source === candidate.source)
+      ));
       if (!selected) {
         const closed = this.chain.passPriority(side);
         if (closed) break;
@@ -3260,11 +3416,36 @@ export class DuelGame {
           );
         }
       } else {
+        const activationInstance = selected.card.runtimeInstanceId;
+        const activationContext = await this.prepareSpellActivationContext(selected.card, side);
+        if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) return false;
+        const liveCandidate = this.getLegalChainCandidates(side, currentContext).find(candidate => (
+          candidate.card === selected.card && candidate.source === selected.source
+          && candidate.card.runtimeInstanceId === activationInstance
+        ));
+        if (activationContext === null || !liveCandidate) {
+          const closed = this.chain.passPriority(side);
+          if (closed) break;
+          side = this.getOpponentSide(side);
+          continue;
+        }
+        selected.zoneIndex = liveCandidate.zoneIndex;
+        if (selected.source === 'hand') {
+          const handIndex = this.getSideState(side).hand.indexOf(selected.card);
+          if (handIndex === -1) return false;
+          this.getSideState(side).hand.splice(handIndex, 1);
+          this.field.setSpellZone(side, selected.zoneIndex, selected.card);
+        }
         selected.card.isSetFaceDown = false;
-        const link = this.chain.pushChainLink(side, selected.card, [], {
+        const link = this.chain.pushChainLink(side, selected.card, activationContext.targetCard ? [activationContext.targetCard] : [], {
           zoneIndex: selected.zoneIndex,
-          context: { event: 'chain-response', cardActivation: true }
+          context: {
+            event: 'chain-response', cardActivation: true,
+            wouldDestroy: scriptCardId(selected.card) === '05318639',
+            ...activationContext
+          }
         });
+        this.callbacks.onAnimation({ type: 'activate', target: side, card: selected.card, zoneIndex: selected.zoneIndex });
         this.callbacks.onAnimation({
           type: 'chain-pop',
           linkNumber: link.id,
@@ -3385,7 +3566,7 @@ export class DuelGame {
     return true;
   }
 
-  async resolveChainStack() {
+  async resolveChainStack({ openPostChainWindow = true } = {}) {
     const generation = this._duelGeneration;
     this.log(`Résolution de la chaîne (LIFO)...`, 'system');
 
@@ -3501,6 +3682,14 @@ export class DuelGame {
         this.stateChanged();
       }
     }
+    // A resolved effect can create new valid Fast Effect targets (notably a
+    // monster revived by Monster Reborn). Give both players their response
+    // before allowing an Ignition Effect, another Summon, or an attack.
+    if (completed && openPostChainWindow && this.isDuelGenerationCurrent(generation)
+      && !this.winner && !this._duelEnded
+      && ['player', 'opponent'].some(side => this.getLegalChainCandidates(side, { event: 'CHAIN_RESOLVED' }).length)) {
+      completed = await this.resolveFastEffectWindow({ event: 'CHAIN_RESOLVED' });
+    }
     return completed;
   }
 
@@ -3511,7 +3700,7 @@ export class DuelGame {
     const myMonsters = isPlayer ? this.playerMonsters : this.opponentMonsters;
     // Legacy callers may invoke resolution directly in tests/adapters. The
     // normal activation path always supplies the pre-locked target above.
-    if (String(card?.id) === '83764718' && !activationContext.targetCard) {
+    if (['83764718', '05318639', '14087893'].includes(scriptCardId(card)) && !activationContext.targetCard) {
       activationContext = await this.prepareSpellActivationContext(card, user) || {};
     }
 
@@ -3521,7 +3710,47 @@ export class DuelGame {
       this.log(`[PSCT Log] Conjonction détectée : ${psct.conjunctions[0].type}`, 'system');
     }
 
-    if (String(card.id) === '55144522') {
+    if (scriptCardId(card) === '05318639') {
+      const target = activationContext.targetCard;
+      const stillExact = target && target.uid === activationContext.targetUid
+        && target.runtimeInstanceId === activationContext.targetRuntimeInstanceId
+        && ['spell_zone', 'pendulum_zone', 'field_zone'].includes(target.location);
+      if (stillExact) {
+        const targetSide = target.controllerId;
+        const targetZoneIndex = target.zoneIndex;
+        const targetZoneType = target.location === 'field_zone' ? 'field' : 'spell';
+        applied = this.removeCardFromCurrentZone(target, { byCardEffect: true, sourceSide: user });
+        if (applied) {
+          this.callbacks.onAnimation({
+            type: 'mystical-space-typhoon-cinematic', target: targetSide,
+            card, targetCard: target, zoneIndex: targetZoneIndex, zoneType: targetZoneType
+          });
+          this.log(`**${card.name}** détruit **${target.name}**. La destruction n'annule pas un effet déjà activé.`, user);
+          this.callbacks.onAnimation({ type: 'clear-spell', target: targetSide, zoneIndex: targetZoneIndex, zoneType: targetZoneType });
+        }
+      }
+    } else if (scriptCardId(card) === '14087893') {
+      const target = activationContext.targetCard;
+      const entry = target && this.getMonsterEntries(target.controllerId).find(candidate => candidate.card === target);
+      if (entry && target.uid === activationContext.targetUid
+        && target.runtimeInstanceId === activationContext.targetRuntimeInstanceId
+        && !target.isSetFaceDown && !target.isLinkMonster && target.extra_type !== 'link' && !target.isToken) {
+        target.isSetFaceDown = true;
+        target.position = 'defense';
+        // Counters and per-instance soft OPT uses do not survive being turned
+        // face-down. Attack/normal position-change history still does.
+        target.counters = {};
+        target.effectUsage = {};
+        target.pendingBattleDestruction = false;
+        this.emitMonsterAnimation('set-monster', target.controllerId, entry, { card: target, byEffect: true });
+        this.callbacks.onAnimation({
+          type: 'book-of-moon-cinematic', target: target.controllerId,
+          card, targetCard: target, zoneIndex: entry.zoneIndex, zoneType: entry.zoneType
+        });
+        this.log(`**${card.name}** retourne **${target.name}** en Position de Défense face verso.`, user);
+        applied = true;
+      }
+    } else if (String(card.id) === '55144522') {
       this.log(`${isPlayer ? 'Vous activez' : "L'adversaire active"} Pot de Cupidité : Piochez 2 cartes !`, 'system');
       this.drawCard(user);
       if (!(await this.delay(400))) return false;
@@ -3957,6 +4186,12 @@ export class DuelGame {
       }
     }
     if (!this.isDuelGenerationCurrent(generation)) return 0;
+    if (!(await this.resolveFastEffectWindow({ event: 'PHASE_END', phase: 'end' }))) return returned;
+    // An End Phase response can tribute a newly eligible Stardust. Its return
+    // belongs to this same End Phase, before both players can finish the turn.
+    if (['player', 'opponent'].some(side => this.getSideState(side).graveyard.some(card => (
+      scriptCardId(card) === '44508094' && card.stardustReturnEligibleTurn === this.turnCount
+    )))) return returned + await this.processEndPhaseEffects();
     this.defense.clearTurnRestrictions();
     this.effects.expireLingeringEffects('turn_end');
     this.stateChanged();
@@ -3971,6 +4206,8 @@ export class DuelGame {
     const kuribohIndex = state.hand.findIndex(card => String(card.id) === '40640057');
     if (kuribohIndex === -1) return damage;
     const kuriboh = state.hand[kuribohIndex];
+    const sourceInstance = kuriboh.runtimeInstanceId;
+    if (this.defense.isActionProhibited(side, 'ACTIVATE_EFFECT', kuriboh)) return damage;
     const activate = await this.requestDecision({
       type: 'activate-hand-effect',
       effect: 'kuriboh-prevent-battle-damage',
@@ -3981,12 +4218,15 @@ export class DuelGame {
       optional: true
     }, true);
     if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) return damage;
-    if (!activate) return damage;
+    const liveIndex = state.hand.indexOf(kuriboh);
+    if (!activate || liveIndex === -1 || kuriboh.runtimeInstanceId !== sourceInstance
+      || this.defense.isActionProhibited(side, 'ACTIVATE_EFFECT', kuriboh)) return damage;
 
-    state.hand.splice(kuribohIndex, 1);
+    state.hand.splice(liveIndex, 1);
     this.field.sendToGraveyard(kuriboh, kuriboh.ownerId);
     let prevented = false;
     const link = this.chain.pushChainLink(side, kuriboh, [], {
+      spellSpeed: 2,
       context: { event: 'damage-calculation' },
       resolver: async () => {
         prevented = true;
@@ -4017,6 +4257,8 @@ export class DuelGame {
       || trapCard.turnSet >= this.turnCount
       || summonedCard.isSetFaceDown
       || summonedCard.getAtk() < 1000
+      || this.defense.isActionProhibited(defendingSide, 'ACTIVATE_EFFECT', trapCard)
+      || this.defense.hasProtection(summonedCard, 'TARGET', { sourceSide: defendingSide, sourceCard: trapCard })
     ) return false;
 
     const summonedRuntimeInstanceId = summonedCard.runtimeInstanceId;
@@ -4048,8 +4290,6 @@ export class DuelGame {
         if (
           currentEntry
           && summonedCard.runtimeInstanceId === summonedRuntimeInstanceId
-          && !summonedCard.isSetFaceDown
-          && summonedCard.getAtk() >= 1000
         ) {
           if (this.removeCardFromCurrentZone(summonedCard, { byCardEffect: true, sourceSide: defendingSide })) {
             this.emitMonsterAnimation('destroy', summoningSide, currentEntry);
@@ -4081,7 +4321,7 @@ export class DuelGame {
     const defendingSpells = defendingSide === 'player' ? this.playerSpells : this.opponentSpells;
     const trapIndex = defendingSpells.findIndex(
       card => card
-        && card.id === '04206964'
+        && scriptCardId(card) === '04206964'
         && card.isSetFaceDown
         && card.turnSet < this.turnCount
     );
@@ -4572,7 +4812,7 @@ export class DuelGame {
     const defendingSpells = defendingSide === 'player' ? this.playerSpells : this.opponentSpells;
     const trapIndex = defendingSpells.findIndex(
       card => card
-        && card.id === '44095762'
+        && scriptCardId(card) === '44095762'
         && card.isSetFaceDown
         && card.turnSet < this.turnCount
     );
@@ -4793,6 +5033,9 @@ export class DuelGame {
       defender.wasFlippedFaceUpByBattle = false;
     }
     this.phases.setBattleStep('battle_step');
+    if (['player', 'opponent'].some(side => this.getLegalChainCandidates(side, { event: 'DAMAGE_STEP_END' }).length)) {
+      if (!(await this.resolveFastEffectWindow({ event: 'DAMAGE_STEP_END' }))) return false;
+    }
     return true;
   }
 
@@ -5024,6 +5267,7 @@ export class DuelGame {
       `Invocation Xyz de **${extraCard.name}** avec ${extraCard.xyzMaterials.length} Matériels.`,
       side
     );
+    await this.resolveProcedureSummonWindow(extraCard, side, 'xyz');
     this.stateChanged();
     return true;
   }
@@ -5105,6 +5349,7 @@ export class DuelGame {
       });
     if (summoned === false) return false;
     this.log(`Invocation Lien de **${extraCard.name}** (Lien-${extraCard.linkRating}).`, side);
+    await this.resolveProcedureSummonWindow(extraCard, side, 'link');
     this.stateChanged();
     return true;
   }
@@ -5385,6 +5630,7 @@ export class DuelGame {
         return false;
       }
       this.log(`Invocation Synchro ! Incarnez le légendaire **${card.name}** !`, 'player');
+      await this.resolveProcedureSummonWindow(card, 'player', 'synchro');
       this.isResolvingAction = false;
       this.stateChanged();
       return true;
@@ -5712,7 +5958,14 @@ export class DuelGame {
     // AI activates Spell if possible
     const spellOptions = this.opponentHand
       .map((card, index) => ({ card, index }))
-      .filter(({ card }) => card.card_type === 'spell' && this.canActivateSpell(card, 'opponent'));
+      .filter(({ card }) => card.card_type === 'spell' && this.canActivateSpell(card, 'opponent'))
+      .filter(({ card }) => !['05318639', '14087893'].includes(scriptCardId(card))
+        || this.getSpellTargetCandidates(card, 'opponent').some(target => (
+          target.controllerId === 'player'
+          && (scriptCardId(card) !== '05318639' || target.isSetFaceDown
+            || ['field_zone', 'pendulum_zone'].includes(target.location)
+            || /continuous|equip|field/i.test(`${target.type} ${target.race}`))
+        )));
     if (profile.valuesCardAdvantage) {
       spellOptions.sort((a, b) => this.scoreAISpell(b.card) - this.scoreAISpell(a.card));
     }
@@ -5730,39 +5983,40 @@ export class DuelGame {
           card,
           'opponent'
         );
-        if (activationContext === null) return false;
-        const liveCardIndex = this.opponentHand.indexOf(card);
-        if (liveCardIndex === -1
-          || card.runtimeInstanceId !== activationSourceInstance
-          || this.field.getSpellZone('opponent', emptySpellZone) !== null
-          || !this.canStartFieldSpellAction('opponent')
-          || !this.canActivateSpell(card, 'opponent')
-        ) return false;
-        this.opponentHand.splice(liveCardIndex, 1);
-        this.field.setSpellZone('opponent', emptySpellZone, card);
+        if (activationContext !== null) {
+          const liveCardIndex = this.opponentHand.indexOf(card);
+          if (liveCardIndex === -1
+            || card.runtimeInstanceId !== activationSourceInstance
+            || this.field.getSpellZone('opponent', emptySpellZone) !== null
+            || !this.canStartFieldSpellAction('opponent')
+            || !this.canActivateSpell(card, 'opponent')
+          ) return false;
+          this.opponentHand.splice(liveCardIndex, 1);
+          this.field.setSpellZone('opponent', emptySpellZone, card);
 
-        this.log(`L'adversaire active la Carte Magie **${card.name}** !`, 'opponent');
-        this.callbacks.onAnimation({ type: 'activate', target: 'opponent', card, zoneIndex: emptySpellZone });
+          this.log(`L'adversaire active la Carte Magie **${card.name}** !`, 'opponent');
+          this.callbacks.onAnimation({ type: 'activate', target: 'opponent', card, zoneIndex: emptySpellZone });
 
-        this.isResolvingAction = true;
-        const link = this.chain.pushChainLink('opponent', card, [], {
-          zoneIndex: emptySpellZone,
-          context: {
+          this.isResolvingAction = true;
+          const link = this.chain.pushChainLink('opponent', card, activationContext.targetCard ? [activationContext.targetCard] : [], {
+            zoneIndex: emptySpellZone,
+            context: {
+              event: 'card-activation',
+              wouldDestroy: ['12580477', '05318639'].includes(scriptCardId(card)),
+              ...activationContext
+            }
+          });
+          this.callbacks.onAnimation({ type: 'chain-pop', linkNumber: link.id, card });
+          await this.openChainResponseWindow('player', {
             event: 'card-activation',
-            wouldDestroy: String(card.id) === '12580477',
-            ...activationContext
-          }
-        });
-        this.callbacks.onAnimation({ type: 'chain-pop', linkNumber: link.id, card });
-        await this.openChainResponseWindow('player', {
-          event: 'card-activation',
-          sourceCard: card,
-          wouldDestroy: String(card.id) === '12580477'
-        });
-        if (!(await this.delay(1000))) return false;
-        await this.resolveChainStack();
-        if (this.winner || this._duelEnded) return false;
-        if (!(await this.delay(800))) return false;
+            sourceCard: card,
+            wouldDestroy: ['12580477', '05318639'].includes(scriptCardId(card))
+          });
+          if (!(await this.delay(1000))) return false;
+          await this.resolveChainStack();
+          if (this.winner || this._duelEnded) return false;
+          if (!(await this.delay(800))) return false;
+        }
       }
     }
 
@@ -5903,6 +6157,7 @@ export class DuelGame {
     if (this.winner || this._duelEnded) return false;
     await this.tryAIPositionChanges(5);
     if (this.winner || this._duelEnded) return false;
+    if (!(await this.resolveFastEffectWindow({ event: 'PHASE_END', phase: 'main1' }))) return false;
 
     if (!this.turn.isBattlePhaseLegal(this.turnCount)) {
       this.phases.currentPhase = 'end';
@@ -5970,7 +6225,8 @@ export class DuelGame {
       }
       if (!this.isDuelGenerationCurrent(generation) || this._duelEnded) return false;
       this.isResolvingAction = false;
-      this.phases.currentPhase = 'end';
+      if (!(await this.resolveFastEffectWindow({ event: 'PHASE_END', phase: 'battle' }))) return false;
+      this.phases.currentPhase = 'main2';
       this.phases.setBattleStep('none');
       this.startPhaseFlow();
       return true;

@@ -21,7 +21,7 @@ function diskPath(publicUrl) {
 }
 
 test('every locally supported card has valid same-origin card and cropped image assets', async () => {
-  assert.equal(localCards.length, 45);
+  assert.equal(localCards.length, 47);
 
   for (const card of localCards) {
     for (const publicUrl of [
@@ -57,6 +57,8 @@ test('local image helpers normalize passcodes with leading zeroes', () => {
     getCardCroppedImageUrl('05405694'),
     '/cards/cropped/5405694.jpg'
   );
+  assert.equal(getCardImageUrl('05318639'), '/cards/small/5318639.jpg');
+  assert.equal(getCardCroppedImageUrl(5318639), '/cards/cropped/5318639.jpg');
 });
 
 test('Sandbox API cards never expose a YGOPRODeck image hotlink', () => {

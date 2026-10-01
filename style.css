@@ -1216,6 +1216,12 @@ body.modal-open {
   overflow: visible;
 }
 
+/* Meshes replace only the upright sprite in Vue Réelle. Keep the original card,
+   statistics and interactive zone available in the shared board. */
+.real-mode .has-real-hologram-model .holo-sprite-container {
+  visibility: hidden;
+}
+
 .holo-sprite {
   width: auto;
   max-width: 100%;
@@ -4087,6 +4093,14 @@ body.duel-ended .app-container.real-duel-view-active .bottom-bar::after {
 
 .real-mode .arena-hologrid {
   opacity: 0.18;
+}
+
+/* Position the shared Extra zones without a descendant transform, so their
+   interactive centres and the public WebGL anchors use the same coordinates. */
+.real-mode .extra-monster-zones {
+  left: calc(50% - 126px);
+  top: calc(50% - 55px);
+  transform: none;
 }
 
 /* The real hand sits on the physical foreground console. */

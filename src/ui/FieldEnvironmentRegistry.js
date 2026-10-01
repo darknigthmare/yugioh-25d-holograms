@@ -7,6 +7,7 @@
 
 import { isFieldSpellCard } from '../core/FieldSpellRules.js';
 import { FIELD_SPELL_CARD_IDS_BY_ENVIRONMENT } from './FieldSpellEnvironmentCatalog.js';
+import { resolveFieldEnvironmentGeometryProfile } from './FieldEnvironmentGeometry.js';
 import {
   FIELD_SPELL_RUNTIME_MANIFEST,
   FIELD_SPELL_RUNTIME_MANIFEST_COUNT
@@ -49,7 +50,8 @@ function freezeEnvironment(config) {
     lighting: Object.freeze({ ...(config.lighting || {}) }),
     fog: Object.freeze({ ...(config.fog || {}) }),
     particles: Object.freeze({ ...(config.particles || {}) }),
-    surfacePalette: Object.freeze({ ...(config.surfacePalette || {}) })
+    surfacePalette: Object.freeze({ ...(config.surfacePalette || {}) }),
+    geometryProfile: resolveFieldEnvironmentGeometryProfile(config.id, config.fieldSpellCardId)
   });
 }
 
