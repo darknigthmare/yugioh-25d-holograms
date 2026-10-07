@@ -1,5 +1,19 @@
 /* Style system for Yu-Gi-Oh 2.5D Hologram Duel Simulator */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Orbitron:wght@400;700;900&display=swap');
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/inter-variable.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Orbitron';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('/fonts/orbitron-variable.woff2') format('woff2');
+}
 
 :root {
   --bg-color: #080314;
@@ -1769,6 +1783,23 @@ body.modal-open {
   text-align: left;
 }
 
+.builder-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  text-align: left;
+  font-size: 0.85rem;
+}
+
+.builder-toolbar .btn { min-height: 44px; padding: 8px 12px; }
+.builder-toolbar label { display: flex; align-items: center; gap: 8px; min-height: 44px; }
+.builder-deck-sections { min-height: 0; overflow-y: auto; flex: 1; }
+.builder-section-title { color: var(--neon-cyan); font-size: 0.8rem; margin: 10px 0 8px; }
+.builder-deck-sections .builder-cards-grid { overflow: visible; }
+.builder-cards-grid .builder-card-item:disabled { opacity: 0.55; cursor: default; transform: none; }
+
 .builder-panel {
   min-width: 0;
   display: flex;
@@ -1794,6 +1825,8 @@ body.modal-open {
   align-items: center;
   font-size: 0.8rem;
   margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .builder-cards-grid {

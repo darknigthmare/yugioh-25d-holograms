@@ -7,6 +7,8 @@ import { createCampaignDuelTracker } from './src/content/CampaignDuelTracker.js'
 import { chooseAIChainResponse, chooseAIResponseTarget } from './src/content/AIResponsePolicy.js';
 import { isHandPlacementDestinationLegal } from './src/ui/HandPlacement.js';
 import { isFieldSpellCard } from './src/core/FieldSpellRules.js';
+import { normalizeStrictCardId } from './src/core/StrictCardRegistry.js';
+import { canAddDeckBuilderCard, getDeckBuilderCopyLimit, validateCustomDeck } from './src/ui/DeckBuilderRules.js';
 import {
   initBoardTilt,
   createCardDOM,
@@ -1349,16 +1351,25 @@ const knownCardTemplates = new Map(
   [...STARTER_CARDS, ...EXTRA_DECK_CARDS].map(template => [String(template.id), template])
 );
 
+const canonicalCardTemplates = new Map(
+  [...STARTER_CARDS, ...EXTRA_DECK_CARDS].map(template => [normalizeStrictCardId(template.id), template])
+);
+
+function canonicalCustomDeckIds(ids) {
+  return (Array.isArray(ids) ? ids : []).flatMap(id => {
+    const template = canonicalCardTemplates.get(normalizeStrictCardId(id));
+    return template ? [String(template.id)] : [];
+  });
+}
+
 function normalizeCustomDeckIds(mainIds, extraIds) {
   return {
-    main: (Array.isArray(mainIds) ? mainIds : [])
-      .map(String)
+    main: canonicalCustomDeckIds(mainIds)
       .filter(id => {
         const template = knownCardTemplates.get(id);
         return Boolean(template && !isTemplateExtraDeckCard(template));
       }),
-    extra: (Array.isArray(extraIds) ? extraIds : [])
-      .map(String)
+    extra: canonicalCustomDeckIds(extraIds)
       .filter(id => isTemplateExtraDeckCard(knownCardTemplates.get(id)))
   };
 }
@@ -1367,11 +1378,13 @@ const savedCustomDeck = readStoredJson(STORAGE_KEYS.customDeck, { main: [], extr
 const normalizedSavedCustomDeck = normalizeCustomDeckIds(savedCustomDeck.main, savedCustomDeck.extra);
 let customDeckMainIds = normalizedSavedCustomDeck.main;
 let customDeckExtraIds = normalizedSavedCustomDeck.extra;
+let customDeckSideIds = canonicalCustomDeckIds(savedCustomDeck.side);
 if (
   JSON.stringify(savedCustomDeck.main || []) !== JSON.stringify(customDeckMainIds)
   || JSON.stringify(savedCustomDeck.extra || []) !== JSON.stringify(customDeckExtraIds)
+  || JSON.stringify(savedCustomDeck.side || []) !== JSON.stringify(customDeckSideIds)
 ) {
-  writeStoredValue(STORAGE_KEYS.customDeck, JSON.stringify(normalizedSavedCustomDeck));
+  writeStoredValue(STORAGE_KEYS.customDeck, JSON.stringify({ ...normalizedSavedCustomDeck, side: customDeckSideIds }));
 }
 const storedStatistics = readStoredJson(STORAGE_KEYS.statistics, {});
 let duelStatistics = {
@@ -1406,9 +1419,11 @@ function saveCustomDeck() {
   const normalized = normalizeCustomDeckIds(customDeckMainIds, customDeckExtraIds);
   customDeckMainIds = normalized.main;
   customDeckExtraIds = normalized.extra;
+  customDeckSideIds = canonicalCustomDeckIds(customDeckSideIds);
   const saved = writeStoredValue(STORAGE_KEYS.customDeck, JSON.stringify({
     main: customDeckMainIds,
-    extra: customDeckExtraIds
+    extra: customDeckExtraIds,
+    side: customDeckSideIds
   }));
   if (!saved) {
     announceStatus('Le navigateur a refusé la sauvegarde locale du Deck. Il reste utilisable pour cette session.');
@@ -1466,14 +1481,12 @@ function updateModeControls() {
   }
   const customChoice = document.querySelector('.deck-choice-card[data-deck-id="custom"]');
   if (customChoice) {
-    customChoice.disabled = strictMode;
-    customChoice.classList.toggle('hidden', strictMode);
-    customChoice.setAttribute('aria-hidden', strictMode ? 'true' : 'false');
+    customChoice.disabled = false;
+    customChoice.classList.remove('hidden');
+    customChoice.setAttribute('aria-hidden', 'false');
   }
 
-  if (strictMode && currentSelectedDeckId === 'custom') {
-    selectDeckChoice(document.querySelector('.deck-choice-card[data-deck-id="kaiba"]'));
-  }
+  if (currentSelectedDeckId === 'custom') initDeckBuilderUI();
 
   if (sandboxPanel) {
     sandboxPanel.classList.toggle('hidden', strictMode);
@@ -1489,7 +1502,7 @@ function updateModeControls() {
     modeDescription.textContent = strictMode
       ? (matchMode
         ? 'Match officiel : format TCG Advanced strict, Side Deck et premier à deux victoires.'
-        : 'Mode strict : decks intégrés légaux ; invocations et effets non pris en charge refusés.')
+        : 'Mode strict : decks intégrés ou personnalisés validés selon la liste Advanced actuelle.')
       : 'Anime Sandbox : recherche API et expérimentations libres activées.';
   }
 }
@@ -1537,6 +1550,52 @@ choiceCards.forEach(card => {
   });
 });
 
+document.getElementById('builder-add-to-side')?.addEventListener('change', initDeckBuilderUI);
+document.querySelectorAll('[data-builder-preset]').forEach(button => {
+  button.addEventListener('click', () => {
+    const collection = selectedGameMode === 'strict' ? PREMADE_DECKS : SANDBOX_PREMADE_DECKS;
+    const preset = collection[button.dataset.builderPreset];
+    if (!preset) return;
+    customDeckMainIds = [...preset.main];
+    customDeckExtraIds = [...preset.extra];
+    customDeckSideIds = [...(preset.side || [])];
+    saveCustomDeck();
+    initDeckBuilderUI();
+    announceStatus(`Deck personnalisé remplacé par le preset ${button.dataset.builderPreset.toUpperCase()}.`);
+  });
+});
+
+function getCustomDeckCards() {
+  const resolve = ids => ids.map(id => knownCardTemplates.get(id)).filter(Boolean);
+  return {
+    mainDeck: resolve(customDeckMainIds),
+    extraDeck: resolve(customDeckExtraIds),
+    sideDeck: resolve(customDeckSideIds)
+  };
+}
+
+function builderDestination(template) {
+  return document.getElementById('builder-add-to-side')?.checked ? 'sideDeck'
+    : isTemplateExtraDeckCard(template) ? 'extraDeck' : 'mainDeck';
+}
+
+function updateDeckBuilderLibrary() {
+  const deck = getCustomDeckCards();
+  const allCards = [...deck.mainDeck, ...deck.extraDeck, ...deck.sideDeck];
+  document.querySelectorAll('#library-cards-list [data-card-id]').forEach(button => {
+    const template = knownCardTemplates.get(button.dataset.cardId);
+    const destination = builderDestination(template);
+    const permission = canAddDeckBuilderCard(deck, template, destination, selectedGameMode);
+    const count = allCards.filter(card => normalizeStrictCardId(card.id) === normalizeStrictCardId(template.id)).length;
+    const limit = getDeckBuilderCopyLimit(template, selectedGameMode);
+    button.disabled = !permission.allowed;
+    button.title = permission.allowed ? `${template.name} — ${count}/${limit} copies`
+      : permission.message;
+    button.setAttribute('aria-label', `Ajouter ${template.name} ${destination === 'sideDeck' ? 'au Side Deck' : 'au deck'}`);
+    button.querySelector('.builder-card-count').textContent = limit === 0 ? 'INTERDITE' : `${count}/${limit}`;
+  });
+}
+
 updateModeControls();
 renderDuelStatistics();
 
@@ -1552,24 +1611,22 @@ function initDeckBuilderUI() {
     const cardItem = document.createElement('button');
     cardItem.type = 'button';
     cardItem.className = 'builder-card-item';
+    cardItem.dataset.cardId = String(template.id);
     cardItem.style.backgroundImage = `url("${getCardCroppedImageUrl(template.id)}")`;
-    cardItem.title = `${template.name} - ATK: ${template.atk} / DEF: ${template.def}`;
-    cardItem.setAttribute('aria-label', `Ajouter ${template.name} au deck`);
+    const count = document.createElement('span');
+    count.className = 'builder-card-count';
+    cardItem.appendChild(count);
 
     // Add event to add to my custom deck
     cardItem.addEventListener('click', () => {
-      const isExtra = /Fusion|Synchro|Xyz|Link/i.test(template.type);
-      const targetList = isExtra ? customDeckExtraIds : customDeckMainIds;
-
-      // Count current occurrences (max 3 limit)
-      const count = targetList.filter(id => id === template.id).length;
-      if (count < 3) {
-        targetList.push(template.id);
-        saveCustomDeck();
-        updateDeckBuilderList();
-      } else {
-        announceStatus(`Maximum atteint : trois copies de ${template.name}.`);
-      }
+      const destination = builderDestination(template);
+      const permission = canAddDeckBuilderCard(getCustomDeckCards(), template, destination, selectedGameMode);
+      if (!permission.allowed) return announceStatus(permission.message);
+      const targetList = destination === 'sideDeck' ? customDeckSideIds
+        : destination === 'extraDeck' ? customDeckExtraIds : customDeckMainIds;
+      targetList.push(String(template.id));
+      saveCustomDeck();
+      updateDeckBuilderList();
     });
 
     libraryContainer.appendChild(cardItem);
@@ -1582,54 +1639,55 @@ function updateDeckBuilderList() {
   const normalized = normalizeCustomDeckIds(customDeckMainIds, customDeckExtraIds);
   customDeckMainIds = normalized.main;
   customDeckExtraIds = normalized.extra;
+  customDeckSideIds = canonicalCustomDeckIds(customDeckSideIds);
   const deckListContainer = document.getElementById('builder-my-deck-list');
   deckListContainer.innerHTML = '';
 
-  const allCardTemplates = [...STARTER_CARDS, ...EXTRA_DECK_CARDS];
-
-  // Map custom deck IDs to actual card templates
-  const mainCards = customDeckMainIds.map(id => allCardTemplates.find(t => t.id === id)).filter(Boolean);
-  const extraCards = customDeckExtraIds.map(id => allCardTemplates.find(t => t.id === id)).filter(Boolean);
-  const myDeckCombined = [...mainCards, ...extraCards];
-
-  myDeckCombined.forEach((template, index) => {
-    const cardItem = document.createElement('button');
-    cardItem.type = 'button';
-    cardItem.className = 'builder-card-item';
-    cardItem.style.backgroundImage = `url("${getCardCroppedImageUrl(template.id)}")`;
-    cardItem.title = `${template.name} (Cliquez pour retirer)`;
-    cardItem.setAttribute('aria-label', `Retirer ${template.name} du deck`);
-
-    cardItem.addEventListener('click', () => {
-      const isExtra = /Fusion|Synchro|Xyz|Link/i.test(template.type);
-      if (isExtra) {
-        const targetIndex = customDeckExtraIds.indexOf(template.id);
-        if (targetIndex !== -1) customDeckExtraIds.splice(targetIndex, 1);
-      } else {
-        const targetIndex = customDeckMainIds.indexOf(template.id);
-        if (targetIndex !== -1) customDeckMainIds.splice(targetIndex, 1);
-      }
-      saveCustomDeck();
-      updateDeckBuilderList();
+  for (const [label, ids] of [
+    ['Main Deck', customDeckMainIds], ['Extra Deck', customDeckExtraIds], ['Side Deck', customDeckSideIds]
+  ]) {
+    const section = document.createElement('section');
+    const heading = document.createElement('h3');
+    heading.className = 'builder-section-title';
+    heading.textContent = `${label} (${ids.length})`;
+    section.appendChild(heading);
+    const grid = document.createElement('div');
+    grid.className = 'builder-cards-grid';
+    ids.forEach((id, index) => {
+      const template = knownCardTemplates.get(id);
+      const cardItem = document.createElement('button');
+      cardItem.type = 'button';
+      cardItem.className = 'builder-card-item';
+      cardItem.style.backgroundImage = `url("${getCardCroppedImageUrl(template.id)}")`;
+      cardItem.title = `${template.name} (Cliquez pour retirer)`;
+      cardItem.setAttribute('aria-label', `Retirer ${template.name} du ${label}`);
+      cardItem.addEventListener('click', () => {
+        ids.splice(index, 1);
+        saveCustomDeck();
+        updateDeckBuilderList();
+      });
+      grid.appendChild(cardItem);
     });
-
-    deckListContainer.appendChild(cardItem);
-  });
+    section.appendChild(grid);
+    deckListContainer.appendChild(section);
+  }
 
   // Update stats
   const totalCount = customDeckMainIds.length;
-  document.getElementById('deck-size-val').textContent = `Main: ${totalCount} / Extra: ${customDeckExtraIds.length}`;
+  document.getElementById('deck-size-val').textContent = `Main: ${totalCount} / Extra: ${customDeckExtraIds.length} / Side: ${customDeckSideIds.length}`;
 
   const validityBadge = document.getElementById('deck-validity-badge');
-  const customDeckIsValid = totalCount >= 40 && totalCount <= 60 && customDeckExtraIds.length <= 15;
+  const validation = validateCustomDeck(getCustomDeckCards(), selectedGameMode);
+  const customDeckIsValid = validation.valid;
   validityBadge.setAttribute('aria-live', 'polite');
   if (customDeckIsValid) {
-    validityBadge.textContent = "Taille valide";
+    validityBadge.textContent = "Deck valide";
     validityBadge.className = "badge-status success";
   } else {
-    validityBadge.textContent = "40 à 60 cartes requises";
+    validityBadge.textContent = validation.message;
     validityBadge.className = "badge-status danger";
   }
+  updateDeckBuilderLibrary();
 
   if (currentSelectedDeckId === 'custom') {
     startBtn.disabled = !customDeckIsValid;
@@ -1717,17 +1775,20 @@ async function initGameInstance(matchLaunch = null) {
   let extraIds = [];
   let sideIds = [];
 
-  if (currentSelectedDeckId === 'custom' && !campaignMission) {
+  if (currentSelectedDeckId === 'custom' && !campaignMission && !matchLaunch) {
     const normalized = normalizeCustomDeckIds(customDeckMainIds, customDeckExtraIds);
     customDeckMainIds = normalized.main;
     customDeckExtraIds = normalized.extra;
-    if (customDeckMainIds.length < 40 || customDeckMainIds.length > 60 || customDeckExtraIds.length > 15) {
-      announceStatus("Votre deck personnalisé doit contenir 40 à 60 cartes principales et au maximum 15 cartes Extra.");
+    customDeckSideIds = canonicalCustomDeckIds(customDeckSideIds);
+    const validation = validateCustomDeck(getCustomDeckCards(), selectedGameMode);
+    if (!validation.valid) {
+      announceStatus(validation.message);
       openDialog(startModal, document.getElementById('deck-validity-badge'));
       return;
     }
     mainIds = [...customDeckMainIds];
     extraIds = [...customDeckExtraIds];
+    sideIds = [...customDeckSideIds];
   } else {
     const deckCollection = selectedGameMode === 'strict'
       ? PREMADE_DECKS
@@ -3004,7 +3065,7 @@ function restorePersistedMatchBetweenDuels() {
     const restoredDeckChoice = [...choiceCards].find(
       choice => choice.dataset.deckId === String(payload.selectedDeckId || 'kaiba')
     );
-    if (restoredDeckChoice && restoredDeckChoice.dataset.deckId !== 'custom') {
+    if (restoredDeckChoice) {
       selectDeckChoice(restoredDeckChoice);
     }
     writeStoredValue(STORAGE_KEYS.duelSeries, selectedDuelSeries);

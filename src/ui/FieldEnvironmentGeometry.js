@@ -123,7 +123,10 @@ export const FIELD_ENVIRONMENT_INSPECTED_ART_PROFILES = Object.freeze(Object.fro
   ['33407125', ['#d6e5f0','#e8eefa','#86b8e9','#ba8bea','#bcc8e8','#faffff'], ['tiered white blue palace', 'pointed blue turrets', 'curved elevated access ramps']],
   ['10080320', ['#345d35','#8e8c7b','#3d8053','#bad0ef','#485d43','#b8cae4'], ['fern jungle and hanging vines', 'encircling stone caldera', 'smoking volcano beyond']],
   ['16625614', ['#4e1738','#341528','#622947','#ae4082','#45202d','#bd659d'], ['dark spired castle on jagged rock', 'red violet sky', 'large surrounding eyes']],
-  ['61583217', ['#062d55','#1b4874','#247f99','#7ce9ff','#123459','#b9f7ff'], ['cyan hexagon lattice', 'calibrated orbit discs', 'bright connected nodes']]
+  ['61583217', ['#062d55','#1b4874','#247f99','#7ce9ff','#123459','#b9f7ff'], ['cyan hexagon lattice', 'calibrated orbit discs', 'bright connected nodes']],
+  ['2084239', ['#294f40','#638f87','#2c962b','#a5ccd2','#276326','#9baead'], ['dense rain soaked grass', 'horizontal dark water strip', 'low misty mountain horizon']],
+  ['56433456', ['#766b62','#d0c6af','#173b2a','#fff3cc','#71645a','#d7e3ec'], ['ruined temple on floating rock', 'broad front stairway', 'orb monument and circular side terrace']],
+  ['63035430', ['#1b2437','#303e48','#43515a','#e9eead','#26353c','#b7c9ce'], ['enclosing dark skyscraper facades', 'yellow window grids', 'stepped central spire moon and crossed searchlights']]
 ].map(([cardId, colors, motifs]) => [cardId, Object.freeze({
   cardId,
   sourceUrl: `https://images.ygoprodeck.com/images/cards_cropped/${cardId}.jpg`,
@@ -340,6 +343,102 @@ export function createFieldEnvironmentGeometry(THREE, environment = {}) {
       beam(name, [x, height * 0.58, z], [x + side * 1.4, height * 0.87, z], mat, 0.07);
       beam(name, [x + side * 1.2, height * 0.82, z], [x + side * 1.8, height, z], mat, 0.045);
     }
+  };
+
+  // Deform existing application-supplied primitives rather than importing a
+  // second Three namespace. Continuous tubes/decks add curved silhouettes with
+  // one static draw each; all buffers enter the usual shared-resource disposal.
+  let customShapeIndex = 0;
+  const curvedTube = (name, mat, path, radii, segments = 80, corrugation = 0) => {
+    const shape = geometry(`${name}-${customShapeIndex++}`, () => new THREE.CylinderGeometry(1, 1, 1, 8, segments, true));
+    const positions = shape.attributes.position;
+    const reference = new THREE.Vector3(0, 0, 1);
+    const samples = [];
+    for (let row = 0; row <= segments; row += 1) {
+      const t = row / segments;
+      const point = new THREE.Vector3(...path(t));
+      const tangent = new THREE.Vector3(...path(Math.min(1, t + 0.0001)))
+        .sub(new THREE.Vector3(...path(Math.max(0, t - 0.0001)))).normalize();
+      reference.set(Math.abs(tangent.z) < 0.9 ? 0 : 1, 0, Math.abs(tangent.z) < 0.9 ? 1 : 0);
+      const across = reference.clone().cross(tangent).normalize();
+      const depth = tangent.clone().cross(across).normalize();
+      const radius = radii(t);
+      samples.push(Object.freeze(point.toArray()));
+      for (let column = 0; column <= 8; column += 1) {
+        const angle = column * Math.PI / 4;
+        const ripple = 1 + corrugation * (Math.sin(t * 71 + angle * 3) + 0.35 * Math.cos(t * 119 - angle * 2));
+        const vertex = point.clone().addScaledVector(across, Math.sin(angle) * radius[0] * ripple)
+          .addScaledVector(depth, Math.cos(angle) * radius[1] * ripple);
+        positions.setXYZ(row * 9 + column, vertex.x, vertex.y, vertex.z);
+      }
+    }
+    positions.needsUpdate = true;
+    shape.computeVertexNormals();
+    shape.userData.continuousCurve = Object.freeze(samples);
+    const mesh = add(name, shape, mat, [0, 0, 0]);
+    mesh.castShadow = false;
+    return mesh;
+  };
+  const curvedDeck = (name, mat, path, width, thickness, segments = 64) => {
+    const shape = geometry(`${name}-${customShapeIndex++}`, () => new THREE.BoxGeometry(1, 1, 1, segments, 1, 1));
+    const positions = shape.attributes.position;
+    for (let i = 0; i < positions.count; i += 1) {
+      const t = positions.getX(i) + 0.5;
+      const point = new THREE.Vector3(...path(t));
+      const tangent = new THREE.Vector3(...path(Math.min(1, t + 0.0001)))
+        .sub(new THREE.Vector3(...path(Math.max(0, t - 0.0001))));
+      const across = new THREE.Vector3(-tangent.z, 0, tangent.x).normalize();
+      point.addScaledVector(across, positions.getZ(i) * width);
+      point.y += positions.getY(i) * thickness;
+      positions.setXYZ(i, point.x, point.y, point.z);
+    }
+    positions.needsUpdate = true;
+    shape.computeVertexNormals();
+    shape.userData.continuousCurve = Object.freeze(Array.from({ length: segments + 1 }, (_, i) => Object.freeze(path(i / segments))));
+    const mesh = add(name, shape, mat, [0, 0, 0]);
+    mesh.castShadow = false;
+    return mesh;
+  };
+  const radialSurface = (name, mat, vertex, radialSegments = 48, rings = 18, shade = null) => {
+    const shape = geometry(`${name}-${customShapeIndex++}`, () => new THREE.CylinderGeometry(1, 1, 1, radialSegments, rings, true));
+    const positions = shape.attributes.position;
+    const colors = shade ? positions.clone() : null;
+    for (let row = 0; row <= rings; row += 1) for (let column = 0; column <= radialSegments; column += 1) {
+      const t = row / rings;
+      const angle = column * Math.PI * 2 / radialSegments;
+      const point = vertex(t, angle);
+      const index = row * (radialSegments + 1) + column;
+      positions.setXYZ(index, ...point);
+      if (colors) colors.setXYZ(index, ...shade(t, angle));
+    }
+    positions.needsUpdate = true;
+    if (colors) shape.setAttribute('color', colors);
+    shape.computeVertexNormals();
+    shape.userData.radialSurface = Object.freeze({ radialSegments, rings });
+    add(name, shape, mat, [0, 0, 0]).castShadow = false;
+    // Sample an actual rendered triangle, including its planar normal. Lava
+    // uses these points rather than an ideal cone that diverges from the mesh.
+    return (t, angle) => {
+      const rowT = Math.max(0, Math.min(0.999999, t)) * rings;
+      const columnT = ((angle / (Math.PI * 2) % 1) + 1) % 1 * radialSegments;
+      const row = Math.floor(rowT);
+      const column = Math.floor(columnT);
+      const v = rowT - row;
+      const u = columnT - column;
+      const read = (r, c) => new THREE.Vector3().fromBufferAttribute(positions, r * (radialSegments + 1) + c);
+      const a = read(row, column), b = read(row + 1, column);
+      const c = read(row + 1, column + 1), d = read(row, column + 1);
+      let point, normal;
+      if (u + v <= 1) {
+        point = a.clone().multiplyScalar(1 - u - v).addScaledVector(b, v).addScaledVector(d, u);
+        normal = b.clone().sub(a).cross(d.clone().sub(a)).normalize();
+      } else {
+        point = b.clone().multiplyScalar(1 - u).addScaledVector(c, u + v - 1).addScaledVector(d, 1 - v);
+        normal = c.clone().sub(b).cross(d.clone().sub(b)).normalize();
+      }
+      if (normal.y < 0) normal.negate();
+      return { point, normal };
+    };
   };
 
   if (!profile.inspectedArt) switch (profile.family) {
@@ -686,18 +785,50 @@ export function createFieldEnvironmentGeometry(THREE, environment = {}) {
       break;
     }
     case 'plasma-storm-spiral': {
-      for (let i = 0; i < 9; i += 1) {
-        const angle = i * Math.PI * 2 / 9;
-        const x = Math.cos(angle) * 8;
-        const y = 16 + Math.sin(angle) * 4;
-        cloudBank('plasma-purple-spiral-cloud', x, y, -33, 5, materials.leaves);
+      const rim = material('#9a80d4', { roughness: 0.98 });
+      const strand = t => {
+        const angle = -0.3 + t * Math.PI * 4.8;
+        const radius = 1.1 + t * 12.3;
+        return [Math.cos(angle) * radius, 14.5 + Math.sin(angle) * radius * 0.65, -34 + Math.sin(angle * 0.6) * 1.2];
+      };
+      curvedTube('plasma-continuous-purple-vortex', materials.leaves, strand,
+        t => [0.5 + t * 1.05, 0.5 + t * 0.55], 144, 0.16);
+      curvedTube('plasma-lavender-vortex-lip', rim, t => {
+        const point = strand(t);
+        point[1] += 0.3 + t * 0.45;
+        point[2] += 0.45;
+        return point;
+      }, t => [0.12 + t * 0.28, 0.18 + t * 0.1], 144, 0.13);
+      const cloudGroove = material('#291e49');
+      for (let i = 0; i < 24; i += 1) {
+        const t = 0.05 + i / 24 * 0.93;
+        const point = new THREE.Vector3(...strand(t));
+        const tangent = new THREE.Vector3(...strand(t + 0.002)).sub(new THREE.Vector3(...strand(t - 0.002))).normalize();
+        const across = new THREE.Vector3(-tangent.y, tangent.x, 0);
+        const lobe = add('plasma-attached-cloud-lobe', crown, i % 3 ? materials.leaves : rim,
+          [point.x, point.y, point.z + 0.15], [0.55 + t * 0.75, 0.7 + t * 0.5, 0.45 + t * 0.3]);
+        lobe.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), tangent);
+        const edge = point.clone().addScaledVector(across, 0.25 + t * 0.6);
+        edge.z += 0.9;
+        const end = edge.clone().addScaledVector(tangent, 0.35 + t * 0.65).addScaledVector(across, 0.12);
+        beam('plasma-cloud-curl-groove', edge.toArray(), end.toArray(), cloudGroove, 0.035);
       }
+      // The cloud edges curl inward in the source. These connected finer
+      // strands preserve that motion instead of another ring of round puffs.
+      for (const offset of [-1, 1]) curvedTube('plasma-curled-cloud-fibril', rim, t => {
+        const angle = 1.5 + offset * 0.45 + t * Math.PI * 3.8;
+        const radius = 2 + t * 9.5;
+        return [Math.cos(angle) * radius, 14.5 + Math.sin(angle) * radius * 0.65, -35.2 + offset * 0.4];
+      }, t => [0.07 + t * 0.12, 0.08 + t * 0.09], 100);
+      add('plasma-bright-vortex-core', crown, materials.light, [0.8, 14.1, -32.6], [0.65, 0.5, 0.35]);
       for (const side of [-1, 1]) {
-        boulder(side * 17, -15, 3, materials.ground);
-        const points = [[side * 8, 17, -32], [side * 13, 14, -29], [side * 12, 11, -26], [side * 17, 7, -24], [side * 16, 1, -23]];
+        const points = [[side * 1.4, 14.4, -32.4], [side * 5, 16.8, -31.6], [side * 8, 12.8, -30.8], [side * 13, 8, -28], [side * 12.5, 3, -25]];
         for (let i = 1; i < points.length; i += 1) beam('plasma-cyan-forked-lightning', points[i - 1], points[i], materials.light, 0.07);
-        beam('plasma-lightning-side-fork', points[2], [side * 19, 12, -26], materials.light, 0.045);
+        beam('plasma-lightning-side-fork', points[2], [side * 12, 15.5, -30], materials.light, 0.045);
+        beam('plasma-lightning-side-fork', [side * 12, 15.5, -30], [side * 17, 14.8, -29], materials.light, 0.03);
       }
+      for (let i = 0; i < 5; i += 1) boulder(16 + i * 2.5, -24 + i * 2, 0.8 + i * 0.1, materials.ground);
+      add('plasma-low-sloping-rock-shelf', box, materials.ground, [18, 0.2, -4], [10, 0.5, 25], [0, 0, 0.09]);
       break;
     }
     case 'rising-sky-currents': {
@@ -712,36 +843,57 @@ export function createFieldEnvironmentGeometry(THREE, environment = {}) {
       break;
     }
     case 'molten-erupting-volcano': {
-      add('molten-wide-black-volcano', cone, materials.stone, [0, 5.5, -34], [10, 11, 10]);
-      add('molten-summit-crater', basinRim, materials.lava, [0, 10.5, -34], [1.2, 1.2, 1.2], [Math.PI / 2, 0, 0]);
+      const basalt = material('#372721', { vertexColors: true });
+      const terrainVertex = (t, angle) => {
+        const folds = 1 + 0.075 * Math.sin(angle * 5 + 0.4) + 0.045 * Math.sin(angle * 9 - t * 1.7);
+        const radius = (1.5 + 9.3 * Math.pow(t, 1.12)) * folds;
+        return [Math.sin(angle) * radius + 0.55 * (1 - t),
+          10.6 * (1 - Math.pow(t, 0.85)) + (1 - t) * (0.32 * Math.sin(angle * 5) + 0.18 * Math.cos(angle * 9)),
+          -34 + Math.cos(angle) * radius * 0.82];
+      };
+      const surface = radialSurface('molten-wide-black-volcano', basalt, terrainVertex, 64, 24,
+        (t, angle) => {
+          const value = 0.45 + 0.22 * Math.sin(angle * 9 + t * 1.7) + 0.07 * Math.sin(t * 37);
+          return [value, value * 0.83, value * 0.72];
+        });
+      radialSurface('molten-summit-crater', materials.stone, (t, angle) => {
+        const rim = terrainVertex(0, angle);
+        return [0.55 + (rim[0] - 0.55) * (1 - t * 0.5), rim[1] - t * 1.35,
+          -34 + (rim[2] + 34) * (1 - t * 0.5)];
+      }, 64, 3);
+      add('molten-incandescent-crater-pool', cylinder, materials.lava, [0.55, 9.4, -34], [0.82, 0.08, 0.64]);
       const eruption = material('#ffeb38', { emissive: '#ffaf05', emissiveIntensity: 1.4 });
-      // The cone is octagonal: points between vertices meet a planar face,
-      // whose base radius is smaller than the circumradius. Account for that
-      // face and lift each tube by its full radius plus an outward clearance.
-      const faceSpan = Math.PI * 2 / cone.parameters.radialSegments;
-      const apothem = 10 * Math.cos(faceSpan / 2);
-      const faceSlope = apothem / 11;
-      const surfacePoint = (radialDistance, angle, tubeRadius) => {
-        const phase = ((angle % faceSpan) + faceSpan) % faceSpan;
-        const baseRadius = apothem / Math.cos(phase - faceSpan / 2);
-        const surfaceY = 11 * (1 - radialDistance / baseRadius);
-        const clearanceY = (tubeRadius + 0.08) * Math.hypot(1, faceSlope) / faceSlope;
-        return [Math.cos(angle) * radialDistance, surfaceY + clearanceY, -34 + Math.sin(angle) * radialDistance];
+      const surfacePoint = (t, angle, radius) => {
+        const { point, normal } = surface(t, angle);
+        // Vertical lift accounts for the real triangle's inclination and
+        // leaves clearance between samples as each stream winds across folds.
+        point.y += (radius + 0.19) / Math.max(0.18, normal.y);
+        return point.toArray();
       };
       for (let i = 0; i < 8; i += 1) {
         const angle = i * Math.PI / 4;
-        const x = Math.cos(angle);
-        const z = Math.sin(angle);
-        beam('molten-branching-lava-stream', surfacePoint(1.2, angle, 0.22), surfacePoint(9.4, angle, 0.22), materials.lava, 0.22);
+        const radius = 0.18 + (i % 3) * 0.055;
+        const routeAngle = t => angle + 0.085 * Math.sin(t * 7 + i * 0.4) + 0.045 * Math.sin(t * 14 + i);
+        const points = Array.from({ length: 13 }, (_, j) => {
+          const t = 0.025 + j / 12 * 0.91;
+          return surfacePoint(t, routeAngle(t), radius);
+        });
+        for (let j = 1; j < points.length; j += 1) {
+          beam('molten-branching-lava-stream', points[j - 1], points[j], materials.lava, radius);
+          if (i % 3 === 0 && j < 6) beam('molten-yellow-flow-core',
+            points[j - 1].map((v, axis) => axis === 1 ? v + 0.11 : v),
+            points[j].map((v, axis) => axis === 1 ? v + 0.11 : v), eruption, 0.07);
+        }
         const turn = i % 2 ? -1 : 1;
-        const junction = surfacePoint(4.2, angle, 0.22);
-        const bend = surfacePoint(6.1, angle + turn * 0.15, 0.1);
-        const toe = surfacePoint(8.8, angle + turn * 0.29, 0.1);
-        // Each branch remains within one face, so its two segments follow
-        // that actual plane and stay visible all the way to the lower flank.
-        beam('molten-lava-side-branch', junction, bend, materials.lava, 0.1);
-        beam('molten-lava-side-branch', bend, toe, materials.lava, 0.1);
-        add('molten-yellow-eruption-jet', cone, eruption, [x * 0.5, 13 + i % 3, -34 + z * 0.5], [0.3, 5 + i % 3, 0.3], [0, 0, x * 0.12]);
+        const branchStartT = 0.025 + 4 / 12 * 0.91;
+        const branchPoints = [points[4], ...Array.from({ length: 6 }, (_, j) => {
+          const t = branchStartT + (j + 1) / 6 * (0.91 - branchStartT);
+          const branchAngle = routeAngle(branchStartT) + turn * (t - branchStartT) * 0.8 + 0.035 * Math.sin(j * 1.8);
+          return surfacePoint(t, branchAngle, 0.095);
+        })];
+        for (let j = 1; j < branchPoints.length; j += 1) beam('molten-lava-side-branch', branchPoints[j - 1], branchPoints[j], materials.lava, 0.095);
+        const x = Math.sin(angle), z = Math.cos(angle);
+        add('molten-yellow-eruption-jet', cone, eruption, [0.55 + x * 0.6, 13 + i % 3, -34 + z * 0.5], [0.24, 4 + i % 3, 0.24], [0, 0, x * 0.2]);
         add('molten-airborne-ejected-rock', rock, materials.stone, [x * 7, 14 + i % 4, -34 + z * 5], [0.45, 0.65, 0.45], [i * 0.3, i, 0]);
       }
       for (const side of [-1, 1]) boulder(side * 15, -15, 2.6, materials.stone);
@@ -792,12 +944,36 @@ export function createFieldEnvironmentGeometry(THREE, environment = {}) {
       break;
     }
     case 'mountain-twin-ridges': {
-      add('mountain-tall-right-peak', cone, materials.stone, [12, 8.5, -33], [8, 17, 8], [0, 0.25, 0]);
-      add('mountain-lower-left-ridge', cone, materials.stone, [-13, 4.5, -29], [9, 9, 7], [0, -0.25, 0]);
+      const granite = material('#8a8078', { vertexColors: true, roughness: 0.97 });
+      const crevice = material('#473b38');
+      for (const [name, x, z, height, width, depth, lean] of [
+        ['mountain-tall-right-peak', 12, -33, 17, 10, 7.8, 2.4],
+        ['mountain-lower-left-ridge', -13, -29, 9, 11, 7, -1.8]
+      ]) {
+        const surface = radialSurface(name, granite, (t, angle) => {
+          const fold = 1 + 0.11 * Math.sin(angle * 7 + 0.7) + 0.04 * Math.cos(angle * 13 - t * 2.4);
+          const r = t * fold;
+          const rise = Math.pow(1 - t, 1.06) * (1 + 0.17 * Math.sin(angle * 3 + 0.9) * t);
+          return [x + Math.sin(angle) * width * r + lean * (1 - t) ** 2,
+            height * rise + height * 0.055 * Math.sin(angle * 7 + t * 2.4) * t * (1 - t),
+            z + Math.cos(angle) * depth * r + (1 - t) ** 2 * 0.8];
+        }, 64, 22, (t, angle) => {
+          const shade = 0.66 + 0.17 * Math.sin(angle * 7 + t * 2.4) + 0.07 * Math.sin(t * 29 + angle);
+          return [shade, shade * (0.91 + t * 0.1), shade * (0.86 + t * 0.2)];
+        });
+        for (let groove = 0; groove < 8; groove += 1) {
+          const angle = -1.3 + groove * 2.6 / 7;
+          const points = Array.from({ length: 7 }, (_, j) => {
+            const { point, normal } = surface(0.12 + j * 0.13, angle + Math.sin(j * 0.7 + groove) * 0.055);
+            return point.addScaledVector(normal, 0.055).toArray();
+          });
+          for (let j = 1; j < points.length; j += 1) beam('mountain-jagged-slope-striation', points[j - 1], points[j], crevice, 0.035 + groove % 3 * 0.01);
+        }
+      }
       for (const side of [-1, 1]) {
-        for (let i = 0; i < 4; i += 1) boulder(side * (15 + i * 3), -24 + i * 5, 1.8 + i * 0.2, materials.stone);
         cloudBank('mountain-blue-valley-mist', side * 17, 1.2, -21, 6);
       }
+      cloudBank('mountain-distant-mist-saddle', 0, 2, -34, 8);
       break;
     }
     case 'sogen-grass-terraces': {
@@ -883,9 +1059,32 @@ export function createFieldEnvironmentGeometry(THREE, environment = {}) {
           add('labrynth-pointed-blue-roof', cone, materials.leaves, [x, 9.5 + i * 2, z], [1.8, 3, 1.8]);
           add('labrynth-turret-blue-trim', basinRim, materials.leaves, [x, 6.7 + i * 2, z], [1.4, 1.4, 1.4], [Math.PI / 2, 0, 0]);
         }
-        beam('labrynth-elevated-palace-ramp', [side * 17, 0.4, -21], [side * 5, 5, -32], materials.paper, 0.4);
+        const path = t => {
+          const angle = -0.3 + t * Math.PI * 1.25;
+          const radius = 11.5 - t * 6.5;
+          return [side * (6 + Math.cos(angle) * radius), 0.6 + t * 6.1, -32 + Math.sin(angle) * radius * 0.8];
+        };
+        curvedDeck('labrynth-curved-elevated-palace-ramp', materials.paper, path, 2.1, 0.24);
+        for (const edge of [-1, 1]) {
+          let previous;
+          for (let i = 0; i <= 16; i += 1) {
+            const t = i / 16;
+            const point = new THREE.Vector3(...path(t));
+            const tangent = new THREE.Vector3(...path(Math.min(1, t + 0.0001)))
+              .sub(new THREE.Vector3(...path(Math.max(0, t - 0.0001))));
+            const across = new THREE.Vector3(-tangent.z, 0, tangent.x).normalize();
+            point.addScaledVector(across, edge * 0.99);
+            block('labrynth-curved-ramp-baluster', materials.paper, point.x, point.y + 0.4, point.z, 0.08, 0.8, 0.08);
+            point.y += 0.8;
+            if (previous) beam('labrynth-curved-ramp-guardrail', previous, point.toArray(), materials.paper, 0.065);
+            previous = point.toArray();
+          }
+        }
       }
       add('labrynth-central-blue-spire', cone, materials.leaves, [0, 13.5, -32], [1.7, 7, 1.7]);
+      const pink = material('#dd9aeb', { emissive: '#ce7fdd', emissiveIntensity: 0.45 });
+      const glyph = [[0, 18.5, -34], [-3, 21, -34], [-2, 23, -34], [0, 21.8, -34], [2, 23, -34], [3, 21, -34], [0, 18.5, -34]];
+      for (let i = 1; i < glyph.length; i += 1) beam('labrynth-pink-crown-glyph', glyph[i - 1], glyph[i], pink, 0.08);
       break;
     }
     case 'jurassic-caldera-grove': {
@@ -949,24 +1148,133 @@ export function createFieldEnvironmentGeometry(THREE, environment = {}) {
       break;
     }
     case 'sky-sanctuary': {
+      const cliff = material('#706569');
+      add('sky-sanctuary-floating-rock-island', rock, cliff, [0, 0.7, -32], [11, 3.8, 9]);
+      for (const side of [-1, 1]) add('sky-sanctuary-hanging-rock-tooth', cone, cliff,
+        [side * 5, -3.5, -33], [2.6, 6, 2.7], [Math.PI, 0, side * 0.12]);
+      block('sky-sanctuary-ruined-front-foundation', materials.stone, 0, 1.6, -28.5, 12, 2.4, 4);
+      columns(0, -27.3, 6, 4.6, materials.paper, 2.7);
+      const pediment = geometry('sky-sanctuary-triangular-pediment', () => new THREE.ConeGeometry(1, 1, 4));
+      add('sky-sanctuary-front-triangular-pediment', pediment, materials.paper,
+        [0, 9, -27.3], [6.5, 2.4, 0.6], [0, Math.PI / 4, 0]);
+      add('sky-sanctuary-pediment-circular-relief', basinRim, materials.stone,
+        [0, 9.3, -26.65], [0.5, 0.5, 0.5]);
+      for (let step = 0; step < 12; step += 1) block('sky-sanctuary-floating-stair', materials.paper,
+        0, 0.15 + step * 0.25, -20.3 - step * 0.52, 3.6, 0.24, 0.62);
+      block('sky-sanctuary-worn-stair-landing', materials.stone, 0, 0.1, -20.2, 6, 0.25, 1.5);
+      add('sky-sanctuary-circular-side-terrace', cylinder, materials.stone, [7.5, 3.4, -31], [4.3, 0.4, 4.3]);
+      add('sky-sanctuary-circular-terrace-rail', basinRim, materials.paper, [7.5, 4.4, -31], [4.1, 4.1, 4.1], [Math.PI / 2, 0, 0]);
+      add('sky-sanctuary-orb-monument-column', cylinder, materials.stone, [0, 11, -35], [0.45, 6, 0.45]);
+      for (const side of [-1, 1]) beam('sky-sanctuary-orb-monument-fork',
+        [side * 0.3, 13.2, -35], [side * 1.5, 14.4, -35], materials.paper, 0.18);
+      add('sky-sanctuary-orb-monument', crown, materials.light, [0, 14.6, -35], [0.65, 0.65, 0.65]);
       for (const side of [-1, 1]) {
-        for (let step = 0; step < 9; step += 1) block('sky-sanctuary-floating-stair', materials.paper,
-          side * 18, 6.5 + step * 0.42, -26 + step * 0.6, 2.1, 0.23, 0.75);
-        beam('sky-sanctuary-airborne-bridge', [side * 6, 2.8, -30], [side * 18, 7, -26], materials.paper, 0.3);
-        add('sky-sanctuary-radiant-arch', basinRim, materials.gold, [side * 8, 8, -33], [2.5, 4, 1]);
+        for (let i = 0; i < 3; i += 1) add('sky-sanctuary-broken-back-column', cylinder, materials.stone,
+          [side * (3 + i * 2.2), 8.4 + i % 2 * 0.7, -34], [0.2, 2.3 + i % 2 * 1.4, 0.2]);
+        for (let i = 0; i < 3; i += 1) add('sky-sanctuary-island-evergreen', cone, materials.leaves,
+          [side * (8 + i * 0.7), 3 + i * 0.3, -29 - i * 1.2], [0.65, 2.2, 0.65]);
+        cloudBank('sky-sanctuary-island-cloud-sea', side * 18, 0.2, -23, 8);
       }
       break;
     }
     case 'reed-basin': {
-      for (const side of [-1, 1]) {
-        basin(side * 18, -16, 2.8, 0.13, materials.ground);
-        for (let i = 0; i < 6; i += 1) {
-          const x = side * (14.5 + i * 0.55);
-          const z = -18 + i * 3.6;
-          add('wetlands-floating-lily-pad', cylinder, materials.leaves, [x, -0.06, z], [0.65, 0.03, 0.65]);
-          add('wetlands-cattail-stem', cylinder, materials.leaves, [side * 13, 1.1, z], [0.035, 2.2, 0.035]);
-          add('wetlands-cattail-seedhead', cylinder, materials.wood, [side * 13, 2.25, z], [0.12, 0.5, 0.12]);
+      const freshGrass = material('#4aaf26');
+      const darkGrass = material('#155d2c');
+      const rain = material('#b2d0d5', { transparent: true, opacity: 0.42, depthWrite: false });
+      const blade = geometry('wetlands-bent-grass-blade', () => new THREE.BoxGeometry(1, 1, 1, 1, 6, 1));
+      for (let i = 0; i < blade.attributes.position.count; i += 1) {
+        const t = blade.attributes.position.getY(i) + 0.5;
+        blade.attributes.position.setXYZ(i,
+          blade.attributes.position.getX(i) * (0.23 * (1 - t) + 0.01) + 0.38 * t * t,
+          t, blade.attributes.position.getZ(i) * 0.02);
+      }
+      blade.computeVertexNormals();
+      // Five disconnected bent leaves share one clump buffer. Hundreds of
+      // blades remain six terrain draws rather than one draw per blade.
+      const clump = geometry('wetlands-five-blade-grass-clump', () => {
+        const shape = blade.clone();
+        for (const [name, template] of Object.entries(blade.attributes)) {
+          const attribute = template.clone();
+          attribute.array = new template.array.constructor(template.array.length * 5);
+          attribute.count = template.count * 5;
+          for (let copy = 0; copy < 5; copy += 1) attribute.array.set(template.array, copy * template.array.length);
+          shape.setAttribute(name, attribute);
         }
+        for (let copy = 0; copy < 5; copy += 1) for (let vertex = 0; vertex < blade.attributes.position.count; vertex += 1) {
+          const point = new THREE.Vector3().fromBufferAttribute(blade.attributes.position, vertex);
+          point.y *= 1 - copy * 0.075;
+          point.x *= 1.15;
+          point.applyAxisAngle(new THREE.Vector3(0, 1, 0), copy * Math.PI * 2 / 5);
+          shape.attributes.position.setXYZ(copy * blade.attributes.position.count + vertex, point.x, point.y, point.z);
+        }
+        const indices = blade.index.clone();
+        indices.array = new Uint16Array(blade.index.array.length * 5);
+        indices.count = blade.index.count * 5;
+        for (let copy = 0; copy < 5; copy += 1) for (let i = 0; i < blade.index.count; i += 1) {
+          indices.array[copy * blade.index.count + i] = blade.index.array[i] + copy * blade.attributes.position.count;
+        }
+        shape.setIndex(indices);
+        shape.clearGroups();
+        shape.computeVertexNormals();
+        shape.userData.bladeCount = 5;
+        return shape;
+      });
+      block('wetlands-horizontal-dark-water', materials.water, 0, -0.08, -28, 38, 0.05, 5);
+      for (let i = 0; i < 9; i += 1) add('wetlands-low-misty-mountain-horizon', cone, materials.stone,
+        [(i - 4) * 4.8, 1 + i % 3 * 0.35, -36], [3.7, 2 + i % 3 * 0.7, 3]);
+      for (const side of [-1, 1]) {
+        block('wetlands-shallow-peripheral-water', materials.water, side * 18, -0.12, -5, 11, 0.06, 38);
+        for (let i = 0; i < 60; i += 1) {
+          const x = side * (12.5 + random() * 8);
+          const z = -23 + random() * 36;
+          add('wetlands-rain-soaked-grass', clump, [materials.leaves, freshGrass, darkGrass][i % 3],
+            [x, 0, z], [0.9 + random() * 0.5, 1.4 + random() * 2, 1], [0, random() * Math.PI * 2, (random() - 0.5) * 0.18]);
+        }
+        for (let i = 0; i < 20; i += 1) {
+          const x = side * (12.8 + random() * 9);
+          const z = -22 + random() * 34;
+          beam('wetlands-diagonal-rain-streak', [x + 1.1, 9, z], [x, 0.5, z], rain, 0.016);
+        }
+      }
+      break;
+    }
+    case 'skyscrapers': {
+      const facade = material('#293541');
+      const window = material('#e2e8a0', { emissive: '#c9d87c', emissiveIntensity: 0.55 });
+      for (const side of [-1, 1]) for (let i = 0; i < 3; i += 1) {
+        const x = side * (16.5 + i * 0.5), z = -20 + i * 13;
+        const height = 16 + i * 4.5;
+        block('skyscraper-enclosing-street-facade', facade, x, height * 0.5, z, 5, height, 7);
+        block('skyscraper-projecting-roof-cornice', materials.metal, x, height, z, 5.4, 0.5, 7.3);
+        for (let strip = 0; strip < 3; strip += 1) block('skyscraper-yellow-window-strip', window,
+          x - side * 2.52, height * 0.5, z + (strip - 1) * 2, 0.035, height * 0.88, 0.65);
+        for (let floor = 2; floor < height; floor += 2.5) block('skyscraper-dark-window-spandrel', facade,
+          x - side * 2.56, floor, z, 0.06, 0.32, 6.2);
+        for (let strip = 0; strip < 2; strip += 1) block('skyscraper-front-yellow-window-strip', window,
+          x + (strip - 0.5) * 2.1, height * 0.5, z + 3.53, 0.7, height * 0.84, 0.03);
+      }
+      for (let tier = 0; tier < 4; tier += 1) {
+        const width = 5.2 - tier * 0.95;
+        const height = 5.2 - tier * 0.55;
+        block('skyscraper-stepped-central-art-deco-spire', facade, 0, 2.6 + tier * 4.3, -35, width, height, width);
+        for (let strip = 0; strip < 3; strip += 1) block('skyscraper-spire-window-grid', window,
+          (strip - 1) * width * 0.24, 2.6 + tier * 4.3, -35 + width * 0.505, 0.2, height * 0.8, 0.025);
+      }
+      add('skyscraper-central-pointed-spire', cone, facade, [0, 20.1, -35], [1.15, 5, 1.15]);
+      const moon = material('#c2d2cf', { emissive: '#899eac', emissiveIntensity: 0.45 });
+      add('skyscraper-high-full-moon', crown, moon, [8, 25.5, -40], [5.5, 5.5, 0.75]);
+      for (let i = 0; i < 6; i += 1) add('skyscraper-moon-crater', crown, materials.stone,
+        [7 + Math.sin(i * 2.5) * 3, 25.5 + Math.cos(i * 2.5) * 3.5, -39.15], [0.5 + i % 2 * 0.25, 0.45, 0.07]);
+      const searchlight = material('#dae6eb', { emissive: '#c4d5e1', emissiveIntensity: 0.2,
+        transparent: true, opacity: 0.3, depthWrite: false, side: THREE.DoubleSide, forceSinglePass: true });
+      const searchlightShape = geometry('skyscraper-tapered-searchlight', () => new THREE.CylinderGeometry(1, 0.015, 1, 12, 1, true));
+      for (const side of [-1, 1]) for (let i = 0; i < 2; i += 1) {
+        const from = new THREE.Vector3(side * (7 + i * 5), 3 + i * 4, -33 + i);
+        const to = new THREE.Vector3(-side * (16 + i * 2), 28, -38);
+        const direction = to.clone().sub(from);
+        const mesh = add('skyscraper-crossed-searchlight', searchlightShape, searchlight,
+          from.clone().add(to).multiplyScalar(0.5).toArray(), [2.4, direction.length(), 2.4]);
+        mesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), direction.normalize());
       }
       break;
     }

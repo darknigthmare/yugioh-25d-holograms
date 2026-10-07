@@ -1,4 +1,6 @@
-import { ADDITIONAL_FIELD_SPELLS, CLASSIC_FIELD_SPELLS } from './core/ClassicFieldSpellEffects.js';
+import {
+  ADDITIONAL_FIELD_SPELLS, CLASSIC_FIELD_SPELLS, SCRIPTED_FIELD_SPELLS, WETLANDS_FIELD_SPELL
+} from './core/ClassicFieldSpellEffects.js';
 
 export const STARTER_CARDS = [
   {
@@ -558,6 +560,32 @@ export const STARTER_CARDS = [
   }
 ];
 
+// Normal Monsters provide canonical playable partners for the implemented
+// Elemental HERO, Aqua/WATER and Fairy Field Spell interactions.
+STARTER_CARDS.push(
+  {
+    id: '20721928', name: 'Sparkman, HÉROS Élémentaire', name_en: 'Elemental HERO Sparkman',
+    type: 'Normal Monster', card_type: 'monster', archetype: 'Elemental HERO',
+    race: 'Warrior', attribute: 'LIGHT', level: 4, atk: 1600, def: 1400,
+    desc: "Un HÉROS Élémentaire et un guerrier de lumière capable de manier parfaitement toute une panoplie d'armes. Son Éclair de Haute Luminescence barre la route à l'infamie.",
+    rulesSourceUrl: 'https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid=6313&request_locale=fr'
+  },
+  {
+    id: '68638985', name: 'Crapaud Slime', name_en: 'Slime Toad',
+    type: 'Normal Monster', card_type: 'monster', race: 'Aqua', attribute: 'WATER',
+    level: 2, atk: 700, def: 500,
+    desc: 'Dépôt visqueux à tête de grenouille, cette créature attaque dans un horrible croassement.',
+    rulesSourceUrl: 'https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid=4555&request_locale=fr'
+  },
+  {
+    id: '39552864', name: 'Sphère Mystique Lumineuse', name_en: 'Mystical Shine Ball',
+    type: 'Normal Monster', card_type: 'monster', race: 'Fairy', attribute: 'LIGHT',
+    level: 2, atk: 500, def: 500,
+    desc: "Une âme de lumière recouverte d'une aura mystique. Si vous apercevez sa forme magnifique, votre souhait sera exaucé.",
+    rulesSourceUrl: 'https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid=5949&request_locale=fr'
+  }
+);
+
 const CLASSIC_RACE_LABELS = {
   Fiend: 'Démon', Spellcaster: 'Magicien', Fairy: 'Elfe', Fish: 'Poisson',
   'Sea Serpent': 'Serpent de Mer', Thunder: 'Tonnerre', Aqua: 'Aqua',
@@ -579,12 +607,12 @@ for (const terrain of CLASSIC_FIELD_SPELLS) {
   });
 }
 
-for (const terrain of ADDITIONAL_FIELD_SPELLS) {
+for (const terrain of [...ADDITIONAL_FIELD_SPELLS, WETLANDS_FIELD_SPELL, ...SCRIPTED_FIELD_SPELLS]) {
   STARTER_CARDS.push({
     id: terrain.id, name: terrain.name, name_en: terrain.name_en,
     type: 'Spell Card', card_type: 'spell', race: 'Field', attribute: 'SPELL',
     atk: 0, def: 0, level: 0, rulesText: terrain.rulesText, desc: terrain.rulesText,
-    rulesSourceUrl: terrain.rulesSourceUrl, effectCode: 'CLASSIC_FIELD_STATS'
+    rulesSourceUrl: terrain.rulesSourceUrl, effectCode: terrain.effectCode || 'CLASSIC_FIELD_STATS'
   });
 }
 

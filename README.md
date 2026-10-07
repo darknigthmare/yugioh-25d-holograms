@@ -4,7 +4,7 @@ Simulateur de duel solo dans le navigateur, inspiré des arènes holographiques 
 
 ## Fonctionnalités vérifiées
 
-- mode **TCG Advanced strict** par défaut : decks de 40 cartes validés, limite de trois copies et liste de cartes limitée/interdite du 21 septembre 2026 pour le sous-ensemble local ; les Matchs sauvegardés avec la liste de mai restent compatibles ;
+- mode **TCG Advanced strict** par défaut : Main Deck de 40 à 60 cartes, Extra et Side de 0 à 15, limites de copies cumulées entre les trois sections et liste limitée/interdite du 21 septembre 2026 pour le sous-ensemble local ; les Matchs sauvegardés avec la liste de mai restent compatibles ;
 - mode **Anime Sandbox** séparé pour la recherche de métadonnées YGOPRODeck et l’expérimentation ;
 - duel unique ou **Match au premier à deux victoires**, avec score, Side Deck et choix réglementaire du premier joueur ; les Duels nuls peuvent prolonger le Match au-delà de trois Duels ;
 - **parcours solo de 12 défis** en trois chapitres, avec 24 constructions de Deck dédiées, objectifs issus des événements réels, 36 médailles et progression exportable/importable ;
@@ -16,7 +16,8 @@ Simulateur de duel solo dans le navigateur, inspiré des arènes holographiques 
 - flèches Lien dans les huit directions, depuis les Zones Main et Extra des deux camps, partagées par les procédures Lien et Pendule ;
 - effets scriptés pour Raigeki, Monster Reborn, Polymérisation, Force de Miroir, Trappe, Magicienne des Ténèbres, Magicien du Temps, Kuriboh, Robot Synchronique, Magicien des Arcanes, Dragon Poussière d’Étoile et Numéro 39 : Utopie ;
 - Typhon d’Espace Mystique et Livre de la Lune : choix de cible, réponses depuis la Main pendant son tour ou depuis une carte Posée un tour précédent, revalidation de la cible et restrictions du Damage Step ;
-- effets continus de **13 Magies de Terrain** : les six classiques, Puissance de Gaïa, Umiiruka, Éclat Lumineux, Zone de Plasma Mystique, Courant d’Air Ascendant, Destruction de Lave et Chœur du Sanctuaire ; bonus/malus des deux camps après résolution, Attribut actuel et positions de combat respectés ;
+- **17 Magies de Terrain scriptées** : 14 modifient les statistiques, dont Plaines Marécageuses (+1200 ATK aux monstres Aqua/Eau de Niveau 1 ou 2) ; Le Sanctuaire Céleste prévient les dégâts de combat du contrôleur d’un Elfe, Gratte-Ciel augmente l’ATK au calcul des dommages et Forêt Ancienne change les positions sans effets Flip puis détruit les attaquants à la fin de la Battle Phase ;
+- constructeur de Deck disponible en strict et en Match : bibliothèque locale, copie des presets, Main/Extra/Side persistés et validation avant le lancement ;
 - IA normale/difficile capable de répondre avec Livre de la Lune, Typhon et Stardust, sans lire les cartes adverses cachées ;
 - cartes adverses cachées anonymisées dans le DOM et snapshots réseau expurgés des informations privées ;
 - interface desktop/mobile, glisser-déposer, sélection carte → zone, plateau mobile panoramique, parcours clavier, zones publiques inspectables, modales accessibles et réduction des animations ;
@@ -27,7 +28,7 @@ Simulateur de duel solo dans le navigateur, inspiré des arènes holographiques 
 
 Le mode strict applique les règles officielles au **sous-ensemble local explicitement pris en charge**. Le moteur refuse une procédure absente au lieu d’inventer une résolution. Il ne constitue pas un arbitre universel : les milliers de cartes et interactions du TCG complet ne sont pas toutes scriptées.
 
-Le pool local comporte désormais **57 cartes distinctes** (52 Main Deck, 5 Extra Deck), indépendamment du nombre de copies dans un deck de duel. Insecte Mangeur d’Hommes, Magicien de la Foi et Sangan complètent les interactions rapides avec des effets Flip et déclenchés : ciblage à l’activation, collecte des événements et ordre SEGOC, déclencheurs différés après la chaîne et pendant le Damage Step. Arcanite place ses compteurs par un effet obligatoire en Chaîne ; Robot Synchronique respecte le timing de son effet optionnel « lorsque ». Voir [la couverture détaillée des règles et ses limites](RULES_COVERAGE.md) pour distinguer les comportements testés du travail restant.
+Le pool local comporte désormais **64 cartes distinctes** (59 Main Deck, 5 Extra Deck), indépendamment du nombre de copies dans un deck de duel. Les quatre nouveaux Terrains sont accompagnés de Sparkman, HÉROS Élémentaire, Crapaud Slime et Sphère Mystique Lumineuse. Insecte Mangeur d’Hommes, Magicien de la Foi et Sangan possèdent des effets Flip et déclenchés : ciblage à l’activation, collecte des événements et ordre SEGOC, déclencheurs différés après la chaîne et pendant le Damage Step. Arcanite place ses compteurs par un effet obligatoire en Chaîne ; ses coûts et cibles sont revérifiés après chaque choix. Un effet annulé de Magicien du Temps reste activable, mais sa résolution est annulée. Voir [la couverture détaillée des règles et ses limites](RULES_COVERAGE.md).
 
 Les trois decks intégrés sont des presets légaux **inspirés** de Kaiba, Yugi et Joey ; ils ne reproduisent pas au détail près une liste historique de l’anime. En Sandbox, une carte issue de l’API peut être inspectée ou ajoutée pendant la Main Phase, mais seuls les effets explicitement pris en charge par le moteur possèdent une résolution dédiée. Une carte distante non intégrée affiche un visuel local neutre afin de ne pas hotlinker le CDN du fournisseur.
 
@@ -45,9 +46,9 @@ La Vue Réelle possède deux décors de base sélectionnables dans les paramètr
 
 Le catalogue `src/ui/FieldSpellEnvironmentCatalog.js` couvre **336 Magies de Terrain TCG/OCG**, issues du snapshot du 29 juillet 2026 et avec l’identité publiée de Pere-Zenet Em Heru corrigée le 1er octobre. Chaque carte sélectionne maintenant son illustration principale exacte, téléchargée depuis YGOPRODeck et réhébergée dans `public/environments/field-art/`. Les octets JPEG, dimensions, URL source et empreintes SHA-256 sont conservés dans un snapshot d’audit. L’image est affichée entière, avec ses proportions conservées, sans filtre de couleur ni surimpression atmosphérique. Les lumières et matériaux 3D utilisent une palette analysée dans cette source. Une carte absente du catalogue reçoit le décor générique.
 
-La Vue Réelle ajoute des modèles procéduraux pour 17 cartes emblématiques et 16 familles de repli, avec attaques de dragon, magie, foudre, lames, protections, invocations, Typhon et Livre de la Lune. Les ailes, bâtons, épées et pinces s’animent sur GPU lors des actions ; apparition et recul restent synchronisés aux événements du duel. Les poses conservent les ancrages des zones, s’arrêtent avec les effets et respectent le mouvement réduit. Chaque modèle utilise au plus cinq appels de rendu. Les monstres face verso ne produisent aucun modèle identifiable.
+La Vue Réelle ajoute des modèles procéduraux pour **20 cartes emblématiques et 17 familles de repli**, avec attaques de dragon, magie, foudre, lames, protections, invocations, Typhon et Livre de la Lune. Sept modèles sont construits ou affinés à partir de leurs illustrations, avec anatomie et couleurs par sommet ; [les captures et mesures](docs/audits/monster-fidelity-2026-10-07.md) documentent leurs limites. Les ailes, bâtons, épées et pinces s’animent sur GPU lors des actions. Les trois nouveaux effets de Terrain ciblent le monstre concerné : halo protecteur, chevrons ascendants et racines. Les poses conservent les ancrages des zones, s’arrêtent avec les effets et respectent le mouvement réduit. Chaque modèle utilise au plus cinq appels couleur, hors ombres. Les monstres face verso ne produisent aucun modèle identifiable.
 
-Les scènes utilisent 25 familles de géométrie et des repères propres à **66 cartes de Terrain**. Ce lot corrige ou ajoute 21 profils après inspection des illustrations sources : chêne de Puissance de Gaïa, vagues d’Umiiruka, vortex de Plasma, éruption de lave, roses et notes du Chœur, six terrains classiques et huit autres cartes. Les accessoires statiques sont regroupés par géométrie et matériau. La texture source est exacte ; les volumes et leur placement restent adaptés à la lisibilité du duel. Les personnages et créatures de certaines illustrations ne possèdent pas tous un modèle de Terrain 3D. Voir [l’audit des références et les détails encore manquants](TERRAIN_REFERENCE_AUDIT.md).
+Les scènes utilisent 25 familles de géométrie et des repères propres à **66 cartes de Terrain**, dont **24 références inspectées**. Le lot du 7 octobre affine Plasma, Montagne, Labrynth, Destruction de Lave, Plaines Marécageuses, Sanctuaire Céleste et Gratte-Ciel. Les accessoires statiques sont regroupés par géométrie et matériau. La texture source est exacte ; les volumes et leur placement restent adaptés à la lisibilité du duel. Les personnages et créatures de certaines illustrations ne possèdent pas tous un modèle de Terrain 3D. Voir [les comparaisons avant/après du 7 octobre](docs/audits/terrain-fidelity-2026-10-07.md) et [l’audit des détails encore manquants](TERRAIN_REFERENCE_AUDIT.md).
 
 Pour ajouter un environnement :
 
@@ -57,7 +58,7 @@ Pour ajouter un environnement :
 4. créer une famille immuable dans `FieldEnvironmentRegistry.js` uniquement si aucun profil matériel existant ne convient ;
 5. compléter les tests du catalogue, du manifeste et du résolveur, puis vérifier les états face verso, en chaîne, résolu, négation, retrait et remplacement.
 
-Les anciens 336 WebP et les décors de base sont des compositions originales générées pour le projet. Le WebP reste visible pendant le décodage d’une illustration source ou si son chargement échoue. Les captures de l’anime ne sont pas utilisées comme textures. Le catalogue est visuel : seuls les 13 Terrains explicitement enregistrés possèdent leurs effets continus dans le mode strict.
+Les anciens 336 WebP et les décors de base sont des compositions originales générées pour le projet. Le WebP reste visible pendant le décodage d’une illustration source ou si son chargement échoue. Les captures de l’anime ne sont pas utilisées comme textures. Le catalogue est visuel : seuls les **17 Terrains explicitement enregistrés** possèdent leurs effets de carte dans le mode strict.
 
 ## Développement
 
@@ -71,10 +72,11 @@ npm run dev
 Contrôle complet :
 
 ```bash
+npm run audit:security
 npm run check
 ```
 
-Le contrôle exécute les tests Node de règles, Match, réseau et régression, audite les 336 JPEG sources et les 336 WebP de repli de Terrain, puis produit le build Vite dans `dist/`. Le gate final du 1er octobre passe 66 fichiers de tests sans échec. Le projet JavaScript ne définit pas de script lint ou typecheck séparé.
+Le contrôle exécute les tests Node de règles, Match, réseau et régression, audite les 336 JPEG sources et les 336 WebP de repli de Terrain, puis produit le build Vite dans `dist/`. Le gate final du **7 octobre passe 76 fichiers de tests sans échec**, et l’audit npm constate zéro vulnérabilité après le correctif officiel source-map-js. Le projet JavaScript ne définit pas de script lint ou typecheck séparé. Les [parcours navigateur reproductibles](docs/audits/gameplay-release-2026-10-07.md) complètent ces contrôles.
 
 L’[audit de préparation commerciale du 8 septembre 2026](docs/audits/commercial-readiness-2026-09-08.md) distingue les correctifs livrés des prérequis encore bloquants. Le projet doit rester non commercial tant qu’aucune autorisation appropriée des ayants droit n’a été obtenue.
 

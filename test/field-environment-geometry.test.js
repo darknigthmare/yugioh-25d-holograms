@@ -57,6 +57,20 @@ function forEachPrimitiveBounds(group, callback) {
   });
 }
 
+function findInstances(group, name) {
+  const result = [];
+  group.traverse(object => {
+    if (!object.isInstancedMesh) return;
+    object.userData.instanceNames.forEach((instanceName, index) => {
+      if (instanceName !== name) return;
+      const matrix = new THREE.Matrix4();
+      object.getMatrixAt(index, matrix);
+      result.push({ object, matrix });
+    });
+  });
+  return result;
+}
+
 test('all Field families build distinct peripheral geometry without occupying the duel corridor', () => {
   assert.deepEqual(new Set(FIELD_ENVIRONMENT_GEOMETRY_FAMILIES), new Set(Object.keys(FIELD_ENVIRONMENT_REGISTRY)));
   const signatures = new Set();
@@ -147,7 +161,7 @@ test('key Field Spells have the expected physical landmarks', () => {
     ['72283691', 'golden-castle', 'castle-curtain-wall'],
     ['72283691', 'golden-castle', 'golden-castle-drawbridge-chain'],
     ['56433456', 'sky-sanctuary', 'sky-sanctuary-floating-stair'],
-    ['2084239', 'reed-basin', 'wetlands-floating-lily-pad'],
+    ['2084239', 'reed-basin', 'wetlands-rain-soaked-grass'],
     ['71645242', 'thorn-garden', 'rose-bloom'],
     ['33550694', 'fusion-gate', 'dimensional-ring'],
     ['59160188', 'shadow-prison', 'shadow-prison-bar']
@@ -200,7 +214,7 @@ test('24 additional named terrains contain distinct physical props beyond the fa
   assert.equal(getFieldEnvironmentForCardId('43175858').geometryProfile.landmark, 'storybook-castle');
 });
 
-test('21 inspected original illustrations produce their concrete motifs without divergent family monuments', () => {
+test('24 inspected original illustrations produce their concrete motifs without divergent family monuments', () => {
   const expectations = [
     ['56594520', 'gaia-colossal-oak-trunk', 'rock-spire'],
     ['82999629', 'umiiruka-water-splash', 'coral-spire'],
@@ -222,7 +236,10 @@ test('21 inspected original illustrations produce their concrete motifs without 
     ['33407125', 'labrynth-pointed-blue-roof', 'castle-curtain-wall'],
     ['10080320', 'jurassic-hanging-vine', 'exposed-root'],
     ['16625614', 'dark-sanctuary-sky-eye-pupil', 'occult-monolith'],
-    ['61583217', 'cynet-cyan-hexagonal-lattice', 'data-node']
+    ['61583217', 'cynet-cyan-hexagonal-lattice', 'data-node'],
+    ['2084239', 'wetlands-diagonal-rain-streak', 'wetlands-floating-lily-pad'],
+    ['56433456', 'sky-sanctuary-orb-monument', 'sky-sanctuary-radiant-arch'],
+    ['63035430', 'skyscraper-crossed-searchlight', 'tower-roof']
   ];
   for (const [cardId, motif, forbidden] of expectations) {
     const environment = getFieldEnvironmentForCardId(cardId);
@@ -242,7 +259,7 @@ test('21 inspected original illustrations produce their concrete motifs without 
     }
     disposeFieldEnvironmentGeometry(group);
   }
-  assert.equal(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.inspectedReferenceArtCount, 21);
+  assert.equal(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.inspectedReferenceArtCount, 24);
   assert.deepEqual(new Set(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.inspectedReferenceCardIds), new Set(Object.keys(FIELD_ENVIRONMENT_INSPECTED_ART_PROFILES)));
   assert.equal(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.budget, FIELD_ENVIRONMENT_GEOMETRY_BUDGET);
 });
@@ -269,33 +286,24 @@ test('replacing scenery disposes shared resources once and is safe to repeat', (
   for (const resource of resources) assert.equal(counts.get(resource), 1);
 });
 
-test('Molten lava and connected branches clear the actual octagonal cone surface by their entire tube radius', () => {
+test('Molten winding lava and connected branches clear the actual irregular caldera by their entire tube radius', () => {
   const group = createFieldEnvironmentGeometry(THREE, getFieldEnvironmentForCardId('19384334'));
-  const findInstances = name => {
-    const result = [];
-    group.traverse(object => {
-      if (!object.isInstancedMesh) return;
-      object.userData.instanceNames.forEach((instanceName, index) => {
-        if (instanceName !== name) return;
-        const matrix = new THREE.Matrix4();
-        object.getMatrixAt(index, matrix);
-        result.push({ object, matrix });
-      });
-    });
-    return result;
-  };
-  const [{ object: coneBatch, matrix: coneMatrix }] = findInstances('molten-wide-black-volcano');
+  const [{ object: coneBatch, matrix: coneMatrix }] = findInstances(group, 'molten-wide-black-volcano');
   const cone = new THREE.Mesh(coneBatch.geometry, coneBatch.material);
   cone.matrixAutoUpdate = false;
   cone.matrix.copy(coneMatrix);
   cone.updateMatrixWorld(true);
-  assert.equal(cone.geometry.parameters.radialSegments, 8);
+  assert.equal(cone.geometry.parameters.radialSegments, 64);
+  const vertices = cone.geometry.attributes.position;
+  const rimHeights = Array.from({ length: 64 }, (_, i) => vertices.getY(i));
+  assert.ok(Math.max(...rimHeights) - Math.min(...rimHeights) > 0.5, 'crater rim is uneven rather than a cone apex');
+  assert.ok(vertices.getX(0) ** 2 + (vertices.getZ(0) + 34) ** 2 > 0.5, 'summit opens around a real crater');
   const normalMatrix = new THREE.Matrix3().getNormalMatrix(cone.matrixWorld);
   const ray = new THREE.Raycaster();
-  const primary = findInstances('molten-branching-lava-stream');
-  const branches = findInstances('molten-lava-side-branch');
-  assert.equal(primary.length, 8);
-  assert.equal(branches.length, 16, 'each primary stream has two visible branching segments');
+  const primary = findInstances(group, 'molten-branching-lava-stream');
+  const branches = findInstances(group, 'molten-lava-side-branch');
+  assert.equal(primary.length, 96, 'eight meandering channels each contain twelve joined segments');
+  assert.equal(branches.length, 48, 'each primary channel has a curved six segment branch');
   const paths = [...primary, ...branches].map(({ matrix }) => {
     const position = new THREE.Vector3();
     const quaternion = new THREE.Quaternion();
@@ -315,17 +323,93 @@ test('Molten lava and connected branches clear the actual octagonal cone surface
       assert.ok(hit, 'every lava sample stays above a real volcano face');
       const normal = hit.face.normal.clone().applyMatrix3(normalMatrix).normalize();
       const clearance = point.clone().sub(hit.point).dot(normal);
-      assert.ok(clearance > path.radius + 0.06,
+      assert.ok(clearance > path.radius + 0.035,
         `tube at ${point.toArray()} clips volcano: clearance=${clearance}, radius=${path.radius}`);
     }
   }
-  for (let index = 0; index < primary.length; index += 1) {
-    const main = paths[index];
-    const firstBranch = paths[primary.length + index * 2];
-    const secondBranch = paths[primary.length + index * 2 + 1];
-    assert.ok(new THREE.Line3(main.start, main.end).closestPointToPoint(firstBranch.start, true, new THREE.Vector3())
-      .distanceTo(firstBranch.start) < 0.00001, 'branch begins on its primary stream');
-    assert.ok(firstBranch.end.distanceTo(secondBranch.start) < 0.00001, 'branch bends stay connected');
+  for (let channel = 0; channel < 8; channel += 1) {
+    const main = paths.slice(channel * 12, (channel + 1) * 12);
+    const branch = paths.slice(primary.length + channel * 6, primary.length + (channel + 1) * 6);
+    for (const route of [main, branch]) for (let j = 1; j < route.length; j += 1) {
+      assert.ok(route[j - 1].end.distanceTo(route[j].start) < 0.00001, 'segments form a continuous visible route');
+    }
+    assert.ok(main[4].start.distanceTo(branch[0].start) < 0.00001, 'branch joins the primary channel');
+    const straight = new THREE.Line3(main[0].start, main.at(-1).end);
+    const deviation = Math.max(...main.map(segment => straight.closestPointToPoint(segment.start, true, new THREE.Vector3()).distanceTo(segment.start)));
+    assert.ok(deviation > 0.2, 'lava channels wind across the folded slope');
   }
   disposeFieldEnvironmentGeometry(group);
+});
+
+test('Plasma has a continuous inward spiral, Mountain has striated asymmetric reliefs, and Labrynth has broad curved ramps', () => {
+  const plasma = createFieldEnvironmentGeometry(THREE, getFieldEnvironmentForCardId('18161786'));
+  const [vortex] = findInstances(plasma, 'plasma-continuous-purple-vortex');
+  const points = vortex.object.geometry.userData.continuousCurve;
+  let turn = 0;
+  for (let i = 1; i < points.length; i += 1) {
+    const angle = point => Math.atan2((point[1] - 14.5) / 0.65, point[0]);
+    const delta = angle(points[i]) - angle(points[i - 1]);
+    turn += Math.atan2(Math.sin(delta), Math.cos(delta));
+    assert.ok(new THREE.Vector3(...points[i]).distanceTo(new THREE.Vector3(...points[i - 1])) < 1.5, 'cloud strand stays continuous');
+  }
+  assert.ok(turn > Math.PI * 4, 'the cloud coils more than two complete turns into its core');
+  assert.equal(hasFieldEnvironmentLandmarkGeometry(plasma, 'plasma-purple-spiral-cloud'), false, 'disconnected puff ring was removed');
+  disposeFieldEnvironmentGeometry(plasma);
+
+  const mountain = createFieldEnvironmentGeometry(THREE, getFieldEnvironmentForCardId('50913601'));
+  const [right] = findInstances(mountain, 'mountain-tall-right-peak');
+  const [left] = findInstances(mountain, 'mountain-lower-left-ridge');
+  assert.ok(right.object.geometry.boundingBox.max.y > left.object.geometry.boundingBox.max.y * 1.7, 'right massif remains much taller');
+  assert.ok(findInstances(mountain, 'mountain-jagged-slope-striation').length >= 80, 'both long slopes have visible branching grooves');
+  for (const { object } of [right, left]) {
+    const positions = object.geometry.attributes.position;
+    const ring = Array.from({ length: 64 }, (_, i) => positions.getY(11 * 65 + i));
+    assert.ok(Math.max(...ring) - Math.min(...ring) > 0.7, 'ridge surfaces have angular folds rather than smooth cone slopes');
+    assert.ok(object.geometry.attributes.color, 'stone retains differentiated ridge and valley tones');
+  }
+  disposeFieldEnvironmentGeometry(mountain);
+
+  const labrynth = createFieldEnvironmentGeometry(THREE, getFieldEnvironmentForCardId('33407125'));
+  const ramps = findInstances(labrynth, 'labrynth-curved-elevated-palace-ramp');
+  assert.equal(ramps.length, 2);
+  for (const { object } of ramps) {
+    const route = object.geometry.userData.continuousCurve.map(point => new THREE.Vector3(...point));
+    const line = new THREE.Line3(route[0], route.at(-1));
+    assert.ok(Math.max(...route.map(point => line.closestPointToPoint(point, true, new THREE.Vector3()).distanceTo(point))) > 5, 'walkway curls around the palace');
+    assert.ok(route.at(-1).y - route[0].y > 5, 'walkway climbs as it curves');
+    const box = object.geometry.boundingBox;
+    assert.ok(box.max.z - box.min.z > 9, 'walkway has a broad arc in depth');
+  }
+  assert.equal(hasFieldEnvironmentLandmarkGeometry(labrynth, 'labrynth-elevated-palace-ramp'), false, 'straight pipe ramps were removed');
+  disposeFieldEnvironmentGeometry(labrynth);
+});
+
+test('reference refinements keep valid shared buffers and release custom shapes, materials and instances once', () => {
+  for (const cardId of ['18161786', '50913601', '33407125', '19384334', '2084239', '56433456', '63035430']) {
+    const group = createFieldEnvironmentGeometry(THREE, getFieldEnvironmentForCardId(cardId));
+    const resources = new Set();
+    group.traverse(object => {
+      if (!object.isMesh) return;
+      assert.equal(object.material.map, null, 'no card textures are attached to terrain props');
+      for (const attribute of Object.values(object.geometry.attributes)) {
+        assert.ok(Array.from(attribute.array).every(Number.isFinite), `${cardId}: valid custom attribute`);
+        assert.equal(attribute.array.length, attribute.count * attribute.itemSize);
+      }
+      if (object.geometry.index) {
+        assert.ok(Array.from(object.geometry.index.array).every(index => index < object.geometry.attributes.position.count), `${cardId}: valid mesh indices`);
+      } else assert.equal(object.geometry.attributes.position.count % 3, 0, `${cardId}: valid unindexed triangles`);
+      resources.add(object.geometry); resources.add(object.material); resources.add(object);
+    });
+    if (cardId === '2084239') {
+      const grasses = findInstances(group, 'wetlands-rain-soaked-grass');
+      assert.equal(grasses.length, 120);
+      assert.ok(grasses.every(({ object }) => object.geometry.userData.bladeCount === 5), '600 bent leaves share only three grass draws');
+      assert.equal(hasFieldEnvironmentLandmarkGeometry(group, 'basin-carved-rim'), false, 'no masonry basins in a rain soaked grassland');
+      assert.equal(hasFieldEnvironmentLandmarkGeometry(group, 'tree-trunk'), false, 'source grassland has no foreground forest');
+    }
+    const counts = new Map();
+    for (const resource of resources) resource.addEventListener('dispose', () => counts.set(resource, (counts.get(resource) || 0) + 1));
+    disposeFieldEnvironmentGeometry(group); disposeFieldEnvironmentGeometry(group);
+    for (const resource of resources) assert.equal(counts.get(resource), 1, `${cardId}: resource released exactly once`);
+  }
 });

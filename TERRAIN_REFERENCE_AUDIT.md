@@ -1,5 +1,7 @@
 # Audit des références visuelles des terrains
 
+La revue du **7 octobre 2026** est archivée dans [l’audit des huit comparaisons](docs/audits/terrain-fidelity-2026-10-07.md) : sept profils affinés et Forêt Ancienne contrôlée sans modification. Le total passe à **24 références inspectées**, pour 66 repères dédiés. Les illustrations sont intactes ; les volumes restent stylisés. Le tableau ci-dessous conserve les observations historiques du 1er octobre, avant les nouveaux affinements.
+
 Audit du 1 octobre 2026. Les illustrations de 37 cartes ont été ouvertes et lues : les 13 références prioritaires ci-dessous, les 8 autres cartes du lot de géométrie en cours, et 16 candidates supplémentaires. L'objectif est de distinguer la fidélité de l'image source, la fidélité des volumes et la fidélité des règles. La présence d'un décor par famille ne prouve aucun de ces trois points.
 
 ## Sources et méthode

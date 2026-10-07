@@ -1258,10 +1258,13 @@ export class RealDuelScene3D {
     this.scene.add(effect.group);
     const sourceRef = event.sourceRef || event.source;
     const targetRef = event.targetRef || event.target;
-    const poseKind = event.kind === 'attack' ? 'attack'
+    const defaultPoseKind = event.kind === 'attack' ? 'attack'
       : event.kind === 'summon' ? 'summon'
         : event.kind === 'destroy' ? 'recoil' : 'casting';
-    this._startMonsterPose(sourceRef, poseKind, effect.startedAt, effect.duration);
+    const poseKind = ['attack', 'summon', 'recoil', 'casting'].includes(event.poseKind)
+      ? event.poseKind : defaultPoseKind;
+    const poseRef = event.poseTarget === 'target' ? targetRef : sourceRef;
+    this._startMonsterPose(poseRef, poseKind, effect.startedAt, effect.duration);
     if (event.kind === 'attack') {
       this._startMonsterPose(targetRef, 'recoil', effect.startedAt + effect.duration * 0.55, 360);
     }

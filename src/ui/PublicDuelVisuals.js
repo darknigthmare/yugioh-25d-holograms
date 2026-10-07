@@ -1,4 +1,9 @@
 const SIDES = ['player', 'opponent'];
+const FIELD_RULE_VISUALS = Object.freeze({
+  'sanctuary-protection-cinematic': Object.freeze({ profile: 'sanctuary-protection', kind: 'shield', poseKind: 'casting' }),
+  'skyscraper-boost-cinematic': Object.freeze({ profile: 'skyscraper-boost', kind: 'activate', poseKind: 'attack' }),
+  'ancient-forest-destruction-cinematic': Object.freeze({ profile: 'ancient-forest-destruction', kind: 'destroy', poseKind: 'recoil' })
+});
 
 function publicCard(card) {
   if (!card || card.isSetFaceDown === true) return null;
@@ -54,6 +59,9 @@ export function createPublicCombatVisual(event, game, positionResolver = () => u
   let source;
   let target;
   let card = null;
+  let targetCard = null;
+  let profile;
+  let targetPoseKind;
   const zoneRef = (side, zoneType, zoneIndex) => ({ owner: side, zoneType: zoneType || 'main', zoneIndex });
   if (type === 'attack-direct' || type === 'attack-monster') {
     owner = type === 'attack-direct' ? (event.target === 'player' ? 'opponent' : 'player') : event.attackerSide;
@@ -68,6 +76,23 @@ export function createPublicCombatVisual(event, game, positionResolver = () => u
     source = zoneRef(owner, event.zoneType, event.zoneIndex);
     kind = type === 'destroy' ? 'destroy' : 'summon';
     card = publicCard(event.card);
+  } else if (Object.hasOwn(FIELD_RULE_VISUALS, type)) {
+    const fieldVisual = FIELD_RULE_VISUALS[type];
+    owner = event.sourceSide;
+    if (!SIDES.includes(owner) || !SIDES.includes(event.target)
+      || !['main', 'extra'].includes(event.zoneType || 'main')
+      || !Number.isInteger(event.zoneIndex) || event.zoneIndex < 0
+      || event.zoneIndex >= (event.zoneType === 'extra' ? 2 : 5)) return null;
+    source = zoneRef(owner, 'field', 0);
+    target = zoneRef(event.target, event.zoneType, event.zoneIndex);
+    card = publicCard(event.card);
+    if (!card) return null;
+    // Ancient Forest resolves after movement: the old zone is enough to bind
+    // roots, and target identity is deliberately never read, even in the GY.
+    if (type !== 'ancient-forest-destruction-cinematic' && event.targetFaceDown !== true) {
+      targetCard = publicCard(event.targetCard);
+    }
+    ({ kind, profile, poseKind: targetPoseKind } = fieldVisual);
   } else if (['mystical-space-typhoon-cinematic', 'book-of-moon-cinematic'].includes(type)) {
     kind = 'activate';
     source = zoneRef(owner, event.zoneType, event.zoneIndex);
@@ -96,12 +121,12 @@ export function createPublicCombatVisual(event, game, positionResolver = () => u
     return Array.isArray(position) && kind === 'attack'
       ? [position[0], position[1] + 1.5, position[2]] : position || ref;
   };
-  const profile = type === 'mystical-space-typhoon-cinematic' ? 'typhoon'
+  profile ||= type === 'mystical-space-typhoon-cinematic' ? 'typhoon'
     : type === 'book-of-moon-cinematic' ? 'moon' : undefined;
   // Retain public zone coordinates separately from absolute aim points so a
   // creature can animate without exposing the duel's internal card instance.
   const sourceRef = source && SIDES.includes(source.owner)
-    && ['main', 'extra'].includes(source.zoneType)
+    && ['main', 'extra', 'field'].includes(source.zoneType)
     && Number.isInteger(source.zoneIndex)
       ? Object.freeze({ ...source }) : undefined;
   const targetRef = target && !target.direct && SIDES.includes(target.owner)
@@ -110,5 +135,7 @@ export function createPublicCombatVisual(event, game, positionResolver = () => u
       ? Object.freeze({ ...target }) : undefined;
   return Object.freeze({ kind, source: locate(source), ...(sourceRef ? { sourceRef } : {}),
     ...(target ? { target: locate(target) } : {}), ...(targetRef ? { targetRef } : {}),
-    ...(card ? { card } : {}), ...(profile ? { profile } : {}) });
+    ...(card ? { card } : {}), ...(profile ? { profile } : {}),
+    ...(targetCard ? { targetCard } : {}),
+    ...(targetPoseKind ? { poseTarget: 'target', poseKind: targetPoseKind } : {}) });
 }

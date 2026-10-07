@@ -1,0 +1,104 @@
+{
+  "models": [
+    {
+      "cardId": "89631139",
+      "model": "blue-eyes",
+      "meshes": 5,
+      "triangles": 4160,
+      "reference": "/cards/cropped/89631139.jpg",
+      "colorDrawCalls": 5
+    },
+    {
+      "cardId": "74677422",
+      "model": "red-eyes",
+      "meshes": 5,
+      "triangles": 4520,
+      "reference": "/cards/cropped/74677422.jpg",
+      "colorDrawCalls": 5
+    },
+    {
+      "cardId": "46986414",
+      "model": "dark-magician",
+      "meshes": 5,
+      "triangles": 4544,
+      "reference": "/cards/cropped/46986414.jpg",
+      "colorDrawCalls": 5
+    },
+    {
+      "cardId": "38033121",
+      "model": "dark-magician-girl",
+      "meshes": 5,
+      "triangles": 4692,
+      "reference": "/cards/cropped/38033121.jpg",
+      "colorDrawCalls": 5
+    },
+    {
+      "cardId": "20721928",
+      "model": "elemental-hero-sparkman",
+      "meshes": 5,
+      "triangles": 3868,
+      "reference": "/cards/cropped/20721928.jpg",
+      "colorDrawCalls": 5
+    },
+    {
+      "cardId": "68638985",
+      "model": "slime-toad",
+      "meshes": 5,
+      "triangles": 2748,
+      "reference": "/cards/cropped/68638985.jpg",
+      "colorDrawCalls": 5
+    },
+    {
+      "cardId": "39552864",
+      "model": "mystical-shine-ball",
+      "meshes": 3,
+      "triangles": 1940,
+      "reference": "/cards/cropped/39552864.jpg",
+      "colorDrawCalls": 3
+    }
+  ],
+  "gpu": [
+    {
+      "programs": 5,
+      "geometries": 6,
+      "textures": 1
+    },
+    {
+      "programs": 5,
+      "geometries": 6,
+      "textures": 1
+    },
+    {
+      "programs": 5,
+      "geometries": 6,
+      "textures": 1
+    },
+    {
+      "programs": 5,
+      "geometries": 6,
+      "textures": 1
+    },
+    {
+      "programs": 5,
+      "geometries": 6,
+      "textures": 1
+    },
+    {
+      "programs": 5,
+      "geometries": 6,
+      "textures": 1
+    },
+    {
+      "programs": 5,
+      "geometries": 4,
+      "textures": 1
+    },
+    {
+      "programs": 2,
+      "geometries": 26,
+      "textures": 0
+    }
+  ],
+  "browserErrors": [],
+  "fidelity": "procedural-interpretation"
+}

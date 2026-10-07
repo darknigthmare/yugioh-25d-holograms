@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { resolveHologramMonsterProfile } from './CombatVisualProfiles.js';
 import { installHologramPoseRig, resolveHologramPartJoint } from './HologramPoseAnimation.js';
+import { buildReferenceMonsterAnatomy } from './HologramReferenceAnatomy.js';
 
 /** Texture-free articulated silhouettes, merged by material to bound draw calls. */
 export function createHologramMonsterModel(card = {}, { defense = false } = {}) {
@@ -11,21 +12,30 @@ export function createHologramMonsterModel(card = {}, { defense = false } = {}) 
   root.userData.profile = profile;
   root.userData.partNames = [];
   const materials = {
-    body: new THREE.MeshStandardMaterial({ color: profile.body, emissive: profile.accent, emissiveIntensity: 0.12, metalness: 0.55, roughness: 0.32 }),
-    accent: new THREE.MeshStandardMaterial({ color: profile.accent, emissive: profile.accent, emissiveIntensity: 0.24, metalness: 0.65, roughness: 0.25 }),
-    dark: new THREE.MeshStandardMaterial({ color: profile.hair || '#263447', emissive: profile.accent, emissiveIntensity: 0.08, metalness: 0.45, roughness: 0.46, side: THREE.DoubleSide }),
-    eye: new THREE.MeshBasicMaterial({ color: profile.eye, toneMapped: false }),
-    glow: new THREE.MeshBasicMaterial({ color: profile.accent, transparent: true, opacity: 0.32, depthWrite: false, side: THREE.DoubleSide, blending: THREE.AdditiveBlending, toneMapped: false })
+    body: new THREE.MeshStandardMaterial({ color: '#ffffff', vertexColors: true, emissive: profile.accent, emissiveIntensity: 0.08, metalness: 0.55, roughness: 0.32, side: THREE.DoubleSide }),
+    accent: new THREE.MeshStandardMaterial({ color: '#ffffff', vertexColors: true, emissive: profile.accent, emissiveIntensity: 0.13, metalness: 0.65, roughness: 0.25, side: THREE.DoubleSide }),
+    dark: new THREE.MeshStandardMaterial({ color: '#ffffff', vertexColors: true, emissive: profile.accent, emissiveIntensity: 0.04, metalness: 0.45, roughness: 0.46, side: THREE.DoubleSide }),
+    eye: new THREE.MeshBasicMaterial({ color: '#ffffff', vertexColors: true, toneMapped: false }),
+    glow: new THREE.MeshBasicMaterial({ color: '#ffffff', vertexColors: true, transparent: true, opacity: 0.32, depthWrite: false, side: THREE.DoubleSide, forceSinglePass: true, blending: THREE.AdditiveBlending, toneMapped: false })
   };
+  const palette = { body: profile.body, accent: profile.accent, dark: profile.hair || '#263447', eye: profile.eye, glow: profile.accent };
   const batches = new Map(Object.keys(materials).map(key => [key, []]));
-  function registerGeometry(name, geometry, material) {
+  function registerGeometry(name, geometry, material, tint) {
     const joint = new Float32Array(geometry.attributes.position.count);
     joint.fill(resolveHologramPartJoint(name));
     geometry.setAttribute('hologramJoint', new THREE.BufferAttribute(joint, 1));
+    if (!geometry.attributes.color) {
+      const vertexColor = new THREE.Color(tint || palette[material]);
+      const colors = new Float32Array(geometry.attributes.position.count * 3);
+      for (let i = 0; i < colors.length; i += 3) {
+        colors[i] = vertexColor.r; colors[i + 1] = vertexColor.g; colors[i + 2] = vertexColor.b;
+      }
+      geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+    }
     batches.get(material).push(geometry);
     root.userData.partNames.push(name);
   }
-  function part(name, geometry, material, position, scale = [1, 1, 1], rotation = [0, 0, 0]) {
+  function part(name, geometry, material, position, scale = [1, 1, 1], rotation = [0, 0, 0], tint) {
     const transform = new THREE.Object3D();
     transform.position.set(...position);
     transform.scale.set(...scale);
@@ -33,13 +43,13 @@ export function createHologramMonsterModel(card = {}, { defense = false } = {}) 
     transform.updateMatrix();
     geometry.applyMatrix4(transform.matrix);
     // All families use indexed positions, normals and UVs, including membranes.
-    registerGeometry(name, geometry, material);
+    registerGeometry(name, geometry, material, tint);
   }
-  const sphere = (name, material, position, scale, detail = 1) => part(name, new THREE.IcosahedronGeometry(1, detail), material, position, scale);
-  const box = (name, material, position, scale, rotation) => part(name, new THREE.BoxGeometry(1, 1, 1), material, position, scale, rotation);
-  const cone = (name, material, position, scale, rotation) => part(name, new THREE.ConeGeometry(1, 1, 10), material, position, scale, rotation);
-  const ring = (name, material, position, radius, rotation = [Math.PI / 2, 0, 0], tube = 0.025) => part(name, new THREE.TorusGeometry(radius, tube, 5, 28), material, position, [1, 1, 1], rotation);
-  function rod(name, material, start, end, radius = 0.075, endRadius = radius) {
+  const sphere = (name, material, position, scale, detail = 1, tint) => part(name, new THREE.IcosahedronGeometry(1, detail), material, position, scale, undefined, tint);
+  const box = (name, material, position, scale, rotation, tint) => part(name, new THREE.BoxGeometry(1, 1, 1), material, position, scale, rotation, tint);
+  const cone = (name, material, position, scale, rotation, tint) => part(name, new THREE.ConeGeometry(1, 1, 10), material, position, scale, rotation, tint);
+  const ring = (name, material, position, radius, rotation = [Math.PI / 2, 0, 0], tube = 0.025, tint) => part(name, new THREE.TorusGeometry(radius, tube, 5, 28), material, position, [1, 1, 1], rotation, tint);
+  function rod(name, material, start, end, radius = 0.075, endRadius = radius, tint) {
     const a = new THREE.Vector3(...start);
     const b = new THREE.Vector3(...end);
     const direction = b.clone().sub(a);
@@ -49,13 +59,13 @@ export function createHologramMonsterModel(card = {}, { defense = false } = {}) 
     transform.updateMatrix();
     const geometry = new THREE.CylinderGeometry(endRadius, radius, direction.length(), 8);
     geometry.applyMatrix4(transform.matrix);
-    registerGeometry(name, geometry, material);
+    registerGeometry(name, geometry, material, tint);
   }
-  function membrane(name, material, vertices) {
+  function membrane(name, material, vertices, tint) {
     const shape = new THREE.Shape();
     vertices.forEach(([x, y], index) => index ? shape.lineTo(x, y) : shape.moveTo(x, y));
     shape.closePath();
-    part(name, new THREE.ShapeGeometry(shape), material, [0, 0, -0.14]);
+    part(name, new THREE.ShapeGeometry(shape), material, [0, 0, -0.14], undefined, undefined, tint);
   }
   function eyePair(y, z, spread = 0.16, size = 0.055) {
     for (const side of [-1, 1]) sphere(`eye-${side}`, 'eye', [side * spread, y, z], [size, size * 0.8, size * 0.5]);
@@ -105,7 +115,10 @@ export function createHologramMonsterModel(card = {}, { defense = false } = {}) 
     if (rock) for (let i = 0; i < 4; i += 1) box(`stone-joint-${i}`, 'dark', [0, 1.68 + i * 0.2, 0.34], [0.61, 0.026, 0.023], [0, 0, i % 2 ? 0.12 : -0.08]);
   }
 
-  if (profile.family === 'dragon') {
+  const refined = buildReferenceMonsterAnatomy(profile, { part, sphere, box, cone, ring, rod, membrane });
+  if (refined) {
+    root.userData.referenceArt = profile.referenceArt;
+  } else if (profile.family === 'dragon') {
     sphere('dragon-breast', 'body', [0, 1.67, 0], [0.55, 0.85, 0.55]);
     sphere('dragon-belly', 'accent', [0, 1.5, 0.42], [0.37, 0.59, 0.12]);
     for (let i = 0; i < 5; i += 1) ring(`belly-scale-${i}`, 'body', [0, 1.2 + i * 0.19, 0.34], 0.28 + Math.sin(i / 5 * Math.PI) * 0.08, [Math.PI / 2, 0, 0], 0.028);

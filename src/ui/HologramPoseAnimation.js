@@ -11,7 +11,7 @@ export function resolveHologramPartJoint(name) {
   if (/^projection-|^defense-/.test(name)) return JOINT_NAMES.BASE;
   if (/^wing--1-/.test(name)) return JOINT_NAMES.LEFT_WING;
   if (/^wing-1-/.test(name)) return JOINT_NAMES.RIGHT_WING;
-  if (/^staff|^mage-arm-1|^mage-glove-1|^faith-hand-1|^faith-orb/.test(name)) return JOINT_NAMES.STAFF;
+  if (/^staff|^mage-arm-1|^mage-glove-1|^mage-(?:hand|glove-band)-1|^faith-hand-1|^faith-orb/.test(name)) return JOINT_NAMES.STAFF;
   if (/^pincer-.*--1(?:-|$)/.test(name)) return JOINT_NAMES.LEFT_PINCER;
   if (/^pincer-.*-1(?:-|$)/.test(name)) return JOINT_NAMES.RIGHT_PINCER;
   if (/^jaw-/.test(name)) return JOINT_NAMES.JAW;

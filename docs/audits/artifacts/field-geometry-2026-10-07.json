@@ -1,0 +1,7532 @@
+{
+  "auditDate": "2026-10-07",
+  "baselineCommit": "6c0232f",
+  "geometrySourceSha256": "657678fd60a3fc02e923e1099309ae71810d51072610dc69f0db3d9ba5093a7f",
+  "baselineGeometrySha256": "dfa13ae02af973725601706a2ddac3d6aed21bc358e70d49c08c616da9ee6a0a",
+  "description": "Unchanged source illustrations compared with isolated adapted peripheral geometry; no claim of complete spatial 1:1 reproduction.",
+  "budget": {
+    "maxDrawCallCount": 18,
+    "maxMaterialCount": 10,
+    "maxPrimitiveCount": 220,
+    "maxHorizontalExtent": 48,
+    "playableCorridor": {
+      "min": [
+        -9,
+        -3,
+        -18
+      ],
+      "max": [
+        9,
+        30,
+        17
+      ]
+    }
+  },
+  "auditedCardCount": 336,
+  "maxima": {
+    "primitives": 180,
+    "drawCalls": 17,
+    "materials": 10,
+    "triangles": 33300
+  },
+  "references": [
+    {
+      "cardId": "18161786",
+      "name": "Mystic Plasma Zone",
+      "camera": [
+        0,
+        16,
+        3
+      ],
+      "target": [
+        0,
+        13,
+        -34
+      ],
+      "fov": 58,
+      "assetPath": "public/environments/field-art/18161786.jpg",
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/18161786.jpg",
+      "sha256": "c5e36fad6b970251eedcb3c7301e85188737c04435900645d58760897cdca729",
+      "geometry": {
+        "cardId": "18161786",
+        "name": "Mystic Plasma Zone",
+        "primitives": 71,
+        "drawCalls": 11,
+        "materials": 5,
+        "triangles": 12268,
+        "bounds": {
+          "min": [
+            -17.00932327369774,
+            -1.0504746245600174,
+            -36.07887268066406
+          ],
+          "max": [
+            27.29726082391742,
+            24.604623794555664,
+            8.5
+          ]
+        },
+        "fidelity": "reference-informed-geometry"
+      }
+    },
+    {
+      "cardId": "50913601",
+      "name": "Mountain",
+      "camera": [
+        0,
+        22,
+        22
+      ],
+      "target": [
+        0,
+        7,
+        -30
+      ],
+      "fov": 59,
+      "assetPath": "public/environments/field-art/50913601.jpg",
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/50913601.jpg",
+      "sha256": "4439715fb0deb2fe42ef6e1826424f20eb6ae59f28a30b93607d63663907f9c9",
+      "geometry": {
+        "cardId": "50913601",
+        "name": "Mountain",
+        "primitives": 110,
+        "drawCalls": 4,
+        "materials": 3,
+        "triangles": 11200,
+        "bounds": {
+          "min": [
+            -25.374237060546875,
+            -0.29815901224120345,
+            -41.10283660888672
+          ],
+          "max": [
+            22.28,
+            17,
+            -19.32
+          ]
+        },
+        "fidelity": "reference-informed-geometry"
+      }
+    },
+    {
+      "cardId": "33407125",
+      "name": "Labrynth Labyrinth",
+      "camera": [
+        0,
+        18,
+        -2
+      ],
+      "target": [
+        0,
+        8,
+        -32
+      ],
+      "fov": 65,
+      "assetPath": "public/environments/field-art/33407125.jpg",
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/33407125.jpg",
+      "sha256": "0b88332de9319f8f0abe505295f67ddc4950fdcc50b2c52a036b9d42839f72aa",
+      "geometry": {
+        "cardId": "33407125",
+        "name": "Labrynth Labyrinth",
+        "primitives": 162,
+        "drawCalls": 7,
+        "materials": 3,
+        "triangles": 10360,
+        "bounds": {
+          "min": [
+            -18.169395446777344,
+            0,
+            -39
+          ],
+          "max": [
+            18.169395446777344,
+            23.068599434057003,
+            -24.09494011883474
+          ]
+        },
+        "fidelity": "reference-informed-geometry"
+      }
+    },
+    {
+      "cardId": "19384334",
+      "name": "Molten Destruction",
+      "camera": [
+        0,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        7,
+        -34
+      ],
+      "fov": 56,
+      "assetPath": "public/environments/field-art/19384334.jpg",
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/19384334.jpg",
+      "sha256": "002398e2ad5b8ebe048e8b5393fbb65df99aae4158572999f5ca8beba98b6f73",
+      "geometry": {
+        "cardId": "19384334",
+        "name": "Molten Destruction",
+        "primitives": 180,
+        "drawCalls": 6,
+        "materials": 4,
+        "triangles": 12704,
+        "bounds": {
+          "min": [
+            -19.311019541127138,
+            -1.866713459195756,
+            -43.083343505859375
+          ],
+          "max": [
+            18.9738114693435,
+            18.00387806817376,
+            -10.392442816762735
+          ]
+        },
+        "fidelity": "reference-informed-geometry"
+      }
+    },
+    {
+      "cardId": "2084239",
+      "name": "Wetlands",
+      "camera": [
+        0,
+        13,
+        25
+      ],
+      "target": [
+        0,
+        2,
+        -10
+      ],
+      "fov": 65,
+      "assetPath": "public/environments/field-art/2084239.jpg",
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/2084239.jpg",
+      "sha256": "98dd5b9b5b57d52686adc2eb326254f3a0db5c3ae924919776764f39eb81bf41",
+      "geometry": {
+        "cardId": "2084239",
+        "name": "Wetlands",
+        "primitives": 172,
+        "drawCalls": 6,
+        "materials": 6,
+        "triangles": 33300,
+        "bounds": {
+          "min": [
+            -23.5,
+            -0.15,
+            -39
+          ],
+          "max": [
+            23.5,
+            9.002053464531091,
+            14
+          ]
+        },
+        "fidelity": "reference-informed-geometry"
+      }
+    },
+    {
+      "cardId": "56433456",
+      "name": "The Sanctuary in the Sky",
+      "camera": [
+        0,
+        15,
+        -7
+      ],
+      "target": [
+        0,
+        6,
+        -31
+      ],
+      "fov": 63,
+      "assetPath": "public/environments/field-art/56433456.jpg",
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/56433456.jpg",
+      "sha256": "68c2d0de0f7d12c0a6ad9286b8426f35712fb74c187decb2ca70eef1dee653a2",
+      "geometry": {
+        "cardId": "56433456",
+        "name": "The Sanctuary in the Sky",
+        "primitives": 64,
+        "drawCalls": 12,
+        "materials": 5,
+        "triangles": 3628,
+        "bounds": {
+          "min": [
+            -25.04,
+            -6.789677646512789,
+            -41
+          ],
+          "max": [
+            25.04,
+            15.25,
+            -19.45
+          ]
+        },
+        "fidelity": "reference-informed-geometry"
+      }
+    },
+    {
+      "cardId": "63035430",
+      "name": "Skyscraper",
+      "camera": [
+        0,
+        3,
+        24
+      ],
+      "target": [
+        0,
+        15,
+        -21
+      ],
+      "fov": 68,
+      "assetPath": "public/environments/field-art/63035430.jpg",
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/63035430.jpg",
+      "sha256": "60e9288a2d8b948ca9d7e1b01ca2528da99949579a2980cb47e809ce9f7b40af",
+      "geometry": {
+        "cardId": "63035430",
+        "name": "Skyscraper",
+        "primitives": 118,
+        "drawCalls": 7,
+        "materials": 6,
+        "triangles": 1944,
+        "bounds": {
+          "min": [
+            -20.2,
+            0,
+            -40.75
+          ],
+          "max": [
+            20.2,
+            31,
+            9.65
+          ]
+        },
+        "fidelity": "reference-informed-geometry"
+      }
+    },
+    {
+      "cardId": "87624166",
+      "name": "Ancient Forest (unchanged)",
+      "camera": [
+        0,
+        4,
+        20
+      ],
+      "target": [
+        0,
+        15,
+        -18
+      ],
+      "fov": 68,
+      "assetPath": "public/environments/field-art/87624166.jpg",
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/87624166.jpg",
+      "sha256": "db967f0f3d794bb9b6e19cede530f6fe630ed5f935dca38ce2b0c2dc800e235e",
+      "geometry": {
+        "cardId": "87624166",
+        "name": "Ancient Forest",
+        "primitives": 66,
+        "drawCalls": 3,
+        "materials": 3,
+        "triangles": 3488,
+        "bounds": {
+          "min": [
+            -31,
+            -0.0027994401679443115,
+            -33.03167509166393
+          ],
+          "max": [
+            31,
+            22.3,
+            3.5
+          ]
+        },
+        "fidelity": "reference-informed-geometry"
+      }
+    }
+  ],
+  "metrics": [
+    {
+      "cardId": "295517",
+      "name": "A Legendary Ocean",
+      "primitives": 34,
+      "drawCalls": 5,
+      "materials": 3,
+      "triangles": 6084,
+      "bounds": {
+        "min": [
+          -29.241571859299846,
+          -2.3835620845472083,
+          -27.75
+        ],
+        "max": [
+          30.76112699366217,
+          6.275,
+          14
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "77297908",
+      "name": "Abyss Playhouse - Fantastic Theater",
+      "primitives": 22,
+      "drawCalls": 7,
+      "materials": 6,
+      "triangles": 3832,
+      "bounds": {
+        "min": [
+          -20.5,
+          0,
+          -32
+        ],
+        "max": [
+          20.5,
+          10.55,
+          -13.721826772229935
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "35956022",
+      "name": "Acidic Downpour",
+      "primitives": 93,
+      "drawCalls": 6,
+      "materials": 4,
+      "triangles": 9768,
+      "bounds": {
+        "min": [
+          -31.258379937846456,
+          -2.624166073786679,
+          -27.19403913806954
+        ],
+        "max": [
+          29.165976105077448,
+          10.002462347422261,
+          14
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "46552140",
+      "name": "Adamancipator Laputite",
+      "primitives": 28,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 1728,
+      "bounds": {
+        "min": [
+          -33.75405520341694,
+          -2.8639148250342497,
+          -35.291955227948314
+        ],
+        "max": [
+          31.916944654743425,
+          10.455674863420427,
+          4.466206792403958
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "12644061",
+      "name": "Advanced Dark",
+      "primitives": 34,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 516,
+      "bounds": {
+        "min": [
+          -22.51833435349345,
+          -0.022770810805567532,
+          -27.75
+        ],
+        "max": [
+          22.059890083552023,
+          7.909320074080059,
+          2.9300495717953887
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "31322640",
+      "name": "Allure Palace",
+      "primitives": 43,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 532,
+      "bounds": {
+        "min": [
+          -18.4,
+          0,
+          -31.2
+        ],
+        "max": [
+          18.4,
+          13.4,
+          -22.6
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "33773528",
+      "name": "Amazement Precious Park",
+      "primitives": 22,
+      "drawCalls": 7,
+      "materials": 6,
+      "triangles": 3832,
+      "bounds": {
+        "min": [
+          -20.5,
+          0,
+          -32
+        ],
+        "max": [
+          20.5,
+          10.55,
+          -13.721826772229935
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "712559",
+      "name": "Amazoness Village",
+      "primitives": 89,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 6096,
+      "bounds": {
+        "min": [
+          -30.151842086118968,
+          -2.326750500522485,
+          -28.73568766895157
+        ],
+        "max": [
+          31.497626529107023,
+          11.921721430644393,
+          12.614840402456608
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "23160024",
+      "name": "Amorphous Persona",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -26.257651524288946,
+          -2.4879853233717877,
+          -31.130288712950108
+        ],
+        "max": [
+          30.07497571714028,
+          12.899499809741974,
+          6.161143590142826
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "34487429",
+      "name": "Ancient City - Rainbow Ruins",
+      "primitives": 149,
+      "drawCalls": 17,
+      "materials": 10,
+      "triangles": 2296,
+      "bounds": {
+        "min": [
+          -31.753699308028445,
+          0,
+          -30.37
+        ],
+        "max": [
+          28.793706316454337,
+          19.26847561481409,
+          -10.059820634312928
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "87624166",
+      "name": "Ancient Forest",
+      "primitives": 66,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 3488,
+      "bounds": {
+        "min": [
+          -31,
+          -0.0027994401679443115,
+          -33.03167509166393
+        ],
+        "max": [
+          31,
+          22.3,
+          3.5
+        ]
+      },
+      "fidelity": "reference-informed-geometry"
+    },
+    {
+      "cardId": "17782288",
+      "name": "Angelechy Problem",
+      "primitives": 42,
+      "drawCalls": 6,
+      "materials": 4,
+      "triangles": 2640,
+      "bounds": {
+        "min": [
+          -22.96593801925379,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          23.215993616565342,
+          15.275,
+          -13.162615550652006
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "3875465",
+      "name": "Appliancer Electrilyrical World",
+      "primitives": 36,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 1944,
+      "bounds": {
+        "min": [
+          -21.95,
+          0,
+          -29.130288712950108
+        ],
+        "max": [
+          21.95,
+          12.399499809741974,
+          3
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "63883999",
+      "name": "Archfiend Palabyrinth",
+      "primitives": 43,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 532,
+      "bounds": {
+        "min": [
+          -18.4,
+          0,
+          -31.2
+        ],
+        "max": [
+          18.4,
+          13.4,
+          -22.6
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "90764871",
+      "name": "Archfiend Strategy",
+      "primitives": 34,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 516,
+      "bounds": {
+        "min": [
+          -23.70333796137793,
+          -0.024322640294250464,
+          -27.75
+        ],
+        "max": [
+          22.316719082097165,
+          7.582533272858104,
+          4.263709539202973
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "2674965",
+      "name": "Argostars - Home Stadium",
+      "primitives": 18,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 216,
+      "bounds": {
+        "min": [
+          -19.4,
+          -0.4,
+          -20.5
+        ],
+        "max": [
+          19.4,
+          11.4,
+          8.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "5050644",
+      "name": "Aroma Garden",
+      "primitives": 79,
+      "drawCalls": 8,
+      "materials": 6,
+      "triangles": 5248,
+      "bounds": {
+        "min": [
+          -31.92462219652857,
+          -5.554656236566233,
+          -31.136
+        ],
+        "max": [
+          33.51900838242254,
+          7.87454565818757,
+          12.17099635715678
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "69296555",
+      "name": "Array of Revealing Light",
+      "primitives": 42,
+      "drawCalls": 6,
+      "materials": 4,
+      "triangles": 2640,
+      "bounds": {
+        "min": [
+          -23.154836730674226,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          22.429093010125534,
+          15.275,
+          -13.058876306293708
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "74733322",
+      "name": "Artmage Academic Arcane Arts Acropolis",
+      "primitives": 105,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 1308,
+      "bounds": {
+        "min": [
+          -31.79844672274776,
+          0,
+          -34.55068101733923
+        ],
+        "max": [
+          30.576892640674487,
+          18.660842139134186,
+          -7.428055315464735
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "2906939",
+      "name": "Ashtrashen - Gateway to the Worlds Beyond",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -30.00668146359908,
+          -2.625487256421129,
+          -31.130288712950108
+        ],
+        "max": [
+          30.46472488296628,
+          13.25252712682612,
+          5.039522757970289
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "38391684",
+      "name": "Atlantis, City of the Sea Dragon",
+      "primitives": 23,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 5768,
+      "bounds": {
+        "min": [
+          -26.0318894564848,
+          -2.867571424815289,
+          -24
+        ],
+        "max": [
+          29.095221049681925,
+          6.2448167409179245,
+          14
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "59048135",
+      "name": "Augmented Heraldry",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -31.58171405574858,
+          -2.806616847875913,
+          -31.130288712950108
+        ],
+        "max": [
+          31.556748381561505,
+          13.58323171658257,
+          4.960972934813693
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "975299",
+      "name": "B.E.F. Zelos",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "30761649",
+      "name": "Barian Untopia",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -28.980104993617505,
+          -2.2983699481438706,
+          -31.130288712950108
+        ],
+        "max": [
+          26.717049762363974,
+          12.899499809741974,
+          4.6875352367315415
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "64213017",
+      "name": "Beetrooper Formation",
+      "primitives": 89,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 6096,
+      "bounds": {
+        "min": [
+          -31.04688667900912,
+          -2.582395009619774,
+          -26.79919778469234
+        ],
+        "max": [
+          28.85084680572015,
+          12.973911841567606,
+          12.034697991034093
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "46273941",
+      "name": "Pere-Zenet Em Heru",
+      "primitives": 22,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 480,
+      "bounds": {
+        "min": [
+          -7.5,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          7.5,
+          8.275,
+          -22.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "71645242",
+      "name": "Black Garden",
+      "primitives": 117,
+      "drawCalls": 4,
+      "materials": 4,
+      "triangles": 7888,
+      "bounds": {
+        "min": [
+          -30.015050169121874,
+          -1.3213398956731255,
+          -23.824685774030826
+        ],
+        "max": [
+          29.954884899654257,
+          12.734513297304511,
+          12.09941919996229
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "36668118",
+      "name": "Boot Sector Launch",
+      "primitives": 63,
+      "drawCalls": 6,
+      "materials": 3,
+      "triangles": 6420,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "85668449",
+      "name": "Brain Research Lab",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "69217334",
+      "name": "Breaking of the World",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -26.270328056906795,
+          -2.3270719958186397,
+          -31.130288712950108
+        ],
+        "max": [
+          29.622675626417237,
+          12.899499809741974,
+          6.543426186180005
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "86643777",
+      "name": "Bug Matrix",
+      "primitives": 36,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 1944,
+      "bounds": {
+        "min": [
+          -21.95,
+          0,
+          -29.130288712950108
+        ],
+        "max": [
+          21.95,
+          12.399499809741974,
+          3
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "80749819",
+      "name": "Call of the Forgotten",
+      "primitives": 22,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 372,
+      "bounds": {
+        "min": [
+          -23.335148702726777,
+          -0.03410466556304659,
+          -27.75
+        ],
+        "max": [
+          23.09170392351814,
+          6.275,
+          4.8574881664477285
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "15635751",
+      "name": "Camelot, Realm of Noble Knights and Noble Arms",
+      "primitives": 43,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 532,
+      "bounds": {
+        "min": [
+          -18.4,
+          0,
+          -31.2
+        ],
+        "max": [
+          18.4,
+          13.4,
+          -22.6
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "28120197",
+      "name": "Canyon",
+      "primitives": 20,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 1600,
+      "bounds": {
+        "min": [
+          -35.157646745354285,
+          -2.883899055664924,
+          -35.28232494626923
+        ],
+        "max": [
+          35.83024154146161,
+          11.187748163938522,
+          3.9782066281908106
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "22198672",
+      "name": "Castle Link",
+      "primitives": 43,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 532,
+      "bounds": {
+        "min": [
+          -18.4,
+          0,
+          -31.2
+        ],
+        "max": [
+          18.4,
+          13.4,
+          -22.6
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "65959844",
+      "name": "Catalyst Field",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "14289852",
+      "name": "Catapult Zone",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "43912676",
+      "name": "Celestia",
+      "primitives": 42,
+      "drawCalls": 6,
+      "materials": 4,
+      "triangles": 2640,
+      "bounds": {
+        "min": [
+          -24.599107884700356,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          24.77576440627176,
+          15.275,
+          -12.99841165152699
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "1801154",
+      "name": "Centrifugal Field",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "94243005",
+      "name": "Chaos Zone",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -28.94221289484719,
+          -2.658035821622731,
+          -31.130288712950108
+        ],
+        "max": [
+          28.724070795052192,
+          12.899499809741974,
+          4.397860255429584
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "67616300",
+      "name": "Chicken Game",
+      "primitives": 18,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 216,
+      "bounds": {
+        "min": [
+          -19.4,
+          -0.4,
+          -20.5
+        ],
+        "max": [
+          19.4,
+          11.4,
+          8.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "81380218",
+      "name": "Chorus of Sanctuary",
+      "primitives": 58,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 2952,
+      "bounds": {
+        "min": [
+          -25.92,
+          -1.8472385183618052,
+          -29.125
+        ],
+        "max": [
+          25.92,
+          13.3,
+          7.1
+        ]
+      },
+      "fidelity": "reference-informed-geometry"
+    },
+    {
+      "cardId": "4357063",
+      "name": "Chronomaly City Babylon",
+      "primitives": 101,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 1260,
+      "bounds": {
+        "min": [
+          -30.464277598727495,
+          0,
+          -34.1916060092859
+        ],
+        "max": [
+          31.806029015686363,
+          17.773673661611976,
+          -11.024154474120587
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "33900648",
+      "name": "Clear World",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -27.427417395856708,
+          -2.508485049442293,
+          -31.130288712950108
+        ],
+        "max": [
+          27.87733811606739,
+          12.899499809741974,
+          6.817841032565607
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "75041269",
+      "name": "Clock Tower Prison",
+      "primitives": 129,
+      "drawCalls": 4,
+      "materials": 4,
+      "triangles": 1584,
+      "bounds": {
+        "min": [
+          -31.518713912391103,
+          0,
+          -32.5814706050558
+        ],
+        "max": [
+          29.41462332259398,
+          18.98994391472079,
+          -15.270622632070445
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "78082039",
+      "name": "Closed Forest",
+      "primitives": 89,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 6096,
+      "bounds": {
+        "min": [
+          -31.465545413294308,
+          -2.924662047393324,
+          -25.54693879540972
+        ],
+        "max": [
+          30.146213547255545,
+          12.449715852215887,
+          11.8015308919489
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "52518793",
+      "name": "Colosseum - Cage of the Gladiator Beasts",
+      "primitives": 18,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 216,
+      "bounds": {
+        "min": [
+          -19.4,
+          -0.4,
+          -20.5
+        ],
+        "max": [
+          19.4,
+          11.4,
+          8.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "69039982",
+      "name": "Crusadia Revival",
+      "primitives": 18,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 216,
+      "bounds": {
+        "min": [
+          -19.4,
+          -0.4,
+          -20.5
+        ],
+        "max": [
+          19.4,
+          11.4,
+          8.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "3576031",
+      "name": "Crystolic Potential",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "81788994",
+      "name": "Curse of the Shadow Prison",
+      "primitives": 34,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 516,
+      "bounds": {
+        "min": [
+          -22.415588665343684,
+          -0.02884470701593078,
+          -27.75
+        ],
+        "max": [
+          21.412156568535124,
+          7.713973811241718,
+          3.3850499644223597
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "44352516",
+      "name": "Cyberdark Inferno",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "42461852",
+      "name": "Cynet Storm",
+      "primitives": 36,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 1944,
+      "bounds": {
+        "min": [
+          -21.95,
+          0,
+          -29.130288712950108
+        ],
+        "max": [
+          21.95,
+          12.399499809741974,
+          3
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "61583217",
+      "name": "Cynet Universe",
+      "primitives": 130,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 15200,
+      "bounds": {
+        "min": [
+          -24.330310889132456,
+          -2.3728460885741285,
+          -24.2
+        ],
+        "max": [
+          24.330310889132456,
+          14.372846088574128,
+          -13.010069217331978
+        ]
+      },
+      "fidelity": "reference-informed-geometry"
+    },
+    {
+      "cardId": "23213239",
+      "name": "Danger! Disturbance! Disorder!",
+      "primitives": 89,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 6096,
+      "bounds": {
+        "min": [
+          -28.693474239971902,
+          -3.2094440843799688,
+          -23.296746593300686
+        ],
+        "max": [
+          31.092181830572482,
+          12.314884909652173,
+          12.434568581579434
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "53527835",
+      "name": "Dark City",
+      "primitives": 110,
+      "drawCalls": 2,
+      "materials": 2,
+      "triangles": 1320,
+      "bounds": {
+        "min": [
+          -30.186635335162283,
+          0,
+          -32.825253862096
+        ],
+        "max": [
+          31.22714377832599,
+          20.082645839219914,
+          -10.740326904598623
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "4663194",
+      "name": "Dark City at Midnight",
+      "primitives": 111,
+      "drawCalls": 2,
+      "materials": 2,
+      "triangles": 1332,
+      "bounds": {
+        "min": [
+          -27.89030905672116,
+          0,
+          -30.948565112880896
+        ],
+        "max": [
+          30.723400943574962,
+          19.382025620806964,
+          -6.590963379491586
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "33814281",
+      "name": "Dark Contract with Patent License",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -30.607472116623335,
+          -2.895864825725662,
+          -31.130288712950108
+        ],
+        "max": [
+          32.14238605416634,
+          12.899499809741974,
+          6.4896166605234775
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "16625614",
+      "name": "Dark Sanctuary",
+      "primitives": 44,
+      "drawCalls": 7,
+      "materials": 5,
+      "triangles": 1328,
+      "bounds": {
+        "min": [
+          -22.5,
+          -1.2999999999999998,
+          -39
+        ],
+        "max": [
+          22.5,
+          17,
+          -27
+        ]
+      },
+      "fidelity": "reference-informed-geometry"
+    },
+    {
+      "cardId": "59687381",
+      "name": "Defense Zone",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -28.21906135311032,
+          -2.787220659552475,
+          -31.130288712950108
+        ],
+        "max": [
+          31.267306702693446,
+          13.205818795733764,
+          4.73264928129576
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "3129133",
+      "name": "Delta of Invitation",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -25.492990661862066,
+          -2.539576290371722,
+          -31.130288712950108
+        ],
+        "max": [
+          26.920994523642776,
+          12.899499809741974,
+          8.718929441504741
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "12215894",
+      "name": "Deskbot Base",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "99543666",
+      "name": "Despia, Theater of the Branded",
+      "primitives": 22,
+      "drawCalls": 7,
+      "materials": 6,
+      "triangles": 3832,
+      "bounds": {
+        "min": [
+          -20.5,
+          0,
+          -32
+        ],
+        "max": [
+          20.5,
+          10.55,
+          -13.721826772229935
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "11808215",
+      "name": "Dice Dungeon",
+      "primitives": 28,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 1728,
+      "bounds": {
+        "min": [
+          -36.43335856352903,
+          -2.0851549423666262,
+          -35.974114038676504
+        ],
+        "max": [
+          35.22149585611871,
+          10.922239276953043,
+          5.8287462794531155
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "41128647",
+      "name": "Dinomic Powerload",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "12397569",
+      "name": "Divine Domain Baatistina",
+      "primitives": 22,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 480,
+      "bounds": {
+        "min": [
+          -7.5,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          7.5,
+          8.275,
+          -22.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "53639887",
+      "name": "Divine Temple of the Snake-Eye",
+      "primitives": 22,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 480,
+      "bounds": {
+        "min": [
+          -7.5,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          7.5,
+          8.275,
+          -22.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "15854426",
+      "name": "Divine Wind of Mist Valley",
+      "primitives": 20,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 1600,
+      "bounds": {
+        "min": [
+          -34.39915346408141,
+          -2.654802195412388,
+          -34.59870854263336
+        ],
+        "max": [
+          33.97737983075062,
+          11.526557513978332,
+          6.922688564850747
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "65589010",
+      "name": "Dogmatika Nation",
+      "primitives": 96,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 1200,
+      "bounds": {
+        "min": [
+          -32.39030549265444,
+          0,
+          -33.11186758475378
+        ],
+        "max": [
+          27.890284094773232,
+          17.739394117239865,
+          -6.773963344562798
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "67331360",
+      "name": "Doll House",
+      "primitives": 22,
+      "drawCalls": 7,
+      "materials": 6,
+      "triangles": 3832,
+      "bounds": {
+        "min": [
+          -20.5,
+          0,
+          -32
+        ],
+        "max": [
+          20.5,
+          10.55,
+          -13.721826772229935
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "84171830",
+      "name": "Domain of the True Monarchs",
+      "primitives": 32,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 744,
+      "bounds": {
+        "min": [
+          -19.4,
+          0,
+          -34.09486832980505
+        ],
+        "max": [
+          19.4,
+          22.03162277660168,
+          -23.25
+        ]
+      },
+      "fidelity": "reference-informed-geometry"
+    },
+    {
+      "cardId": "65938950",
+      "name": "Don't Slip, the Dogs of War",
+      "primitives": 18,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 216,
+      "bounds": {
+        "min": [
+          -19.4,
+          -0.4,
+          -20.5
+        ],
+        "max": [
+          19.4,
+          11.4,
+          8.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "62265044",
+      "name": "Dragon Ravine",
+      "primitives": 25,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 1924,
+      "bounds": {
+        "min": [
+          -34.67980367052808,
+          -4.231017185607179,
+          -39.47523796001954
+        ],
+        "max": [
+          31.156703625876695,
+          10.388547866325826,
+          4.117805181518688
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "13035077",
+      "name": "Dragonic Diagram",
+      "primitives": 46,
+      "drawCalls": 16,
+      "materials": 7,
+      "triangles": 9744,
+      "bounds": {
+        "min": [
+          -28.306022402654808,
+          -2.362882612368189,
+          -35.8
+        ],
+        "max": [
+          28.868487516663734,
+          13.094498654584887,
+          7.810994640356107
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "71817640",
+      "name": "Dragonic Pendulum",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -29.20217582428315,
+          -2.7748594580249937,
+          -31.130288712950108
+        ],
+        "max": [
+          29.108001256221463,
+          12.899499809741974,
+          1.940342984908563
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "7917970",
+      "name": "Dragunity Divine Wind",
+      "primitives": 20,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 1600,
+      "bounds": {
+        "min": [
+          -33.622562587744646,
+          -1.7305213073939165,
+          -35.1822283316214
+        ],
+        "max": [
+          33.575242665235784,
+          11.34229095056653,
+          6.606686652290419
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "74665651",
+      "name": "Dream Mirror of Joy",
+      "primitives": 48,
+      "drawCalls": 10,
+      "materials": 5,
+      "triangles": 3512,
+      "bounds": {
+        "min": [
+          -24.371824754548033,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          24.667964636316476,
+          15.275,
+          -13.309896320642753
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "1050355",
+      "name": "Dream Mirror of Terror",
+      "primitives": 40,
+      "drawCalls": 7,
+      "materials": 4,
+      "triangles": 1388,
+      "bounds": {
+        "min": [
+          -23.35252116810493,
+          -0.02549575213072064,
+          -27.75
+        ],
+        "max": [
+          23.246020186050142,
+          11.700000119209289,
+          5.720573052186519
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "26920296",
+      "name": "Dreamland",
+      "primitives": 51,
+      "drawCalls": 6,
+      "materials": 5,
+      "triangles": 1108,
+      "bounds": {
+        "min": [
+          -19.454194699163974,
+          -0.5856341285576719,
+          -31.2
+        ],
+        "max": [
+          19.759729913192828,
+          11.4,
+          5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "58793369",
+      "name": "Drytron Fafnir",
+      "primitives": 42,
+      "drawCalls": 6,
+      "materials": 5,
+      "triangles": 5336,
+      "bounds": {
+        "min": [
+          -28.511216282837836,
+          -3.0128258565819483,
+          -35.54004913205852
+        ],
+        "max": [
+          24.88806668140716,
+          13.058235103882605,
+          4.920537768757828
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "5833312",
+      "name": "Duel Academy",
+      "primitives": 103,
+      "drawCalls": 2,
+      "materials": 2,
+      "triangles": 1236,
+      "bounds": {
+        "min": [
+          -28.019831639633047,
+          0,
+          -31.49307964370819
+        ],
+        "max": [
+          27.080718381109183,
+          19.48511916715652,
+          -9.16653811990982
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "91002901",
+      "name": "Duel Evolution - Assault Zone",
+      "primitives": 18,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 216,
+      "bounds": {
+        "min": [
+          -19.4,
+          -0.4,
+          -20.5
+        ],
+        "max": [
+          19.4,
+          11.4,
+          8.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "43940008",
+      "name": "Duel Tower",
+      "primitives": 18,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 216,
+      "bounds": {
+        "min": [
+          -19.4,
+          -0.4,
+          -20.5
+        ],
+        "max": [
+          19.4,
+          11.4,
+          8.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "19162134",
+      "name": "Dueltaining",
+      "primitives": 22,
+      "drawCalls": 7,
+      "materials": 6,
+      "triangles": 3832,
+      "bounds": {
+        "min": [
+          -20.5,
+          0,
+          -32
+        ],
+        "max": [
+          20.5,
+          10.55,
+          -13.721826772229935
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "44710391",
+      "name": "Earthbound Geoglyph",
+      "primitives": 34,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 516,
+      "bounds": {
+        "min": [
+          -20.713007614655176,
+          -0.028840071372712384,
+          -27.75
+        ],
+        "max": [
+          22.86956619245919,
+          7.575141486112583,
+          4.118280008323491
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "71089030",
+      "name": "Earthbound Prison",
+      "primitives": 34,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 516,
+      "bounds": {
+        "min": [
+          -21.5053767951732,
+          -0.02970199847415156,
+          -27.75
+        ],
+        "max": [
+          17.05960503123148,
+          7.562512651931179,
+          0.912566976742819
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "60514625",
+      "name": "Ecole de Zone",
+      "primitives": 114,
+      "drawCalls": 2,
+      "materials": 2,
+      "triangles": 1368,
+      "bounds": {
+        "min": [
+          -26.593393904541152,
+          0,
+          -31.78389143893728
+        ],
+        "max": [
+          27.672185959352646,
+          19.128272841125728,
+          -12.586326438642573
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "92223430",
+      "name": "Elborz, the Sacred Lands of Simorgh",
+      "primitives": 20,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 1600,
+      "bounds": {
+        "min": [
+          -34.27721735202987,
+          -3.16549730071598,
+          -35.09075349437649
+        ],
+        "max": [
+          34.36285471844934,
+          11.241427719499917,
+          8.644964901672317
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "54250060",
+      "name": "Empowerment",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -30.235766067810697,
+          -2.5193993608075056,
+          -31.130288712950108
+        ],
+        "max": [
+          28.33083590089748,
+          12.899499809741974,
+          7.306481174363327
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "17621695",
+      "name": "Enneapolis",
+      "primitives": 106,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 1320,
+      "bounds": {
+        "min": [
+          -28.278310889331625,
+          0,
+          -32.12193056885153
+        ],
+        "max": [
+          28.48001723191701,
+          18.605702676204967,
+          -8.041853573732078
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "9547962",
+      "name": "Euler's Circuit",
+      "primitives": 36,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 1944,
+      "bounds": {
+        "min": [
+          -21.95,
+          0,
+          -29.130288712950108
+        ],
+        "max": [
+          21.95,
+          12.399499809741974,
+          3
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "70122149",
+      "name": "Evil Eye Domain - Pareidolia",
+      "primitives": 43,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 532,
+      "bounds": {
+        "min": [
+          -18.4,
+          0,
+          -31.2
+        ],
+        "max": [
+          18.4,
+          13.4,
+          -22.6
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "95376428",
+      "name": "Extra Net",
+      "primitives": 36,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 1944,
+      "bounds": {
+        "min": [
+          -21.95,
+          0,
+          -29.130288712950108
+        ],
+        "max": [
+          21.95,
+          12.399499809741974,
+          3
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "39838559",
+      "name": "F.A. Circuit Grand Prix",
+      "primitives": 18,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 216,
+      "bounds": {
+        "min": [
+          -19.4,
+          -0.4,
+          -20.5
+        ],
+        "max": [
+          19.4,
+          11.4,
+          8.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "1061200",
+      "name": "F.A. City Grand Prix",
+      "primitives": 18,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 216,
+      "bounds": {
+        "min": [
+          -19.4,
+          -0.4,
+          -20.5
+        ],
+        "max": [
+          19.4,
+          11.4,
+          8.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "2144946",
+      "name": "F.A. Off-Road Grand Prix",
+      "primitives": 18,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 216,
+      "bounds": {
+        "min": [
+          -19.4,
+          -0.4,
+          -20.5
+        ],
+        "max": [
+          19.4,
+          11.4,
+          8.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "56725612",
+      "name": "Fairy Tail Ball",
+      "primitives": 51,
+      "drawCalls": 6,
+      "materials": 5,
+      "triangles": 1108,
+      "bounds": {
+        "min": [
+          -19.631919055833148,
+          -0.5856341285576719,
+          -31.2
+        ],
+        "max": [
+          19.454194699163974,
+          11.4,
+          5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "43236494",
+      "name": "Fairy Tale Prologue: Journey's Dawn",
+      "primitives": 51,
+      "drawCalls": 6,
+      "materials": 5,
+      "triangles": 1108,
+      "bounds": {
+        "min": [
+          -19.454194699163974,
+          -0.5856341285576719,
+          -31.2
+        ],
+        "max": [
+          19.463344913234042,
+          11.4,
+          5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "13301895",
+      "name": "Fallen Paradise",
+      "primitives": 34,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 516,
+      "bounds": {
+        "min": [
+          -22.734100907811293,
+          -0.025862038565164003,
+          -27.75
+        ],
+        "max": [
+          23.12993672547936,
+          7.945211097266886,
+          5.488096971651539
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "65861210",
+      "name": "Fallen Paradise of the Sacred Beasts",
+      "primitives": 34,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 516,
+      "bounds": {
+        "min": [
+          -22.7721074865258,
+          -0.030027263814223826,
+          -27.75
+        ],
+        "max": [
+          20.935386295962203,
+          6.558248411786486,
+          6.3056496375985445
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "26162470",
+      "name": "Fandora, the Flying Fighting Furtress",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "64400161",
+      "name": "Fandora, the Flying Furtress",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "66750703",
+      "name": "Fire Fortress atop Liang Peak",
+      "primitives": 20,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 1600,
+      "bounds": {
+        "min": [
+          -33.13020209656124,
+          -2.6151026512789737,
+          -36.24182029976653
+        ],
+        "max": [
+          34.822458120769994,
+          11.111511776410044,
+          7.669154357671399
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "57554544",
+      "name": "Fire King Island",
+      "primitives": 32,
+      "drawCalls": 7,
+      "materials": 4,
+      "triangles": 6336,
+      "bounds": {
+        "min": [
+          -32.81407452301424,
+          -2.176029157718613,
+          -35.69999980926514
+        ],
+        "max": [
+          35.37859937323349,
+          11.825979481823744,
+          14
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "269510",
+      "name": "Fire Prison",
+      "primitives": 30,
+      "drawCalls": 6,
+      "materials": 3,
+      "triangles": 6312,
+      "bounds": {
+        "min": [
+          -35.64808770985833,
+          -2.1417253876845885,
+          -35.69999980926514
+        ],
+        "max": [
+          35.55306429645867,
+          10.957569045759737,
+          14
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "5063379",
+      "name": "Flavian - Colosseum of the Gladiator Beasts",
+      "primitives": 18,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 216,
+      "bounds": {
+        "min": [
+          -19.4,
+          -0.4,
+          -20.5
+        ],
+        "max": [
+          19.4,
+          11.4,
+          8.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "39730727",
+      "name": "Flawless Perfection of the Tenyi",
+      "primitives": 22,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 480,
+      "bounds": {
+        "min": [
+          -7.5,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          7.5,
+          8.275,
+          -22.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "28126717",
+      "name": "Floowandereeze and the Magnificent Map",
+      "primitives": 51,
+      "drawCalls": 6,
+      "materials": 5,
+      "triangles": 1108,
+      "bounds": {
+        "min": [
+          -19.454194699163974,
+          -0.5856341285576719,
+          -31.2
+        ],
+        "max": [
+          19.739725093523415,
+          11.4,
+          5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "87430998",
+      "name": "Forest",
+      "primitives": 42,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 1760,
+      "bounds": {
+        "min": [
+          -23.263511056293574,
+          -0.02720070822911902,
+          -35
+        ],
+        "max": [
+          28.856647059811362,
+          11.11,
+          6.499999999999999
+        ]
+      },
+      "fidelity": "reference-informed-geometry"
+    },
+    {
+      "cardId": "91228233",
+      "name": "Forest of Lost Flowers",
+      "primitives": 89,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 6096,
+      "bounds": {
+        "min": [
+          -31.46362804928397,
+          -2.7711626851157507,
+          -26.48448369797204
+        ],
+        "max": [
+          30.788736225043586,
+          12.589202012643218,
+          15.33905403500491
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "86997073",
+      "name": "Fortissimo the Mobile Fortress",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "33550694",
+      "name": "Fusion Gate",
+      "primitives": 33,
+      "drawCalls": 6,
+      "materials": 4,
+      "triangles": 8688,
+      "bounds": {
+        "min": [
+          -25.650606641601414,
+          -2.3965866228206445,
+          -31.769375326835142
+        ],
+        "max": [
+          25.40718772927008,
+          14.669349752664566,
+          7.17250231808266
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "22829942",
+      "name": "Fusion Recycling Plant",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "87902575",
+      "name": "Future Visions",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -31.273016527851965,
+          -2.960114525712498,
+          -31.130288712950108
+        ],
+        "max": [
+          30.03094707119699,
+          13.04807605840565,
+          7.964896157370674
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "56594520",
+      "name": "Gaia Power",
+      "primitives": 50,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 3008,
+      "bounds": {
+        "min": [
+          -24.958136127155438,
+          -0.389141406688168,
+          -41.87463956090912
+        ],
+        "max": [
+          24.968734636126392,
+          21.7,
+          -3.346212527570585
+        ]
+      },
+      "fidelity": "reference-informed-geometry"
+    },
+    {
+      "cardId": "2106266",
+      "name": "Galloping Gaia",
+      "primitives": 20,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 1600,
+      "bounds": {
+        "min": [
+          -35.08435281669353,
+          -3.59911902318929,
+          -35.44293188245344
+        ],
+        "max": [
+          34.035640226340114,
+          11.562593155633659,
+          5.852394898230631
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "40089744",
+      "name": "Gateway to Chaos",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -29.63930532443786,
+          -3.151174534959583,
+          -31.130288712950108
+        ],
+        "max": [
+          30.89502510892273,
+          12.899499809741974,
+          6.632196670736859
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "37694547",
+      "name": "Geartown",
+      "primitives": 59,
+      "drawCalls": 5,
+      "materials": 3,
+      "triangles": 2724,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "38053381",
+      "name": "Generaider Boss Stage",
+      "primitives": 22,
+      "drawCalls": 7,
+      "materials": 6,
+      "triangles": 3832,
+      "bounds": {
+        "min": [
+          -20.5,
+          0,
+          -32
+        ],
+        "max": [
+          20.5,
+          10.55,
+          -13.721826772229935
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "99795159",
+      "name": "Ghostrick Mansion",
+      "primitives": 43,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 532,
+      "bounds": {
+        "min": [
+          -18.4,
+          0,
+          -31.2
+        ],
+        "max": [
+          18.4,
+          13.4,
+          -22.6
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "7617062",
+      "name": "Ghostrick Museum",
+      "primitives": 22,
+      "drawCalls": 7,
+      "materials": 6,
+      "triangles": 3832,
+      "bounds": {
+        "min": [
+          -20.5,
+          0,
+          -32
+        ],
+        "max": [
+          20.5,
+          10.55,
+          -13.721826772229935
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "29400787",
+      "name": "Ghostrick Parade",
+      "primitives": 22,
+      "drawCalls": 7,
+      "materials": 6,
+      "triangles": 3832,
+      "bounds": {
+        "min": [
+          -20.5,
+          0,
+          -32
+        ],
+        "max": [
+          20.5,
+          10.55,
+          -13.721826772229935
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "58012707",
+      "name": "Giant Ballpark",
+      "primitives": 18,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 216,
+      "bounds": {
+        "min": [
+          -19.4,
+          -0.4,
+          -20.5
+        ],
+        "max": [
+          19.4,
+          11.4,
+          8.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "74378580",
+      "name": "GMX Lab #5",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "72283691",
+      "name": "Golden Castle of Stromberg",
+      "primitives": 55,
+      "drawCalls": 8,
+      "materials": 5,
+      "triangles": 756,
+      "bounds": {
+        "min": [
+          -18.4,
+          0,
+          -31.2
+        ],
+        "max": [
+          18.4,
+          15.55,
+          -17.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "85638822",
+      "name": "Gouki Cage Match",
+      "primitives": 18,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 216,
+      "bounds": {
+        "min": [
+          -19.4,
+          -0.4,
+          -20.5
+        ],
+        "max": [
+          19.4,
+          11.4,
+          8.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "38057522",
+      "name": "Grand Spiritual Art - Ichirin",
+      "primitives": 22,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 480,
+      "bounds": {
+        "min": [
+          -7.5,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          7.5,
+          8.275,
+          -22.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "60884672",
+      "name": "Great Sand Sea - Gold Golgonda",
+      "primitives": 20,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 1600,
+      "bounds": {
+        "min": [
+          -34.39216491144996,
+          -2.8964467154319347,
+          -35.55664915465844
+        ],
+        "max": [
+          31.974669183182534,
+          11.417880200687797,
+          4.831920977816727
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "50186558",
+      "name": "Guardragon Shield",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -29.97105254067883,
+          -3.294992923944872,
+          -31.130288712950108
+        ],
+        "max": [
+          25.803971909341765,
+          13.529574662120497,
+          6.826176290119594
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "62200831",
+      "name": "Gunkan Sushipyard Seaside Supper Spot",
+      "primitives": 23,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 5768,
+      "bounds": {
+        "min": [
+          -30.171509654481177,
+          -3.0189986223264866,
+          -24.69517437486314
+        ],
+        "max": [
+          27.514842620664396,
+          6.635558885822844,
+          14
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "75782277",
+      "name": "Harpies' Hunting Ground",
+      "primitives": 20,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 1600,
+      "bounds": {
+        "min": [
+          -34.58545606794159,
+          -2.026173310575831,
+          -34.16090409379697
+        ],
+        "max": [
+          34.10276571152758,
+          11.140622369199992,
+          8.7596069786192
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "17255673",
+      "name": "Heavenly Gate of the Mikanko",
+      "primitives": 22,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 480,
+      "bounds": {
+        "min": [
+          -7.5,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          7.5,
+          8.275,
+          -22.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "3113667",
+      "name": "Heavy Metal Raiders",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "70422863",
+      "name": "Hexatellarknight",
+      "primitives": 42,
+      "drawCalls": 6,
+      "materials": 4,
+      "triangles": 2640,
+      "bounds": {
+        "min": [
+          -24.03937439293211,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          22.218841988576443,
+          15.275,
+          -13.338267525125165
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "94317736",
+      "name": "Hidden Springs of the Far East",
+      "primitives": 22,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 480,
+      "bounds": {
+        "min": [
+          -7.5,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          7.5,
+          8.275,
+          -22.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "26232916",
+      "name": "Hidden Village of Ninjitsu Arts",
+      "primitives": 89,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 6096,
+      "bounds": {
+        "min": [
+          -30.33310389245331,
+          -1.9041129411529232,
+          -24.340015627386773
+        ],
+        "max": [
+          31.947215794212465,
+          13.081524431854486,
+          9.96137767262825
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "37654623",
+      "name": "Hideout in the Sky, Coulomb",
+      "primitives": 42,
+      "drawCalls": 6,
+      "materials": 4,
+      "triangles": 2640,
+      "bounds": {
+        "min": [
+          -24.79039511664878,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          24.75813742181907,
+          15.275,
+          -13.153353260886393
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "7142724",
+      "name": "Icejade Cenote Enion Cradle",
+      "primitives": 20,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 1600,
+      "bounds": {
+        "min": [
+          -35.3679520206135,
+          -2.9744958439348657,
+          -35.117921773716176
+        ],
+        "max": [
+          35.08456382865184,
+          11.836629870254548,
+          9.563747492246653
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "59054773",
+      "name": "Ignister A.I.Land",
+      "primitives": 60,
+      "drawCalls": 8,
+      "materials": 4,
+      "triangles": 7608,
+      "bounds": {
+        "min": [
+          -22.06346153846154,
+          0,
+          -29.130288712950108
+        ],
+        "max": [
+          22.06346153846154,
+          12.399499809741974,
+          3
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "79555535",
+      "name": "Ignition Phoenix",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "13482262",
+      "name": "Impcantation Thanatosis",
+      "primitives": 34,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 516,
+      "bounds": {
+        "min": [
+          -23.061884693709626,
+          -0.028369425206130394,
+          -27.75
+        ],
+        "max": [
+          22.72267119061549,
+          7.759619666339719,
+          4.92168667039834
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "53039326",
+      "name": "Iron Core Specimen Lab",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "14442329",
+      "name": "JJ \"Kewl Tune\"",
+      "primitives": 22,
+      "drawCalls": 7,
+      "materials": 6,
+      "triangles": 3832,
+      "bounds": {
+        "min": [
+          -20.5,
+          0,
+          -32
+        ],
+        "max": [
+          20.5,
+          10.55,
+          -13.721826772229935
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "10080320",
+      "name": "Jurassic World",
+      "primitives": 98,
+      "drawCalls": 10,
+      "materials": 6,
+      "triangles": 5160,
+      "bounds": {
+        "min": [
+          -24.5,
+          -0.34256243857611346,
+          -43
+        ],
+        "max": [
+          24.5,
+          12.924873786500285,
+          9.864239356926316
+        ]
+      },
+      "fidelity": "reference-informed-geometry"
+    },
+    {
+      "cardId": "89948817",
+      "name": "Jurrac Volcano",
+      "primitives": 30,
+      "drawCalls": 6,
+      "materials": 3,
+      "triangles": 6312,
+      "bounds": {
+        "min": [
+          -32.24617989384349,
+          -2.1982356004713215,
+          -35.69999980926514
+        ],
+        "max": [
+          28.739232223429216,
+          10.77800222542137,
+          14
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "22751868",
+      "name": "Karakuri Showdown Castle",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "67237709",
+      "name": "Kozmotown",
+      "primitives": 72,
+      "drawCalls": 7,
+      "materials": 4,
+      "triangles": 4440,
+      "bounds": {
+        "min": [
+          -28.9955662187958,
+          -3.5553906181505917,
+          -35.493786023505514
+        ],
+        "max": [
+          26.278898335948263,
+          22.13981348633402,
+          8.242334865851957
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "56111151",
+      "name": "Kyoutou Waterfront",
+      "primitives": 151,
+      "drawCalls": 7,
+      "materials": 5,
+      "triangles": 6636,
+      "bounds": {
+        "min": [
+          -28.67364664262859,
+          -0.28,
+          -32.275
+        ],
+        "max": [
+          27.426899150607642,
+          18.315871202293785,
+          14
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "33407125",
+      "name": "Labrynth Labyrinth",
+      "primitives": 162,
+      "drawCalls": 7,
+      "materials": 3,
+      "triangles": 10360,
+      "bounds": {
+        "min": [
+          -18.169395446777344,
+          0,
+          -39
+        ],
+        "max": [
+          18.169395446777344,
+          23.068599434057003,
+          -24.09494011883474
+        ]
+      },
+      "fidelity": "reference-informed-geometry"
+    },
+    {
+      "cardId": "34771947",
+      "name": "Labyrinth Wall Shadow",
+      "primitives": 28,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 1728,
+      "bounds": {
+        "min": [
+          -35.407114642130686,
+          -2.699814594588925,
+          -35.20272486773273
+        ],
+        "max": [
+          32.97991917872952,
+          10.554398762248457,
+          4.958567691093531
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "59160188",
+      "name": "Lair of Darkness",
+      "primitives": 44,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 636,
+      "bounds": {
+        "min": [
+          -21.9547981729977,
+          -0.027193260726382285,
+          -27.75
+        ],
+        "max": [
+          23.290257450574263,
+          7.543776620305108,
+          5.616100273216143
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "43034264",
+      "name": "Laser Qlip",
+      "primitives": 36,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 1944,
+      "bounds": {
+        "min": [
+          -21.95,
+          0,
+          -29.130288712950108
+        ],
+        "max": [
+          21.95,
+          12.399499809741974,
+          3
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "34103656",
+      "name": "Lemuria, the Forgotten City",
+      "primitives": 23,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 5768,
+      "bounds": {
+        "min": [
+          -29.721359139677592,
+          -2.6637435137360286,
+          -24.476679330884703
+        ],
+        "max": [
+          26.490864414410034,
+          5.955155039243021,
+          14
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "18890039",
+      "name": "Libromancer First Appearance",
+      "primitives": 111,
+      "drawCalls": 2,
+      "materials": 2,
+      "triangles": 1332,
+      "bounds": {
+        "min": [
+          -31.441403808048925,
+          0,
+          -30.290003027650528
+        ],
+        "max": [
+          25.976994340703822,
+          19.500220992276446,
+          -10.360245756222866
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "73206827",
+      "name": "Light Barrier",
+      "primitives": 42,
+      "drawCalls": 6,
+      "materials": 4,
+      "triangles": 2640,
+      "bounds": {
+        "min": [
+          -23.49829052481125,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          23.948480333613162,
+          15.275,
+          -13.074394178414188
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "35487920",
+      "name": "Live☆Twin Channel",
+      "primitives": 36,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 1944,
+      "bounds": {
+        "min": [
+          -21.95,
+          0,
+          -29.130288712950108
+        ],
+        "max": [
+          21.95,
+          12.399499809741974,
+          3
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "17228908",
+      "name": "Lost World",
+      "primitives": 119,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 6576,
+      "bounds": {
+        "min": [
+          -29.056097053080176,
+          -3.0341450110252137,
+          -28.592854536555823
+        ],
+        "max": [
+          31.522734489666377,
+          12.711840548720211,
+          9.81629599060313
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "81777047",
+      "name": "Luminous Spark",
+      "primitives": 46,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 2208,
+      "bounds": {
+        "min": [
+          -25.85047780282902,
+          1.438979155236833,
+          -25.11900872545518
+        ],
+        "max": [
+          25.85047780282902,
+          21.252137422681592,
+          1.7192832957564685
+        ]
+      },
+      "fidelity": "reference-informed-geometry"
+    },
+    {
+      "cardId": "14001430",
+      "name": "Madolche Chateau",
+      "primitives": 33,
+      "drawCalls": 8,
+      "materials": 4,
+      "triangles": 8520,
+      "bounds": {
+        "min": [
+          -10.970000064373016,
+          0,
+          -32.97000006437302
+        ],
+        "max": [
+          10.970000064373016,
+          9.950000000000001,
+          -27.029999935626982
+        ]
+      },
+      "fidelity": "reference-informed-geometry"
+    },
+    {
+      "cardId": "26534688",
+      "name": "Magellanica, the Deep Sea City",
+      "primitives": 23,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 5768,
+      "bounds": {
+        "min": [
+          -31.091181105772375,
+          -2.6518548090287246,
+          -25.967647758081476
+        ],
+        "max": [
+          30.091227134385797,
+          5.91742079768998,
+          14
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "39910367",
+      "name": "Magical Citadel of Endymion",
+      "primitives": 125,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 3064,
+      "bounds": {
+        "min": [
+          -30.463921737112106,
+          0,
+          -33.2
+        ],
+        "max": [
+          31.634479670226575,
+          22.400000000000002,
+          -6.160255418065935
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "47679935",
+      "name": "Magical Meltdown",
+      "primitives": 56,
+      "drawCalls": 13,
+      "materials": 6,
+      "triangles": 4756,
+      "bounds": {
+        "min": [
+          -26.38589083146759,
+          -2.5306044076378336,
+          -32.5
+        ],
+        "max": [
+          27.93983271599027,
+          12.15677868778484,
+          8.019011063403015
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "71650854",
+      "name": "Magical Mid-Breaker Field",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -30.61730816624774,
+          -2.4290765108005004,
+          -31.130288712950108
+        ],
+        "max": [
+          31.21631608347905,
+          12.899499809741974,
+          5.868000859760498
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "95477924",
+      "name": "Magician's Salvation",
+      "primitives": 39,
+      "drawCalls": 7,
+      "materials": 4,
+      "triangles": 3744,
+      "bounds": {
+        "min": [
+          -16.3,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          16.3,
+          8.275,
+          -21.80703832074794
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "35815783",
+      "name": "Magikey World",
+      "primitives": 104,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 1296,
+      "bounds": {
+        "min": [
+          -29.74995445096865,
+          0,
+          -30.464628800284117
+        ],
+        "max": [
+          27.86812949506566,
+          19.108920142613353,
+          -7.578894929494709
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "4740489",
+      "name": "Magnetic Field",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "76473843",
+      "name": "Majesty's Pegasus",
+      "primitives": 89,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 6096,
+      "bounds": {
+        "min": [
+          -30.703812798955152,
+          -2.4089092245432195,
+          -26.66249882269001
+        ],
+        "max": [
+          31.80640288372576,
+          12.615331479273737,
+          8.87490417175751
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "27564031",
+      "name": "Malefic World",
+      "primitives": 107,
+      "drawCalls": 2,
+      "materials": 2,
+      "triangles": 1284,
+      "bounds": {
+        "min": [
+          -30.695091156940908,
+          0,
+          -30.340663903346286
+        ],
+        "max": [
+          31.277343926625328,
+          19.246293212426828,
+          -8.973101832112297
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "68337209",
+      "name": "Maliss in Underground",
+      "primitives": 36,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 1944,
+      "bounds": {
+        "min": [
+          -21.95,
+          0,
+          -29.130288712950108
+        ],
+        "max": [
+          21.95,
+          12.399499809741974,
+          3
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "36890111",
+      "name": "Mansion of the Dreadful Dolls",
+      "primitives": 43,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 532,
+      "bounds": {
+        "min": [
+          -18.4,
+          0,
+          -31.2
+        ],
+        "max": [
+          18.4,
+          13.4,
+          -22.6
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "91027843",
+      "name": "Marincess Battle Ocean",
+      "primitives": 23,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 5768,
+      "bounds": {
+        "min": [
+          -26.05664360090739,
+          -3.269101164101651,
+          -24.44588211978025
+        ],
+        "max": [
+          30.24917981539295,
+          6.625373586048866,
+          14
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "66059345",
+      "name": "Materiactor Meltthrough",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -27.634802666952407,
+          -2.758530237735403,
+          -31.130288712950108
+        ],
+        "max": [
+          30.3897514865265,
+          12.899499809741974,
+          6.571034684425816
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "80921533",
+      "name": "Mausoleum of the Emperor",
+      "primitives": 25,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 516,
+      "bounds": {
+        "min": [
+          -7.5,
+          -0.15,
+          -33
+        ],
+        "max": [
+          7.5,
+          8.8,
+          -22.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "24382602",
+      "name": "Mausoleum of White",
+      "primitives": 25,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 516,
+      "bounds": {
+        "min": [
+          -7.5,
+          -0.15,
+          -33
+        ],
+        "max": [
+          7.5,
+          8.8,
+          -22.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "84504242",
+      "name": "Megalith Portal",
+      "primitives": 22,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 480,
+      "bounds": {
+        "min": [
+          -7.5,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          7.5,
+          8.275,
+          -22.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "44139064",
+      "name": "Megaroid City",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "67328336",
+      "name": "Meklord Fortress",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "43338320",
+      "name": "Mementomictlan",
+      "primitives": 22,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 372,
+      "bounds": {
+        "min": [
+          -22.075637658083153,
+          -0.03086304710848997,
+          -27.75
+        ],
+        "max": [
+          18.813576153166903,
+          6.275,
+          4.199590169731527
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "46500985",
+      "name": "Metamorformation",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "20720928",
+      "name": "Metaphys Factor",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -30.394238197541952,
+          -2.5536447649501546,
+          -31.130288712950108
+        ],
+        "max": [
+          28.059778818993514,
+          13.473336067621727,
+          4.260536698328394
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "86809440",
+      "name": "Mimighoul Dungeon",
+      "primitives": 28,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 1728,
+      "bounds": {
+        "min": [
+          -34.600741178174566,
+          -2.4043904897020316,
+          -34.10539892091271
+        ],
+        "max": [
+          33.55607156288067,
+          10.81010865662247,
+          7.705393475324248
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "19384334",
+      "name": "Molten Destruction",
+      "primitives": 180,
+      "drawCalls": 6,
+      "materials": 4,
+      "triangles": 12704,
+      "bounds": {
+        "min": [
+          -19.311019541127138,
+          -1.866713459195756,
+          -43.083343505859375
+        ],
+        "max": [
+          18.9738114693435,
+          18.00387806817376,
+          -10.392442816762735
+        ]
+      },
+      "fidelity": "reference-informed-geometry"
+    },
+    {
+      "cardId": "56074358",
+      "name": "Morphtronic Map",
+      "primitives": 36,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 1944,
+      "bounds": {
+        "min": [
+          -21.95,
+          0,
+          -29.130288712950108
+        ],
+        "max": [
+          21.95,
+          12.399499809741974,
+          3
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "269012",
+      "name": "Mound of the Bound Creator",
+      "primitives": 22,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 480,
+      "bounds": {
+        "min": [
+          -7.5,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          7.5,
+          8.275,
+          -22.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "70222318",
+      "name": "Mount Sylvania",
+      "primitives": 89,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 6096,
+      "bounds": {
+        "min": [
+          -29.077376936806857,
+          -2.2621993473231385,
+          -26.417343378824473
+        ],
+        "max": [
+          32.2952402946011,
+          12.70880877794698,
+          13.404524462396417
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "50913601",
+      "name": "Mountain",
+      "primitives": 110,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 11200,
+      "bounds": {
+        "min": [
+          -25.374237060546875,
+          -0.29815901224120345,
+          -41.10283660888672
+        ],
+        "max": [
+          22.28,
+          17,
+          -19.32
+        ]
+      },
+      "fidelity": "reference-informed-geometry"
+    },
+    {
+      "cardId": "885016",
+      "name": "Multi-Universe",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -24.730950151746438,
+          -2.0476667838649254,
+          -31.130288712950108
+        ],
+        "max": [
+          27.88153356477034,
+          12.899499809741974,
+          7.270474210875938
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "76375976",
+      "name": "Mystic Mine",
+      "primitives": 34,
+      "drawCalls": 6,
+      "materials": 5,
+      "triangles": 1800,
+      "bounds": {
+        "min": [
+          -33.18235115841922,
+          -1.9474635576376227,
+          -34.9155505514894
+        ],
+        "max": [
+          35.63934646534001,
+          10.833953127730638,
+          5.092115213043066
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "18161786",
+      "name": "Mystic Plasma Zone",
+      "primitives": 71,
+      "drawCalls": 11,
+      "materials": 5,
+      "triangles": 12268,
+      "bounds": {
+        "min": [
+          -17.00932327369774,
+          -1.0504746245600174,
+          -36.07887268066406
+        ],
+        "max": [
+          27.29726082391742,
+          24.604623794555664,
+          8.5
+        ]
+      },
+      "fidelity": "reference-informed-geometry"
+    },
+    {
+      "cardId": "34572613",
+      "name": "Myutant Evolution Lab",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "37322745",
+      "name": "Naturia Forest",
+      "primitives": 89,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 6096,
+      "bounds": {
+        "min": [
+          -31.360167817216077,
+          -1.820532444097449,
+          -25.997424609217042
+        ],
+        "max": [
+          29.251956892118734,
+          13.01366593239829,
+          13.691416100397838
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "47355498",
+      "name": "Necrovalley",
+      "primitives": 27,
+      "drawCalls": 3,
+      "materials": 1,
+      "triangles": 460,
+      "bounds": {
+        "min": [
+          -24.727922061357855,
+          -0.03270939680372398,
+          -44.72792206135786
+        ],
+        "max": [
+          24.727922061357855,
+          8,
+          4.432504339283332
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "42015635",
+      "name": "Neo Space",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -31.49157146515261,
+          -2.143196700966389,
+          -31.130288712950108
+        ],
+        "max": [
+          29.270195906450382,
+          13.562363640753503,
+          -1.2860909923264505
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "56787189",
+      "name": "New Frontier",
+      "primitives": 32,
+      "drawCalls": 2,
+      "materials": 2,
+      "triangles": 2560,
+      "bounds": {
+        "min": [
+          -32.802209295187886,
+          -5.283172770322823,
+          -28.740483117721478
+        ],
+        "max": [
+          34.11504533553184,
+          6.855116288865508,
+          6.743970299932849
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "62314831",
+      "name": "New World - Amritara",
+      "primitives": 42,
+      "drawCalls": 6,
+      "materials": 4,
+      "triangles": 2640,
+      "bounds": {
+        "min": [
+          -25.071407547684707,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          25.09814044275202,
+          15.275,
+          -13.224046390836955
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "93729896",
+      "name": "Nightmare Throne",
+      "primitives": 34,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 516,
+      "bounds": {
+        "min": [
+          -21.287229841686248,
+          -0.02677474683454717,
+          -27.75
+        ],
+        "max": [
+          21.604881811185756,
+          7.821607602525866,
+          6.214582664780319
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "25807544",
+      "name": "Noble Arms Museum",
+      "primitives": 43,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 532,
+      "bounds": {
+        "min": [
+          -18.4,
+          0,
+          -31.2
+        ],
+        "max": [
+          18.4,
+          13.4,
+          -22.6
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "55742055",
+      "name": "Noble Knights of the Round Table",
+      "primitives": 43,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 532,
+      "bounds": {
+        "min": [
+          -18.4,
+          0,
+          -31.2
+        ],
+        "max": [
+          18.4,
+          13.4,
+          -22.6
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "15388353",
+      "name": "Nouvelles Restaurant \"At Table\"",
+      "primitives": 22,
+      "drawCalls": 7,
+      "materials": 6,
+      "triangles": 3832,
+      "bounds": {
+        "min": [
+          -20.5,
+          0,
+          -32
+        ],
+        "max": [
+          20.5,
+          10.55,
+          -13.721826772229935
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "41418852",
+      "name": "Numeron Network",
+      "primitives": 59,
+      "drawCalls": 8,
+      "materials": 5,
+      "triangles": 5352,
+      "bounds": {
+        "min": [
+          -21.95,
+          0,
+          -29.130288712950108
+        ],
+        "max": [
+          21.95,
+          12.399499809741974,
+          3
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "3055018",
+      "name": "Obsidim, the Ashened City",
+      "primitives": 103,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 1284,
+      "bounds": {
+        "min": [
+          -29.812852608598767,
+          0,
+          -33.639945993665606
+        ],
+        "max": [
+          27.156923000514507,
+          18.631330348644408,
+          -6.661576902959496
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "60448701",
+      "name": "Ogdoadic Origin",
+      "primitives": 93,
+      "drawCalls": 6,
+      "materials": 4,
+      "triangles": 9768,
+      "bounds": {
+        "min": [
+          -28.541463709139705,
+          -1.8984848105438452,
+          -25.490468497901656
+        ],
+        "max": [
+          29.264570369454542,
+          9.887617070192936,
+          14
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "90011152",
+      "name": "Ojama Country",
+      "primitives": 51,
+      "drawCalls": 6,
+      "materials": 5,
+      "triangles": 1108,
+      "bounds": {
+        "min": [
+          -19.454194699163974,
+          -0.5856341285576719,
+          -31.2
+        ],
+        "max": [
+          19.6333143794834,
+          11.4,
+          5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "26493435",
+      "name": "Onomatopia",
+      "primitives": 51,
+      "drawCalls": 6,
+      "materials": 5,
+      "triangles": 1108,
+      "bounds": {
+        "min": [
+          -19.75958795785013,
+          -0.5856341285576719,
+          -31.2
+        ],
+        "max": [
+          19.481223942488338,
+          11.4,
+          5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "32354768",
+      "name": "Oracle of Zefra",
+      "primitives": 42,
+      "drawCalls": 6,
+      "materials": 4,
+      "triangles": 2640,
+      "bounds": {
+        "min": [
+          -23.83904041587192,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          25.01018120183204,
+          15.275,
+          -13.11710351531151
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "90351981",
+      "name": "Orcustrated Babel",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "60946968",
+      "name": "Otherworld - The \"A\" Zone",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -28.168731768273055,
+          -2.380981096771353,
+          -31.130288712950108
+        ],
+        "max": [
+          29.098445714715037,
+          13.695269160377283,
+          7.06178523163798
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "49370016",
+      "name": "P.U.N.K. JAM Extreme Session",
+      "primitives": 22,
+      "drawCalls": 7,
+      "materials": 6,
+      "triangles": 3832,
+      "bounds": {
+        "min": [
+          -20.5,
+          0,
+          -32
+        ],
+        "max": [
+          20.5,
+          10.55,
+          -13.721826772229935
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "2819435",
+      "name": "Pacifis, the Phantasm City",
+      "primitives": 23,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 5768,
+      "bounds": {
+        "min": [
+          -26.925246706006433,
+          -2.628814736321963,
+          -24.40956064670134
+        ],
+        "max": [
+          25.024573859706056,
+          6.097370337805639,
+          14
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "61557074",
+      "name": "Palace of the Elemental Lords",
+      "primitives": 43,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 532,
+      "bounds": {
+        "min": [
+          -18.4,
+          0,
+          -31.2
+        ],
+        "max": [
+          18.4,
+          13.4,
+          -22.6
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "94585852",
+      "name": "Pandemonium",
+      "primitives": 45,
+      "drawCalls": 7,
+      "materials": 5,
+      "triangles": 736,
+      "bounds": {
+        "min": [
+          -22.673819911549625,
+          -0.028526510323247045,
+          -33
+        ],
+        "max": [
+          22.864632839215357,
+          11.58903550892189,
+          3.469469357402995
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "82460246",
+      "name": "Peaceful Planet Calarium",
+      "primitives": 42,
+      "drawCalls": 6,
+      "materials": 4,
+      "triangles": 2640,
+      "bounds": {
+        "min": [
+          -23.89381143410458,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          24.50273677580611,
+          15.275,
+          -13.077353347346442
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "13764602",
+      "name": "Perfect Sync - A-Un",
+      "primitives": 22,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 480,
+      "bounds": {
+        "min": [
+          -7.5,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          7.5,
+          8.275,
+          -22.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "55553602",
+      "name": "Performapal Dramatic Theater",
+      "primitives": 22,
+      "drawCalls": 7,
+      "materials": 6,
+      "triangles": 3832,
+      "bounds": {
+        "min": [
+          -20.5,
+          0,
+          -32
+        ],
+        "max": [
+          20.5,
+          10.55,
+          -13.721826772229935
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "93031067",
+      "name": "Plunder Patroll Shipyarrrd",
+      "primitives": 23,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 5768,
+      "bounds": {
+        "min": [
+          -27.63698265871689,
+          -2.377968486399297,
+          -24
+        ],
+        "max": [
+          23.5,
+          5.534749173872533,
+          14
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "51669847",
+      "name": "Plundered Power Patron Plane - Vidolia",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -29.898504014412044,
+          -3.1895408295607672,
+          -31.130288712950108
+        ],
+        "max": [
+          30.12114241124201,
+          12.899499809741974,
+          4.9144075092822535
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "16269385",
+      "name": "Prank-Kids Place",
+      "primitives": 22,
+      "drawCalls": 7,
+      "materials": 6,
+      "triangles": 3832,
+      "bounds": {
+        "min": [
+          -20.5,
+          0,
+          -32
+        ],
+        "max": [
+          20.5,
+          10.55,
+          -13.721826772229935
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "71832012",
+      "name": "Pressured Planet Wraitsoth",
+      "primitives": 40,
+      "drawCalls": 6,
+      "materials": 5,
+      "triangles": 7288,
+      "bounds": {
+        "min": [
+          -34.97386863597592,
+          -2.513415639638574,
+          -40
+        ],
+        "max": [
+          32.98227592228097,
+          22.43148007913765,
+          5.227672509044246
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "77103950",
+      "name": "Primeval Planet Perlereino",
+      "primitives": 40,
+      "drawCalls": 10,
+      "materials": 6,
+      "triangles": 8744,
+      "bounds": {
+        "min": [
+          -28.98354593054788,
+          -2.3375525830569335,
+          -34.824
+        ],
+        "max": [
+          27.38660181696034,
+          7.480000090599059,
+          14
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "56063182",
+      "name": "Primitive Planet Reichphobia",
+      "primitives": 20,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 1600,
+      "bounds": {
+        "min": [
+          -34.71829720770515,
+          -2.322088355854946,
+          -36.54993524466245
+        ],
+        "max": [
+          33.3681085074085,
+          11.182792241405696,
+          4.412951581522194
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "77584012",
+      "name": "Pseudo Space",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -28.800818338724085,
+          -2.234831001095332,
+          -31.130288712950108
+        ],
+        "max": [
+          29.71036859167774,
+          12.899499809741974,
+          6.239067391864662
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "575512",
+      "name": "PSY-Frame Circuit",
+      "primitives": 36,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 1944,
+      "bounds": {
+        "min": [
+          -21.95,
+          0,
+          -29.130288712950108
+        ],
+        "max": [
+          21.95,
+          12.399499809741974,
+          3
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "78710386",
+      "name": "R.B. Funk Dock",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "79698395",
+      "name": "Realm of Danger!",
+      "primitives": 89,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 6096,
+      "bounds": {
+        "min": [
+          -31.013143876159617,
+          -2.5758220400555554,
+          -27.394969410786324
+        ],
+        "max": [
+          30.213162475501868,
+          12.627379962839186,
+          11.983281051109714
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "36099620",
+      "name": "Realm of Light",
+      "primitives": 42,
+      "drawCalls": 6,
+      "materials": 4,
+      "triangles": 2640,
+      "bounds": {
+        "min": [
+          -24.85873992099262,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          25.051330117560646,
+          15.275,
+          -13.505841018436133
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "17000165",
+      "name": "Reptilianne Recoil",
+      "primitives": 93,
+      "drawCalls": 6,
+      "materials": 4,
+      "triangles": 9768,
+      "bounds": {
+        "min": [
+          -29.362348983049674,
+          -3.2605667672658707,
+          -28.92751065018961
+        ],
+        "max": [
+          27.204597007842803,
+          9.861822773027233,
+          14
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "63899465",
+      "name": "Rescue-ACE HQ",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "76136345",
+      "name": "Revolving Switchyard",
+      "primitives": 68,
+      "drawCalls": 7,
+      "materials": 4,
+      "triangles": 2248,
+      "bounds": {
+        "min": [
+          -19,
+          -0.0050000000000000044,
+          -36
+        ],
+        "max": [
+          19,
+          9.5,
+          9.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "76869711",
+      "name": "Rikka Konkon",
+      "primitives": 89,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 6096,
+      "bounds": {
+        "min": [
+          -31.53411279404012,
+          -3.226565116737335,
+          -27.268037305070667
+        ],
+        "max": [
+          29.547662476612842,
+          13.11210607258603,
+          11.587707170201618
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "45778932",
+      "name": "Rising Air Current",
+      "primitives": 54,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 4000,
+      "bounds": {
+        "min": [
+          -23.021637375850947,
+          4.968564881634283,
+          -35.52
+        ],
+        "max": [
+          23.021637375850947,
+          23.249692994189886,
+          1.4000000000000001
+        ]
+      },
+      "fidelity": "reference-informed-geometry"
+    },
+    {
+      "cardId": "95658967",
+      "name": "Ritual Sanctuary",
+      "primitives": 38,
+      "drawCalls": 8,
+      "materials": 4,
+      "triangles": 1944,
+      "bounds": {
+        "min": [
+          -7.5,
+          -0.15,
+          -33.08993464005752
+        ],
+        "max": [
+          7.5,
+          12,
+          -22.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "92107604",
+      "name": "Runick Fountain",
+      "primitives": 136,
+      "drawCalls": 8,
+      "materials": 5,
+      "triangles": 5248,
+      "bounds": {
+        "min": [
+          -30.506084402324632,
+          0,
+          -32.92549838908017
+        ],
+        "max": [
+          32.02444887966849,
+          19.223964471230286,
+          -9.182356959581375
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "55276522",
+      "name": "Ryu-Ge War Zone",
+      "primitives": 18,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 216,
+      "bounds": {
+        "min": [
+          -19.4,
+          -0.4,
+          -20.5
+        ],
+        "max": [
+          19.4,
+          11.4,
+          8.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "6798031",
+      "name": "Ryzeal Cross",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "23377425",
+      "name": "S-Force Bridgehead",
+      "primitives": 36,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 1944,
+      "bounds": {
+        "min": [
+          -21.95,
+          0,
+          -29.130288712950108
+        ],
+        "max": [
+          21.95,
+          12.399499809741974,
+          3
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "73787254",
+      "name": "Saber Vault",
+      "primitives": 20,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 1600,
+      "bounds": {
+        "min": [
+          -33.90720901513905,
+          -2.6919176654961086,
+          -34.631234890315504
+        ],
+        "max": [
+          35.456545163899534,
+          11.261398914456368,
+          5.005338201881616
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "24793135",
+      "name": "Sacred Scrolls of the Gizmek Legend",
+      "primitives": 22,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 480,
+      "bounds": {
+        "min": [
+          -7.5,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          7.5,
+          8.275,
+          -22.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "1295111",
+      "name": "Salamangreat Sanctuary",
+      "primitives": 36,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 1944,
+      "bounds": {
+        "min": [
+          -21.95,
+          0,
+          -29.130288712950108
+        ],
+        "max": [
+          21.95,
+          12.399499809741974,
+          3
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "30336082",
+      "name": "Sangen Summoning",
+      "primitives": 30,
+      "drawCalls": 6,
+      "materials": 3,
+      "triangles": 6312,
+      "bounds": {
+        "min": [
+          -35.572568732865754,
+          -2.513066996690843,
+          -35.69999980926514
+        ],
+        "max": [
+          31.77213738751732,
+          11.7401871743612,
+          14
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "1127737",
+      "name": "Sargasso the D.D. Battlefield",
+      "primitives": 29,
+      "drawCalls": 6,
+      "materials": 5,
+      "triangles": 4440,
+      "bounds": {
+        "min": [
+          -28.304829487103156,
+          -2.98497535389035,
+          -31.43623022748661
+        ],
+        "max": [
+          30.59048724788148,
+          12.51903335261454,
+          6.410536341110007
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "32391631",
+      "name": "Savage Colosseum",
+      "primitives": 18,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 216,
+      "bounds": {
+        "min": [
+          -19.4,
+          -0.4,
+          -20.5
+        ],
+        "max": [
+          19.4,
+          11.4,
+          8.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "28388296",
+      "name": "Scrap Factory",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "68462976",
+      "name": "Secret Village of the Spellcasters",
+      "primitives": 118,
+      "drawCalls": 7,
+      "materials": 5,
+      "triangles": 7332,
+      "bounds": {
+        "min": [
+          -31.31665550111594,
+          -2.2327381198324825,
+          -29.75
+        ],
+        "max": [
+          30.235528560011655,
+          11.794272919539361,
+          14.189599841853926
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "39513225",
+      "name": "Seventh Barian's",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -28.07689985294861,
+          -2.1439023924052347,
+          -31.130288712950108
+        ],
+        "max": [
+          27.08266863316902,
+          12.94070538313036,
+          3.872313300164617
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "11102908",
+      "name": "Shien's Castle of Mist",
+      "primitives": 43,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 532,
+      "bounds": {
+        "min": [
+          -18.4,
+          0,
+          -31.2
+        ],
+        "max": [
+          18.4,
+          13.4,
+          -22.6
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "40005099",
+      "name": "Shiranui Style Synthesis",
+      "primitives": 22,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 372,
+      "bounds": {
+        "min": [
+          -22.83663554266246,
+          -0.032152451364680146,
+          -27.75
+        ],
+        "max": [
+          23.41488247037538,
+          6.275,
+          5.96382785369642
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "4215636",
+      "name": "Shrine of Mist Valley",
+      "primitives": 22,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 480,
+      "bounds": {
+        "min": [
+          -7.5,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          7.5,
+          8.275,
+          -22.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "27813661",
+      "name": "Sky Iris",
+      "primitives": 42,
+      "drawCalls": 6,
+      "materials": 4,
+      "triangles": 2640,
+      "bounds": {
+        "min": [
+          -24.175369371145347,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          23.74285802033129,
+          15.275,
+          -13.004012933802336
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "50005218",
+      "name": "Sky Striker Airspace - Area Zero",
+      "primitives": 53,
+      "drawCalls": 5,
+      "materials": 3,
+      "triangles": 2652,
+      "bounds": {
+        "min": [
+          -22.89379611031342,
+          0,
+          -28.5
+        ],
+        "max": [
+          22.89379611031342,
+          15.36842123770289,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "63035430",
+      "name": "Skyscraper",
+      "primitives": 118,
+      "drawCalls": 7,
+      "materials": 6,
+      "triangles": 1944,
+      "bounds": {
+        "min": [
+          -20.2,
+          0,
+          -40.75
+        ],
+        "max": [
+          20.2,
+          31,
+          9.65
+        ]
+      },
+      "fidelity": "reference-informed-geometry"
+    },
+    {
+      "cardId": "47596607",
+      "name": "Skyscraper 2 - Hero City",
+      "primitives": 117,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 1404,
+      "bounds": {
+        "min": [
+          -28.93528362608049,
+          0,
+          -35.6
+        ],
+        "max": [
+          31.145484364195728,
+          22.225,
+          -7.1013444519368925
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "47870325",
+      "name": "Smile Action",
+      "primitives": 22,
+      "drawCalls": 7,
+      "materials": 6,
+      "triangles": 3832,
+      "bounds": {
+        "min": [
+          -20.5,
+          0,
+          -32
+        ],
+        "max": [
+          20.5,
+          10.55,
+          -13.721826772229935
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "86318356",
+      "name": "Sogen",
+      "primitives": 44,
+      "drawCalls": 4,
+      "materials": 4,
+      "triangles": 660,
+      "bounds": {
+        "min": [
+          -21.3,
+          -0.175,
+          -37.4
+        ],
+        "max": [
+          21.3,
+          4.6,
+          9.65
+        ]
+      },
+      "fidelity": "reference-informed-geometry"
+    },
+    {
+      "cardId": "29650040",
+      "name": "Solfachord Harmonia",
+      "primitives": 22,
+      "drawCalls": 7,
+      "materials": 6,
+      "triangles": 3832,
+      "bounds": {
+        "min": [
+          -20.5,
+          0,
+          -32
+        ],
+        "max": [
+          20.5,
+          10.55,
+          -13.721826772229935
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "81231742",
+      "name": "Sorcerous Spell Wall",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -26.567927975806082,
+          -2.3371151620541117,
+          -31.130288712950108
+        ],
+        "max": [
+          29.672263338163795,
+          12.899499809741974,
+          1.381015223678693
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "6909330",
+      "name": "Soul Binding Gate",
+      "primitives": 34,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 516,
+      "bounds": {
+        "min": [
+          -22.44552948463371,
+          -0.026948609118917943,
+          -27.75
+        ],
+        "max": [
+          23.68381599035454,
+          7.871401053196606,
+          5.9251110424567015
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "69408987",
+      "name": "Spider Web",
+      "primitives": 93,
+      "drawCalls": 6,
+      "materials": 4,
+      "triangles": 9768,
+      "bounds": {
+        "min": [
+          -28.719038814426725,
+          -2.765054632807384,
+          -26.624923102315673
+        ],
+        "max": [
+          27.877302803510077,
+          9.071423012262676,
+          14
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "60600821",
+      "name": "Spring",
+      "primitives": 32,
+      "drawCalls": 2,
+      "materials": 2,
+      "triangles": 2560,
+      "bounds": {
+        "min": [
+          -33.869744220014894,
+          -5.580246395008766,
+          -30.974212374609387
+        ],
+        "max": [
+          33.93680720404035,
+          8.227643802385904,
+          10.116477691608086
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "54631665",
+      "name": "SPYRAL Resort",
+      "primitives": 96,
+      "drawCalls": 2,
+      "materials": 2,
+      "triangles": 1152,
+      "bounds": {
+        "min": [
+          -31.627571712294593,
+          0,
+          -33.61733714248985
+        ],
+        "max": [
+          27.29193356866017,
+          18.59207014939748,
+          -9.6597821009811
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "22555834",
+      "name": "Stairway to a Fabled Realm",
+      "primitives": 42,
+      "drawCalls": 6,
+      "materials": 4,
+      "triangles": 2640,
+      "bounds": {
+        "min": [
+          -24.700993958532305,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          24.717865308761258,
+          15.275,
+          -13.112713372729191
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "41371602",
+      "name": "Stand Up Centur-Ion!",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "1003840",
+      "name": "Starlight Junktion",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -28.531332211949174,
+          -2.482754356874205,
+          -31.130288712950108
+        ],
+        "max": [
+          30.959493057736683,
+          13.331627971960039,
+          7.804952593400386
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "58406094",
+      "name": "Starry Knight Sky",
+      "primitives": 42,
+      "drawCalls": 6,
+      "materials": 4,
+      "triangles": 2640,
+      "bounds": {
+        "min": [
+          -23.841172208124494,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          23.996299695028693,
+          15.275,
+          -14.904732722639494
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "15306543",
+      "name": "Stars Align Above the Shrine",
+      "primitives": 22,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 480,
+      "bounds": {
+        "min": [
+          -7.5,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          7.5,
+          8.275,
+          -22.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "20212491",
+      "name": "Stray Purrely Street",
+      "primitives": 51,
+      "drawCalls": 6,
+      "materials": 5,
+      "triangles": 1108,
+      "bounds": {
+        "min": [
+          -19.56976090523859,
+          -0.5856341285576719,
+          -31.2
+        ],
+        "max": [
+          19.454194699163974,
+          11.4,
+          5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "97254001",
+      "name": "Summer",
+      "primitives": 32,
+      "drawCalls": 2,
+      "materials": 2,
+      "triangles": 2560,
+      "bounds": {
+        "min": [
+          -32.54559893525318,
+          -6.322324851892892,
+          -31.484343144695355
+        ],
+        "max": [
+          34.03394666503247,
+          8.39623978269939,
+          6.4
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "18114794",
+      "name": "Summon Breaker",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -29.4823752766626,
+          -2.6170078852373932,
+          -31.130288712950108
+        ],
+        "max": [
+          27.970987953791646,
+          13.321881122391508,
+          5.58739517625447
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "48015771",
+      "name": "Summon Over",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -31.199253979541364,
+          -2.212172511621153,
+          -31.130288712950108
+        ],
+        "max": [
+          29.106488111591197,
+          12.899499809741974,
+          6.136559000302858
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "10424147",
+      "name": "Super Quantal Mech Ship Magnacarrier",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "72043279",
+      "name": "Supreme King's Castle",
+      "primitives": 43,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 532,
+      "bounds": {
+        "min": [
+          -18.4,
+          0,
+          -31.2
+        ],
+        "max": [
+          18.4,
+          13.4,
+          -22.6
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "75304793",
+      "name": "Symph Amplifire",
+      "primitives": 22,
+      "drawCalls": 7,
+      "materials": 6,
+      "triangles": 3832,
+      "bounds": {
+        "min": [
+          -20.5,
+          0,
+          -32
+        ],
+        "max": [
+          20.5,
+          10.55,
+          -13.721826772229935
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "36742774",
+      "name": "Synchro World",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -27.959937223785012,
+          -2.5583294366166185,
+          -31.130288712950108
+        ],
+        "max": [
+          26.792987760353984,
+          13.090785302997775,
+          0.9222570947218234
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "34225426",
+      "name": "Tearlaments Perlegia",
+      "primitives": 23,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 5768,
+      "bounds": {
+        "min": [
+          -30.648879277595427,
+          -2.9622966345729185,
+          -26.030170599224906
+        ],
+        "max": [
+          27.54098082350987,
+          6.06474528421451,
+          14
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "92481084",
+      "name": "Temple of the Mind's Eye",
+      "primitives": 22,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 480,
+      "bounds": {
+        "min": [
+          -7.5,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          7.5,
+          8.275,
+          -22.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "53819808",
+      "name": "Temple of the Six",
+      "primitives": 22,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 480,
+      "bounds": {
+        "min": [
+          -7.5,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          7.5,
+          8.275,
+          -22.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "9597987",
+      "name": "Tenchi Kaimei",
+      "primitives": 22,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 480,
+      "bounds": {
+        "min": [
+          -7.5,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          7.5,
+          8.275,
+          -22.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "77946022",
+      "name": "Tenyinfinity",
+      "primitives": 42,
+      "drawCalls": 6,
+      "materials": 4,
+      "triangles": 2640,
+      "bounds": {
+        "min": [
+          -25.19879217926068,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          24.693121601543,
+          15.275,
+          -13.462660256390308
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "33017655",
+      "name": "The Gates of Dark World",
+      "primitives": 34,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 516,
+      "bounds": {
+        "min": [
+          -22.39940330636413,
+          -0.02886685341585382,
+          -27.75
+        ],
+        "max": [
+          20.431535457832414,
+          7.544255111048089,
+          3.8971768218372014
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "33981008",
+      "name": "The Grand Spellbook Tower",
+      "primitives": 115,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 1428,
+      "bounds": {
+        "min": [
+          -26.73838678197935,
+          0,
+          -31.93396721696481
+        ],
+        "max": [
+          29.684506763052195,
+          18.710249948874118,
+          -6.43479820145294
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "5697558",
+      "name": "The Hidden City",
+      "primitives": 28,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 1728,
+      "bounds": {
+        "min": [
+          -35.037268336936606,
+          -2.980663912494284,
+          -33.4695712955989
+        ],
+        "max": [
+          34.739857651934514,
+          10.930690497066827,
+          5.389472209933887
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "8794055",
+      "name": "The Most Distant, Deepest Depths",
+      "primitives": 23,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 5768,
+      "bounds": {
+        "min": [
+          -29.532892693620337,
+          -2.8139963291467356,
+          -24
+        ],
+        "max": [
+          23.5,
+          5.899910270115193,
+          14
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "50433147",
+      "name": "The Nordic Lights",
+      "primitives": 42,
+      "drawCalls": 6,
+      "materials": 4,
+      "triangles": 2640,
+      "bounds": {
+        "min": [
+          -24.04691215383874,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          25.168149876177626,
+          15.275,
+          -12.91934112357452
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "56433456",
+      "name": "The Sanctuary in the Sky",
+      "primitives": 64,
+      "drawCalls": 12,
+      "materials": 5,
+      "triangles": 3628,
+      "bounds": {
+        "min": [
+          -25.04,
+          -6.789677646512789,
+          -41
+        ],
+        "max": [
+          25.04,
+          15.25,
+          -19.45
+        ]
+      },
+      "fidelity": "reference-informed-geometry"
+    },
+    {
+      "cardId": "48179391",
+      "name": "The Seal of Orichalcos",
+      "primitives": 12,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 4896,
+      "bounds": {
+        "min": [
+          -21.864499843120576,
+          0.06550022363662666,
+          -31.055
+        ],
+        "max": [
+          21.864499843120576,
+          13.934499776363374,
+          -6.1355001568794245
+        ]
+      },
+      "fidelity": "reference-informed-geometry"
+    },
+    {
+      "cardId": "18720257",
+      "name": "The Weather Forecast",
+      "primitives": 42,
+      "drawCalls": 6,
+      "materials": 4,
+      "triangles": 2640,
+      "bounds": {
+        "min": [
+          -23.676002689431495,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          22.540933964190202,
+          15.275,
+          -12.49622033342388
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "84792926",
+      "name": "Therion Discolosseum",
+      "primitives": 18,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 216,
+      "bounds": {
+        "min": [
+          -19.4,
+          -0.4,
+          -20.5
+        ],
+        "max": [
+          19.4,
+          11.4,
+          8.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "20216608",
+      "name": "Tilted Try",
+      "primitives": 18,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 216,
+      "bounds": {
+        "min": [
+          -19.4,
+          -0.4,
+          -20.5
+        ],
+        "max": [
+          19.4,
+          11.4,
+          8.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "43175858",
+      "name": "Toon Kingdom",
+      "primitives": 56,
+      "drawCalls": 9,
+      "materials": 6,
+      "triangles": 1312,
+      "bounds": {
+        "min": [
+          -19.473538993715106,
+          -0.5856341285576719,
+          -37
+        ],
+        "max": [
+          19.723510770209934,
+          13.399999999999999,
+          5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "7293697",
+      "name": "Toon World the Perfect World",
+      "primitives": 51,
+      "drawCalls": 6,
+      "materials": 5,
+      "triangles": 1108,
+      "bounds": {
+        "min": [
+          -19.624105971670094,
+          -0.5856341285576719,
+          -31.2
+        ],
+        "max": [
+          19.677390746440743,
+          11.4,
+          5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "12801833",
+      "name": "Traptrip Garden",
+      "primitives": 89,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 6096,
+      "bounds": {
+        "min": [
+          -28.772613080667703,
+          -1.6352912793631211,
+          -26.873869535934052
+        ],
+        "max": [
+          29.66064366899968,
+          12.687857460603118,
+          8.437984110274266
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "69299029",
+      "name": "Treasures of the Kings",
+      "primitives": 22,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 480,
+      "bounds": {
+        "min": [
+          -7.5,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          7.5,
+          8.275,
+          -22.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "45383307",
+      "name": "Triamid Cruiser",
+      "primitives": 20,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 1600,
+      "bounds": {
+        "min": [
+          -35.212429263284754,
+          -2.241094537825568,
+          -34.88672989225889
+        ],
+        "max": [
+          35.75935167035923,
+          9.62432024627924,
+          5.830121018448797
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "9989792",
+      "name": "Triamid Fortress",
+      "primitives": 20,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 1600,
+      "bounds": {
+        "min": [
+          -34.75303651174391,
+          -3.3913812848067795,
+          -34.48846635781295
+        ],
+        "max": [
+          34.76482362832827,
+          11.700729154981673,
+          6.276526164659131
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "72772445",
+      "name": "Triamid Kingolem",
+      "primitives": 20,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 1600,
+      "bounds": {
+        "min": [
+          -29.89759673334786,
+          -2.8031092144818657,
+          -35.46873297765215
+        ],
+        "max": [
+          35.419026114042026,
+          11.530041964445264,
+          8.623767211343761
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "63492244",
+      "name": "Trickstar Light Arena",
+      "primitives": 22,
+      "drawCalls": 7,
+      "materials": 6,
+      "triangles": 3832,
+      "bounds": {
+        "min": [
+          -20.5,
+          0,
+          -32
+        ],
+        "max": [
+          20.5,
+          10.55,
+          -13.721826772229935
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "35371948",
+      "name": "Trickstar Light Stage",
+      "primitives": 22,
+      "drawCalls": 7,
+      "materials": 6,
+      "triangles": 3832,
+      "bounds": {
+        "min": [
+          -20.5,
+          0,
+          -32
+        ],
+        "max": [
+          20.5,
+          10.55,
+          -13.721826772229935
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "51208046",
+      "name": "Trickstar Live Stage",
+      "primitives": 22,
+      "drawCalls": 7,
+      "materials": 6,
+      "triangles": 3832,
+      "bounds": {
+        "min": [
+          -20.5,
+          0,
+          -32
+        ],
+        "max": [
+          20.5,
+          10.55,
+          -13.721826772229935
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "12931061",
+      "name": "U.A. Hyper Stadium",
+      "primitives": 18,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 216,
+      "bounds": {
+        "min": [
+          -19.4,
+          -0.4,
+          -20.5
+        ],
+        "max": [
+          19.4,
+          11.4,
+          8.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "19814508",
+      "name": "U.A. Stadium",
+      "primitives": 18,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 216,
+      "bounds": {
+        "min": [
+          -19.4,
+          -0.4,
+          -20.5
+        ],
+        "max": [
+          19.4,
+          11.4,
+          8.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "22702055",
+      "name": "Umi",
+      "primitives": 48,
+      "drawCalls": 5,
+      "materials": 2,
+      "triangles": 7320,
+      "bounds": {
+        "min": [
+          -23.5,
+          -0.6500000000000012,
+          -24
+        ],
+        "max": [
+          23.5,
+          1.9799999999999998,
+          14
+        ]
+      },
+      "fidelity": "reference-informed-geometry"
+    },
+    {
+      "cardId": "82999629",
+      "name": "Umiiruka",
+      "primitives": 54,
+      "drawCalls": 6,
+      "materials": 3,
+      "triangles": 7572,
+      "bounds": {
+        "min": [
+          -23.5,
+          -0.6500000000000012,
+          -34.6
+        ],
+        "max": [
+          23.5,
+          4.509701425001453,
+          14
+        ]
+      },
+      "fidelity": "reference-informed-geometry"
+    },
+    {
+      "cardId": "66399653",
+      "name": "Union Hangar",
+      "primitives": 71,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 1788,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          6.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "89264428",
+      "name": "Ursarctic Big Dipper",
+      "primitives": 35,
+      "drawCalls": 6,
+      "materials": 5,
+      "triangles": 4904,
+      "bounds": {
+        "min": [
+          -29.47625768668543,
+          -2.945669145883992,
+          -31.35
+        ],
+        "max": [
+          31.74060154590369,
+          15.35,
+          5.085641974392882
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "39210885",
+      "name": "Vaalmonica, the Agathokakological Voice",
+      "primitives": 42,
+      "drawCalls": 6,
+      "materials": 4,
+      "triangles": 2640,
+      "bounds": {
+        "min": [
+          -22.858465097488818,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          24.102219529997875,
+          15.275,
+          -13.650280775493366
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "62188962",
+      "name": "Vampire Kingdom",
+      "primitives": 22,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 372,
+      "bounds": {
+        "min": [
+          -23.21716108924994,
+          -0.03350123913558545,
+          -27.75
+        ],
+        "max": [
+          23.194320479609047,
+          6.275,
+          5.953470061905682
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "35550352",
+      "name": "Vanquish Soul, Start!",
+      "primitives": 18,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 216,
+      "bounds": {
+        "min": [
+          -19.4,
+          -0.4,
+          -20.5
+        ],
+        "max": [
+          19.4,
+          11.4,
+          8.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "75952542",
+      "name": "Vaylantz World - Konig Wissen",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "49568943",
+      "name": "Vaylantz World - Shinra Bansho",
+      "primitives": 89,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 6096,
+      "bounds": {
+        "min": [
+          -29.271895521240175,
+          -1.8711032945225101,
+          -28.641002695844083
+        ],
+        "max": [
+          31.446324223605924,
+          12.878808145970106,
+          13.161091040958267
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "76871889",
+      "name": "Vendread Nights",
+      "primitives": 22,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 372,
+      "bounds": {
+        "min": [
+          -20.03381502064017,
+          -0.03426972364337988,
+          -27.75
+        ],
+        "max": [
+          23.20733451825376,
+          6.275,
+          4.705748194269836
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "54306223",
+      "name": "Venom Swamp",
+      "primitives": 93,
+      "drawCalls": 6,
+      "materials": 4,
+      "triangles": 9768,
+      "bounds": {
+        "min": [
+          -29.73009271731703,
+          -2.3942280710770345,
+          -27.544640834156706
+        ],
+        "max": [
+          27.895459889636484,
+          10.02015336229233,
+          14
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "7206349",
+      "name": "Vernusylph in Full Bloom",
+      "primitives": 32,
+      "drawCalls": 2,
+      "materials": 2,
+      "triangles": 2560,
+      "bounds": {
+        "min": [
+          -31.74499148095631,
+          -5.971800930763579,
+          -31.867416985218156
+        ],
+        "max": [
+          32.173204398392784,
+          8.37831372540722,
+          6.4
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "34822850",
+      "name": "Void Expansion",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -28.191267183123095,
+          -3.3336093656059176,
+          -31.130288712950108
+        ],
+        "max": [
+          27.862657289651388,
+          12.899499809741974,
+          5.269790585480595
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "26984177",
+      "name": "Walls of the Imperial Tomb",
+      "primitives": 22,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 480,
+      "bounds": {
+        "min": [
+          -7.5,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          7.5,
+          8.275,
+          -22.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "45943516",
+      "name": "War Rock Mountain",
+      "primitives": 20,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 1600,
+      "bounds": {
+        "min": [
+          -34.15672487451851,
+          -2.1749614663117485,
+          -35.70070991234041
+        ],
+        "max": [
+          34.126229471793806,
+          10.635941726062448,
+          6.043227934506469
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "23424603",
+      "name": "Wasteland",
+      "primitives": 32,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 2592,
+      "bounds": {
+        "min": [
+          -23.853423123301717,
+          -1.3,
+          -28.14
+        ],
+        "max": [
+          26.596561683856894,
+          6.021853931903038,
+          12
+        ]
+      },
+      "fidelity": "reference-informed-geometry"
+    },
+    {
+      "cardId": "58924378",
+      "name": "Wattcastle",
+      "primitives": 33,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 900,
+      "bounds": {
+        "min": [
+          -19,
+          0,
+          -28.5
+        ],
+        "max": [
+          19,
+          9.5,
+          1
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "91880660",
+      "name": "Way Where There's a Will",
+      "primitives": 42,
+      "drawCalls": 6,
+      "materials": 4,
+      "triangles": 2640,
+      "bounds": {
+        "min": [
+          -22.68480397970943,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          25.02285713180807,
+          15.275,
+          -13.492520760432756
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "63017368",
+      "name": "Wedju Temple",
+      "primitives": 22,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 480,
+      "bounds": {
+        "min": [
+          -7.5,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          7.5,
+          8.275,
+          -22.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "2084239",
+      "name": "Wetlands",
+      "primitives": 172,
+      "drawCalls": 6,
+      "materials": 6,
+      "triangles": 33300,
+      "bounds": {
+        "min": [
+          -23.5,
+          -0.15,
+          -39
+        ],
+        "max": [
+          23.5,
+          9.002053464531091,
+          14
+        ]
+      },
+      "fidelity": "reference-informed-geometry"
+    },
+    {
+      "cardId": "84335863",
+      "name": "White Rose Cloister",
+      "primitives": 89,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 6096,
+      "bounds": {
+        "min": [
+          -32.34935475921714,
+          -2.4118816255089555,
+          -26.833308718529402
+        ],
+        "max": [
+          31.669174572880916,
+          12.957446538638324,
+          10.188018361266588
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "4398189",
+      "name": "Witch of the White Forest",
+      "primitives": 89,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 6096,
+      "bounds": {
+        "min": [
+          -30.825735224395125,
+          -2.136703384452083,
+          -29.11148987231436
+        ],
+        "max": [
+          32.15246564711476,
+          12.91800129616633,
+          8.268667085882882
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "32353566",
+      "name": "Witchcrafter Walpurgis",
+      "primitives": 104,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 1296,
+      "bounds": {
+        "min": [
+          -29.482661802088842,
+          0,
+          -29.96335531082004
+        ],
+        "max": [
+          28.956659659696744,
+          18.935711622564124,
+          -6.488902336545289
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "90173539",
+      "name": "World Dino Wrestling",
+      "primitives": 18,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 216,
+      "bounds": {
+        "min": [
+          -19.4,
+          -0.4,
+          -20.5
+        ],
+        "max": [
+          19.4,
+          11.4,
+          8.5
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "61654098",
+      "name": "World Legacy Discovery",
+      "primitives": 89,
+      "drawCalls": 3,
+      "materials": 3,
+      "triangles": 6096,
+      "bounds": {
+        "min": [
+          -31.685031482457326,
+          -2.175719840800558,
+          -28.737177572494648
+        ],
+        "max": [
+          32.47865003094754,
+          12.596576042342932,
+          11.480729933272567
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "67831115",
+      "name": "World Legacy in Shadow",
+      "primitives": 28,
+      "drawCalls": 3,
+      "materials": 2,
+      "triangles": 1728,
+      "bounds": {
+        "min": [
+          -35.79648658157548,
+          -2.7605981052461908,
+          -35.26303032585139
+        ],
+        "max": [
+          34.49049663442596,
+          10.697137839719653,
+          5.552022003053105
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "35546670",
+      "name": "World Legacy Scars",
+      "primitives": 20,
+      "drawCalls": 2,
+      "materials": 1,
+      "triangles": 1600,
+      "bounds": {
+        "min": [
+          -33.91579345371438,
+          -2.2894969330864243,
+          -35.76618621804344
+        ],
+        "max": [
+          31.595495104247064,
+          11.768640405498445,
+          5.638571166655591
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "25163979",
+      "name": "World Legacy's Nightmare",
+      "primitives": 34,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 516,
+      "bounds": {
+        "min": [
+          -22.85495212933371,
+          -0.024822721122732982,
+          -27.75
+        ],
+        "max": [
+          23.17803427489368,
+          7.8417695776547065,
+          3.528726119669154
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "5414777",
+      "name": "World of Spirits",
+      "primitives": 42,
+      "drawCalls": 6,
+      "materials": 4,
+      "triangles": 2640,
+      "bounds": {
+        "min": [
+          -23.591990259606746,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          23.988273179062286,
+          15.275,
+          -12.393800828872378
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "32999573",
+      "name": "Xyz Override",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -29.125088617792553,
+          -3.0477077286894114,
+          -31.130288712950108
+        ],
+        "max": [
+          29.741329448267287,
+          12.990809359745905,
+          7.141819009687685
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "4545854",
+      "name": "Xyz Territory",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -28.31835035072001,
+          -2.15561113690931,
+          -31.130288712950108
+        ],
+        "max": [
+          29.206804859125647,
+          13.722179851583634,
+          8.184274373476526
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "59197169",
+      "name": "Yami",
+      "primitives": 40,
+      "drawCalls": 2,
+      "materials": 2,
+      "triangles": 2688,
+      "bounds": {
+        "min": [
+          -24.08,
+          -0.07392609047403542,
+          -29.2
+        ],
+        "max": [
+          24.08,
+          19.940572350819206,
+          1.98
+        ]
+      },
+      "fidelity": "reference-informed-geometry"
+    },
+    {
+      "cardId": "93360904",
+      "name": "Yummyusment★Acroquey",
+      "primitives": 22,
+      "drawCalls": 7,
+      "materials": 6,
+      "triangles": 3832,
+      "bounds": {
+        "min": [
+          -20.5,
+          0,
+          -32
+        ],
+        "max": [
+          20.5,
+          10.55,
+          -13.721826772229935
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "66975205",
+      "name": "Yummyusment☆Mignon",
+      "primitives": 22,
+      "drawCalls": 7,
+      "materials": 6,
+      "triangles": 3832,
+      "bounds": {
+        "min": [
+          -20.5,
+          0,
+          -32
+        ],
+        "max": [
+          20.5,
+          10.55,
+          -13.721826772229935
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "64230128",
+      "name": "Zaralaam the Dark Palace",
+      "primitives": 43,
+      "drawCalls": 4,
+      "materials": 3,
+      "triangles": 532,
+      "bounds": {
+        "min": [
+          -18.4,
+          0,
+          -31.2
+        ],
+        "max": [
+          18.4,
+          13.4,
+          -22.6
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "95856586",
+      "name": "Zexal Field",
+      "primitives": 29,
+      "drawCalls": 5,
+      "materials": 4,
+      "triangles": 7128,
+      "bounds": {
+        "min": [
+          -30.17666419884727,
+          -3.1156681110691617,
+          -31.130288712950108
+        ],
+        "max": [
+          27.59135848784763,
+          13.453132340297481,
+          6.143104128688945
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "675319",
+      "name": "Zodiac Sign",
+      "primitives": 42,
+      "drawCalls": 6,
+      "materials": 4,
+      "triangles": 2640,
+      "bounds": {
+        "min": [
+          -23.660975975576452,
+          -0.15,
+          -31.5
+        ],
+        "max": [
+          24.272956416103117,
+          15.275,
+          -12.906621404149009
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    },
+    {
+      "cardId": "4064256",
+      "name": "Zombie World",
+      "primitives": 26,
+      "drawCalls": 4,
+      "materials": 2,
+      "triangles": 552,
+      "bounds": {
+        "min": [
+          -22.469938875328577,
+          -1.4761634474644785,
+          -31.25
+        ],
+        "max": [
+          18.996585893869188,
+          6.800000000000001,
+          3.8788278695661575
+        ]
+      },
+      "fidelity": "procedural-interpretation"
+    }
+  ],
+  "capture": {
+    "details": [
+      {
+        "cardId": "18161786",
+        "before": {
+          "primitives": 48,
+          "draws": 3,
+          "materials": 3,
+          "triangles": 3648
+        },
+        "after": {
+          "primitives": 71,
+          "draws": 11,
+          "materials": 5,
+          "triangles": 12268
+        }
+      },
+      {
+        "cardId": "50913601",
+        "before": {
+          "primitives": 18,
+          "draws": 3,
+          "materials": 2,
+          "triangles": 1824
+        },
+        "after": {
+          "primitives": 110,
+          "draws": 4,
+          "materials": 3,
+          "triangles": 11200
+        }
+      },
+      {
+        "cardId": "33407125",
+        "before": {
+          "primitives": 24,
+          "draws": 3,
+          "materials": 2,
+          "triangles": 5248
+        },
+        "after": {
+          "primitives": 162,
+          "draws": 7,
+          "materials": 3,
+          "triangles": 10360
+        }
+      },
+      {
+        "cardId": "19384334",
+        "before": {
+          "primitives": 44,
+          "draws": 5,
+          "materials": 3,
+          "triangles": 3504
+        },
+        "after": {
+          "primitives": 180,
+          "draws": 6,
+          "materials": 4,
+          "triangles": 12704
+        }
+      },
+      {
+        "cardId": "2084239",
+        "before": {
+          "primitives": 135,
+          "draws": 10,
+          "materials": 4,
+          "triangles": 13224
+        },
+        "after": {
+          "primitives": 172,
+          "draws": 6,
+          "materials": 6,
+          "triangles": 33300
+        }
+      },
+      {
+        "cardId": "56433456",
+        "before": {
+          "primitives": 64,
+          "draws": 7,
+          "materials": 4,
+          "triangles": 4488
+        },
+        "after": {
+          "primitives": 64,
+          "draws": 12,
+          "materials": 5,
+          "triangles": 3628
+        }
+      },
+      {
+        "cardId": "63035430",
+        "before": {
+          "primitives": 130,
+          "draws": 3,
+          "materials": 3,
+          "triangles": 1560
+        },
+        "after": {
+          "primitives": 118,
+          "draws": 7,
+          "materials": 6,
+          "triangles": 1944
+        }
+      },
+      {
+        "cardId": "87624166",
+        "before": {
+          "primitives": 66,
+          "draws": 3,
+          "materials": 3,
+          "triangles": 3488
+        },
+        "after": {
+          "primitives": 66,
+          "draws": 3,
+          "materials": 3,
+          "triangles": 3488
+        }
+      }
+    ],
+    "images": 24,
+    "complete": true,
+    "errors": [],
+    "artifact": "docs/audits/artifacts/field-geometry-comparison-2026-10-07.png"
+  }
+}

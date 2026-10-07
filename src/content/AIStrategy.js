@@ -1,9 +1,11 @@
-import { CONTINUOUS_FIELD_SPELLS, getContinuousFieldSpellStatModifier } from '../core/ClassicFieldSpellEffects.js';
+import { IMPLEMENTED_FIELD_SPELLS, getContinuousFieldSpellStatModifier } from '../core/ClassicFieldSpellEffects.js';
 import { hasResolvedFieldSpellActivation } from '../core/FieldSpellRules.js';
+import { calculateBattleOutcome } from '../core/BattleEngine.js';
+import { ADVANCED_FIELD_SPELL_IDS } from '../core/AdvancedFieldSpellRules.js';
 
 const OWN_SIDE = 'opponent';
 const ENEMY_SIDE = 'player';
-const fieldDefinitions = new Map(CONTINUOUS_FIELD_SPELLS.map(definition => [definition.id, definition]));
+const fieldDefinitions = new Map(IMPLEMENTED_FIELD_SPELLS.map(definition => [definition.id, definition]));
 
 function passcode(card) {
   return String(card?.id ?? '').replace(/^0+(?=\d)/, '');
@@ -38,6 +40,44 @@ function visibleEnemies(game) {
   // Do not ask a renderer or spread an opposing CardState: a Set card's
   // identity, getters and computed statistics remain private.
   return monsters(game, ENEMY_SIDE).filter(entry => !entry.card.isSetFaceDown);
+}
+
+function activeFieldSource(game, source) {
+  // An opposing Set Field Spell may be an opaque object. Check its public
+  // orientation before reading its identity, runtime or printed properties.
+  return Boolean(source && !source.isSetFaceDown && hasResolvedFieldSpellActivation(source)
+    && !source.activationNegated && !source.effectNegated
+    && !game.defense?.isCardNegated?.(source.uid));
+}
+
+function publicFieldSources(game) {
+  const sources = [game.field.playerFieldSpellZone, game.field.opponentFieldSpellZone];
+  // Small policy fixtures may provide only the own-side accessor. Runtime
+  // games expose both public zones directly; never gather opposing side state.
+  if (!Object.hasOwn(game.field, 'opponentFieldSpellZone')) {
+    sources.push(game.getFieldSpellForSide?.(OWN_SIDE));
+  }
+  return [...new Set(sources)].filter(source => activeFieldSource(game, source));
+}
+
+function battleDefense(game) {
+  if (!game.defense) return null;
+  return {
+    isCardNegated: uid => game.defense.isCardNegated?.(uid) || false,
+    hasProtection: (...args) => game.defense.hasProtection?.(...args) || false
+  };
+}
+
+function ancientForestSource(fields) {
+  return fields.find(source => passcode(source) === ADVANCED_FIELD_SPELL_IDS.ANCIENT_FOREST);
+}
+
+function attackProjection(card) {
+  if (card.position === 'attack' && !card.isSetFaceDown) return card;
+  const projection = Object.create(card);
+  projection.position = 'attack';
+  projection.isSetFaceDown = false;
+  return projection;
 }
 
 function battleAvailable(game) {
@@ -89,36 +129,42 @@ function sanganTributeValue(game, tributes) {
   return 70;
 }
 
-function battleScore(game, attacker, target) {
+function battleScore(game, attacker, target, fields = publicFieldSources(game)) {
   const attack = stat(attacker, 'atk');
   if (!attack) return 0;
+  const forest = ancientForestSource(fields);
+  const forestCost = forest && !game.defense?.hasProtection?.(attacker, 'DESTROY_BY_EFFECT', {
+    sourceSide: forest.controllerId, sourceCard: forest
+  }) ? 120 + cardValue(attacker) / 8 : 0;
   if (target.card.isSetFaceDown) {
     // A fixed uncertainty estimate, never a peek at the Set monster's DEF.
     const estimate = game.aiDifficulty === 'hard' ? 1800 : 1200;
-    return attack > estimate ? 35 + (attack - estimate) / 20 : 0;
+    return attack > estimate ? Math.max(0, 35 + (attack - estimate) / 20 - forestCost) : 0;
   }
-  const defensePosition = target.card.position === 'defense';
-  const opposingStat = stat(target.card, defensePosition ? 'def' : 'atk');
-  if (attack < opposingStat || (defensePosition && attack === opposingStat)) return 0;
-  if (!defensePosition && attack === opposingStat) {
+  const outcome = calculateBattleOutcome(attacker, target.card, battleDefense(game), { fieldSpells: fields });
+  if (!outcome.defenderDestroyed && !outcome.defenderDamage) return 0;
+  if (outcome.attackerDestroyed) {
     // An equal-ATK exchange is useful only if it does not sacrifice a more
     // valuable public effect monster for a less valuable one.
     const valueDifference = cardValue(target.card) - cardValue(attacker);
+    // A monster already destroyed in this battle cannot be lost a second
+    // time to Ancient Forest's End Step effect.
     return valueDifference < 0 ? 0 : 15 + valueDifference / 50;
   }
-  return 150 + stat(target.card, 'atk') / 100
+  return Math.max(0, (outcome.defenderDestroyed ? 150 + stat(target.card, 'atk') / 100 : 0)
     + (target.card.isEffectMonster ? 15 : 0)
-    + (defensePosition ? 0 : (attack - opposingStat) / 10);
+    + (forestCost && outcome.defenderDestroyed ? cardValue(target.card) / 25 : 0)
+    + outcome.defenderDamage / 10 - outcome.attackerDamage / 10 - forestCost);
 }
 
 /** Choose among engine-supplied legal targets; null means decline the attack. */
-export function chooseAIAttackTarget(game, attacker, targets) {
+export function chooseAIAttackTarget(game, attacker, targets, { fieldSpells } = {}) {
   if (!enabled(game)) return undefined;
   if (!attacker) return null;
   let chosen = null;
   let best = 0;
   for (const target of targets || []) {
-    const score = battleScore(game, attacker, target);
+    const score = battleScore(game, attacker, target, fieldSpells);
     if (score > best) {
       best = score;
       chosen = target;
@@ -131,19 +177,26 @@ export function chooseAIAttackTarget(game, attacker, targets) {
  * The engine validates the position change and may supply legalEffectTargets
  * to honor targeting protections without exposing an opposing Set identity.
  */
-export function chooseAIMonsterPosition(game, card, { forSummon = false, legalEffectTargets } = {}) {
+export function chooseAIMonsterPosition(game, card, {
+  forSummon = false, legalEffectTargets, enemyEntries, fieldSpells, projectedFieldStats = false
+} = {}) {
   if (!enabled(game)) return undefined;
   if (card.extra_type === 'link') return 'attack';
   if (['54652250', '31560081'].includes(passcode(card))) {
     if (forSummon) return 'defense';
     if (card.isSetFaceDown) return flipValue(game, card, legalEffectTargets) > 0 ? 'attack' : 'defense';
   }
-  const enemyEntries = monsters(game, ENEMY_SIDE);
+  if (forSummon && !projectedFieldStats) {
+    fieldSpells ||= publicFieldSources(game);
+    card = monsterProjection(card, [], fieldSpells, { fromHand: true });
+  }
+  enemyEntries ||= monsters(game, ENEMY_SIDE);
   const attack = stat(card, 'atk');
   const defense = stat(card, 'def');
-  const strongest = Math.max(0, ...visibleEnemies(game).map(entry => stat(entry.card, 'atk')));
+  const strongest = Math.max(0, ...enemyEntries.filter(entry => !entry.card.isSetFaceDown)
+    .map(entry => stat(entry.card, 'atk')));
   const usefulAttack = battleAvailable(game) && attack > 0 && (
-    enemyEntries.length === 0 || chooseAIAttackTarget(game, card, enemyEntries) !== null
+    enemyEntries.length === 0 || chooseAIAttackTarget(game, attackProjection(card), enemyEntries, { fieldSpells }) !== null
   );
   if (usefulAttack) return 'attack';
   if (strongest > attack || defense > attack) return 'defense';
@@ -166,13 +219,14 @@ export function chooseAINormalSummonPlan(game, legalPlans) {
   for (const plan of legalPlans || []) {
     const { card, tributes = [] } = plan;
     const position = chooseAIMonsterPosition(game, card, { forSummon: true });
-    let score = cardValue(card) / 12 + 50
+    const projected = monsterProjection(card, [], publicFieldSources(game), { fromHand: true, position });
+    let score = cardValue(projected) / 12 + 50
       - tributes.reduce((sum, entry) => sum + cardValue(entry.card) / 12 + 55, 0)
       + flipValue(game, card)
       + sanganTributeValue(game, tributes);
     if (position === 'attack' && battleAvailable(game)) {
-      if (!enemies.length && stat(card, 'atk') > 0) score += 70;
-      else if (chooseAIAttackTarget(game, card, enemies)) {
+      if (!enemies.length && stat(projected, 'atk') > 0) score += 70;
+      else if (chooseAIAttackTarget(game, projected, enemies)) {
         const tributeCards = new Set(tributes.map(entry => entry.card));
         const existingBreakthrough = monsters(game, OWN_SIDE).some(entry => (
           !tributeCards.has(entry.card) && !entry.card.isSetFaceDown
@@ -181,7 +235,7 @@ export function chooseAINormalSummonPlan(game, legalPlans) {
         score += existingBreakthrough ? 60 : 180;
       }
     }
-    if (strongest > stat(card, 'atk')) score -= 70;
+    if (strongest > stat(projected, 'atk')) score -= 70;
     if (score > best) {
       best = score;
       chosen = { ...plan, isSet: position === 'defense', score };
@@ -194,46 +248,124 @@ function fieldModifier(definition, card) {
   return getContinuousFieldSpellStatModifier(card, definition);
 }
 
-/** Score implemented continuous Field Spells with their actual ATK/DEF rules. */
+function resolvedFieldProjection(card) {
+  const projection = Object.create(card);
+  projection.location = 'field_zone';
+  projection.controllerId = OWN_SIDE;
+  projection.isSetFaceDown = false;
+  projection.effectNegated = false;
+  projection.activationNegated = false;
+  projection.fieldActivationState = 'resolved';
+  projection.fieldActivationSequence = 1;
+  projection.fieldActivationRuntimeInstanceId = projection.runtimeInstanceId;
+  return projection;
+}
+
+function continuousModifier(fields, card) {
+  return fields.reduce((total, field) => {
+    const modifier = fieldModifier(field, card);
+    return { atk: total.atk + modifier.atk, def: total.def + modifier.def };
+  }, { atk: 0, def: 0 });
+}
+
+function monsterProjection(card, beforeFields, afterFields, {
+  fromHand = false, position = card.position, reveal = false
+} = {}) {
+  const projection = Object.create(card);
+  projection.position = position;
+  if (reveal) projection.isSetFaceDown = false;
+  // Hand monsters and Set monsters do not already contain a Field Spell's
+  // modifier. An existing face-up monster does, so remove its old modifiers.
+  const previous = fromHand || card.isSetFaceDown ? { atk: 0, def: 0 }
+    : continuousModifier(beforeFields, card);
+  const next = projection.isSetFaceDown ? { atk: 0, def: 0 }
+    : continuousModifier(afterFields, projection);
+  const atk = stat(card, 'atk') + next.atk - previous.atk;
+  const def = card.getDef() === null ? null : stat(card, 'def') + next.def - previous.def;
+  // Resolve all modifier offsets before defining these getters: the shared
+  // continuous helper itself checks getDef for Link monsters.
+  projection.getAtk = () => Math.max(0, atk);
+  projection.getDef = () => def === null ? null : Math.max(0, def);
+  return projection;
+}
+
+function bestPublicAttack(game, card, enemies, fields) {
+  if (!battleAvailable(game)) return 0;
+  const attacker = attackProjection(card);
+  return enemies.reduce((best, target) => Math.max(best, battleScore(game, attacker, target, fields)), 0);
+}
+
+function incomingBattleDamage(game, ally, enemies, fields) {
+  return enemies.reduce((worst, enemy) => Math.max(worst,
+    calculateBattleOutcome(attackProjection(enemy.card), ally, battleDefense(game), {
+      fieldSpells: fields
+    }).defenderDamage), 0);
+}
+
+/** Score public combat and the exact effects of the 17 implemented Field Spells. */
 export function scoreAIFieldSpell(game, card) {
   if (!enabled(game)) return undefined;
   const next = fieldDefinitions.get(passcode(card));
   // Unsupported/Sandbox artwork is not evidence of a gameplay advantage.
   if (!next) return 0;
-  const current = game.getFieldSpellForSide(OWN_SIDE);
-  const previous = current && !current.isSetFaceDown && !current.effectNegated
-    && !current.activationNegated && hasResolvedFieldSpellActivation(current)
-    ? fieldDefinitions.get(passcode(current)) : null;
+  const current = game.getFieldSpellForSide?.(OWN_SIDE) || game.field.opponentFieldSpellZone;
+  const previous = activeFieldSource(game, current) ? fieldDefinitions.get(passcode(current)) : null;
+  const beforeFields = publicFieldSources(game);
+  const afterFields = [...beforeFields.filter(source => source !== current), resolvedFieldProjection(card)];
+  const forcesAttack = next.id === ADVANCED_FIELD_SPELL_IDS.ANCIENT_FOREST;
+  const projectEntry = (entry, own) => {
+    // A future reveal does not make an opposing Set card's identity public now.
+    if (!own && entry.card.isSetFaceDown) return entry;
+    const forced = forcesAttack && entry.card.position === 'defense';
+    return { ...entry, card: monsterProjection(entry.card, beforeFields, afterFields, {
+      position: forced ? 'attack' : entry.card.position,
+      reveal: forced
+    }) };
+  };
   const delta = (monster, statistic) => fieldModifier(next, monster)[statistic]
     - fieldModifier(previous, monster)[statistic];
   const battleStatistic = monster => monster.position === 'defense' ? 'def' : 'atk';
-  const allies = monsters(game, OWN_SIDE).filter(entry => !entry.card.isSetFaceDown);
+  const allies = monsters(game, OWN_SIDE).filter(entry => forcesAttack || !entry.card.isSetFaceDown);
   const enemies = visibleEnemies(game);
-  let score = allies.reduce((sum, entry) => sum + delta(entry.card, battleStatistic(entry.card)), 0)
+  const afterAllies = allies.map(entry => projectEntry(entry, true));
+  const afterEnemies = enemies.map(entry => projectEntry(entry, false));
+  const afterEnemyEntries = monsters(game, ENEMY_SIDE).map(entry => projectEntry(entry, false));
+  let score = allies.filter(entry => !entry.card.isSetFaceDown)
+    .reduce((sum, entry) => sum + delta(entry.card, battleStatistic(entry.card)), 0)
     - enemies.reduce((sum, entry) => sum + delta(entry.card, battleStatistic(entry.card)), 0);
+
+  for (let index = 0; index < allies.length; index++) {
+    const ally = allies[index].card;
+    const projected = afterAllies[index].card;
+    score += bestPublicAttack(game, projected, afterEnemies, afterFields)
+      - bestPublicAttack(game, ally, enemies, beforeFields);
+    // Sanctuary's gain is damage prevented, never imaginary DEF. Forest's
+    // forced Attack Position can expose an ally to actual battle damage.
+    score += (incomingBattleDamage(game, ally, enemies, beforeFields)
+      - incomingBattleDamage(game, projected, afterEnemies, afterFields)) / 5;
+    if (forcesAttack && ally.isSetFaceDown) {
+      score -= 100 + flipValue(game, ally);
+    }
+  }
   // Credit one plausible future summon from the AI's own hand, not a guessed
-  // opposing Set monster or a future draw from either player's Deck.
+  // opposing Set monster or a future draw. Choose its position after adding
+  // the proposed Field's effects: Wetlands can make a 700 ATK Slime an attacker.
   const futureGain = ownHand(game).filter(candidate => candidate.card_type === 'monster'
     && !candidate.belongsInExtraDeck && !candidate.isRitualMonster)
     .reduce((best, candidate) => {
-      const position = chooseAIMonsterPosition(game, candidate, { forSummon: true });
-      const projection = Object.create(candidate);
-      projection.position = position;
-      return Math.max(best, delta(projection, battleStatistic(projection)));
+      const preview = monsterProjection(candidate, [], afterFields, { fromHand: true });
+      const position = chooseAIMonsterPosition(game, preview, {
+        forSummon: true, enemyEntries: afterEnemyEntries, fieldSpells: afterFields, projectedFieldStats: true
+      });
+      const before = monsterProjection(candidate, [], beforeFields, { fromHand: true, position });
+      const after = monsterProjection(candidate, [], afterFields, { fromHand: true, position });
+      const statistic = position === 'defense' ? 'def' : 'atk';
+      const gain = stat(after, statistic) - stat(before, statistic)
+        + bestPublicAttack(game, after, afterEnemies, afterFields)
+        - bestPublicAttack(game, before, enemies, beforeFields);
+      return Math.max(best, gain);
     }, 0);
   score += futureGain * 0.4;
-  for (const ally of allies) {
-    for (const enemy of enemies) {
-      const defensive = enemy.card.position === 'defense';
-      const previousAttack = stat(ally.card, 'atk');
-      const previousDefense = stat(enemy.card, defensive ? 'def' : 'atk');
-      const before = defensive ? previousAttack > previousDefense : previousAttack >= previousDefense;
-      const after = defensive
-        ? previousAttack + delta(ally.card, 'atk') > previousDefense + delta(enemy.card, 'def')
-        : previousAttack + delta(ally.card, 'atk') >= previousDefense + delta(enemy.card, 'atk');
-      if (before !== after) score += after ? 120 : -120;
-    }
-  }
   return score;
 }
 

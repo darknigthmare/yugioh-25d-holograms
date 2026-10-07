@@ -1,0 +1,1317 @@
+{
+  "date": "2026-10-07",
+  "baseUrl": "http://127.0.0.1:5174",
+  "runtime": "Chromium / SwiftShader",
+  "initialState": "DEV QA hook; official CardState templates",
+  "actions": "original UI handlers and engine",
+  "cases": [
+    {
+      "scenario": "wetlands",
+      "captures": [
+        "official-field-wetlands-resolved-2026-10-07.png",
+        "official-field-wetlands-mobile-390-2026-10-07.png"
+      ],
+      "initial": {
+        "rulesMode": "strict",
+        "generation": 3
+      },
+      "beforeBattle": {
+        "sameGame": true,
+        "generation": 3,
+        "mode": "real",
+        "phase": "main1",
+        "turn": 2,
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "playerMonsters": [
+          {
+            "zone": 0,
+            "faceUp": true,
+            "id": "68638985",
+            "atk": 1900,
+            "def": 500,
+            "position": "attack"
+          },
+          null,
+          null,
+          null,
+          null
+        ],
+        "opponentMonsters": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "playerGraveyard": [],
+        "opponentGraveyard": [],
+        "field": {
+          "id": "2084239",
+          "state": "resolved"
+        },
+        "pendingEffects": [],
+        "renderedModelKeys": [
+          "player:main:0"
+        ],
+        "inspectorAtk": "ATK 700",
+        "activeBackdrop": {
+          "image": "url(\"http://127.0.0.1:5174/environments/field-art/2084239.jpg\")",
+          "fit": "contain",
+          "filter": "none"
+        },
+        "canvasCount": 1,
+        "bodyWidth": 1440
+      },
+      "visuals": [
+        {
+          "profile": null,
+          "kind": "activate",
+          "played": true,
+          "source": [
+            -6.08,
+            0.6199999999999993,
+            3.066666666666667
+          ],
+          "target": null,
+          "sourceRef": {
+            "owner": "player",
+            "zoneType": "field",
+            "zoneIndex": 0
+          },
+          "targetRef": null,
+          "poseKind": null,
+          "poseTarget": null
+        },
+        {
+          "profile": null,
+          "kind": "summon",
+          "played": true,
+          "source": [
+            -4.586666666666667,
+            0.6199999999999991,
+            4.097777777777778
+          ],
+          "target": null,
+          "sourceRef": {
+            "owner": "player",
+            "zoneType": "main",
+            "zoneIndex": 0
+          },
+          "targetRef": null,
+          "poseKind": null,
+          "poseTarget": null
+        }
+      ],
+      "events": [
+        {
+          "type": "activate",
+          "phase": "main1",
+          "damageStep": "none"
+        },
+        {
+          "type": "chain-pop",
+          "phase": "main1",
+          "damageStep": "none"
+        },
+        {
+          "type": "chain-resolve",
+          "phase": "main1",
+          "damageStep": "none"
+        },
+        {
+          "type": "summon",
+          "phase": "main1",
+          "damageStep": "none"
+        }
+      ],
+      "mobile": {
+        "sameGame": true,
+        "generation": 3,
+        "mode": "real",
+        "phase": "main1",
+        "turn": 2,
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "playerMonsters": [
+          {
+            "zone": 0,
+            "faceUp": true,
+            "id": "68638985",
+            "atk": 1900,
+            "def": 500,
+            "position": "attack"
+          },
+          null,
+          null,
+          null,
+          null
+        ],
+        "opponentMonsters": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "playerGraveyard": [],
+        "opponentGraveyard": [],
+        "field": {
+          "id": "2084239",
+          "state": "resolved"
+        },
+        "pendingEffects": [],
+        "renderedModelKeys": [
+          "player:main:0"
+        ],
+        "inspectorAtk": "ATK 1900",
+        "activeBackdrop": {
+          "image": "url(\"http://127.0.0.1:5174/environments/field-art/2084239.jpg\")",
+          "fit": "contain",
+          "filter": "none"
+        },
+        "canvasCount": 1,
+        "bodyWidth": 390
+      },
+      "passed": true
+    },
+    {
+      "scenario": "skyscraper",
+      "captures": [
+        "official-field-skyscraper-resolved-2026-10-07.png",
+        "official-field-skyscraper-effect-2026-10-07.png"
+      ],
+      "initial": {
+        "rulesMode": "strict",
+        "generation": 4
+      },
+      "beforeBattle": {
+        "sameGame": true,
+        "generation": 4,
+        "mode": "real",
+        "phase": "main1",
+        "turn": 2,
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "playerMonsters": [
+          {
+            "zone": 0,
+            "faceUp": true,
+            "id": "20721928",
+            "atk": 1600,
+            "def": 1400,
+            "position": "attack"
+          },
+          null,
+          null,
+          null,
+          null
+        ],
+        "opponentMonsters": [
+          {
+            "zone": 0,
+            "faceUp": true,
+            "id": "48305365",
+            "atk": 1700,
+            "def": 1150,
+            "position": "attack"
+          },
+          null,
+          null,
+          null,
+          null
+        ],
+        "playerGraveyard": [],
+        "opponentGraveyard": [],
+        "field": {
+          "id": "63035430",
+          "state": "resolved"
+        },
+        "pendingEffects": [],
+        "renderedModelKeys": [
+          "player:main:0",
+          "opponent:main:0"
+        ],
+        "inspectorAtk": "ATK 1600",
+        "activeBackdrop": {
+          "image": "url(\"http://127.0.0.1:5174/environments/field-art/63035430.jpg\")",
+          "fit": "contain",
+          "filter": "none"
+        },
+        "canvasCount": 1,
+        "bodyWidth": 1440
+      },
+      "duringEffect": {
+        "sameGame": true,
+        "generation": 4,
+        "mode": "real",
+        "phase": "battle",
+        "turn": 2,
+        "playerLP": 8000,
+        "opponentLP": 7100,
+        "playerMonsters": [
+          {
+            "zone": 0,
+            "faceUp": true,
+            "id": "20721928",
+            "atk": 1600,
+            "def": 1400,
+            "position": "attack"
+          },
+          null,
+          null,
+          null,
+          null
+        ],
+        "opponentMonsters": [
+          {
+            "zone": 0,
+            "faceUp": true,
+            "id": "48305365",
+            "atk": 1700,
+            "def": 1150,
+            "position": "attack"
+          },
+          null,
+          null,
+          null,
+          null
+        ],
+        "playerGraveyard": [],
+        "opponentGraveyard": [],
+        "field": {
+          "id": "63035430",
+          "state": "resolved"
+        },
+        "pendingEffects": [
+          "skyscraper-boost"
+        ],
+        "renderedModelKeys": [
+          "player:main:0",
+          "opponent:main:0"
+        ],
+        "inspectorAtk": "ATK 1700",
+        "activeBackdrop": {
+          "image": "url(\"http://127.0.0.1:5174/environments/field-art/63035430.jpg\")",
+          "fit": "contain",
+          "filter": "none"
+        },
+        "canvasCount": 1,
+        "bodyWidth": 1440
+      },
+      "afterAttack": {
+        "sameGame": true,
+        "generation": 4,
+        "mode": "real",
+        "phase": "battle",
+        "turn": 2,
+        "playerLP": 8000,
+        "opponentLP": 7100,
+        "playerMonsters": [
+          {
+            "zone": 0,
+            "faceUp": true,
+            "id": "20721928",
+            "atk": 1600,
+            "def": 1400,
+            "position": "attack"
+          },
+          null,
+          null,
+          null,
+          null
+        ],
+        "opponentMonsters": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "playerGraveyard": [],
+        "opponentGraveyard": [
+          "48305365"
+        ],
+        "field": {
+          "id": "63035430",
+          "state": "resolved"
+        },
+        "pendingEffects": [],
+        "renderedModelKeys": [
+          "player:main:0"
+        ],
+        "inspectorAtk": "ATK 1700",
+        "activeBackdrop": {
+          "image": "url(\"http://127.0.0.1:5174/environments/field-art/63035430.jpg\")",
+          "fit": "contain",
+          "filter": "none"
+        },
+        "canvasCount": 1,
+        "bodyWidth": 1440
+      },
+      "visuals": [
+        {
+          "profile": null,
+          "kind": "activate",
+          "played": true,
+          "source": [
+            -6.08,
+            0.6199999999999993,
+            3.066666666666667
+          ],
+          "target": null,
+          "sourceRef": {
+            "owner": "player",
+            "zoneType": "field",
+            "zoneIndex": 0
+          },
+          "targetRef": null,
+          "poseKind": null,
+          "poseTarget": null
+        },
+        {
+          "profile": null,
+          "kind": "attack",
+          "played": true,
+          "source": [
+            -4.586666666666667,
+            2.119999999999999,
+            4.097777777777778
+          ],
+          "target": [
+            4.586666666666667,
+            2.120000000000001,
+            -4.08
+          ],
+          "sourceRef": {
+            "owner": "player",
+            "zoneType": "main",
+            "zoneIndex": 0
+          },
+          "targetRef": {
+            "owner": "opponent",
+            "zoneType": "main",
+            "zoneIndex": 0
+          },
+          "poseKind": null,
+          "poseTarget": null
+        },
+        {
+          "profile": "skyscraper-boost",
+          "kind": "activate",
+          "played": true,
+          "source": [
+            -6.08,
+            0.6199999999999993,
+            3.066666666666667
+          ],
+          "target": [
+            -4.586666666666667,
+            0.6199999999999991,
+            4.097777777777778
+          ],
+          "sourceRef": {
+            "owner": "player",
+            "zoneType": "field",
+            "zoneIndex": 0
+          },
+          "targetRef": {
+            "owner": "player",
+            "zoneType": "main",
+            "zoneIndex": 0
+          },
+          "poseKind": "attack",
+          "poseTarget": "target"
+        },
+        {
+          "profile": null,
+          "kind": "destroy",
+          "played": true,
+          "source": [
+            4.586666666666667,
+            0.6200000000000009,
+            -4.08
+          ],
+          "target": null,
+          "sourceRef": {
+            "owner": "opponent",
+            "zoneType": "main",
+            "zoneIndex": 0
+          },
+          "targetRef": null,
+          "poseKind": null,
+          "poseTarget": null
+        }
+      ],
+      "events": [
+        {
+          "type": "activate",
+          "phase": "main1",
+          "damageStep": "none"
+        },
+        {
+          "type": "chain-pop",
+          "phase": "main1",
+          "damageStep": "none"
+        },
+        {
+          "type": "chain-resolve",
+          "phase": "main1",
+          "damageStep": "none"
+        },
+        {
+          "type": "attack-monster",
+          "phase": "battle",
+          "damageStep": "before_calc"
+        },
+        {
+          "type": "skyscraper-boost-cinematic",
+          "phase": "battle",
+          "damageStep": "calc",
+          "bonus": 1000,
+          "calculatedAtk": 2600,
+          "publicAtk": 1600
+        },
+        {
+          "type": "lp-loss",
+          "phase": "battle",
+          "damageStep": "calc"
+        },
+        {
+          "type": "destroy",
+          "phase": "battle",
+          "damageStep": "end"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario": "sanctuary",
+      "captures": [
+        "official-field-sanctuary-resolved-2026-10-07.png",
+        "official-field-sanctuary-effect-2026-10-07.png"
+      ],
+      "initial": {
+        "rulesMode": "strict",
+        "generation": 5
+      },
+      "beforeBattle": {
+        "sameGame": true,
+        "generation": 5,
+        "mode": "real",
+        "phase": "main1",
+        "turn": 2,
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "playerMonsters": [
+          {
+            "zone": 0,
+            "faceUp": true,
+            "id": "39552864",
+            "atk": 500,
+            "def": 500,
+            "position": "attack"
+          },
+          null,
+          null,
+          null,
+          null
+        ],
+        "opponentMonsters": [
+          {
+            "zone": 0,
+            "faceUp": true,
+            "id": "48305365",
+            "atk": 1700,
+            "def": 1150,
+            "position": "attack"
+          },
+          null,
+          null,
+          null,
+          null
+        ],
+        "playerGraveyard": [],
+        "opponentGraveyard": [],
+        "field": {
+          "id": "56433456",
+          "state": "resolved"
+        },
+        "pendingEffects": [],
+        "renderedModelKeys": [
+          "player:main:0",
+          "opponent:main:0"
+        ],
+        "inspectorAtk": "ATK 500",
+        "activeBackdrop": {
+          "image": "url(\"http://127.0.0.1:5174/environments/field-art/56433456.jpg\")",
+          "fit": "contain",
+          "filter": "none"
+        },
+        "canvasCount": 1,
+        "bodyWidth": 1440
+      },
+      "duringEffect": {
+        "sameGame": true,
+        "generation": 5,
+        "mode": "real",
+        "phase": "battle",
+        "turn": 2,
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "playerMonsters": [
+          {
+            "zone": 0,
+            "faceUp": true,
+            "id": "39552864",
+            "atk": 500,
+            "def": 500,
+            "position": "attack"
+          },
+          null,
+          null,
+          null,
+          null
+        ],
+        "opponentMonsters": [
+          {
+            "zone": 0,
+            "faceUp": true,
+            "id": "48305365",
+            "atk": 1700,
+            "def": 1150,
+            "position": "attack"
+          },
+          null,
+          null,
+          null,
+          null
+        ],
+        "playerGraveyard": [],
+        "opponentGraveyard": [],
+        "field": {
+          "id": "56433456",
+          "state": "resolved"
+        },
+        "pendingEffects": [
+          "sanctuary-protection"
+        ],
+        "renderedModelKeys": [
+          "player:main:0",
+          "opponent:main:0"
+        ],
+        "inspectorAtk": "ATK 1700",
+        "activeBackdrop": {
+          "image": "url(\"http://127.0.0.1:5174/environments/field-art/56433456.jpg\")",
+          "fit": "contain",
+          "filter": "none"
+        },
+        "canvasCount": 1,
+        "bodyWidth": 1440
+      },
+      "afterAttack": {
+        "sameGame": true,
+        "generation": 5,
+        "mode": "real",
+        "phase": "battle",
+        "turn": 2,
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "playerMonsters": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "opponentMonsters": [
+          {
+            "zone": 0,
+            "faceUp": true,
+            "id": "48305365",
+            "atk": 1700,
+            "def": 1150,
+            "position": "attack"
+          },
+          null,
+          null,
+          null,
+          null
+        ],
+        "playerGraveyard": [
+          "39552864"
+        ],
+        "opponentGraveyard": [],
+        "field": {
+          "id": "56433456",
+          "state": "resolved"
+        },
+        "pendingEffects": [],
+        "renderedModelKeys": [
+          "opponent:main:0"
+        ],
+        "inspectorAtk": "ATK 1700",
+        "activeBackdrop": {
+          "image": "url(\"http://127.0.0.1:5174/environments/field-art/56433456.jpg\")",
+          "fit": "contain",
+          "filter": "none"
+        },
+        "canvasCount": 1,
+        "bodyWidth": 1440
+      },
+      "visuals": [
+        {
+          "profile": null,
+          "kind": "activate",
+          "played": true,
+          "source": [
+            -6.08,
+            0.6199999999999993,
+            3.066666666666667
+          ],
+          "target": null,
+          "sourceRef": {
+            "owner": "player",
+            "zoneType": "field",
+            "zoneIndex": 0
+          },
+          "targetRef": null,
+          "poseKind": null,
+          "poseTarget": null
+        },
+        {
+          "profile": null,
+          "kind": "attack",
+          "played": true,
+          "source": [
+            -4.586666666666667,
+            2.119999999999999,
+            4.097777777777778
+          ],
+          "target": [
+            4.586666666666667,
+            2.120000000000001,
+            -4.08
+          ],
+          "sourceRef": {
+            "owner": "player",
+            "zoneType": "main",
+            "zoneIndex": 0
+          },
+          "targetRef": {
+            "owner": "opponent",
+            "zoneType": "main",
+            "zoneIndex": 0
+          },
+          "poseKind": null,
+          "poseTarget": null
+        },
+        {
+          "profile": "sanctuary-protection",
+          "kind": "shield",
+          "played": true,
+          "source": [
+            -6.08,
+            0.6199999999999993,
+            3.066666666666667
+          ],
+          "target": [
+            -4.586666666666667,
+            0.6199999999999991,
+            4.097777777777778
+          ],
+          "sourceRef": {
+            "owner": "player",
+            "zoneType": "field",
+            "zoneIndex": 0
+          },
+          "targetRef": {
+            "owner": "player",
+            "zoneType": "main",
+            "zoneIndex": 0
+          },
+          "poseKind": "casting",
+          "poseTarget": "target"
+        },
+        {
+          "profile": null,
+          "kind": "destroy",
+          "played": true,
+          "source": [
+            -4.586666666666667,
+            0.6199999999999991,
+            4.097777777777778
+          ],
+          "target": null,
+          "sourceRef": {
+            "owner": "player",
+            "zoneType": "main",
+            "zoneIndex": 0
+          },
+          "targetRef": null,
+          "poseKind": null,
+          "poseTarget": null
+        }
+      ],
+      "events": [
+        {
+          "type": "activate",
+          "phase": "main1",
+          "damageStep": "none"
+        },
+        {
+          "type": "chain-pop",
+          "phase": "main1",
+          "damageStep": "none"
+        },
+        {
+          "type": "chain-resolve",
+          "phase": "main1",
+          "damageStep": "none"
+        },
+        {
+          "type": "attack-monster",
+          "phase": "battle",
+          "damageStep": "before_calc"
+        },
+        {
+          "type": "sanctuary-protection-cinematic",
+          "phase": "battle",
+          "damageStep": "calc",
+          "preventedDamage": 1200
+        },
+        {
+          "type": "destroy",
+          "phase": "battle",
+          "damageStep": "end"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario": "ancient-forest",
+      "captures": [
+        "official-field-ancient-forest-resolved-2026-10-07.png",
+        "official-field-ancient-forest-effect-2026-10-07.png"
+      ],
+      "initial": {
+        "rulesMode": "strict",
+        "generation": 6
+      },
+      "beforeBattle": {
+        "sameGame": true,
+        "generation": 6,
+        "mode": "real",
+        "phase": "main1",
+        "turn": 2,
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "playerMonsters": [
+          {
+            "zone": 0,
+            "faceUp": true,
+            "id": "54652250",
+            "atk": 450,
+            "def": 600,
+            "position": "attack"
+          },
+          {
+            "zone": 1,
+            "faceUp": true,
+            "id": "20721928",
+            "atk": 1600,
+            "def": 1400,
+            "position": "attack"
+          },
+          null,
+          null,
+          null
+        ],
+        "opponentMonsters": [
+          {
+            "zone": 0,
+            "faceUp": true,
+            "id": "31560081",
+            "atk": 300,
+            "def": 400,
+            "position": "attack"
+          },
+          null,
+          null,
+          null,
+          null
+        ],
+        "playerGraveyard": [],
+        "opponentGraveyard": [
+          "83764718"
+        ],
+        "field": {
+          "id": "87624166",
+          "state": "resolved"
+        },
+        "pendingEffects": [],
+        "renderedModelKeys": [
+          "player:main:1",
+          "player:main:0",
+          "opponent:main:0"
+        ],
+        "inspectorAtk": "ATK 450",
+        "activeBackdrop": {
+          "image": "url(\"http://127.0.0.1:5174/environments/field-art/87624166.jpg\")",
+          "fit": "contain",
+          "filter": "none"
+        },
+        "canvasCount": 1,
+        "bodyWidth": 1440
+      },
+      "afterAttack": {
+        "sameGame": true,
+        "generation": 6,
+        "mode": "real",
+        "phase": "battle",
+        "turn": 2,
+        "playerLP": 8000,
+        "opponentLP": 7850,
+        "playerMonsters": [
+          {
+            "zone": 0,
+            "faceUp": true,
+            "id": "54652250",
+            "atk": 450,
+            "def": 600,
+            "position": "attack"
+          },
+          {
+            "zone": 1,
+            "faceUp": true,
+            "id": "20721928",
+            "atk": 1600,
+            "def": 1400,
+            "position": "attack"
+          },
+          null,
+          null,
+          null
+        ],
+        "opponentMonsters": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "playerGraveyard": [],
+        "opponentGraveyard": [
+          "83764718",
+          "31560081"
+        ],
+        "field": {
+          "id": "87624166",
+          "state": "resolved"
+        },
+        "pendingEffects": [
+          "shatter"
+        ],
+        "renderedModelKeys": [
+          "player:main:1",
+          "player:main:0"
+        ],
+        "inspectorAtk": "ATK 300",
+        "activeBackdrop": {
+          "image": "url(\"http://127.0.0.1:5174/environments/field-art/87624166.jpg\")",
+          "fit": "contain",
+          "filter": "none"
+        },
+        "canvasCount": 1,
+        "bodyWidth": 1440
+      },
+      "duringEffect": {
+        "sameGame": true,
+        "generation": 6,
+        "mode": "real",
+        "phase": "battle",
+        "turn": 2,
+        "playerLP": 8000,
+        "opponentLP": 7850,
+        "playerMonsters": [
+          null,
+          {
+            "zone": 1,
+            "faceUp": true,
+            "id": "20721928",
+            "atk": 1600,
+            "def": 1400,
+            "position": "attack"
+          },
+          null,
+          null,
+          null
+        ],
+        "opponentMonsters": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "playerGraveyard": [
+          "54652250"
+        ],
+        "opponentGraveyard": [
+          "83764718",
+          "31560081"
+        ],
+        "field": {
+          "id": "87624166",
+          "state": "resolved"
+        },
+        "pendingEffects": [
+          "shatter",
+          "ancient-forest-destruction"
+        ],
+        "renderedModelKeys": [
+          "player:main:1"
+        ],
+        "inspectorAtk": "ATK 300",
+        "activeBackdrop": {
+          "image": "url(\"http://127.0.0.1:5174/environments/field-art/87624166.jpg\")",
+          "fit": "contain",
+          "filter": "none"
+        },
+        "canvasCount": 1,
+        "bodyWidth": 1440
+      },
+      "afterBattleEnd": {
+        "sameGame": true,
+        "generation": 6,
+        "mode": "real",
+        "phase": "main2",
+        "turn": 2,
+        "playerLP": 8000,
+        "opponentLP": 7850,
+        "playerMonsters": [
+          null,
+          {
+            "zone": 1,
+            "faceUp": true,
+            "id": "20721928",
+            "atk": 1600,
+            "def": 1400,
+            "position": "attack"
+          },
+          null,
+          null,
+          null
+        ],
+        "opponentMonsters": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "playerGraveyard": [
+          "54652250"
+        ],
+        "opponentGraveyard": [
+          "83764718",
+          "31560081"
+        ],
+        "field": {
+          "id": "87624166",
+          "state": "resolved"
+        },
+        "pendingEffects": [],
+        "renderedModelKeys": [
+          "player:main:1"
+        ],
+        "inspectorAtk": "ATK 300",
+        "activeBackdrop": {
+          "image": "url(\"http://127.0.0.1:5174/environments/field-art/87624166.jpg\")",
+          "fit": "contain",
+          "filter": "none"
+        },
+        "canvasCount": 1,
+        "bodyWidth": 1440
+      },
+      "visuals": [
+        {
+          "profile": null,
+          "kind": "activate",
+          "played": true,
+          "source": [
+            -6.08,
+            0.6199999999999993,
+            3.066666666666667
+          ],
+          "target": null,
+          "sourceRef": {
+            "owner": "player",
+            "zoneType": "field",
+            "zoneIndex": 0
+          },
+          "targetRef": null,
+          "poseKind": null,
+          "poseTarget": null
+        },
+        {
+          "profile": null,
+          "kind": "summon",
+          "played": true,
+          "source": [
+            -4.586666666666667,
+            0.6199999999999991,
+            4.097777777777778
+          ],
+          "target": null,
+          "sourceRef": {
+            "owner": "player",
+            "zoneType": "main",
+            "zoneIndex": 0
+          },
+          "targetRef": null,
+          "poseKind": null,
+          "poseTarget": null
+        },
+        {
+          "profile": null,
+          "kind": "summon",
+          "played": true,
+          "source": [
+            4.586666666666667,
+            0.6200000000000009,
+            -4.08
+          ],
+          "target": null,
+          "sourceRef": {
+            "owner": "opponent",
+            "zoneType": "main",
+            "zoneIndex": 0
+          },
+          "targetRef": null,
+          "poseKind": null,
+          "poseTarget": null
+        },
+        {
+          "profile": null,
+          "kind": "attack",
+          "played": true,
+          "source": [
+            -4.586666666666667,
+            2.119999999999999,
+            4.097777777777778
+          ],
+          "target": [
+            4.586666666666667,
+            2.120000000000001,
+            -4.08
+          ],
+          "sourceRef": {
+            "owner": "player",
+            "zoneType": "main",
+            "zoneIndex": 0
+          },
+          "targetRef": {
+            "owner": "opponent",
+            "zoneType": "main",
+            "zoneIndex": 0
+          },
+          "poseKind": null,
+          "poseTarget": null
+        },
+        {
+          "profile": null,
+          "kind": "destroy",
+          "played": true,
+          "source": [
+            4.586666666666667,
+            0.6200000000000009,
+            -4.08
+          ],
+          "target": null,
+          "sourceRef": {
+            "owner": "opponent",
+            "zoneType": "main",
+            "zoneIndex": 0
+          },
+          "targetRef": null,
+          "poseKind": null,
+          "poseTarget": null
+        },
+        {
+          "profile": null,
+          "kind": "activate",
+          "played": true,
+          "source": [
+            -6.08,
+            0.6199999999999993,
+            3.066666666666667
+          ],
+          "target": null,
+          "sourceRef": {
+            "owner": "player",
+            "zoneType": "field",
+            "zoneIndex": 0
+          },
+          "targetRef": null,
+          "poseKind": null,
+          "poseTarget": null
+        },
+        {
+          "profile": null,
+          "kind": "destroy",
+          "played": true,
+          "source": [
+            -4.586666666666667,
+            0.6199999999999991,
+            4.097777777777778
+          ],
+          "target": null,
+          "sourceRef": {
+            "owner": "player",
+            "zoneType": "main",
+            "zoneIndex": 0
+          },
+          "targetRef": null,
+          "poseKind": null,
+          "poseTarget": null
+        },
+        {
+          "profile": "ancient-forest-destruction",
+          "kind": "destroy",
+          "played": true,
+          "source": [
+            -6.08,
+            0.6199999999999993,
+            3.066666666666667
+          ],
+          "target": [
+            -4.586666666666667,
+            0.6199999999999991,
+            4.097777777777778
+          ],
+          "sourceRef": {
+            "owner": "player",
+            "zoneType": "field",
+            "zoneIndex": 0
+          },
+          "targetRef": {
+            "owner": "player",
+            "zoneType": "main",
+            "zoneIndex": 0
+          },
+          "poseKind": "recoil",
+          "poseTarget": "target"
+        }
+      ],
+      "events": [
+        {
+          "type": "activate",
+          "phase": "main1",
+          "damageStep": "none"
+        },
+        {
+          "type": "chain-pop",
+          "phase": "main1",
+          "damageStep": "none"
+        },
+        {
+          "type": "chain-resolve",
+          "phase": "main1",
+          "damageStep": "none"
+        },
+        {
+          "type": "flip-summon",
+          "phase": "main1",
+          "damageStep": "none"
+        },
+        {
+          "type": "flip-summon",
+          "phase": "main1",
+          "damageStep": "none"
+        },
+        {
+          "type": "attack-monster",
+          "phase": "battle",
+          "damageStep": "before_calc"
+        },
+        {
+          "type": "lp-loss",
+          "phase": "battle",
+          "damageStep": "calc"
+        },
+        {
+          "type": "destroy",
+          "phase": "battle",
+          "damageStep": "end"
+        },
+        {
+          "type": "activate",
+          "phase": "battle",
+          "damageStep": "none"
+        },
+        {
+          "type": "chain-pop",
+          "phase": "battle",
+          "damageStep": "none"
+        },
+        {
+          "type": "chain-resolve",
+          "phase": "battle",
+          "damageStep": "none"
+        },
+        {
+          "type": "destroy",
+          "phase": "battle",
+          "damageStep": "none"
+        },
+        {
+          "type": "ancient-forest-destruction-cinematic",
+          "phase": "battle",
+          "damageStep": "none"
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "consoleErrorLocations": [],
+  "failedRequests": [],
+  "webglMessages": [],
+  "fontResponses": [
+    {
+      "url": "http://127.0.0.1:5174/fonts/orbitron-variable.woff2",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5174/fonts/inter-variable.woff2",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5174/fonts/inter-variable.woff2",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:5174/fonts/orbitron-variable.woff2",
+      "status": 304
+    }
+  ],
+  "googleFontsRequests": [],
+  "openingAttempts": 2,
+  "fonts": {
+    "Inter": [
+      {
+        "family": "Inter",
+        "status": "loaded"
+      }
+    ],
+    "Orbitron": [
+      {
+        "family": "Orbitron",
+        "status": "loaded"
+      }
+    ]
+  },
+  "passed": true
+}

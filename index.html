@@ -96,12 +96,19 @@
         </button>
         <button type="button" class="deck-choice-card" data-deck-id="custom" aria-pressed="false">
           <span class="deck-choice-header">CRÉER MON DECK</span>
-          <span class="deck-choice-desc">Composez librement votre deck depuis la base de cartes complète.</span>
+          <span class="deck-choice-desc">Composez votre Main, Extra et Side Deck avec les cartes disponibles.</span>
         </button>
       </div>
 
       <!-- Custom Deck Builder Panels (Hidden by default) -->
       <div id="deck-builder-section" class="deck-builder-section hidden">
+        <div class="builder-toolbar">
+          <span>Remplacer par un preset :</span>
+          <button type="button" class="btn" data-builder-preset="kaiba">KAIBA</button>
+          <button type="button" class="btn" data-builder-preset="yugi">YUGI</button>
+          <button type="button" class="btn" data-builder-preset="joey">JOEY</button>
+          <label><input type="checkbox" id="builder-add-to-side"> Ajouter au Side Deck</label>
+        </div>
         <div class="builder-panels">
           <!-- Card Library List -->
           <div class="builder-panel">
@@ -118,7 +125,7 @@
               <span id="deck-size-val">Taille: 0/40</span>
               <span id="deck-validity-badge" class="badge-status danger">Non Valide</span>
             </div>
-            <div id="builder-my-deck-list" class="builder-cards-grid">
+            <div id="builder-my-deck-list" class="builder-deck-sections">
               <!-- Rendered dynamically -->
             </div>
           </div>

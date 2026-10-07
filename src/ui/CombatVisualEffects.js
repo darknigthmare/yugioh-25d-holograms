@@ -144,6 +144,65 @@ export function createCombatVisualEffect(options = {}) {
       pillar.position.copy(center).add(new THREE.Vector3(0, 1.4, 0));
       animated.push(progress => { pillar.scale.y = Math.sin(progress * Math.PI); });
     }
+  } else if (profile.shape === 'sanctuary') {
+    const protectedCenter = travel.clone();
+    protectedCenter.y += 1.05;
+    const dome = mesh('sanctuary-golden-barrier', new THREE.SphereGeometry(1, 20, 12), dimMaterial);
+    dome.position.copy(protectedCenter);
+    const haloCenter = protectedCenter.clone();
+    haloCenter.y += 1.35;
+    const halo = circle('sanctuary-halo', 0.65, haloCenter, true, brightMaterial);
+    for (let i = 0; i < 2; i += 1) {
+      const meridian = circle(`sanctuary-meridian-${i}`, 1.01, protectedCenter, false, material);
+      meridian.rotation.y = i * Math.PI / 2;
+      meridian.scale.y = 1.3;
+    }
+    animated.push(progress => {
+      const breathe = Math.sin(progress * Math.PI);
+      dome.scale.set(0.93 + breathe * 0.12, 1.22 + breathe * 0.12, 0.93 + breathe * 0.12);
+      halo.scale.setScalar(0.75 + breathe * 0.35);
+    });
+  } else if (profile.shape === 'boost') {
+    const boostCenter = travel.clone();
+    boostCenter.y += 0.5;
+    for (let i = 0; i < 3; i += 1) {
+      const ascent = circle(`skyscraper-rise-ring-${i}`, 0.6 + i * 0.11, boostCenter, true, i % 2 ? brightMaterial : material);
+      animated.push(progress => {
+        ascent.position.y = travel.y + 0.1 + (progress * 1.4 + i * 0.27) % 1 * 2;
+        ascent.scale.setScalar(0.85 + Math.sin(progress * Math.PI) * 0.25);
+      });
+    }
+    for (let i = 0; i < 6; i += 1) {
+      const angle = i * Math.PI / 3;
+      const arrow = mesh(`skyscraper-boost-arrow-${i}`, new THREE.ConeGeometry(0.11, 0.28, 4), brightMaterial);
+      arrow.position.copy(boostCenter);
+      arrow.position.x += Math.cos(angle) * 0.77;
+      arrow.position.z += Math.sin(angle) * 0.77;
+      animated.push(progress => { arrow.position.y = travel.y + 0.35 + progress * 1.65; });
+    }
+  } else if (profile.shape === 'roots') {
+    for (let i = 0; i < 5; i += 1) {
+      const angle = i * Math.PI * 0.4;
+      const radialX = Math.cos(angle);
+      const radialZ = Math.sin(angle);
+      const path = new THREE.CatmullRomCurve3([
+        new THREE.Vector3(radialX * 0.91, -0.08, radialZ * 0.91),
+        new THREE.Vector3(radialX * 0.63, 0.29, radialZ * 0.63),
+        new THREE.Vector3(radialX * 0.4, 0.93, radialZ * 0.4),
+        new THREE.Vector3(radialX * 0.17, 1.31, radialZ * 0.17)
+      ]);
+      const root = mesh(`ancient-forest-binding-root-${i}`, new THREE.TubeGeometry(path, 12, 0.055, 5, false), i % 2 ? material : dimMaterial);
+      root.position.copy(travel);
+      const leaf = mesh(`ancient-forest-leaf-${i}`, new THREE.OctahedronGeometry(0.12), brightMaterial);
+      leaf.position.copy(travel);
+      leaf.position.x += radialX * 0.52;
+      leaf.position.z += radialZ * 0.52;
+      animated.push(progress => {
+        root.scale.y = Math.min(1, progress * 2.3);
+        leaf.position.y = travel.y + 0.3 + progress * 1.1;
+        leaf.rotation.y = progress * 2 + angle;
+      });
+    }
   } else if (profile.shape === 'pincer') {
     for (const side of [-1, 1]) {
       const pincer = circle(`pincer-strike-${side}`, 0.7, travel, false, brightMaterial, Math.PI * 0.82);

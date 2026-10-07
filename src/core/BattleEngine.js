@@ -3,14 +3,18 @@
  * explicit abilities; display text never grants a gameplay effect.
  * Rules: https://www.yugioh-card.com/eu/play/damage-step-rules/
  */
-export function calculateBattleOutcome(attacker, defender, defense = null) {
+import { getSkyscraperDamageCalculationBoost, getSanctuaryBattleDamagePreventions } from './AdvancedFieldSpellRules.js';
+
+export function calculateBattleOutcome(attacker, defender, defense = null, fieldContext = {}) {
   const result = {
     attackerDamage: 0,
     defenderDamage: 0,
     attackerDestroyed: false,
     defenderDestroyed: false
   };
-  const attack = attacker.getAtk();
+  const skyscraperBoost = getSkyscraperDamageCalculationBoost(attacker, defender, defense, fieldContext);
+  const attack = attacker.getAtk() + (skyscraperBoost?.bonus || 0);
+  if (skyscraperBoost) result.skyscraperBoost = skyscraperBoost;
   if (!defender) {
     result.defenderDamage = attack;
     return result;
@@ -53,6 +57,11 @@ export function calculateBattleOutcome(attacker, defender, defense = null) {
   if (result.defenderDestroyed && defense?.hasProtection(
     defender, 'DESTROY_BY_BATTLE', { attacker, defender, opposingCard: attacker }
   )) result.defenderDestroyed = false;
+  const sanctuaryPreventions = getSanctuaryBattleDamagePreventions(attacker, defender, result, defense, fieldContext);
+  if (sanctuaryPreventions.length) {
+    result.sanctuaryPreventions = sanctuaryPreventions;
+    for (const prevented of sanctuaryPreventions) result[`${prevented.participant}Damage`] = 0;
+  }
   return result;
 }
 

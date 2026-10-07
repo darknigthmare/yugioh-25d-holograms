@@ -17,6 +17,10 @@ const STRICT_CARD_REGISTRY = new Map([
   ['45778932', { section: 'main', procedure: 'spell' }],
   ['19384334', { section: 'main', procedure: 'spell' }],
   ['81380218', { section: 'main', procedure: 'spell' }],
+  ['02084239', { section: 'main', procedure: 'spell' }],
+  ['56433456', { section: 'main', procedure: 'spell' }],
+  ['63035430', { section: 'main', procedure: 'spell' }],
+  ['87624166', { section: 'main', procedure: 'spell' }],
   // Main Deck monsters using the normal Summon/Set procedure.
   ['89631139', { section: 'main', procedure: 'normal' }],
   ['46986414', { section: 'main', procedure: 'normal' }],
@@ -45,6 +49,9 @@ const STRICT_CARD_REGISTRY = new Map([
   ['64428736', { section: 'main', procedure: 'normal' }],
   ['44287299', { section: 'main', procedure: 'normal' }],
   ['49791927', { section: 'main', procedure: 'normal' }],
+  ['20721928', { section: 'main', procedure: 'normal' }],
+  ['68638985', { section: 'main', procedure: 'normal' }],
+  ['39552864', { section: 'main', procedure: 'normal' }],
 
   // Locally scripted Main Deck procedures.
   ['83764718', { section: 'main', procedure: 'spell' }],

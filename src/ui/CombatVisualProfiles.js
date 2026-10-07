@@ -4,12 +4,12 @@ const ATTRIBUTE_COLORS = Object.freeze({
 });
 
 const CARD_PROFILES = Object.freeze({
-  '89631139': { id: 'blue-eyes', family: 'dragon', body: '#d5e5ed', accent: '#52ceff', eye: '#199fff', attack: 'dragon-burst' },
-  '74677422': { id: 'red-eyes', family: 'dragon', body: '#24323d', accent: '#b5635f', eye: '#ff342e', attack: 'dragon-flame' },
+  '89631139': { id: 'blue-eyes', family: 'dragon', body: '#b7d9e7', accent: '#dcebf0', membrane: '#649bb2', eye: '#198bde', attack: 'dragon-burst', anatomy: 'armored-blue-dragon', referenceArt: '/cards/cropped/89631139.jpg' },
+  '74677422': { id: 'red-eyes', family: 'dragon', body: '#242b3a', accent: '#655b77', membrane: '#303442', eye: '#ef282f', attack: 'dragon-flame', anatomy: 'spiked-black-dragon', referenceArt: '/cards/cropped/74677422.jpg' },
   '23995346': { id: 'blue-eyes-ultimate', family: 'dragon', heads: 3, body: '#dbe8ef', accent: '#62dcff', eye: '#19b9ff', attack: 'dragon-burst' },
   '88819587': { id: 'baby-dragon', family: 'dragon', baby: true, body: '#de9a6d', accent: '#f6c07d', eye: '#55f0a9', attack: 'dragon-flame' },
-  '46986414': { id: 'dark-magician', family: 'magician', body: '#6b4d9f', accent: '#e588bc', eye: '#a8ebff', attack: 'dark-magic' },
-  '38033121': { id: 'dark-magician-girl', family: 'magician', body: '#58bedb', accent: '#f18eae', eye: '#91eaff', attack: 'dark-magic' },
+  '46986414': { id: 'dark-magician', family: 'magician', body: '#49356f', accent: '#d78ed0', eye: '#77c8b0', skin: '#d7b896', staffColor: '#178866', attack: 'dark-magic', anatomy: 'armored-dark-magician', referenceArt: '/cards/cropped/46986414.jpg' },
+  '38033121': { id: 'dark-magician-girl', family: 'magician', body: '#2389ba', accent: '#e265a9', eye: '#4ebf73', hair: '#e4b748', skin: '#f1c7b1', staffColor: '#c5a45b', attack: 'dark-magic', anatomy: 'dark-magician-girl', referenceArt: '/cards/cropped/38033121.jpg' },
   '91152256': { id: 'celtic-guardian', family: 'warrior', body: '#448c5a', accent: '#d7cb8b', eye: '#c1f4ff', attack: 'blade' },
   '63977008': { id: 'junk-synchron', family: 'machine', body: '#e67b37', accent: '#4d647a', eye: '#91eaff', attack: 'impact' },
   '40640057': { id: 'kuriboh', family: 'kuriboh', body: '#886543', accent: '#b89569', eye: '#bd83ec', attack: 'impact' },
@@ -20,13 +20,16 @@ const CARD_PROFILES = Object.freeze({
   '54652250': { id: 'man-eater-bug', family: 'insect', body: '#547b3c', accent: '#a6b758', eye: '#ffcf73', attack: 'pincer' },
   '31560081': { id: 'magician-of-faith', family: 'faith', body: '#d9a0c4', accent: '#eb92ba', eye: '#74dbef', hair: '#3d956b', attack: 'faith-light' },
   '26202165': { id: 'sangan', family: 'sangan', body: '#976246', accent: '#c28d60', eye: '#f3d7f0', attack: 'impact' },
-  '77637979': { id: 'lanphorhynchus', family: 'dragon', digital: true, body: '#35518e', accent: '#68e7ff', eye: '#edfe6d', attack: 'cyber-beam' }
+  '77637979': { id: 'lanphorhynchus', family: 'dragon', digital: true, body: '#35518e', accent: '#68e7ff', eye: '#edfe6d', attack: 'cyber-beam' },
+  '20721928': { id: 'elemental-hero-sparkman', family: 'warrior', body: '#293865', accent: '#d7c16f', eye: '#93f5f0', attack: 'spark-bolt', anatomy: 'sparkman', referenceArt: '/cards/cropped/20721928.jpg' },
+  '68638985': { id: 'slime-toad', family: 'aquatic', body: '#168955', accent: '#319a68', eye: '#d5c948', attack: 'water', anatomy: 'slime-toad', referenceArt: '/cards/cropped/68638985.jpg' },
+  '39552864': { id: 'mystical-shine-ball', family: 'orb', body: '#e3eef1', accent: '#c6eeff', eye: '#f8fffa', attack: 'faith-light', anatomy: 'shine-ball', referenceArt: '/cards/cropped/39552864.jpg' }
 });
 
 export const SUPPORTED_HOLOGRAM_MODEL_IDS = Object.freeze(Object.keys(CARD_PROFILES));
 export const SUPPORTED_PROCEDURAL_MODEL_FAMILIES = Object.freeze([
   'dragon', 'magician', 'faith', 'warrior', 'machine', 'rock', 'kuriboh',
-  'sangan', 'fiend', 'clock', 'insect', 'aquatic', 'avian', 'beast', 'token', 'spirit'
+  'sangan', 'fiend', 'clock', 'insect', 'aquatic', 'avian', 'beast', 'token', 'spirit', 'orb'
 ]);
 
 export function resolveHologramMonsterProfile(card = {}) {
@@ -91,9 +94,13 @@ export function resolveCombatVisualProfile({ kind = 'attack', card = {}, profile
     water: { color: '#2ebeff', secondary: '#b1ffff', duration: 850, shape: 'orb' },
     stardust: { color: '#93fff2', secondary: '#ffffff', duration: 950, shape: 'beam' },
     'cyber-beam': { color: '#6bcbff', secondary: '#e7fbff', duration: 880, shape: 'beam' },
+    'spark-bolt': { color: '#62f5e8', secondary: '#e8ffeb', duration: 780, shape: 'lightning' },
     pincer: { color: '#bfd777', secondary: '#f0ffd2', duration: 720, shape: 'pincer' },
     'faith-light': { color: '#ffcae7', secondary: '#fff4c0', duration: 1000, shape: 'faith' },
     search: { color: '#ebb782', secondary: '#fff5db', duration: 850, shape: 'search' },
+    'sanctuary-protection': { color: '#fff0b0', secondary: '#ffffff', duration: 900, shape: 'sanctuary' },
+    'skyscraper-boost': { color: '#6fdfff', secondary: '#ffe29c', duration: 1000, shape: 'boost' },
+    'ancient-forest-destruction': { color: '#99c884', secondary: '#e4d28c', duration: 950, shape: 'roots' },
     shield: { color: '#8ee9ff', secondary: '#ebffff', duration: 900, shape: 'shield' },
     revival: { color: '#62ffb3', secondary: '#ffefa0', duration: 1100, shape: 'rune' },
     'spell-rune': { color: '#61ebc3', secondary: '#e6ffff', duration: 900, shape: 'rune' },
