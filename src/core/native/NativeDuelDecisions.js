@@ -25,6 +25,9 @@ const POSITION_LABELS = new Map([
   [4, 'DÉFENSE FACE RECTO'], [8, 'DÉFENSE FACE VERSO']
 ]);
 const ATTRIBUTE_LABELS = ['TERRE', 'EAU', 'FEU', 'VENT', 'LUMIÈRE', 'TÉNÈBRES', 'DIVIN'];
+// Official scripts pass these system descriptions to SelectOption for card
+// kind declarations; they are not encoded card string IDs.
+const CARD_KIND_DESCRIPTIONS = new Map([[70n, 'MONSTRE'], [71n, 'MAGIE'], [72n, 'PIÈGE']]);
 const RACE_LABELS = ['Guerrier', 'Magicien', 'Elfe', 'Démon', 'Zombie', 'Machine', 'Aqua',
   'Pyro', 'Rocher', 'Bête Ailée', 'Plante', 'Insecte', 'Tonnerre', 'Dragon', 'Bête',
   'Bête-Guerrier', 'Dinosaure', 'Poisson', 'Serpent de Mer', 'Reptile', 'Psychique',
@@ -86,6 +89,7 @@ function descriptionLabel(description, options, code) {
   if (typeof text === 'string' && text) return text;
   try {
     const value = BigInt(description);
+    if (CARD_KIND_DESCRIPTIONS.has(value)) return CARD_KIND_DESCRIPTIONS.get(value);
     const effectCode = Number(value >> 4n);
     const effectIndex = Number(value & 15n);
     const card = readMetadata(options.metadata, effectCode);
@@ -401,7 +405,10 @@ export function translateNativePrompt(prompt, inputOptions = {}) {
       const values = maskValues(prompt.available, race ? 32 : 7, race);
       request.multiple = true; request.minimum = prompt.count; request.maximum = prompt.count;
       request.title = race ? 'ANNONCER UN TYPE' : 'ANNONCER UN ATTRIBUT';
-      request.candidates = values.map((value, index) => ({ uid: String(index), name: (race ? RACE_LABELS : ATTRIBUTE_LABELS)[Math.log2(Number(value))] }));
+      request.candidates = values.map((value, index) => {
+        const name = (race ? RACE_LABELS : ATTRIBUTE_LABELS)[Math.log2(Number(value))];
+        return { uid: String(index), name, label: name };
+      });
       convert = choice => {
         const indices = selectionToIndices(choice, values.length);
         return indices ? { type, [race ? 'races' : 'attributes']: indices.map(index => values[index]) } : null;

@@ -23,6 +23,34 @@ const context = extra => createNativeVisualContext({ getCardMetadata: metadata,
     baseAttack: 3000, baseDefense: 2500, level: 8, counters: { 1: 2 }, reason: 0,
     targetCards: [{ code: 123456789 }], overlayCards: [123456789], isHidden: false }), ...extra });
 
+test('public native aliases change the visible name without changing the physical Field source', () => {
+  // Values observed in the official Pseudo Space/Wetlands runtime scenario.
+  let alias = 2084239;
+  const requests = [];
+  const ctx = createNativeVisualContext({
+    getCardMetadata: code => ({ id: String(code), name: code === 77584012 ? 'Pseudo Space' : 'Wetlands',
+      name_en: code === 77584012 ? 'Pseudo Space' : 'Wetlands', type: 'Spell Card', card_type: 'spell', race: 'Field' }),
+    queryCard: request => {
+      requests.push(request);
+      return { code: 77584012, alias, type: 0x80002, position: P.FACEUP_ATTACK };
+    }
+  });
+  const source = { ...loc(0, L.SZONE, 5), code: 77584012, type: M.CHAINING, chain_size: 1 };
+  const copied = translate(source, ctx).events.find(event => event.type === 'activate').card;
+  assert.equal(copied.id, '77584012');
+  assert.equal(copied.name, 'Wetlands');
+  assert.equal(copied.printedName, 'Pseudo Space');
+  assert.equal(copied.currentNameCode, 2084239);
+  assert.ok(requests.every(request => request.flags & Q.ALIAS));
+  alias = 77584012;
+  const restored = translate({ ...source, chain_size: 2 }, ctx).events.find(event => event.type === 'activate').card;
+  assert.equal(restored.id, '77584012');
+  assert.equal(restored.name, 'Pseudo Space');
+  ctx.queryCard = () => ({ code: 77584012, isHidden: true,
+    get alias() { assert.fail('A private native alias must never be read'); } });
+  assert.equal(translate({ ...source, chain_size: 3 }, ctx).events[0].card.name, 'Pseudo Space');
+});
+
 function summon(ctx, code = blueEyes, location = loc(), summonType = M.SUMMONING) {
   translate({ type: summonType, code, ...location }, ctx);
   const completedType = summonType === M.SPSUMMONING ? M.SPSUMMONED

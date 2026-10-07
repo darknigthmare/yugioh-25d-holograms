@@ -8,6 +8,7 @@ import { createNativeCardPresentationTemplate, isSupportedNativeCatalogueCard,
   getNativeCardCopyIdentity } from './NativeCardCatalogue.js';
 import { resolveNativeDuelPrompt, validateNativeDuelResponse } from './NativeDuelDecisions.js';
 import { createNativeVisualContext, translateNativeVisualEvents } from './NativeDuelVisualEvents.js';
+import { nativeCardKind, nativeCardTypeLabel, nativeRaceName, nativeAttributeName } from './NativeCardCharacteristics.js';
 
 const SIDES = ['player', 'opponent'];
 const frozen = values => Object.freeze(values);
@@ -57,14 +58,6 @@ export function shuffleNativeMainDeck(cards, randomUint32 = secureShuffleWords()
 }
 const slotKey = card => `${card.controller}:${card.location}:${card.sequence}:${card.overlay_sequence ?? '-'}`;
 const lookup = (map, code) => map?.get?.(Number(code)) ?? map?.get?.(String(code));
-const titleCase = value => String(value ?? '').split('_').map(word => (
-  word ? word[0].toUpperCase() + word.slice(1) : ''
-)).join('-');
-const COMPOUND_RACE_NAMES = Object.freeze({
-  WINGEDBEAST: 'Winged Beast', BEASTWARRIOR: 'Beast-Warrior', SEASERPENT: 'Sea Serpent',
-  DIVINE: 'Divine-Beast', CREATORGOD: 'Creator-God', MAGICALKNIGHT: 'Magical Knight',
-  HIGHDRAGON: 'High Dragon', OMEGAPSYCHIC: 'Omega Psychic', CELESTIALWARRIOR: 'Celestial Warrior'
-});
 
 /** CardState-compatible presentation. Every dynamic value comes from a query. */
 class NativeCardProjection extends CardState {
@@ -304,9 +297,9 @@ export class NativeDuelGame {
     const database = lookup(this.resources?.metadata, canonical) || lookup(this.resources?.metadata, code) || {};
     const data = lookup(this.resources?.cards, code) || {};
     const template = createNativeCardPresentationTemplate(this.resources, canonical) || {};
-    return { ...template, ...database, card_type: data.type & 2 ? 'spell' : data.type & 4 ? 'trap' : 'monster',
+    return { ...template, ...database, card_type: nativeCardKind(data.type) || 'monster',
       type: this.runtime ? this._printedType(data.type || 0) : '',
-      race: this.runtime ? this._constantName('OcgRace', data.race) : '',
+      race: this.runtime ? nativeRaceName(data.race) : '',
       ...this._metadata.get(canonical), id: canonical };
   }
   _queryFlags() {
@@ -320,20 +313,8 @@ export class NativeDuelGame {
     this._statusFlags.set(name, mask);
     return mask;
   }
-  _constantName(group, value) {
-    if (value == null) return '';
-    const numeric = typeof value === 'bigint' ? value : Number(value);
-    const entry = Object.entries(this.runtime.constants[group] || {}).find(([, code]) => code === numeric);
-    if (!entry) return '';
-    return group === 'OcgRace' ? COMPOUND_RACE_NAMES[entry[0]] || titleCase(entry[0].toLowerCase())
-      : titleCase(entry[0].toLowerCase());
-  }
   _printedType(type) {
-    const T = this.runtime.constants.OcgType;
-    if (type & T.SPELL) return 'Spell Card';
-    if (type & T.TRAP) return 'Trap Card';
-    return ['FUSION', 'RITUAL', 'SYNCHRO', 'XYZ', 'PENDULUM', 'LINK', 'TUNER', 'TOKEN', 'EFFECT', 'NORMAL']
-      .filter(name => type & T[name]).map(name => titleCase(name.toLowerCase())).join(' ') + ' Monster';
+    return nativeCardTypeLabel(type);
   }
 
   _projectCard(query, controller, location, sequence) {
@@ -342,8 +323,13 @@ export class NativeDuelGame {
     const id = this._canonicalCode(query.code);
     const data = lookup(this.resources?.cards, id) || lookup(this.resources?.cards, query.code) || {};
     const metadata = this._getMetadata(query.code);
+    const nativeAlias = Number(query.alias ?? query.code);
+    const currentNameCode = nativeAlias > 0 ? this._canonicalCode(nativeAlias) : id;
+    const currentName = currentNameCode === id ? metadata : this._getMetadata(nativeAlias);
+    const printedName = metadata.name || `Carte ${id}`;
+    const printedNameEn = metadata.name_en || metadata.name || `Card ${id}`;
     const type = Number(query.type ?? data.type ?? 0);
-    const cardType = type & T.SPELL ? 'spell' : type & T.TRAP ? 'trap' : 'monster';
+    const cardType = nativeCardKind(type) || 'monster';
     const position = query.position ?? P.FACEDOWN_DEFENSE;
     const faceDown = Boolean(position & (P.FACEDOWN_ATTACK | P.FACEDOWN_DEFENSE));
     const nativeRef = frozen({ controller, location, sequence, code: Number(query.code) });
@@ -355,7 +341,7 @@ export class NativeDuelGame {
     }
     const card = new NativeCardProjection({
       ...metadata, uid: identity.uid, id,
-      name: metadata.name || `Carte ${id}`, name_en: metadata.name_en || metadata.name || `Card ${id}`,
+      name: currentName.name || printedName, name_en: currentName.name_en || currentName.name || printedNameEn,
       desc: metadata.description || metadata.desc || '', card_type: cardType,
       type: this._printedType(type), atk: data.attack, def: data.defense,
       level: data.level, race: cardType === 'spell' && (type & T.FIELD) ? 'Field' : metadata.race,
@@ -368,6 +354,10 @@ export class NativeDuelGame {
       [L.SZONE]: 'spell_zone', [L.GRAVE]: 'graveyard', [L.REMOVED]: 'banished', [L.EXTRA]: 'extra_deck' };
     card.nativeRef = nativeRef;
     card.nativeCode = Number(query.code);
+    card.nativeAlias = nativeAlias;
+    card.currentNameCode = currentNameCode;
+    card.printedName = printedName;
+    card.printedName_en = printedNameEn;
     card.nativeType = type;
     card.nativeStatus = Number(query.status ?? 0);
     card.nativePosition = position;
@@ -394,8 +384,8 @@ export class NativeDuelGame {
     card.isPendulumMonster = Boolean(type & T.PENDULUM);
     card.isEffectMonster = Boolean(type & T.EFFECT);
     card.isToken = Boolean(type & T.TOKEN);
-    card.currentRace = this._constantName('OcgRace', query.race ?? data.race);
-    card.currentAttribute = this._constantName('OcgAttribute', query.attribute ?? data.attribute).toUpperCase();
+    card.currentRace = nativeRaceName(query.race ?? data.race);
+    card.currentAttribute = nativeAttributeName(query.attribute ?? data.attribute).toUpperCase();
     if (cardType === 'monster') card.race = card.currentRace;
     card.attribute = card.currentAttribute;
     card.pendulumScale = Number(query.leftScale ?? data.lscale ?? 0);
@@ -521,6 +511,19 @@ export class NativeDuelGame {
           this._fieldActivations.set(to, { state: 'resolved', source: 'move',
             sequence: ++this._fieldActivationSequence });
         }
+      } else if (message.type === M.SWAP) {
+        // SWAP carries both pre-swap locations. Transfer the projection identities
+        // atomically; the next native query supplies the new controllers/stats.
+        const first = slotKey(message.card1), second = slotKey(message.card2);
+        const firstIdentity = this._slotIds.get(first), secondIdentity = this._slotIds.get(second);
+        this._slotIds.delete(first);
+        this._slotIds.delete(second);
+        if (firstIdentity) this._slotIds.set(second, firstIdentity);
+        if (secondIdentity) this._slotIds.set(first, secondIdentity);
+        this._annotations.delete(first);
+        this._annotations.delete(second);
+        this._fieldActivations.delete(first);
+        this._fieldActivations.delete(second);
       } else if ([M.SUMMONING, M.SPSUMMONING, M.FLIPSUMMONING].includes(message.type)) {
         this._annotations.set(slotKey(message), {
           turnSummoned: this.turnCount,

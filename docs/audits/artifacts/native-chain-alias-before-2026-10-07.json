@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-07",
+  "sourceHashes": {
+    "src/core/native/NativeDuelGame.js": "c589de6c54eab8a3067db0d91b42a834c9b9ac8772b79cd8130112ebf1c3d45c",
+    "public/native/ocgcore.sync.wasm": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+    "public/native/card-data.json": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d",
+    "public/native/scripts.json": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f",
+    "src/core/native/vendor/ocgcore/index.js": "0b46ae83e05a0b6d4ebf85e4422c6f64bea0a5613ea3c649b6eee50d275bc919"
+  },
+  "copied": {
+    "physicalCode": 77584012,
+    "nativeAlias": 2084239,
+    "currentName": "Pseudo Space",
+    "monsterAttack": 1900,
+    "identityPreserved": true,
+    "artPreserved": true,
+    "costPaid": true
+  },
+  "reset": {
+    "physicalCode": 77584012,
+    "nativeAlias": 77584012,
+    "currentName": "Pseudo Space",
+    "monsterAttack": 700,
+    "identityPreserved": true,
+    "artPreserved": true
+  }
+}

@@ -29,7 +29,7 @@ export class FieldSpellAtlas {
     const effects = this.engine === 'native'
       ? `${count.nativeAvailable} effets disponibles · ${count.nativeEffectTested} Terrains vérifiés en scénarios`
       : `${count.implementedRules} effets jouables`;
-    this.dialog.querySelector('#field-atlas-summary').textContent = `${count.total} Terrains · ${count.sourceArt} illustrations originales · ${count.inspectedGeometry} décors étudiés · ${effects}`;
+    this.dialog.querySelector('#field-atlas-summary').textContent = `${count.total} Terrains · ${count.sourceArt} illustrations originales · ${count.inspectedGeometry} décors étudiés · ${count.sourceReconstructedGeometry} volumes reconstruits · ${effects}`;
     const playableOption = this.filter.querySelector?.('option[value="playable"]');
     if (playableOption) playableOption.textContent = this.engine === 'native' ? 'Effets disponibles' : 'Effets jouables';
     this.render();

@@ -61,8 +61,8 @@ for (const scenario of report.scenarios) {
 }
 
 test('coverage distinguishes bundled, initialized, effect-tested and browser integration', () => {
-  assert.equal(report.summary.effectTested, 65);
-  assert.equal(report.summary.scenarios, 77);
+  assert.equal(report.summary.effectTested, 115);
+  assert.equal(report.summary.scenarios, 128);
   assert.equal(report.summary.passedScenarios, report.summary.scenarios);
   assert.equal(report.summary.integrationTested, 0);
   assert.ok(report.matrix.some(entry => entry.initialized && !entry.effectTested));
@@ -106,6 +106,16 @@ test('Dark Sanctuary resolves both RNG coin branches through actual native attac
     assert.ok(scenario.decisions.some(row => row.prompt.type === 10), 'Attack declared through SELECT_BATTLECMD');
     assert.ok(scenario.queries.some(({ query }) => query.field === true), 'Final LP proved by a native field query');
   }
+});
+
+test('Pseudo Space copy preserves the physical passcode while the current-name alias and effect reset', () => {
+  const scenario = report.scenarios.find(row => row.id === 'pseudo-space-real-wetlands-banish-cost-official-effect-copy-reset');
+  const aliases = scenario.queries.filter(({ query, result }) => query.location === 8 && query.sequence === 5
+    && result?.code === 77584012 && Number.isInteger(result?.alias)).map(({ result }) => result.alias);
+  assert.deepEqual(aliases, [2084239, 77584012]);
+  const attacks = scenario.queries.filter(({ query, result }) => query.location === 4 && result?.code === 68638985)
+    .map(({ result }) => result.attack);
+  assert.deepEqual(attacks, [1900, 700]);
 });
 
 test('current native core implements the Angelechy opponent Special Summon zone decision', () => {

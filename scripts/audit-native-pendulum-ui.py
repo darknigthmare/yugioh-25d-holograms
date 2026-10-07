@@ -131,6 +131,15 @@ def run_view(page,url,view,out,draft):
     procedure=page.locator('#extra-deck-list .native-extra-pendulum-action')
     assert procedure.count()==1 and procedure.is_enabled()
     assert 'CHOISIR LES MONSTRES PENDULE' in procedure.inner_text()
+    button_style=procedure.evaluate("""button => {
+        const style=getComputedStyle(button),bounds=button.getBoundingClientRect();
+        return {backgroundColor:style.backgroundColor,borderColor:style.borderColor,
+            minHeight:style.minHeight,whiteSpace:style.whiteSpace,width:bounds.width,height:bounds.height};
+    }""")
+    assert button_style['height']>=44 and float(button_style['minHeight'].removesuffix('px'))>=44
+    assert button_style['backgroundColor']=='rgba(255, 0, 204, 0.1)' and button_style['borderColor']=='rgb(255, 0, 204)'
+    assert button_style['whiteSpace']=='normal'
+    view['procedureButtonStyle']=button_style
     odd=page.locator('#extra-deck-list .face-up-extra-card[data-id="16178681"]')
     assert odd.count()==1 and 'CHOIX PENDULE' in odd.inner_text()
     page.screenshot(path=str(out/f'native-pendulum-extra-{view["width"]}.png'),animations='disabled')

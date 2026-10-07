@@ -3226,7 +3226,15 @@ function updateInspector(card) {
   }
 
   const isMonster = card.card_type === 'monster';
-  const levelStars = isMonster && card.level ? '★'.repeat(card.level) : '';
+  const currentLevel = Number(typeof card.getLevel === 'function' ? card.getLevel() : card.level);
+  const currentRank = Number(typeof card.getRank === 'function' ? card.getRank() : card.rank);
+  const currentLinkRating = Number(card.linkRating ?? card.level);
+  const levelStars = !isMonster ? '' : card.isLinkMonster
+    ? `LIEN ${Number.isInteger(currentLinkRating) ? currentLinkRating : '—'}`
+    : card.extra_type === 'xyz' || card.isXyzMonster === true
+      ? `RANG ${Number.isInteger(currentRank) ? currentRank : '—'}`
+      : Number.isInteger(currentLevel) && currentLevel > 0
+        ? currentLevel <= 12 ? '★'.repeat(currentLevel) : `NIV. ${currentLevel}` : '';
 
   const atk = typeof card.getAtk === 'function' ? card.getAtk() : (card.atk !== undefined ? card.atk : 0);
   const def = typeof card.getDef === 'function' ? card.getDef() : (card.def !== undefined ? card.def : 0);

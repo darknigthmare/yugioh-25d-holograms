@@ -1,0 +1,3216 @@
+{
+  "auditDate": "2026-10-07",
+  "referenceCount": 47,
+  "description": "Intact source JPGs and adapted peripheral geometry; characters retained in illustration.",
+  "moduleSha256": "498c7a20bb5d0d0d1d7c693c0225f87d0b9fdf6822c33cc98ffc2021722a04ef",
+  "baselineCommit": "ba6c62a",
+  "baselineSha256": "b83bba7f70345735cdd0921503fbed0579fe71dba67e5c84fd0b849391e0b121",
+  "baselineDependencySha256": {
+    "FieldEnvironmentAquaticReferences.js": "fc2308aafce72862a97b759cfe25b6818b38580ebde74125af3bdc5c074858b2",
+    "FieldEnvironmentArchitecturalReferences.js": "e9bfe454fd75e9934917ba60d431aaf5549f75c20769290cd5dffc929b8895b1",
+    "FieldEnvironmentDarkReferences.js": "f32d83bdeb1f2a3d51f3d405c0b8e546a3a5ad96132d2d0d79e7281bc45a2066",
+    "FieldEnvironmentMysticalReferences.js": "1e6ec73411e3dd624542edee60000110bd22f38c6f9e90176f18ce071c7da2cc",
+    "FieldEnvironmentNatureReferences.js": "0d44bdf0379837717ea1be71599d5572edb9209565cf93bfc5ee5d3768f7c824",
+    "FieldEnvironmentTechnologyReferences.js": "930d3121814e730d9274a6d2087bcd301c1b18b07250cff1de9abb70676b4742",
+    "FieldEnvironmentUrbanReferences.js": "b3d94d8d9f427315fec3b0d36c775fc337d827b92ca6a8fd7de8d8665e5e61c9",
+    "FieldEnvironmentWildReferences.js": "b8db1cfd37d85dfd222d0b6c9a89934cc1f9c0d0ce7ae3e95325efafdb07d0c7"
+  },
+  "integratedReferenceDependencySha256": {
+    "FieldEnvironmentAquaticReferences.js": "fc2308aafce72862a97b759cfe25b6818b38580ebde74125af3bdc5c074858b2",
+    "FieldEnvironmentArcaneReferences.js": "88776075dac0a9fbc4644e6427a4d3cd49e0305693fb5826056b8f7b4a6d5e3e",
+    "FieldEnvironmentArchitecturalReferences.js": "e9bfe454fd75e9934917ba60d431aaf5549f75c20769290cd5dffc929b8895b1",
+    "FieldEnvironmentCommunityReferences.js": "498c7a20bb5d0d0d1d7c693c0225f87d0b9fdf6822c33cc98ffc2021722a04ef",
+    "FieldEnvironmentDarkReferences.js": "f32d83bdeb1f2a3d51f3d405c0b8e546a3a5ad96132d2d0d79e7281bc45a2066",
+    "FieldEnvironmentEngineeringReferences.js": "566328be75b756765ffd33c2eb7738f4825b8d4cdd48c8acec807505d674c8ce",
+    "FieldEnvironmentFrontierReferences.js": "926e4873ff5e4c2a038f310eb6d5c702ed8dbe3d92bced322b88fe1cb21997af",
+    "FieldEnvironmentMysticalReferences.js": "1e6ec73411e3dd624542edee60000110bd22f38c6f9e90176f18ce071c7da2cc",
+    "FieldEnvironmentNatureReferences.js": "0d44bdf0379837717ea1be71599d5572edb9209565cf93bfc5ee5d3768f7c824",
+    "FieldEnvironmentRitualReferences.js": "78d9ce8368ffb8102507d15ba6d12fac74181073c73fa61c6a2d42e415e47bd8",
+    "FieldEnvironmentStageReferences.js": "27b49bb47872ac935dc3d1e064d792843e24a4d79fb9fdfe0134daed311f1f5e",
+    "FieldEnvironmentTechnologyReferences.js": "930d3121814e730d9274a6d2087bcd301c1b18b07250cff1de9abb70676b4742",
+    "FieldEnvironmentUrbanReferences.js": "b3d94d8d9f427315fec3b0d36c775fc337d827b92ca6a8fd7de8d8665e5e61c9",
+    "FieldEnvironmentWildReferences.js": "b8db1cfd37d85dfd222d0b6c9a89934cc1f9c0d0ce7ae3e95325efafdb07d0c7"
+  },
+  "integratedFactorySha256": "134b5a9e4cf1982b82a43e54f860522833cf1cea16013003b54153fc79dedb3c",
+  "threeWhitelistSha256": "f1ba391ea533f94a6795f160091077d7488c590cf2e42cf2686c7d0a01fe7e82",
+  "scriptSha256": "a5e6703f7c8e857821e5ec84e297b3cf4c670ac643d1e16c47c467982955566f",
+  "references": [
+    {
+      "cardId": "31322640",
+      "name": "Allure Palace",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/31322640.jpg",
+      "sha256": "1969f268d2c4ac3ac5e2b165d8b3bab3f26e5ec3c639474a0a0451a3ef94bf66"
+    },
+    {
+      "cardId": "90764871",
+      "name": "Archfiend Strategy",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/90764871.jpg",
+      "sha256": "d061b7433ec7a81ba6ad7f330038076e7efc2b0d14df503af27f03d751f380b7"
+    },
+    {
+      "cardId": "74733322",
+      "name": "Artmage Academic Arcane Arts Acropolis",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/74733322.jpg",
+      "sha256": "233070e7a7051ba028b00e7a65eae26db96335ddf315dd3ad4d1011555e01da1"
+    },
+    {
+      "cardId": "4357063",
+      "name": "Chronomaly City Babylon",
+      "camera": [
+        14,
+        29,
+        -6
+      ],
+      "target": [
+        0,
+        1,
+        -33
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/4357063.jpg",
+      "sha256": "7ced6d9807cef8327f641b90c1f79c63f02b1761cc7577cb1004ffb598f978fa"
+    },
+    {
+      "cardId": "11808215",
+      "name": "Dice Dungeon",
+      "camera": [
+        14,
+        22,
+        20
+      ],
+      "target": [
+        0,
+        5,
+        -21
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/11808215.jpg",
+      "sha256": "ebab59774b49b5fc3acae791996e11c000679a3d6fdf858c73139cf1ebda493e"
+    },
+    {
+      "cardId": "67331360",
+      "name": "Doll House",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/67331360.jpg",
+      "sha256": "35538bad06168c8d7687cb14e87ef626ad412ac004a1aff166169197adbac8e8"
+    },
+    {
+      "cardId": "60514625",
+      "name": "Ecole de Zone",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/60514625.jpg",
+      "sha256": "76139cd240e0a2a305e242f48aee9a7337b6508fa91f895b86ebda1f20b053e4"
+    },
+    {
+      "cardId": "56725612",
+      "name": "Fairy Tail Ball",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/56725612.jpg",
+      "sha256": "23c123000c7eec0547507a48457f12d5a3bed29cbf83d0756e191878d5f48c24"
+    },
+    {
+      "cardId": "38057522",
+      "name": "Grand Spiritual Art - Ichirin",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/38057522.jpg",
+      "sha256": "d0c112fec86f3570ff8726d3a4388595dc1b95b6885d45e84d48667c1922c8f7"
+    },
+    {
+      "cardId": "26232916",
+      "name": "Hidden Village of Ninjitsu Arts",
+      "camera": [
+        14,
+        22,
+        20
+      ],
+      "target": [
+        0,
+        5,
+        -21
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/26232916.jpg",
+      "sha256": "8d0ec50ec601a04d67ebdba1cef80f348d69c80e9f02bd24341aae1efd0bbe24"
+    },
+    {
+      "cardId": "34771947",
+      "name": "Labyrinth Wall Shadow",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/34771947.jpg",
+      "sha256": "f4bd8412d9d5d12bb34ccc92f511f9ccc552a18d2b377c8622088c204fa16aba"
+    },
+    {
+      "cardId": "18890039",
+      "name": "Libromancer First Appearance",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/18890039.jpg",
+      "sha256": "0a236296991a3991ccb588823bc288d0f40e8ee2bf97c128ea61b96c1b138bda"
+    },
+    {
+      "cardId": "35487920",
+      "name": "Live☆Twin Channel",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/35487920.jpg",
+      "sha256": "c8dbf72fd67f1f120b02b62a34ddc900b55a28e2f45470e4f2d7ef9a24f93f0b"
+    },
+    {
+      "cardId": "14001430",
+      "name": "Madolche Chateau",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/14001430.jpg",
+      "sha256": "09d2e42a8310a9b323c4757439fbde5c517f02d4383a8e2a44f02197706b19a7"
+    },
+    {
+      "cardId": "95477924",
+      "name": "Magician's Salvation",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/95477924.jpg",
+      "sha256": "45bbf3c053e2ef992876ae753ad92e33626843148383a4ed76172c5b8e083420"
+    },
+    {
+      "cardId": "35815783",
+      "name": "Magikey World",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/35815783.jpg",
+      "sha256": "f438d5b6c3aae617dffe06f73efcfbd08470fade742cb481720e1505ee965eee"
+    },
+    {
+      "cardId": "25807544",
+      "name": "Noble Arms Museum",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/25807544.jpg",
+      "sha256": "ca3f8e46d764c4a5391797fe8f26e069f7ec69236e27bfe2ec9582b657975488"
+    },
+    {
+      "cardId": "55742055",
+      "name": "Noble Knights of the Round Table",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/55742055.jpg",
+      "sha256": "02bfbc114540347956ff01a4788afe4d82308f89bf485fe262e5740f4165afaa"
+    },
+    {
+      "cardId": "3055018",
+      "name": "Obsidim, the Ashened City",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/3055018.jpg",
+      "sha256": "fde05dee126afa64c1b1f577de0a333788539db5de2a9380490ddc7772af33a1"
+    },
+    {
+      "cardId": "90011152",
+      "name": "Ojama Country",
+      "camera": [
+        14,
+        22,
+        20
+      ],
+      "target": [
+        0,
+        5,
+        -21
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/90011152.jpg",
+      "sha256": "b17d0f1dea2f00f729164e6f099e4c0c38858320122bced2e525d2d22537ca6f"
+    },
+    {
+      "cardId": "26493435",
+      "name": "Onomatopia",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/26493435.jpg",
+      "sha256": "7bfada1778c28c282d8326574b041ff4e0fcbd3ee95c8e1102a86450752220d2"
+    },
+    {
+      "cardId": "61557074",
+      "name": "Palace of the Elemental Lords",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/61557074.jpg",
+      "sha256": "0aeac52ad35fc86ccc6f06626531f633ea496cfc4b165bd444f3bf684c14a3f4"
+    },
+    {
+      "cardId": "16269385",
+      "name": "Prank-Kids Place",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/16269385.jpg",
+      "sha256": "ede4740322a836e73b537fa049fce1d072e28c73281b16ccaf134f2cdd208b3e"
+    },
+    {
+      "cardId": "78710386",
+      "name": "R.B. Funk Dock",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/78710386.jpg",
+      "sha256": "955989676b1039cd899d93924cbee5a2fb00477613ee27b9b7e1e91fefce14ad"
+    },
+    {
+      "cardId": "47870325",
+      "name": "Smile Action",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/47870325.jpg",
+      "sha256": "50686e5d9db78d7709f7046aae860265c2284b0b07d35d61e037274fbb5b74b5"
+    },
+    {
+      "cardId": "6909330",
+      "name": "Soul Binding Gate",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/6909330.jpg",
+      "sha256": "8409b3967063601de225ae2c77c6549ea8d2c646427deb252525ba8459216f92"
+    },
+    {
+      "cardId": "54631665",
+      "name": "SPYRAL Resort",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/54631665.jpg",
+      "sha256": "9327b20285f961a450b983a5662170665e2bc46ddf1d69dadc3f57faa25d8b50"
+    },
+    {
+      "cardId": "20212491",
+      "name": "Stray Purrely Street",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/20212491.jpg",
+      "sha256": "c0eac1261c40aa481d2f6a8f34fcffe0d370cd3f0259b02554461a680378c0c0"
+    },
+    {
+      "cardId": "75304793",
+      "name": "Symph Amplifire",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/75304793.jpg",
+      "sha256": "ef04c83e21b52205366c58a6ecb03c804b15f33555a8e88879eda59d8bd7ba5f"
+    },
+    {
+      "cardId": "84792926",
+      "name": "Therion Discolosseum",
+      "camera": [
+        14,
+        22,
+        20
+      ],
+      "target": [
+        0,
+        5,
+        -21
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/84792926.jpg",
+      "sha256": "f4fa824ca8faea238b90149339c5d187ce51bba6e722e32d672f6edd9bf5476e"
+    },
+    {
+      "cardId": "20216608",
+      "name": "Tilted Try",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/20216608.jpg",
+      "sha256": "d69b26d4e18de3e000670ea4a7ed75f577aec4e628e35d5977be5be0abfabc8e"
+    },
+    {
+      "cardId": "43175858",
+      "name": "Toon Kingdom",
+      "camera": [
+        14,
+        22,
+        20
+      ],
+      "target": [
+        0,
+        5,
+        -21
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/43175858.jpg",
+      "sha256": "1380295ad3a24a101bdd1096680f1f580465ab44ea1aff1c84e699a8637176c9"
+    },
+    {
+      "cardId": "7293697",
+      "name": "Toon World the Perfect World",
+      "camera": [
+        14,
+        22,
+        20
+      ],
+      "target": [
+        0,
+        5,
+        -21
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/7293697.jpg",
+      "sha256": "5e42d35b4c5565b6949d328b5fa5173fa887a91092921103f3dba199f537a27f"
+    },
+    {
+      "cardId": "69299029",
+      "name": "Treasures of the Kings",
+      "camera": [
+        14,
+        22,
+        20
+      ],
+      "target": [
+        0,
+        5,
+        -21
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/69299029.jpg",
+      "sha256": "be50a15bd9ffecad503b16f96efd2a4c713e43835c0a160ec958cbea09274b33"
+    },
+    {
+      "cardId": "35550352",
+      "name": "Vanquish Soul, Start!",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/35550352.jpg",
+      "sha256": "994c45ce68986574407525d3dfda4d96ed2542b62d0a5512d88ca6ae8b33f53e"
+    },
+    {
+      "cardId": "75952542",
+      "name": "Vaylantz World - Konig Wissen",
+      "camera": [
+        14,
+        22,
+        20
+      ],
+      "target": [
+        0,
+        5,
+        -21
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/75952542.jpg",
+      "sha256": "211afd79fbd6508564b16b11a3c4e1a295c4a1aed13e06f6e940cadaf43a6622"
+    },
+    {
+      "cardId": "49568943",
+      "name": "Vaylantz World - Shinra Bansho",
+      "camera": [
+        14,
+        22,
+        20
+      ],
+      "target": [
+        0,
+        5,
+        -21
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/49568943.jpg",
+      "sha256": "b0c6f19c8e96eb28d98ee8e179a38e5c0ccb3ab3bf6e8ee4e41395cb2fb0c86e"
+    },
+    {
+      "cardId": "26984177",
+      "name": "Walls of the Imperial Tomb",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/26984177.jpg",
+      "sha256": "6fee424634dda481a488a820a415fa1aee8e0509943dcab0e748e942fd96834e"
+    },
+    {
+      "cardId": "58924378",
+      "name": "Wattcastle",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/58924378.jpg",
+      "sha256": "58ffec79f00da9cf9e626569e839e01c2808ab17e9b21cbc16e17ee9f0c047b9"
+    },
+    {
+      "cardId": "63017368",
+      "name": "Wedju Temple",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/63017368.jpg",
+      "sha256": "868a2f3a3b689a4e88abafd965c782c2605cc9786fdb3c6d5f5b6d8db4e058d0"
+    },
+    {
+      "cardId": "32353566",
+      "name": "Witchcrafter Walpurgis",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/32353566.jpg",
+      "sha256": "ddf00baf10e9ed445264292904fd800f91919fa7234dc219f2181b7a18595d2e"
+    },
+    {
+      "cardId": "93360904",
+      "name": "Yummyusment★Acroquey",
+      "camera": [
+        14,
+        22,
+        20
+      ],
+      "target": [
+        0,
+        5,
+        -21
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/93360904.jpg",
+      "sha256": "9269ef3efe76f963e79207bb226a92482b162be430c89711cee60844f0a70a5a"
+    },
+    {
+      "cardId": "66975205",
+      "name": "Yummyusment☆Mignon",
+      "camera": [
+        14,
+        22,
+        20
+      ],
+      "target": [
+        0,
+        5,
+        -21
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/66975205.jpg",
+      "sha256": "4960cc0b8642a518cbe64c523dd64a635bbc5c3e17d5077abd55faccc4076a33"
+    },
+    {
+      "cardId": "64230128",
+      "name": "Zaralaam the Dark Palace",
+      "camera": [
+        14,
+        22,
+        20
+      ],
+      "target": [
+        0,
+        5,
+        -21
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/64230128.jpg",
+      "sha256": "83121114d208612c4212a5f53fabcbb785e2fde6209789a14cd9a8c414a29c12"
+    },
+    {
+      "cardId": "4663194",
+      "name": "Dark City at Midnight",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/4663194.jpg",
+      "sha256": "79c2140e63d22a07e904b4b4da9d0665eb34c17f074a07c514d117e6013b7299"
+    },
+    {
+      "cardId": "47596607",
+      "name": "Skyscraper 2 - Hero City",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/47596607.jpg",
+      "sha256": "f1e04e45af5c59b3fe93cbbcdf8a3af765df90d95869498e4f621915bdfba430"
+    },
+    {
+      "cardId": "22198672",
+      "name": "Castle Link",
+      "camera": [
+        10,
+        18,
+        6
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/22198672.jpg",
+      "sha256": "794cc90ad4e85b74995b74e50cdca5f182d570a590e0038028795e46c5ff95dd"
+    }
+  ],
+  "capture": {
+    "details": [
+      {
+        "cardId": "31322640",
+        "before": {
+          "url": null,
+          "primitives": 43,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 532,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -18.4,
+              0,
+              -31.2
+            ],
+            "max": [
+              18.4,
+              13.4,
+              -22.6
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 56,
+          "drawCalls": 12,
+          "materials": 2,
+          "triangles": 6724,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -24,
+              0,
+              -39
+            ],
+            "max": [
+              24,
+              30,
+              9.97492790222168
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "90764871",
+        "before": {
+          "url": null,
+          "primitives": 34,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 516,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -23.70333796137793,
+              -0.024322640294250464,
+              -27.75
+            ],
+            "max": [
+              22.316719082097165,
+              7.582533272858104,
+              4.263709539202973
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 32,
+          "drawCalls": 7,
+          "materials": 1,
+          "triangles": 5580,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -23,
+              -0.22500500082969666,
+              -38.22358322143555
+            ],
+            "max": [
+              23,
+              24.2271728515625,
+              -23.700000762939453
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "74733322",
+        "before": {
+          "url": null,
+          "primitives": 105,
+          "drawCalls": 3,
+          "materials": 3,
+          "triangles": 1308,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -31.79844672274776,
+              0,
+              -34.55068101733923
+            ],
+            "max": [
+              30.576892640674487,
+              18.660842139134186,
+              -7.428055315464735
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 132,
+          "drawCalls": 8,
+          "materials": 1,
+          "triangles": 11609,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -22.850000381469727,
+              0,
+              -44.030310889706016
+            ],
+            "max": [
+              23.75,
+              37.41999959945679,
+              -32.349998474121094
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "4357063",
+        "before": {
+          "url": null,
+          "primitives": 101,
+          "drawCalls": 3,
+          "materials": 3,
+          "triangles": 1260,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -30.464277598727495,
+              0,
+              -34.1916060092859
+            ],
+            "max": [
+              31.806029015686363,
+              17.773673661611976,
+              -11.024154474120587
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 53,
+          "drawCalls": 9,
+          "materials": 1,
+          "triangles": 18872,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -18,
+              -8,
+              -44.80561828613281
+            ],
+            "max": [
+              18,
+              9.5,
+              -21.188501358032227
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "11808215",
+        "before": {
+          "url": null,
+          "primitives": 28,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 1728,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -36.43335856352903,
+              -2.0851549423666262,
+              -35.974114038676504
+            ],
+            "max": [
+              35.22149585611871,
+              10.922239276953043,
+              5.8287462794531155
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 60,
+          "drawCalls": 8,
+          "materials": 1,
+          "triangles": 4160,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -20.75,
+              -1.9627647399902344,
+              -42.400001525878906
+            ],
+            "max": [
+              20.75,
+              13.399999618530273,
+              -22.5
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "67331360",
+        "before": {
+          "url": null,
+          "primitives": 22,
+          "drawCalls": 7,
+          "materials": 6,
+          "triangles": 3832,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -20.5,
+              0,
+              -32
+            ],
+            "max": [
+              20.5,
+              10.55,
+              -13.721826772229935
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 173,
+          "drawCalls": 12,
+          "materials": 1,
+          "triangles": 3099,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -20.570634841918945,
+              0.10000000149011612,
+              -40
+            ],
+            "max": [
+              20.570634841918945,
+              31.485410690307617,
+              -20.225000381469727
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "60514625",
+        "before": {
+          "url": null,
+          "primitives": 114,
+          "drawCalls": 2,
+          "materials": 2,
+          "triangles": 1368,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -26.593393904541152,
+              0,
+              -31.78389143893728
+            ],
+            "max": [
+              27.672185959352646,
+              19.128272841125728,
+              -12.586326438642573
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 153,
+          "drawCalls": 11,
+          "materials": 1,
+          "triangles": 40420,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -22.48773193359375,
+              0,
+              -38.632999420166016
+            ],
+            "max": [
+              22.511634826660156,
+              24.36713218688965,
+              -4.573720932006836
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "56725612",
+        "before": {
+          "url": null,
+          "primitives": 51,
+          "drawCalls": 6,
+          "materials": 5,
+          "triangles": 1108,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -19.631919055833148,
+              -0.5856341285576719,
+              -31.2
+            ],
+            "max": [
+              19.454194699163974,
+              11.4,
+              5
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 38,
+          "drawCalls": 5,
+          "materials": 1,
+          "triangles": 7212,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -22.5,
+              0,
+              -38.5
+            ],
+            "max": [
+              22,
+              25,
+              -23.5
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "38057522",
+        "before": {
+          "url": null,
+          "primitives": 22,
+          "drawCalls": 2,
+          "materials": 1,
+          "triangles": 480,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -7.5,
+              -0.15,
+              -31.5
+            ],
+            "max": [
+              7.5,
+              8.275,
+              -22.5
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 106,
+          "drawCalls": 4,
+          "materials": 1,
+          "triangles": 16064,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -19.399999618530273,
+              -1.797499656677246,
+              -34.030311584472656
+            ],
+            "max": [
+              17.280000686645508,
+              23.797500610351562,
+              -31.80501365661621
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "26232916",
+        "before": {
+          "url": null,
+          "primitives": 89,
+          "drawCalls": 3,
+          "materials": 3,
+          "triangles": 6096,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -30.33310389245331,
+              -1.9041129411529232,
+              -24.340015627386773
+            ],
+            "max": [
+              31.947215794212465,
+              13.081524431854486,
+              9.96137767262825
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 78,
+          "drawCalls": 13,
+          "materials": 1,
+          "triangles": 26116,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -26.5,
+              0,
+              -43.19498558044434
+            ],
+            "max": [
+              26.5,
+              30.5,
+              10
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "34771947",
+        "before": {
+          "url": null,
+          "primitives": 28,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 1728,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -35.407114642130686,
+              -2.699814594588925,
+              -35.20272486773273
+            ],
+            "max": [
+              32.97991917872952,
+              10.554398762248457,
+              4.958567691093531
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 125,
+          "drawCalls": 7,
+          "materials": 1,
+          "triangles": 3900,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -23.02740478515625,
+              -0.025568749755620956,
+              -41.5
+            ],
+            "max": [
+              29.028125762939453,
+              28.01294708251953,
+              -17.433883666992188
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "18890039",
+        "before": {
+          "url": null,
+          "primitives": 111,
+          "drawCalls": 2,
+          "materials": 2,
+          "triangles": 1332,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -31.441403808048925,
+              0,
+              -30.290003027650528
+            ],
+            "max": [
+              25.976994340703822,
+              19.500220992276446,
+              -10.360245756222866
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 109,
+          "drawCalls": 4,
+          "materials": 1,
+          "triangles": 12948,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -23.100000381469727,
+              1,
+              -37.09498596191406
+            ],
+            "max": [
+              28,
+              25,
+              -30
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "35487920",
+        "before": {
+          "url": null,
+          "primitives": 36,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 1944,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -21.95,
+              0,
+              -29.130288712950108
+            ],
+            "max": [
+              21.95,
+              12.399499809741974,
+              3
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 25,
+          "drawCalls": 7,
+          "materials": 1,
+          "triangles": 5056,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -22.5,
+              0.5,
+              -35.1
+            ],
+            "max": [
+              22,
+              26.5,
+              -32.73209762573242
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "14001430",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 8,
+          "materials": 4,
+          "triangles": 8520,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -10.970000064373016,
+              0,
+              -32.97000006437302
+            ],
+            "max": [
+              10.970000064373016,
+              9.950000000000001,
+              -27.029999935626982
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 83,
+          "drawCalls": 9,
+          "materials": 1,
+          "triangles": 22996,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -20.139999389648438,
+              -0.2750000059604645,
+              -43.244998931884766
+            ],
+            "max": [
+              19.657499313354492,
+              20.600000381469727,
+              -28.501506805419922
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "95477924",
+        "before": {
+          "url": null,
+          "primitives": 39,
+          "drawCalls": 7,
+          "materials": 4,
+          "triangles": 3744,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -16.3,
+              -0.15,
+              -31.5
+            ],
+            "max": [
+              16.3,
+              8.275,
+              -21.80703832074794
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 60,
+          "drawCalls": 6,
+          "materials": 2,
+          "triangles": 14212,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -20.399999618530273,
+              0.17250630259513855,
+              -39.950496673583984
+            ],
+            "max": [
+              20.399999618530273,
+              28,
+              -27.899999618530273
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "35815783",
+        "before": {
+          "url": null,
+          "primitives": 104,
+          "drawCalls": 3,
+          "materials": 3,
+          "triangles": 1296,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -29.74995445096865,
+              0,
+              -30.464628800284117
+            ],
+            "max": [
+              27.86812949506566,
+              19.108920142613353,
+              -7.578894929494709
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 49,
+          "drawCalls": 7,
+          "materials": 2,
+          "triangles": 12836,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -21.3799991607666,
+              0,
+              -47.41999816894531
+            ],
+            "max": [
+              21.3799991607666,
+              30,
+              -22.5
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "25807544",
+        "before": {
+          "url": null,
+          "primitives": 43,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 532,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -18.4,
+              0,
+              -31.2
+            ],
+            "max": [
+              18.4,
+              13.4,
+              -22.6
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 46,
+          "drawCalls": 17,
+          "materials": 2,
+          "triangles": 1104,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -23.5,
+              0,
+              -40
+            ],
+            "max": [
+              23.5,
+              32.20000076293945,
+              3.5
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "55742055",
+        "before": {
+          "url": null,
+          "primitives": 43,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 532,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -18.4,
+              0,
+              -31.2
+            ],
+            "max": [
+              18.4,
+              13.4,
+              -22.6
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 52,
+          "drawCalls": 9,
+          "materials": 1,
+          "triangles": 1860,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -22,
+              -0.025568749755620956,
+              -43.5
+            ],
+            "max": [
+              22,
+              26,
+              -22.5
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "3055018",
+        "before": {
+          "url": null,
+          "primitives": 103,
+          "drawCalls": 3,
+          "materials": 3,
+          "triangles": 1284,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -29.812852608598767,
+              0,
+              -33.639945993665606
+            ],
+            "max": [
+              27.156923000514507,
+              18.631330348644408,
+              -6.661576902959496
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 88,
+          "drawCalls": 10,
+          "materials": 2,
+          "triangles": 9285,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -21.549999237060547,
+              -3.7606120109558105,
+              -46.26411819458008
+            ],
+            "max": [
+              21.31999969482422,
+              30.899999618530273,
+              -22.101000094413756
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "90011152",
+        "before": {
+          "url": null,
+          "primitives": 51,
+          "drawCalls": 6,
+          "materials": 5,
+          "triangles": 1108,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -19.454194699163974,
+              -0.5856341285576719,
+              -31.2
+            ],
+            "max": [
+              19.6333143794834,
+              11.4,
+              5
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 86,
+          "drawCalls": 11,
+          "materials": 1,
+          "triangles": 25664,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -26,
+              -0.05000000074505806,
+              -43.5
+            ],
+            "max": [
+              26,
+              19.299999237060547,
+              9.5
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "26493435",
+        "before": {
+          "url": null,
+          "primitives": 51,
+          "drawCalls": 6,
+          "materials": 5,
+          "triangles": 1108,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -19.75958795785013,
+              -0.5856341285576719,
+              -31.2
+            ],
+            "max": [
+              19.481223942488338,
+              11.4,
+              5
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 77,
+          "drawCalls": 5,
+          "materials": 2,
+          "triangles": 2156,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -27,
+              0,
+              -37.02540588378906
+            ],
+            "max": [
+              27,
+              55.955772399902344,
+              -29
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "61557074",
+        "before": {
+          "url": null,
+          "primitives": 43,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 532,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -18.4,
+              0,
+              -31.2
+            ],
+            "max": [
+              18.4,
+              13.4,
+              -22.6
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 46,
+          "drawCalls": 8,
+          "materials": 1,
+          "triangles": 8260,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -20,
+              0,
+              -46.314998626708984
+            ],
+            "max": [
+              20,
+              35,
+              -20.424999237060547
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "16269385",
+        "before": {
+          "url": null,
+          "primitives": 22,
+          "drawCalls": 7,
+          "materials": 6,
+          "triangles": 3832,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -20.5,
+              0,
+              -32
+            ],
+            "max": [
+              20.5,
+              10.55,
+              -13.721826772229935
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 26,
+          "drawCalls": 11,
+          "materials": 1,
+          "triangles": 9427,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -13.310331344604492,
+              -0.9084507803690745,
+              -43.279998779296875
+            ],
+            "max": [
+              13.293784141540527,
+              28.299999237060547,
+              -24
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "78710386",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -19,
+              0,
+              -28.5
+            ],
+            "max": [
+              19,
+              9.5,
+              1
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 106,
+          "drawCalls": 5,
+          "materials": 2,
+          "triangles": 18616,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -23.1299991607666,
+              -14.938724517822266,
+              -39
+            ],
+            "max": [
+              31,
+              38.93876266479492,
+              -33.342620849609375
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "47870325",
+        "before": {
+          "url": null,
+          "primitives": 22,
+          "drawCalls": 7,
+          "materials": 6,
+          "triangles": 3832,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -20.5,
+              0,
+              -32
+            ],
+            "max": [
+              20.5,
+              10.55,
+              -13.721826772229935
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 79,
+          "drawCalls": 5,
+          "materials": 1,
+          "triangles": 8464,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -24.079647064208984,
+              -2.1062352657318115,
+              -38.0195198059082
+            ],
+            "max": [
+              24.076147079467773,
+              30.00181007385254,
+              -28.969688415527344
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "6909330",
+        "before": {
+          "url": null,
+          "primitives": 34,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 516,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -22.44552948463371,
+              -0.026948609118917943,
+              -27.75
+            ],
+            "max": [
+              23.68381599035454,
+              7.871401053196606,
+              5.9251110424567015
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 77,
+          "drawCalls": 10,
+          "materials": 2,
+          "triangles": 12928,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -25.04739761352539,
+              0,
+              -38.5
+            ],
+            "max": [
+              25.04326820373535,
+              27,
+              -23.5
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "54631665",
+        "before": {
+          "url": null,
+          "primitives": 96,
+          "drawCalls": 2,
+          "materials": 2,
+          "triangles": 1152,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -31.627571712294593,
+              0,
+              -33.61733714248985
+            ],
+            "max": [
+              27.29193356866017,
+              18.59207014939748,
+              -9.6597821009811
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 45,
+          "drawCalls": 10,
+          "materials": 1,
+          "triangles": 716,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -24.5,
+              2.5,
+              -38.025001525878906
+            ],
+            "max": [
+              24.5,
+              28.225000381469727,
+              5.5
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "20212491",
+        "before": {
+          "url": null,
+          "primitives": 51,
+          "drawCalls": 6,
+          "materials": 5,
+          "triangles": 1108,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -19.56976090523859,
+              -0.5856341285576719,
+              -31.2
+            ],
+            "max": [
+              19.454194699163974,
+              11.4,
+              5
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 183,
+          "drawCalls": 16,
+          "materials": 1,
+          "triangles": 13543,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -23.5,
+              0,
+              -44.5
+            ],
+            "max": [
+              23.5,
+              29,
+              -2.5999999046325684
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "75304793",
+        "before": {
+          "url": null,
+          "primitives": 22,
+          "drawCalls": 7,
+          "materials": 6,
+          "triangles": 3832,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -20.5,
+              0,
+              -32
+            ],
+            "max": [
+              20.5,
+              10.55,
+              -13.721826772229935
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 39,
+          "drawCalls": 7,
+          "materials": 2,
+          "triangles": 53944,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -29.334701538085938,
+              -0.009984772652387619,
+              -38
+            ],
+            "max": [
+              29.335796356201172,
+              36.33559799194336,
+              -25.940092086791992
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "84792926",
+        "before": {
+          "url": null,
+          "primitives": 18,
+          "drawCalls": 3,
+          "materials": 3,
+          "triangles": 216,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -19.4,
+              -0.4,
+              -20.5
+            ],
+            "max": [
+              19.4,
+              11.4,
+              8.5
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 47,
+          "drawCalls": 17,
+          "materials": 2,
+          "triangles": 11712,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -21.070446014404297,
+              -0.042548973113298416,
+              -45.896175384521484
+            ],
+            "max": [
+              21.07208824157715,
+              28.6,
+              12.10601806640625
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "20216608",
+        "before": {
+          "url": null,
+          "primitives": 18,
+          "drawCalls": 3,
+          "materials": 3,
+          "triangles": 216,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -19.4,
+              -0.4,
+              -20.5
+            ],
+            "max": [
+              19.4,
+              11.4,
+              8.5
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 56,
+          "drawCalls": 6,
+          "materials": 1,
+          "triangles": 3320,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -22,
+              -10,
+              -38.02540588378906
+            ],
+            "max": [
+              22,
+              34,
+              -30.686594009399414
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "43175858",
+        "before": {
+          "url": null,
+          "primitives": 56,
+          "drawCalls": 9,
+          "materials": 6,
+          "triangles": 1312,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -19.473538993715106,
+              -0.5856341285576719,
+              -37
+            ],
+            "max": [
+              19.723510770209934,
+              13.399999999999999,
+              5
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 57,
+          "drawCalls": 12,
+          "materials": 1,
+          "triangles": 15536,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -17,
+              -3.5,
+              -38.54338073730469
+            ],
+            "max": [
+              17,
+              25,
+              -27.920000076293945
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "7293697",
+        "before": {
+          "url": null,
+          "primitives": 51,
+          "drawCalls": 6,
+          "materials": 5,
+          "triangles": 1108,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -19.624105971670094,
+              -0.5856341285576719,
+              -31.2
+            ],
+            "max": [
+              19.677390746440743,
+              11.4,
+              5
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 69,
+          "drawCalls": 12,
+          "materials": 2,
+          "triangles": 16428,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -21.849634170532227,
+              -3.5,
+              -40.29999923706055
+            ],
+            "max": [
+              23.521137237548828,
+              29.44495964050293,
+              -27.920000076293945
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "69299029",
+        "before": {
+          "url": null,
+          "primitives": 22,
+          "drawCalls": 2,
+          "materials": 1,
+          "triangles": 480,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -7.5,
+              -0.15,
+              -31.5
+            ],
+            "max": [
+              7.5,
+              8.275,
+              -22.5
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 46,
+          "drawCalls": 12,
+          "materials": 1,
+          "triangles": 14308,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -22,
+              0,
+              -41.20000076293945
+            ],
+            "max": [
+              22,
+              25.516300201416016,
+              4.199999809265137
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "35550352",
+        "before": {
+          "url": null,
+          "primitives": 18,
+          "drawCalls": 3,
+          "materials": 3,
+          "triangles": 216,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -19.4,
+              -0.4,
+              -20.5
+            ],
+            "max": [
+              19.4,
+              11.4,
+              8.5
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 29,
+          "drawCalls": 5,
+          "materials": 1,
+          "triangles": 6936,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -22.67057991027832,
+              -0.5123422145843506,
+              -36.5
+            ],
+            "max": [
+              23.328630447387695,
+              26.5,
+              -34.60501441955566
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "75952542",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -19,
+              0,
+              -28.5
+            ],
+            "max": [
+              19,
+              9.5,
+              1
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 109,
+          "drawCalls": 7,
+          "materials": 1,
+          "triangles": 2804,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -21.5,
+              0,
+              -43.5
+            ],
+            "max": [
+              22,
+              15.20153522491455,
+              -21.28499984741211
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "49568943",
+        "before": {
+          "url": null,
+          "primitives": 89,
+          "drawCalls": 3,
+          "materials": 3,
+          "triangles": 6096,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -29.271895521240175,
+              -1.8711032945225101,
+              -28.641002695844083
+            ],
+            "max": [
+              31.446324223605924,
+              12.878808145970106,
+              13.161091040958267
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 93,
+          "drawCalls": 9,
+          "materials": 1,
+          "triangles": 25084,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -21.5,
+              0,
+              -43
+            ],
+            "max": [
+              21.5,
+              12,
+              -21.385000228881836
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "26984177",
+        "before": {
+          "url": null,
+          "primitives": 22,
+          "drawCalls": 2,
+          "materials": 1,
+          "triangles": 480,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -7.5,
+              -0.15,
+              -31.5
+            ],
+            "max": [
+              7.5,
+              8.275,
+              -22.5
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 73,
+          "drawCalls": 7,
+          "materials": 2,
+          "triangles": 8612,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -26.239999771118164,
+              -5.11306095123291,
+              -36.5
+            ],
+            "max": [
+              26.239999771118164,
+              44,
+              -27.880229949951172
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "58924378",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -19,
+              0,
+              -28.5
+            ],
+            "max": [
+              19,
+              9.5,
+              1
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 41,
+          "drawCalls": 7,
+          "materials": 1,
+          "triangles": 6306,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -22.7526798248291,
+              -0.05000000074505806,
+              -39.029998779296875
+            ],
+            "max": [
+              23.754413604736328,
+              33,
+              -21.674999237060547
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "63017368",
+        "before": {
+          "url": null,
+          "primitives": 22,
+          "drawCalls": 2,
+          "materials": 1,
+          "triangles": 480,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -7.5,
+              -0.15,
+              -31.5
+            ],
+            "max": [
+              7.5,
+              8.275,
+              -22.5
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 40,
+          "drawCalls": 7,
+          "materials": 1,
+          "triangles": 1003,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -22.35,
+              0,
+              -36.5
+            ],
+            "max": [
+              22,
+              30,
+              -20.5
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "32353566",
+        "before": {
+          "url": null,
+          "primitives": 104,
+          "drawCalls": 3,
+          "materials": 3,
+          "triangles": 1296,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -29.482661802088842,
+              0,
+              -29.96335531082004
+            ],
+            "max": [
+              28.956659659696744,
+              18.935711622564124,
+              -6.488902336545289
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 90,
+          "drawCalls": 9,
+          "materials": 2,
+          "triangles": 19284,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -27,
+              0,
+              -43.19498558044434
+            ],
+            "max": [
+              27,
+              33,
+              2.5
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "93360904",
+        "before": {
+          "url": null,
+          "primitives": 22,
+          "drawCalls": 7,
+          "materials": 6,
+          "triangles": 3832,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -20.5,
+              0,
+              -32
+            ],
+            "max": [
+              20.5,
+              10.55,
+              -13.721826772229935
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 76,
+          "drawCalls": 9,
+          "materials": 2,
+          "triangles": 28718,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -20.59929084777832,
+              -1,
+              -38.29999923706055
+            ],
+            "max": [
+              22.475528717041016,
+              19,
+              -23.34136199951172
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "66975205",
+        "before": {
+          "url": null,
+          "primitives": 22,
+          "drawCalls": 7,
+          "materials": 6,
+          "triangles": 3832,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -20.5,
+              0,
+              -32
+            ],
+            "max": [
+              20.5,
+              10.55,
+              -13.721826772229935
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 86,
+          "drawCalls": 10,
+          "materials": 1,
+          "triangles": 22412,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -23.513282775878906,
+              -1,
+              -44.924781799316406
+            ],
+            "max": [
+              23.501859664916992,
+              12.699999809265137,
+              11.223134994506836
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "64230128",
+        "before": {
+          "url": null,
+          "primitives": 43,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 532,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -18.4,
+              0,
+              -31.2
+            ],
+            "max": [
+              18.4,
+              13.4,
+              -22.6
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 42,
+          "drawCalls": 10,
+          "materials": 1,
+          "triangles": 12308,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -22.294723510742188,
+              -0.05000000074505806,
+              -38.42499923706055
+            ],
+            "max": [
+              22.280990600585938,
+              30.5,
+              -5.188732624053955
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "4663194",
+        "before": {
+          "url": null,
+          "primitives": 111,
+          "drawCalls": 2,
+          "materials": 2,
+          "triangles": 1332,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -27.89030905672116,
+              0,
+              -30.948565112880896
+            ],
+            "max": [
+              30.723400943574962,
+              19.382025620806964,
+              -6.590963379491586
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 135,
+          "drawCalls": 9,
+          "materials": 1,
+          "triangles": 4891,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -23.5,
+              0,
+              -44.19498558044434
+            ],
+            "max": [
+              23.5,
+              38,
+              -27.885000228881836
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "47596607",
+        "before": {
+          "url": null,
+          "primitives": 117,
+          "drawCalls": 3,
+          "materials": 3,
+          "triangles": 1404,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -28.93528362608049,
+              0,
+              -35.6
+            ],
+            "max": [
+              31.145484364195728,
+              22.225,
+              -7.1013444519368925
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 37,
+          "drawCalls": 10,
+          "materials": 1,
+          "triangles": 9048,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -20.299999237060547,
+              -0.02500000037252903,
+              -42.244998931884766
+            ],
+            "max": [
+              20.303264617919922,
+              28.6,
+              12.1022367477417
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "22198672",
+        "before": {
+          "url": null,
+          "primitives": 43,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 532,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -18.4,
+              0,
+              -31.2
+            ],
+            "max": [
+              18.4,
+              13.4,
+              -22.6
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 57,
+          "drawCalls": 5,
+          "materials": 2,
+          "triangles": 5308,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -24,
+              -5.945718765258789,
+              -38.19498558044434
+            ],
+            "max": [
+              24,
+              41.94575500488281,
+              -29
+            ]
+          }
+        }
+      }
+    ],
+    "images": 141,
+    "complete": true,
+    "errors": [],
+    "artifacts": [
+      "31322640-source.png",
+      "31322640-baseline.png",
+      "31322640-new.png",
+      "90764871-source.png",
+      "90764871-baseline.png",
+      "90764871-new.png",
+      "74733322-source.png",
+      "74733322-baseline.png",
+      "74733322-new.png",
+      "4357063-source.png",
+      "4357063-baseline.png",
+      "4357063-new.png",
+      "11808215-source.png",
+      "11808215-baseline.png",
+      "11808215-new.png",
+      "67331360-source.png",
+      "67331360-baseline.png",
+      "67331360-new.png",
+      "60514625-source.png",
+      "60514625-baseline.png",
+      "60514625-new.png",
+      "56725612-source.png",
+      "56725612-baseline.png",
+      "56725612-new.png",
+      "38057522-source.png",
+      "38057522-baseline.png",
+      "38057522-new.png",
+      "26232916-source.png",
+      "26232916-baseline.png",
+      "26232916-new.png",
+      "34771947-source.png",
+      "34771947-baseline.png",
+      "34771947-new.png",
+      "18890039-source.png",
+      "18890039-baseline.png",
+      "18890039-new.png",
+      "35487920-source.png",
+      "35487920-baseline.png",
+      "35487920-new.png",
+      "14001430-source.png",
+      "14001430-baseline.png",
+      "14001430-new.png",
+      "95477924-source.png",
+      "95477924-baseline.png",
+      "95477924-new.png",
+      "35815783-source.png",
+      "35815783-baseline.png",
+      "35815783-new.png",
+      "25807544-source.png",
+      "25807544-baseline.png",
+      "25807544-new.png",
+      "55742055-source.png",
+      "55742055-baseline.png",
+      "55742055-new.png",
+      "3055018-source.png",
+      "3055018-baseline.png",
+      "3055018-new.png",
+      "90011152-source.png",
+      "90011152-baseline.png",
+      "90011152-new.png",
+      "26493435-source.png",
+      "26493435-baseline.png",
+      "26493435-new.png",
+      "61557074-source.png",
+      "61557074-baseline.png",
+      "61557074-new.png",
+      "16269385-source.png",
+      "16269385-baseline.png",
+      "16269385-new.png",
+      "78710386-source.png",
+      "78710386-baseline.png",
+      "78710386-new.png",
+      "47870325-source.png",
+      "47870325-baseline.png",
+      "47870325-new.png",
+      "6909330-source.png",
+      "6909330-baseline.png",
+      "6909330-new.png",
+      "54631665-source.png",
+      "54631665-baseline.png",
+      "54631665-new.png",
+      "20212491-source.png",
+      "20212491-baseline.png",
+      "20212491-new.png",
+      "75304793-source.png",
+      "75304793-baseline.png",
+      "75304793-new.png",
+      "84792926-source.png",
+      "84792926-baseline.png",
+      "84792926-new.png",
+      "20216608-source.png",
+      "20216608-baseline.png",
+      "20216608-new.png",
+      "43175858-source.png",
+      "43175858-baseline.png",
+      "43175858-new.png",
+      "7293697-source.png",
+      "7293697-baseline.png",
+      "7293697-new.png",
+      "69299029-source.png",
+      "69299029-baseline.png",
+      "69299029-new.png",
+      "35550352-source.png",
+      "35550352-baseline.png",
+      "35550352-new.png",
+      "75952542-source.png",
+      "75952542-baseline.png",
+      "75952542-new.png",
+      "49568943-source.png",
+      "49568943-baseline.png",
+      "49568943-new.png",
+      "26984177-source.png",
+      "26984177-baseline.png",
+      "26984177-new.png",
+      "58924378-source.png",
+      "58924378-baseline.png",
+      "58924378-new.png",
+      "63017368-source.png",
+      "63017368-baseline.png",
+      "63017368-new.png",
+      "32353566-source.png",
+      "32353566-baseline.png",
+      "32353566-new.png",
+      "93360904-source.png",
+      "93360904-baseline.png",
+      "93360904-new.png",
+      "66975205-source.png",
+      "66975205-baseline.png",
+      "66975205-new.png",
+      "64230128-source.png",
+      "64230128-baseline.png",
+      "64230128-new.png",
+      "4663194-source.png",
+      "4663194-baseline.png",
+      "4663194-new.png",
+      "47596607-source.png",
+      "47596607-baseline.png",
+      "47596607-new.png",
+      "22198672-source.png",
+      "22198672-baseline.png",
+      "22198672-new.png",
+      "field-community-board-1-2026-10-07.jpg",
+      "field-community-board-2-2026-10-07.jpg",
+      "field-community-board-3-2026-10-07.jpg",
+      "field-community-board-4-2026-10-07.jpg",
+      "field-community-board-5-2026-10-07.jpg",
+      "field-community-board-6-2026-10-07.jpg",
+      "field-community-board-7-2026-10-07.jpg",
+      "field-community-board-8-2026-10-07.jpg",
+      "field-community-board-9-2026-10-07.jpg",
+      "field-community-board-10-2026-10-07.jpg",
+      "field-community-board-11-2026-10-07.jpg",
+      "field-community-board-12-2026-10-07.jpg"
+    ]
+  },
+  "ok": true,
+  "validation": {
+    "unitTests": 9,
+    "unitTestsPassed": 9,
+    "individuallyOpenedOriginalJpgs": 47,
+    "visuallyInspectedComparisons": 141,
+    "boardsInspected": 12,
+    "wholeInstanceCorridorBounds": "pass",
+    "finiteBuffersNormalsIndices": "pass",
+    "exactOnceGeometryMaterialCacheDisposal": "pass",
+    "captureErrors": 0,
+    "inspectionCorrections": [
+      "Babylon pit opened with suspended undercut and overhead comparison camera",
+      "Teal and violet curved Toon book covers and stronger page folds",
+      "Doll House stair edges and masonry joints",
+      "Ecole flowers enlarged",
+      "Symph rings thinned and transparent",
+      "Therion fissured relief and crossed scaffolding",
+      "Mignon pink icing palette"
+    ],
+    "finalFrozenFactoryCapture": true,
+    "finalIntegratedDependencyCount": 14,
+    "allFinalImagesMatchPreviouslyInspectedSha256": false,
+    "changedImageArtifacts": [
+      "11808215-baseline.png",
+      "26232916-baseline.png",
+      "31322640-baseline.png",
+      "32353566-baseline.png",
+      "35487920-baseline.png",
+      "49568943-baseline.png",
+      "61557074-baseline.png",
+      "64230128-baseline.png",
+      "66975205-new.png",
+      "69299029-baseline.png",
+      "69299029-new.png"
+    ],
+    "combinedFinalUnitTestsPassed": 16,
+    "allFinalContactSheetsMatchPreviouslyInspectedSha256": true,
+    "finalContactSheetInspectionCount": 12
+  },
+  "inspectedArtifactSha256": {
+    "11808215-baseline.png": "5f176906a4a72133cbc667ce10c2bb9a010f517b58e537492da4bb1874ae8ba4",
+    "11808215-new.png": "c3db4498f65bd9f33e2b1630cc6a16dec126bac88d8954d5b2937f2a803a5515",
+    "11808215-source.png": "8f4bc3ceb4678335398477f6f6ee4573f0fd0af1773bcb572eab1e18042fd387",
+    "14001430-baseline.png": "8220ca7864440d3a3f858a810aa8e84d608e851f87a94ae2619e617d73fc3460",
+    "14001430-new.png": "744caafbebbf5fc2c81a823bc83bd90283fc08a2d2ff89d06523af015a4212b1",
+    "14001430-source.png": "b477d1543fae84e2304cce97e2ede4629f855b367fe3c983c8e2f1e2214df739",
+    "16269385-baseline.png": "0f3ca6ba67c8374e5f65e6e0b336a3a108f32279ed883f31c97a31410c84286b",
+    "16269385-new.png": "0a5c60e94325c30db147945c6908f5c783f94c0991bd9ff92a730e9294e22e70",
+    "16269385-source.png": "96f445e1db37baee75933db2e6d9377448c1bc2066e6cfea706be13cd2faac18",
+    "18890039-baseline.png": "b24bcaff3f75ed8390d3481a34245cf5336a886d50598078f98c8cfcca3c5717",
+    "18890039-new.png": "c521de7a15cb44b3a13572cb502aa3b384a290ddfdaddf66d09905d0c66b7c8c",
+    "18890039-source.png": "a352128a184e88eb487740fcae64ab1dd7083a9e4e422e4f25ced09f16b137d3",
+    "20212491-baseline.png": "150e19cca4b0edb2d31a40998322bb7e7f7e96583b16a3c2eb6da5969dc96536",
+    "20212491-new.png": "4b095ab5d173115b7c849e04b657d75866845656109dae9d4bec7fc21526460d",
+    "20212491-source.png": "49cc47875cd81af975c06c3277b39d731f0bc9a2f27e8234b2af63741dedcb49",
+    "20216608-baseline.png": "d17b7d4f0fae942a44876de224a4ceab37d4a00baae520c04f0250d28aa984a6",
+    "20216608-new.png": "ac5edccb9871ae99016f342cdaca445b8bda6af43ed730a656f6a57fa89f1e92",
+    "20216608-source.png": "a82348a3cc55e912ced1fc23781591aac35044f528a32d8a6753a7623e14fc12",
+    "22198672-baseline.png": "4fc395b7e99e6c948dccb934042039e1276dad411c3946fe90da1e68c1943606",
+    "22198672-new.png": "be9b5076293595d529cc6d8b793df1403647567024f256498091593bd9000455",
+    "22198672-source.png": "fd383ef1b9af3aca7c7ce93d5c334c3434e46fa79860b1f8d88efa61e936855f",
+    "25807544-baseline.png": "94ff812b222b06e760670548efa5c6c66fb18f968b9201ddab24143f21de69a6",
+    "25807544-new.png": "01b022e903eb6badb5a153558388fce1cac14e3ca21db2fb651bb95d25026c3d",
+    "25807544-source.png": "c02960ed8d52873c35796336c35cf50e1ff94634836031d40210a7c94323e327",
+    "26232916-baseline.png": "13d1b94f1e5e5d20e08114adecac3b66ba093eba07e2a2ce6c0fd5379ac72f58",
+    "26232916-new.png": "8b456b7bb276c4d809dc934af13a3db95455396a66b746107952a7ea9be7dd57",
+    "26232916-source.png": "6dc772275e9e8cc846b19612146ff2602099245249ecbddada9e3f67a97f6fff",
+    "26493435-baseline.png": "ae3cb1b2a7f03aeb3f93826824282abc7f8be82d2400c574c3cf9bed7a1587ac",
+    "26493435-new.png": "26c176478be8a4679fd015eb8db3bb9407d4df481143f675225ddbc5fc0a9bb6",
+    "26493435-source.png": "69e723c634dd530a5d2c717a63bda88d201ccb18172ef8296fde51ca2e7ed3aa",
+    "26984177-baseline.png": "bbe98d80cfcfbbad7d3ac92067648be172c0d3ac56ef33cba31ecbfadba5228a",
+    "26984177-new.png": "a23659e7d9608da7d1d8af8e9b0713bd3ab3fa23f7f7eff2950ace8f1512c7e7",
+    "26984177-source.png": "4674d2fc3e85a04c414f9ce53bf88b7745656df2026766e6436dc5945820d638",
+    "3055018-baseline.png": "7efeec0a2b8ba555641876f15b65cedecc31e25d39f8649355fa9080d93a3138",
+    "3055018-new.png": "d5cbd1e677b420b39960943f2e165f98b87177488df22ddf58ff40c456fb3293",
+    "3055018-source.png": "faf3c2a21eb6039fa75d561c07bd8815cc4afe396514508f1866931c2e9995af",
+    "31322640-baseline.png": "81ebd98ee9600796527ff85771e212d961506f8b98bf7952bb16fdbba6f9202f",
+    "31322640-new.png": "22469c0335412fe8a48667fa6980f903e8ce66b75adc38a689ed2e4dda1c2df9",
+    "31322640-source.png": "9f72acf8d94a5c6811ca070af6a1fa66b5242d9419a89bb73647372a81c025f8",
+    "32353566-baseline.png": "a40021c7cbd8387b69f1f4b9a5dd36bbe0eff08983d628a32e5bfb5263d7e2f0",
+    "32353566-new.png": "cf1f19f93068c5bbf82048e7c9060eb4bbd615f726ad257ba2268f522765a48d",
+    "32353566-source.png": "89d19fbef0c23201903b6708818247a9d31f3834c5d0d1631b4a7549c0448f8d",
+    "34771947-baseline.png": "7b04eeed5b3ce4945a9b05cecfa94b426b418ffe945534149fda9b1f32f3ccc7",
+    "34771947-new.png": "fbf484427986c0781fcfe525355fe69e8a8cd32a8dd928aa4f634692029c2053",
+    "34771947-source.png": "d95d4abcd992d989facc0c04e3bb715e6c5db8f7cce00b174a8e5605ececf0d1",
+    "35487920-baseline.png": "ef054a17131b6dda32f1bac979c065a2ec8adcdd134f32661009d192b8a0846b",
+    "35487920-new.png": "52172cda0ce23c34f050cbe2407560ed6e722711863bc47a7a85cef934b8d094",
+    "35487920-source.png": "24d6ec81c7130c991be77b50852323bb1973b4b6fe0ce9280c79365eb429932b",
+    "35550352-baseline.png": "0f49ed80844d2e9734b5aaeaad11a97817d695b9f0943c4df120d6aa42a10245",
+    "35550352-new.png": "18a509776724196c9b507d62e196bf4e6e2ed6e3e137801761ded442cfea34d5",
+    "35550352-source.png": "5b46b53d8dc418780a20bb1f130d49798b51afe4b8f2059913ada142958356f7",
+    "35815783-baseline.png": "0ea4d3f07d432909789eeab23fbfeb4308f32f26d8e73089254afebda8dd384a",
+    "35815783-new.png": "cfcc628d6a02c14849d728bc4a818b4cd1d8a03f88b218503845774cd5472ec9",
+    "35815783-source.png": "5db35c216d7fe28ede3d79bcaab523792fbea12cbaa03659b08bdab4935345d7",
+    "38057522-baseline.png": "e58404faf5d1a61676737a05a73768ef461842acc8a2759b74e91b9ee7252039",
+    "38057522-new.png": "27dd738c06a0dfb5caee31f97a6dd12014c984f864f3bf293e29704e1d5e89f6",
+    "38057522-source.png": "a282992e0f6811157ef7098a37e431893fd597772ff75fec39cae001b619ae27",
+    "43175858-baseline.png": "9f5990f79ab98b57d76bf5fa3fdee14f0676fcc1441268033e1c405974043819",
+    "43175858-new.png": "12c2b7c6ac6b6d203c161569d6cba4766abe508814336ea50fa118fdd893eaee",
+    "43175858-source.png": "20c5a10b1e6c80f565cef42f4946ac39ce21786945e6b5797ad100fa947c099b",
+    "4357063-baseline.png": "0121982098b76021416ce2ac7503503bf66f64797d559c6d09912a28a44f978c",
+    "4357063-new.png": "812192e8e89cd1051320fc8db42bfc13864cd35f9795f124a1111826b0468bd6",
+    "4357063-source.png": "16dc0f4e73d811484287c80d562eacede2cbbf3f7c6c7ea339477fffef9f1fd0",
+    "4663194-baseline.png": "c4229e63a9dbe6e014e6a5c30243cd9c027ea835755aac8b27e644e2e9d85fcb",
+    "4663194-new.png": "e7e347b6c8103a7c533983edfea3bd6dcc3084b9962a3b9e483a50da297c1b3e",
+    "4663194-source.png": "444ef66a6439b6ff086c5698521ab2c9289a4b97c2683e8f2af1a00426d742c8",
+    "47596607-baseline.png": "af1777db311f7c4325554fb5f73b1771d8dd2056ace83d22406c664b2674dd68",
+    "47596607-new.png": "9664f5ad29fcfd427b6402bb9e21aabfc969bd28bb8abb8bce03cb39405c6347",
+    "47596607-source.png": "930cdcc850b6265a1dbf65932c00d9aa2696e1c5f3710258d3ad7f385a501c35",
+    "47870325-baseline.png": "0188d960ca2ae061944b91b73af416225b45fc104e6872d74e12d9b41f09f536",
+    "47870325-new.png": "4d06874ad84aa641529c1a0848737644183f84b93b0a7409a981d50077f3435a",
+    "47870325-source.png": "5692275328a65a82848eb3328af5478b21cd9e22296861d2ab46f41b0514c1fb",
+    "49568943-baseline.png": "3176947a983bd4f636ffe9ea355f0f6f39cca6c1386d709a5f9da996612f9321",
+    "49568943-new.png": "f0c451c7f71cd595a927ec7bab370121561f3ff401283016045f741501bd3e86",
+    "49568943-source.png": "e32b3b64f931d7ddc34020a461a707cce70dfd0708ad4f6ecc3fcf35730da2cc",
+    "54631665-baseline.png": "755844bdd8ccf4157dbdc624cbb9baa614aceba75fddf2dc89584d03da145056",
+    "54631665-new.png": "054e1e5c2ba3deb5d249771716c7fcfb94cb3dc7d5d34dce221d4572e5872fc1",
+    "54631665-source.png": "3a4b1533de8b5bdbc383011fe19018074dddcc4ab1ad7f6d1d633ec4a5364730",
+    "55742055-baseline.png": "9eafbbe7330e6181c62d4d1bd38d85bc27885469dcddc1bf42b5a5bcdb44ec33",
+    "55742055-new.png": "19dfabca8f8db3dd9bcae529d8098cfed339fb9a28bc4183f8e261cf77c49d64",
+    "55742055-source.png": "3f4af26c110da0bc5121b7ca0ab29fdc26d472504693a467eb6395e43a0d8747",
+    "56725612-baseline.png": "78c605dededc3540cc407d372b459c8ce43deb4d0c25a15405e64189f4bf0b21",
+    "56725612-new.png": "989a80d2d515c4b9698415c3086615f3da41f14fdb00ea6b0f76638a59ce41a6",
+    "56725612-source.png": "1c6b0d8e11687aff4624740d5dbf18cd7b2f55d0fa340b109b678ce41f515d2c",
+    "58924378-baseline.png": "e1fc9a9bfe4b67d19543bf33f8bbc64b9e4b58939580860fdb7895883034c15d",
+    "58924378-new.png": "9c971fc4b176764d4059aa8eab3101e3c4c159b03ea2cb2c26fe4ce3c1a22714",
+    "58924378-source.png": "6184cb6b87b63d354e036ae388d16c2e506e07cc3a3acfb1d4c48ea999b34467",
+    "60514625-baseline.png": "1ec6b823161eaf24401962df780ddff681ef66debeabdf68ff0add40e8063167",
+    "60514625-new.png": "f99f45d7713602de9c36036af16f4a750b1147275e910ef213ef67eb3b4b25e0",
+    "60514625-source.png": "4afb68e2e29632c06c93e7dc6b6b09b48428c9fa3375f4fbabb4972162295bf7",
+    "61557074-baseline.png": "d3879f4a29a87251d63c2be4226201400d383d19581767c6f80b5814afa2df96",
+    "61557074-new.png": "ad6a610ccb681e1f113e2992784c2b842f8665f188560bce6e94662283421a00",
+    "61557074-source.png": "1f35a2372e37741ea89ba4c5c84b0ff33489d1404821876496f2d2a3791a6843",
+    "63017368-baseline.png": "dee7b0b828d0bb8dad7e690d12e64886363009a029b0284ba38deb61576b2711",
+    "63017368-new.png": "67f90ce0a150b75cf697a8c5c4b4f89474d3681d4eae4c849b6ff1f3f63d68bc",
+    "63017368-source.png": "213c3403b7182db03730abdef389a34279e7be608e55d35119f9c7fdb9bd60b2",
+    "64230128-baseline.png": "9808b61d9c878f5a101f57662f0711bb9c1b91ea6605704d3c7a698671f90850",
+    "64230128-new.png": "836911d97be86431e65c53e4c7d559f40b0e2ae942dcc7291378fecb3e99c26a",
+    "64230128-source.png": "2bd5e85798afb4c32c6883108f7842750d40d82e184803ff4e695e605d6fed83",
+    "66975205-baseline.png": "a2139b2268fb930c3b5ae535b2a3030f37ea98b5d68eb1f4641809f7a5d68240",
+    "66975205-new.png": "3965366bbc271f075032f3b16591033c8222c51b1e35023d1a2cc70ff74593ec",
+    "66975205-source.png": "2e26aaf330c050a2ad97d0fe3c61af9904ff05e99fd65c30c9a5d91cacec2e97",
+    "67331360-baseline.png": "f418306c060c2160c20136fd96a6cd46c7ed3b7d1964f6ccff2c66bf0e131657",
+    "67331360-new.png": "1051a14796252e48cf94055e07c93e700e069a5c9661f2d0cecda9a58499b816",
+    "67331360-source.png": "fb69e9bec55fab108c5bffb7cb160bf0866e470d8bf8b2228e57988d55ea75c8",
+    "6909330-baseline.png": "0407b8c07b8d07e66314f3062dad14175f9570dadc054bcaa76313cd52af67c5",
+    "6909330-new.png": "1e8192d531bac245eb4c24fb3d6d9ec64639d45da175efdc0cf3c2c5fd99065b",
+    "6909330-source.png": "607ec736f213be86acd673c518b6854ff8ff7dd69534039bc9f5473b3c5da770",
+    "69299029-baseline.png": "2b29d3cbb497c160aefc019dff517d5e800c8cfda531b42c8a77c79febaa43b4",
+    "69299029-new.png": "5dc413ea5a46c049549712def6719ecd95c4b72657fe52a1e0d699d4f2f37883",
+    "69299029-source.png": "73286c5cc7a77cb591c262e44091f8b3bc734b1c61d63905eb5621c15c5c94fb",
+    "7293697-baseline.png": "d9a2bfc7cee3f590361cf3f490e0d2ccde792a9f25ecf716fd02c951f21e586c",
+    "7293697-new.png": "738281ee374c6ebc16a29211d395bf6fa6268a76d8c78ddcfa266cba2144da58",
+    "7293697-source.png": "824dfa1f0862fcf372d7189a69eaf6cdadd9a6076bc2c0bbd23a3a96f28157e1",
+    "74733322-baseline.png": "4b233e7b5dfdc1a301880c7ac3718de8982d5f1727b0dc87d7f0e27778e0f495",
+    "74733322-new.png": "d416f76a3de4bd85623da03671c2e87de4a5c6f50da074301e20774c3361c79a",
+    "74733322-source.png": "4d9c413794b5f856440aae8094d2ab31bf60580901f51243953d121a82d90987",
+    "75304793-baseline.png": "da8a2ad6fe238b528c363b6eb869d7c0c29b7e5807c3a391e7014740fa277bd8",
+    "75304793-new.png": "7693308357f882d1b0f30ae20fa91ef272221cdb63e64724925dd2d8f4fd63fc",
+    "75304793-source.png": "600bfcde762f19e44cccf7590c6ded750de25299d475ff3e27cbb696ad95b457",
+    "75952542-baseline.png": "b8fcbea111f06588abf6fc5cbf7e1f01ec10c0216d82b38a0a6b147a49eaa3f2",
+    "75952542-new.png": "3adcb34abb03730135be22745e9cac1ef1e8fbf55a4552855a0c9382cbebe687",
+    "75952542-source.png": "c8fcde898590d7d5e2317375b9c2e5d396ef9af94f5f3219e5b5a9d215820b94",
+    "78710386-baseline.png": "2c9a03cdb690cf7d56f9a8c303a3fdfc9643052389ef327894bee9cb9f8ab1fd",
+    "78710386-new.png": "b2eae2a6976ed472b8059ced6d3ea9e6d3c5e7b525c336cb02809128d1dd8fe1",
+    "78710386-source.png": "e4f5a4d94afcb8a8be4b595eb18e62a1148384ebefab9405057439d7830df39d",
+    "84792926-baseline.png": "d1bda06735b464f4e1ad7ec3ca5fdb86d73deaa781ebd320e79514d3088239fe",
+    "84792926-new.png": "8fb28b93fdbfadb2829f6eef37e750d28750894795bcc34ba960b9b6764f91af",
+    "84792926-source.png": "af91dd901ffa9e7d8a2c3e5f8546670ebda9300665420c0d64efd9ec0ba5e19c",
+    "90011152-baseline.png": "baf4d5a9ccb8a8580cdc7eee780a49a4548a845a904ea0557aeed0d74d91bd31",
+    "90011152-new.png": "49145b52c9c80d00fa3b27526ec0f692ab4248b2136b7229b7dd57e39c196577",
+    "90011152-source.png": "8a95b3c8075668fbfc19a78981a9da25f6205cc352067dcbc52095f776b489f5",
+    "90764871-baseline.png": "be906e4b6390ae669bf74ff4ece6dd83dac15d2f6f7d418cd283fd742946a927",
+    "90764871-new.png": "e1cb4003500d9a072e1138668d6bd83b4082c2d52bfd365877357d1ad36f6ddd",
+    "90764871-source.png": "d21c13548091c8a2bdbc3a1e0a1cb4af543c5fbd1a400331210385302890f7cf",
+    "93360904-baseline.png": "613669f212f92d7295b47deab2e9784bcbb2810f473565ba2108b42b83d8b6b7",
+    "93360904-new.png": "88d94ac664126f28c2074d825a49e39250629dc4c11878beb628f9500ca3421c",
+    "93360904-source.png": "d4ca5128ac7fb6e9aa93320bafb4422fee0022a701534551b6a7aef085a455ca",
+    "95477924-baseline.png": "c71567baa460bce182b5aa1a7d6af53089c9fdc80d41124b2fa71cfa6189fda7",
+    "95477924-new.png": "3f3ae1b499a6c36432ed57f9fbfec2172731f4c54e04f15754d8dae481aedc7c",
+    "95477924-source.png": "ca751b2403a7773c37cf8eca9c0b987e415c4d98ed8c5d8028fcffc4b9282d34",
+    "field-community-board-1-2026-10-07.jpg": "73aae4437d889dab9b68b9551134857c3c9bdd1c76a5f8c05c0390d77303f183",
+    "field-community-board-10-2026-10-07.jpg": "cd273c431b788979292ffff3ae592f74c2cf591256f7a2cb9c21e5a64628fc8f",
+    "field-community-board-11-2026-10-07.jpg": "31dd986aee4b7b8c72102e362a82f36b1010e47cc9ae6b40642d750b81b4f8d4",
+    "field-community-board-12-2026-10-07.jpg": "fe8ebfa19b1c35ebbe4268c8b43aad64dfcee3c5d8a10bf793ea59c96dc629f8",
+    "field-community-board-2-2026-10-07.jpg": "0fb6c95900a0d598fd7cb67ab76a9946b3a42e35d2ba696466f7246436f71c34",
+    "field-community-board-3-2026-10-07.jpg": "9379390491dd8c08e069932e296b38c70f94bea97e10ef08d892d1b62e39da62",
+    "field-community-board-4-2026-10-07.jpg": "925cb607d7689e7ddfeccedb0cdfa1e55cd0e77f575c421b45be513eecb058e8",
+    "field-community-board-5-2026-10-07.jpg": "261d873b12733c1fa0fc7e525585591e6751aef62b6ee5b78dd8609ce63c3726",
+    "field-community-board-6-2026-10-07.jpg": "76a5eee7a9754c15908cb63ee3807f4010100ec0f2ce3cd5d73031b008ef9222",
+    "field-community-board-7-2026-10-07.jpg": "9c80a9d170963e6faedb13d0c204e9683be15b55decfe6390400bd986f1063c9",
+    "field-community-board-8-2026-10-07.jpg": "e1fa53c1682a21e4e74c1078ce67db42b08dc874dd54b7eadcb196ecd478750a",
+    "field-community-board-9-2026-10-07.jpg": "0fc0cea0934355e9f21a43464398f7f6bc431cdd9e62dadf8145d2f803c496c9"
+  }
+}

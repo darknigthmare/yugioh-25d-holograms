@@ -1,0 +1,7 @@
+# Atlas public compilé — 7 octobre 2026
+
+Le parcours public passe sur desktop 1280 × 900 et mobile 390 × 844 : **339 Terrains uniques sur 29 pages**, filtres 339 reconstruits / 0 restants, recherche par passcode exact avec zéros initiaux, recherche vide et fermeture/réouverture avec libération du canvas. Les six nouveaux lots sont représentés par Chicken Game, Dream Mirror of Joy, Ignister A.I.Land, Toon Kingdom, The Seal of Orichalcos et Fire King Island. **36 captures de canvas à trois angles et quatre captures publiques** sont inspectées.
+
+La première inspection montrait des volumes coupés en vue latérale. La caméra tourne désormais autour des bounds de la géométrie sélectionnée et adapte sa distance au champ de vue et au ratio de l’aperçu. Les six références restent cadrées sur les deux formats. Les formes restent des volumes périphériques adaptés au duel ; les personnages peints ne sont pas déclarés reconstruits.
+
+Le [rapport](artifacts/field-atlas-ui-2026-10-07/report.json) conserve les SHA des 40 captures, le passcode de chaque source, les compteurs de règles et les empreintes du build avant/après. Zéro erreur JavaScript, requête échouée ou violation CSP ; aucun hook QA injecté. Le polling du script utilise DevTools directement et ne requiert pas unsafe-eval. Entry `/assets/index-CkdHwDWv.js`, SHA-256 `7173898cef8206cb9f0e12525376ad03e857a22e40fca40ea97c0623e0fdb9fd`. La CSP est celle de vercel.json et le build est inchangé pendant le parcours.

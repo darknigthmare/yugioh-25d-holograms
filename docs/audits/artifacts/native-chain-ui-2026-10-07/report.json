@@ -1,0 +1,735 @@
+{
+  "ok": true,
+  "target": "immutable final compiled production bundle",
+  "requireStatBounds": true,
+  "testedIndexAsset": "/assets/index-CkdHwDWv.js",
+  "testedIndexSha256": "7173898cef8206cb9f0e12525376ad03e857a22e40fca40ea97c0623e0fdb9fd",
+  "testedWasmSha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+  "productionCsp": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://db.ygoprodeck.com; media-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests",
+  "compiledSnapshotBefore": {
+    "index.html": {
+      "bytes": 35408,
+      "sha256": "9092b61cae2f9f267fc6f35c4f90594220bc123ff9681d9b251e5973b1c1c06f"
+    },
+    "assets/index-CkdHwDWv.js": {
+      "bytes": 598618,
+      "sha256": "7173898cef8206cb9f0e12525376ad03e857a22e40fca40ea97c0623e0fdb9fd"
+    },
+    "assets/index-BbUkbKmn.css": {
+      "bytes": 82371,
+      "sha256": "71afb732ab7152dc319dfb6b72812913e23121c24f251ef80e0b69c61e0e749e"
+    },
+    "assets/NativeDuelGame-ZSLU0meg.js": {
+      "bytes": 77200,
+      "sha256": "292967a9fa2eab1eed43a2f0ce172a3e1364eeb86f1c66d1a63e55fb49777980"
+    },
+    "assets/ocgcore-D2udBA3b.js": {
+      "bytes": 1746,
+      "sha256": "1dc7719c0b30b566be8c833ea2b4e65e4e84f68e77849f05c76a8a362c0775fd"
+    },
+    "native/ocgcore.sync.wasm": {
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    },
+    "native/card-data.json": {
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    "native/scripts.json": {
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    }
+  },
+  "sourceFacadeSha256": "21e568426e8069e5fe91de8d332d248f3f7a98711c6108b58b558f3a9abc7166",
+  "registeredFixture": {
+    "main": [
+      "89631139",
+      "89631139",
+      "89631139",
+      "46986414",
+      "12607053",
+      "46986414",
+      "76812113",
+      "97590747",
+      "97590747",
+      "15025844",
+      "15025844",
+      "26905245",
+      "70781052",
+      "70781052",
+      "28649820",
+      "5053103",
+      "5053103",
+      "5053103",
+      "97590747",
+      "76812113",
+      "76812113",
+      "91152256",
+      "91152256",
+      "91152256",
+      "32452818",
+      "14315573",
+      "32452818",
+      "91939608",
+      "91939608",
+      "91939608",
+      "15025844",
+      "26905245",
+      "70781052",
+      "28649820",
+      "46986414",
+      "12607053",
+      "12607053",
+      "32452818",
+      "14315573",
+      "14315573"
+    ],
+    "extra": [],
+    "side": []
+  },
+  "qaHook": false,
+  "postStartInjection": false,
+  "viewports": [
+    {
+      "width": 1280,
+      "height": 900,
+      "requireStatBounds": true,
+      "checks": {
+        "validFortyCardRegistrationAndRealShuffle": true,
+        "bothTrapsSetThroughControls": true,
+        "slimePublicNativeMonster": {
+          "publicCode": "26905245",
+          "category": "monster",
+          "zone": 0,
+          "position": "defense",
+          "hologram": true,
+          "hologramAttribute": "water",
+          "attack": "ATK 0",
+          "defense": "DEF 3000",
+          "label": "Metal Reflect Slime, ATK 0, DEF 3000",
+          "inspector": {
+            "title": "Metal Reflect Slime",
+            "type": "Trap Effect Monster",
+            "stats": "ATK 0 DEF 3000 ★★★★★★★★★★",
+            "statBounds": {
+              "checked": true,
+              "spans": [
+                {
+                  "text": "ATK 0",
+                  "withinInspector": true,
+                  "textFitsSpan": true,
+                  "width": 48,
+                  "textWidth": 48
+                },
+                {
+                  "text": "DEF 3000",
+                  "withinInspector": true,
+                  "textFitsSpan": true,
+                  "width": 81,
+                  "textWidth": 81
+                }
+              ],
+              "allFit": true
+            }
+          }
+        },
+        "nextTurnNativePositionChangeThroughMenu": true,
+        "apophisPublicNativeMonster": {
+          "publicCode": "28649820",
+          "category": "monster",
+          "zone": 1,
+          "position": "defense",
+          "hologram": true,
+          "hologramAttribute": "earth",
+          "attack": "ATK 1600",
+          "defense": "DEF 1800",
+          "label": "Embodiment of Apophis, ATK 1600, DEF 1800",
+          "inspector": {
+            "title": "Embodiment of Apophis",
+            "type": "Trap Normal Monster",
+            "stats": "ATK 1600 DEF 1800 ★★★★",
+            "statBounds": {
+              "checked": true,
+              "spans": [
+                {
+                  "text": "ATK 1600",
+                  "withinInspector": true,
+                  "textFitsSpan": true,
+                  "width": 76,
+                  "textWidth": 76
+                },
+                {
+                  "text": "DEF 1800",
+                  "withinInspector": true,
+                  "textFitsSpan": true,
+                  "width": 75,
+                  "textWidth": 75
+                }
+              ],
+              "allFit": true
+            }
+          }
+        },
+        "threeViewsAndReturnSharePublicState": true,
+        "opponentConcealment": {
+          "count": 3,
+          "safe": true
+        }
+      },
+      "presentations": [
+        {
+          "mode": "compact",
+          "samePublicState": true,
+          "webglCanvasVisible": false
+        },
+        {
+          "mode": "arena",
+          "samePublicState": true,
+          "webglCanvasVisible": false
+        },
+        {
+          "mode": "real",
+          "samePublicState": true,
+          "webglCanvasVisible": true
+        },
+        {
+          "mode": "compact",
+          "samePublicState": true,
+          "webglCanvasVisible": false
+        }
+      ],
+      "decisionTrace": [
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "place",
+          "offered": [
+            "Votre Zone Monstre 1",
+            "Votre Zone Monstre 2",
+            "Votre Zone Monstre 3",
+            "Votre Zone Monstre 4",
+            "Votre Zone Monstre 5"
+          ],
+          "choice": "Votre Zone Monstre 1"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "place",
+          "offered": [
+            "Votre Zone Monstre 2",
+            "Votre Zone Monstre 3",
+            "Votre Zone Monstre 4",
+            "Votre Zone Monstre 5"
+          ],
+          "choice": "Votre Zone Monstre 2"
+        },
+        {
+          "kind": "position",
+          "choice": "DÉFENSE FACE RECTO"
+        }
+      ],
+      "pageErrors": [],
+      "nativeRequestFailures": [],
+      "cspViolations": [],
+      "nativeAssets": [
+        "/native/card-data.json",
+        "/native/field-banlists.json",
+        "/native/manifest.json",
+        "/native/ocgcore.sync.wasm",
+        "/native/scripts.json"
+      ],
+      "publicFinal": [
+        {
+          "publicCode": "26905245",
+          "category": "monster",
+          "zone": 0,
+          "position": "attack",
+          "hologram": true,
+          "hologramAttribute": "water",
+          "attack": "ATK 0",
+          "defense": "DEF 3000",
+          "label": "Metal Reflect Slime, ATK 0, DEF 3000"
+        },
+        {
+          "publicCode": "28649820",
+          "category": "monster",
+          "zone": 1,
+          "position": "defense",
+          "hologram": true,
+          "hologramAttribute": "earth",
+          "attack": "ATK 1600",
+          "defense": "DEF 1800",
+          "label": "Embodiment of Apophis, ATK 1600, DEF 1800"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "requireStatBounds": true,
+      "checks": {
+        "validFortyCardRegistrationAndRealShuffle": true,
+        "bothTrapsSetThroughControls": true,
+        "slimePublicNativeMonster": {
+          "publicCode": "26905245",
+          "category": "monster",
+          "zone": 0,
+          "position": "defense",
+          "hologram": true,
+          "hologramAttribute": "water",
+          "attack": "ATK 0",
+          "defense": "DEF 3000",
+          "label": "Metal Reflect Slime, ATK 0, DEF 3000",
+          "inspector": {
+            "title": "Metal Reflect Slime",
+            "type": "Trap Effect Monster",
+            "stats": "ATK 0 DEF 3000 ★★★★★★★★★★",
+            "statBounds": {
+              "checked": true,
+              "spans": [
+                {
+                  "text": "ATK 0",
+                  "withinInspector": true,
+                  "textFitsSpan": true,
+                  "width": 48,
+                  "textWidth": 48
+                },
+                {
+                  "text": "DEF 3000",
+                  "withinInspector": true,
+                  "textFitsSpan": true,
+                  "width": 81,
+                  "textWidth": 81
+                }
+              ],
+              "allFit": true
+            }
+          }
+        },
+        "nextTurnNativePositionChangeThroughMenu": true,
+        "apophisPublicNativeMonster": {
+          "publicCode": "28649820",
+          "category": "monster",
+          "zone": 1,
+          "position": "defense",
+          "hologram": true,
+          "hologramAttribute": "earth",
+          "attack": "ATK 1600",
+          "defense": "DEF 1800",
+          "label": "Embodiment of Apophis, ATK 1600, DEF 1800",
+          "inspector": {
+            "title": "Embodiment of Apophis",
+            "type": "Trap Normal Monster",
+            "stats": "ATK 1600 DEF 1800 ★★★★",
+            "statBounds": {
+              "checked": true,
+              "spans": [
+                {
+                  "text": "ATK 1600",
+                  "withinInspector": true,
+                  "textFitsSpan": true,
+                  "width": 76,
+                  "textWidth": 76
+                },
+                {
+                  "text": "DEF 1800",
+                  "withinInspector": true,
+                  "textFitsSpan": true,
+                  "width": 75,
+                  "textWidth": 75
+                }
+              ],
+              "allFit": true
+            }
+          }
+        },
+        "threeViewsAndReturnSharePublicState": true,
+        "opponentConcealment": {
+          "count": 3,
+          "safe": true
+        }
+      },
+      "presentations": [
+        {
+          "mode": "compact",
+          "samePublicState": true,
+          "webglCanvasVisible": false
+        },
+        {
+          "mode": "arena",
+          "samePublicState": true,
+          "webglCanvasVisible": false
+        },
+        {
+          "mode": "real",
+          "samePublicState": true,
+          "webglCanvasVisible": true
+        },
+        {
+          "mode": "compact",
+          "samePublicState": true,
+          "webglCanvasVisible": false
+        }
+      ],
+      "decisionTrace": [
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "place",
+          "offered": [
+            "Votre Zone Monstre 1",
+            "Votre Zone Monstre 2",
+            "Votre Zone Monstre 3",
+            "Votre Zone Monstre 4",
+            "Votre Zone Monstre 5"
+          ],
+          "choice": "Votre Zone Monstre 1"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "place",
+          "offered": [
+            "Votre Zone Monstre 2",
+            "Votre Zone Monstre 3",
+            "Votre Zone Monstre 4",
+            "Votre Zone Monstre 5"
+          ],
+          "choice": "Votre Zone Monstre 2"
+        },
+        {
+          "kind": "position",
+          "choice": "DÉFENSE FACE RECTO"
+        }
+      ],
+      "pageErrors": [],
+      "nativeRequestFailures": [],
+      "cspViolations": [],
+      "nativeAssets": [
+        "/native/card-data.json",
+        "/native/field-banlists.json",
+        "/native/manifest.json",
+        "/native/ocgcore.sync.wasm",
+        "/native/scripts.json"
+      ],
+      "publicFinal": [
+        {
+          "publicCode": "26905245",
+          "category": "monster",
+          "zone": 0,
+          "position": "attack",
+          "hologram": true,
+          "hologramAttribute": "water",
+          "attack": "ATK 0",
+          "defense": "DEF 3000",
+          "label": "Metal Reflect Slime, ATK 0, DEF 3000"
+        },
+        {
+          "publicCode": "28649820",
+          "category": "monster",
+          "zone": 1,
+          "position": "defense",
+          "hologram": true,
+          "hologramAttribute": "earth",
+          "attack": "ATK 1600",
+          "defense": "DEF 1800",
+          "label": "Embodiment of Apophis, ATK 1600, DEF 1800"
+        }
+      ]
+    }
+  ],
+  "compiledSnapshotAfter": {
+    "index.html": {
+      "bytes": 35408,
+      "sha256": "9092b61cae2f9f267fc6f35c4f90594220bc123ff9681d9b251e5973b1c1c06f"
+    },
+    "assets/index-CkdHwDWv.js": {
+      "bytes": 598618,
+      "sha256": "7173898cef8206cb9f0e12525376ad03e857a22e40fca40ea97c0623e0fdb9fd"
+    },
+    "assets/index-BbUkbKmn.css": {
+      "bytes": 82371,
+      "sha256": "71afb732ab7152dc319dfb6b72812913e23121c24f251ef80e0b69c61e0e749e"
+    },
+    "assets/NativeDuelGame-ZSLU0meg.js": {
+      "bytes": 77200,
+      "sha256": "292967a9fa2eab1eed43a2f0ce172a3e1364eeb86f1c66d1a63e55fb49777980"
+    },
+    "assets/ocgcore-D2udBA3b.js": {
+      "bytes": 1746,
+      "sha256": "1dc7719c0b30b566be8c833ea2b4e65e4e84f68e77849f05c76a8a362c0775fd"
+    },
+    "native/ocgcore.sync.wasm": {
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    },
+    "native/card-data.json": {
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    "native/scripts.json": {
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    }
+  },
+  "immutableCompiledSnapshot": true,
+  "testedHtmlSha256": "9092b61cae2f9f267fc6f35c4f90594220bc123ff9681d9b251e5973b1c1c06f",
+  "testedCssAsset": "/assets/index-BbUkbKmn.css",
+  "testedCssSha256": "71afb732ab7152dc319dfb6b72812913e23121c24f251ef80e0b69c61e0e749e",
+  "testedNativeFacadeAsset": "/assets/NativeDuelGame-ZSLU0meg.js",
+  "testedNativeFacadeSha256": "292967a9fa2eab1eed43a2f0ce172a3e1364eeb86f1c66d1a63e55fb49777980",
+  "testedNativeWrapperAsset": "/assets/ocgcore-D2udBA3b.js",
+  "testedNativeWrapperSha256": "1dc7719c0b30b566be8c833ea2b4e65e4e84f68e77849f05c76a8a362c0775fd",
+  "auditScriptSha256": "c5f8c8fbe519c5eb27d50f8ed1457bc3f542470fdfd79043152cd2ffa68c2984",
+  "inspectedCaptures": {
+    "chain-apophis-details-1280.png": {
+      "bytes": 529474,
+      "sha256": "4dfb2d89ed54cc670ab0d8949b54505b40f55ebdd0fdb157620a58e7fdf07d17"
+    },
+    "chain-apophis-details-390.png": {
+      "bytes": 67859,
+      "sha256": "c614d092610a26f7084b7b53b39195d3cf98c239243fcec1a96935c4ac7afc85"
+    },
+    "chain-arena-1280.png": {
+      "bytes": 566882,
+      "sha256": "682f548744113c62a0e43616a373bc878e6d4d0b7487b254becce87dde46ead4"
+    },
+    "chain-arena-390.png": {
+      "bytes": 183987,
+      "sha256": "669f532016f36c4af6ebb7daa4265da8deed03090255bce8818aab225456ae2a"
+    },
+    "chain-compact-1280.png": {
+      "bytes": 529474,
+      "sha256": "4dfb2d89ed54cc670ab0d8949b54505b40f55ebdd0fdb157620a58e7fdf07d17"
+    },
+    "chain-compact-390.png": {
+      "bytes": 133890,
+      "sha256": "8bc961d5bf806318ea2c6c6a309ddf5d3b629480232d126a74d934544af4af6e"
+    },
+    "chain-real-1280.png": {
+      "bytes": 904386,
+      "sha256": "a08060f83ccf1a3df7e64fd9cbd863239b64e301dc9c4d95639da72790091447"
+    },
+    "chain-real-390.png": {
+      "bytes": 150423,
+      "sha256": "2c6fecdfa1a715755aed4552588d407371de9ab609e54dc2250764e4ba2165f5"
+    },
+    "chain-registration-1280.png": {
+      "bytes": 132105,
+      "sha256": "93301e33cbe4d10e8f4943c7cb633b440f115b88a7ce0c135c70f2dd88b0ebf7"
+    },
+    "chain-registration-390.png": {
+      "bytes": 63291,
+      "sha256": "b145145dca5860472a0daea0c67cd478a6a873e3f257a63f42fd7ef793acd962"
+    },
+    "chain-set-1280.png": {
+      "bytes": 404390,
+      "sha256": "2859de69e1857209b6cbdcc94a81e3104f5c7a163c129415f67834da328ca48a"
+    },
+    "chain-set-390.png": {
+      "bytes": 129745,
+      "sha256": "4a3389e319ed9327c253a9e25331c9516a65f72344bdc5b0b19fb278bfc1964a"
+    },
+    "chain-slime-details-1280.png": {
+      "bytes": 489125,
+      "sha256": "869d64f62597b7df2fe7c15767c24d688945142eaa2c115d1c799b4de0e47373"
+    },
+    "chain-slime-details-390.png": {
+      "bytes": 60464,
+      "sha256": "cc99fa7800edd3ced0f1c659f05d8627797aee34942aa422cb9fe2f18638e0bd"
+    }
+  }
+}

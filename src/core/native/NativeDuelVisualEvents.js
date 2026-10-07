@@ -4,6 +4,8 @@
  * Native queries can contain either player's secrets, so message visibility is
  * checked before querying or looking up any identity.
  */
+import { nativeCardKind, nativeCardTypeLabel, nativeRaceName, nativeAttributeName } from './NativeCardCharacteristics.js';
+
 const MESSAGE = Object.freeze({
   CONFIRM_DECKTOP: 30, CONFIRM_CARDS: 31, SHUFFLE_DECK: 32, SHUFFLE_HAND: 33,
   SHUFFLE_SET_CARD: 36, DECK_TOP: 38, SHUFFLE_EXTRA: 39, CONFIRM_EXTRATOP: 42,
@@ -30,7 +32,7 @@ const MATERIAL_SUMMON_REASONS = Object.freeze({
 });
 
 /** Excludes private target/equip/overlay identities and card prose. */
-export const NATIVE_PUBLIC_VISUAL_QUERY_FLAGS = 1 | 2 | 8 | 16 | 32 | 64 | 128
+export const NATIVE_PUBLIC_VISUAL_QUERY_FLAGS = 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128
   | 256 | 512 | 1024 | 2048 | 4096 | 131072 | 1048576 | 8388608 | 16777216;
 
 const isController = value => value === 0 || value === 1;
@@ -133,14 +135,6 @@ function exactStats(query) {
   return Object.freeze(result);
 }
 
-function printedNativeType(type) {
-  if (type & 2) return 'Spell Card';
-  if (type & 4) return 'Trap Card';
-  const names = [[0x40, 'Fusion'], [0x80, 'Ritual'], [0x2000, 'Synchro'],
-    [0x800000, 'Xyz'], [0x4000000, 'Link'], [TOKEN_TYPE, 'Token'], [0x20, 'Effect'], [0x10, 'Normal']];
-  return `${names.filter(([flag]) => type & flag).map(([, name]) => name).join(' ')} Monster`.trim();
-}
-
 function clearMaterialEvidence(context) {
   context.materialKinds.clear();
   context.tributeMaterialCount = 0;
@@ -185,8 +179,26 @@ function publicCard(code, loc, context, { reveal = false, query = true } = {}) {
     if (typeof metadata[key] === 'string') card[key] = metadata[key].slice(0, 120);
   }
   const info = query ? queryPublic(loc, context, code) : null;
-  if (!card.type && Number.isInteger(info?.type)) card.type = printedNativeType(info.type);
-  if (!card.card_type && Number.isInteger(info?.type)) card.card_type = info.type & 2 ? 'spell' : info.type & 4 ? 'trap' : 'monster';
+  // QUERY_CODE keeps the physical source; QUERY_ALIAS carries a changed name.
+  // Only a safe public query can supply this second metadata lookup.
+  const nameCode = Number(info?.alias || code);
+  if (Number.isInteger(nameCode) && nameCode > 0 && nameCode !== Number(code)) {
+    const currentName = context.getCardMetadata?.(nameCode);
+    card.printedName = card.name;
+    card.printedName_en = card.name_en;
+    for (const key of ['name', 'name_en']) {
+      if (typeof currentName?.[key] === 'string') card[key] = currentName[key].slice(0, 120);
+    }
+    card.currentNameCode = nameCode;
+  }
+  if (Number.isInteger(info?.type) && nativeCardKind(info.type)) {
+    card.type = nativeCardTypeLabel(info.type);
+    card.card_type = nativeCardKind(info.type);
+    if (card.card_type === 'monster') {
+      if (info.race != null) card.race = nativeRaceName(info.race);
+      if (info.attribute != null) card.attribute = nativeAttributeName(info.attribute);
+    }
+  }
   const stats = exactStats(info);
   if (stats) {
     card.nativeStats = stats;
@@ -406,7 +418,13 @@ export function translateNativeVisualEvents(message, context = {}) {
         negated: negated || link?.negated === true });
       if (msg.type === MESSAGE.CHAIN_SOLVED && link?.source.zoneType === 'field') {
         const stillPresent = context.publicCards.get(locKey(link.loc)) === link.card;
-        add({ type: 'field-source-change', ...refFields(link.source), card: link.card,
+        // A resolving effect can change the public name of this physical card.
+        // Refresh only the event payload: the retained pointer tracks whether
+        // this chain source has been removed or replaced in the meantime.
+        const card = !link.negated && stillPresent
+          ? publicCard(context.publicCodes.get(locKey(link.loc)), link.loc, context) ?? link.card
+          : link.card;
+        add({ type: 'field-source-change', ...refFields(link.source), card,
           resolved: true, negated: link.negated, active: !link.negated && stillPresent });
       }
       if (msg.type === MESSAGE.CHAIN_SOLVED) clearMaterialEvidence(context);

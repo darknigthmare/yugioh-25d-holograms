@@ -1,0 +1,2302 @@
+{
+  "ok": true,
+  "coreBuild": {
+    "format": "native-core-build-v1",
+    "builtOn": "2026-10-07",
+    "coreRevision": "38d04c9feb1a26617407091380634c87262fe3f8",
+    "coreRepository": "https://github.com/edo9300/ygopro-core",
+    "coreApi": [
+      11,
+      0
+    ],
+    "wrapperRevision": "768af363e79bd5c646e9b59f4e74aaeac0625784",
+    "luaRevision": "75ea9ccbea7c4886f30da147fb67b693b2624c26",
+    "toolchain": {
+      "emscripten": "4.0.9",
+      "emscriptenRevision": "bbf1caa6e24f64fca9eb6a13a9e02d3f42123e77",
+      "sdkRelease": "cb2a69bce627bd2247624c71fc12907cb8785d2f"
+    },
+    "buildRecipe": "/native/sources/build-native-core.sh",
+    "sources": {
+      "core": {
+        "path": "/native/sources/ygopro-core-38d04c9f.tar.gz",
+        "sha256": "eb2e32d213c58f23cb9efc3297abfce632d94dca40e4f388e0bb73fff26abc84",
+        "bytes": 2682915
+      },
+      "wrapper": {
+        "path": "/native/sources/ocgcore-wasm-768af363.tar.gz",
+        "sha256": "528d47d409193c95cb343a4f286568b3d52cb4101e54fa170a978c0243ddb48a",
+        "bytes": 60027
+      },
+      "lua": {
+        "path": "/native/sources/lua-75ea9ccb.tar.gz",
+        "sha256": "9f2f625653b8a6ce9e4489385370256831e71fe2fc15801d9b738aadde45e98d",
+        "bytes": 370215
+      }
+    },
+    "outputs": {
+      "wasm": {
+        "path": "/native/ocgcore.sync.wasm",
+        "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+        "bytes": 935745
+      },
+      "loader": {
+        "path": "/src/core/native/vendor/ocgcore/ocgcore.sync-MMMSWPBB.js",
+        "sha256": "f4523ad5c2e9f14c8736a91ad94e9e7f8283883a3607781f40afdeae27cdf828",
+        "bytes": 21357
+      }
+    },
+    "abiVerification": {
+      "comparisonCoreRevision": "8e5f4e4f0ab6b8ca750e8e1c91c1a58f407e3272",
+      "ocgapi_h": "byte-identical",
+      "ocgapi_types_h": "byte-identical",
+      "apiMajor": 11,
+      "apiMinor": 0
+    },
+    "featureUpgrade": {
+      "effectCode": 267,
+      "constant": "EFFECT_OPPO_CHOOSES_SPSUMMON_ZONE",
+      "cardCode": 12845564,
+      "sourceCardCode": 101402095,
+      "locationReason": 17
+    },
+    "upstreamLuaBytesModified": false,
+    "nativeSourceModified": false,
+    "wasmSha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+    "loaderSha256": "f4523ad5c2e9f14c8736a91ad94e9e7f8283883a3607781f40afdeae27cdf828",
+    "reproducibility": {
+      "verified": true,
+      "method": "Second clean output directory, same pinned sources and public build recipe",
+      "wasmSha256Matches": true,
+      "loaderSha256Matches": true
+    }
+  },
+  "coreWasmSha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+  "scenarios": [
+    {
+      "ok": true,
+      "fixture": [
+        {
+          "code": 1409474,
+          "sourceCode": 1409474,
+          "controller": 0,
+          "location": 4,
+          "sequence": 0,
+          "name": "Hazy Flame Sphynx",
+          "scriptSha256": "622700525e0577f03d0717bc51b95ec322478adef7de7836e3f8bde364a3d1e1"
+        },
+        {
+          "code": 34460851,
+          "sourceCode": 34460851,
+          "controller": 0,
+          "location": 2,
+          "sequence": 0,
+          "name": "Flame Manipulator",
+          "scriptSha256": null
+        },
+        {
+          "code": 89631139,
+          "sourceCode": 89631139,
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "name": "Blue-Eyes White Dragon",
+          "scriptSha256": null
+        },
+        {
+          "code": 46986414,
+          "sourceCode": 46986414,
+          "controller": 1,
+          "location": 1,
+          "sequence": 0,
+          "name": "Dark Magician",
+          "scriptSha256": null
+        }
+      ],
+      "decisions": [
+        {
+          "promptType": 14,
+          "nativeKind": "SELECT_OPTION",
+          "player": 0,
+          "options": [
+            "70",
+            "71",
+            "72"
+          ],
+          "response": {
+            "type": 4,
+            "index": 0
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 13,
+          "nativeKind": "SELECT_YESNO",
+          "player": 0,
+          "response": {
+            "type": 3,
+            "yes": true
+          }
+        },
+        {
+          "promptType": 15,
+          "nativeKind": "SELECT_CARD",
+          "player": 0,
+          "min": 1,
+          "max": 1,
+          "response": {
+            "type": 5,
+            "indicies": [
+              0
+            ]
+          }
+        },
+        {
+          "promptType": 18,
+          "nativeKind": "SELECT_PLACE",
+          "player": 0,
+          "count": 1,
+          "response": {
+            "type": 10,
+            "places": [
+              {
+                "player": 0,
+                "location": 4,
+                "sequence": 1
+              }
+            ]
+          }
+        },
+        {
+          "promptType": 19,
+          "nativeKind": "SELECT_POSITION",
+          "player": 0,
+          "response": {
+            "type": 11,
+            "position": 1
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        }
+      ],
+      "luaErrors": [],
+      "retryCount": 0
+    },
+    {
+      "ok": true,
+      "fixture": [
+        {
+          "code": 1409474,
+          "sourceCode": 1409474,
+          "controller": 0,
+          "location": 4,
+          "sequence": 0,
+          "name": "Hazy Flame Sphynx",
+          "scriptSha256": "622700525e0577f03d0717bc51b95ec322478adef7de7836e3f8bde364a3d1e1"
+        },
+        {
+          "code": 34460851,
+          "sourceCode": 34460851,
+          "controller": 0,
+          "location": 2,
+          "sequence": 0,
+          "name": "Flame Manipulator",
+          "scriptSha256": null
+        },
+        {
+          "code": 22702055,
+          "sourceCode": 22702055,
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "name": "Umi",
+          "scriptSha256": "29e2ee400d6aa63183bf084a446f44a66b825f3ee09f3c278645bc2f16ac90b1"
+        },
+        {
+          "code": 46986414,
+          "sourceCode": 46986414,
+          "controller": 1,
+          "location": 1,
+          "sequence": 0,
+          "name": "Dark Magician",
+          "scriptSha256": null
+        }
+      ],
+      "decisions": [
+        {
+          "promptType": 14,
+          "nativeKind": "SELECT_OPTION",
+          "player": 0,
+          "options": [
+            "70",
+            "71",
+            "72"
+          ],
+          "response": {
+            "type": 4,
+            "index": 1
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 13,
+          "nativeKind": "SELECT_YESNO",
+          "player": 0,
+          "response": {
+            "type": 3,
+            "yes": true
+          }
+        },
+        {
+          "promptType": 15,
+          "nativeKind": "SELECT_CARD",
+          "player": 0,
+          "min": 1,
+          "max": 1,
+          "response": {
+            "type": 5,
+            "indicies": [
+              0
+            ]
+          }
+        },
+        {
+          "promptType": 18,
+          "nativeKind": "SELECT_PLACE",
+          "player": 0,
+          "count": 1,
+          "response": {
+            "type": 10,
+            "places": [
+              {
+                "player": 0,
+                "location": 4,
+                "sequence": 1
+              }
+            ]
+          }
+        },
+        {
+          "promptType": 19,
+          "nativeKind": "SELECT_POSITION",
+          "player": 0,
+          "response": {
+            "type": 11,
+            "position": 1
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        }
+      ],
+      "luaErrors": [],
+      "retryCount": 0
+    },
+    {
+      "ok": true,
+      "fixture": [
+        {
+          "code": 1409474,
+          "sourceCode": 1409474,
+          "controller": 0,
+          "location": 4,
+          "sequence": 0,
+          "name": "Hazy Flame Sphynx",
+          "scriptSha256": "622700525e0577f03d0717bc51b95ec322478adef7de7836e3f8bde364a3d1e1"
+        },
+        {
+          "code": 34460851,
+          "sourceCode": 34460851,
+          "controller": 0,
+          "location": 2,
+          "sequence": 0,
+          "name": "Flame Manipulator",
+          "scriptSha256": null
+        },
+        {
+          "code": 44095762,
+          "sourceCode": 44095762,
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "name": "Mirror Force",
+          "scriptSha256": "44bd1867f38a7b708bb01f4078af74ca44095d13730660020e26fbc308952b33"
+        },
+        {
+          "code": 46986414,
+          "sourceCode": 46986414,
+          "controller": 1,
+          "location": 1,
+          "sequence": 0,
+          "name": "Dark Magician",
+          "scriptSha256": null
+        }
+      ],
+      "decisions": [
+        {
+          "promptType": 14,
+          "nativeKind": "SELECT_OPTION",
+          "player": 0,
+          "options": [
+            "70",
+            "71",
+            "72"
+          ],
+          "response": {
+            "type": 4,
+            "index": 2
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 13,
+          "nativeKind": "SELECT_YESNO",
+          "player": 0,
+          "response": {
+            "type": 3,
+            "yes": true
+          }
+        },
+        {
+          "promptType": 15,
+          "nativeKind": "SELECT_CARD",
+          "player": 0,
+          "min": 1,
+          "max": 1,
+          "response": {
+            "type": 5,
+            "indicies": [
+              0
+            ]
+          }
+        },
+        {
+          "promptType": 18,
+          "nativeKind": "SELECT_PLACE",
+          "player": 0,
+          "count": 1,
+          "response": {
+            "type": 10,
+            "places": [
+              {
+                "player": 0,
+                "location": 4,
+                "sequence": 1
+              }
+            ]
+          }
+        },
+        {
+          "promptType": 19,
+          "nativeKind": "SELECT_POSITION",
+          "player": 0,
+          "response": {
+            "type": 11,
+            "position": 1
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        }
+      ],
+      "luaErrors": [],
+      "retryCount": 0
+    },
+    {
+      "ok": true,
+      "fixture": [
+        {
+          "code": 69296555,
+          "sourceCode": 69296555,
+          "controller": 0,
+          "location": 2,
+          "sequence": 0,
+          "name": "Array of Revealing Light",
+          "scriptSha256": "b69521e80917f8487f99d039d11ba8daa0ae6cd6b56387a2a5d29b7f841e386e"
+        },
+        {
+          "code": 31553716,
+          "sourceCode": 31553716,
+          "controller": 0,
+          "location": 2,
+          "sequence": 0,
+          "name": "Spear Dragon",
+          "scriptSha256": "6fd080e0edfd69d1119ad0072a16384221003681d24787593e53aded9a3b3ca9"
+        },
+        {
+          "code": 26202165,
+          "sourceCode": 26202165,
+          "controller": 0,
+          "location": 4,
+          "sequence": 0,
+          "name": "Sangan",
+          "scriptSha256": "bbe8a2e73fab5ae65d5bc53af7d7b28aaa19761310e7bc2de5295ad8ee9ff3cf"
+        },
+        {
+          "code": 89631139,
+          "sourceCode": 89631139,
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "name": "Blue-Eyes White Dragon",
+          "scriptSha256": null
+        },
+        {
+          "code": 46986414,
+          "sourceCode": 46986414,
+          "controller": 1,
+          "location": 1,
+          "sequence": 0,
+          "name": "Dark Magician",
+          "scriptSha256": null
+        }
+      ],
+      "decisions": [
+        {
+          "promptType": 140,
+          "nativeKind": "ANNOUNCE_RACE",
+          "player": 0,
+          "count": 1,
+          "response": {
+            "type": 16,
+            "races": [
+              "8192"
+            ]
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 18,
+          "nativeKind": "SELECT_PLACE",
+          "player": 0,
+          "count": 1,
+          "response": {
+            "type": 10,
+            "places": [
+              {
+                "player": 0,
+                "location": 4,
+                "sequence": 1
+              }
+            ]
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        }
+      ],
+      "luaErrors": [],
+      "retryCount": 0
+    },
+    {
+      "ok": true,
+      "fixture": [
+        {
+          "code": 5697558,
+          "sourceCode": 5697558,
+          "controller": 0,
+          "location": 2,
+          "sequence": 0,
+          "name": "The Hidden City",
+          "scriptSha256": "9dbf0614b68f489388cd9c6c1224610316202cd86620ea03b5267c7d71a191bc"
+        },
+        {
+          "code": 39581190,
+          "sourceCode": 39581190,
+          "controller": 0,
+          "location": 4,
+          "sequence": 0,
+          "name": "Subterror Nemesis Archer",
+          "scriptSha256": "7c98f8a98c209d8dc216ce9d41a99c756beabf2a6a09ee10c5903334e28c5f58"
+        },
+        {
+          "code": 89631139,
+          "sourceCode": 89631139,
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "name": "Blue-Eyes White Dragon",
+          "scriptSha256": null
+        },
+        {
+          "code": 46986414,
+          "sourceCode": 46986414,
+          "controller": 1,
+          "location": 1,
+          "sequence": 0,
+          "name": "Dark Magician",
+          "scriptSha256": null
+        }
+      ],
+      "decisions": [
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 15,
+          "nativeKind": "SELECT_CARD",
+          "player": 0,
+          "min": 1,
+          "max": 1,
+          "response": {
+            "type": 5,
+            "indicies": [
+              0
+            ]
+          }
+        },
+        {
+          "promptType": 19,
+          "nativeKind": "SELECT_POSITION",
+          "player": 0,
+          "response": {
+            "type": 11,
+            "position": 1
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        }
+      ],
+      "luaErrors": [],
+      "retryCount": 0
+    },
+    {
+      "ok": true,
+      "fixture": [
+        {
+          "code": 5697558,
+          "sourceCode": 5697558,
+          "controller": 0,
+          "location": 2,
+          "sequence": 0,
+          "name": "The Hidden City",
+          "scriptSha256": "9dbf0614b68f489388cd9c6c1224610316202cd86620ea03b5267c7d71a191bc"
+        },
+        {
+          "code": 39581190,
+          "sourceCode": 39581190,
+          "controller": 0,
+          "location": 4,
+          "sequence": 0,
+          "name": "Subterror Nemesis Archer",
+          "scriptSha256": "7c98f8a98c209d8dc216ce9d41a99c756beabf2a6a09ee10c5903334e28c5f58"
+        },
+        {
+          "code": 89631139,
+          "sourceCode": 89631139,
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "name": "Blue-Eyes White Dragon",
+          "scriptSha256": null
+        },
+        {
+          "code": 46986414,
+          "sourceCode": 46986414,
+          "controller": 1,
+          "location": 1,
+          "sequence": 0,
+          "name": "Dark Magician",
+          "scriptSha256": null
+        }
+      ],
+      "decisions": [
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 15,
+          "nativeKind": "SELECT_CARD",
+          "player": 0,
+          "min": 1,
+          "max": 1,
+          "response": {
+            "type": 5,
+            "indicies": [
+              0
+            ]
+          }
+        },
+        {
+          "promptType": 19,
+          "nativeKind": "SELECT_POSITION",
+          "player": 0,
+          "response": {
+            "type": 11,
+            "position": 4
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        }
+      ],
+      "luaErrors": [],
+      "retryCount": 0
+    },
+    {
+      "ok": true,
+      "fixture": [
+        {
+          "code": 46552140,
+          "sourceCode": 46552140,
+          "controller": 0,
+          "location": 2,
+          "sequence": 0,
+          "name": "Adamancipator Laputite",
+          "scriptSha256": "774171509ee1e06ae4b0e89e5bb063d43f324e5d662364f8335e49d60952a574"
+        },
+        {
+          "code": 10286023,
+          "sourceCode": 10286023,
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "name": "Adamancipator Crystal - Dragite",
+          "scriptSha256": "a389316ce0ce68045c075c7066524082b157dbcdce3e26eb0ec67c1d990e6a8d"
+        },
+        {
+          "code": 47897376,
+          "sourceCode": 47897376,
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "name": "Adamancipator Crystal - Leonite",
+          "scriptSha256": "5688d9ea61a0d492dfe0b36284b70232c4496b77ef4886313ffb86bcb4bae3a7"
+        },
+        {
+          "code": 74891384,
+          "sourceCode": 74891384,
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "name": "Adamancipator Crystal - Raptite",
+          "scriptSha256": "7fd03dfd085c7b62582c66cd8b8ba9b683cca4c3d31ac0e6c273fc64c50d13dd"
+        },
+        {
+          "code": 85914562,
+          "sourceCode": 85914562,
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "name": "Adamancipator Researcher",
+          "scriptSha256": "d6b31c034493b35c2ccc8a295e47bc4ee66cb8400510b81c54989d68bc65538f"
+        },
+        {
+          "code": 89631139,
+          "sourceCode": 89631139,
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "name": "Blue-Eyes White Dragon",
+          "scriptSha256": null
+        },
+        {
+          "code": 46986414,
+          "sourceCode": 46986414,
+          "controller": 1,
+          "location": 1,
+          "sequence": 0,
+          "name": "Dark Magician",
+          "scriptSha256": null
+        }
+      ],
+      "decisions": [
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 26,
+          "nativeKind": "SELECT_UNSELECT_CARD",
+          "player": 0,
+          "min": 1,
+          "max": 5,
+          "response": {
+            "type": 7,
+            "index": 1
+          }
+        },
+        {
+          "promptType": 26,
+          "nativeKind": "SELECT_UNSELECT_CARD",
+          "player": 0,
+          "min": 1,
+          "max": 5,
+          "response": {
+            "type": 7,
+            "index": 1
+          }
+        },
+        {
+          "promptType": 26,
+          "nativeKind": "SELECT_UNSELECT_CARD",
+          "player": 0,
+          "min": 1,
+          "max": 5,
+          "response": {
+            "type": 7,
+            "index": 1
+          }
+        },
+        {
+          "promptType": 26,
+          "nativeKind": "SELECT_UNSELECT_CARD",
+          "player": 0,
+          "min": 1,
+          "max": 5,
+          "response": {
+            "type": 7,
+            "index": null
+          }
+        },
+        {
+          "promptType": 25,
+          "nativeKind": "SORT_CARD",
+          "player": 0,
+          "response": {
+            "type": 15,
+            "order": [
+              1,
+              2,
+              0
+            ]
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        }
+      ],
+      "luaErrors": [],
+      "retryCount": 0
+    },
+    {
+      "ok": true,
+      "fixture": [
+        {
+          "code": 91880660,
+          "sourceCode": 91880660,
+          "controller": 0,
+          "location": 2,
+          "sequence": 0,
+          "name": "Way Where There's a Will",
+          "scriptSha256": "b0df8064e68608cbeeb0d6a0eb3234080886f74c603e3521ba1cfea0118c2891"
+        },
+        {
+          "code": 26202165,
+          "sourceCode": 26202165,
+          "controller": 0,
+          "location": 2,
+          "sequence": 0,
+          "name": "Sangan",
+          "scriptSha256": "bbe8a2e73fab5ae65d5bc53af7d7b28aaa19761310e7bc2de5295ad8ee9ff3cf"
+        },
+        {
+          "code": 89631139,
+          "sourceCode": 89631139,
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "name": "Blue-Eyes White Dragon",
+          "scriptSha256": null
+        },
+        {
+          "code": 46986414,
+          "sourceCode": 46986414,
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "name": "Dark Magician",
+          "scriptSha256": null
+        },
+        {
+          "code": 83011277,
+          "sourceCode": 83011277,
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "name": "Mystic Tomato",
+          "scriptSha256": "324309e393e2870e688908c33dcbfc41cca2255d57da79463814137de2df3c66"
+        },
+        {
+          "code": 17444133,
+          "sourceCode": 17444133,
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "name": "Kaiser Sea Horse",
+          "scriptSha256": "f4f176411c354b95a25fa4e1649a9d9e54b9a9c47b67db5f80e3d75941847e2f"
+        },
+        {
+          "code": 89631139,
+          "sourceCode": 89631139,
+          "controller": 1,
+          "location": 4,
+          "sequence": 0,
+          "name": "Blue-Eyes White Dragon",
+          "scriptSha256": null
+        },
+        {
+          "code": 46986414,
+          "sourceCode": 46986414,
+          "controller": 1,
+          "location": 4,
+          "sequence": 1,
+          "name": "Dark Magician",
+          "scriptSha256": null
+        },
+        {
+          "code": 83011277,
+          "sourceCode": 83011277,
+          "controller": 1,
+          "location": 4,
+          "sequence": 2,
+          "name": "Mystic Tomato",
+          "scriptSha256": "324309e393e2870e688908c33dcbfc41cca2255d57da79463814137de2df3c66"
+        },
+        {
+          "code": 46986414,
+          "sourceCode": 46986414,
+          "controller": 1,
+          "location": 1,
+          "sequence": 0,
+          "name": "Dark Magician",
+          "scriptSha256": null
+        }
+      ],
+      "decisions": [
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 143,
+          "nativeKind": "ANNOUNCE_NUMBER",
+          "player": 0,
+          "options": [
+            "1",
+            "2",
+            "3"
+          ],
+          "response": {
+            "type": 19,
+            "value": 2
+          }
+        },
+        {
+          "promptType": 15,
+          "nativeKind": "SELECT_CARD",
+          "player": 0,
+          "min": 1,
+          "max": 1,
+          "response": {
+            "type": 5,
+            "indicies": [
+              0
+            ]
+          }
+        },
+        {
+          "promptType": 15,
+          "nativeKind": "SELECT_CARD",
+          "player": 0,
+          "min": 1,
+          "max": 1,
+          "response": {
+            "type": 5,
+            "indicies": [
+              0
+            ]
+          }
+        },
+        {
+          "promptType": 25,
+          "nativeKind": "SORT_CARD",
+          "player": 0,
+          "response": {
+            "type": 15,
+            "order": [
+              2,
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        }
+      ],
+      "luaErrors": [],
+      "retryCount": 0
+    },
+    {
+      "ok": true,
+      "fixture": [
+        {
+          "code": 66059345,
+          "sourceCode": 66059345,
+          "controller": 0,
+          "location": 2,
+          "sequence": 0,
+          "name": "Materiactor Meltthrough",
+          "scriptSha256": "8148b7b4ab53a91b7c2d6315a053fc86c0321bd873db91df26e8eb06667e13c6"
+        },
+        {
+          "code": 89631139,
+          "sourceCode": 89631139,
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "name": "Blue-Eyes White Dragon",
+          "scriptSha256": null
+        },
+        {
+          "code": 46986414,
+          "sourceCode": 46986414,
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "name": "Dark Magician",
+          "scriptSha256": null
+        },
+        {
+          "code": 83011277,
+          "sourceCode": 83011277,
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "name": "Mystic Tomato",
+          "scriptSha256": "324309e393e2870e688908c33dcbfc41cca2255d57da79463814137de2df3c66"
+        },
+        {
+          "code": 17444133,
+          "sourceCode": 17444133,
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "name": "Kaiser Sea Horse",
+          "scriptSha256": "f4f176411c354b95a25fa4e1649a9d9e54b9a9c47b67db5f80e3d75941847e2f"
+        },
+        {
+          "code": 70781052,
+          "sourceCode": 70781052,
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "name": "Summoned Skull",
+          "scriptSha256": null
+        },
+        {
+          "code": 97590747,
+          "sourceCode": 97590747,
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "name": "La Jinn the Mystical Genie of the Lamp",
+          "scriptSha256": null
+        },
+        {
+          "code": 46986414,
+          "sourceCode": 46986414,
+          "controller": 1,
+          "location": 1,
+          "sequence": 0,
+          "name": "Dark Magician",
+          "scriptSha256": null
+        }
+      ],
+      "decisions": [
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 25,
+          "nativeKind": "SORT_CARD",
+          "player": 0,
+          "response": {
+            "type": 15,
+            "order": [
+              3,
+              1,
+              5,
+              4,
+              2,
+              0
+            ]
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        }
+      ],
+      "luaErrors": [],
+      "retryCount": 0
+    },
+    {
+      "ok": true,
+      "fixture": [
+        {
+          "code": 67331360,
+          "sourceCode": 67331360,
+          "controller": 0,
+          "location": 2,
+          "sequence": 0,
+          "name": "Doll House",
+          "scriptSha256": "6fe8ff867de1c3f099321bcfb2a0e44fcc565171689cd85af887946f9022f180"
+        },
+        {
+          "code": 75574498,
+          "sourceCode": 75574498,
+          "controller": 0,
+          "location": 4,
+          "sequence": 0,
+          "name": "Princess Cologne",
+          "scriptSha256": "eaf9f71a9ae199d84bf5f318e64ee8d9cfceb63ddc958d2e9193123231f99ce7"
+        },
+        {
+          "code": 32012841,
+          "sourceCode": 32012841,
+          "controller": 0,
+          "location": 16,
+          "sequence": 0,
+          "name": "Millennium Shield",
+          "scriptSha256": null
+        },
+        {
+          "code": 32012841,
+          "sourceCode": 32012841,
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "name": "Millennium Shield",
+          "scriptSha256": null
+        },
+        {
+          "code": 67284908,
+          "sourceCode": 67284908,
+          "controller": 0,
+          "location": 16,
+          "sequence": 0,
+          "name": "Labyrinth Wall",
+          "scriptSha256": null
+        },
+        {
+          "code": 67284908,
+          "sourceCode": 67284908,
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "name": "Labyrinth Wall",
+          "scriptSha256": null
+        },
+        {
+          "code": 89631139,
+          "sourceCode": 89631139,
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "name": "Blue-Eyes White Dragon",
+          "scriptSha256": null
+        },
+        {
+          "code": 46986414,
+          "sourceCode": 46986414,
+          "controller": 1,
+          "location": 1,
+          "sequence": 0,
+          "name": "Dark Magician",
+          "scriptSha256": null
+        }
+      ],
+      "decisions": [
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 26,
+          "nativeKind": "SELECT_UNSELECT_CARD",
+          "player": 0,
+          "min": 1,
+          "max": 2,
+          "response": {
+            "type": 7,
+            "index": 0
+          }
+        },
+        {
+          "promptType": 26,
+          "nativeKind": "SELECT_UNSELECT_CARD",
+          "player": 0,
+          "min": 1,
+          "max": 2,
+          "response": {
+            "type": 7,
+            "index": 0
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 26,
+          "nativeKind": "SELECT_UNSELECT_CARD",
+          "player": 0,
+          "min": 2,
+          "max": 2,
+          "response": {
+            "type": 7,
+            "index": 0
+          }
+        },
+        {
+          "promptType": 26,
+          "nativeKind": "SELECT_UNSELECT_CARD",
+          "player": 0,
+          "min": 2,
+          "max": 2,
+          "response": {
+            "type": 7,
+            "index": 0
+          }
+        },
+        {
+          "promptType": 18,
+          "nativeKind": "SELECT_PLACE",
+          "player": 0,
+          "count": 1,
+          "response": {
+            "type": 10,
+            "places": [
+              {
+                "player": 0,
+                "location": 4,
+                "sequence": 1
+              }
+            ]
+          }
+        },
+        {
+          "promptType": 19,
+          "nativeKind": "SELECT_POSITION",
+          "player": 0,
+          "response": {
+            "type": 11,
+            "position": 1
+          }
+        },
+        {
+          "promptType": 18,
+          "nativeKind": "SELECT_PLACE",
+          "player": 0,
+          "count": 1,
+          "response": {
+            "type": 10,
+            "places": [
+              {
+                "player": 0,
+                "location": 4,
+                "sequence": 2
+              }
+            ]
+          }
+        },
+        {
+          "promptType": 19,
+          "nativeKind": "SELECT_POSITION",
+          "player": 0,
+          "response": {
+            "type": 11,
+            "position": 1
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        }
+      ],
+      "luaErrors": [],
+      "retryCount": 0
+    },
+    {
+      "ok": true,
+      "fixture": [
+        {
+          "code": 34029630,
+          "sourceCode": 34029630,
+          "controller": 0,
+          "location": 8,
+          "sequence": 0,
+          "name": "Pitch-Black Power Stone",
+          "scriptSha256": "635da89af1791a75a51122cf966644ad825c93d4eaa9a3b37c39bbc90cd149a4"
+        },
+        {
+          "code": 34029630,
+          "sourceCode": 34029630,
+          "controller": 0,
+          "location": 8,
+          "sequence": 1,
+          "name": "Pitch-Black Power Stone",
+          "scriptSha256": "635da89af1791a75a51122cf966644ad825c93d4eaa9a3b37c39bbc90cd149a4"
+        },
+        {
+          "code": 68334074,
+          "sourceCode": 68334074,
+          "controller": 0,
+          "location": 8,
+          "sequence": 2,
+          "name": "Miracle Restoring",
+          "scriptSha256": "12000191bc0e8db951b50c9988d26aebc6541c4ae00e50ca50dd6aa725408bce"
+        },
+        {
+          "code": 46986414,
+          "sourceCode": 46986414,
+          "controller": 0,
+          "location": 16,
+          "sequence": 0,
+          "name": "Dark Magician",
+          "scriptSha256": null
+        },
+        {
+          "code": 89631139,
+          "sourceCode": 89631139,
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "name": "Blue-Eyes White Dragon",
+          "scriptSha256": null
+        },
+        {
+          "code": 46986414,
+          "sourceCode": 46986414,
+          "controller": 1,
+          "location": 1,
+          "sequence": 0,
+          "name": "Dark Magician",
+          "scriptSha256": null
+        }
+      ],
+      "decisions": [
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 12,
+          "nativeKind": "SELECT_EFFECTYN",
+          "player": 0,
+          "response": {
+            "type": 2,
+            "yes": false
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 22,
+          "nativeKind": "SELECT_COUNTER",
+          "player": 0,
+          "count": 2,
+          "response": {
+            "type": 13,
+            "counters": [
+              0,
+              2
+            ]
+          }
+        },
+        {
+          "promptType": 15,
+          "nativeKind": "SELECT_CARD",
+          "player": 0,
+          "min": 1,
+          "max": 1,
+          "response": {
+            "type": 5,
+            "indicies": [
+              0
+            ]
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 18,
+          "nativeKind": "SELECT_PLACE",
+          "player": 0,
+          "count": 1,
+          "response": {
+            "type": 10,
+            "places": [
+              {
+                "player": 0,
+                "location": 4,
+                "sequence": 0
+              }
+            ]
+          }
+        },
+        {
+          "promptType": 19,
+          "nativeKind": "SELECT_POSITION",
+          "player": 0,
+          "response": {
+            "type": 11,
+            "position": 1
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        }
+      ],
+      "luaErrors": [],
+      "retryCount": 0
+    },
+    {
+      "ok": true,
+      "fixture": [
+        {
+          "code": 94016752,
+          "sourceCode": 94016752,
+          "controller": 0,
+          "location": 2,
+          "sequence": 0,
+          "name": "Herald of the Abyss",
+          "scriptSha256": "add57826be3ec567caa57a00ab2164c486ad5fa58f3e8a1f25d03e08034b19e1"
+        },
+        {
+          "code": 89631139,
+          "sourceCode": 89631139,
+          "controller": 1,
+          "location": 4,
+          "sequence": 0,
+          "name": "Blue-Eyes White Dragon",
+          "scriptSha256": null
+        },
+        {
+          "code": 46986414,
+          "sourceCode": 46986414,
+          "controller": 1,
+          "location": 4,
+          "sequence": 1,
+          "name": "Dark Magician",
+          "scriptSha256": null
+        },
+        {
+          "code": 89631139,
+          "sourceCode": 89631139,
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "name": "Blue-Eyes White Dragon",
+          "scriptSha256": null
+        },
+        {
+          "code": 46986414,
+          "sourceCode": 46986414,
+          "controller": 1,
+          "location": 1,
+          "sequence": 0,
+          "name": "Dark Magician",
+          "scriptSha256": null
+        }
+      ],
+      "decisions": [
+        {
+          "promptType": 18,
+          "nativeKind": "SELECT_PLACE",
+          "player": 0,
+          "count": 1,
+          "response": {
+            "type": 10,
+            "places": [
+              {
+                "player": 0,
+                "location": 8,
+                "sequence": 0
+              }
+            ]
+          }
+        },
+        {
+          "promptType": 140,
+          "nativeKind": "ANNOUNCE_RACE",
+          "player": 0,
+          "count": 1,
+          "response": {
+            "type": 16,
+            "races": [
+              "8192"
+            ]
+          }
+        },
+        {
+          "promptType": 141,
+          "nativeKind": "ANNOUNCE_ATTRIB",
+          "player": 0,
+          "count": 1,
+          "response": {
+            "type": 17,
+            "attributes": [
+              16
+            ]
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 15,
+          "nativeKind": "SELECT_CARD",
+          "player": 1,
+          "min": 1,
+          "max": 1,
+          "response": {
+            "type": 5,
+            "indicies": [
+              0
+            ]
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        }
+      ],
+      "luaErrors": [],
+      "retryCount": 0
+    },
+    {
+      "ok": true,
+      "fixture": [
+        {
+          "code": 27340877,
+          "sourceCode": 27340877,
+          "controller": 0,
+          "location": 8,
+          "sequence": 0,
+          "name": "DNA Checkup",
+          "scriptSha256": "185346b6b885d114cde4c33cebae8ab073a817631a8338246b0253b31f287ff8"
+        },
+        {
+          "code": 89631139,
+          "sourceCode": 89631139,
+          "controller": 0,
+          "location": 4,
+          "sequence": 0,
+          "name": "Blue-Eyes White Dragon",
+          "scriptSha256": null
+        },
+        {
+          "code": 46986414,
+          "sourceCode": 46986414,
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "name": "Dark Magician",
+          "scriptSha256": null
+        },
+        {
+          "code": 83011277,
+          "sourceCode": 83011277,
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "name": "Mystic Tomato",
+          "scriptSha256": "324309e393e2870e688908c33dcbfc41cca2255d57da79463814137de2df3c66"
+        },
+        {
+          "code": 97590747,
+          "sourceCode": 97590747,
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "name": "La Jinn the Mystical Genie of the Lamp",
+          "scriptSha256": null
+        },
+        {
+          "code": 46986414,
+          "sourceCode": 46986414,
+          "controller": 1,
+          "location": 1,
+          "sequence": 0,
+          "name": "Dark Magician",
+          "scriptSha256": null
+        }
+      ],
+      "decisions": [
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 15,
+          "nativeKind": "SELECT_CARD",
+          "player": 0,
+          "min": 1,
+          "max": 1,
+          "response": {
+            "type": 5,
+            "indicies": [
+              0
+            ]
+          }
+        },
+        {
+          "promptType": 141,
+          "nativeKind": "ANNOUNCE_ATTRIB",
+          "player": 1,
+          "count": 2,
+          "response": {
+            "type": 17,
+            "attributes": [
+              1,
+              2
+            ]
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 0,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "promptType": 16,
+          "nativeKind": "SELECT_CHAIN",
+          "player": 1,
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        }
+      ],
+      "luaErrors": [],
+      "retryCount": 0
+    }
+  ]
+}

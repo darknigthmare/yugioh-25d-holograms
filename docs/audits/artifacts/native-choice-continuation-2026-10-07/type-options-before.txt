@@ -1,0 +1,43 @@
+✖ Hazy Flame Sphynx offers distinct native Monster/Spell/Trap declarations and resolves the chosen kind (44.717917ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 52.633443
+
+✖ failing tests:
+
+test at tests/native-duel-choice-continuation.test.mjs:112:1
+✖ Hazy Flame Sphynx offers distinct native Monster/Spell/Trap declarations and resolves the chosen kind (44.717917ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   'Choix de l’effet',
+  +   'Choix de l’effet',
+  +   'Choix de l’effet'
+  -   'MONSTRE',
+  -   'MAGIE',
+  -   'PIÈGE'
+    ]
+  
+      at file:///workspace/yugioh-25d-holograms/tests/native-duel-choice-continuation.test.mjs:117:14
+      at onDecision (file:///workspace/yugioh-25d-holograms/tests/native-duel-choice-continuation.test.mjs:52:36)
+      at ask (file:///workspace/yugioh-25d-holograms/src/core/native/NativeDuelDecisions.js:554:26)
+      at resolveNativeDuelPrompt (file:///workspace/yugioh-25d-holograms/src/core/native/NativeDuelDecisions.js:589:24)
+      at Object.answer (file:///workspace/yugioh-25d-holograms/tests/native-duel-choice-continuation.test.mjs:48:30)
+      at Object.idle (file:///workspace/yugioh-25d-holograms/tests/native-duel-choice-continuation.test.mjs:78:20)
+      at Object.action (file:///workspace/yugioh-25d-holograms/tests/native-duel-choice-continuation.test.mjs:90:19)
+      at async file:///workspace/yugioh-25d-holograms/tests/native-duel-choice-continuation.test.mjs:114:5
+      at async run (file:///workspace/yugioh-25d-holograms/tests/native-duel-choice-continuation.test.mjs:106:9)
+      at async TestContext.<anonymous> (file:///workspace/yugioh-25d-holograms/tests/native-duel-choice-continuation.test.mjs:113:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [Array],
+    expected: [Array],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

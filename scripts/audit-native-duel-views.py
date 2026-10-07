@@ -187,7 +187,7 @@ def verify(page, base_url, output, report, draft):
         cycle(page, view)
         assert_public_state(page, report, f'mausoleum-{view}', hand, field,
                             'temple-sanctuary')
-        page.screenshot(path=str(output / f'native-mausoleum-{view}-{width}.png'), animations='disabled')
+        page.screenshot(path=str(output / f'native-mausoleum-{view}-{width}.png'), animations='disabled', timeout=60000)
     # Replacing the resolved field with a face-down card removes its environment.
     # Its public Set state must not activate Zombie World's source scenery.
     cycle(page, 'compact')
@@ -200,7 +200,7 @@ def verify(page, base_url, output, report, draft):
     facts = assert_public_state(page, report, 'zombie-world-set-real', hand, field)
     assert facts['environment']['id'] not in ['graveyard', 'temple-sanctuary'], facts
     report['setFieldDoesNotActivateScenery'] = True
-    page.screenshot(path=str(output / f'native-zombie-world-set-real-{width}.png'), animations='disabled')
+    page.screenshot(path=str(output / f'native-zombie-world-set-real-{width}.png'), animations='disabled', timeout=60000)
     # Use the Set card's real view control, then the offered activation button.
     page.locator(FIELD).click()
     page.locator('#decision-modal').wait_for(state='visible')
@@ -214,7 +214,7 @@ def verify(page, base_url, output, report, draft):
     assert_public_state(page, report, 'zombie-world-activation-pending-real', hand,
                         {'id': '4064256', 'faceDown': False}, allow_decision=True)
     report['pendingActivationDoesNotActivateScenery'] = True
-    page.screenshot(path=str(output / f'native-zombie-world-pending-real-{width}.png'), animations='disabled')
+    page.screenshot(path=str(output / f'native-zombie-world-pending-real-{width}.png'), animations='disabled', timeout=60000)
     helper.dismiss_optional_decisions(page)
     helper.await_player_main(page)
     helper.wait_until(page, """() => !document.querySelector('.card-zone[data-side="player"][data-zone-type="field"] .card-inner.face-down')""")
@@ -223,7 +223,7 @@ def verify(page, base_url, output, report, draft):
         cycle(page, view)
         assert_public_state(page, report, f'zombie-world-{view}-{len(report["stages"])}', hand, field,
                             'graveyard')
-        page.screenshot(path=str(output / f'native-zombie-world-{view}-{width}.png'), animations='disabled')
+        page.screenshot(path=str(output / f'native-zombie-world-{view}-{width}.png'), animations='disabled', timeout=60000)
     report['realViewSetActivationThroughControls'] = True
     report['sameCanvasAcrossViewCycles'] = True
     report['cspViolations'] = page.evaluate('window.__auditCspViolations || []')
@@ -281,7 +281,8 @@ def main():
         args.base_url = f'http://127.0.0.1:{server.server_port}'
     report = {'ok': False, 'target': 'compiled production bundle', 'productionCsp': headers['Content-Security-Policy'],
               'method': 'actual controls and public DOM only; isolated legal custom deck and seeded RNG',
-              'memoryScope': 'DOM renderer counts and approximate JS heap; GPU allocation not measured', 'viewports': []}
+              'memoryScope': 'DOM renderer counts and approximate JS heap; GPU allocation not measured',
+              'captureTimeoutMs': 60000, 'viewports': []}
     try:
         with sync_playwright() as playwright:
             browser = playwright.chromium.launch(executable_path=args.chromium, headless=True,
@@ -300,7 +301,7 @@ def main():
                 except Exception:
                     viewport_report['failurePublicState'] = snapshot(page)
                     viewport_report['failureVisibleDecision'] = page.locator('#decision-modal').inner_text() if page.locator('#decision-modal').is_visible() else None
-                    page.screenshot(path=str(args.output / f'native-views-failure-{width}.png'), animations='disabled')
+                    page.screenshot(path=str(args.output / f'native-views-failure-{width}.png'), animations='disabled', timeout=60000)
                     raise
                 finally:
                     context.close()

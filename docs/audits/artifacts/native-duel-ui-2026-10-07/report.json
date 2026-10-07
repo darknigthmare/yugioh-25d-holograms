@@ -95,18 +95,174 @@
     "publicGraveyardProjection": true,
     "pageErrors": []
   },
+  "servedResponseFingerprintsBefore": {
+    "index.html": {
+      "bytes": 35408,
+      "sha256": "9092b61cae2f9f267fc6f35c4f90594220bc123ff9681d9b251e5973b1c1c06f"
+    },
+    "assets/index-CkdHwDWv.js": {
+      "bytes": 598618,
+      "sha256": "7173898cef8206cb9f0e12525376ad03e857a22e40fca40ea97c0623e0fdb9fd"
+    },
+    "assets/index-BbUkbKmn.css": {
+      "bytes": 82371,
+      "sha256": "71afb732ab7152dc319dfb6b72812913e23121c24f251ef80e0b69c61e0e749e"
+    },
+    "assets/NativeDuelGame-ZSLU0meg.js": {
+      "bytes": 77200,
+      "sha256": "292967a9fa2eab1eed43a2f0ce172a3e1364eeb86f1c66d1a63e55fb49777980"
+    },
+    "assets/ocgcore-D2udBA3b.js": {
+      "bytes": 1746,
+      "sha256": "1dc7719c0b30b566be8c833ea2b4e65e4e84f68e77849f05c76a8a362c0775fd"
+    },
+    "native/ocgcore.sync.wasm": {
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    },
+    "native/card-data.json": {
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    "native/scripts.json": {
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    }
+  },
   "testedWasmSha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
-  "testedIndexAsset": "/assets/index-Bf3sQIDw.js",
-  "testedIndexSha256": "6de409c77e47c3853b1a554553776a13f576e265824187d6d21b809fd4c7ce33",
-  "testedIndexHtmlSha256": "ca7254cd1cc1b1b0c6bf9c96782429d47443c7b1a0da5febe6801762b2360ee2",
-  "testedCssAsset": "/assets/index-WwbnQBsq.css",
-  "testedCssSha256": "5103d13e4c93cce8f60e430ade9bce9aace0233e3b71dfb7786e11b7bf3c58a1",
-  "testedNativeGameAsset": "/assets/NativeDuelGame-DrR3s3dO.js",
-  "testedNativeGameSha256": "290a980e79d7e577fa1879eeb35f0ae3b810b2cc2035f93601bb9addc0737eb5",
-  "testedNativeCoreAsset": "/assets/ocgcore-CRjY9PIO.js",
-  "testedNativeCoreSha256": "4eeec09c8f885030c6d291049f2aa4289afe3767b4fb147158e8e04a7ffa9e9d",
+  "compiledSnapshotBefore": {
+    "index.html": {
+      "bytes": 35408,
+      "sha256": "9092b61cae2f9f267fc6f35c4f90594220bc123ff9681d9b251e5973b1c1c06f"
+    },
+    "assets/index-CkdHwDWv.js": {
+      "bytes": 598618,
+      "sha256": "7173898cef8206cb9f0e12525376ad03e857a22e40fca40ea97c0623e0fdb9fd"
+    },
+    "assets/index-BbUkbKmn.css": {
+      "bytes": 82371,
+      "sha256": "71afb732ab7152dc319dfb6b72812913e23121c24f251ef80e0b69c61e0e749e"
+    },
+    "assets/NativeDuelGame-ZSLU0meg.js": {
+      "bytes": 77200,
+      "sha256": "292967a9fa2eab1eed43a2f0ce172a3e1364eeb86f1c66d1a63e55fb49777980"
+    },
+    "assets/ocgcore-D2udBA3b.js": {
+      "bytes": 1746,
+      "sha256": "1dc7719c0b30b566be8c833ea2b4e65e4e84f68e77849f05c76a8a362c0775fd"
+    },
+    "native/ocgcore.sync.wasm": {
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    },
+    "native/card-data.json": {
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    "native/scripts.json": {
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    }
+  },
+  "servedResponseFingerprintsAfter": {
+    "index.html": {
+      "bytes": 35408,
+      "sha256": "9092b61cae2f9f267fc6f35c4f90594220bc123ff9681d9b251e5973b1c1c06f"
+    },
+    "assets/index-CkdHwDWv.js": {
+      "bytes": 598618,
+      "sha256": "7173898cef8206cb9f0e12525376ad03e857a22e40fca40ea97c0623e0fdb9fd"
+    },
+    "assets/index-BbUkbKmn.css": {
+      "bytes": 82371,
+      "sha256": "71afb732ab7152dc319dfb6b72812913e23121c24f251ef80e0b69c61e0e749e"
+    },
+    "assets/NativeDuelGame-ZSLU0meg.js": {
+      "bytes": 77200,
+      "sha256": "292967a9fa2eab1eed43a2f0ce172a3e1364eeb86f1c66d1a63e55fb49777980"
+    },
+    "assets/ocgcore-D2udBA3b.js": {
+      "bytes": 1746,
+      "sha256": "1dc7719c0b30b566be8c833ea2b4e65e4e84f68e77849f05c76a8a362c0775fd"
+    },
+    "native/ocgcore.sync.wasm": {
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    },
+    "native/card-data.json": {
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    "native/scripts.json": {
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    }
+  },
+  "compiledSnapshotAfter": {
+    "index.html": {
+      "bytes": 35408,
+      "sha256": "9092b61cae2f9f267fc6f35c4f90594220bc123ff9681d9b251e5973b1c1c06f"
+    },
+    "assets/index-CkdHwDWv.js": {
+      "bytes": 598618,
+      "sha256": "7173898cef8206cb9f0e12525376ad03e857a22e40fca40ea97c0623e0fdb9fd"
+    },
+    "assets/index-BbUkbKmn.css": {
+      "bytes": 82371,
+      "sha256": "71afb732ab7152dc319dfb6b72812913e23121c24f251ef80e0b69c61e0e749e"
+    },
+    "assets/NativeDuelGame-ZSLU0meg.js": {
+      "bytes": 77200,
+      "sha256": "292967a9fa2eab1eed43a2f0ce172a3e1364eeb86f1c66d1a63e55fb49777980"
+    },
+    "assets/ocgcore-D2udBA3b.js": {
+      "bytes": 1746,
+      "sha256": "1dc7719c0b30b566be8c833ea2b4e65e4e84f68e77849f05c76a8a362c0775fd"
+    },
+    "native/ocgcore.sync.wasm": {
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    },
+    "native/card-data.json": {
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    "native/scripts.json": {
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    }
+  },
   "immutableCompiledSnapshot": true,
-  "immutableCompiledSnapshotScope": "HTML, entry JS, CSS, native facade, native wrapper and WASM matched before and after both audits",
-  "frozenManifestFilesVerified": 7,
-  "frozenManifest": "yugioh-expansion-preview-local-manifest.json"
+  "testedIndexAsset": "/assets/index-CkdHwDWv.js",
+  "testedIndexSha256": "7173898cef8206cb9f0e12525376ad03e857a22e40fca40ea97c0623e0fdb9fd",
+  "testedHtmlSha256": "9092b61cae2f9f267fc6f35c4f90594220bc123ff9681d9b251e5973b1c1c06f",
+  "testedCssAsset": "/assets/index-BbUkbKmn.css",
+  "testedCssSha256": "71afb732ab7152dc319dfb6b72812913e23121c24f251ef80e0b69c61e0e749e",
+  "testedNativeFacadeAsset": "/assets/NativeDuelGame-ZSLU0meg.js",
+  "testedNativeFacadeSha256": "292967a9fa2eab1eed43a2f0ce172a3e1364eeb86f1c66d1a63e55fb49777980",
+  "testedNativeWrapperAsset": "/assets/ocgcore-D2udBA3b.js",
+  "testedNativeWrapperSha256": "1dc7719c0b30b566be8c833ea2b4e65e4e84f68e77849f05c76a8a362c0775fd",
+  "auditScriptSha256": "a375cfba4aa2606c7bbdfa66f84c38deba504d927641c19f2b0b9ac6023f9b52",
+  "inspectedCaptures": {
+    "native-builder-1280.png": {
+      "bytes": 237669,
+      "sha256": "dbd6a17e000b4e8b34213671301a16ab3af4be364165ce17370eb2dce1723492"
+    },
+    "native-builder-390.png": {
+      "bytes": 156009,
+      "sha256": "62af2a76cb69fd8c3865c9d496e374857f00b603a23ff14b9b3830d4610deb60"
+    },
+    "native-duel-1280.png": {
+      "bytes": 599356,
+      "sha256": "442d921c70cdffd537f7b8f285c32f4171486c291217fffa826f7d65ded72abd"
+    },
+    "native-duel-390.png": {
+      "bytes": 197822,
+      "sha256": "49bf692987be0e85fd9b0e37f8673af531c0df47b269cadbbcb95c641c173783"
+    },
+    "native-ravine-cost.png": {
+      "bytes": 547723,
+      "sha256": "952fcc87d24185e8f602197bcf29c179444f6b19a9c22121ec9efbdebbd42864"
+    }
+  }
 }

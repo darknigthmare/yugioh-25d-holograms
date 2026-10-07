@@ -1,0 +1,69 @@
+{
+  "ok": false,
+  "target": "compiled production bundle",
+  "productionCsp": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://db.ygoprodeck.com; media-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests",
+  "testedIndexAsset": "/assets/index-Bf3sQIDw.js",
+  "testedIndexSha256": "6de409c77e47c3853b1a554553776a13f576e265824187d6d21b809fd4c7ce33",
+  "testedWasmSha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+  "viewports": [
+    {
+      "width": 1280,
+      "height": 900,
+      "checks": {
+        "exactFortyCardFixtureAndRealShuffledOpening": true,
+        "fieldRaceAnnouncementConfirmedThroughControls": true,
+        "hiddenCityRevealsItsChosenSetMonsterInChosenDefense": true,
+        "realDoubleSummonAllowsNativeTributeAfterSetAndReveal": true
+      },
+      "race": {
+        "offered": [
+          "Guerrier — Niv. — — Main",
+          "Magicien — Niv. — — Main",
+          "Elfe — Niv. — — Main",
+          "Démon — Niv. — — Main",
+          "Zombie — Niv. — — Main",
+          "Machine — Niv. — — Main",
+          "Aqua — Niv. — — Main",
+          "Pyro — Niv. — — Main",
+          "Rocher — Niv. — — Main",
+          "Bête Ailée — Niv. — — Main",
+          "Plante — Niv. — — Main",
+          "Insecte — Niv. — — Main",
+          "Tonnerre — Niv. — — Main",
+          "Dragon — Niv. — — Main",
+          "Bête — Niv. — — Main",
+          "Bête-Guerrier — Niv. — — Main",
+          "Dinosaure — Niv. — — Main",
+          "Poisson — Niv. — — Main",
+          "Serpent de Mer — Niv. — — Main",
+          "Reptile — Niv. — — Main",
+          "Psychique — Niv. — — Main",
+          "Bête Divine — Niv. — — Main",
+          "Dieu Créateur — Niv. — — Main",
+          "Wyrm — Niv. — — Main",
+          "Cyberse — Niv. — — Main",
+          "Illusion — Niv. — — Main"
+        ],
+        "selected": "Dragon — Niv. — — Main"
+      },
+      "positionTarget": "Subterror Nemesis Archer",
+      "cardKinds": [
+        "Choix de l’effet",
+        "Choix de l’effet",
+        "Choix de l’effet"
+      ],
+      "pendingDecision": {
+        "title": "CHOISIR UN EFFET",
+        "offered": [
+          "Choix de l’effet",
+          "Choix de l’effet",
+          "Choix de l’effet"
+        ]
+      }
+    }
+  ],
+  "failure": {
+    "type": "AssertionError",
+    "message": "['Choix de l’effet', 'Choix de l’effet', 'Choix de l’effet']"
+  }
+}

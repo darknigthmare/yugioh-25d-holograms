@@ -4,6 +4,7 @@
   "productionCsp": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://db.ygoprodeck.com; media-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests",
   "method": "actual controls and public DOM only; isolated legal custom deck and seeded RNG",
   "memoryScope": "DOM renderer counts and approximate JS heap; GPU allocation not measured",
+  "captureTimeoutMs": 60000,
   "viewports": [
     {
       "width": 1280,
@@ -52,7 +53,7 @@
             "canvases": 0,
             "css3d": 0
           },
-          "approximateJsHeapBytes": 148516200,
+          "approximateJsHeapBytes": 107206206,
           "concealment": {
             "count": 0,
             "safe": true
@@ -98,7 +99,7 @@
             "canvases": 0,
             "css3d": 0
           },
-          "approximateJsHeapBytes": 148785118,
+          "approximateJsHeapBytes": 107474796,
           "concealment": {
             "count": 0,
             "safe": true
@@ -152,7 +153,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 152440002,
+          "approximateJsHeapBytes": 113953578,
           "concealment": {
             "count": 0,
             "safe": true
@@ -202,7 +203,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 160196205,
+          "approximateJsHeapBytes": 121640905,
           "concealment": {
             "count": 0,
             "safe": true
@@ -252,7 +253,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 164120320,
+          "approximateJsHeapBytes": 125792560,
           "concealment": {
             "count": 0,
             "safe": true
@@ -302,7 +303,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 151767314,
+          "approximateJsHeapBytes": 109047258,
           "concealment": {
             "count": 0,
             "safe": true
@@ -352,7 +353,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 152053462,
+          "approximateJsHeapBytes": 109336114,
           "concealment": {
             "count": 0,
             "safe": true
@@ -402,7 +403,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 152940566,
+          "approximateJsHeapBytes": 110215120,
           "concealment": {
             "count": 0,
             "safe": true
@@ -452,7 +453,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 153230710,
+          "approximateJsHeapBytes": 110509412,
           "concealment": {
             "count": 0,
             "safe": true
@@ -502,7 +503,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 153420714,
+          "approximateJsHeapBytes": 110697272,
           "concealment": {
             "count": 0,
             "safe": true
@@ -552,7 +553,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 154288682,
+          "approximateJsHeapBytes": 111561000,
           "concealment": {
             "count": 0,
             "safe": true
@@ -686,7 +687,7 @@
             "canvases": 0,
             "css3d": 0
           },
-          "approximateJsHeapBytes": 148749483,
+          "approximateJsHeapBytes": 107425905,
           "concealment": {
             "count": 0,
             "safe": true
@@ -732,7 +733,7 @@
             "canvases": 0,
             "css3d": 0
           },
-          "approximateJsHeapBytes": 149026373,
+          "approximateJsHeapBytes": 107702187,
           "concealment": {
             "count": 0,
             "safe": true
@@ -786,7 +787,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 152650829,
+          "approximateJsHeapBytes": 114068945,
           "concealment": {
             "count": 0,
             "safe": true
@@ -836,7 +837,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 160308079,
+          "approximateJsHeapBytes": 121674560,
           "concealment": {
             "count": 0,
             "safe": true
@@ -886,7 +887,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 164244958,
+          "approximateJsHeapBytes": 125835703,
           "concealment": {
             "count": 0,
             "safe": true
@@ -936,7 +937,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 106470404,
+          "approximateJsHeapBytes": 109042577,
           "concealment": {
             "count": 0,
             "safe": true
@@ -986,7 +987,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 106663180,
+          "approximateJsHeapBytes": 109329245,
           "concealment": {
             "count": 0,
             "safe": true
@@ -1036,7 +1037,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 107532406,
+          "approximateJsHeapBytes": 110201959,
           "concealment": {
             "count": 0,
             "safe": true
@@ -1086,7 +1087,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 107770614,
+          "approximateJsHeapBytes": 110440099,
           "concealment": {
             "count": 0,
             "safe": true
@@ -1136,7 +1137,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 107958026,
+          "approximateJsHeapBytes": 110627183,
           "concealment": {
             "count": 0,
             "safe": true
@@ -1186,7 +1187,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 108814278,
+          "approximateJsHeapBytes": 111483703,
           "concealment": {
             "count": 0,
             "safe": true
@@ -1276,20 +1277,21 @@
   ],
   "provenanceSchemaVersion": 2,
   "testedHtmlAsset": "/index.html",
-  "testedHtmlSha256": "ca7254cd1cc1b1b0c6bf9c96782429d47443c7b1a0da5febe6801762b2360ee2",
-  "testedIndexAsset": "/assets/index-Bf3sQIDw.js",
-  "testedIndexAssetSha256": "6de409c77e47c3853b1a554553776a13f576e265824187d6d21b809fd4c7ce33",
-  "testedIndexSha256": "6de409c77e47c3853b1a554553776a13f576e265824187d6d21b809fd4c7ce33",
-  "testedCssAsset": "/assets/index-WwbnQBsq.css",
-  "testedCssAssetSha256": "5103d13e4c93cce8f60e430ade9bce9aace0233e3b71dfb7786e11b7bf3c58a1",
-  "testedNativeGameAsset": "/assets/NativeDuelGame-DrR3s3dO.js",
-  "testedNativeGameAssetSha256": "290a980e79d7e577fa1879eeb35f0ae3b810b2cc2035f93601bb9addc0737eb5",
-  "testedNativeCoreAsset": "/assets/ocgcore-CRjY9PIO.js",
-  "testedNativeCoreAssetSha256": "4eeec09c8f885030c6d291049f2aa4289afe3767b4fb147158e8e04a7ffa9e9d",
+  "testedHtmlSha256": "9092b61cae2f9f267fc6f35c4f90594220bc123ff9681d9b251e5973b1c1c06f",
+  "testedIndexHtmlSha256": "9092b61cae2f9f267fc6f35c4f90594220bc123ff9681d9b251e5973b1c1c06f",
+  "testedIndexAsset": "/assets/index-CkdHwDWv.js",
+  "testedIndexAssetSha256": "7173898cef8206cb9f0e12525376ad03e857a22e40fca40ea97c0623e0fdb9fd",
+  "testedIndexSha256": "7173898cef8206cb9f0e12525376ad03e857a22e40fca40ea97c0623e0fdb9fd",
+  "testedCssAsset": "/assets/index-BbUkbKmn.css",
+  "testedCssAssetSha256": "71afb732ab7152dc319dfb6b72812913e23121c24f251ef80e0b69c61e0e749e",
+  "testedNativeGameAsset": "/assets/NativeDuelGame-ZSLU0meg.js",
+  "testedNativeGameAssetSha256": "292967a9fa2eab1eed43a2f0ce172a3e1364eeb86f1c66d1a63e55fb49777980",
+  "testedNativeCoreAsset": "/assets/ocgcore-D2udBA3b.js",
+  "testedNativeCoreAssetSha256": "1dc7719c0b30b566be8c833ea2b4e65e4e84f68e77849f05c76a8a362c0775fd",
   "testedWasmSha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
   "buildUnchangedDuringAudit": true,
   "captureSha256": {
-    "native-mausoleum-arena-1280.png": "1843f1dd4c18943b97a39e48171b3959abd7ce9b266d48ba267c79c8fd0d49bf",
+    "native-mausoleum-arena-1280.png": "91bc08ca4066d82d9ebf02ac44a7978088c7ab7e894134e29a9ea6017a1fee0d",
     "native-mausoleum-arena-390.png": "cc3c9196a30bb463a3d034db93b6d0979efbfaa0f755856793801e63270bbcf9",
     "native-mausoleum-compact-1280.png": "5ff44fdfe87716cdcd1688725756126a71c0d3b541040c2b6c66d0578f7b40ee",
     "native-mausoleum-compact-390.png": "0a75d49ff23013ba62a31c26615a2276f73dfff5e4ec6c554c4dfae260de15c7",
@@ -1299,13 +1301,23 @@
     "native-zombie-world-arena-390.png": "1fd4e7f34ee89654c26889a15de939a32e118da9367d1f062ca69a4357eaf378",
     "native-zombie-world-compact-1280.png": "583e71db4e05be25a1f3c0a7d8426899050178fa2cc1d283f3e876e52f9ca7e1",
     "native-zombie-world-compact-390.png": "6ad1884cdcc87a007735a7303d69ef55841240223f9ab2225c568b372195c4ea",
-    "native-zombie-world-pending-real-1280.png": "530f9a5a69e2f62a0c1d53e0c62ef6c0655e6018c1edd75b1c7fe8834ef4318b",
+    "native-zombie-world-pending-real-1280.png": "f0990dee0a626b637ae7d90a594581bdfb1d711a496b63e60474a6063fe3a869",
     "native-zombie-world-pending-real-390.png": "5e63e23fa4f6aa858fc8176d55bfc0331f7fa09adb59437cae9cbbdcdff4f968",
-    "native-zombie-world-real-1280.png": "fa65cf2bfe6140b3d68039e8d770995acff8ea1d7705694d84efd95cc4fdafe9",
-    "native-zombie-world-real-390.png": "82393c34c24dd712c5cdd7a5b6fc009a044d58604038af297c3e857f68771199",
-    "native-zombie-world-set-real-1280.png": "c4d4c40d6223473b79fad8824dac2ddc7fb04613418939db1f5dd6e53ea896ce",
-    "native-zombie-world-set-real-390.png": "cd844080c3fb4fdb2463a749d8c7cdff819862d3e99e62000c1b9c912ded952b"
+    "native-zombie-world-real-1280.png": "7e5ce94261eada4ee4770693777e64e94eae1037bcdd72863f63ddf1280be33a",
+    "native-zombie-world-real-390.png": "546d650975a7e7ee4230da6cfee55e2663efce3fff57692c2fb504a2f6d2540b",
+    "native-zombie-world-set-real-1280.png": "3beb954475a98ffff65440e799c80384cbed7d8bf6b1b60395387d0b9d59872d",
+    "native-zombie-world-set-real-390.png": "985da1f9583fb3d90753efc09b9f4f15f7c2cd88ec371fbc1a7521ffcc8eb735"
   },
-  "testedIndexHtmlSha256": "ca7254cd1cc1b1b0c6bf9c96782429d47443c7b1a0da5febe6801762b2360ee2",
-  "deliveryManifestMatched": true
+  "deliveryManifestVerification": {
+    "file": "yugioh-progress-final-manifest.json",
+    "sha256": "9ef60af7745b497b029bb9c70d098e56ef2ea10bf5204650653be45c054fe273",
+    "checkedAssets": {
+      "/index.html": "9092b61cae2f9f267fc6f35c4f90594220bc123ff9681d9b251e5973b1c1c06f",
+      "/assets/index-CkdHwDWv.js": "7173898cef8206cb9f0e12525376ad03e857a22e40fca40ea97c0623e0fdb9fd",
+      "/assets/index-BbUkbKmn.css": "71afb732ab7152dc319dfb6b72812913e23121c24f251ef80e0b69c61e0e749e",
+      "/assets/NativeDuelGame-ZSLU0meg.js": "292967a9fa2eab1eed43a2f0ce172a3e1364eeb86f1c66d1a63e55fb49777980"
+    },
+    "ok": true
+  },
+  "auditScriptSha256": "864610ee89a412fccef2525965ed8b74c788e4d0c95aac3d22acb00f2a80db9d"
 }

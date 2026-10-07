@@ -1,0 +1,2038 @@
+{
+  "auditDate": "2026-10-07",
+  "referenceCount": 45,
+  "baselineCommit": "ba6c62aa6b3db8f15efad52e3ee8d5fcd143b601",
+  "baselineMethod": "Exact git-show ba6c62aa6b3db8f15efad52e3ee8d5fcd143b601 factory and every directly imported reference module archived intact; only factory import URLs rewritten for the static server.",
+  "baselineOriginalSha256": "b83bba7f70345735cdd0921503fbed0579fe71dba67e5c84fd0b849391e0b121",
+  "baselineDependencies": [
+    {
+      "file": "FieldEnvironmentAquaticReferences.js",
+      "sha256": "fc2308aafce72862a97b759cfe25b6818b38580ebde74125af3bdc5c074858b2"
+    },
+    {
+      "file": "FieldEnvironmentArchitecturalReferences.js",
+      "sha256": "e9bfe454fd75e9934917ba60d431aaf5549f75c20769290cd5dffc929b8895b1"
+    },
+    {
+      "file": "FieldEnvironmentDarkReferences.js",
+      "sha256": "f32d83bdeb1f2a3d51f3d405c0b8e546a3a5ad96132d2d0d79e7281bc45a2066"
+    },
+    {
+      "file": "FieldEnvironmentMysticalReferences.js",
+      "sha256": "1e6ec73411e3dd624542edee60000110bd22f38c6f9e90176f18ce071c7da2cc"
+    },
+    {
+      "file": "FieldEnvironmentNatureReferences.js",
+      "sha256": "0d44bdf0379837717ea1be71599d5572edb9209565cf93bfc5ee5d3768f7c824"
+    },
+    {
+      "file": "FieldEnvironmentTechnologyReferences.js",
+      "sha256": "930d3121814e730d9274a6d2087bcd301c1b18b07250cff1de9abb70676b4742"
+    },
+    {
+      "file": "FieldEnvironmentUrbanReferences.js",
+      "sha256": "b3d94d8d9f427315fec3b0d36c775fc337d827b92ca6a8fd7de8d8665e5e61c9"
+    },
+    {
+      "file": "FieldEnvironmentWildReferences.js",
+      "sha256": "b8db1cfd37d85dfd222d0b6c9a89934cc1f9c0d0ce7ae3e95325efafdb07d0c7"
+    }
+  ],
+  "geometryScope": "Source shapes reconstructed as adapted peripheral volumes; no full spatial 1:1 claim; source characters retained unchanged.",
+  "factoryDependencies": [
+    {
+      "file": "FieldEnvironmentAquaticReferences.js",
+      "sha256": "fc2308aafce72862a97b759cfe25b6818b38580ebde74125af3bdc5c074858b2"
+    },
+    {
+      "file": "FieldEnvironmentArcaneReferences.js",
+      "sha256": "88776075dac0a9fbc4644e6427a4d3cd49e0305693fb5826056b8f7b4a6d5e3e"
+    },
+    {
+      "file": "FieldEnvironmentArchitecturalReferences.js",
+      "sha256": "e9bfe454fd75e9934917ba60d431aaf5549f75c20769290cd5dffc929b8895b1"
+    },
+    {
+      "file": "FieldEnvironmentCommunityReferences.js",
+      "sha256": "498c7a20bb5d0d0d1d7c693c0225f87d0b9fdf6822c33cc98ffc2021722a04ef"
+    },
+    {
+      "file": "FieldEnvironmentDarkReferences.js",
+      "sha256": "f32d83bdeb1f2a3d51f3d405c0b8e546a3a5ad96132d2d0d79e7281bc45a2066"
+    },
+    {
+      "file": "FieldEnvironmentEngineeringReferences.js",
+      "sha256": "566328be75b756765ffd33c2eb7738f4825b8d4cdd48c8acec807505d674c8ce"
+    },
+    {
+      "file": "FieldEnvironmentFrontierReferences.js",
+      "sha256": "926e4873ff5e4c2a038f310eb6d5c702ed8dbe3d92bced322b88fe1cb21997af"
+    },
+    {
+      "file": "FieldEnvironmentMysticalReferences.js",
+      "sha256": "1e6ec73411e3dd624542edee60000110bd22f38c6f9e90176f18ce071c7da2cc"
+    },
+    {
+      "file": "FieldEnvironmentNatureReferences.js",
+      "sha256": "0d44bdf0379837717ea1be71599d5572edb9209565cf93bfc5ee5d3768f7c824"
+    },
+    {
+      "file": "FieldEnvironmentRitualReferences.js",
+      "sha256": "78d9ce8368ffb8102507d15ba6d12fac74181073c73fa61c6a2d42e415e47bd8"
+    },
+    {
+      "file": "FieldEnvironmentStageReferences.js",
+      "sha256": "27b49bb47872ac935dc3d1e064d792843e24a4d79fb9fdfe0134daed311f1f5e"
+    },
+    {
+      "file": "FieldEnvironmentTechnologyReferences.js",
+      "sha256": "930d3121814e730d9274a6d2087bcd301c1b18b07250cff1de9abb70676b4742"
+    },
+    {
+      "file": "FieldEnvironmentUrbanReferences.js",
+      "sha256": "b3d94d8d9f427315fec3b0d36c775fc337d827b92ca6a8fd7de8d8665e5e61c9"
+    },
+    {
+      "file": "FieldEnvironmentWildReferences.js",
+      "sha256": "b8db1cfd37d85dfd222d0b6c9a89934cc1f9c0d0ce7ae3e95325efafdb07d0c7"
+    }
+  ],
+  "factoryDependencyCount": 14,
+  "registrySha256": "4312f060be24418091f4f629727766d406043c2a32d79717e9f3220123227dd8",
+  "threeNamespaceSha256": "f1ba391ea533f94a6795f160091077d7488c590cf2e42cf2686c7d0a01fe7e82",
+  "threeVersion": "0.180.0",
+  "scriptSha256": "f5099b2116aab70228898800ce5f48e4906c0f4e5f3dbee8992fe9cbba2fc274",
+  "moduleSha256": "926e4873ff5e4c2a038f310eb6d5c702ed8dbe3d92bced322b88fe1cb21997af",
+  "testSha256": "59bf1ad69069a6717f9cc0c960799b5fc6412cb85e2bfe699727947f65e1ad26",
+  "factorySha256": "134b5a9e4cf1982b82a43e54f860522833cf1cea16013003b54153fc79dedb3c",
+  "baselineSha256": "b3c738d29f90702bb32bc6c0e85d999d9b8f35fe8f3767b2d62aa1f420ab352e",
+  "references": [
+    {
+      "cardId": "46552140",
+      "name": "Adamancipator Laputite",
+      "camera": [
+        8,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/46552140.jpg",
+      "sourceSha256": "8769a4fde2e0564b92e8fbd2d278a432ce79a602338ec1f52fe9faebfe300697",
+      "baselineSourceSha256": "8769a4fde2e0564b92e8fbd2d278a432ce79a602338ec1f52fe9faebfe300697",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "64213017",
+      "name": "Beetrooper Formation",
+      "camera": [
+        8,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/64213017.jpg",
+      "sourceSha256": "1a5f3befe6925eaa21d87cb57a68c342a23e24910fb27916120c4919df52a29c",
+      "baselineSourceSha256": "1a5f3befe6925eaa21d87cb57a68c342a23e24910fb27916120c4919df52a29c",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "46273941",
+      "name": "Pere-Zenet Em Heru",
+      "camera": [
+        8,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/46273941.jpg",
+      "sourceSha256": "ce11705ad38626fe4c68acdadb04a81f15abb821c06e9683a33f5de6650dbcb7",
+      "baselineSourceSha256": "ce11705ad38626fe4c68acdadb04a81f15abb821c06e9683a33f5de6650dbcb7",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "15635751",
+      "name": "Camelot, Realm of Noble Knights and Noble Arms",
+      "camera": [
+        10,
+        24,
+        -5
+      ],
+      "target": [
+        0,
+        16,
+        -35
+      ],
+      "fov": 78,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/15635751.jpg",
+      "sourceSha256": "e9f2c6f16788e4cbad6325bf96b56a20064213bc15abc457841d9245bcbf1081",
+      "baselineSourceSha256": "e9f2c6f16788e4cbad6325bf96b56a20064213bc15abc457841d9245bcbf1081",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "14289852",
+      "name": "Catapult Zone",
+      "camera": [
+        8,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/14289852.jpg",
+      "sourceSha256": "e2d7320ad5fa1296dd37f6c6b03e148edded4727a474017f21a9dcd1ea8ba780",
+      "baselineSourceSha256": "e2d7320ad5fa1296dd37f6c6b03e148edded4727a474017f21a9dcd1ea8ba780",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "61583217",
+      "name": "Cynet Universe",
+      "camera": [
+        8,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/61583217.jpg",
+      "sourceSha256": "4873c3ab3edadd042a9ac6a10f6859f95895179163dcd787954c5c8a0db13db1",
+      "baselineSourceSha256": "4873c3ab3edadd042a9ac6a10f6859f95895179163dcd787954c5c8a0db13db1",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "33814281",
+      "name": "Dark Contract with Patent License",
+      "camera": [
+        8,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/33814281.jpg",
+      "sourceSha256": "53faf40d256d93387870b3492defb44dcbb22eb290cceefc58dd992dc13a2541",
+      "baselineSourceSha256": "53faf40d256d93387870b3492defb44dcbb22eb290cceefc58dd992dc13a2541",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "59687381",
+      "name": "Defense Zone",
+      "camera": [
+        8,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/59687381.jpg",
+      "sourceSha256": "9849c2475b31e9dba5ac7afaf54decc87a8a4033e93f066b669140235ae75134",
+      "baselineSourceSha256": "9849c2475b31e9dba5ac7afaf54decc87a8a4033e93f066b669140235ae75134",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "65938950",
+      "name": "Don't Slip, the Dogs of War",
+      "camera": [
+        8,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/65938950.jpg",
+      "sourceSha256": "59bbcc0b5eb3a92e37381eb254257eae8f5b8285a58dfb69054cfb959f71472c",
+      "baselineSourceSha256": "59bbcc0b5eb3a92e37381eb254257eae8f5b8285a58dfb69054cfb959f71472c",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "13035077",
+      "name": "Dragonic Diagram",
+      "camera": [
+        8,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/13035077.jpg",
+      "sourceSha256": "b3fa7e5fc96b86f4b88d615ca9774e979906b8f7689ea72647863e4ddae2dd4d",
+      "baselineSourceSha256": "b3fa7e5fc96b86f4b88d615ca9774e979906b8f7689ea72647863e4ddae2dd4d",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "26920296",
+      "name": "Dreamland",
+      "camera": [
+        12,
+        22,
+        -4
+      ],
+      "target": [
+        0,
+        9,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/26920296.jpg",
+      "sourceSha256": "eb4b6a34b922512ec6f1e9d97440b1bd7681a57f7eed998582c4a7814e2e485d",
+      "baselineSourceSha256": "eb4b6a34b922512ec6f1e9d97440b1bd7681a57f7eed998582c4a7814e2e485d",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "58793369",
+      "name": "Drytron Fafnir",
+      "camera": [
+        8,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/58793369.jpg",
+      "sourceSha256": "e0e3c19769209c35f63024072b4c074fda4c38eb441c265cab2d3c3e31293fc3",
+      "baselineSourceSha256": "e0e3c19769209c35f63024072b4c074fda4c38eb441c265cab2d3c3e31293fc3",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "54250060",
+      "name": "Empowerment",
+      "camera": [
+        8,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/54250060.jpg",
+      "sourceSha256": "c6311e1928b58f74a826da5d4d938d692c517830b01e9b621c6e2933c540567a",
+      "baselineSourceSha256": "c6311e1928b58f74a826da5d4d938d692c517830b01e9b621c6e2933c540567a",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "17621695",
+      "name": "Enneapolis",
+      "camera": [
+        10,
+        24,
+        2
+      ],
+      "target": [
+        0,
+        17,
+        -35
+      ],
+      "fov": 78,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/17621695.jpg",
+      "sourceSha256": "67730392271df1f39668815dcb69cbeb5bcd530d0123a92ae8c6c30e71697bf7",
+      "baselineSourceSha256": "67730392271df1f39668815dcb69cbeb5bcd530d0123a92ae8c6c30e71697bf7",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "66750703",
+      "name": "Fire Fortress atop Liang Peak",
+      "camera": [
+        8,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/66750703.jpg",
+      "sourceSha256": "bc687365b6f7560b73a35f35b8aad25c91b74aacbd92bd05f1d702f47af24aad",
+      "baselineSourceSha256": "bc687365b6f7560b73a35f35b8aad25c91b74aacbd92bd05f1d702f47af24aad",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "57554544",
+      "name": "Fire King Island",
+      "camera": [
+        12,
+        22,
+        -4
+      ],
+      "target": [
+        0,
+        9,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/57554544.jpg",
+      "sourceSha256": "1c1e52b3fbfdd53cfd98daa7046177fa20a3ffb7ba50561534e979343780a759",
+      "baselineSourceSha256": "1c1e52b3fbfdd53cfd98daa7046177fa20a3ffb7ba50561534e979343780a759",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "269510",
+      "name": "Fire Prison",
+      "camera": [
+        8,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/269510.jpg",
+      "sourceSha256": "34ab1ddee2a5e6cb75d09dcdbb1cc7332e7a7627cb579c55447b6514a4ed4e11",
+      "baselineSourceSha256": "34ab1ddee2a5e6cb75d09dcdbb1cc7332e7a7627cb579c55447b6514a4ed4e11",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "28126717",
+      "name": "Floowandereeze and the Magnificent Map",
+      "camera": [
+        12,
+        24,
+        -5
+      ],
+      "target": [
+        0,
+        1,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/28126717.jpg",
+      "sourceSha256": "cc9ec222896037405d904d8aa53c2d629abb0c401ee511f878c88dd51b8fad4f",
+      "baselineSourceSha256": "cc9ec222896037405d904d8aa53c2d629abb0c401ee511f878c88dd51b8fad4f",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "91228233",
+      "name": "Forest of Lost Flowers",
+      "camera": [
+        8,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/91228233.jpg",
+      "sourceSha256": "9daefda7d244261a2a96454fdf5dfc83d820ffef8e531119a60f4b90afe9dfc6",
+      "baselineSourceSha256": "9daefda7d244261a2a96454fdf5dfc83d820ffef8e531119a60f4b90afe9dfc6",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "2106266",
+      "name": "Galloping Gaia",
+      "camera": [
+        8,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/2106266.jpg",
+      "sourceSha256": "1599a6a3a45fbf28571158ec0526c50669997dfe7a83d00e12dc1248459202fc",
+      "baselineSourceSha256": "1599a6a3a45fbf28571158ec0526c50669997dfe7a83d00e12dc1248459202fc",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "37654623",
+      "name": "Hideout in the Sky, Coulomb",
+      "camera": [
+        8,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/37654623.jpg",
+      "sourceSha256": "2df20f9d7cad8034116c8cc08dcc2d29bb0561bc833cab05e8f5bb36122639b2",
+      "baselineSourceSha256": "2df20f9d7cad8034116c8cc08dcc2d29bb0561bc833cab05e8f5bb36122639b2",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "14442329",
+      "name": "JJ \"Kewl Tune\"",
+      "camera": [
+        9,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        13,
+        -35
+      ],
+      "fov": 76,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/14442329.jpg",
+      "sourceSha256": "181858350558bb236e89ecb5572edd4094838c76dc303de8c3698680cd6a62e8",
+      "baselineSourceSha256": "181858350558bb236e89ecb5572edd4094838c76dc303de8c3698680cd6a62e8",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "89948817",
+      "name": "Jurrac Volcano",
+      "camera": [
+        8,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/89948817.jpg",
+      "sourceSha256": "babca0ee82fcc50b61e917d68daed85eb62191a854d2211eb6f6604fb94cc7f8",
+      "baselineSourceSha256": "babca0ee82fcc50b61e917d68daed85eb62191a854d2211eb6f6604fb94cc7f8",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "67237709",
+      "name": "Kozmotown",
+      "camera": [
+        8,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/67237709.jpg",
+      "sourceSha256": "331bbc9f3dd07fb990e44192a7e5209d3b64723279d51fe840f2ef75609faef7",
+      "baselineSourceSha256": "331bbc9f3dd07fb990e44192a7e5209d3b64723279d51fe840f2ef75609faef7",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "47679935",
+      "name": "Magical Meltdown",
+      "camera": [
+        8,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/47679935.jpg",
+      "sourceSha256": "5b9943761b8b7de70a57e5f6062f15be9d3490bdbcaacceb1ab3b475954b47e6",
+      "baselineSourceSha256": "5b9943761b8b7de70a57e5f6062f15be9d3490bdbcaacceb1ab3b475954b47e6",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "76473843",
+      "name": "Majesty's Pegasus",
+      "camera": [
+        8,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/76473843.jpg",
+      "sourceSha256": "a7f788ed99b99df346f233453ca5150788dc1304c287f1bd62008a98e8564814",
+      "baselineSourceSha256": "a7f788ed99b99df346f233453ca5150788dc1304c287f1bd62008a98e8564814",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "66059345",
+      "name": "Materiactor Meltthrough",
+      "camera": [
+        8,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/66059345.jpg",
+      "sourceSha256": "b6745e9f739d38555c39c5d4ee952d9b3ffef6eeea1f32bfb3b53f53c9eeed68",
+      "baselineSourceSha256": "b6745e9f739d38555c39c5d4ee952d9b3ffef6eeea1f32bfb3b53f53c9eeed68",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "86809440",
+      "name": "Mimighoul Dungeon",
+      "camera": [
+        8,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/86809440.jpg",
+      "sourceSha256": "aa973baa186f479a4ce379e904b3d23bc341fcec348aa446acdfb0796226386d",
+      "baselineSourceSha256": "aa973baa186f479a4ce379e904b3d23bc341fcec348aa446acdfb0796226386d",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "19384334",
+      "name": "Molten Destruction",
+      "camera": [
+        12,
+        18,
+        -5
+      ],
+      "target": [
+        0,
+        9,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/19384334.jpg",
+      "sourceSha256": "002398e2ad5b8ebe048e8b5393fbb65df99aae4158572999f5ca8beba98b6f73",
+      "baselineSourceSha256": "002398e2ad5b8ebe048e8b5393fbb65df99aae4158572999f5ca8beba98b6f73",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "76375976",
+      "name": "Mystic Mine",
+      "camera": [
+        8,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/76375976.jpg",
+      "sourceSha256": "f4cbcfa72d1533afd7b56a97d42a12f35691557ad3aed09b6c51622d259bb2d3",
+      "baselineSourceSha256": "f4cbcfa72d1533afd7b56a97d42a12f35691557ad3aed09b6c51622d259bb2d3",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "18161786",
+      "name": "Mystic Plasma Zone",
+      "camera": [
+        8,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/18161786.jpg",
+      "sourceSha256": "c5e36fad6b970251eedcb3c7301e85188737c04435900645d58760897cdca729",
+      "baselineSourceSha256": "c5e36fad6b970251eedcb3c7301e85188737c04435900645d58760897cdca729",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "34572613",
+      "name": "Myutant Evolution Lab",
+      "camera": [
+        8,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/34572613.jpg",
+      "sourceSha256": "8309e876c2fb0741d260fae777f905d089c860850cc03e61d5a10e2d851fa78d",
+      "baselineSourceSha256": "8309e876c2fb0741d260fae777f905d089c860850cc03e61d5a10e2d851fa78d",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "56787189",
+      "name": "New Frontier",
+      "camera": [
+        8,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/56787189.jpg",
+      "sourceSha256": "96e21325d6cadaea235d0d2293a716b4bcaa9113a2e68c2fc42775f7efb30bd8",
+      "baselineSourceSha256": "96e21325d6cadaea235d0d2293a716b4bcaa9113a2e68c2fc42775f7efb30bd8",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "71832012",
+      "name": "Pressured Planet Wraitsoth",
+      "camera": [
+        9,
+        21,
+        -4
+      ],
+      "target": [
+        0,
+        14,
+        -35
+      ],
+      "fov": 76,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/71832012.jpg",
+      "sourceSha256": "d4c59226571bc8d5289922a35772acfa2943f05cbab6cb6c5cee86310e60fe10",
+      "baselineSourceSha256": "d4c59226571bc8d5289922a35772acfa2943f05cbab6cb6c5cee86310e60fe10",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "56063182",
+      "name": "Primitive Planet Reichphobia",
+      "camera": [
+        8,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/56063182.jpg",
+      "sourceSha256": "e6993a9b957e04dba4f0848ec59fd4be29ccbf49cb0eb091087f0f060aceb7b4",
+      "baselineSourceSha256": "e6993a9b957e04dba4f0848ec59fd4be29ccbf49cb0eb091087f0f060aceb7b4",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "575512",
+      "name": "PSY-Frame Circuit",
+      "camera": [
+        8,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/575512.jpg",
+      "sourceSha256": "8c12b65e0cff7d938443a8357a56ea4b269cc6a8daa93552d86c56c4a8fe4f80",
+      "baselineSourceSha256": "8c12b65e0cff7d938443a8357a56ea4b269cc6a8daa93552d86c56c4a8fe4f80",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "55276522",
+      "name": "Ryu-Ge War Zone",
+      "camera": [
+        12,
+        22,
+        -4
+      ],
+      "target": [
+        0,
+        9,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/55276522.jpg",
+      "sourceSha256": "765cf1854bbcc1ff410447fa1893fc4296ff64654c9a00ac54c2e7086d49540e",
+      "baselineSourceSha256": "765cf1854bbcc1ff410447fa1893fc4296ff64654c9a00ac54c2e7086d49540e",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "6798031",
+      "name": "Ryzeal Cross",
+      "camera": [
+        8,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/6798031.jpg",
+      "sourceSha256": "60cc0786c41e477e6df476665dfd0854ab627c89776c60fdb130483dfd7038cf",
+      "baselineSourceSha256": "60cc0786c41e477e6df476665dfd0854ab627c89776c60fdb130483dfd7038cf",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "50005218",
+      "name": "Sky Striker Airspace - Area Zero",
+      "camera": [
+        8,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/50005218.jpg",
+      "sourceSha256": "27804e98fd14efa83d57767042864dbacd1effee3f1b72aa617b36dbe2bc3586",
+      "baselineSourceSha256": "27804e98fd14efa83d57767042864dbacd1effee3f1b72aa617b36dbe2bc3586",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "63035430",
+      "name": "Skyscraper",
+      "camera": [
+        0,
+        16,
+        36
+      ],
+      "target": [
+        0,
+        14,
+        -14
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/63035430.jpg",
+      "sourceSha256": "60e9288a2d8b948ca9d7e1b01ca2528da99949579a2980cb47e809ce9f7b40af",
+      "baselineSourceSha256": "60e9288a2d8b948ca9d7e1b01ca2528da99949579a2980cb47e809ce9f7b40af",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "60600821",
+      "name": "Spring",
+      "camera": [
+        7,
+        15,
+        -6
+      ],
+      "target": [
+        0,
+        9,
+        -34
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/60600821.jpg",
+      "sourceSha256": "ab55a2a8f5dcbbad6062355c356d02961009666273fc82784d2dddfc115eeb1c",
+      "baselineSourceSha256": "ab55a2a8f5dcbbad6062355c356d02961009666273fc82784d2dddfc115eeb1c",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "1003840",
+      "name": "Starlight Junktion",
+      "camera": [
+        13,
+        24,
+        -4
+      ],
+      "target": [
+        0,
+        7,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/1003840.jpg",
+      "sourceSha256": "d26f672b0f27d28b5c38bf758d2e697e7c1acaaa63feef4bf857d98e88fce2c4",
+      "baselineSourceSha256": "d26f672b0f27d28b5c38bf758d2e697e7c1acaaa63feef4bf857d98e88fce2c4",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "15306543",
+      "name": "Stars Align Above the Shrine",
+      "camera": [
+        5,
+        17,
+        2
+      ],
+      "target": [
+        0,
+        15,
+        -34
+      ],
+      "fov": 76,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/15306543.jpg",
+      "sourceSha256": "42abd3c61e85ab18651ee48c67e56fbeb1f67269a93866b5ea780668e4626860",
+      "baselineSourceSha256": "42abd3c61e85ab18651ee48c67e56fbeb1f67269a93866b5ea780668e4626860",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "97254001",
+      "name": "Summer",
+      "camera": [
+        7,
+        19,
+        4
+      ],
+      "target": [
+        0,
+        12,
+        -34
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/97254001.jpg",
+      "sourceSha256": "4c3e26a7a44ecb96a96f365f2b63dfbeee69accbd2cd4d97184fe4d75ff043dc",
+      "baselineSourceSha256": "4c3e26a7a44ecb96a96f365f2b63dfbeee69accbd2cd4d97184fe4d75ff043dc",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "36742774",
+      "name": "Synchro World",
+      "camera": [
+        3,
+        12,
+        -5
+      ],
+      "target": [
+        0,
+        8,
+        -33
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/36742774.jpg",
+      "sourceSha256": "d23415d3dd555ee1e61140aa128112a4ffb1db6d1eecd8cef989ea0e2b303196",
+      "baselineSourceSha256": "d23415d3dd555ee1e61140aa128112a4ffb1db6d1eecd8cef989ea0e2b303196",
+      "sourceUnchangedFromBaseline": true
+    }
+  ],
+  "capture": {
+    "details": [
+      {
+        "cardId": "46552140",
+        "before": {
+          "url": null,
+          "primitives": 28,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 1728,
+          "fidelity": "procedural-interpretation",
+          "landmark": "cave",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 74,
+          "drawCalls": 13,
+          "materials": 5,
+          "triangles": 11532,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-laputite-layered-crystal-cave",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "64213017",
+        "before": {
+          "url": null,
+          "primitives": 89,
+          "drawCalls": 3,
+          "materials": 3,
+          "triangles": 6096,
+          "fidelity": "procedural-interpretation",
+          "landmark": "forest",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 79,
+          "drawCalls": 8,
+          "materials": 4,
+          "triangles": 8096,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-beetrooper-cyan-aerial-bands",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "46273941",
+        "before": {
+          "url": null,
+          "primitives": 22,
+          "drawCalls": 2,
+          "materials": 1,
+          "triangles": 480,
+          "fidelity": "procedural-interpretation",
+          "landmark": "temple-sanctuary",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 110,
+          "drawCalls": 12,
+          "materials": 6,
+          "triangles": 8704,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-heru-etched-hall-and-fire-bowls",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "15635751",
+        "before": {
+          "url": null,
+          "primitives": 43,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 532,
+          "fidelity": "procedural-interpretation",
+          "landmark": "castle-palace",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 128,
+          "drawCalls": 10,
+          "materials": 7,
+          "triangles": 9420,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-camelot-crenellated-white-castle",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "14289852",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "landmark": "mechanical-fortress",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 74,
+          "drawCalls": 11,
+          "materials": 5,
+          "triangles": 16156,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-catapult-timber-siege-and-pink-wall",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "61583217",
+        "before": {
+          "url": null,
+          "primitives": 130,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 15200,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "cynet-hexagonal-cosmos",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 208,
+          "drawCalls": 7,
+          "materials": 2,
+          "triangles": 32048,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-cynet-linked-reticles-and-hex-planes",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "33814281",
+        "before": {
+          "url": null,
+          "primitives": 29,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 7128,
+          "fidelity": "procedural-interpretation",
+          "landmark": "generic",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 122,
+          "drawCalls": 5,
+          "materials": 5,
+          "triangles": 7060,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-patent-paper-towers-and-purple-vortex",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "59687381",
+        "before": {
+          "url": null,
+          "primitives": 29,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 7128,
+          "fidelity": "procedural-interpretation",
+          "landmark": "generic",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 92,
+          "drawCalls": 7,
+          "materials": 5,
+          "triangles": 4812,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-defense-grid-floor-and-goal-panels",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "65938950",
+        "before": {
+          "url": null,
+          "primitives": 18,
+          "drawCalls": 3,
+          "materials": 3,
+          "triangles": 216,
+          "fidelity": "procedural-interpretation",
+          "landmark": "arena-stadium",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 77,
+          "drawCalls": 10,
+          "materials": 7,
+          "triangles": 4648,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-dogs-pink-truss-hall-and-paw-banner",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "13035077",
+        "before": {
+          "url": null,
+          "primitives": 46,
+          "drawCalls": 10,
+          "materials": 7,
+          "triangles": 6576,
+          "fidelity": "procedural-interpretation",
+          "landmark": "dragonic-diagram",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 38,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 4332,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-diagram-gold-floor-and-radiant-clouds",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "26920296",
+        "before": {
+          "url": null,
+          "primitives": 51,
+          "drawCalls": 6,
+          "materials": 5,
+          "triangles": 1108,
+          "fidelity": "procedural-interpretation",
+          "landmark": "toon-world",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 76,
+          "drawCalls": 9,
+          "materials": 5,
+          "triangles": 12460,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-dreamland-floating-cliff-and-spires",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "58793369",
+        "before": {
+          "url": null,
+          "primitives": 42,
+          "drawCalls": 6,
+          "materials": 5,
+          "triangles": 5336,
+          "fidelity": "procedural-interpretation",
+          "landmark": "stellar-ritual-orbits",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 146,
+          "drawCalls": 9,
+          "materials": 3,
+          "triangles": 14528,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-drytron-purple-nebula-and-dual-trails",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "54250060",
+        "before": {
+          "url": null,
+          "primitives": 29,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 7128,
+          "fidelity": "procedural-interpretation",
+          "landmark": "generic",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 130,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 8480,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-empowerment-gold-radial-glitter",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "17621695",
+        "before": {
+          "url": null,
+          "primitives": 106,
+          "drawCalls": 3,
+          "materials": 3,
+          "triangles": 1320,
+          "fidelity": "procedural-interpretation",
+          "landmark": "city-fantasy",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 75,
+          "drawCalls": 9,
+          "materials": 4,
+          "triangles": 8524,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-enneapolis-blade-towers-and-round-roads",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "66750703",
+        "before": {
+          "url": null,
+          "primitives": 20,
+          "drawCalls": 2,
+          "materials": 1,
+          "triangles": 1600,
+          "fidelity": "procedural-interpretation",
+          "landmark": "mountain",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 91,
+          "drawCalls": 11,
+          "materials": 7,
+          "triangles": 9320,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-liang-walled-mountain-temples",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "57554544",
+        "before": {
+          "url": null,
+          "primitives": 32,
+          "drawCalls": 7,
+          "materials": 4,
+          "triangles": 6336,
+          "fidelity": "procedural-interpretation",
+          "landmark": "island-caldera",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 82,
+          "drawCalls": 11,
+          "materials": 7,
+          "triangles": 16284,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-fireking-jungle-island-and-open-crater",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "269510",
+        "before": {
+          "url": null,
+          "primitives": 30,
+          "drawCalls": 6,
+          "materials": 3,
+          "triangles": 6312,
+          "fidelity": "procedural-interpretation",
+          "landmark": "volcanic",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 44,
+          "drawCalls": 10,
+          "materials": 4,
+          "triangles": 11328,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-fireprison-curled-flame-and-lightning",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "28126717",
+        "before": {
+          "url": null,
+          "primitives": 51,
+          "drawCalls": 6,
+          "materials": 5,
+          "triangles": 1108,
+          "fidelity": "procedural-interpretation",
+          "landmark": "toon-world",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 40,
+          "drawCalls": 11,
+          "materials": 5,
+          "triangles": 13144,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-magnificent-scalloped-map-and-scroll-paths",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "91228233",
+        "before": {
+          "url": null,
+          "primitives": 89,
+          "drawCalls": 3,
+          "materials": 3,
+          "triangles": 6096,
+          "fidelity": "procedural-interpretation",
+          "landmark": "forest",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 117,
+          "drawCalls": 17,
+          "materials": 7,
+          "triangles": 23052,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-lostflowers-gnarled-forest-and-luminous-buds",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "2106266",
+        "before": {
+          "url": null,
+          "primitives": 20,
+          "drawCalls": 2,
+          "materials": 1,
+          "triangles": 1600,
+          "fidelity": "procedural-interpretation",
+          "landmark": "mountain",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 104,
+          "drawCalls": 5,
+          "materials": 3,
+          "triangles": 5200,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-gaia-hot-speed-rays-and-debris",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "37654623",
+        "before": {
+          "url": null,
+          "primitives": 42,
+          "drawCalls": 6,
+          "materials": 4,
+          "triangles": 2640,
+          "fidelity": "procedural-interpretation",
+          "landmark": "celestial-light",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 170,
+          "drawCalls": 16,
+          "materials": 7,
+          "triangles": 11496,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-coulomb-stacked-containers-and-antenna",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "14442329",
+        "before": {
+          "url": null,
+          "primitives": 22,
+          "drawCalls": 7,
+          "materials": 6,
+          "triangles": 3832,
+          "fidelity": "procedural-interpretation",
+          "landmark": "theater-amusement",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 119,
+          "drawCalls": 13,
+          "materials": 8,
+          "triangles": 12840,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-kewltune-arched-pipe-door-and-neon",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "89948817",
+        "before": {
+          "url": null,
+          "primitives": 30,
+          "drawCalls": 6,
+          "materials": 3,
+          "triangles": 6312,
+          "fidelity": "procedural-interpretation",
+          "landmark": "volcanic",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 111,
+          "drawCalls": 15,
+          "materials": 5,
+          "triangles": 19356,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-jurrac-cracked-caldera-and-ballistic-jets",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "67237709",
+        "before": {
+          "url": null,
+          "primitives": 72,
+          "drawCalls": 7,
+          "materials": 4,
+          "triangles": 4440,
+          "fidelity": "procedural-interpretation",
+          "landmark": "orbital-town",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 135,
+          "drawCalls": 6,
+          "materials": 4,
+          "triangles": 3576,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-kozmotown-jagged-cyan-window-skyline",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "47679935",
+        "before": {
+          "url": null,
+          "primitives": 56,
+          "drawCalls": 13,
+          "materials": 6,
+          "triangles": 4756,
+          "fidelity": "procedural-interpretation",
+          "landmark": "fusion-meltdown",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 151,
+          "drawCalls": 4,
+          "materials": 2,
+          "triangles": 11616,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-meltdown-crimson-sigil-and-forked-columns",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "76473843",
+        "before": {
+          "url": null,
+          "primitives": 89,
+          "drawCalls": 3,
+          "materials": 3,
+          "triangles": 6096,
+          "fidelity": "procedural-interpretation",
+          "landmark": "forest",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 76,
+          "drawCalls": 5,
+          "materials": 3,
+          "triangles": 9856,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-pegasus-looped-pale-ribbons-and-stars",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "66059345",
+        "before": {
+          "url": null,
+          "primitives": 29,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 7128,
+          "fidelity": "procedural-interpretation",
+          "landmark": "cosmic-dimensional",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 135,
+          "drawCalls": 4,
+          "materials": 4,
+          "triangles": 6696,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-materiactor-brown-shards-and-violet-flash",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "86809440",
+        "before": {
+          "url": null,
+          "primitives": 28,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 1728,
+          "fidelity": "procedural-interpretation",
+          "landmark": "cave",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 153,
+          "drawCalls": 6,
+          "materials": 4,
+          "triangles": 23636,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-mimighoul-vault-and-suspended-cage",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "19384334",
+        "before": {
+          "url": null,
+          "primitives": 180,
+          "drawCalls": 6,
+          "materials": 4,
+          "triangles": 12704,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "molten-erupting-volcano",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 197,
+          "drawCalls": 8,
+          "materials": 5,
+          "triangles": 15264,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-molten-folded-volcano-and-smoke-sky",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "76375976",
+        "before": {
+          "url": null,
+          "primitives": 34,
+          "drawCalls": 6,
+          "materials": 5,
+          "triangles": 1800,
+          "fidelity": "procedural-interpretation",
+          "landmark": "mine-entrance",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 61,
+          "drawCalls": 10,
+          "materials": 6,
+          "triangles": 8264,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-mine-stalactite-cave-and-iridescent-wisps",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "18161786",
+        "before": {
+          "url": null,
+          "primitives": 71,
+          "drawCalls": 11,
+          "materials": 5,
+          "triangles": 12268,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "plasma-storm-spiral",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 104,
+          "drawCalls": 13,
+          "materials": 6,
+          "triangles": 16060,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-plasma-grooved-vortex-and-stepped-shelf",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "34572613",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "landmark": "industrial-lab",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 67,
+          "drawCalls": 8,
+          "materials": 6,
+          "triangles": 33576,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-myutant-glass-vats-and-jointed-arm",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "56787189",
+        "before": {
+          "url": null,
+          "primitives": 32,
+          "drawCalls": 2,
+          "materials": 2,
+          "triangles": 2560,
+          "fidelity": "procedural-interpretation",
+          "landmark": "sogen",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 106,
+          "drawCalls": 8,
+          "materials": 7,
+          "triangles": 7184,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-newfrontier-canyon-town-and-pagodas",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "71832012",
+        "before": {
+          "url": null,
+          "primitives": 40,
+          "drawCalls": 6,
+          "materials": 5,
+          "triangles": 7288,
+          "fidelity": "procedural-interpretation",
+          "landmark": "pressured-planet",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 186,
+          "drawCalls": 9,
+          "materials": 4,
+          "triangles": 18580,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-wraitsoth-red-pagodas-and-circuit-seams",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "56063182",
+        "before": {
+          "url": null,
+          "primitives": 20,
+          "drawCalls": 2,
+          "materials": 1,
+          "triangles": 1600,
+          "fidelity": "procedural-interpretation",
+          "landmark": "wasteland",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 70,
+          "drawCalls": 8,
+          "materials": 5,
+          "triangles": 11336,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-reichphobia-layered-mesas-and-comet",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "575512",
+        "before": {
+          "url": null,
+          "primitives": 36,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 1944,
+          "fidelity": "procedural-interpretation",
+          "landmark": "digital-cyber",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 146,
+          "drawCalls": 3,
+          "materials": 3,
+          "triangles": 7008,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-psyframe-green-grid-and-charged-traces",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "55276522",
+        "before": {
+          "url": null,
+          "primitives": 18,
+          "drawCalls": 3,
+          "materials": 3,
+          "triangles": 216,
+          "fidelity": "procedural-interpretation",
+          "landmark": "arena-stadium",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 64,
+          "drawCalls": 18,
+          "materials": 5,
+          "triangles": 16044,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-ryuge-three-terrain-sigil-discs",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "6798031",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "landmark": "mechanical-fortress",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 56,
+          "drawCalls": 16,
+          "materials": 5,
+          "triangles": 18120,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-ryzeal-reactor-cells-and-finned-dynamo",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "50005218",
+        "before": {
+          "url": null,
+          "primitives": 53,
+          "drawCalls": 5,
+          "materials": 3,
+          "triangles": 2652,
+          "fidelity": "procedural-interpretation",
+          "landmark": "airspace-launch-base",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 109,
+          "drawCalls": 9,
+          "materials": 5,
+          "triangles": 10147,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-areazero-grid-and-triangle-reticles",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "63035430",
+        "before": {
+          "url": null,
+          "primitives": 118,
+          "drawCalls": 7,
+          "materials": 6,
+          "triangles": 1944,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "skyscrapers",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 145,
+          "drawCalls": 9,
+          "materials": 6,
+          "triangles": 2516,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-skyscraper-facade-ribs-and-artdeco-crown",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "60600821",
+        "before": {
+          "url": null,
+          "primitives": 32,
+          "drawCalls": 2,
+          "materials": 2,
+          "triangles": 2560,
+          "fidelity": "procedural-interpretation",
+          "landmark": "sogen",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 187,
+          "drawCalls": 8,
+          "materials": 5,
+          "triangles": 30580,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-spring-layered-ridges-and-plum-blossoms",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "1003840",
+        "before": {
+          "url": null,
+          "primitives": 29,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 7128,
+          "fidelity": "procedural-interpretation",
+          "landmark": "cosmic-dimensional",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 160,
+          "drawCalls": 11,
+          "materials": 4,
+          "triangles": 9272,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-starlight-fourloop-rainbow-interchange",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "15306543",
+        "before": {
+          "url": null,
+          "primitives": 22,
+          "drawCalls": 2,
+          "materials": 1,
+          "triangles": 480,
+          "fidelity": "procedural-interpretation",
+          "landmark": "temple-sanctuary",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 135,
+          "drawCalls": 16,
+          "materials": 6,
+          "triangles": 22276,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-stars-shrine-bridge-and-celestial-ring",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "97254001",
+        "before": {
+          "url": null,
+          "primitives": 32,
+          "drawCalls": 2,
+          "materials": 2,
+          "triangles": 2560,
+          "fidelity": "procedural-interpretation",
+          "landmark": "sogen",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 138,
+          "drawCalls": 8,
+          "materials": 6,
+          "triangles": 9588,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-summer-paddy-terraces-and-winding-river",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "36742774",
+        "before": {
+          "url": null,
+          "primitives": 29,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 7128,
+          "fidelity": "procedural-interpretation",
+          "landmark": "cosmic-dimensional",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 147,
+          "drawCalls": 8,
+          "materials": 5,
+          "triangles": 22220,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "frontier-synchro-curved-stadium-and-speed-rays",
+          "geometriesAfterDisposal": 0
+        }
+      }
+    ],
+    "images": 135,
+    "complete": true,
+    "rendererCount": 1,
+    "memoryScope": "renderer.info.memory.geometries after each disposal; GPU allocations beyond Three tracking not measured",
+    "errors": [],
+    "artifacts": [
+      "docs/audits/artifacts/field-frontier-2026-10-07/frontier-source-before-after-1.jpg",
+      "docs/audits/artifacts/field-frontier-2026-10-07/frontier-source-before-after-2.jpg",
+      "docs/audits/artifacts/field-frontier-2026-10-07/frontier-source-before-after-3.jpg",
+      "docs/audits/artifacts/field-frontier-2026-10-07/frontier-source-before-after-4.jpg",
+      "docs/audits/artifacts/field-frontier-2026-10-07/frontier-source-before-after-5.jpg",
+      "docs/audits/artifacts/field-frontier-2026-10-07/frontier-source-before-after-6.jpg",
+      "docs/audits/artifacts/field-frontier-2026-10-07/frontier-source-before-after-7.jpg",
+      "docs/audits/artifacts/field-frontier-2026-10-07/frontier-source-before-after-8.jpg",
+      "docs/audits/artifacts/field-frontier-2026-10-07/frontier-source-before-after-9.jpg",
+      "docs/audits/artifacts/field-frontier-2026-10-07/frontier-source-before-after-10.jpg",
+      "docs/audits/artifacts/field-frontier-2026-10-07/frontier-source-before-after-11.jpg",
+      "docs/audits/artifacts/field-frontier-2026-10-07/frontier-source-before-after-12.jpg"
+    ],
+    "artifactSha256": {
+      "frontier-source-before-after-1.jpg": "fd61ef0ca801da923eec66b07ec06d5d1eac557861bc901b980be05d1c71ad03",
+      "frontier-source-before-after-2.jpg": "d408b80e81068842740368df28a51470f8e20898ac158e2be66026611c65364d",
+      "frontier-source-before-after-3.jpg": "9456af0688a71a450533bed1993c524d4cd0e71c26fbc15506ced598708270b7",
+      "frontier-source-before-after-4.jpg": "fec2a042e18f2306caeb6517b967c4af20c65e4973a7e7e828ac91b0dedb856b",
+      "frontier-source-before-after-5.jpg": "6864078345774cabbc29d439b4edf9eeca23f76f6e69d6a0adf51312058b179a",
+      "frontier-source-before-after-6.jpg": "327899a1660635646ec19e08b666d4dcce1cf71573d5e6eb6494b29d6c4066fa",
+      "frontier-source-before-after-7.jpg": "a1816a3063ed2d24b4b82d9ed7b93e8a00c928f1c8eeeb2feeb59c47b5ef3da7",
+      "frontier-source-before-after-8.jpg": "c9def025e4a0f3e157042d49c6bb56b3d270a73aa6b47074da5a9f10f09d47b8",
+      "frontier-source-before-after-9.jpg": "7a89852efa8c9acb100f6b78e55aae91de6849b3c63f0fedf911dff74222776d",
+      "frontier-source-before-after-10.jpg": "71713e0413cee87f60f7660ddaf943a6284bd057b11d74abd80b191befbe12b7",
+      "frontier-source-before-after-11.jpg": "0a8f113e8825ff040232e610e183369bfb1534c7b2d0432b88eb9fb0dd3d27f3",
+      "frontier-source-before-after-12.jpg": "549765cd841b2ed71fdece246a2e7f393df027853a749069faa00bacb0b69437"
+    }
+  }
+}

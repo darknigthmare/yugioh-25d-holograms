@@ -492,6 +492,7 @@ body.modal-open {
 
 .inspector-stats {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 12px;
   font-family: var(--font-display);
@@ -499,9 +500,9 @@ body.modal-open {
   font-size: 0.85rem;
 }
 
-.inspector-stat-atk { color: var(--neon-cyan); }
-.inspector-stat-def { color: var(--neon-magenta); }
-.inspector-stat-lvl { color: var(--neon-gold); }
+.inspector-stat-atk { color: var(--neon-cyan); flex: 0 0 auto; white-space: nowrap; }
+.inspector-stat-def { color: var(--neon-magenta); flex: 0 0 auto; white-space: nowrap; }
+.inspector-stat-lvl { color: var(--neon-gold); flex-basis: 100%; text-align: center; }
 
 .inspector-desc {
   font-size: 0.8rem;

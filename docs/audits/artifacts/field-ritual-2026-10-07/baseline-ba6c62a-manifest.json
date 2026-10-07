@@ -1,0 +1,21 @@
+{
+  "commit": "ba6c62aa6b3db8f15efad52e3ee8d5fcd143b601",
+  "files": {
+    "src/ui/FieldGeometryThree.js": "f1ba391ea533f94a6795f160091077d7488c590cf2e42cf2686c7d0a01fe7e82",
+    "src/ui/FieldEnvironmentRegistry.js": "4312f060be24418091f4f629727766d406043c2a32d79717e9f3220123227dd8",
+    "src/ui/FieldSpellRuntimeManifest.js": "0918f086daae0c0ac55e355624e89ac934be19b90bc99b3f0a5347be1e53d729",
+    "src/ui/FieldSpellEnvironmentCatalog.js": "37bf5157ca5a8fbfb6c1d93898a3d2efcb3fd620b3c5e61e63f26d46225aee33",
+    "src/ui/FieldSpellReferenceArtManifest.js": "2c98d28f4fd7d8186f745e18994ad8ebdf1ceae8936f481c7b440219ff8fc486",
+    "src/ui/FieldSpellReferenceArtPalettes.js": "39d7a5073366407942497b92de7afe5e319b87957edb19068671bee83f7fbb88",
+    "src/ui/FieldEnvironmentGeometry.js": "b83bba7f70345735cdd0921503fbed0579fe71dba67e5c84fd0b849391e0b121",
+    "src/ui/FieldEnvironmentWildReferences.js": "b8db1cfd37d85dfd222d0b6c9a89934cc1f9c0d0ce7ae3e95325efafdb07d0c7",
+    "src/ui/FieldEnvironmentDarkReferences.js": "f32d83bdeb1f2a3d51f3d405c0b8e546a3a5ad96132d2d0d79e7281bc45a2066",
+    "src/ui/FieldEnvironmentAquaticReferences.js": "fc2308aafce72862a97b759cfe25b6818b38580ebde74125af3bdc5c074858b2",
+    "src/ui/FieldEnvironmentUrbanReferences.js": "b3d94d8d9f427315fec3b0d36c775fc337d827b92ca6a8fd7de8d8665e5e61c9",
+    "src/ui/FieldEnvironmentMysticalReferences.js": "1e6ec73411e3dd624542edee60000110bd22f38c6f9e90176f18ce071c7da2cc",
+    "src/ui/FieldEnvironmentTechnologyReferences.js": "930d3121814e730d9274a6d2087bcd301c1b18b07250cff1de9abb70676b4742",
+    "src/ui/FieldEnvironmentArchitecturalReferences.js": "e9bfe454fd75e9934917ba60d431aaf5549f75c20769290cd5dffc929b8895b1",
+    "src/ui/FieldEnvironmentNatureReferences.js": "0d44bdf0379837717ea1be71599d5572edb9209565cf93bfc5ee5d3768f7c824",
+    "src/core/FieldSpellRules.js": "52abde627e6e18420777a379d03a35c780de1acbd9be5d953bca54db3d45a046"
+  }
+}

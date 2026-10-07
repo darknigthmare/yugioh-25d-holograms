@@ -160,11 +160,11 @@ test('key Field Spells have the expected physical landmarks', () => {
   for (const [cardId, landmark, meshName] of [
     ['47355498', 'necrovalley-striated-sunset-gorge', 'necrovalley-two-distant-pyramids'],
     ['75041269', 'clock-prison-two-faced-turret', 'clock-prison-dial'],
-    ['76375976', 'mine-entrance', 'mine-timber'],
+    ['76375976', 'frontier-mine-stalactite-cave-and-iridescent-wisps', 'mine-uneven-hanging-stalactite'],
     ['37694547', 'geartown-interlocking-gear-buildings', 'geartown-open-toothed-building-gear'],
     ['72283691', 'stromberg-golden-gables', 'stromberg-gold-palace'],
     ['72283691', 'stromberg-golden-gables', 'stromberg-broad-ascending-stair'],
-    ['56433456', 'sky-sanctuary', 'sky-sanctuary-floating-stair'],
+    ['56433456', 'sanctuary-floating-ruin-stairs-forked-orb', 'sanctuary-long-front-staircase'],
     ['2084239', 'wetlands-dense-pointed-grass-and-rain', 'wetlands-five-blade-grass-tuft'],
     ['71645242', 'black-thorn-framed-plinth', 'black-purple-climbing-rose'],
     ['33550694', 'fusion-violet-funnel-grid', 'fusion-lime-bent-floor-grid'],
@@ -180,27 +180,27 @@ test('key Field Spells have the expected physical landmarks', () => {
 test('24 additional named terrains contain distinct physical props beyond the family palette', () => {
   for (const [cardId, landmark, meshName] of [
     ['92107604', 'runick-carved-basin-and-twin-water-curtains', 'runick-twin-falling-water-curtain'],
-    ['13035077', 'dragonic-diagram', 'dragonic-elemental-seal'],
-    ['47679935', 'fusion-meltdown', 'meltdown-opposing-energy-channel'],
+    ['13035077', 'frontier-diagram-gold-floor-and-radiant-clouds', 'diagram-angular-gold-procedure-mark'],
+    ['47679935', 'frontier-meltdown-crimson-sigil-and-forked-columns', 'meltdown-forked-red-energy-column'],
     ['34487429', 'rainbow-ruins-curved-stone-stands', 'rainbow-ruins-curved-stone-terraces'],
-    ['59054773', 'cyber-islands', 'cyber-arrival-island'],
+    ['59054773', 'ignister-floating-amusement-island-and-ferris-wheel', 'ignister-large-ferris-wheel-rim'],
     ['66399653', 'union-hangar-stacked-yellow-pods', 'union-hangar-yellow-connector-drum'],
-    ['67237709', 'orbital-town', 'orbital-town-dome'],
+    ['67237709', 'frontier-kozmotown-jagged-cyan-window-skyline', 'kozmotown-irregular-cyan-window-cluster'],
     ['41418852', 'numeron-thorned-orange-network', 'numeron-angular-orange-network-rib'],
     ['77103950', 'perlereino-floating-tidal-discs-and-curtains', 'perlereino-floating-elliptical-water-disc'],
-    ['71832012', 'pressured-planet', 'wraitsoth-drill-tower'],
+    ['71832012', 'frontier-wraitsoth-red-pagodas-and-circuit-seams', 'wraitsoth-red-circuit-pagoda-upturned-tier-roof'],
     ['89264428', 'ursarctic-twin-deck-station-and-luminous-hubs', 'ursarctic-circular-side-hub'],
     ['5050644', 'aroma-wrought-arch-cottage', 'aroma-pointed-wrought-arch'],
     ['68462976', 'spellcaster-tree-village', 'village-twisted-trunk'],
     ['76136345', 'switchyard-radial-rails-and-turntable', 'switchyard-rusty-diameter-bridge'],
-    ['50005218', 'airspace-launch-base', 'area-zero-launch-deck'],
-    ['1127737', 'dimensional-shipwrecks', 'sargasso-broken-hull'],
-    ['58793369', 'stellar-ritual-orbits', 'drytron-calibrated-orbit'],
+    ['50005218', 'frontier-areazero-grid-and-triangle-reticles', 'areazero-triple-triangular-reticle-blade'],
+    ['1127737', 'sargasso-broken-floating-carrier-decks', 'sargasso-three-broken-floating-carrier-decks'],
+    ['58793369', 'frontier-drytron-purple-nebula-and-dual-trails', 'drytron-long-luminous-background-trail'],
     ['36668118', 'boot-sector-open-red-rotor', 'boot-open-toothed-rotor'],
     ['95658967', 'ritual-sanctuary-golden-display', 'ritual-sanctuary-shallow-golden-oval-plinth'],
-    ['95477924', 'twin-salvation-gates', 'salvation-inscribed-stele'],
+    ['95477924', 'salvation-purple-gold-magic-rim', 'salvation-tilted-gold-inscribed-rim'],
     ['1050355', 'terror-mirror-magenta-window-bridges', 'terror-mirror-magenta-lancet'],
-    ['74665651', 'radiant-mirror', 'dream-mirror-dawn-finial'],
+    ['74665651', 'joy-mirror-gold-courtyard-bridges', 'joy-mirror-layered-curved-bridge'],
     ['94585852', 'pandemonium-grown-ribbed-arch-court', 'pandemonium-jagged-grown-oval-opening'],
     ['56111151', 'kyoutou-golden-observation-tower', 'kyoutou-wide-blue-observation-gallery']
   ]) {
@@ -212,28 +212,37 @@ test('24 additional named terrains contain distinct physical props beyond the fa
     assert.ok(group.children.every(object => object.isInstancedMesh), 'static props must be GPU batched');
     disposeFieldEnvironmentGeometry(group);
   }
-  assert.equal(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.count, 155);
+  assert.equal(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.count, 339);
   assert.deepEqual(new Set(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.cardIds), new Set(Object.keys(FIELD_ENVIRONMENT_CARD_LANDMARKS)));
   assert.equal(getFieldEnvironmentForCardId('15259703'), null, 'Toon World is a Continuous Spell');
-  assert.equal(getFieldEnvironmentForCardId('43175858').geometryProfile.landmark, 'storybook-castle');
+  assert.equal(getFieldEnvironmentForCardId('43175858').geometryProfile.landmark, 'toon-open-book-crenellated-castle');
 });
 
 test('24 inspected original illustrations produce their concrete motifs without divergent family monuments', () => {
+  // These four refined profiles group several source observations into two
+  // detailed paragraphs. Their paragraph count is no longer physical evidence:
+  // require three specific rendered landmarks as well as nonempty observations.
+  const groupedObservationLandmarks = {
+    '18161786': ['plasma-continuous-purple-vortex', 'plasma-new-striated-distant-mountain-range', 'plasma-low-sloping-rock-shelf'],
+    '19384334': ['molten-wide-black-volcano', 'molten-incandescent-crater-pool', 'molten-new-upper-curling-black-smoke'],
+    '61583217': ['cynet-cyan-hexagonal-lattice', 'cynet-calibrated-network-disc', 'cynet-new-continuous-comet-network-link'],
+    '63035430': ['skyscraper-enclosing-street-facade', 'skyscraper-new-open-arched-artdeco-crown-arched-lintel', 'skyscraper-moon-crater']
+  };
   const expectations = [
     ['56594520', 'gaia-massive-buttress-oak', 'rock-spire'],
     ['82999629', 'umiiruka-vertical-observed-splash', 'coral-spire'],
-    ['81777047', 'luminous-black-diagonal-ray', 'fluted-column'],
+    ['81777047', 'luminous-oblique-black-white-speed-strip', 'fluted-column'],
     ['18161786', 'plasma-cyan-forked-lightning', 'occult-monolith'],
-    ['45778932', 'rising-diagonal-cloud-wisp', 'column-base'],
+    ['45778932', 'rising-soft-diagonal-white-cloud-wisp-0', 'column-base'],
     ['19384334', 'molten-branching-lava-stream', 'volcanic-caldera'],
-    ['81380218', 'chorus-pink-heaven-gate-post', 'fluted-column'],
-    ['59197169', 'yami-concave-magenta-mist', 'occult-monolith'],
+    ['81380218', 'chorus-central-double-gate-post', 'fluted-column'],
+    ['59197169', 'yami-broad-curving-lower-pink-smoke-band', 'occult-monolith'],
     ['22702055', 'umi-continuous-oblique-cobalt-swell', 'coral-spire'],
     ['87430998', 'forest-dark-conifer-row', 'exposed-root'],
     ['50913601', 'mountain-sharp-rear-seamed-peak', 'glacier-spire'],
     ['86318356', 'sogen-exposed-diagonal-fissure', 'weathered-rock'],
     ['23424603', 'wasteland-two-bare-trees', 'rock-spire'],
-    ['48179391', 'orichalcos-six-point-star', 'dimensional-ring'],
+    ['48179391', 'orichalcos-two-interlocking-equilateral-triangles', 'dimensional-ring'],
     ['14001430', 'madolche-cream-piping-ring', 'castle-curtain-wall'],
     ['87624166', 'ancient-parallel-sunlight-shaft', 'exposed-root'],
     ['84171830', 'monarch-domain-tall-chamber-column', 'castle-crenellation'],
@@ -242,7 +251,7 @@ test('24 inspected original illustrations produce their concrete motifs without 
     ['16625614', 'dark-sanctuary-long-needle-spire', 'occult-monolith'],
     ['61583217', 'cynet-cyan-hexagonal-lattice', 'data-node'],
     ['2084239', 'wetlands-diagonal-rain-streak', 'wetlands-floating-lily-pad'],
-    ['56433456', 'sky-sanctuary-orb-monument', 'sky-sanctuary-radiant-arch'],
+    ['56433456', 'sanctuary-white-orb-held-by-forks', 'sky-sanctuary-radiant-arch'],
     ['63035430', 'skyscraper-crossed-searchlight', 'tower-roof']
   ];
   for (const [cardId, motif, forbidden] of expectations) {
@@ -250,10 +259,15 @@ test('24 inspected original illustrations produce their concrete motifs without 
     const profile = environment.geometryProfile.inspectedArt;
     assert.equal(profile.sourceUrl, environment.referenceArt.sourceUrl);
     assert.equal(Object.isFrozen(profile.palette), true);
-    assert.ok(profile.motifs.length >= 3);
+    assert.ok(profile.motifs.length > 0);
+    assert.ok(profile.motifs.every(motif => typeof motif === 'string' && motif.trim().length > 0));
+    if (!Object.hasOwn(groupedObservationLandmarks, cardId)) assert.ok(profile.motifs.length >= 3);
     const group = createFieldEnvironmentGeometry(THREE, environment);
     assert.equal(group.userData.fidelity, 'reference-informed-geometry');
     assert.ok(hasFieldEnvironmentLandmarkGeometry(group, motif), `${cardId}: ${motif}`);
+    for (const landmark of groupedObservationLandmarks[cardId] || []) {
+      assert.ok(hasFieldEnvironmentLandmarkGeometry(group, landmark), `${cardId}: ${landmark}`);
+    }
     assert.equal(hasFieldEnvironmentLandmarkGeometry(group, forbidden), false, `${cardId}: divergent ${forbidden}`);
     const sourceBounds = new THREE.Box3();
     forEachPrimitiveBounds(group, bounds => sourceBounds.union(bounds));
@@ -263,7 +277,7 @@ test('24 inspected original illustrations produce their concrete motifs without 
     }
     disposeFieldEnvironmentGeometry(group);
   }
-  assert.equal(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.inspectedReferenceArtCount, 141);
+  assert.equal(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.inspectedReferenceArtCount, 339);
   assert.deepEqual(new Set(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.inspectedReferenceCardIds), new Set(Object.keys(FIELD_ENVIRONMENT_INSPECTED_ART_PROFILES)));
   assert.equal(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.budget, FIELD_ENVIRONMENT_GEOMETRY_BUDGET);
 });

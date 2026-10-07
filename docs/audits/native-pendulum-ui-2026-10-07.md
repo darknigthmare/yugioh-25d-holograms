@@ -1,7 +1,7 @@
 # Invocation Pendule native dans l’interface — 7 octobre 2026
 
 Le parcours complet passe sur **1280 × 900** et **390 × 844** dans le build
-compilé figé `index-Bf3sQIDw.js`, avec la CSP de production. Chromium ne rapporte
+compilé figé `index-CkdHwDWv.js`, avec la CSP de production. Chromium ne rapporte
 aucune erreur de page, requête native échouée ou violation CSP.
 
 Le bouton de procédure conserve le style magenta de l’interface : le style
@@ -36,20 +36,23 @@ Les actions utilisent exclusivement les contrôles visibles :
 Le [rapport JSON](artifacts/native-pendulum-ui-2026-10-07/report.json) conserve
 les offres et choix publics du moteur, les vérifications des deux viewports et
 les empreintes exactes du build. SHA-256 de l’entrée :
-`6de409c77e47c3853b1a554553776a13f576e265824187d6d21b809fd4c7ce33`.
+`7173898cef8206cb9f0e12525376ad03e857a22e40fca40ea97c0623e0fdb9fd`.
 SHA-256 WASM :
 `0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026`.
 
-SHA-256 CSS (`index-WwbnQBsq.css`) :
-`5103d13e4c93cce8f60e430ade9bce9aace0233e3b71dfb7786e11b7bf3c58a1`.
+SHA-256 CSS (`index-BbUkbKmn.css`) :
+`71afb732ab7152dc319dfb6b72812913e23121c24f251ef80e0b69c61e0e749e`.
 SHA-256 HTML :
-`ca7254cd1cc1b1b0c6bf9c96782429d47443c7b1a0da5febe6801762b2360ee2`.
+`9092b61cae2f9f267fc6f35c4f90594220bc123ff9681d9b251e5973b1c1c06f`.
 
 Les empreintes de l'entrée, du HTML, du CSS, de la façade native, du wrapper et
-du WASM sont identiques avant et après les deux parcours. Les sept fichiers du
-manifest final correspondent également à leurs tailles et SHA enregistrés.
-Ce rapport et le [rapport général](artifacts/native-duel-ui-2026-10-07/report.json)
+du WASM sont identiques avant et après les trois audits navigateur finaux. Les
+huit fichiers surveillés comprennent aussi le CDB et l’archive Lua, avec leurs
+tailles exactes. Ce rapport, le [rapport général](artifacts/native-duel-ui-2026-10-07/report.json)
+et le [rapport Pièges-Monstres](artifacts/native-chain-ui-2026-10-07/report.json)
 conservent les mêmes empreintes et `immutableCompiledSnapshot: true`.
+La façade compilée est `NativeDuelGame-ZSLU0meg.js`, SHA-256
+`292967a9fa2eab1eed43a2f0ce172a3e1364eeb86f1c66d1a63e55fb49777980`.
 
 Captures desktop : [Extra Deck et procédure](artifacts/native-pendulum-ui-2026-10-07/native-pendulum-extra-1280.png),
 [candidats natifs](artifacts/native-pendulum-ui-2026-10-07/native-pendulum-choices-1280.png),

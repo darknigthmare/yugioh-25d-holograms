@@ -22,6 +22,45 @@ from urllib.parse import urlsplit
 from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def compiled_fingerprints(dist):
+    html = (dist / 'index.html').read_text()
+    entry = re.search(r'src="([^"]+/index-[^"]+\.js)"', html).group(1).lstrip('/')
+    css = re.search(r'href="([^"]+/index-[^"]+\.css)"', html).group(1).lstrip('/')
+    paths = ['index.html', entry, css,
+             str(next((dist / 'assets').glob('NativeDuelGame-*.js')).relative_to(dist)),
+             str(next((dist / 'assets').glob('ocgcore-*.js')).relative_to(dist)),
+             'native/ocgcore.sync.wasm', 'native/card-data.json', 'native/scripts.json']
+    return {path: {'bytes': (dist / path).stat().st_size,
+                   'sha256': hashlib.sha256((dist / path).read_bytes()).hexdigest()} for path in paths}
+
+
+def served_fingerprints(request, base_url):
+    """Discover assets in the served HTML/JS and hash their actual HTTP bodies."""
+    found = {}
+
+    def read(path):
+        response = request.get(base_url.rstrip('/') + '/' + path)
+        assert response.status == 200, (path, response.status)
+        body = response.body()
+        found[path or 'index.html'] = {'bytes': len(body), 'sha256': hashlib.sha256(body).hexdigest()}
+        return body
+
+    html = read('').decode()
+    entry = re.search(r'src="([^"]+/index-[^"]+\.js)"', html).group(1).lstrip('/')
+    css = re.search(r'href="([^"]+/index-[^"]+\.css)"', html).group(1).lstrip('/')
+    entry_body = read(entry).decode()
+    read(css)
+    facade = str(Path(entry).parent / re.search(r'NativeDuelGame-[A-Za-z0-9_-]+\.js', entry_body).group(0))
+    facade_body = read(facade).decode()
+    wrapper = str(Path(facade).parent / re.search(r'ocgcore-[A-Za-z0-9_-]+\.js', facade_body).group(0))
+    read(wrapper)
+    for path in ['native/ocgcore.sync.wasm', 'native/card-data.json', 'native/scripts.json']:
+        read(path)
+    return found
+
+
 RNG_FIXTURE = """(() => {
   window.addEventListener('securitypolicyviolation', event => {
     window.__auditCspViolations = window.__auditCspViolations || [];
@@ -374,6 +413,7 @@ def main():
     args.output.mkdir(parents=True, exist_ok=True)
     headers = production_headers()
     server = None
+    compiled_before = compiled_fingerprints(args.dist) if not args.base_url else None
     if not args.base_url:
         assert (args.dist / 'index.html').is_file(), 'Build the production bundle first'
         AuditServer.headers_to_add = headers
@@ -388,7 +428,12 @@ def main():
             browser = playwright.chromium.launch(executable_path=args.chromium, headless=True,
                 args=['--no-sandbox', '--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'])
             request_context = browser.new_context()
-            report['testedWasmSha256'] = hashlib.sha256(request_context.request.get(args.base_url + '/native/ocgcore.sync.wasm').body()).hexdigest()
+            served_before = served_fingerprints(request_context.request, args.base_url)
+            report['servedResponseFingerprintsBefore'] = served_before
+            report['testedWasmSha256'] = served_before['native/ocgcore.sync.wasm']['sha256']
+            if compiled_before is not None:
+                report['compiledSnapshotBefore'] = compiled_before
+                assert served_before == compiled_before, 'Served responses differ from the frozen compiled snapshot'
             request_context.close()
             for width, height in ([] if args.only_ravine else [(1280, 900), (390, 844)]):
                 context = browser.new_context(viewport={'width': width, 'height': height}, reduced_motion='reduce')
@@ -403,6 +448,16 @@ def main():
             page.set_default_timeout(30000)
             verify_ravine(page, args.base_url, report['ravineCost'], args.output, draft)
             context.close()
+            request_context = browser.new_context()
+            served_after = served_fingerprints(request_context.request, args.base_url)
+            request_context.close()
+            report['servedResponseFingerprintsAfter'] = served_after
+            assert served_before == served_after, 'Served compiled assets changed during the audit'
+            if compiled_before is not None:
+                compiled_after = compiled_fingerprints(args.dist)
+                report['compiledSnapshotAfter'] = compiled_after
+                report['immutableCompiledSnapshot'] = compiled_before == compiled_after
+                assert compiled_before == compiled_after, 'Local compiled snapshot changed during the audit'
             browser.close()
         report['ok'] = True
     except Exception as error:

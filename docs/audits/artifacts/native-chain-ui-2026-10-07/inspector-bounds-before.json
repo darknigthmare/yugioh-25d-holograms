@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-07",
+  "testedIndexAsset": "/assets/index-3EU3hNmJ.js",
+  "testedIndexSha256": "070df4922e65872f7c25a09fc8e208c893cbb7654b11023a7852444676ae0915",
+  "viewport": {
+    "width": 1280,
+    "height": 900
+  },
+  "publicCard": "Metal Reflect Slime",
+  "publicCode": 26905245,
+  "finalGateRejected": true,
+  "failure": {
+    "type": "AssertionError",
+    "message": "Public ATK/DEF text exceeds the inspector: {'checked': True, 'spans': [{'text': 'ATK 0', 'withinInspector': False, 'textFitsSpan': True, 'width': 33, 'textWidth': 33}, {'text': 'DEF 3000', 'withinInspector': True, 'textFitsSpan': True, 'width': 45, 'textWidth': 45}], 'allFit': False}"
+  },
+  "immutableCompiledSnapshot": true
+}

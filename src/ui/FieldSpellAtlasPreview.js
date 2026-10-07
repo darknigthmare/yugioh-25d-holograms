@@ -22,12 +22,16 @@ export class FieldSpellAtlasPreview {
     this.scene.add(sun);
     this.geometry = createFieldEnvironmentGeometry(FIELD_GEOMETRY_THREE, environment);
     this.scene.add(this.geometry);
+    // Duel scenery occupies the board's periphery. Orbit its own bounds in
+    // the atlas so a side view cannot leave the subject outside the frame.
+    const bounds = new THREE.Box3().setFromObject(this.geometry);
+    this.target = bounds.isEmpty() ? new THREE.Vector3(0, 5, -12) : bounds.getCenter(new THREE.Vector3());
+    this.radius = bounds.isEmpty() ? 25 : Math.max(1, bounds.getSize(new THREE.Vector3()).length() / 2);
     this.floor = new THREE.Mesh(new THREE.PlaneGeometry(105, 95), new THREE.MeshStandardMaterial({ color: environment.surfacePalette?.ground || environment.environmentTint || '#34425f', roughness: 1 }));
     this.floor.rotation.x = -Math.PI / 2;
     this.floor.position.set(0, -0.7, -13);
     this.scene.add(this.floor);
     this.angle = 0;
-    this.target = new THREE.Vector3(0, 5, -12);
     this.resize = new ResizeObserver(() => this.render());
     this.resize.observe(container);
     this.onDown = event => { this.dragX = event.clientX; container.setPointerCapture(event.pointerId); };
@@ -53,7 +57,14 @@ export class FieldSpellAtlasPreview {
     const height = Math.max(1, this.container.clientHeight);
     this.renderer.setSize(width, height, false);
     this.camera.aspect = width / height;
-    this.camera.position.set(Math.sin(this.angle) * 61, 29, -12 + Math.cos(this.angle) * 61);
+    const halfVertical = THREE.MathUtils.degToRad(this.camera.fov / 2);
+    const halfHorizontal = Math.atan(Math.tan(halfVertical) * this.camera.aspect);
+    const distance = this.radius * 1.08 / Math.sin(Math.min(halfVertical, halfHorizontal));
+    const elevation = 0.38;
+    const orbit = distance * Math.cos(elevation);
+    this.camera.position.set(this.target.x + Math.sin(this.angle) * orbit,
+      this.target.y + Math.sin(elevation) * distance, this.target.z + Math.cos(this.angle) * orbit);
+    this.camera.far = distance + this.radius + 30;
     this.camera.lookAt(this.target);
     this.camera.updateProjectionMatrix();
     this.renderer.render(this.scene, this.camera);

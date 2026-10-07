@@ -36,17 +36,27 @@ displays the public Graveyard correctly.
 
 The complete browser run used WASM SHA-256
 `0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026`.
-It was rerun against the frozen release entry `index-Bf3sQIDw.js`, SHA-256
-`6de409c77e47c3853b1a554553776a13f576e265824187d6d21b809fd4c7ce33`.
+It was rerun against the frozen release entry `index-CkdHwDWv.js`, SHA-256
+`7173898cef8206cb9f0e12525376ad03e857a22e40fca40ea97c0623e0fdb9fd`.
 
-HTML SHA-256: `ca7254cd1cc1b1b0c6bf9c96782429d47443c7b1a0da5febe6801762b2360ee2`.
-CSS `index-WwbnQBsq.css` SHA-256: `5103d13e4c93cce8f60e430ade9bce9aace0233e3b71dfb7786e11b7bf3c58a1`.
+HTML SHA-256: `9092b61cae2f9f267fc6f35c4f90594220bc123ff9681d9b251e5973b1c1c06f`.
+CSS `index-BbUkbKmn.css` SHA-256: `71afb732ab7152dc319dfb6b72812913e23121c24f251ef80e0b69c61e0e749e`.
 
 The entry, HTML, CSS, native façade, native wrapper and WASM hashes were compared
-before and after both browser audits and remained unchanged. The seven files in
-the frozen release manifest also match their recorded byte counts and hashes.
-This report and the [Pendulum report](artifacts/native-pendulum-ui-2026-10-07/report.json)
-contain the same fingerprint fields and `immutableCompiledSnapshot: true`.
+before and after the final chain, general and Pendulum browser audits and remained
+unchanged. The eight monitored files also include the serialized CDB and Lua
+archive. This report, the [Pendulum report](artifacts/native-pendulum-ui-2026-10-07/report.json)
+and the [Trap Monster report](artifacts/native-chain-ui-2026-10-07/report.json)
+contain the same fingerprints, byte counts and `immutableCompiledSnapshot: true`.
+The final native façade is `NativeDuelGame-ZSLU0meg.js`, SHA-256
+`292967a9fa2eab1eed43a2f0ce172a3e1364eeb86f1c66d1a63e55fb49777980`.
+
+The general runner discovers the entry and CSS in the served HTML, then the
+façade and wrapper in the served JavaScript. It hashes all eight actual HTTP
+response bodies before and after the complete browser flow. These response
+hashes and byte counts exactly match the independent local snapshots; the JSON
+preserves both sets under `servedResponseFingerprintsBefore` and
+`servedResponseFingerprintsAfter`.
 
 All five general-flow captures were inspected. The library and cost flow remain
 readable at both widths. The desktop action labels wrap tightly when three

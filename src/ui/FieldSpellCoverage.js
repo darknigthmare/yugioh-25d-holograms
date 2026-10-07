@@ -13,6 +13,12 @@ import { URBAN_CARD_LANDMARKS } from './FieldEnvironmentUrbanReferences.js';
 import { AQUATIC_CARD_LANDMARKS } from './FieldEnvironmentAquaticReferences.js';
 import { DARK_CARD_LANDMARKS } from './FieldEnvironmentDarkReferences.js';
 import { WILD_CARD_LANDMARKS } from './FieldEnvironmentWildReferences.js';
+import { STAGE_CARD_LANDMARKS } from './FieldEnvironmentStageReferences.js';
+import { ARCANE_CARD_LANDMARKS } from './FieldEnvironmentArcaneReferences.js';
+import { ENGINEERING_CARD_LANDMARKS } from './FieldEnvironmentEngineeringReferences.js';
+import { COMMUNITY_CARD_LANDMARKS } from './FieldEnvironmentCommunityReferences.js';
+import { RITUAL_CARD_LANDMARKS } from './FieldEnvironmentRitualReferences.js';
+import { FRONTIER_CARD_LANDMARKS } from './FieldEnvironmentFrontierReferences.js';
 
 const rulesById = new Map(IMPLEMENTED_FIELD_SPELLS.map(card => [String(card.id), card]));
 const nativeBundledIds = new Set(NATIVE_FIELD_COVERAGE_SNAPSHOT.bundledCardIds);
@@ -21,7 +27,9 @@ const nativeEffectTestedIds = new Set(NATIVE_FIELD_COVERAGE_SNAPSHOT.effectTeste
 const nativeIntegrationTestedIds = new Set(NATIVE_FIELD_COVERAGE_SNAPSHOT.integrationTestedCardIds);
 const reconstructedIds = new Set([...Object.keys(NATURE_CARD_LANDMARKS), ...Object.keys(ARCHITECTURAL_CARD_LANDMARKS),
   ...Object.keys(TECHNOLOGY_CARD_LANDMARKS), ...Object.keys(MYSTICAL_CARD_LANDMARKS), ...Object.keys(URBAN_CARD_LANDMARKS),
-  ...Object.keys(AQUATIC_CARD_LANDMARKS), ...Object.keys(DARK_CARD_LANDMARKS), ...Object.keys(WILD_CARD_LANDMARKS)]);
+  ...Object.keys(AQUATIC_CARD_LANDMARKS), ...Object.keys(DARK_CARD_LANDMARKS), ...Object.keys(WILD_CARD_LANDMARKS),
+  ...Object.keys(STAGE_CARD_LANDMARKS), ...Object.keys(ARCANE_CARD_LANDMARKS), ...Object.keys(ENGINEERING_CARD_LANDMARKS),
+  ...Object.keys(COMMUNITY_CARD_LANDMARKS), ...Object.keys(RITUAL_CARD_LANDMARKS), ...Object.keys(FRONTIER_CARD_LANDMARKS)]);
 
 // Every catalogue entry has its own evidence. An illustration or procedural
 // family is never promoted to a completed 3D reconstruction or implemented rule.
@@ -85,6 +93,8 @@ export function filterFieldSpellCoverage({ query = '', status = 'all', engine = 
     if (status === 'native-effect-tested' && !card.nativeEffectTested) return false;
     if (status === 'modeled' && !card.hasInspectedGeometry) return false;
     if (status === 'pending-model' && card.hasInspectedGeometry) return false;
+    if (status === 'source-reconstructed' && !card.hasSourceReconstructedGeometry) return false;
+    if (status === 'pending-reconstruction' && card.hasSourceReconstructedGeometry) return false;
     return !search || (passcode !== null && card.cardId === passcode)
       || searchText(`${card.name} ${card.localizedName} ${card.cardId} ${card.rulesText || ''}`).includes(search);
   });

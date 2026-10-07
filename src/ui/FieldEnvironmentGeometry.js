@@ -16,6 +16,12 @@ import { URBAN_CARD_LANDMARKS, URBAN_INSPECTED_ART_PROFILES, createUrbanReferenc
 import { AQUATIC_CARD_LANDMARKS, AQUATIC_INSPECTED_ART_PROFILES, createAquaticReferenceGeometry } from './FieldEnvironmentAquaticReferences.js';
 import { DARK_CARD_LANDMARKS, DARK_INSPECTED_ART_PROFILES, createDarkReferenceGeometry } from './FieldEnvironmentDarkReferences.js';
 import { WILD_CARD_LANDMARKS, WILD_INSPECTED_ART_PROFILES, createWildReferenceGeometry } from './FieldEnvironmentWildReferences.js';
+import { STAGE_CARD_LANDMARKS, STAGE_INSPECTED_ART_PROFILES, createStageReferenceGeometry } from './FieldEnvironmentStageReferences.js';
+import { ARCANE_CARD_LANDMARKS, ARCANE_INSPECTED_ART_PROFILES, createArcaneReferenceGeometry } from './FieldEnvironmentArcaneReferences.js';
+import { ENGINEERING_CARD_LANDMARKS, ENGINEERING_INSPECTED_ART_PROFILES, createEngineeringReferenceGeometry } from './FieldEnvironmentEngineeringReferences.js';
+import { COMMUNITY_CARD_LANDMARKS, COMMUNITY_INSPECTED_ART_PROFILES, createCommunityReferenceGeometry } from './FieldEnvironmentCommunityReferences.js';
+import { RITUAL_CARD_LANDMARKS, RITUAL_INSPECTED_ART_PROFILES, createRitualReferenceGeometry } from './FieldEnvironmentRitualReferences.js';
+import { FRONTIER_CARD_LANDMARKS, FRONTIER_INSPECTED_ART_PROFILES, createFrontierReferenceGeometry } from './FieldEnvironmentFrontierReferences.js';
 
 export const FIELD_ENVIRONMENT_GEOMETRY_FAMILIES = Object.freeze([
   'clearing', 'cave', 'generic', 'yami', 'umi', 'forest', 'mountain',
@@ -111,7 +117,13 @@ export const FIELD_ENVIRONMENT_CARD_LANDMARKS = Object.freeze({
   ...URBAN_CARD_LANDMARKS,
   ...AQUATIC_CARD_LANDMARKS,
   ...DARK_CARD_LANDMARKS,
-  ...WILD_CARD_LANDMARKS
+  ...WILD_CARD_LANDMARKS,
+  ...STAGE_CARD_LANDMARKS,
+  ...ARCANE_CARD_LANDMARKS,
+  ...ENGINEERING_CARD_LANDMARKS,
+  ...COMMUNITY_CARD_LANDMARKS,
+  ...RITUAL_CARD_LANDMARKS,
+  ...FRONTIER_CARD_LANDMARKS
 });
 
 // Individually inspected, original cropped illustrations. These palettes and
@@ -150,7 +162,9 @@ export const FIELD_ENVIRONMENT_INSPECTED_ART_PROFILES = Object.freeze({ ...Objec
   palette: Object.freeze({ ground: colors[0], stone: colors[1], foliage: colors[2], accent: colors[3], wood: colors[4], foam: colors[5] })
 })])), ...NATURE_INSPECTED_ART_PROFILES, ...ARCHITECTURAL_INSPECTED_ART_PROFILES,
   ...TECHNOLOGY_INSPECTED_ART_PROFILES, ...MYSTICAL_INSPECTED_ART_PROFILES, ...URBAN_INSPECTED_ART_PROFILES,
-  ...AQUATIC_INSPECTED_ART_PROFILES, ...DARK_INSPECTED_ART_PROFILES, ...WILD_INSPECTED_ART_PROFILES });
+  ...AQUATIC_INSPECTED_ART_PROFILES, ...DARK_INSPECTED_ART_PROFILES, ...WILD_INSPECTED_ART_PROFILES,
+  ...STAGE_INSPECTED_ART_PROFILES, ...ARCANE_INSPECTED_ART_PROFILES, ...ENGINEERING_INSPECTED_ART_PROFILES,
+  ...COMMUNITY_INSPECTED_ART_PROFILES, ...RITUAL_INSPECTED_ART_PROFILES, ...FRONTIER_INSPECTED_ART_PROFILES });
 
 function canonicalCardId(value) {
   const id = String(value ?? '').trim();
@@ -470,7 +484,13 @@ export function createFieldEnvironmentGeometry(THREE, environment = {}) {
     || createUrbanReferenceGeometry(referenceContext)
     || createAquaticReferenceGeometry(referenceContext)
     || createDarkReferenceGeometry(referenceContext)
-    || createWildReferenceGeometry(referenceContext);
+    || createWildReferenceGeometry(referenceContext)
+    || createStageReferenceGeometry(referenceContext)
+    || createArcaneReferenceGeometry(referenceContext)
+    || createEngineeringReferenceGeometry(referenceContext)
+    || createCommunityReferenceGeometry(referenceContext)
+    || createRitualReferenceGeometry(referenceContext)
+    || createFrontierReferenceGeometry(referenceContext);
 
   if (!hasReferenceGeometry && !profile.inspectedArt) switch (profile.family) {
     case 'clearing':
