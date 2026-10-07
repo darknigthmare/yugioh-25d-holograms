@@ -1,15 +1,15 @@
 # Exécution native des 339 Magies de Terrain — 7 octobre 2026
 
-Les **339 cartes du catalogue disposent de leur ligne CDB et de leur véritable script Lua**, et leur `initial_effect` s’exécute sans diagnostic Lua dans **339 duels natifs distincts**. **20 scénarios de règles passent**, couvrant **18 terrains différents**. Ces résultats concernent le moteur WASM ; la vérification du navigateur possède son propre rapport.
+Les **339 cartes du catalogue disposent de leur ligne CDB et de leur véritable script Lua**, et leur `initial_effect` s’exécute sans diagnostic Lua dans **339 duels natifs distincts**. **47 scénarios de règles passent**, couvrant **41 terrains différents**. L’extension conserve les 20 scénarios précédents et ajoute 23 Terrains avec leurs partenaires réels. Ces résultats concernent le moteur WASM ; la vérification du navigateur possède son propre rapport.
 
 | Niveau de preuve | Résultat | Ce qu’il établit |
 | --- | ---: | --- |
 | `bundled` | 339 / 339 | Ligne CDB et script Lua exact présents dans les archives livrées. |
 | `initialized` | 339 / 339 | Insertion du terrain, `initial_effect`, enregistrement des effets, requête native et démarrage d’un duel sans erreur Lua. |
-| `effectTested` | 18 / 339 | Au moins un effet exécuté et vérifié dans les scénarios ci-dessous. |
+| `effectTested` | 41 / 339 | Au moins un effet exécuté et vérifié dans les scénarios ci-dessous. |
 | `integrationTested` | 0 dans cet audit | Cet audit Node ne produit aucune preuve de clics, d’affichage ou de comportement du navigateur. |
 
-La matrice complète contient les passcodes canoniques et physiques, les chemins Lua amont, les SHA-256 de chaque script, les réponses typées, les messages du moteur et les résultats des requêtes : [native-field-runtime-2026-10-07.json](artifacts/native-field-runtime-2026-10-07.json). Elle conserve les quatre niveaux séparément. L’initialisation ne vérifie pas toutes les branches des effets ni l’exécution de tous les événements enregistrés.
+La matrice complète contient les passcodes canoniques et physiques, les chemins Lua amont, les SHA-256 de chaque script, les réponses typées, les messages du moteur et les résultats des requêtes : [native-field-runtime-2026-10-07.json](artifacts/native-field-runtime-2026-10-07.json). Chaque scénario conserve aussi ses cartes initiales, leurs zones, positions, passcodes physiques et provenance Lua, y compris les partenaires. Elle conserve les quatre niveaux séparément. L’initialisation ne vérifie pas toutes les branches des effets ni l’exécution de tous les événements enregistrés.
 
 ## Scénarios exécutés
 
@@ -35,6 +35,29 @@ Chaque scénario utilise un nouveau handle de duel et des cartes réelles. Les a
 | Gateway to Chaos | Activation, sélection du vrai Black Luster Soldier Ritual et ajout depuis le Deck à la main ; aucune cible de chaîne. |
 | Black Garden | Normal Summon d’Alexandrite Dragon ; ATK divisée par deux et véritable Rose Token créé sur le terrain adverse. |
 | Angelechy Endgame Problem | Deux Angelechy Monster Cards deviennent légalement des Continuous Spells via Angelechy Problem : défausse de MST, invocation d’Enlisted, placement de Bastion et trigger de placement de Shatranga. Endgame remplace le premier terrain. Lors du Special Summon adverse de Gilasaurus, le moteur propose la décision de zone au propriétaire d’Endgame ; ce joueur place Gilasaurus dans la Main Monster Zone adverse 2. |
+| Magical Meltdown | Recherche Aleister ; une seconde copie reste en main et une cible reste au Deck, mais l’activation est bloquée par l’oath. Deuxième duel : Polymerization est d’abord annulée par Solemn Judgment, puis une nouvelle tentative de negation échoue sous Meltdown et Ultimate Dragon est invoqué. Le core propose encore cette seconde chaîne Judgment ; la preuve porte sur la protection à la résolution. |
+| Oracle of Zefra | Recherche Zefraxi depuis le Deck ; refus d’activer une seconde copie avec une cible restante, selon l’oath. |
+| Prank-Kids Place | Recherche Lampsies ; seconde copie interdite à l’activation avec une autre Lampsies encore au Deck. |
+| Evil Eye Domain — Pareidolia | Recherche Serziel et oath d’activation ; deuxième duel : MST détruit le Terrain, puis le trigger cible Serziel au Cimetière et le récupère en main. |
+| Therion Discolosseum | Recherche Therion King Regulus ; seconde copie et seconde cible disponibles, mais oath d’activation appliqué. |
+| Primeval Planet Perlereino | Recherche Tearlaments Merrli ; oath d’activation vérifié avec une seconde copie et une seconde cible réelles. |
+| Fire King Island | Destruction de Dark Magician en main par effet, suivie de la recherche de Barong ; les deux modes d’ignition partagent la limite consommée. Deuxième duel : départ du Terrain par MST, puis trigger obligatoire détruisant Barong ; le monstre adverse est conservé. |
+| Dragonic Diagram | Destruction de MST en main par effet, sans raison de coût ; recherche True Draco Heritage, puis ignition indisponible malgré une nouvelle paire valide main/Deck. |
+| Union Hangar | Recherche A-Assault Core ; son Normal Summon déclenche la sélection ciblée et l’équipement de B-Buster Drake depuis le Deck. L’Union équipé ne peut pas se Special Summon ce tour. |
+| SPYRAL Resort | Recherche Super Agent une fois ; End Phase réelle, choix d’entretien et retour de Blue-Eyes depuis le Cimetière au Deck comme coût. Le Terrain reste en jeu. |
+| Trickstar Light Stage | Recherche Candina ; cible un Mirror Force face verso adverse, puis l’envoie au Cimetière par règle si le joueur ne l’active pas à l’End Phase. |
+| The Hidden City | Recherche Subterror Guru ; ignition sans ciblage change Subterror Nemesis Archer de face verso défense à face recto attaque via la vraie décision de position. |
+| Vendread Nights | Défausse de Dark Magician comme coût, avec raisons natives `COST` et `DISCARD` ; recherche Revenants et limite d’usage appliquée malgré une autre cible restante. |
+| U.A. Stadium | Normal Summon de Midfielder, recherche Perfect Ace ; son Special Summon retourne Midfielder en main et déclenche le bonus de 500 ATK sur Perfect Ace. |
+| Myutant Evolution Lab | L’activation invoque M-05 banni face recto ; deux noms distincts encore bannis donnent 200 ATK. L’ignition renvoie ST-46 en bas du Deck et pioche Dark Magician ; limite d’usage vérifiée. |
+| Drytron Fafnir | Recherche Drytron Nova ; avec Alpha Thuban face recto, le Normal Summon adverse d’Alexandrite Dragon déclenche la baisse de Niveau 4 à 2. |
+| Chicken Game | Paiement de 1000 LP et pioche native ; usage unique. Au tour adverse, Hinotama inflige zéro dégât au joueur ayant le moins de LP, dont les LP restent à 7000. |
+| Pacifis, the Phantasm City | Normal Summon de Jerry Beans Man, recherche Phantasm Spiral Battle et restriction des Effect Monsters. Au tour adverse, chaîne sur Hinotama et création d’un vrai Phantasm Spiral Token de 2000 ATK. |
+| Lost World | Gilasaurus crée un Jurraegg Token adverse. Dark Magician perd 500 ATK ; destruction de Dark Hole remplacée pour deux Normal Monsters par la destruction de deux vrais Sabersaurus du Deck. Les Normal Monsters restent sur le Terrain. |
+| Revolving Switchyard | Envoi d’une carte de main en coût, sans raison `DISCARD`, recherche Bullet Train, puis son invocation n’ouvre pas le trigger dont la limite partagée est déjà consommée. Deuxième duel : le trigger disponible invoque Flying Pegasus depuis le Deck et change son Niveau de 4 à 10. |
+| Sky Striker Airspace — Area Zero | MST cible et détruit le Terrain ; trigger au Cimetière et invocation de Raye depuis le Deck. |
+| Runick Fountain | Activation de Golden Droplet ; cible deux Quick-Play Runick au Cimetière, tri de leur retour en bas du Deck et pioche de deux cartes. Quatre cartes du Deck adverse sont réellement bannies. |
+| Primitive Planet Reichphobia | Recherche Scareclaw Acro ; trois monstres en défense réduisent Blue-Eyes adverse de 300 ATK et permettent une ignition ciblée qui le détruit. |
 
 ## Conditions de validation
 

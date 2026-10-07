@@ -2690,6 +2690,13 @@ body.modal-open {
   padding: 10px 0;
 }
 
+.extra-deck-list .native-extra-pendulum-action {
+  width: 100%;
+  min-height: 44px;
+  white-space: normal;
+  margin-bottom: 0.75rem;
+}
+
 .extra-deck-list .card-entity {
   width: 80px;
   height: 110px;

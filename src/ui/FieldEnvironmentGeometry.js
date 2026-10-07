@@ -10,6 +10,9 @@
  */
 import { NATURE_CARD_LANDMARKS, NATURE_INSPECTED_ART_PROFILES, createNatureReferenceGeometry } from './FieldEnvironmentNatureReferences.js';
 import { ARCHITECTURAL_CARD_LANDMARKS, ARCHITECTURAL_INSPECTED_ART_PROFILES, createArchitecturalReferenceGeometry } from './FieldEnvironmentArchitecturalReferences.js';
+import { TECHNOLOGY_CARD_LANDMARKS, TECHNOLOGY_INSPECTED_ART_PROFILES, createTechnologyReferenceGeometry } from './FieldEnvironmentTechnologyReferences.js';
+import { MYSTICAL_CARD_LANDMARKS, MYSTICAL_INSPECTED_ART_PROFILES, createMysticalReferenceGeometry } from './FieldEnvironmentMysticalReferences.js';
+import { URBAN_CARD_LANDMARKS, URBAN_INSPECTED_ART_PROFILES, createUrbanReferenceGeometry } from './FieldEnvironmentUrbanReferences.js';
 
 export const FIELD_ENVIRONMENT_GEOMETRY_FAMILIES = Object.freeze([
   'clearing', 'cave', 'generic', 'yami', 'umi', 'forest', 'mountain',
@@ -99,7 +102,10 @@ export const FIELD_ENVIRONMENT_CARD_LANDMARKS = Object.freeze({
   '16625614': 'dark-sanctuary-eye-castle',
   '61583217': 'cynet-hexagonal-cosmos',
   ...NATURE_CARD_LANDMARKS,
-  ...ARCHITECTURAL_CARD_LANDMARKS
+  ...ARCHITECTURAL_CARD_LANDMARKS,
+  ...TECHNOLOGY_CARD_LANDMARKS,
+  ...MYSTICAL_CARD_LANDMARKS,
+  ...URBAN_CARD_LANDMARKS
 });
 
 // Individually inspected, original cropped illustrations. These palettes and
@@ -136,7 +142,8 @@ export const FIELD_ENVIRONMENT_INSPECTED_ART_PROFILES = Object.freeze({ ...Objec
   sourceUrl: `https://images.ygoprodeck.com/images/cards_cropped/${cardId}.jpg`,
   motifs: Object.freeze(motifs),
   palette: Object.freeze({ ground: colors[0], stone: colors[1], foliage: colors[2], accent: colors[3], wood: colors[4], foam: colors[5] })
-})])), ...NATURE_INSPECTED_ART_PROFILES, ...ARCHITECTURAL_INSPECTED_ART_PROFILES });
+})])), ...NATURE_INSPECTED_ART_PROFILES, ...ARCHITECTURAL_INSPECTED_ART_PROFILES,
+  ...TECHNOLOGY_INSPECTED_ART_PROFILES, ...MYSTICAL_INSPECTED_ART_PROFILES, ...URBAN_INSPECTED_ART_PROFILES });
 
 function canonicalCardId(value) {
   const id = String(value ?? '').trim();
@@ -450,7 +457,10 @@ export function createFieldEnvironmentGeometry(THREE, environment = {}) {
     cloudBank, bareTree, curvedTube, curvedDeck, radialSurface,
     box, rock, cone, cylinder, crown, ring, basinRim, random };
   const hasReferenceGeometry = createNatureReferenceGeometry(referenceContext)
-    || createArchitecturalReferenceGeometry(referenceContext);
+    || createArchitecturalReferenceGeometry(referenceContext)
+    || createTechnologyReferenceGeometry(referenceContext)
+    || createMysticalReferenceGeometry(referenceContext)
+    || createUrbanReferenceGeometry(referenceContext);
 
   if (!hasReferenceGeometry && !profile.inspectedArt) switch (profile.family) {
     case 'clearing':

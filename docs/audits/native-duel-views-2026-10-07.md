@@ -2,7 +2,9 @@
 
 Le build compilé passe le parcours **compacte → arène → réelle** sur **1280 × 900** et **390 × 844**, avec la CSP de production. Les **22 états publics** vérifiés conservent LP, cartes de la main, identité de l’instance invoquée et statistiques. Une activation en attente ne remplace pas le décor avant sa résolution.
 
-La preuve complète est dans [report.json](artifacts/native-duel-views-2026-10-07/report.json). Le dernier parcours a été relancé sur le build final figé : `index-DqtR2E84.js` et `NativeDuelGame-BtGx_J7Q.js`, incluant l’alias Lua `Group.NewGroup`. Le document `dist/index.html` testé porte le SHA-256 `dee6859628bd6f85aff129962d1968deb95b13943c5563c4bb1aca09b7c240a5`. Le WASM testé porte le SHA-256 `0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026`. Le moteur est celui mis à jour pour le choix de zone adverse d’Angelechy. Chromium utilise WebGL via SwiftShader pour ces captures.
+La preuve complète est dans [report.json](artifacts/native-duel-views-2026-10-07/report.json). Le dernier parcours a été relancé sur le build final figé : `index-CNuJ3sB1.js` et `NativeDuelGame-COFVTauG`, incluant l’alias Lua `Group.NewGroup`. Le document `dist/index.html` testé porte le SHA-256 `e7b9fa63bcc4e5356034d77feb1365abadae5bfb13ab401718a32a83b3a18e0e`. Le WASM testé porte le SHA-256 `0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026`. L’entrée JavaScript `index-CNuJ3sB1.js` porte le SHA-256 `2b8993d189f7339198663a1fd54b013b561747d19d90dde37cb9c060c5b9d56f`. Le moteur est celui mis à jour pour le choix de zone adverse d’Angelechy. Chromium utilise WebGL via SwiftShader pour ces captures.
+
+Le CSS final `index-Edane65D.css` porte le SHA-256 `557d05b0cb6a7c8a0a8e82e7309a1a63f83205bd4dc41fab99b468c4e9312d02`.
 
 | Étape réelle dans l’interface | Vérification |
 | --- | --- |
@@ -19,7 +21,7 @@ Le script utilise un Deck local légal de 40 cartes, enregistré dans un context
 
 Aucune erreur de page, aucun échec de requête native et aucune violation CSP n’ont été observés. Les cycles réutilisent exactement le même objet canvas. La preuve de mémoire porte sur ce maintien et l’absence de duplication des racines DOM après les changements de vue. Le rapport conserve aussi une estimation du heap JavaScript ; il ne mesure pas les allocations GPU et ne prétend pas exclure toute fuite mémoire.
 
-Les modèles et la géométrie existants sont conservés. Ce parcours confirme leur intégration au duel natif ; il n’ajoute pas de reconstruction 1:1. Les **339 scripts disponibles**, **339 initialisations vérifiées** et **20 scénarios sur 18 Terrains** restent des preuves distinctes, décrites dans [l’audit des règles](native-field-rules-2026-10-07.md).
+Les modèles et la géométrie existants sont conservés. Ce parcours confirme leur intégration au duel natif ; il n’ajoute pas de reconstruction 1:1. Les **339 scripts disponibles**, **339 initialisations vérifiées** et **47 scénarios sur 41 Terrains** restent des preuves distinctes, décrites dans [l’audit des règles](native-field-rules-2026-10-07.md).
 
 Captures desktop : [Mausolée et Blue-Eyes](artifacts/native-duel-views-2026-10-07/native-mausoleum-real-1280.png), [Terrain posé](artifacts/native-duel-views-2026-10-07/native-zombie-world-set-real-1280.png), [activation en attente](artifacts/native-duel-views-2026-10-07/native-zombie-world-pending-real-1280.png), [Zombie World résolu](artifacts/native-duel-views-2026-10-07/native-zombie-world-real-1280.png).
 

@@ -264,6 +264,26 @@ test('proper Special Summon types require native material reasons, while revival
   assert.equal(summon(token, blueEyes, loc(), M.SPSUMMONING).summonType, 'special');
 });
 
+test('public Xyz material reasons survive an Extra overlay move even when individual overlay queries are unavailable', () => {
+  const utopia = 84013237;
+  const ctx = context({ queryCard: () => ({}), getCardMetadata: code => ({ ...metadata(code),
+    type: code === utopia ? 'Xyz Effect Monster' : 'Normal Monster',
+    extra_type: code === utopia ? 'xyz' : null }) });
+  for (const [index, code] of [97590747,76812113].entries()) translate({ type:M.MOVE,card:code,reason:0x200008,
+    from:loc(0,L.MZONE,index),to:{...loc(0,L.EXTRA,0),overlay_sequence:index} },ctx);
+  const proper = summon(ctx,utopia,loc(),M.SPSUMMONING);
+  assert.equal(proper.summonType,'xyz');
+  assert.equal(createPublicCombatVisual(proper,{}).profile,'xyz-summon');
+  assert.equal(summon(ctx,utopia,loc(0,L.MZONE,2),M.SPSUMMONING).summonType,'special');
+
+  const privateContext = context({ queryCard:()=>{throw Error('private material query');} });
+  const hiddenMove = {type:M.MOVE,reason:0x200008,from:loc(1,L.HAND,0,P.FACEDOWN_DEFENSE),
+    to:{...loc(1,L.MZONE,0,0),overlay_sequence:0}};
+  Object.defineProperty(hiddenMove,'card',{get(){throw Error('private material identity');}});
+  assert.doesNotThrow(()=>translate(hiddenMove,privateContext));
+  assert.equal(privateContext.materialKinds.size,0);
+});
+
 test('public success identifiers preserve repeat summons and private Set actions for the campaign tracker', () => {
   const ctx = context();
   const tracker = createCampaignDuelTracker('native-repeated-actions');

@@ -20,6 +20,7 @@ export function nativeFieldCoverageSnapshot(report) {
     .map(row => [String(row.canonicalCode), row.scriptPath]));
   return { generatedOn: report.generatedOn, corePackage: report.corePackage,
     corePackageVersion: report.corePackageVersion, nativeApi: report.nativeApi,
+    coreRevision: report.coreRevision, coreWasmSha256: report.coreWasmSha256,
     scriptsCommit: report.resources.sources.scripts.commit,
     databaseCommit: report.resources.sources.database.commit,
     evidencePath: 'docs/audits/artifacts/native-field-runtime-2026-10-07.json', summary,

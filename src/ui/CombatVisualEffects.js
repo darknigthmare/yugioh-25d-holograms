@@ -14,7 +14,8 @@ export function createCombatVisualEffect(options = {}) {
   group.userData.profile = profile.id;
   const material = new THREE.MeshBasicMaterial({
     color: profile.color, transparent: true, opacity: 0.8, depthWrite: false,
-    blending: THREE.AdditiveBlending, side: THREE.DoubleSide, toneMapped: false
+    blending: THREE.AdditiveBlending, side: THREE.DoubleSide, toneMapped: false,
+    forceSinglePass: true
   });
   const brightMaterial = material.clone();
   brightMaterial.color.set(profile.secondary);
@@ -124,6 +125,84 @@ export function createCombatVisualEffect(options = {}) {
       seal.rotation.y = i * Math.PI / 3;
     }
     animated.push(progress => { shield.scale.setScalar(1.1 + Math.sin(progress * Math.PI) * 0.15); });
+  } else if (profile.shape === 'fusion') {
+    for (let strand = 0; strand < 2; strand += 1) {
+      const energy = mesh(`fusion-converging-energy-${strand}`, new THREE.IcosahedronGeometry(.24, 1), strand ? brightMaterial : material);
+      for (let trail = 0; trail < 4; trail += 1) {
+        const echo = circle(`fusion-helix-${strand}-${trail}`, .19, travel, false, strand ? brightMaterial : dimMaterial);
+        animated.push(progress => {
+          const t = Math.max(0, progress - trail * .035), radius = 1.5 * (1 - t);
+          const angle = t * Math.PI * 5 + strand * Math.PI;
+          echo.position.copy(travel).add(new THREE.Vector3(Math.cos(angle) * radius, .3 + t * 1.5, Math.sin(angle) * radius));
+          echo.scale.setScalar(.3 + (1 - t) * .8);
+          if (trail === 0) energy.position.copy(echo.position);
+        });
+      }
+    }
+    const seal = circle('fusion-convergence-seal', 1.1, travel, true, material);
+    animated.push(progress => { seal.rotation.z = progress * Math.PI * 2; seal.scale.setScalar(.4 + Math.sin(progress * Math.PI)); });
+  } else if (profile.shape === 'synchro') {
+    for (let i = 0; i < 5; i += 1) {
+      const tuner = circle(`synchro-tuner-ring-${i}`, .45 + i * .13, travel, true, i % 2 ? brightMaterial : material);
+      animated.push(progress => {
+        tuner.position.y = travel.y + .15 + i * .38 + Math.sin(progress * Math.PI) * .8;
+        tuner.scale.setScalar(.2 + Math.sin(progress * Math.PI) * 1.5);
+      });
+    }
+    const flash = mesh('synchro-white-convergence', new THREE.IcosahedronGeometry(.5, 1), brightMaterial);
+    flash.position.copy(travel).add(new THREE.Vector3(0, 1.2, 0));
+    animated.push(progress => { flash.visible = progress > .42; flash.scale.setScalar(Math.sin(progress * Math.PI) * .9); });
+  } else if (profile.shape === 'xyz') {
+    const voidMaterial = material.clone();
+    voidMaterial.color.set('#10101c'); voidMaterial.blending = THREE.NormalBlending;
+    const core = mesh('xyz-dark-convergence', new THREE.SphereGeometry(.6, 16, 10), voidMaterial);
+    core.position.copy(travel).add(new THREE.Vector3(0, .9, 0));
+    for (let i = 0; i < 3; i += 1) {
+      const orbit = circle(`xyz-golden-orbit-${i}`, .9 + i * .16, core.position, false, material);
+      animated.push(progress => { orbit.rotation.set(.5 + i * .7, progress * Math.PI * 2, i * 1.1); orbit.scale.setScalar(.5 + Math.sin(progress * Math.PI)); });
+    }
+    animated.push(progress => { core.scale.setScalar(.2 + Math.sin(progress * Math.PI)); voidMaterial.opacity = Math.sin(progress * Math.PI) * .75; });
+  } else if (profile.shape === 'link') {
+    for (let i = 0; i < 4; i += 1) {
+      const gate = mesh(`link-hexagonal-gate-${i}`, new THREE.TorusGeometry(.9, .025, 4, 6), i % 2 ? brightMaterial : material);
+      gate.position.copy(travel);
+      gate.rotation.x = Math.PI / 2;
+      animated.push(progress => { gate.position.y = travel.y + .1 + i * .5 + progress * .8; gate.scale.setScalar(.2 + Math.sin(progress * Math.PI) * (1.05 - i * .1)); });
+    }
+    for (let i = 0; i < 6; i += 1) {
+      const node = mesh(`link-network-node-${i}`, new THREE.BoxGeometry(.12, .12, .12), material);
+      const a = i * Math.PI / 3;
+      animated.push(progress => { node.position.copy(travel).add(new THREE.Vector3(Math.cos(a) * .95, .2 + progress * 1.7, Math.sin(a) * .95)); node.rotation.y = progress * Math.PI; });
+    }
+  } else if (profile.shape === 'ritual') {
+    for (let i = 0; i < 3; i += 1) {
+      const seal = circle(`ritual-consecration-ring-${i}`, .6 + i * .25, travel, true, i % 2 ? brightMaterial : material);
+      animated.push(progress => { seal.rotation.z = (i % 2 ? -1 : 1) * progress * Math.PI; seal.scale.setScalar(.3 + Math.sin(progress * Math.PI)); });
+    }
+    for (let i = 0; i < 6; i += 1) {
+      const light = mesh(`ritual-rising-light-${i}`, new THREE.CylinderGeometry(.035, .035, 2, 6), brightMaterial);
+      const a = i * Math.PI / 3;
+      light.position.copy(travel).add(new THREE.Vector3(Math.cos(a) * .85, 1, Math.sin(a) * .85));
+      animated.push(progress => { light.scale.y = Math.sin(progress * Math.PI); light.position.y = travel.y + .2 + progress * 1.4; });
+    }
+  } else if (profile.shape === 'pendulum') {
+    for (let side = 0; side < 2; side += 1) {
+      const sign = side ? 1 : -1;
+      const pendulum = mesh(`pendulum-swinging-energy-${side}`, new THREE.OctahedronGeometry(.19), side ? brightMaterial : material);
+      animated.push(progress => {
+        pendulum.position.copy(travel).add(new THREE.Vector3(sign * Math.cos(progress * Math.PI) * (1 - progress) * 1.3, .8 + Math.sin(progress * Math.PI) * 1.2, Math.sin(progress * Math.PI * 2) * .25));
+        pendulum.rotation.z = sign * Math.cos(progress * Math.PI) * .6;
+      });
+      for (let trail = 0; trail < 3; trail += 1) {
+        const echo = circle(`pendulum-swing-trail-${side}-${trail}`, .18 + trail * .05, travel, false, dimMaterial);
+        animated.push(progress => { echo.position.copy(pendulum.position); echo.position.x += sign * trail * .12 * (1 - progress); echo.scale.setScalar(.3 + Math.sin(progress * Math.PI)); });
+      }
+    }
+  } else if (profile.shape === 'flip') {
+    const reveal = mesh('flip-public-reveal-panel', new THREE.BoxGeometry(.7, 1.05, .025), brightMaterial);
+    reveal.position.copy(travel).add(new THREE.Vector3(0, .55, 0));
+    // The blank light panel carries no hidden card art or identity.
+    animated.push(progress => { reveal.rotation.y = Math.PI * (1 - progress); reveal.scale.setScalar(.55 + Math.sin(progress * Math.PI) * .3); });
   } else if (profile.shape === 'rune' || profile.shape === 'summon') {
     const center = travel;
     for (let i = 0; i < 3; i += 1) {

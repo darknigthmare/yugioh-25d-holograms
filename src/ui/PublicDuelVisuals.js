@@ -1,4 +1,9 @@
 const SIDES = ['player', 'opponent'];
+const SUMMON_VISUAL_PROFILES = Object.freeze({
+  fusion: 'fusion-summon', synchro: 'synchro-summon', xyz: 'xyz-summon',
+  link: 'link-summon', ritual: 'ritual-summon', pendulum: 'pendulum-summon',
+  flip: 'flip-summon', special: 'special-summon', normal: 'summon', tribute: 'summon'
+});
 const FIELD_RULE_VISUALS = Object.freeze({
   'sanctuary-protection-cinematic': Object.freeze({ profile: 'sanctuary-protection', kind: 'shield', poseKind: 'casting' }),
   'skyscraper-boost-cinematic': Object.freeze({ profile: 'skyscraper-boost', kind: 'activate', poseKind: 'attack' }),
@@ -101,6 +106,14 @@ export function createPublicCombatVisual(event, game, positionResolver = () => u
     source = zoneRef(owner, event.zoneType, event.zoneIndex);
     kind = type === 'destroy' ? 'destroy' : 'summon';
     card = publicCard(event.card);
+    if (kind === 'summon') {
+      // A revived Fusion is an ordinary Special Summon. Printed card type
+      // alone cannot identify the procedure that actually succeeded.
+      if (event.nativeSummonConfirmed === true) {
+        profile = SUMMON_VISUAL_PROFILES[event.summonType] || 'summon';
+      } else if (type === 'reborn-cinematic') profile = 'revival';
+      else if (type === 'flip-summon') profile = 'flip-summon';
+    }
   } else if (type === 'chain-negated' || type === 'attack-negated') {
     owner = type === 'attack-negated' ? event.attackerSide : event.target;
     source = zoneRef(owner, type === 'attack-negated' ? event.atkZoneType : event.zoneType,

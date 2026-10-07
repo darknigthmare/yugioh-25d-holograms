@@ -480,6 +480,14 @@ export class NativeDuelGame {
     }
     return this._cardsByRef?.get(slotKey(reference)) || null;
   }
+
+  _isPublicCard(reference) {
+    const { OcgLocation: L, OcgPosition: P } = this.runtime.constants;
+    if (!reference || reference.code === 0 || ![L.MZONE, L.SZONE, L.EXTRA, L.REMOVED].includes(reference.location)) return false;
+    const card = this._resolveCard(reference);
+    return Boolean(card && (card.nativePosition & (P.FACEUP_ATTACK | P.FACEUP_DEFENSE))
+      && !(card.nativePosition & (P.FACEDOWN_ATTACK | P.FACEDOWN_DEFENSE)));
+  }
   _matchesCard(reference, card) {
     return Boolean(card?.nativeRef && slotKey(reference) === slotKey(card.nativeRef));
   }
@@ -609,6 +617,7 @@ export class NativeDuelGame {
       const response = preferred || (command ? this._chooseAICommand(batch.prompt) : await resolveNativeDuelPrompt({
         prompt: batch.prompt, runtime, side, metadata: this.resources.metadata,
         resolveCard: reference => this._resolveCard(reference),
+        isPublicCard: reference => this._isPublicCard(reference),
         sideForPlayer: player => this.sideForPlayer(player),
         onDecision: request => this.callbacks.onDecision({ ...request, rulesMode: this.rulesMode,
           turn: this.currentTurn, phase: this.currentPhase }),
@@ -654,7 +663,8 @@ export class NativeDuelGame {
       constants: this.runtime.constants, metadata: this.resources.metadata,
       cardReader: this.runtime.options?.cardReader,
       isCardDeclarable: this.runtime.isCardDeclarable?.bind(this.runtime),
-      resolveCard: reference => this._resolveCard(reference)
+      resolveCard: reference => this._resolveCard(reference),
+      isPublicCard: reference => this._isPublicCard(reference)
     });
   }
 

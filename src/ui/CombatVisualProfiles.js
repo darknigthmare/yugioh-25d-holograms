@@ -137,10 +137,14 @@ export function resolveCombatVisualProfile({ kind = 'attack', card = {}, profile
     typhoon: { color: '#8bdfda', secondary: '#eaffff', duration: 1000, shape: 'vortex' },
     moon: { color: '#96a9f0', secondary: '#d3dfff', duration: 950, shape: 'moon' },
     summon: { color: '#7addff', secondary: '#ffffff', duration: 1000, shape: 'summon' },
-    'fusion-summon': { color: '#b88dff', secondary: '#ffc780', duration: 1150, shape: 'summon' },
-    'synchro-summon': { color: '#a2ffcf', secondary: '#ffffff', duration: 1050, shape: 'summon' },
-    'xyz-summon': { color: '#ffdb81', secondary: '#24254f', duration: 1100, shape: 'summon' },
-    'link-summon': { color: '#72cbff', secondary: '#ff917e', duration: 1000, shape: 'summon' },
+    'special-summon': { color: '#83e7df', secondary: '#ffffff', duration: 950, shape: 'summon' },
+    'fusion-summon': { color: '#b88dff', secondary: '#ffc780', duration: 1150, shape: 'fusion' },
+    'synchro-summon': { color: '#a2ffcf', secondary: '#ffffff', duration: 1050, shape: 'synchro' },
+    'xyz-summon': { color: '#ffdb81', secondary: '#24254f', duration: 1100, shape: 'xyz' },
+    'link-summon': { color: '#72cbff', secondary: '#ff917e', duration: 1000, shape: 'link' },
+    'ritual-summon': { color: '#77d9ff', secondary: '#ffe9ac', duration: 1150, shape: 'ritual' },
+    'pendulum-summon': { color: '#77eaff', secondary: '#f89bef', duration: 1100, shape: 'pendulum' },
+    'flip-summon': { color: '#ffe6a2', secondary: '#ffffff', duration: 850, shape: 'flip' },
     shatter: { color: '#94e2ff', secondary: '#ffffff', duration: 700, shape: 'shatter' }
   };
   const selected = Object.hasOwn(profiles, id) ? id : 'impact';

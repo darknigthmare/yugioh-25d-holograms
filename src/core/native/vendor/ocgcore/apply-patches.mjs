@@ -14,6 +14,9 @@ export const WRAPPER_PATCHES = Object.freeze([
   ['Sum selection reads mandatory cards first and consumes full card locations',
     'case 23:return{type:t,player:e.u8(),select_max:e.u8(),amount:e.u32(),min:e.u32(),max:e.u32(),selects:Array.from({length:e.u32()},()=>({code:e.u32(),controller:e.u8(),location:e.u8(),sequence:e.u32(),amount:e.u32()})),selects_must:Array.from({length:e.u32()},()=>({code:e.u32(),controller:e.u8(),location:e.u8(),sequence:e.u32(),amount:e.u32()}))};',
     'case 23:return{type:t,player:e.u8(),select_max:e.u8(),amount:e.u32(),min:e.u32(),max:e.u32(),selects_must:Array.from({length:e.u32()},()=>({code:e.u32(),...p(e),amount:e.u32()})),selects:Array.from({length:e.u32()},()=>({code:e.u32(),...p(e),amount:e.u32()}))};'],
+  ['Move preserves its native uint32 reason flags',
+    'case 50:return{type:t,card:e.u32(),from:p(e),to:p(e)};',
+    'case 50:return{type:t,card:e.u32(),from:p(e),to:p(e),reason:e.u32()};'],
   ['Query TYPE payload is consumed',
     'else if(s===u.LEVEL&&o===4)t.level=e.u32();',
     'else if(s===u.TYPE&&o===4)t.type=e.u32();else if(s===u.LEVEL&&o===4)t.level=e.u32();'],
@@ -47,7 +50,27 @@ export function patchPublishedWrapper(source) {
   source = source.replace('//# sourceMappingURL=index.js.map', '');
   return '/* ocgcore-wasm 0.1.2, MIT wrapper; pinned local ABI/protocol patches. See NOTICE.md. */\n'
     + source.trimEnd() + '\n'
-    + 'export { ce as encodeNativeResponse, Q as readNativeQuery, F as NativeBufferReader };\n';
+    + 'export { ce as encodeNativeResponse, Q as readNativeQuery, te as readNativeMessage, F as NativeBufferReader };\n';
+}
+
+export function patchPublishedDeclarations(source) {
+  const newline = source.includes('\r\n') ? '\r\n' : '\n';
+  const before = [
+    'export declare interface OcgMessageMove {',
+    '    type: OcgMessageType.MOVE;',
+    '    card: number;',
+    '    from: OcgLocPos;',
+    '    to: OcgLocPos;',
+    '}'
+  ].join(newline);
+  const after = before.replace('    to: OcgLocPos;',
+    '    to: OcgLocPos;' + newline + '    /** Native uint32 reason flags, preserved from MSG_MOVE. */'
+    + newline + '    reason: number;');
+  const occurrences = source.split(before).length - 1;
+  if (occurrences !== 1) throw new Error(`Move reason declaration: expected exactly one match, found ${occurrences}`);
+  // Git stores this generated declaration file as text; keep regeneration
+  // byte-identical after checkout as well as in the current workspace.
+  return source.replace(before, after).replace(/\r\n/g, '\n');
 }
 
 export async function generateVendor(packageDirectory, outputDirectory = dirname(fileURLToPath(import.meta.url)), builtSyncLoader = null) {
@@ -69,7 +92,8 @@ export async function generateVendor(packageDirectory, outputDirectory = dirname
       await writeFile(resolve(outputDirectory, name), contents.split('\n').filter(line => !line.startsWith('//# sourceMappingURL=')).join('\n').trimEnd() + '\n');
     }
   }
-  await copyFile(resolve(packageDirectory, 'dist/index.d.ts'), resolve(outputDirectory, 'index.d.ts'));
+  const declarations = await readFile(resolve(packageDirectory, 'dist/index.d.ts'), 'utf8');
+  await writeFile(resolve(outputDirectory, 'index.d.ts'), patchPublishedDeclarations(declarations));
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

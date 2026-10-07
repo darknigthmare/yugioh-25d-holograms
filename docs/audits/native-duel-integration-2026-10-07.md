@@ -1,13 +1,16 @@
 # Intégration du moteur natif et des visuels publics — 7 octobre 2026
 
-Les **339 Magies de Terrain du catalogue disposent de leurs données et scripts natifs, et les 339 initialisations ont été vérifiées**. Le moteur WASM exécute les véritables scripts Lua de Project Ignis ; la façade JavaScript projette les zones, statistiques et décisions. Les **29 effets de Terrain précédemment écrits en JavaScript restent comptés séparément**. **20 scénarios natifs passent sur 18 Terrains distincts** ; ces essais ne certifient pas toutes les branches des 339 scripts.
+Les **339 Magies de Terrain du catalogue disposent de leurs données et scripts natifs, et les 339 initialisations ont été vérifiées**. Le moteur WASM exécute les véritables scripts Lua de Project Ignis ; la façade JavaScript projette les zones, statistiques et décisions. Les **29 effets de Terrain précédemment écrits en JavaScript restent comptés séparément**. **47 scénarios natifs passent sur 41 Terrains distincts** ; ces essais ne certifient pas toutes les branches des 339 scripts.
 
 | Preuve | Résultat | Source |
 | --- | ---: | --- |
 | Données CDB et scripts Lua locaux | 339 / 339 Terrains | [Manifeste des ressources](../../public/native/manifest.json), [audit des ressources](native-card-resources-2026-10-07.md) |
 | Initialisation native sans erreur Lua | 339 / 339 | [Matrice native complète](artifacts/native-field-runtime-2026-10-07.json) |
-| Terrains exercés par des scénarios de règles | 18 / 339 | [20 scénarios et limites de preuve](native-field-rules-2026-10-07.md) |
-| Projection des messages vers les animations et objectifs | 18 tests de protocole, 1 vrai duel WASM | [Tests publics](../../test/native-duel-visual-events.test.js), [test avec le moteur](../../test/native-duel-visual-events-runtime.test.js) |
+| Terrains exercés par des scénarios de règles | 41 / 339 | [47 scénarios et limites de preuve](native-field-rules-2026-10-07.md) |
+| Projection des messages vers les animations et objectifs | 19 tests de protocole, 1 vrai duel WASM | [Tests publics](../../test/native-duel-visual-events.test.js), [test avec le moteur](../../test/native-duel-visual-events-runtime.test.js) |
+| Procédures d’Invocation et restrictions MR5 | 20 cas avec le core réel | [Suite de procédures](../../tests/native-duel-summoning.test.mjs) |
+| Fenêtres de décision, sommes, compteurs et Damage Step | 15 scénarios officiels et un garde de confidentialité | [Audit des fenêtres](native-rule-windows-2026-10-07.md) |
+| Invocation Pendule Main + Extra face recto dans l’interface | Desktop et mobile, choix des matériaux et zones natifs | [Audit Pendule](native-pendulum-ui-2026-10-07.md) |
 | Clics et rendu du navigateur | Desktop 1280 × 900 et mobile 390 × 844, avec CSP de production | [Rapport UI et captures](native-duel-ui-2026-10-07.md). La matrice Node conserve sa preuve distincte `integrationTested: false` par Terrain. |
 
 ## Autorité des règles et données affichées
@@ -30,13 +33,17 @@ Le vrai duel du test charge le WASM, CDB et Lua livrés sans modifier les effets
 
 Les événements d’invocation réussie reçoivent un identifiant public opaque et un numéro de tour, distincts des instances internes et des cartes cachées. [CampaignDuelTracker.js](../../src/content/CampaignDuelTracker.js) peut ainsi compter deux invocations légales différentes, une pose native anonyme et les dégâts réellement reçus ; les coûts en LP sont exclus des dégâts. Les types Fusion, Synchro, Xyz, Lien et Rituel exigent les flags natifs `REASON_MATERIAL` et le sous-type des matériaux récents, associés à une carte de type correspondant. Le type imprimé seul n’est jamais suffisant : une Fusion réanimée reste une invocation spéciale ordinaire. Le test rejoue les messages et requêtes authentiques des trois Fusions de Fusion Gate et vérifie ce compteur. La procédure Pendule provient de la commande native proposée et déclarée dans la façade, puis n’est comptée qu’après `SPSUMMONED`.
 
+La correction du wrapper conserve désormais le dernier entier non signé `reason` des messages `MOVE`. Un matériau Xyz déplacé en superposition ne possède pas de position face recto dans la destination ; la projection récupère sa raison authentique depuis sa source déjà publique. La suite [native-move-protocol.test.js](../../tests/native-move-protocol.test.js) vérifie la consommation exacte du paquet, le flag `0x200008` et la provenance amont. La véritable procédure Utopia de la suite d’Invocations produit ainsi `xyz`, puis l’animation Xyz, tandis que Monster Reborn conserve `special` pour une Fusion correctement réanimée.
+
+Les sept animations de procédure sont rendues à deux instants dans la [planche des effets](artifacts/native-summon-effects-2026-10-07/summon-procedures.jpg). Le [rapport](artifacts/native-summon-effects-2026-10-07/report.json) relève au maximum 14 appels de rendu et zéro géométrie ou texture restante après chaque destruction. Cette preuve de présentation isolée reste distincte des vrais scénarios de procédure.
+
 ## Atlas et géométrie
 
 [FieldSpellCoverage.js](../../src/ui/FieldSpellCoverage.js) conserve `gameplayImplemented` et `implementedRules` pour les **29 effets JavaScript historiques**, puis expose séparément présence du script natif, initialisation, disponibilité du moteur, scénarios d’effets et preuves navigateur. Le [snapshot compact](../../src/ui/NativeFieldCoverageSnapshot.js) provient des lignes individuelles de la matrice ; il ne transporte pas les Decks de tests dans l’interface. Le générateur refuse un résumé incohérent avec ses lignes.
 
-L’atlas affiche **339 effets disponibles via le moteur natif** et **18 Terrains vérifiés en scénarios**. Le détail distingue une initialisation vérifiée d’un effet effectivement exercé. Les dates et formats de publication restent indépendants de cette disponibilité technique : la prépublication d’Angelechy Endgame Problem reste explicitement annoncée. Les illustrations conservent les passcodes canoniques, y compris lorsque le script natif utilise encore un code amont provisoire.
+L’atlas affiche **339 effets disponibles via le moteur natif** et **41 Terrains vérifiés en scénarios**. Le détail distingue une initialisation vérifiée d’un effet effectivement exercé. Les dates et formats de publication restent indépendants de cette disponibilité technique : la prépublication d’Angelechy Endgame Problem reste explicitement annoncée. Les illustrations conservent les passcodes canoniques, y compris lorsque le script natif utilise encore un code amont provisoire.
 
-Les chiffres de géométrie sont inchangés : **89 décors dédiés**, **50 illustrations étudiées**, **26 reconstructions de volumes depuis leurs sources**. L’intégration des règles n’est pas une reconstruction 3D supplémentaire et ne revendique aucun nouveau modèle 1:1. Les volumes adaptés au plateau restent distincts des illustrations originales conservées. Les activations, destructions et annulations des 339 Terrains utilisent des profils génériques basés sur leur palette source ; les profils spécialisés des effets déjà connus restent explicites et ne sont pas déclenchés par une estimation de bonus.
+La géométrie après les trois lots supplémentaires compte : **119 décors dédiés**, **94 illustrations étudiées**, **70 reconstructions de volumes depuis leurs sources**. Les 44 nouvelles reconstructions périphériques sont documentées séparément ; elles ne revendiquent pas une reproduction spatiale intégrale 1:1. Les volumes adaptés au plateau restent distincts des illustrations originales conservées. Les activations, destructions et annulations des 339 Terrains utilisent des profils génériques basés sur leur palette source ; les profils spécialisés des effets déjà connus restent explicites et ne sont pas déclenchés par une estimation de bonus.
 
 ## Sources et reproduction
 
@@ -52,13 +59,13 @@ node --test --test-isolation=none \
   test/field-atlas-coverage.test.js
 ```
 
-La commande ciblée ci-dessus passe avec **26 assertions de tests**, aucune ignorée. Les tests de l’atlas contrôlent les comptes distincts, les sources Lua exactes, les quatre correspondances de codes et le maintien des trois niveaux de géométrie. Les tests existants de suivi de campagne, combat public, confidentialité de scène et profils de monstres passent également.
+Ces fichiers font partie du [gate final de 107 fichiers réussis](native-continuation-2026-10-07.md). Les tests de l’atlas contrôlent les comptes distincts, les sources Lua exactes, les quatre correspondances de codes et le maintien des trois niveaux de géométrie. Les tests existants de suivi de campagne, combat public, confidentialité de scène et profils de monstres passent également.
 
 ## Preuves navigateur
 
 Le [parcours du build compilé](native-duel-ui-2026-10-07.md) utilise les contrôles réels avec les headers de production, sur desktop et mobile. Il vérifie les 339 Terrains dans la bibliothèque, la recherche de partenaires dans les 14 355 identités natives, le remplacement d’une carte du Deck et sa conservation exacte après rechargement. Invocation Normale, pose de Magie, Extra Deck, fin de tour, actions de l’IA et pioche suivante traversent le moteur natif. Le DOM adverse reste anonyme ; aucun échec d’asset natif, erreur de page ni violation CSP n’a été observé.
 
-Une preuve indépendante vérifie Necrovalley et les statistiques natives de Gravekeeper’s Spy sous la CSP exacte : [artefact CSP](artifacts/native-csp-2026-10-07.json). Les preuves navigateur restent séparées des 339 initialisations et des 20 scénarios. Elles ne certifient pas toutes les branches des scripts ni tous les parcours des 14 355 cartes.
+Une preuve indépendante vérifie Necrovalley et les statistiques natives de Gravekeeper’s Spy sous la CSP exacte : [artefact CSP](artifacts/native-csp-2026-10-07.json). Les preuves navigateur restent séparées des 339 initialisations et des 47 scénarios. Elles ne certifient pas toutes les branches des scripts ni tous les parcours des 14 355 cartes.
 
 L’[audit des trois vues](native-duel-views-2026-10-07.md) ajoute 22 états publics sur desktop et mobile : Mausolée paie réellement 2000 LP pour invoquer Blue-Eyes, puis Monde Zombie est posé et activé via son contrôle en vue réelle. La source du décor reste inactive pendant la pose et la réponse à la chaîne, puis s’applique après résolution. Les changements de vue conservent le même monstre à 3000 ATK / 2500 DEF, la main et les LP, avec une seule scène WebGL et un seul canvas.
 

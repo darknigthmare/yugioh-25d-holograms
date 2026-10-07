@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { auditNativeFieldRuntime } from '../scripts/audit-native-field-runtime.mjs';
+import { nativeFieldCoverageSnapshot } from '../scripts/generate-native-field-coverage.mjs';
 
 // Missing packaged data, Lua, or WASM is a failure. This suite must never silently
 // pass by skipping the exact resources used by the native browser route.
@@ -43,20 +44,32 @@ for (const scenario of report.scenarios) {
     assert.ok(scenario.messages.length > 0);
     assert.ok(scenario.decisions.length > 0);
     assert.ok(scenario.queries.length > 0);
+    assert.ok(scenario.fixtureCards.length > 0);
+    for (const card of scenario.fixtureCards.filter(card => card.scriptPath)) {
+      assert.match(card.scriptSha256, /^[a-f0-9]{64}$/, `Original Lua provenance: ${card.name}`);
+    }
     assert.ok(scenario.messages.some(message => message.type === 73), 'native CHAIN_SOLVED required');
     assert.ok(scenario.messages.some(message => message.type === 74), 'native CHAIN_END required');
   });
 }
 
 test('coverage distinguishes bundled, initialized, effect-tested and browser integration', () => {
-  assert.equal(report.summary.effectTested, 18);
-  assert.equal(report.summary.scenarios, 20);
+  assert.equal(report.summary.effectTested, 41);
+  assert.equal(report.summary.scenarios, 47);
   assert.equal(report.summary.passedScenarios, report.summary.scenarios);
   assert.equal(report.summary.integrationTested, 0);
   assert.ok(report.matrix.some(entry => entry.initialized && !entry.effectTested));
   for (const entry of report.matrix) {
     assert.equal(entry.integrationTested, false, 'headless execution cannot claim browser verification');
   }
+});
+
+test('compact UI coverage preserves the exact tested core and individual Field Spell evidence', () => {
+  const snapshot = nativeFieldCoverageSnapshot(report);
+  assert.equal(snapshot.coreRevision, report.coreBuild.coreRevision);
+  assert.equal(snapshot.coreWasmSha256, report.coreBuild.wasmSha256);
+  assert.deepEqual(snapshot.effectTestedCardIds, report.matrix.filter(row => row.effectTested).map(row => String(row.canonicalCode)));
+  assert.deepEqual(snapshot.summary, report.summary);
 });
 
 test('current native core implements the Angelechy opponent Special Summon zone decision', () => {

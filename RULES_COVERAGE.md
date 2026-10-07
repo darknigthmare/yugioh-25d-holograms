@@ -1,6 +1,6 @@
 # Couverture des règles — 7 octobre 2026
 
-Les Duels **TCG Advanced strict** et **Duel libre** utilisent le moteur natif EDOPro/WASM et les scripts Lua de Project Ignis. Les **339 Magies de Terrain sont intégrées**, avec données et scripts locaux ; leurs **339 initialisations** passent sans erreur Lua. **20 scénarios exécutent des effets sur 18 Terrains**. Une initialisation prouve l’enregistrement des effets, pas toutes les branches du script ; ce document ne certifie pas le TCG complet.
+Les Duels **TCG Advanced strict** et **Duel libre** utilisent le moteur natif EDOPro/WASM et les scripts Lua de Project Ignis. Les **339 Magies de Terrain sont intégrées**, avec données et scripts locaux ; leurs **339 initialisations** passent sans erreur Lua. **47 scénarios exécutent des effets sur 41 Terrains**. Une initialisation prouve l’enregistrement des effets, pas toutes les branches du script ; ce document ne certifie pas le TCG complet.
 
 ## Autorité et modes
 
@@ -20,15 +20,17 @@ MR5 et les flags `TCG_SEGOC_NONPUBLIC | TCG_SEGOC_FIRSTTRIGGER` sont expliciteme
 | --- | --- | --- |
 | Données et Lua locaux | **339 / 339 Terrains** | CDB, chemins sources, commits, SHA-256 et dépendances archivés. |
 | Initialisation native | **339 / 339** | `initial_effect`, enregistrement, requête et démarrage de 339 handles distincts, sans diagnostic Lua. |
-| Scénarios de règles | **20 scénarios / 18 Terrains** | Effets réellement exécutés, messages, réponses et requêtes natives assertés. |
+| Scénarios de règles | **47 scénarios / 41 Terrains** | Effets réellement exécutés, messages, réponses et requêtes natives assertés. |
+| Procédures d’Invocation | **20 cas natifs** | Fusion, Rituel, Synchro, Xyz, Lien, Pendule et Flip, matériaux, restrictions, annulations et zones MR5. |
+| Fenêtres de décision | **15 scénarios officiels + 1 garde de confidentialité** | Déclarations, sommes, compteurs, ordre du Deck, chaînes obligatoires et Damage Step. |
 | Navigateur compilé | **Desktop 1280 × 900 et mobile 390 × 844** | Bibliothèque 390/339, lancement natif, Invocation Normale, pose de Magie, Extra Deck, IA/pioche suivante et confidentialité ; zéro erreur JS, asset natif en échec ou violation CSP. |
-| Géométrie et source visuelle | **339 illustrations exactes, 89 décors dédiés, 50 références inspectées** | La géométrie ne constitue aucune preuve de règles ; les 26 reconstructions du second lot restent inchangées. |
+| Géométrie et source visuelle | **339 illustrations exactes, 119 décors dédiés, 94 références inspectées, 70 reconstructions** | Trois nouveaux lots reconstruisent 44 décors depuis les sources. La géométrie reste distincte de la preuve des règles et d’une reproduction spatiale intégrale 1:1. |
 
 La [matrice native](docs/audits/artifacts/native-field-runtime-2026-10-07.json) garde `bundled`, `initialized`, `effectTested` et `integrationTested` distincts. Les 339 lignes de l’audit Node ne reçoivent pas artificiellement une preuve navigateur générale. Le [rapport navigateur](docs/audits/artifacts/native-duel-ui-2026-10-07/report.json) couvre son parcours public précis. L’atlas affiche séparément disponibilité du moteur, initialisation et scénario exercé, tout en conservant les 29 effets JavaScript historiques.
 
 ## Effets exercés dans le moteur natif
 
-Les [20 scénarios et leur protocole complet](docs/audits/native-field-rules-2026-10-07.md) couvrent :
+Les [47 scénarios et leur protocole complet](docs/audits/native-field-rules-2026-10-07.md) couvrent :
 
 - **Zombie World, Necrovalley, Molten Destruction, Gaia Power, Wetlands et A Legendary Ocean** : changements de Type/Niveau et statistiques, plancher de DEF, alias Umi et Monster Reborn légalement activé puis annulé à la résolution par Necrovalley.
 - **Dragon Ravine et Gateway to Chaos** : défausse en coût distincte de l’envoi par effet, choix du mode, recherche du véritable monstre Rituel et ajout depuis le Deck.
@@ -36,6 +38,9 @@ Les [20 scénarios et leur protocole complet](docs/audits/native-field-rules-202
 - **Summon Breaker et Venom Swamp** : troisième Invocation déclenchant le passage en End Phase ; trigger d’End Phase, compteur et perte d’ATK vérifiés par requête.
 - **Mausoleum of the Emperor, Harpies’ Hunting Ground et Geartown** : paiement natif de LP pour une Invocation sans Sacrifice, cible/destruction obligatoire après Invocation et effet déclenché depuis le Cimetière après Typhon.
 - **Magical Citadel of Endymion et Black Garden** : compteur créé par résolution puis consommé dans un choix de remplacement de destruction ; ATK divisée par deux et véritable Rose Token adverse créé par le script.
+- **Union Hangar, Lost World, Pacifis, Dragonic Diagram, Revolving Switchyard, Runick Fountain et Sky Striker Airspace – Area Zero** : équipement et restrictions, remplacement de destruction, jeton et verrou de type, recherche conditionnée à une véritable destruction, limite partagée, recyclage/pioche et effet depuis le Cimetière. Les partenaires réellement utilisés et leurs scripts sont archivés avec les scénarios.
+
+Les [fenêtres natives](docs/audits/native-rule-windows-2026-10-07.md) vérifient notamment Honest dans la Damage Step, Book of Moon exclu de cette réponse, l’ordre de Sangan/Witch obligatoires, les choix de Type/Attribut et les sommes des coûts. La [suite d’Invocations](tests/native-duel-summoning.test.mjs) distingue les vraies procédures de leurs réanimations. Le [parcours Pendule du navigateur](docs/audits/native-pendulum-ui-2026-10-07.md) complète cette preuve sur desktop et mobile.
 
 La présence du moteur et des scripts amont apporte aussi les procédures de Contact Fusion, Invocations alternatives et recettes particulières que le moteur JavaScript historique n’implémentait pas universellement. Elles ne sont plus présentées comme absentes de cette route. Les scénarios ci-dessus ne prouvent toutefois pas chaque recette, fenêtre ou combinaison ni chaque sélection de l’interface.
 

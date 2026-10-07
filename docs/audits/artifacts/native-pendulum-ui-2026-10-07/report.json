@@ -1,0 +1,168 @@
+{
+  "ok": true,
+  "target": "compiled production bundle",
+  "productionCsp": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://db.ygoprodeck.com; media-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests",
+  "testedIndexAsset": "/assets/index-CNuJ3sB1.js",
+  "testedIndexSha256": "2b8993d189f7339198663a1fd54b013b561747d19d90dde37cb9c060c5b9d56f",
+  "testedWasmSha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+  "viewports": [
+    {
+      "width": 1280,
+      "height": 900,
+      "checks": {
+        "exactFortyCardFixtureAndShuffledOpening": true,
+        "twoScalesActivatedViaControls": true,
+        "mstDestroyedScaleMovedFaceUpToExtra": true,
+        "extraModalStartsCoreProcedureWithoutPredeterminedUids": true,
+        "humanChoosesHandAndFaceUpExtraCandidates": true,
+        "nativeMr5HandToMainAndFaceUpExtraToExtraMonsterZone": true,
+        "oncePerTurnProcedureRemoved": true,
+        "opponentConcealment": {
+          "count": 0,
+          "safe": true
+        },
+        "procedureButtonStyledAndAtLeast44Px": true
+      },
+      "placements": [
+        {
+          "offered": [
+            "Votre Zone Monstre Extra 6",
+            "Votre Zone Monstre Extra 7"
+          ],
+          "selected": "Votre Zone Monstre Extra 6"
+        },
+        {
+          "offered": [
+            "Votre Zone Monstre 1",
+            "Votre Zone Monstre 2",
+            "Votre Zone Monstre 3",
+            "Votre Zone Monstre 4",
+            "Votre Zone Monstre 5"
+          ],
+          "selected": "Votre Zone Monstre 1"
+        }
+      ],
+      "decisionTrace": [
+        {
+          "stage": "MST target",
+          "title": "CHOISIR LES CARTES",
+          "offered": [
+            "Odd-Eyes Pendulum Dragon",
+            "Magicien Observateur du Temps"
+          ]
+        },
+        {
+          "stage": "Pendulum add/remove",
+          "offered": [
+            "AJOUTER — La Jinn, Génie Mystique de la Lampe",
+            "AJOUTER — Odd-Eyes Pendulum Dragon",
+            "ANNULER"
+          ]
+        },
+        {
+          "stage": "Pendulum add/remove",
+          "offered": [
+            "AJOUTER — Odd-Eyes Pendulum Dragon",
+            "RETIRER — La Jinn, Génie Mystique de la Lampe",
+            "CONFIRMER LES MATÉRIELS"
+          ]
+        }
+      ],
+      "pageErrors": [],
+      "nativeRequestFailures": [],
+      "cspViolations": [],
+      "procedureButtonStyle": {
+        "className": "btn btn-magenta native-extra-pendulum-action",
+        "height": 44,
+        "width": 438,
+        "minHeight": "44px",
+        "whiteSpace": "normal",
+        "backgroundColor": "rgba(255, 0, 204, 0.1)",
+        "borderColor": "rgb(255, 0, 204)",
+        "viewportWidth": 1280
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "checks": {
+        "exactFortyCardFixtureAndShuffledOpening": true,
+        "twoScalesActivatedViaControls": true,
+        "mstDestroyedScaleMovedFaceUpToExtra": true,
+        "extraModalStartsCoreProcedureWithoutPredeterminedUids": true,
+        "humanChoosesHandAndFaceUpExtraCandidates": true,
+        "nativeMr5HandToMainAndFaceUpExtraToExtraMonsterZone": true,
+        "oncePerTurnProcedureRemoved": true,
+        "opponentConcealment": {
+          "count": 0,
+          "safe": true
+        },
+        "procedureButtonStyledAndAtLeast44Px": true
+      },
+      "placements": [
+        {
+          "offered": [
+            "Votre Zone Monstre Extra 6",
+            "Votre Zone Monstre Extra 7"
+          ],
+          "selected": "Votre Zone Monstre Extra 6"
+        },
+        {
+          "offered": [
+            "Votre Zone Monstre 1",
+            "Votre Zone Monstre 2",
+            "Votre Zone Monstre 3",
+            "Votre Zone Monstre 4",
+            "Votre Zone Monstre 5"
+          ],
+          "selected": "Votre Zone Monstre 1"
+        }
+      ],
+      "decisionTrace": [
+        {
+          "stage": "MST target",
+          "title": "CHOISIR LES CARTES",
+          "offered": [
+            "Odd-Eyes Pendulum Dragon",
+            "Magicien Observateur du Temps"
+          ]
+        },
+        {
+          "stage": "Pendulum add/remove",
+          "offered": [
+            "AJOUTER — La Jinn, Génie Mystique de la Lampe",
+            "AJOUTER — Odd-Eyes Pendulum Dragon",
+            "ANNULER"
+          ]
+        },
+        {
+          "stage": "Pendulum add/remove",
+          "offered": [
+            "AJOUTER — Odd-Eyes Pendulum Dragon",
+            "RETIRER — La Jinn, Génie Mystique de la Lampe",
+            "CONFIRMER LES MATÉRIELS"
+          ]
+        }
+      ],
+      "pageErrors": [],
+      "nativeRequestFailures": [],
+      "cspViolations": [],
+      "procedureButtonStyle": {
+        "className": "btn btn-magenta native-extra-pendulum-action",
+        "height": 44,
+        "width": 309,
+        "minHeight": "44px",
+        "whiteSpace": "normal",
+        "backgroundColor": "rgba(255, 0, 204, 0.1)",
+        "borderColor": "rgb(255, 0, 204)",
+        "viewportWidth": 390
+      }
+    }
+  ],
+  "testedIndexHtmlSha256": "e7b9fa63bcc4e5356034d77feb1365abadae5bfb13ab401718a32a83b3a18e0e",
+  "testedCssAsset": "/assets/index-Edane65D.css",
+  "testedCssSha256": "557d05b0cb6a7c8a0a8e82e7309a1a63f83205bd4dc41fab99b468c4e9312d02",
+  "immutableCompiledSnapshot": true,
+  "testedNativeGameAsset": "/assets/NativeDuelGame-COFVTauG.js",
+  "testedNativeCoreAsset": "/assets/ocgcore-C5iXURMO.js"
+}

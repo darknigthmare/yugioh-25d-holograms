@@ -36,8 +36,11 @@ displays the public Graveyard correctly.
 
 The complete browser run used WASM SHA-256
 `0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026`.
-It was rerun against the frozen release entry `index-DqtR2E84.js`, SHA-256
-`524d657c524258eae2feb26cee43f24f6c6e1ff438326ac85323619128c4d2f5`.
+It was rerun against the frozen release entry `index-CNuJ3sB1.js`, SHA-256
+`2b8993d189f7339198663a1fd54b013b561747d19d90dde37cb9c060c5b9d56f`.
+
+HTML SHA-256: `e7b9fa63bcc4e5356034d77feb1365abadae5bfb13ab401718a32a83b3a18e0e`.
+CSS `index-Edane65D.css` SHA-256: `557d05b0cb6a7c8a0a8e82e7309a1a63f83205bd4dc41fab99b468c4e9312d02`.
 
 The audit uses isolated browser contexts, legal custom-deck fixtures in local
 storage, and a varied deterministic random stream. It reads no opposing hand

@@ -1,0 +1,862 @@
+{
+  "auditDate": "2026-10-07",
+  "referenceCount": 14,
+  "description": "Intact source JPGs and adapted peripheral geometry; characters retained in illustration.",
+  "moduleSha256": "1e6ec73411e3dd624542edee60000110bd22f38c6f9e90176f18ce071c7da2cc",
+  "baselineSha256": "851f0bcea5a6910f1bebad502633b8956b71397706f0ccfdc82ad7bb81bd0a83",
+  "references": [
+    {
+      "cardId": "94243005",
+      "name": "Chaos Zone",
+      "camera": [
+        0,
+        11,
+        0
+      ],
+      "target": [
+        0,
+        11,
+        -32
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/94243005.jpg",
+      "sha256": "73674299ea9f9d544a4c19390ab839d82d9eec89828a9b3588fa7a8744ff2de7"
+    },
+    {
+      "cardId": "33550694",
+      "name": "Fusion Gate",
+      "camera": [
+        0,
+        10,
+        0
+      ],
+      "target": [
+        0,
+        9,
+        -32
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/33550694.jpg",
+      "sha256": "a30ee2386d2d8a85941135120a499508863b684040fc4f14e64bc767c2671951"
+    },
+    {
+      "cardId": "42015635",
+      "name": "Neo Space",
+      "camera": [
+        0,
+        11,
+        0
+      ],
+      "target": [
+        0,
+        11,
+        -32
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/42015635.jpg",
+      "sha256": "b6309695d8def67b4d60c817f1bec7dee079e9662a2e5f3f30a6e169fb36f4cb"
+    },
+    {
+      "cardId": "87902575",
+      "name": "Future Visions",
+      "camera": [
+        0,
+        11,
+        0
+      ],
+      "target": [
+        0,
+        11,
+        -32
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/87902575.jpg",
+      "sha256": "8d8168b314f72e86045128761f0222191851fc83c997944d03b3471e527dea7f"
+    },
+    {
+      "cardId": "20720928",
+      "name": "Metaphys Factor",
+      "camera": [
+        0,
+        11,
+        0
+      ],
+      "target": [
+        0,
+        11,
+        -32
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/20720928.jpg",
+      "sha256": "e51ba500581d97dc5c5d9110b8b6d68224a758eb2b609c103fdbc9ba8c9e7a85"
+    },
+    {
+      "cardId": "34822850",
+      "name": "Void Expansion",
+      "camera": [
+        0,
+        11,
+        0
+      ],
+      "target": [
+        0,
+        11,
+        -32
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/34822850.jpg",
+      "sha256": "43485e452450ed16d48863a7fb25adcf59f8f134a3f9ab5ef97c89fc37873f67"
+    },
+    {
+      "cardId": "33900648",
+      "name": "Clear World",
+      "camera": [
+        0,
+        12,
+        0
+      ],
+      "target": [
+        0,
+        12,
+        -32
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/33900648.jpg",
+      "sha256": "de9915c0d714e797f0489153fd0d0f19eee3db5571bc83c8a41bcce8e8ff49e3"
+    },
+    {
+      "cardId": "69296555",
+      "name": "Array of Revealing Light",
+      "camera": [
+        0,
+        17,
+        -4
+      ],
+      "target": [
+        0,
+        3,
+        -31
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/69296555.jpg",
+      "sha256": "673d1e15ad5c64b428b71459de99df367fb6a3873fcca40db43e0d8ec3f1c478"
+    },
+    {
+      "cardId": "58406094",
+      "name": "Starry Knight Sky",
+      "camera": [
+        0,
+        11,
+        0
+      ],
+      "target": [
+        0,
+        11,
+        -32
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/58406094.jpg",
+      "sha256": "0d111cb09de29d0841347f5c5a3042c55b7d14b288412ec1077d33d97708d8d9"
+    },
+    {
+      "cardId": "675319",
+      "name": "Zodiac Sign",
+      "camera": [
+        0,
+        11,
+        0
+      ],
+      "target": [
+        0,
+        11,
+        -32
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/675319.jpg",
+      "sha256": "c5941c5e671740c66ca3a3f5f58999be622fc2f7c93b89895a3d5ce1b1a12897"
+    },
+    {
+      "cardId": "27813661",
+      "name": "Sky Iris",
+      "camera": [
+        0,
+        11,
+        0
+      ],
+      "target": [
+        0,
+        11,
+        -32
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/27813661.jpg",
+      "sha256": "4baba5cc79194323b93d0d96dcab8cd8f2ba634ca6d84ebbd19396041c4bd723"
+    },
+    {
+      "cardId": "69217334",
+      "name": "Breaking of the World",
+      "camera": [
+        0,
+        11,
+        0
+      ],
+      "target": [
+        0,
+        11,
+        -32
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/69217334.jpg",
+      "sha256": "dcd185dfbb0994e6835743b8edadd5b7eb7ecfd184b37b96840cce0bf19109c3"
+    },
+    {
+      "cardId": "95856586",
+      "name": "Zexal Field",
+      "camera": [
+        0,
+        11,
+        0
+      ],
+      "target": [
+        0,
+        11,
+        -32
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/95856586.jpg",
+      "sha256": "9a368af393b2be3f22c1c5c76540c2f3cb5d2cb7edbbd0fab0a7ec119f480450"
+    },
+    {
+      "cardId": "4545854",
+      "name": "Xyz Territory",
+      "camera": [
+        0,
+        11,
+        0
+      ],
+      "target": [
+        0,
+        11,
+        -32
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/4545854.jpg",
+      "sha256": "f84bcde8bd7cc02ba088bb093b77aacee2a5066eae8879138eff6c8b3a62763e"
+    }
+  ],
+  "capture": {
+    "details": [
+      {
+        "cardId": "94243005",
+        "before": {
+          "url": null,
+          "primitives": 29,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 7128,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -28.94221289484719,
+              -2.658035821622731,
+              -31.130288712950108
+            ],
+            "max": [
+              28.724070795052192,
+              12.899499809741974,
+              4.397860255429584
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 73,
+          "drawCalls": 5,
+          "materials": 2,
+          "triangles": 26328,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -20.07699966430664,
+              -2.421570301055908,
+              -39.872
+            ],
+            "max": [
+              20.020862579345703,
+              24.42156982421875,
+              -30.142200469970703
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "33550694",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 6,
+          "materials": 4,
+          "triangles": 8688,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -25.650606641601414,
+              -2.3965866228206445,
+              -31.769375326835142
+            ],
+            "max": [
+              25.40718772927008,
+              14.669349752664566,
+              7.17250231808266
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 47,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 25568,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -22.00141143798828,
+              -6.917769432067871,
+              -36.122
+            ],
+            "max": [
+              22.00141143798828,
+              24.917770385742188,
+              -20.987144470214844
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "42015635",
+        "before": {
+          "url": null,
+          "primitives": 29,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 7128,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -31.49157146515261,
+              -2.143196700966389,
+              -31.130288712950108
+            ],
+            "max": [
+              29.270195906450382,
+              13.562363640753503,
+              -1.2860909923264505
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 72,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 25728,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -20.835674285888672,
+              -5.475192070007324,
+              -34.150001525878906
+            ],
+            "max": [
+              20.810462951660156,
+              27.50601577758789,
+              -32.45000076293945
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "87902575",
+        "before": {
+          "url": null,
+          "primitives": 29,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 7128,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -31.273016527851965,
+              -2.960114525712498,
+              -31.130288712950108
+            ],
+            "max": [
+              30.03094707119699,
+              13.04807605840565,
+              7.964896157370674
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 40,
+          "drawCalls": 6,
+          "materials": 2,
+          "triangles": 1578,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -22,
+              -0.7457371950149536,
+              -36.119998931884766
+            ],
+            "max": [
+              23.04990005493164,
+              21.729768753051758,
+              -28.90999984741211
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "20720928",
+        "before": {
+          "url": null,
+          "primitives": 29,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 7128,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -30.394238197541952,
+              -2.5536447649501546,
+              -31.130288712950108
+            ],
+            "max": [
+              28.059778818993514,
+              13.473336067621727,
+              4.260536698328394
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 45,
+          "drawCalls": 7,
+          "materials": 5,
+          "triangles": 2936,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -22.5,
+              -0.04999999999999999,
+              -36.5
+            ],
+            "max": [
+              22.5,
+              23.045961380004883,
+              -29
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "34822850",
+        "before": {
+          "url": null,
+          "primitives": 29,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 7128,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -28.191267183123095,
+              -3.3336093656059176,
+              -31.130288712950108
+            ],
+            "max": [
+              27.862657289651388,
+              12.899499809741974,
+              5.269790585480595
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 51,
+          "drawCalls": 7,
+          "materials": 4,
+          "triangles": 14499,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -22.092294692993164,
+              1.3692117929458618,
+              -37
+            ],
+            "max": [
+              22.092294692993164,
+              23.534154891967773,
+              -28.689391188602894
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "33900648",
+        "before": {
+          "url": null,
+          "primitives": 29,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 7128,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -27.427417395856708,
+              -2.508485049442293,
+              -31.130288712950108
+            ],
+            "max": [
+              27.87733811606739,
+              12.899499809741974,
+              6.817841032565607
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 28,
+          "drawCalls": 11,
+          "materials": 8,
+          "triangles": 6684,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -21.900798797607422,
+              -1.4255996942520142,
+              -35.02929184549356
+            ],
+            "max": [
+              21.900798797607422,
+              31.425600051879883,
+              -23.97070815450644
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "69296555",
+        "before": {
+          "url": null,
+          "primitives": 42,
+          "drawCalls": 6,
+          "materials": 4,
+          "triangles": 2640,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -23.154836730674226,
+              -0.15,
+              -31.5
+            ],
+            "max": [
+              22.429093010125534,
+              15.275,
+              -13.058876306293708
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 65,
+          "drawCalls": 6,
+          "materials": 4,
+          "triangles": 5280,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -21.044937133789062,
+              0.11968911029398199,
+              -41.86749964952469
+            ],
+            "max": [
+              21.044937133789062,
+              22.002920150756836,
+              -20.13250035047531
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "58406094",
+        "before": {
+          "url": null,
+          "primitives": 42,
+          "drawCalls": 6,
+          "materials": 4,
+          "triangles": 2640,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -23.841172208124494,
+              -0.15,
+              -31.5
+            ],
+            "max": [
+              23.996299695028693,
+              15.275,
+              -14.904732722639494
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 126,
+          "drawCalls": 5,
+          "materials": 3,
+          "triangles": 42278,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -22.605344772338867,
+              0.07208219170570374,
+              -36.84000015258789
+            ],
+            "max": [
+              22.58613395690918,
+              22.29199981689453,
+              -30
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "675319",
+        "before": {
+          "url": null,
+          "primitives": 42,
+          "drawCalls": 6,
+          "materials": 4,
+          "triangles": 2640,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -23.660975975576452,
+              -0.15,
+              -31.5
+            ],
+            "max": [
+              24.272956416103117,
+              15.275,
+              -12.906621404149009
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 70,
+          "drawCalls": 7,
+          "materials": 3,
+          "triangles": 3594,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -23.080991744995117,
+              -1.2000000000000002,
+              -38.5
+            ],
+            "max": [
+              23.997812271118164,
+              30.937986373901367,
+              -30
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "27813661",
+        "before": {
+          "url": null,
+          "primitives": 42,
+          "drawCalls": 6,
+          "materials": 4,
+          "triangles": 2640,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -24.175369371145347,
+              -0.15,
+              -31.5
+            ],
+            "max": [
+              23.74285802033129,
+              15.275,
+              -13.004012933802336
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 82,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 22976,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -15.399999618530273,
+              -1.7000000476837158,
+              -33.518001556396484
+            ],
+            "max": [
+              15.399999618530273,
+              23.700000762939453,
+              -30.681299209594727
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "69217334",
+        "before": {
+          "url": null,
+          "primitives": 29,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 7128,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -26.270328056906795,
+              -2.3270719958186397,
+              -31.130288712950108
+            ],
+            "max": [
+              29.622675626417237,
+              12.899499809741974,
+              6.543426186180005
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 70,
+          "drawCalls": 7,
+          "materials": 5,
+          "triangles": 9284,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -20.02539825439453,
+              -1.7000000000000002,
+              -39.01642608642578
+            ],
+            "max": [
+              20.02539825439453,
+              24,
+              -22.737520217895508
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "95856586",
+        "before": {
+          "url": null,
+          "primitives": 29,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 7128,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -30.17666419884727,
+              -3.1156681110691617,
+              -31.130288712950108
+            ],
+            "max": [
+              27.59135848784763,
+              13.453132340297481,
+              6.143104128688945
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 42,
+          "drawCalls": 9,
+          "materials": 2,
+          "triangles": 1828,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -21.11199951171875,
+              -4.955020904541016,
+              -35
+            ],
+            "max": [
+              20.02400016784668,
+              26.955020904541016,
+              -29.5
+            ]
+          }
+        }
+      },
+      {
+        "cardId": "4545854",
+        "before": {
+          "url": null,
+          "primitives": 29,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 7128,
+          "fidelity": "procedural-interpretation",
+          "bounds": {
+            "min": [
+              -28.31835035072001,
+              -2.15561113690931,
+              -31.130288712950108
+            ],
+            "max": [
+              29.206804859125647,
+              13.722179851583634,
+              8.184274373476526
+            ]
+          }
+        },
+        "after": {
+          "url": null,
+          "primitives": 48,
+          "drawCalls": 6,
+          "materials": 3,
+          "triangles": 6768,
+          "fidelity": "reference-informed-geometry",
+          "bounds": {
+            "min": [
+              -15.69327163696289,
+              -1.059801350231014,
+              -34
+            ],
+            "max": [
+              14.881988525390625,
+              23.544893874383035,
+              -29.990999221801758
+            ]
+          }
+        }
+      }
+    ],
+    "images": 42,
+    "complete": true,
+    "errors": [],
+    "artifacts": [
+      "docs/audits/artifacts/field-mystical-board-1-2026-10-07.jpg",
+      "docs/audits/artifacts/field-mystical-board-2-2026-10-07.jpg",
+      "docs/audits/artifacts/field-mystical-board-3-2026-10-07.jpg",
+      "docs/audits/artifacts/field-mystical-board-4-2026-10-07.jpg"
+    ]
+  }
+}

@@ -308,14 +308,23 @@ export function translateNativeVisualEvents(message, context = {}) {
       if (!from && !to) break;
       const previous = context.publicCards.get(locKey(msg.from));
       const card = to && publicLocation(msg.to) ? publicCard(msg.card, msg.to, context) : null;
-      const info = card ? queryPublic(msg.to, context, msg.card) : null;
-      recordMaterialEvidence(info, context);
+      // Overlay destinations have position=0 and therefore carry no new
+      // revealed identity. A face-up public monster becoming a material is
+      // nevertheless an announced move: query its exact native material
+      // reason without publishing the query or identifying hidden materials.
+      const publicOverlayMaterial = to?.zoneType === 'overlay'
+        && ['main', 'extra'].includes(from?.zoneType)
+        && faceUp(msg.from?.position);
+      const info = card || publicOverlayMaterial ? queryPublic(msg.to, context, msg.card) : null;
+      const publicReason = card || publicOverlayMaterial
+        ? Number.isInteger(msg.reason) ? msg.reason : info?.reason : null;
+      recordMaterialEvidence({ reason: publicReason }, context);
       context.publicCards.delete(locKey(msg.from));
       context.pendingSummons.delete(locKey(msg.from));
       if (card) remember(msg.to, card, context, msg.card);
       add({ type: 'move', ...(to ? refFields(to) : refFields(from)), from, to,
         card, hidden: !card, faceDown: Boolean(msg.to?.position & FACEDOWN) });
-      const destroyed = context.battleDestroyed.delete(locKey(msg.from)) || Boolean(info?.reason & DESTROY_REASON);
+      const destroyed = context.battleDestroyed.delete(locKey(msg.from)) || Boolean(publicReason & DESTROY_REASON);
       if (from && fieldZone(from) && (!to || !fieldZone(to)) && destroyed) {
         // A hidden monster's destruction identifies only its former public zone.
         const oldCard = faceUp(msg.from?.position) ? previous ?? card : null;

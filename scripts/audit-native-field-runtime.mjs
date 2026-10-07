@@ -51,10 +51,16 @@ async function makeSession(inputs, sharedCore, label) {
   });
   const C = duel.constants;
   return {
-    duel, C, label, messages: [], decisions: [], queries: [],
+    duel, C, label, messages: [], decisions: [], queries: [], fixtureCards: [],
     add(code, controller, location, sequence = 0, position = null) {
       position ??= [C.OcgLocation.HAND, C.OcgLocation.DECK, C.OcgLocation.EXTRA].includes(location)
         ? C.OcgPosition.FACEDOWN_DEFENSE : C.OcgPosition.FACEUP_ATTACK;
+      const sourceCode = inputs.resources.canonicalCodeToSource?.get(code) ?? code;
+      const filename = `c${sourceCode}.lua`;
+      const script = inputs.resources.scripts.get(filename);
+      this.fixtureCards.push({ canonicalCode: code, sourceCode, name: inputs.resources.metadata.get(sourceCode)?.name,
+        controller, location, sequence, position, scriptPath: inputs.resources.auditScriptFiles?.[filename]?.path ?? null,
+        scriptSha256: script ? sha256(script) : null });
       duel.addCard({ code, controller, location, sequence, position }); return this;
     },
     baseDecks() {
@@ -106,6 +112,7 @@ function defaultResponse(prompt, C, choices = {}) {
   const M = C.OcgMessageType; const R = C.OcgResponseType;
   switch (prompt.type) {
     case M.SELECT_CHAIN: {
+      if (choices.chainSelect) return { type: R.SELECT_CHAIN, index: choices.chainSelect(prompt) };
       const wanted = prompt.selects.findIndex(card => choices.chainCodes?.includes(card.code));
       return { type: R.SELECT_CHAIN, index: wanted >= 0 ? wanted : prompt.forced ? 0 : null };
     }
@@ -154,11 +161,11 @@ function perform(session, kind, code, choices = {}, options = {}) {
   return reachIdle(session, choices, options);
 }
 
-function endTurn(session) {
+function endTurn(session, choices = {}) {
   const prompt = reachIdle(session);
   assert.equal(prompt.to_ep, true);
   session.respond({ type: session.C.OcgResponseType.SELECT_IDLECMD, action: session.C.SelectIdleCMDAction.TO_EP, index: null });
-  return reachIdle(session);
+  return reachIdle(session, choices);
 }
 
 function hasCode(session, player, location, code) {
@@ -177,7 +184,7 @@ function scenarioEvidence(session, fields, description) {
   return {
     id: session.label, fields, description, status: 'passed', nativeApi: session.duel.core.getVersion(),
     flags: auditFlags(session.C).toString(), messages: clone(session.messages), decisions: session.decisions,
-    queries: session.queries, errors: clone(session.duel.errors)
+    queries: session.queries, fixtureCards: session.fixtureCards, errors: clone(session.duel.errors)
   };
 }
 
@@ -221,7 +228,8 @@ export async function auditNativeFieldEffects(inputs, sharedCore) {
     const session = await makeSession(inputs, sharedCore, label);
     try { await exercise(session); scenarios.push(scenarioEvidence(session, fields, description)); }
     catch (error) { scenarios.push({ id: label, fields, description, status: 'failed', error: error.message,
-      messages: clone(session.messages), decisions: session.decisions, queries: session.queries, errors: clone(session.duel.errors) }); }
+      messages: clone(session.messages), decisions: session.decisions, queries: session.queries,
+      fixtureCards: session.fixtureCards, errors: clone(session.duel.errors) }); }
     finally { session.duel.close(); }
   }
 
@@ -414,6 +422,298 @@ export async function auditNativeFieldEffects(inputs, sharedCore) {
     assert.equal(s.card(1, s.C.OcgLocation.MZONE, 2).code, 45894482);
     assert.ok(s.messages.some(message => message.type === s.C.OcgMessageType.SPSUMMONING
       && message.code === 45894482 && message.controller === 1 && message.sequence === 2));
+  });
+
+  // Search fixtures retain a second copy in hand and a second legal deck result:
+  // absence of the second activation therefore proves the printed activation
+  // oath, rather than merely exhausting the deck or the cards in hand.
+  for (const spec of [
+    { field: 47679935, partner: 86120751, name: 'magical-meltdown-search-activation-oath' },
+    { field: 32354768, partner: 21495657, name: 'oracle-of-zefra-search-activation-oath' },
+    { field: 16269385, partner: 18236002, name: 'prank-kids-place-search-activation-oath' },
+    { field: 70122149, partner: 82466274, name: 'pareidolia-search-activation-oath' },
+    { field: 84792926, partner: 10604644, name: 'therion-discolosseum-search-activation-oath' },
+    { field: 77103950, partner: 74078255, name: 'perlereino-search-activation-oath' }
+  ]) {
+    await run(spec.name, [spec.field], 'Resolve the real archetype search, then verify a second physical copy cannot activate despite a remaining legal deck result.', s => {
+      s.add(spec.field, 0, s.C.OcgLocation.HAND).add(spec.field, 0, s.C.OcgLocation.HAND)
+        .add(spec.partner, 0, s.C.OcgLocation.DECK).add(spec.partner, 0, s.C.OcgLocation.DECK).baseDecks().start();
+      const idle = perform(s, 'activate', spec.field, { codes: [spec.partner] }); requireChain(s, spec.field);
+      assert.ok(hasCode(s, 0, s.C.OcgLocation.HAND, spec.partner));
+      assert.ok(hasCode(s, 0, s.C.OcgLocation.DECK, spec.partner));
+      assert.ok(hasCode(s, 0, s.C.OcgLocation.HAND, spec.field));
+      assert.ok(!idle.activates.some(card => card.code === spec.field && card.location === s.C.OcgLocation.HAND));
+    });
+  }
+
+  await run('fire-king-island-destroy-search-shared-limit', [57554544], 'Destroy a hand monster by effect and search Fire King; the shared once-per-turn limit then forbids both destruction and Special Summon modes.', s => {
+    s.add(57554544, 0, s.C.OcgLocation.HAND).add(46986414, 0, s.C.OcgLocation.HAND)
+      .add(69000994, 0, s.C.OcgLocation.DECK).add(69000994, 0, s.C.OcgLocation.DECK).baseDecks().start();
+    perform(s, 'activate', 57554544);
+    const idle = perform(s, 'activate', 57554544, { select: p => p.selects.some(c => c.code === 46986414) ? [46986414] : [69000994] });
+    requireChain(s, 57554544);
+    const cost = s.location(0, s.C.OcgLocation.GRAVE).find(c => c.code === 46986414);
+    assert.ok(cost.reason & 0x40); assert.equal(cost.reason & 0x80, 0, 'destruction is an effect, not discard cost');
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.HAND, 69000994));
+    assert.ok(!idle.activates.some(c => c.code === 57554544));
+  });
+
+  await run('dragonic-diagram-destroy-search-once-per-turn', [13035077], 'Destroy a hand Spell by effect, search True Draco Heritage and verify a second ignition is unavailable with another legal hand/deck pair.', s => {
+    s.add(13035077, 0, s.C.OcgLocation.HAND).add(5318639, 0, s.C.OcgLocation.HAND)
+      .add(49430782, 0, s.C.OcgLocation.DECK).add(49430782, 0, s.C.OcgLocation.DECK).baseDecks().start();
+    perform(s, 'activate', 13035077);
+    const idle = perform(s, 'activate', 13035077, { select: p => p.selects.some(c => c.code === 5318639) ? [5318639] : [49430782] });
+    requireChain(s, 13035077);
+    const destroyed = s.location(0, s.C.OcgLocation.GRAVE).find(c => c.code === 5318639);
+    assert.ok(destroyed.reason & 0x40); assert.equal(destroyed.reason & 0x80, 0);
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.HAND, 49430782));
+    assert.ok(!idle.activates.some(c => c.code === 13035077));
+  });
+
+  await run('union-hangar-search-summon-equip-restriction', [66399653], 'Search A-Assault Core, Normal Summon it, then target it and equip B-Buster Drake from deck; the equipped Union cannot Special Summon itself that turn.', s => {
+    s.add(66399653, 0, s.C.OcgLocation.HAND).add(30012506, 0, s.C.OcgLocation.DECK)
+      .add(77411244, 0, s.C.OcgLocation.DECK).baseDecks().start();
+    perform(s, 'activate', 66399653, { codes: [30012506] });
+    const idle = perform(s, 'summon', 30012506, { codes: [77411244] }); requireChain(s, 66399653);
+    assert.equal(s.card(0, s.C.OcgLocation.MZONE, 0).code, 30012506);
+    assert.equal(s.card(0, s.C.OcgLocation.SZONE, 0).code, 77411244);
+    assert.ok(s.messages.some(m => m.type === s.C.OcgMessageType.EQUIP));
+    assert.ok(s.messages.some(m => m.type === s.C.OcgMessageType.BECOME_TARGET));
+    assert.ok(!idle.activates.some(c => c.code === 77411244), 'Hangar restriction blocks Union release');
+  });
+
+  await run('spyral-resort-search-end-phase-maintenance', [54631665], 'Search SPYRAL Super Agent once; during the real End Phase choose a graveyard monster as the mandatory maintenance cost and shuffle it into the deck.', s => {
+    s.add(54631665, 0, s.C.OcgLocation.HAND).add(41091257, 0, s.C.OcgLocation.DECK)
+      .add(41091257, 0, s.C.OcgLocation.DECK).add(89631139, 0, s.C.OcgLocation.GRAVE).baseDecks().start();
+    perform(s, 'activate', 54631665);
+    const idle = perform(s, 'activate', 54631665, { codes: [41091257] }); requireChain(s, 54631665);
+    assert.ok(!idle.activates.some(c => c.code === 54631665));
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.HAND, 41091257));
+    endTurn(s, { codes: [89631139], option: 0 });
+    assert.equal(s.card(0, s.C.OcgLocation.SZONE, 5).code, 54631665);
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.DECK, 89631139));
+    assert.ok(!hasCode(s, 0, s.C.OcgLocation.GRAVE, 89631139));
+    assert.ok(s.location(0, s.C.OcgLocation.DECK).some(c => c.code === 89631139 && (c.reason & 0x80)));
+  });
+
+  await run('trickstar-light-stage-search-lock-end-phase-send', [35371948], 'Search Trickstar Candina, target an opposing set Trap with the ignition, then decline activation at End Phase; the core sends it to GY by rule.', s => {
+    s.add(35371948, 0, s.C.OcgLocation.HAND).add(61283655, 0, s.C.OcgLocation.DECK)
+      .add(44095762, 1, s.C.OcgLocation.SZONE, 0, s.C.OcgPosition.FACEDOWN_DEFENSE).baseDecks().start();
+    perform(s, 'activate', 35371948, { codes: [61283655] });
+    perform(s, 'activate', 35371948, { codes: [44095762] }); requireChain(s, 35371948);
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.HAND, 61283655));
+    assert.ok(s.messages.some(m => m.type === s.C.OcgMessageType.BECOME_TARGET));
+    endTurn(s);
+    const sent = s.location(1, s.C.OcgLocation.GRAVE).find(c => c.code === 44095762);
+    assert.ok(sent && (sent.reason & 0x400), 'unactivated set Trap is sent by rule, not destroyed');
+  });
+
+  await run('hidden-city-search-flip-ignition', [5697558], 'Search a Subterror monster, then use the native non-targeting ignition to turn a facedown Subterror Nemesis Archer faceup.', s => {
+    s.add(5697558, 0, s.C.OcgLocation.HAND).add(39581190, 0, s.C.OcgLocation.MZONE, 0, s.C.OcgPosition.FACEDOWN_DEFENSE)
+      .add(16428514, 0, s.C.OcgLocation.DECK).baseDecks().start();
+    perform(s, 'activate', 5697558, { codes: [16428514] });
+    perform(s, 'activate', 5697558, { codes: [39581190] }); requireChain(s, 5697558);
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.HAND, 16428514));
+    assert.equal(s.card(0, s.C.OcgLocation.MZONE, 0).position, s.C.OcgPosition.FACEUP_ATTACK);
+    assert.ok(!s.messages.some(m => m.type === s.C.OcgMessageType.BECOME_TARGET));
+  });
+
+  await run('vendread-nights-discard-cost-search', [76871889], 'Pay a true discard cost and search Vendread Revenants; query cost/discard reasons and the shared hard once-per-turn restriction.', s => {
+    s.add(76871889, 0, s.C.OcgLocation.HAND).add(46986414, 0, s.C.OcgLocation.HAND)
+      .add(31772684, 0, s.C.OcgLocation.DECK).add(31772684, 0, s.C.OcgLocation.DECK).baseDecks().start();
+    perform(s, 'activate', 76871889);
+    const idle = perform(s, 'activate', 76871889, { select: p => p.selects.some(c => c.code === 46986414) ? [46986414] : [31772684] });
+    requireChain(s, 76871889);
+    const cost = s.location(0, s.C.OcgLocation.GRAVE).find(c => c.code === 46986414);
+    assert.ok(cost.reason & 0x80); assert.ok(cost.reason & 0x4000);
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.HAND, 31772684));
+    assert.ok(!idle.activates.some(c => c.code === 76871889));
+  });
+
+  await run('ua-stadium-normal-search-special-attack', [19814508], 'Normal Summon U.A. Midfielder to search Perfect Ace; Special Summon Ace by returning Midfielder, then Stadium grants the actual 500 ATK boost.', s => {
+    s.add(19814508, 0, s.C.OcgLocation.HAND).add(72491806, 0, s.C.OcgLocation.HAND)
+      .add(82419869, 0, s.C.OcgLocation.DECK).baseDecks().start();
+    perform(s, 'activate', 19814508);
+    perform(s, 'summon', 72491806, { codes: [82419869] });
+    perform(s, 'special', 82419869, { codes: [72491806] }); requireChain(s, 19814508);
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.HAND, 72491806));
+    assert.equal(s.card(0, s.C.OcgLocation.MZONE, 0).code, 82419869);
+    assert.equal(s.card(0, s.C.OcgLocation.MZONE, 0).attack, 2000);
+  });
+
+  await run('myutant-lab-banished-summon-unique-bonus-bottom-draw', [34572613], 'Activation summons a faceup banished Myutant; two other distinct banished names grant 200 ATK, then ignition returns a hand Myutant to deck bottom and draws.', s => {
+    s.add(34572613, 0, s.C.OcgLocation.HAND).add(8200556, 0, s.C.OcgLocation.HAND)
+      .add(62201847, 0, s.C.OcgLocation.REMOVED).add(8200556, 0, s.C.OcgLocation.REMOVED)
+      .add(62201847, 0, s.C.OcgLocation.REMOVED).baseDecks().start();
+    perform(s, 'activate', 34572613, { codes: [62201847] });
+    assert.equal(s.card(0, s.C.OcgLocation.MZONE, 0).code, 62201847);
+    assert.equal(s.card(0, s.C.OcgLocation.MZONE, 0).attack, 200);
+    const idle = perform(s, 'activate', 34572613, { codes: [8200556] }); requireChain(s, 34572613);
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.HAND, 46986414));
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.DECK, 8200556));
+    assert.ok(!idle.activates.some(c => c.code === 34572613));
+  });
+
+  await run('drytron-fafnir-search-summon-level-reduction', [58793369], 'Search Drytron Nova; while a Drytron is faceup, a real opposing Alexandrite Dragon Normal Summon triggers Fafnir and lowers its Level from 4 to 2.', s => {
+    s.add(58793369, 0, s.C.OcgLocation.HAND).add(97148796, 0, s.C.OcgLocation.MZONE)
+      .add(94187078, 0, s.C.OcgLocation.DECK).add(43096270, 1, s.C.OcgLocation.HAND).baseDecks().start();
+    perform(s, 'activate', 58793369, { codes: [94187078] });
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.HAND, 94187078));
+    endTurn(s); perform(s, 'summon', 43096270); requireChain(s, 58793369);
+    assert.equal(s.card(1, s.C.OcgLocation.MZONE, 0).level, 2);
+  });
+
+  await run('chicken-game-lp-draw-lowest-player-damage-prevention', [67616300], 'Pay 1000 LP to draw through an unrespondable Chicken Game chain; the lower-LP player then takes zero Hinotama effect damage.', s => {
+    s.add(67616300, 0, s.C.OcgLocation.HAND).add(46130346, 1, s.C.OcgLocation.HAND).baseDecks().start();
+    perform(s, 'activate', 67616300);
+    const idle = perform(s, 'activate', 67616300, { option: 0 }); requireChain(s, 67616300);
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.HAND, 46986414));
+    assert.ok(!idle.activates.some(c => c.code === 67616300));
+    assert.ok(s.messages.some(m => m.type === s.C.OcgMessageType.PAY_LPCOST && m.amount === 1000));
+    endTurn(s); perform(s, 'activate', 46130346);
+    assert.ok(!s.messages.some(m => m.type === s.C.OcgMessageType.DAMAGE && m.player === 0 && m.amount > 0));
+    assert.equal(s.duel.queryField().players[0].lp, 7000);
+    s.queries.push({ query: { field: true }, result: clone(s.duel.queryField()) });
+  });
+
+  await run('pacifis-normal-search-lock-opponent-reaction-token', [2819435], 'Normal Summon a vanilla to search Phantasm Spiral Battle, prohibit an Effect Monster Special Summon, then respond to an opposing Spell with a real Phantasm Spiral Token.', s => {
+    s.add(2819435, 0, s.C.OcgLocation.HAND).add(23635815, 0, s.C.OcgLocation.HAND)
+      .add(45894482, 0, s.C.OcgLocation.HAND).add(34302287, 0, s.C.OcgLocation.DECK)
+      .add(46130346, 1, s.C.OcgLocation.HAND).baseDecks().start();
+    perform(s, 'activate', 2819435);
+    const idle = perform(s, 'summon', 23635815, { codes: [34302287] });
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.HAND, 34302287));
+    assert.ok(!idle.special_summons.some(c => c.code === 45894482));
+    endTurn(s); perform(s, 'activate', 46130346, { chainCodes: [2819435] }); requireChain(s, 2819435);
+    assert.equal(s.card(0, s.C.OcgLocation.MZONE, 1).code, 2819436);
+    assert.equal(s.card(0, s.C.OcgLocation.MZONE, 1).attack, 2000);
+  });
+
+  await run('lost-world-dinosaur-token-destruction-replacement', [17228908], 'Summon Gilasaurus to create an opposing Jurraegg Token; Dark Hole destruction of a Normal Monster is replaced by destroying a real deck Dinosaur.', s => {
+    s.add(17228908, 0, s.C.OcgLocation.HAND).add(45894482, 0, s.C.OcgLocation.HAND)
+      .add(53129443, 0, s.C.OcgLocation.HAND).add(46986414, 0, s.C.OcgLocation.MZONE, 1)
+      .add(37265642, 0, s.C.OcgLocation.DECK).add(37265642, 0, s.C.OcgLocation.DECK).baseDecks().start();
+    perform(s, 'activate', 17228908);
+    perform(s, 'special', 45894482, { chainCodes: [17228908] }); requireChain(s, 17228908);
+    assert.equal(s.card(1, s.C.OcgLocation.MZONE, 0).code, 17228909);
+    assert.equal(s.card(0, s.C.OcgLocation.MZONE, 1).attack, 2000);
+    perform(s, 'activate', 53129443, { codes: [37265642] });
+    assert.equal(s.location(0, s.C.OcgLocation.GRAVE).filter(c => c.code === 37265642).length, 2);
+    assert.ok(s.decisions.some(d => d.prompt.type === s.C.OcgMessageType.SELECT_EFFECTYN && d.response.yes));
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.MZONE, 46986414));
+    assert.ok(hasCode(s, 1, s.C.OcgLocation.MZONE, 17228909));
+  });
+
+  await run('revolving-switchyard-discard-search-shared-limit', [76136345], 'Send a hand card as cost to search Level 10 EARTH Machine Bullet Train, then resolve its legal hand ignition Special Summon; the shared once-per-turn limit suppresses Switchyard’s deck summon trigger.', s => {
+    s.add(76136345, 0, s.C.OcgLocation.HAND).add(46986414, 0, s.C.OcgLocation.HAND)
+      .add(88875132, 0, s.C.OcgLocation.MZONE).add(52481437, 0, s.C.OcgLocation.DECK)
+      .add(88875132, 0, s.C.OcgLocation.DECK).baseDecks().start();
+    perform(s, 'activate', 76136345);
+    perform(s, 'activate', 76136345, { select: p => p.selects.some(c => c.code === 46986414) ? [46986414] : [52481437] });
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.HAND, 52481437));
+    const cost = s.location(0, s.C.OcgLocation.GRAVE).find(c => c.code === 46986414);
+    assert.ok(cost.reason & 0x80); assert.equal(cost.reason & 0x4000, 0, 'send cost does not say discard');
+    perform(s, 'activate', 52481437, { chainCodes: [76136345] }); requireChain(s, 76136345);
+    assert.equal(s.location(0, s.C.OcgLocation.MZONE).length, 2);
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.DECK, 88875132));
+    assert.equal(s.card(0, s.C.OcgLocation.MZONE, 1).attack, 3000);
+  });
+
+  await run('sky-striker-area-zero-destroy-deck-summon', [50005218], 'MST targets and destroys Area Zero; its real GY trigger Special Summons Sky Striker Ace Raye from deck.', s => {
+    s.add(50005218, 0, s.C.OcgLocation.HAND).add(5318639, 0, s.C.OcgLocation.HAND)
+      .add(26077387, 0, s.C.OcgLocation.DECK).baseDecks().start();
+    perform(s, 'activate', 50005218);
+    perform(s, 'activate', 5318639, { select: p => p.selects.some(c => c.code === 50005218) ? [50005218] : [26077387] });
+    requireChain(s, 50005218);
+    assert.equal(s.card(0, s.C.OcgLocation.MZONE, 0).code, 26077387);
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.GRAVE, 50005218));
+  });
+
+  await run('runick-fountain-quickplay-recycle-draw', [92107604], 'Activate Runick Golden Droplet, then target two real Runick Quick-Play Spells in GY, sort them onto deck bottom and draw two cards.', s => {
+    s.add(92107604, 0, s.C.OcgLocation.HAND).add(20618850, 0, s.C.OcgLocation.HAND)
+      .add(31562086, 0, s.C.OcgLocation.GRAVE).add(67835547, 0, s.C.OcgLocation.GRAVE);
+    for (let i = 0; i < 8; i++) s.add(46986414, 1, s.C.OcgLocation.DECK);
+    s.add(89631139, 0, s.C.OcgLocation.DECK).baseDecks().start();
+    perform(s, 'activate', 92107604);
+    perform(s, 'activate', 20618850, { chainCodes: [92107604], codes: [31562086, 67835547], option: 0 });
+    requireChain(s, 92107604);
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.DECK, 31562086));
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.DECK, 67835547));
+    assert.equal(s.location(0, s.C.OcgLocation.HAND).length, 2);
+    assert.ok(s.decisions.some(d => d.prompt.type === s.C.OcgMessageType.SORT_CARD));
+    assert.equal(s.location(1, s.C.OcgLocation.REMOVED).length, 4);
+  });
+
+  await run('reichphobia-search-three-defense-target-destroy', [56063182], 'Search Scareclaw Acro, then three authentic Defense Position monsters satisfy the ignition: target and destroy an opposing monster.', s => {
+    s.add(56063182, 0, s.C.OcgLocation.HAND).add(46877100, 0, s.C.OcgLocation.DECK)
+      .add(23635815, 0, s.C.OcgLocation.MZONE, 0, s.C.OcgPosition.FACEUP_DEFENSE)
+      .add(46986414, 0, s.C.OcgLocation.MZONE, 1, s.C.OcgPosition.FACEUP_DEFENSE)
+      .add(89631139, 1, s.C.OcgLocation.MZONE, 0, s.C.OcgPosition.FACEUP_DEFENSE).baseDecks().start();
+    perform(s, 'activate', 56063182, { codes: [46877100] });
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.HAND, 46877100));
+    assert.equal(s.card(1, s.C.OcgLocation.MZONE, 0).attack, 2700);
+    perform(s, 'activate', 56063182, { codes: [89631139] }); requireChain(s, 56063182);
+    assert.ok(hasCode(s, 1, s.C.OcgLocation.GRAVE, 89631139));
+    assert.ok(s.messages.some(m => m.type === s.C.OcgMessageType.BECOME_TARGET));
+  });
+
+  await run('magical-meltdown-fusion-activation-negation-prevention', [47679935], 'An initial Polymerization is genuinely negated by Solemn Judgment. With Meltdown active, a second native Judgment chain fails to negate Polymerization, which Fusion Summons normally.', s => {
+    s.add(47679935, 0, s.C.OcgLocation.HAND).add(24094653, 0, s.C.OcgLocation.HAND)
+      .add(24094653, 0, s.C.OcgLocation.HAND)
+      .add(41420027, 1, s.C.OcgLocation.SZONE, 0, s.C.OcgPosition.FACEDOWN_DEFENSE)
+      .add(41420027, 1, s.C.OcgLocation.SZONE, 1, s.C.OcgPosition.FACEDOWN_DEFENSE);
+    addFusion(s); s.baseDecks().start();
+    let judgmentChosen = false;
+    perform(s, 'activate', 24094653, { chainSelect: p => {
+      const index = p.selects.findIndex(c => c.code === 41420027);
+      if (index >= 0 && !judgmentChosen) { judgmentChosen = true; return index; }
+      return null;
+    } });
+    requireChain(s, 41420027);
+    assert.equal(s.location(0, s.C.OcgLocation.MZONE).length, 0);
+    assert.ok(s.messages.some(m => m.type === s.C.OcgMessageType.CHAIN_NEGATED));
+    assert.ok(hasCode(s, 1, s.C.OcgLocation.SZONE, 41420027));
+    perform(s, 'activate', 47679935);
+    const start = s.messages.length;
+    perform(s, 'activate', 24094653, { chainCodes: [41420027] }); requireChain(s, 47679935);
+    assert.equal(s.card(0, s.C.OcgLocation.MZONE, 0).code, 23995346);
+    assert.equal(s.location(1, s.C.OcgLocation.GRAVE).filter(c => c.code === 41420027).length, 2);
+    assert.ok(s.messages.slice(start).some(m => m.type === s.C.OcgMessageType.CHAINING && m.code === 41420027));
+    assert.ok(!s.messages.slice(start).some(m => m.type === s.C.OcgMessageType.CHAIN_NEGATED), 'Meltdown prevents the second activation negation at resolution');
+  });
+
+  await run('fire-king-island-field-leaves-destroys-own-monsters', [57554544], 'MST destroys Fire King Island; its mandatory GY trigger destroys the owner’s real Fire King monster while preserving the opposing monster.', s => {
+    s.add(57554544, 0, s.C.OcgLocation.HAND).add(5318639, 0, s.C.OcgLocation.HAND)
+      .add(69000994, 0, s.C.OcgLocation.MZONE).add(89631139, 1, s.C.OcgLocation.MZONE).baseDecks().start();
+    perform(s, 'activate', 57554544);
+    perform(s, 'activate', 5318639, { codes: [57554544] }); requireChain(s, 57554544);
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.GRAVE, 69000994));
+    assert.equal(s.location(0, s.C.OcgLocation.MZONE).length, 0);
+    assert.equal(s.card(1, s.C.OcgLocation.MZONE, 0).code, 89631139);
+    assert.equal(s.messages.filter(m => m.type === s.C.OcgMessageType.CHAINING && m.code === 57554544).length, 2);
+  });
+
+  await run('pareidolia-destruction-targeted-graveyard-recovery', [70122149], 'After field activation, MST destroys Pareidolia; its GY trigger targets a real Evil Eye monster and recovers it to hand.', s => {
+    s.add(70122149, 0, s.C.OcgLocation.HAND).add(5318639, 0, s.C.OcgLocation.HAND)
+      .add(82466274, 0, s.C.OcgLocation.GRAVE).baseDecks().start();
+    perform(s, 'activate', 70122149);
+    perform(s, 'activate', 5318639, { select: p => p.selects.some(c => c.code === 70122149) ? [70122149] : [82466274] });
+    requireChain(s, 70122149);
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.HAND, 82466274));
+    assert.ok(!hasCode(s, 0, s.C.OcgLocation.GRAVE, 82466274));
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.GRAVE, 70122149));
+    assert.ok(s.decisions.some(d => d.prompt.type === s.C.OcgMessageType.SELECT_CARD && d.prompt.selects.some(c => c.code === 82466274)));
+  });
+
+  await run('revolving-switchyard-level-ten-summon-deck-level-change', [76136345], 'Special Summon Bullet Train through its real hand ignition; Switchyard’s optional trigger summons Flying Pegasus from deck and changes its native Level from 4 to 10.', s => {
+    s.add(76136345, 0, s.C.OcgLocation.HAND).add(52481437, 0, s.C.OcgLocation.HAND)
+      .add(88875132, 0, s.C.OcgLocation.MZONE).add(88875132, 0, s.C.OcgLocation.DECK).baseDecks().start();
+    perform(s, 'activate', 76136345);
+    perform(s, 'activate', 52481437, { chainCodes: [76136345], codes: [88875132] }); requireChain(s, 76136345);
+    assert.equal(s.location(0, s.C.OcgLocation.MZONE).length, 3);
+    assert.equal(s.card(0, s.C.OcgLocation.MZONE, 2).code, 88875132);
+    assert.equal(s.card(0, s.C.OcgLocation.MZONE, 2).level, 10);
+    assert.ok(!hasCode(s, 0, s.C.OcgLocation.DECK, 88875132));
   });
   return scenarios;
 }

@@ -497,6 +497,19 @@ if (extraZone && extraModal && extraList && closeExtraBtn) {
     const legalFaceUpPendulumUids = new Set(
       (pendulumOptions?.fromExtraDeck || []).map(card => String(card.uid))
     );
+    const pendulumSelectionRequired = pendulumOptions?.nativeSelectionRequired === true;
+    if (availableActions.canPendulumSummon && pendulumSelectionRequired) {
+      const procedureButton = document.createElement('button');
+      procedureButton.type = 'button';
+      procedureButton.className = 'btn btn-magenta native-extra-pendulum-action';
+      procedureButton.textContent = 'CHOISIR LES MONSTRES PENDULE';
+      procedureButton.setAttribute('aria-label', 'Lancer l’Invocation Pendule puis choisir les monstres autorisés dans la Main et l’Extra Deck');
+      procedureButton.addEventListener('click', async () => {
+        closeDialog(extraModal);
+        await game.performPendulumSummon('player');
+      });
+      extraList.appendChild(procedureButton);
+    }
     const extraCards = [
       ...game.playerExtraDeck.map(card => ({ card, faceUp: false })),
       ...(game.playerFaceUpExtraDeck || []).map(card => ({ card, faceUp: true }))
@@ -509,8 +522,11 @@ if (extraZone && extraModal && extraList && closeExtraBtn) {
       const legal = faceUp
         ? availableActions.canPendulumSummon && legalFaceUpPendulumUids.has(String(card.uid))
         : legalExtraUids.has(String(card.uid));
+      const deferredPendulumChoice = faceUp && pendulumSelectionRequired && availableActions.canPendulumSummon;
       const unavailableReason = faceUp
-        ? 'Invocation Pendule indisponible : vérifiez les Échelles, le Niveau, les zones et la limite d’une fois par tour.'
+        ? deferredPendulumChoice
+          ? 'Utilisez « Choisir les monstres Pendule » pour sélectionner les monstres autorisés.'
+          : 'Invocation Pendule indisponible : vérifiez les Échelles, le Niveau, les zones et la limite d’une fois par tour.'
         : 'Invocation indisponible : matériels, procédure ou zone d’arrivée insuffisants.';
       const cardEl = createCardDOM(card, false);
       cardEl.classList.toggle('face-up-extra-card', faceUp);
@@ -526,7 +542,7 @@ if (extraZone && extraModal && extraList && closeExtraBtn) {
               ? `Invoquer par Pendulation ${card.name} depuis l’Extra Deck face recto`
               : `Invoquer ${card.name} depuis l’Extra Deck`
           )
-          : `${card.name}, indisponible. ${unavailableReason}`
+          : `${card.name}${deferredPendulumChoice ? ', Extra Deck face recto' : ', indisponible'}. ${unavailableReason}`
       );
       if (faceUp) {
         const badge = document.createElement('span');
@@ -537,7 +553,7 @@ if (extraZone && extraModal && extraList && closeExtraBtn) {
       if (!legal) {
         const reason = document.createElement('span');
         reason.className = 'extra-card-reason';
-        reason.textContent = 'INDISPONIBLE';
+        reason.textContent = deferredPendulumChoice ? 'CHOIX PENDULE' : 'INDISPONIBLE';
         reason.title = unavailableReason;
         cardEl.appendChild(reason);
       }
@@ -562,7 +578,8 @@ if (extraZone && extraModal && extraList && closeExtraBtn) {
       extraList.appendChild(cardEl);
     });
 
-    openDialog(extraModal, extraList.querySelector('[role="button"]') || closeExtraBtn);
+    openDialog(extraModal, extraList.querySelector('.native-extra-pendulum-action')
+      || extraList.querySelector('[role="button"]') || closeExtraBtn);
   };
 
   extraZone.addEventListener('click', openExtraDeck);
@@ -2313,6 +2330,8 @@ function updateUI(gameState) {
         `Échelles ${pendulumOptions.scales.leftScale}/${pendulumOptions.scales.rightScale} · `
         + `niveaux ${lowScale + 1} à ${highScale - 1} · `
         + `${eligibleCount} monstre${eligibleCount > 1 ? 's' : ''} disponible${eligibleCount > 1 ? 's' : ''}.`;
+    } else if (pendulumAvailable && pendulumOptions?.nativeSelectionRequired === true) {
+      pendulumStatus.textContent = 'Choisissez les monstres autorisés dans votre Main et votre Extra Deck.';
     } else {
       pendulumStatus.textContent = '';
     }

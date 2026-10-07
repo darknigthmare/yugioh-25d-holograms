@@ -1,0 +1,229 @@
+{
+  "format": "project-native-rule-windows-v1",
+  "generatedOn": "2026-10-07",
+  "status": "passed",
+  "nativeApi": [
+    11,
+    0
+  ],
+  "coreRevision": "38d04c9feb1a26617407091380634c87262fe3f8",
+  "coreWasmSha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+  "testFile": "tests/native-duel-rule-windows.test.mjs",
+  "testSha256": "964bc457372adf74c693b83b2c6781c9a7b2ac55c049f94274677df13b813e6d",
+  "decisionAdapterSha256": "cb54bf104837b4803b5aaf3eba353e34de3eadff469a9ad84dc4a733c081e905",
+  "command": [
+    "node",
+    "--input-type=module",
+    "-e",
+    "import('./tests/native-duel-rule-windows.test.mjs')"
+  ],
+  "summary": {
+    "passed": 16,
+    "failed": 0,
+    "officialEffectScenarios": 15,
+    "visibilityGuards": 1
+  },
+  "fixture": {
+    "startingDrawCount": 0,
+    "drawCountPerTurn": 0,
+    "modifiedScripts": false,
+    "modifiedCardData": false,
+    "testMode": false,
+    "debugApi": false,
+    "postStartInjection": false
+  },
+  "scenarios": [
+    {
+      "name": "Prohibition declares a real catalogue identity and the core removes its legal summon command",
+      "status": "passed"
+    },
+    {
+      "name": "DNA Surgery race announcement preserves the full native Dragon mask for both players",
+      "status": "passed"
+    },
+    {
+      "name": "DNA Transplant attribute announcement changes both monsters after its real chain resolves",
+      "status": "passed"
+    },
+    {
+      "name": "Wall of Revealing Light pays the announced number by index before the chain response window",
+      "status": "passed"
+    },
+    {
+      "name": "Spellbook Organization click order maps original indices to ranks and really reorders the Deck",
+      "status": "passed"
+    },
+    {
+      "name": "Kaiser Sea Horse supplies two LIGHT Tributes while the other offered monster stays on the field",
+      "status": "passed"
+    },
+    {
+      "name": "Tokusano Shinkyojin validates an exact Level sum and sends cost cards before any chain response",
+      "status": "passed"
+    },
+    {
+      "name": "Machina Fortress accepts a minimal greater Level sum and rejects an unnecessary extra discard",
+      "status": "passed"
+    },
+    {
+      "name": "Reasoning makes the opponent announce Level 4 and sends the excavated Level 4",
+      "status": "passed"
+    },
+    {
+      "name": "Reasoning makes the opponent announce Level 3 and summons the excavated Level 4",
+      "status": "passed"
+    },
+    {
+      "name": "Defender distributes a real destruction replacement cost across native Spell Counter holders",
+      "status": "passed"
+    },
+    {
+      "name": "simultaneous mandatory Sangan and Witch effects cannot pass priority and resolve in the chosen chain order",
+      "status": "passed"
+    },
+    {
+      "name": "the real Damage Step offers Honest, excludes Book of Moon, pays its hand cost and calculates modified battle damage",
+      "status": "passed"
+    },
+    {
+      "name": "Nekroz Mirror accepts Shurit’s alternate whole Ritual Level from the real encoded sum prompt",
+      "status": "passed"
+    },
+    {
+      "name": "Soul Exchange labels an opposing public Tribute whose real wire reference omits position without resolving hidden cards",
+      "status": "passed"
+    },
+    {
+      "name": "public-position callback never overrides an explicit facedown, hand, Deck or unknown reference",
+      "status": "passed"
+    }
+  ],
+  "officialScripts": [
+    {
+      "code": 43711255,
+      "path": "official/c43711255.lua",
+      "sha256": "51faa3b75a1b4bb34302bd6532d5dd8131f544788a9d746578f256c100875680",
+      "bytes": 1142
+    },
+    {
+      "code": 74701381,
+      "path": "official/c74701381.lua",
+      "sha256": "bb1056d8dea736c7683c1cab2d88c02f43238c797baf42c4123727528d7b31c1",
+      "bytes": 805
+    },
+    {
+      "code": 56769674,
+      "path": "official/c56769674.lua",
+      "sha256": "cceb84a40090d50077c4ee302d7f9f68633f4ecc8bc57b275a161657e2ea854f",
+      "bytes": 863
+    },
+    {
+      "code": 17078030,
+      "path": "official/c17078030.lua",
+      "sha256": "ca10802fafef8bb3b22c8bef64e19635869a8deb84b573c8b89f6cb548879a73",
+      "bytes": 1222
+    },
+    {
+      "code": 96677818,
+      "path": "official/c96677818.lua",
+      "sha256": "c72ec7296c71d7389de4bf88723ca849a6ec4e9b3d854a85694fa746486c779e",
+      "bytes": 474
+    },
+    {
+      "code": 17444133,
+      "path": "official/c17444133.lua",
+      "sha256": "f4f176411c354b95a25fa4e1649a9d9e54b9a9c47b67db5f80e3d75941847e2f",
+      "bytes": 338
+    },
+    {
+      "code": 50357013,
+      "path": "official/c50357013.lua",
+      "sha256": "8191476b49b88144d97a6f1f8cc10ad0f722f47c3d3f7f78efde8165a5c1ee4e",
+      "bytes": 1233
+    },
+    {
+      "code": 5556499,
+      "path": "official/c5556499.lua",
+      "sha256": "fa0d9c34bf25988702d36801c895d8632b49d86b0c1932dac6d4b07500734a4f",
+      "bytes": 3406
+    },
+    {
+      "code": 58577036,
+      "path": "official/c58577036.lua",
+      "sha256": "3a5b02b631ed132def6ed1d0efbb34ba28ef0be23b1aef78d0755244082e9270",
+      "bytes": 1925
+    },
+    {
+      "code": 2525268,
+      "path": "official/c2525268.lua",
+      "sha256": "9ab0882a79a36d0930111e92de44fb14dbe81292e3856c619dfb7be1bb019296",
+      "bytes": 1731
+    },
+    {
+      "code": 70791313,
+      "path": "official/c70791313.lua",
+      "sha256": "9b86168d22309f20e1b152288785bdd416444473334c7eb4d0027661e674b849",
+      "bytes": 1725
+    },
+    {
+      "code": 53129443,
+      "path": "official/c53129443.lua",
+      "sha256": "89f3719a3ffe3b1abc03fc97c2fb39ab244cb8002ab669b56342e36b95efb728",
+      "bytes": 752
+    },
+    {
+      "code": 26202165,
+      "path": "official/c26202165.lua",
+      "sha256": "bbe8a2e73fab5ae65d5bc53af7d7b28aaa19761310e7bc2de5295ad8ee9ff3cf",
+      "bytes": 1481
+    },
+    {
+      "code": 78010363,
+      "path": "official/c78010363.lua",
+      "sha256": "c26e171e05ae291d19f839a0b20e80660268bea49a1a48027ccf2e4cb86973de",
+      "bytes": 1510
+    },
+    {
+      "code": 37742478,
+      "path": "official/c37742478.lua",
+      "sha256": "45d1e4686dbe65af3f8ceb1b6c129820d18eaed2ab80d1337e57978b6e82b448",
+      "bytes": 1994
+    },
+    {
+      "code": 14087893,
+      "path": "official/c14087893.lua",
+      "sha256": "25848f596f425817a250bef9038343fbbcd482b40a0312d84c143e927b12083d",
+      "bytes": 1178
+    },
+    {
+      "code": 14735698,
+      "path": "official/c14735698.lua",
+      "sha256": "c8762993e79a2010eadbff4d07a1e03c1782f816b69c19b84312a137131fea47",
+      "bytes": 2337
+    },
+    {
+      "code": 90307777,
+      "path": "official/c90307777.lua",
+      "sha256": "8dbf09612d3ccd27b65b953adced0c899ef33fdaa2522db445a0412c479f4350",
+      "bytes": 1294
+    },
+    {
+      "code": 26674724,
+      "path": "official/c26674724.lua",
+      "sha256": "adeb1b84081dea5172234eac1c88fa14a29a89bf6889b83590a23bcdc1ad3c8a",
+      "bytes": 2329
+    },
+    {
+      "code": 68005187,
+      "path": "official/c68005187.lua",
+      "sha256": "c619548ffeed5343921b5922638f65644ca1e20250f3be05ca1ea28b6a95d667",
+      "bytes": 1732
+    }
+  ],
+  "limits": [
+    "These scenarios exercise the typed native decision bridge and actual archived effects; they are not a certification of all duel rules or all card branches.",
+    "The archived-script scenarios do not emit SELECT_SUM with mandatory-prefix cards. That protocol layout remains covered by the separate protocol and synthetic-Lua conformance suites.",
+    "The visibility callback is optional, derived from a synchronized public projection, and never overrides an opposing hand/Deck, explicit facedown position or zero passcode."
+  ],
+  "executionLog": "docs/audits/artifacts/native-rule-windows-2026-10-07.txt"
+}

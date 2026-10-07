@@ -7,13 +7,17 @@ import { getStrictCardRegistration } from '../core/StrictCardRegistry.js';
 import { NATIVE_FIELD_COVERAGE_SNAPSHOT } from './NativeFieldCoverageSnapshot.js';
 import { NATURE_CARD_LANDMARKS } from './FieldEnvironmentNatureReferences.js';
 import { ARCHITECTURAL_CARD_LANDMARKS } from './FieldEnvironmentArchitecturalReferences.js';
+import { TECHNOLOGY_CARD_LANDMARKS } from './FieldEnvironmentTechnologyReferences.js';
+import { MYSTICAL_CARD_LANDMARKS } from './FieldEnvironmentMysticalReferences.js';
+import { URBAN_CARD_LANDMARKS } from './FieldEnvironmentUrbanReferences.js';
 
 const rulesById = new Map(IMPLEMENTED_FIELD_SPELLS.map(card => [String(card.id), card]));
 const nativeBundledIds = new Set(NATIVE_FIELD_COVERAGE_SNAPSHOT.bundledCardIds);
 const nativeInitializedIds = new Set(NATIVE_FIELD_COVERAGE_SNAPSHOT.initializedCardIds);
 const nativeEffectTestedIds = new Set(NATIVE_FIELD_COVERAGE_SNAPSHOT.effectTestedCardIds);
 const nativeIntegrationTestedIds = new Set(NATIVE_FIELD_COVERAGE_SNAPSHOT.integrationTestedCardIds);
-const reconstructedIds = new Set([...Object.keys(NATURE_CARD_LANDMARKS), ...Object.keys(ARCHITECTURAL_CARD_LANDMARKS)]);
+const reconstructedIds = new Set([...Object.keys(NATURE_CARD_LANDMARKS), ...Object.keys(ARCHITECTURAL_CARD_LANDMARKS),
+  ...Object.keys(TECHNOLOGY_CARD_LANDMARKS), ...Object.keys(MYSTICAL_CARD_LANDMARKS), ...Object.keys(URBAN_CARD_LANDMARKS)]);
 
 // Every catalogue entry has its own evidence. An illustration or procedural
 // family is never promoted to a completed 3D reconstruction or implemented rule.

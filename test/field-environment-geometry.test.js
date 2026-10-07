@@ -159,15 +159,15 @@ test('geometry stays deterministic and changes for different cards of the same f
 test('key Field Spells have the expected physical landmarks', () => {
   for (const [cardId, landmark, meshName] of [
     ['47355498', 'funerary-valley', 'funerary-pyramid'],
-    ['75041269', 'clock-tower', 'clock-face'],
+    ['75041269', 'clock-prison-two-faced-turret', 'clock-prison-dial'],
     ['76375976', 'mine-entrance', 'mine-timber'],
-    ['37694547', 'gearworks', 'gear-tooth'],
-    ['72283691', 'golden-castle', 'castle-curtain-wall'],
-    ['72283691', 'golden-castle', 'golden-castle-drawbridge-chain'],
+    ['37694547', 'geartown-interlocking-gear-buildings', 'geartown-open-toothed-building-gear'],
+    ['72283691', 'stromberg-golden-gables', 'stromberg-gold-palace'],
+    ['72283691', 'stromberg-golden-gables', 'stromberg-broad-ascending-stair'],
     ['56433456', 'sky-sanctuary', 'sky-sanctuary-floating-stair'],
     ['2084239', 'reed-basin', 'wetlands-rain-soaked-grass'],
     ['71645242', 'thorn-garden', 'rose-bloom'],
-    ['33550694', 'fusion-gate', 'dimensional-ring'],
+    ['33550694', 'fusion-violet-funnel-grid', 'fusion-lime-bent-floor-grid'],
     ['59160188', 'shadow-prison', 'shadow-prison-bar']
   ]) {
     const group = createFieldEnvironmentGeometry(THREE, getFieldEnvironmentForCardId(cardId));
@@ -182,27 +182,27 @@ test('24 additional named terrains contain distinct physical props beyond the fa
     ['92107604', 'runic-fountain', 'runic-fountain-spire'],
     ['13035077', 'dragonic-diagram', 'dragonic-elemental-seal'],
     ['47679935', 'fusion-meltdown', 'meltdown-opposing-energy-channel'],
-    ['34487429', 'rainbow-ruins', 'rainbow-crystal-relic'],
+    ['34487429', 'rainbow-ruins-curved-stone-stands', 'rainbow-ruins-curved-stone-terraces'],
     ['59054773', 'cyber-islands', 'cyber-arrival-island'],
-    ['66399653', 'union-hangar', 'union-docking-cradle'],
+    ['66399653', 'union-hangar-stacked-yellow-pods', 'union-hangar-yellow-connector-drum'],
     ['67237709', 'orbital-town', 'orbital-town-dome'],
-    ['41418852', 'numeron-gate-network', 'numeron-gate-upright'],
+    ['41418852', 'numeron-thorned-orange-network', 'numeron-angular-orange-network-rib'],
     ['77103950', 'primeval-tidal-planet', 'perlereino-tidal-arch'],
     ['71832012', 'pressured-planet', 'wraitsoth-drill-tower'],
     ['89264428', 'seven-star-observatory', 'big-dipper-star'],
     ['5050644', 'aromatic-garden', 'aroma-flowering-herb'],
     ['68462976', 'spellcaster-tree-village', 'village-twisted-trunk'],
-    ['76136345', 'railway-turntable', 'switchyard-rotating-bridge'],
+    ['76136345', 'switchyard-radial-rails-and-turntable', 'switchyard-rusty-diameter-bridge'],
     ['50005218', 'airspace-launch-base', 'area-zero-launch-deck'],
     ['1127737', 'dimensional-shipwrecks', 'sargasso-broken-hull'],
     ['58793369', 'stellar-ritual-orbits', 'drytron-calibrated-orbit'],
-    ['36668118', 'launch-silos', 'boot-sector-open-hatch'],
-    ['95658967', 'ritual-light-basin', 'ritual-offering-plinth'],
+    ['36668118', 'boot-sector-open-red-rotor', 'boot-open-toothed-rotor'],
+    ['95658967', 'ritual-sanctuary-golden-display', 'ritual-sanctuary-shallow-golden-oval-plinth'],
     ['95477924', 'twin-salvation-gates', 'salvation-inscribed-stele'],
     ['1050355', 'nightmare-mirror', 'dream-mirror-night-spike'],
     ['74665651', 'radiant-mirror', 'dream-mirror-dawn-finial'],
     ['94585852', 'archfiend-court', 'pandemonium-empty-throne-seat'],
-    ['56111151', 'waterfront-counter-tower', 'kyoutou-counter-reservoir']
+    ['56111151', 'kyoutou-golden-observation-tower', 'kyoutou-wide-blue-observation-gallery']
   ]) {
     const environment = getFieldEnvironmentForCardId(cardId);
     const group = createFieldEnvironmentGeometry(THREE, environment);
@@ -212,7 +212,7 @@ test('24 additional named terrains contain distinct physical props beyond the fa
     assert.ok(group.children.every(object => object.isInstancedMesh), 'static props must be GPU batched');
     disposeFieldEnvironmentGeometry(group);
   }
-  assert.equal(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.count, 89);
+  assert.equal(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.count, 119);
   assert.deepEqual(new Set(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.cardIds), new Set(Object.keys(FIELD_ENVIRONMENT_CARD_LANDMARKS)));
   assert.equal(getFieldEnvironmentForCardId('15259703'), null, 'Toon World is a Continuous Spell');
   assert.equal(getFieldEnvironmentForCardId('43175858').geometryProfile.landmark, 'storybook-castle');
@@ -263,7 +263,7 @@ test('24 inspected original illustrations produce their concrete motifs without 
     }
     disposeFieldEnvironmentGeometry(group);
   }
-  assert.equal(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.inspectedReferenceArtCount, 50);
+  assert.equal(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.inspectedReferenceArtCount, 94);
   assert.deepEqual(new Set(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.inspectedReferenceCardIds), new Set(Object.keys(FIELD_ENVIRONMENT_INSPECTED_ART_PROFILES)));
   assert.equal(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.budget, FIELD_ENVIRONMENT_GEOMETRY_BUDGET);
 });

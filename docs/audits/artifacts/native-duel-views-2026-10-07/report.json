@@ -52,7 +52,7 @@
             "canvases": 0,
             "css3d": 0
           },
-          "approximateJsHeapBytes": 148741264,
+          "approximateJsHeapBytes": 147992575,
           "concealment": {
             "count": 0,
             "safe": true
@@ -98,7 +98,7 @@
             "canvases": 0,
             "css3d": 0
           },
-          "approximateJsHeapBytes": 149010938,
+          "approximateJsHeapBytes": 148274373,
           "concealment": {
             "count": 0,
             "safe": true
@@ -152,7 +152,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 152221178,
+          "approximateJsHeapBytes": 151478351,
           "concealment": {
             "count": 0,
             "safe": true
@@ -202,7 +202,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 159948058,
+          "approximateJsHeapBytes": 103806457,
           "concealment": {
             "count": 0,
             "safe": true
@@ -252,7 +252,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 163870905,
+          "approximateJsHeapBytes": 102442711,
           "concealment": {
             "count": 0,
             "safe": true
@@ -302,7 +302,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 105667855,
+          "approximateJsHeapBytes": 104020656,
           "concealment": {
             "count": 0,
             "safe": true
@@ -352,7 +352,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 105954443,
+          "approximateJsHeapBytes": 104282011,
           "concealment": {
             "count": 0,
             "safe": true
@@ -402,7 +402,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 106758153,
+          "approximateJsHeapBytes": 105089269,
           "concealment": {
             "count": 0,
             "safe": true
@@ -452,7 +452,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 107122577,
+          "approximateJsHeapBytes": 102932928,
           "concealment": {
             "count": 0,
             "safe": true
@@ -502,7 +502,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 107310489,
+          "approximateJsHeapBytes": 103129294,
           "concealment": {
             "count": 0,
             "safe": true
@@ -552,7 +552,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 102281065,
+          "approximateJsHeapBytes": 102706197,
           "concealment": {
             "count": 0,
             "safe": true
@@ -686,7 +686,7 @@
             "canvases": 0,
             "css3d": 0
           },
-          "approximateJsHeapBytes": 150500998,
+          "approximateJsHeapBytes": 147784821,
           "concealment": {
             "count": 0,
             "safe": true
@@ -732,7 +732,7 @@
             "canvases": 0,
             "css3d": 0
           },
-          "approximateJsHeapBytes": 150766948,
+          "approximateJsHeapBytes": 148049443,
           "concealment": {
             "count": 0,
             "safe": true
@@ -786,7 +786,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 152639432,
+          "approximateJsHeapBytes": 151415833,
           "concealment": {
             "count": 0,
             "safe": true
@@ -836,7 +836,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 160531496,
+          "approximateJsHeapBytes": 159367985,
           "concealment": {
             "count": 0,
             "safe": true
@@ -886,7 +886,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 164462951,
+          "approximateJsHeapBytes": 163297136,
           "concealment": {
             "count": 0,
             "safe": true
@@ -936,7 +936,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 106089004,
+          "approximateJsHeapBytes": 151359658,
           "concealment": {
             "count": 0,
             "safe": true
@@ -986,7 +986,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 106375336,
+          "approximateJsHeapBytes": 151640934,
           "concealment": {
             "count": 0,
             "safe": true
@@ -1036,7 +1036,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 107172062,
+          "approximateJsHeapBytes": 152455046,
           "concealment": {
             "count": 0,
             "safe": true
@@ -1086,7 +1086,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 107483854,
+          "approximateJsHeapBytes": 152763086,
           "concealment": {
             "count": 0,
             "safe": true
@@ -1136,7 +1136,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 107671130,
+          "approximateJsHeapBytes": 152950430,
           "concealment": {
             "count": 0,
             "safe": true
@@ -1186,7 +1186,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 108450090,
+          "approximateJsHeapBytes": 153734414,
           "concealment": {
             "count": 0,
             "safe": true
@@ -1275,5 +1275,12 @@
     }
   ],
   "testedWasmSha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
-  "testedIndexSha256": "dee6859628bd6f85aff129962d1968deb95b13943c5563c4bb1aca09b7c240a5"
+  "testedIndexSha256": "2b8993d189f7339198663a1fd54b013b561747d19d90dde37cb9c060c5b9d56f",
+  "testedIndexAsset": "/assets/index-CNuJ3sB1.js",
+  "testedIndexHtmlSha256": "e7b9fa63bcc4e5356034d77feb1365abadae5bfb13ab401718a32a83b3a18e0e",
+  "testedCssAsset": "/assets/index-Edane65D.css",
+  "testedCssSha256": "557d05b0cb6a7c8a0a8e82e7309a1a63f83205bd4dc41fab99b468c4e9312d02",
+  "immutableCompiledSnapshot": true,
+  "testedNativeGameAsset": "/assets/NativeDuelGame-COFVTauG.js",
+  "testedNativeCoreAsset": "/assets/ocgcore-C5iXURMO.js"
 }

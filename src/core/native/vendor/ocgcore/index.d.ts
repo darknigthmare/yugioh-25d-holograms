@@ -1033,6 +1033,8 @@ export declare interface OcgMessageMove {
     card: number;
     from: OcgLocPos;
     to: OcgLocPos;
+    /** Native uint32 reason flags, preserved from MSG_MOVE. */
+    reason: number;
 }
 
 export declare interface OcgMessageNewPhase {

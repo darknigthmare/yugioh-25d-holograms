@@ -65,8 +65,14 @@ function optionsFor(prompt, options = {}) {
     ?? (prompt.player === 1 ? 'opponent' : 'player') };
 }
 function cardCandidate(ref, index, prompt, options) {
+  // Tribute/counter wire references omit position. A synchronized public board
+  // projection may confirm visibility without returning a hidden identity.
+  // An explicit facedown position or any opposing hand/deck stays private.
+  const publicPositionOmitted = ref.controller !== prompt.player && ref.position == null && integer(ref.code, 1)
+    && (ref.location & (1 | 2)) === 0 && (ref.location & (64 | 32 | 4 | 8)) !== 0
+    && options.isPublicCard?.(ref) === true;
   const hiddenOther = ref.controller !== prompt.player && ((ref.location & (1 | 2)) !== 0
-    || ((ref.location & (64 | 32 | 4 | 8)) !== 0 && ((ref.position ?? 8) & 10) !== 0));
+    || ((ref.location & (64 | 32 | 4 | 8)) !== 0 && ((ref.position ?? 8) & 10) !== 0 && !publicPositionOmitted));
   const known = integer(ref.code, 1) && !hiddenOther;
   // In particular, never resolve code=0 against a mirror containing its real code.
   const card = known ? options.resolveCard?.(ref) ?? readMetadata(options.metadata, ref.code) : null;

@@ -1,0 +1,666 @@
+{
+  "auditDate": "2026-10-07",
+  "referenceCount": 16,
+  "baselineMethod": "Identical geometry factory with only technology imports/maps/dispatch removed; earlier named and family props retained.",
+  "geometryScope": "Source shapes reconstructed as adapted peripheral volumes; no full spatial 1:1 claim; source characters retained unchanged.",
+  "moduleSha256": "930d3121814e730d9274a6d2087bcd301c1b18b07250cff1de9abb70676b4742",
+  "factorySha256": "5c5d86bee1abaf9244ded5e7dfed65bdb88678e15acffbd896824f502387601a",
+  "baselineSha256": "932ed9663479e1e205598ac07274a334a6213a44a7a91f6a50e6f48ffd9eb52f",
+  "references": [
+    {
+      "cardId": "36668118",
+      "name": "Boot Sector Launch",
+      "camera": [
+        8,
+        10,
+        -6
+      ],
+      "target": [
+        0,
+        7,
+        -29
+      ],
+      "fov": 65,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/36668118.jpg",
+      "sourceSha256": "8de274478e7e45404ac3e515ff0cc32da3884b465600fbf7e51092e6f23be3ae"
+    },
+    {
+      "cardId": "85668449",
+      "name": "Brain Research Lab",
+      "camera": [
+        0,
+        9,
+        -8
+      ],
+      "target": [
+        0,
+        8,
+        -29
+      ],
+      "fov": 73,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/85668449.jpg",
+      "sourceSha256": "efcc70a89f75e0e6ba9e4086175e23866385165203cfc92334884fe0ae0ab923"
+    },
+    {
+      "cardId": "74378580",
+      "name": "GMX Lab #5",
+      "camera": [
+        12,
+        15,
+        -7
+      ],
+      "target": [
+        0,
+        5,
+        -29
+      ],
+      "fov": 66,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/74378580.jpg",
+      "sourceSha256": "9df4167841830ad40164e85a78afaccf811d20f42f575e10cf8fff189545d3c5"
+    },
+    {
+      "cardId": "63899465",
+      "name": "Rescue-ACE HQ",
+      "camera": [
+        10,
+        12,
+        -9
+      ],
+      "target": [
+        0,
+        6,
+        -30
+      ],
+      "fov": 63,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/63899465.jpg",
+      "sourceSha256": "b8b60947a482e2ae661de2b3e67a0da9e4098581a0bc71f733a3ffae86ecc374"
+    },
+    {
+      "cardId": "42461852",
+      "name": "Cynet Storm",
+      "camera": [
+        0,
+        13,
+        -6
+      ],
+      "target": [
+        0,
+        10,
+        -31
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/42461852.jpg",
+      "sourceSha256": "45cded2bc36914e5b329ab1faecd75dca537a539ca0cde487fc4c7af8bdc664d"
+    },
+    {
+      "cardId": "22829942",
+      "name": "Fusion Recycling Plant",
+      "camera": [
+        7,
+        10,
+        -3
+      ],
+      "target": [
+        0,
+        10,
+        -31
+      ],
+      "fov": 71,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/22829942.jpg",
+      "sourceSha256": "fdb7a39ebb445ee7a0c3c4a26a51eb09556c9095b48c29cc03c6c1abcdc7842f"
+    },
+    {
+      "cardId": "37694547",
+      "name": "Geartown",
+      "camera": [
+        2,
+        9,
+        -5
+      ],
+      "target": [
+        0,
+        9,
+        -30
+      ],
+      "fov": 66,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/37694547.jpg",
+      "sourceSha256": "b483c939c85d1fa06154102490e55eabe4bfc61085c497430418e295fd03beb9"
+    },
+    {
+      "cardId": "53039326",
+      "name": "Iron Core Specimen Lab",
+      "camera": [
+        1,
+        10,
+        -8
+      ],
+      "target": [
+        0,
+        8,
+        -30
+      ],
+      "fov": 69,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/53039326.jpg",
+      "sourceSha256": "277efc8a143ea3a7650e0ed925fe12d73d4ebb90547785740e6455c790bc9cb6"
+    },
+    {
+      "cardId": "28388296",
+      "name": "Scrap Factory",
+      "camera": [
+        8,
+        15,
+        -5
+      ],
+      "target": [
+        0,
+        8,
+        -30
+      ],
+      "fov": 67,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/28388296.jpg",
+      "sourceSha256": "cdab1d4376a7c10a9eaca0996aa5f90d458da37eed165b9864028322c5cf5511"
+    },
+    {
+      "cardId": "66399653",
+      "name": "Union Hangar",
+      "camera": [
+        8,
+        10,
+        -7
+      ],
+      "target": [
+        0,
+        8,
+        -31
+      ],
+      "fov": 61,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/66399653.jpg",
+      "sourceSha256": "8196f99bc87be087b1bf38ae98d90e93192ec6f42124f4263d7444e19d3c3f19"
+    },
+    {
+      "cardId": "975299",
+      "name": "B.E.F. Zelos",
+      "camera": [
+        3,
+        9,
+        -6
+      ],
+      "target": [
+        0,
+        8,
+        -32
+      ],
+      "fov": 64,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/975299.jpg",
+      "sourceSha256": "03c73d528117d5d7523a6de9b489dc1d5194128c0cbf5f9e5b6b298225d7ae5d"
+    },
+    {
+      "cardId": "67328336",
+      "name": "Meklord Fortress",
+      "camera": [
+        9,
+        10,
+        -6
+      ],
+      "target": [
+        0,
+        10,
+        -31
+      ],
+      "fov": 62,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/67328336.jpg",
+      "sourceSha256": "b78a46a34a8a31f8eb1d8bce3621973cea34125cc2da3eefa9c3ac5251c24a23"
+    },
+    {
+      "cardId": "90351981",
+      "name": "Orcustrated Babel",
+      "camera": [
+        12,
+        13,
+        1
+      ],
+      "target": [
+        0,
+        13,
+        -32
+      ],
+      "fov": 62,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/90351981.jpg",
+      "sourceSha256": "a1a56593c2077707a76584fdcf18faef620ce8fefc47c81a803f61fd10d29240"
+    },
+    {
+      "cardId": "76136345",
+      "name": "Revolving Switchyard",
+      "camera": [
+        13,
+        18,
+        -6
+      ],
+      "target": [
+        0,
+        3,
+        -32
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/76136345.jpg",
+      "sourceSha256": "2736406891462a7e8190f76830cec275f15ed78da8d22ccc5a0ee78c7fe00b55"
+    },
+    {
+      "cardId": "41418852",
+      "name": "Numeron Network",
+      "camera": [
+        0,
+        10,
+        -5
+      ],
+      "target": [
+        0,
+        10,
+        -31
+      ],
+      "fov": 70,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/41418852.jpg",
+      "sourceSha256": "65ef14be8d20b435e1d286e279c722f8d1f5987fb85abaa3e4546601cc790aa0"
+    },
+    {
+      "cardId": "43034264",
+      "name": "Laser Qlip",
+      "camera": [
+        11,
+        10,
+        -6
+      ],
+      "target": [
+        0,
+        10,
+        -31
+      ],
+      "fov": 61,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/43034264.jpg",
+      "sourceSha256": "1ce50345ce230c69ee7011642a797ebe68964f185802e81a73776f7a3cdb6d18"
+    }
+  ],
+  "capture": {
+    "details": [
+      {
+        "cardId": "36668118",
+        "before": {
+          "url": null,
+          "primitives": 63,
+          "drawCalls": 6,
+          "materials": 3,
+          "triangles": 6420,
+          "fidelity": "procedural-interpretation",
+          "landmark": "launch-silos",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 31,
+          "drawCalls": 9,
+          "materials": 4,
+          "triangles": 2100,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "boot-sector-open-red-rotor",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "85668449",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "landmark": "industrial-lab",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 105,
+          "drawCalls": 9,
+          "materials": 5,
+          "triangles": 3124,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "brain-lab-green-cylindrical-vat",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "74378580",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "landmark": "industrial-lab",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 68,
+          "drawCalls": 10,
+          "materials": 6,
+          "triangles": 4032,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "gmx-jungle-broken-concrete-lab",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "63899465",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "landmark": "industrial-lab",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 14,
+          "materials": 7,
+          "triangles": 1940,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "rescue-hq-red-command-reactor",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "42461852",
+        "before": {
+          "url": null,
+          "primitives": 36,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 1944,
+          "fidelity": "procedural-interpretation",
+          "landmark": "digital-cyber",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 135,
+          "drawCalls": 5,
+          "materials": 5,
+          "triangles": 10464,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "cynet-storm-continuous-data-funnel",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "22829942",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "landmark": "industrial-lab",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 69,
+          "drawCalls": 13,
+          "materials": 5,
+          "triangles": 11588,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "fusion-recycling-searchlight-scrapyard",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "37694547",
+        "before": {
+          "url": null,
+          "primitives": 59,
+          "drawCalls": 5,
+          "materials": 3,
+          "triangles": 2724,
+          "fidelity": "procedural-interpretation",
+          "landmark": "gearworks",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 35,
+          "drawCalls": 10,
+          "materials": 7,
+          "triangles": 7044,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "geartown-interlocking-gear-buildings",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "53039326",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "landmark": "industrial-lab",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 50,
+          "drawCalls": 9,
+          "materials": 7,
+          "triangles": 2764,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "iron-core-orange-circuit-chamber",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "28388296",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "landmark": "industrial-lab",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 12,
+          "drawCalls": 10,
+          "materials": 5,
+          "triangles": 3016,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "scrap-factory-molten-vat-and-claw",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "66399653",
+        "before": {
+          "url": null,
+          "primitives": 71,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 1788,
+          "fidelity": "procedural-interpretation",
+          "landmark": "union-hangar",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 56,
+          "drawCalls": 7,
+          "materials": 5,
+          "triangles": 5316,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "union-hangar-stacked-yellow-pods",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "975299",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "landmark": "mechanical-fortress",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 43,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 1164,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "zelos-receding-launch-chambers",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "67328336",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "landmark": "mechanical-fortress",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 13,
+          "drawCalls": 9,
+          "materials": 4,
+          "triangles": 7472,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "meklord-curved-dome-and-cyan-rings",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "90351981",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "landmark": "mechanical-fortress",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 196,
+          "drawCalls": 9,
+          "materials": 6,
+          "triangles": 14712,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "babel-tapered-spiral-organ-tower",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "76136345",
+        "before": {
+          "url": null,
+          "primitives": 68,
+          "drawCalls": 7,
+          "materials": 4,
+          "triangles": 2248,
+          "fidelity": "procedural-interpretation",
+          "landmark": "railway-turntable",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 84,
+          "drawCalls": 9,
+          "materials": 6,
+          "triangles": 4176,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "switchyard-radial-rails-and-turntable",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "41418852",
+        "before": {
+          "url": null,
+          "primitives": 59,
+          "drawCalls": 8,
+          "materials": 5,
+          "triangles": 5352,
+          "fidelity": "procedural-interpretation",
+          "landmark": "numeron-gate-network",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 142,
+          "drawCalls": 5,
+          "materials": 3,
+          "triangles": 8512,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "numeron-thorned-orange-network",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "43034264",
+        "before": {
+          "url": null,
+          "primitives": 36,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 1944,
+          "fidelity": "procedural-interpretation",
+          "landmark": "digital-cyber",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 54,
+          "drawCalls": 10,
+          "materials": 3,
+          "triangles": 5104,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "laser-qlip-floating-four-pillar-frame",
+          "geometriesAfterDisposal": 0
+        }
+      }
+    ],
+    "images": 48,
+    "complete": true,
+    "rendererCount": 1,
+    "memoryScope": "renderer.info.memory.geometries after each disposal; GPU allocations beyond Three tracking not measured",
+    "errors": [],
+    "artifacts": [
+      "docs/audits/artifacts/field-technology-2026-10-07/technology-source-before-after-1.jpg",
+      "docs/audits/artifacts/field-technology-2026-10-07/technology-source-before-after-2.jpg",
+      "docs/audits/artifacts/field-technology-2026-10-07/technology-source-before-after-3.jpg",
+      "docs/audits/artifacts/field-technology-2026-10-07/technology-source-before-after-4.jpg"
+    ]
+  }
+}

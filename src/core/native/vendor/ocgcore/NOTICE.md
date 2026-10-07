@@ -68,6 +68,12 @@ Local fixes are based on the pinned `OCG_CardData` structure and
    JSPI is unnecessary for preloaded card and script readers.
 7. Decode sum selection's mandatory list before its optional list, including
    the full location with its 32-bit position before each material value.
+8. Consume and expose `MSG_MOVE`'s trailing unsigned 32-bit `reason` flags.
+   The native core writes these flags after both complete card locations;
+   `OcgMessageMove.reason` preserves the wire value, including Xyz material
+   moves whose destination is an overlay under a host still in the Extra Deck.
+   The local declaration patch adds the same field. The unmodified upstream
+   `messages.ts` and `type_message.ts` remain available for comparison.
 
 Recreate the wrapper after extracting the exact npm tarball and building the
 paired native loader:
