@@ -77,7 +77,7 @@ function cardCandidate(ref, index, prompt, options) {
   // In particular, never resolve code=0 against a mirror containing its real code.
   const card = known ? options.resolveCard?.(ref) ?? readMetadata(options.metadata, ref.code) : null;
   const name = known ? card?.name ?? `Carte ${ref.code}` : 'Carte face verso';
-  const effectText = ref.description != null ? descriptionLabel(ref.description, options, ref.code) : '';
+  const effectText = known && ref.description != null ? descriptionLabel(ref.description, options, ref.code) : '';
   return { uid: String(index), name, label: effectText ? `${name} — ${effectText}` : name,
     source: (ref.location & 4) !== 0 ? 'field' : (ref.location & 64) !== 0 ? 'extra' : 'hand' };
 }
@@ -329,8 +329,38 @@ export function translateNativePrompt(prompt, inputOptions = {}) {
       }
       request.title = kind === 'SELECT_TRIBUTE' ? 'CHOISIR LES SACRIFICES'
         : kind === 'SELECT_SUM' ? 'CHOISIR LES MATÉRIELS' : 'CHOISIR LES CARTES';
-      request.candidates = refs.map((ref, index) => cardCandidate(ref, index, prompt, options));
-      if (must.length) request.description = `${must.length} carte(s) obligatoire(s) déjà incluse(s). Sélectionnez les cartes supplémentaires.`;
+      const weightedCandidate = (ref, index) => {
+        const candidate = cardCandidate(ref, index, prompt, options);
+        if (kind === 'SELECT_SUM') {
+          candidate.nativeWeights = sumAmounts(ref);
+          candidate.label += ` — Valeur : ${candidate.nativeWeights.join(' ou ')}`;
+        } else if (kind === 'SELECT_TRIBUTE') {
+          candidate.nativeWeights = [ref.release_param];
+          candidate.label += ` — Sacrifices : ${ref.release_param}`;
+        }
+        return candidate;
+      };
+      request.candidates = refs.map(weightedCandidate);
+      if (must.length) {
+        request.includedCandidates = must.map(weightedCandidate);
+        request.description = `${must.length} carte(s) obligatoire(s) déjà incluse(s). Sélectionnez les cartes supplémentaires.`;
+      }
+      if (kind === 'SELECT_SUM' || kind === 'SELECT_TRIBUTE') {
+        const target = kind === 'SELECT_SUM' ? prompt.amount : prompt.min;
+        const requirement = kind === 'SELECT_SUM' && !prompt.select_max ? 'exactement' : 'au moins';
+        request.description = `${request.description} La valeur totale doit atteindre ${requirement} ${target}.`;
+        // Only wire weights are displayed. Printed Levels, private mirrors and
+        // the summary never decide legality; validateSelection remains authoritative.
+        request.selectionSummary = choice => {
+          const indices = selectionToIndices(choice, refs.length);
+          if (!indices) return '';
+          const selected = [...must, ...indices.map(index => refs[index])];
+          const weights = selected.map(ref => kind === 'SELECT_SUM' ? sumAmounts(ref) : [ref.release_param]);
+          const low = weights.reduce((total, values) => total + Math.min(...values), 0);
+          const high = weights.reduce((total, values) => total + Math.max(...values), 0);
+          return `${low === high ? `Valeur totale : ${low}` : `Valeur minimale : ${low} · maximale : ${high}`} · Objectif : ${requirement} ${target}.`;
+        };
+      }
       convert = choice => {
         if (choice === null && kind !== 'SELECT_SUM') return { type, indicies: null };
         const indices = selectionToIndices(choice, refs.length);

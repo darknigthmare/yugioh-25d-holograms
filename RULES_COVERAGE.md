@@ -1,6 +1,6 @@
 # Couverture des règles — 7 octobre 2026
 
-Les Duels **TCG Advanced strict** et **Duel libre** utilisent le moteur natif EDOPro/WASM et les scripts Lua de Project Ignis. Les **339 Magies de Terrain sont intégrées**, avec données et scripts locaux ; leurs **339 initialisations** passent sans erreur Lua. **47 scénarios exécutent des effets sur 41 Terrains**. Une initialisation prouve l’enregistrement des effets, pas toutes les branches du script ; ce document ne certifie pas le TCG complet.
+Les Duels **TCG Advanced strict** et **Duel libre** utilisent le moteur natif EDOPro/WASM et les scripts Lua de Project Ignis. Les **339 Magies de Terrain sont intégrées**, avec données et scripts locaux ; leurs **339 initialisations** passent sans erreur Lua. **77 scénarios exécutent des effets sur 65 Terrains**. Une initialisation prouve l’enregistrement des effets, pas toutes les branches du script ; ce document ne certifie pas le TCG complet.
 
 ## Autorité et modes
 
@@ -20,17 +20,21 @@ MR5 et les flags `TCG_SEGOC_NONPUBLIC | TCG_SEGOC_FIRSTTRIGGER` sont expliciteme
 | --- | --- | --- |
 | Données et Lua locaux | **339 / 339 Terrains** | CDB, chemins sources, commits, SHA-256 et dépendances archivés. |
 | Initialisation native | **339 / 339** | `initial_effect`, enregistrement, requête et démarrage de 339 handles distincts, sans diagnostic Lua. |
-| Scénarios de règles | **47 scénarios / 41 Terrains** | Effets réellement exécutés, messages, réponses et requêtes natives assertés. |
+| Scénarios de règles | **77 scénarios / 65 Terrains** | Effets réellement exécutés, messages, réponses et requêtes natives assertés. |
 | Procédures d’Invocation | **20 cas natifs** | Fusion, Rituel, Synchro, Xyz, Lien, Pendule et Flip, matériaux, restrictions, annulations et zones MR5. |
+| Combats et replays | **21 scénarios natifs** | Damage Step, calcul réel, doubles dégâts, annulation, contrôle, deux attaques, pioche privée et match nul. |
+| Choix supplémentaires | **8 parcours officiels + 3 contrats wire** | Déclarations filtrées, poids et préfixes, ajout/retrait, annulation et descriptions cachées. |
 | Fenêtres de décision | **15 scénarios officiels + 1 garde de confidentialité** | Déclarations, sommes, compteurs, ordre du Deck, chaînes obligatoires et Damage Step. |
 | Navigateur compilé | **Desktop 1280 × 900 et mobile 390 × 844** | Bibliothèque 390/339, lancement natif, Invocation Normale, pose de Magie, Extra Deck, IA/pioche suivante et confidentialité ; zéro erreur JS, asset natif en échec ou violation CSP. |
-| Géométrie et source visuelle | **339 illustrations exactes, 119 décors dédiés, 94 références inspectées, 70 reconstructions** | Trois nouveaux lots reconstruisent 44 décors depuis les sources. La géométrie reste distincte de la preuve des règles et d’une reproduction spatiale intégrale 1:1. |
+| Géométrie et source visuelle | **339 illustrations exactes, 155 décors dédiés, 141 références inspectées, 130 reconstructions** | Trois nouveaux lots reconstruisent 60 décors depuis les sources. La géométrie reste distincte de la preuve des règles et d’une reproduction spatiale intégrale 1:1. |
 
 La [matrice native](docs/audits/artifacts/native-field-runtime-2026-10-07.json) garde `bundled`, `initialized`, `effectTested` et `integrationTested` distincts. Les 339 lignes de l’audit Node ne reçoivent pas artificiellement une preuve navigateur générale. Le [rapport navigateur](docs/audits/artifacts/native-duel-ui-2026-10-07/report.json) couvre son parcours public précis. L’atlas affiche séparément disponibilité du moteur, initialisation et scénario exercé, tout en conservant les 29 effets JavaScript historiques.
 
 ## Effets exercés dans le moteur natif
 
-Les [47 scénarios et leur protocole complet](docs/audits/native-field-rules-2026-10-07.md) couvrent :
+Les nouveaux cas exercent aussi Domain (sacrifice, verrou Extra, bonus au calcul), Toon Kingdom, Lair, Lemuria, Marincess via vrai Crystal Heart, Sanctuary, Secret Village, PSY-Frame, Salamangreat, Traptrip, Rikka, Gates, Triamid, Dark Sanctuary, Orichalcos et Pandemonium. Les branches et partenaires précis figurent dans [l’audit natif des Terrains](docs/audits/native-field-rules-2026-10-07.md).
+
+Les [77 scénarios et leur protocole complet](docs/audits/native-field-rules-2026-10-07.md) couvrent :
 
 - **Zombie World, Necrovalley, Molten Destruction, Gaia Power, Wetlands et A Legendary Ocean** : changements de Type/Niveau et statistiques, plancher de DEF, alias Umi et Monster Reborn légalement activé puis annulé à la résolution par Necrovalley.
 - **Dragon Ravine et Gateway to Chaos** : défausse en coût distincte de l’envoi par effet, choix du mode, recherche du véritable monstre Rituel et ajout depuis le Deck.

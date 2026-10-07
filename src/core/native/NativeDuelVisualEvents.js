@@ -350,9 +350,9 @@ export function translateNativeVisualEvents(message, context = {}) {
       const becameVisible = !faceUp(msg.prev_position) && faceUp(msg.position);
       const becameHidden = !faceUp(msg.position);
       add({ type: becameHidden && ['main', 'extra'].includes(destination.zoneType) ? 'set-monster'
-        : becameVisible && ['main', 'extra'].includes(destination.zoneType) ? 'flip-summon' : 'toggle-position',
+        : 'toggle-position',
         ...refFields(destination), card, position: pose(msg.position), faceDown: becameHidden,
-        hidden: !card, byBattle: false, nativePositionChange: true });
+        hidden: !card, publicReveal: becameVisible, nativePositionChange: true });
       break;
     }
     case MESSAGE.CONFIRM_CARDS:

@@ -158,17 +158,17 @@ test('geometry stays deterministic and changes for different cards of the same f
 
 test('key Field Spells have the expected physical landmarks', () => {
   for (const [cardId, landmark, meshName] of [
-    ['47355498', 'funerary-valley', 'funerary-pyramid'],
+    ['47355498', 'necrovalley-striated-sunset-gorge', 'necrovalley-two-distant-pyramids'],
     ['75041269', 'clock-prison-two-faced-turret', 'clock-prison-dial'],
     ['76375976', 'mine-entrance', 'mine-timber'],
     ['37694547', 'geartown-interlocking-gear-buildings', 'geartown-open-toothed-building-gear'],
     ['72283691', 'stromberg-golden-gables', 'stromberg-gold-palace'],
     ['72283691', 'stromberg-golden-gables', 'stromberg-broad-ascending-stair'],
     ['56433456', 'sky-sanctuary', 'sky-sanctuary-floating-stair'],
-    ['2084239', 'reed-basin', 'wetlands-rain-soaked-grass'],
-    ['71645242', 'thorn-garden', 'rose-bloom'],
+    ['2084239', 'wetlands-dense-pointed-grass-and-rain', 'wetlands-five-blade-grass-tuft'],
+    ['71645242', 'black-thorn-framed-plinth', 'black-purple-climbing-rose'],
     ['33550694', 'fusion-violet-funnel-grid', 'fusion-lime-bent-floor-grid'],
-    ['59160188', 'shadow-prison', 'shadow-prison-bar']
+    ['59160188', 'darkness-lair-cracked-road-and-crags', 'darkness-lair-broken-angular-road-slab']
   ]) {
     const group = createFieldEnvironmentGeometry(THREE, getFieldEnvironmentForCardId(cardId));
     assert.equal(group.userData.landmark, landmark);
@@ -179,7 +179,7 @@ test('key Field Spells have the expected physical landmarks', () => {
 
 test('24 additional named terrains contain distinct physical props beyond the family palette', () => {
   for (const [cardId, landmark, meshName] of [
-    ['92107604', 'runic-fountain', 'runic-fountain-spire'],
+    ['92107604', 'runick-carved-basin-and-twin-water-curtains', 'runick-twin-falling-water-curtain'],
     ['13035077', 'dragonic-diagram', 'dragonic-elemental-seal'],
     ['47679935', 'fusion-meltdown', 'meltdown-opposing-energy-channel'],
     ['34487429', 'rainbow-ruins-curved-stone-stands', 'rainbow-ruins-curved-stone-terraces'],
@@ -187,10 +187,10 @@ test('24 additional named terrains contain distinct physical props beyond the fa
     ['66399653', 'union-hangar-stacked-yellow-pods', 'union-hangar-yellow-connector-drum'],
     ['67237709', 'orbital-town', 'orbital-town-dome'],
     ['41418852', 'numeron-thorned-orange-network', 'numeron-angular-orange-network-rib'],
-    ['77103950', 'primeval-tidal-planet', 'perlereino-tidal-arch'],
+    ['77103950', 'perlereino-floating-tidal-discs-and-curtains', 'perlereino-floating-elliptical-water-disc'],
     ['71832012', 'pressured-planet', 'wraitsoth-drill-tower'],
-    ['89264428', 'seven-star-observatory', 'big-dipper-star'],
-    ['5050644', 'aromatic-garden', 'aroma-flowering-herb'],
+    ['89264428', 'ursarctic-twin-deck-station-and-luminous-hubs', 'ursarctic-circular-side-hub'],
+    ['5050644', 'aroma-wrought-arch-cottage', 'aroma-pointed-wrought-arch'],
     ['68462976', 'spellcaster-tree-village', 'village-twisted-trunk'],
     ['76136345', 'switchyard-radial-rails-and-turntable', 'switchyard-rusty-diameter-bridge'],
     ['50005218', 'airspace-launch-base', 'area-zero-launch-deck'],
@@ -199,9 +199,9 @@ test('24 additional named terrains contain distinct physical props beyond the fa
     ['36668118', 'boot-sector-open-red-rotor', 'boot-open-toothed-rotor'],
     ['95658967', 'ritual-sanctuary-golden-display', 'ritual-sanctuary-shallow-golden-oval-plinth'],
     ['95477924', 'twin-salvation-gates', 'salvation-inscribed-stele'],
-    ['1050355', 'nightmare-mirror', 'dream-mirror-night-spike'],
+    ['1050355', 'terror-mirror-magenta-window-bridges', 'terror-mirror-magenta-lancet'],
     ['74665651', 'radiant-mirror', 'dream-mirror-dawn-finial'],
-    ['94585852', 'archfiend-court', 'pandemonium-empty-throne-seat'],
+    ['94585852', 'pandemonium-grown-ribbed-arch-court', 'pandemonium-jagged-grown-oval-opening'],
     ['56111151', 'kyoutou-golden-observation-tower', 'kyoutou-wide-blue-observation-gallery']
   ]) {
     const environment = getFieldEnvironmentForCardId(cardId);
@@ -212,7 +212,7 @@ test('24 additional named terrains contain distinct physical props beyond the fa
     assert.ok(group.children.every(object => object.isInstancedMesh), 'static props must be GPU batched');
     disposeFieldEnvironmentGeometry(group);
   }
-  assert.equal(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.count, 119);
+  assert.equal(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.count, 155);
   assert.deepEqual(new Set(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.cardIds), new Set(Object.keys(FIELD_ENVIRONMENT_CARD_LANDMARKS)));
   assert.equal(getFieldEnvironmentForCardId('15259703'), null, 'Toon World is a Continuous Spell');
   assert.equal(getFieldEnvironmentForCardId('43175858').geometryProfile.landmark, 'storybook-castle');
@@ -220,26 +220,26 @@ test('24 additional named terrains contain distinct physical props beyond the fa
 
 test('24 inspected original illustrations produce their concrete motifs without divergent family monuments', () => {
   const expectations = [
-    ['56594520', 'gaia-colossal-oak-trunk', 'rock-spire'],
-    ['82999629', 'umiiruka-water-splash', 'coral-spire'],
+    ['56594520', 'gaia-massive-buttress-oak', 'rock-spire'],
+    ['82999629', 'umiiruka-vertical-observed-splash', 'coral-spire'],
     ['81777047', 'luminous-black-diagonal-ray', 'fluted-column'],
     ['18161786', 'plasma-cyan-forked-lightning', 'occult-monolith'],
     ['45778932', 'rising-diagonal-cloud-wisp', 'column-base'],
     ['19384334', 'molten-branching-lava-stream', 'volcanic-caldera'],
     ['81380218', 'chorus-pink-heaven-gate-post', 'fluted-column'],
     ['59197169', 'yami-concave-magenta-mist', 'occult-monolith'],
-    ['22702055', 'ocean-long-white-crest', 'coral-spire'],
-    ['87430998', 'forest-distant-conifer-wall', 'exposed-root'],
-    ['50913601', 'mountain-tall-right-peak', 'glacier-spire'],
-    ['86318356', 'sogen-right-grass-fissure', 'weathered-rock'],
-    ['23424603', 'wasteland-bare-dead-tree', 'rock-spire'],
+    ['22702055', 'umi-continuous-oblique-cobalt-swell', 'coral-spire'],
+    ['87430998', 'forest-dark-conifer-row', 'exposed-root'],
+    ['50913601', 'mountain-sharp-rear-seamed-peak', 'glacier-spire'],
+    ['86318356', 'sogen-exposed-diagonal-fissure', 'weathered-rock'],
+    ['23424603', 'wasteland-two-bare-trees', 'rock-spire'],
     ['48179391', 'orichalcos-six-point-star', 'dimensional-ring'],
     ['14001430', 'madolche-cream-piping-ring', 'castle-curtain-wall'],
-    ['87624166', 'ancient-forest-white-light-shaft', 'exposed-root'],
-    ['84171830', 'monarch-massive-shadow-throne-back', 'castle-crenellation'],
-    ['33407125', 'labrynth-pointed-blue-roof', 'castle-curtain-wall'],
-    ['10080320', 'jurassic-hanging-vine', 'exposed-root'],
-    ['16625614', 'dark-sanctuary-sky-eye-pupil', 'occult-monolith'],
+    ['87624166', 'ancient-parallel-sunlight-shaft', 'exposed-root'],
+    ['84171830', 'monarch-domain-tall-chamber-column', 'castle-crenellation'],
+    ['33407125', 'labrynth-central-blue-pointed-roof', 'castle-curtain-wall'],
+    ['10080320', 'jurassic-hanging-canopy-vine', 'exposed-root'],
+    ['16625614', 'dark-sanctuary-long-needle-spire', 'occult-monolith'],
     ['61583217', 'cynet-cyan-hexagonal-lattice', 'data-node'],
     ['2084239', 'wetlands-diagonal-rain-streak', 'wetlands-floating-lily-pad'],
     ['56433456', 'sky-sanctuary-orb-monument', 'sky-sanctuary-radiant-arch'],
@@ -263,7 +263,7 @@ test('24 inspected original illustrations produce their concrete motifs without 
     }
     disposeFieldEnvironmentGeometry(group);
   }
-  assert.equal(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.inspectedReferenceArtCount, 94);
+  assert.equal(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.inspectedReferenceArtCount, 141);
   assert.deepEqual(new Set(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.inspectedReferenceCardIds), new Set(Object.keys(FIELD_ENVIRONMENT_INSPECTED_ART_PROFILES)));
   assert.equal(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.budget, FIELD_ENVIRONMENT_GEOMETRY_BUDGET);
 });
@@ -361,20 +361,29 @@ test('Plasma has a continuous inward spiral, Mountain has striated asymmetric re
   disposeFieldEnvironmentGeometry(plasma);
 
   const mountain = createFieldEnvironmentGeometry(THREE, getFieldEnvironmentForCardId('50913601'));
-  const [right] = findInstances(mountain, 'mountain-tall-right-peak');
-  const [left] = findInstances(mountain, 'mountain-lower-left-ridge');
+  const [right] = findInstances(mountain, 'mountain-sharp-rear-seamed-peak');
+  const [left] = findInstances(mountain, 'mountain-left-fractured-ridge');
   assert.ok(right.object.geometry.boundingBox.max.y > left.object.geometry.boundingBox.max.y * 1.7, 'right massif remains much taller');
-  assert.ok(findInstances(mountain, 'mountain-jagged-slope-striation').length >= 80, 'both long slopes have visible branching grooves');
+  let totalFolds = 0;
   for (const { object } of [right, left]) {
     const positions = object.geometry.attributes.position;
-    const ring = Array.from({ length: 64 }, (_, i) => positions.getY(11 * 65 + i));
-    assert.ok(Math.max(...ring) - Math.min(...ring) > 0.7, 'ridge surfaces have angular folds rather than smooth cone slopes');
+    const isRight = object === right.object;
+    const [cx, cz, rx, rz] = isRight ? [9, -37, 13, 7] : [-15, -30, 8, 5];
+    const radii = Array.from({ length: 112 }, (_, i) => {
+      const index = 14 * 113 + i;
+      return Math.hypot((positions.getX(index) - cx) / rx, (positions.getZ(index) - cz) / rz);
+    });
+    const folds = radii.filter((r, i) => r > radii[(i + 111) % 112] && r > radii[(i + 1) % 112]).length;
+    assert.ok(folds >= 40, 'surface vertices form at least forty real ridge folds per massif');
+    assert.ok(Math.max(...radii) - Math.min(...radii) > .15, 'stone silhouette has visible angular relief');
+    totalFolds += folds;
     assert.ok(object.geometry.attributes.color, 'stone retains differentiated ridge and valley tones');
   }
+  assert.ok(totalFolds >= 80, 'both massifs preserve the previous striation density');
   disposeFieldEnvironmentGeometry(mountain);
 
   const labrynth = createFieldEnvironmentGeometry(THREE, getFieldEnvironmentForCardId('33407125'));
-  const ramps = findInstances(labrynth, 'labrynth-curved-elevated-palace-ramp');
+  const ramps = findInstances(labrynth, 'labrynth-broad-white-ascending-spiral-ramp');
   assert.equal(ramps.length, 2);
   for (const { object } of ramps) {
     const route = object.geometry.userData.continuousCurve.map(point => new THREE.Vector3(...point));
@@ -405,9 +414,9 @@ test('reference refinements keep valid shared buffers and release custom shapes,
       resources.add(object.geometry); resources.add(object.material); resources.add(object);
     });
     if (cardId === '2084239') {
-      const grasses = findInstances(group, 'wetlands-rain-soaked-grass');
+      const grasses = findInstances(group, 'wetlands-five-blade-grass-tuft');
       assert.equal(grasses.length, 120);
-      assert.ok(grasses.every(({ object }) => object.geometry.userData.bladeCount === 5), '600 bent leaves share only three grass draws');
+      assert.ok(grasses.every(({ object }) => object.geometry.userData.grassBladeCount === 5), '600 bent leaves share only three grass draws');
       assert.equal(hasFieldEnvironmentLandmarkGeometry(group, 'basin-carved-rim'), false, 'no masonry basins in a rain soaked grassland');
       assert.equal(hasFieldEnvironmentLandmarkGeometry(group, 'tree-trunk'), false, 'source grassland has no foreground forest');
     }

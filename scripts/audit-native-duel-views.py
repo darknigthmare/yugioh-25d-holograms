@@ -90,6 +90,10 @@ def assert_public_state(page, report, stage, expected_hand, expected_field, real
     assert all(facts['counts'][key] <= 1 for key in ['scenes', 'canvases', 'css3d']), facts
     if facts['view'] == 'real':
         helper.wait_until(page, """() => document.querySelector('.card-zone[data-side="player"][data-zone-type="monster"] .has-real-hologram-model') || document.querySelector('.card-zone[data-side="player"][data-zone-type="monster"].has-real-hologram-model')""")
+        helper.wait_until(page,"""() => !document.querySelector('[data-real-duel-scene3d="true"]')?.hasAttribute('data-camera-transitioning')""")
+        # Font/layout ResizeObservers and CSS3D projection settle after mounting.
+        # Readonly capture delay; no scene, camera, engine or response injection.
+        page.wait_for_timeout(900)
         facts = snapshot(page)
         assert facts['counts']['scenes'] == facts['counts']['canvases'] == facts['counts']['css3d'] == 1, facts
         assert page.evaluate("""() => {
@@ -227,6 +231,37 @@ def verify(page, base_url, output, report, draft):
     report['ok'] = True
 
 
+def record_build_provenance(request, base_url, report):
+    """Hash the exact served HTML, stylesheet, entry and native lazy chunks."""
+    def fetch(path):
+        response=request.get(base_url.rstrip('/')+path)
+        assert response.ok, f'Build artifact unavailable: {path} ({response.status})'
+        return response.body()
+    html=fetch('/')
+    report['provenanceSchemaVersion']=2
+    report['testedHtmlAsset']='/index.html'
+    report['testedHtmlSha256']=hashlib.sha256(html).hexdigest()
+    report['testedIndexHtmlSha256']=report['testedHtmlSha256']
+    entry=re.search(r'src=[\"\'](/assets/index-[^\"\']+\.js)[\"\']',html.decode())
+    css=re.search(r'href=[\"\'](/assets/index-[^\"\']+\.css)[\"\']',html.decode())
+    assert entry and css, 'Compiled HTML must identify its entry JS and stylesheet'
+    def record(prefix,path):
+        body=fetch(path)
+        report[f'tested{prefix}Asset']=path
+        report[f'tested{prefix}AssetSha256']=hashlib.sha256(body).hexdigest()
+        return body
+    main=record('Index',entry.group(1))
+    report['testedIndexSha256']=report['testedIndexAssetSha256']
+    record('Css',css.group(1))
+    game=re.search(r'NativeDuelGame-[A-Za-z0-9_-]+\.js',main.decode())
+    assert game, 'NativeDuelGame lazy chunk missing from the compiled entry'
+    native_game=record('NativeGame','/assets/'+game.group(0))
+    core=re.search(r'ocgcore-[A-Za-z0-9_-]+\.js',native_game.decode())
+    assert core, 'Native core wrapper chunk missing from NativeDuelGame'
+    record('NativeCore','/assets/'+core.group(0))
+    report['testedWasmSha256']=hashlib.sha256(fetch('/native/ocgcore.sync.wasm')).hexdigest()
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--base-url')
@@ -252,8 +287,7 @@ def main():
             browser = playwright.chromium.launch(executable_path=args.chromium, headless=True,
                 args=['--no-sandbox', '--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'])
             req = browser.new_context()
-            report['testedWasmSha256'] = hashlib.sha256(req.request.get(args.base_url + '/native/ocgcore.sync.wasm').body()).hexdigest()
-            report['testedIndexSha256'] = hashlib.sha256(req.request.get(args.base_url).body()).hexdigest()
+            record_build_provenance(req.request,args.base_url,report)
             req.close()
             for width, height in ([(1280, 900)] if args.desktop_only else [(1280, 900), (390, 844)]):
                 context = browser.new_context(viewport={'width': width, 'height': height}, reduced_motion='reduce')
@@ -270,6 +304,14 @@ def main():
                     raise
                 finally:
                     context.close()
+            final_request=browser.new_context()
+            final_build={}
+            record_build_provenance(final_request.request,args.base_url,final_build)
+            final_request.close()
+            assert all(report[key]==value for key,value in final_build.items()), 'Build changed during desktop/mobile audit'
+            report['buildUnchangedDuringAudit']=True
+            report['captureSha256']={path.name:hashlib.sha256(path.read_bytes()).hexdigest()
+                for path in sorted(args.output.glob('native-*.png')) if 'failure' not in path.name}
             browser.close()
         report['ok'] = True
     except Exception as error:

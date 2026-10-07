@@ -2023,6 +2023,22 @@ body.modal-open {
   margin-bottom: 15px;
 }
 
+.decision-search-status,
+.decision-selection-summary,
+.decision-included-cards {
+  margin: 0;
+  color: var(--text-main);
+  font-size: .9rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.decision-selection-summary {
+  padding: .55rem .7rem;
+  border-left: 3px solid var(--neon-gold);
+  background: rgba(255, 215, 0, .08);
+}
+
 .decision-card-option {
   min-height: 44px;
   padding: 10px 12px;

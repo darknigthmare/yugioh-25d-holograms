@@ -48,7 +48,87 @@ export function createCombatVisualEffect(options = {}) {
     rune.rotation.z = progress * Math.PI;
   });
 
-  if (profile.shape === 'beam') {
+  if (profile.shape === 'field-water') {
+    for (let i = 0; i < 5; i += 1) {
+      const ripple = circle(`field-water-ripple-${i}`, .45 + i * .3, zero, true, i % 2 ? material : brightMaterial);
+      animated.push(progress => {
+        const spread = Math.max(0, progress * 1.6 - i * .12);
+        ripple.visible = spread > 0 && spread < 1.3;
+        ripple.scale.setScalar(.35 + spread * 1.8);
+        ripple.position.y = Math.sin(progress * Math.PI + i) * .12 + i * .04;
+      });
+    }
+    for (let i = 0; i < 3; i += 1) {
+      const droplet = mesh(`field-water-rising-drop-${i}`, new THREE.SphereGeometry(.12, 8, 6), brightMaterial);
+      animated.push(progress => {
+        const angle = i * Math.PI * 2 / 3 + progress * 2;
+        droplet.position.set(Math.cos(angle) * .8, Math.sin(progress * Math.PI) * (1.2 + i * .25), Math.sin(angle) * .8);
+        droplet.scale.set(.6, 1.2, .6);
+      });
+    }
+  } else if (profile.shape === 'field-growth') {
+    const leafGeometry = new THREE.BufferGeometry();
+    leafGeometry.setAttribute('position', new THREE.Float32BufferAttribute([
+      0, 0, 0, -.17, .28, .035, 0, .68, 0, .17, .28, .035, 0, .28, -.055
+    ], 3));
+    leafGeometry.setIndex([0, 1, 4, 1, 2, 4, 2, 3, 4, 3, 0, 4]);
+    leafGeometry.computeVertexNormals();
+    for (let i = 0; i < 6; i += 1) {
+      const leaf = mesh(`field-growth-leaf-${i}`, leafGeometry, i % 2 ? material : brightMaterial);
+      animated.push(progress => {
+        const angle = i * Math.PI / 3 + progress * 2.2;
+        const radius = .6 + Math.sin(progress * Math.PI) * .65;
+        leaf.position.set(Math.cos(angle) * radius, .15 + progress * (1.1 + i % 3 * .2), Math.sin(angle) * radius);
+        leaf.rotation.set(.3, angle + Math.PI / 2, Math.sin(progress * 4 + i) * .65);
+        leaf.scale.setScalar(.4 + Math.sin(progress * Math.PI) * .7);
+      });
+    }
+    for (let i = 0; i < 3; i += 1) {
+      const root = circle(`field-growth-root-arc-${i}`, .75 + i * .2, zero, true, material, Math.PI * 1.3);
+      root.rotation.z = i * Math.PI * 2 / 3;
+      animated.push(progress => { root.scale.setScalar(.2 + Math.sin(progress * Math.PI) * 1.3); });
+    }
+  } else if (profile.shape === 'field-gloom') {
+    const gate = mesh('field-gloom-dim-aperture', new THREE.SphereGeometry(.72, 16, 10), dimMaterial);
+    gate.scale.set(1, 1.5, .2);
+    gate.position.y = .9;
+    for (let i = 0; i < 4; i += 1) {
+      const arc = circle(`field-gloom-seal-${i}`, .65 + i * .12, new THREE.Vector3(0, .9, 0), false,
+        i % 2 ? material : brightMaterial, Math.PI * 1.55);
+      animated.push(progress => {
+        arc.rotation.z = (i % 2 ? -1 : 1) * progress * Math.PI + i * 1.3;
+        arc.scale.setScalar(.3 + Math.sin(progress * Math.PI) * .9);
+      });
+    }
+    for (let i = 0; i < 3; i += 1) {
+      const shard = mesh(`field-gloom-rising-shard-${i}`, new THREE.ConeGeometry(.09, .65, 4), material);
+      animated.push(progress => {
+        const angle = i * Math.PI * 2 / 3;
+        shard.position.set(Math.cos(angle) * 1.1, progress * 1.5, Math.sin(angle) * .7);
+        shard.rotation.z = Math.sin(progress * 3 + i) * .25;
+      });
+    }
+    animated.push(progress => { gate.scale.set(.7 + Math.sin(progress * Math.PI) * .35, 1.1, .2); });
+  } else if (profile.shape === 'field-radiance') {
+    for (let i = 0; i < 6; i += 1) {
+      const ray = mesh(`field-radiance-shaft-${i}`, new THREE.CylinderGeometry(.025, .065, 1, 6),
+        i % 2 ? material : brightMaterial);
+      animated.push(progress => {
+        const angle = i * Math.PI / 3 + progress * .4;
+        const height = .3 + Math.sin(progress * Math.PI) * (1.5 + i % 2 * .4);
+        ray.position.set(Math.cos(angle) * .75, height / 2, Math.sin(angle) * .75);
+        ray.scale.y = height;
+      });
+    }
+    for (let i = 0; i < 3; i += 1) {
+      const halo = circle(`field-radiance-halo-${i}`, .5 + i * .28, zero, true,
+        i === 1 ? material : brightMaterial);
+      animated.push(progress => {
+        halo.position.y = progress * (i + 1) * .4;
+        halo.scale.setScalar(.4 + Math.sin(progress * Math.PI) * .9);
+      });
+    }
+  } else if (profile.shape === 'beam') {
     const beam = mesh('beam-envelope', new THREE.CylinderGeometry(0.13, 0.28, 1, 12), material);
     const core = mesh('beam-core', new THREE.CylinderGeometry(0.042, 0.085, 1, 8), brightMaterial);
     const direction = travel.clone().normalize();

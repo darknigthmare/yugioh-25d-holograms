@@ -1,5 +1,7 @@
 # Continuation des Terrains et du duel natif — 7 octobre 2026
 
+Relevé historique du lot de 44 décors publié au [commit c04f196](https://github.com/darknigthmare/yugioh-25d-holograms/commit/c04f19657fbc88eef4c0c13495dba55cb2939293). Les rapports partagés sont réactualisés par les lots suivants ; ce commit conserve leurs octets précédents. La [dernière expansion](native-expansion-2026-10-07.md) décrit les résultats courants.
+
 Cette continuation ajoute **44 reconstructions de volumes depuis des illustrations inspectées**, élargit les preuves des règles officielles et corrige trois écarts réels de l’interface/protocole : le choix Pendule depuis l’Extra Deck face recto, l’identification de la procédure Xyz et le nom des sacrifices adverses déjà publics.
 
 ## Terrains et comparaisons visuelles

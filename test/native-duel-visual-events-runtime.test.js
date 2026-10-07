@@ -86,9 +86,13 @@ test('real WASM draw, field activation, normal summon and opponent Set drive pub
     assert.equal(createPublicCombatVisual(resolved, {}).kind, 'activate');
     // Ancient Forest itself causes this public flip; no JS effect is called.
     assert.ok(messages.some(message => message.type === C.OcgMessageType.POS_CHANGE && message.code === 46986414));
-    const flip = events.find(event => event.type === 'flip-summon' && event.card?.id === '46986414');
+    const flip = events.find(event => event.type === 'toggle-position' && event.publicReveal
+      && event.card?.id === '46986414');
     assert.equal(flip.target, 'opponent');
     assert.equal(flip.position, 'attack');
+    assert.notEqual(flip.nativeSummonConfirmed, true);
+    assert.equal(messages.some(message => message.type === C.OcgMessageType.FLIPSUMMONED), false);
+    assert.equal(createPublicCombatVisual(flip, {}).profile, 'card-reveal');
 
     const summonIndex = idle.summons.findIndex(card => card.code === guardian);
     assert.ok(summonIndex >= 0);

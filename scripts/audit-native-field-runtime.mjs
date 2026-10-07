@@ -4,6 +4,7 @@ import { pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
 import { createHash } from 'node:crypto';
 import { createNativeDuelRuntime } from '../src/core/native/NativeDuelRuntime.js';
+import { chooseNativeAIResponse } from '../src/core/native/NativeDuelDecisions.js';
 import { FIELD_SPELL_CARD_DATA_SNAPSHOT } from '../src/ui/FieldSpellCardDataSnapshot.js';
 
 export const NATIVE_FIELD_AUDIT_PATH = new URL('../docs/audits/artifacts/native-field-runtime-2026-10-07.json', import.meta.url);
@@ -42,10 +43,10 @@ function auditFlags(C) {
   return C.OcgDuelMode.MODE_MR5 | C.OcgDuelMode.TCG_SEGOC_NONPUBLIC | C.OcgDuelMode.TCG_SEGOC_FIRSTTRIGGER;
 }
 
-async function makeSession(inputs, sharedCore, label) {
+async function makeSession(inputs, sharedCore, label, fixtureOptions = {}) {
   const duel = await createNativeDuelRuntime({
     ...inputs.resources, coreModule: inputs.coreModule, createCore: () => sharedCore,
-    flags: auditFlags(inputs.coreModule), seed: [1n, 2n, 3n, 4n],
+    flags: auditFlags(inputs.coreModule), seed: fixtureOptions.seed ?? [1n, 2n, 3n, 4n],
     team1: { startingDrawCount: 0, drawCountPerTurn: 0 },
     team2: { startingDrawCount: 0, drawCountPerTurn: 0 }
   });
@@ -80,7 +81,8 @@ async function makeSession(inputs, sharedCore, label) {
     card(controller, location, sequence = 0) {
       const query = { controller, location, sequence, flags: C.OcgQueryFlags.CODE | C.OcgQueryFlags.POSITION
         | C.OcgQueryFlags.TYPE | C.OcgQueryFlags.LEVEL | C.OcgQueryFlags.RACE | C.OcgQueryFlags.ATTACK
-        | C.OcgQueryFlags.DEFENSE | C.OcgQueryFlags.REASON | C.OcgQueryFlags.COUNTERS };
+        | C.OcgQueryFlags.DEFENSE | C.OcgQueryFlags.ATTRIBUTE | C.OcgQueryFlags.STATUS
+        | C.OcgQueryFlags.REASON | C.OcgQueryFlags.COUNTERS };
       const value = duel.queryCard(query);
       this.queries.push({ query, result: clone(value) }); return value;
     },
@@ -110,6 +112,8 @@ function choosePlace(prompt, C) {
 
 function defaultResponse(prompt, C, choices = {}) {
   const M = C.OcgMessageType; const R = C.OcgResponseType;
+  const explicit = choices.respond?.(prompt, C);
+  if (explicit) return explicit;
   switch (prompt.type) {
     case M.SELECT_CHAIN: {
       if (choices.chainSelect) return { type: R.SELECT_CHAIN, index: choices.chainSelect(prompt) };
@@ -133,6 +137,12 @@ function defaultResponse(prompt, C, choices = {}) {
     case M.SELECT_UNSELECT_CARD: return { type: R.SELECT_UNSELECT_CARD, index: prompt.can_finish ? null : 0 };
     case M.SELECT_TRIBUTE: return { type: R.SELECT_TRIBUTE, indicies: Array.from({ length: prompt.min }, (_, index) => index) };
     case M.SORT_CARD: return { type: R.SORT_CARD, order: Array.from({ length: prompt.cards.length }, (_, index) => index) };
+    case M.SELECT_SUM: case M.SELECT_COUNTER: case M.SELECT_DISFIELD: case M.ANNOUNCE_NUMBER:
+    case M.ANNOUNCE_ATTRIB: case M.ANNOUNCE_RACE: {
+      const response = chooseNativeAIResponse(prompt, { constants: C });
+      assert.ok(response, `No legal typed response for actual core prompt ${prompt.type}`);
+      return response;
+    }
     default: throw new Error(`Unsupported actual core prompt ${prompt.type}: ${json(prompt)}`);
   }
 }
@@ -168,6 +178,46 @@ function endTurn(session, choices = {}) {
   return reachIdle(session, choices);
 }
 
+function reachBattle(session, choices = {}) {
+  for (let index = 0; index < 160; index += 1) {
+    const result = session.advance();
+    if (result.prompt?.type === session.C.OcgMessageType.SELECT_BATTLECMD) return result.prompt;
+    assert.notEqual(result.status, session.C.OcgProcessResult.END, `${session.label}: battle unexpectedly ended duel`);
+    if (result.prompt) session.respond(defaultResponse(result.prompt, session.C, choices));
+  }
+  throw new Error(`${session.label}: battle decision budget exceeded`);
+}
+
+function enterBattle(session, choices = {}) {
+  const idle = reachIdle(session);
+  assert.equal(idle.to_bp, true, `${session.label}: real Battle Phase must be available`);
+  session.respond({ type: session.C.OcgResponseType.SELECT_IDLECMD,
+    action: session.C.SelectIdleCMDAction.TO_BP, index: null });
+  return reachBattle(session, choices);
+}
+
+function battleAttack(session, attackerCode, targetCode, choices = {}) {
+  const prompt = reachBattle(session);
+  const index = prompt.attacks.findIndex(card => card.code === attackerCode);
+  assert.ok(index >= 0, `${session.label}: attacker ${attackerCode} not offered by core`);
+  session.respond({ type: session.C.OcgResponseType.SELECT_BATTLECMD,
+    action: session.C.SelectBattleCMDAction.SELECT_BATTLE, index });
+  return reachBattle(session, { ...choices, select: selection => {
+    const preferred = choices.select?.(selection);
+    if (preferred) return preferred;
+    if (targetCode && selection.selects.some(card => card.code === targetCode)) return [targetCode];
+    return choices.codes;
+  } });
+}
+
+function leaveBattle(session, choices = {}) {
+  const prompt = reachBattle(session);
+  assert.equal(prompt.to_m2, true);
+  session.respond({ type: session.C.OcgResponseType.SELECT_BATTLECMD,
+    action: session.C.SelectBattleCMDAction.TO_M2, index: null });
+  return reachIdle(session, choices);
+}
+
 function hasCode(session, player, location, code) {
   return session.location(player, location).some(card => card.code === code);
 }
@@ -183,7 +233,8 @@ function scenarioEvidence(session, fields, description) {
   assert.deepEqual(session.duel.errors, [], `${session.label}: Lua/core diagnostics`);
   return {
     id: session.label, fields, description, status: 'passed', nativeApi: session.duel.core.getVersion(),
-    flags: auditFlags(session.C).toString(), messages: clone(session.messages), decisions: session.decisions,
+    flags: auditFlags(session.C).toString(), fixtureSeed: session.duel.options.seed.map(String),
+    messages: clone(session.messages), decisions: session.decisions,
     queries: session.queries, fixtureCards: session.fixtureCards, errors: clone(session.duel.errors)
   };
 }
@@ -224,12 +275,12 @@ export async function auditNativeFieldInitialization(inputs, sharedCore) {
 
 export async function auditNativeFieldEffects(inputs, sharedCore) {
   const scenarios = [];
-  async function run(label, fields, description, exercise) {
-    const session = await makeSession(inputs, sharedCore, label);
+  async function run(label, fields, description, exercise, fixtureOptions = {}) {
+    const session = await makeSession(inputs, sharedCore, label, fixtureOptions);
     try { await exercise(session); scenarios.push(scenarioEvidence(session, fields, description)); }
     catch (error) { scenarios.push({ id: label, fields, description, status: 'failed', error: error.message,
       messages: clone(session.messages), decisions: session.decisions, queries: session.queries,
-      fixtureCards: session.fixtureCards, errors: clone(session.duel.errors) }); }
+      fixtureCards: session.fixtureCards, fixtureSeed: session.duel.options.seed.map(String), errors: clone(session.duel.errors) }); }
     finally { session.duel.close(); }
   }
 
@@ -715,6 +766,477 @@ export async function auditNativeFieldEffects(inputs, sharedCore) {
     assert.equal(s.card(0, s.C.OcgLocation.MZONE, 2).level, 10);
     assert.ok(!hasCode(s, 0, s.C.OcgLocation.DECK, 88875132));
   });
+
+  for (const spec of [
+    { field: 50913601, name: 'mountain-bilateral-race-bonus-removal', monsters: [[89631139, 0, 3200, 2700], [76812113, 1, 1500, 1600], [46986414, 1, 2500, 2100]] },
+    { field: 86318356, name: 'sogen-warrior-beastwarrior-bonus-removal', monsters: [[75953262, 0, 1900, 1800], [14898066, 1, 2100, 1400], [89631139, 0, 3000, 2500]] },
+    { field: 22702055, name: 'umi-aqua-bonus-machine-penalty-removal', monsters: [[68638985, 0, 900, 700], [77585513, 1, 2200, 1300], [46986414, 0, 2500, 2100]] },
+    { field: 82999629, name: 'umiiruka-water-bonus-defense-penalty-removal', monsters: [[68638985, 0, 1200, 100], [2964201, 1, 2200, 2600]] }
+  ]) {
+    await run(spec.name, [spec.field], 'Activate a genuine Field, verify bilateral qualifying bonuses and non-qualifying exceptions, then destroy it with MST and query exact restoration.', s => {
+      s.add(spec.field, 0, s.C.OcgLocation.HAND).add(5318639, 0, s.C.OcgLocation.HAND);
+      const sequences = [0, 0];
+      const refs = spec.monsters.map(([code, controller, attack, defense]) => ({ code, controller, sequence: sequences[controller]++, attack, defense }));
+      for (const ref of refs) s.add(ref.code, ref.controller, s.C.OcgLocation.MZONE, ref.sequence);
+      s.baseDecks().start();
+      const original = refs.map(ref => s.card(ref.controller, s.C.OcgLocation.MZONE, ref.sequence));
+      perform(s, 'activate', spec.field); requireChain(s, spec.field);
+      for (const ref of refs) {
+        const card = s.card(ref.controller, s.C.OcgLocation.MZONE, ref.sequence);
+        assert.equal(card.attack, ref.attack); assert.equal(card.defense, ref.defense);
+      }
+      perform(s, 'activate', 5318639, { codes: [spec.field] });
+      assert.ok(hasCode(s, 0, s.C.OcgLocation.GRAVE, spec.field));
+      for (const [index, ref] of refs.entries()) {
+        const card = s.card(ref.controller, s.C.OcgLocation.MZONE, ref.sequence);
+        assert.equal(card.attack, original[index].attack); assert.equal(card.defense, original[index].defense);
+      }
+    });
+  }
+
+  await run('lemuria-counted-water-level-increase-end-phase-reset', [34103656], 'Two faceup WATER monsters determine the real Level increase; the WATER opponent gains stats but not Levels, and the owner’s increase resets at End Phase.', s => {
+    s.add(34103656, 0, s.C.OcgLocation.HAND).add(68638985, 0, s.C.OcgLocation.MZONE)
+      .add(68638985, 0, s.C.OcgLocation.MZONE, 1).add(68638985, 1, s.C.OcgLocation.MZONE).baseDecks().start();
+    perform(s, 'activate', 34103656);
+    const idle = perform(s, 'activate', 34103656); requireChain(s, 34103656);
+    for (const sequence of [0, 1]) {
+      const card = s.card(0, s.C.OcgLocation.MZONE, sequence);
+      assert.equal(card.level, 4); assert.equal(card.attack, 900); assert.equal(card.defense, 700);
+    }
+    assert.equal(s.card(1, s.C.OcgLocation.MZONE).level, 2);
+    assert.ok(!idle.activates.some(card => card.code === 34103656));
+    endTurn(s);
+    assert.equal(s.card(0, s.C.OcgLocation.MZONE).level, 2);
+    assert.equal(s.card(0, s.C.OcgLocation.MZONE).attack, 900);
+  });
+
+  await run('gates-dark-world-cost-effect-discard-trigger-draw', [33017655], 'Banish a genuine Fiend as cost, discard Broww by effect, draw once, then Broww’s real trigger draws again; queried reasons separate the two operations.', s => {
+    s.add(33017655, 0, s.C.OcgLocation.HAND).add(79126789, 0, s.C.OcgLocation.HAND)
+      .add(70781052, 0, s.C.OcgLocation.GRAVE).add(70781052, 0, s.C.OcgLocation.MZONE)
+      .add(89631139, 0, s.C.OcgLocation.DECK).add(46986414, 0, s.C.OcgLocation.DECK)
+      .add(46986414, 1, s.C.OcgLocation.DECK).start();
+    perform(s, 'activate', 33017655);
+    assert.equal(s.card(0, s.C.OcgLocation.MZONE).attack, 2800);
+    const idle = perform(s, 'activate', 33017655, { select: p => p.selects.some(c => c.code === 70781052) ? [70781052] : [79126789] });
+    requireChain(s, 33017655);
+    const banished = s.location(0, s.C.OcgLocation.REMOVED).find(c => c.code === 70781052);
+    const discarded = s.location(0, s.C.OcgLocation.GRAVE).find(c => c.code === 79126789);
+    assert.ok(banished.reason & 0x80);
+    assert.ok(discarded.reason & 0x40); assert.ok(discarded.reason & 0x4000); assert.equal(discarded.reason & 0x80, 0);
+    assert.equal(s.location(0, s.C.OcgLocation.HAND).length, 2);
+    assert.equal(s.messages.filter(m => m.type === s.C.OcgMessageType.DRAW).length, 2);
+    assert.ok(s.messages.some(m => m.type === s.C.OcgMessageType.CHAINING && m.code === 79126789));
+    assert.ok(!idle.activates.some(c => c.code === 33017655));
+  });
+
+  await run('triamid-fortress-effect-protection-leave-grave-recovery', [9989792], 'Triamid Hunter gains 500 DEF and survives Dark Hole while an opposing non-Triamid is destroyed; MST then destroys Fortress and its true GY trigger recovers Dancer.', s => {
+    s.add(9989792, 0, s.C.OcgLocation.HAND).add(53129443, 0, s.C.OcgLocation.HAND)
+      .add(5318639, 0, s.C.OcgLocation.HAND).add(95923441, 0, s.C.OcgLocation.MZONE)
+      .add(69529337, 0, s.C.OcgLocation.GRAVE).add(46986414, 1, s.C.OcgLocation.MZONE).baseDecks().start();
+    perform(s, 'activate', 9989792);
+    assert.equal(s.card(0, s.C.OcgLocation.MZONE).defense, 1600);
+    perform(s, 'activate', 53129443);
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.MZONE, 95923441));
+    assert.ok(hasCode(s, 1, s.C.OcgLocation.GRAVE, 46986414));
+    perform(s, 'activate', 5318639, { select: p => p.selects.some(c => c.code === 9989792) ? [9989792] : [69529337] });
+    requireChain(s, 9989792);
+    assert.equal(s.card(0, s.C.OcgLocation.MZONE).defense, 1100);
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.HAND, 69529337));
+    assert.ok(!hasCode(s, 0, s.C.OcgLocation.GRAVE, 69529337));
+  });
+
+  await run('triamid-cruiser-normal-summon-recover-draw-discard-search', [45383307], 'A real Triamid Normal Summon heals 500 LP and resolves draw/discard; MST later sends Cruiser to GY and the real trigger searches Triamid Master.', s => {
+    s.add(45383307, 0, s.C.OcgLocation.HAND).add(95923441, 0, s.C.OcgLocation.HAND)
+      .add(5318639, 0, s.C.OcgLocation.HAND).add(32912040, 0, s.C.OcgLocation.DECK).baseDecks().start();
+    perform(s, 'activate', 45383307);
+    perform(s, 'summon', 95923441, { codes: [46986414] });
+    assert.equal(s.duel.queryField().players[0].lp, 8500);
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.GRAVE, 46986414));
+    assert.ok(s.location(0, s.C.OcgLocation.GRAVE).find(c => c.code === 46986414).reason & 0x4000);
+    perform(s, 'activate', 5318639, { select: p => p.selects.some(c => c.code === 45383307) ? [45383307] : [32912040] });
+    requireChain(s, 45383307);
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.HAND, 32912040));
+  });
+
+  await run('triamid-kingolem-rock-bonus-grave-trigger-special', [72772445], 'Triamid Master gains the 500 ATK Rock bonus; MST destroys Kingolem and its true GY trigger Special Summons Triamid Hunter from hand.', s => {
+    s.add(72772445, 0, s.C.OcgLocation.HAND).add(5318639, 0, s.C.OcgLocation.HAND)
+      .add(95923441, 0, s.C.OcgLocation.HAND).add(32912040, 0, s.C.OcgLocation.MZONE).baseDecks().start();
+    perform(s, 'activate', 72772445);
+    assert.equal(s.card(0, s.C.OcgLocation.MZONE).attack, 2300);
+    perform(s, 'activate', 5318639, { select: p => p.selects.some(c => c.code === 72772445) ? [72772445] : [95923441] });
+    requireChain(s, 72772445);
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.MZONE, 95923441));
+    assert.equal(s.card(0, s.C.OcgLocation.MZONE).attack, 1800);
+    assert.ok(!hasCode(s, 0, s.C.OcgLocation.HAND, 95923441));
+  });
+
+  await run('aroma-garden-recover-jasmine-draw-bonus-destruction-heal', [5050644], 'Garden’s ignition heals 500 LP, triggers Jasmine’s genuine draw and boosts all own monsters; Dark Hole destroys Jasmine and triggers Garden’s mandatory 1000 LP recovery.', s => {
+    s.add(5050644, 0, s.C.OcgLocation.HAND).add(53129443, 0, s.C.OcgLocation.HAND)
+      .add(96789758, 0, s.C.OcgLocation.MZONE).add(89631139, 0, s.C.OcgLocation.MZONE, 1).baseDecks().start();
+    perform(s, 'activate', 5050644);
+    const idle = perform(s, 'activate', 5050644); requireChain(s, 5050644);
+    assert.equal(s.duel.queryField().players[0].lp, 8500);
+    assert.equal(s.card(0, s.C.OcgLocation.MZONE).attack, 600);
+    assert.equal(s.card(0, s.C.OcgLocation.MZONE, 1).attack, 3500);
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.HAND, 46986414));
+    assert.ok(!idle.activates.some(c => c.code === 5050644));
+    perform(s, 'activate', 53129443);
+    assert.equal(s.duel.queryField().players[0].lp, 9500);
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.GRAVE, 96789758));
+    assert.equal(s.location(0, s.C.OcgLocation.MZONE).length, 0);
+  });
+
+  await run('pandemonium-effect-destruction-lower-level-archfiend-search', [94585852], 'Destroy real Archfiend Soldier with Dark Hole; Pandemonium’s custom destruction event searches the strictly lower-Level Desrook Archfiend from deck.', s => {
+    s.add(94585852, 0, s.C.OcgLocation.HAND).add(53129443, 0, s.C.OcgLocation.HAND)
+      .add(49881766, 0, s.C.OcgLocation.MZONE).add(72192100, 0, s.C.OcgLocation.DECK)
+      .add(49881766, 0, s.C.OcgLocation.DECK).baseDecks().start();
+    perform(s, 'activate', 94585852);
+    perform(s, 'activate', 53129443, { codes: [72192100] }); requireChain(s, 94585852);
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.HAND, 72192100));
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.DECK, 49881766));
+    const selection = s.decisions.find(d => d.prompt.type === s.C.OcgMessageType.SELECT_CARD && d.prompt.selects.some(c => c.code === 72192100));
+    assert.ok(selection); assert.ok(!selection.prompt.selects.some(c => c.code === 49881766));
+  });
+
+  await run('pandemonium-standby-archfiend-upkeep-cost-replacement', [94585852], 'The initial unprotected Standby pays Terrorking’s 800 LP; after real Field activation, the next own Standby waives that same mandatory LP cost.', s => {
+    s.add(94585852, 0, s.C.OcgLocation.HAND).add(35975813, 0, s.C.OcgLocation.MZONE).baseDecks().start();
+    reachIdle(s); assert.equal(s.duel.queryField().players[0].lp, 7200);
+    perform(s, 'activate', 94585852); requireChain(s, 94585852);
+    const start = s.messages.length;
+    endTurn(s); endTurn(s);
+    assert.equal(s.duel.queryField().players[0].lp, 7200);
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.MZONE, 35975813));
+    assert.ok(!s.messages.slice(start).some(m => m.type === s.C.OcgMessageType.PAY_LPCOST));
+    s.queries.push({ query: { field: true }, result: clone(s.duel.queryField()) });
+  });
+
+
+  await run('domain-monarchs-level-reduction-true-tribute-extra-lock-removal', [84171830], 'Reduce Erebus from Level 8 to 6, perform its genuine one-Tribute Normal Summon with an empty own Extra Deck, block the opponent’s Link procedure, then remove Domain and restore that procedure.', s => {
+    s.add(84171830, 0, s.C.OcgLocation.HAND).add(23064604, 0, s.C.OcgLocation.HAND)
+      .add(23635815, 0, s.C.OcgLocation.MZONE).add(23635815, 1, s.C.OcgLocation.MZONE)
+      .add(98978921, 1, s.C.OcgLocation.EXTRA).add(5318639, 1, s.C.OcgLocation.HAND).baseDecks().start();
+    perform(s, 'activate', 84171830);
+    perform(s, 'activate', 84171830, { codes: [23064604] });
+    assert.equal(s.card(0, s.C.OcgLocation.HAND).level, 6);
+    perform(s, 'summon', 23064604); requireChain(s, 84171830);
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.GRAVE, 23635815));
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.MZONE, 23064604));
+    const locked = endTurn(s);
+    assert.equal(locked.player, 1);
+    assert.ok(!locked.special_summons.some(c => c.code === 98978921));
+    const restored = perform(s, 'activate', 5318639, { codes: [84171830] });
+    assert.ok(restored.special_summons.some(c => c.code === 98978921));
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.GRAVE, 84171830));
+  });
+
+  await run('toon-kingdom-facedown-banish-target-protection-destruction-replacement', [43175858], 'Kingdom banishes three genuine deck cards facedown; opposing Book of Moon cannot target the Toon, and Dark Hole destruction is replaced by another facedown banish while the non-Toon is destroyed.', s => {
+    s.add(43175858, 0, s.C.OcgLocation.HAND).add(42386471, 0, s.C.OcgLocation.MZONE)
+      .add(46986414, 0, s.C.OcgLocation.MZONE, 1).add(14087893, 1, s.C.OcgLocation.HAND)
+      .add(53129443, 1, s.C.OcgLocation.HAND);
+    for (const code of [89631139, 46986414, 83011277, 17444133, 77585513, 68638985]) s.add(code, 0, s.C.OcgLocation.DECK);
+    s.add(46986414, 1, s.C.OcgLocation.DECK).start();
+    perform(s, 'activate', 43175858); requireChain(s, 43175858);
+    assert.equal(s.location(0, s.C.OcgLocation.REMOVED).length, 3);
+    assert.equal(s.location(0, s.C.OcgLocation.DECK).length, 3);
+    endTurn(s);
+    perform(s, 'activate', 14087893, { codes: [46986414] });
+    const target = s.decisions.find(d => d.prompt.type === s.C.OcgMessageType.SELECT_CARD && d.prompt.selects.some(c => c.code === 46986414));
+    assert.ok(target); assert.ok(!target.prompt.selects.some(c => c.code === 42386471));
+    perform(s, 'activate', 53129443, { yes: true });
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.MZONE, 42386471));
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.GRAVE, 46986414));
+    assert.equal(s.location(0, s.C.OcgLocation.REMOVED).length, 4);
+    for (const sequence of [0, 1, 2, 3]) {
+      const card = s.card(0, s.C.OcgLocation.REMOVED, sequence);
+      assert.ok(card.position & s.C.OcgPosition.FACEDOWN); assert.equal(card.position & s.C.OcgPosition.FACEUP, 0); assert.ok(card.reason & 0x40);
+    }
+  });
+
+  await run('lair-darkness-opponent-cost-once-token-count-end-phase', [59160188], 'All faceup monsters become DARK; Lilith Tributes an opposing Blue-Eyes as cost, the used substitution is absent from Ahrima’s next cost, and the two real Tributes create two End Phase Torment Tokens.', s => {
+    s.add(59160188, 0, s.C.OcgLocation.HAND).add(23898021, 0, s.C.OcgLocation.MZONE)
+      .add(86377375, 0, s.C.OcgLocation.MZONE, 1).add(89631139, 1, s.C.OcgLocation.MZONE)
+      .add(89631139, 1, s.C.OcgLocation.MZONE, 1);
+    for (const code of [44095762, 53582587, 29401950]) s.add(code, 0, s.C.OcgLocation.DECK);
+    s.baseDecks().start();
+    perform(s, 'activate', 59160188);
+    assert.equal(s.card(1, s.C.OcgLocation.MZONE).attribute, s.C.OcgAttribute.DARK);
+    perform(s, 'activate', 23898021, {
+      respond: (p, C) => p.type === C.OcgMessageType.SELECT_UNSELECT_CARD ? { type: C.OcgResponseType.SELECT_UNSELECT_CARD,
+        index: p.can_finish ? null : p.select_cards.findIndex(c => c.controller === 1) } : null,
+      select: p => p.selects.some(c => c.code === 89631139) ? [89631139] : p.min === 3 ? [44095762, 53582587, 29401950] : [44095762]
+    });
+    const opponentCost = s.location(1, s.C.OcgLocation.GRAVE).find(c => c.code === 89631139);
+    assert.ok(opponentCost && (opponentCost.reason & 0x80));
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.SZONE, 44095762));
+    const decisionStart = s.decisions.length;
+    perform(s, 'activate', 86377375, { codes: [86377375], respond: (p, C) => p.type === C.OcgMessageType.SELECT_UNSELECT_CARD
+      ? { type: C.OcgResponseType.SELECT_UNSELECT_CARD, index: p.can_finish ? null : p.select_cards.findIndex(c => c.code === 86377375) } : null });
+    for (const decision of s.decisions.slice(decisionStart)) {
+      const refs = decision.prompt.selects ?? decision.prompt.select_cards ?? [];
+      assert.ok(!refs.some(c => c.controller === 1 && c.code === 89631139), 'Lair substitution must be consumed');
+    }
+    const ownCost = s.location(0, s.C.OcgLocation.GRAVE).find(c => c.code === 86377375);
+    assert.ok(ownCost && (ownCost.reason & 0x80));
+    endTurn(s); requireChain(s, 59160188);
+    const tokens = s.location(0, s.C.OcgLocation.MZONE).filter(c => c.code === 59160189);
+    assert.equal(tokens.length, 2);
+    for (const sequence of [1, 2]) {
+      const token = s.card(0, s.C.OcgLocation.MZONE, sequence);
+      assert.equal(token.code, 59160189); assert.equal(token.attack, 1000); assert.equal(token.level, 3);
+      assert.equal(token.position, s.C.OcgPosition.FACEUP_DEFENSE);
+    }
+  });
+
+  await run('marincess-ocean-real-link-summon-grave-equip-bonus', [91027843], 'Link Summon Blue Slug into an actual Extra Monster Zone, resolve Ocean’s true summon trigger, equip Crystal Heart from GY and query the combined 200 plus 600 ATK bonus.', s => {
+    s.add(91027843, 0, s.C.OcgLocation.HAND).add(36492575, 0, s.C.OcgLocation.MZONE)
+      .add(67712104, 0, s.C.OcgLocation.GRAVE).add(43735670, 0, s.C.OcgLocation.EXTRA).baseDecks().start();
+    perform(s, 'activate', 91027843);
+    perform(s, 'special', 43735670, { chainCodes: [91027843, 43735670], select: p => p.selects.some(c => c.code === 36492575) ? [36492575] : [67712104] });
+    requireChain(s, 91027843);
+    const summoned = s.card(0, s.C.OcgLocation.MZONE, 5);
+    assert.equal(summoned.code, 43735670); assert.equal(summoned.attack, 2300);
+    assert.equal(s.card(0, s.C.OcgLocation.SZONE).code, 67712104);
+    assert.ok(s.messages.some(m => m.type === s.C.OcgMessageType.EQUIP));
+    assert.ok(s.location(0, s.C.OcgLocation.GRAVE).some(c => c.code === 36492575) || hasCode(s, 0, s.C.OcgLocation.HAND, 36492575));
+  });
+
+  await run('hidden-village-ninja-summon-recovery-same-name-activation-lock', [26232916], 'A genuine Hanzo Normal Summon triggers targeted recovery of Armor Ninjitsu Art of Alchemy; its name-wide activation restriction removes both recovered and existing copies despite a valid faceup Ninjitsu Art.', s => {
+    s.add(26232916, 0, s.C.OcgLocation.HAND).add(95027497, 0, s.C.OcgLocation.HAND)
+      .add(16272453, 0, s.C.OcgLocation.HAND).add(16272453, 0, s.C.OcgLocation.GRAVE)
+      .add(70861343, 0, s.C.OcgLocation.SZONE).add(89631139, 0, s.C.OcgLocation.DECK).baseDecks().start();
+    const initial = reachIdle(s);
+    assert.ok(initial.activates.some(c => c.code === 16272453));
+    perform(s, 'activate', 26232916);
+    const recovered = perform(s, 'summon', 95027497, { chainCodes: [26232916], codes: [16272453] }); requireChain(s, 26232916);
+    assert.equal(s.location(0, s.C.OcgLocation.HAND).filter(c => c.code === 16272453).length, 2);
+    assert.ok(!recovered.activates.some(c => c.code === 16272453));
+    assert.ok(s.messages.some(m => m.type === s.C.OcgMessageType.BECOME_TARGET));
+    assert.ok(!hasCode(s, 0, s.C.OcgLocation.GRAVE, 16272453));
+  });
+
+  await run('psy-frame-circuit-alpha-driver-triggered-real-synchro', [575512], 'An opposing Normal Summon triggers genuine Alpha from hand, summons Driver from Deck and searches a second Driver; Circuit then performs a true opponent-turn Synchro Summon of Zeta with those materials.', s => {
+    s.add(575512, 0, s.C.OcgLocation.HAND).add(75425043, 0, s.C.OcgLocation.HAND)
+      .add(49036338, 0, s.C.OcgLocation.DECK).add(49036338, 0, s.C.OcgLocation.DECK)
+      .add(37192109, 0, s.C.OcgLocation.EXTRA).add(23635815, 1, s.C.OcgLocation.HAND).baseDecks().start();
+    perform(s, 'activate', 575512); endTurn(s);
+    perform(s, 'summon', 23635815, { chainCodes: [75425043, 575512], select: p => p.selects.some(c => c.code === 37192109) ? [37192109] : [49036338] });
+    requireChain(s, 575512);
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.MZONE, 37192109));
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.HAND, 49036338));
+    for (const code of [75425043, 49036338]) {
+      const material = s.location(0, s.C.OcgLocation.GRAVE).find(c => c.code === code);
+      assert.ok(material && (material.reason & 8) && (material.reason & 0x80000));
+    }
+    assert.equal(s.location(0, s.C.OcgLocation.MZONE).length, 1);
+  });
+
+  await run('salamangreat-sanctuary-genuine-reincarnation-link-once', [1295111], 'Perform a genuine two-FIRE-material Link Summon of Sunlight Wolf, then Sanctuary grants a second Link Summon using that Wolf alone; the shared reincarnation procedure is unavailable for a third copy.', s => {
+    s.add(1295111, 0, s.C.OcgLocation.HAND).add(52277807, 0, s.C.OcgLocation.MZONE)
+      .add(94620082, 0, s.C.OcgLocation.MZONE, 1);
+    for (let index = 0; index < 3; index += 1) s.add(87871125, 0, s.C.OcgLocation.EXTRA);
+    s.baseDecks().start();
+    perform(s, 'activate', 1295111);
+    perform(s, 'special', 87871125);
+    assert.equal(s.location(0, s.C.OcgLocation.MZONE).length, 1);
+    const reincarnated = perform(s, 'special', 87871125); requireChain(s, 1295111);
+    const material = s.location(0, s.C.OcgLocation.GRAVE).find(c => c.code === 87871125);
+    assert.ok(material && (material.reason & 8) && (material.reason & 0x10000000));
+    assert.equal(s.location(0, s.C.OcgLocation.MZONE).filter(c => c.code === 87871125).length, 1);
+    assert.ok(!reincarnated.special_summons.some(c => c.code === 87871125));
+    assert.equal(s.location(0, s.C.OcgLocation.EXTRA).filter(c => c.code === 87871125).length, 1);
+  });
+
+  await run('traptrip-garden-extra-normal-banish-cost-special-limit', [12801833], 'Garden allows exactly one additional Traptrix Normal Summon; its ignition banishes Myrmeleo as cost to Special Summon Dionaea and is consumed while another valid hand target remains.', s => {
+    s.add(12801833, 0, s.C.OcgLocation.HAND).add(91812341, 0, s.C.OcgLocation.HAND)
+      .add(82738277, 0, s.C.OcgLocation.HAND).add(45803070, 0, s.C.OcgLocation.HAND)
+      .add(45803070, 0, s.C.OcgLocation.HAND).baseDecks().start();
+    perform(s, 'activate', 12801833);
+    perform(s, 'summon', 91812341);
+    const twoSummons = perform(s, 'summon', 82738277);
+    assert.ok(!twoSummons.summons.some(c => c.code === 45803070));
+    const exhausted = perform(s, 'activate', 12801833, { select: p => p.selects.some(c => c.code === 91812341) ? [91812341] : [45803070] });
+    requireChain(s, 12801833);
+    const cost = s.location(0, s.C.OcgLocation.REMOVED).find(c => c.code === 91812341);
+    assert.ok(cost && (cost.reason & 0x80));
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.MZONE, 45803070));
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.HAND, 45803070));
+    assert.ok(!exhausted.activates.some(c => c.code === 12801833));
+  });
+
+  await run('rikka-konkon-deck-set-plant-lock-opponent-tribute-cost', [76869711], 'With Petal faceup, Konkon Sets genuine Rikka Glamour from Deck and forbids a non-Plant Gilasaurus procedure; Mudan then Tributes opposing Blue-Eyes as the substituted Plant cost while Petal remains.', s => {
+    s.add(76869711, 0, s.C.OcgLocation.HAND).add(71734607, 0, s.C.OcgLocation.MZONE)
+      .add(71002019, 0, s.C.OcgLocation.HAND).add(45894482, 0, s.C.OcgLocation.HAND)
+      .add(69164989, 0, s.C.OcgLocation.DECK).add(69164989, 0, s.C.OcgLocation.DECK)
+      .add(89631139, 1, s.C.OcgLocation.MZONE).baseDecks().start();
+    const initial = reachIdle(s); assert.ok(initial.special_summons.some(c => c.code === 45894482));
+    perform(s, 'activate', 76869711);
+    const set = perform(s, 'activate', 76869711, { codes: [69164989] });
+    assert.equal(s.card(0, s.C.OcgLocation.SZONE).code, 69164989);
+    assert.ok(s.card(0, s.C.OcgLocation.SZONE).position & s.C.OcgPosition.FACEDOWN);
+    assert.ok(!set.special_summons.some(c => c.code === 45894482));
+    assert.ok(!set.activates.some(c => c.code === 76869711));
+    perform(s, 'activate', 71002019, { chainCodes: [71002019],
+      respond: (p, C) => p.type === C.OcgMessageType.SELECT_UNSELECT_CARD ? { type: C.OcgResponseType.SELECT_UNSELECT_CARD,
+        index: p.can_finish ? null : p.select_cards.findIndex(c => c.controller === 1) } : null,
+      select: p => p.selects.some(c => c.code === 89631139) ? [89631139] : [69164989]
+    });
+    requireChain(s, 76869711);
+    const cost = s.location(1, s.C.OcgLocation.GRAVE).find(c => c.code === 89631139);
+    assert.ok(cost && (cost.reason & 0x80));
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.MZONE, 71734607));
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.MZONE, 71002019));
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.HAND, 69164989));
+  });
+
+
+  for (const removeBeforeBattle of [false, true]) {
+    await run(removeBeforeBattle ? 'sanctuary-sky-removal-restores-fairy-battle-damage' : 'sanctuary-sky-fairy-battle-damage-zero', [56433456],
+      removeBeforeBattle ? 'After Sanctuary resolves, opposing MST removes it; Blue-Eyes then destroys Dunames Dark Witch and inflicts the ordinary 1200 battle damage.'
+        : 'A real Blue-Eyes attack destroys Dunames Dark Witch, but Sanctuary prevents its owner’s 1200 battle damage without preventing destruction.', s => {
+        s.add(56433456, 0, s.C.OcgLocation.HAND).add(12493482, 0, s.C.OcgLocation.MZONE)
+          .add(89631139, 1, s.C.OcgLocation.MZONE).add(5318639, 1, s.C.OcgLocation.HAND).baseDecks().start();
+        perform(s, 'activate', 56433456); endTurn(s);
+        if (removeBeforeBattle) perform(s, 'activate', 5318639, { codes: [56433456] });
+        enterBattle(s); battleAttack(s, 89631139, 12493482); leaveBattle(s);
+        requireChain(s, 56433456);
+        assert.ok(hasCode(s, 0, s.C.OcgLocation.GRAVE, 12493482));
+        assert.equal(s.duel.queryField().players[0].lp, removeBeforeBattle ? 6800 : 8000);
+        assert.equal(s.duel.queryField().players[1].lp, 8000);
+        s.queries.push({ query: { field: true }, result: clone(s.duel.queryField()) });
+      });
+  }
+
+  await run('ancient-forest-flip-without-effects-battle-end-destruction', [87624166], 'Activation turns a facedown Man-Eater Bug and a Defense Position Blue-Eyes into Attack Position without activating the FLIP effect; after a real attack, Forest destroys the surviving attacker at Battle Phase end.', s => {
+    s.add(87624166, 0, s.C.OcgLocation.HAND).add(54652250, 0, s.C.OcgLocation.MZONE, 0, s.C.OcgPosition.FACEDOWN_DEFENSE)
+      .add(89631139, 1, s.C.OcgLocation.MZONE, 0, s.C.OcgPosition.FACEUP_DEFENSE).baseDecks().start();
+    perform(s, 'activate', 87624166);
+    assert.equal(s.card(0, s.C.OcgLocation.MZONE).position, s.C.OcgPosition.FACEUP_ATTACK);
+    assert.equal(s.card(1, s.C.OcgLocation.MZONE).position, s.C.OcgPosition.FACEUP_ATTACK);
+    assert.ok(!s.messages.some(m => m.type === s.C.OcgMessageType.CHAINING && m.code === 54652250));
+    endTurn(s); enterBattle(s); battleAttack(s, 89631139, 54652250);
+    assert.ok(hasCode(s, 1, s.C.OcgLocation.MZONE, 89631139));
+    leaveBattle(s); requireChain(s, 87624166);
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.GRAVE, 54652250));
+    const destroyed = s.location(1, s.C.OcgLocation.GRAVE).find(c => c.code === 89631139);
+    assert.ok(destroyed && (destroyed.reason & 0x40));
+    assert.equal(s.location(1, s.C.OcgLocation.MZONE).length, 0);
+  });
+
+  await run('dark-sanctuary-real-coin-attack-resolution', [16625614], 'An actual opposing direct attack triggers Sanctuary’s mandatory chain and a genuine native coin toss; the observed toss determines whether the attack is negated with half-ATK damage or resolves normally.', s => {
+    s.add(16625614, 0, s.C.OcgLocation.HAND).add(89631139, 1, s.C.OcgLocation.MZONE).baseDecks().start();
+    perform(s, 'activate', 16625614); endTurn(s); enterBattle(s); battleAttack(s, 89631139); leaveBattle(s);
+    requireChain(s, 16625614);
+    const toss = s.messages.find(m => m.type === s.C.OcgMessageType.TOSS_COIN);
+    assert.ok(toss);
+    assert.equal(typeof toss.results[0], 'boolean');
+    const heads = toss.results[0];
+    assert.equal(s.duel.queryField().players[0].lp, heads ? 8000 : 5000);
+    assert.equal(s.duel.queryField().players[1].lp, heads ? 6500 : 8000);
+    assert.equal(s.messages.some(m => m.type === s.C.OcgMessageType.ATTACK_DISABLED), heads);
+    s.queries.push({ query: { field: true }, result: clone(s.duel.queryField()) });
+  });
+
+  await run('orichalcos-true-special-destruction-extra-lock-protection-duel-oath', [48179391], 'Seal destroys a genuinely Special Summoned Gilasaurus, boosts the remaining Normal Monster, blocks an otherwise valid Link procedure, survives one MST, then is destroyed by a second; Extra Summons return but a second Seal is still forbidden by the duel oath.', s => {
+    s.add(48179391, 0, s.C.OcgLocation.HAND).add(48179391, 0, s.C.OcgLocation.HAND)
+      .add(45894482, 0, s.C.OcgLocation.HAND).add(23635815, 0, s.C.OcgLocation.MZONE)
+      .add(98978921, 0, s.C.OcgLocation.EXTRA).add(5318639, 0, s.C.OcgLocation.HAND)
+      .add(5318639, 0, s.C.OcgLocation.HAND).baseDecks().start();
+    perform(s, 'special', 45894482);
+    const initial = reachIdle(s); assert.ok(initial.special_summons.some(c => c.code === 98978921));
+    const sealed = perform(s, 'activate', 48179391); requireChain(s, 48179391);
+    const destroyed = s.location(0, s.C.OcgLocation.GRAVE).find(c => c.code === 45894482);
+    assert.ok(destroyed && (destroyed.reason & 0x40));
+    assert.equal(s.card(0, s.C.OcgLocation.MZONE).attack, 2250);
+    assert.ok(!sealed.special_summons.some(c => c.code === 98978921));
+    assert.ok(!sealed.activates.some(c => c.code === 48179391 && c.location === s.C.OcgLocation.HAND));
+    perform(s, 'activate', 5318639, { codes: [48179391] });
+    assert.equal(s.card(0, s.C.OcgLocation.SZONE, 5).code, 48179391);
+    const released = perform(s, 'activate', 5318639, { codes: [48179391] });
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.GRAVE, 48179391));
+    assert.equal(s.card(0, s.C.OcgLocation.MZONE).attack, 1750);
+    assert.ok(released.special_summons.some(c => c.code === 98978921));
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.HAND, 48179391));
+    assert.ok(!released.activates.some(c => c.code === 48179391 && c.location === s.C.OcgLocation.HAND));
+  });
+
+
+  await run('marincess-ocean-crystal-heart-material-opponent-immunity', [91027843], 'Link Summon Crystal Heart with real WATER materials, then use it for a true Marbled Rock Link Summon in the Extra Monster Zone; Ocean equips that material and protects Rock from opposing Dark Hole, while the owner’s Dark Hole still destroys it.', s => {
+    s.add(91027843, 0, s.C.OcgLocation.HAND).add(36492575, 0, s.C.OcgLocation.MZONE)
+      .add(36492575, 0, s.C.OcgLocation.MZONE, 1).add(68638985, 0, s.C.OcgLocation.MZONE, 2)
+      .add(67712104, 0, s.C.OcgLocation.EXTRA).add(5524387, 0, s.C.OcgLocation.EXTRA)
+      .add(53129443, 0, s.C.OcgLocation.HAND).add(53129443, 1, s.C.OcgLocation.HAND)
+      .add(46986414, 1, s.C.OcgLocation.MZONE).baseDecks().start();
+    perform(s, 'activate', 91027843);
+    perform(s, 'special', 67712104);
+    const linked = perform(s, 'special', 5524387, {
+      chainCodes: [91027843], place: p => ((p.field_mask >>> 0) & (1 << 5)) === 0
+        ? [{ player: p.player, location: s.C.OcgLocation.MZONE, sequence: 5 }] : choosePlace(p, s.C)
+    });
+    requireChain(s, 91027843);
+    assert.equal(s.card(0, s.C.OcgLocation.MZONE, 5).code, 5524387);
+    assert.equal(s.card(0, s.C.OcgLocation.MZONE, 5).attack, 3300);
+    assert.equal(s.card(0, s.C.OcgLocation.SZONE).code, 67712104);
+    assert.ok(!linked.special_summons.some(c => c.code === 5524387));
+    endTurn(s); perform(s, 'activate', 53129443);
+    assert.equal(s.card(0, s.C.OcgLocation.MZONE, 5).code, 5524387);
+    assert.ok(hasCode(s, 1, s.C.OcgLocation.GRAVE, 46986414));
+    endTurn(s); perform(s, 'activate', 53129443);
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.GRAVE, 5524387));
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.GRAVE, 67712104));
+    assert.equal(s.location(0, s.C.OcgLocation.MZONE).length, 0);
+  });
+
+  await run('rikka-konkon-glamour-opponent-tribute-two-distinct-searches', [76869711], 'Konkon replaces Glamour’s optional Plant Tribute with opposing Blue-Eyes; genuine resolution searches Mudan and a differently named Level 6 Plant, preserving Petal. Field activation alone does not impose the Set ignition’s Plant-only lock.', s => {
+    s.add(76869711, 0, s.C.OcgLocation.HAND).add(69164989, 0, s.C.OcgLocation.HAND)
+      .add(71734607, 0, s.C.OcgLocation.MZONE).add(45894482, 0, s.C.OcgLocation.HAND)
+      .add(71002019, 0, s.C.OcgLocation.DECK).add(7407724, 0, s.C.OcgLocation.DECK)
+      .add(89631139, 1, s.C.OcgLocation.MZONE).baseDecks().start();
+    const activated = perform(s, 'activate', 76869711);
+    assert.ok(activated.special_summons.some(c => c.code === 45894482));
+    const afterSearch = perform(s, 'activate', 69164989, {
+      respond: (p, C) => p.type === C.OcgMessageType.SELECT_UNSELECT_CARD ? { type: C.OcgResponseType.SELECT_UNSELECT_CARD,
+        index: p.can_finish ? null : p.select_cards.findIndex(c => c.controller === 1) } : null,
+      select: p => p.selects.some(c => c.code === 89631139) ? [89631139] : p.selects.some(c => c.code === 71002019) ? [71002019] : [7407724]
+    });
+    requireChain(s, 76869711);
+    const cost = s.location(1, s.C.OcgLocation.GRAVE).find(c => c.code === 89631139);
+    assert.ok(cost && (cost.reason & 0x80));
+    assert.ok(hasCode(s, 0, s.C.OcgLocation.MZONE, 71734607));
+    for (const code of [71002019, 7407724]) assert.ok(hasCode(s, 0, s.C.OcgLocation.HAND, code));
+    assert.ok(afterSearch.special_summons.some(c => c.code === 45894482));
+    assert.ok(!afterSearch.activates.some(c => c.code === 69164989));
+  });
+
+  await run('domain-monarchs-damage-calculation-only-tribute-attack-bonus', [84171830], 'A true Tribute Summoned Erebus attacks opposing Blue-Eyes; Domain grants 800 ATK specifically during damage calculation, inflicts 600 battle damage, then the public query returns Erebus to its normal 2800 ATK.', s => {
+    s.add(84171830, 0, s.C.OcgLocation.HAND).add(23064604, 0, s.C.OcgLocation.HAND)
+      .add(23635815, 0, s.C.OcgLocation.MZONE).add(89631139, 1, s.C.OcgLocation.MZONE).baseDecks().start();
+    perform(s, 'activate', 84171830); perform(s, 'activate', 84171830, { codes: [23064604] });
+    perform(s, 'summon', 23064604); endTurn(s); endTurn(s);
+    assert.equal(s.card(0, s.C.OcgLocation.MZONE).attack, 2800);
+    enterBattle(s); battleAttack(s, 23064604, 89631139); leaveBattle(s); requireChain(s, 84171830);
+    const calculation = s.messages.find(m => m.type === s.C.OcgMessageType.BATTLE);
+    assert.ok(calculation); assert.equal(calculation.card.attack, 3600);
+    assert.equal(calculation.target.attack, 3000);
+    assert.equal(s.duel.queryField().players[1].lp, 7400);
+    assert.equal(s.card(0, s.C.OcgLocation.MZONE).attack, 2800);
+    assert.ok(hasCode(s, 1, s.C.OcgLocation.GRAVE, 89631139));
+    s.queries.push({ query: { field: true }, result: clone(s.duel.queryField()) });
+  });
+
+  await run('dark-sanctuary-heads-negates-attack-half-atk-effect-damage', [16625614], 'A second genuine RNG seed produces heads on the native coin toss; Sanctuary negates the declared attack and deals exactly half of Blue-Eyes’s 3000 ATK as effect damage to the attacker’s controller.', s => {
+    s.add(16625614, 0, s.C.OcgLocation.HAND).add(89631139, 1, s.C.OcgLocation.MZONE).baseDecks().start();
+    perform(s, 'activate', 16625614); endTurn(s); enterBattle(s); battleAttack(s, 89631139); leaveBattle(s);
+    requireChain(s, 16625614);
+    const toss = s.messages.find(m => m.type === s.C.OcgMessageType.TOSS_COIN);
+    assert.ok(toss); assert.equal(toss.results[0], true);
+    assert.equal(s.duel.queryField().players[0].lp, 8000);
+    assert.equal(s.duel.queryField().players[1].lp, 6500);
+    assert.ok(s.messages.some(m => m.type === s.C.OcgMessageType.ATTACK_DISABLED));
+    const damage = s.messages.find(m => m.type === s.C.OcgMessageType.DAMAGE);
+    assert.equal(damage.player, 1); assert.equal(damage.amount, 1500);
+    s.queries.push({ query: { field: true }, result: clone(s.duel.queryField()) });
+  }, { seed: [0x123456789abcdef0n, 0xfedcba9876543210n, 0x9e3779b97f4a7c15n, 0xbf58476d1ce4e5b9n] });
+
   return scenarios;
 }
 

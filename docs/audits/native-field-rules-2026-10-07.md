@@ -1,15 +1,15 @@
 # Exécution native des 339 Magies de Terrain — 7 octobre 2026
 
-Les **339 cartes du catalogue disposent de leur ligne CDB et de leur véritable script Lua**, et leur `initial_effect` s’exécute sans diagnostic Lua dans **339 duels natifs distincts**. **47 scénarios de règles passent**, couvrant **41 terrains différents**. L’extension conserve les 20 scénarios précédents et ajoute 23 Terrains avec leurs partenaires réels. Ces résultats concernent le moteur WASM ; la vérification du navigateur possède son propre rapport.
+Les **339 cartes du catalogue disposent de leur ligne CDB et de leur véritable script Lua**, et leur `initial_effect` s’exécute sans diagnostic Lua dans **339 duels natifs distincts**. **77 scénarios de règles passent**, couvrant **65 terrains différents**. Cette extension conserve les 47 scénarios précédents et ajoute 30 scénarios sur 24 nouveaux Terrains, avec leurs partenaires réels. Elle vérifie aussi des branches supplémentaires de Domain, Rikka Konkon, Marincess Battle Ocean et Dark Sanctuary. Ces résultats concernent le moteur WASM ; la vérification du navigateur possède son propre rapport.
 
 | Niveau de preuve | Résultat | Ce qu’il établit |
 | --- | ---: | --- |
 | `bundled` | 339 / 339 | Ligne CDB et script Lua exact présents dans les archives livrées. |
 | `initialized` | 339 / 339 | Insertion du terrain, `initial_effect`, enregistrement des effets, requête native et démarrage d’un duel sans erreur Lua. |
-| `effectTested` | 41 / 339 | Au moins un effet exécuté et vérifié dans les scénarios ci-dessous. |
+| `effectTested` | 65 / 339 | Au moins un effet exécuté et vérifié dans les scénarios ci-dessous. |
 | `integrationTested` | 0 dans cet audit | Cet audit Node ne produit aucune preuve de clics, d’affichage ou de comportement du navigateur. |
 
-La matrice complète contient les passcodes canoniques et physiques, les chemins Lua amont, les SHA-256 de chaque script, les réponses typées, les messages du moteur et les résultats des requêtes : [native-field-runtime-2026-10-07.json](artifacts/native-field-runtime-2026-10-07.json). Chaque scénario conserve aussi ses cartes initiales, leurs zones, positions, passcodes physiques et provenance Lua, y compris les partenaires. Elle conserve les quatre niveaux séparément. L’initialisation ne vérifie pas toutes les branches des effets ni l’exécution de tous les événements enregistrés.
+La matrice complète contient les passcodes canoniques et physiques, les chemins Lua amont, les SHA-256 de chaque script, les réponses typées, les messages du moteur et les résultats des requêtes : [native-field-runtime-2026-10-07.json](artifacts/native-field-runtime-2026-10-07.json). Chaque scénario conserve aussi ses cartes initiales, leurs zones, positions, passcodes physiques et provenance Lua, y compris les partenaires, ainsi que les quatre mots de sa graine RNG native. Elle conserve les quatre niveaux séparément. L’initialisation ne vérifie pas toutes les branches des effets ni l’exécution de tous les événements enregistrés.
 
 ## Scénarios exécutés
 
@@ -58,12 +58,38 @@ Chaque scénario utilise un nouveau handle de duel et des cartes réelles. Les a
 | Sky Striker Airspace — Area Zero | MST cible et détruit le Terrain ; trigger au Cimetière et invocation de Raye depuis le Deck. |
 | Runick Fountain | Activation de Golden Droplet ; cible deux Quick-Play Runick au Cimetière, tri de leur retour en bas du Deck et pioche de deux cartes. Quatre cartes du Deck adverse sont réellement bannies. |
 | Primitive Planet Reichphobia | Recherche Scareclaw Acro ; trois monstres en défense réduisent Blue-Eyes adverse de 300 ATK et permettent une ignition ciblée qui le détruit. |
+| Mountain | Dragon et Winged Beast des deux joueurs gagnent 200 ATK/DEF ; Dark Magician reste inchangé. MST détruit le Terrain et les statistiques natives reviennent à leur valeur de base. |
+| Sogen | Warrior et Beast-Warrior des deux joueurs gagnent 200 ATK/DEF ; Blue-Eyes reste inchangé. Destruction du Terrain et rétablissement des statistiques. |
+| Umi | Slime Toad gagne 200 ATK/DEF ; Jinzo adverse perd 200 ATK/DEF et Dark Magician reste inchangé. MST supprime ces modifications. |
+| Umiiruka | Slime Toad WATER gagne 500 ATK et perd 400 DEF ; Ryu-Ran FIRE adverse conserve ses valeurs de base. MST rétablit les statistiques. |
+| Lemuria, the Forgotten City | Deux Slime Toad contrôlés reçoivent 200 ATK/DEF, puis passent du Niveau 2 au Niveau 4 par ignition ; le Slime Toad adverse conserve le Niveau 2. Usage unique et retour au Niveau 2 à l’End Phase, sans perte du bonus continu. |
+| The Gates of Dark World | Summoned Skull banni comme coût ; Broww défaussé par effet, déclenchant sa véritable pioche. Deux cartes sont piochées au total et le bonus de 300 ATK du Fiend est vérifié. Limite d’ignition appliquée. |
+| Triamid Fortress | Triamid Hunter gagne 500 DEF et survit à Dark Hole ; Dark Magician adverse est détruit. MST détruit Fortress et son trigger récupère Triamid Dancer au Cimetière ; le bonus disparaît. |
+| Triamid Cruiser | Normal Summon de Hunter : gain de 500 LP, pioche et défausse par effet. Après destruction du Terrain, son trigger recherche Triamid Master. |
+| Triamid Kingolem | Triamid Master gagne 500 ATK ; destruction du Terrain, puis véritable trigger d’invocation de Hunter depuis la main et retour des statistiques de Master à leur base. |
+| Aroma Garden | Ignition avec Jasmine : gain de 500 LP, bonus de 500 ATK/DEF sur les monstres contrôlés et vraie pioche de Jasmine. La destruction de Jasmine déclenche ensuite le gain de 1000 LP du Terrain. |
+| Pandemonium | Destruction par effet d’Archfiend Soldier de Niveau 4 : recherche de Desrook de Niveau 3 ; un second Soldier de Niveau 4 restant au Deck est exclu du choix. Autre duel : Terrorking paie initialement 800 LP, puis Pandemonium supprime effectivement le paiement au prochain Standby de son contrôleur. |
+| Domain of the True Monarchs | Réduction du Niveau d’Erebus de 8 à 6, véritable Tribute Summon avec un monstre, puis verrou de l’Extra Deck adverse lorsque l’Extra Deck du contrôleur est vide. MST libère Link Spider adverse. Autre duel : Erebus attaque Blue-Eyes avec 3600 ATK uniquement au calcul des dommages, inflige 600 dommages de combat et revient à 2800 ATK. |
+| Toon Kingdom | Activation : trois cartes bannies face verso. Book of Moon adverse peut cibler Dark Magician, mais exclut Toon Gemini Elf du choix. Dark Hole détruit Dark Magician ; une décision explicite remplace la destruction du Toon par un quatrième bannissement face verso. |
+| Lair of Darkness | Tous les monstres face recto deviennent DARK. Lilith utilise Blue-Eyes adverse comme coût et place une vraie Trap sélectionnée depuis le Deck. La substitution ne peut pas être réutilisée ce tour par Ahrima, qui se sacrifie normalement. L’End Phase crée exactement deux Torment Tokens, en défense, chez le joueur du tour. |
+| Marincess Battle Ocean | Véritable Link Summon de Blue Slug en Extra Monster Zone, équipement de Crystal Heart depuis le Cimetière et ATK finale de 2300. Autre duel : Crystal Heart est d’abord réellement Link Summoned, puis utilisé comme matériau de Marbled Rock. Équipé par Ocean, Rock atteint 3300 ATK, résiste au Dark Hole adverse et est détruit par celui de son propre contrôleur. |
+| Hidden Village of Ninjitsu Arts | Normal Summon de Hanzo ; le trigger de Village récupère Ninjitsu Art of Alchemy depuis le Cimetière. Les deux copies de ce nom en main ne sont plus activables ce tour, malgré un Ninjitsu Art face recto remplissant leur condition. |
+| PSY-Frame Circuit | Au tour adverse, Normal Summon de Jerry Beans Man : Alpha se déclenche, invoque réellement Alpha et Driver, et recherche une seconde Driver. Circuit propose puis réalise immédiatement le Synchro Summon de PSY-Framelord Zeta avec les raisons natives MATERIAL/SYNCHRO. |
+| Salamangreat Sanctuary | Premier véritable Link Summon de Sunlight Wolf avec deux monstres FIRE ; Sanctuary permet ensuite un second Wolf en utilisant le premier comme unique matériau. Une troisième copie reste dans l’Extra Deck, mais cette procédure est indisponible après consommation de la limite. |
+| Traptrip Garden | Deux Normal Summons Traptrix sont exécutés ; un troisième est refusé. L’ignition bannit Myrmeleo comme coût puis invoque Dionaea depuis la main. Une autre Dionaea valide reste en main, mais l’ignition ne peut pas être réutilisée. |
+| Rikka Konkon | Ignition : place Rikka Glamour face verso depuis le Deck et impose la restriction Plant ; Gilasaurus devient indisponible. Mudan utilise ensuite Blue-Eyes adverse à la place d’un Plant en coût, s’invoque et recherche une seconde Glamour, tout en conservant Petal. Autre duel : l’activation seule n’impose pas cette restriction ; Glamour sacrifie Blue-Eyes adverse et recherche deux Plants de Niveau 6 aux noms différents. |
+| The Sanctuary in the Sky | Dunames Dark Witch est détruite par Blue-Eyes au combat, mais son contrôleur ne subit aucun dommage de combat. Le second duel détruit préalablement Sanctuary par MST et rétablit les 1200 dommages, avec les mêmes monstres. |
+| Ancient Forest | L’activation retourne Man-Eater Bug et Blue-Eyes en attaque sans déclencher l’effet FLIP de Bug. Blue-Eyes attaque et détruit Bug ; le vrai trigger de fin de Battle Phase détruit ensuite Blue-Eyes par effet. |
+| Dark Sanctuary | Deux attaques natives déclenchent les deux résultats réels du RNG, avec graines enregistrées. Pile laisse résoudre l’attaque et inflige 3000 dommages au contrôleur du Terrain ; face annule l’attaque et inflige exactement 1500 dommages d’effet au contrôleur de Blue-Eyes. |
+| The Seal of Orichalcos | Activation détruit un Gilasaurus réellement Special Summoned, donne 500 ATK à Jerry Beans Man et interdit Link Spider depuis l’Extra Deck. Le premier MST est remplacé ; le second détruit le Terrain et libère l’Extra Deck. Une seconde copie reste interdite à l’activation par la limite une fois par Duel. |
+
+Les 65 Terrains sont marqués `effectTested` uniquement pour ces preuves. Les protections, coûts, limites et branches non exercés ne sont pas certifiés par ce total.
 
 ## Conditions de validation
 
 Flags : `MODE_MR5 | TCG_SEGOC_NONPUBLIC | TCG_SEGOC_FIRSTTRIGGER`, valeur `12885092352`. Les deux flags SEGOC TCG sont nécessaires ; MR5 seul conserve les conventions de déclenchement OCG. Aucun flag `TEST_MODE`, `PSEUDO_SHUFFLE` ou `UNLIMITED_SUMMONS` n’est activé.
 
-Les fixtures de règles démarrent avec zéro carte piochée et zéro pioche automatique par tour, et une seed déterministe `[1n, 2n, 3n, 4n]`. Les cartes sont placées avant le démarrage pour fixer la situation initiale. Les cartes de Fusion de l’Extra Deck sont face verso, conformément aux règles ; les mettre face recto empêcherait à juste titre leur placement MR5 dans les Main Monster Zones. Les scripts, lignes CDB et phases du moteur restent intacts. Chaque action et choix passe par `duelSetResponse` via `NativeDuelRuntime.respond`.
+Les fixtures de règles démarrent avec zéro carte piochée et zéro pioche automatique par tour, et une graine déterministe `[1n, 2n, 3n, 4n]` par défaut. Le scénario supplémentaire de Dark Sanctuary utilise `[0x123456789abcdef0n, 0xfedcba9876543210n, 0x9e3779b97f4a7c15n, 0xbf58476d1ce4e5b9n]` pour exercer l’autre issue du RNG natif ; les graines sont enregistrées par scénario. Aucun résultat de pièce n’est injecté ou choisi par une réponse de test. Les cartes sont placées avant le démarrage pour fixer la situation initiale. Les cartes de Fusion de l’Extra Deck sont face verso, conformément aux règles ; les mettre face recto empêcherait à juste titre leur placement MR5 dans les Main Monster Zones. Les scripts, lignes CDB et phases du moteur restent intacts. Chaque action et choix passe par `duelSetResponse` via `NativeDuelRuntime.respond`.
 
 Une requête est faite immédiatement après l’insertion de chaque terrain, avant le démarrage et donc avant ses coûts d’entretien. Le démarrage est ensuite avancé jusqu’à la première décision native. Cela permet par exemple à Golden Castle of Stromberg de détruire légalement sa propre carte au Standby si le Deck de fixture contient moins de dix cartes, sans confondre ce comportement avec une erreur d’initialisation.
 
@@ -77,10 +103,11 @@ Le scénario Angelechy constitue aussi une régression du binaire : l’ancien c
 
 ```sh
 node scripts/audit-native-field-runtime.mjs
+node scripts/generate-native-field-coverage.mjs
 node --test --test-isolation=none tests/native-field-catalogue.test.js
 ```
 
-Le script écrit la preuve JSON puis échoue si une ressource manque, si un des 339 terrains ne s’initialise pas ou si un scénario de règles échoue. Les tests ne contiennent aucun `skip` conditionné à l’absence d’assets. Le runner sans isolation affiche individuellement les assertions de la suite.
+Le script écrit la preuve JSON puis échoue si une ressource manque, si un des 339 terrains ne s’initialise pas ou si un scénario de règles échoue, si le moteur émet `RETRY` ou si un diagnostic Lua apparaît. Les tests ne contiennent aucun `skip` conditionné à l’absence d’assets. Le runner sans isolation affiche individuellement les assertions de la suite.
 
 ## Contrat pour l’intégration navigateur
 

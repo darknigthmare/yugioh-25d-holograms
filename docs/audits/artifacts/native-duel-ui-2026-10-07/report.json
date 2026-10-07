@@ -96,12 +96,17 @@
     "pageErrors": []
   },
   "testedWasmSha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
-  "testedIndexAsset": "/assets/index-CNuJ3sB1.js",
-  "testedIndexSha256": "2b8993d189f7339198663a1fd54b013b561747d19d90dde37cb9c060c5b9d56f",
-  "testedIndexHtmlSha256": "e7b9fa63bcc4e5356034d77feb1365abadae5bfb13ab401718a32a83b3a18e0e",
-  "testedCssAsset": "/assets/index-Edane65D.css",
-  "testedCssSha256": "557d05b0cb6a7c8a0a8e82e7309a1a63f83205bd4dc41fab99b468c4e9312d02",
+  "testedIndexAsset": "/assets/index-Bf3sQIDw.js",
+  "testedIndexSha256": "6de409c77e47c3853b1a554553776a13f576e265824187d6d21b809fd4c7ce33",
+  "testedIndexHtmlSha256": "ca7254cd1cc1b1b0c6bf9c96782429d47443c7b1a0da5febe6801762b2360ee2",
+  "testedCssAsset": "/assets/index-WwbnQBsq.css",
+  "testedCssSha256": "5103d13e4c93cce8f60e430ade9bce9aace0233e3b71dfb7786e11b7bf3c58a1",
+  "testedNativeGameAsset": "/assets/NativeDuelGame-DrR3s3dO.js",
+  "testedNativeGameSha256": "290a980e79d7e577fa1879eeb35f0ae3b810b2cc2035f93601bb9addc0737eb5",
+  "testedNativeCoreAsset": "/assets/ocgcore-CRjY9PIO.js",
+  "testedNativeCoreSha256": "4eeec09c8f885030c6d291049f2aa4289afe3767b4fb147158e8e04a7ffa9e9d",
   "immutableCompiledSnapshot": true,
-  "testedNativeGameAsset": "/assets/NativeDuelGame-COFVTauG.js",
-  "testedNativeCoreAsset": "/assets/ocgcore-C5iXURMO.js"
+  "immutableCompiledSnapshotScope": "HTML, entry JS, CSS, native facade, native wrapper and WASM matched before and after both audits",
+  "frozenManifestFilesVerified": 7,
+  "frozenManifest": "yugioh-expansion-preview-local-manifest.json"
 }

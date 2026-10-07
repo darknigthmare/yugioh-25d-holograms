@@ -533,6 +533,9 @@ export class NativeDuelGame {
       } else if (message.type === M.POS_CHANGE) {
         this._annotations.set(slotKey(message), { ...this._annotations.get(slotKey(message)), hasChangedPositionThisTurn: true });
       } else if (message.type === M.ATTACK) {
+        // The native declaration has consumed the requested attack target.
+        // Effect targets and replay targets are independent later decisions.
+        if (this._intent && Object.hasOwn(this._intent, 'attackTarget')) this._intent = null;
         const key = slotKey(message.card);
         const annotation = this._annotations.get(key) || {};
         this._annotations.set(key, { ...annotation, hasAttacked: true,

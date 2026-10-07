@@ -140,8 +140,8 @@
   "proofScope": "isolated-presentation; native procedures verified separately",
   "ok": true,
   "sourceHashes": {
-    "src/ui/CombatVisualEffects.js": "bdaa53d32a6b3c0ea0ad46d123e0347dc19e998c0f57f30fbf61b8aeb6e6a09e",
-    "src/ui/CombatVisualProfiles.js": "1b8e9f669d6c9fec87b49c5b76f977590b962089be7c712c91ae9d8c94fd3790",
-    "src/ui/PublicDuelVisuals.js": "4e274044546dd58536a0fcea33c6c234d34242563ba22bbfc20bf370e54231c9"
+    "src/ui/CombatVisualEffects.js": "39c30c48a779c0108e2b6bddeda552dd4413ce2c69e2523b218683128bb76b5b",
+    "src/ui/CombatVisualProfiles.js": "19b011403bee06bdfa9c318b3b50f2d10f4c7eb984fbced529181ca354b6accb",
+    "src/ui/PublicDuelVisuals.js": "ec889dce5c059436b250fa0c20273c779569a74a162a508fbd179d703008c652"
   }
 }

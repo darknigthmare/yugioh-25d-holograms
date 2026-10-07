@@ -62,6 +62,15 @@ export function resolveHologramMonsterProfile(card = {}) {
   return Object.freeze({ id: `generic-${digital ? 'link-' : ''}${family}-${attribute.toLowerCase() || 'neutral'}`, family, digital, body: digital ? '#35518e' : accent, accent, eye: '#efffff', attack });
 }
 
+// Explicit presentation motifs for inspected illustrations. These mappings
+// describe source scenery, never a card effect, target, bonus or damage result.
+const FIELD_ACTIVATION_MOTIFS = Object.freeze(Object.fromEntries([
+  ['field-water', ['22702055', '82999629', '2084239', '34103656', '26534688', '91027843', '2819435', '77103950']],
+  ['field-growth', ['56594520', '87430998', '87624166', '71645242', '5050644', '76869711', '10080320', '17228908']],
+  ['field-gloom', ['47355498', '59160188', '76871889', '33017655', '84171830', '81788994', '59197169', '93729896']],
+  ['field-radiance', ['56433456', '24382602', '95658967', '80921533', '92107604', '58406094', '675319', '27813661']]
+].flatMap(([shape, ids]) => ids.map(id => [id, shape]))));
+
 /** One source-art palette per published Field Spell; no rule is inferred. */
 export function resolveFieldSourceVisualProfile(kind, card = {}) {
   if (!['activate', 'destroy', 'negate'].includes(kind)) return null;
@@ -73,7 +82,8 @@ export function resolveFieldSourceVisualProfile(kind, card = {}) {
   return Object.freeze({ id: `field-${mode}:${entry.cardId}`, sourceCardId: entry.cardId,
     color: palette[1], secondary: palette[3], accent: palette[4] ?? palette[0],
     duration: kind === 'destroy' ? 700 : 900,
-    shape: kind === 'destroy' ? 'shatter' : kind === 'negate' ? 'shield' : 'rune' });
+    shape: kind === 'destroy' ? 'shatter' : kind === 'negate' ? 'shield'
+      : FIELD_ACTIVATION_MOTIFS[entry.cardId] || 'rune' });
 }
 
 /** Select effects from public identity/rules identifiers, never card prose. */
@@ -145,6 +155,7 @@ export function resolveCombatVisualProfile({ kind = 'attack', card = {}, profile
     'ritual-summon': { color: '#77d9ff', secondary: '#ffe9ac', duration: 1150, shape: 'ritual' },
     'pendulum-summon': { color: '#77eaff', secondary: '#f89bef', duration: 1100, shape: 'pendulum' },
     'flip-summon': { color: '#ffe6a2', secondary: '#ffffff', duration: 850, shape: 'flip' },
+    'card-reveal': { color: '#c3e6f0', secondary: '#ffffff', duration: 650, shape: 'flip' },
     shatter: { color: '#94e2ff', secondary: '#ffffff', duration: 700, shape: 'shatter' }
   };
   const selected = Object.hasOwn(profiles, id) ? id : 'impact';

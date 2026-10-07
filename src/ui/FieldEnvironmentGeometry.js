@@ -13,6 +13,9 @@ import { ARCHITECTURAL_CARD_LANDMARKS, ARCHITECTURAL_INSPECTED_ART_PROFILES, cre
 import { TECHNOLOGY_CARD_LANDMARKS, TECHNOLOGY_INSPECTED_ART_PROFILES, createTechnologyReferenceGeometry } from './FieldEnvironmentTechnologyReferences.js';
 import { MYSTICAL_CARD_LANDMARKS, MYSTICAL_INSPECTED_ART_PROFILES, createMysticalReferenceGeometry } from './FieldEnvironmentMysticalReferences.js';
 import { URBAN_CARD_LANDMARKS, URBAN_INSPECTED_ART_PROFILES, createUrbanReferenceGeometry } from './FieldEnvironmentUrbanReferences.js';
+import { AQUATIC_CARD_LANDMARKS, AQUATIC_INSPECTED_ART_PROFILES, createAquaticReferenceGeometry } from './FieldEnvironmentAquaticReferences.js';
+import { DARK_CARD_LANDMARKS, DARK_INSPECTED_ART_PROFILES, createDarkReferenceGeometry } from './FieldEnvironmentDarkReferences.js';
+import { WILD_CARD_LANDMARKS, WILD_INSPECTED_ART_PROFILES, createWildReferenceGeometry } from './FieldEnvironmentWildReferences.js';
 
 export const FIELD_ENVIRONMENT_GEOMETRY_FAMILIES = Object.freeze([
   'clearing', 'cave', 'generic', 'yami', 'umi', 'forest', 'mountain',
@@ -105,7 +108,10 @@ export const FIELD_ENVIRONMENT_CARD_LANDMARKS = Object.freeze({
   ...ARCHITECTURAL_CARD_LANDMARKS,
   ...TECHNOLOGY_CARD_LANDMARKS,
   ...MYSTICAL_CARD_LANDMARKS,
-  ...URBAN_CARD_LANDMARKS
+  ...URBAN_CARD_LANDMARKS,
+  ...AQUATIC_CARD_LANDMARKS,
+  ...DARK_CARD_LANDMARKS,
+  ...WILD_CARD_LANDMARKS
 });
 
 // Individually inspected, original cropped illustrations. These palettes and
@@ -143,7 +149,8 @@ export const FIELD_ENVIRONMENT_INSPECTED_ART_PROFILES = Object.freeze({ ...Objec
   motifs: Object.freeze(motifs),
   palette: Object.freeze({ ground: colors[0], stone: colors[1], foliage: colors[2], accent: colors[3], wood: colors[4], foam: colors[5] })
 })])), ...NATURE_INSPECTED_ART_PROFILES, ...ARCHITECTURAL_INSPECTED_ART_PROFILES,
-  ...TECHNOLOGY_INSPECTED_ART_PROFILES, ...MYSTICAL_INSPECTED_ART_PROFILES, ...URBAN_INSPECTED_ART_PROFILES });
+  ...TECHNOLOGY_INSPECTED_ART_PROFILES, ...MYSTICAL_INSPECTED_ART_PROFILES, ...URBAN_INSPECTED_ART_PROFILES,
+  ...AQUATIC_INSPECTED_ART_PROFILES, ...DARK_INSPECTED_ART_PROFILES, ...WILD_INSPECTED_ART_PROFILES });
 
 function canonicalCardId(value) {
   const id = String(value ?? '').trim();
@@ -460,7 +467,10 @@ export function createFieldEnvironmentGeometry(THREE, environment = {}) {
     || createArchitecturalReferenceGeometry(referenceContext)
     || createTechnologyReferenceGeometry(referenceContext)
     || createMysticalReferenceGeometry(referenceContext)
-    || createUrbanReferenceGeometry(referenceContext);
+    || createUrbanReferenceGeometry(referenceContext)
+    || createAquaticReferenceGeometry(referenceContext)
+    || createDarkReferenceGeometry(referenceContext)
+    || createWildReferenceGeometry(referenceContext);
 
   if (!hasReferenceGeometry && !profile.inspectedArt) switch (profile.family) {
     case 'clearing':

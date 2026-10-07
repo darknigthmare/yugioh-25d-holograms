@@ -871,12 +871,22 @@ function requestUiDecision(request) {
         || (request.type === 'coin-call' ? 'Choisissez votre annonce avant le lancer.' : 'Sélectionnez une option.');
       const choicesContainer = document.createElement('div');
       choicesContainer.className = 'decision-choice-list';
+      const searchStatus = document.createElement('p');
+      searchStatus.className = 'decision-search-status';
+      searchStatus.setAttribute('role', 'status');
+      searchStatus.setAttribute('aria-live', 'polite');
+      const searchText = value => String(value).normalize('NFD').replace(/\p{M}/gu, '').toLocaleLowerCase();
       const renderChoices = (query = '') => {
         choicesContainer.replaceChildren();
-        const needle = query.trim().toLocaleLowerCase();
-        const choices = request.searchable
-          ? request.choices.filter(choice => String(choice.label ?? choice).toLocaleLowerCase().includes(needle)).slice(0, 100)
+        const needle = searchText(query.trim());
+        const matches = request.searchable
+          ? request.choices.filter(choice => searchText(`${choice.label ?? choice} ${choice.value ?? ''}`).includes(needle))
           : request.choices;
+        const choices = request.searchable
+          ? matches.slice(0, 100) : matches;
+        searchStatus.textContent = matches.length === 0 ? 'Aucune carte autorisée ne correspond à cette recherche.'
+          : matches.length > choices.length ? `${choices.length} sur ${matches.length} cartes. Précisez votre recherche.`
+            : `${matches.length} carte${matches.length > 1 ? 's' : ''} autorisée${matches.length > 1 ? 's' : ''}.`;
         choices.forEach(choice => {
         const value = typeof choice === 'object' ? choice.value : choice;
         const label = typeof choice === 'object'
@@ -897,6 +907,7 @@ function requestUiDecision(request) {
         search.setAttribute('aria-label', 'Rechercher parmi les cartes autorisées');
         search.addEventListener('input', () => renderChoices(search.value));
         decisionOptions.appendChild(search);
+        decisionOptions.appendChild(searchStatus);
       }
       decisionOptions.appendChild(choicesContainer);
       renderChoices();
@@ -986,7 +997,6 @@ function requestUiDecision(request) {
     } else if (
       request.multiple === true
       && Array.isArray(request.candidates)
-      && request.candidates.length > 0
     ) {
       decisionTitle.textContent = request.title || 'CHOISIR PLUSIEURS CARTES';
       decisionDescription.textContent = request.description || 'Sélectionnez les cartes, puis confirmez.';
@@ -1003,6 +1013,16 @@ function requestUiDecision(request) {
       confirmButton.className = 'btn btn-magenta';
       confirmButton.textContent = 'CONFIRMER LA SÉLECTION';
       confirmButton.disabled = true;
+      const selectionSummary = document.createElement('p');
+      selectionSummary.className = 'decision-selection-summary';
+      selectionSummary.setAttribute('role', 'status');
+      selectionSummary.setAttribute('aria-live', 'polite');
+      if (request.includedCandidates?.length) {
+        const included = document.createElement('p');
+        included.className = 'decision-included-cards';
+        included.textContent = `Déjà inclus : ${request.includedCandidates.map(candidate => candidate.label || candidate.name).join(' ; ')}`;
+        decisionOptions.appendChild(included);
+      }
 
       const updateMultipleSelection = () => {
         const selectedKey = [...selected].sort().join('|');
@@ -1013,6 +1033,8 @@ function requestUiDecision(request) {
           || (typeof request.validateSelection === 'function' && !request.validateSelection([...selected]))
         );
         confirmButton.textContent = `CONFIRMER (${selected.size}/${maximum})`;
+        selectionSummary.textContent = typeof request.selectionSummary === 'function'
+          ? request.selectionSummary([...selected]) : '';
         announceStatus(
           `${selected.size} carte${selected.size > 1 ? 's' : ''} sélectionnée${selected.size > 1 ? 's' : ''} sur ${maximum}.`
         );
@@ -1043,6 +1065,7 @@ function requestUiDecision(request) {
         });
         decisionOptions.appendChild(button);
       });
+      if (typeof request.selectionSummary === 'function') decisionOptions.appendChild(selectionSummary);
       confirmButton.addEventListener('click', () => finishDecision([...selected]));
       decisionOptions.appendChild(confirmButton);
       updateMultipleSelection();
@@ -1073,7 +1096,7 @@ function requestUiDecision(request) {
     }
 
     decisionModal.dataset.dismissible = request.required === true ? 'false' : 'true';
-    openDialog(decisionModal, decisionOptions.querySelector('button'));
+    openDialog(decisionModal, decisionOptions.querySelector('input[type="search"], button'));
   });
 }
 
@@ -4013,7 +4036,9 @@ function handleGameAnimations(event) {
 
   // A Chain may continue after a card changes visibility. Refresh that public
   // zone at resolution instead of leaving its old artwork until the Chain ends.
-  if (event.type === 'set-monster' || event.type === 'flip-summon') {
+  if (event.type === 'set-monster' || event.type === 'flip-summon'
+    || (event.type === 'toggle-position' && event.publicReveal === true
+      && ['main', 'extra'].includes(event.zoneType || 'main'))) {
     const reference = { zoneType: event.zoneType || 'main', zoneIndex: event.zoneIndex };
     syncZoneCard(findMonsterZoneElement(boardEl, event.target, reference),
       game?.getMonsterEntry?.(event.target, reference)?.card || null, event.target);
@@ -4041,7 +4066,7 @@ function handleGameAnimations(event) {
       playSummon(getZonePan(side, idx));
     }
   }
-  else if (event.type === 'toggle-position') {
+  else if (event.type === 'toggle-position' && ['main', 'extra'].includes(event.zoneType || 'main')) {
     const side = event.target;
     const idx = event.zoneIndex;
     const position = event.position;

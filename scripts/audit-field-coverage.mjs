@@ -36,6 +36,6 @@ const report = {
     publication: card.publication
   }))
 };
-await writeFile(new URL('../docs/audits/artifacts/field-coverage-continuation-2026-10-07.json', import.meta.url),
+await writeFile(new URL('../docs/audits/artifacts/field-coverage-expansion-2026-10-07.json', import.meta.url),
   `${JSON.stringify(report, null, 2)}\n`);
 console.log(JSON.stringify(summary));

@@ -36,11 +36,23 @@ displays the public Graveyard correctly.
 
 The complete browser run used WASM SHA-256
 `0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026`.
-It was rerun against the frozen release entry `index-CNuJ3sB1.js`, SHA-256
-`2b8993d189f7339198663a1fd54b013b561747d19d90dde37cb9c060c5b9d56f`.
+It was rerun against the frozen release entry `index-Bf3sQIDw.js`, SHA-256
+`6de409c77e47c3853b1a554553776a13f576e265824187d6d21b809fd4c7ce33`.
 
-HTML SHA-256: `e7b9fa63bcc4e5356034d77feb1365abadae5bfb13ab401718a32a83b3a18e0e`.
-CSS `index-Edane65D.css` SHA-256: `557d05b0cb6a7c8a0a8e82e7309a1a63f83205bd4dc41fab99b468c4e9312d02`.
+HTML SHA-256: `ca7254cd1cc1b1b0c6bf9c96782429d47443c7b1a0da5febe6801762b2360ee2`.
+CSS `index-WwbnQBsq.css` SHA-256: `5103d13e4c93cce8f60e430ade9bce9aace0233e3b71dfb7786e11b7bf3c58a1`.
+
+The entry, HTML, CSS, native façade, native wrapper and WASM hashes were compared
+before and after both browser audits and remained unchanged. The seven files in
+the frozen release manifest also match their recorded byte counts and hashes.
+This report and the [Pendulum report](artifacts/native-pendulum-ui-2026-10-07/report.json)
+contain the same fingerprint fields and `immutableCompiledSnapshot: true`.
+
+All five general-flow captures were inspected. The library and cost flow remain
+readable at both widths. The desktop action labels wrap tightly when three
+actions are offered; the audited controls remained usable. The mobile board
+retains its explicit scrolling instructions and some zones are outside the
+initial framing, while the body stays within the viewport.
 
 The audit uses isolated browser contexts, legal custom-deck fixtures in local
 storage, and a varied deterministic random stream. It reads no opposing hand

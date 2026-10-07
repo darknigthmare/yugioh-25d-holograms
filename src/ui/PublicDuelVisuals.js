@@ -114,6 +114,12 @@ export function createPublicCombatVisual(event, game, positionResolver = () => u
       } else if (type === 'reborn-cinematic') profile = 'revival';
       else if (type === 'flip-summon') profile = 'flip-summon';
     }
+  } else if (type === 'toggle-position' && event.publicReveal === true && event.nativePositionChange === true) {
+    source = zoneRef(owner, event.zoneType, event.zoneIndex);
+    card = publicCard(event.card);
+    if (!card || !['main', 'extra'].includes(source.zoneType)) return null;
+    kind = 'activate';
+    profile = 'card-reveal';
   } else if (type === 'chain-negated' || type === 'attack-negated') {
     owner = type === 'attack-negated' ? event.attackerSide : event.target;
     source = zoneRef(owner, type === 'attack-negated' ? event.atkZoneType : event.zoneType,
@@ -162,6 +168,9 @@ export function createPublicCombatVisual(event, game, positionResolver = () => u
     kind = ['effect-protect', 'mirror-force-cinematic'].includes(type) ? 'shield' : 'activate';
     source = zoneRef(owner, event.zoneType || (type === 'activate' ? 'spell' : 'main'), event.zoneIndex);
     card = publicCard(event.card);
+    // A native declaration starts a Chain. Its larger Field motif belongs to
+    // the subsequent successful field-source-change, after resolution.
+    if (type === 'activate' && event.nativeChain === true && source.zoneType === 'field') profile = 'spell-rune';
     // Cinematic callbacks follow actual effect resolution, not text heuristics.
     if (type === 'raigeki-cinematic') card = Object.freeze({ id: '12580477', race: 'Normal', type: 'Spell Card' });
   } else {

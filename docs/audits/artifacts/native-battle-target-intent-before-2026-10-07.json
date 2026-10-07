@@ -1,0 +1,65 @@
+{
+  "baselineCommit": "2bc79f1",
+  "baselineFacadeSha256": "3026c4a9cb0008e23fb2e647228b57cbd5372b04c919fc12ea5b03bdcade6f32",
+  "requestedEffectTarget": 89631139,
+  "expectedBehavior": "Return own attacker to hand; stop attack without damage.",
+  "actual": {
+    "playerLP": 8000,
+    "opponentLP": 5000,
+    "turn": "player",
+    "phase": "battle",
+    "player": [
+      {
+        "zoneType": "main",
+        "zoneIndex": 0,
+        "faceDown": false,
+        "publicCode": 89631139,
+        "attack": 3000,
+        "defense": 2500
+      }
+    ],
+    "opponent": [],
+    "handCounts": [
+      0,
+      1
+    ],
+    "graveyards": [
+      [
+        94192409
+      ],
+      []
+    ],
+    "winner": null,
+    "endReason": null
+  },
+  "effectTargetDecisionCallbacks": 0,
+  "attacks": [
+    {
+      "from": {
+        "controller": 1,
+        "location": 4,
+        "sequence": 0,
+        "position": 1
+      },
+      "to": {
+        "controller": 0,
+        "location": 4,
+        "sequence": 0,
+        "position": 1
+      }
+    },
+    {
+      "from": {
+        "controller": 1,
+        "location": 4,
+        "sequence": 0,
+        "position": 1
+      },
+      "to": null
+    }
+  ],
+  "nativeDamage": [
+    3000
+  ],
+  "nativeErrors": []
+}

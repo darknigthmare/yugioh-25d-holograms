@@ -4,6 +4,7 @@
 This gallery verifies presentation only. It does not replace native rules tests.
 Requires external Python Playwright and Chromium; adds no app dependencies.
 """
+import argparse
 import hashlib
 import json
 import mimetypes
@@ -35,9 +36,16 @@ const renderer = new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:t
 renderer.setSize(400,400);renderer.setPixelRatio(1);renderer.setClearColor('#101827');
 const camera=new THREE.PerspectiveCamera(40,1,.1,30);camera.position.set(0,3.4,6.5);camera.lookAt(0,1,0);
 const scene=new THREE.Scene();const details=[];
-for(const [procedure,label] of [['fusion','Fusion'],['synchro','Synchro'],['xyz','Xyz'],['link','Lien'],['ritual','Rituel'],['pendulum','Pendule'],['flip','Flip']]){
- const visual=createPublicCombatVisual({type:'summon',target:'player',zoneType:'main',zoneIndex:0,
-   nativeSummonConfirmed:true,summonType:procedure,card:{id:'23995346',type:'Fusion Monster'}},{},()=>[0,0,0]);
+for(const [procedure,label] of AUDIT_CASES){
+ const event = FIELD_EFFECTS
+   ? procedure==='reveal'
+     ? {type:'toggle-position',target:'player',zoneType:'main',zoneIndex:0,publicReveal:true,
+        nativePositionChange:true,card:{id:'15025844',type:'Normal Monster'}}
+     : {type:'field-source-change',target:'player',zoneType:'field',zoneIndex:0,resolved:true,
+        active:true,card:{id:procedure,type:'Field Spell'}}
+   : {type:'summon',target:'player',zoneType:'main',zoneIndex:0,
+      nativeSummonConfirmed:true,summonType:procedure,card:{id:'23995346',type:'Fusion Monster'}};
+ const visual=createPublicCombatVisual(event,{},()=>[0,0,0]);
  const effect=createCombatVisualEffect(visual);scene.add(effect.group);
  const frames=[];
  for(const progress of [.3,.65]){
@@ -79,6 +87,21 @@ class Handler(BaseHTTPRequestHandler):
 
 
 def main():
+    global OUT, HTML
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--field-effects', action='store_true', help='Inspect resolved Field motifs and a public card reveal')
+    args = parser.parse_args()
+    if args.field_effects:
+        OUT = ROOT / 'docs/audits/artifacts/native-field-visuals-2026-10-07'
+        cases = [['22702055', 'Umi : ondes'], ['56594520', 'Gaia : croissance'],
+                 ['47355498', 'Necrovalley : ombres'], ['56433456', 'Sanctuary : lumière'],
+                 ['reveal', 'Révélation publique']]
+        HTML = HTML.replace('Sept procédures : effets publics distincts', 'Terrains résolus et révélation publique')
+        HTML = HTML.replace('les procédures légales sont éprouvées', 'les résolutions et révélations légales sont éprouvées')
+    else:
+        cases = [[name, label] for name, label in [('fusion', 'Fusion'), ('synchro', 'Synchro'),
+            ('xyz', 'Xyz'), ('link', 'Lien'), ('ritual', 'Rituel'), ('pendulum', 'Pendule'), ('flip', 'Flip')]]
+    HTML = HTML.replace('AUDIT_CASES', json.dumps(cases)).replace('FIELD_EFFECTS', str(args.field_effects).lower())
     OUT.mkdir(parents=True, exist_ok=True)
     server = ThreadingHTTPServer(('127.0.0.1', 0), Handler)
     threading.Thread(target=server.serve_forever, daemon=True).start()
@@ -95,18 +118,19 @@ def main():
             report = page.evaluate('window.effectAudit')
             report.update({'pageErrors': errors, 'failedRequests': failures,
                 'proofScope': 'isolated-presentation; native procedures verified separately'})
-            assert report['images'] == 14
-            assert len({row['shape'] for row in report['details']}) == 7
+            assert report['images'] == len(cases) * 2
+            assert len({row['shape'] for row in report['details']}) == len(cases)
             assert all(row['remainingGeometries'] == row['remainingTextures'] == 0 for row in report['details'])
             assert max(frame['drawCalls'] for row in report['details'] for frame in row['frames']) <= 20
             assert not errors and not failures
-            page.screenshot(path=str(OUT / 'summon-procedures.jpg'), full_page=True, type='jpeg', quality=86)
+            page.screenshot(path=str(OUT / ('field-motifs.jpg' if args.field_effects else 'summon-procedures.jpg')),
+                            full_page=True, type='jpeg', quality=86)
             browser.close()
         report['ok'] = True
         report['sourceHashes'] = {path: hashlib.sha256((ROOT / path).read_bytes()).hexdigest()
             for path in ['src/ui/CombatVisualEffects.js', 'src/ui/CombatVisualProfiles.js', 'src/ui/PublicDuelVisuals.js']}
         (OUT / 'report.json').write_text(json.dumps(report, indent=2, ensure_ascii=False) + '\n')
-        print(json.dumps({'ok': True, 'procedures': 7, 'frames': 14, 'pageErrors': 0,
+        print(json.dumps({'ok': True, 'presentations': len(cases), 'frames': len(cases) * 2, 'pageErrors': 0,
             'maxDrawCalls': max(frame['drawCalls'] for row in report['details'] for frame in row['frames'])}))
     finally:
         server.shutdown(); server.server_close()

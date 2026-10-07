@@ -10,6 +10,9 @@ import { ARCHITECTURAL_CARD_LANDMARKS } from './FieldEnvironmentArchitecturalRef
 import { TECHNOLOGY_CARD_LANDMARKS } from './FieldEnvironmentTechnologyReferences.js';
 import { MYSTICAL_CARD_LANDMARKS } from './FieldEnvironmentMysticalReferences.js';
 import { URBAN_CARD_LANDMARKS } from './FieldEnvironmentUrbanReferences.js';
+import { AQUATIC_CARD_LANDMARKS } from './FieldEnvironmentAquaticReferences.js';
+import { DARK_CARD_LANDMARKS } from './FieldEnvironmentDarkReferences.js';
+import { WILD_CARD_LANDMARKS } from './FieldEnvironmentWildReferences.js';
 
 const rulesById = new Map(IMPLEMENTED_FIELD_SPELLS.map(card => [String(card.id), card]));
 const nativeBundledIds = new Set(NATIVE_FIELD_COVERAGE_SNAPSHOT.bundledCardIds);
@@ -17,7 +20,8 @@ const nativeInitializedIds = new Set(NATIVE_FIELD_COVERAGE_SNAPSHOT.initializedC
 const nativeEffectTestedIds = new Set(NATIVE_FIELD_COVERAGE_SNAPSHOT.effectTestedCardIds);
 const nativeIntegrationTestedIds = new Set(NATIVE_FIELD_COVERAGE_SNAPSHOT.integrationTestedCardIds);
 const reconstructedIds = new Set([...Object.keys(NATURE_CARD_LANDMARKS), ...Object.keys(ARCHITECTURAL_CARD_LANDMARKS),
-  ...Object.keys(TECHNOLOGY_CARD_LANDMARKS), ...Object.keys(MYSTICAL_CARD_LANDMARKS), ...Object.keys(URBAN_CARD_LANDMARKS)]);
+  ...Object.keys(TECHNOLOGY_CARD_LANDMARKS), ...Object.keys(MYSTICAL_CARD_LANDMARKS), ...Object.keys(URBAN_CARD_LANDMARKS),
+  ...Object.keys(AQUATIC_CARD_LANDMARKS), ...Object.keys(DARK_CARD_LANDMARKS), ...Object.keys(WILD_CARD_LANDMARKS)]);
 
 // Every catalogue entry has its own evidence. An illustration or procedural
 // family is never promoted to a completed 3D reconstruction or implemented rule.

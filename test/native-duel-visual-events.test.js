@@ -233,7 +233,8 @@ test('all 339 field sources have activation/destruction/negation profiles from t
       assert.equal(profile.sourceCardId, entry.cardId);
       assert.equal(profile.color, palette[1]);
       assert.equal(profile.secondary, palette[3]);
-      assert.equal(profile.shape, kind === 'destroy' ? 'shatter' : kind === 'negate' ? 'shield' : 'rune');
+      if (kind === 'activate') assert.ok(['rune', 'field-water', 'field-growth', 'field-gloom', 'field-radiance'].includes(profile.shape));
+      else assert.equal(profile.shape, kind === 'destroy' ? 'shatter' : 'shield');
     }
   }
   assert.equal(resolveFieldSourceVisualProfile('activate', { id: '101403071' }), null);

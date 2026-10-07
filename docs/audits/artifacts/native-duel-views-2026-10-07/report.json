@@ -52,7 +52,7 @@
             "canvases": 0,
             "css3d": 0
           },
-          "approximateJsHeapBytes": 147992575,
+          "approximateJsHeapBytes": 148516200,
           "concealment": {
             "count": 0,
             "safe": true
@@ -98,7 +98,7 @@
             "canvases": 0,
             "css3d": 0
           },
-          "approximateJsHeapBytes": 148274373,
+          "approximateJsHeapBytes": 148785118,
           "concealment": {
             "count": 0,
             "safe": true
@@ -152,7 +152,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 151478351,
+          "approximateJsHeapBytes": 152440002,
           "concealment": {
             "count": 0,
             "safe": true
@@ -202,7 +202,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 103806457,
+          "approximateJsHeapBytes": 160196205,
           "concealment": {
             "count": 0,
             "safe": true
@@ -252,7 +252,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 102442711,
+          "approximateJsHeapBytes": 164120320,
           "concealment": {
             "count": 0,
             "safe": true
@@ -302,7 +302,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 104020656,
+          "approximateJsHeapBytes": 151767314,
           "concealment": {
             "count": 0,
             "safe": true
@@ -352,7 +352,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 104282011,
+          "approximateJsHeapBytes": 152053462,
           "concealment": {
             "count": 0,
             "safe": true
@@ -402,7 +402,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 105089269,
+          "approximateJsHeapBytes": 152940566,
           "concealment": {
             "count": 0,
             "safe": true
@@ -452,7 +452,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 102932928,
+          "approximateJsHeapBytes": 153230710,
           "concealment": {
             "count": 0,
             "safe": true
@@ -502,7 +502,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 103129294,
+          "approximateJsHeapBytes": 153420714,
           "concealment": {
             "count": 0,
             "safe": true
@@ -552,7 +552,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 102706197,
+          "approximateJsHeapBytes": 154288682,
           "concealment": {
             "count": 0,
             "safe": true
@@ -686,7 +686,7 @@
             "canvases": 0,
             "css3d": 0
           },
-          "approximateJsHeapBytes": 147784821,
+          "approximateJsHeapBytes": 148749483,
           "concealment": {
             "count": 0,
             "safe": true
@@ -732,7 +732,7 @@
             "canvases": 0,
             "css3d": 0
           },
-          "approximateJsHeapBytes": 148049443,
+          "approximateJsHeapBytes": 149026373,
           "concealment": {
             "count": 0,
             "safe": true
@@ -786,7 +786,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 151415833,
+          "approximateJsHeapBytes": 152650829,
           "concealment": {
             "count": 0,
             "safe": true
@@ -836,7 +836,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 159367985,
+          "approximateJsHeapBytes": 160308079,
           "concealment": {
             "count": 0,
             "safe": true
@@ -886,7 +886,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 163297136,
+          "approximateJsHeapBytes": 164244958,
           "concealment": {
             "count": 0,
             "safe": true
@@ -936,7 +936,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 151359658,
+          "approximateJsHeapBytes": 106470404,
           "concealment": {
             "count": 0,
             "safe": true
@@ -986,7 +986,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 151640934,
+          "approximateJsHeapBytes": 106663180,
           "concealment": {
             "count": 0,
             "safe": true
@@ -1036,7 +1036,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 152455046,
+          "approximateJsHeapBytes": 107532406,
           "concealment": {
             "count": 0,
             "safe": true
@@ -1086,7 +1086,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 152763086,
+          "approximateJsHeapBytes": 107770614,
           "concealment": {
             "count": 0,
             "safe": true
@@ -1136,7 +1136,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 152950430,
+          "approximateJsHeapBytes": 107958026,
           "concealment": {
             "count": 0,
             "safe": true
@@ -1186,7 +1186,7 @@
             "canvases": 1,
             "css3d": 1
           },
-          "approximateJsHeapBytes": 153734414,
+          "approximateJsHeapBytes": 108814278,
           "concealment": {
             "count": 0,
             "safe": true
@@ -1274,13 +1274,38 @@
       "cspViolations": []
     }
   ],
+  "provenanceSchemaVersion": 2,
+  "testedHtmlAsset": "/index.html",
+  "testedHtmlSha256": "ca7254cd1cc1b1b0c6bf9c96782429d47443c7b1a0da5febe6801762b2360ee2",
+  "testedIndexAsset": "/assets/index-Bf3sQIDw.js",
+  "testedIndexAssetSha256": "6de409c77e47c3853b1a554553776a13f576e265824187d6d21b809fd4c7ce33",
+  "testedIndexSha256": "6de409c77e47c3853b1a554553776a13f576e265824187d6d21b809fd4c7ce33",
+  "testedCssAsset": "/assets/index-WwbnQBsq.css",
+  "testedCssAssetSha256": "5103d13e4c93cce8f60e430ade9bce9aace0233e3b71dfb7786e11b7bf3c58a1",
+  "testedNativeGameAsset": "/assets/NativeDuelGame-DrR3s3dO.js",
+  "testedNativeGameAssetSha256": "290a980e79d7e577fa1879eeb35f0ae3b810b2cc2035f93601bb9addc0737eb5",
+  "testedNativeCoreAsset": "/assets/ocgcore-CRjY9PIO.js",
+  "testedNativeCoreAssetSha256": "4eeec09c8f885030c6d291049f2aa4289afe3767b4fb147158e8e04a7ffa9e9d",
   "testedWasmSha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
-  "testedIndexSha256": "2b8993d189f7339198663a1fd54b013b561747d19d90dde37cb9c060c5b9d56f",
-  "testedIndexAsset": "/assets/index-CNuJ3sB1.js",
-  "testedIndexHtmlSha256": "e7b9fa63bcc4e5356034d77feb1365abadae5bfb13ab401718a32a83b3a18e0e",
-  "testedCssAsset": "/assets/index-Edane65D.css",
-  "testedCssSha256": "557d05b0cb6a7c8a0a8e82e7309a1a63f83205bd4dc41fab99b468c4e9312d02",
-  "immutableCompiledSnapshot": true,
-  "testedNativeGameAsset": "/assets/NativeDuelGame-COFVTauG.js",
-  "testedNativeCoreAsset": "/assets/ocgcore-C5iXURMO.js"
+  "buildUnchangedDuringAudit": true,
+  "captureSha256": {
+    "native-mausoleum-arena-1280.png": "1843f1dd4c18943b97a39e48171b3959abd7ce9b266d48ba267c79c8fd0d49bf",
+    "native-mausoleum-arena-390.png": "cc3c9196a30bb463a3d034db93b6d0979efbfaa0f755856793801e63270bbcf9",
+    "native-mausoleum-compact-1280.png": "5ff44fdfe87716cdcd1688725756126a71c0d3b541040c2b6c66d0578f7b40ee",
+    "native-mausoleum-compact-390.png": "0a75d49ff23013ba62a31c26615a2276f73dfff5e4ec6c554c4dfae260de15c7",
+    "native-mausoleum-real-1280.png": "8384c1fab2d0a40ae37d70127ddeffb9f9e96987dde524509d5fb053185b8e12",
+    "native-mausoleum-real-390.png": "70ae25e369268dccdb39ad4254c2a8cd09efe666e0f0cbc62108611259d796b0",
+    "native-zombie-world-arena-1280.png": "17833673d0724b40bdb4afdc1fe60d904e128b035c371942c523b5bb4bdf52de",
+    "native-zombie-world-arena-390.png": "1fd4e7f34ee89654c26889a15de939a32e118da9367d1f062ca69a4357eaf378",
+    "native-zombie-world-compact-1280.png": "583e71db4e05be25a1f3c0a7d8426899050178fa2cc1d283f3e876e52f9ca7e1",
+    "native-zombie-world-compact-390.png": "6ad1884cdcc87a007735a7303d69ef55841240223f9ab2225c568b372195c4ea",
+    "native-zombie-world-pending-real-1280.png": "530f9a5a69e2f62a0c1d53e0c62ef6c0655e6018c1edd75b1c7fe8834ef4318b",
+    "native-zombie-world-pending-real-390.png": "5e63e23fa4f6aa858fc8176d55bfc0331f7fa09adb59437cae9cbbdcdff4f968",
+    "native-zombie-world-real-1280.png": "fa65cf2bfe6140b3d68039e8d770995acff8ea1d7705694d84efd95cc4fdafe9",
+    "native-zombie-world-real-390.png": "82393c34c24dd712c5cdd7a5b6fc009a044d58604038af297c3e857f68771199",
+    "native-zombie-world-set-real-1280.png": "c4d4c40d6223473b79fad8824dac2ddc7fb04613418939db1f5dd6e53ea896ce",
+    "native-zombie-world-set-real-390.png": "cd844080c3fb4fdb2463a749d8c7cdff819862d3e99e62000c1b9c912ded952b"
+  },
+  "testedIndexHtmlSha256": "ca7254cd1cc1b1b0c6bf9c96782429d47443c7b1a0da5febe6801762b2360ee2",
+  "deliveryManifestMatched": true
 }
