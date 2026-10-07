@@ -24,10 +24,14 @@
         <button type="button" id="btn-open-campaign" class="btn btn-magenta">OUVRIR LE PARCOURS</button>
       </div>
       <details class="coverage-disclosure"><summary>Ce que ce simulateur prend réellement en charge</summary>
-        <p>Projet fan non officiel, sans licence commerciale annoncée. Le mode strict porte sur les 47 cartes locales implémentées, pas sur toutes les cartes Yu-Gi-Oh! Les 336 illustrations de Terrain ne signifient pas 336 effets jouables.</p>
+        <p id="simulator-card-coverage">Projet fan non officiel. Le mode strict porte sur les cartes locales implémentées. Le catalogue de Terrains distingue les illustrations, les décors 3D et les effets jouables.</p>
         <p>Duels solo contre l’IA, Match avec Side Deck et parcours d’entraînement original. Pas de multijoueur en ligne ni de reprise d’un duel interrompu. La progression solo, les decks personnalisés et les statistiques sont locaux à ce navigateur.</p>
         <p>Clavier : Tab pour naviguer, Entrée/Espace pour choisir, Échap pour fermer une sélection annulable. La Vue Réelle ne change que la présentation ; toutes les vues partagent le même duel.</p>
       </details>
+      <div class="campaign-entry field-atlas-entry">
+        <div><strong>CATALOGUE DES TERRAINS</strong><p>Comparez l’illustration originale, le décor 3D et les règles intégrées.</p></div>
+        <button type="button" id="btn-open-field-atlas" class="btn">EXPLORER LES TERRAINS</button>
+      </div>
       <h3 class="free-duel-heading">DUEL LIBRE</h3>
       <div class="duel-config-grid">
         <fieldset class="config-group">
@@ -133,6 +137,27 @@
       </div>
 
       <div class="start-action-bar"><button type="button" id="btn-start-duel" class="btn btn-magenta">DÉMARRER LE DUEL LIBRE</button></div>
+    </div>
+  </div>
+
+  <div id="field-atlas-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="field-atlas-title" data-dismissible="true">
+    <div class="modal-content field-atlas-content" tabindex="-1">
+      <div class="field-atlas-header"><h2 id="field-atlas-title" class="modal-title">CATALOGUE DES TERRAINS</h2><button type="button" id="btn-close-field-atlas" class="btn">RETOUR</button></div>
+      <p id="field-atlas-summary" class="config-description">Chargement du catalogue…</p>
+      <div class="field-atlas-tools">
+        <label>Rechercher<input id="field-atlas-search" type="search" class="search-input" placeholder="Nom ou passcode" autocomplete="off"></label>
+        <label>Afficher<select id="field-atlas-filter" class="search-input"><option value="all">Tous les Terrains</option><option value="playable">Effets jouables</option><option value="pending-rules">Effets à intégrer</option><option value="modeled">Décors étudiés</option><option value="pending-model">Décors à compléter</option></select></label>
+      </div>
+      <div class="field-atlas-body">
+        <div class="field-atlas-browser"><p id="field-atlas-results" role="status" aria-live="polite"></p><div id="field-atlas-list" class="field-atlas-list"></div><div class="field-atlas-pagination"><button type="button" id="field-atlas-prev" class="btn">PRÉCÉDENT</button><button type="button" id="field-atlas-next" class="btn">SUIVANT</button></div></div>
+        <article id="field-atlas-detail" class="field-atlas-detail">
+          <h3 id="field-atlas-name"></h3><p id="field-atlas-passcode"></p><p id="field-atlas-publication"></p>
+          <div class="field-atlas-comparison"><figure><img id="field-atlas-source" width="624" height="624" alt=""><figcaption>Illustration originale conservée intégralement</figcaption></figure><figure><div id="field-atlas-canvas"></div><figcaption id="field-atlas-preview-status" role="status"></figcaption></figure></div>
+          <div class="field-atlas-angles" role="group" aria-label="Angle de la vue 3D"><button type="button" class="btn" data-atlas-angle="0">FACE</button><button type="button" class="btn" data-atlas-angle="0.65">TROIS QUARTS</button><button type="button" class="btn" data-atlas-angle="1.57">CÔTÉ</button></div>
+          <p id="field-atlas-model-status" class="config-description"></p><h4 id="field-atlas-rule-status"></h4><p id="field-atlas-effect"></p><a id="field-atlas-rules-link" target="_blank" rel="noopener noreferrer">Texte officiel Konami</a>
+        </article>
+        <p id="field-atlas-empty" hidden>Aucun Terrain ne correspond à cette recherche.</p>
+      </div>
     </div>
   </div>
 

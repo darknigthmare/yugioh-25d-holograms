@@ -13,6 +13,13 @@ import {
 
 export const FIELD_SPELL_RUNTIME_ASSET_ROOT = '/environments/field-spells';
 
+// New canonical references use the exact archived illustration as their
+// fallback as well. No generated scene or edited artwork is claimed for them.
+export const FIELD_SPELL_SOURCE_ILLUSTRATION_FALLBACK_IDS = Object.freeze([
+  '12845564', '33700664', '88288421'
+]);
+const sourceIllustrationFallbackIds = new Set(FIELD_SPELL_SOURCE_ILLUSTRATION_FALLBACK_IDS);
+
 const FAMILY_PALETTES = Object.freeze({
   yami: Object.freeze(['#090812', '#24143d', '#542966', '#c993ff']),
   umi: Object.freeze(['#031b2d', '#075a78', '#29a9bd', '#bff7f1']),
@@ -122,7 +129,12 @@ function freezeRuntimeEntry(catalogEntry, allocatedAccents) {
     cardId: catalogEntry.cardId,
     name: catalogEntry.name,
     environmentFamily: catalogEntry.environmentId,
-    assetPath: `${FIELD_SPELL_RUNTIME_ASSET_ROOT}/${catalogEntry.cardId}-${slug}-original.webp`,
+    slug,
+    assetKind: sourceIllustrationFallbackIds.has(catalogEntry.cardId)
+      ? 'source-illustration' : 'original-composition',
+    assetPath: sourceIllustrationFallbackIds.has(catalogEntry.cardId)
+      ? `/environments/field-art/${catalogEntry.cardId}.jpg`
+      : `${FIELD_SPELL_RUNTIME_ASSET_ROOT}/${catalogEntry.cardId}-${slug}-original.webp`,
     palette
   });
 }
@@ -184,11 +196,14 @@ export function validateFieldSpellRuntimeManifest(
     if (!FAMILY_PALETTES[entry?.environmentFamily]) {
       errors.push(`invalid environment family: ${cardId}`);
     }
-    if (
-      typeof entry?.assetPath !== 'string'
-      || !entry.assetPath.startsWith(`${FIELD_SPELL_RUNTIME_ASSET_ROOT}/${cardId}-`)
-      || !entry.assetPath.endsWith('-original.webp')
-    ) {
+    const isSourceIllustration = sourceIllustrationFallbackIds.has(cardId);
+    const correctKind = isSourceIllustration ? 'source-illustration' : 'original-composition';
+    const correctPath = isSourceIllustration
+      ? entry?.assetPath === `/environments/field-art/${cardId}.jpg`
+      : typeof entry?.assetPath === 'string'
+        && entry.assetPath.startsWith(`${FIELD_SPELL_RUNTIME_ASSET_ROOT}/${cardId}-`)
+        && entry.assetPath.endsWith('-original.webp');
+    if (entry?.assetKind !== correctKind || !correctPath) {
       errors.push(`invalid asset path: ${cardId}`);
     } else if (assetPaths.has(entry.assetPath)) {
       errors.push(`duplicate asset path: ${cardId}`);

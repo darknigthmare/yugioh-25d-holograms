@@ -101,6 +101,12 @@ export function resolveCombatVisualProfile({ kind = 'attack', card = {}, profile
     'sanctuary-protection': { color: '#fff0b0', secondary: '#ffffff', duration: 900, shape: 'sanctuary' },
     'skyscraper-boost': { color: '#6fdfff', secondary: '#ffe29c', duration: 1000, shape: 'boost' },
     'ancient-forest-destruction': { color: '#99c884', secondary: '#e4d28c', duration: 950, shape: 'roots' },
+    // Colors follow the corresponding Field artwork palettes. These profiles
+    // are selected by resolved rule events rather than persistent statistics.
+    'temple-minds-eye': { color: '#deb333', secondary: '#ffd862', accent: '#893e26', duration: 1100, shape: 'temple-eye' },
+    'canyon-damage': { color: '#ba9e81', secondary: '#ded5c1', accent: '#a9deed', duration: 1000, shape: 'canyon-echo' },
+    'shien-mist-reduction': { color: '#ac5ee3', secondary: '#746684', accent: '#3b2b53', duration: 1050, shape: 'shien-mist' },
+    'dark-city-boost': { color: '#fff1a1', secondary: '#d2cc9b', accent: '#181c1c', duration: 1050, shape: 'dark-city' },
     shield: { color: '#8ee9ff', secondary: '#ebffff', duration: 900, shape: 'shield' },
     revival: { color: '#62ffb3', secondary: '#ffefa0', duration: 1100, shape: 'rune' },
     'spell-rune': { color: '#61ebc3', secondary: '#e6ffff', duration: 900, shape: 'rune' },

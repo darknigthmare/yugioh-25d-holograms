@@ -55,7 +55,7 @@ def verify(page, report, output):
     page.goto(report["baseUrl"], wait_until="domcontentloaded")
     page.wait_for_function("Boolean(window.__YGO_QA__)")
     page.locator('[data-deck-id="custom"]').click()
-    assert page.locator('#library-cards-list button').count() == 64
+    assert page.locator('#library-cards-list button').count() == 80
     page.locator('[data-builder-preset="kaiba"]').click()
     assert page.locator('#deck-size-val').inner_text() == 'Main: 40 / Extra: 3 / Side: 5'
     assert page.locator('#deck-validity-badge').inner_text() == 'Deck valide'
@@ -71,7 +71,7 @@ def verify(page, report, output):
     assert initial['side'].count('2084239') == 3
     assert initial['main'].count('55144522') == 0
     assert initial['main'].count('83764718') == 1
-    report["checks"]["strictLibraryAndLimits"] = {"library": 64, "presetSizes": [40, 3, 5],
+    report["checks"]["strictLibraryAndLimits"] = {"library": 80, "presetSizes": [40, 3, 5],
         "potForbidden": True, "rebornLimitedOne": True, "combinedWetlandsLimitThree": True}
 
     page.reload(wait_until="domcontentloaded")

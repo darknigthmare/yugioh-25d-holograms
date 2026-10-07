@@ -20,23 +20,25 @@ import {
 test('illustration manifest contains one dedicated brief for every canonical Field Spell ID', () => {
   const validation = validateFieldSpellIllustrationBriefManifest();
   assert.equal(validation.valid, true, validation.errors.join('\n'));
-  assert.equal(FIELD_SPELL_ILLUSTRATION_BRIEF_COUNT, 336);
-  assert.equal(validation.count, 336);
-  assert.equal(validation.uniqueCardIdCount, 336);
-  assert.equal(validation.uniqueSlugCount, 336);
-  assert.equal(validation.uniqueAssetPathCount, 336);
-  assert.equal(validation.uniqueSceneCount, 336);
-  assert.equal(validation.uniquePaletteCount, 336);
-  assert.equal(validation.uniqueSignatureAccentCount, 336);
+  assert.equal(FIELD_SPELL_ILLUSTRATION_BRIEF_COUNT, 339);
+  assert.equal(validation.count, 339);
+  assert.equal(validation.uniqueCardIdCount, 339);
+  assert.equal(validation.uniqueSlugCount, 339);
+  assert.equal(validation.uniqueAssetPathCount, 339);
+  assert.equal(validation.uniqueSceneCount, 339);
+  assert.equal(validation.uniquePaletteCount, 339);
+  assert.equal(validation.uniqueSignatureAccentCount, 339);
   assert.deepEqual(
     new Set(FIELD_SPELL_ILLUSTRATION_BRIEF_MANIFEST.map(brief => brief.cardId)),
     new Set(FIELD_SPELL_ENVIRONMENT_CATALOG.map(entry => entry.cardId))
   );
 });
 
-test('each brief defines a unique original WebP contract and precise visual constraints', () => {
+test('each reference defines its exact local fallback and precise visual constraints', () => {
   for (const brief of FIELD_SPELL_ILLUSTRATION_BRIEF_MANIFEST) {
-    assert.match(brief.assetPath, new RegExp(
+    if (brief.assetKind === 'source-illustration') {
+      assert.equal(brief.assetPath, `/environments/field-art/${brief.cardId}.jpg`);
+    } else assert.match(brief.assetPath, new RegExp(
       `^${FIELD_SPELL_ILLUSTRATION_ASSET_ROOT}/${brief.cardId}-.+-original\\.webp$`
     ));
     assert.ok(brief.scene.includes(brief.name));
@@ -53,7 +55,7 @@ test('each brief defines a unique original WebP contract and precise visual cons
     assert.ok(brief.distinctiveSceneCue.length >= 40);
     assert.ok(brief.scene.includes(brief.effectSummary));
     assert.ok(brief.mechanicCues.length >= 1);
-    assert.equal(brief.sourceBasis.officialArtUsedAsSource, false);
+    assert.equal(brief.sourceBasis.officialArtUsedAsSource, brief.assetKind === 'source-illustration');
     assert.equal(brief.mustInclude.length, 7);
     assert.equal(brief.avoid.length, 7);
     assert.equal(Object.values(brief.palette).length, 5);
@@ -80,13 +82,13 @@ test('canonical-ID lookup never falls back to localized names', () => {
   assert.equal(getFieldSpellIllustrationBrief('0059197169'), yami);
 });
 
-test('manifest metadata states its exhaustive scope and original-art policy', () => {
+test('manifest metadata states its canonical scope and explicit fallback provenance', () => {
   assert.deepEqual(FIELD_SPELL_ILLUSTRATION_BRIEF_SNAPSHOT, {
-    expectedCount: 336,
-    catalogueRetrievedOn: '2026-07-29',
+    expectedCount: 339,
+    catalogueRetrievedOn: '2026-10-07',
     sourceBasis: 'canonical ID, exact English name, API archetype, exact effect text and environment family',
     effectDataSource: FIELD_SPELL_CARD_DATA_SNAPSHOT_METADATA.sourceUrl,
-    artPolicy: 'original environmental composition; never reproduce official card art'
+    artPolicy: 'existing original compositions; new references use unchanged local source illustrations'
   });
   assert.equal(Object.isFrozen(FIELD_SPELL_ILLUSTRATION_BRIEF_SNAPSHOT), true);
   assert.equal(Object.isFrozen(FIELD_SPELL_ILLUSTRATION_BRIEF_MANIFEST), true);

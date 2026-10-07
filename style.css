@@ -60,6 +60,53 @@ body.modal-open {
   overflow: hidden;
 }
 
+.modal-content.field-atlas-content { width: min(1280px, calc(100vw - 32px)); max-width: 1280px; box-sizing: border-box; }
+.field-atlas-header, .field-atlas-tools, .field-atlas-pagination, .field-atlas-angles { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.field-atlas-header { justify-content: space-between; }
+.field-atlas-header .modal-title { margin: 0; }
+.field-atlas-tools { margin: 18px 0; align-items: end; }
+.field-atlas-tools label { display: grid; gap: 6px; flex: 1; min-width: min(240px, 100%); text-align: left; }
+.field-atlas-tools .search-input { width: 100%; box-sizing: border-box; }
+.field-atlas-body { display: grid; grid-template-columns: minmax(230px, 0.8fr) minmax(0, 1.35fr); gap: 24px; text-align: left; }
+.field-atlas-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.field-atlas-card { display: flex; flex-direction: column; gap: 5px; min-width: 0; padding: 7px; background: #10222ce8; color: #f0f8fa; border: 1px solid #3e616e; border-radius: 9px; cursor: pointer; text-align: left; }
+.field-atlas-card[aria-pressed="true"] { border-color: #00ffff; box-shadow: 0 0 0 1px #00ffff; }
+.field-atlas-card:focus-visible { outline: 3px solid #ffffff; outline-offset: 3px; }
+.field-atlas-card img { width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; background: #060b10; border-radius: 5px; }
+.field-atlas-card strong { font-size: 12px; overflow-wrap: anywhere; }
+.field-atlas-card span { font-size: 11px; }
+.atlas-playable { color: #83f3b0; }
+.atlas-pending { color: #f4c67b; }
+.field-atlas-pagination { justify-content: space-between; margin-top: 14px; }
+.field-atlas-pagination .btn { padding: 9px 12px; font-size: 11px; }
+.field-atlas-detail { min-width: 0; }
+.field-atlas-detail h3 { margin: 0; color: #e7fbff; }
+#field-atlas-passcode, #field-atlas-publication { font-size: 12px; color: #b5cbd2; margin: 7px 0; }
+#field-atlas-publication:empty { display: none; }
+.field-atlas-comparison { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px; margin: 16px 0; }
+.field-atlas-comparison figure { margin: 0; min-width: 0; }
+.field-atlas-comparison img, #field-atlas-canvas { width: 100%; aspect-ratio: 1; height: auto; background: #060b10; border: 1px solid #3b525a; border-radius: 10px; box-sizing: border-box; overflow: hidden; }
+.field-atlas-comparison img { object-fit: contain; display: block; filter: none; }
+#field-atlas-canvas { touch-action: pan-y; cursor: grab; }
+#field-atlas-canvas:active { cursor: grabbing; }
+#field-atlas-canvas canvas { display: block; width: 100%; height: 100%; }
+.field-atlas-comparison figcaption { font-size: 11px; line-height: 1.5; color: #bed0d7; margin-top: 6px; }
+.field-atlas-angles .btn { font-size: 11px; padding: 8px 12px; }
+#field-atlas-effect { white-space: pre-line; font-size: 14px; line-height: 1.65; }
+#field-atlas-rules-link { color: #78e3f1; }
+.field-atlas-detail[hidden], #field-atlas-empty[hidden], #field-atlas-rules-link[hidden] { display: none; }
+@media (max-width: 760px) {
+  .field-atlas-body { grid-template-columns: minmax(0, 1fr); }
+  .field-atlas-list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .field-atlas-card strong { font-size: 11px; }
+  .field-atlas-card span { font-size: 10px; }
+  .modal-content.field-atlas-content { padding: 18px 12px; }
+  .field-atlas-header .modal-title { font-size: 18px; }
+}
+@media (max-width: 420px) {
+  .field-atlas-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
 .skip-link {
   position: fixed;
   top: 8px;

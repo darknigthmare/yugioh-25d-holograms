@@ -1,6 +1,6 @@
 // Downloaded source illustrations; file hashes cover the unchanged JPEG bytes.
 export const FIELD_SPELL_REFERENCE_ART_SNAPSHOT = {
-  "retrievedOn": "2026-10-01",
+  "retrievedOn": "2026-10-07",
   "provider": "YGOPRODeck cropped card illustrations",
   "sourceBytesPreserved": true,
   "entries": [
@@ -898,6 +898,22 @@ export const FIELD_SPELL_REFERENCE_ART_SNAPSHOT = {
         "secondary": "#7a7a4e",
         "light": "#eef6d8",
         "signatureAccent": "#b2a252"
+      }
+    },
+    {
+      "cardId": "12845564",
+      "assetPath": "/environments/field-art/12845564.jpg",
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/12845564.jpg",
+      "width": 624,
+      "height": 624,
+      "bytes": 189601,
+      "sha256": "1fb2eea57abcbb9bfd26e56f3fe26abb88f68528f4c1aa7845ff3b0623deab70",
+      "palette": {
+        "shadow": "#353652",
+        "dominant": "#dd9e9b",
+        "secondary": "#42659b",
+        "light": "#f4d2c2",
+        "signatureAccent": "#42659b"
       }
     },
     {
@@ -1938,6 +1954,22 @@ export const FIELD_SPELL_REFERENCE_ART_SNAPSHOT = {
         "secondary": "#4a4e4c",
         "light": "#7bb271",
         "signatureAccent": "#0e071e"
+      }
+    },
+    {
+      "cardId": "33700664",
+      "assetPath": "/environments/field-art/33700664.jpg",
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/33700664.jpg",
+      "width": 624,
+      "height": 624,
+      "bytes": 123909,
+      "sha256": "518af93daa2c68bc56f1d44037815de6143baadce46f58bfa7875980fee81c52",
+      "palette": {
+        "shadow": "#0e1415",
+        "dominant": "#475c73",
+        "secondary": "#0e1415",
+        "light": "#bacacf",
+        "signatureAccent": "#162a38"
       }
     },
     {
@@ -4965,6 +4997,22 @@ export const FIELD_SPELL_REFERENCE_ART_SNAPSHOT = {
       }
     },
     {
+      "cardId": "88288421",
+      "assetPath": "/environments/field-art/88288421.jpg",
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/88288421.jpg",
+      "width": 624,
+      "height": 624,
+      "bytes": 216238,
+      "sha256": "f019ab9ca969ce859f5f50637119fb192c51188553b76935287813e63b37734b",
+      "palette": {
+        "shadow": "#414a3d",
+        "dominant": "#516f5c",
+        "secondary": "#b5ad8e",
+        "light": "#c7ddbc",
+        "signatureAccent": "#30877a"
+      }
+    },
+    {
       "cardId": "89264428",
       "assetPath": "/environments/field-art/89264428.jpg",
       "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/89264428.jpg",
@@ -5380,5 +5428,6 @@ export const FIELD_SPELL_REFERENCE_ART_SNAPSHOT = {
         "signatureAccent": "#853f48"
       }
     }
-  ]
+  ],
+  "previousRetrievedOn": "2026-10-01"
 };

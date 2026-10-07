@@ -259,7 +259,7 @@ test('two Chorus Fields stack for face-up Defense Position monsters, including t
 });
 
 test('public AI projections share the exact continuous rules without requiring field or activation state', () => {
-  assert.equal(CONTINUOUS_FIELD_SPELLS.length, 14);
+  assert.equal(CONTINUOUS_FIELD_SPELLS.length, 20);
   const projection = { attribute: 'EARTH', race: 'Warrior', position: 'defense', location: 'hand' };
   assert.deepEqual(getContinuousFieldSpellStatModifier(projection, '56594520'), { atk: 500, def: -400 });
   assert.deepEqual(getContinuousFieldSpellStatModifier(projection, '86318356'), { atk: 200, def: 200 });

@@ -92,7 +92,13 @@ function readWebpDimensions(buffer) {
   throw new Error('missing VP8, VP8L or VP8X dimensions');
 }
 
-const expectedRelativePaths = FIELD_SPELL_ILLUSTRATION_BRIEF_MANIFEST.map(
+const originalCompositions = FIELD_SPELL_ILLUSTRATION_BRIEF_MANIFEST.filter(
+  brief => brief.assetKind === 'original-composition'
+);
+const sourceIllustrationFallbacks = FIELD_SPELL_ILLUSTRATION_BRIEF_MANIFEST.filter(
+  brief => brief.assetKind === 'source-illustration'
+);
+const expectedRelativePaths = originalCompositions.map(
   brief => brief.assetPath.replace(/^\//, '')
 );
 const expectedFileNames = new Set(
@@ -123,7 +129,7 @@ for (const brief of FIELD_SPELL_ILLUSTRATION_BRIEF_MANIFEST) {
   });
   if (!environment || environment.backdropUrl !== getFieldSpellReferenceArtEntry(brief.cardId)?.assetPath
     || environment.fallbackBackdropUrl !== brief.assetPath) {
-    errors.push(`${brief.cardId}: source illustration or generated fallback is not connected to the registry`);
+    errors.push(`${brief.cardId}: source illustration or archived fallback is not connected to the registry`);
   }
   if (selection.isFallback || selection.environment !== environment) {
     errors.push(`${brief.cardId}: a resolved Field Spell does not select its environment`);
@@ -133,6 +139,10 @@ for (const brief of FIELD_SPELL_ILLUSTRATION_BRIEF_MANIFEST) {
     || environment?.geometryProfile?.cardId !== brief.cardId
   ) {
     errors.push(`${brief.cardId}: peripheral geometry contract is missing or mismatched`);
+  }
+  if (brief.assetKind === 'source-illustration'
+    && brief.assetPath !== getFieldSpellReferenceArtEntry(brief.cardId)?.assetPath) {
+    errors.push(`${brief.cardId}: source fallback must use the unchanged reference JPEG`);
   }
 }
 const familyBackdropPaths = new Set(
@@ -209,8 +219,9 @@ if (errors.length) {
     + `${expectedWidth}x${expectedHeight} and at least ${minimumFileSize} bytes.`
   );
   console.log(
-    `${expectedRelativePaths.length} resolved cards select their dedicated backdrop and geometry; `
+    `${FIELD_SPELL_ILLUSTRATION_BRIEF_MANIFEST.length} resolved visual references select their own source backdrop and geometry; `
     + `${familyBackdropPaths.size} family/base backdrops are usable.`
   );
+  console.log(`${originalCompositions.length} original WebP fallbacks and ${sourceIllustrationFallbacks.length} unchanged source JPEG fallbacks.`);
   console.log(`${FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.count} cards have dedicated physical landmarks.`);
 }

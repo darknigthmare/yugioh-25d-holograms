@@ -55,14 +55,83 @@ function opaqueSet() {
   } });
 }
 
-test('AI registry scores all seventeen implemented Field Spells without treating script effects as stat boosts', () => {
+test('AI registry scores all implemented Field Spells without treating script effects as stat boosts', () => {
   const game = duel();
-  assert.equal(IMPLEMENTED_FIELD_SPELLS.length, 17);
+  assert.equal(IMPLEMENTED_FIELD_SPELLS.length, 29);
   for (const field of IMPLEMENTED_FIELD_SPELLS) {
     const score = scoreAIFieldSpell(game, local(field.id));
     assert.equal(Number.isFinite(score), true, field.name_en);
     assert.equal(score, 0, `${field.name_en} does not invent value on an empty board`);
   }
+});
+
+test('Sorcerous Spell Wall credits its controller and the actual turn, without symmetric imaginary bonuses', () => {
+  const game = duel();
+  const beast = place(game, '64428736');
+  place(game, '89631139', 'player');
+  assert.ok(scoreAIFieldSpell(game, local('81231742')) > 0);
+  beast.position = 'defense';
+  game.phases.currentTurnOwner = 'player';
+  assert.ok(scoreAIFieldSpell(game, local('81231742')) > 0);
+  assert.equal(beast.getDef(), 1200);
+  assert.equal(beast.currentRace, 'Beast');
+});
+
+test('Closed Forest counts its own public monster Graveyard and loses its Beast bonus under Zombie World', () => {
+  const game = duel();
+  const beast = place(game, '64428736');
+  game.field.sendToGraveyard(local('20721928'), 'opponent');
+  game.field.sendToGraveyard(local('83764718'), 'opponent');
+  const noZombie = scoreAIFieldSpell(game, local('78082039'));
+  assert.ok(noZombie > 0);
+  activeField(game, '4064256', 'player');
+  assert.equal(beast.currentRace, 'Zombie');
+  assert.equal(scoreAIFieldSpell(game, local('78082039')), 0);
+});
+
+test('Zombie World removes an opposing Dinosaur bonus without mutating the live monster Type', () => {
+  const game = duel();
+  const dinosaur = place(game, '81823360', 'player');
+  activeField(game, '10080320', 'player');
+  assert.equal(dinosaur.getAtk(), 2300);
+  assert.ok(scoreAIFieldSpell(game, local('4064256')) > 0);
+  assert.equal(dinosaur.getAtk(), 2300);
+  assert.equal(dinosaur.currentRace, 'Dinosaur');
+});
+
+test('the AI values Village from public Spellcasters and never peeks at opposing Set identities', () => {
+  const game = duel();
+  place(game, '46986414');
+  game.field.playerMonsterZones[0] = opaqueSet();
+  assert.ok(scoreAIFieldSpell(game, local('68462976')) > 0);
+  game.field.opponentMonsterZones[0] = null;
+  game.opponentHand = [local('12580477')];
+  assert.ok(scoreAIFieldSpell(game, local('68462976')) < 0, 'self-locking a known future Spell has a real cost');
+});
+
+test('a hypothetical Ocean changes current Level before Wetlands checks its Level condition', () => {
+  const game = duel();
+  const candidate = local('68638985', 'opponent', { level: 3 });
+  game.opponentHand = [candidate];
+  activeField(game, '2084239', 'player');
+  assert.ok(scoreAIFieldSpell(game, local('295517')) > 400);
+  assert.equal(candidate.getLevel(), 3);
+  assert.equal(candidate.getAtk(), 700);
+});
+
+test('removing a Field restores the unclamped printed DEF rather than the entire negative modifier', () => {
+  const game = duel();
+  const defender = place(game, '81823360', 'opponent', 'defense');
+  // A real Normal monster with printed zero DEF: Acidic gives +400 DEF;
+  // Saber is unrelated. Gaia Power does not affect this WATER creature.
+  const lowDefense = local('44430454', 'opponent', { def: 200 });
+  game.field.setMonsterZone('opponent', 0, lowDefense);
+  lowDefense.position = 'defense';
+  activeField(game, '56594520');
+  assert.equal(lowDefense.getDef(), 0);
+  assert.equal(scoreAIFieldSpell(game, local('73787254')), 200);
+  assert.equal(lowDefense.getDef(), 0);
+  assert.equal(defender.baseDef, 0);
 });
 
 test('Wetlands chooses the future Slime attacker after projecting its 1200 ATK gain', () => {

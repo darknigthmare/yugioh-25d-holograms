@@ -7,7 +7,9 @@ import { createCampaignDuelTracker } from './src/content/CampaignDuelTracker.js'
 import { chooseAIChainResponse, chooseAIResponseTarget } from './src/content/AIResponsePolicy.js';
 import { isHandPlacementDestinationLegal } from './src/ui/HandPlacement.js';
 import { isFieldSpellCard } from './src/core/FieldSpellRules.js';
+import { isSpellCardActivationPermitted } from './src/core/FieldRuleRuntime.js';
 import { normalizeStrictCardId } from './src/core/StrictCardRegistry.js';
+import { getDeckCopyIdentity } from './src/core/CardNameRules.js';
 import { canAddDeckBuilderCard, getDeckBuilderCopyLimit, validateCustomDeck } from './src/ui/DeckBuilderRules.js';
 import {
   initBoardTilt,
@@ -226,6 +228,11 @@ function dismissActiveDialog() {
     return;
   }
 
+  if (activeDialog.id === 'field-atlas-modal') {
+    closeFieldAtlas();
+    return;
+  }
+
   if (activeDialog.id === 'decision-modal') {
     finishDecision(null);
     return;
@@ -342,6 +349,29 @@ muteBtn.addEventListener('click', () => {
 
 // Setup Start game trigger (safeguard for Web Audio)
 const startModal = document.getElementById('start-modal');
+const fieldAtlasDialog = document.getElementById('field-atlas-modal');
+let fieldAtlas = null;
+let fieldAtlasLoader = null;
+function closeFieldAtlas() {
+  fieldAtlas?.close();
+  closeDialog(fieldAtlasDialog, { restoreFocus: false });
+  openDialog(startModal, document.getElementById('btn-open-field-atlas'));
+}
+document.getElementById('btn-close-field-atlas').addEventListener('click', closeFieldAtlas);
+document.getElementById('btn-open-field-atlas').addEventListener('click', async () => {
+  openDialog(fieldAtlasDialog, document.getElementById('field-atlas-search'));
+  try {
+    fieldAtlasLoader ||= import('./src/ui/FieldSpellAtlas.js');
+    const { FieldSpellAtlas } = await fieldAtlasLoader;
+    if (activeDialog !== fieldAtlasDialog) return;
+    fieldAtlas ||= new FieldSpellAtlas(fieldAtlasDialog);
+    fieldAtlas.open();
+  } catch {
+    fieldAtlasLoader = null;
+    document.getElementById('field-atlas-summary').textContent = 'Le catalogue n’a pas pu se charger. Réessayez en le rouvrant.';
+  }
+});
+document.getElementById('simulator-card-coverage').textContent = `Projet fan non officiel. Le mode strict porte sur ${STARTER_CARDS.length + EXTRA_DECK_CARDS.length} cartes locales implémentées. Le catalogue de Terrains distingue les illustrations, les décors 3D et les effets jouables.`;
 const startBtn = document.getElementById('btn-start-duel');
 const campaignController = new SoloCampaignController({
   openDialog, closeDialog,
@@ -642,7 +672,21 @@ const btnCancel = document.getElementById('btn-action-cancel');
 const actionModalTitle = document.getElementById('action-modal-title');
 const actionModalDescription = document.getElementById('action-modal-description');
 
+function canActivateHandPendulumScale(card, zoneIndex = null) {
+  if (!game || !card?.isPendulumMonster || game.currentTurn !== 'player'
+    || !game.currentPhase.startsWith('main') || game.isResolvingAction
+    || game.pendingSummon || game.pendingExtraSummon || game.isDiscarding) return false;
+  const indices = zoneIndex === null ? [0, 4] : [zoneIndex];
+  return indices.some(index => [0, 4].includes(index) && game.playerSpells[index] === null)
+    && !game.defense.isActionProhibited('player', 'ACTIVATE_EFFECT', card)
+    && isSpellCardActivationPermitted(game, card, 'player', { pendulumScale: true })
+    && !(card.pendulumActivationRequiresEmptyMonsterField
+      && game.getMonsterEntries('player').length);
+}
+
 function prepareActionDialog(card, { zoneType, index, isPendulumScale }) {
+  btnFaceUp.disabled = false;
+  btnFaceDown.disabled = false;
   if (isPendulumScale) {
     const sideLabel = index === 0 ? 'gauche' : 'droite';
     const cardName = card?.name || 'cette carte';
@@ -651,6 +695,10 @@ function prepareActionDialog(card, { zoneType, index, isPendulumScale }) {
     actionModalDescription.textContent =
       `Activer ${cardName} comme Échelle Pendule ${scale} dans la zone ${sideLabel}.`;
     btnFaceUp.textContent = `ACTIVER L’ÉCHELLE ${scale}`;
+    btnFaceUp.disabled = !canActivateHandPendulumScale(card, index);
+    if (btnFaceUp.disabled) {
+      actionModalDescription.textContent = 'Cette Échelle Pendule ne peut pas être activée dans la situation actuelle.';
+    }
     btnFaceDown.classList.add('hidden');
     return;
   }
@@ -660,6 +708,10 @@ function prepareActionDialog(card, { zoneType, index, isPendulumScale }) {
     actionModalDescription.textContent =
       `Activez ${card?.name || 'cette carte'} ou posez-la face cachée dans votre Zone Terrain.`;
     btnFaceUp.textContent = 'ACTIVER LE TERRAIN';
+    btnFaceUp.disabled = !game.canActivateSpell(card, 'player');
+    if (btnFaceUp.disabled) {
+      actionModalDescription.textContent = 'L’activation de ce Terrain est interdite actuellement. Vous pouvez le poser face cachée.';
+    }
     btnFaceDown.textContent = 'POSER FACE CACHÉE';
     btnFaceDown.classList.remove('hidden');
     return;
@@ -672,6 +724,24 @@ function prepareActionDialog(card, { zoneType, index, isPendulumScale }) {
     : 'ACTIVER FACE RECTO';
   btnFaceDown.textContent = 'POSER FACE CACHÉE';
   btnFaceDown.classList.remove('hidden');
+  if (zoneType === 'monster') {
+    const canNormalSummon = game.getAvailableActions('player').normalSummonCardUids.includes(card.uid);
+    btnFaceUp.disabled = btnFaceDown.disabled = !canNormalSummon;
+    if (!canNormalSummon) {
+      actionModalDescription.textContent = 'Ce monstre ne peut pas être Invoqué Normalement ni posé dans la situation actuelle.';
+    }
+  } else {
+    btnFaceUp.disabled = card.card_type !== 'spell' || !game.canActivateSpell(card, 'player');
+    if (btnFaceUp.disabled) {
+      actionModalDescription.textContent = 'Cette carte ne peut pas être activée depuis la Main actuellement. Vous pouvez la poser face cachée.';
+    }
+  }
+}
+
+function getActionDialogInitialFocus() {
+  if (!btnFaceUp.disabled) return btnFaceUp;
+  if (!btnFaceDown.disabled && !btnFaceDown.classList.contains('hidden')) return btnFaceDown;
+  return btnCancel;
 }
 
 if (actionModal && btnFaceUp && btnFaceDown && btnCancel) {
@@ -1586,7 +1656,7 @@ function updateDeckBuilderLibrary() {
     const template = knownCardTemplates.get(button.dataset.cardId);
     const destination = builderDestination(template);
     const permission = canAddDeckBuilderCard(deck, template, destination, selectedGameMode);
-    const count = allCards.filter(card => normalizeStrictCardId(card.id) === normalizeStrictCardId(template.id)).length;
+    const count = allCards.filter(card => getDeckCopyIdentity(card) === getDeckCopyIdentity(template)).length;
     const limit = getDeckBuilderCopyLimit(template, selectedGameMode);
     button.disabled = !permission.allowed;
     button.title = permission.allowed ? `${template.name} — ${count}/${limit} copies`
@@ -2276,7 +2346,8 @@ function renderHand(handCards) {
       || (
         canUseHand
         && (
-          (card.card_type === 'monster' && legalNormalSummons.has(String(card.uid)))
+          (card.card_type === 'monster' && (legalNormalSummons.has(String(card.uid))
+            || canActivateHandPendulumScale(card)))
           || (
             card.card_type !== 'monster'
             && (isFieldSpellCard(card) || hasOpenSpellZone)
@@ -2485,6 +2556,10 @@ async function openSetCardActionMenu(zoneType, zoneIndex) {
     announceStatus(`${card.name} s’active dans une fenêtre de réponse correspondant à son effet.`);
     return;
   }
+  if (!actionGame.canActivateSpell(card, 'player')) {
+    announceStatus(`${card.name} ne peut pas être activée dans la situation actuelle.`);
+    return;
+  }
   const sourceInstance = card.runtimeInstanceId;
   const choice = await requestUiDecision({
     type: 'set-card-field-action', side: 'player', title: card.name,
@@ -2495,7 +2570,8 @@ async function openSetCardActionMenu(zoneType, zoneIndex) {
     || card.runtimeInstanceId !== sourceInstance || !card.isSetFaceDown
     || actionGame.currentTurn !== 'player' || !actionGame.currentPhase.startsWith('main')
     || actionGame.isResolvingAction || actionGame.pendingSummon || actionGame.pendingExtraSummon
-    || actionGame.isDiscarding || actionGame.chain?.chainStatus !== 'idle') return;
+    || actionGame.isDiscarding || actionGame.chain?.chainStatus !== 'idle'
+    || !actionGame.canActivateSpell(card, 'player')) return;
   if (zoneType === 'field') await actionGame.activateSetFieldSpell('player');
   else await actionGame.activateSetSpellTrap(zoneIndex);
 }
@@ -2561,7 +2637,7 @@ document.querySelectorAll('.card-zone').forEach(zone => {
       };
       prepareActionDialog(cardInstance, pendingAction);
       const actionChoiceModal = document.getElementById('action-modal');
-      openDialog(actionChoiceModal, btnFaceUp);
+      openDialog(actionChoiceModal, getActionDialogInitialFocus());
     }
 
     clearDropZoneHighlights();
@@ -2609,7 +2685,7 @@ document.querySelectorAll('.card-zone').forEach(zone => {
             isPendulumScale: Boolean(selectedCard.isPendulumMonster && zoneType === 'spell')
           };
           prepareActionDialog(selectedCard, pendingAction);
-          openDialog(actionModal, btnFaceUp);
+          openDialog(actionModal, getActionDialogInitialFocus());
         }
         return;
       }

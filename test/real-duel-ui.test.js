@@ -424,12 +424,12 @@ test('Field Environment registry contains every required immutable environment',
 test('every canonical Field Spell owns one strict dedicated asset path and measurable progress', () => {
   assert.deepEqual(FIELD_SPELL_DEDICATED_BACKDROP_VALIDATION, {
     valid: true,
-    expectedCount: 336,
-    mappedCardIdCount: 336,
-    uniqueBackdropUrlCount: 336
+    expectedCount: 339,
+    mappedCardIdCount: 339,
+    uniqueBackdropUrlCount: 339
   });
-  assert.equal(FIELD_SPELL_DEDICATED_BACKDROP_URLS.length, 336);
-  assert.equal(new Set(FIELD_SPELL_DEDICATED_BACKDROP_URLS).size, 336);
+  assert.equal(FIELD_SPELL_DEDICATED_BACKDROP_URLS.length, 339);
+  assert.equal(new Set(FIELD_SPELL_DEDICATED_BACKDROP_URLS).size, 339);
   for (const [cardId, assetPath] of Object.entries(
     FIELD_SPELL_DEDICATED_BACKDROP_URL_BY_CARD_ID
   )) {
@@ -446,17 +446,17 @@ test('every canonical Field Spell owns one strict dedicated asset path and measu
 
   const threeGeneratedPaths = FIELD_SPELL_DEDICATED_BACKDROP_URLS.slice(0, 3);
   assert.deepEqual(getFieldSpellBackdropAssetProgress(threeGeneratedPaths), {
-    expectedCount: 336,
+    expectedCount: 339,
     generatedCount: 3,
-    remainingCount: 333,
-    completionPercent: 0.89,
+    remainingCount: 336,
+    completionPercent: 0.88,
     complete: false
   });
   assert.deepEqual(
     getFieldSpellBackdropAssetProgress(FIELD_SPELL_DEDICATED_BACKDROP_URLS),
     {
-      expectedCount: 336,
-      generatedCount: 336,
+      expectedCount: 339,
+      generatedCount: 339,
       remainingCount: 0,
       completionPercent: 100,
       complete: true

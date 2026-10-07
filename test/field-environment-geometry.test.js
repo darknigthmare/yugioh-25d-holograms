@@ -97,7 +97,7 @@ test('all Field families build distinct peripheral geometry without occupying th
   assert.equal(signatures.size, FIELD_ENVIRONMENT_GEOMETRY_FAMILIES.length);
 });
 
-test('all 336 resolved Field Spells retain dedicated illustration and geometry contracts', () => {
+test('all 339 resolved Field Spells retain dedicated illustration and geometry contracts', () => {
   for (const entry of FIELD_SPELL_ENVIRONMENT_CATALOG) {
     const environment = getFieldEnvironmentForCardId(entry.cardId);
     assert.equal(environment.geometryProfile.family, entry.environmentId);
@@ -109,7 +109,11 @@ test('all 336 resolved Field Spells retain dedicated illustration and geometry c
     assert.equal(selection.isFallback, false, entry.name);
     assert.equal(selection.environment, environment);
     assert.equal(environment.backdropUrl, `/environments/field-art/${entry.cardId}.jpg`);
-    assert.match(environment.fallbackBackdropUrl, new RegExp(`/field-spells/${entry.cardId}-`));
+    if (['12845564', '33700664', '88288421'].includes(entry.cardId)) {
+      assert.equal(environment.fallbackBackdropUrl, `/environments/field-art/${entry.cardId}.jpg`);
+    } else {
+      assert.match(environment.fallbackBackdropUrl, new RegExp(`/field-spells/${entry.cardId}-`));
+    }
     const group = createFieldEnvironmentGeometry(THREE, environment);
     const corridor = new THREE.Box3(new THREE.Vector3(-9, -3, -18), new THREE.Vector3(9, 30, 17));
     assert.ok(group.userData.meshCount < 220, `${entry.name}: excessive draw count`);
@@ -187,7 +191,7 @@ test('24 additional named terrains contain distinct physical props beyond the fa
     ['71832012', 'pressured-planet', 'wraitsoth-drill-tower'],
     ['89264428', 'seven-star-observatory', 'big-dipper-star'],
     ['5050644', 'aromatic-garden', 'aroma-flowering-herb'],
-    ['68462976', 'hidden-spellcaster-village', 'spellcaster-cottage'],
+    ['68462976', 'spellcaster-tree-village', 'village-twisted-trunk'],
     ['76136345', 'railway-turntable', 'switchyard-rotating-bridge'],
     ['50005218', 'airspace-launch-base', 'area-zero-launch-deck'],
     ['1127737', 'dimensional-shipwrecks', 'sargasso-broken-hull'],
@@ -208,7 +212,7 @@ test('24 additional named terrains contain distinct physical props beyond the fa
     assert.ok(group.children.every(object => object.isInstancedMesh), 'static props must be GPU batched');
     disposeFieldEnvironmentGeometry(group);
   }
-  assert.equal(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.count, 66);
+  assert.equal(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.count, 89);
   assert.deepEqual(new Set(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.cardIds), new Set(Object.keys(FIELD_ENVIRONMENT_CARD_LANDMARKS)));
   assert.equal(getFieldEnvironmentForCardId('15259703'), null, 'Toon World is a Continuous Spell');
   assert.equal(getFieldEnvironmentForCardId('43175858').geometryProfile.landmark, 'storybook-castle');
@@ -259,7 +263,7 @@ test('24 inspected original illustrations produce their concrete motifs without 
     }
     disposeFieldEnvironmentGeometry(group);
   }
-  assert.equal(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.inspectedReferenceArtCount, 24);
+  assert.equal(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.inspectedReferenceArtCount, 50);
   assert.deepEqual(new Set(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.inspectedReferenceCardIds), new Set(Object.keys(FIELD_ENVIRONMENT_INSPECTED_ART_PROFILES)));
   assert.equal(FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.budget, FIELD_ENVIRONMENT_GEOMETRY_BUDGET);
 });

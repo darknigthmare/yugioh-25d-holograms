@@ -2,7 +2,8 @@ import { FIELD_SPELL_ENVIRONMENT_CATALOG } from './FieldSpellEnvironmentCatalog.
 import { FIELD_SPELL_REFERENCE_ART_PALETTES } from './FieldSpellReferenceArtPalettes.js';
 
 export const FIELD_SPELL_REFERENCE_ART_METADATA = Object.freeze({
-  retrievedOn: '2026-10-01',
+  retrievedOn: '2026-10-07',
+  previousRetrievedOn: '2026-10-01',
   provider: 'YGOPRODeck',
   kind: 'card-illustration',
   sourceBytesPreserved: true,

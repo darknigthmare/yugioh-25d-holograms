@@ -2,8 +2,32 @@ const SIDES = ['player', 'opponent'];
 const FIELD_RULE_VISUALS = Object.freeze({
   'sanctuary-protection-cinematic': Object.freeze({ profile: 'sanctuary-protection', kind: 'shield', poseKind: 'casting' }),
   'skyscraper-boost-cinematic': Object.freeze({ profile: 'skyscraper-boost', kind: 'activate', poseKind: 'attack' }),
-  'ancient-forest-destruction-cinematic': Object.freeze({ profile: 'ancient-forest-destruction', kind: 'destroy', poseKind: 'recoil' })
+  'ancient-forest-destruction-cinematic': Object.freeze({ profile: 'ancient-forest-destruction', kind: 'destroy', poseKind: 'recoil' }),
+  'dark-city-boost-cinematic': Object.freeze({ profile: 'dark-city-boost', kind: 'activate', poseKind: 'attack', changeKind: 'atk-increase' }),
+  'shien-mist-reduction-cinematic': Object.freeze({ profile: 'shien-mist-reduction', kind: 'activate', poseKind: 'recoil', changeKind: 'atk-decrease' }),
+  'canyon-damage-cinematic': Object.freeze({ profile: 'canyon-damage', kind: 'activate', poseKind: 'recoil', changeKind: 'damage-double' }),
+  'temple-minds-eye-cinematic': Object.freeze({ profile: 'temple-minds-eye', kind: 'activate', poseKind: 'casting', changeKind: 'damage-fixed' })
 });
+
+/** Only the applied public result crosses this boundary; no live stats do. */
+function publicFieldRuleChange(event, kind) {
+  if (!kind) return null;
+  const boundedNumber = value => Number.isInteger(value) && value >= 0 && value <= 1000000;
+  const value = kind === 'atk-increase' ? event.bonus : kind === 'atk-decrease' ? event.reduction
+    : kind === 'damage-double' ? 2 : 1000;
+  if (!boundedNumber(value) || value === 0) return null;
+  const result = { kind, value, sourceCount: Number.isInteger(event.sourceCount)
+    && event.sourceCount >= 1 && event.sourceCount <= 2 ? event.sourceCount : 1 };
+  if (kind.startsWith('atk-')) {
+    if (boundedNumber(event.calculatedAtk)) result.calculatedAtk = event.calculatedAtk;
+  } else {
+    if (boundedNumber(event.originalDamage)) result.originalDamage = event.originalDamage;
+    if (boundedNumber(event.modifiedDamage)) result.modifiedDamage = event.modifiedDamage;
+    if (SIDES.includes(event.damageSide)) result.damageSide = event.damageSide;
+    result.directAttack = event.directAttack === true;
+  }
+  return Object.freeze(result);
+}
 
 function publicCard(card) {
   if (!card || card.isSetFaceDown === true) return null;
@@ -62,6 +86,7 @@ export function createPublicCombatVisual(event, game, positionResolver = () => u
   let targetCard = null;
   let profile;
   let targetPoseKind;
+  let ruleChange = null;
   const zoneRef = (side, zoneType, zoneIndex) => ({ owner: side, zoneType: zoneType || 'main', zoneIndex });
   if (type === 'attack-direct' || type === 'attack-monster') {
     owner = type === 'attack-direct' ? (event.target === 'player' ? 'opponent' : 'player') : event.attackerSide;
@@ -93,6 +118,8 @@ export function createPublicCombatVisual(event, game, positionResolver = () => u
       targetCard = publicCard(event.targetCard);
     }
     ({ kind, profile, poseKind: targetPoseKind } = fieldVisual);
+    ruleChange = publicFieldRuleChange(event, fieldVisual.changeKind);
+    if (fieldVisual.changeKind && !ruleChange) return null;
   } else if (['mystical-space-typhoon-cinematic', 'book-of-moon-cinematic'].includes(type)) {
     kind = 'activate';
     source = zoneRef(owner, event.zoneType, event.zoneIndex);
@@ -137,5 +164,6 @@ export function createPublicCombatVisual(event, game, positionResolver = () => u
     ...(target ? { target: locate(target) } : {}), ...(targetRef ? { targetRef } : {}),
     ...(card ? { card } : {}), ...(profile ? { profile } : {}),
     ...(targetCard ? { targetCard } : {}),
+    ...(ruleChange ? { ruleChange } : {}),
     ...(targetPoseKind ? { poseTarget: 'target', poseKind: targetPoseKind } : {}) });
 }

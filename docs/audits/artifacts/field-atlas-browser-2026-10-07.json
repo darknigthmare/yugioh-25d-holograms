@@ -1,0 +1,29 @@
+{
+  "baseUrl": "http://127.0.0.1:4173",
+  "devices": [
+    {
+      "device": "desktop",
+      "playableFieldsVisited": 29,
+      "keyboardReturn": true,
+      "singleCanvasAndDisposal": true,
+      "originalArtContain": {
+        "fit": "contain",
+        "filter": "none"
+      },
+      "errors": [],
+      "failedHttp": []
+    },
+    {
+      "device": "mobile",
+      "playableFieldsVisited": 29,
+      "keyboardReturn": true,
+      "singleCanvasAndDisposal": true,
+      "originalArtContain": {
+        "fit": "contain",
+        "filter": "none"
+      },
+      "errors": [],
+      "failedHttp": []
+    }
+  ]
+}

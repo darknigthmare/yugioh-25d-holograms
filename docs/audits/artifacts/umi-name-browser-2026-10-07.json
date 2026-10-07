@@ -1,0 +1,9 @@
+{
+  "baseUrl": "http://127.0.0.1:4173",
+  "realButtons": true,
+  "sharedNameLimit": 3,
+  "mixedMainAndSide": true,
+  "remainingCopyRestoredAfterRemoval": true,
+  "physicalCardIdsPreserved": true,
+  "pageErrors": []
+}

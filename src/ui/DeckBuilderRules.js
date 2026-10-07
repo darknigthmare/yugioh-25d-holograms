@@ -1,5 +1,6 @@
 import { MatchEngine } from '../core/MatchEngine.js';
 import { isStrictCardSupported, normalizeStrictCardId } from '../core/StrictCardRegistry.js';
+import { getDeckCopyIdentity } from '../core/CardNameRules.js';
 
 const validator = new MatchEngine();
 const sections = ['mainDeck', 'extraDeck', 'sideDeck'];
@@ -15,7 +16,7 @@ function allCards(deck) {
 
 export function getDeckBuilderCopyLimit(card, mode = 'strict') {
   if (mode === 'sandbox') return 3;
-  const id = normalizeStrictCardId(card?.id);
+  const id = getDeckCopyIdentity(card);
   const list = validator.banlists[validator.getMatchState().banlistId];
   const contains = ids => ids.some(value => normalizeStrictCardId(value) === id);
   if (contains(list.forbidden)) return 0;
@@ -38,8 +39,8 @@ export function canAddDeckBuilderCard(deck, card, section, mode = 'strict') {
     && validator.belongsInExtraDeck(card) !== (section === 'extraDeck')) {
     return { allowed: false, message: 'Cette carte appartient à une autre section du Deck.' };
   }
-  const id = normalizeStrictCardId(card.id);
-  const count = allCards(deck).filter(value => normalizeStrictCardId(value?.id) === id).length;
+  const id = getDeckCopyIdentity(card);
+  const count = allCards(deck).filter(value => getDeckCopyIdentity(value) === id).length;
   const copyLimit = getDeckBuilderCopyLimit(card, mode);
   if (count >= copyLimit) {
     return { allowed: false, copyLimit, message: copyLimit === 0
@@ -57,7 +58,7 @@ function issueMessage(issue, deck) {
   if (issue.code === 'INVALID_EXTRA_SIZE') return 'Extra Deck : maximum 15 cartes.';
   if (issue.code === 'INVALID_SIDE_SIZE') return 'Side Deck : maximum 15 cartes.';
   if (issue.code === 'COPY_LIMIT_EXCEEDED') {
-    const name = allCards(deck).find(card => normalizeStrictCardId(card?.id) === String(issue.cardId))?.name
+    const name = allCards(deck).find(card => getDeckCopyIdentity(card) === String(issue.cardId))?.name
       || issue.cardId;
     return issue.allowed === 0 ? `${name} est interdite dans la liste Advanced actuelle.`
       : `${name} : maximum ${issue.allowed} copie${issue.allowed > 1 ? 's' : ''} dans Main, Extra et Side.`;

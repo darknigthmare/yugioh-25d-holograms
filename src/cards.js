@@ -1,5 +1,6 @@
 import {
-  ADDITIONAL_FIELD_SPELLS, CLASSIC_FIELD_SPELLS, SCRIPTED_FIELD_SPELLS, WETLANDS_FIELD_SPELL
+  ADDITIONAL_FIELD_SPELLS, CLASSIC_FIELD_SPELLS, SCRIPTED_FIELD_SPELLS, WETLANDS_FIELD_SPELL,
+  TRANSVERSE_CONTINUOUS_FIELD_SPELLS
 } from './core/ClassicFieldSpellEffects.js';
 
 export const STARTER_CARDS = [
@@ -564,6 +565,34 @@ export const STARTER_CARDS = [
 // Elemental HERO, Aqua/WATER and Fairy Field Spell interactions.
 STARTER_CARDS.push(
   {
+    id: '23115241', name: 'Anapelera, Sabre X', name_en: 'X-Saber Anu Piranha',
+    type: 'Normal Monster', card_type: 'monster', archetype: 'X-Saber',
+    race: 'Warrior', attribute: 'EARTH', level: 4, atk: 1800, def: 1100,
+    desc: "Une guerrière Sabre X redoutée pour ses attaques félines et son sang-froid durant les batailles. Son ambition sans limite et ses assauts impitoyables provoquent la peur au plus profond de ses ennemis.",
+    rulesSourceUrl: 'https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid=7821&request_locale=fr'
+  },
+  {
+    id: '44430454', name: 'Chambellan des Six Samouraïs', name_en: 'Chamberlain of the Six Samurai',
+    type: 'Normal Monster', card_type: 'monster', archetype: 'Six Samurai',
+    race: 'Warrior', attribute: 'EARTH', level: 3, atk: 200, def: 2000,
+    desc: "Ce silencieux et mystérieux guerrier est l'éminence grise qui aide en secret les Six Samouraïs. Personne ne connaît son passé, mais ses nombreuses cicatrices sont la preuve de son immense expérience.",
+    rulesSourceUrl: 'https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid=7276&request_locale=fr'
+  },
+  {
+    id: '81823360', name: 'Mégalobroyeur X', name_en: 'Megalosmasher X',
+    type: 'Normal Monster', card_type: 'monster', race: 'Dinosaur', attribute: 'WATER',
+    level: 4, atk: 2000, def: 0,
+    desc: "Seule la phosphorescence de ce prédateur primitif à l'armure insonorisante et la mâchoire gargantuesque permettait à ses proies primitives d'en échapper.",
+    rulesSourceUrl: 'https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid=13012&request_locale=fr'
+  },
+  {
+    id: '43793530', name: 'Giga Gagagigo', name_en: 'Giga Gagagigo',
+    type: 'Normal Monster', card_type: 'monster', race: 'Reptile', attribute: 'WATER',
+    level: 5, atk: 2450, def: 1500,
+    desc: "Afin de combattre un mal épouvantable, il a obtenu une puissance considérable par une reconstruction du corps, mais y a perdu son cœur et sa rédemption.",
+    rulesSourceUrl: 'https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid=5871&request_locale=fr'
+  },
+  {
     id: '20721928', name: 'Sparkman, HÉROS Élémentaire', name_en: 'Elemental HERO Sparkman',
     type: 'Normal Monster', card_type: 'monster', archetype: 'Elemental HERO',
     race: 'Warrior', attribute: 'LIGHT', level: 4, atk: 1600, def: 1400,
@@ -586,28 +615,17 @@ STARTER_CARDS.push(
   }
 );
 
-const CLASSIC_RACE_LABELS = {
-  Fiend: 'Démon', Spellcaster: 'Magicien', Fairy: 'Elfe', Fish: 'Poisson',
-  'Sea Serpent': 'Serpent de Mer', Thunder: 'Tonnerre', Aqua: 'Aqua',
-  Machine: 'Machine', Pyro: 'Pyro', Insect: 'Insecte', Beast: 'Bête',
-  Plant: 'Plante', 'Beast-Warrior': 'Bête-Guerrier', Dragon: 'Dragon',
-  'Winged Beast': 'Bête Ailée', Warrior: 'Guerrier', Dinosaur: 'Dinosaure',
-  Zombie: 'Zombie', Rock: 'Rocher'
-};
 for (const terrain of CLASSIC_FIELD_SPELLS) {
-  const bonuses = terrain.boostedRaces.map(race => CLASSIC_RACE_LABELS[race]).join(', ');
-  const penalties = terrain.weakenedRaces.map(race => CLASSIC_RACE_LABELS[race]).join(', ');
-  const description = `Tous les monstres ${bonuses} sur le Terrain gagnent 200 ATK/DEF.`
-    + (penalties ? ` Tous les monstres ${penalties} sur le Terrain perdent 200 ATK/DEF.` : '');
+  const description = terrain.rulesText;
   STARTER_CARDS.push({
     id: terrain.id, name: terrain.name, name_en: terrain.name_en,
     type: 'Spell Card', card_type: 'spell', race: 'Field', attribute: 'SPELL',
     atk: 0, def: 0, level: 0, rulesText: description, desc: description,
-    effectCode: 'CLASSIC_FIELD_STATS'
+    rulesSourceUrl: terrain.rulesSourceUrl, effectCode: 'CLASSIC_FIELD_STATS'
   });
 }
 
-for (const terrain of [...ADDITIONAL_FIELD_SPELLS, WETLANDS_FIELD_SPELL, ...SCRIPTED_FIELD_SPELLS]) {
+for (const terrain of [...ADDITIONAL_FIELD_SPELLS, WETLANDS_FIELD_SPELL, ...TRANSVERSE_CONTINUOUS_FIELD_SPELLS, ...SCRIPTED_FIELD_SPELLS]) {
   STARTER_CARDS.push({
     id: terrain.id, name: terrain.name, name_en: terrain.name_en,
     type: 'Spell Card', card_type: 'spell', race: 'Field', attribute: 'SPELL',

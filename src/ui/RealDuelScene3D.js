@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { FIELD_GEOMETRY_THREE } from './FieldGeometryThree.js';
 import {
   normalizeRealDuelCameraPreset,
   resolveRealDuelCameraPose
@@ -12,18 +13,6 @@ import {
   disposeFieldEnvironmentGeometry,
   getFieldEnvironmentGeometrySignature
 } from './FieldEnvironmentGeometry.js';
-
-// Passing the complete Three namespace to a factory prevents tree shaking.
-// The environment builder needs only these geometry/material constructors.
-const FIELD_GEOMETRY_THREE = Object.freeze(Object.fromEntries([
-  ['Group', THREE.Group], ['Mesh', THREE.Mesh],
-  ['InstancedMesh', THREE.InstancedMesh], ['Vector3', THREE.Vector3],
-  ['MeshStandardMaterial', THREE.MeshStandardMaterial],
-  ['BoxGeometry', THREE.BoxGeometry], ['DodecahedronGeometry', THREE.DodecahedronGeometry],
-  ['ConeGeometry', THREE.ConeGeometry], ['CylinderGeometry', THREE.CylinderGeometry],
-  ['IcosahedronGeometry', THREE.IcosahedronGeometry], ['TorusGeometry', THREE.TorusGeometry],
-  ['DoubleSide', THREE.DoubleSide]
-]));
 
 const PLAYER_CONSOLE_PLAYMAT_URL =
   '/playmats/player-console-playmat-original.webp';

@@ -188,9 +188,9 @@ test('Wetlands and Umi apply their separate cumulative Type and Attribute rules'
 });
 
 test('battle and trigger Field definitions never become permanent flat stat modifiers', () => {
-  assert.equal(CONTINUOUS_FIELD_SPELLS.length, 14);
-  assert.equal(IMPLEMENTED_FIELD_SPELLS.length, 17);
-  assert.equal(new Set(IMPLEMENTED_FIELD_SPELLS.map(card => card.id)).size, 17);
+  assert.equal(CONTINUOUS_FIELD_SPELLS.length, 20);
+  assert.equal(IMPLEMENTED_FIELD_SPELLS.length, 29);
+  assert.equal(new Set(IMPLEMENTED_FIELD_SPELLS.map(card => card.id)).size, 29);
   for (const definition of SCRIPTED_FIELD_SPELLS) {
     assert.equal(CONTINUOUS_FIELD_SPELLS.some(card => card.id === definition.id), false);
     assert.deepEqual(getContinuousFieldSpellStatModifier(projection, definition), { atk: 0, def: 0 });

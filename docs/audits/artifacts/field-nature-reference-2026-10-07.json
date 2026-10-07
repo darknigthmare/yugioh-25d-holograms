@@ -1,0 +1,474 @@
+{
+  "complete": true,
+  "results": [
+    {
+      "cardId": "4064256",
+      "name": "Zombie World",
+      "camera": [
+        0,
+        18,
+        28
+      ],
+      "target": [
+        0,
+        7,
+        -16
+      ],
+      "fov": 58,
+      "before": {
+        "drawCalls": 4,
+        "triangles": 552,
+        "sourcePrimitives": 26,
+        "batchedPrimitives": 26,
+        "materials": 2
+      },
+      "after": {
+        "drawCalls": 14,
+        "triangles": 12504,
+        "sourcePrimitives": 83,
+        "batchedPrimitives": 66,
+        "materials": 6
+      }
+    },
+    {
+      "cardId": "295517",
+      "name": "A Legendary Ocean",
+      "camera": [
+        0,
+        18,
+        25
+      ],
+      "target": [
+        0,
+        4,
+        -20
+      ],
+      "fov": 57,
+      "before": {
+        "drawCalls": 5,
+        "triangles": 6084,
+        "sourcePrimitives": 34,
+        "batchedPrimitives": 34,
+        "materials": 3
+      },
+      "after": {
+        "drawCalls": 9,
+        "triangles": 4008,
+        "sourcePrimitives": 194,
+        "batchedPrimitives": 194,
+        "materials": 4
+      }
+    },
+    {
+      "cardId": "78082039",
+      "name": "Closed Forest",
+      "camera": [
+        0,
+        10,
+        1
+      ],
+      "target": [
+        0,
+        9,
+        -30
+      ],
+      "fov": 60,
+      "before": {
+        "drawCalls": 3,
+        "triangles": 6096,
+        "sourcePrimitives": 89,
+        "batchedPrimitives": 89,
+        "materials": 3
+      },
+      "after": {
+        "drawCalls": 5,
+        "triangles": 14528,
+        "sourcePrimitives": 45,
+        "batchedPrimitives": 26,
+        "materials": 5
+      }
+    },
+    {
+      "cardId": "35956022",
+      "name": "Acidic Downpour",
+      "camera": [
+        0,
+        18,
+        28
+      ],
+      "target": [
+        0,
+        5,
+        -15
+      ],
+      "fov": 58,
+      "before": {
+        "drawCalls": 6,
+        "triangles": 9768,
+        "sourcePrimitives": 93,
+        "batchedPrimitives": 93,
+        "materials": 4
+      },
+      "after": {
+        "drawCalls": 7,
+        "triangles": 20248,
+        "sourcePrimitives": 98,
+        "batchedPrimitives": 93,
+        "materials": 4
+      }
+    },
+    {
+      "cardId": "28120197",
+      "name": "Canyon",
+      "camera": [
+        0,
+        23,
+        22
+      ],
+      "target": [
+        0,
+        7,
+        -15
+      ],
+      "fov": 55,
+      "before": {
+        "drawCalls": 2,
+        "triangles": 1600,
+        "sourcePrimitives": 20,
+        "batchedPrimitives": 20,
+        "materials": 1
+      },
+      "after": {
+        "drawCalls": 10,
+        "triangles": 14640,
+        "sourcePrimitives": 10,
+        "batchedPrimitives": 10,
+        "materials": 2
+      }
+    },
+    {
+      "cardId": "712559",
+      "name": "Amazoness Village",
+      "camera": [
+        0,
+        18,
+        28
+      ],
+      "target": [
+        0,
+        6,
+        -15
+      ],
+      "fov": 58,
+      "before": {
+        "drawCalls": 3,
+        "triangles": 6096,
+        "sourcePrimitives": 89,
+        "batchedPrimitives": 89,
+        "materials": 3
+      },
+      "after": {
+        "drawCalls": 6,
+        "triangles": 3680,
+        "sourcePrimitives": 134,
+        "batchedPrimitives": 134,
+        "materials": 4
+      }
+    },
+    {
+      "cardId": "15854426",
+      "name": "Divine Wind of Mist Valley",
+      "camera": [
+        0,
+        11,
+        0
+      ],
+      "target": [
+        0,
+        11,
+        -31
+      ],
+      "fov": 66,
+      "before": {
+        "drawCalls": 2,
+        "triangles": 1600,
+        "sourcePrimitives": 20,
+        "batchedPrimitives": 20,
+        "materials": 1
+      },
+      "after": {
+        "drawCalls": 3,
+        "triangles": 5216,
+        "sourcePrimitives": 13,
+        "batchedPrimitives": 13,
+        "materials": 3
+      }
+    },
+    {
+      "cardId": "37322745",
+      "name": "Naturia Forest",
+      "camera": [
+        0,
+        18,
+        28
+      ],
+      "target": [
+        0,
+        7,
+        -15
+      ],
+      "fov": 58,
+      "before": {
+        "drawCalls": 3,
+        "triangles": 6096,
+        "sourcePrimitives": 89,
+        "batchedPrimitives": 89,
+        "materials": 3
+      },
+      "after": {
+        "drawCalls": 11,
+        "triangles": 14292,
+        "sourcePrimitives": 47,
+        "batchedPrimitives": 37,
+        "materials": 5
+      }
+    },
+    {
+      "cardId": "70222318",
+      "name": "Mount Sylvania",
+      "camera": [
+        0,
+        18,
+        20
+      ],
+      "target": [
+        0,
+        7,
+        -20
+      ],
+      "fov": 58,
+      "before": {
+        "drawCalls": 3,
+        "triangles": 6096,
+        "sourcePrimitives": 89,
+        "batchedPrimitives": 89,
+        "materials": 3
+      },
+      "after": {
+        "drawCalls": 12,
+        "triangles": 17248,
+        "sourcePrimitives": 73,
+        "batchedPrimitives": 55,
+        "materials": 5
+      }
+    },
+    {
+      "cardId": "54306223",
+      "name": "Venom Swamp",
+      "camera": [
+        0,
+        17,
+        28
+      ],
+      "target": [
+        0,
+        5,
+        -15
+      ],
+      "fov": 58,
+      "before": {
+        "drawCalls": 6,
+        "triangles": 9768,
+        "sourcePrimitives": 93,
+        "batchedPrimitives": 93,
+        "materials": 4
+      },
+      "after": {
+        "drawCalls": 17,
+        "triangles": 19648,
+        "sourcePrimitives": 110,
+        "batchedPrimitives": 74,
+        "materials": 4
+      }
+    },
+    {
+      "cardId": "7142724",
+      "name": "Icejade Cenote Enion Cradle",
+      "camera": [
+        0,
+        19,
+        28
+      ],
+      "target": [
+        0,
+        7,
+        -15
+      ],
+      "fov": 58,
+      "before": {
+        "drawCalls": 2,
+        "triangles": 1600,
+        "sourcePrimitives": 20,
+        "batchedPrimitives": 20,
+        "materials": 1
+      },
+      "after": {
+        "drawCalls": 10,
+        "triangles": 35296,
+        "sourcePrimitives": 106,
+        "batchedPrimitives": 88,
+        "materials": 5
+      }
+    },
+    {
+      "cardId": "17000165",
+      "name": "Reptilianne Recoil",
+      "camera": [
+        0,
+        12,
+        4
+      ],
+      "target": [
+        0,
+        12,
+        -31
+      ],
+      "fov": 66,
+      "before": {
+        "drawCalls": 6,
+        "triangles": 9768,
+        "sourcePrimitives": 93,
+        "batchedPrimitives": 93,
+        "materials": 4
+      },
+      "after": {
+        "drawCalls": 4,
+        "triangles": 8576,
+        "sourcePrimitives": 45,
+        "batchedPrimitives": 34,
+        "materials": 3
+      }
+    },
+    {
+      "cardId": "88288421",
+      "name": "Field Power Bonus",
+      "camera": [
+        0,
+        25,
+        28
+      ],
+      "target": [
+        0,
+        3,
+        -14
+      ],
+      "fov": 58,
+      "before": {
+        "drawCalls": 2,
+        "triangles": 1600,
+        "sourcePrimitives": 20,
+        "batchedPrimitives": 20,
+        "materials": 1
+      },
+      "after": {
+        "drawCalls": 10,
+        "triangles": 17080,
+        "sourcePrimitives": 89,
+        "batchedPrimitives": 89,
+        "materials": 7
+      }
+    },
+    {
+      "cardId": "33700664",
+      "name": "Trirealm Rift Territory - Valvols",
+      "camera": [
+        0,
+        19,
+        26
+      ],
+      "target": [
+        0,
+        9,
+        -19
+      ],
+      "fov": 58,
+      "before": {
+        "drawCalls": 5,
+        "triangles": 7128,
+        "sourcePrimitives": 29,
+        "batchedPrimitives": 29,
+        "materials": 4
+      },
+      "after": {
+        "drawCalls": 15,
+        "triangles": 17536,
+        "sourcePrimitives": 51,
+        "batchedPrimitives": 39,
+        "materials": 7
+      }
+    }
+  ],
+  "sourceImageCount": 14,
+  "browserErrors": [],
+  "baselineSource": "field-geometry-baseline-6c0232f.js",
+  "moduleSha256": "0d44bdf0379837717ea1be71599d5572edb9209565cf93bfc5ee5d3768f7c824",
+  "fidelity": "reference-informed geometry, adapted peripheral placement",
+  "references": [
+    {
+      "cardId": "4064256",
+      "sha256": "71adbf203cf3114fd16b9b6d30d45b78aaeca2594ffcecb2032e04d9175afe28"
+    },
+    {
+      "cardId": "295517",
+      "sha256": "2719b0357063569cd5ece0d630b1cf10b3689ec561b978aa520b629b89978404"
+    },
+    {
+      "cardId": "78082039",
+      "sha256": "c084783976e58b7e3f69b899c872e7ccadf9a236036ec1c15caccd0f76f2a4b2"
+    },
+    {
+      "cardId": "35956022",
+      "sha256": "d028d561cfcf381b88d9bcb3cdfcb91e64c891af38f64c75bf77f1e93e4e30ea"
+    },
+    {
+      "cardId": "28120197",
+      "sha256": "145c00efd3097158ebe29b5e993e1976a78c476512a403ef543ef3715e2c1ae4"
+    },
+    {
+      "cardId": "712559",
+      "sha256": "d65386857dfa7a4c9221c08dc4bbb227ac747d9a34151f80b0751f3a20cc3145"
+    },
+    {
+      "cardId": "15854426",
+      "sha256": "9eb943f839d56a0668b9b951c8c061a91a2d74add2618152ce11c81797b651dd"
+    },
+    {
+      "cardId": "37322745",
+      "sha256": "a1415d62b376aea21403cbfb8064d3648bfe0aafe80679abf13977e5b9f6250a"
+    },
+    {
+      "cardId": "70222318",
+      "sha256": "b3d67da49588b4116cd247ed2712537ac59cb9576b8b2e4faf510e2ab24d46af"
+    },
+    {
+      "cardId": "54306223",
+      "sha256": "0dad0ac4ce7bb66d78df9d26a138e356138784969af5f43477f009e8cc3bdafa"
+    },
+    {
+      "cardId": "7142724",
+      "sha256": "10a2033dcd39c46a8cb10e8d0d6fdcbe519fde4c6b4a708f37fdd07753d396db"
+    },
+    {
+      "cardId": "17000165",
+      "sha256": "af86c68a7d3748262657a46f2ffc7d80daa4b4d41f8eed9a68dc13e79281122b"
+    },
+    {
+      "cardId": "88288421",
+      "sha256": "f019ab9ca969ce859f5f50637119fb192c51188553b76935287813e63b37734b"
+    },
+    {
+      "cardId": "33700664",
+      "sha256": "518af93daa2c68bc56f1d44037815de6143baadce46f58bfa7875980fee81c52"
+    }
+  ]
+}

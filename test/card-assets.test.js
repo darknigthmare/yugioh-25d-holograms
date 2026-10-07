@@ -55,7 +55,7 @@ test('Inter and Orbitron load from licensed same-origin variable WOFF2 files wit
 });
 
 test('every locally supported card has valid same-origin card and cropped image assets', async () => {
-  assert.equal(localCards.length, 64);
+  assert.equal(localCards.length, 80);
 
   for (const card of localCards) {
     for (const publicUrl of [

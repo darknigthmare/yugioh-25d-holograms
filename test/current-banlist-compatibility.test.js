@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { MatchEngine } from '../src/core/MatchEngine.js';
+import { getDeckCopyIdentity } from '../src/core/CardNameRules.js';
 import { STARTER_CARDS, EXTRA_DECK_CARDS } from '../src/cards.js';
 
 const CURRENT_LIST = 'TCG_EU_2026_09_21';
@@ -68,7 +69,7 @@ for (const listId of [CURRENT_LIST, PREVIOUS_LIST]) {
       }
       const issue = match.validateDeck(cards, 'TCG_ADVANCED', listId).issues.find(entry => (
         entry.code === 'COPY_LIMIT_EXCEEDED'
-        && entry.cardId === String(template.id).replace(/^0+(?=\d)/, '')
+        && entry.cardId === getDeckCopyIdentity(template)
       ));
       assert.equal(issue?.allowed, expected, `${template.name_en}: verified limit`);
       assert.equal(issue?.found, expected + 1);

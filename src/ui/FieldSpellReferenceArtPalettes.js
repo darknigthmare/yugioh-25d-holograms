@@ -392,6 +392,13 @@ export const FIELD_SPELL_REFERENCE_ART_PALETTES = Object.freeze({
     "#eef6d8",
     "#b2a252"
   ],
+  "12845564": [
+    "#353652",
+    "#dd9e9b",
+    "#42659b",
+    "#f4d2c2",
+    "#42659b"
+  ],
   "12931061": [
     "#262b4f",
     "#507f93",
@@ -846,6 +853,13 @@ export const FIELD_SPELL_REFERENCE_ART_PALETTES = Object.freeze({
     "#4a4e4c",
     "#7bb271",
     "#0e071e"
+  ],
+  "33700664": [
+    "#0e1415",
+    "#475c73",
+    "#0e1415",
+    "#bacacf",
+    "#162a38"
   ],
   "33773528": [
     "#9457a7",
@@ -2169,6 +2183,13 @@ export const FIELD_SPELL_REFERENCE_ART_PALETTES = Object.freeze({
     "#551ca8",
     "#f8fbd7",
     "#0b045b"
+  ],
+  "88288421": [
+    "#414a3d",
+    "#516f5c",
+    "#b5ad8e",
+    "#c7ddbc",
+    "#30877a"
   ],
   "89264428": [
     "#0a0f26",

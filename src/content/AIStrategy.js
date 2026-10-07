@@ -1,4 +1,5 @@
-import { IMPLEMENTED_FIELD_SPELLS, getContinuousFieldSpellStatModifier } from '../core/ClassicFieldSpellEffects.js';
+import { IMPLEMENTED_FIELD_SPELLS, getContinuousFieldSpellStatModifier, getContinuousFieldSpellLevelModifier } from '../core/ClassicFieldSpellEffects.js';
+import { getFieldRuleMonsterRace, isSpellCardActivationPermitted, isTributeSummonPermitted, getNormalSummonTributeCount } from '../core/FieldRuleRuntime.js';
 import { hasResolvedFieldSpellActivation } from '../core/FieldSpellRules.js';
 import { calculateBattleOutcome } from '../core/BattleEngine.js';
 import { ADVANCED_FIELD_SPELL_IDS } from '../core/AdvancedFieldSpellRules.js';
@@ -188,7 +189,7 @@ export function chooseAIMonsterPosition(game, card, {
   }
   if (forSummon && !projectedFieldStats) {
     fieldSpells ||= publicFieldSources(game);
-    card = monsterProjection(card, [], fieldSpells, { fromHand: true });
+    card = monsterProjection(game, card, [], fieldSpells, { fromHand: true });
   }
   enemyEntries ||= monsters(game, ENEMY_SIDE);
   const attack = stat(card, 'atk');
@@ -219,7 +220,7 @@ export function chooseAINormalSummonPlan(game, legalPlans) {
   for (const plan of legalPlans || []) {
     const { card, tributes = [] } = plan;
     const position = chooseAIMonsterPosition(game, card, { forSummon: true });
-    const projected = monsterProjection(card, [], publicFieldSources(game), { fromHand: true, position });
+    const projected = monsterProjection(game, card, [], publicFieldSources(game), { fromHand: true, position });
     let score = cardValue(projected) / 12 + 50
       - tributes.reduce((sum, entry) => sum + cardValue(entry.card) / 12 + 55, 0)
       + flipValue(game, card)
@@ -244,8 +245,14 @@ export function chooseAINormalSummonPlan(game, legalPlans) {
   return chosen;
 }
 
-function fieldModifier(definition, card) {
-  return getContinuousFieldSpellStatModifier(card, definition);
+function fieldModifier(game, definition, card) {
+  const controllerId = definition?.controllerId;
+  const graveyard = ['player', 'opponent'].includes(controllerId)
+    ? game.field[`${controllerId}Graveyard`] || [] : [];
+  return getContinuousFieldSpellStatModifier(card, definition, {
+    controllerId, currentTurn: game.currentTurn,
+    graveyardMonsterCount: graveyard.filter(value => value.card_type === 'monster').length
+  });
 }
 
 function resolvedFieldProjection(card) {
@@ -261,27 +268,53 @@ function resolvedFieldProjection(card) {
   return projection;
 }
 
-function continuousModifier(fields, card) {
+function continuousModifier(game, fields, card) {
   return fields.reduce((total, field) => {
-    const modifier = fieldModifier(field, card);
+    const modifier = fieldModifier(game, field, card);
     return { atk: total.atk + modifier.atk, def: total.def + modifier.def };
   }, { atk: 0, def: 0 });
 }
 
-function monsterProjection(card, beforeFields, afterFields, {
+function monsterProjection(game, card, beforeFields, afterFields, {
   fromHand = false, position = card.position, reveal = false
 } = {}) {
   const projection = Object.create(card);
   projection.position = position;
+  if (fromHand) {
+    projection.location = 'monster_zone';
+    projection.controllerId = OWN_SIDE;
+  }
   if (reveal) projection.isSetFaceDown = false;
+  let level = card.baseLevel ?? card.level ?? card.getLevel?.() ?? 0;
+  let race = card.race;
+  let attribute = card.attribute;
+  for (const modifier of card.activeModifiers || []) {
+    const ownEffect = [String(card.uid), String(card.id)].includes(String(modifier.sourceCardId));
+    if (card.effectNegated && modifier.requiresSourceEffectActive && ownEffect) continue;
+    if (modifier.type === 'level') level += modifier.value;
+    if (modifier.type === 'race') race = modifier.value;
+    if (modifier.type === 'attribute') attribute = modifier.value;
+  }
+  projection.currentAttribute = attribute;
+  projection.currentRace = getFieldRuleMonsterRace(projection, afterFields, race);
+  const hasLevel = !['xyz', 'link'].includes(card.extra_type) && !/Xyz|Link/i.test(card.type || '');
+  if (!projection.isSetFaceDown && hasLevel) {
+    level += afterFields.reduce((sum, field) => sum + getContinuousFieldSpellLevelModifier(projection, field), 0);
+  }
+  projection.currentLevel = hasLevel ? Math.max(1, level) : 0;
+  projection.getLevel = () => projection.currentLevel;
   // Hand monsters and Set monsters do not already contain a Field Spell's
   // modifier. An existing face-up monster does, so remove its old modifiers.
   const previous = fromHand || card.isSetFaceDown ? { atk: 0, def: 0 }
-    : continuousModifier(beforeFields, card);
+    : continuousModifier(game, beforeFields, card);
   const next = projection.isSetFaceDown ? { atk: 0, def: 0 }
-    : continuousModifier(afterFields, projection);
-  const atk = stat(card, 'atk') + next.atk - previous.atk;
-  const def = card.getDef() === null ? null : stat(card, 'def') + next.def - previous.def;
+    : continuousModifier(game, afterFields, projection);
+  // Remove old bonuses before flooring at zero. A 200 DEF monster reduced to
+  // zero by Gaia Power must regain 200 DEF, rather than an invented 400 DEF.
+  const currentAtk = stat(card, 'atk') || Math.min(0, card.currentAtk || 0);
+  const currentDef = Number.isFinite(card.currentDef) ? card.currentDef : stat(card, 'def');
+  const atk = currentAtk + next.atk - previous.atk;
+  const def = card.getDef() === null ? null : currentDef + next.def - previous.def;
   // Resolve all modifier offsets before defining these getters: the shared
   // continuous helper itself checks getDef for Link monsters.
   projection.getAtk = () => Math.max(0, atk);
@@ -302,14 +335,13 @@ function incomingBattleDamage(game, ally, enemies, fields) {
     }).defenderDamage), 0);
 }
 
-/** Score public combat and the exact effects of the 17 implemented Field Spells. */
+/** Score public combat with the same explicit Field rules as the live engine. */
 export function scoreAIFieldSpell(game, card) {
   if (!enabled(game)) return undefined;
   const next = fieldDefinitions.get(passcode(card));
   // Unsupported/Sandbox artwork is not evidence of a gameplay advantage.
   if (!next) return 0;
   const current = game.getFieldSpellForSide?.(OWN_SIDE) || game.field.opponentFieldSpellZone;
-  const previous = activeFieldSource(game, current) ? fieldDefinitions.get(passcode(current)) : null;
   const beforeFields = publicFieldSources(game);
   const afterFields = [...beforeFields.filter(source => source !== current), resolvedFieldProjection(card)];
   const forcesAttack = next.id === ADVANCED_FIELD_SPELL_IDS.ANCIENT_FOREST;
@@ -317,22 +349,50 @@ export function scoreAIFieldSpell(game, card) {
     // A future reveal does not make an opposing Set card's identity public now.
     if (!own && entry.card.isSetFaceDown) return entry;
     const forced = forcesAttack && entry.card.position === 'defense';
-    return { ...entry, card: monsterProjection(entry.card, beforeFields, afterFields, {
+    return { ...entry, card: monsterProjection(game, entry.card, beforeFields, afterFields, {
       position: forced ? 'attack' : entry.card.position,
       reveal: forced
     }) };
   };
-  const delta = (monster, statistic) => fieldModifier(next, monster)[statistic]
-    - fieldModifier(previous, monster)[statistic];
   const battleStatistic = monster => monster.position === 'defense' ? 'def' : 'atk';
   const allies = monsters(game, OWN_SIDE).filter(entry => forcesAttack || !entry.card.isSetFaceDown);
   const enemies = visibleEnemies(game);
   const afterAllies = allies.map(entry => projectEntry(entry, true));
   const afterEnemies = enemies.map(entry => projectEntry(entry, false));
   const afterEnemyEntries = monsters(game, ENEMY_SIDE).map(entry => projectEntry(entry, false));
-  let score = allies.filter(entry => !entry.card.isSetFaceDown)
-    .reduce((sum, entry) => sum + delta(entry.card, battleStatistic(entry.card)), 0)
-    - enemies.reduce((sum, entry) => sum + delta(entry.card, battleStatistic(entry.card)), 0);
+  let score = allies.reduce((sum, entry, index) => sum + (entry.card.isSetFaceDown ? 0
+    : stat(afterAllies[index].card, battleStatistic(entry.card)) - stat(entry.card, battleStatistic(entry.card))), 0)
+    - enemies.reduce((sum, entry, index) => sum
+      + stat(afterEnemies[index].card, battleStatistic(entry.card)) - stat(entry.card, battleStatistic(entry.card)), 0);
+
+  // Activation restrictions are evaluated from public monsters only. The AI
+  // can estimate a spell lock without reading a card in the opponent's hand.
+  const permissionBoard = (own, enemy) => ({
+    field: { opponentMonsterZones: own.map(entry => entry.card),
+      playerMonsterZones: enemy.map(entry => entry.card), extraMonsterZones: [] },
+    fieldRules: game.fieldRules, currentTurn: game.currentTurn, turnCount: game.turnCount
+  });
+  const beforeBoard = permissionBoard(monsters(game, OWN_SIDE), monsters(game, ENEMY_SIDE));
+  const afterBoard = permissionBoard(afterAllies, afterEnemyEntries);
+  const ordinarySpell = { card_type: 'spell', race: 'Normal' };
+  const hasFutureOwnSpell = ownHand(game).some(candidate => candidate !== card && candidate.card_type === 'spell');
+  const restrictionValue = (board, fields) => {
+    const enemyBlocked = !isSpellCardActivationPermitted(board, ordinarySpell, ENEMY_SIDE, { sources: fields });
+    const ownBlocked = !isSpellCardActivationPermitted(board, ordinarySpell, OWN_SIDE, { sources: fields });
+    return (enemyBlocked ? 150 : 0) - (ownBlocked && hasFutureOwnSpell ? 200 : 0);
+  };
+  score += restrictionValue(afterBoard, afterFields) - restrictionValue(beforeBoard, beforeFields);
+  for (const candidate of ownHand(game).filter(value => value.card_type === 'monster'
+    && value.type === 'Normal Monster')) {
+    const canTributeUnder = fields => {
+      const projected = monsterProjection(game, candidate, [], fields, { fromHand: true });
+      return getNormalSummonTributeCount(projected) === 0
+        || isTributeSummonPermitted(game, candidate, OWN_SIDE, { sources: fields });
+    };
+    if (canTributeUnder(afterFields) !== canTributeUnder(beforeFields)) {
+      score += canTributeUnder(afterFields) ? 150 : -150;
+    }
+  }
 
   for (let index = 0; index < allies.length; index++) {
     const ally = allies[index].card;
@@ -353,12 +413,12 @@ export function scoreAIFieldSpell(game, card) {
   const futureGain = ownHand(game).filter(candidate => candidate.card_type === 'monster'
     && !candidate.belongsInExtraDeck && !candidate.isRitualMonster)
     .reduce((best, candidate) => {
-      const preview = monsterProjection(candidate, [], afterFields, { fromHand: true });
+      const preview = monsterProjection(game, candidate, [], afterFields, { fromHand: true });
       const position = chooseAIMonsterPosition(game, preview, {
         forSummon: true, enemyEntries: afterEnemyEntries, fieldSpells: afterFields, projectedFieldStats: true
       });
-      const before = monsterProjection(candidate, [], beforeFields, { fromHand: true, position });
-      const after = monsterProjection(candidate, [], afterFields, { fromHand: true, position });
+      const before = monsterProjection(game, candidate, [], beforeFields, { fromHand: true, position });
+      const after = monsterProjection(game, candidate, [], afterFields, { fromHand: true, position });
       const statistic = position === 'defense' ? 'def' : 'atk';
       const gain = stat(after, statistic) - stat(before, statistic)
         + bestPublicAttack(game, after, afterEnemies, afterFields)

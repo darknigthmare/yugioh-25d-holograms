@@ -5,12 +5,45 @@
  * exclusively keyed by the canonical numeric card ID/passcode.
  */
 
-export const EXPECTED_FIELD_SPELL_ENVIRONMENT_COUNT = 336;
+export const EXPECTED_FIELD_SPELL_ENVIRONMENT_COUNT = 339;
 
 export const FIELD_SPELL_ENVIRONMENT_SNAPSHOT = Object.freeze({
   apiVersion: 'v7',
-  retrievedOn: '2026-07-29',
-  scope: 'Spell Card / Field, TCG and OCG catalogue'
+  retrievedOn: '2026-10-07',
+  previousRetrievedOn: '2026-07-29',
+  apiCount: 342,
+  excludedProvisionalCount: 3,
+  scope: 'Canonical Spell Card / Field references, published and officially announced TCG/OCG cards'
+});
+
+// These nine-digit values are provider placeholders, not printed passcodes.
+// Their announced names/texts are archived in the refresh audit, not resolved
+// as canonical card identities or registered as playable scripts.
+export const FIELD_SPELL_EXCLUDED_PROVISIONAL_IDS = Object.freeze([
+  '101403071', '101403059', '101403056'
+]);
+
+export const FIELD_SPELL_CATALOGUE_ADDITIONS = Object.freeze({
+  '12845564': Object.freeze({
+    status: 'announced', formats: Object.freeze(['TCG']), releaseDate: '2026-10-09',
+    regionalReleaseDates: Object.freeze({ TCG_EU: '2026-10-08', TCG_NA: '2026-10-09' }),
+    regionalSourceUrls: Object.freeze({
+      TCG_EU: 'https://www.yugioh-card.com/eu/product/beyond-the-brave/',
+      TCG_NA: 'https://www.yugioh-card.com/en/products/betb/'
+    }),
+    konamiId: 23527,
+    sourceUrl: 'https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid=23527&request_locale=en'
+  }),
+  '33700664': Object.freeze({
+    status: 'released', formats: Object.freeze(['OCG']), releaseDate: '2026-09-05',
+    konamiId: 23563,
+    sourceUrl: 'https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid=23563&request_locale=ja'
+  }),
+  '88288421': Object.freeze({
+    status: 'released', formats: Object.freeze(['OCG']), releaseDate: '2026-09-26',
+    konamiId: 23580,
+    sourceUrl: 'https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid=23580&request_locale=ja'
+  })
 });
 
 export const FIELD_SPELL_ENVIRONMENT_IDS = Object.freeze([
@@ -53,6 +86,7 @@ const RAW_FIELD_SPELL_ENVIRONMENT_CATALOG = [
   ['34487429', 'Ancient City - Rainbow Ruins', 'city-fantasy'],
   ['87624166', 'Ancient Forest', 'forest'],
   ['17782288', 'Angelechy Problem', 'celestial-light'],
+  ['12845564', 'Angelechy Endgame Problem', 'celestial-light'],
   ['3875465', 'Appliancer Electrilyrical World', 'digital-cyber'],
   ['63883999', 'Archfiend Palabyrinth', 'castle-palace'],
   ['90764871', 'Archfiend Strategy', 'yami'],
@@ -60,7 +94,7 @@ const RAW_FIELD_SPELL_ENVIRONMENT_CATALOG = [
   ['5050644', 'Aroma Garden', 'sogen'],
   ['69296555', 'Array of Revealing Light', 'celestial-light'],
   ['74733322', 'Artmage Academic Arcane Arts Acropolis', 'city-fantasy'],
-  ['2906939', 'Ashtrashen - Gateway to the Worlds Beyond', 'cosmic-dimensional'],
+  ['2906939', 'Ashtrashen - Gate to the Worlds Beyond', 'cosmic-dimensional'],
   ['38391684', 'Atlantis, City of the Sea Dragon', 'umi'],
   ['59048135', 'Augmented Heraldry', 'generic'],
   ['975299', 'B.E.F. Zelos', 'mechanical-fortress'],
@@ -140,6 +174,7 @@ const RAW_FIELD_SPELL_ENVIRONMENT_CATALOG = [
   ['43236494', "Fairy Tale Prologue: Journey's Dawn", 'toon-world'],
   ['13301895', 'Fallen Paradise', 'yami'],
   ['65861210', 'Fallen Paradise of the Sacred Beasts', 'yami'],
+  ['88288421', 'Field Power Bonus', 'mountain'],
   ['26162470', 'Fandora, the Flying Fighting Furtress', 'mechanical-fortress'],
   ['64400161', 'Fandora, the Flying Furtress', 'mechanical-fortress'],
   ['66750703', 'Fire Fortress atop Liang Peak', 'mountain'],
@@ -283,7 +318,7 @@ const RAW_FIELD_SPELL_ENVIRONMENT_CATALOG = [
   ['32391631', 'Savage Colosseum', 'arena-stadium'],
   ['28388296', 'Scrap Factory', 'industrial-lab'],
   ['68462976', 'Secret Village of the Spellcasters', 'forest'],
-  ['39513225', "Seventh Barian's", 'cosmic-dimensional'],
+  ['39513225', "Barian's Seventh Untopia", 'cosmic-dimensional'],
   ['11102908', "Shien's Castle of Mist", 'castle-palace'],
   ['40005099', 'Shiranui Style Synthesis', 'graveyard'],
   ['4215636', 'Shrine of Mist Valley', 'temple-sanctuary'],
@@ -334,6 +369,7 @@ const RAW_FIELD_SPELL_ENVIRONMENT_CATALOG = [
   ['45383307', 'Triamid Cruiser', 'wasteland'],
   ['9989792', 'Triamid Fortress', 'wasteland'],
   ['72772445', 'Triamid Kingolem', 'wasteland'],
+  ['33700664', 'Trirealm Rift Territory - Valvols', 'cosmic-dimensional'],
   ['63492244', 'Trickstar Light Arena', 'theater-amusement'],
   ['35371948', 'Trickstar Light Stage', 'theater-amusement'],
   ['51208046', 'Trickstar Live Stage', 'theater-amusement'],

@@ -8,6 +8,8 @@
  * the playable corridor, so source fidelity is described per profile.
  * No renderer, DOM, card textures, random global state or animation is needed.
  */
+import { NATURE_CARD_LANDMARKS, NATURE_INSPECTED_ART_PROFILES, createNatureReferenceGeometry } from './FieldEnvironmentNatureReferences.js';
+import { ARCHITECTURAL_CARD_LANDMARKS, ARCHITECTURAL_INSPECTED_ART_PROFILES, createArchitecturalReferenceGeometry } from './FieldEnvironmentArchitecturalReferences.js';
 
 export const FIELD_ENVIRONMENT_GEOMETRY_FAMILIES = Object.freeze([
   'clearing', 'cave', 'generic', 'yami', 'umi', 'forest', 'mountain',
@@ -95,14 +97,16 @@ export const FIELD_ENVIRONMENT_CARD_LANDMARKS = Object.freeze({
   '33407125': 'labrynth-white-palace',
   '10080320': 'jurassic-caldera-grove',
   '16625614': 'dark-sanctuary-eye-castle',
-  '61583217': 'cynet-hexagonal-cosmos'
+  '61583217': 'cynet-hexagonal-cosmos',
+  ...NATURE_CARD_LANDMARKS,
+  ...ARCHITECTURAL_CARD_LANDMARKS
 });
 
 // Individually inspected, original cropped illustrations. These palettes and
 // motifs describe the source, not a title-derived/generative scene. The game
 // keeps illustrated creatures in the preserved background; peripheral props
 // reconstruct the surrounding scenery while leaving the duel corridor clear.
-export const FIELD_ENVIRONMENT_INSPECTED_ART_PROFILES = Object.freeze(Object.fromEntries([
+export const FIELD_ENVIRONMENT_INSPECTED_ART_PROFILES = Object.freeze({ ...Object.fromEntries([
   ['56594520', ['#70884f','#775137','#1e4e2b','#bce0ce','#744527','#dce7be'], ['massive branching oak', 'broad exposed roots', 'deep green crown']],
   ['82999629', ['#0879b8','#55796c','#1c75ae','#ecf8ff','#305442','#f5fbff'], ['stacked blue breakers', 'white crests', 'thin distant shoreline']],
   ['81777047', ['#fafafa','#161519','#121217','#ec353e','#222025','#ffffff'], ['white void', 'black diagonal rays', 'red edge streaks']],
@@ -132,7 +136,7 @@ export const FIELD_ENVIRONMENT_INSPECTED_ART_PROFILES = Object.freeze(Object.fro
   sourceUrl: `https://images.ygoprodeck.com/images/cards_cropped/${cardId}.jpg`,
   motifs: Object.freeze(motifs),
   palette: Object.freeze({ ground: colors[0], stone: colors[1], foliage: colors[2], accent: colors[3], wood: colors[4], foam: colors[5] })
-})])));
+})])), ...NATURE_INSPECTED_ART_PROFILES, ...ARCHITECTURAL_INSPECTED_ART_PROFILES });
 
 function canonicalCardId(value) {
   const id = String(value ?? '').trim();
@@ -441,7 +445,14 @@ export function createFieldEnvironmentGeometry(THREE, environment = {}) {
     };
   };
 
-  if (!profile.inspectedArt) switch (profile.family) {
+  const referenceContext = { THREE, profile, root, materials, material, geometry, add, block,
+    boulder, tree, tower, columns, portal, waterShelf, scatterRocks, beam, basin,
+    cloudBank, bareTree, curvedTube, curvedDeck, radialSurface,
+    box, rock, cone, cylinder, crown, ring, basinRim, random };
+  const hasReferenceGeometry = createNatureReferenceGeometry(referenceContext)
+    || createArchitecturalReferenceGeometry(referenceContext);
+
+  if (!hasReferenceGeometry && !profile.inspectedArt) switch (profile.family) {
     case 'clearing':
     case 'forest':
     case 'swamp': {
@@ -726,7 +737,7 @@ export function createFieldEnvironmentGeometry(THREE, environment = {}) {
 
   // Named landmarks translate the audited title/effect/illustration contract
   // into real volumes. They use the same peripheral footprint as the families.
-  switch (profile.landmark) {
+  if (!hasReferenceGeometry) switch (profile.landmark) {
     case 'gaia-ancient-oak': {
       add('gaia-colossal-oak-trunk', cylinder, materials.wood, [0, 7, -33], [2.7, 14, 2.7]);
       const bark = material('#4c311f');

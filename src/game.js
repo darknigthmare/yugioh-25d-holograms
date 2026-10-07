@@ -13,6 +13,8 @@ import { TurnEngine } from './core/TurnEngine.js';
 import { DefensiveEngine } from './core/DefensiveEngine.js';
 import { calculateBattleOutcome, snapshotBattleField, hasBattleFieldChanged } from './core/BattleEngine.js';
 import { ADVANCED_FIELD_SPELL_IDS, advancedFieldSpellId, getActiveAdvancedFieldSpells } from './core/AdvancedFieldSpellRules.js';
+import { FieldRuleRuntime, isSpellCardActivationPermitted, isTributeSummonPermitted,
+  getNormalSummonTributeCount } from './core/FieldRuleRuntime.js';
 import { CardScriptAPI } from './core/CardScriptAPI.js';
 import { TriggerEventEngine } from './core/TriggerEventEngine.js';
 import {
@@ -63,6 +65,7 @@ export class DuelGame {
     };
 
     this.triggers = new TriggerEventEngine();
+    this.fieldRules = new FieldRuleRuntime();
     this.field = new FieldState({ onTransition: event => this.handleFieldTransition(event) });
     this.chain = new ChainEngine();
     this.phases = new PhaseEngine();
@@ -84,6 +87,7 @@ export class DuelGame {
     this.cancelPendingAsyncWork();
     this._duelGeneration += 1;
     this.triggers.reset();
+    this.fieldRules.reset();
     this._flushingScriptedTriggersGeneration = null;
     this._fieldSpellActivationSequence = 0;
     this.playerLP = 8000;
@@ -914,9 +918,9 @@ export class DuelGame {
       this.log(`**${card.name}** ne peut pas être Invoqué Normalement. Utilisez sa procédure dédiée.`, 'danger');
       return false;
     }
-    let tributesRequired = 0;
-    if (card.level >= 7) tributesRequired = 2;
-    else if (card.level >= 5) tributesRequired = 1;
+    this.stabilizer.recalculateContinuousState(this);
+    const tributesRequired = getNormalSummonTributeCount(card);
+    if (tributesRequired && !isTributeSummonPermitted(this, card, 'player')) return false;
     if (
       tributesRequired === 0
       && this.field.getMonsterZone('player', zoneIndex) !== null
@@ -973,9 +977,9 @@ export class DuelGame {
       this.log(`**${card.name}** ne peut pas être Posé avec la procédure d'Invocation Normale.`, 'danger');
       return false;
     }
-    let tributesRequired = 0;
-    if (card.level >= 7) tributesRequired = 2;
-    else if (card.level >= 5) tributesRequired = 1;
+    this.stabilizer.recalculateContinuousState(this);
+    const tributesRequired = getNormalSummonTributeCount(card);
+    if (tributesRequired && !isTributeSummonPermitted(this, card, 'player')) return false;
     if (
       tributesRequired === 0
       && this.field.getMonsterZone('player', zoneIndex) !== null
@@ -1060,6 +1064,7 @@ export class DuelGame {
       'player',
       summonState.zoneIndex
     );
+    this.stabilizer.recalculateContinuousState(this);
     const preflightValid = (
       selectedSnapshots.length === summonState.tributesRequired
       && selectedSnapshots.every(Boolean)
@@ -1067,6 +1072,8 @@ export class DuelGame {
       && (!destinationOccupant || selectedCards.has(destinationOccupant))
       && this.playerHand.some(card => card.uid === summonState.handCardUid)
       && this.summons.canNormalSummon()
+      && getNormalSummonTributeCount(summonState.card) === summonState.tributesRequired
+      && isTributeSummonPermitted(this, summonState.card, 'player')
       && !this.winner
       && !this._duelEnded
     );
@@ -1082,6 +1089,7 @@ export class DuelGame {
       return false;
     }
 
+    this.stabilizer.recalculateContinuousState(this);
     const liveEntries = selectedSnapshots.map(snapshot => {
       const entry = this.getMonsterEntry('player', snapshot.reference);
       return (
@@ -1107,6 +1115,8 @@ export class DuelGame {
       || (liveDestinationOccupant && !liveSelectedCards.has(liveDestinationOccupant))
       || handCardIndex === -1
       || !this.summons.canNormalSummon()
+      || getNormalSummonTributeCount(summonState.card) !== summonState.tributesRequired
+      || !isTributeSummonPermitted(this, summonState.card, 'player')
       || this.winner
       || this._duelEnded
     ) {
@@ -2708,6 +2718,8 @@ export class DuelGame {
     const card = state.hand[cardIndex];
     if (!card?.isPendulumMonster || state.spells[zoneIndex] !== null
       || this.defense.isActionProhibited(side, 'ACTIVATE_EFFECT', card)) return false;
+    this.stabilizer.recalculateContinuousState(this);
+    if (!isSpellCardActivationPermitted(this, card, side, { pendulumScale: true })) return false;
     if (
       card.pendulumActivationRequiresEmptyMonsterField
       && this.getMonsterEntries(side).length > 0
@@ -3068,6 +3080,8 @@ export class DuelGame {
   canActivateSpell(card, side) {
     if (!card || card.card_type !== 'spell') return false;
     if (this.defense.isActionProhibited(side, 'ACTIVATE_EFFECT', card)) return false;
+    this.stabilizer.recalculateContinuousState(this);
+    if (!isSpellCardActivationPermitted(this, card, side)) return false;
     const state = this.getSideState(side);
     if (['05318639', '14087893'].includes(scriptCardId(card))) {
       return this.phases.battleStep !== 'damage_step'
@@ -3953,6 +3967,11 @@ export class DuelGame {
       return false;
     }
     let removed = false;
+    if (byCardEffect && card.location === 'hand') {
+      const hand = this.getSideState(side).hand;
+      const index = hand.indexOf(card);
+      if (index !== -1) { hand.splice(index, 1); removed = true; }
+    }
     if (card.location === 'monster_zone') {
       const current = this.field.getMonsterZone(side, card.zoneIndex);
       if (current === card) {
@@ -3982,6 +4001,7 @@ export class DuelGame {
     }
     if (!removed) return false;
     this.field.sendToGraveyard(card, card.ownerId);
+    if (byCardEffect) this.fieldRules.recordDestroyedCard(this, card);
     return true;
   }
 
@@ -4315,6 +4335,7 @@ export class DuelGame {
   }
 
   getAvailableActions(side = 'player') {
+    this.stabilizer.recalculateContinuousState(this);
     const state = this.getSideState(side);
     const canAct = this.canStartFieldSpellAction(side) && !this.isResolvingEffect;
     const canSpecialSummon = card => !this.defense.isActionProhibited(side, 'SPECIAL_SUMMON', card);
@@ -4333,7 +4354,8 @@ export class DuelGame {
     const normalSummonCardUids = canAct && this.summons.canNormalSummon() ? state.hand
       .filter(card => {
         if (!this.summons.canUseNormalSummonProcedure(card)) return false;
-        const tributeCount = card.level >= 7 ? 2 : card.level >= 5 ? 1 : 0;
+        const tributeCount = getNormalSummonTributeCount(card);
+        if (tributeCount && !isTributeSummonPermitted(this, card, side)) return false;
         return this.getTributeCombinations(this.getMonsterEntries(side), tributeCount)
           .some(tributes => state.monsters.some(occupant => (
             occupant === null || tributes.some(entry => entry.card === occupant)
@@ -5442,6 +5464,27 @@ export class DuelGame {
     const outcome = calculateBattleOutcome(attacker, defender, this.defense, {
       fieldSpells: getActiveAdvancedFieldSpells(this)
     });
+    // These are calculation-local results, never permanent monster stats.
+    // One effect represents overlapping copies; its source is the actual
+    // face-up Terrain selected by the calculation and its value is the total.
+    const emitBattleFieldRule = (type, change, participant = 'attacker', extra = {}) => {
+      if (!participantsValid()) return false;
+      const isAttacker = participant === 'attacker';
+      const entry = isAttacker || !defenderEntry ? attackerEntry : defenderEntry;
+      const targetSide = isAttacker || !defenderEntry ? attackingSide : defendingSide;
+      this.emitMonsterAnimation(type, targetSide, entry, {
+        card: change.sourceCard,
+        targetCard: isAttacker || !defender ? attacker : defender,
+        sourceSide: change.sourceCard.controllerId, sourceZoneType: 'field', sourceZoneIndex: 0,
+        sourceCount: change.sourceCards?.length || 1,
+        ...extra
+      });
+      return participantsValid();
+    };
+    if (outcome.shienReduction && !emitBattleFieldRule('shien-mist-reduction-cinematic', outcome.shienReduction,
+      'attacker', { reduction: outcome.shienReduction.reduction, calculatedAtk: outcome.shienReduction.calculatedAtk })) return false;
+    if (outcome.darkCityBoost && !emitBattleFieldRule('dark-city-boost-cinematic', outcome.darkCityBoost,
+      'attacker', { bonus: outcome.darkCityBoost.bonus, calculatedAtk: outcome.darkCityBoost.calculatedAtk })) return false;
     if (outcome.skyscraperBoost) {
       const boost = outcome.skyscraperBoost;
       this.emitMonsterAnimation('skyscraper-boost-cinematic', attackingSide, attackerEntry, {
@@ -5450,12 +5493,27 @@ export class DuelGame {
       });
     }
     for (const prevented of outcome.sanctuaryPreventions || []) {
+      if (!participantsValid()) return false;
       const isAttacker = prevented.participant === 'attacker';
       this.emitMonsterAnimation('sanctuary-protection-cinematic', isAttacker ? attackingSide : defendingSide,
         isAttacker ? attackerEntry : defenderEntry, {
           card: prevented.sourceCard, targetCard: prevented.targetCard, preventedDamage: prevented.preventedDamage,
           sourceSide: prevented.sourceCard.controllerId, sourceZoneType: 'field', sourceZoneIndex: 0
         });
+    }
+    if (outcome.canyonDamageModification) {
+      const change = outcome.canyonDamageModification;
+      if (!emitBattleFieldRule('canyon-damage-cinematic', change, change.participant, {
+        originalDamage: change.originalDamage, modifiedDamage: change.modifiedDamage,
+        damageSide: attackingSide, directAttack: false
+      })) return false;
+    }
+    for (const change of outcome.templeDamageChanges || []) {
+      if (!emitBattleFieldRule('temple-minds-eye-cinematic', change, change.participant, {
+        originalDamage: change.originalDamage, modifiedDamage: change.modifiedDamage,
+        damageSide: change.participant === 'attacker' ? attackingSide : defendingSide,
+        directAttack: !defender
+      })) return false;
     }
     if (!participantsValid()) return false;
     const damageContext = {
@@ -6332,6 +6390,7 @@ export class DuelGame {
     if (!this.summons.canNormalSummon() || this.winner || this._duelEnded) {
       return false;
     }
+    this.stabilizer.recalculateContinuousState(this);
     const candidates = this.opponentHand
       .filter(card => this.summons.canUseNormalSummonProcedure(card))
       .sort((a, b) => (
@@ -6344,7 +6403,8 @@ export class DuelGame {
     const legalPlans = [];
 
     for (const card of candidates) {
-      const tributesRequired = card.level >= 7 ? 2 : (card.level >= 5 ? 1 : 0);
+      const tributesRequired = getNormalSummonTributeCount(card);
+      if (tributesRequired && !isTributeSummonPermitted(this, card, 'opponent')) continue;
       if (entries.length < tributesRequired) continue;
       let combinations = this.getTributeCombinations(entries, tributesRequired);
       if (profile.preservesTributeValue) {
@@ -6399,6 +6459,7 @@ export class DuelGame {
     const handRuntimeInstanceId = plan.card.runtimeInstanceId;
 
     if (!(await this.delay(plan.tributes.length ? 800 : 200))) return false;
+    this.stabilizer.recalculateContinuousState(this);
     const liveEntries = snapshots.map(snapshot => {
       const entry = this.getMonsterEntry('opponent', snapshot.reference);
       return (
@@ -6416,6 +6477,8 @@ export class DuelGame {
       || plan.card.runtimeInstanceId !== handRuntimeInstanceId
       || (destinationOccupant && !liveTributeCards.has(destinationOccupant))
       || !this.summons.canNormalSummon()
+      || getNormalSummonTributeCount(plan.card) !== liveEntries.length
+      || (liveEntries.length > 0 && !isTributeSummonPermitted(this, plan.card, 'opponent'))
       || this.winner
       || this._duelEnded
     ) return false;
@@ -6560,6 +6623,7 @@ export class DuelGame {
     // AI Summon monster
     const monsters = this.opponentHand.filter(
       card => this.summons.canUseNormalSummonProcedure(card)
+        && (!getNormalSummonTributeCount(card) || isTributeSummonPermitted(this, card, 'opponent'))
     );
     const emptyZone = this.opponentMonsters.findIndex(m => m === null);
 
@@ -6573,9 +6637,7 @@ export class DuelGame {
       const currentCount = this.getMonsterEntries('opponent').length;
 
       for (const m of monsters) {
-        let tributesNeeded = 0;
-        if (m.level >= 7) tributesNeeded = 2;
-        else if (m.level >= 5) tributesNeeded = 1;
+        const tributesNeeded = getNormalSummonTributeCount(m);
 
         if (currentCount >= tributesNeeded) {
           card = m;
@@ -6605,7 +6667,7 @@ export class DuelGame {
       }
 
       if (!card) {
-        const lowLvl = monsters.filter(c => c.level <= 4);
+        const lowLvl = monsters.filter(c => getNormalSummonTributeCount(c) === 0);
         if (lowLvl.length > 0) {
           card = lowLvl[0];
           handIdx = this.opponentHand.findIndex(c => c.uid === card.uid);

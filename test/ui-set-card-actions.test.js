@@ -2,6 +2,11 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import vm from 'node:vm';
+import { DuelGame } from '../src/game.js';
+import { CardState } from '../src/core/CardState.js';
+import { STARTER_CARDS } from '../src/cards.js';
+import { markFieldSpellResolved } from '../src/core/FieldSpellRules.js';
+import { isSpellCardActivationPermitted } from '../src/core/FieldRuleRuntime.js';
 
 const mainSource = readFileSync(new URL('../main.js', import.meta.url), 'utf8');
 
@@ -12,6 +17,138 @@ function productionFunction(name) {
   assert.ok(match, `Missing production handler: ${name}`);
   return match[0];
 }
+
+function placementDialogFixture() {
+  const game = new DuelGame();
+  game.phases.currentTurnOwner = 'player';
+  game.phases.currentPhase = 'main1';
+  game.phases.turnCount = 2;
+  const button = () => {
+    const classes = new Set();
+    return { disabled: false, classList: {
+      add: name => classes.add(name), remove: name => classes.delete(name),
+      contains: name => classes.has(name)
+    } };
+  };
+  const context = vm.createContext({ game, isSpellCardActivationPermitted,
+    btnFaceUp: button(), btnFaceDown: button(), btnCancel: {},
+    actionModalTitle: {}, actionModalDescription: {} });
+  vm.runInContext(productionFunction('canActivateHandPendulumScale'), context);
+  vm.runInContext(productionFunction('prepareActionDialog'), context);
+  vm.runInContext(productionFunction('getActionDialogInitialFocus'), context);
+  let nextUid = 0;
+  function card(id, side = 'player') {
+    const printed = STARTER_CARDS.find(value => String(value.id) === String(id));
+    assert.ok(printed, `Missing supported card ${id}`);
+    const value = new CardState({ ...printed, uid: `dialog-${nextUid++}` });
+    value.ownerId = value.controllerId = side;
+    return value;
+  }
+  function hand(id) {
+    const value = card(id); value.location = 'hand'; game.playerHand.push(value); return value;
+  }
+  function field(id, side = 'opponent') {
+    const value = card(id, side); game.field.placeFieldSpell(side, value);
+    markFieldSpellResolved(value, 1); return value;
+  }
+  function monster(id, side = 'opponent', zone = 0) {
+    const value = card(id, side); game.field.setMonsterZone(side, zone, value); return value;
+  }
+  return { context, game, hand, field, monster };
+}
+
+for (const lock of ['village', 'forest', 'destroyed-forest']) {
+  test(`hand Field choices show the actual ${lock} lock while preserving Set and keyboard focus`, () => {
+    const fixture = placementDialogFixture();
+    const { context, game } = fixture;
+    if (lock === 'village') {
+      fixture.field('68462976'); fixture.monster('46986414');
+    } else {
+      const forest = fixture.field('78082039');
+      if (lock === 'destroyed-forest') {
+        game.fieldRules.recordDestroyedCard(game, forest);
+        game.removeCardFromCurrentZone(forest);
+      }
+    }
+    const umi = fixture.hand('22702055');
+    context.prepareActionDialog(umi, { zoneType: 'field', index: 0 });
+    assert.equal(game.canActivateSpell(umi, 'player'), false);
+    assert.equal(context.btnFaceUp.disabled, true);
+    assert.equal(context.btnFaceDown.disabled, false);
+    assert.equal(context.getActionDialogInitialFocus(), context.btnFaceDown);
+    assert.match(context.actionModalDescription.textContent, /poser face cachée/);
+  });
+}
+
+test('Village locks a Pendulum Spell activation and selects Cancel without exposing an impossible Set action', () => {
+  const fixture = placementDialogFixture();
+  fixture.field('68462976'); fixture.monster('46986414');
+  const scale = fixture.hand('94415058');
+  fixture.context.prepareActionDialog(scale, { zoneType: 'spell', index: 0, isPendulumScale: true });
+  assert.equal(fixture.context.btnFaceUp.disabled, true);
+  assert.equal(fixture.context.btnFaceDown.classList.contains('hidden'), true);
+  assert.equal(fixture.context.getActionDialogInitialFocus(), fixture.context.btnCancel);
+});
+
+test('a legal hand Pendulum scale stays available without a legal Normal Summon, including after the Normal Summon allowance is spent', () => {
+  const fixture = placementDialogFixture();
+  const scale = fixture.hand('94415058');
+  assert.equal(fixture.game.getAvailableActions().normalSummonCardUids.includes(scale.uid), false);
+  assert.equal(fixture.context.canActivateHandPendulumScale(scale), true);
+  fixture.context.prepareActionDialog(scale, { zoneType: 'spell', index: 0, isPendulumScale: true });
+  assert.equal(fixture.context.btnFaceUp.disabled, false);
+  fixture.game.summons.normalSummonAllowance.used = 1;
+  assert.equal(fixture.context.canActivateHandPendulumScale(scale), true);
+  const timegazer = fixture.hand('20409757');
+  assert.equal(fixture.context.canActivateHandPendulumScale(timegazer), true);
+  fixture.monster('23115241', 'player');
+  assert.equal(fixture.context.canActivateHandPendulumScale(scale), true);
+  assert.equal(fixture.context.canActivateHandPendulumScale(timegazer), false);
+});
+
+test('hand Pendulum availability follows actual Scale-zone occupancy and Village permissions', () => {
+  const fixture = placementDialogFixture();
+  const scale = fixture.hand('94415058');
+  const left = fixture.hand('22702055');
+  fixture.game.field.setSpellZone('player', 0, left);
+  assert.equal(fixture.context.canActivateHandPendulumScale(scale, 0), false);
+  assert.equal(fixture.context.canActivateHandPendulumScale(scale), true);
+  fixture.game.field.setSpellZone('player', 4, fixture.hand('50913601'));
+  assert.equal(fixture.context.canActivateHandPendulumScale(scale), false);
+  fixture.game.playerSpells[4] = null;
+  const village = fixture.field('68462976'); fixture.monster('46986414');
+  assert.equal(fixture.context.canActivateHandPendulumScale(scale), false);
+  fixture.game.removeCardFromCurrentZone(village);
+  assert.equal(fixture.context.canActivateHandPendulumScale(scale, 4), true);
+});
+
+test('Zombie World blocks both Tribute Summon and Tribute Set choices using the actual available actions', () => {
+  const fixture = placementDialogFixture();
+  fixture.field('4064256'); fixture.monster('23115241', 'player');
+  const monster = fixture.hand('43793530');
+  fixture.context.prepareActionDialog(monster, { zoneType: 'monster', index: 1 });
+  assert.equal(fixture.context.btnFaceUp.disabled, true);
+  assert.equal(fixture.context.btnFaceDown.disabled, true);
+  assert.equal(fixture.context.getActionDialogInitialFocus(), fixture.context.btnCancel);
+});
+
+test('an allowed Ocean-reduced normal procedure resets both buttons after a denied action', () => {
+  const fixture = placementDialogFixture();
+  const zombieWorld = fixture.field('4064256');
+  fixture.monster('23115241', 'player');
+  const monster = fixture.hand('43793530');
+  fixture.context.prepareActionDialog(monster, { zoneType: 'monster', index: 1 });
+  assert.equal(fixture.context.btnFaceDown.disabled, true);
+  fixture.game.removeCardFromCurrentZone(zombieWorld);
+  fixture.field('295517');
+  fixture.context.prepareActionDialog(monster, { zoneType: 'monster', index: 1 });
+  assert.equal(monster.getLevel(), 4);
+  assert.equal(fixture.context.btnFaceUp.disabled, false);
+  assert.equal(fixture.context.btnFaceDown.disabled, false);
+  assert.equal(fixture.context.getActionDialogInitialFocus(), fixture.context.btnFaceUp);
+  fixture.context.prepareActionDialog(fixture.hand('295517'), { zoneType: 'field', index: 0 });
+  assert.equal(fixture.context.btnFaceUp.disabled, false);
+});
 
 function zone(side, type, { visible = false, occupied = true, classes = [] } = {}) {
   const attributes = new Map([['aria-label', `${side} ${type}`]]);
@@ -174,6 +311,7 @@ function setCardMenuFixture(zoneType, onDecision, fields = {}) {
     isResolvingAction: false, pendingSummon: null, pendingExtraSummon: null, isDiscarding: false,
     chain: { chainStatus: 'idle' }, playerFieldSpell: zoneType === 'field' ? card : null,
     playerSpells: zoneType === 'spell' ? [card] : [],
+    canActivateSpell: () => true,
     activateSetFieldSpell: side => calls.push(['field', side]),
     activateSetSpellTrap: index => calls.push(['spell', index])
   };
@@ -217,6 +355,24 @@ test('Set Traps route to their effect response windows instead of activating fre
   assert.equal(fixture.requests.length, 0);
   assert.deepEqual(fixture.calls, []);
 });
+
+for (const zoneType of ['spell', 'field']) {
+  test(`a locked Set ${zoneType} never offers activation and revalidates a changing restriction`, async () => {
+    const locked = setCardMenuFixture(zoneType);
+    locked.game.canActivateSpell = () => false;
+    await locked.context.openSetCardActionMenu(zoneType, 0);
+    assert.equal(locked.requests.length, 0);
+    assert.deepEqual(locked.calls, []);
+
+    const changed = setCardMenuFixture(zoneType, ({ game }) => {
+      game.canActivateSpell = () => false;
+      return 'activate';
+    });
+    await changed.context.openSetCardActionMenu(zoneType, 0);
+    assert.equal(changed.requests.length, 1);
+    assert.deepEqual(changed.calls, []);
+  });
+}
 
 test('a required single-target choice hides cancellation and resolves the chosen identity', async () => {
   const options = [];

@@ -1,5 +1,6 @@
-import { hasResolvedFieldSpellActivation } from './FieldSpellRules.js';
-import { getClassicFieldSpellModifier } from './ClassicFieldSpellEffects.js';
+import { isAdvancedFieldSourceActive } from './AdvancedFieldSpellRules.js';
+import { getClassicFieldSpellModifier, getContinuousFieldSpellLevelModifier } from './ClassicFieldSpellEffects.js';
+import { getFieldRuleMonsterRace } from './FieldRuleRuntime.js';
 
 /**
  * GameStateStabilizer implements TCG Game State Check and Rule Cleanup loops:
@@ -97,14 +98,14 @@ export class GameStateStabilizer {
       parts.push([
         m.uid, m.runtimeInstanceId, m.getAtk(), m.getDef(), m.getLevel(),
         m.location, m.zoneIndex, m.controllerId, m.position, m.isSetFaceDown,
-        m.effectNegated, JSON.stringify(m.counters || {})
+        m.effectNegated, m.currentRace, m.currentAttribute, JSON.stringify(m.counters || {})
       ].join(':'));
     });
     for (const side of ['player', 'opponent']) {
       for (const key of ['Graveyard', 'Banished', 'FaceUpExtraDeck']) {
-        parts.push((game.field[`${side}${key}`] || []).map(card => card.uid).join(','));
+        parts.push((game.field[`${side}${key}`] || []).map(card => [card.uid, card.currentRace, card.currentLevel].join(':')).join(','));
       }
-      parts.push((game[`${side}Hand`] || []).map(card => card.uid).join(','));
+      parts.push((game[`${side}Hand`] || []).map(card => [card.uid, card.currentLevel, card.currentRace].join(':')).join(','));
     }
 
     return parts.join("|");
@@ -131,12 +132,36 @@ export class GameStateStabilizer {
       });
     });
 
+    const handMonsters = [game.playerHand || [], game.opponentHand || []].flat()
+      .filter(card => card.card_type === 'monster');
+    const graveMonsters = [game.field.playerGraveyard || [], game.field.opponentGraveyard || []].flat()
+      .filter(card => card.card_type === 'monster');
+    [...handMonsters, ...graveMonsters].forEach(monster => {
+      monster.currentLevel = monster.baseLevel;
+      monster.currentRace = monster.race;
+      monster.currentAttribute = monster.attribute;
+    });
+    handMonsters.forEach(monster => (monster.activeModifiers || []).forEach(modifier => {
+      if (modifier.type === 'level') monster.currentLevel += modifier.value;
+      if (modifier.type === 'attribute') monster.currentAttribute = modifier.value;
+      if (modifier.type === 'race') monster.currentRace = modifier.value;
+    }));
+
     const fieldSpells = [game.field.playerFieldSpellZone, game.field.opponentFieldSpellZone]
-      .filter(card => card && !card.isSetFaceDown && !card.effectNegated
-        && hasResolvedFieldSpellActivation(card));
+      .filter(card => isAdvancedFieldSourceActive(card, game.defense));
+    // Types and Levels determine subsequent stat bonuses: Zombie World can
+    // remove a Forest/Jurassic bonus, and Ocean changes Saber Vault/Wetlands.
+    [...monsters.filter(monster => !monster.isSetFaceDown), ...graveMonsters].forEach(monster => {
+      monster.currentRace = getFieldRuleMonsterRace(monster, fieldSpells, monster.currentRace);
+    });
+    [...monsters.filter(monster => !monster.isSetFaceDown), ...handMonsters].forEach(monster => {
+      fieldSpells.forEach(source => {
+        monster.currentLevel += getContinuousFieldSpellLevelModifier(monster, source);
+      });
+    });
     monsters.filter(monster => !monster.isSetFaceDown).forEach(monster => {
       fieldSpells.forEach(fieldSpell => {
-        const modifier = getClassicFieldSpellModifier(monster, fieldSpell);
+        const modifier = getClassicFieldSpellModifier(monster, fieldSpell, game);
         if (!modifier) return;
         monster.currentAtk += modifier.atk;
         monster.currentDef += modifier.def;

@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto';
 import { readFile, readdir } from 'node:fs/promises';
 import { FIELD_SPELL_REFERENCE_ART_SNAPSHOT as snapshot } from '../src/ui/FieldSpellReferenceArtSnapshot.js';
 import { FIELD_SPELL_REFERENCE_ART_MANIFEST } from '../src/ui/FieldSpellReferenceArtManifest.js';
+import { EXPECTED_FIELD_SPELL_ENVIRONMENT_COUNT } from '../src/ui/FieldSpellEnvironmentCatalog.js';
 import { getFieldEnvironmentForCardId } from '../src/ui/FieldEnvironmentRegistry.js';
 
 function jpegDimensions(buffer) {
@@ -29,8 +30,8 @@ const files = await readdir(new URL('environments/field-art/', publicRoot));
 const archivedById = new Map(snapshot.entries.map(entry => [entry.cardId, entry]));
 const hashes = new Set();
 assert.equal(snapshot.sourceBytesPreserved, true);
-assert.equal(archivedById.size, 336);
-assert.equal(FIELD_SPELL_REFERENCE_ART_MANIFEST.length, 336);
+assert.equal(archivedById.size, EXPECTED_FIELD_SPELL_ENVIRONMENT_COUNT);
+assert.equal(FIELD_SPELL_REFERENCE_ART_MANIFEST.length, EXPECTED_FIELD_SPELL_ENVIRONMENT_COUNT);
 assert.deepEqual(new Set(files), new Set(snapshot.entries.map(entry => `${entry.cardId}.jpg`)));
 let totalBytes = 0;
 for (const reference of FIELD_SPELL_REFERENCE_ART_MANIFEST) {
@@ -53,5 +54,5 @@ for (const reference of FIELD_SPELL_REFERENCE_ART_MANIFEST) {
   hashes.add(hash);
   totalBytes += buffer.length;
 }
-console.log(`Field reference art: ${hashes.size}/336 unchanged JPEG illustrations, ${(totalBytes / 1e6).toFixed(2)} MB.`);
+console.log(`Field reference art: ${hashes.size}/${EXPECTED_FIELD_SPELL_ENVIRONMENT_COUNT} unchanged JPEG illustrations, ${(totalBytes / 1e6).toFixed(2)} MB.`);
 console.log('All source illustrations select their own local file, preserve aspect ratio and use no color filter.');

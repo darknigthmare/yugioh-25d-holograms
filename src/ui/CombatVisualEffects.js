@@ -203,6 +203,109 @@ export function createCombatVisualEffect(options = {}) {
         leaf.rotation.y = progress * 2 + angle;
       });
     }
+  } else if (profile.shape === 'temple-eye') {
+    const center = travel.clone().add(new THREE.Vector3(0, 1.15, 0));
+    for (const side of [-1, 1]) {
+      const lid = circle(`temple-eye-lid-${side}`, 0.72, center, false, brightMaterial, Math.PI);
+      lid.rotation.z = side < 0 ? Math.PI : 0;
+      lid.scale.set(1.25, 0.48, 1);
+    }
+    const iris = mesh('temple-eye-iris', new THREE.IcosahedronGeometry(0.18, 1), material);
+    iris.position.copy(center);
+    for (let i = 0; i < 4; i += 1) {
+      const angle = Math.PI / 4 + i * Math.PI / 2;
+      const column = mesh(`temple-gilded-column-${i}`, new THREE.CylinderGeometry(0.085, 0.12, 1.35, 6), dimMaterial);
+      column.position.copy(travel).add(new THREE.Vector3(Math.cos(angle) * 0.92, 0.7, Math.sin(angle) * 0.92));
+      const crown = mesh(`temple-column-crown-${i}`, new THREE.BoxGeometry(0.25, 0.11, 0.25), brightMaterial);
+      crown.position.copy(column.position).add(new THREE.Vector3(0, 0.73, 0));
+    }
+    const altarMaterial = material.clone();
+    altarMaterial.color.set(profile.accent);
+    const altar = mesh('temple-red-altar', new THREE.BoxGeometry(1.5, 0.07, 1.25), altarMaterial);
+    altar.position.copy(travel);
+    const seal = circle('temple-golden-seal', 1.08, travel, true, material);
+    animated.push(progress => {
+      const breathe = Math.sin(progress * Math.PI);
+      iris.scale.setScalar(0.6 + breathe * 0.5);
+      seal.scale.setScalar(0.75 + breathe * 0.3);
+      altarMaterial.opacity = breathe * 0.45;
+    });
+  } else if (profile.shape === 'canyon-echo') {
+    for (const side of [-1, 1]) {
+      for (let tier = 0; tier < 3; tier += 1) {
+        const ledge = mesh(`canyon-sandstone-ledge-${side}-${tier}`, new THREE.BoxGeometry(0.34 + tier * 0.11, 0.24, 1.32 - tier * 0.15), tier % 2 ? dimMaterial : material);
+        ledge.position.copy(travel).add(new THREE.Vector3(side * (0.88 + tier * 0.04), tier * 0.25 + 0.12, 0));
+        animated.push(progress => {
+          ledge.scale.y = 0.3 + Math.sin(progress * Math.PI) * 0.7;
+          ledge.position.x = travel.x + side * (1.05 - Math.sin(progress * Math.PI) * 0.17 + tier * 0.04);
+        });
+      }
+    }
+    const skyMaterial = material.clone();
+    skyMaterial.color.set(profile.accent);
+    for (let i = 0; i < 2; i += 1) {
+      const echo = circle(`canyon-double-impact-${i}`, 0.5, travel, true, i ? brightMaterial : skyMaterial);
+      animated.push(progress => {
+        const pulse = Math.max(0, Math.min(1, (progress - 0.12 - i * 0.2) / 0.65));
+        echo.visible = progress > 0.12 + i * 0.2;
+        echo.scale.setScalar(0.5 + pulse * 1.8);
+        skyMaterial.opacity = Math.sin(progress * Math.PI) * 0.65;
+      });
+    }
+  } else if (profile.shape === 'shien-mist') {
+    const center = travel.clone().add(new THREE.Vector3(0, 0.7, 0));
+    for (let i = 0; i < 3; i += 1) {
+      const mist = circle(`shien-purple-mist-${i}`, 0.74 + i * 0.13, center, true, i % 2 ? material : dimMaterial, Math.PI * 1.55);
+      animated.push(progress => {
+        mist.position.y = travel.y + 0.2 + i * 0.4 - progress * 0.22;
+        mist.rotation.z = i * 2.2 - progress * Math.PI;
+        mist.scale.setScalar(1.15 - Math.sin(progress * Math.PI) * 0.2);
+      });
+    }
+    // Two curved roof outlines evoke Shien's tiered castle, rather than a
+    // generic barrier; descending points make the loss of ATK readable.
+    for (let tier = 0; tier < 2; tier += 1) {
+      const roofPath = new THREE.CatmullRomCurve3([
+        new THREE.Vector3(-0.86 + tier * 0.1, 0.18, 0), new THREE.Vector3(-0.63 + tier * 0.1, 0, 0),
+        new THREE.Vector3(0, 0.25, 0), new THREE.Vector3(0.63 - tier * 0.1, 0, 0),
+        new THREE.Vector3(0.86 - tier * 0.1, 0.18, 0)
+      ]);
+      const roof = mesh(`shien-curved-castle-roof-${tier}`, new THREE.TubeGeometry(roofPath, 16, 0.035, 4, false), brightMaterial);
+      roof.position.copy(travel).add(new THREE.Vector3(0, 1.1 + tier * 0.43, 0));
+    }
+    for (const side of [-1, 1]) {
+      const descent = mesh(`shien-atk-descent-${side}`, new THREE.ConeGeometry(0.12, 0.28, 4), material);
+      descent.rotation.z = Math.PI;
+      descent.position.copy(travel).add(new THREE.Vector3(side * 0.7, 1.1, 0));
+      animated.push(progress => { descent.position.y = travel.y + 1.2 - progress * 0.7; });
+    }
+  } else if (profile.shape === 'dark-city') {
+    const skylineMaterial = material.clone();
+    skylineMaterial.color.set(profile.accent);
+    skylineMaterial.blending = THREE.NormalBlending;
+    for (let i = 0; i < 4; i += 1) {
+      const height = 0.75 + i % 3 * 0.26;
+      const tower = mesh(`dark-city-shadow-tower-${i}`, new THREE.BoxGeometry(0.29, height, 0.24), skylineMaterial);
+      tower.position.copy(travel).add(new THREE.Vector3((i - 1.5) * 0.42, height / 2, -0.42));
+      for (let floor = 0; floor < 2; floor += 1) {
+        const window = mesh(`dark-city-golden-window-${i}-${floor}`, new THREE.BoxGeometry(0.075, 0.18, 0.02), brightMaterial);
+        window.position.copy(tower.position).add(new THREE.Vector3(0, floor * 0.26 - 0.12, 0.135));
+        animated.push(progress => { window.scale.y = 0.6 + Math.sin(progress * Math.PI) * 0.5; });
+      }
+    }
+    const moon = circle('dark-city-yellow-moon', 0.35, travel.clone().add(new THREE.Vector3(0, 1.32, -0.42)), false, material);
+    for (const side of [-1, 1]) {
+      const beam = mesh(`dark-city-golden-ascent-${side}`, new THREE.CylinderGeometry(0.035, 0.055, 1.2, 5), dimMaterial);
+      beam.position.copy(travel).add(new THREE.Vector3(side * 0.86, 0.65, 0));
+      const arrow = mesh(`dark-city-atk-ascent-${side}`, new THREE.ConeGeometry(0.13, 0.27, 4), brightMaterial);
+      arrow.position.copy(beam.position);
+      animated.push(progress => { arrow.position.y = travel.y + 0.4 + progress * 1.1; });
+    }
+    animated.push(progress => {
+      const breathe = Math.sin(progress * Math.PI);
+      moon.scale.setScalar(0.8 + breathe * 0.25);
+      skylineMaterial.opacity = breathe * 0.6;
+    });
   } else if (profile.shape === 'pincer') {
     for (const side of [-1, 1]) {
       const pincer = circle(`pincer-strike-${side}`, 0.7, travel, false, brightMaterial, Math.PI * 0.82);
@@ -288,6 +391,50 @@ export function createCombatVisualEffect(options = {}) {
     }
   }
 
+  // A tiny instanced seven-segment label adds the actual rule value without
+  // fonts, canvas textures or dozens of individual text draw calls.
+  const valueLabels = {
+    'temple-minds-eye': { kind: 'damage-fixed', prefix: '', value: 1000 },
+    'canyon-damage': { kind: 'damage-double', prefix: 'x', value: 2 },
+    'shien-mist-reduction': { kind: 'atk-decrease', prefix: '-', value: 500 },
+    'dark-city-boost': { kind: 'atk-increase', prefix: '+', value: 1000 }
+  };
+  const labelRule = valueLabels[profile.id];
+  if (labelRule) {
+    const proposed = options.ruleChange?.kind === labelRule.kind ? options.ruleChange.value : labelRule.value;
+    const amount = Number.isInteger(proposed) && proposed > 0 && proposed <= 1000000 ? proposed : labelRule.value;
+    const text = `${labelRule.prefix}${amount}`;
+    const segments = {
+      a: [0, .5, .42, .075, 0], b: [.25, .25, .075, .4, 0], c: [.25, -.25, .075, .4, 0],
+      d: [0, -.5, .42, .075, 0], e: [-.25, -.25, .075, .4, 0], f: [-.25, .25, .075, .4, 0],
+      g: [0, 0, .42, .075, 0], h: [0, 0, .075, .42, 0],
+      i: [0, 0, .45, .075, Math.PI / 4], j: [0, 0, .45, .075, -Math.PI / 4]
+    };
+    const glyphs = { 0: 'abcdef', 1: 'bc', 2: 'abged', 3: 'abgcd', 4: 'fgbc',
+      5: 'afgcd', 6: 'afgecd', 7: 'abc', 8: 'abcdefg', 9: 'abfgcd', '+': 'gh', '-': 'g', x: 'ij' };
+    const strokes = [...text].flatMap((character, index) => [...glyphs[character]].map(segment => ({ index, segment })));
+    const label = new THREE.InstancedMesh(new THREE.BoxGeometry(1, 1, .075), brightMaterial, strokes.length);
+    label.name = `${profile.id}-value-label`;
+    label.userData.text = text;
+    label.position.copy(travel).add(new THREE.Vector3(0, 2.1, .1));
+    const transform = new THREE.Object3D();
+    strokes.forEach(({ index, segment }, instance) => {
+      const [x, y, width, height, angle] = segments[segment];
+      transform.position.set((index - (text.length - 1) / 2) * .72 + x, y, 0);
+      transform.scale.set(width, height, 1);
+      transform.rotation.z = angle;
+      transform.updateMatrix();
+      label.setMatrixAt(instance, transform.matrix);
+    });
+    label.instanceMatrix.needsUpdate = true;
+    label.scale.setScalar(.34);
+    group.add(label);
+    animated.push(progress => {
+      label.scale.setScalar(.27 + Math.sin(progress * Math.PI) * .07);
+      label.position.y = travel.y + 2.1 + Math.sin(progress * Math.PI) * .15;
+    });
+  }
+
   const sparkCount = profile.shape === 'shatter' ? 44 : 24;
   const sparkPositions = new Float32Array(sparkCount * 3);
   const sparkGeometry = new THREE.BufferGeometry();
@@ -330,6 +477,9 @@ export function createCombatVisualEffect(options = {}) {
     group.traverse(object => {
       if (object.geometry) geometries.add(object.geometry);
       if (object.material) usedMaterials.add(object.material);
+      // Instanced labels also own GPU instance buffers; geometry disposal
+      // alone does not release the renderer's per-object allocation.
+      if (object.isInstancedMesh) object.dispose();
     });
     geometries.forEach(geometry => geometry.dispose());
     usedMaterials.forEach(value => value.dispose());

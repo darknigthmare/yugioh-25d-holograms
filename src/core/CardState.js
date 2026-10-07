@@ -1,4 +1,5 @@
 import { getCardCroppedImageUrl, getCardImageUrl } from '../cards.js';
+import { getPermanentCardName } from './CardNameRules.js';
 import {
   clearFieldSpellActivation,
   isFieldSpellCard
@@ -34,6 +35,7 @@ export class CardState {
     this.id = baseCard.id;
     this.name = baseCard.name;
     this.name_en = baseCard.name_en;
+    this.archetype = baseCard.archetype || null;
     this.desc = baseCard.rulesText || baseCard.desc;
     this.card_type = baseCard.card_type; // 'monster', 'spell', 'trap'
     this.type = baseCard.type; // 'Normal Monster', 'Effect Monster', 'Fusion Monster', 'Synchro Monster', 'Spell Card', 'Trap Card'
@@ -354,6 +356,10 @@ export class CardState {
   getLevel() {
     if (this.type && /Xyz|Link/i.test(this.type)) return 0;
     return Math.max(1, this.currentLevel);
+  }
+
+  getName(locale = 'en') {
+    return getPermanentCardName(this, locale);
   }
 
   getRank() {

@@ -1,3 +1,5 @@
+import { getDeckCopyIdentity } from './CardNameRules.js';
+
 const DEFAULT_FORMAT_ID = 'TCG_ADVANCED';
 const DEFAULT_BANLIST_ID = 'TCG_EU_2026_09_21';
 const SERIALIZATION_VERSION = 2;
@@ -160,8 +162,8 @@ export class MatchEngine {
     const cardById = new Map();
 
     allCards.forEach(card => {
-      const id = this._cardId(card);
-      if (id === null) return;
+      if (this._cardId(card) === null) return;
+      const id = getDeckCopyIdentity(card);
       counts.set(id, (counts.get(id) || 0) + 1);
       if (!cardById.has(id)) cardById.set(id, card);
     });

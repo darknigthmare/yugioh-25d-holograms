@@ -7,10 +7,10 @@
  */
 
 export const FIELD_SPELL_CARD_DATA_SNAPSHOT_METADATA = Object.freeze({
-  retrievedOn: '2026-07-29',
-  correctedOn: '2026-10-01',
-  sourceUrl: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?type=Spell%20Card&race=Field',
-  expectedCount: 336
+  retrievedOn: '2026-10-07',
+  previousRetrievedOn: '2026-07-29',
+  sourceUrl: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?type=Spell%20Card&race=Field&misc=yes',
+  expectedCount: 339
 });
 
 const snapshot = {
@@ -110,9 +110,9 @@ const snapshot = {
     "effectText": "(This card's name is always treated as \"Umi\".)\r\nYou cannot Normal or Special Summon Effect Monsters the turn you activate either of this card's effects (even if this card leaves the field). Once per turn, if you Normal or Special Summon exactly 1 Normal Monster (and no other cards): Add 1 \"Phantasm Spiral\" card from your Deck to your hand. If your opponent activates a card or effect (except during the Damage Step), and you control no Tokens: You can Special Summon 1 \"Phantasm Spiral Token\" (Wyrm-Type/WATER/Level 8/ATK 2000/DEF 2000)."
   },
   "2906939": {
-    "name": "Ashtrashen - Gateway to the Worlds Beyond",
+    "name": "Ashtrashen - Gate to the Worlds Beyond",
     "archetype": "Ashtra",
-    "effectText": "You can target any number of face-down cards you control; add \"Ashtra\" cards from your Deck to your hand with different names from each other, except Field Spells, equal to the number of those targeted cards that are still face-down, then send those face-down cards to the GY. If a card(s) becomes Set on the field, while you control an \"Ashtra\" monster and a face-down card (except during the Damage Step): You can target 1 card on the field; return it to the hand. You can only use each effect of \"Ashtrashen - Gateway to the Worlds Beyond\" once per turn."
+    "effectText": "You can target any number of face-down cards you control; add \"Ashtra\" cards from your Deck to your hand, except Field Spells, each with a different name, equal to the number of those face-down cards, then send those face-down cards to the GY. If you control an \"Ashtra\" monster and a face-down card, and either player Sets a card: You can target 1 card on the field; return it to the hand. You can only use each effect of \"Ashtrashen - Gate to the Worlds Beyond\" once per turn."
   },
   "3055018": {
     "name": "Obsidim, the Ashened City",
@@ -167,7 +167,7 @@ const snapshot = {
   "4663194": {
     "name": "Dark City at Midnight",
     "archetype": null,
-    "effectText": "Each time you Special Summon a Level 8 or higher \"Destiny HERO\" monster(s): All Warrior monsters you currently control gain 300 ATK. You can only use each of the following effects of \"Dark City at Midnight\" once per turn. During your Main Phase, if this card was activated this turn: You can add 1 \"Destiny HERO\" monster, or 1 card that mentions a \"Destiny HERO\" monster's card name, from your Deck to your hand. If this card is destroyed: You can Special Summon 1 \"Destiny HERO\" monster from your Deck (this is treated as a Special Summon with \"Clock Tower Prison\")."
+    "effectText": "Each time you Special Summon a Level 8 or higher \"Destiny HERO\" monster(s): Warrior monsters you control gain 300 ATK. You can only use each of the following effects of \"Dark City at Midnight\" once per turn. During your Main Phase, if this card was activated this turn: You can add 1 \"Destiny HERO\" monster or 1 card that mentions a \"Destiny HERO\" monster by name from your Deck to your hand. If this card is destroyed: You can Special Summon 1 \"Destiny HERO\" monster from your Deck (this is treated as a Special Summon with \"Clock Tower Prison\")."
   },
   "4740489": {
     "name": "Magnetic Field",
@@ -293,6 +293,11 @@ const snapshot = {
     "name": "Traptrip Garden",
     "archetype": "Traptrix",
     "effectText": "During your Main Phase, you can Normal Summon 1 \"Traptrix\" monster, in addition to your Normal Summon/Set. (You can only gain this effect once per turn.) The first time each Insect or Plant monster you control would be destroyed by battle each turn, it is not destroyed. You can banish 1 monster you control; Special Summon 1 \"Traptrix\" monster from your hand or GY. You can only use this effect of \"Traptrip Garden\" once per turn."
+  },
+  "12845564": {
+    "name": "Angelechy Endgame Problem",
+    "archetype": "Angelechy",
+    "effectText": "This card gains the following effects, based on the number of \"Angelechy\" Monster Cards in your Spell & Trap Zone.\r\n● 1+: Once per turn, during your opponent's Standby Phase: You can draw 1 card.\r\n● 2+: When your opponent would Special Summon a monster(s), you choose the zone(s) to place it.\r\n● 3+: Once per turn, you can activate 1 \"Angelechy\" Trap Card the turn it was Set.\r\n● 4+: Once per turn, when your opponent Special Summons a monster(s) (except during the Damage Step): You can banish that monster(s).\r\n● 5: Once per turn: You can Special Summon 1 \"Angelechy\" monster from your Extra Deck."
   },
   "12931061": {
     "name": "U.A. Hyper Stadium",
@@ -619,6 +624,11 @@ const snapshot = {
     "archetype": null,
     "effectText": "While this card is on the field: The turn player can Fusion Summon 1 Fusion Monster from their Extra Deck, by banishing Fusion Materials listed on it from their hand or field."
   },
+  "33700664": {
+    "name": "Trirealm Rift Territory - Valvols",
+    "archetype": "Trirealm Rift",
+    "effectText": "Activate this card by banishing (face-down) 5 cards from your GY and/or the top of your Deck. During your Main Phase: You can add 1 of your face-down banished \"Trirealm Rift\" cards to your hand, except \"Trirealm Rift Territory - Valvols\". You can only use this effect of \"Trirealm Rift Territory - Valvols\" once per turn. While you control a Level 5 or higher \"Trirealm Rift\" monster and you have no cards in your Deck, your opponent cannot activate cards or effects during your turn."
+  },
   "33773528": {
     "name": "Amazement Precious Park",
     "archetype": "Amazement",
@@ -747,7 +757,7 @@ const snapshot = {
   "38391684": {
     "name": "Atlantis, City of the Sea Dragon",
     "archetype": "Atlantis, City of the Sea Dragon",
-    "effectText": "While a monster that mentions \"Atlantis, City of the Sea Dragon\" is on the field, reduce the Levels of all monsters in both players' hands and fields by 1. If you Link Summon a \"Daedalus\" monster, you can reduce the material requirement listed on it by 1 and Link Summon it with 1 less material. If this card is in your GY and you control \"Umi\": You can place this card face-up on your field. You can only use this effect of \"Atlantis, City of the Sea Dragon\" once per turn."
+    "effectText": "While a monster that mentions \"Atlantis, City of the Sea Dragon\" is on the field, the Levels of all monsters in both players' hands and on the field are reduced by 1. When you Link Summon a \"Daedalus\" Link Monster, you can reduce the total number of materials by 1 (from Link Rating and from mentioned materials). If this card is in your GY and you control \"Umi\": You can place this card face-up on your field. You can only use this effect of \"Atlantis, City of the Sea Dragon\" once per turn."
   },
   "39210885": {
     "name": "Vaalmonica, the Agathokakological Voice",
@@ -755,9 +765,9 @@ const snapshot = {
     "effectText": "When this card is activated: You can add 1 \"Vaalmonica\" monster from your Deck to your hand. If a card in your Pendulum Zone has a 3rd Resonance Counter placed on it: You can target 1 monster your opponent controls; take control of it until the End Phase, but it cannot declare an attack. You can only use this effect of \"Vaalmonica, the Agathokakological Voice\" once per turn. You can only activate 1 \"Vaalmonica, the Agathokakological Voice\" per turn."
   },
   "39513225": {
-    "name": "Seventh Barian's",
+    "name": "Barian's Seventh Untopia",
     "archetype": "Barian's",
-    "effectText": "Each player can only Special Summon non-\"Number\" monsters from the Extra Deck twice per turn while this card is face-up on the field. You can only use each of the following effects of \"Seventh Barian's\" once per turn. During your Main Phase: You can add 1 \"Umbral Horror\" monster from your Deck to your hand, then discard 1 card. During the End Phase: Each player takes 400 damage for each Xyz Monster on the field."
+    "effectText": "Neither player can Special Summon from the Extra Deck more than 2 times per turn, except \"Number\" monsters. You can only use each of the following effects of \"Barian's Seventh Untopia\" once per turn. During your Main Phase: You can add 1 \"Umbral Horror\" monster from your Deck to your hand, then discard 1 card. During the End Phase: Each player takes damage equal to the number of Xyz Monsters on the field x 400."
   },
   "39730727": {
     "name": "Flawless Perfection of the Tenyi",
@@ -868,6 +878,11 @@ const snapshot = {
     "name": "War Rock Mountain",
     "archetype": "War Rock",
     "effectText": "When this card is activated: You can add 1 \"War Rock\" monster from your Deck to your hand. At the start of the Battle Phase, if you control no monsters, or all monsters you control are Warrior monsters: You can Special Summon 1 \"War Rock\" monster from your hand with a different name than the cards you control. If your Warrior monster would be destroyed by battle, you can send this card to the GY instead. You can only activate 1 \"War Rock Mountain\" per turn."
+  },
+  "46273941": {
+    "name": "Pere-Zenet Em Heru",
+    "archetype": "Zenet",
+    "effectText": "Once per turn: You can Ritual Summon 1 \"Zenet\" Ritual Monster from your hand or GY, by sending Normal Monster Cards with different names from each other from your hand, Deck, and/or face-up field to the GY whose total Levels equal or exceed its Level, then you can equip 1 Normal Monster from your GY to it as an Equip Spell. If you Special Summon a non-Token Normal Monster(s) (except during the Damage Step): You can draw 1 card. You can only use this effect of \"Pere-Zenet Em Heru\" once per turn."
   },
   "46500985": {
     "name": "Metamorformation",
@@ -1559,6 +1574,11 @@ const snapshot = {
     "archetype": null,
     "effectText": "Each time a monster is Normal Summoned: Target that monster; banish it. During the next Standby Phase of the player who controlled that monster: Return it to the field in face-up Attack Position."
   },
+  "88288421": {
+    "name": "Field Power Bonus",
+    "archetype": null,
+    "effectText": "If a monster(s) is Normal or Special Summoned and there is another monster(s) on the field with the same Type: That Summoned monster(s) gains 1000 ATK/DEF. If this card is destroyed: Negate the effects of all face-up monsters currently on the field, also their ATK/DEF become their original ATK/DEF. Once per turn, during the Standby Phase, if this card is in your GY and there are no cards in the Field Zones: You can place this card face-up on your field."
+  },
   "89264428": {
     "name": "Ursarctic Big Dipper",
     "archetype": "Ursarctic",
@@ -1688,11 +1708,6 @@ const snapshot = {
     "name": "Ghostrick Mansion",
     "archetype": "Ghostrick",
     "effectText": "Monsters cannot attack face-down Defense Position monsters, but can attack directly if all monsters their opponent controls are face-down Defense Position. All effect damage, and battle damage inflicted by monsters other than \"Ghostrick\" monsters, is halved."
-  },
-  "46273941": {
-    "name": "Pere-Zenet Em Heru",
-    "archetype": "Zenet",
-    "effectText": "Once per turn: You can Ritual Summon 1 \"Zenet\" Ritual Monster from your hand or GY, by sending Normal Monster Cards with different names from each other from your hand, Deck, and/or face-up field to the GY whose total Levels equal or exceed its Level, then you can equip 1 Normal Monster from your GY to it as an Equip Spell. If you Special Summon a non-Token Normal Monster(s) (except during the Damage Step): You can draw 1 card. You can only use this effect of \"Pere-Zenet Em Heru\" once per turn."
   }
 };
 

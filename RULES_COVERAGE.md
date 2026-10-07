@@ -1,8 +1,21 @@
 # Couverture des règles — 7 octobre 2026
 
-Ce document décrit la couverture réellement testée, pas une certification exhaustive TCG. Le mode strict repose sur un registre explicite de **64 cartes locales** (59 Main, 5 Extra), dont **17 Magies de Terrain scriptées** : 14 modifications continues des statistiques et trois effets spécifiques. Le catalogue de 336 décors de Terrain est **visuel** : il ne signifie pas que 336 effets de cartes sont implémentés.
+Ce document décrit la couverture réellement testée, pas une certification exhaustive TCG. Le mode strict repose sur **80 cartes locales** (75 Main, 5 Extra), dont **29 Magies de Terrain** : 20 modifications continues des caractéristiques et neuf effets spécifiques. Le catalogue comporte **339 illustrations exactes, 89 silhouettes dédiées et 50 reconstructions inspectées**. **310 effets de Terrain restent hors du registre jouable** ; l’atlas les distingue explicitement.
 
-## Lot du 7 octobre 2026
+## Second lot du 7 octobre : Terrains et règles transversales
+
+- **Océan Légendaire** : nom toujours traité comme Umi, limite partagée Main/Extra/Side, WATER +200 ATK/DEF sur le terrain et Niveau −1 dans les mains et sur le terrain. Les Invocations Normales/Pose, Synchro, Xyz, Rituel et bornes Pendule utilisent le Niveau actuel ; l’identité physique demeure distincte pendant le siding.
+- **Caveau Sabre** : X-Saber +100 ATK et −100 DEF par Niveau actuel ; les Niveaux sont appliqués avant les bonus. **Monde Jurassique**, **Pluie Acide** et **Mur de Sort de Sorcier** appliquent leurs Types/Attributs et restrictions de contrôleur/tour exacts.
+- **Monde Zombie** : Types actuels terrain/Cimetières recalculés ; Invocations et Poses avec Sacrifice non-Zombie interdites, sans convertir préalablement le monstre de la main. **Village Secret** : activation des Cartes Magie selon les Magiciens face recto de chaque camp, Échelles Pendule comprises ; effet d’une Magie déjà active autorisé. **Forêt Fermée** : Bêtes propres +100 ATK par monstre au Cimetière propre ; activation de Terrains bloquée, même après destruction d’une copie en main ou posée jusqu’à la fin du tour.
+- **Temple de l’Oeil de l’Esprit**, **Canyon**, **Château de Brume de Shien** et **Ville Ténébreuse** : modifications des dommages/ATK au calcul, deux camps et contrôleurs concernés. Prévention de dommages puis doublement puis conversion à 1000 ; zéro reste zéro. Aucun bonus permanent n’est appliqué. Le pool strict ne contient pas encore de Destiny HERO : le cas positif de Ville Ténébreuse est testé au moteur avec une fixture contrôlée ; son activation et l’absence de bonus hors archétype restent vérifiables dans l’interface.
+- **IA** : projection non mutante des Niveaux puis des Types puis des statistiques ; Cimetière public propre et contrôleur du Terrain respectés. Village et restrictions de Sacrifice sont évalués sans lire les mains adverses. Retirer un malus rétablit la DEF avant son plancher zéro.
+- **Terrains** : 26 références reconstruites, dont trois anciennes silhouettes reprises. Sources originales intactes, volumes adaptés à la lisibilité du plateau. Le catalogue daté distingue cartes publiées, annoncées et identifiants provisoires exclus. L’atlas permet d’examiner séparément chaque illustration, décor et règle.
+
+Les textes français des 29 Terrains renvoient à leurs fiches Konami. Les suppléments précis sont conservés dans `AdvancedFieldSpellRules.js` et `FieldRuleRuntime.js`. Les interactions rares sans FAQ primaire spécifique sont identifiées dans `ADVANCED_FIELD_RULE_INFERENCES`.
+
+Le second lot passe **86 fichiers de tests**, l’audit des 339 JPEG originaux et des 339 replis, le build et l’audit npm à **zéro vulnérabilité**. Les boutons d’activation et les choix Invocation Normale/Pose suivent désormais les permissions du moteur ; une Magie interdite à l’activation reste posable. Les [parcours navigateur et preuves du lot](docs/audits/terrain-rules-release-batch2-2026-10-07.md) distinguent les contrôles moteur, les actions UI réelles et les limites restantes.
+
+## Premier lot du 7 octobre 2026
 
 - **Plaines Marécageuses** : +1200 ATK dans les deux camps uniquement aux monstres Aqua/Eau de Niveau actuel 1 ou 2. Le Rang Xyz et la Classification Lien ne sont pas des Niveaux ; les changements de Type/Attribut/Niveau, annulations, cumuls et sources pending sont vérifiés.
 - **Le Sanctuaire Céleste** : prévient les dégâts de combat subis par le contrôleur du monstre Elfe impliqué, sans empêcher sa destruction. Le participant adverse, les dégâts directs et les coûts inutiles de Kuriboh sont distingués.

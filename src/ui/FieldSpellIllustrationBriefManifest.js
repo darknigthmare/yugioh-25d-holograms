@@ -1,6 +1,7 @@
 import {
   EXPECTED_FIELD_SPELL_ENVIRONMENT_COUNT,
-  FIELD_SPELL_ENVIRONMENT_CATALOG
+  FIELD_SPELL_ENVIRONMENT_CATALOG,
+  FIELD_SPELL_ENVIRONMENT_SNAPSHOT
 } from './FieldSpellEnvironmentCatalog.js';
 import {
   FIELD_SPELL_CARD_DATA_SNAPSHOT,
@@ -12,11 +13,12 @@ import {
 } from './FieldSpellRuntimeManifest.js';
 
 /**
- * One original illustration contract per playable Field Spell.
+ * One visual reference contract per canonical Field Spell.
  *
- * This file deliberately describes scenes instead of referencing official
- * card artwork. Environment families are only semantic context: every entry
- * owns a distinct slug, prompt and WebP path keyed by the canonical passcode.
+ * Existing original compositions keep their dedicated WebP fallback. The
+ * October additions use their unchanged local source JPEG as the fallback;
+ * their contract never claims an original or newly generated composition.
+ * These visual references do not register playable gameplay effects.
  */
 
 export const FIELD_SPELL_ILLUSTRATION_ASSET_ROOT =
@@ -24,10 +26,10 @@ export const FIELD_SPELL_ILLUSTRATION_ASSET_ROOT =
 
 export const FIELD_SPELL_ILLUSTRATION_BRIEF_SNAPSHOT = Object.freeze({
   expectedCount: EXPECTED_FIELD_SPELL_ENVIRONMENT_COUNT,
-  catalogueRetrievedOn: '2026-07-29',
+  catalogueRetrievedOn: FIELD_SPELL_ENVIRONMENT_SNAPSHOT.retrievedOn,
   sourceBasis: 'canonical ID, exact English name, API archetype, exact effect text and environment family',
   effectDataSource: FIELD_SPELL_CARD_DATA_SNAPSHOT_METADATA.sourceUrl,
-  artPolicy: 'original environmental composition; never reproduce official card art'
+  artPolicy: 'existing original compositions; new references use unchanged local source illustrations'
 });
 
 const UNIVERSAL_AVOID = Object.freeze([
@@ -467,6 +469,7 @@ function buildBrief(catalogEntry) {
   }
 
   const hash = stableHash(`${cardId}:${name}`);
+  const usesSourceIllustration = runtimeEntry.assetKind === 'source-illustration';
   const titleCue = resolveTitleCue(name, environmentId);
   const archetypeHint = cardData.archetype || deriveArchetypeHint(name);
   const mechanicCues = deriveMechanicCues(cardData.effectText);
@@ -497,9 +500,8 @@ function buildBrief(catalogEntry) {
   return freezeBrief({
     cardId,
     name,
-    slug: runtimeEntry.assetPath
-      .slice(`${FIELD_SPELL_ILLUSTRATION_ASSET_ROOT}/${cardId}-`.length)
-      .replace(/-original\.webp$/, ''),
+    slug: runtimeEntry.slug,
+    assetKind: runtimeEntry.assetKind,
     assetPath: runtimeEntry.assetPath,
     archetypeHint,
     environmentFamily: environmentId,
@@ -513,9 +515,16 @@ function buildBrief(catalogEntry) {
       derivation: 'exact effect text, title, API archetype and audited environment classification',
       effectDataRetrievedOn: FIELD_SPELL_CARD_DATA_SNAPSHOT_METADATA.retrievedOn,
       effectDataSource: FIELD_SPELL_CARD_DATA_SNAPSHOT_METADATA.sourceUrl,
-      officialArtUsedAsSource: false
+      officialArtUsedAsSource: usesSourceIllustration
     },
-    scene: [
+    scene: usesSourceIllustration ? [
+      `Display the unchanged, archived illustration for the Field Spell “${name}”.`,
+      'Preserve its complete image, aspect ratio and source colors with contain sizing;',
+      'do not crop, recolor, repaint, extend, or generate missing scenery.',
+      `The ${environmentId} family describes only the surrounding peripheral geometry.`,
+      `This visual reference preserves the exact card effect as metadata: ${cardData.effectText}`,
+      'Its presence in the visual catalogue does not imply a scripted gameplay effect or tournament eligibility.'
+    ].join(' ') : [
       `Create an original ${viewpoint} for the Field Spell concept “${name}”;`,
       `interpret the title as ${titleCue.focus}, without recreating any official card illustration.`,
       `The location is ${recipeConfig.setting}, opening toward ${horizon}.`,
@@ -527,7 +536,15 @@ function buildBrief(catalogEntry) {
       'midground and background depth suitable for a dedicated 16:9 arena backdrop.'
     ].join(' '),
     palette: { ...runtimeEntry.palette },
-    mustInclude: [
+    mustInclude: usesSourceIllustration ? [
+      `the unchanged local illustration for canonical card ${cardId}, “${name}”`,
+      'the complete source image without a crop',
+      'the source image aspect ratio through contain sizing',
+      'the original source image colors without filters',
+      'the exact archived source-file identity and provenance',
+      'no generated extension, repainting, or replacement composition',
+      'a clear central arena footprint with unobstructed card readability'
+    ] : [
       `one singular focal landmark interpreting “${name}” as ${titleCue.focus}`,
       titleCue.required,
       supportingLandmark,
@@ -536,7 +553,15 @@ function buildBrief(catalogEntry) {
       `an effect-specific environmental cue: ${mechanicCues.join('; ')}`,
       'a clear central arena footprint with unobstructed card readability'
     ],
-    avoid: [
+    avoid: usesSourceIllustration ? [
+      'cropping the source illustration',
+      'altering source image colors or contrast',
+      'stretching its image aspect ratio',
+      'adding generated scenery outside the source illustration',
+      'repainting recognizable source motifs',
+      'claiming an official model or a gameplay script from a visual reference',
+      'remote hotlinks at runtime instead of the archived local source'
+    ] : [
       ...UNIVERSAL_AVOID,
       recipeConfig.avoid,
       `interchangeable scenery that could represent a different Field Spell instead of “${name}”`
@@ -592,12 +617,9 @@ export function validateFieldSpellIllustrationBriefManifest(
       errors.push(`duplicate slug: ${entry.slug}`);
     } else slugs.add(entry.slug);
 
-    if (
-      !entry?.assetPath
-      || !entry.assetPath.startsWith(`${FIELD_SPELL_ILLUSTRATION_ASSET_ROOT}/`)
-      || !entry.assetPath.startsWith(`${FIELD_SPELL_ILLUSTRATION_ASSET_ROOT}/${cardId}-`)
-      || !entry.assetPath.endsWith('-original.webp')
-    ) {
+    const runtimeEntry = getFieldSpellRuntimeManifestEntry(cardId);
+    if (!entry?.assetPath || entry.assetPath !== runtimeEntry?.assetPath
+      || entry?.assetKind !== runtimeEntry?.assetKind) {
       errors.push(`invalid dedicated asset path: ${cardId}`);
     } else if (assetPaths.has(entry.assetPath)) errors.push(`duplicate asset path: ${entry.assetPath}`);
     else assetPaths.add(entry.assetPath);
@@ -633,7 +655,8 @@ export function validateFieldSpellIllustrationBriefManifest(
     if (!Array.isArray(entry?.avoid) || entry.avoid.length < 7) {
       errors.push(`missing negative constraints: ${cardId}`);
     }
-    if (entry?.sourceBasis?.officialArtUsedAsSource !== false) {
+    if (entry?.sourceBasis?.officialArtUsedAsSource
+      !== (runtimeEntry?.assetKind === 'source-illustration')) {
       errors.push(`official art policy not enforced: ${cardId}`);
     }
     if (
