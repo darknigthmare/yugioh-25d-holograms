@@ -1,0 +1,71 @@
+{
+  "format": "native-core-build-v1",
+  "builtOn": "2026-10-07",
+  "coreRevision": "38d04c9feb1a26617407091380634c87262fe3f8",
+  "coreRepository": "https://github.com/edo9300/ygopro-core",
+  "coreApi": [
+    11,
+    0
+  ],
+  "wrapperRevision": "768af363e79bd5c646e9b59f4e74aaeac0625784",
+  "luaRevision": "75ea9ccbea7c4886f30da147fb67b693b2624c26",
+  "toolchain": {
+    "emscripten": "4.0.9",
+    "emscriptenRevision": "bbf1caa6e24f64fca9eb6a13a9e02d3f42123e77",
+    "sdkRelease": "cb2a69bce627bd2247624c71fc12907cb8785d2f"
+  },
+  "buildRecipe": "/native/sources/build-native-core.sh",
+  "sources": {
+    "core": {
+      "path": "/native/sources/ygopro-core-38d04c9f.tar.gz",
+      "sha256": "eb2e32d213c58f23cb9efc3297abfce632d94dca40e4f388e0bb73fff26abc84",
+      "bytes": 2682915
+    },
+    "wrapper": {
+      "path": "/native/sources/ocgcore-wasm-768af363.tar.gz",
+      "sha256": "528d47d409193c95cb343a4f286568b3d52cb4101e54fa170a978c0243ddb48a",
+      "bytes": 60027
+    },
+    "lua": {
+      "path": "/native/sources/lua-75ea9ccb.tar.gz",
+      "sha256": "9f2f625653b8a6ce9e4489385370256831e71fe2fc15801d9b738aadde45e98d",
+      "bytes": 370215
+    }
+  },
+  "outputs": {
+    "wasm": {
+      "path": "/native/ocgcore.sync.wasm",
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+      "bytes": 935745
+    },
+    "loader": {
+      "path": "/src/core/native/vendor/ocgcore/ocgcore.sync-MMMSWPBB.js",
+      "sha256": "f4523ad5c2e9f14c8736a91ad94e9e7f8283883a3607781f40afdeae27cdf828",
+      "bytes": 21357
+    }
+  },
+  "abiVerification": {
+    "comparisonCoreRevision": "8e5f4e4f0ab6b8ca750e8e1c91c1a58f407e3272",
+    "ocgapi_h": "byte-identical",
+    "ocgapi_types_h": "byte-identical",
+    "apiMajor": 11,
+    "apiMinor": 0
+  },
+  "featureUpgrade": {
+    "effectCode": 267,
+    "constant": "EFFECT_OPPO_CHOOSES_SPSUMMON_ZONE",
+    "cardCode": 12845564,
+    "sourceCardCode": 101402095,
+    "locationReason": 17
+  },
+  "upstreamLuaBytesModified": false,
+  "nativeSourceModified": false,
+  "wasmSha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+  "loaderSha256": "f4523ad5c2e9f14c8736a91ad94e9e7f8283883a3607781f40afdeae27cdf828",
+  "reproducibility": {
+    "verified": true,
+    "method": "Second clean output directory, same pinned sources and public build recipe",
+    "wasmSha256Matches": true,
+    "loaderSha256Matches": true
+  }
+}

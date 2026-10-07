@@ -1,0 +1,1279 @@
+{
+  "ok": true,
+  "target": "compiled production bundle",
+  "productionCsp": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://db.ygoprodeck.com; media-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests",
+  "method": "actual controls and public DOM only; isolated legal custom deck and seeded RNG",
+  "memoryScope": "DOM renderer counts and approximate JS heap; GPU allocation not measured",
+  "viewports": [
+    {
+      "width": 1280,
+      "height": 900,
+      "ok": true,
+      "pageErrors": [],
+      "nativeRequestFailures": [],
+      "stages": [
+        {
+          "stage": "mausoleum-compact",
+          "view": "compact",
+          "ownHand": [
+            {
+              "id": "4064256",
+              "uid": "native_2_84"
+            },
+            {
+              "id": "14087893",
+              "uid": "native_2_85"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_86"
+            }
+          ],
+          "ownField": {
+            "id": "80921533",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": false
+          },
+          "environment": null,
+          "scene": null,
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 0,
+            "canvases": 0,
+            "css3d": 0
+          },
+          "approximateJsHeapBytes": 148741264,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "mausoleum-arena",
+          "view": "arena",
+          "ownHand": [
+            {
+              "id": "4064256",
+              "uid": "native_2_84"
+            },
+            {
+              "id": "14087893",
+              "uid": "native_2_85"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_86"
+            }
+          ],
+          "ownField": {
+            "id": "80921533",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": false
+          },
+          "environment": null,
+          "scene": null,
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 0,
+            "canvases": 0,
+            "css3d": 0
+          },
+          "approximateJsHeapBytes": 149010938,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "mausoleum-real",
+          "view": "real",
+          "ownHand": [
+            {
+              "id": "4064256",
+              "uid": "native_2_84"
+            },
+            {
+              "id": "14087893",
+              "uid": "native_2_85"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_86"
+            }
+          ],
+          "ownField": {
+            "id": "80921533",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": true
+          },
+          "environment": {
+            "id": "temple-sanctuary",
+            "active": "true",
+            "backdrop": "url(\"/environments/field-art/80921533.jpg\")"
+          },
+          "scene": {
+            "id": "temple-sanctuary",
+            "webglAvailable": "true",
+            "material": "weathered-holographic-stone"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 152221178,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-set-real",
+          "view": "real",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": true
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": true
+          },
+          "environment": {
+            "id": "clearing",
+            "active": "true",
+            "backdrop": "url(\"/environments/kaibacorp-clearing-original.webp\")"
+          },
+          "scene": {
+            "id": "clearing",
+            "webglAvailable": "true",
+            "material": "kaibacorp-steel"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 159948058,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-activation-pending-real",
+          "view": "real",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": true
+          },
+          "environment": {
+            "id": "clearing",
+            "active": "true",
+            "backdrop": "url(\"/environments/kaibacorp-clearing-original.webp\")"
+          },
+          "scene": {
+            "id": "clearing",
+            "webglAvailable": "true",
+            "material": "kaibacorp-steel"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 163870905,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-compact-5",
+          "view": "compact",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": false
+          },
+          "environment": {
+            "id": "graveyard",
+            "active": "false",
+            "backdrop": "url(\"/environments/field-art/4064256.jpg\")"
+          },
+          "scene": {
+            "id": "graveyard",
+            "webglAvailable": "true",
+            "material": "dark-hologram"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 105667855,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-arena-6",
+          "view": "arena",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": false
+          },
+          "environment": {
+            "id": "graveyard",
+            "active": "false",
+            "backdrop": "url(\"/environments/field-art/4064256.jpg\")"
+          },
+          "scene": {
+            "id": "graveyard",
+            "webglAvailable": "true",
+            "material": "dark-hologram"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 105954443,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-real-7",
+          "view": "real",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": true
+          },
+          "environment": {
+            "id": "graveyard",
+            "active": "true",
+            "backdrop": "url(\"/environments/field-art/4064256.jpg\")"
+          },
+          "scene": {
+            "id": "graveyard",
+            "webglAvailable": "true",
+            "material": "dark-hologram"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 106758153,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-compact-8",
+          "view": "compact",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": false
+          },
+          "environment": {
+            "id": "graveyard",
+            "active": "false",
+            "backdrop": "url(\"/environments/field-art/4064256.jpg\")"
+          },
+          "scene": {
+            "id": "graveyard",
+            "webglAvailable": "true",
+            "material": "dark-hologram"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 107122577,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-arena-9",
+          "view": "arena",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": false
+          },
+          "environment": {
+            "id": "graveyard",
+            "active": "false",
+            "backdrop": "url(\"/environments/field-art/4064256.jpg\")"
+          },
+          "scene": {
+            "id": "graveyard",
+            "webglAvailable": "true",
+            "material": "dark-hologram"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 107310489,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-real-10",
+          "view": "real",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": true
+          },
+          "environment": {
+            "id": "graveyard",
+            "active": "true",
+            "backdrop": "url(\"/environments/field-art/4064256.jpg\")"
+          },
+          "scene": {
+            "id": "graveyard",
+            "webglAvailable": "true",
+            "material": "dark-hologram"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 102281065,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        }
+      ],
+      "mausoleumDecisions": [
+        {
+          "title": "CHOISIR UN EFFET",
+          "choices": [
+            "Choix de l’effet"
+          ]
+        },
+        {
+          "title": "CHOISIR LES CARTES",
+          "choices": [
+            "Dragon Blanc aux Yeux Bleus",
+            "CONFIRMER (0/1)"
+          ]
+        },
+        {
+          "title": "CHOISIR LES CARTES",
+          "choices": [
+            "Dragon Blanc aux Yeux Bleus",
+            "CONFIRMER (1/1)"
+          ]
+        },
+        {
+          "title": "CHOISIR LA POSITION",
+          "choices": [
+            "ATTAQUE FACE RECTO",
+            "DÉFENSE FACE VERSO"
+          ]
+        },
+        {
+          "title": "CHOISIR LA ZONE",
+          "choices": [
+            "Votre Zone Monstre 1",
+            "Votre Zone Monstre 2",
+            "Votre Zone Monstre 3",
+            "Votre Zone Monstre 4",
+            "Votre Zone Monstre 5",
+            "CONFIRMER (0/1)"
+          ]
+        },
+        {
+          "title": "CHOISIR LA ZONE",
+          "choices": [
+            "Votre Zone Monstre 1",
+            "Votre Zone Monstre 2",
+            "Votre Zone Monstre 3",
+            "Votre Zone Monstre 4",
+            "Votre Zone Monstre 5",
+            "CONFIRMER (1/1)"
+          ]
+        }
+      ],
+      "openingOwnHand": [
+        {
+          "id": "4064256",
+          "uid": "native_2_84"
+        },
+        {
+          "id": "14087893",
+          "uid": "native_2_85"
+        },
+        {
+          "id": "4064256",
+          "uid": "native_2_86"
+        },
+        {
+          "id": "89631139",
+          "uid": "native_2_87"
+        },
+        {
+          "id": "80921533",
+          "uid": "native_2_88"
+        }
+      ],
+      "monsterRuntimeUid": "native_2_87",
+      "setFieldDoesNotActivateScenery": true,
+      "pendingActivationDoesNotActivateScenery": true,
+      "realViewSetActivationThroughControls": true,
+      "sameCanvasAcrossViewCycles": true,
+      "cspViolations": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "ok": true,
+      "pageErrors": [],
+      "nativeRequestFailures": [],
+      "stages": [
+        {
+          "stage": "mausoleum-compact",
+          "view": "compact",
+          "ownHand": [
+            {
+              "id": "4064256",
+              "uid": "native_2_84"
+            },
+            {
+              "id": "14087893",
+              "uid": "native_2_85"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_86"
+            }
+          ],
+          "ownField": {
+            "id": "80921533",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": false
+          },
+          "environment": null,
+          "scene": null,
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 0,
+            "canvases": 0,
+            "css3d": 0
+          },
+          "approximateJsHeapBytes": 150500998,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "mausoleum-arena",
+          "view": "arena",
+          "ownHand": [
+            {
+              "id": "4064256",
+              "uid": "native_2_84"
+            },
+            {
+              "id": "14087893",
+              "uid": "native_2_85"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_86"
+            }
+          ],
+          "ownField": {
+            "id": "80921533",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": false
+          },
+          "environment": null,
+          "scene": null,
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 0,
+            "canvases": 0,
+            "css3d": 0
+          },
+          "approximateJsHeapBytes": 150766948,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "mausoleum-real",
+          "view": "real",
+          "ownHand": [
+            {
+              "id": "4064256",
+              "uid": "native_2_84"
+            },
+            {
+              "id": "14087893",
+              "uid": "native_2_85"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_86"
+            }
+          ],
+          "ownField": {
+            "id": "80921533",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": true
+          },
+          "environment": {
+            "id": "temple-sanctuary",
+            "active": "true",
+            "backdrop": "url(\"/environments/field-art/80921533.jpg\")"
+          },
+          "scene": {
+            "id": "temple-sanctuary",
+            "webglAvailable": "true",
+            "material": "weathered-holographic-stone"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 152639432,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-set-real",
+          "view": "real",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": true
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": true
+          },
+          "environment": {
+            "id": "clearing",
+            "active": "true",
+            "backdrop": "url(\"/environments/kaibacorp-clearing-original.webp\")"
+          },
+          "scene": {
+            "id": "clearing",
+            "webglAvailable": "true",
+            "material": "kaibacorp-steel"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 160531496,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-activation-pending-real",
+          "view": "real",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": true
+          },
+          "environment": {
+            "id": "clearing",
+            "active": "true",
+            "backdrop": "url(\"/environments/kaibacorp-clearing-original.webp\")"
+          },
+          "scene": {
+            "id": "clearing",
+            "webglAvailable": "true",
+            "material": "kaibacorp-steel"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 164462951,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-compact-5",
+          "view": "compact",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": false
+          },
+          "environment": {
+            "id": "graveyard",
+            "active": "false",
+            "backdrop": "url(\"/environments/field-art/4064256.jpg\")"
+          },
+          "scene": {
+            "id": "graveyard",
+            "webglAvailable": "true",
+            "material": "dark-hologram"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 106089004,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-arena-6",
+          "view": "arena",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": false
+          },
+          "environment": {
+            "id": "graveyard",
+            "active": "false",
+            "backdrop": "url(\"/environments/field-art/4064256.jpg\")"
+          },
+          "scene": {
+            "id": "graveyard",
+            "webglAvailable": "true",
+            "material": "dark-hologram"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 106375336,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-real-7",
+          "view": "real",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": true
+          },
+          "environment": {
+            "id": "graveyard",
+            "active": "true",
+            "backdrop": "url(\"/environments/field-art/4064256.jpg\")"
+          },
+          "scene": {
+            "id": "graveyard",
+            "webglAvailable": "true",
+            "material": "dark-hologram"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 107172062,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-compact-8",
+          "view": "compact",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": false
+          },
+          "environment": {
+            "id": "graveyard",
+            "active": "false",
+            "backdrop": "url(\"/environments/field-art/4064256.jpg\")"
+          },
+          "scene": {
+            "id": "graveyard",
+            "webglAvailable": "true",
+            "material": "dark-hologram"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 107483854,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-arena-9",
+          "view": "arena",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": false
+          },
+          "environment": {
+            "id": "graveyard",
+            "active": "false",
+            "backdrop": "url(\"/environments/field-art/4064256.jpg\")"
+          },
+          "scene": {
+            "id": "graveyard",
+            "webglAvailable": "true",
+            "material": "dark-hologram"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 107671130,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-real-10",
+          "view": "real",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": true
+          },
+          "environment": {
+            "id": "graveyard",
+            "active": "true",
+            "backdrop": "url(\"/environments/field-art/4064256.jpg\")"
+          },
+          "scene": {
+            "id": "graveyard",
+            "webglAvailable": "true",
+            "material": "dark-hologram"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 108450090,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        }
+      ],
+      "mausoleumDecisions": [
+        {
+          "title": "CHOISIR UN EFFET",
+          "choices": [
+            "Choix de l’effet"
+          ]
+        },
+        {
+          "title": "CHOISIR LES CARTES",
+          "choices": [
+            "Dragon Blanc aux Yeux Bleus",
+            "CONFIRMER (0/1)"
+          ]
+        },
+        {
+          "title": "CHOISIR LES CARTES",
+          "choices": [
+            "Dragon Blanc aux Yeux Bleus",
+            "CONFIRMER (1/1)"
+          ]
+        },
+        {
+          "title": "CHOISIR LA POSITION",
+          "choices": [
+            "ATTAQUE FACE RECTO",
+            "DÉFENSE FACE VERSO"
+          ]
+        },
+        {
+          "title": "CHOISIR LA ZONE",
+          "choices": [
+            "Votre Zone Monstre 1",
+            "Votre Zone Monstre 2",
+            "Votre Zone Monstre 3",
+            "Votre Zone Monstre 4",
+            "Votre Zone Monstre 5",
+            "CONFIRMER (0/1)"
+          ]
+        },
+        {
+          "title": "CHOISIR LA ZONE",
+          "choices": [
+            "Votre Zone Monstre 1",
+            "Votre Zone Monstre 2",
+            "Votre Zone Monstre 3",
+            "Votre Zone Monstre 4",
+            "Votre Zone Monstre 5",
+            "CONFIRMER (1/1)"
+          ]
+        }
+      ],
+      "openingOwnHand": [
+        {
+          "id": "4064256",
+          "uid": "native_2_84"
+        },
+        {
+          "id": "14087893",
+          "uid": "native_2_85"
+        },
+        {
+          "id": "4064256",
+          "uid": "native_2_86"
+        },
+        {
+          "id": "89631139",
+          "uid": "native_2_87"
+        },
+        {
+          "id": "80921533",
+          "uid": "native_2_88"
+        }
+      ],
+      "monsterRuntimeUid": "native_2_87",
+      "setFieldDoesNotActivateScenery": true,
+      "pendingActivationDoesNotActivateScenery": true,
+      "realViewSetActivationThroughControls": true,
+      "sameCanvasAcrossViewCycles": true,
+      "cspViolations": []
+    }
+  ],
+  "testedWasmSha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+  "testedIndexSha256": "dee6859628bd6f85aff129962d1968deb95b13943c5563c4bb1aca09b7c240a5"
+}

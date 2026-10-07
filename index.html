@@ -27,6 +27,7 @@
         <p id="simulator-card-coverage">Projet fan non officiel. Le mode strict porte sur les cartes locales implémentées. Le catalogue de Terrains distingue les illustrations, les décors 3D et les effets jouables.</p>
         <p>Duels solo contre l’IA, Match avec Side Deck et parcours d’entraînement original. Pas de multijoueur en ligne ni de reprise d’un duel interrompu. La progression solo, les decks personnalisés et les statistiques sont locaux à ce navigateur.</p>
         <p>Clavier : Tab pour naviguer, Entrée/Espace pour choisir, Échap pour fermer une sélection annulable. La Vue Réelle ne change que la présentation ; toutes les vues partagent le même duel.</p>
+        <p>Moteur de duel libre : <a href="/native/sources/README.md" target="_blank" rel="noopener">sources et licences</a>.</p>
       </details>
       <div class="campaign-entry field-atlas-entry">
         <div><strong>CATALOGUE DES TERRAINS</strong><p>Comparez l’illustration originale, le décor 3D et les règles intégrées.</p></div>
@@ -42,6 +43,10 @@
               <strong>TCG Advanced (strict)</strong>
               <small>Liste Advanced du 21/09/2026 appliquée aux cartes prises en charge.</small>
             </span>
+          </label>
+          <label class="config-option">
+            <input type="radio" name="game-mode" value="native" aria-describedby="mode-description">
+            <span><strong>Duel libre • tous les Terrains</strong><small>339 Terrains, y compris OCG et cartes annoncées. Sans liste de restrictions.</small></span>
           </label>
           <label class="config-option">
             <input type="radio" name="game-mode" value="sandbox" aria-describedby="mode-description">
@@ -117,6 +122,11 @@
           <!-- Card Library List -->
           <div class="builder-panel">
             <div class="panel-subheader">BIBLIOTHÈQUE DE CARTES</div>
+            <label for="builder-card-search">Rechercher une carte</label>
+            <input type="search" id="builder-card-search" placeholder="Nom, texte ou numéro de carte">
+            <label for="builder-card-filter">Type de carte</label>
+            <select id="builder-card-filter"><option value="all">Toutes</option><option value="field">Terrains</option><option value="monster">Monstres</option><option value="spell">Magies</option><option value="trap">Pièges</option></select>
+            <p id="builder-catalogue-status" class="config-description" role="status"></p>
             <div id="library-cards-list" class="builder-cards-grid">
               <!-- Rendered dynamically -->
             </div>
@@ -467,6 +477,7 @@
           <span class="phase-step" id="phase-end" title="End Phase" data-phase-label="End Phase" aria-hidden="true">EP</span>
         </div>
         <div class="command-actions">
+          <button type="button" id="btn-native-actions" class="btn hidden">EFFETS ET INVOCATIONS</button>
           <button type="button" id="btn-pendulum-summon" class="btn btn-magenta hidden" aria-describedby="pendulum-status">INVOCATION PENDULE</button>
           <button type="button" id="btn-next-phase" class="btn">PHASE SUIVANTE</button>
           <button type="button" id="btn-end-turn" class="btn btn-cancel">FIN DU TOUR</button>

@@ -1,0 +1,101 @@
+{
+  "ok": true,
+  "target": "compiled production bundle",
+  "productionCsp": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://db.ygoprodeck.com; media-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests",
+  "viewports": [
+    {
+      "width": 1280,
+      "height": 900,
+      "checks": {
+        "nativePartner": {
+          "query": "Dark World",
+          "card": "79126789",
+          "neutralLocalImage": true,
+          "replacementPreservesFortyCards": true,
+          "reloadPreservesExactIds": true
+        },
+        "builder": {
+          "libraryCards": 390,
+          "fieldCards": 339,
+          "nativeFieldCodeSearch": true,
+          "fieldTypeFilter": true,
+          "validFortyCardFixture": true
+        },
+        "nativeRuntimeLoaded": true,
+        "initialMainDeckShuffledWithoutChangingRegistration": true,
+        "normalSummonAndSpellSet": true,
+        "extraDeckAccessible": true,
+        "aiTurnAndNextDraw": true,
+        "opponentConcealment": {
+          "count": 2,
+          "safe": true
+        },
+        "responsiveBody": true,
+        "productionQaHookAbsent": true
+      },
+      "pageErrors": [],
+      "nativeRequestFailures": [],
+      "cspViolations": [],
+      "nativeAssets": [
+        "/native/card-data.json",
+        "/native/field-banlists.json",
+        "/native/manifest.json",
+        "/native/ocgcore.sync.wasm",
+        "/native/scripts.json"
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "checks": {
+        "nativePartner": {
+          "query": "Dark World",
+          "card": "79126789",
+          "neutralLocalImage": true,
+          "replacementPreservesFortyCards": true,
+          "reloadPreservesExactIds": true
+        },
+        "builder": {
+          "libraryCards": 390,
+          "fieldCards": 339,
+          "nativeFieldCodeSearch": true,
+          "fieldTypeFilter": true,
+          "validFortyCardFixture": true
+        },
+        "nativeRuntimeLoaded": true,
+        "initialMainDeckShuffledWithoutChangingRegistration": true,
+        "normalSummonAndSpellSet": true,
+        "extraDeckAccessible": true,
+        "aiTurnAndNextDraw": true,
+        "opponentConcealment": {
+          "count": 2,
+          "safe": true
+        },
+        "responsiveBody": true,
+        "productionQaHookAbsent": true
+      },
+      "pageErrors": [],
+      "nativeRequestFailures": [],
+      "cspViolations": [],
+      "nativeAssets": [
+        "/native/card-data.json",
+        "/native/field-banlists.json",
+        "/native/manifest.json",
+        "/native/ocgcore.sync.wasm",
+        "/native/scripts.json"
+      ]
+    }
+  ],
+  "ravineCost": {
+    "card": "62265044",
+    "faceUpFieldIgnitionMenu": true,
+    "discardCostBeforeDeckSelection": true,
+    "nativeDragonSentToGraveyard": true,
+    "oncePerTurnCoreActionRemoved": true,
+    "publicGraveyardProjection": true,
+    "pageErrors": []
+  },
+  "testedWasmSha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+  "testedIndexAsset": "/assets/index-DqtR2E84.js",
+  "testedIndexSha256": "524d657c524258eae2feb26cee43f24f6c6e1ff438326ac85323619128c4d2f5"
+}

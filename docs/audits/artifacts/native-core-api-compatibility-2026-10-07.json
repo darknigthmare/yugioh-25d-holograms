@@ -1,0 +1,5213 @@
+{
+  "date": "2026-10-07",
+  "coreRevision": "38d04c9feb1a26617407091380634c87262fe3f8",
+  "coreApi": [
+    11,
+    0
+  ],
+  "coreArchiveSha256": "eb2e32d213c58f23cb9efc3297abfce632d94dca40e4f388e0bb73fff26abc84",
+  "scriptsRevision": "37f270dc813a12d123707ae255f2bda7922999c4",
+  "scriptsArchiveSha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f",
+  "method": "Lua lexical tokens excluding comments and string contents; C++ registration macros expanded with cpp; all archived Lua namespace assignments inventoried",
+  "limitations": [
+    "API names do not prove argument compatibility, effect-code handling, rulings or execution of branches.",
+    "Assignments are potential Lua providers; actual callable presence is checked separately in the bundled WASM.",
+    "Untyped receiver calls such as c:Foo() cannot be assigned reliably to Card/Group/Effect by this lexical audit.",
+    "Dynamic namespace indexing and computed script loads are outside the exact-name scan."
+  ],
+  "coreSourceFiles": {
+    "Duel": {
+      "path": "ygopro-core-38d04c9feb1a26617407091380634c87262fe3f8/libduel.cpp",
+      "sha256": "989e5886e9a2728d3ddd55d5a94d7abe4b43022aebf6d873802dd606b63dac05"
+    },
+    "Card": {
+      "path": "ygopro-core-38d04c9feb1a26617407091380634c87262fe3f8/libcard.cpp",
+      "sha256": "55bc44c21d74062b04dae71fecb6a2b4ca90cba52edbdf1dd09ac63c9ea19cdf"
+    },
+    "Group": {
+      "path": "ygopro-core-38d04c9feb1a26617407091380634c87262fe3f8/libgroup.cpp",
+      "sha256": "605d663dad15e23879491526c447753bcd1c8ccb65bcb1987dbc7835c9a2354b"
+    },
+    "Effect": {
+      "path": "ygopro-core-38d04c9feb1a26617407091380634c87262fe3f8/libeffect.cpp",
+      "sha256": "982dea45b688c4cba54caff08096d4dbb866cc449d2a81fffef37dc90ec3f504"
+    }
+  },
+  "coreRegistrations": {
+    "Duel": [
+      "Activate",
+      "AddCustomActivityCounter",
+      "AdjustInstantly",
+      "AnnounceAttribute",
+      "AnnounceCard",
+      "AnnounceCoin",
+      "AnnounceLevel",
+      "AnnounceNumber",
+      "AnnounceNumberRange",
+      "AnnounceRace",
+      "AnnounceType",
+      "AssumeReset",
+      "AttackCostPaid",
+      "BreakEffect",
+      "CalculateDamage",
+      "CanPlayerSetMonster",
+      "CanPlayerSetSpellTrap",
+      "ChainAttack",
+      "ChangeAttackTarget",
+      "ChangeAttacker",
+      "ChangeBattleDamage",
+      "ChangeChainOperation",
+      "ChangePosition",
+      "ChangeTargetCard",
+      "ChangeTargetParam",
+      "ChangeTargetPlayer",
+      "CheckChainTarget",
+      "CheckChainUniqueness",
+      "CheckEvent",
+      "CheckLPCost",
+      "CheckLocation",
+      "CheckPhaseActivity",
+      "CheckReleaseGroup",
+      "CheckReleaseGroupEx",
+      "CheckRemoveOverlayCard",
+      "CheckSummonedCount",
+      "CheckTiming",
+      "CheckTribute",
+      "ClearOperationInfo",
+      "ClearTargetCard",
+      "ConfirmCards",
+      "ConfirmDecktop",
+      "ConfirmExtratop",
+      "CreateToken",
+      "Damage",
+      "Destroy",
+      "DisableSelfDestroyCheck",
+      "DisableShuffleCheck",
+      "DiscardDeck",
+      "DiscardHand",
+      "Draw",
+      "EnableGlobalFlag",
+      "Equip",
+      "EquipComplete",
+      "ForceAttack",
+      "GetActivityCount",
+      "GetAttackTarget",
+      "GetAttacker",
+      "GetBattleDamage",
+      "GetBattleMonster",
+      "GetBattledCount",
+      "GetCardAliasFromCode",
+      "GetCardAttackFromCode",
+      "GetCardAttributeFromCode",
+      "GetCardDefenseFromCode",
+      "GetCardFromCardID",
+      "GetCardLevelFromCode",
+      "GetCardLinkMarkerFromCode",
+      "GetCardLscaleFromCode",
+      "GetCardRaceFromCode",
+      "GetCardRscaleFromCode",
+      "GetCardSetcodeFromCode",
+      "GetCardTypeFromCode",
+      "GetChainEvent",
+      "GetChainInfo",
+      "GetChainMaterial",
+      "GetCoinResult",
+      "GetControl",
+      "GetCounter",
+      "GetCurrentChain",
+      "GetCurrentPhase",
+      "GetCustomActivityCount",
+      "GetDeckbottomGroup",
+      "GetDecktopGroup",
+      "GetDiceResult",
+      "GetDrawCount",
+      "GetDuelType",
+      "GetEnvironment",
+      "GetExtraTopGroup",
+      "GetFieldCard",
+      "GetFieldGroup",
+      "GetFieldGroupCount",
+      "GetFirstMatchingCard",
+      "GetFirstTarget",
+      "GetFlagEffect",
+      "GetFlagEffectLabel",
+      "GetFreeLinkedZone",
+      "GetFusionMaterial",
+      "GetLP",
+      "GetLinkedGroup",
+      "GetLinkedGroupCount",
+      "GetLinkedZone",
+      "GetLocationCount",
+      "GetLocationCountFromEx",
+      "GetMZoneCount",
+      "GetMatchingGroup",
+      "GetMatchingGroupCount",
+      "GetOperatedGroup",
+      "GetOperationCount",
+      "GetOperationInfo",
+      "GetOverlayCount",
+      "GetOverlayGroup",
+      "GetPlayerEffect",
+      "GetPlayersCount",
+      "GetPossibleOperationInfo",
+      "GetRandomNumber",
+      "GetReasonEffect",
+      "GetReasonPlayer",
+      "GetReleaseGroup",
+      "GetReleaseGroupCount",
+      "GetRitualMaterial",
+      "GetStartingHand",
+      "GetTargetCount",
+      "GetTributeCount",
+      "GetTributeGroup",
+      "GetTurnCount",
+      "GetTurnPlayer",
+      "GetUsableMZoneCount",
+      "GrabSelectedCard",
+      "Hint",
+      "HintSelection",
+      "IncreaseSummonedCount",
+      "IsAbleToEnterBP",
+      "IsAttackCostPaid",
+      "IsBattlePhase",
+      "IsCanAddCounter",
+      "IsCanRemoveCounter",
+      "IsChainDisablable",
+      "IsChainNegatable",
+      "IsChainSolving",
+      "IsDamageCalculated",
+      "IsDuelType",
+      "IsEnvironment",
+      "IsExistingMatchingCard",
+      "IsExistingTarget",
+      "IsMainPhase",
+      "IsPhase",
+      "IsPlayerAffectedByEffect",
+      "IsPlayerCanAdditionalSummon",
+      "IsPlayerCanDiscardDeck",
+      "IsPlayerCanDiscardDeckAsCost",
+      "IsPlayerCanDraw",
+      "IsPlayerCanFlipSummon",
+      "IsPlayerCanPendulumSummon",
+      "IsPlayerCanProcedureSummonGroup",
+      "IsPlayerCanRelease",
+      "IsPlayerCanRemove",
+      "IsPlayerCanSendtoDeck",
+      "IsPlayerCanSendtoGrave",
+      "IsPlayerCanSendtoHand",
+      "IsPlayerCanSpecialSummon",
+      "IsPlayerCanSpecialSummonCount",
+      "IsPlayerCanSpecialSummonMonster",
+      "IsPlayerCanSummon",
+      "IsSummonCancelable",
+      "IsTurnPlayer",
+      "LinkSummon",
+      "LoadScript",
+      "MSet",
+      "MajesticCopy",
+      "MoveSequence",
+      "MoveToField",
+      "NegateActivation",
+      "NegateAttack",
+      "NegateEffect",
+      "NegateRelatedChain",
+      "NegateSummon",
+      "Overlay",
+      "PayLPCost",
+      "PendulumSummon",
+      "ProcedureSummon",
+      "ProcedureSummonGroup",
+      "RDComplete",
+      "RaiseEvent",
+      "RaiseSingleEvent",
+      "Readjust",
+      "Recover",
+      "RegisterEffect",
+      "RegisterFlagEffect",
+      "Release",
+      "ReleaseRitualMaterial",
+      "Remove",
+      "RemoveCards",
+      "RemoveCounter",
+      "RemoveOverlayCard",
+      "ResetFlagEffect",
+      "ReturnToField",
+      "RockPaperScissors",
+      "SSet",
+      "SelectCardsFromCodes",
+      "SelectDisableField",
+      "SelectEffectYesNo",
+      "SelectFieldZone",
+      "SelectFusionMaterial",
+      "SelectMatchingCard",
+      "SelectOption",
+      "SelectPosition",
+      "SelectReleaseGroup",
+      "SelectReleaseGroupEx",
+      "SelectTarget",
+      "SelectTribute",
+      "SelectYesNo",
+      "Sendto",
+      "SendtoDeck",
+      "SendtoExtraP",
+      "SendtoGrave",
+      "SendtoHand",
+      "SetChainLimit",
+      "SetChainLimitTillChainEnd",
+      "SetCoinResult",
+      "SetDiceResult",
+      "SetFlagEffectLabel",
+      "SetFusionMaterial",
+      "SetLP",
+      "SetOperationInfo",
+      "SetPossibleOperationInfo",
+      "SetSelectedCard",
+      "SetTargetCard",
+      "SetTargetParam",
+      "SetTargetPlayer",
+      "ShuffleDeck",
+      "ShuffleExtra",
+      "ShuffleHand",
+      "ShuffleSetCard",
+      "SkipPhase",
+      "SortDeckbottom",
+      "SortDecktop",
+      "SpecialSummon",
+      "SpecialSummonComplete",
+      "SpecialSummonRule",
+      "SpecialSummonStep",
+      "Summon",
+      "SwapControl",
+      "SwapDeckAndGrave",
+      "SwapSequence",
+      "SynchroSummon",
+      "TagSwap",
+      "TossCoin",
+      "TossDice",
+      "Win",
+      "XyzSummon"
+    ],
+    "Card": [
+      "AddCounter",
+      "AddMonsterAttribute",
+      "AddMonsterAttributeComplete",
+      "Alias",
+      "AssumeProperty",
+      "Attack",
+      "Attribute",
+      "CanAttack",
+      "CanChainAttack",
+      "CancelCardTarget",
+      "CancelToGrave",
+      "CheckActivateEffect",
+      "CheckEquipTarget",
+      "CheckFusionMaterial",
+      "CheckFusionSubstitute",
+      "CheckRemoveOverlayCard",
+      "CheckUnionTarget",
+      "CheckUniqueOnField",
+      "ClearEffectRelation",
+      "Code",
+      "CompleteProcedure",
+      "CopyEffect",
+      "Cover",
+      "CreateEffectRelation",
+      "CreateRelation",
+      "Defense",
+      "EnableCounterPermit",
+      "EnableGeminiState",
+      "EnableReviveLimit",
+      "EnableUnsummonable",
+      "FromLuaRef",
+      "GetActivateEffect",
+      "GetAllCounters",
+      "GetAttack",
+      "GetAttackAnnouncedCount",
+      "GetAttackableTarget",
+      "GetAttackedCount",
+      "GetAttackedGroup",
+      "GetAttackedGroupCount",
+      "GetAttribute",
+      "GetBaseAttack",
+      "GetBaseDefense",
+      "GetBattlePosition",
+      "GetBattleTarget",
+      "GetBattledGroup",
+      "GetBattledGroupCount",
+      "GetCardEffect",
+      "GetCardID",
+      "GetCardTarget",
+      "GetCardTargetCount",
+      "GetCode",
+      "GetColumnGroup",
+      "GetColumnGroupCount",
+      "GetColumnZone",
+      "GetControler",
+      "GetCounter",
+      "GetDefense",
+      "GetDestination",
+      "GetEffectCount",
+      "GetEquipCount",
+      "GetEquipGroup",
+      "GetEquipTarget",
+      "GetFieldID",
+      "GetFirstCardTarget",
+      "GetFlagEffect",
+      "GetFlagEffectLabel",
+      "GetFreeLinkedZone",
+      "GetLeaveFieldDest",
+      "GetLeftScale",
+      "GetLevel",
+      "GetLink",
+      "GetLinkMarker",
+      "GetLinkedGroup",
+      "GetLinkedGroupCount",
+      "GetLinkedZone",
+      "GetLocation",
+      "GetLuaRef",
+      "GetMaterial",
+      "GetMaterialCount",
+      "GetMutualLinkedGroup",
+      "GetMutualLinkedGroupCount",
+      "GetMutualLinkedZone",
+      "GetOriginalAttribute",
+      "GetOriginalCode",
+      "GetOriginalCodeRule",
+      "GetOriginalLeftScale",
+      "GetOriginalLevel",
+      "GetOriginalRace",
+      "GetOriginalRank",
+      "GetOriginalRightScale",
+      "GetOriginalSetCard",
+      "GetOriginalType",
+      "GetOverlayCount",
+      "GetOverlayGroup",
+      "GetOverlayTarget",
+      "GetOwnEffects",
+      "GetOwner",
+      "GetOwnerTarget",
+      "GetOwnerTargetCount",
+      "GetPosition",
+      "GetPreviousAttackOnField",
+      "GetPreviousAttributeOnField",
+      "GetPreviousCodeOnField",
+      "GetPreviousControler",
+      "GetPreviousDefenseOnField",
+      "GetPreviousEquipTarget",
+      "GetPreviousLevelOnField",
+      "GetPreviousLocation",
+      "GetPreviousPosition",
+      "GetPreviousRaceOnField",
+      "GetPreviousRankOnField",
+      "GetPreviousSequence",
+      "GetPreviousSetCard",
+      "GetPreviousTypeOnField",
+      "GetRace",
+      "GetRank",
+      "GetRealFieldID",
+      "GetReason",
+      "GetReasonCard",
+      "GetReasonEffect",
+      "GetReasonPlayer",
+      "GetRightScale",
+      "GetRitualLevel",
+      "GetSequence",
+      "GetSetCard",
+      "GetSummonLocation",
+      "GetSummonPlayer",
+      "GetSummonType",
+      "GetSynchroLevel",
+      "GetTextAttack",
+      "GetTextDefense",
+      "GetTributeRequirement",
+      "GetTurnCounter",
+      "GetTurnID",
+      "GetType",
+      "GetUnionCount",
+      "HasCounters",
+      "IsAbleToChangeControler",
+      "IsAbleToDeck",
+      "IsAbleToDeckAsCost",
+      "IsAbleToDeckOrExtraAsCost",
+      "IsAbleToExtra",
+      "IsAbleToExtraAsCost",
+      "IsAbleToGrave",
+      "IsAbleToGraveAsCost",
+      "IsAbleToHand",
+      "IsAbleToHandAsCost",
+      "IsAbleToRemove",
+      "IsAbleToRemoveAsCost",
+      "IsAllColumn",
+      "IsAttack",
+      "IsAttackAbove",
+      "IsAttackBelow",
+      "IsAttackPos",
+      "IsAttribute",
+      "IsCanAddCounter",
+      "IsCanBeBattleTarget",
+      "IsCanBeDisabledByEffect",
+      "IsCanBeEffectTarget",
+      "IsCanBeFusionMaterial",
+      "IsCanBeLinkMaterial",
+      "IsCanBeMaterial",
+      "IsCanBeRitualMaterial",
+      "IsCanBeSpecialSummoned",
+      "IsCanBeSynchroMaterial",
+      "IsCanBeXyzMaterial",
+      "IsCanChangePosition",
+      "IsCanRemoveCounter",
+      "IsCanTurnSet",
+      "IsCode",
+      "IsControler",
+      "IsControlerCanBeChanged",
+      "IsDefense",
+      "IsDefenseAbove",
+      "IsDefenseBelow",
+      "IsDefensePos",
+      "IsDeleted",
+      "IsDestructable",
+      "IsDirectAttacked",
+      "IsDisabled",
+      "IsDiscardable",
+      "IsExactType",
+      "IsExtraLinked",
+      "IsFacedown",
+      "IsFaceup",
+      "IsForbidden",
+      "IsFusionSummonableCard",
+      "IsGeminiState",
+      "IsHasCardTarget",
+      "IsHasEffect",
+      "IsImmuneToEffect",
+      "IsLevel",
+      "IsLevelAbove",
+      "IsLevelBelow",
+      "IsLink",
+      "IsLinkAbove",
+      "IsLinkBelow",
+      "IsLinkMarker",
+      "IsLinkSummonable",
+      "IsLinked",
+      "IsLocation",
+      "IsMSetable",
+      "IsNotTuner",
+      "IsOnField",
+      "IsOriginalAttribute",
+      "IsOriginalCode",
+      "IsOriginalCodeRule",
+      "IsOriginalRace",
+      "IsOriginalSetCard",
+      "IsOriginalType",
+      "IsPosition",
+      "IsPreviousControler",
+      "IsPreviousLocation",
+      "IsPreviousPosition",
+      "IsPreviousSetCard",
+      "IsProcedureSummonable",
+      "IsPublic",
+      "IsRace",
+      "IsRank",
+      "IsRankAbove",
+      "IsRankBelow",
+      "IsReason",
+      "IsRelateToBattle",
+      "IsRelateToCard",
+      "IsRelateToChain",
+      "IsRelateToEffect",
+      "IsReleasable",
+      "IsReleasableByEffect",
+      "IsSSetable",
+      "IsSetCard",
+      "IsSpecialSummonable",
+      "IsStatus",
+      "IsSummonCode",
+      "IsSummonLocation",
+      "IsSummonPlayer",
+      "IsSummonType",
+      "IsSummonable",
+      "IsSummonableCard",
+      "IsSynchroSummonable",
+      "IsType",
+      "IsXyzLevel",
+      "IsXyzSummonable",
+      "Level",
+      "LinkMarker",
+      "Lscale",
+      "Race",
+      "Recreate",
+      "RegisterEffect",
+      "RegisterFlagEffect",
+      "ReleaseEffectRelation",
+      "ReleaseRelation",
+      "RemoveAllCounters",
+      "RemoveCounter",
+      "RemoveOverlayCard",
+      "ReplaceEffect",
+      "ResetEffect",
+      "ResetFlagEffect",
+      "ResetNegateEffect",
+      "ReverseInDeck",
+      "Rscale",
+      "SetCardTarget",
+      "SetCounterLimit",
+      "SetFlagEffectLabel",
+      "SetHint",
+      "SetMaterial",
+      "SetReason",
+      "SetReasonCard",
+      "SetReasonEffect",
+      "SetReasonPlayer",
+      "SetSPSummonOnce",
+      "SetStatus",
+      "SetTurnCounter",
+      "SetUniqueOnField",
+      "Setcode",
+      "Type"
+    ],
+    "Group": [
+      "AddCard",
+      "CheckWithSumEqual",
+      "CheckWithSumGreater",
+      "Clear",
+      "Clone",
+      "CreateGroup",
+      "DeleteGroup",
+      "Equal",
+      "Filter",
+      "FilterCount",
+      "FilterSelect",
+      "FromCards",
+      "FromLuaRef",
+      "GetBinClassCount",
+      "GetBitwiseAnd",
+      "GetBitwiseOr",
+      "GetClass",
+      "GetClassCount",
+      "GetCount",
+      "GetFirst",
+      "GetLuaRef",
+      "GetMaxGroup",
+      "GetMinGroup",
+      "GetNext",
+      "GetSum",
+      "Includes",
+      "IsContains",
+      "IsDeleted",
+      "IsExists",
+      "KeepAlive",
+      "Match",
+      "Merge",
+      "RandomSelect",
+      "Remove",
+      "RemoveCard",
+      "SearchCard",
+      "Select",
+      "SelectUnselect",
+      "SelectWithSumEqual",
+      "SelectWithSumGreater",
+      "Split",
+      "Sub",
+      "TakeatPos",
+      "__add",
+      "__band",
+      "__eq",
+      "__gc",
+      "__le",
+      "__len",
+      "__lt",
+      "__sub"
+    ],
+    "Effect": [
+      "CheckCountLimit",
+      "Clone",
+      "CreateEffect",
+      "FromLuaRef",
+      "GetActivateLocation",
+      "GetActivateSequence",
+      "GetActiveType",
+      "GetCategory",
+      "GetCode",
+      "GetCondition",
+      "GetCost",
+      "GetCountLimit",
+      "GetDescription",
+      "GetFieldID",
+      "GetHandler",
+      "GetHandlerPlayer",
+      "GetHintTiming",
+      "GetLabel",
+      "GetLabelObject",
+      "GetLuaRef",
+      "GetOperation",
+      "GetOwner",
+      "GetOwnerPlayer",
+      "GetProperty",
+      "GetRange",
+      "GetReset",
+      "GetTarget",
+      "GetTargetRange",
+      "GetType",
+      "GetValue",
+      "GlobalEffect",
+      "IsActivatable",
+      "IsActivated",
+      "IsActiveType",
+      "IsDeleted",
+      "IsHasCategory",
+      "IsHasProperty",
+      "IsHasType",
+      "Reset",
+      "RestoreCountLimit",
+      "SetAbsoluteRange",
+      "SetCategory",
+      "SetCode",
+      "SetCondition",
+      "SetCost",
+      "SetCountLimit",
+      "SetDescription",
+      "SetHintTiming",
+      "SetLabel",
+      "SetLabelObject",
+      "SetOperation",
+      "SetOwnerPlayer",
+      "SetProperty",
+      "SetRange",
+      "SetReset",
+      "SetTarget",
+      "SetTargetRange",
+      "SetType",
+      "SetValue",
+      "UseCountLimit"
+    ]
+  },
+  "knownUpstreamDefects": [
+    {
+      "api": "Duel.GetMasterRule",
+      "script": "utility.lua",
+      "context": "Unused Auxiliary.MainAndExtraSpSummonLoop helper; no caller in the shipped Lua archive."
+    },
+    {
+      "api": "Group.NewGroup",
+      "script": "c60921537.lua",
+      "context": "Upstream Dogmatikamacabre branch under Spirit Elimination; outside the Field Spell subset."
+    }
+  ],
+  "localCompatibilityBridge": {
+    "script": "native_compatibility.lua",
+    "source": "src/core/native/NativeLuaCompatibility.js",
+    "sha256": "7445d1f73cad6ba208fa0cf869d6f51491e6dd700dedc4cbec6f4342fd8d163e",
+    "providedApis": [
+      "Group.NewGroup"
+    ],
+    "officialLuaBytesModified": false
+  },
+  "startupHelperClosure": [
+    "archetype_setcode_constants.lua",
+    "card_counter_constants.lua",
+    "cards_specific_functions.lua",
+    "chain.lua",
+    "constant.lua",
+    "debug_utility.lua",
+    "deprecated_functions.lua",
+    "proc_equip.lua",
+    "proc_fusion.lua",
+    "proc_fusion_spell.lua",
+    "proc_gemini.lua",
+    "proc_link.lua",
+    "proc_maximum.lua",
+    "proc_normal.lua",
+    "proc_pendulum.lua",
+    "proc_persistent.lua",
+    "proc_ritual.lua",
+    "proc_rush.lua",
+    "proc_skill.lua",
+    "proc_spirit.lua",
+    "proc_synchro.lua",
+    "proc_union.lua",
+    "proc_unofficial.lua",
+    "proc_workaround.lua",
+    "proc_xyz.lua",
+    "utility.lua"
+  ],
+  "helperScripts": [
+    "archetype_setcode_constants.lua",
+    "card_counter_constants.lua",
+    "cards_specific_functions.lua",
+    "chain.lua",
+    "constant.lua",
+    "debug_utility.lua",
+    "deprecated_functions.lua",
+    "proc_equip.lua",
+    "proc_fusion.lua",
+    "proc_fusion_spell.lua",
+    "proc_gemini.lua",
+    "proc_link.lua",
+    "proc_maximum.lua",
+    "proc_normal.lua",
+    "proc_pendulum.lua",
+    "proc_persistent.lua",
+    "proc_ritual.lua",
+    "proc_rush.lua",
+    "proc_skill.lua",
+    "proc_spirit.lua",
+    "proc_synchro.lua",
+    "proc_union.lua",
+    "proc_unofficial.lua",
+    "proc_workaround.lua",
+    "proc_xyz.lua",
+    "utility.lua"
+  ],
+  "luaNamespaceProviders": {
+    "Card.AddCannotBeFlipSummoned": [
+      {
+        "api": "Card.AddCannotBeFlipSummoned",
+        "script": "utility.lua",
+        "line": 1202,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.AddCannotBeNormalSummoned": [
+      {
+        "api": "Card.AddCannotBeNormalSummoned",
+        "script": "utility.lua",
+        "line": 1191,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.AddCannotBeSpecialSummoned": [
+      {
+        "api": "Card.AddCannotBeSpecialSummoned",
+        "script": "utility.lua",
+        "line": 1213,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.AddCenterToSideEffectHandler": [
+      {
+        "api": "Card.AddCenterToSideEffectHandler",
+        "script": "proc_maximum.lua",
+        "line": 204,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.AddDoubleTribute": [
+      {
+        "api": "Card.AddDoubleTribute",
+        "script": "proc_rush.lua",
+        "line": 148,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.AddMaximumAtkHandler": [
+      {
+        "api": "Card.AddMaximumAtkHandler",
+        "script": "proc_maximum.lua",
+        "line": 187,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.AddMustBeFusionSummoned": [
+      {
+        "api": "Card.AddMustBeFusionSummoned",
+        "script": "utility.lua",
+        "line": 1246,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.AddMustBeLinkSummoned": [
+      {
+        "api": "Card.AddMustBeLinkSummoned",
+        "script": "utility.lua",
+        "line": 1286,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.AddMustBePendulumSummoned": [
+      {
+        "api": "Card.AddMustBePendulumSummoned",
+        "script": "utility.lua",
+        "line": 1276,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.AddMustBeRitualSummoned": [
+      {
+        "api": "Card.AddMustBeRitualSummoned",
+        "script": "utility.lua",
+        "line": 1236,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.AddMustBeSpecialSummoned": [
+      {
+        "api": "Card.AddMustBeSpecialSummoned",
+        "script": "utility.lua",
+        "line": 1224,
+        "kind": "assignment"
+      }
+    ],
+    "Card.AddMustBeSpecialSummonedByCardEffect": [
+      {
+        "api": "Card.AddMustBeSpecialSummonedByCardEffect",
+        "script": "utility.lua",
+        "line": 1226,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.AddMustBeSpecialSummonedByDarkFusion": [
+      {
+        "api": "Card.AddMustBeSpecialSummonedByDarkFusion",
+        "script": "cards_specific_functions.lua",
+        "line": 307,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.AddMustBeSynchroSummoned": [
+      {
+        "api": "Card.AddMustBeSynchroSummoned",
+        "script": "utility.lua",
+        "line": 1256,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.AddMustBeXyzSummoned": [
+      {
+        "api": "Card.AddMustBeXyzSummoned",
+        "script": "utility.lua",
+        "line": 1266,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.AddMustFirstBeFusionSummoned": [
+      {
+        "api": "Card.AddMustFirstBeFusionSummoned",
+        "script": "utility.lua",
+        "line": 1307,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.AddMustFirstBeLinkSummoned": [
+      {
+        "api": "Card.AddMustFirstBeLinkSummoned",
+        "script": "utility.lua",
+        "line": 1347,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.AddMustFirstBePendulumSummoned": [
+      {
+        "api": "Card.AddMustFirstBePendulumSummoned",
+        "script": "utility.lua",
+        "line": 1337,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.AddMustFirstBeRitualSummoned": [
+      {
+        "api": "Card.AddMustFirstBeRitualSummoned",
+        "script": "utility.lua",
+        "line": 1297,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.AddMustFirstBeSynchroSummoned": [
+      {
+        "api": "Card.AddMustFirstBeSynchroSummoned",
+        "script": "utility.lua",
+        "line": 1317,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.AddMustFirstBeXyzSummoned": [
+      {
+        "api": "Card.AddMustFirstBeXyzSummoned",
+        "script": "utility.lua",
+        "line": 1327,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.AddNoTributeCheck": [
+      {
+        "api": "Card.AddNoTributeCheck",
+        "script": "proc_rush.lua",
+        "line": 196,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.AddPiercing": [
+      {
+        "api": "Card.AddPiercing",
+        "script": "proc_rush.lua",
+        "line": 98,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.AddSetcodesRule": [
+      {
+        "api": "Card.AddSetcodesRule",
+        "script": "utility.lua",
+        "line": 359,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.AddSideMaximumHandler": [
+      {
+        "api": "Card.AddSideMaximumHandler",
+        "script": "proc_maximum.lua",
+        "line": 220,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.AddTributeSubstitute": [
+      {
+        "api": "Card.AddTributeSubstitute",
+        "script": "proc_rush.lua",
+        "line": 361,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.AnnounceAnotherAttribute": [
+      {
+        "api": "Card.AnnounceAnotherAttribute",
+        "script": "utility.lua",
+        "line": 635,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.AnnounceAnotherRace": [
+      {
+        "api": "Card.AnnounceAnotherRace",
+        "script": "utility.lua",
+        "line": 648,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.CanBeDoubleTribute": [
+      {
+        "api": "Card.CanBeDoubleTribute",
+        "script": "proc_rush.lua",
+        "line": 176,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.CanChangeIntoAttributeRush": [
+      {
+        "api": "Card.CanChangeIntoAttributeRush",
+        "script": "proc_rush.lua",
+        "line": 76,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.CanChangeIntoTypeRush": [
+      {
+        "api": "Card.CanChangeIntoTypeRush",
+        "script": "proc_rush.lua",
+        "line": 61,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.CanGetPiercingRush": [
+      {
+        "api": "Card.CanGetPiercingRush",
+        "script": "proc_rush.lua",
+        "line": 299,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.CanSummonOrSet": [
+      {
+        "api": "Card.CanSummonOrSet",
+        "script": "utility.lua",
+        "line": 619,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.CheckAdjacent": [
+      {
+        "api": "Card.CheckAdjacent",
+        "script": "utility.lua",
+        "line": 377,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.CheckEquipTargetRush": [
+      {
+        "api": "Card.CheckEquipTargetRush",
+        "script": "proc_rush.lua",
+        "line": 307,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.EnableGeminiStatus": [
+      {
+        "api": "Card.EnableGeminiStatus",
+        "script": "proc_gemini.lua",
+        "line": 4,
+        "kind": "assignment"
+      }
+    ],
+    "Card.EquipByEffectAndLimitRegister": [
+      {
+        "api": "Card.EquipByEffectAndLimitRegister",
+        "script": "utility.lua",
+        "line": 1904,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.EquipByEffectLimit": [
+      {
+        "api": "Card.EquipByEffectLimit",
+        "script": "utility.lua",
+        "line": 1895,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.GetMainCardType": [
+      {
+        "api": "Card.GetMainCardType",
+        "script": "utility.lua",
+        "line": 189,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.GetMarkedEffects": [
+      {
+        "api": "Card.GetMarkedEffects",
+        "script": "utility.lua",
+        "line": 979,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.GetMaterialCountRush": [
+      {
+        "api": "Card.GetMaterialCountRush",
+        "script": "proc_rush.lua",
+        "line": 317,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.GetMaximumAttack": [
+      {
+        "api": "Card.GetMaximumAttack",
+        "script": "proc_maximum.lua",
+        "line": 198,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.GetMetatable": [
+      {
+        "api": "Card.GetMetatable",
+        "script": "utility.lua",
+        "line": 739,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.GetScale": [
+      {
+        "api": "Card.GetScale",
+        "script": "utility.lua",
+        "line": 594,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.GetSummonPhase": [
+      {
+        "api": "Card.GetSummonPhase",
+        "script": "proc_workaround.lua",
+        "line": 420,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.GetToBeLinkedZone": [
+      {
+        "api": "Card.GetToBeLinkedZone",
+        "script": "utility.lua",
+        "line": 552,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.GetTributeRequirement": [
+      {
+        "api": "Card.GetTributeRequirement",
+        "script": "proc_workaround.lua",
+        "line": 6,
+        "kind": "assignment"
+      }
+    ],
+    "Card.HasContinuousRushEffect": [
+      {
+        "api": "Card.HasContinuousRushEffect",
+        "script": "proc_rush.lua",
+        "line": 324,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.HasCounter": [
+      {
+        "api": "Card.HasCounter",
+        "script": "utility.lua",
+        "line": 313,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.HasDefense": [
+      {
+        "api": "Card.HasDefense",
+        "script": "utility.lua",
+        "line": 694,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.HasEquipCard": [
+      {
+        "api": "Card.HasEquipCard",
+        "script": "utility.lua",
+        "line": 316,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.HasFlagEffect": [
+      {
+        "api": "Card.HasFlagEffect",
+        "script": "utility.lua",
+        "line": 704,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.HasLevel": [
+      {
+        "api": "Card.HasLevel",
+        "script": "utility.lua",
+        "line": 674,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.HasNonZeroAttack": [
+      {
+        "api": "Card.HasNonZeroAttack",
+        "script": "utility.lua",
+        "line": 1144,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.HasNonZeroDefense": [
+      {
+        "api": "Card.HasNonZeroDefense",
+        "script": "utility.lua",
+        "line": 1148,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.HasRank": [
+      {
+        "api": "Card.HasRank",
+        "script": "utility.lua",
+        "line": 685,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsAbleToDeck": [
+      {
+        "api": "Card.IsAbleToDeck",
+        "script": "proc_workaround.lua",
+        "line": 60,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsAbleToDeckAsCost": [
+      {
+        "api": "Card.IsAbleToDeckAsCost",
+        "script": "c100458007.lua",
+        "line": 41,
+        "kind": "assignment"
+      },
+      {
+        "api": "Card.IsAbleToDeckAsCost",
+        "script": "c100458008.lua",
+        "line": 30,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsAbleToExtra": [
+      {
+        "api": "Card.IsAbleToExtra",
+        "script": "proc_workaround.lua",
+        "line": 61,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsAbleToGrave": [
+      {
+        "api": "Card.IsAbleToGrave",
+        "script": "proc_workaround.lua",
+        "line": 62,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsAbleToHand": [
+      {
+        "api": "Card.IsAbleToHand",
+        "script": "proc_workaround.lua",
+        "line": 59,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsAbleToHandAsCost": [
+      {
+        "api": "Card.IsAbleToHandAsCost",
+        "script": "c100458007.lua",
+        "line": 32,
+        "kind": "assignment"
+      },
+      {
+        "api": "Card.IsAbleToHandAsCost",
+        "script": "c100458008.lua",
+        "line": 21,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsAbleToRemove": [
+      {
+        "api": "Card.IsAbleToRemove",
+        "script": "proc_workaround.lua",
+        "line": 63,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsAttributeExcept": [
+      {
+        "api": "Card.IsAttributeExcept",
+        "script": "utility.lua",
+        "line": 641,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsBaseAttack": [
+      {
+        "api": "Card.IsBaseAttack",
+        "script": "utility.lua",
+        "line": 201,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsBaseDefense": [
+      {
+        "api": "Card.IsBaseDefense",
+        "script": "utility.lua",
+        "line": 211,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsBattleDestroyed": [
+      {
+        "api": "Card.IsBattleDestroyed",
+        "script": "utility.lua",
+        "line": 623,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsBattlePosition": [
+      {
+        "api": "Card.IsBattlePosition",
+        "script": "utility.lua",
+        "line": 309,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsCanBeXyzMaterial": [
+      {
+        "api": "Card.IsCanBeXyzMaterial",
+        "script": "proc_workaround.lua",
+        "line": 486,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsCanChangePositionRush": [
+      {
+        "api": "Card.IsCanChangePositionRush",
+        "script": "proc_rush.lua",
+        "line": 58,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsCoLinked": [
+      {
+        "api": "Card.IsCoLinked",
+        "script": "utility.lua",
+        "line": 319,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsColumn": [
+      {
+        "api": "Card.IsColumn",
+        "script": "utility.lua",
+        "line": 420,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsCompositeType": [
+      {
+        "api": "Card.IsCompositeType",
+        "script": "utility.lua",
+        "line": 123,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsContinuousSpell": [
+      {
+        "api": "Card.IsContinuousSpell",
+        "script": "utility.lua",
+        "line": 139,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsContinuousSpellTrap": [
+      {
+        "api": "Card.IsContinuousSpellTrap",
+        "script": "utility.lua",
+        "line": 167,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsContinuousTrap": [
+      {
+        "api": "Card.IsContinuousTrap",
+        "script": "utility.lua",
+        "line": 145,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsCounterTrap": [
+      {
+        "api": "Card.IsCounterTrap",
+        "script": "utility.lua",
+        "line": 146,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsDestination": [
+      {
+        "api": "Card.IsDestination",
+        "script": "utility.lua",
+        "line": 324,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsDoubleTribute": [
+      {
+        "api": "Card.IsDoubleTribute",
+        "script": "proc_rush.lua",
+        "line": 189,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsEffectMonster": [
+      {
+        "api": "Card.IsEffectMonster",
+        "script": "utility.lua",
+        "line": 193,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsEquipCard": [
+      {
+        "api": "Card.IsEquipCard",
+        "script": "utility.lua",
+        "line": 171,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsEquipSpell": [
+      {
+        "api": "Card.IsEquipSpell",
+        "script": "utility.lua",
+        "line": 140,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsEquipTrap": [
+      {
+        "api": "Card.IsEquipTrap",
+        "script": "utility.lua",
+        "line": 182,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsEvenScale": [
+      {
+        "api": "Card.IsEvenScale",
+        "script": "utility.lua",
+        "line": 614,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsExactType": [
+      {
+        "api": "Card.IsExactType",
+        "script": "utility.lua",
+        "line": 125,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsFieldID": [
+      {
+        "api": "Card.IsFieldID",
+        "script": "utility.lua",
+        "line": 331,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsFieldSpell": [
+      {
+        "api": "Card.IsFieldSpell",
+        "script": "utility.lua",
+        "line": 141,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsFlipSummoned": [
+      {
+        "api": "Card.IsFlipSummoned",
+        "script": "utility.lua",
+        "line": 254,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsFusionMonster": [
+      {
+        "api": "Card.IsFusionMonster",
+        "script": "utility.lua",
+        "line": 148,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsFusionSummoned": [
+      {
+        "api": "Card.IsFusionSummoned",
+        "script": "utility.lua",
+        "line": 266,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsGeminiStatus": [
+      {
+        "api": "Card.IsGeminiStatus",
+        "script": "proc_gemini.lua",
+        "line": 3,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsGeminiSummoned": [
+      {
+        "api": "Card.IsGeminiSummoned",
+        "script": "utility.lua",
+        "line": 257,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsInExtraMZone": [
+      {
+        "api": "Card.IsInExtraMZone",
+        "script": "utility.lua",
+        "line": 631,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsInMainMZone": [
+      {
+        "api": "Card.IsInMainMZone",
+        "script": "utility.lua",
+        "line": 627,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsLeaveFieldDest": [
+      {
+        "api": "Card.IsLeaveFieldDest",
+        "script": "utility.lua",
+        "line": 327,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsLegend": [
+      {
+        "api": "Card.IsLegend",
+        "script": "proc_rush.lua",
+        "line": 18,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsLevelBetween": [
+      {
+        "api": "Card.IsLevelBetween",
+        "script": "utility.lua",
+        "line": 222,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsLinkMonster": [
+      {
+        "api": "Card.IsLinkMonster",
+        "script": "utility.lua",
+        "line": 153,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsLinkSpell": [
+      {
+        "api": "Card.IsLinkSpell",
+        "script": "utility.lua",
+        "line": 143,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsLinkSummoned": [
+      {
+        "api": "Card.IsLinkSummoned",
+        "script": "utility.lua",
+        "line": 278,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsMaximumMode": [
+      {
+        "api": "Card.IsMaximumMode",
+        "script": "proc_maximum.lua",
+        "line": 155,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsMaximumModeCenter": [
+      {
+        "api": "Card.IsMaximumModeCenter",
+        "script": "proc_maximum.lua",
+        "line": 158,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsMaximumModeLeft": [
+      {
+        "api": "Card.IsMaximumModeLeft",
+        "script": "proc_maximum.lua",
+        "line": 161,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsMaximumModeRight": [
+      {
+        "api": "Card.IsMaximumModeRight",
+        "script": "proc_maximum.lua",
+        "line": 166,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsMaximumModeSide": [
+      {
+        "api": "Card.IsMaximumModeSide",
+        "script": "proc_maximum.lua",
+        "line": 171,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsMonster": [
+      {
+        "api": "Card.IsMonster",
+        "script": "utility.lua",
+        "line": 129,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsMonsterCard": [
+      {
+        "api": "Card.IsMonsterCard",
+        "script": "utility.lua",
+        "line": 173,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsNegatable": [
+      {
+        "api": "Card.IsNegatable",
+        "script": "utility.lua",
+        "line": 1083,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsNegatableMonster": [
+      {
+        "api": "Card.IsNegatableMonster",
+        "script": "utility.lua",
+        "line": 1075,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsNegatableSpellTrap": [
+      {
+        "api": "Card.IsNegatableSpellTrap",
+        "script": "utility.lua",
+        "line": 1079,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsNonEffectMonster": [
+      {
+        "api": "Card.IsNonEffectMonster",
+        "script": "utility.lua",
+        "line": 197,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsNormalSpell": [
+      {
+        "api": "Card.IsNormalSpell",
+        "script": "utility.lua",
+        "line": 155,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsNormalSpellTrap": [
+      {
+        "api": "Card.IsNormalSpellTrap",
+        "script": "utility.lua",
+        "line": 163,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsNormalSummoned": [
+      {
+        "api": "Card.IsNormalSummoned",
+        "script": "utility.lua",
+        "line": 248,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsNormalTrap": [
+      {
+        "api": "Card.IsNormalTrap",
+        "script": "utility.lua",
+        "line": 159,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsNotMaximumModeSide": [
+      {
+        "api": "Card.IsNotMaximumModeSide",
+        "script": "proc_maximum.lua",
+        "line": 174,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsNouvellesSummoned": [
+      {
+        "api": "Card.IsNouvellesSummoned",
+        "script": "cards_specific_functions.lua",
+        "line": 40,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsOddScale": [
+      {
+        "api": "Card.IsOddScale",
+        "script": "utility.lua",
+        "line": 609,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsOriginalLevel": [
+      {
+        "api": "Card.IsOriginalLevel",
+        "script": "utility.lua",
+        "line": 227,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsOriginalRank": [
+      {
+        "api": "Card.IsOriginalRank",
+        "script": "utility.lua",
+        "line": 234,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsOwner": [
+      {
+        "api": "Card.IsOwner",
+        "script": "utility.lua",
+        "line": 305,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsPendulumMonster": [
+      {
+        "api": "Card.IsPendulumMonster",
+        "script": "utility.lua",
+        "line": 152,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsPendulumSummoned": [
+      {
+        "api": "Card.IsPendulumSummoned",
+        "script": "utility.lua",
+        "line": 275,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsPlusOrMinus": [
+      {
+        "api": "Card.IsPlusOrMinus",
+        "script": "proc_unofficial.lua",
+        "line": 196,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsPreviousAttackOnField": [
+      {
+        "api": "Card.IsPreviousAttackOnField",
+        "script": "utility.lua",
+        "line": 207,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsPreviousAttributeOnField": [
+      {
+        "api": "Card.IsPreviousAttributeOnField",
+        "script": "utility.lua",
+        "line": 282,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsPreviousCodeOnField": [
+      {
+        "api": "Card.IsPreviousCodeOnField",
+        "script": "utility.lua",
+        "line": 291,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsPreviousDefenseOnField": [
+      {
+        "api": "Card.IsPreviousDefenseOnField",
+        "script": "utility.lua",
+        "line": 217,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsPreviousLevelOnField": [
+      {
+        "api": "Card.IsPreviousLevelOnField",
+        "script": "utility.lua",
+        "line": 230,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsPreviousRaceOnField": [
+      {
+        "api": "Card.IsPreviousRaceOnField",
+        "script": "utility.lua",
+        "line": 285,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsPreviousRankOnField": [
+      {
+        "api": "Card.IsPreviousRankOnField",
+        "script": "utility.lua",
+        "line": 237,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsPreviousSequence": [
+      {
+        "api": "Card.IsPreviousSequence",
+        "script": "utility.lua",
+        "line": 301,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsPreviousTypeOnField": [
+      {
+        "api": "Card.IsPreviousTypeOnField",
+        "script": "utility.lua",
+        "line": 288,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsQuickPlaySpell": [
+      {
+        "api": "Card.IsQuickPlaySpell",
+        "script": "utility.lua",
+        "line": 138,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsRaceExcept": [
+      {
+        "api": "Card.IsRaceExcept",
+        "script": "utility.lua",
+        "line": 654,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsRealFieldID": [
+      {
+        "api": "Card.IsRealFieldID",
+        "script": "utility.lua",
+        "line": 334,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsReasonCard": [
+      {
+        "api": "Card.IsReasonCard",
+        "script": "utility.lua",
+        "line": 339,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsReasonEffect": [
+      {
+        "api": "Card.IsReasonEffect",
+        "script": "utility.lua",
+        "line": 342,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsReasonPlayer": [
+      {
+        "api": "Card.IsReasonPlayer",
+        "script": "utility.lua",
+        "line": 345,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsReincarnationSummoned": [
+      {
+        "api": "Card.IsReincarnationSummoned",
+        "script": "cards_specific_functions.lua",
+        "line": 159,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsRelateToEffect": [
+      {
+        "api": "Card.IsRelateToEffect",
+        "script": "proc_workaround.lua",
+        "line": 21,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsRikkaReleasable": [
+      {
+        "api": "Card.IsRikkaReleasable",
+        "script": "cards_specific_functions.lua",
+        "line": 1145,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsRitualMonster": [
+      {
+        "api": "Card.IsRitualMonster",
+        "script": "utility.lua",
+        "line": 149,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsRitualSpell": [
+      {
+        "api": "Card.IsRitualSpell",
+        "script": "utility.lua",
+        "line": 142,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsRitualSummoned": [
+      {
+        "api": "Card.IsRitualSummoned",
+        "script": "utility.lua",
+        "line": 263,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsScale": [
+      {
+        "api": "Card.IsScale",
+        "script": "utility.lua",
+        "line": 241,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsSequence": [
+      {
+        "api": "Card.IsSequence",
+        "script": "utility.lua",
+        "line": 662,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsSpecialSummoned": [
+      {
+        "api": "Card.IsSpecialSummoned",
+        "script": "utility.lua",
+        "line": 260,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsSpell": [
+      {
+        "api": "Card.IsSpell",
+        "script": "utility.lua",
+        "line": 130,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsSpellCard": [
+      {
+        "api": "Card.IsSpellCard",
+        "script": "utility.lua",
+        "line": 174,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsSpellTrap": [
+      {
+        "api": "Card.IsSpellTrap",
+        "script": "utility.lua",
+        "line": 132,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsSpellTrapCard": [
+      {
+        "api": "Card.IsSpellTrapCard",
+        "script": "utility.lua",
+        "line": 176,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsSummonPhase": [
+      {
+        "api": "Card.IsSummonPhase",
+        "script": "proc_workaround.lua",
+        "line": 424,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsSummonPhaseBattle": [
+      {
+        "api": "Card.IsSummonPhaseBattle",
+        "script": "proc_workaround.lua",
+        "line": 431,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsSummonPhaseMain": [
+      {
+        "api": "Card.IsSummonPhaseMain",
+        "script": "proc_workaround.lua",
+        "line": 427,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsSynchroMonster": [
+      {
+        "api": "Card.IsSynchroMonster",
+        "script": "utility.lua",
+        "line": 150,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsSynchroSummoned": [
+      {
+        "api": "Card.IsSynchroSummoned",
+        "script": "utility.lua",
+        "line": 269,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsTextAttack": [
+      {
+        "api": "Card.IsTextAttack",
+        "script": "utility.lua",
+        "line": 204,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsTextDefense": [
+      {
+        "api": "Card.IsTextDefense",
+        "script": "utility.lua",
+        "line": 214,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsTrap": [
+      {
+        "api": "Card.IsTrap",
+        "script": "utility.lua",
+        "line": 131,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsTrapCard": [
+      {
+        "api": "Card.IsTrapCard",
+        "script": "utility.lua",
+        "line": 175,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsTrapMonster": [
+      {
+        "api": "Card.IsTrapMonster",
+        "script": "utility.lua",
+        "line": 178,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsTributeSummoned": [
+      {
+        "api": "Card.IsTributeSummoned",
+        "script": "utility.lua",
+        "line": 251,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.IsXyzMonster": [
+      {
+        "api": "Card.IsXyzMonster",
+        "script": "utility.lua",
+        "line": 151,
+        "kind": "assignment"
+      }
+    ],
+    "Card.IsXyzSummoned": [
+      {
+        "api": "Card.IsXyzSummoned",
+        "script": "utility.lua",
+        "line": 272,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.ListsArchetype": [
+      {
+        "api": "Card.ListsArchetype",
+        "script": "utility.lua",
+        "line": 1064,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.ListsArchetypeAsMaterial": [
+      {
+        "api": "Card.ListsArchetypeAsMaterial",
+        "script": "utility.lua",
+        "line": 1003,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.ListsCardType": [
+      {
+        "api": "Card.ListsCardType",
+        "script": "utility.lua",
+        "line": 1053,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.ListsCode": [
+      {
+        "api": "Card.ListsCode",
+        "script": "utility.lua",
+        "line": 1018,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.ListsCodeAsMaterial": [
+      {
+        "api": "Card.ListsCodeAsMaterial",
+        "script": "utility.lua",
+        "line": 990,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.ListsCodeWithArchetype": [
+      {
+        "api": "Card.ListsCodeWithArchetype",
+        "script": "utility.lua",
+        "line": 1037,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.ListsCounter": [
+      {
+        "api": "Card.ListsCounter",
+        "script": "utility.lua",
+        "line": 2381,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.MoveAdjacent": [
+      {
+        "api": "Card.MoveAdjacent",
+        "script": "utility.lua",
+        "line": 403,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.NegateContinuousRushEffects": [
+      {
+        "api": "Card.NegateContinuousRushEffects",
+        "script": "proc_rush.lua",
+        "line": 333,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.NegateEffects": [
+      {
+        "api": "Card.NegateEffects",
+        "script": "utility.lua",
+        "line": 714,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.PlacesCounter": [
+      {
+        "api": "Card.PlacesCounter",
+        "script": "utility.lua",
+        "line": 2395,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.RegisterEffect": [
+      {
+        "api": "Card.RegisterEffect",
+        "script": "proc_rush.lua",
+        "line": 35,
+        "kind": "assignment"
+      },
+      {
+        "api": "Card.RegisterEffect",
+        "script": "proc_workaround.lua",
+        "line": 100,
+        "kind": "assignment"
+      },
+      {
+        "api": "Card.RegisterEffect",
+        "script": "utility.lua",
+        "line": 953,
+        "kind": "assignment"
+      },
+      {
+        "api": "Card.RegisterEffect",
+        "script": "proc_unofficial.lua",
+        "line": 582,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.SelectAdjacent": [
+      {
+        "api": "Card.SelectAdjacent",
+        "script": "utility.lua",
+        "line": 385,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.UpdateAttack": [
+      {
+        "api": "Card.UpdateAttack",
+        "script": "utility.lua",
+        "line": 445,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.UpdateDefense": [
+      {
+        "api": "Card.UpdateDefense",
+        "script": "utility.lua",
+        "line": 461,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.UpdateLevel": [
+      {
+        "api": "Card.UpdateLevel",
+        "script": "utility.lua",
+        "line": 477,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.UpdateLink": [
+      {
+        "api": "Card.UpdateLink",
+        "script": "utility.lua",
+        "line": 513,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.UpdateRank": [
+      {
+        "api": "Card.UpdateRank",
+        "script": "utility.lua",
+        "line": 495,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.UpdateScale": [
+      {
+        "api": "Card.UpdateScale",
+        "script": "utility.lua",
+        "line": 531,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.WasMaximumMode": [
+      {
+        "api": "Card.WasMaximumMode",
+        "script": "proc_maximum.lua",
+        "line": 183,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.WasMaximumModeCenter": [
+      {
+        "api": "Card.WasMaximumModeCenter",
+        "script": "proc_maximum.lua",
+        "line": 177,
+        "kind": "function-definition"
+      }
+    ],
+    "Card.WasMaximumModeSide": [
+      {
+        "api": "Card.WasMaximumModeSide",
+        "script": "proc_maximum.lua",
+        "line": 180,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.ActivateFieldSpell": [
+      {
+        "api": "Duel.ActivateFieldSpell",
+        "script": "utility.lua",
+        "line": 2714,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.AddNoTributeCheck": [
+      {
+        "api": "Duel.AddNoTributeCheck",
+        "script": "proc_rush.lua",
+        "line": 208,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.AnnounceAnotherAttribute": [
+      {
+        "api": "Duel.AnnounceAnotherAttribute",
+        "script": "utility.lua",
+        "line": 1989,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.AnnounceAnotherRace": [
+      {
+        "api": "Duel.AnnounceAnotherRace",
+        "script": "utility.lua",
+        "line": 1995,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.AskAny": [
+      {
+        "api": "Duel.AskAny",
+        "script": "utility.lua",
+        "line": 2528,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.AskEveryone": [
+      {
+        "api": "Duel.AskEveryone",
+        "script": "utility.lua",
+        "line": 2503,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.CallCoin": [
+      {
+        "api": "Duel.CallCoin",
+        "script": "utility.lua",
+        "line": 2794,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.ChangeToFaceupAttackOrFacedownDefense": [
+      {
+        "api": "Duel.ChangeToFaceupAttackOrFacedownDefense",
+        "script": "proc_rush.lua",
+        "line": 343,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.CheckPendulumZones": [
+      {
+        "api": "Duel.CheckPendulumZones",
+        "script": "utility.lua",
+        "line": 2810,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.CheckReleaseGroupCost": [
+      {
+        "api": "Duel.CheckReleaseGroupCost",
+        "script": "proc_workaround.lua",
+        "line": 620,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.CheckReleaseGroupSummon": [
+      {
+        "api": "Duel.CheckReleaseGroupSummon",
+        "script": "proc_workaround.lua",
+        "line": 523,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.CountHeads": [
+      {
+        "api": "Duel.CountHeads",
+        "script": "utility.lua",
+        "line": 2799,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.CountTails": [
+      {
+        "api": "Duel.CountTails",
+        "script": "utility.lua",
+        "line": 2805,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.EnableUnofficialAttribute": [
+      {
+        "api": "Duel.EnableUnofficialAttribute",
+        "script": "proc_unofficial.lua",
+        "line": 278,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.EnableUnofficialProc": [
+      {
+        "api": "Duel.EnableUnofficialProc",
+        "script": "proc_unofficial.lua",
+        "line": 294,
+        "kind": "assignment"
+      }
+    ],
+    "Duel.EnableUnofficialRace": [
+      {
+        "api": "Duel.EnableUnofficialRace",
+        "script": "proc_unofficial.lua",
+        "line": 274,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.GetFieldGroupCountRush": [
+      {
+        "api": "Duel.GetFieldGroupCountRush",
+        "script": "proc_maximum.lua",
+        "line": 383,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.GetFusionMaterial": [
+      {
+        "api": "Duel.GetFusionMaterial",
+        "script": "proc_fusion_spell.lua",
+        "line": 45,
+        "kind": "assignment"
+      }
+    ],
+    "Duel.GetMatchingGroupCountRush": [
+      {
+        "api": "Duel.GetMatchingGroupCountRush",
+        "script": "proc_maximum.lua",
+        "line": 362,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.GetMatchingGroupRush": [
+      {
+        "api": "Duel.GetMatchingGroupRush",
+        "script": "proc_maximum.lua",
+        "line": 387,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.GetMetatable": [
+      {
+        "api": "Duel.GetMetatable",
+        "script": "utility.lua",
+        "line": 744,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.GetReleaseGroup": [
+      {
+        "api": "Duel.GetReleaseGroup",
+        "script": "proc_workaround.lua",
+        "line": 72,
+        "kind": "assignment"
+      }
+    ],
+    "Duel.GetTargetCards": [
+      {
+        "api": "Duel.GetTargetCards",
+        "script": "utility.lua",
+        "line": 2245,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.GetTargetGroup": [
+      {
+        "api": "Duel.GetTargetGroup",
+        "script": "proc_workaround.lua",
+        "line": 47,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.GetZoneWithLinkedCount": [
+      {
+        "api": "Duel.GetZoneWithLinkedCount",
+        "script": "utility.lua",
+        "line": 2358,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.GoatConfirm": [
+      {
+        "api": "Duel.GoatConfirm",
+        "script": "utility.lua",
+        "line": 2747,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.HasFlagEffect": [
+      {
+        "api": "Duel.HasFlagEffect",
+        "script": "utility.lua",
+        "line": 708,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.IsBattlePhase": [
+      {
+        "api": "Duel.IsBattlePhase",
+        "script": "proc_workaround.lua",
+        "line": 289,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.IsBattleStep": [
+      {
+        "api": "Duel.IsBattleStep",
+        "script": "proc_workaround.lua",
+        "line": 273,
+        "kind": "assignment"
+      }
+    ],
+    "Duel.IsDamageCalculation": [
+      {
+        "api": "Duel.IsDamageCalculation",
+        "script": "proc_workaround.lua",
+        "line": 275,
+        "kind": "assignment"
+      }
+    ],
+    "Duel.IsDamageStep": [
+      {
+        "api": "Duel.IsDamageStep",
+        "script": "proc_workaround.lua",
+        "line": 294,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.IsDrawPhase": [
+      {
+        "api": "Duel.IsDrawPhase",
+        "script": "proc_workaround.lua",
+        "line": 264,
+        "kind": "assignment"
+      }
+    ],
+    "Duel.IsEndOfBattlePhase": [
+      {
+        "api": "Duel.IsEndOfBattlePhase",
+        "script": "proc_workaround.lua",
+        "line": 277,
+        "kind": "assignment"
+      }
+    ],
+    "Duel.IsEndPhase": [
+      {
+        "api": "Duel.IsEndPhase",
+        "script": "proc_workaround.lua",
+        "line": 282,
+        "kind": "assignment"
+      }
+    ],
+    "Duel.IsEndStep": [
+      {
+        "api": "Duel.IsEndStep",
+        "script": "proc_workaround.lua",
+        "line": 278,
+        "kind": "assignment"
+      }
+    ],
+    "Duel.IsMainPhase": [
+      {
+        "api": "Duel.IsMainPhase",
+        "script": "proc_workaround.lua",
+        "line": 284,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.IsMainPhase1": [
+      {
+        "api": "Duel.IsMainPhase1",
+        "script": "proc_workaround.lua",
+        "line": 268,
+        "kind": "assignment"
+      }
+    ],
+    "Duel.IsMainPhase2": [
+      {
+        "api": "Duel.IsMainPhase2",
+        "script": "proc_workaround.lua",
+        "line": 280,
+        "kind": "assignment"
+      }
+    ],
+    "Duel.IsPlayerCanAdditionalTributeSummon": [
+      {
+        "api": "Duel.IsPlayerCanAdditionalTributeSummon",
+        "script": "proc_workaround.lua",
+        "line": 378,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.IsStandbyPhase": [
+      {
+        "api": "Duel.IsStandbyPhase",
+        "script": "proc_workaround.lua",
+        "line": 266,
+        "kind": "assignment"
+      }
+    ],
+    "Duel.IsStartOfBattlePhase": [
+      {
+        "api": "Duel.IsStartOfBattlePhase",
+        "script": "proc_workaround.lua",
+        "line": 270,
+        "kind": "assignment"
+      }
+    ],
+    "Duel.IsStartStep": [
+      {
+        "api": "Duel.IsStartStep",
+        "script": "proc_workaround.lua",
+        "line": 271,
+        "kind": "assignment"
+      }
+    ],
+    "Duel.LoadCardScript": [
+      {
+        "api": "Duel.LoadCardScript",
+        "script": "utility.lua",
+        "line": 763,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.LoadCardScriptAlias": [
+      {
+        "api": "Duel.LoadCardScriptAlias",
+        "script": "utility.lua",
+        "line": 752,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.MoveToDeckBottom": [
+      {
+        "api": "Duel.MoveToDeckBottom",
+        "script": "utility.lua",
+        "line": 2222,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.MoveToDeckTop": [
+      {
+        "api": "Duel.MoveToDeckTop",
+        "script": "utility.lua",
+        "line": 2207,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.MoveToField": [
+      {
+        "api": "Duel.MoveToField",
+        "script": "proc_workaround.lua",
+        "line": 472,
+        "kind": "assignment"
+      }
+    ],
+    "Duel.Overlay": [
+      {
+        "api": "Duel.Overlay",
+        "script": "proc_workaround.lua",
+        "line": 440,
+        "kind": "assignment"
+      }
+    ],
+    "Duel.RegisterEffect": [
+      {
+        "api": "Duel.RegisterEffect",
+        "script": "chain.lua",
+        "line": 574,
+        "kind": "function-definition"
+      },
+      {
+        "api": "Duel.RegisterEffect",
+        "script": "proc_workaround.lua",
+        "line": 144,
+        "kind": "assignment"
+      },
+      {
+        "api": "Duel.RegisterEffect",
+        "script": "proc_workaround.lua",
+        "line": 381,
+        "kind": "assignment"
+      }
+    ],
+    "Duel.SelectEffect": [
+      {
+        "api": "Duel.SelectEffect",
+        "script": "utility.lua",
+        "line": 2780,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.SelectReleaseGroupCost": [
+      {
+        "api": "Duel.SelectReleaseGroupCost",
+        "script": "proc_workaround.lua",
+        "line": 634,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.SelectReleaseGroupSummon": [
+      {
+        "api": "Duel.SelectReleaseGroupSummon",
+        "script": "proc_workaround.lua",
+        "line": 550,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.SummonOrSet": [
+      {
+        "api": "Duel.SummonOrSet",
+        "script": "utility.lua",
+        "line": 2644,
+        "kind": "function-definition"
+      }
+    ],
+    "Duel.SwapSequence": [
+      {
+        "api": "Duel.SwapSequence",
+        "script": "proc_workaround.lua",
+        "line": 671,
+        "kind": "function-definition"
+      }
+    ],
+    "Effect.CreateMysteruneQPEffect": [
+      {
+        "api": "Effect.CreateMysteruneQPEffect",
+        "script": "cards_specific_functions.lua",
+        "line": 908,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.GetCardATK": [
+      {
+        "api": "Effect.GetCardATK",
+        "script": "chain.lua",
+        "line": 518,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.GetCardAttack": [
+      {
+        "api": "Effect.GetCardAttack",
+        "script": "chain.lua",
+        "line": 560,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.GetCardAttribute": [
+      {
+        "api": "Effect.GetCardAttribute",
+        "script": "chain.lua",
+        "line": 516,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.GetCardCode": [
+      {
+        "api": "Effect.GetCardCode",
+        "script": "chain.lua",
+        "line": 506,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.GetCardControler": [
+      {
+        "api": "Effect.GetCardControler",
+        "script": "chain.lua",
+        "line": 507,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.GetCardDEF": [
+      {
+        "api": "Effect.GetCardDEF",
+        "script": "chain.lua",
+        "line": 519,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.GetCardDefense": [
+      {
+        "api": "Effect.GetCardDefense",
+        "script": "chain.lua",
+        "line": 561,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.GetCardLevel": [
+      {
+        "api": "Effect.GetCardLevel",
+        "script": "chain.lua",
+        "line": 512,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.GetCardLink": [
+      {
+        "api": "Effect.GetCardLink",
+        "script": "chain.lua",
+        "line": 515,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.GetCardLocation": [
+      {
+        "api": "Effect.GetCardLocation",
+        "script": "chain.lua",
+        "line": 508,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.GetCardPosition": [
+      {
+        "api": "Effect.GetCardPosition",
+        "script": "chain.lua",
+        "line": 510,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.GetCardRace": [
+      {
+        "api": "Effect.GetCardRace",
+        "script": "chain.lua",
+        "line": 517,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.GetCardRank": [
+      {
+        "api": "Effect.GetCardRank",
+        "script": "chain.lua",
+        "line": 513,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.GetCardScale": [
+      {
+        "api": "Effect.GetCardScale",
+        "script": "chain.lua",
+        "line": 514,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.GetCardSequence": [
+      {
+        "api": "Effect.GetCardSequence",
+        "script": "chain.lua",
+        "line": 509,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.GetCardSetCard": [
+      {
+        "api": "Effect.GetCardSetCard",
+        "script": "chain.lua",
+        "line": 562,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.GetCardSetcode": [
+      {
+        "api": "Effect.GetCardSetcode",
+        "script": "chain.lua",
+        "line": 522,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.GetCardSummonLocation": [
+      {
+        "api": "Effect.GetCardSummonLocation",
+        "script": "chain.lua",
+        "line": 520,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.GetCardSummonType": [
+      {
+        "api": "Effect.GetCardSummonType",
+        "script": "chain.lua",
+        "line": 521,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.GetCardType": [
+      {
+        "api": "Effect.GetCardType",
+        "script": "chain.lua",
+        "line": 511,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.GetChainData": [
+      {
+        "api": "Effect.GetChainData",
+        "script": "chain.lua",
+        "line": 75,
+        "kind": "function-definition"
+      }
+    ],
+    "Effect.HasDetachCost": [
+      {
+        "api": "Effect.HasDetachCost",
+        "script": "utility.lua",
+        "line": 1690,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.HasRemainFieldCost": [
+      {
+        "api": "Effect.HasRemainFieldCost",
+        "script": "utility.lua",
+        "line": 1692,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.HasSelfChangePositionCost": [
+      {
+        "api": "Effect.HasSelfChangePositionCost",
+        "script": "utility.lua",
+        "line": 1691,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.HasSelfDiscardCost": [
+      {
+        "api": "Effect.HasSelfDiscardCost",
+        "script": "utility.lua",
+        "line": 1689,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.HasSelfToGraveCost": [
+      {
+        "api": "Effect.HasSelfToGraveCost",
+        "script": "utility.lua",
+        "line": 1688,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.IsCardATK": [
+      {
+        "api": "Effect.IsCardATK",
+        "script": "chain.lua",
+        "line": 538,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.IsCardAttack": [
+      {
+        "api": "Effect.IsCardAttack",
+        "script": "chain.lua",
+        "line": 563,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.IsCardAttribute": [
+      {
+        "api": "Effect.IsCardAttribute",
+        "script": "chain.lua",
+        "line": 536,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.IsCardAttributeExcept": [
+      {
+        "api": "Effect.IsCardAttributeExcept",
+        "script": "chain.lua",
+        "line": 548,
+        "kind": "function-definition"
+      }
+    ],
+    "Effect.IsCardCode": [
+      {
+        "api": "Effect.IsCardCode",
+        "script": "chain.lua",
+        "line": 526,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.IsCardCompositeType": [
+      {
+        "api": "Effect.IsCardCompositeType",
+        "script": "chain.lua",
+        "line": 552,
+        "kind": "function-definition"
+      }
+    ],
+    "Effect.IsCardControler": [
+      {
+        "api": "Effect.IsCardControler",
+        "script": "chain.lua",
+        "line": 527,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.IsCardDEF": [
+      {
+        "api": "Effect.IsCardDEF",
+        "script": "chain.lua",
+        "line": 539,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.IsCardDefense": [
+      {
+        "api": "Effect.IsCardDefense",
+        "script": "chain.lua",
+        "line": 564,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.IsCardExactType": [
+      {
+        "api": "Effect.IsCardExactType",
+        "script": "chain.lua",
+        "line": 556,
+        "kind": "function-definition"
+      }
+    ],
+    "Effect.IsCardLevel": [
+      {
+        "api": "Effect.IsCardLevel",
+        "script": "chain.lua",
+        "line": 532,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.IsCardLink": [
+      {
+        "api": "Effect.IsCardLink",
+        "script": "chain.lua",
+        "line": 535,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.IsCardLocation": [
+      {
+        "api": "Effect.IsCardLocation",
+        "script": "chain.lua",
+        "line": 528,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.IsCardPosition": [
+      {
+        "api": "Effect.IsCardPosition",
+        "script": "chain.lua",
+        "line": 530,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.IsCardRace": [
+      {
+        "api": "Effect.IsCardRace",
+        "script": "chain.lua",
+        "line": 537,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.IsCardRaceExcept": [
+      {
+        "api": "Effect.IsCardRaceExcept",
+        "script": "chain.lua",
+        "line": 544,
+        "kind": "function-definition"
+      }
+    ],
+    "Effect.IsCardRank": [
+      {
+        "api": "Effect.IsCardRank",
+        "script": "chain.lua",
+        "line": 533,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.IsCardScale": [
+      {
+        "api": "Effect.IsCardScale",
+        "script": "chain.lua",
+        "line": 534,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.IsCardSequence": [
+      {
+        "api": "Effect.IsCardSequence",
+        "script": "chain.lua",
+        "line": 529,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.IsCardSetCard": [
+      {
+        "api": "Effect.IsCardSetCard",
+        "script": "chain.lua",
+        "line": 565,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.IsCardSetcode": [
+      {
+        "api": "Effect.IsCardSetcode",
+        "script": "chain.lua",
+        "line": 542,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.IsCardSummonLocation": [
+      {
+        "api": "Effect.IsCardSummonLocation",
+        "script": "chain.lua",
+        "line": 540,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.IsCardSummonType": [
+      {
+        "api": "Effect.IsCardSummonType",
+        "script": "chain.lua",
+        "line": 541,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.IsCardType": [
+      {
+        "api": "Effect.IsCardType",
+        "script": "chain.lua",
+        "line": 531,
+        "kind": "assignment"
+      }
+    ],
+    "Effect.IsGlobalEffect": [
+      {
+        "api": "Effect.IsGlobalEffect",
+        "script": "utility.lua",
+        "line": 802,
+        "kind": "function-definition"
+      }
+    ],
+    "Effect.IsMonsterEffect": [
+      {
+        "api": "Effect.IsMonsterEffect",
+        "script": "utility.lua",
+        "line": 786,
+        "kind": "function-definition"
+      }
+    ],
+    "Effect.IsSpellEffect": [
+      {
+        "api": "Effect.IsSpellEffect",
+        "script": "utility.lua",
+        "line": 790,
+        "kind": "function-definition"
+      }
+    ],
+    "Effect.IsSpellTrapEffect": [
+      {
+        "api": "Effect.IsSpellTrapEffect",
+        "script": "utility.lua",
+        "line": 798,
+        "kind": "function-definition"
+      }
+    ],
+    "Effect.IsTrapEffect": [
+      {
+        "api": "Effect.IsTrapEffect",
+        "script": "utility.lua",
+        "line": 794,
+        "kind": "function-definition"
+      }
+    ],
+    "Group.AddMaximumCheck": [
+      {
+        "api": "Group.AddMaximumCheck",
+        "script": "proc_maximum.lua",
+        "line": 391,
+        "kind": "function-definition"
+      }
+    ],
+    "Group.CheckDifferentProperty": [
+      {
+        "api": "Group.CheckDifferentProperty",
+        "script": "utility.lua",
+        "line": 2481,
+        "kind": "function-definition"
+      }
+    ],
+    "Group.CheckDifferentPropertyBinary": [
+      {
+        "api": "Group.CheckDifferentPropertyBinary",
+        "script": "utility.lua",
+        "line": 2465,
+        "kind": "function-definition"
+      }
+    ],
+    "Group.CheckSameProperty": [
+      {
+        "api": "Group.CheckSameProperty",
+        "script": "utility.lua",
+        "line": 2443,
+        "kind": "function-definition"
+      }
+    ],
+    "Group.ForEach": [
+      {
+        "api": "Group.ForEach",
+        "script": "utility.lua",
+        "line": 849,
+        "kind": "function-definition"
+      }
+    ],
+    "Group.GetLinkedZone": [
+      {
+        "api": "Group.GetLinkedZone",
+        "script": "utility.lua",
+        "line": 1981,
+        "kind": "function-definition"
+      }
+    ],
+    "Group.GetToBeLinkedZone": [
+      {
+        "api": "Group.GetToBeLinkedZone",
+        "script": "utility.lua",
+        "line": 1985,
+        "kind": "function-definition"
+      }
+    ],
+    "Group.Iter": [
+      {
+        "api": "Group.Iter",
+        "script": "utility.lua",
+        "line": 862,
+        "kind": "assignment"
+      }
+    ],
+    "Group.NewGroup": [
+      {
+        "api": "Group.NewGroup",
+        "script": "native_compatibility.lua",
+        "line": 5,
+        "kind": "assignment"
+      }
+    ],
+    "Group.__tostring": [
+      {
+        "api": "Group.__tostring",
+        "script": "debug_utility.lua",
+        "line": 201,
+        "kind": "function-definition"
+      }
+    ]
+  },
+  "scopes": {
+    "fields": {
+      "scriptCount": 339,
+      "referenceCount": 5950,
+      "uniqueApis": [
+        "Card.GetAttack",
+        "Card.GetAttribute",
+        "Card.GetCode",
+        "Card.GetFieldID",
+        "Card.GetLeftScale",
+        "Card.GetLevel",
+        "Card.GetLink",
+        "Card.GetLocation",
+        "Card.GetMainCardType",
+        "Card.GetOriginalLevel",
+        "Card.GetPreviousAttackOnField",
+        "Card.GetRace",
+        "Card.GetRightScale",
+        "Card.HasCounter",
+        "Card.HasFlagEffect",
+        "Card.HasLevel",
+        "Card.IsAbleToDeck",
+        "Card.IsAbleToGrave",
+        "Card.IsAbleToGraveAsCost",
+        "Card.IsAbleToHand",
+        "Card.IsAbleToRemove",
+        "Card.IsAbleToRemoveAsCost",
+        "Card.IsAttackAbove",
+        "Card.IsAttribute",
+        "Card.IsCanBeEffectTarget",
+        "Card.IsCanBeSpecialSummoned",
+        "Card.IsCode",
+        "Card.IsControler",
+        "Card.IsControlerCanBeChanged",
+        "Card.IsDefensePos",
+        "Card.IsDiscardable",
+        "Card.IsEvenScale",
+        "Card.IsFacedown",
+        "Card.IsFaceup",
+        "Card.IsFieldSpell",
+        "Card.IsImmuneToEffect",
+        "Card.IsLevel",
+        "Card.IsLevelAbove",
+        "Card.IsLink",
+        "Card.IsLinkMonster",
+        "Card.IsLinked",
+        "Card.IsLocation",
+        "Card.IsMonster",
+        "Card.IsNegatable",
+        "Card.IsNonEffectMonster",
+        "Card.IsOddScale",
+        "Card.IsOriginalType",
+        "Card.IsPosition",
+        "Card.IsPreviousLocation",
+        "Card.IsPublic",
+        "Card.IsRace",
+        "Card.IsReason",
+        "Card.IsRelateToEffect",
+        "Card.IsSetCard",
+        "Card.IsSpellTrap",
+        "Card.IsSummonCode",
+        "Card.IsSummonPlayer",
+        "Card.IsSummonType",
+        "Card.IsSynchroSummonable",
+        "Card.IsTrap",
+        "Card.IsType",
+        "Card.IsXyzMonster",
+        "Card.ListsCode",
+        "Duel.ActivateFieldSpell",
+        "Duel.AddCustomActivityCounter",
+        "Duel.AdjustInstantly",
+        "Duel.AnnounceCard",
+        "Duel.AnnounceLevel",
+        "Duel.AnnounceNumberRange",
+        "Duel.AnnounceRace",
+        "Duel.BreakEffect",
+        "Duel.ChainAttack",
+        "Duel.ChangeBattleDamage",
+        "Duel.ChangeChainOperation",
+        "Duel.ChangePosition",
+        "Duel.ChangeTargetCard",
+        "Duel.CheckEvent",
+        "Duel.CheckLPCost",
+        "Duel.CheckLocation",
+        "Duel.CheckPendulumZones",
+        "Duel.CheckPhaseActivity",
+        "Duel.CheckReleaseGroupCost",
+        "Duel.CheckRemoveOverlayCard",
+        "Duel.ClearOperationInfo",
+        "Duel.ConfirmCards",
+        "Duel.ConfirmDecktop",
+        "Duel.ConfirmExtratop",
+        "Duel.CreateToken",
+        "Duel.Damage",
+        "Duel.Destroy",
+        "Duel.DisableShuffleCheck",
+        "Duel.DiscardDeck",
+        "Duel.DiscardHand",
+        "Duel.Draw",
+        "Duel.Equip",
+        "Duel.EquipComplete",
+        "Duel.GetActivityCount",
+        "Duel.GetAttackTarget",
+        "Duel.GetAttacker",
+        "Duel.GetBattleDamage",
+        "Duel.GetBattleMonster",
+        "Duel.GetChainInfo",
+        "Duel.GetControl",
+        "Duel.GetCounter",
+        "Duel.GetCurrentChain",
+        "Duel.GetCurrentPhase",
+        "Duel.GetCustomActivityCount",
+        "Duel.GetDecktopGroup",
+        "Duel.GetDrawCount",
+        "Duel.GetExtraTopGroup",
+        "Duel.GetFieldCard",
+        "Duel.GetFieldGroup",
+        "Duel.GetFieldGroupCount",
+        "Duel.GetFirstMatchingCard",
+        "Duel.GetFirstTarget",
+        "Duel.GetFlagEffect",
+        "Duel.GetFlagEffectLabel",
+        "Duel.GetLP",
+        "Duel.GetLocationCount",
+        "Duel.GetLocationCountFromEx",
+        "Duel.GetMZoneCount",
+        "Duel.GetMatchingGroup",
+        "Duel.GetMatchingGroupCount",
+        "Duel.GetOperatedGroup",
+        "Duel.GetOperationInfo",
+        "Duel.GetPlayerEffect",
+        "Duel.GetTargetCards",
+        "Duel.GetTurnCount",
+        "Duel.GetTurnPlayer",
+        "Duel.HasFlagEffect",
+        "Duel.Hint",
+        "Duel.HintSelection",
+        "Duel.IsAbleToEnterBP",
+        "Duel.IsBattlePhase",
+        "Duel.IsCanAddCounter",
+        "Duel.IsCanRemoveCounter",
+        "Duel.IsChainDisablable",
+        "Duel.IsChainNegatable",
+        "Duel.IsChainSolving",
+        "Duel.IsExistingMatchingCard",
+        "Duel.IsExistingTarget",
+        "Duel.IsMainPhase",
+        "Duel.IsPhase",
+        "Duel.IsPlayerAffectedByEffect",
+        "Duel.IsPlayerCanAdditionalSummon",
+        "Duel.IsPlayerCanDiscardDeck",
+        "Duel.IsPlayerCanDraw",
+        "Duel.IsPlayerCanSpecialSummonMonster",
+        "Duel.IsPlayerCanSummon",
+        "Duel.IsTurnPlayer",
+        "Duel.MoveSequence",
+        "Duel.MoveToDeckBottom",
+        "Duel.MoveToDeckTop",
+        "Duel.MoveToField",
+        "Duel.NegateActivation",
+        "Duel.NegateAttack",
+        "Duel.NegateEffect",
+        "Duel.Overlay",
+        "Duel.PayLPCost",
+        "Duel.RDComplete",
+        "Duel.RaiseEvent",
+        "Duel.RaiseSingleEvent",
+        "Duel.Recover",
+        "Duel.RegisterEffect",
+        "Duel.RegisterFlagEffect",
+        "Duel.Release",
+        "Duel.Remove",
+        "Duel.RemoveCounter",
+        "Duel.RemoveOverlayCard",
+        "Duel.ResetFlagEffect",
+        "Duel.ReturnToField",
+        "Duel.SSet",
+        "Duel.SelectDisableField",
+        "Duel.SelectEffect",
+        "Duel.SelectEffectYesNo",
+        "Duel.SelectMatchingCard",
+        "Duel.SelectOption",
+        "Duel.SelectPosition",
+        "Duel.SelectReleaseGroupCost",
+        "Duel.SelectTarget",
+        "Duel.SelectYesNo",
+        "Duel.SendtoDeck",
+        "Duel.SendtoExtraP",
+        "Duel.SendtoGrave",
+        "Duel.SendtoHand",
+        "Duel.SetChainLimit",
+        "Duel.SetChainLimitTillChainEnd",
+        "Duel.SetLP",
+        "Duel.SetOperationInfo",
+        "Duel.SetPossibleOperationInfo",
+        "Duel.SetTargetCard",
+        "Duel.SetTargetParam",
+        "Duel.SetTargetPlayer",
+        "Duel.ShuffleDeck",
+        "Duel.ShuffleExtra",
+        "Duel.ShuffleHand",
+        "Duel.SkipPhase",
+        "Duel.SortDeckbottom",
+        "Duel.SortDecktop",
+        "Duel.SpecialSummon",
+        "Duel.SpecialSummonComplete",
+        "Duel.SpecialSummonStep",
+        "Duel.Summon",
+        "Duel.SummonOrSet",
+        "Duel.SwapSequence",
+        "Duel.SynchroSummon",
+        "Duel.TossCoin",
+        "Duel.TossDice",
+        "Effect.CreateEffect",
+        "Effect.GlobalEffect",
+        "Group.CreateGroup",
+        "Group.FromCards"
+      ],
+      "coreProvidedCount": 187,
+      "helperProvidedCount": 25,
+      "cardScriptProvidedApis": {},
+      "undefinedReferences": []
+    },
+    "helpers": {
+      "scriptCount": 26,
+      "referenceCount": 1407,
+      "uniqueApis": [
+        "Card.AddCannotBeSpecialSummoned",
+        "Card.EnableGeminiState",
+        "Card.EquipByEffectLimit",
+        "Card.GetAttack",
+        "Card.GetAttribute",
+        "Card.GetCode",
+        "Card.GetLevel",
+        "Card.GetLinkedZone",
+        "Card.GetMaximumAttack",
+        "Card.GetRace",
+        "Card.GetRitualLevel",
+        "Card.GetSynchroLevel",
+        "Card.GetToBeLinkedZone",
+        "Card.GetTributeRequirement",
+        "Card.HasFlagEffect",
+        "Card.IsAbleToDeck",
+        "Card.IsAbleToDeckOrExtraAsCost",
+        "Card.IsAbleToExtra",
+        "Card.IsAbleToGrave",
+        "Card.IsAbleToGraveAsCost",
+        "Card.IsAbleToHand",
+        "Card.IsAbleToRemove",
+        "Card.IsCanBeEffectTarget",
+        "Card.IsCanBeFusionMaterial",
+        "Card.IsCanBeRitualMaterial",
+        "Card.IsCanBeSynchroMaterial",
+        "Card.IsCanBeXyzMaterial",
+        "Card.IsCode",
+        "Card.IsCompositeType",
+        "Card.IsDiscardable",
+        "Card.IsExactType",
+        "Card.IsFacedown",
+        "Card.IsFaceup",
+        "Card.IsGeminiState",
+        "Card.IsHasEffect",
+        "Card.IsImmuneToEffect",
+        "Card.IsLocation",
+        "Card.IsMSetable",
+        "Card.IsMaximumMode",
+        "Card.IsMaximumModeCenter",
+        "Card.IsMonster",
+        "Card.IsNotMaximumModeSide",
+        "Card.IsOriginalType",
+        "Card.IsPreviousControler",
+        "Card.IsPreviousLocation",
+        "Card.IsRelateToEffect",
+        "Card.IsReleasable",
+        "Card.IsSetCard",
+        "Card.IsSpell",
+        "Card.IsSummonCode",
+        "Card.IsSummonable",
+        "Card.IsType",
+        "Card.RegisterEffect",
+        "Card.WasMaximumMode",
+        "Duel.AnnounceAttribute",
+        "Duel.AnnounceCoin",
+        "Duel.AnnounceNumber",
+        "Duel.AnnounceRace",
+        "Duel.AssumeReset",
+        "Duel.BreakEffect",
+        "Duel.ChangeAttackTarget",
+        "Duel.ChangeChainOperation",
+        "Duel.ChangePosition",
+        "Duel.CheckChainTarget",
+        "Duel.CheckChainUniqueness",
+        "Duel.CheckEvent",
+        "Duel.CheckLPCost",
+        "Duel.CheckLocation",
+        "Duel.CheckReleaseGroupCost",
+        "Duel.CheckTribute",
+        "Duel.ConfirmCards",
+        "Duel.CountHeads",
+        "Duel.CountTails",
+        "Duel.Destroy",
+        "Duel.DisableShuffleCheck",
+        "Duel.DiscardHand",
+        "Duel.Draw",
+        "Duel.Equip",
+        "Duel.GetAttackTarget",
+        "Duel.GetAttacker",
+        "Duel.GetCardSetcodeFromCode",
+        "Duel.GetChainInfo",
+        "Duel.GetCurrentChain",
+        "Duel.GetCurrentPhase",
+        "Duel.GetCustomActivityCount",
+        "Duel.GetDecktopGroup",
+        "Duel.GetDrawCount",
+        "Duel.GetFieldCard",
+        "Duel.GetFieldGroup",
+        "Duel.GetFieldGroupCount",
+        "Duel.GetFirstMatchingCard",
+        "Duel.GetFirstTarget",
+        "Duel.GetFlagEffect",
+        "Duel.GetFlagEffectLabel",
+        "Duel.GetFusionMaterial",
+        "Duel.GetLP",
+        "Duel.GetLinkedZone",
+        "Duel.GetLocationCount",
+        "Duel.GetLocationCountFromEx",
+        "Duel.GetMZoneCount",
+        "Duel.GetMasterRule",
+        "Duel.GetMatchingGroup",
+        "Duel.GetMatchingGroupCount",
+        "Duel.GetMetatable",
+        "Duel.GetOperatedGroup",
+        "Duel.GetOperationInfo",
+        "Duel.GetPlayerEffect",
+        "Duel.GetPlayersCount",
+        "Duel.GetPossibleOperationInfo",
+        "Duel.GetReasonEffect",
+        "Duel.GetReasonPlayer",
+        "Duel.GetReleaseGroup",
+        "Duel.GetRitualMaterial",
+        "Duel.GetStartingHand",
+        "Duel.GetTargetCards",
+        "Duel.GetTributeGroup",
+        "Duel.GetTurnCount",
+        "Duel.GetTurnPlayer",
+        "Duel.GetUsableMZoneCount",
+        "Duel.HasFlagEffect",
+        "Duel.Hint",
+        "Duel.HintSelection",
+        "Duel.IsAbleToEnterBP",
+        "Duel.IsBattlePhase",
+        "Duel.IsCanRemoveCounter",
+        "Duel.IsChainDisablable",
+        "Duel.IsChainNegatable",
+        "Duel.IsChainSolving",
+        "Duel.IsDamageCalculated",
+        "Duel.IsDuelType",
+        "Duel.IsEndOfBattlePhase",
+        "Duel.IsExistingMatchingCard",
+        "Duel.IsExistingTarget",
+        "Duel.IsMainPhase",
+        "Duel.IsPhase",
+        "Duel.IsPlayerAffectedByEffect",
+        "Duel.IsPlayerCanRemove",
+        "Duel.IsStartOfBattlePhase",
+        "Duel.IsSummonCancelable",
+        "Duel.IsTurnPlayer",
+        "Duel.LoadCardScript",
+        "Duel.LoadScript",
+        "Duel.MSet",
+        "Duel.MoveSequence",
+        "Duel.MoveToField",
+        "Duel.NegateAttack",
+        "Duel.NegateRelatedChain",
+        "Duel.Overlay",
+        "Duel.PayLPCost",
+        "Duel.RaiseEvent",
+        "Duel.Recover",
+        "Duel.RegisterEffect",
+        "Duel.RegisterFlagEffect",
+        "Duel.Release",
+        "Duel.ReleaseRitualMaterial",
+        "Duel.Remove",
+        "Duel.RemoveCards",
+        "Duel.RemoveCounter",
+        "Duel.ResetFlagEffect",
+        "Duel.ReturnToField",
+        "Duel.SelectDisableField",
+        "Duel.SelectEffect",
+        "Duel.SelectEffectYesNo",
+        "Duel.SelectFieldZone",
+        "Duel.SelectFusionMaterial",
+        "Duel.SelectMatchingCard",
+        "Duel.SelectOption",
+        "Duel.SelectPosition",
+        "Duel.SelectReleaseGroupCost",
+        "Duel.SelectTarget",
+        "Duel.SelectTribute",
+        "Duel.SelectYesNo",
+        "Duel.Sendto",
+        "Duel.SendtoDeck",
+        "Duel.SendtoGrave",
+        "Duel.SendtoHand",
+        "Duel.SetChainLimit",
+        "Duel.SetChainLimitTillChainEnd",
+        "Duel.SetFusionMaterial",
+        "Duel.SetLP",
+        "Duel.SetOperationInfo",
+        "Duel.SetPossibleOperationInfo",
+        "Duel.SetSelectedCard",
+        "Duel.ShuffleDeck",
+        "Duel.ShuffleExtra",
+        "Duel.ShuffleHand",
+        "Duel.SortDeckbottom",
+        "Duel.SpecialSummon",
+        "Duel.SpecialSummonComplete",
+        "Duel.SpecialSummonStep",
+        "Duel.Summon",
+        "Duel.SwapSequence",
+        "Duel.TagSwap",
+        "Duel.TossCoin",
+        "Duel.Win",
+        "Effect.CreateEffect",
+        "Effect.GetCardATK",
+        "Effect.GetCardDEF",
+        "Effect.GetCardSetcode",
+        "Effect.GlobalEffect",
+        "Effect.IsCardATK",
+        "Effect.IsCardDEF",
+        "Effect.IsCardSetcode",
+        "Group.CreateGroup",
+        "Group.FromCards",
+        "Group.SelectUnselect"
+      ],
+      "coreProvidedCount": 176,
+      "helperProvidedCount": 29,
+      "cardScriptProvidedApis": {},
+      "undefinedReferences": [
+        {
+          "api": "Duel.GetMasterRule",
+          "script": "utility.lua",
+          "line": 2074,
+          "kind": "call"
+        }
+      ]
+    },
+    "fieldsAndHelpers": {
+      "scriptCount": 365,
+      "referenceCount": 7357,
+      "uniqueApis": [
+        "Card.AddCannotBeSpecialSummoned",
+        "Card.EnableGeminiState",
+        "Card.EquipByEffectLimit",
+        "Card.GetAttack",
+        "Card.GetAttribute",
+        "Card.GetCode",
+        "Card.GetFieldID",
+        "Card.GetLeftScale",
+        "Card.GetLevel",
+        "Card.GetLink",
+        "Card.GetLinkedZone",
+        "Card.GetLocation",
+        "Card.GetMainCardType",
+        "Card.GetMaximumAttack",
+        "Card.GetOriginalLevel",
+        "Card.GetPreviousAttackOnField",
+        "Card.GetRace",
+        "Card.GetRightScale",
+        "Card.GetRitualLevel",
+        "Card.GetSynchroLevel",
+        "Card.GetToBeLinkedZone",
+        "Card.GetTributeRequirement",
+        "Card.HasCounter",
+        "Card.HasFlagEffect",
+        "Card.HasLevel",
+        "Card.IsAbleToDeck",
+        "Card.IsAbleToDeckOrExtraAsCost",
+        "Card.IsAbleToExtra",
+        "Card.IsAbleToGrave",
+        "Card.IsAbleToGraveAsCost",
+        "Card.IsAbleToHand",
+        "Card.IsAbleToRemove",
+        "Card.IsAbleToRemoveAsCost",
+        "Card.IsAttackAbove",
+        "Card.IsAttribute",
+        "Card.IsCanBeEffectTarget",
+        "Card.IsCanBeFusionMaterial",
+        "Card.IsCanBeRitualMaterial",
+        "Card.IsCanBeSpecialSummoned",
+        "Card.IsCanBeSynchroMaterial",
+        "Card.IsCanBeXyzMaterial",
+        "Card.IsCode",
+        "Card.IsCompositeType",
+        "Card.IsControler",
+        "Card.IsControlerCanBeChanged",
+        "Card.IsDefensePos",
+        "Card.IsDiscardable",
+        "Card.IsEvenScale",
+        "Card.IsExactType",
+        "Card.IsFacedown",
+        "Card.IsFaceup",
+        "Card.IsFieldSpell",
+        "Card.IsGeminiState",
+        "Card.IsHasEffect",
+        "Card.IsImmuneToEffect",
+        "Card.IsLevel",
+        "Card.IsLevelAbove",
+        "Card.IsLink",
+        "Card.IsLinkMonster",
+        "Card.IsLinked",
+        "Card.IsLocation",
+        "Card.IsMSetable",
+        "Card.IsMaximumMode",
+        "Card.IsMaximumModeCenter",
+        "Card.IsMonster",
+        "Card.IsNegatable",
+        "Card.IsNonEffectMonster",
+        "Card.IsNotMaximumModeSide",
+        "Card.IsOddScale",
+        "Card.IsOriginalType",
+        "Card.IsPosition",
+        "Card.IsPreviousControler",
+        "Card.IsPreviousLocation",
+        "Card.IsPublic",
+        "Card.IsRace",
+        "Card.IsReason",
+        "Card.IsRelateToEffect",
+        "Card.IsReleasable",
+        "Card.IsSetCard",
+        "Card.IsSpell",
+        "Card.IsSpellTrap",
+        "Card.IsSummonCode",
+        "Card.IsSummonPlayer",
+        "Card.IsSummonType",
+        "Card.IsSummonable",
+        "Card.IsSynchroSummonable",
+        "Card.IsTrap",
+        "Card.IsType",
+        "Card.IsXyzMonster",
+        "Card.ListsCode",
+        "Card.RegisterEffect",
+        "Card.WasMaximumMode",
+        "Duel.ActivateFieldSpell",
+        "Duel.AddCustomActivityCounter",
+        "Duel.AdjustInstantly",
+        "Duel.AnnounceAttribute",
+        "Duel.AnnounceCard",
+        "Duel.AnnounceCoin",
+        "Duel.AnnounceLevel",
+        "Duel.AnnounceNumber",
+        "Duel.AnnounceNumberRange",
+        "Duel.AnnounceRace",
+        "Duel.AssumeReset",
+        "Duel.BreakEffect",
+        "Duel.ChainAttack",
+        "Duel.ChangeAttackTarget",
+        "Duel.ChangeBattleDamage",
+        "Duel.ChangeChainOperation",
+        "Duel.ChangePosition",
+        "Duel.ChangeTargetCard",
+        "Duel.CheckChainTarget",
+        "Duel.CheckChainUniqueness",
+        "Duel.CheckEvent",
+        "Duel.CheckLPCost",
+        "Duel.CheckLocation",
+        "Duel.CheckPendulumZones",
+        "Duel.CheckPhaseActivity",
+        "Duel.CheckReleaseGroupCost",
+        "Duel.CheckRemoveOverlayCard",
+        "Duel.CheckTribute",
+        "Duel.ClearOperationInfo",
+        "Duel.ConfirmCards",
+        "Duel.ConfirmDecktop",
+        "Duel.ConfirmExtratop",
+        "Duel.CountHeads",
+        "Duel.CountTails",
+        "Duel.CreateToken",
+        "Duel.Damage",
+        "Duel.Destroy",
+        "Duel.DisableShuffleCheck",
+        "Duel.DiscardDeck",
+        "Duel.DiscardHand",
+        "Duel.Draw",
+        "Duel.Equip",
+        "Duel.EquipComplete",
+        "Duel.GetActivityCount",
+        "Duel.GetAttackTarget",
+        "Duel.GetAttacker",
+        "Duel.GetBattleDamage",
+        "Duel.GetBattleMonster",
+        "Duel.GetCardSetcodeFromCode",
+        "Duel.GetChainInfo",
+        "Duel.GetControl",
+        "Duel.GetCounter",
+        "Duel.GetCurrentChain",
+        "Duel.GetCurrentPhase",
+        "Duel.GetCustomActivityCount",
+        "Duel.GetDecktopGroup",
+        "Duel.GetDrawCount",
+        "Duel.GetExtraTopGroup",
+        "Duel.GetFieldCard",
+        "Duel.GetFieldGroup",
+        "Duel.GetFieldGroupCount",
+        "Duel.GetFirstMatchingCard",
+        "Duel.GetFirstTarget",
+        "Duel.GetFlagEffect",
+        "Duel.GetFlagEffectLabel",
+        "Duel.GetFusionMaterial",
+        "Duel.GetLP",
+        "Duel.GetLinkedZone",
+        "Duel.GetLocationCount",
+        "Duel.GetLocationCountFromEx",
+        "Duel.GetMZoneCount",
+        "Duel.GetMasterRule",
+        "Duel.GetMatchingGroup",
+        "Duel.GetMatchingGroupCount",
+        "Duel.GetMetatable",
+        "Duel.GetOperatedGroup",
+        "Duel.GetOperationInfo",
+        "Duel.GetPlayerEffect",
+        "Duel.GetPlayersCount",
+        "Duel.GetPossibleOperationInfo",
+        "Duel.GetReasonEffect",
+        "Duel.GetReasonPlayer",
+        "Duel.GetReleaseGroup",
+        "Duel.GetRitualMaterial",
+        "Duel.GetStartingHand",
+        "Duel.GetTargetCards",
+        "Duel.GetTributeGroup",
+        "Duel.GetTurnCount",
+        "Duel.GetTurnPlayer",
+        "Duel.GetUsableMZoneCount",
+        "Duel.HasFlagEffect",
+        "Duel.Hint",
+        "Duel.HintSelection",
+        "Duel.IsAbleToEnterBP",
+        "Duel.IsBattlePhase",
+        "Duel.IsCanAddCounter",
+        "Duel.IsCanRemoveCounter",
+        "Duel.IsChainDisablable",
+        "Duel.IsChainNegatable",
+        "Duel.IsChainSolving",
+        "Duel.IsDamageCalculated",
+        "Duel.IsDuelType",
+        "Duel.IsEndOfBattlePhase",
+        "Duel.IsExistingMatchingCard",
+        "Duel.IsExistingTarget",
+        "Duel.IsMainPhase",
+        "Duel.IsPhase",
+        "Duel.IsPlayerAffectedByEffect",
+        "Duel.IsPlayerCanAdditionalSummon",
+        "Duel.IsPlayerCanDiscardDeck",
+        "Duel.IsPlayerCanDraw",
+        "Duel.IsPlayerCanRemove",
+        "Duel.IsPlayerCanSpecialSummonMonster",
+        "Duel.IsPlayerCanSummon",
+        "Duel.IsStartOfBattlePhase",
+        "Duel.IsSummonCancelable",
+        "Duel.IsTurnPlayer",
+        "Duel.LoadCardScript",
+        "Duel.LoadScript",
+        "Duel.MSet",
+        "Duel.MoveSequence",
+        "Duel.MoveToDeckBottom",
+        "Duel.MoveToDeckTop",
+        "Duel.MoveToField",
+        "Duel.NegateActivation",
+        "Duel.NegateAttack",
+        "Duel.NegateEffect",
+        "Duel.NegateRelatedChain",
+        "Duel.Overlay",
+        "Duel.PayLPCost",
+        "Duel.RDComplete",
+        "Duel.RaiseEvent",
+        "Duel.RaiseSingleEvent",
+        "Duel.Recover",
+        "Duel.RegisterEffect",
+        "Duel.RegisterFlagEffect",
+        "Duel.Release",
+        "Duel.ReleaseRitualMaterial",
+        "Duel.Remove",
+        "Duel.RemoveCards",
+        "Duel.RemoveCounter",
+        "Duel.RemoveOverlayCard",
+        "Duel.ResetFlagEffect",
+        "Duel.ReturnToField",
+        "Duel.SSet",
+        "Duel.SelectDisableField",
+        "Duel.SelectEffect",
+        "Duel.SelectEffectYesNo",
+        "Duel.SelectFieldZone",
+        "Duel.SelectFusionMaterial",
+        "Duel.SelectMatchingCard",
+        "Duel.SelectOption",
+        "Duel.SelectPosition",
+        "Duel.SelectReleaseGroupCost",
+        "Duel.SelectTarget",
+        "Duel.SelectTribute",
+        "Duel.SelectYesNo",
+        "Duel.Sendto",
+        "Duel.SendtoDeck",
+        "Duel.SendtoExtraP",
+        "Duel.SendtoGrave",
+        "Duel.SendtoHand",
+        "Duel.SetChainLimit",
+        "Duel.SetChainLimitTillChainEnd",
+        "Duel.SetFusionMaterial",
+        "Duel.SetLP",
+        "Duel.SetOperationInfo",
+        "Duel.SetPossibleOperationInfo",
+        "Duel.SetSelectedCard",
+        "Duel.SetTargetCard",
+        "Duel.SetTargetParam",
+        "Duel.SetTargetPlayer",
+        "Duel.ShuffleDeck",
+        "Duel.ShuffleExtra",
+        "Duel.ShuffleHand",
+        "Duel.SkipPhase",
+        "Duel.SortDeckbottom",
+        "Duel.SortDecktop",
+        "Duel.SpecialSummon",
+        "Duel.SpecialSummonComplete",
+        "Duel.SpecialSummonStep",
+        "Duel.Summon",
+        "Duel.SummonOrSet",
+        "Duel.SwapSequence",
+        "Duel.SynchroSummon",
+        "Duel.TagSwap",
+        "Duel.TossCoin",
+        "Duel.TossDice",
+        "Duel.Win",
+        "Effect.CreateEffect",
+        "Effect.GetCardATK",
+        "Effect.GetCardDEF",
+        "Effect.GetCardSetcode",
+        "Effect.GlobalEffect",
+        "Effect.IsCardATK",
+        "Effect.IsCardDEF",
+        "Effect.IsCardSetcode",
+        "Group.CreateGroup",
+        "Group.FromCards",
+        "Group.SelectUnselect"
+      ],
+      "coreProvidedCount": 244,
+      "helperProvidedCount": 47,
+      "cardScriptProvidedApis": {},
+      "undefinedReferences": [
+        {
+          "api": "Duel.GetMasterRule",
+          "script": "utility.lua",
+          "line": 2074,
+          "kind": "call"
+        }
+      ]
+    },
+    "allArchivedScripts": {
+      "scriptCount": 13702,
+      "referenceCount": 197737,
+      "uniqueApis": [
+        "Card.AddCannotBeSpecialSummoned",
+        "Card.AddCounter",
+        "Card.CanSummonOrSet",
+        "Card.CancelToGrave",
+        "Card.CheckAdjacent",
+        "Card.CheckRemoveOverlayCard",
+        "Card.EnableGeminiState",
+        "Card.EnableGeminiStatus",
+        "Card.EquipByEffectAndLimitRegister",
+        "Card.EquipByEffectLimit",
+        "Card.GetAttack",
+        "Card.GetAttackAnnouncedCount",
+        "Card.GetAttribute",
+        "Card.GetBaseAttack",
+        "Card.GetBaseDefense",
+        "Card.GetCode",
+        "Card.GetColumnZone",
+        "Card.GetControler",
+        "Card.GetCounter",
+        "Card.GetDefense",
+        "Card.GetFieldID",
+        "Card.GetFlagEffect",
+        "Card.GetLeftScale",
+        "Card.GetLevel",
+        "Card.GetLink",
+        "Card.GetLinkedZone",
+        "Card.GetLocation",
+        "Card.GetMainCardType",
+        "Card.GetMaximumAttack",
+        "Card.GetOriginalAttribute",
+        "Card.GetOriginalCode",
+        "Card.GetOriginalCodeRule",
+        "Card.GetOriginalLevel",
+        "Card.GetOriginalRace",
+        "Card.GetOriginalRank",
+        "Card.GetOverlayCount",
+        "Card.GetPreviousAttackOnField",
+        "Card.GetPreviousControler",
+        "Card.GetRace",
+        "Card.GetRank",
+        "Card.GetRightScale",
+        "Card.GetRitualLevel",
+        "Card.GetScale",
+        "Card.GetSequence",
+        "Card.GetSetCard",
+        "Card.GetSummonLocation",
+        "Card.GetSummonPlayer",
+        "Card.GetSynchroLevel",
+        "Card.GetTextAttack",
+        "Card.GetTextDefense",
+        "Card.GetToBeLinkedZone",
+        "Card.GetTributeRequirement",
+        "Card.GetType",
+        "Card.HasCounter",
+        "Card.HasCounters",
+        "Card.HasEquipCard",
+        "Card.HasFlagEffect",
+        "Card.HasLevel",
+        "Card.HasNonZeroAttack",
+        "Card.HasNonZeroDefense",
+        "Card.HasRank",
+        "Card.IsAbleToChangeControler",
+        "Card.IsAbleToDeck",
+        "Card.IsAbleToDeckAsCost",
+        "Card.IsAbleToDeckOrExtraAsCost",
+        "Card.IsAbleToExtra",
+        "Card.IsAbleToGrave",
+        "Card.IsAbleToGraveAsCost",
+        "Card.IsAbleToHand",
+        "Card.IsAbleToHandAsCost",
+        "Card.IsAbleToRemove",
+        "Card.IsAbleToRemoveAsCost",
+        "Card.IsAttack",
+        "Card.IsAttackAbove",
+        "Card.IsAttackBelow",
+        "Card.IsAttackPos",
+        "Card.IsAttribute",
+        "Card.IsAttributeExcept",
+        "Card.IsBaseAttack",
+        "Card.IsCanAddCounter",
+        "Card.IsCanBeDisabledByEffect",
+        "Card.IsCanBeEffectTarget",
+        "Card.IsCanBeFusionMaterial",
+        "Card.IsCanBeLinkMaterial",
+        "Card.IsCanBeRitualMaterial",
+        "Card.IsCanBeSpecialSummoned",
+        "Card.IsCanBeSynchroMaterial",
+        "Card.IsCanBeXyzMaterial",
+        "Card.IsCanChangePosition",
+        "Card.IsCanTurnSet",
+        "Card.IsCode",
+        "Card.IsColumn",
+        "Card.IsCompositeType",
+        "Card.IsContinuousSpell",
+        "Card.IsContinuousSpellTrap",
+        "Card.IsContinuousTrap",
+        "Card.IsControler",
+        "Card.IsControlerCanBeChanged",
+        "Card.IsDefense",
+        "Card.IsDefenseAbove",
+        "Card.IsDefenseBelow",
+        "Card.IsDefensePos",
+        "Card.IsDestructable",
+        "Card.IsDiscardable",
+        "Card.IsEffectMonster",
+        "Card.IsEquipCard",
+        "Card.IsEquipSpell",
+        "Card.IsEquipTrap",
+        "Card.IsEvenScale",
+        "Card.IsExactType",
+        "Card.IsFacedown",
+        "Card.IsFaceup",
+        "Card.IsFieldSpell",
+        "Card.IsForbidden",
+        "Card.IsFusionMonster",
+        "Card.IsGeminiState",
+        "Card.IsGeminiStatus",
+        "Card.IsHasEffect",
+        "Card.IsImmuneToEffect",
+        "Card.IsInExtraMZone",
+        "Card.IsInMainMZone",
+        "Card.IsLevel",
+        "Card.IsLevelAbove",
+        "Card.IsLevelBelow",
+        "Card.IsLink",
+        "Card.IsLinkAbove",
+        "Card.IsLinkBelow",
+        "Card.IsLinkMonster",
+        "Card.IsLinkSummonable",
+        "Card.IsLinked",
+        "Card.IsLocation",
+        "Card.IsMSetable",
+        "Card.IsMaximumMode",
+        "Card.IsMaximumModeCenter",
+        "Card.IsMonster",
+        "Card.IsMonsterCard",
+        "Card.IsNegatable",
+        "Card.IsNegatableMonster",
+        "Card.IsNegatableSpellTrap",
+        "Card.IsNonEffectMonster",
+        "Card.IsNormalTrap",
+        "Card.IsNotMaximumModeSide",
+        "Card.IsNouvellesSummoned",
+        "Card.IsOddScale",
+        "Card.IsOnField",
+        "Card.IsOriginalAttribute",
+        "Card.IsOriginalCode",
+        "Card.IsOriginalCodeRule",
+        "Card.IsOriginalRace",
+        "Card.IsOriginalSetCard",
+        "Card.IsOriginalType",
+        "Card.IsOwner",
+        "Card.IsPendulumMonster",
+        "Card.IsPosition",
+        "Card.IsPreviousCodeOnField",
+        "Card.IsPreviousControler",
+        "Card.IsPreviousLocation",
+        "Card.IsPreviousPosition",
+        "Card.IsPublic",
+        "Card.IsRace",
+        "Card.IsRaceExcept",
+        "Card.IsRank",
+        "Card.IsRankAbove",
+        "Card.IsRankBelow",
+        "Card.IsReason",
+        "Card.IsRelateToBattle",
+        "Card.IsRelateToCard",
+        "Card.IsRelateToEffect",
+        "Card.IsReleasable",
+        "Card.IsReleasableByEffect",
+        "Card.IsRikkaReleasable",
+        "Card.IsRitualMonster",
+        "Card.IsRitualSpell",
+        "Card.IsSSetable",
+        "Card.IsScale",
+        "Card.IsSequence",
+        "Card.IsSetCard",
+        "Card.IsSpecialSummoned",
+        "Card.IsSpell",
+        "Card.IsSpellCard",
+        "Card.IsSpellTrap",
+        "Card.IsStatus",
+        "Card.IsSummonCode",
+        "Card.IsSummonLocation",
+        "Card.IsSummonPlayer",
+        "Card.IsSummonType",
+        "Card.IsSummonable",
+        "Card.IsSummonableCard",
+        "Card.IsSynchroMonster",
+        "Card.IsSynchroSummonable",
+        "Card.IsTextAttack",
+        "Card.IsTrap",
+        "Card.IsTrapCard",
+        "Card.IsTributeSummoned",
+        "Card.IsType",
+        "Card.IsXyzMonster",
+        "Card.IsXyzSummonable",
+        "Card.ListsArchetypeAsMaterial",
+        "Card.ListsCode",
+        "Card.ListsCodeAsMaterial",
+        "Card.NegateEffects",
+        "Card.RegisterEffect",
+        "Card.RegisterFlagEffect",
+        "Card.WasMaximumMode",
+        "Duel.ActivateFieldSpell",
+        "Duel.AddCustomActivityCounter",
+        "Duel.AdjustInstantly",
+        "Duel.AnnounceAnotherAttribute",
+        "Duel.AnnounceAnotherRace",
+        "Duel.AnnounceAttribute",
+        "Duel.AnnounceCard",
+        "Duel.AnnounceCoin",
+        "Duel.AnnounceLevel",
+        "Duel.AnnounceNumber",
+        "Duel.AnnounceNumberRange",
+        "Duel.AnnounceRace",
+        "Duel.AssumeReset",
+        "Duel.AttackCostPaid",
+        "Duel.BreakEffect",
+        "Duel.CalculateDamage",
+        "Duel.CallCoin",
+        "Duel.CanPlayerSetSpellTrap",
+        "Duel.ChainAttack",
+        "Duel.ChangeAttackTarget",
+        "Duel.ChangeBattleDamage",
+        "Duel.ChangeChainOperation",
+        "Duel.ChangePosition",
+        "Duel.ChangeTargetCard",
+        "Duel.ChangeTargetParam",
+        "Duel.ChangeTargetPlayer",
+        "Duel.CheckChainTarget",
+        "Duel.CheckChainUniqueness",
+        "Duel.CheckEvent",
+        "Duel.CheckLPCost",
+        "Duel.CheckLocation",
+        "Duel.CheckPendulumZones",
+        "Duel.CheckPhaseActivity",
+        "Duel.CheckReleaseGroup",
+        "Duel.CheckReleaseGroupCost",
+        "Duel.CheckReleaseGroupEx",
+        "Duel.CheckRemoveOverlayCard",
+        "Duel.CheckTribute",
+        "Duel.ClearOperationInfo",
+        "Duel.ClearTargetCard",
+        "Duel.ConfirmCards",
+        "Duel.ConfirmDecktop",
+        "Duel.ConfirmExtratop",
+        "Duel.CountHeads",
+        "Duel.CountTails",
+        "Duel.CreateToken",
+        "Duel.Damage",
+        "Duel.Destroy",
+        "Duel.DisableShuffleCheck",
+        "Duel.DiscardDeck",
+        "Duel.DiscardHand",
+        "Duel.Draw",
+        "Duel.EnableGlobalFlag",
+        "Duel.Equip",
+        "Duel.EquipComplete",
+        "Duel.ForceAttack",
+        "Duel.GetActivityCount",
+        "Duel.GetAttackTarget",
+        "Duel.GetAttacker",
+        "Duel.GetBattleDamage",
+        "Duel.GetBattleMonster",
+        "Duel.GetBattledCount",
+        "Duel.GetCardFromCardID",
+        "Duel.GetCardSetcodeFromCode",
+        "Duel.GetCardTypeFromCode",
+        "Duel.GetChainInfo",
+        "Duel.GetCoinResult",
+        "Duel.GetControl",
+        "Duel.GetCounter",
+        "Duel.GetCurrentChain",
+        "Duel.GetCurrentPhase",
+        "Duel.GetCustomActivityCount",
+        "Duel.GetDeckbottomGroup",
+        "Duel.GetDecktopGroup",
+        "Duel.GetDiceResult",
+        "Duel.GetDrawCount",
+        "Duel.GetExtraTopGroup",
+        "Duel.GetFieldCard",
+        "Duel.GetFieldGroup",
+        "Duel.GetFieldGroupCount",
+        "Duel.GetFirstMatchingCard",
+        "Duel.GetFirstTarget",
+        "Duel.GetFlagEffect",
+        "Duel.GetFlagEffectLabel",
+        "Duel.GetFusionMaterial",
+        "Duel.GetLP",
+        "Duel.GetLinkedGroup",
+        "Duel.GetLinkedZone",
+        "Duel.GetLocationCount",
+        "Duel.GetLocationCountFromEx",
+        "Duel.GetMZoneCount",
+        "Duel.GetMasterRule",
+        "Duel.GetMatchingGroup",
+        "Duel.GetMatchingGroupCount",
+        "Duel.GetMetatable",
+        "Duel.GetOperatedGroup",
+        "Duel.GetOperationCount",
+        "Duel.GetOperationInfo",
+        "Duel.GetOverlayCount",
+        "Duel.GetOverlayGroup",
+        "Duel.GetPlayerEffect",
+        "Duel.GetPlayersCount",
+        "Duel.GetPossibleOperationInfo",
+        "Duel.GetReasonEffect",
+        "Duel.GetReasonPlayer",
+        "Duel.GetReleaseGroup",
+        "Duel.GetRitualMaterial",
+        "Duel.GetStartingHand",
+        "Duel.GetTargetCards",
+        "Duel.GetTargetCount",
+        "Duel.GetTargetGroup",
+        "Duel.GetTributeGroup",
+        "Duel.GetTurnCount",
+        "Duel.GetTurnPlayer",
+        "Duel.GetUsableMZoneCount",
+        "Duel.GetZoneWithLinkedCount",
+        "Duel.HasFlagEffect",
+        "Duel.Hint",
+        "Duel.HintSelection",
+        "Duel.IsAbleToEnterBP",
+        "Duel.IsAttackCostPaid",
+        "Duel.IsBattlePhase",
+        "Duel.IsBattleStep",
+        "Duel.IsCanAddCounter",
+        "Duel.IsCanRemoveCounter",
+        "Duel.IsChainDisablable",
+        "Duel.IsChainNegatable",
+        "Duel.IsChainSolving",
+        "Duel.IsDamageCalculated",
+        "Duel.IsDamageStep",
+        "Duel.IsDrawPhase",
+        "Duel.IsDuelType",
+        "Duel.IsEndOfBattlePhase",
+        "Duel.IsEndPhase",
+        "Duel.IsEnvironment",
+        "Duel.IsExistingMatchingCard",
+        "Duel.IsExistingTarget",
+        "Duel.IsMainPhase",
+        "Duel.IsMainPhase1",
+        "Duel.IsMainPhase2",
+        "Duel.IsPhase",
+        "Duel.IsPlayerAffectedByEffect",
+        "Duel.IsPlayerCanAdditionalSummon",
+        "Duel.IsPlayerCanAdditionalTributeSummon",
+        "Duel.IsPlayerCanDiscardDeck",
+        "Duel.IsPlayerCanDiscardDeckAsCost",
+        "Duel.IsPlayerCanDraw",
+        "Duel.IsPlayerCanPendulumSummon",
+        "Duel.IsPlayerCanRelease",
+        "Duel.IsPlayerCanRemove",
+        "Duel.IsPlayerCanSendtoDeck",
+        "Duel.IsPlayerCanSendtoGrave",
+        "Duel.IsPlayerCanSendtoHand",
+        "Duel.IsPlayerCanSpecialSummon",
+        "Duel.IsPlayerCanSpecialSummonCount",
+        "Duel.IsPlayerCanSpecialSummonMonster",
+        "Duel.IsPlayerCanSummon",
+        "Duel.IsStandbyPhase",
+        "Duel.IsStartOfBattlePhase",
+        "Duel.IsSummonCancelable",
+        "Duel.IsTurnPlayer",
+        "Duel.LinkSummon",
+        "Duel.LoadCardScript",
+        "Duel.LoadCardScriptAlias",
+        "Duel.LoadScript",
+        "Duel.MSet",
+        "Duel.MajesticCopy",
+        "Duel.MoveSequence",
+        "Duel.MoveToDeckBottom",
+        "Duel.MoveToDeckTop",
+        "Duel.MoveToField",
+        "Duel.NegateActivation",
+        "Duel.NegateAttack",
+        "Duel.NegateEffect",
+        "Duel.NegateRelatedChain",
+        "Duel.NegateSummon",
+        "Duel.Overlay",
+        "Duel.PayLPCost",
+        "Duel.PendulumSummon",
+        "Duel.RDComplete",
+        "Duel.RaiseEvent",
+        "Duel.RaiseSingleEvent",
+        "Duel.Readjust",
+        "Duel.Recover",
+        "Duel.RegisterEffect",
+        "Duel.RegisterFlagEffect",
+        "Duel.Release",
+        "Duel.ReleaseRitualMaterial",
+        "Duel.Remove",
+        "Duel.RemoveCards",
+        "Duel.RemoveCounter",
+        "Duel.RemoveOverlayCard",
+        "Duel.ResetFlagEffect",
+        "Duel.ReturnToField",
+        "Duel.RockPaperScissors",
+        "Duel.SSet",
+        "Duel.SelectCardsFromCodes",
+        "Duel.SelectDisableField",
+        "Duel.SelectEffect",
+        "Duel.SelectEffectYesNo",
+        "Duel.SelectFieldZone",
+        "Duel.SelectFusionMaterial",
+        "Duel.SelectMatchingCard",
+        "Duel.SelectOption",
+        "Duel.SelectPosition",
+        "Duel.SelectReleaseGroup",
+        "Duel.SelectReleaseGroupCost",
+        "Duel.SelectReleaseGroupEx",
+        "Duel.SelectTarget",
+        "Duel.SelectTribute",
+        "Duel.SelectYesNo",
+        "Duel.Sendto",
+        "Duel.SendtoDeck",
+        "Duel.SendtoExtraP",
+        "Duel.SendtoGrave",
+        "Duel.SendtoHand",
+        "Duel.SetChainLimit",
+        "Duel.SetChainLimitTillChainEnd",
+        "Duel.SetCoinResult",
+        "Duel.SetDiceResult",
+        "Duel.SetFlagEffectLabel",
+        "Duel.SetFusionMaterial",
+        "Duel.SetLP",
+        "Duel.SetOperationInfo",
+        "Duel.SetPossibleOperationInfo",
+        "Duel.SetSelectedCard",
+        "Duel.SetTargetCard",
+        "Duel.SetTargetParam",
+        "Duel.SetTargetPlayer",
+        "Duel.ShuffleDeck",
+        "Duel.ShuffleExtra",
+        "Duel.ShuffleHand",
+        "Duel.ShuffleSetCard",
+        "Duel.SkipPhase",
+        "Duel.SortDeckbottom",
+        "Duel.SortDecktop",
+        "Duel.SpecialSummon",
+        "Duel.SpecialSummonComplete",
+        "Duel.SpecialSummonStep",
+        "Duel.Summon",
+        "Duel.SummonOrSet",
+        "Duel.SwapControl",
+        "Duel.SwapDeckAndGrave",
+        "Duel.SwapSequence",
+        "Duel.SynchroSummon",
+        "Duel.TagSwap",
+        "Duel.TossCoin",
+        "Duel.TossDice",
+        "Duel.Win",
+        "Duel.XyzSummon",
+        "Effect.Clone",
+        "Effect.CreateEffect",
+        "Effect.CreateMysteruneQPEffect",
+        "Effect.GetCardATK",
+        "Effect.GetCardDEF",
+        "Effect.GetCardSetcode",
+        "Effect.GlobalEffect",
+        "Effect.IsCardATK",
+        "Effect.IsCardDEF",
+        "Effect.IsCardSetcode",
+        "Group.CreateGroup",
+        "Group.Filter",
+        "Group.FromCards",
+        "Group.NewGroup",
+        "Group.RandomSelect",
+        "Group.Select",
+        "Group.SelectUnselect"
+      ],
+      "coreProvidedCount": 361,
+      "helperProvidedCount": 109,
+      "cardScriptProvidedApis": {},
+      "undefinedReferences": [
+        {
+          "api": "Duel.GetMasterRule",
+          "script": "utility.lua",
+          "line": 2074,
+          "kind": "call"
+        }
+      ]
+    }
+  },
+  "runtimeProbeApis": [
+    "Card.AddCannotBeSpecialSummoned",
+    "Card.AddCounter",
+    "Card.AddMonsterAttribute",
+    "Card.AddMonsterAttributeComplete",
+    "Card.Alias",
+    "Card.AssumeProperty",
+    "Card.Attack",
+    "Card.Attribute",
+    "Card.CanAttack",
+    "Card.CanChainAttack",
+    "Card.CancelCardTarget",
+    "Card.CancelToGrave",
+    "Card.CheckActivateEffect",
+    "Card.CheckEquipTarget",
+    "Card.CheckFusionMaterial",
+    "Card.CheckFusionSubstitute",
+    "Card.CheckRemoveOverlayCard",
+    "Card.CheckUnionTarget",
+    "Card.CheckUniqueOnField",
+    "Card.ClearEffectRelation",
+    "Card.Code",
+    "Card.CompleteProcedure",
+    "Card.CopyEffect",
+    "Card.Cover",
+    "Card.CreateEffectRelation",
+    "Card.CreateRelation",
+    "Card.Defense",
+    "Card.EnableCounterPermit",
+    "Card.EnableGeminiState",
+    "Card.EnableReviveLimit",
+    "Card.EnableUnsummonable",
+    "Card.EquipByEffectLimit",
+    "Card.FromLuaRef",
+    "Card.GetActivateEffect",
+    "Card.GetAllCounters",
+    "Card.GetAttack",
+    "Card.GetAttackAnnouncedCount",
+    "Card.GetAttackableTarget",
+    "Card.GetAttackedCount",
+    "Card.GetAttackedGroup",
+    "Card.GetAttackedGroupCount",
+    "Card.GetAttribute",
+    "Card.GetBaseAttack",
+    "Card.GetBaseDefense",
+    "Card.GetBattlePosition",
+    "Card.GetBattleTarget",
+    "Card.GetBattledGroup",
+    "Card.GetBattledGroupCount",
+    "Card.GetCardEffect",
+    "Card.GetCardID",
+    "Card.GetCardTarget",
+    "Card.GetCardTargetCount",
+    "Card.GetCode",
+    "Card.GetColumnGroup",
+    "Card.GetColumnGroupCount",
+    "Card.GetColumnZone",
+    "Card.GetControler",
+    "Card.GetCounter",
+    "Card.GetDefense",
+    "Card.GetDestination",
+    "Card.GetEffectCount",
+    "Card.GetEquipCount",
+    "Card.GetEquipGroup",
+    "Card.GetEquipTarget",
+    "Card.GetFieldID",
+    "Card.GetFirstCardTarget",
+    "Card.GetFlagEffect",
+    "Card.GetFlagEffectLabel",
+    "Card.GetFreeLinkedZone",
+    "Card.GetLeaveFieldDest",
+    "Card.GetLeftScale",
+    "Card.GetLevel",
+    "Card.GetLink",
+    "Card.GetLinkMarker",
+    "Card.GetLinkedGroup",
+    "Card.GetLinkedGroupCount",
+    "Card.GetLinkedZone",
+    "Card.GetLocation",
+    "Card.GetLuaRef",
+    "Card.GetMainCardType",
+    "Card.GetMaterial",
+    "Card.GetMaterialCount",
+    "Card.GetMaximumAttack",
+    "Card.GetMutualLinkedGroup",
+    "Card.GetMutualLinkedGroupCount",
+    "Card.GetMutualLinkedZone",
+    "Card.GetOriginalAttribute",
+    "Card.GetOriginalCode",
+    "Card.GetOriginalCodeRule",
+    "Card.GetOriginalLeftScale",
+    "Card.GetOriginalLevel",
+    "Card.GetOriginalRace",
+    "Card.GetOriginalRank",
+    "Card.GetOriginalRightScale",
+    "Card.GetOriginalSetCard",
+    "Card.GetOriginalType",
+    "Card.GetOverlayCount",
+    "Card.GetOverlayGroup",
+    "Card.GetOverlayTarget",
+    "Card.GetOwnEffects",
+    "Card.GetOwner",
+    "Card.GetOwnerTarget",
+    "Card.GetOwnerTargetCount",
+    "Card.GetPosition",
+    "Card.GetPreviousAttackOnField",
+    "Card.GetPreviousAttributeOnField",
+    "Card.GetPreviousCodeOnField",
+    "Card.GetPreviousControler",
+    "Card.GetPreviousDefenseOnField",
+    "Card.GetPreviousEquipTarget",
+    "Card.GetPreviousLevelOnField",
+    "Card.GetPreviousLocation",
+    "Card.GetPreviousPosition",
+    "Card.GetPreviousRaceOnField",
+    "Card.GetPreviousRankOnField",
+    "Card.GetPreviousSequence",
+    "Card.GetPreviousSetCard",
+    "Card.GetPreviousTypeOnField",
+    "Card.GetRace",
+    "Card.GetRank",
+    "Card.GetRealFieldID",
+    "Card.GetReason",
+    "Card.GetReasonCard",
+    "Card.GetReasonEffect",
+    "Card.GetReasonPlayer",
+    "Card.GetRightScale",
+    "Card.GetRitualLevel",
+    "Card.GetSequence",
+    "Card.GetSetCard",
+    "Card.GetSummonLocation",
+    "Card.GetSummonPlayer",
+    "Card.GetSummonType",
+    "Card.GetSynchroLevel",
+    "Card.GetTextAttack",
+    "Card.GetTextDefense",
+    "Card.GetToBeLinkedZone",
+    "Card.GetTributeRequirement",
+    "Card.GetTurnCounter",
+    "Card.GetTurnID",
+    "Card.GetType",
+    "Card.GetUnionCount",
+    "Card.HasCounter",
+    "Card.HasCounters",
+    "Card.HasFlagEffect",
+    "Card.HasLevel",
+    "Card.IsAbleToChangeControler",
+    "Card.IsAbleToDeck",
+    "Card.IsAbleToDeckAsCost",
+    "Card.IsAbleToDeckOrExtraAsCost",
+    "Card.IsAbleToExtra",
+    "Card.IsAbleToExtraAsCost",
+    "Card.IsAbleToGrave",
+    "Card.IsAbleToGraveAsCost",
+    "Card.IsAbleToHand",
+    "Card.IsAbleToHandAsCost",
+    "Card.IsAbleToRemove",
+    "Card.IsAbleToRemoveAsCost",
+    "Card.IsAllColumn",
+    "Card.IsAttack",
+    "Card.IsAttackAbove",
+    "Card.IsAttackBelow",
+    "Card.IsAttackPos",
+    "Card.IsAttribute",
+    "Card.IsCanAddCounter",
+    "Card.IsCanBeBattleTarget",
+    "Card.IsCanBeDisabledByEffect",
+    "Card.IsCanBeEffectTarget",
+    "Card.IsCanBeFusionMaterial",
+    "Card.IsCanBeLinkMaterial",
+    "Card.IsCanBeMaterial",
+    "Card.IsCanBeRitualMaterial",
+    "Card.IsCanBeSpecialSummoned",
+    "Card.IsCanBeSynchroMaterial",
+    "Card.IsCanBeXyzMaterial",
+    "Card.IsCanChangePosition",
+    "Card.IsCanRemoveCounter",
+    "Card.IsCanTurnSet",
+    "Card.IsCode",
+    "Card.IsCompositeType",
+    "Card.IsControler",
+    "Card.IsControlerCanBeChanged",
+    "Card.IsDefense",
+    "Card.IsDefenseAbove",
+    "Card.IsDefenseBelow",
+    "Card.IsDefensePos",
+    "Card.IsDeleted",
+    "Card.IsDestructable",
+    "Card.IsDirectAttacked",
+    "Card.IsDisabled",
+    "Card.IsDiscardable",
+    "Card.IsEvenScale",
+    "Card.IsExactType",
+    "Card.IsExtraLinked",
+    "Card.IsFacedown",
+    "Card.IsFaceup",
+    "Card.IsFieldSpell",
+    "Card.IsForbidden",
+    "Card.IsFusionSummonableCard",
+    "Card.IsGeminiState",
+    "Card.IsHasCardTarget",
+    "Card.IsHasEffect",
+    "Card.IsImmuneToEffect",
+    "Card.IsLevel",
+    "Card.IsLevelAbove",
+    "Card.IsLevelBelow",
+    "Card.IsLink",
+    "Card.IsLinkAbove",
+    "Card.IsLinkBelow",
+    "Card.IsLinkMarker",
+    "Card.IsLinkMonster",
+    "Card.IsLinkSummonable",
+    "Card.IsLinked",
+    "Card.IsLocation",
+    "Card.IsMSetable",
+    "Card.IsMaximumMode",
+    "Card.IsMaximumModeCenter",
+    "Card.IsMonster",
+    "Card.IsNegatable",
+    "Card.IsNonEffectMonster",
+    "Card.IsNotMaximumModeSide",
+    "Card.IsNotTuner",
+    "Card.IsOddScale",
+    "Card.IsOnField",
+    "Card.IsOriginalAttribute",
+    "Card.IsOriginalCode",
+    "Card.IsOriginalCodeRule",
+    "Card.IsOriginalRace",
+    "Card.IsOriginalSetCard",
+    "Card.IsOriginalType",
+    "Card.IsPosition",
+    "Card.IsPreviousControler",
+    "Card.IsPreviousLocation",
+    "Card.IsPreviousPosition",
+    "Card.IsPreviousSetCard",
+    "Card.IsProcedureSummonable",
+    "Card.IsPublic",
+    "Card.IsRace",
+    "Card.IsRank",
+    "Card.IsRankAbove",
+    "Card.IsRankBelow",
+    "Card.IsReason",
+    "Card.IsRelateToBattle",
+    "Card.IsRelateToCard",
+    "Card.IsRelateToChain",
+    "Card.IsRelateToEffect",
+    "Card.IsReleasable",
+    "Card.IsReleasableByEffect",
+    "Card.IsSSetable",
+    "Card.IsSetCard",
+    "Card.IsSpecialSummonable",
+    "Card.IsSpell",
+    "Card.IsSpellTrap",
+    "Card.IsStatus",
+    "Card.IsSummonCode",
+    "Card.IsSummonLocation",
+    "Card.IsSummonPlayer",
+    "Card.IsSummonType",
+    "Card.IsSummonable",
+    "Card.IsSummonableCard",
+    "Card.IsSynchroSummonable",
+    "Card.IsTrap",
+    "Card.IsType",
+    "Card.IsXyzLevel",
+    "Card.IsXyzMonster",
+    "Card.IsXyzSummonable",
+    "Card.Level",
+    "Card.LinkMarker",
+    "Card.ListsCode",
+    "Card.Lscale",
+    "Card.Race",
+    "Card.Recreate",
+    "Card.RegisterEffect",
+    "Card.RegisterFlagEffect",
+    "Card.ReleaseEffectRelation",
+    "Card.ReleaseRelation",
+    "Card.RemoveAllCounters",
+    "Card.RemoveCounter",
+    "Card.RemoveOverlayCard",
+    "Card.ReplaceEffect",
+    "Card.ResetEffect",
+    "Card.ResetFlagEffect",
+    "Card.ResetNegateEffect",
+    "Card.ReverseInDeck",
+    "Card.Rscale",
+    "Card.SetCardTarget",
+    "Card.SetCounterLimit",
+    "Card.SetFlagEffectLabel",
+    "Card.SetHint",
+    "Card.SetMaterial",
+    "Card.SetReason",
+    "Card.SetReasonCard",
+    "Card.SetReasonEffect",
+    "Card.SetReasonPlayer",
+    "Card.SetSPSummonOnce",
+    "Card.SetStatus",
+    "Card.SetTurnCounter",
+    "Card.SetUniqueOnField",
+    "Card.Setcode",
+    "Card.Type",
+    "Card.WasMaximumMode",
+    "Duel.Activate",
+    "Duel.ActivateFieldSpell",
+    "Duel.AddCustomActivityCounter",
+    "Duel.AdjustInstantly",
+    "Duel.AnnounceAttribute",
+    "Duel.AnnounceCard",
+    "Duel.AnnounceCoin",
+    "Duel.AnnounceLevel",
+    "Duel.AnnounceNumber",
+    "Duel.AnnounceNumberRange",
+    "Duel.AnnounceRace",
+    "Duel.AnnounceType",
+    "Duel.AssumeReset",
+    "Duel.AttackCostPaid",
+    "Duel.BreakEffect",
+    "Duel.CalculateDamage",
+    "Duel.CanPlayerSetMonster",
+    "Duel.CanPlayerSetSpellTrap",
+    "Duel.ChainAttack",
+    "Duel.ChangeAttackTarget",
+    "Duel.ChangeAttacker",
+    "Duel.ChangeBattleDamage",
+    "Duel.ChangeChainOperation",
+    "Duel.ChangePosition",
+    "Duel.ChangeTargetCard",
+    "Duel.ChangeTargetParam",
+    "Duel.ChangeTargetPlayer",
+    "Duel.CheckChainTarget",
+    "Duel.CheckChainUniqueness",
+    "Duel.CheckEvent",
+    "Duel.CheckLPCost",
+    "Duel.CheckLocation",
+    "Duel.CheckPendulumZones",
+    "Duel.CheckPhaseActivity",
+    "Duel.CheckReleaseGroup",
+    "Duel.CheckReleaseGroupCost",
+    "Duel.CheckReleaseGroupEx",
+    "Duel.CheckRemoveOverlayCard",
+    "Duel.CheckSummonedCount",
+    "Duel.CheckTiming",
+    "Duel.CheckTribute",
+    "Duel.ClearOperationInfo",
+    "Duel.ClearTargetCard",
+    "Duel.ConfirmCards",
+    "Duel.ConfirmDecktop",
+    "Duel.ConfirmExtratop",
+    "Duel.CountHeads",
+    "Duel.CountTails",
+    "Duel.CreateToken",
+    "Duel.Damage",
+    "Duel.Destroy",
+    "Duel.DisableSelfDestroyCheck",
+    "Duel.DisableShuffleCheck",
+    "Duel.DiscardDeck",
+    "Duel.DiscardHand",
+    "Duel.Draw",
+    "Duel.EnableGlobalFlag",
+    "Duel.Equip",
+    "Duel.EquipComplete",
+    "Duel.ForceAttack",
+    "Duel.GetActivityCount",
+    "Duel.GetAttackTarget",
+    "Duel.GetAttacker",
+    "Duel.GetBattleDamage",
+    "Duel.GetBattleMonster",
+    "Duel.GetBattledCount",
+    "Duel.GetCardAliasFromCode",
+    "Duel.GetCardAttackFromCode",
+    "Duel.GetCardAttributeFromCode",
+    "Duel.GetCardDefenseFromCode",
+    "Duel.GetCardFromCardID",
+    "Duel.GetCardLevelFromCode",
+    "Duel.GetCardLinkMarkerFromCode",
+    "Duel.GetCardLscaleFromCode",
+    "Duel.GetCardRaceFromCode",
+    "Duel.GetCardRscaleFromCode",
+    "Duel.GetCardSetcodeFromCode",
+    "Duel.GetCardTypeFromCode",
+    "Duel.GetChainEvent",
+    "Duel.GetChainInfo",
+    "Duel.GetChainMaterial",
+    "Duel.GetCoinResult",
+    "Duel.GetControl",
+    "Duel.GetCounter",
+    "Duel.GetCurrentChain",
+    "Duel.GetCurrentPhase",
+    "Duel.GetCustomActivityCount",
+    "Duel.GetDeckbottomGroup",
+    "Duel.GetDecktopGroup",
+    "Duel.GetDiceResult",
+    "Duel.GetDrawCount",
+    "Duel.GetDuelType",
+    "Duel.GetEnvironment",
+    "Duel.GetExtraTopGroup",
+    "Duel.GetFieldCard",
+    "Duel.GetFieldGroup",
+    "Duel.GetFieldGroupCount",
+    "Duel.GetFirstMatchingCard",
+    "Duel.GetFirstTarget",
+    "Duel.GetFlagEffect",
+    "Duel.GetFlagEffectLabel",
+    "Duel.GetFreeLinkedZone",
+    "Duel.GetFusionMaterial",
+    "Duel.GetLP",
+    "Duel.GetLinkedGroup",
+    "Duel.GetLinkedGroupCount",
+    "Duel.GetLinkedZone",
+    "Duel.GetLocationCount",
+    "Duel.GetLocationCountFromEx",
+    "Duel.GetMZoneCount",
+    "Duel.GetMasterRule",
+    "Duel.GetMatchingGroup",
+    "Duel.GetMatchingGroupCount",
+    "Duel.GetMetatable",
+    "Duel.GetOperatedGroup",
+    "Duel.GetOperationCount",
+    "Duel.GetOperationInfo",
+    "Duel.GetOverlayCount",
+    "Duel.GetOverlayGroup",
+    "Duel.GetPlayerEffect",
+    "Duel.GetPlayersCount",
+    "Duel.GetPossibleOperationInfo",
+    "Duel.GetRandomNumber",
+    "Duel.GetReasonEffect",
+    "Duel.GetReasonPlayer",
+    "Duel.GetReleaseGroup",
+    "Duel.GetReleaseGroupCount",
+    "Duel.GetRitualMaterial",
+    "Duel.GetStartingHand",
+    "Duel.GetTargetCards",
+    "Duel.GetTargetCount",
+    "Duel.GetTributeCount",
+    "Duel.GetTributeGroup",
+    "Duel.GetTurnCount",
+    "Duel.GetTurnPlayer",
+    "Duel.GetUsableMZoneCount",
+    "Duel.GrabSelectedCard",
+    "Duel.HasFlagEffect",
+    "Duel.Hint",
+    "Duel.HintSelection",
+    "Duel.IncreaseSummonedCount",
+    "Duel.IsAbleToEnterBP",
+    "Duel.IsAttackCostPaid",
+    "Duel.IsBattlePhase",
+    "Duel.IsCanAddCounter",
+    "Duel.IsCanRemoveCounter",
+    "Duel.IsChainDisablable",
+    "Duel.IsChainNegatable",
+    "Duel.IsChainSolving",
+    "Duel.IsDamageCalculated",
+    "Duel.IsDuelType",
+    "Duel.IsEndOfBattlePhase",
+    "Duel.IsEnvironment",
+    "Duel.IsExistingMatchingCard",
+    "Duel.IsExistingTarget",
+    "Duel.IsMainPhase",
+    "Duel.IsPhase",
+    "Duel.IsPlayerAffectedByEffect",
+    "Duel.IsPlayerCanAdditionalSummon",
+    "Duel.IsPlayerCanDiscardDeck",
+    "Duel.IsPlayerCanDiscardDeckAsCost",
+    "Duel.IsPlayerCanDraw",
+    "Duel.IsPlayerCanFlipSummon",
+    "Duel.IsPlayerCanPendulumSummon",
+    "Duel.IsPlayerCanProcedureSummonGroup",
+    "Duel.IsPlayerCanRelease",
+    "Duel.IsPlayerCanRemove",
+    "Duel.IsPlayerCanSendtoDeck",
+    "Duel.IsPlayerCanSendtoGrave",
+    "Duel.IsPlayerCanSendtoHand",
+    "Duel.IsPlayerCanSpecialSummon",
+    "Duel.IsPlayerCanSpecialSummonCount",
+    "Duel.IsPlayerCanSpecialSummonMonster",
+    "Duel.IsPlayerCanSummon",
+    "Duel.IsStartOfBattlePhase",
+    "Duel.IsSummonCancelable",
+    "Duel.IsTurnPlayer",
+    "Duel.LinkSummon",
+    "Duel.LoadCardScript",
+    "Duel.LoadScript",
+    "Duel.MSet",
+    "Duel.MajesticCopy",
+    "Duel.MoveSequence",
+    "Duel.MoveToDeckBottom",
+    "Duel.MoveToDeckTop",
+    "Duel.MoveToField",
+    "Duel.NegateActivation",
+    "Duel.NegateAttack",
+    "Duel.NegateEffect",
+    "Duel.NegateRelatedChain",
+    "Duel.NegateSummon",
+    "Duel.Overlay",
+    "Duel.PayLPCost",
+    "Duel.PendulumSummon",
+    "Duel.ProcedureSummon",
+    "Duel.ProcedureSummonGroup",
+    "Duel.RDComplete",
+    "Duel.RaiseEvent",
+    "Duel.RaiseSingleEvent",
+    "Duel.Readjust",
+    "Duel.Recover",
+    "Duel.RegisterEffect",
+    "Duel.RegisterFlagEffect",
+    "Duel.Release",
+    "Duel.ReleaseRitualMaterial",
+    "Duel.Remove",
+    "Duel.RemoveCards",
+    "Duel.RemoveCounter",
+    "Duel.RemoveOverlayCard",
+    "Duel.ResetFlagEffect",
+    "Duel.ReturnToField",
+    "Duel.RockPaperScissors",
+    "Duel.SSet",
+    "Duel.SelectCardsFromCodes",
+    "Duel.SelectDisableField",
+    "Duel.SelectEffect",
+    "Duel.SelectEffectYesNo",
+    "Duel.SelectFieldZone",
+    "Duel.SelectFusionMaterial",
+    "Duel.SelectMatchingCard",
+    "Duel.SelectOption",
+    "Duel.SelectPosition",
+    "Duel.SelectReleaseGroup",
+    "Duel.SelectReleaseGroupCost",
+    "Duel.SelectReleaseGroupEx",
+    "Duel.SelectTarget",
+    "Duel.SelectTribute",
+    "Duel.SelectYesNo",
+    "Duel.Sendto",
+    "Duel.SendtoDeck",
+    "Duel.SendtoExtraP",
+    "Duel.SendtoGrave",
+    "Duel.SendtoHand",
+    "Duel.SetChainLimit",
+    "Duel.SetChainLimitTillChainEnd",
+    "Duel.SetCoinResult",
+    "Duel.SetDiceResult",
+    "Duel.SetFlagEffectLabel",
+    "Duel.SetFusionMaterial",
+    "Duel.SetLP",
+    "Duel.SetOperationInfo",
+    "Duel.SetPossibleOperationInfo",
+    "Duel.SetSelectedCard",
+    "Duel.SetTargetCard",
+    "Duel.SetTargetParam",
+    "Duel.SetTargetPlayer",
+    "Duel.ShuffleDeck",
+    "Duel.ShuffleExtra",
+    "Duel.ShuffleHand",
+    "Duel.ShuffleSetCard",
+    "Duel.SkipPhase",
+    "Duel.SortDeckbottom",
+    "Duel.SortDecktop",
+    "Duel.SpecialSummon",
+    "Duel.SpecialSummonComplete",
+    "Duel.SpecialSummonRule",
+    "Duel.SpecialSummonStep",
+    "Duel.Summon",
+    "Duel.SummonOrSet",
+    "Duel.SwapControl",
+    "Duel.SwapDeckAndGrave",
+    "Duel.SwapSequence",
+    "Duel.SynchroSummon",
+    "Duel.TagSwap",
+    "Duel.TossCoin",
+    "Duel.TossDice",
+    "Duel.Win",
+    "Duel.XyzSummon",
+    "Effect.CheckCountLimit",
+    "Effect.Clone",
+    "Effect.CreateEffect",
+    "Effect.FromLuaRef",
+    "Effect.GetActivateLocation",
+    "Effect.GetActivateSequence",
+    "Effect.GetActiveType",
+    "Effect.GetCardATK",
+    "Effect.GetCardDEF",
+    "Effect.GetCardSetcode",
+    "Effect.GetCategory",
+    "Effect.GetCode",
+    "Effect.GetCondition",
+    "Effect.GetCost",
+    "Effect.GetCountLimit",
+    "Effect.GetDescription",
+    "Effect.GetFieldID",
+    "Effect.GetHandler",
+    "Effect.GetHandlerPlayer",
+    "Effect.GetHintTiming",
+    "Effect.GetLabel",
+    "Effect.GetLabelObject",
+    "Effect.GetLuaRef",
+    "Effect.GetOperation",
+    "Effect.GetOwner",
+    "Effect.GetOwnerPlayer",
+    "Effect.GetProperty",
+    "Effect.GetRange",
+    "Effect.GetReset",
+    "Effect.GetTarget",
+    "Effect.GetTargetRange",
+    "Effect.GetType",
+    "Effect.GetValue",
+    "Effect.GlobalEffect",
+    "Effect.IsActivatable",
+    "Effect.IsActivated",
+    "Effect.IsActiveType",
+    "Effect.IsCardATK",
+    "Effect.IsCardDEF",
+    "Effect.IsCardSetcode",
+    "Effect.IsDeleted",
+    "Effect.IsHasCategory",
+    "Effect.IsHasProperty",
+    "Effect.IsHasType",
+    "Effect.Reset",
+    "Effect.RestoreCountLimit",
+    "Effect.SetAbsoluteRange",
+    "Effect.SetCategory",
+    "Effect.SetCode",
+    "Effect.SetCondition",
+    "Effect.SetCost",
+    "Effect.SetCountLimit",
+    "Effect.SetDescription",
+    "Effect.SetHintTiming",
+    "Effect.SetLabel",
+    "Effect.SetLabelObject",
+    "Effect.SetOperation",
+    "Effect.SetOwnerPlayer",
+    "Effect.SetProperty",
+    "Effect.SetRange",
+    "Effect.SetReset",
+    "Effect.SetTarget",
+    "Effect.SetTargetRange",
+    "Effect.SetType",
+    "Effect.SetValue",
+    "Effect.UseCountLimit",
+    "Group.AddCard",
+    "Group.CheckWithSumEqual",
+    "Group.CheckWithSumGreater",
+    "Group.Clear",
+    "Group.Clone",
+    "Group.CreateGroup",
+    "Group.DeleteGroup",
+    "Group.Equal",
+    "Group.Filter",
+    "Group.FilterCount",
+    "Group.FilterSelect",
+    "Group.FromCards",
+    "Group.FromLuaRef",
+    "Group.GetBinClassCount",
+    "Group.GetBitwiseAnd",
+    "Group.GetBitwiseOr",
+    "Group.GetClass",
+    "Group.GetClassCount",
+    "Group.GetCount",
+    "Group.GetFirst",
+    "Group.GetLuaRef",
+    "Group.GetMaxGroup",
+    "Group.GetMinGroup",
+    "Group.GetNext",
+    "Group.GetSum",
+    "Group.Includes",
+    "Group.IsContains",
+    "Group.IsDeleted",
+    "Group.IsExists",
+    "Group.KeepAlive",
+    "Group.Match",
+    "Group.Merge",
+    "Group.NewGroup",
+    "Group.RandomSelect",
+    "Group.Remove",
+    "Group.RemoveCard",
+    "Group.SearchCard",
+    "Group.Select",
+    "Group.SelectUnselect",
+    "Group.SelectWithSumEqual",
+    "Group.SelectWithSumGreater",
+    "Group.Split",
+    "Group.Sub",
+    "Group.TakeatPos",
+    "Group.__add",
+    "Group.__band",
+    "Group.__eq",
+    "Group.__gc",
+    "Group.__le",
+    "Group.__len",
+    "Group.__lt",
+    "Group.__sub"
+  ],
+  "wasmProbe": {
+    "coreApi": [
+      11,
+      0
+    ],
+    "checkedApis": 686,
+    "loaded": false,
+    "missingApis": [
+      "Duel.GetMasterRule"
+    ],
+    "expectedMissingApis": [
+      "Duel.GetMasterRule"
+    ],
+    "matchesStaticAudit": true,
+    "diagnostics": [
+      {
+        "type": 0,
+        "text": "[string \"native_api_compatibility_probe.lua\"]:688: NATIVE_API_MISSING:Duel.GetMasterRule"
+      }
+    ]
+  }
+}

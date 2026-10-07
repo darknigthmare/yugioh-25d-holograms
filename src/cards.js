@@ -1,3 +1,5 @@
+import { FIELD_SPELL_ENVIRONMENT_CATALOG } from './ui/FieldSpellEnvironmentCatalog.js';
+const nativeFieldImageIds = new Set(FIELD_SPELL_ENVIRONMENT_CATALOG.map(card => String(card.cardId)));
 import {
   ADDITIONAL_FIELD_SPELLS, CLASSIC_FIELD_SPELLS, SCRIPTED_FIELD_SPELLS, WETLANDS_FIELD_SPELL,
   TRANSVERSE_CONTINUOUS_FIELD_SPELLS
@@ -649,7 +651,9 @@ export function getCardImageUrl(id) {
 
 export function getCardCroppedImageUrl(id) {
   if (CLASSIC_FIELD_SPELLS.some(card => card.id === normalizeCardImageId(id))) return getCardImageUrl(id);
-  return `/cards/cropped/${normalizeCardImageId(id)}.jpg`;
+  const normalized = normalizeCardImageId(id);
+  if (nativeFieldImageIds.has(normalized) && !STARTER_CARDS.some(card => normalizeCardImageId(card.id) === normalized)) return `/environments/field-art/${normalized}.jpg`;
+  return `/cards/cropped/${normalized}.jpg`;
 }
 
 export const EXTRA_DECK_CARDS = [

@@ -1,86 +1,75 @@
 # Yu-Gi-Oh! 2.5D Hologram Duel Simulator
 
-Simulateur de duel solo dans le navigateur, inspiré des arènes holographiques de l’anime. Le projet fonctionne sans compte ni backend : l’état du Duel reste dans la page, tandis que les préférences et les Matchs entre deux Duels utilisent `localStorage`.
+Simulateur de duel solo dans le navigateur, inspiré des arènes holographiques de l’anime. Les modes **TCG Advanced strict** et **Duel libre** utilisent désormais le moteur EDOPro compilé en WebAssembly et les véritables scripts Lua de Project Ignis. Le projet fonctionne sans compte ni backend : le Duel reste dans la page, les préférences et les Matchs entre deux Duels utilisent `localStorage`.
 
-## Fonctionnalités vérifiées
+## Modes et bibliothèque
 
-- mode **TCG Advanced strict** par défaut : Main Deck de 40 à 60 cartes, Extra et Side de 0 à 15, limites de copies cumulées entre les trois sections et liste limitée/interdite du 21 septembre 2026 pour le sous-ensemble local ; les Matchs sauvegardés avec la liste de mai restent compatibles ;
-- mode **Anime Sandbox** séparé pour la recherche de métadonnées YGOPRODeck et l’expérimentation ;
-- duel unique ou **Match au premier à deux victoires**, avec score, Side Deck et choix réglementaire du premier joueur ; les Duels nuls peuvent prolonger le Match au-delà de trois Duels ;
-- **parcours solo de 12 défis** en trois chapitres, avec 24 constructions de Deck dédiées, objectifs issus des événements réels, 36 médailles et progression exportable/importable ;
-- duel solo contre trois profils d’IA avec pioche, six phases, Invocations Normale, Sacrifice, Rituel, Fusion, Synchro, Xyz, Lien et Pendule ;
-- Zones Monstre Extra partagées, Matériels Xyz, Monstres Pendule face recto dans l’Extra Deck et limitation d’une Invocation Pendule par tour ;
-- positions Attaque/Défense, Damage Step, attaques directes, dégâts, Deck Out, limite de six cartes en End Phase et conditions de victoire ;
-- chaînes en résolution LIFO, fenêtres de réponse et sélection explicite des cibles pour les effets locaux pris en charge ;
-- rejeu d’attaque après modification du Terrain adverse, fenêtre d’Effets Rapides à la déclaration, calcul des combats commun au joueur et à l’IA ;
-- flèches Lien dans les huit directions, depuis les Zones Main et Extra des deux camps, partagées par les procédures Lien et Pendule ;
-- effets scriptés pour Raigeki, Monster Reborn, Polymérisation, Force de Miroir, Trappe, Magicienne des Ténèbres, Magicien du Temps, Kuriboh, Robot Synchronique, Magicien des Arcanes, Dragon Poussière d’Étoile et Numéro 39 : Utopie ;
-- Typhon d’Espace Mystique et Livre de la Lune : choix de cible, réponses depuis la Main pendant son tour ou depuis une carte Posée un tour précédent, revalidation de la cible et restrictions du Damage Step ;
-- **29 Magies de Terrain entièrement scriptées** : 20 effets continus de statistiques et 9 Terrains avec restrictions, changements de Type/position ou calculs particuliers du combat ; Océan modifie aussi les Niveaux et partage le nom réglementaire « Umi » ;
-- constructeur de Deck disponible en strict et en Match : bibliothèque locale, copie des presets, Main/Extra/Side persistés et validation avant le lancement ;
-- IA normale/difficile capable de répondre avec Livre de la Lune, Typhon et Stardust, sans lire les cartes adverses cachées ;
-- cartes adverses cachées anonymisées dans le DOM et snapshots réseau expurgés des informations privées ;
-- interface desktop/mobile, glisser-déposer, sélection carte → zone, plateau mobile panoramique, parcours clavier, zones publiques inspectables, modales accessibles et réduction des animations ;
-- préférences locales persistées : mode, difficulté, son/voix, dos de carte, deck personnalisé, statistiques, progression solo et reprise d’un Match entre deux Duels ;
-- cache distant borné et validé, délai réseau maximal, audio facultatif résilient, dépendances auditées et CI de livraison épinglée.
+| Mode | Moteur et cartes | Validation du Deck |
+| --- | --- | --- |
+| **TCG Advanced strict**, par défaut | Moteur natif ; bibliothèque statique de **390 cartes**, dont les **339 Terrains** du catalogue. | Main 40–60, Extra/Side 0–15, copies cumulées, restrictions TCG et disponibilité régionale du relevé du 7 octobre 2026. Les cartes OCG seulement ou à sortie TCG future restent consultables mais sont refusées. |
+| **Duel libre** | Même moteur natif ; les 339 Terrains, y compris OCG et annoncés, et recherche dans le catalogue CDB local après son chargement. | Même taille et sections ; trois copies combinées par nom, sans liste Forbidden/Limited. Les véritables alias de nom et d’illustration partagent cette limite. |
+| **Anime Sandbox** | Moteur JavaScript historique, pool local de **80 cartes** et recherche API pour l’expérimentation. | Les cartes distantes consultées ne reçoivent pas automatiquement un effet exécutable. Les **29 scripts de Terrain JavaScript** restent distincts des scripts natifs. |
 
-## Portée et fidélité
+Le catalogue de Duel libre contient **14 355 identités de cartes** après normalisation des illustrations alternatives et des doublons provisoires. Il accepte les cartes ordinaires dont les données et scripts sont présents, ainsi que les monstres Normal sans script nécessaire. Les jetons restent créés par le moteur pendant le Duel. Cette présence technique ne certifie pas toutes leurs interactions ; les partenaires hors bibliothèque statique utilisent un visuel local explicitement inconnu, sans illustration inventée ni hotlink.
 
-Le mode strict applique les règles officielles au **sous-ensemble local explicitement pris en charge**. Le moteur refuse une procédure absente au lieu d’inventer une résolution. Il ne constitue pas un arbitre universel : les milliers de cartes et interactions du TCG complet ne sont pas toutes scriptées.
+Le moteur natif décide des phases, Invocations, coûts, cibles, matériaux, zones, chaînes et résultats du combat. L’interface affiche ses décisions et les statistiques qu’il retourne. Les procédures particulières, dont Contact Fusion ou Invocations alternatives, appartiennent aux scripts amont ; leur présence dans le moteur ne vaut pas preuve d’un parcours UI complet pour chaque carte.
 
-Le pool local comporte désormais **80 cartes distinctes** (75 Main Deck, 5 Extra Deck), indépendamment du nombre de copies dans un deck de duel. Les 29 Terrains comprennent désormais Océan Légendaire, Monde Zombie, Village Secret des Magiciens, Forêt Interdite, Temple de l’Oeil de l’Esprit, Canyon, Château de Brume de Shien, Ville Ténébreuse, Chambre Forte du Sabre, Monde Jurassique, Pluie d’Acide et Mur de Magie Enchanteur. Anapelera, Chambellan des Six Samouraïs, Mégalobroyeur X et Giga Gagagigo fournissent des partenaires jouables supplémentaires. Insecte Mangeur d’Hommes, Magicien de la Foi et Sangan possèdent des effets Flip et déclenchés : ciblage à l’activation, collecte des événements et ordre SEGOC, déclencheurs différés après la chaîne et pendant le Damage Step. Arcanite place ses compteurs par un effet obligatoire en Chaîne ; ses coûts et cibles sont revérifiés après chaque choix. Un effet annulé de Magicien du Temps reste activable, mais sa résolution est annulée. Voir [la couverture détaillée des règles et ses limites](RULES_COVERAGE.md).
+Les trois decks intégrés sont des presets légaux **inspirés** de Kaiba, Yugi et Joey. L’application propose trois profils d’IA, un constructeur Main/Extra/Side persistant, un Duel unique, un **Match au premier à deux victoires** en strict et un parcours original de **12 défis** avec médailles et progression locale. Les Duels nuls peuvent prolonger un Match ; la reprise persistante concerne les étapes entre Duels, pas la sauvegarde intégrale d’un Duel en cours.
 
-Les trois decks intégrés sont des presets légaux **inspirés** de Kaiba, Yugi et Joey ; ils ne reproduisent pas au détail près une liste historique de l’anime. En Sandbox, une carte issue de l’API peut être inspectée ou ajoutée pendant la Main Phase, mais seuls les effets explicitement pris en charge par le moteur possèdent une résolution dédiée. Une carte distante non intégrée affiche un visuel local neutre afin de ne pas hotlinker le CDN du fournisseur.
+L’interface reste **solo contre l’IA**. Le protocole WebRTC présent dans le dépôt constitue un socle testé ; il n’est pas annoncé comme un multijoueur complet. Les cartes adverses cachées sont anonymisées dans le DOM et les événements de présentation. La page propose contrôles clavier et tactiles, glisser-déposer, inspection des zones publiques, préférences audio et réduction des animations.
 
-L’interface publiée reste **solo contre l’IA**. Le dépôt contient un protocole WebRTC pair-à-pair, une session avec accusés de réception/résynchronisation et des snapshots publics testés, mais ce socle n’est pas présenté comme un multijoueur jouable : combat, chaînes/effets, Fusion et Rituel distants demandent encore une autorité de jeu commune et des décisions privées sûres.
+## Portée vérifiée
 
-La reprise persistante concerne le Match entre deux Duels. Un Duel en cours n’est pas sérialisé intégralement ; quitter la page déclenche donc un avertissement.
+Les **339 Terrains possèdent leurs données et scripts locaux et s’initialisent sans erreur Lua dans 339 duels natifs distincts**. **20 scénarios de règles passent sur 18 Terrains** : changements de Type/Niveau/statistiques, restrictions et annulations, défausse, recherche, pioche, Fusion avec bannissement, compteurs, remplacement de destruction et création de jeton. Les quatre scripts encore provisoires chez Project Ignis conservent une correspondance explicite vers leurs passcodes canoniques ; aucune donnée d’alias ni aucun texte Lua n’est inventé.
 
-Le parcours solo est un entraînement original, pas une adaptation des épisodes. Une victoire suffit toujours à avancer ; Argent et Or récompensent la maîtrise sans bloquer la progression. Aucune durée en heures n’est revendiquée sans campagne de playtests chronométrés.
+Un parcours du **build de production sur desktop 1280 × 900 et mobile 390 × 844** vérifie la bibliothèque, le lancement natif, Invocation Normale, pose de Magie, accès Extra Deck, tour de l’IA, pioche suivante et confidentialité adverse, sans erreur JavaScript, échec d’asset natif ni violation CSP. Ces preuves ne sont pas étendues automatiquement aux 339 branches de scripts ou à toutes les cartes du catalogue complet.
 
-## Vues du duel et environnements
+Voir [la couverture et ses limites](RULES_COVERAGE.md), [l’audit des règles natives](docs/audits/native-field-rules-2026-10-07.md), [la matrice des 339 cartes](docs/audits/artifacts/native-field-runtime-2026-10-07.json), [l’intégration et les visuels publics](docs/audits/native-duel-integration-2026-10-07.md) et [le rapport navigateur compilé](docs/audits/artifacts/native-duel-ui-2026-10-07/report.json). Le projet ne constitue pas une certification exhaustive TCG ni un arbitre de tournoi.
 
-La vue **Compacte** reste la vue initiale et conserve son plateau historique. La vue **Arène** reste disponible. La **Vue Réelle**, chargée seulement à son premier affichage, propose une mise en scène inspirée des arènes de l’anime : console et tapis du joueur au premier plan, plateforme physique en perspective, console adverse réduite au fond et duelliste adverse placé derrière son terminal. Les trois vues consomment la même instance du moteur ; changer de vue ne recrée ni le Duel, ni les cartes, ni l’IA. La console adverse est une géométrie publique : elle n’embarque ni main, ni face de carte, ni identifiant privé.
+## Vues et Terrains
 
-La Vue Réelle possède deux décors de base sélectionnables dans les paramètres : **Clairière KaibaCorp** et **Grotte / Ruines**. Une Magie de Terrain utilise sa Zone Terrain dédiée. Une carte simplement Posée ou une activation encore en chaîne ne sélectionne pas son illustration. Le nouvel environnement apparaît uniquement après une résolution réussie. Remplacer un Terrain retire immédiatement l’ancienne source et ses bonus, avant les réponses à la nouvelle activation ; une activation annulée ne devient jamais une source de décor.
+La vue **Compacte** reste initiale ; **Arène** et **Vue Réelle** partagent le même Duel. La Vue Réelle est chargée à son premier affichage : console et tapis du joueur, plateforme en perspective et adversaire derrière son terminal. Elle propose les décors de base **Clairière KaibaCorp** et **Grotte / Ruines**.
 
-Le catalogue `src/ui/FieldSpellEnvironmentCatalog.js` couvre **339 références canoniques de Magie de Terrain TCG/OCG**, actualisées depuis le catalogue du 7 octobre 2026, dont une carte officiellement annoncée pour le 8 octobre en Europe. Les trois identifiants provisoires du fournisseur sont archivés séparément et ne sont pas traités comme des passcodes imprimés. Chaque carte sélectionne maintenant son illustration principale exacte, téléchargée depuis YGOPRODeck et réhébergée dans `public/environments/field-art/`. Les octets JPEG, dimensions, URL source et empreintes SHA-256 sont conservés dans un snapshot d’audit. L’image est affichée entière, avec ses proportions conservées, sans filtre de couleur ni surimpression atmosphérique. Les lumières et matériaux 3D utilisent une palette analysée dans cette source. Une carte absente du catalogue reçoit le décor générique.
+Les **339 illustrations originales** de Terrain sont réhébergées localement, entières, avec proportions et octets JPEG préservés, sans filtre de couleur. Leurs URL, dimensions, palettes et SHA-256 sont archivés. Les **339 cadres de carte complets** sont également locaux. Une carte posée ou encore en chaîne ne devient pas un décor actif ; l’environnement suit la résolution native réussie, son annulation, retrait et remplacement.
 
-La Vue Réelle ajoute des modèles procéduraux pour **20 cartes emblématiques et 17 familles de repli**, avec attaques de dragon, magie, foudre, lames, protections, invocations, Typhon et Livre de la Lune. Sept modèles sont construits ou affinés à partir de leurs illustrations, avec anatomie et couleurs par sommet ; [les captures et mesures](docs/audits/monster-fidelity-2026-10-07.md) documentent leurs limites. Les ailes, bâtons, épées et pinces s’animent sur GPU lors des actions. Les effets de Terrain ciblent les monstres et dégâts concernés : halo protecteur, chevrons, racines et quatre cinématiques pour Ville Ténébreuse, Shien, Canyon et le Temple, avec les valeurs réellement appliquées. Les poses conservent les ancrages des zones, s’arrêtent avec les effets et respectent le mouvement réduit. Chaque modèle utilise au plus cinq appels couleur, hors ombres. Les monstres face verso ne produisent aucun modèle identifiable.
+La géométrie conserve **89 décors dédiés**, **50 références inspectées** et **26 reconstructions du second lot depuis leurs sources**. L’ajout des scripts natifs n’ajoute pas de modèle 3D ni de reconstruction 1:1. Les volumes restent adaptés à la lisibilité du plateau. Les 336 WebP originaux servent de repli ; les trois nouvelles références utilisent leur JPEG exact en repli. Les captures de l’anime ne sont pas utilisées comme textures.
 
-Les scènes utilisent 25 familles de géométrie et des repères propres à **89 cartes de Terrain**, dont **50 références inspectées**. Le second lot du 7 octobre reconstruit 26 références naturelles, architecturales et magiques depuis leurs illustrations, en complément des sept affinements précédents. Les accessoires statiques sont regroupés par géométrie et matériau. La texture source est exacte ; les volumes et leur placement restent adaptés à la lisibilité du duel. Les personnages et créatures de certaines illustrations ne possèdent pas tous un modèle de Terrain 3D. Voir les comparaisons [naturelles](docs/audits/nature-terrain-references-2026-10-07.md), [architecturales](docs/audits/terrain-architecture-batch2-2026-10-07.md), les [sept affinements précédents](docs/audits/terrain-fidelity-2026-10-07.md) et [l’audit des détails encore manquants](TERRAIN_REFERENCE_AUDIT.md).
-
-Pour ajouter un environnement :
-
-1. ajouter l’entrée `[passcode, nom d’audit, environmentId]` au catalogue ;
-2. actualiser l’instantané de données avec `scripts/generate-field-spell-card-data-snapshot.mjs` ;
-3. archiver le JPEG source sans modification dans `/environments/field-art/<passcode>.jpg`, enregistrer provenance/empreinte/dimensions dans `FieldSpellReferenceArtSnapshot.js` et sa palette dans `FieldSpellReferenceArtPalettes.js` ; choisir un repli local explicite, le JPEG exact étant utilisable sans nouvelle génération ;
-4. créer une famille immuable dans `FieldEnvironmentRegistry.js` uniquement si aucun profil matériel existant ne convient ;
-5. compléter les tests du catalogue, du manifeste et du résolveur, puis vérifier les états face verso, en chaîne, résolu, négation, retrait et remplacement.
-
-Les anciens 336 WebP et les décors de base sont des compositions originales générées pour le projet. Le WebP reste visible pendant le décodage d’une illustration source ou si son chargement échoue. Les captures de l’anime ne sont pas utilisées comme textures. Le catalogue est visuel : seuls les **29 Terrains explicitement enregistrés** possèdent leurs effets de carte dans le mode strict.
-
-Le bouton **EXPLORER LES TERRAINS** ouvre le catalogue complet : recherche par nom français/anglais ou passcode, filtres des effets jouables et décors étudiés, illustration originale et un aperçu 3D orientable. Le catalogue distingue les silhouettes dédiées, les décors réellement inspectés et les effets restant à implémenter. Les ressources de l’aperçu sont libérées à chaque changement et à la fermeture.
+Le bouton **EXPLORER LES TERRAINS** distingue illustration exacte, géométrie étudiée, script natif disponible, initialisation vérifiée et scénario d’effet exercé. Les profils de monstres conservent 20 modèles emblématiques et 17 familles de repli, avec animations publiques et respect du mouvement réduit. Les personnages de certaines illustrations ne possèdent pas tous un modèle 3D. Voir [l’audit des modèles](docs/audits/monster-fidelity-2026-10-07.md), [les références naturelles](docs/audits/nature-terrain-references-2026-10-07.md), [les références architecturales](docs/audits/terrain-architecture-batch2-2026-10-07.md) et [les détails visuels restants](TERRAIN_REFERENCE_AUDIT.md).
 
 ## Développement
 
 Prérequis : Node.js 20.19 ou plus récent.
 
-```bash
+```sh
 npm ci
 npm run dev
 ```
 
 Contrôle complet :
 
-```bash
+```sh
 npm run audit:security
 npm run check
 ```
 
-Le contrôle exécute les tests Node de règles, Match, réseau et régression, audite les 339 JPEG sources et les 336 WebP de repli de Terrain (les trois nouveautés utilisent leur JPEG exact en repli), puis produit le build Vite dans `dist/`. Le second lot du **7 octobre passe 86 fichiers de tests sans échec**, et l’audit npm constate zéro vulnérabilité. Le projet JavaScript ne définit pas de script lint ou typecheck séparé. Les [parcours navigateur et preuves du lot](docs/audits/terrain-rules-release-batch2-2026-10-07.md) complètent ces contrôles.
+`check` exécute les tests Node, les audits des 339 JPEG sources et des 339 replis, puis produit le build Vite dans `dist/`. Aucun script lint/typecheck séparé n’est défini. Les tests natifs chargent les assets WASM, CDB et Lua livrés ; ils ne simulent pas les résultats des scripts de carte. Le [gate de livraison du 7 octobre 2026](docs/audits/native-release-2026-10-07.md) consigne les 100 fichiers de tests réussis et les preuves navigateur du build final.
 
-L’[audit de préparation commerciale du 8 septembre 2026](docs/audits/commercial-readiness-2026-09-08.md) distingue les correctifs livrés des prérequis encore bloquants. Le projet doit rester non commercial tant qu’aucune autorisation appropriée des ayants droit n’a été obtenue.
+Pour régénérer les preuves du moteur :
+
+```sh
+node scripts/audit-native-field-runtime.mjs
+node scripts/generate-native-field-coverage.mjs
+```
+
+Les archives contiennent **14 984 lignes CDB** et **13 702 sources Lua**, dont 13 541 scripts officiels, 135 de prépublication et 26 helpers. La provenance, les correspondances et les instructions de reproduction figurent dans [l’audit des ressources](docs/audits/native-card-resources-2026-10-07.md). Le chargement natif reste local, sans API distante pendant le Duel.
+
+## Sources, licences et images
+
+Le nouveau sous-système natif, le moteur EDOPro et CardScripts sont distribués sous **AGPL-3.0-or-later**. Le wrapper amont et l’interpréteur Lua conservent leurs notices **MIT**. Les attributions et la portée des licences sont décrites dans [la notice native](public/native/NOTICE.md) ; [le texte de licence du sous-système](public/native/licenses/native-subsystem-AGPL-3.0.txt) est livré avec les assets. Les déclarations des composants historiques restent distinctes.
+
+L’[offre de sources accessible depuis l’application](public/native/sources/README.md) fournit les archives complètes épinglées du moteur, Lua et wrapper, les empreintes et les instructions de reconstruction. Les sources de l’application, interfaces portées, loaders et correctifs sont accessibles dans [le dépôt public](https://github.com/darknigthmare/yugioh-25d-holograms/tree/codex/duel-fidelity-2026-10-01). Les Lua exacts et leurs crédits sont servis dans `/native/scripts.json`, avec leur texte COPYING. BabelCDB ne déclare pas de licence dans le snapshot amont : sa provenance ne remplace pas une autorisation de redistribution des données ou textes.
+
+Les métadonnées Sandbox proviennent de YGOPRODeck. Les images locales suivent sa [consigne de téléchargement et réhébergement](https://api.ygoprodeck.com/api-guide/) ; l’application ne hotlinke pas les illustrations de Terrain. Yu-Gi-Oh!, les cartes et marques associées appartiennent à leurs ayants droit. Ce projet fan, non commercial et non officiel n’est ni produit, ni approuvé, ni soutenu par Konami. L’[audit de préparation commerciale](docs/audits/commercial-readiness-2026-09-08.md) conserve les prérequis de droits distincts des licences du code.
 
 ## Références de règles
 
@@ -88,9 +77,3 @@ L’[audit de préparation commerciale du 8 septembre 2026](docs/audits/commerci
 - [Tournament Policy v2.5](https://www.yugioh-card.com/en/downloads/penalty_guide/YGOTCG_Tournament_Policy_v_2_5.pdf)
 - [Master Rule 2020](https://www.yugioh-card.com/japan/howto/masterrule2020/)
 - [Liste Advanced du 21 septembre 2026](https://www.yugioh-card.com/en/limited/list_2026-09-21/)
-
-## Données, images et propriété intellectuelle
-
-Les métadonnées Sandbox proviennent de l’API YGOPRODeck et sont mises en cache localement pour limiter les requêtes. Les variantes petites/cadrées des cartes locales sont réhébergées dans `public/cards/`, conformément à la [consigne de téléchargement et réhébergement de YGOPRODeck](https://api.ygoprodeck.com/api-guide/). Les 339 références de Terrain sont également servies localement ; elles représentent environ 49,19 Mo de fichiers statiques, et seule la référence du décor sélectionné est chargée. L’application ne hotlinke pas leurs images.
-
-Yu-Gi-Oh! et les cartes associées appartiennent à leurs ayants droit. Ce projet de démonstration fan, non commercial et non officiel n’est ni produit, ni approuvé, ni soutenu par Konami ou ses sociétés affiliées.

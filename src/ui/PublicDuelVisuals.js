@@ -101,6 +101,19 @@ export function createPublicCombatVisual(event, game, positionResolver = () => u
     source = zoneRef(owner, event.zoneType, event.zoneIndex);
     kind = type === 'destroy' ? 'destroy' : 'summon';
     card = publicCard(event.card);
+  } else if (type === 'chain-negated' || type === 'attack-negated') {
+    owner = type === 'attack-negated' ? event.attackerSide : event.target;
+    source = zoneRef(owner, type === 'attack-negated' ? event.atkZoneType : event.zoneType,
+      type === 'attack-negated' ? event.atkZoneIndex : event.zoneIndex);
+    card = publicCard(event.card);
+    if (!card) return null;
+    kind = 'negate';
+  } else if (type === 'field-source-change') {
+    if (event.resolved !== true || event.active !== true || event.negated === true) return null;
+    source = zoneRef(owner, 'field', 0);
+    card = publicCard(event.card);
+    if (!card) return null;
+    kind = 'activate';
   } else if (Object.hasOwn(FIELD_RULE_VISUALS, type)) {
     const fieldVisual = FIELD_RULE_VISUALS[type];
     owner = event.sourceSide;

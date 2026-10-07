@@ -42,6 +42,7 @@ export function createCampaignDuelTracker(resultId) {
   const seenSummons = new Set();
   const seenPendulumTurns = new Set();
   const seenFields = new Set();
+  const seenNativeSets = new Set();
   const extraTypes = new Set();
 
   function recordAnimation(event) {
@@ -50,12 +51,22 @@ export function createCampaignDuelTracker(resultId) {
     seenEventObjects.add(event);
 
     if (event.type === 'lp-loss' && event.target === 'player') {
+      if (event.cost === true) return false;
       const damage = Number(event.damage);
       if (Number.isFinite(damage) && damage > 0) {
         stats.damageTaken += Math.floor(damage);
         return true;
       }
       return false;
+    }
+    // A native Set confirms the public action without exposing the Set's card.
+    // Position changes to face verso are not Set declarations.
+    if (event.type === 'set-monster' && event.target === 'player'
+      && event.nativeAction === 'set' && typeof event.publicEventId === 'string') {
+      if (seenNativeSets.has(event.publicEventId)) return false;
+      seenNativeSets.add(event.publicEventId);
+      stats.monsterSets += 1;
+      return true;
     }
     if (event.type !== 'summon' || event.target !== 'player' || !event.card) return false;
 

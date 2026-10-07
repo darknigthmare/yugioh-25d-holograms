@@ -1,3 +1,6 @@
+import { FIELD_SPELL_REFERENCE_ART_PALETTES } from './FieldSpellReferenceArtPalettes.js';
+import { getFieldSpellEnvironmentCatalogEntry } from './FieldSpellEnvironmentCatalog.js';
+
 const ATTRIBUTE_COLORS = Object.freeze({
   LIGHT: '#87eaff', DARK: '#ae75ff', FIRE: '#ff7944', WATER: '#38d8ee',
   WIND: '#7fe6a8', EARTH: '#d7b574', DIVINE: '#ffe58a'
@@ -59,8 +62,28 @@ export function resolveHologramMonsterProfile(card = {}) {
   return Object.freeze({ id: `generic-${digital ? 'link-' : ''}${family}-${attribute.toLowerCase() || 'neutral'}`, family, digital, body: digital ? '#35518e' : accent, accent, eye: '#efffff', attack });
 }
 
+/** One source-art palette per published Field Spell; no rule is inferred. */
+export function resolveFieldSourceVisualProfile(kind, card = {}) {
+  if (!['activate', 'destroy', 'negate'].includes(kind)) return null;
+  const entry = getFieldSpellEnvironmentCatalogEntry(card.id);
+  if (!entry) return null;
+  const palette = FIELD_SPELL_REFERENCE_ART_PALETTES[entry.cardId];
+  if (!palette || palette.length < 4) return null;
+  const mode = kind === 'activate' ? 'activation' : kind === 'destroy' ? 'destruction' : 'negation';
+  return Object.freeze({ id: `field-${mode}:${entry.cardId}`, sourceCardId: entry.cardId,
+    color: palette[1], secondary: palette[3], accent: palette[4] ?? palette[0],
+    duration: kind === 'destroy' ? 700 : 900,
+    shape: kind === 'destroy' ? 'shatter' : kind === 'negate' ? 'shield' : 'rune' });
+}
+
 /** Select effects from public identity/rules identifiers, never card prose. */
 export function resolveCombatVisualProfile({ kind = 'attack', card = {}, profile } = {}) {
+  // Dedicated resolved-rule profiles remain explicit. Generic native effects
+  // use the source illustration without inventing a boost, target or result.
+  if (!profile) {
+    const sourceProfile = resolveFieldSourceVisualProfile(kind, card);
+    if (sourceProfile) return sourceProfile;
+  }
   const cardId = String(card.id || '');
   const effectCode = String(card.effectCode || '').toUpperCase();
   let id = profile;
@@ -70,7 +93,7 @@ export function resolveCombatVisualProfile({ kind = 'attack', card = {}, profile
         : /xyz/i.test(card.type || '') ? 'xyz-summon'
           : /link/i.test(card.type || '') ? 'link-summon' : 'summon';
     else if (kind === 'destroy') id = 'shatter';
-    else if (kind === 'shield' || (kind !== 'attack' && (cardId === '44095762' || cardId === '40640057'
+    else if (kind === 'shield' || kind === 'negate' || (kind !== 'attack' && (cardId === '44095762' || cardId === '40640057'
       || /PREVENT|NEGATE|MIRROR_FORCE/.test(effectCode)))) id = 'shield';
     else if (cardId === '05318639' || cardId === '5318639') id = 'typhoon';
     else if (cardId === '14087893') id = 'moon';

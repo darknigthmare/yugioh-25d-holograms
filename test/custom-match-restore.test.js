@@ -4,11 +4,17 @@ import test from 'node:test';
 import vm from 'node:vm';
 import { STARTER_CARDS, EXTRA_DECK_CARDS } from '../src/cards.js';
 import { DuelGame } from '../src/game.js';
+import { NativeDuelGame } from '../src/core/native/NativeDuelGame.js';
+import { loadNativeCardResources } from '../src/core/native/NativeCardData.js';
+import { NATIVE_CARDS } from '../src/core/native/NativeCardRegistry.js';
 import { MatchController } from '../src/ui/MatchController.js';
 import { validateCustomDeck } from '../src/ui/DeckBuilderRules.js';
 import { normalizeStrictCardId } from '../src/core/StrictCardRegistry.js';
 
 const mainSource = readFileSync(new URL('../main.js', import.meta.url), 'utf8');
+const nativeResources = loadNativeCardResources({ fetch: async path => (
+  new Response(readFileSync(new URL(`../public${path}`, import.meta.url)))
+) });
 
 function productionFunction(name) {
   const match = mainSource.match(new RegExp(`(?:async )?function ${name}\\([^]*?\\n\\}`));
@@ -46,7 +52,7 @@ function element() {
 // Exercise production restore/launch handlers with the real serialized Match
 // and Duel engines. Audio, rendering and automatic phase timers are unrelated
 // to this transaction and are stopped at the initial-hand boundary.
-function uiFixture(payload) {
+function uiFixture(payload, { nativeStartGate = null } = {}) {
   class InitialHandDuel extends DuelGame {
     constructor(callbacks, options) {
       super(callbacks, options);
@@ -54,6 +60,20 @@ function uiFixture(payload) {
       this.scheduleAction = () => 0;
     }
   }
+  class InitialHandNativeDuel extends NativeDuelGame {
+    async start() {
+      await nativeStartGate?.();
+      this.runtime.start();
+      // Preserve real native initialization and opening draws, then stop before
+      // the first command so opponent AI does not alter the registered decks.
+      const batch = this.runtime.advance();
+      this._processMessages(batch.messages);
+      this._prompt = this.pendingNativeDecision = batch.prompt;
+      this._synchronize();
+      return true;
+    }
+  }
+  const loads = { nativeModule: 0, nativeResources: 0 };
   const writes = new Map();
   const notices = [];
   const nodes = new Map();
@@ -61,11 +81,16 @@ function uiFixture(payload) {
     if (!nodes.has(id)) nodes.set(id, element());
     return nodes.get(id);
   };
-  const templates = [...STARTER_CARDS, ...EXTRA_DECK_CARDS];
+  const templates = NATIVE_CARDS;
   const noop = () => {};
   const context = vm.createContext({
     STARTER_CARDS, EXTRA_DECK_CARDS, MatchController, DuelGame: InitialHandDuel,
     validateCustomDeck, normalizeStrictCardId,
+    nativeBuilderOptions: () => ({ native: context.selectedGameMode !== 'sandbox', format: context.selectedGameMode === 'native' ? 'ALL' : 'TCG' }),
+    activeLibraryTemplates: () => context.selectedGameMode === 'sandbox' ? [...STARTER_CARDS, ...EXTRA_DECK_CARDS] : NATIVE_CARDS,
+    loadNativeDuelModule: async () => { loads.nativeModule += 1; return { NativeDuelGame: InitialHandNativeDuel }; },
+    loadNativeCardResources: async () => { loads.nativeResources += 1; return nativeResources; },
+    resolveOpeningFirstPlayer: async () => ({ chooser: 'player', firstPlayer: 'player' }),
     knownCardTemplates: new Map(templates.map(card => [String(card.id), card])),
     canonicalCardTemplates: new Map(templates.map(card => [normalizeStrictCardId(card.id), card])),
     STORAGE_KEYS: { activeMatch: 'active', gameMode: 'mode', duelSeries: 'series', difficulty: 'difficulty' },
@@ -102,10 +127,15 @@ function uiFixture(payload) {
   for (const name of ['isTemplateExtraDeckCard', 'canonicalCustomDeckIds', 'normalizeCustomDeckIds',
     'getCustomDeckCards', 'selectDeckChoice', 'persistMatchBetweenDuels',
     'restorePersistedMatchBetweenDuels', 'initGameInstance']) {
-    vm.runInContext(productionFunction(name), context);
+    // Module loading is the UI boundary, analogous to the existing audio and
+    // rendering injection. The loaded class still runs the real WASM engine.
+    const source = productionFunction(name).replace(
+      "import('./src/core/native/NativeDuelGame.js')", 'loadNativeDuelModule()'
+    );
+    vm.runInContext(source, context);
   }
   context.openSideDeckEditor = () => { context.persistMatchBetweenDuels(); };
-  return { context, writes, notices, nodes };
+  return { context, writes, notices, nodes, loads };
 }
 
 test('restoring a saved custom Match preserves its selected identity, registered Side and next-Duel choice', () => {
@@ -133,15 +163,15 @@ test('a restored registered custom Duel launches its actual Main/Extra snapshot 
   const prepared = context.matchController.prepareNextDuel();
   assert.equal(prepared.valid, true);
   await context.initGameInstance(prepared.launch);
-  assert.ok(context.game instanceof DuelGame);
+  assert.ok(context.game instanceof NativeDuelGame);
   assert.equal(context.activeDuelInProgress, true);
   assert.equal(context.game.currentTurn, 'opponent');
   assert.equal(context.game.rulesMode, 'strict');
   assert.equal(context.pendingMatchLaunch, prepared.launch);
-  const actualMain = [...context.game.playerDeck, ...context.game.playerHand].map(card => card.id).sort();
-  assert.deepEqual(actualMain, prepared.launch.decks.player.mainDeck.map(card => card.id).sort());
-  assert.deepEqual(context.game.playerExtraDeck.map(card => card.id),
-    prepared.launch.decks.player.extraDeck.map(card => card.id));
+  const actualMain = [...context.game.playerDeck, ...context.game.playerHand].map(card => normalizeStrictCardId(card.id)).sort();
+  assert.deepEqual(actualMain, prepared.launch.decks.player.mainDeck.map(card => normalizeStrictCardId(card.id)).sort());
+  assert.deepEqual(context.game.playerExtraDeck.map(card => normalizeStrictCardId(card.id)),
+    prepared.launch.decks.player.extraDeck.map(card => normalizeStrictCardId(card.id)));
   assert.equal(context.game.playerHand.length, 5);
   assert.equal(context.game.playerDeck.length, 35);
   assert.equal(actualMain.includes('2084239'), false, 'registered Side cards are never added to the starting draw pile');
@@ -159,4 +189,37 @@ test('an empty custom draft still blocks a fresh Match that has no registered la
   assert.equal(context.game, null);
   assert.equal(context.activeDuelInProgress, false);
   assert.ok(notices.some(message => message.includes('40 à 60')));
+});
+
+test('the UI awaits native startup before marking a registered Duel active', async () => {
+  const { payload } = betweenGamesSave();
+  let releaseStart;
+  let reachedStart;
+  const started = new Promise(resolve => { reachedStart = resolve; });
+  const gate = new Promise(resolve => { releaseStart = resolve; });
+  const { context } = uiFixture(payload, { nativeStartGate: () => { reachedStart(); return gate; } });
+  context.restorePersistedMatchBetweenDuels();
+  context.matchController.chooseFirstPlayer('player', 'player');
+  const prepared = context.matchController.prepareNextDuel();
+  const launch = context.initGameInstance(prepared.launch);
+  await started;
+  assert.ok(context.game instanceof NativeDuelGame);
+  assert.equal(context.activeDuelInProgress, false);
+  assert.equal(context.game.runtime.started, false);
+  releaseStart();
+  await launch;
+  assert.equal(context.activeDuelInProgress, true);
+  assert.equal(context.game.runtime.started, true);
+  context.game.dispose();
+});
+
+test('the Sandbox launch preserves the legacy engine without loading native resources', async () => {
+  const { context, loads } = uiFixture(null);
+  context.selectedGameMode = 'sandbox';
+  await context.initGameInstance();
+  assert.ok(context.game instanceof DuelGame);
+  assert.equal(context.game.rulesMode, 'sandbox');
+  assert.equal(context.activeDuelInProgress, true);
+  assert.deepEqual(loads, { nativeModule: 0, nativeResources: 0 });
+  context.game.dispose();
 });

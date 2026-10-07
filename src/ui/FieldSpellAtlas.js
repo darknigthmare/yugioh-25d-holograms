@@ -4,8 +4,9 @@ import { getFieldEnvironmentForCardId } from './FieldEnvironmentRegistry.js';
 const PAGE_SIZE = 12;
 
 export class FieldSpellAtlas {
-  constructor(dialog) {
+  constructor(dialog, { engine = 'native' } = {}) {
     this.dialog = dialog;
+    this.engine = engine;
     this.page = 0;
     this.selectedId = null;
     this.preview = null;
@@ -25,7 +26,12 @@ export class FieldSpellAtlas {
   open() {
     this.visible = true;
     const count = getFieldSpellCoverageSummary();
-    this.dialog.querySelector('#field-atlas-summary').textContent = `${count.total} Terrains · ${count.sourceArt} illustrations originales · ${count.inspectedGeometry} décors étudiés · ${count.implementedRules} effets jouables`;
+    const effects = this.engine === 'native'
+      ? `${count.nativeAvailable} effets disponibles · ${count.nativeEffectTested} Terrains vérifiés en scénarios`
+      : `${count.implementedRules} effets jouables`;
+    this.dialog.querySelector('#field-atlas-summary').textContent = `${count.total} Terrains · ${count.sourceArt} illustrations originales · ${count.inspectedGeometry} décors étudiés · ${effects}`;
+    const playableOption = this.filter.querySelector?.('option[value="playable"]');
+    if (playableOption) playableOption.textContent = this.engine === 'native' ? 'Effets disponibles' : 'Effets jouables';
     this.render();
   }
 
@@ -37,7 +43,7 @@ export class FieldSpellAtlas {
   }
 
   render() {
-    const cards = filterFieldSpellCoverage({ query: this.query.value, status: this.filter.value });
+    const cards = filterFieldSpellCoverage({ query: this.query.value, status: this.filter.value, engine: this.engine });
     const pages = Math.max(1, Math.ceil(cards.length / PAGE_SIZE));
     this.page = Math.max(0, Math.min(pages - 1, this.page));
     const visible = cards.slice(this.page * PAGE_SIZE, (this.page + 1) * PAGE_SIZE);
@@ -61,8 +67,9 @@ export class FieldSpellAtlas {
       const name = document.createElement('strong');
       name.textContent = card.name;
       const status = document.createElement('span');
-      status.textContent = card.gameplayImplemented ? 'Effet jouable' : 'Effet à intégrer';
-      status.className = card.gameplayImplemented ? 'atlas-playable' : 'atlas-pending';
+      const available = this.engine === 'native' ? card.nativeGameplayAvailable : card.gameplayImplemented;
+      status.textContent = available ? (this.engine === 'native' ? 'Effet disponible' : 'Effet jouable') : 'Effet à intégrer';
+      status.className = available ? 'atlas-playable' : 'atlas-pending';
       button.append(image, name, status);
       button.addEventListener('click', () => void this.select(card));
       list.append(button);
@@ -97,14 +104,21 @@ export class FieldSpellAtlas {
     const image = this.dialog.querySelector('#field-atlas-source');
     image.src = card.sourceArtUrl;
     image.alt = `Illustration originale de ${card.name}`;
-    this.dialog.querySelector('#field-atlas-model-status').textContent = card.hasInspectedGeometry
-      ? 'Décor construit à partir de l’illustration ; disposition adaptée au plateau.'
+    this.dialog.querySelector('#field-atlas-model-status').textContent = card.hasSourceReconstructedGeometry
+      ? 'Volumes reconstruits depuis l’illustration ; dimensions et placement adaptés au plateau.'
+      : card.hasInspectedGeometry ? 'Illustration étudiée ; interprétation 3D adaptée au plateau.'
       : card.hasDedicatedGeometry ? 'Première silhouette dédiée ; détails à compléter depuis l’illustration.' : 'Décor de famille ; reconstruction dédiée à réaliser.';
-    this.dialog.querySelector('#field-atlas-rule-status').textContent = card.gameplayImplemented ? 'Effet intégré au mode strict' : 'Effet à intégrer au moteur de duel';
+    this.dialog.querySelector('#field-atlas-rule-status').textContent = this.engine === 'native'
+      ? card.nativeGameplayAvailable
+        ? `Pris en charge par le moteur natif ; initialisation vérifiée.${card.nativeEffectTested ? ' Effet vérifié en scénario.' : ' Scénarios d’effets à compléter.'}`
+        : 'Effet à intégrer au moteur de duel'
+      : card.gameplayImplemented ? 'Effet intégré au mode strict' : 'Effet à intégrer au moteur de duel';
     this.dialog.querySelector('#field-atlas-effect').textContent = card.rulesText || card.effectText;
     const link = this.dialog.querySelector('#field-atlas-rules-link');
-    link.hidden = !card.rulesSourceUrl;
-    if (card.rulesSourceUrl) link.href = card.rulesSourceUrl;
+    const rulesSourceUrl = card.rulesSourceUrl || (this.engine === 'native' ? card.nativeRulesSourceUrl : null);
+    link.hidden = !rulesSourceUrl;
+    link.textContent = card.rulesSourceUrl ? 'Texte officiel Konami' : 'Source de l’effet — Project Ignis';
+    if (rulesSourceUrl) link.href = rulesSourceUrl;
     this.preview?.dispose();
     this.preview = null;
     const container = this.dialog.querySelector('#field-atlas-canvas');

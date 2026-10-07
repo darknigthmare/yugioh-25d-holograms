@@ -1,4 +1,6 @@
 import { DuelGame } from './src/game.js';
+import { NATIVE_CARDS } from './src/core/native/NativeCardRegistry.js';
+import { loadNativeCardResources } from './src/core/native/NativeCardData.js';
 import { MatchController } from './src/ui/MatchController.js';
 import { DuelViewController } from './src/ui/DuelViewController.js';
 import { SoloCampaignController } from './src/ui/SoloCampaignController.js';
@@ -371,7 +373,7 @@ document.getElementById('btn-open-field-atlas').addEventListener('click', async 
     document.getElementById('field-atlas-summary').textContent = 'Le catalogue n’a pas pu se charger. Réessayez en le rouvrant.';
   }
 });
-document.getElementById('simulator-card-coverage').textContent = `Projet fan non officiel. Le mode strict porte sur ${STARTER_CARDS.length + EXTRA_DECK_CARDS.length} cartes locales implémentées. Le catalogue de Terrains distingue les illustrations, les décors 3D et les effets jouables.`;
+document.getElementById('simulator-card-coverage').textContent = 'Projet fan non officiel. Les 339 Terrains disposent de leurs scripts de duel natifs. Le mode TCG applique les restrictions du corpus local ; le duel libre permet aussi les Terrains OCG et annoncés. Le catalogue indique séparément la précision des décors 3D.';
 const startBtn = document.getElementById('btn-start-duel');
 const campaignController = new SoloCampaignController({
   openDialog, closeDialog,
@@ -673,6 +675,7 @@ const actionModalTitle = document.getElementById('action-modal-title');
 const actionModalDescription = document.getElementById('action-modal-description');
 
 function canActivateHandPendulumScale(card, zoneIndex = null) {
+  if (typeof game?.canActivatePendulumScale === 'function') return game.canActivatePendulumScale(card, 'player', zoneIndex);
   if (!game || !card?.isPendulumMonster || game.currentTurn !== 'player'
     || !game.currentPhase.startsWith('main') || game.isResolvingAction
     || game.pendingSummon || game.pendingExtraSummon || game.isDiscarding) return false;
@@ -713,6 +716,7 @@ function prepareActionDialog(card, { zoneType, index, isPendulumScale }) {
       actionModalDescription.textContent = 'L’activation de ce Terrain est interdite actuellement. Vous pouvez le poser face cachée.';
     }
     btnFaceDown.textContent = 'POSER FACE CACHÉE';
+    btnFaceDown.disabled = typeof game.canSetSpell === 'function' && !game.canSetSpell(card, 'player');
     btnFaceDown.classList.remove('hidden');
     return;
   }
@@ -725,13 +729,18 @@ function prepareActionDialog(card, { zoneType, index, isPendulumScale }) {
   btnFaceDown.textContent = 'POSER FACE CACHÉE';
   btnFaceDown.classList.remove('hidden');
   if (zoneType === 'monster') {
-    const canNormalSummon = game.getAvailableActions('player').normalSummonCardUids.includes(card.uid);
-    btnFaceUp.disabled = btnFaceDown.disabled = !canNormalSummon;
+    const actions = game.getAvailableActions('player');
+    const canNormalSummon = actions.normalSummonCardUids.includes(card.uid);
+    btnFaceUp.disabled = !canNormalSummon;
+    btnFaceDown.disabled = !(actions.normalSetCardUids || actions.normalSummonCardUids).includes(card.uid);
     if (!canNormalSummon) {
-      actionModalDescription.textContent = 'Ce monstre ne peut pas être Invoqué Normalement ni posé dans la situation actuelle.';
+      actionModalDescription.textContent = btnFaceDown.disabled
+        ? 'Ce monstre ne peut pas être Invoqué Normalement ni posé dans la situation actuelle.'
+        : 'L’Invocation face recto est indisponible ; ce monstre peut être posé face cachée.';
     }
   } else {
-    btnFaceUp.disabled = card.card_type !== 'spell' || !game.canActivateSpell(card, 'player');
+    btnFaceUp.disabled = !game.canActivateSpell(card, 'player');
+    btnFaceDown.disabled = typeof game.canSetSpell === 'function' && !game.canSetSpell(card, 'player');
     if (btnFaceUp.disabled) {
       actionModalDescription.textContent = 'Cette carte ne peut pas être activée depuis la Main actuellement. Vous pouvez la poser face cachée.';
     }
@@ -843,7 +852,15 @@ function requestUiDecision(request) {
       decisionTitle.textContent = request.title || (request.type === 'coin-call' ? 'ANNONCER LE PILE OU FACE' : 'CHOISIR UNE ACTION');
       decisionDescription.textContent = request.description
         || (request.type === 'coin-call' ? 'Choisissez votre annonce avant le lancer.' : 'Sélectionnez une option.');
-      request.choices.forEach(choice => {
+      const choicesContainer = document.createElement('div');
+      choicesContainer.className = 'decision-choice-list';
+      const renderChoices = (query = '') => {
+        choicesContainer.replaceChildren();
+        const needle = query.trim().toLocaleLowerCase();
+        const choices = request.searchable
+          ? request.choices.filter(choice => String(choice.label ?? choice).toLocaleLowerCase().includes(needle)).slice(0, 100)
+          : request.choices;
+        choices.forEach(choice => {
         const value = typeof choice === 'object' ? choice.value : choice;
         const label = typeof choice === 'object'
           ? choice.label
@@ -853,8 +870,19 @@ function requestUiDecision(request) {
         button.className = 'btn';
         button.textContent = label;
         button.addEventListener('click', () => finishDecision(value));
-        decisionOptions.appendChild(button);
-      });
+        choicesContainer.appendChild(button);
+        });
+      };
+      if (request.searchable) {
+        const search = document.createElement('input');
+        search.type = 'search';
+        search.placeholder = 'Rechercher une carte par son nom';
+        search.setAttribute('aria-label', 'Rechercher parmi les cartes autorisées');
+        search.addEventListener('input', () => renderChoices(search.value));
+        decisionOptions.appendChild(search);
+      }
+      decisionOptions.appendChild(choicesContainer);
+      renderChoices();
       decisionCancelBtn.textContent = 'ANNULER';
       decisionCancelBtn.classList.toggle('hidden', request.required === true);
     } else if (
@@ -965,6 +993,7 @@ function requestUiDecision(request) {
           selected.size < minimum
           || selected.size > maximum
           || (validSelections && !validSelections.has(selectedKey))
+          || (typeof request.validateSelection === 'function' && !request.validateSelection([...selected]))
         );
         confirmButton.textContent = `CONFIRMER (${selected.size}/${maximum})`;
         announceStatus(
@@ -1398,15 +1427,55 @@ const PREMADE_DECKS = {
   }
 };
 
-let selectedGameMode = readStoredValue(STORAGE_KEYS.gameMode) === 'sandbox'
-  ? 'sandbox'
+let selectedGameMode = ['sandbox', 'native'].includes(readStoredValue(STORAGE_KEYS.gameMode))
+  ? readStoredValue(STORAGE_KEYS.gameMode)
   : 'strict';
+let nativeCatalogueResources = null;
+let nativeCatalogueToolkit = null;
+let nativeCataloguePromise = null;
+const nativeBuilderOptions = () => ({
+  native: selectedGameMode !== 'sandbox', format: selectedGameMode === 'native' ? 'ALL' : 'TCG',
+  isSupportedCard: (card, section) => Boolean(nativeCatalogueResources && nativeCatalogueToolkit?.isSupportedNativeCatalogueCard(nativeCatalogueResources, card, section)),
+  getCopyIdentity: card => nativeCatalogueResources && nativeCatalogueToolkit
+    ? nativeCatalogueToolkit.getNativeCardCopyIdentity(nativeCatalogueResources, card) : getDeckCopyIdentity(card)
+});
+const activeLibraryTemplates = () => {
+  if (selectedGameMode === 'sandbox') return [...STARTER_CARDS, ...EXTRA_DECK_CARDS];
+  const query = document.getElementById('builder-card-search')?.value.trim();
+  if (selectedGameMode !== 'native' || !nativeCatalogueResources || !query) return NATIVE_CARDS;
+  return nativeCatalogueToolkit.searchNativeCardCatalogue(nativeCatalogueResources, query, { limit: 100 });
+};
+
+async function ensureNativeCatalogue() {
+  if (nativeCatalogueResources) return nativeCatalogueResources;
+  if (nativeCataloguePromise) return nativeCataloguePromise;
+  nativeCataloguePromise = (async () => {
+    const [toolkit, resources] = await Promise.all([
+      import('./src/core/native/NativeCardCatalogue.js'), loadNativeCardResources()
+    ]);
+    nativeCatalogueToolkit = toolkit;
+    nativeCatalogueResources = resources;
+    for (const id of [...customDeckMainIds, ...customDeckExtraIds, ...customDeckSideIds]) {
+      const card = toolkit.createNativeCardTemplate(resources, id);
+      if (card) {
+        knownCardTemplates.set(String(id), card);
+        knownCardTemplates.set(String(card.id), card);
+        canonicalCardTemplates.set(normalizeStrictCardId(id), card);
+        canonicalCardTemplates.set(normalizeStrictCardId(card.id), card);
+      }
+    }
+    return resources;
+  })();
+  try { return await nativeCataloguePromise; }
+  finally { nativeCataloguePromise = null; }
+}
 let selectedAiDifficulty = ['easy', 'normal', 'hard'].includes(readStoredValue(STORAGE_KEYS.difficulty))
   ? readStoredValue(STORAGE_KEYS.difficulty)
   : 'normal';
 let selectedDuelSeries = readStoredValue(STORAGE_KEYS.duelSeries) === 'match'
   ? 'match'
   : 'single';
+if (selectedDuelSeries === 'match' && selectedGameMode !== 'strict') selectedGameMode = 'strict';
 let currentSelectedDeckId = 'kaiba';
 
 function isTemplateExtraDeckCard(card) {
@@ -1418,17 +1487,17 @@ function isTemplateExtraDeckCard(card) {
 }
 
 const knownCardTemplates = new Map(
-  [...STARTER_CARDS, ...EXTRA_DECK_CARDS].map(template => [String(template.id), template])
+  NATIVE_CARDS.map(template => [String(template.id), template])
 );
 
 const canonicalCardTemplates = new Map(
-  [...STARTER_CARDS, ...EXTRA_DECK_CARDS].map(template => [normalizeStrictCardId(template.id), template])
+  NATIVE_CARDS.map(template => [normalizeStrictCardId(template.id), template])
 );
 
 function canonicalCustomDeckIds(ids) {
   return (Array.isArray(ids) ? ids : []).flatMap(id => {
     const template = canonicalCardTemplates.get(normalizeStrictCardId(id));
-    return template ? [String(template.id)] : [];
+    return template ? [String(template.id)] : /^\d{1,9}$/.test(String(id)) && Number(id) > 0 ? [normalizeStrictCardId(id)] : [];
   });
 }
 
@@ -1437,10 +1506,10 @@ function normalizeCustomDeckIds(mainIds, extraIds) {
     main: canonicalCustomDeckIds(mainIds)
       .filter(id => {
         const template = knownCardTemplates.get(id);
-        return Boolean(template && !isTemplateExtraDeckCard(template));
+        return !template || !isTemplateExtraDeckCard(template);
       }),
     extra: canonicalCustomDeckIds(extraIds)
-      .filter(id => isTemplateExtraDeckCard(knownCardTemplates.get(id)))
+      .filter(id => !knownCardTemplates.has(id) || isTemplateExtraDeckCard(knownCardTemplates.get(id)))
   };
 }
 
@@ -1542,8 +1611,11 @@ function updateModeControls() {
   });
 
   const strictMode = selectedGameMode === 'strict';
+  const sandboxMode = selectedGameMode === 'sandbox';
   const matchMode = selectedDuelSeries === 'match';
   const sandboxModeInput = document.querySelector('input[name="game-mode"][value="sandbox"]');
+  const nativeModeInput = document.querySelector('input[name="game-mode"][value="native"]');
+  if (nativeModeInput) nativeModeInput.disabled = matchMode;
   if (sandboxModeInput) {
     sandboxModeInput.disabled = matchMode;
     sandboxModeInput.setAttribute('aria-disabled', matchMode ? 'true' : 'false');
@@ -1559,13 +1631,13 @@ function updateModeControls() {
   if (currentSelectedDeckId === 'custom') initDeckBuilderUI();
 
   if (sandboxPanel) {
-    sandboxPanel.classList.toggle('hidden', strictMode);
-    sandboxPanel.setAttribute('aria-hidden', strictMode ? 'true' : 'false');
+    sandboxPanel.classList.toggle('hidden', !sandboxMode);
+    sandboxPanel.setAttribute('aria-hidden', sandboxMode ? 'false' : 'true');
   }
   const sandboxSearchInput = document.getElementById('search-input');
   if (sandboxSearchInput) {
-    sandboxSearchInput.disabled = strictMode;
-    sandboxSearchInput.setAttribute('aria-disabled', strictMode ? 'true' : 'false');
+    sandboxSearchInput.disabled = !sandboxMode;
+    sandboxSearchInput.setAttribute('aria-disabled', sandboxMode ? 'false' : 'true');
   }
 
   if (modeDescription) {
@@ -1573,17 +1645,17 @@ function updateModeControls() {
       ? (matchMode
         ? 'Match officiel : format TCG Advanced strict, Side Deck et premier à deux victoires.'
         : 'Mode strict : decks intégrés ou personnalisés validés selon la liste Advanced actuelle.')
-      : 'Anime Sandbox : recherche API et expérimentations libres activées.';
+      : selectedGameMode === 'native' ? 'Duel libre : les 339 Terrains TCG, OCG et annoncés, avec leurs effets complets. Trois copies par nom ; Main Deck de 40 à 60 cartes.' : 'Anime Sandbox : recherche API et expérimentations libres activées.';
   }
 }
 
 gameModeInputs.forEach(input => {
   input.addEventListener('change', () => {
     if (!input.checked) return;
-    selectedGameMode = input.value === 'sandbox' ? 'sandbox' : 'strict';
+    selectedGameMode = ['sandbox', 'native'].includes(input.value) ? input.value : 'strict';
     writeStoredValue(STORAGE_KEYS.gameMode, selectedGameMode);
     updateModeControls();
-    announceStatus(selectedGameMode === 'strict' ? 'Mode TCG Advanced strict sélectionné.' : 'Mode Anime Sandbox sélectionné.');
+    announceStatus(selectedGameMode === 'strict' ? 'Mode TCG Advanced strict sélectionné.' : selectedGameMode === 'native' ? 'Duel libre avec tous les Terrains sélectionné.' : 'Mode Anime Sandbox sélectionné.');
   });
 });
 
@@ -1623,7 +1695,7 @@ choiceCards.forEach(card => {
 document.getElementById('builder-add-to-side')?.addEventListener('change', initDeckBuilderUI);
 document.querySelectorAll('[data-builder-preset]').forEach(button => {
   button.addEventListener('click', () => {
-    const collection = selectedGameMode === 'strict' ? PREMADE_DECKS : SANDBOX_PREMADE_DECKS;
+    const collection = selectedGameMode !== 'sandbox' ? PREMADE_DECKS : SANDBOX_PREMADE_DECKS;
     const preset = collection[button.dataset.builderPreset];
     if (!preset) return;
     customDeckMainIds = [...preset.main];
@@ -1636,7 +1708,7 @@ document.querySelectorAll('[data-builder-preset]').forEach(button => {
 });
 
 function getCustomDeckCards() {
-  const resolve = ids => ids.map(id => knownCardTemplates.get(id)).filter(Boolean);
+  const resolve = ids => ids.map(id => knownCardTemplates.get(id) || { id, name: `Carte ${id} — chargement requis`, card_type: 'unknown' });
   return {
     mainDeck: resolve(customDeckMainIds),
     extraDeck: resolve(customDeckExtraIds),
@@ -1655,9 +1727,10 @@ function updateDeckBuilderLibrary() {
   document.querySelectorAll('#library-cards-list [data-card-id]').forEach(button => {
     const template = knownCardTemplates.get(button.dataset.cardId);
     const destination = builderDestination(template);
-    const permission = canAddDeckBuilderCard(deck, template, destination, selectedGameMode);
-    const count = allCards.filter(card => getDeckCopyIdentity(card) === getDeckCopyIdentity(template)).length;
-    const limit = getDeckBuilderCopyLimit(template, selectedGameMode);
+    const permission = canAddDeckBuilderCard(deck, template, destination, selectedGameMode, nativeBuilderOptions());
+    const copyIdentity = selectedGameMode === 'native' ? nativeBuilderOptions().getCopyIdentity : getDeckCopyIdentity;
+    const count = allCards.filter(card => copyIdentity(card) === copyIdentity(template)).length;
+    const limit = getDeckBuilderCopyLimit(template, selectedGameMode, nativeBuilderOptions());
     button.disabled = !permission.allowed;
     button.title = permission.allowed ? `${template.name} — ${count}/${limit} copies`
       : permission.message;
@@ -1670,19 +1743,43 @@ updateModeControls();
 renderDuelStatistics();
 
 // Render the catalog of cards and current custom deck items
+function filterDeckBuilderLibrary() {
+  const needle = (document.getElementById('builder-card-search')?.value || '').trim().toLocaleLowerCase();
+  document.querySelectorAll('#library-cards-list [data-card-id]').forEach(button => {
+    const card = knownCardTemplates.get(button.dataset.cardId);
+    const kind = document.getElementById('builder-card-filter')?.value || 'all';
+    const wrongType = kind === 'field' ? !isFieldSpellCard(card) : kind !== 'all' && card?.card_type !== kind;
+    const wrongQuery = Boolean(needle) && !`${card?.name} ${card?.name_en} ${card?.id} ${card?.desc || ''}`.toLocaleLowerCase().includes(needle);
+    button.hidden = wrongType || (selectedGameMode === 'native' && nativeCatalogueResources ? false : wrongQuery);
+  });
+}
+document.getElementById('builder-card-search')?.addEventListener('input', () => {
+  if (selectedGameMode === 'native' && nativeCatalogueResources) initDeckBuilderUI();
+  else filterDeckBuilderLibrary();
+});
+document.getElementById('builder-card-filter')?.addEventListener('change', filterDeckBuilderLibrary);
+
 function initDeckBuilderUI() {
   const libraryContainer = document.getElementById('library-cards-list');
   libraryContainer.innerHTML = '';
 
   // Combine all normal starter cards + extra cards for the pool
-  const allCardTemplates = [...STARTER_CARDS, ...EXTRA_DECK_CARDS];
+  const allCardTemplates = activeLibraryTemplates();
 
   allCardTemplates.forEach(template => {
+    knownCardTemplates.set(String(template.id), template);
+    canonicalCardTemplates.set(normalizeStrictCardId(template.id), template);
     const cardItem = document.createElement('button');
     cardItem.type = 'button';
     cardItem.className = 'builder-card-item';
     cardItem.dataset.cardId = String(template.id);
-    cardItem.style.backgroundImage = `url("${getCardCroppedImageUrl(template.id)}")`;
+    cardItem.style.backgroundImage = `url("${template.image_url_cropped || getCardCroppedImageUrl(template.id)}")`;
+    if (template.nativeCatalogueOnly) {
+      const label = document.createElement('span');
+      label.className = 'builder-card-name';
+      label.textContent = template.name;
+      cardItem.appendChild(label);
+    }
     const count = document.createElement('span');
     count.className = 'builder-card-count';
     cardItem.appendChild(count);
@@ -1690,7 +1787,7 @@ function initDeckBuilderUI() {
     // Add event to add to my custom deck
     cardItem.addEventListener('click', () => {
       const destination = builderDestination(template);
-      const permission = canAddDeckBuilderCard(getCustomDeckCards(), template, destination, selectedGameMode);
+      const permission = canAddDeckBuilderCard(getCustomDeckCards(), template, destination, selectedGameMode, nativeBuilderOptions());
       if (!permission.allowed) return announceStatus(permission.message);
       const targetList = destination === 'sideDeck' ? customDeckSideIds
         : destination === 'extraDeck' ? customDeckExtraIds : customDeckMainIds;
@@ -1703,6 +1800,20 @@ function initDeckBuilderUI() {
   });
 
   updateDeckBuilderList();
+  filterDeckBuilderLibrary();
+  const catalogueStatus = document.getElementById('builder-catalogue-status');
+  if (selectedGameMode === 'native') {
+    if (nativeCatalogueResources) {
+      if (catalogueStatus) catalogueStatus.textContent = `${nativeCatalogueToolkit.getNativeCardCatalogueCount(nativeCatalogueResources).toLocaleString('fr-FR')} cartes avec règles natives. Recherchez les partenaires de vos Terrains ; 100 résultats maximum. Les cartes hors bibliothèque illustrée utilisent un visuel neutre.`;
+    } else {
+      if (catalogueStatus) catalogueStatus.textContent = 'Chargement des cartes partenaires…';
+      if (!nativeCataloguePromise) ensureNativeCatalogue().then(() => {
+        if (selectedGameMode === 'native' && currentSelectedDeckId === 'custom') initDeckBuilderUI();
+      }).catch(() => {
+        if (catalogueStatus) catalogueStatus.textContent = 'Chargement impossible. Changez de mode puis réessayez.';
+      });
+    }
+  } else if (catalogueStatus) catalogueStatus.textContent = 'Bibliothèque illustrée : 339 Terrains et 51 autres cartes. La disponibilité et les restrictions TCG sont indiquées sur chaque carte.';
 }
 
 function updateDeckBuilderList() {
@@ -1724,11 +1835,17 @@ function updateDeckBuilderList() {
     const grid = document.createElement('div');
     grid.className = 'builder-cards-grid';
     ids.forEach((id, index) => {
-      const template = knownCardTemplates.get(id);
+      const template = knownCardTemplates.get(id) || { id, name: `Carte ${id} — chargement requis`, image_url_cropped: '/cards/native-unknown.png', nativeCatalogueOnly: true };
       const cardItem = document.createElement('button');
       cardItem.type = 'button';
       cardItem.className = 'builder-card-item';
-      cardItem.style.backgroundImage = `url("${getCardCroppedImageUrl(template.id)}")`;
+      cardItem.style.backgroundImage = `url("${template.image_url_cropped || getCardCroppedImageUrl(template.id)}")`;
+      if (template.nativeCatalogueOnly) {
+        const cardName = document.createElement('span');
+        cardName.className = 'builder-card-name';
+        cardName.textContent = template.name;
+        cardItem.appendChild(cardName);
+      }
       cardItem.title = `${template.name} (Cliquez pour retirer)`;
       cardItem.setAttribute('aria-label', `Retirer ${template.name} du ${label}`);
       cardItem.addEventListener('click', () => {
@@ -1747,7 +1864,7 @@ function updateDeckBuilderList() {
   document.getElementById('deck-size-val').textContent = `Main: ${totalCount} / Extra: ${customDeckExtraIds.length} / Side: ${customDeckSideIds.length}`;
 
   const validityBadge = document.getElementById('deck-validity-badge');
-  const validation = validateCustomDeck(getCustomDeckCards(), selectedGameMode);
+  const validation = validateCustomDeck(getCustomDeckCards(), selectedGameMode, nativeBuilderOptions());
   const customDeckIsValid = validation.valid;
   validityBadge.setAttribute('aria-live', 'polite');
   if (customDeckIsValid) {
@@ -1840,6 +1957,16 @@ async function initGameInstance(matchLaunch = null) {
   pendingAction = null;
   previousPendulumAvailable = false;
 
+  if (selectedGameMode === 'native') {
+    try { await ensureNativeCatalogue(); }
+    catch {
+      stopHologramHum();
+      openDialog(startModal, startBtn);
+      announceStatus('Le chargement des cartes partenaires a échoué. Réessayez.');
+      return;
+    }
+  }
+
   // 1. Resolve selected deck
   let mainIds = [];
   let extraIds = [];
@@ -1850,7 +1977,7 @@ async function initGameInstance(matchLaunch = null) {
     customDeckMainIds = normalized.main;
     customDeckExtraIds = normalized.extra;
     customDeckSideIds = canonicalCustomDeckIds(customDeckSideIds);
-    const validation = validateCustomDeck(getCustomDeckCards(), selectedGameMode);
+    const validation = validateCustomDeck(getCustomDeckCards(), selectedGameMode, nativeBuilderOptions());
     if (!validation.valid) {
       announceStatus(validation.message);
       openDialog(startModal, document.getElementById('deck-validity-badge'));
@@ -1860,7 +1987,7 @@ async function initGameInstance(matchLaunch = null) {
     extraIds = [...customDeckExtraIds];
     sideIds = [...customDeckSideIds];
   } else {
-    const deckCollection = selectedGameMode === 'strict'
+    const deckCollection = selectedGameMode !== 'sandbox'
       ? PREMADE_DECKS
       : SANDBOX_PREMADE_DECKS;
     const premade = deckCollection[currentSelectedDeckId] || deckCollection.kaiba;
@@ -1870,21 +1997,21 @@ async function initGameInstance(matchLaunch = null) {
   }
 
   // Find card templates
-  const allTemplates = [...STARTER_CARDS, ...EXTRA_DECK_CARDS];
-  let playerMainCards = mainIds.map(id => allTemplates.find(t => t.id === id)).filter(Boolean);
-  let playerExtraCards = extraIds.map(id => allTemplates.find(t => t.id === id)).filter(Boolean);
-  let playerSideCards = sideIds.map(id => allTemplates.find(t => t.id === id)).filter(Boolean);
+  const allTemplates = [...knownCardTemplates.values()];
+  let playerMainCards = mainIds.map(id => allTemplates.find(t => normalizeStrictCardId(t.id) === normalizeStrictCardId(id))).filter(Boolean);
+  let playerExtraCards = extraIds.map(id => allTemplates.find(t => normalizeStrictCardId(t.id) === normalizeStrictCardId(id))).filter(Boolean);
+  let playerSideCards = sideIds.map(id => allTemplates.find(t => normalizeStrictCardId(t.id) === normalizeStrictCardId(id))).filter(Boolean);
 
   // Avoid mirror-character duels: Yugi faces Kaiba, the other presets face Yugi.
   const opponentDeckId = currentSelectedDeckId === 'yugi' ? 'kaiba' : 'yugi';
-  const deckCollection = selectedGameMode === 'strict'
+  const deckCollection = selectedGameMode !== 'sandbox'
     ? PREMADE_DECKS
     : SANDBOX_PREMADE_DECKS;
   const opponentPreset = deckCollection[opponentDeckId];
-  let opponentMainCards = opponentPreset.main.map(id => allTemplates.find(t => t.id === id)).filter(Boolean);
-  let opponentExtraCards = opponentPreset.extra.map(id => allTemplates.find(t => t.id === id)).filter(Boolean);
+  let opponentMainCards = opponentPreset.main.map(id => allTemplates.find(t => normalizeStrictCardId(t.id) === normalizeStrictCardId(id))).filter(Boolean);
+  let opponentExtraCards = opponentPreset.extra.map(id => allTemplates.find(t => normalizeStrictCardId(t.id) === normalizeStrictCardId(id))).filter(Boolean);
   let opponentSideCards = (opponentPreset.side || [])
-    .map(id => allTemplates.find(t => t.id === id))
+    .map(id => allTemplates.find(t => normalizeStrictCardId(t.id) === normalizeStrictCardId(id)))
     .filter(Boolean);
 
   let singleStartingPlayer = 'player';
@@ -1955,7 +2082,25 @@ async function initGameInstance(matchLaunch = null) {
     opponentLabel.textContent = `${campaignMission.opponentName.toUpperCase()} (IA)`;
   }
 
-  game = new DuelGame({
+  let GameClass = DuelGame;
+  let nativeResources;
+  if (selectedGameMode !== 'sandbox') {
+    announceStatus('Chargement des règles et des scripts de cartes…');
+    try {
+      const [module, resources] = await Promise.all([
+        import('./src/core/native/NativeDuelGame.js'), loadNativeCardResources()
+      ]);
+      GameClass = module.NativeDuelGame;
+      nativeResources = resources;
+    } catch (error) {
+      stopHologramHum();
+      addLogEntry(`Chargement du duel impossible : ${error.message}`, 'danger');
+      openDialog(startModal, startBtn);
+      announceStatus('Le chargement des règles a échoué. Vous pouvez réessayer.');
+      return;
+    }
+  }
+  game = new GameClass({
     onStateChange: updateUI,
     onLog: (msg, type) => {
       const safeMessage = sanitizePublicLogMessage(msg, type);
@@ -1968,11 +2113,13 @@ async function initGameInstance(matchLaunch = null) {
     onChainOpportunity: requestUiChainOpportunity
   }, {
     rulesMode: selectedGameMode,
+    nativeResources,
+    validateDeck: ({ mainDeck, extraDeck }, mode) => validateCustomDeck({ mainDeck, extraDeck, sideDeck: [] }, mode, nativeBuilderOptions()),
     aiDifficulty: selectedAiDifficulty
   });
 
   const startingPlayerId = matchLaunch?.firstPlayerId || singleStartingPlayer;
-  const duelStarted = game.startDuel(
+  const duelStarted = await game.startDuel(
     playerMainCards,
     opponentMainCards,
     playerExtraCards,
@@ -1993,7 +2140,7 @@ async function initGameInstance(matchLaunch = null) {
     ? `, Duel ${matchLaunch?.gameNumber || 1} du Match`
     : '';
   announceStatus(
-    `Duel lancé en mode ${selectedGameMode === 'strict' ? 'TCG Advanced strict' : 'Anime Sandbox'}${matchSuffix}, difficulté ${selectedAiDifficulty}. `
+    `Duel lancé en mode ${selectedGameMode === 'strict' ? 'TCG Advanced strict' : selectedGameMode === 'native' ? 'Duel libre • tous les Terrains' : 'Anime Sandbox'}${matchSuffix}, difficulté ${selectedAiDifficulty}. `
     + `${startingPlayerId === 'player' ? 'Vous commencez.' : 'L’adversaire commence.'}`
   );
   startBGM();
@@ -2003,7 +2150,25 @@ async function initGameInstance(matchLaunch = null) {
 /**
  * Update the user interface based on game state
  */
+async function openNativeActionMenu(cardUid = null) {
+  const actionGame = game;
+  const actions = (actionGame?.getAvailableActions?.('player')?.nativeActions || [])
+    .filter(action => !cardUid || action.cardUid === cardUid);
+  if (!actions.length) { announceStatus('Aucun effet ou invocation disponible actuellement.'); return; }
+  const selected = await requestUiDecision({
+    side: 'player', type: 'native-available-actions', title: 'EFFETS ET INVOCATIONS',
+    description: 'Les coûts, cibles et autres choix vous seront demandés après cette sélection.',
+    choices: actions.map(action => ({ value: action.id, label: action.label }))
+  });
+  if (selected != null && game === actionGame) await actionGame.activateNativeAction(selected);
+}
+document.getElementById('btn-native-actions')?.addEventListener('click', () => openNativeActionMenu());
+
 function updateUI(gameState) {
+  const nativeActions = gameState.getAvailableActions?.('player')?.nativeActions || [];
+  const nativeButton = document.getElementById('btn-native-actions');
+  nativeButton?.classList.toggle('hidden', !nativeActions.length);
+  if (nativeButton) nativeButton.disabled = !nativeActions.length;
   campaignTracker?.observeState(gameState);
   const campaignMission = getMission(activeCampaignMissionId);
   const campaignStatus = document.getElementById('campaign-duel-status');
@@ -2083,7 +2248,11 @@ function updateUI(gameState) {
     && !gameState.isResolvingAction
     && !gameState.pendingSummon
     && !gameState.pendingExtraSummon;
-  const hasSequentialPhase = canChoosePlayerPhase && (
+  const phaseActions = gameState.getAvailableActions?.('player') || {};
+  const nativePhases = typeof gameState.activateNativeAction === 'function';
+  const hasSequentialPhase = nativePhases
+    ? canChoosePlayerPhase && (phaseActions.canBattlePhase || phaseActions.canMainPhase2 || (gameState.currentPhase === 'main2' && phaseActions.canEndPhase))
+    : canChoosePlayerPhase && (
     (gameState.currentPhase === 'main1' && gameState.turnCount > 1)
     || gameState.currentPhase === 'battle'
     || gameState.currentPhase === 'main2'
@@ -2105,7 +2274,7 @@ function updateUI(gameState) {
     nextPhaseBtn.setAttribute('aria-disabled', 'true');
   }
   const canEndTurn = canChoosePlayerPhase
-    && ['main1', 'battle', 'main2'].includes(gameState.currentPhase);
+    && (nativePhases ? phaseActions.canEndPhase : ['main1', 'battle', 'main2'].includes(gameState.currentPhase));
   endTurnBtn?.classList.toggle('hidden', !canEndTurn);
   if (endTurnBtn) {
     endTurnBtn.disabled = !canEndTurn;
@@ -2320,7 +2489,7 @@ function renderHand(handCards) {
   const focusedUid = focusedHandCard?.dataset.uid || null;
   const focusedIndex = Number(focusedHandCard?.dataset.handIndex);
   const availableActions = game?.getAvailableActions?.('player') || {};
-  const legalNormalSummons = new Set((availableActions.normalSummonCardUids || []).map(String));
+  const legalNormalSummons = new Set([...(availableActions.normalSummonCardUids || []), ...(availableActions.normalSetCardUids || [])].map(String));
   const canUseHand = Boolean(
     game
     && game.currentTurn === 'player'
@@ -2350,7 +2519,7 @@ function renderHand(handCards) {
             || canActivateHandPendulumScale(card)))
           || (
             card.card_type !== 'monster'
-            && (isFieldSpellCard(card) || hasOpenSpellZone)
+            && (typeof game.canSetSpell === 'function' ? (game.canSetSpell(card, 'player') || game.canActivateSpell(card, 'player')) : (isFieldSpellCard(card) || hasOpenSpellZone))
           )
         )
       )
@@ -2451,6 +2620,18 @@ function renderHand(handCards) {
 /**
  * Drag and drop zone highlighting helper
  */
+function canPlaceHandCard(options) {
+  if (typeof game?.activateNativeAction !== 'function') return isHandPlacementDestinationLegal(options);
+  const { card, zoneType, zoneIndex, occupied } = options;
+  const actions = game.getAvailableActions('player');
+  if (isFieldSpellCard(card)) return zoneType === 'field' && (game.canActivateSpell(card, 'player') || game.canSetSpell(card, 'player'));
+  if (card?.card_type === 'monster') {
+    if (zoneType === 'spell') return !occupied && [0, 4].includes(Number(zoneIndex)) && canActivateHandPendulumScale(card, Number(zoneIndex));
+    return zoneType === 'monster' && [...(actions.normalSummonCardUids || []), ...(actions.normalSetCardUids || [])].includes(card.uid);
+  }
+  return zoneType === 'spell' && !occupied && (game.canActivateSpell(card, 'player') || game.canSetSpell(card, 'player'));
+}
+
 function highlightValidDropZones(card) {
   const selectors = isFieldSpellCard(card)
     ? ['.player-field-pos']
@@ -2462,7 +2643,7 @@ function highlightValidDropZones(card) {
   }
   const controlledMonsterCount = game?.getMonsterEntries?.('player')?.length || 0;
   document.querySelectorAll(selectors.join(',')).forEach(zone => {
-    const legal = isHandPlacementDestinationLegal({
+    const legal = canPlaceHandCard({
       card,
       zoneType: zone.dataset.zoneType,
       zoneIndex: Number(zone.dataset.index),
@@ -2510,7 +2691,9 @@ async function openMonsterActionMenu(zoneReference) {
   if (effectIsAvailable) {
     choices.push({ value: 'effect', label: `ACTIVER L’EFFET DE ${card.name.toUpperCase()}` });
   }
-  if (!card.isLinkMonster && card.extra_type !== 'link'
+  if (game.getAvailableActions?.('player')?.positionChangeCardUids
+    ? game.getAvailableActions('player').positionChangeCardUids.includes(card.uid)
+    : !card.isLinkMonster && card.extra_type !== 'link'
     && card.turnSummoned !== game.turnCount && !card.hasChangedPositionThisTurn
     && !card.hasAttacked && !(card.attacksDeclaredThisTurn > 0)
     && !game.hasMonsterAttacked?.(entry)) {
@@ -2552,7 +2735,7 @@ async function openSetCardActionMenu(zoneType, zoneIndex) {
     ? actionGame.playerFieldSpell : actionGame.playerSpells[zoneIndex];
   const card = currentCard();
   if (!card?.isSetFaceDown) return;
-  if (card.card_type === 'trap') {
+  if (card.card_type === 'trap' && typeof actionGame.activateNativeAction !== 'function') {
     announceStatus(`${card.name} s’active dans une fenêtre de réponse correspondant à son effet.`);
     return;
   }
@@ -2663,7 +2846,7 @@ document.querySelectorAll('.card-zone').forEach(zone => {
       && !game.isResolvingAction
     ) {
       const selectedCard = game.playerHand.find(card => card.uid === selectedHandUid);
-      const placementIsLegal = isHandPlacementDestinationLegal({
+      const placementIsLegal = canPlaceHandCard({
         card: selectedCard,
         zoneType,
         zoneIndex: index,
@@ -2724,6 +2907,10 @@ document.querySelectorAll('.card-zone').forEach(zone => {
         : game.playerSpells[index];
       if (card && card.isSetFaceDown) {
         await openSetCardActionMenu(zoneType, index);
+        return;
+      }
+      if (card && typeof game.activateNativeAction === 'function') {
+        await openNativeActionMenu(card.uid);
         return;
       }
     }
