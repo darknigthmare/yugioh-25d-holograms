@@ -1,0 +1,38 @@
+{
+  "generatedOn": "2026-10-08",
+  "reportSha256": "c420ebca586494fff82f223ff0ab134d35507f5436002f9961b0d9e465b59cfb",
+  "entrySha256": "075c1dd21968352631c5a88c85272c1dbcaa09f36f80bf3939c1c5abc5137c51",
+  "method": "Inspection visuelle de cinq captures finales du même run ; les assertions DOM/images/Match se trouvent dans report.json.",
+  "inspected": [
+    {
+      "path": "tcg-cyber-tribute-neos-revival-1280.png",
+      "sha256": "f48258dbb86c89231cbd679d23a65be3d635660acb970a368ac44a384b00714d",
+      "observation": "Cyber Dragon et Neos sont visibles en volumes sur leurs cartes. Les statistiques publiques correspondent à 2100/1600 et 2500/2000. Le journal décrit les Invocations et la réanimation. Cette capture précède la focalisation clavier des images complètes, contrôlées séparément par décodage dans le rapport."
+    },
+    {
+      "path": "tcg-cyber-tribute-neos-revival-390.png",
+      "sha256": "6e791d68537cf32de915f200958e329be78acb4620bc984bfc5d04f25d3b5454",
+      "observation": "Les deux modèles et leurs étiquettes restent visibles dans le plateau mobile. Le plateau et les modèles sont petits à cette distance de caméra. La capture montre le viewport, dont le bas coupe une partie des commandes accessibles par défilement ; aucune couverture de chaque état mobile n’est revendiquée."
+    },
+    {
+      "path": "tcg-bls-light-dark-native-1280.png",
+      "sha256": "3d1f24d3e5123fb68fc961e6387362f669e455b81055866af84dbcecef1e10ac",
+      "observation": "Le Soldat du Lustre Noir porte sa couronne et son armure dédiées ; son ATK/DEF public est 3000/2500. Le monstre voisin Armageddon Knight garde son ancien fallback. Le journal montre son Invocation spéciale native ; les deux cartes bannies sont vérifiées dans le panneau public et le rapport."
+    },
+    {
+      "path": "tcg-utopia-native-xyz-1280.png",
+      "sha256": "42d3e96a296d1f14f0d0629a2632f2e3e6661d9158c787db822dac44da45d340",
+      "observation": "Utopie apparaît seule avec ses deux épées et l’étiquette 2500/2000. Le journal contient les Invocations des deux niveaux4 puis Utopie. Double Summon, carte hors lot illustration, garde son visuel neutre dans l’inspecteur sur cette capture. L’image complète exacte d’Utopie est ensuite décodée par focus clavier et épinglée dans le rapport."
+    },
+    {
+      "path": "match-sided-restored-390.png",
+      "sha256": "43e5d65c33ee3bbb36bc0d209632b51ecc6af91e6cd4ec067e1e814dd0b07132",
+      "observation": "Le modal restauré montre le score0–1, Main40 et Extra3. La liste Side et les commandes sont plus bas dans le modal défilant. Le driver contrôle leurs IDs enregistrés et utilise les boutons réels, puis lance le deuxième Duel natif."
+    }
+  ],
+  "limitations": [
+    "Vue distante et éclairage coloré du terrain ; ne certifie pas la fidélité spatiale1:1 ni chaque détail sous toutes les caméras.",
+    "Aucune identité privée de l’adversaire ni objet interne du moteur ou de la scène n’est lu.",
+    "Aucun test Swiss dans ce driver."
+  ]
+}

@@ -2,7 +2,7 @@ import { CardState } from '../CardState.js';
 import { FieldState } from '../FieldState.js';
 import { MatchEngine } from '../MatchEngine.js';
 import { validateCustomDeck } from '../../ui/DeckBuilderRules.js';
-import { OcgDuelMode } from './vendor/ocgcore/index.js';
+import { NATIVE_TCG_DUEL_FLAGS } from './NativeTCGRuleProfile.js';
 import { createNativeDuelRuntime } from './NativeDuelRuntime.js';
 import { createNativeCardPresentationTemplate, isSupportedNativeCatalogueCard,
   getNativeCardCopyIdentity } from './NativeCardCatalogue.js';
@@ -11,6 +11,11 @@ import { createNativeVisualContext, translateNativeVisualEvents } from './Native
 import { nativeCardKind, nativeCardTypeLabel, nativeRaceName, nativeAttributeName } from './NativeCardCharacteristics.js';
 import { nativeEffectStringReference } from '../../ui/NativeDuelPresentationModel.js';
 import { createNativePublicRevealPolicy } from './NativePublicRevealPolicy.js';
+import { createTcgFormatPolicy } from '../tcg/TcgCardLegality.js';
+import { createNativeBattleLifecycle, observeNativeBattleLifecycle,
+  nativeVictoryPresentation } from './NativeBattleLifecycle.js';
+import { collectNativeExodiaPublicConfirmations } from './NativeExodiaRevealPolicy.js';
+import { getNativeCardReferenceArt } from './NativeCardReferenceArt.js';
 
 const SIDES = ['player', 'opponent'];
 const frozen = values => Object.freeze(values);
@@ -19,8 +24,7 @@ const freezeNested = value => {
   for (const entry of Object.values(value)) freezeNested(entry);
   return Object.freeze(value);
 };
-export const NATIVE_TCG_DUEL_FLAGS = OcgDuelMode.MODE_MR5
-  | OcgDuelMode.TCG_SEGOC_NONPUBLIC | OcgDuelMode.TCG_SEGOC_FIRSTTRIGGER;
+export { NATIVE_TCG_DUEL_FLAGS } from './NativeTCGRuleProfile.js';
 
 function secureShuffleWords() {
   const words = new Uint32Array(128);
@@ -138,6 +142,8 @@ export class NativeDuelGame {
     this.isDiscarding = false;
     this.normalSummonedThisTurn = false;
     this.attackedMonsters = new Set();
+    this._nativeBattleLifecycle = createNativeBattleLifecycle();
+    this.nativeBattleStep = null;
     for (const side of SIDES) {
       this[`${side}Deck`] = frozen([]);
       this[`${side}Hand`] = frozen([]);
@@ -159,7 +165,17 @@ export class NativeDuelGame {
   }
   sideForPlayer(controller) { return controller === this.playerController ? 'player' : 'opponent'; }
   controllerForSide(side) { return side === 'player' ? this.playerController : 1 - this.playerController; }
-  isDuelGenerationCurrent(generation) { return generation === this._duelGeneration && !this._duelEnded; }
+  isDuelGenerationCurrent(generation) {
+    if (generation !== this._duelGeneration || this._duelEnded) return false;
+    if (this.options.isSessionCurrent && this.options.isSessionCurrent() !== true) return false;
+    return generation === this._duelGeneration && !this._duelEnded;
+  }
+  _respondIfCurrent(response, generation = this._duelGeneration, runtime = this.runtime) {
+    if (!runtime || runtime !== this.runtime || runtime.closed
+      || !this.isDuelGenerationCurrent(generation) || runtime.closed) return false;
+    runtime.respond(response);
+    return true;
+  }
   log(message, type = 'system') { this.callbacks.onLog(message, type); }
   stateChanged() { this.callbacks.onStateChange(this); }
   get playerMonsters() { return this.field.playerMonsterZones; }
@@ -189,7 +205,11 @@ export class NativeDuelGame {
         getCopyIdentity: card => getNativeCardCopyIdentity(resources, card)
       });
     }
-    return validateCustomDeck({ mainDeck, extraDeck, sideDeck: [] }, 'strict', { native: true, format: 'TCG' });
+    const resources = this.resources || this.options.nativeResources || this.options.resources;
+    return validateCustomDeck({ mainDeck, extraDeck, sideDeck: [] }, 'strict', {
+      native: true, format: 'TCG', ...(resources ? createTcgFormatPolicy(resources) : {}),
+      ...(resources ? { isSupportedCard: (card, section) => isSupportedNativeCatalogueCard(resources, card, section) } : {})
+    });
   }
 
   async initDecks(playerDeck, opponentDeck, playerExtra = [], opponentExtra = [], duelOptions = {}) {
@@ -220,7 +240,11 @@ export class NativeDuelGame {
       this.playerController = this.startingPlayerId === 'opponent' ? 1 : 0;
       this.currentTurn = this.startingPlayerId;
       for (const deck of [...mainDecks, ...extras]) {
-        for (const card of deck || []) this._metadata.set(Number(card.id ?? card.code), card);
+        for (const card of deck || []) {
+          const code = this._canonicalCode(Number(card.id ?? card.code));
+          const trusted = createNativeCardPresentationTemplate(resources, code);
+          if (trusted) this._metadata.set(code, trusted);
+        }
       }
       const teams = duelOptions.teams || this.options.teams || [];
       const runtime = await (this.options.createRuntime || createNativeDuelRuntime)({
@@ -275,7 +299,7 @@ export class NativeDuelGame {
 
   async startDuel(...args) { return await this.initDecks(...args) && await this.start(); }
   async start() {
-    if (!this.runtime || this.runtime.started || this._duelEnded) return false;
+    if (!this.runtime || this.runtime.started || !this.isDuelGenerationCurrent(this._duelGeneration)) return false;
     try {
       await this.runtime.start();
       this.log('Le duel commence !', 'duel-start');
@@ -301,10 +325,13 @@ export class NativeDuelGame {
     const database = lookup(this.resources?.metadata, canonical) || lookup(this.resources?.metadata, code) || {};
     const data = lookup(this.resources?.cards, code) || {};
     const template = createNativeCardPresentationTemplate(this.resources, canonical) || {};
+    const referenceArt = getNativeCardReferenceArt(canonical);
     return { ...template, ...database, card_type: nativeCardKind(data.type) || 'monster',
       type: this.runtime ? this._printedType(data.type || 0) : '',
       race: this.runtime ? nativeRaceName(data.race) : '',
-      ...this._metadata.get(canonical), id: canonical };
+      ...this._metadata.get(canonical), id: canonical,
+      ...(referenceArt ? { image_url: referenceArt.full.assetPath,
+        image_url_cropped: referenceArt.cropped.assetPath } : {}) };
   }
   _queryFlags() {
     return Object.values(this.runtime.constants.OcgQueryFlags).reduce((mask, flag) => mask | flag, 0);
@@ -488,6 +515,8 @@ export class NativeDuelGame {
   _processMessages(messages) {
     const { OcgMessageType: M, OcgPhase: P, OcgLocation: L } = this.runtime.constants;
     for (const message of messages) {
+      const battle = observeNativeBattleLifecycle(this._nativeBattleLifecycle, message);
+      this.nativeBattleStep = this._nativeBattleLifecycle.battleStep;
       if (message.type === M.NEW_TURN) {
         this.currentTurn = this.sideForPlayer(message.player);
         this.turnCount += 1;
@@ -558,7 +587,7 @@ export class NativeDuelGame {
         const key = slotKey(message.card);
         const annotation = this._annotations.get(key) || {};
         this._annotations.set(key, { ...annotation, hasAttacked: true,
-          attacksDeclaredThisTurn: (annotation.attacksDeclaredThisTurn || 0) + 1 });
+          attacksDeclaredThisTurn: (annotation.attacksDeclaredThisTurn || 0) + (battle.replayed ? 0 : 1) });
       } else if (message.type === M.CHAINING) {
         const record = { ...message, negated: false };
         this._chainRecords.set(message.chain_size, record);
@@ -585,8 +614,10 @@ export class NativeDuelGame {
         this[key] = message.type === M.LPUPDATE ? message.lp
           : this[key] + (message.type === M.RECOVER ? message.amount : -message.amount);
       } else if (message.type === M.WIN) {
-        this.winner = message.player < 2 ? this.sideForPlayer(message.player) : 'draw';
-        this.endReason = ({ 1: 'lp_zero', 2: 'deck_out', 3: 'surrender', 16: 'exodia' })[message.reason] || 'native_effect';
+        const victory = nativeVictoryPresentation(message, this.playerController);
+        if (!victory) continue;
+        this.winner = victory.winner;
+        this.endReason = victory.reason;
         this.nativeWinReason = message.reason;
         this._duelEnded = true;
       }
@@ -607,9 +638,11 @@ export class NativeDuelGame {
     const { OcgMessageType: M, OcgProcessResult: S } = runtime.constants;
     this.isResolvingAction = true;
     while (generation === this._duelGeneration && !runtime.closed && !this._duelEnded) {
+      if (!this.isDuelGenerationCurrent(generation) || runtime.closed) return false;
       const batch = await runtime.advance();
-      if (generation !== this._duelGeneration || runtime.closed || this._duelEnded) return false;
+      if (!this.isDuelGenerationCurrent(generation) || runtime.closed || this._duelEnded) return false;
       this._processMessages(batch.messages || []);
+      this._visualContext.nativePublicExodiaConfirmations = collectNativeExodiaPublicConfirmations(batch.messages || []);
       if (batch.prompt && batch.prompt !== this._prompt) this._promptSerial += 1;
       this._prompt = batch.prompt;
       this.pendingNativeDecision = batch.prompt;
@@ -654,7 +687,7 @@ export class NativeDuelGame {
       if (!this._validateResponse(batch.prompt, response)) {
         throw new Error('Decision adapter returned an illegal native response');
       }
-      runtime.respond(response);
+      if (!this._respondIfCurrent(response, generation, runtime)) return false;
       this._prompt = this.pendingNativeDecision = null;
       // Yield to paint between AI actions; no timers survive a reset/disposal.
       if (side === 'opponent') await new Promise(resolve => setTimeout(resolve, this.options.aiDelay ?? 20));
@@ -830,6 +863,7 @@ export class NativeDuelGame {
   canActivatePendulumScale(card, side = 'player') { return Boolean(card?.isPendulumMonster && this.canActivateSpell(card, side)); }
   canSetSpell(card, side = 'player') { return this.getAvailableActions(side).spellSetCardUids.includes(card?.uid); }
   async activateNativeAction(id, side = 'player') {
+    if (!this.isDuelGenerationCurrent(this._duelGeneration)) return false;
     const action = this.getAvailableActions(side).nativeActions.find(candidate => candidate.id === id);
     if (!action || !this._prompt) return false;
     const { OcgMessageType: M, OcgResponseType: R, SelectIdleCMDAction: I, SelectBattleCMDAction: B } = this.runtime.constants;
@@ -839,7 +873,7 @@ export class NativeDuelGame {
       index: action.index };
     if (!this._validateResponse(this._prompt, response)) return false;
     this._summonProcedure = action.kind === 'SELECT_SPECIAL_SUMMON' && action.card?.isPendulumScale ? 'pendulum' : null;
-    this.runtime.respond(response);
+    if (!this._respondIfCurrent(response)) return false;
     this._prompt = this.pendingNativeDecision = null;
     return await this._pump();
   }
@@ -856,6 +890,7 @@ export class NativeDuelGame {
   }
 
   async _submitCommand(kind, listName, card, side = 'player', intent = null) {
+    if (!this.isDuelGenerationCurrent(this._duelGeneration)) return false;
     if (!this.runtime || this._duelEnded || this.nativeError || this.isResolvingAction || !card) return false;
     const prompt = this._prompt;
     const { OcgMessageType: M, OcgResponseType: R, SelectIdleCMDAction: I, SelectBattleCMDAction: B } = this.runtime.constants;
@@ -886,7 +921,7 @@ export class NativeDuelGame {
     if (!this._validateResponse(prompt, response)) return false;
     this._intent = intent;
     this._summonProcedure = kind === 'SELECT_SPECIAL_SUMMON' && card.isPendulumScale ? 'pendulum' : null;
-    this.runtime.respond(response);
+    if (!this._respondIfCurrent(response)) return false;
     this._prompt = this.pendingNativeDecision = null;
     return await this._pump();
   }
@@ -948,6 +983,7 @@ export class NativeDuelGame {
     return this._submitCommand('SELECT_BATTLE', 'attacks', attacker, 'player', { attackTarget: defender?.nativeRef });
   }
   async changePhase(phase) {
+    if (!this.isDuelGenerationCurrent(this._duelGeneration)) return false;
     if (!this.runtime || this.isResolvingAction || this._duelEnded || this.nativeError) return false;
     const prompt = this._prompt;
     if (!prompt || this.sideForPlayer(prompt.player) !== 'player') return false;
@@ -958,14 +994,15 @@ export class NativeDuelGame {
     if (prompt.type === M.SELECT_BATTLECMD && phase === 'main2' && prompt.to_m2) response = { type: R.SELECT_BATTLECMD, action: B.TO_M2, index: null };
     if (prompt.type === M.SELECT_BATTLECMD && phase === 'end' && prompt.to_ep) response = { type: R.SELECT_BATTLECMD, action: B.TO_EP, index: null };
     if (!response) return false;
-    this.runtime.respond(response);
+    if (!this._respondIfCurrent(response)) return false;
     this._prompt = this.pendingNativeDecision = null;
     return await this._pump();
   }
   async respondNative(response) {
+    if (!this.isDuelGenerationCurrent(this._duelGeneration)) return false;
     if (!this.runtime || this.isResolvingAction || !this._prompt
       || !this._validateResponse(this._prompt, response)) return false;
-    this.runtime.respond(response);
+    if (!this._respondIfCurrent(response)) return false;
     this._prompt = this.pendingNativeDecision = null;
     return await this._pump();
   }

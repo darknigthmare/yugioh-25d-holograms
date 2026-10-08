@@ -1,0 +1,883 @@
+{
+  "generatedOn": "2026-10-08",
+  "ok": true,
+  "format": "TCG Advanced strict",
+  "snapshot": "2026-10-08",
+  "banlistId": "TCG_EU_2026_09_21",
+  "fixtureScope": "Three isolated browser fixtures registered before Start. Each Main Deck has 40 cards, no Extra or Side cards, at most 3 copies per trusted permanent name and passes the complete dated Advanced policy.",
+  "sanctuaryObserved": {
+    "code": 24874630,
+    "name": "Fiend's Sanctuary",
+    "sourceDatabase": "cards.cdb",
+    "type": 2,
+    "scriptPath": "c24874630.lua",
+    "scriptSha256": "9b46c4ff5d682f2d356d48de226f1f14c5c305c535ed7ebd86b761094202ea19",
+    "tokenCode": 24874631,
+    "tokenName": "Metal Fiend Token",
+    "copyLimit": 3,
+    "eligibility": {
+      "allowed": true,
+      "evidence": "pinned-cdb-tcg-scope",
+      "asOf": "2026-10-08"
+    },
+    "actualScriptScope": "The normal Spell creates one Metal Fiend Token per resolution; its only SetCountLimit belongs to the token Standby maintenance. Three Spells can legally resolve in the same Main Phase before a 3-Tribute Normal Summon."
+  },
+  "sourceFiles": {
+    "scripts/prepare-tcg-gods-ui-fixtures.mjs": "4a67c3eb10f3161da407fe4453476245a70def6a22d77861af5f666f0c508570",
+    "public/native/card-data.json": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d",
+    "public/native/scripts.json": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f",
+    "src/core/tcg/TcgAdvancedBanlistData.js": "bdc8c18edb0a6308949e516442106747ada3976334beb105562c17c7d6f5d945",
+    "src/core/tcg/TcgAdvancedFormat.js": "058606afc6449ce1ced941c42000c8a109da55cf9b36ad8919b853582c540d40",
+    "src/core/tcg/TcgCardLegality.js": "7b556ecb1af2b729a71f4cdf237182068d5f3d47a85cacef8a91c2661979e874",
+    "src/core/native/NativeCardCatalogue.js": "7db3547182e650eeb618023059ccec2750d9a074d3258559f6c5040528ab79ca",
+    "src/ui/DeckBuilderRules.js": "824e6683279fb894c9eaf554bed8496e6efde2a1f4706037bb78044c9aeea9f3"
+  },
+  "fixtures": [
+    {
+      "godId": "10000020",
+      "godName": "Slifer the Sky Dragon",
+      "deck": {
+        "main": [
+          "32864",
+          "32864",
+          "549481",
+          "549481",
+          "24874630",
+          "549481",
+          "732302",
+          "732302",
+          "732302",
+          "1184620",
+          "1184620",
+          "32864",
+          "1184620",
+          "1761063",
+          "10000020",
+          "1761063",
+          "1761063",
+          "1784619",
+          "24874630",
+          "1784619",
+          "1784619",
+          "1929294",
+          "1929294",
+          "1929294",
+          "2118022",
+          "24874630",
+          "2118022",
+          "2118022",
+          "2311603",
+          "2311603",
+          "2311603",
+          "2468169",
+          "2468169",
+          "2468169",
+          "2483611",
+          "2483611",
+          "2483611",
+          "2830619",
+          "2830619",
+          "2830619"
+        ],
+        "extra": [],
+        "side": []
+      },
+      "expectedOpeningIds": [
+        "24874630",
+        "24874630",
+        "24874630",
+        "10000020",
+        "32864"
+      ],
+      "expectedRemainingHandId": "32864",
+      "completeAdvancedDeckValidation": {
+        "valid": true,
+        "issues": [],
+        "message": "Deck valide"
+      },
+      "permanentNameCounts": [
+        {
+          "identity": "32864",
+          "count": 3
+        },
+        {
+          "identity": "549481",
+          "count": 3
+        },
+        {
+          "identity": "24874630",
+          "count": 3
+        },
+        {
+          "identity": "732302",
+          "count": 3
+        },
+        {
+          "identity": "1184620",
+          "count": 3
+        },
+        {
+          "identity": "1761063",
+          "count": 3
+        },
+        {
+          "identity": "10000020",
+          "count": 1
+        },
+        {
+          "identity": "1784619",
+          "count": 3
+        },
+        {
+          "identity": "1929294",
+          "count": 3
+        },
+        {
+          "identity": "2118022",
+          "count": 3
+        },
+        {
+          "identity": "2311603",
+          "count": 3
+        },
+        {
+          "identity": "2468169",
+          "count": 3
+        },
+        {
+          "identity": "2483611",
+          "count": 3
+        },
+        {
+          "identity": "2830619",
+          "count": 3
+        }
+      ],
+      "cards": [
+        {
+          "id": "32864",
+          "name": "The 13th Grave",
+          "copyIdentity": "32864",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "549481",
+          "name": "Prevent Rat",
+          "copyIdentity": "549481",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "24874630",
+          "name": "Fiend's Sanctuary",
+          "copyIdentity": "24874630",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "732302",
+          "name": "Temple of Skulls",
+          "copyIdentity": "732302",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "1184620",
+          "name": "Kojikocy",
+          "copyIdentity": "1184620",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "1761063",
+          "name": "Nekogal #1",
+          "copyIdentity": "1761063",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "10000020",
+          "name": "Slifer the Sky Dragon",
+          "copyIdentity": "10000020",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "1784619",
+          "name": "Uraby",
+          "copyIdentity": "1784619",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "1929294",
+          "name": "Key Mace",
+          "copyIdentity": "1929294",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "2118022",
+          "name": "Hyosube",
+          "copyIdentity": "2118022",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "2311603",
+          "name": "Overdrive",
+          "copyIdentity": "2311603",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "2468169",
+          "name": "Sealmaster Meisei",
+          "copyIdentity": "2468169",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "2483611",
+          "name": "Water Omotics",
+          "copyIdentity": "2483611",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "2830619",
+          "name": "Flame Viper",
+          "copyIdentity": "2830619",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        }
+      ],
+      "expectedGodStats": [
+        1000,
+        1000
+      ],
+      "expectedPlayerLp": 8000
+    },
+    {
+      "godId": "10000000",
+      "godName": "Obelisk the Tormentor",
+      "deck": {
+        "main": [
+          "32864",
+          "32864",
+          "549481",
+          "549481",
+          "24874630",
+          "549481",
+          "732302",
+          "732302",
+          "732302",
+          "1184620",
+          "1184620",
+          "32864",
+          "1184620",
+          "1761063",
+          "10000000",
+          "1761063",
+          "1761063",
+          "1784619",
+          "24874630",
+          "1784619",
+          "1784619",
+          "1929294",
+          "1929294",
+          "1929294",
+          "2118022",
+          "24874630",
+          "2118022",
+          "2118022",
+          "2311603",
+          "2311603",
+          "2311603",
+          "2468169",
+          "2468169",
+          "2468169",
+          "2483611",
+          "2483611",
+          "2483611",
+          "2830619",
+          "2830619",
+          "2830619"
+        ],
+        "extra": [],
+        "side": []
+      },
+      "expectedOpeningIds": [
+        "24874630",
+        "24874630",
+        "24874630",
+        "10000000",
+        "32864"
+      ],
+      "expectedRemainingHandId": "32864",
+      "completeAdvancedDeckValidation": {
+        "valid": true,
+        "issues": [],
+        "message": "Deck valide"
+      },
+      "permanentNameCounts": [
+        {
+          "identity": "32864",
+          "count": 3
+        },
+        {
+          "identity": "549481",
+          "count": 3
+        },
+        {
+          "identity": "24874630",
+          "count": 3
+        },
+        {
+          "identity": "732302",
+          "count": 3
+        },
+        {
+          "identity": "1184620",
+          "count": 3
+        },
+        {
+          "identity": "1761063",
+          "count": 3
+        },
+        {
+          "identity": "10000000",
+          "count": 1
+        },
+        {
+          "identity": "1784619",
+          "count": 3
+        },
+        {
+          "identity": "1929294",
+          "count": 3
+        },
+        {
+          "identity": "2118022",
+          "count": 3
+        },
+        {
+          "identity": "2311603",
+          "count": 3
+        },
+        {
+          "identity": "2468169",
+          "count": 3
+        },
+        {
+          "identity": "2483611",
+          "count": 3
+        },
+        {
+          "identity": "2830619",
+          "count": 3
+        }
+      ],
+      "cards": [
+        {
+          "id": "32864",
+          "name": "The 13th Grave",
+          "copyIdentity": "32864",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "549481",
+          "name": "Prevent Rat",
+          "copyIdentity": "549481",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "24874630",
+          "name": "Fiend's Sanctuary",
+          "copyIdentity": "24874630",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "732302",
+          "name": "Temple of Skulls",
+          "copyIdentity": "732302",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "1184620",
+          "name": "Kojikocy",
+          "copyIdentity": "1184620",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "1761063",
+          "name": "Nekogal #1",
+          "copyIdentity": "1761063",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "10000000",
+          "name": "Obelisk the Tormentor",
+          "copyIdentity": "10000000",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "1784619",
+          "name": "Uraby",
+          "copyIdentity": "1784619",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "1929294",
+          "name": "Key Mace",
+          "copyIdentity": "1929294",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "2118022",
+          "name": "Hyosube",
+          "copyIdentity": "2118022",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "2311603",
+          "name": "Overdrive",
+          "copyIdentity": "2311603",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "2468169",
+          "name": "Sealmaster Meisei",
+          "copyIdentity": "2468169",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "2483611",
+          "name": "Water Omotics",
+          "copyIdentity": "2483611",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "2830619",
+          "name": "Flame Viper",
+          "copyIdentity": "2830619",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        }
+      ],
+      "expectedGodStats": [
+        4000,
+        4000
+      ],
+      "expectedPlayerLp": 8000
+    },
+    {
+      "godId": "10000010",
+      "godName": "The Winged Dragon of Ra",
+      "deck": {
+        "main": [
+          "32864",
+          "32864",
+          "549481",
+          "549481",
+          "24874630",
+          "549481",
+          "732302",
+          "732302",
+          "732302",
+          "1184620",
+          "1184620",
+          "32864",
+          "1184620",
+          "1761063",
+          "10000010",
+          "1761063",
+          "1761063",
+          "1784619",
+          "24874630",
+          "1784619",
+          "1784619",
+          "1929294",
+          "1929294",
+          "1929294",
+          "2118022",
+          "24874630",
+          "2118022",
+          "2118022",
+          "2311603",
+          "2311603",
+          "2311603",
+          "2468169",
+          "2468169",
+          "2468169",
+          "2483611",
+          "2483611",
+          "2483611",
+          "2830619",
+          "2830619",
+          "2830619"
+        ],
+        "extra": [],
+        "side": []
+      },
+      "expectedOpeningIds": [
+        "24874630",
+        "24874630",
+        "24874630",
+        "10000010",
+        "32864"
+      ],
+      "expectedRemainingHandId": "32864",
+      "completeAdvancedDeckValidation": {
+        "valid": true,
+        "issues": [],
+        "message": "Deck valide"
+      },
+      "permanentNameCounts": [
+        {
+          "identity": "32864",
+          "count": 3
+        },
+        {
+          "identity": "549481",
+          "count": 3
+        },
+        {
+          "identity": "24874630",
+          "count": 3
+        },
+        {
+          "identity": "732302",
+          "count": 3
+        },
+        {
+          "identity": "1184620",
+          "count": 3
+        },
+        {
+          "identity": "1761063",
+          "count": 3
+        },
+        {
+          "identity": "10000010",
+          "count": 1
+        },
+        {
+          "identity": "1784619",
+          "count": 3
+        },
+        {
+          "identity": "1929294",
+          "count": 3
+        },
+        {
+          "identity": "2118022",
+          "count": 3
+        },
+        {
+          "identity": "2311603",
+          "count": 3
+        },
+        {
+          "identity": "2468169",
+          "count": 3
+        },
+        {
+          "identity": "2483611",
+          "count": 3
+        },
+        {
+          "identity": "2830619",
+          "count": 3
+        }
+      ],
+      "cards": [
+        {
+          "id": "32864",
+          "name": "The 13th Grave",
+          "copyIdentity": "32864",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "549481",
+          "name": "Prevent Rat",
+          "copyIdentity": "549481",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "24874630",
+          "name": "Fiend's Sanctuary",
+          "copyIdentity": "24874630",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "732302",
+          "name": "Temple of Skulls",
+          "copyIdentity": "732302",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "1184620",
+          "name": "Kojikocy",
+          "copyIdentity": "1184620",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "1761063",
+          "name": "Nekogal #1",
+          "copyIdentity": "1761063",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "10000010",
+          "name": "The Winged Dragon of Ra",
+          "copyIdentity": "10000010",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "1784619",
+          "name": "Uraby",
+          "copyIdentity": "1784619",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "1929294",
+          "name": "Key Mace",
+          "copyIdentity": "1929294",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "2118022",
+          "name": "Hyosube",
+          "copyIdentity": "2118022",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "2311603",
+          "name": "Overdrive",
+          "copyIdentity": "2311603",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "2468169",
+          "name": "Sealmaster Meisei",
+          "copyIdentity": "2468169",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "2483611",
+          "name": "Water Omotics",
+          "copyIdentity": "2483611",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        },
+        {
+          "id": "2830619",
+          "name": "Flame Viper",
+          "copyIdentity": "2830619",
+          "copyLimit": 3,
+          "eligibility": {
+            "allowed": true,
+            "evidence": "pinned-cdb-tcg-scope",
+            "asOf": "2026-10-08"
+          }
+        }
+      ],
+      "expectedGodStats": [
+        7900,
+        7900
+      ],
+      "expectedPlayerLp": 100
+    }
+  ]
+}

@@ -1,5 +1,9 @@
 // Exact downloaded source JPEGs; runtime names and types never select another illustration.
+import { POPULAR_GOD_REFERENCE_ART } from '../../ui/PopularGodReferenceArt.js';
+import { POPULAR_STAPLE_REFERENCE_ART } from '../../ui/PopularStapleReferenceArt.js';
 const references = {
+  ...POPULAR_GOD_REFERENCE_ART,
+  ...Object.fromEntries(POPULAR_STAPLE_REFERENCE_ART.map(entry => [entry.cardId, entry])),
   "26905245": {
     "cardId": "26905245",
     "full": {

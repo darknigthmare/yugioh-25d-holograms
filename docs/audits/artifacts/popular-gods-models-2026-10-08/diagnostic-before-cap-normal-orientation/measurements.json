@@ -1,0 +1,5032 @@
+{
+  "generatedOn": "2026-10-08",
+  "baselineCommit": "b8e216cd53ccc640366c91755268291afb1840d2",
+  "baselineSourceFiles": {
+    "node_modules/three/build/three.core.js": "eb077d2417f61d3e6d9264c317cabc4ea35769ed6b0ab533067292a550784c20",
+    "node_modules/three/build/three.module.js": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a",
+    "node_modules/three/examples/jsm/utils/BufferGeometryUtils.js": "fda7e946b8e0b5ab39b779206589e7a1079a22eb24efb89d7223e03fdfb1f751",
+    "src/ui/CombatVisualProfiles.js": "2614380d428e4076304d1387c82b4885c52208d432ba9afb3da8eb4a3501aa5b",
+    "src/ui/FieldSpellEnvironmentCatalog.js": "37bf5157ca5a8fbfb6c1d93898a3d2efcb3fd620b3c5e61e63f26d46225aee33",
+    "src/ui/FieldSpellReferenceArtPalettes.js": "39d7a5073366407942497b92de7afe5e319b87957edb19068671bee83f7fbb88",
+    "src/ui/HologramMonsterModels.js": "700a84908bae14b5144295ec8b42eb85d45149c6170af4508b782f36f85c8904",
+    "src/ui/HologramPoseAnimation.js": "0fd60c0f319ee7a413049ac05199d44e06ab356a94174bc2dc35958b22b8729c",
+    "src/ui/HologramReferenceAnatomy.js": "e10d0ad431c4c3f00f12c259e76bb83e68ae320315a768ce2e606544fec778d5"
+  },
+  "ok": true,
+  "browser": "Chromium / SwiftShader",
+  "sourceFiles": {
+    "node_modules/three/build/three.core.js": "eb077d2417f61d3e6d9264c317cabc4ea35769ed6b0ab533067292a550784c20",
+    "node_modules/three/build/three.module.js": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a",
+    "node_modules/three/examples/jsm/utils/BufferGeometryUtils.js": "fda7e946b8e0b5ab39b779206589e7a1079a22eb24efb89d7223e03fdfb1f751",
+    "src/ui/CombatVisualProfiles.js": "f5c5aff6a712ed97bbe1d9e4064cd5a3b13620539a2311833ca865f1230d9204",
+    "src/ui/FieldSpellEnvironmentCatalog.js": "37bf5157ca5a8fbfb6c1d93898a3d2efcb3fd620b3c5e61e63f26d46225aee33",
+    "src/ui/FieldSpellReferenceArtPalettes.js": "39d7a5073366407942497b92de7afe5e319b87957edb19068671bee83f7fbb88",
+    "src/ui/HologramMonsterModels.js": "e1d187cb29a6ea139b16d26b7154a92c77160c34941a37b13023cfcfe0f2f278",
+    "src/ui/HologramPopularGodModels.js": "d96f69571411d6cb61049ced1535407251560d174a7e4d3682b521f5e262e587",
+    "src/ui/HologramPopularStapleModels.js": "66784a7c5903a5005064833dead704a9d2a7bad4152a71d8d7cc024ccd610c35",
+    "src/ui/HologramPoseAnimation.js": "0fd60c0f319ee7a413049ac05199d44e06ab356a94174bc2dc35958b22b8729c",
+    "src/ui/HologramReferenceAnatomy.js": "e10d0ad431c4c3f00f12c259e76bb83e68ae320315a768ce2e606544fec778d5",
+    "scripts/audit-popular-gods-models-2026-10-08.py": "215489e845df93c69940436cbb1c26daafd7f1767c7f86f64d57cc0d9bfb5a4d",
+    "test/popular-gods-models-2026-10-08.test.js": "5a4929ea4dc20b3bdeea0245730e59e75e2d60283623a3ab98dc4e6ee9abf009",
+    "package.json": "fd474067a364cdd85f372a57555e92b47c2a66f064bf299ca1ee29f334400d4e",
+    "package-lock.json": "5e139fa57cab722513f61d244ae90cf1eda873a4edd84810ce6e64e19b909810",
+    "node_modules/three/package.json": "aa42494664dba4cf76d89c6975ee38321a402f09a048672e190bad6f13beec93"
+  },
+  "referenceArt": {
+    "10000020": {
+      "cropped": {
+        "path": "public/cards/cropped/10000020.jpg",
+        "sha256": "b5fa4c8979ee56b94fa7ae4e1052ee20af3917e665dd0dfaf4b25d8320060cf6",
+        "bytes": 152008,
+        "dimensions": [
+          624,
+          624
+        ]
+      },
+      "small": {
+        "path": "public/cards/small/10000020.jpg",
+        "sha256": "98f1d3245c76325f94066c35842e8bd0ab71192a7c66febe8c1e53e2933a8de5",
+        "bytes": 29445,
+        "dimensions": [
+          268,
+          391
+        ]
+      },
+      "reference": {
+        "path": "public/cards/reference/10000020.jpg",
+        "sha256": "f9854648af7a114c566ab263b89fe059fc1d1c49e2c2283c3f9c9bb3947e13ed",
+        "bytes": 184647,
+        "dimensions": [
+          813,
+          1185
+        ]
+      }
+    },
+    "10000000": {
+      "cropped": {
+        "path": "public/cards/cropped/10000000.jpg",
+        "sha256": "8982f5f5d38bae8e743f015286247d68f03ea8140ffe9d1589cfe9f947a50efc",
+        "bytes": 134634,
+        "dimensions": [
+          624,
+          624
+        ]
+      },
+      "small": {
+        "path": "public/cards/small/10000000.jpg",
+        "sha256": "2ecae80669c100339595c55146a1ae8937848578ede90508b2842f566fd117af",
+        "bytes": 29023,
+        "dimensions": [
+          268,
+          391
+        ]
+      },
+      "reference": {
+        "path": "public/cards/reference/10000000.jpg",
+        "sha256": "7eeff78a2e8e8631908f6cba2a8f6a3dba88b375546154fc7ef7730dfdf10e9e",
+        "bytes": 179154,
+        "dimensions": [
+          813,
+          1185
+        ]
+      }
+    },
+    "10000010": {
+      "cropped": {
+        "path": "public/cards/cropped/10000010.jpg",
+        "sha256": "fc7e54ffd8d56d493f039e93e8e9d2a94d09f0f3154340fac42110c274e1a64e",
+        "bytes": 145377,
+        "dimensions": [
+          624,
+          624
+        ]
+      },
+      "small": {
+        "path": "public/cards/small/10000010.jpg",
+        "sha256": "888e8ed8457177b097815eec26408657f76c266e79c2b015ad0ba50dceeab034",
+        "bytes": 29601,
+        "dimensions": [
+          268,
+          391
+        ]
+      },
+      "reference": {
+        "path": "public/cards/reference/10000010.jpg",
+        "sha256": "e36f01a9ab25cd4ebf1b4efeaeb08d89d4886fa98649e8cc2cfa2ae5cf24a993",
+        "bytes": 187717,
+        "dimensions": [
+          813,
+          1185
+        ]
+      }
+    }
+  },
+  "captures": [
+    {
+      "cardId": "10000020",
+      "angle": "front",
+      "pose": "rest",
+      "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000020-front-rest.png",
+      "sha256": "75b4d09539a309847e02711843824b07ec597d28906a1ee8e1780b84a2982cc7"
+    },
+    {
+      "cardId": "10000020",
+      "angle": "front",
+      "pose": "attack",
+      "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000020-front-attack.png",
+      "sha256": "f24f19751927185ac41a9e6edc238a685b3828cf9e8f9f657e3acc33d6152308"
+    },
+    {
+      "cardId": "10000020",
+      "angle": "three-quarter",
+      "pose": "rest",
+      "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000020-three-quarter-rest.png",
+      "sha256": "9064ac7a1670dd7eb54cb3bf944b855a8c801074039767cb8935e6de0c468b8b"
+    },
+    {
+      "cardId": "10000020",
+      "angle": "three-quarter",
+      "pose": "attack",
+      "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000020-three-quarter-attack.png",
+      "sha256": "ae489f8967663e9b6eadf94b7c5034c74b5eff17cbd9818700c669ccb4d73ec7"
+    },
+    {
+      "cardId": "10000020",
+      "angle": "side",
+      "pose": "rest",
+      "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000020-side-rest.png",
+      "sha256": "bb9c7ff05cfd6d9009d422d8a1d86e4fca9e9a4f585f539ebb3eb4bc834f6cdd"
+    },
+    {
+      "cardId": "10000020",
+      "angle": "side",
+      "pose": "attack",
+      "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000020-side-attack.png",
+      "sha256": "d67050314b5404823109812f3df65d0a8fc34fd5dc4e10001ceabc3114d28a65"
+    },
+    {
+      "cardId": "10000000",
+      "angle": "front",
+      "pose": "rest",
+      "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000000-front-rest.png",
+      "sha256": "fff00659ca9c70eb2a0581bc423cbe8a2d057a3f05b54ceb02f3488b51097b08"
+    },
+    {
+      "cardId": "10000000",
+      "angle": "front",
+      "pose": "attack",
+      "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000000-front-attack.png",
+      "sha256": "61921f68a5a294c63375012aa8c68a647b867df476c28048de15e1f1af6ac3b5"
+    },
+    {
+      "cardId": "10000000",
+      "angle": "three-quarter",
+      "pose": "rest",
+      "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000000-three-quarter-rest.png",
+      "sha256": "2834af632a3e68f7f68f44c6c06fff48229a83ff140271e50a785fd492445b91"
+    },
+    {
+      "cardId": "10000000",
+      "angle": "three-quarter",
+      "pose": "attack",
+      "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000000-three-quarter-attack.png",
+      "sha256": "0745c81f0561730021ed5d954010fc662d5e66ecd937e815b6da9527611d2777"
+    },
+    {
+      "cardId": "10000000",
+      "angle": "side",
+      "pose": "rest",
+      "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000000-side-rest.png",
+      "sha256": "80032cee3b4a3c46405217396eb71d0b9151c69186e5772af20cb40e585fe2ab"
+    },
+    {
+      "cardId": "10000000",
+      "angle": "side",
+      "pose": "attack",
+      "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000000-side-attack.png",
+      "sha256": "3d43dcf4e442bf579fe2df8ff5b9cbf1cd71ad4c989d610635a5688e48828f1b"
+    },
+    {
+      "cardId": "10000010",
+      "angle": "front",
+      "pose": "rest",
+      "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000010-front-rest.png",
+      "sha256": "e58ea1d5b035f7a9f2965364b0c0df1693015c5d72f69f51a95ea0a7eb81748f"
+    },
+    {
+      "cardId": "10000010",
+      "angle": "front",
+      "pose": "attack",
+      "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000010-front-attack.png",
+      "sha256": "1d2fddea4f4f8d083f60924109e159482dbd31e3ec0ffc7c6f912c5bd8d3551b"
+    },
+    {
+      "cardId": "10000010",
+      "angle": "three-quarter",
+      "pose": "rest",
+      "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000010-three-quarter-rest.png",
+      "sha256": "940f6e44554adebb5a98fd955016ae37eecef2581f1cdeb3bf939139e1f67276"
+    },
+    {
+      "cardId": "10000010",
+      "angle": "three-quarter",
+      "pose": "attack",
+      "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000010-three-quarter-attack.png",
+      "sha256": "b03b955de125ffc9b569b568cb2fdca5f99f132685b34425050284b9266d9136"
+    },
+    {
+      "cardId": "10000010",
+      "angle": "side",
+      "pose": "rest",
+      "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000010-side-rest.png",
+      "sha256": "e7940a0402a1c418ac27b8f773e10306094053518b6533c0e85a7df126c1e7a7"
+    },
+    {
+      "cardId": "10000010",
+      "angle": "side",
+      "pose": "attack",
+      "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000010-side-attack.png",
+      "sha256": "ecf31964ce953f79c6fb41270153d7171b58c511cddf034e25cac4ca9f37a5bd"
+    }
+  ],
+  "measurements": [
+    {
+      "cardId": "10000020",
+      "angle": "front",
+      "pose": "rest",
+      "models": [
+        {
+          "version": "before",
+          "profile": {
+            "id": "generic-beast-divine",
+            "family": "beast",
+            "digital": false,
+            "body": "#ffe58a",
+            "accent": "#ffe58a",
+            "eye": "#efffff",
+            "attack": "impact"
+          },
+          "partNames": [
+            "creature-body",
+            "creature-head",
+            "eye--1",
+            "eye-1",
+            "ear--1",
+            "creature-leg--1--0.48",
+            "creature-paw--1--0.48",
+            "creature-leg--1-0.6",
+            "creature-paw--1-0.6",
+            "ear-1",
+            "creature-leg-1--0.48",
+            "creature-paw-1--0.48",
+            "creature-leg-1-0.6",
+            "creature-paw-1-0.6",
+            "creature-tail",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 1496,
+          "drawCalls": 4,
+          "renderTriangles": 1496,
+          "referenceArt": null,
+          "textureMaps": 0,
+          "joints": [
+            0,
+            6
+          ],
+          "bounds": [
+            -0.6636000096797943,
+            0.03735929131507873,
+            -1.0282919764518736,
+            0.6636000096797943,
+            2.0124999999999997,
+            0.8259999632835388
+          ],
+          "pose": [
+            0,
+            -0.0,
+            -0.0,
+            0
+          ],
+          "life": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        },
+        {
+          "version": "after",
+          "profile": {
+            "id": "slifer-sky-dragon",
+            "family": "dragon",
+            "anatomy": "crimson-double-jawed-god",
+            "body": "#c83738",
+            "accent": "#f25c55",
+            "hair": "#241f26",
+            "eye": "#e9e55a",
+            "attack": "dragon-burst",
+            "bodyMetalness": 0.27,
+            "bodyRoughness": 0.45,
+            "referenceArt": "/cards/cropped/10000020.jpg"
+          },
+          "partNames": [
+            "slifer-continuous-looped-serpentine-body-start-closed-cap",
+            "slifer-continuous-looped-serpentine-body-end-closed-cap",
+            "slifer-continuous-looped-serpentine-body",
+            "slifer-ebony-raised-ventral-neck",
+            "slifer-silver-ventral-rib-0",
+            "slifer-silver-ventral-rib-1",
+            "slifer-silver-ventral-rib-2",
+            "slifer-silver-ventral-rib-3",
+            "slifer-silver-ventral-rib-4",
+            "slifer-silver-ventral-rib-5",
+            "slifer-silver-ventral-rib-6",
+            "slifer-long-red-armored-skull",
+            "slifer-angular-nasal-spear",
+            "slifer-azure-forehead-gem",
+            "slifer-long-swept-crown-horn--1",
+            "slifer-side-rear-crown-spike--1",
+            "slifer-head-side-swept-blade--1",
+            "slifer-yellow-eye--1",
+            "slifer-dark-eye-lid--1",
+            "slifer-long-swept-crown-horn-1",
+            "slifer-side-rear-crown-spike-1",
+            "slifer-head-side-swept-blade-1",
+            "slifer-yellow-eye-1",
+            "slifer-dark-eye-lid-1",
+            "slifer-upper-mouth-ebony-gap",
+            "slifer-upper-mouth-red-ridge",
+            "slifer-upper-small-fang-0",
+            "slifer-upper-small-fang-1",
+            "slifer-upper-small-fang-2",
+            "slifer-upper-small-fang-3",
+            "slifer-upper-small-fang-4",
+            "slifer-upper-small-fang-5",
+            "slifer-upper-small-fang-6",
+            "slifer-open-lower-mouth-cavity",
+            "jaw-slifer-long-red-lower-mandible",
+            "slifer-ivory-cheek-tusk--1",
+            "jaw-slifer-lower-fang--1-0",
+            "jaw-slifer-lower-fang--1-1",
+            "jaw-slifer-lower-fang--1-2",
+            "jaw-slifer-lower-fang--1-3",
+            "slifer-red-forelimb--1",
+            "slifer-three-clawed-hand--1",
+            "slifer-silver-hand-claw--1-0",
+            "slifer-silver-hand-claw--1-1",
+            "slifer-silver-hand-claw--1-2",
+            "wing--1-slifer-sculpted-crimson-surface",
+            "wing--1-slifer-dark-inset-membrane",
+            "wing--1-slifer-long-upper-red-spar",
+            "wing--1-slifer-outer-red-spar",
+            "wing--1-slifer-lower-red-spar",
+            "slifer-ivory-cheek-tusk-1",
+            "jaw-slifer-lower-fang-1-0",
+            "jaw-slifer-lower-fang-1-1",
+            "jaw-slifer-lower-fang-1-2",
+            "jaw-slifer-lower-fang-1-3",
+            "slifer-red-forelimb-1",
+            "slifer-three-clawed-hand-1",
+            "slifer-silver-hand-claw-1-0",
+            "slifer-silver-hand-claw-1-1",
+            "slifer-silver-hand-claw-1-2",
+            "wing-1-slifer-sculpted-crimson-surface",
+            "wing-1-slifer-dark-inset-membrane",
+            "wing-1-slifer-long-upper-red-spar",
+            "wing-1-slifer-outer-red-spar",
+            "wing-1-slifer-lower-red-spar",
+            "slifer-serpentine-red-dorsal-spike-0",
+            "slifer-serpentine-red-dorsal-spike-1",
+            "slifer-serpentine-red-dorsal-spike-2",
+            "slifer-serpentine-red-dorsal-spike-3",
+            "slifer-serpentine-red-dorsal-spike-4",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 2992,
+          "drawCalls": 5,
+          "renderTriangles": 2992,
+          "referenceArt": "/cards/cropped/10000020.jpg",
+          "textureMaps": 0,
+          "joints": [
+            0,
+            4,
+            1,
+            2,
+            6
+          ],
+          "bounds": [
+            -1.2832929730415343,
+            0.03735929131507873,
+            -0.6636000096797943,
+            1.2832929730415343,
+            2.6669999599456786,
+            0.6636000096797943
+          ],
+          "pose": [
+            0,
+            -0.0,
+            -0.0,
+            0
+          ],
+          "life": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": "10000020",
+      "angle": "front",
+      "pose": "attack",
+      "models": [
+        {
+          "version": "before",
+          "profile": {
+            "id": "generic-beast-divine",
+            "family": "beast",
+            "digital": false,
+            "body": "#ffe58a",
+            "accent": "#ffe58a",
+            "eye": "#efffff",
+            "attack": "impact"
+          },
+          "partNames": [
+            "creature-body",
+            "creature-head",
+            "eye--1",
+            "eye-1",
+            "ear--1",
+            "creature-leg--1--0.48",
+            "creature-paw--1--0.48",
+            "creature-leg--1-0.6",
+            "creature-paw--1-0.6",
+            "ear-1",
+            "creature-leg-1--0.48",
+            "creature-paw-1--0.48",
+            "creature-leg-1-0.6",
+            "creature-paw-1-0.6",
+            "creature-tail",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 1496,
+          "drawCalls": 4,
+          "renderTriangles": 1496,
+          "referenceArt": null,
+          "textureMaps": 0,
+          "joints": [
+            0,
+            6
+          ],
+          "bounds": [
+            -0.6636000096797943,
+            0.03735929131507873,
+            -1.0282919764518736,
+            0.6636000096797943,
+            2.0124999999999997,
+            0.8259999632835388
+          ],
+          "pose": [
+            0.1788854381999832,
+            -0.31513848096390656,
+            -0.0984807753012208,
+            0.34468271355427277
+          ],
+          "life": [
+            0,
+            1,
+            0.3545307910843949,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        },
+        {
+          "version": "after",
+          "profile": {
+            "id": "slifer-sky-dragon",
+            "family": "dragon",
+            "anatomy": "crimson-double-jawed-god",
+            "body": "#c83738",
+            "accent": "#f25c55",
+            "hair": "#241f26",
+            "eye": "#e9e55a",
+            "attack": "dragon-burst",
+            "bodyMetalness": 0.27,
+            "bodyRoughness": 0.45,
+            "referenceArt": "/cards/cropped/10000020.jpg"
+          },
+          "partNames": [
+            "slifer-continuous-looped-serpentine-body-start-closed-cap",
+            "slifer-continuous-looped-serpentine-body-end-closed-cap",
+            "slifer-continuous-looped-serpentine-body",
+            "slifer-ebony-raised-ventral-neck",
+            "slifer-silver-ventral-rib-0",
+            "slifer-silver-ventral-rib-1",
+            "slifer-silver-ventral-rib-2",
+            "slifer-silver-ventral-rib-3",
+            "slifer-silver-ventral-rib-4",
+            "slifer-silver-ventral-rib-5",
+            "slifer-silver-ventral-rib-6",
+            "slifer-long-red-armored-skull",
+            "slifer-angular-nasal-spear",
+            "slifer-azure-forehead-gem",
+            "slifer-long-swept-crown-horn--1",
+            "slifer-side-rear-crown-spike--1",
+            "slifer-head-side-swept-blade--1",
+            "slifer-yellow-eye--1",
+            "slifer-dark-eye-lid--1",
+            "slifer-long-swept-crown-horn-1",
+            "slifer-side-rear-crown-spike-1",
+            "slifer-head-side-swept-blade-1",
+            "slifer-yellow-eye-1",
+            "slifer-dark-eye-lid-1",
+            "slifer-upper-mouth-ebony-gap",
+            "slifer-upper-mouth-red-ridge",
+            "slifer-upper-small-fang-0",
+            "slifer-upper-small-fang-1",
+            "slifer-upper-small-fang-2",
+            "slifer-upper-small-fang-3",
+            "slifer-upper-small-fang-4",
+            "slifer-upper-small-fang-5",
+            "slifer-upper-small-fang-6",
+            "slifer-open-lower-mouth-cavity",
+            "jaw-slifer-long-red-lower-mandible",
+            "slifer-ivory-cheek-tusk--1",
+            "jaw-slifer-lower-fang--1-0",
+            "jaw-slifer-lower-fang--1-1",
+            "jaw-slifer-lower-fang--1-2",
+            "jaw-slifer-lower-fang--1-3",
+            "slifer-red-forelimb--1",
+            "slifer-three-clawed-hand--1",
+            "slifer-silver-hand-claw--1-0",
+            "slifer-silver-hand-claw--1-1",
+            "slifer-silver-hand-claw--1-2",
+            "wing--1-slifer-sculpted-crimson-surface",
+            "wing--1-slifer-dark-inset-membrane",
+            "wing--1-slifer-long-upper-red-spar",
+            "wing--1-slifer-outer-red-spar",
+            "wing--1-slifer-lower-red-spar",
+            "slifer-ivory-cheek-tusk-1",
+            "jaw-slifer-lower-fang-1-0",
+            "jaw-slifer-lower-fang-1-1",
+            "jaw-slifer-lower-fang-1-2",
+            "jaw-slifer-lower-fang-1-3",
+            "slifer-red-forelimb-1",
+            "slifer-three-clawed-hand-1",
+            "slifer-silver-hand-claw-1-0",
+            "slifer-silver-hand-claw-1-1",
+            "slifer-silver-hand-claw-1-2",
+            "wing-1-slifer-sculpted-crimson-surface",
+            "wing-1-slifer-dark-inset-membrane",
+            "wing-1-slifer-long-upper-red-spar",
+            "wing-1-slifer-outer-red-spar",
+            "wing-1-slifer-lower-red-spar",
+            "slifer-serpentine-red-dorsal-spike-0",
+            "slifer-serpentine-red-dorsal-spike-1",
+            "slifer-serpentine-red-dorsal-spike-2",
+            "slifer-serpentine-red-dorsal-spike-3",
+            "slifer-serpentine-red-dorsal-spike-4",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 2992,
+          "drawCalls": 5,
+          "renderTriangles": 2992,
+          "referenceArt": "/cards/cropped/10000020.jpg",
+          "textureMaps": 0,
+          "joints": [
+            0,
+            4,
+            1,
+            2,
+            6
+          ],
+          "bounds": [
+            -1.2832929730415343,
+            0.03735929131507873,
+            -0.6636000096797943,
+            1.2832929730415343,
+            2.6669999599456786,
+            0.6636000096797943
+          ],
+          "pose": [
+            0.1788854381999832,
+            -0.31513848096390656,
+            -0.0984807753012208,
+            0.34468271355427277
+          ],
+          "life": [
+            0,
+            1,
+            0.3545307910843949,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": "10000020",
+      "angle": "three-quarter",
+      "pose": "rest",
+      "models": [
+        {
+          "version": "before",
+          "profile": {
+            "id": "generic-beast-divine",
+            "family": "beast",
+            "digital": false,
+            "body": "#ffe58a",
+            "accent": "#ffe58a",
+            "eye": "#efffff",
+            "attack": "impact"
+          },
+          "partNames": [
+            "creature-body",
+            "creature-head",
+            "eye--1",
+            "eye-1",
+            "ear--1",
+            "creature-leg--1--0.48",
+            "creature-paw--1--0.48",
+            "creature-leg--1-0.6",
+            "creature-paw--1-0.6",
+            "ear-1",
+            "creature-leg-1--0.48",
+            "creature-paw-1--0.48",
+            "creature-leg-1-0.6",
+            "creature-paw-1-0.6",
+            "creature-tail",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 1496,
+          "drawCalls": 4,
+          "renderTriangles": 1496,
+          "referenceArt": null,
+          "textureMaps": 0,
+          "joints": [
+            0,
+            6
+          ],
+          "bounds": [
+            -0.6636000096797943,
+            0.03735929131507873,
+            -1.0282919764518736,
+            0.6636000096797943,
+            2.0124999999999997,
+            0.8259999632835388
+          ],
+          "pose": [
+            0,
+            -0.0,
+            -0.0,
+            0
+          ],
+          "life": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        },
+        {
+          "version": "after",
+          "profile": {
+            "id": "slifer-sky-dragon",
+            "family": "dragon",
+            "anatomy": "crimson-double-jawed-god",
+            "body": "#c83738",
+            "accent": "#f25c55",
+            "hair": "#241f26",
+            "eye": "#e9e55a",
+            "attack": "dragon-burst",
+            "bodyMetalness": 0.27,
+            "bodyRoughness": 0.45,
+            "referenceArt": "/cards/cropped/10000020.jpg"
+          },
+          "partNames": [
+            "slifer-continuous-looped-serpentine-body-start-closed-cap",
+            "slifer-continuous-looped-serpentine-body-end-closed-cap",
+            "slifer-continuous-looped-serpentine-body",
+            "slifer-ebony-raised-ventral-neck",
+            "slifer-silver-ventral-rib-0",
+            "slifer-silver-ventral-rib-1",
+            "slifer-silver-ventral-rib-2",
+            "slifer-silver-ventral-rib-3",
+            "slifer-silver-ventral-rib-4",
+            "slifer-silver-ventral-rib-5",
+            "slifer-silver-ventral-rib-6",
+            "slifer-long-red-armored-skull",
+            "slifer-angular-nasal-spear",
+            "slifer-azure-forehead-gem",
+            "slifer-long-swept-crown-horn--1",
+            "slifer-side-rear-crown-spike--1",
+            "slifer-head-side-swept-blade--1",
+            "slifer-yellow-eye--1",
+            "slifer-dark-eye-lid--1",
+            "slifer-long-swept-crown-horn-1",
+            "slifer-side-rear-crown-spike-1",
+            "slifer-head-side-swept-blade-1",
+            "slifer-yellow-eye-1",
+            "slifer-dark-eye-lid-1",
+            "slifer-upper-mouth-ebony-gap",
+            "slifer-upper-mouth-red-ridge",
+            "slifer-upper-small-fang-0",
+            "slifer-upper-small-fang-1",
+            "slifer-upper-small-fang-2",
+            "slifer-upper-small-fang-3",
+            "slifer-upper-small-fang-4",
+            "slifer-upper-small-fang-5",
+            "slifer-upper-small-fang-6",
+            "slifer-open-lower-mouth-cavity",
+            "jaw-slifer-long-red-lower-mandible",
+            "slifer-ivory-cheek-tusk--1",
+            "jaw-slifer-lower-fang--1-0",
+            "jaw-slifer-lower-fang--1-1",
+            "jaw-slifer-lower-fang--1-2",
+            "jaw-slifer-lower-fang--1-3",
+            "slifer-red-forelimb--1",
+            "slifer-three-clawed-hand--1",
+            "slifer-silver-hand-claw--1-0",
+            "slifer-silver-hand-claw--1-1",
+            "slifer-silver-hand-claw--1-2",
+            "wing--1-slifer-sculpted-crimson-surface",
+            "wing--1-slifer-dark-inset-membrane",
+            "wing--1-slifer-long-upper-red-spar",
+            "wing--1-slifer-outer-red-spar",
+            "wing--1-slifer-lower-red-spar",
+            "slifer-ivory-cheek-tusk-1",
+            "jaw-slifer-lower-fang-1-0",
+            "jaw-slifer-lower-fang-1-1",
+            "jaw-slifer-lower-fang-1-2",
+            "jaw-slifer-lower-fang-1-3",
+            "slifer-red-forelimb-1",
+            "slifer-three-clawed-hand-1",
+            "slifer-silver-hand-claw-1-0",
+            "slifer-silver-hand-claw-1-1",
+            "slifer-silver-hand-claw-1-2",
+            "wing-1-slifer-sculpted-crimson-surface",
+            "wing-1-slifer-dark-inset-membrane",
+            "wing-1-slifer-long-upper-red-spar",
+            "wing-1-slifer-outer-red-spar",
+            "wing-1-slifer-lower-red-spar",
+            "slifer-serpentine-red-dorsal-spike-0",
+            "slifer-serpentine-red-dorsal-spike-1",
+            "slifer-serpentine-red-dorsal-spike-2",
+            "slifer-serpentine-red-dorsal-spike-3",
+            "slifer-serpentine-red-dorsal-spike-4",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 2992,
+          "drawCalls": 5,
+          "renderTriangles": 2992,
+          "referenceArt": "/cards/cropped/10000020.jpg",
+          "textureMaps": 0,
+          "joints": [
+            0,
+            4,
+            1,
+            2,
+            6
+          ],
+          "bounds": [
+            -1.2832929730415343,
+            0.03735929131507873,
+            -0.6636000096797943,
+            1.2832929730415343,
+            2.6669999599456786,
+            0.6636000096797943
+          ],
+          "pose": [
+            0,
+            -0.0,
+            -0.0,
+            0
+          ],
+          "life": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": "10000020",
+      "angle": "three-quarter",
+      "pose": "attack",
+      "models": [
+        {
+          "version": "before",
+          "profile": {
+            "id": "generic-beast-divine",
+            "family": "beast",
+            "digital": false,
+            "body": "#ffe58a",
+            "accent": "#ffe58a",
+            "eye": "#efffff",
+            "attack": "impact"
+          },
+          "partNames": [
+            "creature-body",
+            "creature-head",
+            "eye--1",
+            "eye-1",
+            "ear--1",
+            "creature-leg--1--0.48",
+            "creature-paw--1--0.48",
+            "creature-leg--1-0.6",
+            "creature-paw--1-0.6",
+            "ear-1",
+            "creature-leg-1--0.48",
+            "creature-paw-1--0.48",
+            "creature-leg-1-0.6",
+            "creature-paw-1-0.6",
+            "creature-tail",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 1496,
+          "drawCalls": 4,
+          "renderTriangles": 1496,
+          "referenceArt": null,
+          "textureMaps": 0,
+          "joints": [
+            0,
+            6
+          ],
+          "bounds": [
+            -0.6636000096797943,
+            0.03735929131507873,
+            -1.0282919764518736,
+            0.6636000096797943,
+            2.0124999999999997,
+            0.8259999632835388
+          ],
+          "pose": [
+            0.1788854381999832,
+            -0.31513848096390656,
+            -0.0984807753012208,
+            0.34468271355427277
+          ],
+          "life": [
+            0,
+            1,
+            0.3545307910843949,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        },
+        {
+          "version": "after",
+          "profile": {
+            "id": "slifer-sky-dragon",
+            "family": "dragon",
+            "anatomy": "crimson-double-jawed-god",
+            "body": "#c83738",
+            "accent": "#f25c55",
+            "hair": "#241f26",
+            "eye": "#e9e55a",
+            "attack": "dragon-burst",
+            "bodyMetalness": 0.27,
+            "bodyRoughness": 0.45,
+            "referenceArt": "/cards/cropped/10000020.jpg"
+          },
+          "partNames": [
+            "slifer-continuous-looped-serpentine-body-start-closed-cap",
+            "slifer-continuous-looped-serpentine-body-end-closed-cap",
+            "slifer-continuous-looped-serpentine-body",
+            "slifer-ebony-raised-ventral-neck",
+            "slifer-silver-ventral-rib-0",
+            "slifer-silver-ventral-rib-1",
+            "slifer-silver-ventral-rib-2",
+            "slifer-silver-ventral-rib-3",
+            "slifer-silver-ventral-rib-4",
+            "slifer-silver-ventral-rib-5",
+            "slifer-silver-ventral-rib-6",
+            "slifer-long-red-armored-skull",
+            "slifer-angular-nasal-spear",
+            "slifer-azure-forehead-gem",
+            "slifer-long-swept-crown-horn--1",
+            "slifer-side-rear-crown-spike--1",
+            "slifer-head-side-swept-blade--1",
+            "slifer-yellow-eye--1",
+            "slifer-dark-eye-lid--1",
+            "slifer-long-swept-crown-horn-1",
+            "slifer-side-rear-crown-spike-1",
+            "slifer-head-side-swept-blade-1",
+            "slifer-yellow-eye-1",
+            "slifer-dark-eye-lid-1",
+            "slifer-upper-mouth-ebony-gap",
+            "slifer-upper-mouth-red-ridge",
+            "slifer-upper-small-fang-0",
+            "slifer-upper-small-fang-1",
+            "slifer-upper-small-fang-2",
+            "slifer-upper-small-fang-3",
+            "slifer-upper-small-fang-4",
+            "slifer-upper-small-fang-5",
+            "slifer-upper-small-fang-6",
+            "slifer-open-lower-mouth-cavity",
+            "jaw-slifer-long-red-lower-mandible",
+            "slifer-ivory-cheek-tusk--1",
+            "jaw-slifer-lower-fang--1-0",
+            "jaw-slifer-lower-fang--1-1",
+            "jaw-slifer-lower-fang--1-2",
+            "jaw-slifer-lower-fang--1-3",
+            "slifer-red-forelimb--1",
+            "slifer-three-clawed-hand--1",
+            "slifer-silver-hand-claw--1-0",
+            "slifer-silver-hand-claw--1-1",
+            "slifer-silver-hand-claw--1-2",
+            "wing--1-slifer-sculpted-crimson-surface",
+            "wing--1-slifer-dark-inset-membrane",
+            "wing--1-slifer-long-upper-red-spar",
+            "wing--1-slifer-outer-red-spar",
+            "wing--1-slifer-lower-red-spar",
+            "slifer-ivory-cheek-tusk-1",
+            "jaw-slifer-lower-fang-1-0",
+            "jaw-slifer-lower-fang-1-1",
+            "jaw-slifer-lower-fang-1-2",
+            "jaw-slifer-lower-fang-1-3",
+            "slifer-red-forelimb-1",
+            "slifer-three-clawed-hand-1",
+            "slifer-silver-hand-claw-1-0",
+            "slifer-silver-hand-claw-1-1",
+            "slifer-silver-hand-claw-1-2",
+            "wing-1-slifer-sculpted-crimson-surface",
+            "wing-1-slifer-dark-inset-membrane",
+            "wing-1-slifer-long-upper-red-spar",
+            "wing-1-slifer-outer-red-spar",
+            "wing-1-slifer-lower-red-spar",
+            "slifer-serpentine-red-dorsal-spike-0",
+            "slifer-serpentine-red-dorsal-spike-1",
+            "slifer-serpentine-red-dorsal-spike-2",
+            "slifer-serpentine-red-dorsal-spike-3",
+            "slifer-serpentine-red-dorsal-spike-4",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 2992,
+          "drawCalls": 5,
+          "renderTriangles": 2992,
+          "referenceArt": "/cards/cropped/10000020.jpg",
+          "textureMaps": 0,
+          "joints": [
+            0,
+            4,
+            1,
+            2,
+            6
+          ],
+          "bounds": [
+            -1.2832929730415343,
+            0.03735929131507873,
+            -0.6636000096797943,
+            1.2832929730415343,
+            2.6669999599456786,
+            0.6636000096797943
+          ],
+          "pose": [
+            0.1788854381999832,
+            -0.31513848096390656,
+            -0.0984807753012208,
+            0.34468271355427277
+          ],
+          "life": [
+            0,
+            1,
+            0.3545307910843949,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": "10000020",
+      "angle": "side",
+      "pose": "rest",
+      "models": [
+        {
+          "version": "before",
+          "profile": {
+            "id": "generic-beast-divine",
+            "family": "beast",
+            "digital": false,
+            "body": "#ffe58a",
+            "accent": "#ffe58a",
+            "eye": "#efffff",
+            "attack": "impact"
+          },
+          "partNames": [
+            "creature-body",
+            "creature-head",
+            "eye--1",
+            "eye-1",
+            "ear--1",
+            "creature-leg--1--0.48",
+            "creature-paw--1--0.48",
+            "creature-leg--1-0.6",
+            "creature-paw--1-0.6",
+            "ear-1",
+            "creature-leg-1--0.48",
+            "creature-paw-1--0.48",
+            "creature-leg-1-0.6",
+            "creature-paw-1-0.6",
+            "creature-tail",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 1496,
+          "drawCalls": 4,
+          "renderTriangles": 1496,
+          "referenceArt": null,
+          "textureMaps": 0,
+          "joints": [
+            0,
+            6
+          ],
+          "bounds": [
+            -0.6636000096797943,
+            0.03735929131507873,
+            -1.0282919764518736,
+            0.6636000096797943,
+            2.0124999999999997,
+            0.8259999632835388
+          ],
+          "pose": [
+            0,
+            -0.0,
+            -0.0,
+            0
+          ],
+          "life": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        },
+        {
+          "version": "after",
+          "profile": {
+            "id": "slifer-sky-dragon",
+            "family": "dragon",
+            "anatomy": "crimson-double-jawed-god",
+            "body": "#c83738",
+            "accent": "#f25c55",
+            "hair": "#241f26",
+            "eye": "#e9e55a",
+            "attack": "dragon-burst",
+            "bodyMetalness": 0.27,
+            "bodyRoughness": 0.45,
+            "referenceArt": "/cards/cropped/10000020.jpg"
+          },
+          "partNames": [
+            "slifer-continuous-looped-serpentine-body-start-closed-cap",
+            "slifer-continuous-looped-serpentine-body-end-closed-cap",
+            "slifer-continuous-looped-serpentine-body",
+            "slifer-ebony-raised-ventral-neck",
+            "slifer-silver-ventral-rib-0",
+            "slifer-silver-ventral-rib-1",
+            "slifer-silver-ventral-rib-2",
+            "slifer-silver-ventral-rib-3",
+            "slifer-silver-ventral-rib-4",
+            "slifer-silver-ventral-rib-5",
+            "slifer-silver-ventral-rib-6",
+            "slifer-long-red-armored-skull",
+            "slifer-angular-nasal-spear",
+            "slifer-azure-forehead-gem",
+            "slifer-long-swept-crown-horn--1",
+            "slifer-side-rear-crown-spike--1",
+            "slifer-head-side-swept-blade--1",
+            "slifer-yellow-eye--1",
+            "slifer-dark-eye-lid--1",
+            "slifer-long-swept-crown-horn-1",
+            "slifer-side-rear-crown-spike-1",
+            "slifer-head-side-swept-blade-1",
+            "slifer-yellow-eye-1",
+            "slifer-dark-eye-lid-1",
+            "slifer-upper-mouth-ebony-gap",
+            "slifer-upper-mouth-red-ridge",
+            "slifer-upper-small-fang-0",
+            "slifer-upper-small-fang-1",
+            "slifer-upper-small-fang-2",
+            "slifer-upper-small-fang-3",
+            "slifer-upper-small-fang-4",
+            "slifer-upper-small-fang-5",
+            "slifer-upper-small-fang-6",
+            "slifer-open-lower-mouth-cavity",
+            "jaw-slifer-long-red-lower-mandible",
+            "slifer-ivory-cheek-tusk--1",
+            "jaw-slifer-lower-fang--1-0",
+            "jaw-slifer-lower-fang--1-1",
+            "jaw-slifer-lower-fang--1-2",
+            "jaw-slifer-lower-fang--1-3",
+            "slifer-red-forelimb--1",
+            "slifer-three-clawed-hand--1",
+            "slifer-silver-hand-claw--1-0",
+            "slifer-silver-hand-claw--1-1",
+            "slifer-silver-hand-claw--1-2",
+            "wing--1-slifer-sculpted-crimson-surface",
+            "wing--1-slifer-dark-inset-membrane",
+            "wing--1-slifer-long-upper-red-spar",
+            "wing--1-slifer-outer-red-spar",
+            "wing--1-slifer-lower-red-spar",
+            "slifer-ivory-cheek-tusk-1",
+            "jaw-slifer-lower-fang-1-0",
+            "jaw-slifer-lower-fang-1-1",
+            "jaw-slifer-lower-fang-1-2",
+            "jaw-slifer-lower-fang-1-3",
+            "slifer-red-forelimb-1",
+            "slifer-three-clawed-hand-1",
+            "slifer-silver-hand-claw-1-0",
+            "slifer-silver-hand-claw-1-1",
+            "slifer-silver-hand-claw-1-2",
+            "wing-1-slifer-sculpted-crimson-surface",
+            "wing-1-slifer-dark-inset-membrane",
+            "wing-1-slifer-long-upper-red-spar",
+            "wing-1-slifer-outer-red-spar",
+            "wing-1-slifer-lower-red-spar",
+            "slifer-serpentine-red-dorsal-spike-0",
+            "slifer-serpentine-red-dorsal-spike-1",
+            "slifer-serpentine-red-dorsal-spike-2",
+            "slifer-serpentine-red-dorsal-spike-3",
+            "slifer-serpentine-red-dorsal-spike-4",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 2992,
+          "drawCalls": 5,
+          "renderTriangles": 2992,
+          "referenceArt": "/cards/cropped/10000020.jpg",
+          "textureMaps": 0,
+          "joints": [
+            0,
+            4,
+            1,
+            2,
+            6
+          ],
+          "bounds": [
+            -1.2832929730415343,
+            0.03735929131507873,
+            -0.6636000096797943,
+            1.2832929730415343,
+            2.6669999599456786,
+            0.6636000096797943
+          ],
+          "pose": [
+            0,
+            -0.0,
+            -0.0,
+            0
+          ],
+          "life": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": "10000020",
+      "angle": "side",
+      "pose": "attack",
+      "models": [
+        {
+          "version": "before",
+          "profile": {
+            "id": "generic-beast-divine",
+            "family": "beast",
+            "digital": false,
+            "body": "#ffe58a",
+            "accent": "#ffe58a",
+            "eye": "#efffff",
+            "attack": "impact"
+          },
+          "partNames": [
+            "creature-body",
+            "creature-head",
+            "eye--1",
+            "eye-1",
+            "ear--1",
+            "creature-leg--1--0.48",
+            "creature-paw--1--0.48",
+            "creature-leg--1-0.6",
+            "creature-paw--1-0.6",
+            "ear-1",
+            "creature-leg-1--0.48",
+            "creature-paw-1--0.48",
+            "creature-leg-1-0.6",
+            "creature-paw-1-0.6",
+            "creature-tail",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 1496,
+          "drawCalls": 4,
+          "renderTriangles": 1496,
+          "referenceArt": null,
+          "textureMaps": 0,
+          "joints": [
+            0,
+            6
+          ],
+          "bounds": [
+            -0.6636000096797943,
+            0.03735929131507873,
+            -1.0282919764518736,
+            0.6636000096797943,
+            2.0124999999999997,
+            0.8259999632835388
+          ],
+          "pose": [
+            0.1788854381999832,
+            -0.31513848096390656,
+            -0.0984807753012208,
+            0.34468271355427277
+          ],
+          "life": [
+            0,
+            1,
+            0.3545307910843949,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        },
+        {
+          "version": "after",
+          "profile": {
+            "id": "slifer-sky-dragon",
+            "family": "dragon",
+            "anatomy": "crimson-double-jawed-god",
+            "body": "#c83738",
+            "accent": "#f25c55",
+            "hair": "#241f26",
+            "eye": "#e9e55a",
+            "attack": "dragon-burst",
+            "bodyMetalness": 0.27,
+            "bodyRoughness": 0.45,
+            "referenceArt": "/cards/cropped/10000020.jpg"
+          },
+          "partNames": [
+            "slifer-continuous-looped-serpentine-body-start-closed-cap",
+            "slifer-continuous-looped-serpentine-body-end-closed-cap",
+            "slifer-continuous-looped-serpentine-body",
+            "slifer-ebony-raised-ventral-neck",
+            "slifer-silver-ventral-rib-0",
+            "slifer-silver-ventral-rib-1",
+            "slifer-silver-ventral-rib-2",
+            "slifer-silver-ventral-rib-3",
+            "slifer-silver-ventral-rib-4",
+            "slifer-silver-ventral-rib-5",
+            "slifer-silver-ventral-rib-6",
+            "slifer-long-red-armored-skull",
+            "slifer-angular-nasal-spear",
+            "slifer-azure-forehead-gem",
+            "slifer-long-swept-crown-horn--1",
+            "slifer-side-rear-crown-spike--1",
+            "slifer-head-side-swept-blade--1",
+            "slifer-yellow-eye--1",
+            "slifer-dark-eye-lid--1",
+            "slifer-long-swept-crown-horn-1",
+            "slifer-side-rear-crown-spike-1",
+            "slifer-head-side-swept-blade-1",
+            "slifer-yellow-eye-1",
+            "slifer-dark-eye-lid-1",
+            "slifer-upper-mouth-ebony-gap",
+            "slifer-upper-mouth-red-ridge",
+            "slifer-upper-small-fang-0",
+            "slifer-upper-small-fang-1",
+            "slifer-upper-small-fang-2",
+            "slifer-upper-small-fang-3",
+            "slifer-upper-small-fang-4",
+            "slifer-upper-small-fang-5",
+            "slifer-upper-small-fang-6",
+            "slifer-open-lower-mouth-cavity",
+            "jaw-slifer-long-red-lower-mandible",
+            "slifer-ivory-cheek-tusk--1",
+            "jaw-slifer-lower-fang--1-0",
+            "jaw-slifer-lower-fang--1-1",
+            "jaw-slifer-lower-fang--1-2",
+            "jaw-slifer-lower-fang--1-3",
+            "slifer-red-forelimb--1",
+            "slifer-three-clawed-hand--1",
+            "slifer-silver-hand-claw--1-0",
+            "slifer-silver-hand-claw--1-1",
+            "slifer-silver-hand-claw--1-2",
+            "wing--1-slifer-sculpted-crimson-surface",
+            "wing--1-slifer-dark-inset-membrane",
+            "wing--1-slifer-long-upper-red-spar",
+            "wing--1-slifer-outer-red-spar",
+            "wing--1-slifer-lower-red-spar",
+            "slifer-ivory-cheek-tusk-1",
+            "jaw-slifer-lower-fang-1-0",
+            "jaw-slifer-lower-fang-1-1",
+            "jaw-slifer-lower-fang-1-2",
+            "jaw-slifer-lower-fang-1-3",
+            "slifer-red-forelimb-1",
+            "slifer-three-clawed-hand-1",
+            "slifer-silver-hand-claw-1-0",
+            "slifer-silver-hand-claw-1-1",
+            "slifer-silver-hand-claw-1-2",
+            "wing-1-slifer-sculpted-crimson-surface",
+            "wing-1-slifer-dark-inset-membrane",
+            "wing-1-slifer-long-upper-red-spar",
+            "wing-1-slifer-outer-red-spar",
+            "wing-1-slifer-lower-red-spar",
+            "slifer-serpentine-red-dorsal-spike-0",
+            "slifer-serpentine-red-dorsal-spike-1",
+            "slifer-serpentine-red-dorsal-spike-2",
+            "slifer-serpentine-red-dorsal-spike-3",
+            "slifer-serpentine-red-dorsal-spike-4",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 2992,
+          "drawCalls": 5,
+          "renderTriangles": 2992,
+          "referenceArt": "/cards/cropped/10000020.jpg",
+          "textureMaps": 0,
+          "joints": [
+            0,
+            4,
+            1,
+            2,
+            6
+          ],
+          "bounds": [
+            -1.2832929730415343,
+            0.03735929131507873,
+            -0.6636000096797943,
+            1.2832929730415343,
+            2.6669999599456786,
+            0.6636000096797943
+          ],
+          "pose": [
+            0.1788854381999832,
+            -0.31513848096390656,
+            -0.0984807753012208,
+            0.34468271355427277
+          ],
+          "life": [
+            0,
+            1,
+            0.3545307910843949,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": "10000000",
+      "angle": "front",
+      "pose": "rest",
+      "models": [
+        {
+          "version": "before",
+          "profile": {
+            "id": "generic-beast-divine",
+            "family": "beast",
+            "digital": false,
+            "body": "#ffe58a",
+            "accent": "#ffe58a",
+            "eye": "#efffff",
+            "attack": "impact"
+          },
+          "partNames": [
+            "creature-body",
+            "creature-head",
+            "eye--1",
+            "eye-1",
+            "ear--1",
+            "creature-leg--1--0.48",
+            "creature-paw--1--0.48",
+            "creature-leg--1-0.6",
+            "creature-paw--1-0.6",
+            "ear-1",
+            "creature-leg-1--0.48",
+            "creature-paw-1--0.48",
+            "creature-leg-1-0.6",
+            "creature-paw-1-0.6",
+            "creature-tail",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 1496,
+          "drawCalls": 4,
+          "renderTriangles": 1496,
+          "referenceArt": null,
+          "textureMaps": 0,
+          "joints": [
+            0,
+            6
+          ],
+          "bounds": [
+            -0.6636000096797943,
+            0.03735929131507873,
+            -1.0282919764518736,
+            0.6636000096797943,
+            2.0124999999999997,
+            0.8259999632835388
+          ],
+          "pose": [
+            0,
+            -0.0,
+            -0.0,
+            0
+          ],
+          "life": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        },
+        {
+          "version": "after",
+          "profile": {
+            "id": "obelisk-tormentor",
+            "family": "warrior",
+            "anatomy": "azure-armored-god",
+            "body": "#568ea8",
+            "accent": "#94bdc8",
+            "hair": "#183d50",
+            "eye": "#adf0e9",
+            "attack": "impact",
+            "bodyMetalness": 0.22,
+            "bodyRoughness": 0.53,
+            "referenceArt": "/cards/cropped/10000000.jpg"
+          },
+          "partNames": [
+            "obelisk-massive-blue-torso",
+            "obelisk-sculpted-pectoral--1",
+            "obelisk-muscular-flank--1",
+            "obelisk-ribbed-abdominal-muscle--1-0",
+            "obelisk-ribbed-abdominal-muscle--1-1",
+            "obelisk-ribbed-abdominal-muscle--1-2",
+            "obelisk-huge-angular-shoulder--1",
+            "obelisk-shoulder-upward-blade--1",
+            "upper-arm--1-obelisk-blue-bicep",
+            "hand--1-obelisk-armored-elbow",
+            "hand--1-obelisk-enormous-forearm",
+            "hand--1-obelisk-bladed-forearm-plate",
+            "hand--1-obelisk-clenched-fist",
+            "hand--1-obelisk-knuckle-0",
+            "hand--1-obelisk-knuckle-1",
+            "hand--1-obelisk-knuckle-2",
+            "hand--1-obelisk-knuckle-3",
+            "obelisk-chest-pointed-collar--1",
+            "obelisk-inferred-blue-thigh--1",
+            "obelisk-inferred-armored-shin--1",
+            "obelisk-inferred-blue-foot--1",
+            "obelisk-sculpted-pectoral-1",
+            "obelisk-muscular-flank-1",
+            "obelisk-ribbed-abdominal-muscle-1-0",
+            "obelisk-ribbed-abdominal-muscle-1-1",
+            "obelisk-ribbed-abdominal-muscle-1-2",
+            "obelisk-huge-angular-shoulder-1",
+            "obelisk-shoulder-upward-blade-1",
+            "upper-arm-1-obelisk-blue-bicep",
+            "hand-1-obelisk-armored-elbow",
+            "hand-1-obelisk-enormous-forearm",
+            "hand-1-obelisk-bladed-forearm-plate",
+            "hand-1-obelisk-clenched-fist",
+            "hand-1-obelisk-knuckle-0",
+            "hand-1-obelisk-knuckle-1",
+            "hand-1-obelisk-knuckle-2",
+            "hand-1-obelisk-knuckle-3",
+            "obelisk-chest-pointed-collar-1",
+            "obelisk-inferred-blue-thigh-1",
+            "obelisk-inferred-armored-shin-1",
+            "obelisk-inferred-blue-foot-1",
+            "obelisk-small-blue-head",
+            "obelisk-long-pointed-chin",
+            "obelisk-grinning-ebony-mouth",
+            "obelisk-visible-tooth-0",
+            "obelisk-visible-tooth-1",
+            "obelisk-visible-tooth-2",
+            "obelisk-visible-tooth-3",
+            "obelisk-visible-tooth-4",
+            "obelisk-visible-tooth-5",
+            "obelisk-slanted-blue-eye--1",
+            "obelisk-long-curved-crown-horn--1",
+            "obelisk-lateral-head-fin--1",
+            "obelisk-slanted-blue-eye-1",
+            "obelisk-long-curved-crown-horn-1",
+            "obelisk-lateral-head-fin-1",
+            "obelisk-sculpted-nasal-bridge",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 2672,
+          "drawCalls": 5,
+          "renderTriangles": 2672,
+          "referenceArt": "/cards/cropped/10000000.jpg",
+          "textureMaps": 0,
+          "joints": [
+            0,
+            5,
+            6
+          ],
+          "bounds": [
+            -1.0080000400543212,
+            0.03735929131507873,
+            -0.6636000096797943,
+            1.0080000400543212,
+            2.6389999866485594,
+            0.6636000096797943
+          ],
+          "pose": [
+            0,
+            -0.0,
+            -0.0,
+            0
+          ],
+          "life": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": "10000000",
+      "angle": "front",
+      "pose": "attack",
+      "models": [
+        {
+          "version": "before",
+          "profile": {
+            "id": "generic-beast-divine",
+            "family": "beast",
+            "digital": false,
+            "body": "#ffe58a",
+            "accent": "#ffe58a",
+            "eye": "#efffff",
+            "attack": "impact"
+          },
+          "partNames": [
+            "creature-body",
+            "creature-head",
+            "eye--1",
+            "eye-1",
+            "ear--1",
+            "creature-leg--1--0.48",
+            "creature-paw--1--0.48",
+            "creature-leg--1-0.6",
+            "creature-paw--1-0.6",
+            "ear-1",
+            "creature-leg-1--0.48",
+            "creature-paw-1--0.48",
+            "creature-leg-1-0.6",
+            "creature-paw-1-0.6",
+            "creature-tail",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 1496,
+          "drawCalls": 4,
+          "renderTriangles": 1496,
+          "referenceArt": null,
+          "textureMaps": 0,
+          "joints": [
+            0,
+            6
+          ],
+          "bounds": [
+            -0.6636000096797943,
+            0.03735929131507873,
+            -1.0282919764518736,
+            0.6636000096797943,
+            2.0124999999999997,
+            0.8259999632835388
+          ],
+          "pose": [
+            0.1788854381999832,
+            -0.31513848096390656,
+            -0.0984807753012208,
+            0.34468271355427277
+          ],
+          "life": [
+            0,
+            1,
+            0.3545307910843949,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        },
+        {
+          "version": "after",
+          "profile": {
+            "id": "obelisk-tormentor",
+            "family": "warrior",
+            "anatomy": "azure-armored-god",
+            "body": "#568ea8",
+            "accent": "#94bdc8",
+            "hair": "#183d50",
+            "eye": "#adf0e9",
+            "attack": "impact",
+            "bodyMetalness": 0.22,
+            "bodyRoughness": 0.53,
+            "referenceArt": "/cards/cropped/10000000.jpg"
+          },
+          "partNames": [
+            "obelisk-massive-blue-torso",
+            "obelisk-sculpted-pectoral--1",
+            "obelisk-muscular-flank--1",
+            "obelisk-ribbed-abdominal-muscle--1-0",
+            "obelisk-ribbed-abdominal-muscle--1-1",
+            "obelisk-ribbed-abdominal-muscle--1-2",
+            "obelisk-huge-angular-shoulder--1",
+            "obelisk-shoulder-upward-blade--1",
+            "upper-arm--1-obelisk-blue-bicep",
+            "hand--1-obelisk-armored-elbow",
+            "hand--1-obelisk-enormous-forearm",
+            "hand--1-obelisk-bladed-forearm-plate",
+            "hand--1-obelisk-clenched-fist",
+            "hand--1-obelisk-knuckle-0",
+            "hand--1-obelisk-knuckle-1",
+            "hand--1-obelisk-knuckle-2",
+            "hand--1-obelisk-knuckle-3",
+            "obelisk-chest-pointed-collar--1",
+            "obelisk-inferred-blue-thigh--1",
+            "obelisk-inferred-armored-shin--1",
+            "obelisk-inferred-blue-foot--1",
+            "obelisk-sculpted-pectoral-1",
+            "obelisk-muscular-flank-1",
+            "obelisk-ribbed-abdominal-muscle-1-0",
+            "obelisk-ribbed-abdominal-muscle-1-1",
+            "obelisk-ribbed-abdominal-muscle-1-2",
+            "obelisk-huge-angular-shoulder-1",
+            "obelisk-shoulder-upward-blade-1",
+            "upper-arm-1-obelisk-blue-bicep",
+            "hand-1-obelisk-armored-elbow",
+            "hand-1-obelisk-enormous-forearm",
+            "hand-1-obelisk-bladed-forearm-plate",
+            "hand-1-obelisk-clenched-fist",
+            "hand-1-obelisk-knuckle-0",
+            "hand-1-obelisk-knuckle-1",
+            "hand-1-obelisk-knuckle-2",
+            "hand-1-obelisk-knuckle-3",
+            "obelisk-chest-pointed-collar-1",
+            "obelisk-inferred-blue-thigh-1",
+            "obelisk-inferred-armored-shin-1",
+            "obelisk-inferred-blue-foot-1",
+            "obelisk-small-blue-head",
+            "obelisk-long-pointed-chin",
+            "obelisk-grinning-ebony-mouth",
+            "obelisk-visible-tooth-0",
+            "obelisk-visible-tooth-1",
+            "obelisk-visible-tooth-2",
+            "obelisk-visible-tooth-3",
+            "obelisk-visible-tooth-4",
+            "obelisk-visible-tooth-5",
+            "obelisk-slanted-blue-eye--1",
+            "obelisk-long-curved-crown-horn--1",
+            "obelisk-lateral-head-fin--1",
+            "obelisk-slanted-blue-eye-1",
+            "obelisk-long-curved-crown-horn-1",
+            "obelisk-lateral-head-fin-1",
+            "obelisk-sculpted-nasal-bridge",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 2672,
+          "drawCalls": 5,
+          "renderTriangles": 2672,
+          "referenceArt": "/cards/cropped/10000000.jpg",
+          "textureMaps": 0,
+          "joints": [
+            0,
+            5,
+            6
+          ],
+          "bounds": [
+            -1.0080000400543212,
+            0.03735929131507873,
+            -0.6636000096797943,
+            1.0080000400543212,
+            2.6389999866485594,
+            0.6636000096797943
+          ],
+          "pose": [
+            0.1788854381999832,
+            -0.8370865900603768,
+            -0.0984807753012208,
+            0.34468271355427277
+          ],
+          "life": [
+            0,
+            1,
+            0.3545307910843949,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": "10000000",
+      "angle": "three-quarter",
+      "pose": "rest",
+      "models": [
+        {
+          "version": "before",
+          "profile": {
+            "id": "generic-beast-divine",
+            "family": "beast",
+            "digital": false,
+            "body": "#ffe58a",
+            "accent": "#ffe58a",
+            "eye": "#efffff",
+            "attack": "impact"
+          },
+          "partNames": [
+            "creature-body",
+            "creature-head",
+            "eye--1",
+            "eye-1",
+            "ear--1",
+            "creature-leg--1--0.48",
+            "creature-paw--1--0.48",
+            "creature-leg--1-0.6",
+            "creature-paw--1-0.6",
+            "ear-1",
+            "creature-leg-1--0.48",
+            "creature-paw-1--0.48",
+            "creature-leg-1-0.6",
+            "creature-paw-1-0.6",
+            "creature-tail",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 1496,
+          "drawCalls": 4,
+          "renderTriangles": 1496,
+          "referenceArt": null,
+          "textureMaps": 0,
+          "joints": [
+            0,
+            6
+          ],
+          "bounds": [
+            -0.6636000096797943,
+            0.03735929131507873,
+            -1.0282919764518736,
+            0.6636000096797943,
+            2.0124999999999997,
+            0.8259999632835388
+          ],
+          "pose": [
+            0,
+            -0.0,
+            -0.0,
+            0
+          ],
+          "life": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        },
+        {
+          "version": "after",
+          "profile": {
+            "id": "obelisk-tormentor",
+            "family": "warrior",
+            "anatomy": "azure-armored-god",
+            "body": "#568ea8",
+            "accent": "#94bdc8",
+            "hair": "#183d50",
+            "eye": "#adf0e9",
+            "attack": "impact",
+            "bodyMetalness": 0.22,
+            "bodyRoughness": 0.53,
+            "referenceArt": "/cards/cropped/10000000.jpg"
+          },
+          "partNames": [
+            "obelisk-massive-blue-torso",
+            "obelisk-sculpted-pectoral--1",
+            "obelisk-muscular-flank--1",
+            "obelisk-ribbed-abdominal-muscle--1-0",
+            "obelisk-ribbed-abdominal-muscle--1-1",
+            "obelisk-ribbed-abdominal-muscle--1-2",
+            "obelisk-huge-angular-shoulder--1",
+            "obelisk-shoulder-upward-blade--1",
+            "upper-arm--1-obelisk-blue-bicep",
+            "hand--1-obelisk-armored-elbow",
+            "hand--1-obelisk-enormous-forearm",
+            "hand--1-obelisk-bladed-forearm-plate",
+            "hand--1-obelisk-clenched-fist",
+            "hand--1-obelisk-knuckle-0",
+            "hand--1-obelisk-knuckle-1",
+            "hand--1-obelisk-knuckle-2",
+            "hand--1-obelisk-knuckle-3",
+            "obelisk-chest-pointed-collar--1",
+            "obelisk-inferred-blue-thigh--1",
+            "obelisk-inferred-armored-shin--1",
+            "obelisk-inferred-blue-foot--1",
+            "obelisk-sculpted-pectoral-1",
+            "obelisk-muscular-flank-1",
+            "obelisk-ribbed-abdominal-muscle-1-0",
+            "obelisk-ribbed-abdominal-muscle-1-1",
+            "obelisk-ribbed-abdominal-muscle-1-2",
+            "obelisk-huge-angular-shoulder-1",
+            "obelisk-shoulder-upward-blade-1",
+            "upper-arm-1-obelisk-blue-bicep",
+            "hand-1-obelisk-armored-elbow",
+            "hand-1-obelisk-enormous-forearm",
+            "hand-1-obelisk-bladed-forearm-plate",
+            "hand-1-obelisk-clenched-fist",
+            "hand-1-obelisk-knuckle-0",
+            "hand-1-obelisk-knuckle-1",
+            "hand-1-obelisk-knuckle-2",
+            "hand-1-obelisk-knuckle-3",
+            "obelisk-chest-pointed-collar-1",
+            "obelisk-inferred-blue-thigh-1",
+            "obelisk-inferred-armored-shin-1",
+            "obelisk-inferred-blue-foot-1",
+            "obelisk-small-blue-head",
+            "obelisk-long-pointed-chin",
+            "obelisk-grinning-ebony-mouth",
+            "obelisk-visible-tooth-0",
+            "obelisk-visible-tooth-1",
+            "obelisk-visible-tooth-2",
+            "obelisk-visible-tooth-3",
+            "obelisk-visible-tooth-4",
+            "obelisk-visible-tooth-5",
+            "obelisk-slanted-blue-eye--1",
+            "obelisk-long-curved-crown-horn--1",
+            "obelisk-lateral-head-fin--1",
+            "obelisk-slanted-blue-eye-1",
+            "obelisk-long-curved-crown-horn-1",
+            "obelisk-lateral-head-fin-1",
+            "obelisk-sculpted-nasal-bridge",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 2672,
+          "drawCalls": 5,
+          "renderTriangles": 2672,
+          "referenceArt": "/cards/cropped/10000000.jpg",
+          "textureMaps": 0,
+          "joints": [
+            0,
+            5,
+            6
+          ],
+          "bounds": [
+            -1.0080000400543212,
+            0.03735929131507873,
+            -0.6636000096797943,
+            1.0080000400543212,
+            2.6389999866485594,
+            0.6636000096797943
+          ],
+          "pose": [
+            0,
+            -0.0,
+            -0.0,
+            0
+          ],
+          "life": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": "10000000",
+      "angle": "three-quarter",
+      "pose": "attack",
+      "models": [
+        {
+          "version": "before",
+          "profile": {
+            "id": "generic-beast-divine",
+            "family": "beast",
+            "digital": false,
+            "body": "#ffe58a",
+            "accent": "#ffe58a",
+            "eye": "#efffff",
+            "attack": "impact"
+          },
+          "partNames": [
+            "creature-body",
+            "creature-head",
+            "eye--1",
+            "eye-1",
+            "ear--1",
+            "creature-leg--1--0.48",
+            "creature-paw--1--0.48",
+            "creature-leg--1-0.6",
+            "creature-paw--1-0.6",
+            "ear-1",
+            "creature-leg-1--0.48",
+            "creature-paw-1--0.48",
+            "creature-leg-1-0.6",
+            "creature-paw-1-0.6",
+            "creature-tail",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 1496,
+          "drawCalls": 4,
+          "renderTriangles": 1496,
+          "referenceArt": null,
+          "textureMaps": 0,
+          "joints": [
+            0,
+            6
+          ],
+          "bounds": [
+            -0.6636000096797943,
+            0.03735929131507873,
+            -1.0282919764518736,
+            0.6636000096797943,
+            2.0124999999999997,
+            0.8259999632835388
+          ],
+          "pose": [
+            0.1788854381999832,
+            -0.31513848096390656,
+            -0.0984807753012208,
+            0.34468271355427277
+          ],
+          "life": [
+            0,
+            1,
+            0.3545307910843949,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        },
+        {
+          "version": "after",
+          "profile": {
+            "id": "obelisk-tormentor",
+            "family": "warrior",
+            "anatomy": "azure-armored-god",
+            "body": "#568ea8",
+            "accent": "#94bdc8",
+            "hair": "#183d50",
+            "eye": "#adf0e9",
+            "attack": "impact",
+            "bodyMetalness": 0.22,
+            "bodyRoughness": 0.53,
+            "referenceArt": "/cards/cropped/10000000.jpg"
+          },
+          "partNames": [
+            "obelisk-massive-blue-torso",
+            "obelisk-sculpted-pectoral--1",
+            "obelisk-muscular-flank--1",
+            "obelisk-ribbed-abdominal-muscle--1-0",
+            "obelisk-ribbed-abdominal-muscle--1-1",
+            "obelisk-ribbed-abdominal-muscle--1-2",
+            "obelisk-huge-angular-shoulder--1",
+            "obelisk-shoulder-upward-blade--1",
+            "upper-arm--1-obelisk-blue-bicep",
+            "hand--1-obelisk-armored-elbow",
+            "hand--1-obelisk-enormous-forearm",
+            "hand--1-obelisk-bladed-forearm-plate",
+            "hand--1-obelisk-clenched-fist",
+            "hand--1-obelisk-knuckle-0",
+            "hand--1-obelisk-knuckle-1",
+            "hand--1-obelisk-knuckle-2",
+            "hand--1-obelisk-knuckle-3",
+            "obelisk-chest-pointed-collar--1",
+            "obelisk-inferred-blue-thigh--1",
+            "obelisk-inferred-armored-shin--1",
+            "obelisk-inferred-blue-foot--1",
+            "obelisk-sculpted-pectoral-1",
+            "obelisk-muscular-flank-1",
+            "obelisk-ribbed-abdominal-muscle-1-0",
+            "obelisk-ribbed-abdominal-muscle-1-1",
+            "obelisk-ribbed-abdominal-muscle-1-2",
+            "obelisk-huge-angular-shoulder-1",
+            "obelisk-shoulder-upward-blade-1",
+            "upper-arm-1-obelisk-blue-bicep",
+            "hand-1-obelisk-armored-elbow",
+            "hand-1-obelisk-enormous-forearm",
+            "hand-1-obelisk-bladed-forearm-plate",
+            "hand-1-obelisk-clenched-fist",
+            "hand-1-obelisk-knuckle-0",
+            "hand-1-obelisk-knuckle-1",
+            "hand-1-obelisk-knuckle-2",
+            "hand-1-obelisk-knuckle-3",
+            "obelisk-chest-pointed-collar-1",
+            "obelisk-inferred-blue-thigh-1",
+            "obelisk-inferred-armored-shin-1",
+            "obelisk-inferred-blue-foot-1",
+            "obelisk-small-blue-head",
+            "obelisk-long-pointed-chin",
+            "obelisk-grinning-ebony-mouth",
+            "obelisk-visible-tooth-0",
+            "obelisk-visible-tooth-1",
+            "obelisk-visible-tooth-2",
+            "obelisk-visible-tooth-3",
+            "obelisk-visible-tooth-4",
+            "obelisk-visible-tooth-5",
+            "obelisk-slanted-blue-eye--1",
+            "obelisk-long-curved-crown-horn--1",
+            "obelisk-lateral-head-fin--1",
+            "obelisk-slanted-blue-eye-1",
+            "obelisk-long-curved-crown-horn-1",
+            "obelisk-lateral-head-fin-1",
+            "obelisk-sculpted-nasal-bridge",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 2672,
+          "drawCalls": 5,
+          "renderTriangles": 2672,
+          "referenceArt": "/cards/cropped/10000000.jpg",
+          "textureMaps": 0,
+          "joints": [
+            0,
+            5,
+            6
+          ],
+          "bounds": [
+            -1.0080000400543212,
+            0.03735929131507873,
+            -0.6636000096797943,
+            1.0080000400543212,
+            2.6389999866485594,
+            0.6636000096797943
+          ],
+          "pose": [
+            0.1788854381999832,
+            -0.8370865900603768,
+            -0.0984807753012208,
+            0.34468271355427277
+          ],
+          "life": [
+            0,
+            1,
+            0.3545307910843949,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": "10000000",
+      "angle": "side",
+      "pose": "rest",
+      "models": [
+        {
+          "version": "before",
+          "profile": {
+            "id": "generic-beast-divine",
+            "family": "beast",
+            "digital": false,
+            "body": "#ffe58a",
+            "accent": "#ffe58a",
+            "eye": "#efffff",
+            "attack": "impact"
+          },
+          "partNames": [
+            "creature-body",
+            "creature-head",
+            "eye--1",
+            "eye-1",
+            "ear--1",
+            "creature-leg--1--0.48",
+            "creature-paw--1--0.48",
+            "creature-leg--1-0.6",
+            "creature-paw--1-0.6",
+            "ear-1",
+            "creature-leg-1--0.48",
+            "creature-paw-1--0.48",
+            "creature-leg-1-0.6",
+            "creature-paw-1-0.6",
+            "creature-tail",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 1496,
+          "drawCalls": 4,
+          "renderTriangles": 1496,
+          "referenceArt": null,
+          "textureMaps": 0,
+          "joints": [
+            0,
+            6
+          ],
+          "bounds": [
+            -0.6636000096797943,
+            0.03735929131507873,
+            -1.0282919764518736,
+            0.6636000096797943,
+            2.0124999999999997,
+            0.8259999632835388
+          ],
+          "pose": [
+            0,
+            -0.0,
+            -0.0,
+            0
+          ],
+          "life": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        },
+        {
+          "version": "after",
+          "profile": {
+            "id": "obelisk-tormentor",
+            "family": "warrior",
+            "anatomy": "azure-armored-god",
+            "body": "#568ea8",
+            "accent": "#94bdc8",
+            "hair": "#183d50",
+            "eye": "#adf0e9",
+            "attack": "impact",
+            "bodyMetalness": 0.22,
+            "bodyRoughness": 0.53,
+            "referenceArt": "/cards/cropped/10000000.jpg"
+          },
+          "partNames": [
+            "obelisk-massive-blue-torso",
+            "obelisk-sculpted-pectoral--1",
+            "obelisk-muscular-flank--1",
+            "obelisk-ribbed-abdominal-muscle--1-0",
+            "obelisk-ribbed-abdominal-muscle--1-1",
+            "obelisk-ribbed-abdominal-muscle--1-2",
+            "obelisk-huge-angular-shoulder--1",
+            "obelisk-shoulder-upward-blade--1",
+            "upper-arm--1-obelisk-blue-bicep",
+            "hand--1-obelisk-armored-elbow",
+            "hand--1-obelisk-enormous-forearm",
+            "hand--1-obelisk-bladed-forearm-plate",
+            "hand--1-obelisk-clenched-fist",
+            "hand--1-obelisk-knuckle-0",
+            "hand--1-obelisk-knuckle-1",
+            "hand--1-obelisk-knuckle-2",
+            "hand--1-obelisk-knuckle-3",
+            "obelisk-chest-pointed-collar--1",
+            "obelisk-inferred-blue-thigh--1",
+            "obelisk-inferred-armored-shin--1",
+            "obelisk-inferred-blue-foot--1",
+            "obelisk-sculpted-pectoral-1",
+            "obelisk-muscular-flank-1",
+            "obelisk-ribbed-abdominal-muscle-1-0",
+            "obelisk-ribbed-abdominal-muscle-1-1",
+            "obelisk-ribbed-abdominal-muscle-1-2",
+            "obelisk-huge-angular-shoulder-1",
+            "obelisk-shoulder-upward-blade-1",
+            "upper-arm-1-obelisk-blue-bicep",
+            "hand-1-obelisk-armored-elbow",
+            "hand-1-obelisk-enormous-forearm",
+            "hand-1-obelisk-bladed-forearm-plate",
+            "hand-1-obelisk-clenched-fist",
+            "hand-1-obelisk-knuckle-0",
+            "hand-1-obelisk-knuckle-1",
+            "hand-1-obelisk-knuckle-2",
+            "hand-1-obelisk-knuckle-3",
+            "obelisk-chest-pointed-collar-1",
+            "obelisk-inferred-blue-thigh-1",
+            "obelisk-inferred-armored-shin-1",
+            "obelisk-inferred-blue-foot-1",
+            "obelisk-small-blue-head",
+            "obelisk-long-pointed-chin",
+            "obelisk-grinning-ebony-mouth",
+            "obelisk-visible-tooth-0",
+            "obelisk-visible-tooth-1",
+            "obelisk-visible-tooth-2",
+            "obelisk-visible-tooth-3",
+            "obelisk-visible-tooth-4",
+            "obelisk-visible-tooth-5",
+            "obelisk-slanted-blue-eye--1",
+            "obelisk-long-curved-crown-horn--1",
+            "obelisk-lateral-head-fin--1",
+            "obelisk-slanted-blue-eye-1",
+            "obelisk-long-curved-crown-horn-1",
+            "obelisk-lateral-head-fin-1",
+            "obelisk-sculpted-nasal-bridge",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 2672,
+          "drawCalls": 5,
+          "renderTriangles": 2672,
+          "referenceArt": "/cards/cropped/10000000.jpg",
+          "textureMaps": 0,
+          "joints": [
+            0,
+            5,
+            6
+          ],
+          "bounds": [
+            -1.0080000400543212,
+            0.03735929131507873,
+            -0.6636000096797943,
+            1.0080000400543212,
+            2.6389999866485594,
+            0.6636000096797943
+          ],
+          "pose": [
+            0,
+            -0.0,
+            -0.0,
+            0
+          ],
+          "life": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": "10000000",
+      "angle": "side",
+      "pose": "attack",
+      "models": [
+        {
+          "version": "before",
+          "profile": {
+            "id": "generic-beast-divine",
+            "family": "beast",
+            "digital": false,
+            "body": "#ffe58a",
+            "accent": "#ffe58a",
+            "eye": "#efffff",
+            "attack": "impact"
+          },
+          "partNames": [
+            "creature-body",
+            "creature-head",
+            "eye--1",
+            "eye-1",
+            "ear--1",
+            "creature-leg--1--0.48",
+            "creature-paw--1--0.48",
+            "creature-leg--1-0.6",
+            "creature-paw--1-0.6",
+            "ear-1",
+            "creature-leg-1--0.48",
+            "creature-paw-1--0.48",
+            "creature-leg-1-0.6",
+            "creature-paw-1-0.6",
+            "creature-tail",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 1496,
+          "drawCalls": 4,
+          "renderTriangles": 1496,
+          "referenceArt": null,
+          "textureMaps": 0,
+          "joints": [
+            0,
+            6
+          ],
+          "bounds": [
+            -0.6636000096797943,
+            0.03735929131507873,
+            -1.0282919764518736,
+            0.6636000096797943,
+            2.0124999999999997,
+            0.8259999632835388
+          ],
+          "pose": [
+            0.1788854381999832,
+            -0.31513848096390656,
+            -0.0984807753012208,
+            0.34468271355427277
+          ],
+          "life": [
+            0,
+            1,
+            0.3545307910843949,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        },
+        {
+          "version": "after",
+          "profile": {
+            "id": "obelisk-tormentor",
+            "family": "warrior",
+            "anatomy": "azure-armored-god",
+            "body": "#568ea8",
+            "accent": "#94bdc8",
+            "hair": "#183d50",
+            "eye": "#adf0e9",
+            "attack": "impact",
+            "bodyMetalness": 0.22,
+            "bodyRoughness": 0.53,
+            "referenceArt": "/cards/cropped/10000000.jpg"
+          },
+          "partNames": [
+            "obelisk-massive-blue-torso",
+            "obelisk-sculpted-pectoral--1",
+            "obelisk-muscular-flank--1",
+            "obelisk-ribbed-abdominal-muscle--1-0",
+            "obelisk-ribbed-abdominal-muscle--1-1",
+            "obelisk-ribbed-abdominal-muscle--1-2",
+            "obelisk-huge-angular-shoulder--1",
+            "obelisk-shoulder-upward-blade--1",
+            "upper-arm--1-obelisk-blue-bicep",
+            "hand--1-obelisk-armored-elbow",
+            "hand--1-obelisk-enormous-forearm",
+            "hand--1-obelisk-bladed-forearm-plate",
+            "hand--1-obelisk-clenched-fist",
+            "hand--1-obelisk-knuckle-0",
+            "hand--1-obelisk-knuckle-1",
+            "hand--1-obelisk-knuckle-2",
+            "hand--1-obelisk-knuckle-3",
+            "obelisk-chest-pointed-collar--1",
+            "obelisk-inferred-blue-thigh--1",
+            "obelisk-inferred-armored-shin--1",
+            "obelisk-inferred-blue-foot--1",
+            "obelisk-sculpted-pectoral-1",
+            "obelisk-muscular-flank-1",
+            "obelisk-ribbed-abdominal-muscle-1-0",
+            "obelisk-ribbed-abdominal-muscle-1-1",
+            "obelisk-ribbed-abdominal-muscle-1-2",
+            "obelisk-huge-angular-shoulder-1",
+            "obelisk-shoulder-upward-blade-1",
+            "upper-arm-1-obelisk-blue-bicep",
+            "hand-1-obelisk-armored-elbow",
+            "hand-1-obelisk-enormous-forearm",
+            "hand-1-obelisk-bladed-forearm-plate",
+            "hand-1-obelisk-clenched-fist",
+            "hand-1-obelisk-knuckle-0",
+            "hand-1-obelisk-knuckle-1",
+            "hand-1-obelisk-knuckle-2",
+            "hand-1-obelisk-knuckle-3",
+            "obelisk-chest-pointed-collar-1",
+            "obelisk-inferred-blue-thigh-1",
+            "obelisk-inferred-armored-shin-1",
+            "obelisk-inferred-blue-foot-1",
+            "obelisk-small-blue-head",
+            "obelisk-long-pointed-chin",
+            "obelisk-grinning-ebony-mouth",
+            "obelisk-visible-tooth-0",
+            "obelisk-visible-tooth-1",
+            "obelisk-visible-tooth-2",
+            "obelisk-visible-tooth-3",
+            "obelisk-visible-tooth-4",
+            "obelisk-visible-tooth-5",
+            "obelisk-slanted-blue-eye--1",
+            "obelisk-long-curved-crown-horn--1",
+            "obelisk-lateral-head-fin--1",
+            "obelisk-slanted-blue-eye-1",
+            "obelisk-long-curved-crown-horn-1",
+            "obelisk-lateral-head-fin-1",
+            "obelisk-sculpted-nasal-bridge",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 2672,
+          "drawCalls": 5,
+          "renderTriangles": 2672,
+          "referenceArt": "/cards/cropped/10000000.jpg",
+          "textureMaps": 0,
+          "joints": [
+            0,
+            5,
+            6
+          ],
+          "bounds": [
+            -1.0080000400543212,
+            0.03735929131507873,
+            -0.6636000096797943,
+            1.0080000400543212,
+            2.6389999866485594,
+            0.6636000096797943
+          ],
+          "pose": [
+            0.1788854381999832,
+            -0.8370865900603768,
+            -0.0984807753012208,
+            0.34468271355427277
+          ],
+          "life": [
+            0,
+            1,
+            0.3545307910843949,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": "10000010",
+      "angle": "front",
+      "pose": "rest",
+      "models": [
+        {
+          "version": "before",
+          "profile": {
+            "id": "generic-beast-divine",
+            "family": "beast",
+            "digital": false,
+            "body": "#ffe58a",
+            "accent": "#ffe58a",
+            "eye": "#efffff",
+            "attack": "impact"
+          },
+          "partNames": [
+            "creature-body",
+            "creature-head",
+            "eye--1",
+            "eye-1",
+            "ear--1",
+            "creature-leg--1--0.48",
+            "creature-paw--1--0.48",
+            "creature-leg--1-0.6",
+            "creature-paw--1-0.6",
+            "ear-1",
+            "creature-leg-1--0.48",
+            "creature-paw-1--0.48",
+            "creature-leg-1-0.6",
+            "creature-paw-1-0.6",
+            "creature-tail",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 1496,
+          "drawCalls": 4,
+          "renderTriangles": 1496,
+          "referenceArt": null,
+          "textureMaps": 0,
+          "joints": [
+            0,
+            6
+          ],
+          "bounds": [
+            -0.6636000096797943,
+            0.03735929131507873,
+            -1.0282919764518736,
+            0.6636000096797943,
+            2.0124999999999997,
+            0.8259999632835388
+          ],
+          "pose": [
+            0,
+            -0.0,
+            -0.0,
+            0
+          ],
+          "life": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        },
+        {
+          "version": "after",
+          "profile": {
+            "id": "winged-dragon-ra",
+            "family": "dragon",
+            "anatomy": "golden-mechanical-sun-god",
+            "body": "#c89526",
+            "accent": "#f5d45b",
+            "hair": "#463116",
+            "eye": "#dbecbd",
+            "attack": "dragon-burst",
+            "bodyMetalness": 0.7,
+            "bodyRoughness": 0.31,
+            "referenceArt": "/cards/cropped/10000010.jpg"
+          },
+          "partNames": [
+            "ra-golden-armored-torso",
+            "ra-segmented-golden-long-neck",
+            "ra-chevron-gold-ventral-plate-0",
+            "ra-chevron-gold-ventral-plate-1",
+            "ra-chevron-gold-ventral-plate-2",
+            "ra-chevron-gold-ventral-plate-3",
+            "ra-chevron-gold-ventral-plate-4",
+            "ra-chevron-gold-ventral-plate-5",
+            "ra-layered-pointed-neck-armor-0",
+            "ra-layered-pointed-neck-armor-1",
+            "ra-layered-pointed-neck-armor-2",
+            "ra-layered-pointed-neck-armor-3",
+            "ra-layered-pointed-neck-armor-4",
+            "ra-hawk-like-golden-skull",
+            "ra-long-downcurved-golden-beak",
+            "ra-ebony-beak-opening",
+            "jaw-ra-pointed-lower-golden-beak",
+            "ra-spherical-gold-crown-jewel",
+            "ra-narrow-pale-green-eye--1",
+            "ra-swept-golden-crown-horn--1",
+            "ra-golden-cheek-fan--1",
+            "ra-circular-mechanical-shoulder--1",
+            "wing--1-ra-closed-swept-gold-wing",
+            "wing--1-ra-bronze-recessed-inner-membrane",
+            "wing--1-ra-golden-radiating-finger-0",
+            "wing--1-ra-golden-radiating-finger-1",
+            "wing--1-ra-golden-radiating-finger-2",
+            "wing--1-ra-golden-radiating-finger-3",
+            "wing--1-ra-golden-outer-rim",
+            "wing--1-ra-engraved-round-pivot",
+            "wing--1-ra-recessed-pivot-center",
+            "ra-short-golden-upper-arm--1",
+            "hand--1-ra-golden-forearm",
+            "hand--1-ra-three-clawed-palm",
+            "hand--1-ra-ivory-gold-claw-0",
+            "hand--1-ra-ivory-gold-claw-1",
+            "hand--1-ra-ivory-gold-claw-2",
+            "ra-armored-golden-haunch--1",
+            "ra-bent-golden-lower-leg--1",
+            "ra-gold-banded-ankle--1",
+            "ra-gold-talon--1-0",
+            "ra-gold-talon--1-1",
+            "ra-gold-talon--1-2",
+            "ra-narrow-pale-green-eye-1",
+            "ra-swept-golden-crown-horn-1",
+            "ra-golden-cheek-fan-1",
+            "ra-circular-mechanical-shoulder-1",
+            "wing-1-ra-closed-swept-gold-wing",
+            "wing-1-ra-bronze-recessed-inner-membrane",
+            "wing-1-ra-golden-radiating-finger-0",
+            "wing-1-ra-golden-radiating-finger-1",
+            "wing-1-ra-golden-radiating-finger-2",
+            "wing-1-ra-golden-radiating-finger-3",
+            "wing-1-ra-golden-outer-rim",
+            "wing-1-ra-engraved-round-pivot",
+            "wing-1-ra-recessed-pivot-center",
+            "ra-short-golden-upper-arm-1",
+            "hand-1-ra-golden-forearm",
+            "hand-1-ra-three-clawed-palm",
+            "hand-1-ra-ivory-gold-claw-0",
+            "hand-1-ra-ivory-gold-claw-1",
+            "hand-1-ra-ivory-gold-claw-2",
+            "ra-armored-golden-haunch-1",
+            "ra-bent-golden-lower-leg-1",
+            "ra-gold-banded-ankle-1",
+            "ra-gold-talon-1-0",
+            "ra-gold-talon-1-1",
+            "ra-gold-talon-1-2",
+            "ra-long-swept-golden-tail-start-closed-cap",
+            "ra-long-swept-golden-tail-end-closed-cap",
+            "ra-long-swept-golden-tail",
+            "ra-tail-pointed-gold-terminal",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 3764,
+          "drawCalls": 5,
+          "renderTriangles": 3764,
+          "referenceArt": "/cards/cropped/10000010.jpg",
+          "textureMaps": 0,
+          "joints": [
+            0,
+            4,
+            1,
+            2,
+            5,
+            6
+          ],
+          "bounds": [
+            -1.5524444103240966,
+            0.03735929131507873,
+            -0.6636000096797943,
+            1.5524444103240966,
+            2.762686228752136,
+            0.6636000096797943
+          ],
+          "pose": [
+            0,
+            -0.0,
+            -0.0,
+            0
+          ],
+          "life": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": "10000010",
+      "angle": "front",
+      "pose": "attack",
+      "models": [
+        {
+          "version": "before",
+          "profile": {
+            "id": "generic-beast-divine",
+            "family": "beast",
+            "digital": false,
+            "body": "#ffe58a",
+            "accent": "#ffe58a",
+            "eye": "#efffff",
+            "attack": "impact"
+          },
+          "partNames": [
+            "creature-body",
+            "creature-head",
+            "eye--1",
+            "eye-1",
+            "ear--1",
+            "creature-leg--1--0.48",
+            "creature-paw--1--0.48",
+            "creature-leg--1-0.6",
+            "creature-paw--1-0.6",
+            "ear-1",
+            "creature-leg-1--0.48",
+            "creature-paw-1--0.48",
+            "creature-leg-1-0.6",
+            "creature-paw-1-0.6",
+            "creature-tail",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 1496,
+          "drawCalls": 4,
+          "renderTriangles": 1496,
+          "referenceArt": null,
+          "textureMaps": 0,
+          "joints": [
+            0,
+            6
+          ],
+          "bounds": [
+            -0.6636000096797943,
+            0.03735929131507873,
+            -1.0282919764518736,
+            0.6636000096797943,
+            2.0124999999999997,
+            0.8259999632835388
+          ],
+          "pose": [
+            0.1788854381999832,
+            -0.31513848096390656,
+            -0.0984807753012208,
+            0.34468271355427277
+          ],
+          "life": [
+            0,
+            1,
+            0.3545307910843949,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        },
+        {
+          "version": "after",
+          "profile": {
+            "id": "winged-dragon-ra",
+            "family": "dragon",
+            "anatomy": "golden-mechanical-sun-god",
+            "body": "#c89526",
+            "accent": "#f5d45b",
+            "hair": "#463116",
+            "eye": "#dbecbd",
+            "attack": "dragon-burst",
+            "bodyMetalness": 0.7,
+            "bodyRoughness": 0.31,
+            "referenceArt": "/cards/cropped/10000010.jpg"
+          },
+          "partNames": [
+            "ra-golden-armored-torso",
+            "ra-segmented-golden-long-neck",
+            "ra-chevron-gold-ventral-plate-0",
+            "ra-chevron-gold-ventral-plate-1",
+            "ra-chevron-gold-ventral-plate-2",
+            "ra-chevron-gold-ventral-plate-3",
+            "ra-chevron-gold-ventral-plate-4",
+            "ra-chevron-gold-ventral-plate-5",
+            "ra-layered-pointed-neck-armor-0",
+            "ra-layered-pointed-neck-armor-1",
+            "ra-layered-pointed-neck-armor-2",
+            "ra-layered-pointed-neck-armor-3",
+            "ra-layered-pointed-neck-armor-4",
+            "ra-hawk-like-golden-skull",
+            "ra-long-downcurved-golden-beak",
+            "ra-ebony-beak-opening",
+            "jaw-ra-pointed-lower-golden-beak",
+            "ra-spherical-gold-crown-jewel",
+            "ra-narrow-pale-green-eye--1",
+            "ra-swept-golden-crown-horn--1",
+            "ra-golden-cheek-fan--1",
+            "ra-circular-mechanical-shoulder--1",
+            "wing--1-ra-closed-swept-gold-wing",
+            "wing--1-ra-bronze-recessed-inner-membrane",
+            "wing--1-ra-golden-radiating-finger-0",
+            "wing--1-ra-golden-radiating-finger-1",
+            "wing--1-ra-golden-radiating-finger-2",
+            "wing--1-ra-golden-radiating-finger-3",
+            "wing--1-ra-golden-outer-rim",
+            "wing--1-ra-engraved-round-pivot",
+            "wing--1-ra-recessed-pivot-center",
+            "ra-short-golden-upper-arm--1",
+            "hand--1-ra-golden-forearm",
+            "hand--1-ra-three-clawed-palm",
+            "hand--1-ra-ivory-gold-claw-0",
+            "hand--1-ra-ivory-gold-claw-1",
+            "hand--1-ra-ivory-gold-claw-2",
+            "ra-armored-golden-haunch--1",
+            "ra-bent-golden-lower-leg--1",
+            "ra-gold-banded-ankle--1",
+            "ra-gold-talon--1-0",
+            "ra-gold-talon--1-1",
+            "ra-gold-talon--1-2",
+            "ra-narrow-pale-green-eye-1",
+            "ra-swept-golden-crown-horn-1",
+            "ra-golden-cheek-fan-1",
+            "ra-circular-mechanical-shoulder-1",
+            "wing-1-ra-closed-swept-gold-wing",
+            "wing-1-ra-bronze-recessed-inner-membrane",
+            "wing-1-ra-golden-radiating-finger-0",
+            "wing-1-ra-golden-radiating-finger-1",
+            "wing-1-ra-golden-radiating-finger-2",
+            "wing-1-ra-golden-radiating-finger-3",
+            "wing-1-ra-golden-outer-rim",
+            "wing-1-ra-engraved-round-pivot",
+            "wing-1-ra-recessed-pivot-center",
+            "ra-short-golden-upper-arm-1",
+            "hand-1-ra-golden-forearm",
+            "hand-1-ra-three-clawed-palm",
+            "hand-1-ra-ivory-gold-claw-0",
+            "hand-1-ra-ivory-gold-claw-1",
+            "hand-1-ra-ivory-gold-claw-2",
+            "ra-armored-golden-haunch-1",
+            "ra-bent-golden-lower-leg-1",
+            "ra-gold-banded-ankle-1",
+            "ra-gold-talon-1-0",
+            "ra-gold-talon-1-1",
+            "ra-gold-talon-1-2",
+            "ra-long-swept-golden-tail-start-closed-cap",
+            "ra-long-swept-golden-tail-end-closed-cap",
+            "ra-long-swept-golden-tail",
+            "ra-tail-pointed-gold-terminal",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 3764,
+          "drawCalls": 5,
+          "renderTriangles": 3764,
+          "referenceArt": "/cards/cropped/10000010.jpg",
+          "textureMaps": 0,
+          "joints": [
+            0,
+            4,
+            1,
+            2,
+            5,
+            6
+          ],
+          "bounds": [
+            -1.5524444103240966,
+            0.03735929131507873,
+            -0.6636000096797943,
+            1.5524444103240966,
+            2.762686228752136,
+            0.6636000096797943
+          ],
+          "pose": [
+            0.1788854381999832,
+            -0.31513848096390656,
+            -0.0984807753012208,
+            0.34468271355427277
+          ],
+          "life": [
+            0,
+            1,
+            0.3545307910843949,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": "10000010",
+      "angle": "three-quarter",
+      "pose": "rest",
+      "models": [
+        {
+          "version": "before",
+          "profile": {
+            "id": "generic-beast-divine",
+            "family": "beast",
+            "digital": false,
+            "body": "#ffe58a",
+            "accent": "#ffe58a",
+            "eye": "#efffff",
+            "attack": "impact"
+          },
+          "partNames": [
+            "creature-body",
+            "creature-head",
+            "eye--1",
+            "eye-1",
+            "ear--1",
+            "creature-leg--1--0.48",
+            "creature-paw--1--0.48",
+            "creature-leg--1-0.6",
+            "creature-paw--1-0.6",
+            "ear-1",
+            "creature-leg-1--0.48",
+            "creature-paw-1--0.48",
+            "creature-leg-1-0.6",
+            "creature-paw-1-0.6",
+            "creature-tail",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 1496,
+          "drawCalls": 4,
+          "renderTriangles": 1496,
+          "referenceArt": null,
+          "textureMaps": 0,
+          "joints": [
+            0,
+            6
+          ],
+          "bounds": [
+            -0.6636000096797943,
+            0.03735929131507873,
+            -1.0282919764518736,
+            0.6636000096797943,
+            2.0124999999999997,
+            0.8259999632835388
+          ],
+          "pose": [
+            0,
+            -0.0,
+            -0.0,
+            0
+          ],
+          "life": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        },
+        {
+          "version": "after",
+          "profile": {
+            "id": "winged-dragon-ra",
+            "family": "dragon",
+            "anatomy": "golden-mechanical-sun-god",
+            "body": "#c89526",
+            "accent": "#f5d45b",
+            "hair": "#463116",
+            "eye": "#dbecbd",
+            "attack": "dragon-burst",
+            "bodyMetalness": 0.7,
+            "bodyRoughness": 0.31,
+            "referenceArt": "/cards/cropped/10000010.jpg"
+          },
+          "partNames": [
+            "ra-golden-armored-torso",
+            "ra-segmented-golden-long-neck",
+            "ra-chevron-gold-ventral-plate-0",
+            "ra-chevron-gold-ventral-plate-1",
+            "ra-chevron-gold-ventral-plate-2",
+            "ra-chevron-gold-ventral-plate-3",
+            "ra-chevron-gold-ventral-plate-4",
+            "ra-chevron-gold-ventral-plate-5",
+            "ra-layered-pointed-neck-armor-0",
+            "ra-layered-pointed-neck-armor-1",
+            "ra-layered-pointed-neck-armor-2",
+            "ra-layered-pointed-neck-armor-3",
+            "ra-layered-pointed-neck-armor-4",
+            "ra-hawk-like-golden-skull",
+            "ra-long-downcurved-golden-beak",
+            "ra-ebony-beak-opening",
+            "jaw-ra-pointed-lower-golden-beak",
+            "ra-spherical-gold-crown-jewel",
+            "ra-narrow-pale-green-eye--1",
+            "ra-swept-golden-crown-horn--1",
+            "ra-golden-cheek-fan--1",
+            "ra-circular-mechanical-shoulder--1",
+            "wing--1-ra-closed-swept-gold-wing",
+            "wing--1-ra-bronze-recessed-inner-membrane",
+            "wing--1-ra-golden-radiating-finger-0",
+            "wing--1-ra-golden-radiating-finger-1",
+            "wing--1-ra-golden-radiating-finger-2",
+            "wing--1-ra-golden-radiating-finger-3",
+            "wing--1-ra-golden-outer-rim",
+            "wing--1-ra-engraved-round-pivot",
+            "wing--1-ra-recessed-pivot-center",
+            "ra-short-golden-upper-arm--1",
+            "hand--1-ra-golden-forearm",
+            "hand--1-ra-three-clawed-palm",
+            "hand--1-ra-ivory-gold-claw-0",
+            "hand--1-ra-ivory-gold-claw-1",
+            "hand--1-ra-ivory-gold-claw-2",
+            "ra-armored-golden-haunch--1",
+            "ra-bent-golden-lower-leg--1",
+            "ra-gold-banded-ankle--1",
+            "ra-gold-talon--1-0",
+            "ra-gold-talon--1-1",
+            "ra-gold-talon--1-2",
+            "ra-narrow-pale-green-eye-1",
+            "ra-swept-golden-crown-horn-1",
+            "ra-golden-cheek-fan-1",
+            "ra-circular-mechanical-shoulder-1",
+            "wing-1-ra-closed-swept-gold-wing",
+            "wing-1-ra-bronze-recessed-inner-membrane",
+            "wing-1-ra-golden-radiating-finger-0",
+            "wing-1-ra-golden-radiating-finger-1",
+            "wing-1-ra-golden-radiating-finger-2",
+            "wing-1-ra-golden-radiating-finger-3",
+            "wing-1-ra-golden-outer-rim",
+            "wing-1-ra-engraved-round-pivot",
+            "wing-1-ra-recessed-pivot-center",
+            "ra-short-golden-upper-arm-1",
+            "hand-1-ra-golden-forearm",
+            "hand-1-ra-three-clawed-palm",
+            "hand-1-ra-ivory-gold-claw-0",
+            "hand-1-ra-ivory-gold-claw-1",
+            "hand-1-ra-ivory-gold-claw-2",
+            "ra-armored-golden-haunch-1",
+            "ra-bent-golden-lower-leg-1",
+            "ra-gold-banded-ankle-1",
+            "ra-gold-talon-1-0",
+            "ra-gold-talon-1-1",
+            "ra-gold-talon-1-2",
+            "ra-long-swept-golden-tail-start-closed-cap",
+            "ra-long-swept-golden-tail-end-closed-cap",
+            "ra-long-swept-golden-tail",
+            "ra-tail-pointed-gold-terminal",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 3764,
+          "drawCalls": 5,
+          "renderTriangles": 3764,
+          "referenceArt": "/cards/cropped/10000010.jpg",
+          "textureMaps": 0,
+          "joints": [
+            0,
+            4,
+            1,
+            2,
+            5,
+            6
+          ],
+          "bounds": [
+            -1.5524444103240966,
+            0.03735929131507873,
+            -0.6636000096797943,
+            1.5524444103240966,
+            2.762686228752136,
+            0.6636000096797943
+          ],
+          "pose": [
+            0,
+            -0.0,
+            -0.0,
+            0
+          ],
+          "life": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": "10000010",
+      "angle": "three-quarter",
+      "pose": "attack",
+      "models": [
+        {
+          "version": "before",
+          "profile": {
+            "id": "generic-beast-divine",
+            "family": "beast",
+            "digital": false,
+            "body": "#ffe58a",
+            "accent": "#ffe58a",
+            "eye": "#efffff",
+            "attack": "impact"
+          },
+          "partNames": [
+            "creature-body",
+            "creature-head",
+            "eye--1",
+            "eye-1",
+            "ear--1",
+            "creature-leg--1--0.48",
+            "creature-paw--1--0.48",
+            "creature-leg--1-0.6",
+            "creature-paw--1-0.6",
+            "ear-1",
+            "creature-leg-1--0.48",
+            "creature-paw-1--0.48",
+            "creature-leg-1-0.6",
+            "creature-paw-1-0.6",
+            "creature-tail",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 1496,
+          "drawCalls": 4,
+          "renderTriangles": 1496,
+          "referenceArt": null,
+          "textureMaps": 0,
+          "joints": [
+            0,
+            6
+          ],
+          "bounds": [
+            -0.6636000096797943,
+            0.03735929131507873,
+            -1.0282919764518736,
+            0.6636000096797943,
+            2.0124999999999997,
+            0.8259999632835388
+          ],
+          "pose": [
+            0.1788854381999832,
+            -0.31513848096390656,
+            -0.0984807753012208,
+            0.34468271355427277
+          ],
+          "life": [
+            0,
+            1,
+            0.3545307910843949,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        },
+        {
+          "version": "after",
+          "profile": {
+            "id": "winged-dragon-ra",
+            "family": "dragon",
+            "anatomy": "golden-mechanical-sun-god",
+            "body": "#c89526",
+            "accent": "#f5d45b",
+            "hair": "#463116",
+            "eye": "#dbecbd",
+            "attack": "dragon-burst",
+            "bodyMetalness": 0.7,
+            "bodyRoughness": 0.31,
+            "referenceArt": "/cards/cropped/10000010.jpg"
+          },
+          "partNames": [
+            "ra-golden-armored-torso",
+            "ra-segmented-golden-long-neck",
+            "ra-chevron-gold-ventral-plate-0",
+            "ra-chevron-gold-ventral-plate-1",
+            "ra-chevron-gold-ventral-plate-2",
+            "ra-chevron-gold-ventral-plate-3",
+            "ra-chevron-gold-ventral-plate-4",
+            "ra-chevron-gold-ventral-plate-5",
+            "ra-layered-pointed-neck-armor-0",
+            "ra-layered-pointed-neck-armor-1",
+            "ra-layered-pointed-neck-armor-2",
+            "ra-layered-pointed-neck-armor-3",
+            "ra-layered-pointed-neck-armor-4",
+            "ra-hawk-like-golden-skull",
+            "ra-long-downcurved-golden-beak",
+            "ra-ebony-beak-opening",
+            "jaw-ra-pointed-lower-golden-beak",
+            "ra-spherical-gold-crown-jewel",
+            "ra-narrow-pale-green-eye--1",
+            "ra-swept-golden-crown-horn--1",
+            "ra-golden-cheek-fan--1",
+            "ra-circular-mechanical-shoulder--1",
+            "wing--1-ra-closed-swept-gold-wing",
+            "wing--1-ra-bronze-recessed-inner-membrane",
+            "wing--1-ra-golden-radiating-finger-0",
+            "wing--1-ra-golden-radiating-finger-1",
+            "wing--1-ra-golden-radiating-finger-2",
+            "wing--1-ra-golden-radiating-finger-3",
+            "wing--1-ra-golden-outer-rim",
+            "wing--1-ra-engraved-round-pivot",
+            "wing--1-ra-recessed-pivot-center",
+            "ra-short-golden-upper-arm--1",
+            "hand--1-ra-golden-forearm",
+            "hand--1-ra-three-clawed-palm",
+            "hand--1-ra-ivory-gold-claw-0",
+            "hand--1-ra-ivory-gold-claw-1",
+            "hand--1-ra-ivory-gold-claw-2",
+            "ra-armored-golden-haunch--1",
+            "ra-bent-golden-lower-leg--1",
+            "ra-gold-banded-ankle--1",
+            "ra-gold-talon--1-0",
+            "ra-gold-talon--1-1",
+            "ra-gold-talon--1-2",
+            "ra-narrow-pale-green-eye-1",
+            "ra-swept-golden-crown-horn-1",
+            "ra-golden-cheek-fan-1",
+            "ra-circular-mechanical-shoulder-1",
+            "wing-1-ra-closed-swept-gold-wing",
+            "wing-1-ra-bronze-recessed-inner-membrane",
+            "wing-1-ra-golden-radiating-finger-0",
+            "wing-1-ra-golden-radiating-finger-1",
+            "wing-1-ra-golden-radiating-finger-2",
+            "wing-1-ra-golden-radiating-finger-3",
+            "wing-1-ra-golden-outer-rim",
+            "wing-1-ra-engraved-round-pivot",
+            "wing-1-ra-recessed-pivot-center",
+            "ra-short-golden-upper-arm-1",
+            "hand-1-ra-golden-forearm",
+            "hand-1-ra-three-clawed-palm",
+            "hand-1-ra-ivory-gold-claw-0",
+            "hand-1-ra-ivory-gold-claw-1",
+            "hand-1-ra-ivory-gold-claw-2",
+            "ra-armored-golden-haunch-1",
+            "ra-bent-golden-lower-leg-1",
+            "ra-gold-banded-ankle-1",
+            "ra-gold-talon-1-0",
+            "ra-gold-talon-1-1",
+            "ra-gold-talon-1-2",
+            "ra-long-swept-golden-tail-start-closed-cap",
+            "ra-long-swept-golden-tail-end-closed-cap",
+            "ra-long-swept-golden-tail",
+            "ra-tail-pointed-gold-terminal",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 3764,
+          "drawCalls": 5,
+          "renderTriangles": 3764,
+          "referenceArt": "/cards/cropped/10000010.jpg",
+          "textureMaps": 0,
+          "joints": [
+            0,
+            4,
+            1,
+            2,
+            5,
+            6
+          ],
+          "bounds": [
+            -1.5524444103240966,
+            0.03735929131507873,
+            -0.6636000096797943,
+            1.5524444103240966,
+            2.762686228752136,
+            0.6636000096797943
+          ],
+          "pose": [
+            0.1788854381999832,
+            -0.31513848096390656,
+            -0.0984807753012208,
+            0.34468271355427277
+          ],
+          "life": [
+            0,
+            1,
+            0.3545307910843949,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": "10000010",
+      "angle": "side",
+      "pose": "rest",
+      "models": [
+        {
+          "version": "before",
+          "profile": {
+            "id": "generic-beast-divine",
+            "family": "beast",
+            "digital": false,
+            "body": "#ffe58a",
+            "accent": "#ffe58a",
+            "eye": "#efffff",
+            "attack": "impact"
+          },
+          "partNames": [
+            "creature-body",
+            "creature-head",
+            "eye--1",
+            "eye-1",
+            "ear--1",
+            "creature-leg--1--0.48",
+            "creature-paw--1--0.48",
+            "creature-leg--1-0.6",
+            "creature-paw--1-0.6",
+            "ear-1",
+            "creature-leg-1--0.48",
+            "creature-paw-1--0.48",
+            "creature-leg-1-0.6",
+            "creature-paw-1-0.6",
+            "creature-tail",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 1496,
+          "drawCalls": 4,
+          "renderTriangles": 1496,
+          "referenceArt": null,
+          "textureMaps": 0,
+          "joints": [
+            0,
+            6
+          ],
+          "bounds": [
+            -0.6636000096797943,
+            0.03735929131507873,
+            -1.0282919764518736,
+            0.6636000096797943,
+            2.0124999999999997,
+            0.8259999632835388
+          ],
+          "pose": [
+            0,
+            -0.0,
+            -0.0,
+            0
+          ],
+          "life": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        },
+        {
+          "version": "after",
+          "profile": {
+            "id": "winged-dragon-ra",
+            "family": "dragon",
+            "anatomy": "golden-mechanical-sun-god",
+            "body": "#c89526",
+            "accent": "#f5d45b",
+            "hair": "#463116",
+            "eye": "#dbecbd",
+            "attack": "dragon-burst",
+            "bodyMetalness": 0.7,
+            "bodyRoughness": 0.31,
+            "referenceArt": "/cards/cropped/10000010.jpg"
+          },
+          "partNames": [
+            "ra-golden-armored-torso",
+            "ra-segmented-golden-long-neck",
+            "ra-chevron-gold-ventral-plate-0",
+            "ra-chevron-gold-ventral-plate-1",
+            "ra-chevron-gold-ventral-plate-2",
+            "ra-chevron-gold-ventral-plate-3",
+            "ra-chevron-gold-ventral-plate-4",
+            "ra-chevron-gold-ventral-plate-5",
+            "ra-layered-pointed-neck-armor-0",
+            "ra-layered-pointed-neck-armor-1",
+            "ra-layered-pointed-neck-armor-2",
+            "ra-layered-pointed-neck-armor-3",
+            "ra-layered-pointed-neck-armor-4",
+            "ra-hawk-like-golden-skull",
+            "ra-long-downcurved-golden-beak",
+            "ra-ebony-beak-opening",
+            "jaw-ra-pointed-lower-golden-beak",
+            "ra-spherical-gold-crown-jewel",
+            "ra-narrow-pale-green-eye--1",
+            "ra-swept-golden-crown-horn--1",
+            "ra-golden-cheek-fan--1",
+            "ra-circular-mechanical-shoulder--1",
+            "wing--1-ra-closed-swept-gold-wing",
+            "wing--1-ra-bronze-recessed-inner-membrane",
+            "wing--1-ra-golden-radiating-finger-0",
+            "wing--1-ra-golden-radiating-finger-1",
+            "wing--1-ra-golden-radiating-finger-2",
+            "wing--1-ra-golden-radiating-finger-3",
+            "wing--1-ra-golden-outer-rim",
+            "wing--1-ra-engraved-round-pivot",
+            "wing--1-ra-recessed-pivot-center",
+            "ra-short-golden-upper-arm--1",
+            "hand--1-ra-golden-forearm",
+            "hand--1-ra-three-clawed-palm",
+            "hand--1-ra-ivory-gold-claw-0",
+            "hand--1-ra-ivory-gold-claw-1",
+            "hand--1-ra-ivory-gold-claw-2",
+            "ra-armored-golden-haunch--1",
+            "ra-bent-golden-lower-leg--1",
+            "ra-gold-banded-ankle--1",
+            "ra-gold-talon--1-0",
+            "ra-gold-talon--1-1",
+            "ra-gold-talon--1-2",
+            "ra-narrow-pale-green-eye-1",
+            "ra-swept-golden-crown-horn-1",
+            "ra-golden-cheek-fan-1",
+            "ra-circular-mechanical-shoulder-1",
+            "wing-1-ra-closed-swept-gold-wing",
+            "wing-1-ra-bronze-recessed-inner-membrane",
+            "wing-1-ra-golden-radiating-finger-0",
+            "wing-1-ra-golden-radiating-finger-1",
+            "wing-1-ra-golden-radiating-finger-2",
+            "wing-1-ra-golden-radiating-finger-3",
+            "wing-1-ra-golden-outer-rim",
+            "wing-1-ra-engraved-round-pivot",
+            "wing-1-ra-recessed-pivot-center",
+            "ra-short-golden-upper-arm-1",
+            "hand-1-ra-golden-forearm",
+            "hand-1-ra-three-clawed-palm",
+            "hand-1-ra-ivory-gold-claw-0",
+            "hand-1-ra-ivory-gold-claw-1",
+            "hand-1-ra-ivory-gold-claw-2",
+            "ra-armored-golden-haunch-1",
+            "ra-bent-golden-lower-leg-1",
+            "ra-gold-banded-ankle-1",
+            "ra-gold-talon-1-0",
+            "ra-gold-talon-1-1",
+            "ra-gold-talon-1-2",
+            "ra-long-swept-golden-tail-start-closed-cap",
+            "ra-long-swept-golden-tail-end-closed-cap",
+            "ra-long-swept-golden-tail",
+            "ra-tail-pointed-gold-terminal",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 3764,
+          "drawCalls": 5,
+          "renderTriangles": 3764,
+          "referenceArt": "/cards/cropped/10000010.jpg",
+          "textureMaps": 0,
+          "joints": [
+            0,
+            4,
+            1,
+            2,
+            5,
+            6
+          ],
+          "bounds": [
+            -1.5524444103240966,
+            0.03735929131507873,
+            -0.6636000096797943,
+            1.5524444103240966,
+            2.762686228752136,
+            0.6636000096797943
+          ],
+          "pose": [
+            0,
+            -0.0,
+            -0.0,
+            0
+          ],
+          "life": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": "10000010",
+      "angle": "side",
+      "pose": "attack",
+      "models": [
+        {
+          "version": "before",
+          "profile": {
+            "id": "generic-beast-divine",
+            "family": "beast",
+            "digital": false,
+            "body": "#ffe58a",
+            "accent": "#ffe58a",
+            "eye": "#efffff",
+            "attack": "impact"
+          },
+          "partNames": [
+            "creature-body",
+            "creature-head",
+            "eye--1",
+            "eye-1",
+            "ear--1",
+            "creature-leg--1--0.48",
+            "creature-paw--1--0.48",
+            "creature-leg--1-0.6",
+            "creature-paw--1-0.6",
+            "ear-1",
+            "creature-leg-1--0.48",
+            "creature-paw-1--0.48",
+            "creature-leg-1-0.6",
+            "creature-paw-1-0.6",
+            "creature-tail",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 1496,
+          "drawCalls": 4,
+          "renderTriangles": 1496,
+          "referenceArt": null,
+          "textureMaps": 0,
+          "joints": [
+            0,
+            6
+          ],
+          "bounds": [
+            -0.6636000096797943,
+            0.03735929131507873,
+            -1.0282919764518736,
+            0.6636000096797943,
+            2.0124999999999997,
+            0.8259999632835388
+          ],
+          "pose": [
+            0.1788854381999832,
+            -0.31513848096390656,
+            -0.0984807753012208,
+            0.34468271355427277
+          ],
+          "life": [
+            0,
+            1,
+            0.3545307910843949,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        },
+        {
+          "version": "after",
+          "profile": {
+            "id": "winged-dragon-ra",
+            "family": "dragon",
+            "anatomy": "golden-mechanical-sun-god",
+            "body": "#c89526",
+            "accent": "#f5d45b",
+            "hair": "#463116",
+            "eye": "#dbecbd",
+            "attack": "dragon-burst",
+            "bodyMetalness": 0.7,
+            "bodyRoughness": 0.31,
+            "referenceArt": "/cards/cropped/10000010.jpg"
+          },
+          "partNames": [
+            "ra-golden-armored-torso",
+            "ra-segmented-golden-long-neck",
+            "ra-chevron-gold-ventral-plate-0",
+            "ra-chevron-gold-ventral-plate-1",
+            "ra-chevron-gold-ventral-plate-2",
+            "ra-chevron-gold-ventral-plate-3",
+            "ra-chevron-gold-ventral-plate-4",
+            "ra-chevron-gold-ventral-plate-5",
+            "ra-layered-pointed-neck-armor-0",
+            "ra-layered-pointed-neck-armor-1",
+            "ra-layered-pointed-neck-armor-2",
+            "ra-layered-pointed-neck-armor-3",
+            "ra-layered-pointed-neck-armor-4",
+            "ra-hawk-like-golden-skull",
+            "ra-long-downcurved-golden-beak",
+            "ra-ebony-beak-opening",
+            "jaw-ra-pointed-lower-golden-beak",
+            "ra-spherical-gold-crown-jewel",
+            "ra-narrow-pale-green-eye--1",
+            "ra-swept-golden-crown-horn--1",
+            "ra-golden-cheek-fan--1",
+            "ra-circular-mechanical-shoulder--1",
+            "wing--1-ra-closed-swept-gold-wing",
+            "wing--1-ra-bronze-recessed-inner-membrane",
+            "wing--1-ra-golden-radiating-finger-0",
+            "wing--1-ra-golden-radiating-finger-1",
+            "wing--1-ra-golden-radiating-finger-2",
+            "wing--1-ra-golden-radiating-finger-3",
+            "wing--1-ra-golden-outer-rim",
+            "wing--1-ra-engraved-round-pivot",
+            "wing--1-ra-recessed-pivot-center",
+            "ra-short-golden-upper-arm--1",
+            "hand--1-ra-golden-forearm",
+            "hand--1-ra-three-clawed-palm",
+            "hand--1-ra-ivory-gold-claw-0",
+            "hand--1-ra-ivory-gold-claw-1",
+            "hand--1-ra-ivory-gold-claw-2",
+            "ra-armored-golden-haunch--1",
+            "ra-bent-golden-lower-leg--1",
+            "ra-gold-banded-ankle--1",
+            "ra-gold-talon--1-0",
+            "ra-gold-talon--1-1",
+            "ra-gold-talon--1-2",
+            "ra-narrow-pale-green-eye-1",
+            "ra-swept-golden-crown-horn-1",
+            "ra-golden-cheek-fan-1",
+            "ra-circular-mechanical-shoulder-1",
+            "wing-1-ra-closed-swept-gold-wing",
+            "wing-1-ra-bronze-recessed-inner-membrane",
+            "wing-1-ra-golden-radiating-finger-0",
+            "wing-1-ra-golden-radiating-finger-1",
+            "wing-1-ra-golden-radiating-finger-2",
+            "wing-1-ra-golden-radiating-finger-3",
+            "wing-1-ra-golden-outer-rim",
+            "wing-1-ra-engraved-round-pivot",
+            "wing-1-ra-recessed-pivot-center",
+            "ra-short-golden-upper-arm-1",
+            "hand-1-ra-golden-forearm",
+            "hand-1-ra-three-clawed-palm",
+            "hand-1-ra-ivory-gold-claw-0",
+            "hand-1-ra-ivory-gold-claw-1",
+            "hand-1-ra-ivory-gold-claw-2",
+            "ra-armored-golden-haunch-1",
+            "ra-bent-golden-lower-leg-1",
+            "ra-gold-banded-ankle-1",
+            "ra-gold-talon-1-0",
+            "ra-gold-talon-1-1",
+            "ra-gold-talon-1-2",
+            "ra-long-swept-golden-tail-start-closed-cap",
+            "ra-long-swept-golden-tail-end-closed-cap",
+            "ra-long-swept-golden-tail",
+            "ra-tail-pointed-gold-terminal",
+            "projection-circle",
+            "projection-inner-circle",
+            "projection-glyph-0",
+            "projection-glyph-1",
+            "projection-glyph-2",
+            "projection-glyph-3",
+            "projection-glyph-4",
+            "projection-glyph-5",
+            "projection-glyph-6",
+            "projection-glyph-7"
+          ],
+          "triangles": 3764,
+          "drawCalls": 5,
+          "renderTriangles": 3764,
+          "referenceArt": "/cards/cropped/10000010.jpg",
+          "textureMaps": 0,
+          "joints": [
+            0,
+            4,
+            1,
+            2,
+            5,
+            6
+          ],
+          "bounds": [
+            -1.5524444103240966,
+            0.03735929131507873,
+            -0.6636000096797943,
+            1.5524444103240966,
+            2.762686228752136,
+            0.6636000096797943
+          ],
+          "pose": [
+            0.1788854381999832,
+            -0.31513848096390656,
+            -0.0984807753012208,
+            0.34468271355427277
+          ],
+          "life": [
+            0,
+            1,
+            0.3545307910843949,
+            0
+          ],
+          "geometryVersions": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "materialTypes": [
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshStandardMaterial",
+            "MeshBasicMaterial",
+            "MeshBasicMaterial"
+          ]
+        }
+      ]
+    }
+  ],
+  "disposals": [
+    {
+      "cardId": "10000020",
+      "results": [
+        {
+          "version": "before",
+          "geometryCount": 4,
+          "geometryDisposals": 4,
+          "materialCount": 6,
+          "materialDisposals": 6,
+          "gpuAfterRelease": {
+            "geometries": 0,
+            "textures": 0
+          },
+          "programsAfterRendererDispose": 0,
+          "rigDisposed": true
+        },
+        {
+          "version": "after",
+          "geometryCount": 5,
+          "geometryDisposals": 5,
+          "materialCount": 7,
+          "materialDisposals": 7,
+          "gpuAfterRelease": {
+            "geometries": 0,
+            "textures": 0
+          },
+          "programsAfterRendererDispose": 0,
+          "rigDisposed": true
+        }
+      ]
+    },
+    {
+      "cardId": "10000000",
+      "results": [
+        {
+          "version": "before",
+          "geometryCount": 4,
+          "geometryDisposals": 4,
+          "materialCount": 6,
+          "materialDisposals": 6,
+          "gpuAfterRelease": {
+            "geometries": 0,
+            "textures": 0
+          },
+          "programsAfterRendererDispose": 0,
+          "rigDisposed": true
+        },
+        {
+          "version": "after",
+          "geometryCount": 5,
+          "geometryDisposals": 5,
+          "materialCount": 7,
+          "materialDisposals": 7,
+          "gpuAfterRelease": {
+            "geometries": 0,
+            "textures": 0
+          },
+          "programsAfterRendererDispose": 0,
+          "rigDisposed": true
+        }
+      ]
+    },
+    {
+      "cardId": "10000010",
+      "results": [
+        {
+          "version": "before",
+          "geometryCount": 4,
+          "geometryDisposals": 4,
+          "materialCount": 6,
+          "materialDisposals": 6,
+          "gpuAfterRelease": {
+            "geometries": 0,
+            "textures": 0
+          },
+          "programsAfterRendererDispose": 0,
+          "rigDisposed": true
+        },
+        {
+          "version": "after",
+          "geometryCount": 5,
+          "geometryDisposals": 5,
+          "materialCount": 7,
+          "materialDisposals": 7,
+          "gpuAfterRelease": {
+            "geometries": 0,
+            "textures": 0
+          },
+          "programsAfterRendererDispose": 0,
+          "rigDisposed": true
+        }
+      ]
+    }
+  ],
+  "browserErrors": [],
+  "failedRequests": [],
+  "fidelity": "source-adapted procedural anatomy; depth and proportions adapted, not integral spatial 1:1",
+  "limits": [
+    "The comparison renders the actual source modules under identical camera/light conditions.",
+    "Draw calls measure color rendering only; no shadow pass is configured.",
+    "The three models have no illustration texture or standee geometry.",
+    "The original JPEG artwork remains the authoritative appearance reference.",
+    "Action is a mechanical GPU-rig pose at progress 0.4; no native battle or invented card effect is certified by this model audit.",
+    "Obelisk is printed as a cropped upper body: the lower legs are explicitly inferred blue continuations.",
+    "Slifer and Ra preserve their visible red/gold, double-mouth/hawk-neck and wing structures; unseen depth, rear surfaces, symmetry and proportions are adapted.",
+    "Egyptian Gods are an iconic selection, not a measured contemporary tournament-popularity ranking. Art effects or backgrounds are not creature anatomy."
+  ],
+  "preservedModels": [
+    {
+      "cardId": "89631139",
+      "before": {
+        "sha256": "4c929351e911cd56721b5b36c0fa9df3a96b83c2ad40f132f97db7a25adc2e26",
+        "bytes": 2347299,
+        "triangles": 4160,
+        "batches": 5
+      },
+      "after": {
+        "sha256": "4c929351e911cd56721b5b36c0fa9df3a96b83c2ad40f132f97db7a25adc2e26",
+        "bytes": 2347299,
+        "triangles": 4160,
+        "batches": 5
+      },
+      "equal": true
+    },
+    {
+      "cardId": "74677422",
+      "before": {
+        "sha256": "68b53572069040d1debfba3cc674ef86f490ebe1f4d5cafb44d97f3890d183f9",
+        "bytes": 2585701,
+        "triangles": 4520,
+        "batches": 5
+      },
+      "after": {
+        "sha256": "68b53572069040d1debfba3cc674ef86f490ebe1f4d5cafb44d97f3890d183f9",
+        "bytes": 2585701,
+        "triangles": 4520,
+        "batches": 5
+      },
+      "equal": true
+    },
+    {
+      "cardId": "23995346",
+      "before": {
+        "sha256": "6a8f0cc1ecfe33bbc7b06a74242ac9835db3073769c1337dcaa0e79fe1098e00",
+        "bytes": 2765843,
+        "triangles": 4882,
+        "batches": 5
+      },
+      "after": {
+        "sha256": "6a8f0cc1ecfe33bbc7b06a74242ac9835db3073769c1337dcaa0e79fe1098e00",
+        "bytes": 2765843,
+        "triangles": 4882,
+        "batches": 5
+      },
+      "equal": true
+    },
+    {
+      "cardId": "88819587",
+      "before": {
+        "sha256": "cd886ae8197a3e51b1cd5fc2a3fd9d6b7d6bb6c8e0477d29f332f7fd86eafa8c",
+        "bytes": 2297746,
+        "triangles": 3834,
+        "batches": 5
+      },
+      "after": {
+        "sha256": "cd886ae8197a3e51b1cd5fc2a3fd9d6b7d6bb6c8e0477d29f332f7fd86eafa8c",
+        "bytes": 2297746,
+        "triangles": 3834,
+        "batches": 5
+      },
+      "equal": true
+    },
+    {
+      "cardId": "46986414",
+      "before": {
+        "sha256": "ab9e12d35aceaa4d9fdd684f96c573eb9dc4c32e105a9d24ec2bd31fef9af15d",
+        "bytes": 2502763,
+        "triangles": 4544,
+        "batches": 5
+      },
+      "after": {
+        "sha256": "ab9e12d35aceaa4d9fdd684f96c573eb9dc4c32e105a9d24ec2bd31fef9af15d",
+        "bytes": 2502763,
+        "triangles": 4544,
+        "batches": 5
+      },
+      "equal": true
+    },
+    {
+      "cardId": "38033121",
+      "before": {
+        "sha256": "290ddda300b47eb978886015eee2d766eed371bfe10b82b8f2ca123e2bab7357",
+        "bytes": 2619477,
+        "triangles": 4692,
+        "batches": 5
+      },
+      "after": {
+        "sha256": "290ddda300b47eb978886015eee2d766eed371bfe10b82b8f2ca123e2bab7357",
+        "bytes": 2619477,
+        "triangles": 4692,
+        "batches": 5
+      },
+      "equal": true
+    },
+    {
+      "cardId": "91152256",
+      "before": {
+        "sha256": "e2e6e0eac569f2b181113f57cd0e7e8099ea2287a48032236905767d8f11e758",
+        "bytes": 1147117,
+        "triangles": 2016,
+        "batches": 5
+      },
+      "after": {
+        "sha256": "e2e6e0eac569f2b181113f57cd0e7e8099ea2287a48032236905767d8f11e758",
+        "bytes": 1147117,
+        "triangles": 2016,
+        "batches": 5
+      },
+      "equal": true
+    },
+    {
+      "cardId": "63977008",
+      "before": {
+        "sha256": "6328d8ae26e87fd7fe75cdbffc6ddfe3e9fcccb99eaecaed8bcc19b95633a5db",
+        "bytes": 1375788,
+        "triangles": 2356,
+        "batches": 5
+      },
+      "after": {
+        "sha256": "6328d8ae26e87fd7fe75cdbffc6ddfe3e9fcccb99eaecaed8bcc19b95633a5db",
+        "bytes": 1375788,
+        "triangles": 2356,
+        "batches": 5
+      },
+      "equal": true
+    },
+    {
+      "cardId": "40640057",
+      "before": {
+        "sha256": "31a2892dd0a5a5efa66c5697960109e28b48dc5cb79e17c099cf71e55d0cd5a1",
+        "bytes": 1058070,
+        "triangles": 1776,
+        "batches": 5
+      },
+      "after": {
+        "sha256": "31a2892dd0a5a5efa66c5697960109e28b48dc5cb79e17c099cf71e55d0cd5a1",
+        "bytes": 1058070,
+        "triangles": 1776,
+        "batches": 5
+      },
+      "equal": true
+    },
+    {
+      "cardId": "70781052",
+      "before": {
+        "sha256": "30480a6f23ae12277acb48ece9a9e43aa7064f833e9f6004f7a6785a10a96651",
+        "bytes": 1975988,
+        "triangles": 3270,
+        "batches": 4
+      },
+      "after": {
+        "sha256": "30480a6f23ae12277acb48ece9a9e43aa7064f833e9f6004f7a6785a10a96651",
+        "bytes": 1975988,
+        "triangles": 3270,
+        "batches": 4
+      },
+      "equal": true
+    },
+    {
+      "cardId": "13039848",
+      "before": {
+        "sha256": "d94cf99c83035b7e44cc37e5b5d5a9ec6bac9c2ef23e7c52a2f36fc741bd564b",
+        "bytes": 1041197,
+        "triangles": 1820,
+        "batches": 5
+      },
+      "after": {
+        "sha256": "d94cf99c83035b7e44cc37e5b5d5a9ec6bac9c2ef23e7c52a2f36fc741bd564b",
+        "bytes": 1041197,
+        "triangles": 1820,
+        "batches": 5
+      },
+      "equal": true
+    },
+    {
+      "cardId": "71625222",
+      "before": {
+        "sha256": "b4ba2d9bb8c75066f012c2e6dfb830391aaff940e40967bc25fc6cec1d4b712d",
+        "bytes": 872222,
+        "triangles": 1500,
+        "batches": 4
+      },
+      "after": {
+        "sha256": "b4ba2d9bb8c75066f012c2e6dfb830391aaff940e40967bc25fc6cec1d4b712d",
+        "bytes": 872222,
+        "triangles": 1500,
+        "batches": 4
+      },
+      "equal": true
+    },
+    {
+      "cardId": "44508094",
+      "before": {
+        "sha256": "3440930486c7c8976dc39f25f938ffb69da34375e539f8c2f93cc149a9134bf4",
+        "bytes": 2267620,
+        "triangles": 3834,
+        "batches": 5
+      },
+      "after": {
+        "sha256": "3440930486c7c8976dc39f25f938ffb69da34375e539f8c2f93cc149a9134bf4",
+        "bytes": 2267620,
+        "triangles": 3834,
+        "batches": 5
+      },
+      "equal": true
+    },
+    {
+      "cardId": "54652250",
+      "before": {
+        "sha256": "928ed900c7f862d74926b02e7ee41bbc490a7a97b475a55a6c621f2046fe082d",
+        "bytes": 1895862,
+        "triangles": 3136,
+        "batches": 5
+      },
+      "after": {
+        "sha256": "928ed900c7f862d74926b02e7ee41bbc490a7a97b475a55a6c621f2046fe082d",
+        "bytes": 1895862,
+        "triangles": 3136,
+        "batches": 5
+      },
+      "equal": true
+    },
+    {
+      "cardId": "31560081",
+      "before": {
+        "sha256": "9dd6f1b7d6889fef7ba831c6d56b1d586b45811617b23be5c9158d5f5634199a",
+        "bytes": 2447927,
+        "triangles": 4044,
+        "batches": 5
+      },
+      "after": {
+        "sha256": "9dd6f1b7d6889fef7ba831c6d56b1d586b45811617b23be5c9158d5f5634199a",
+        "bytes": 2447927,
+        "triangles": 4044,
+        "batches": 5
+      },
+      "equal": true
+    },
+    {
+      "cardId": "26202165",
+      "before": {
+        "sha256": "b610a0a48f88235f5d11c8b5fc3d229aa79407ea2634756e897e401d71daba0d",
+        "bytes": 1180476,
+        "triangles": 1988,
+        "batches": 5
+      },
+      "after": {
+        "sha256": "b610a0a48f88235f5d11c8b5fc3d229aa79407ea2634756e897e401d71daba0d",
+        "bytes": 1180476,
+        "triangles": 1988,
+        "batches": 5
+      },
+      "equal": true
+    },
+    {
+      "cardId": "77637979",
+      "before": {
+        "sha256": "b884aaeca6b1d33970bfbd319093a9ee693978334b8fb2ae7309306fbe00b222",
+        "bytes": 2465773,
+        "triangles": 4278,
+        "batches": 5
+      },
+      "after": {
+        "sha256": "b884aaeca6b1d33970bfbd319093a9ee693978334b8fb2ae7309306fbe00b222",
+        "bytes": 2465773,
+        "triangles": 4278,
+        "batches": 5
+      },
+      "equal": true
+    },
+    {
+      "cardId": "20721928",
+      "before": {
+        "sha256": "7e568fbde5080c4995f3fd3a3309caf31555024108b653caac21e5faaa3a976e",
+        "bytes": 2195779,
+        "triangles": 3868,
+        "batches": 5
+      },
+      "after": {
+        "sha256": "7e568fbde5080c4995f3fd3a3309caf31555024108b653caac21e5faaa3a976e",
+        "bytes": 2195779,
+        "triangles": 3868,
+        "batches": 5
+      },
+      "equal": true
+    },
+    {
+      "cardId": "68638985",
+      "before": {
+        "sha256": "9d86df8fd42ab237ad631b2b1d315dae8930c6dc1c99793485398964c3bc70a8",
+        "bytes": 1644317,
+        "triangles": 2748,
+        "batches": 5
+      },
+      "after": {
+        "sha256": "9d86df8fd42ab237ad631b2b1d315dae8930c6dc1c99793485398964c3bc70a8",
+        "bytes": 1644317,
+        "triangles": 2748,
+        "batches": 5
+      },
+      "equal": true
+    },
+    {
+      "cardId": "26905245",
+      "before": {
+        "sha256": "a7c1387244d7ad4aba3ec80b3d68dd4c65d9ea952abe680852e4c66969f25dae",
+        "bytes": 2832631,
+        "triangles": 4700,
+        "batches": 4
+      },
+      "after": {
+        "sha256": "a7c1387244d7ad4aba3ec80b3d68dd4c65d9ea952abe680852e4c66969f25dae",
+        "bytes": 2832631,
+        "triangles": 4700,
+        "batches": 4
+      },
+      "equal": true
+    },
+    {
+      "cardId": "28649820",
+      "before": {
+        "sha256": "d7ddbb9e6f4a23489272387a1316ebda11584259c99154e1b2d107a97e012362",
+        "bytes": 3548384,
+        "triangles": 5980,
+        "batches": 5
+      },
+      "after": {
+        "sha256": "d7ddbb9e6f4a23489272387a1316ebda11584259c99154e1b2d107a97e012362",
+        "bytes": 3548384,
+        "triangles": 5980,
+        "batches": 5
+      },
+      "equal": true
+    },
+    {
+      "cardId": "97590747",
+      "before": {
+        "sha256": "6fbba41c1ba9a12d22522ba9dfa7a5d6409210e726d529eb9bc735fa7f3f865f",
+        "bytes": 2732857,
+        "triangles": 4744,
+        "batches": 4
+      },
+      "after": {
+        "sha256": "6fbba41c1ba9a12d22522ba9dfa7a5d6409210e726d529eb9bc735fa7f3f865f",
+        "bytes": 2732857,
+        "triangles": 4744,
+        "batches": 4
+      },
+      "equal": true
+    },
+    {
+      "cardId": "15025844",
+      "before": {
+        "sha256": "8a6ad6f7a4d2ff87f75ad17440c3e4d8e83fa77897237661433467e2488b788e",
+        "bytes": 2843726,
+        "triangles": 4752,
+        "batches": 4
+      },
+      "after": {
+        "sha256": "8a6ad6f7a4d2ff87f75ad17440c3e4d8e83fa77897237661433467e2488b788e",
+        "bytes": 2843726,
+        "triangles": 4752,
+        "batches": 4
+      },
+      "equal": true
+    },
+    {
+      "cardId": "32452818",
+      "before": {
+        "sha256": "9ba96f7c889285d73de145f5f09095ddcf70d32bcb04ba8b015c2df733031efa",
+        "bytes": 2336876,
+        "triangles": 4052,
+        "batches": 5
+      },
+      "after": {
+        "sha256": "9ba96f7c889285d73de145f5f09095ddcf70d32bcb04ba8b015c2df733031efa",
+        "bytes": 2336876,
+        "triangles": 4052,
+        "batches": 5
+      },
+      "equal": true
+    },
+    {
+      "cardId": "5053103",
+      "before": {
+        "sha256": "4ce831d6e787955187c27bc76b8f9371202d39359ded5f166e68d4f83122837c",
+        "bytes": 2876216,
+        "triangles": 5088,
+        "batches": 5
+      },
+      "after": {
+        "sha256": "4ce831d6e787955187c27bc76b8f9371202d39359ded5f166e68d4f83122837c",
+        "bytes": 2876216,
+        "triangles": 5088,
+        "batches": 5
+      },
+      "equal": true
+    },
+    {
+      "cardId": "66602787",
+      "before": {
+        "sha256": "295a83677e58cdd3ffab9f485512d74135512bb4a459b07398995657c2b91b36",
+        "bytes": 3035706,
+        "triangles": 5288,
+        "batches": 5
+      },
+      "after": {
+        "sha256": "295a83677e58cdd3ffab9f485512d74135512bb4a459b07398995657c2b91b36",
+        "bytes": 3035706,
+        "triangles": 5288,
+        "batches": 5
+      },
+      "equal": true
+    },
+    {
+      "cardId": "28279543",
+      "before": {
+        "sha256": "bf456b08854df0883e9e42656814f315d915f130dc8bedfb16b0d7fac86f92ca",
+        "bytes": 2767218,
+        "triangles": 4820,
+        "batches": 5
+      },
+      "after": {
+        "sha256": "bf456b08854df0883e9e42656814f315d915f130dc8bedfb16b0d7fac86f92ca",
+        "bytes": 2767218,
+        "triangles": 4820,
+        "batches": 5
+      },
+      "equal": true
+    },
+    {
+      "cardId": "39552864",
+      "before": {
+        "sha256": "2bed5bf680332807b1ece55f2457614a22b83860d1c0f30437ca5d1e1f4bbbe7",
+        "bytes": 1057446,
+        "triangles": 1940,
+        "batches": 3
+      },
+      "after": {
+        "sha256": "2bed5bf680332807b1ece55f2457614a22b83860d1c0f30437ca5d1e1f4bbbe7",
+        "bytes": 1057446,
+        "triangles": 1940,
+        "batches": 3
+      },
+      "equal": true
+    }
+  ],
+  "defenseMeasurements": [
+    {
+      "cardId": "10000020",
+      "models": [
+        {
+          "version": "before",
+          "triangles": 2064,
+          "drawCalls": 4,
+          "renderTriangles": 2064,
+          "batches": 4
+        },
+        {
+          "version": "after",
+          "triangles": 3560,
+          "drawCalls": 5,
+          "renderTriangles": 3560,
+          "batches": 5
+        }
+      ]
+    },
+    {
+      "cardId": "10000000",
+      "models": [
+        {
+          "version": "before",
+          "triangles": 2064,
+          "drawCalls": 4,
+          "renderTriangles": 2064,
+          "batches": 4
+        },
+        {
+          "version": "after",
+          "triangles": 3240,
+          "drawCalls": 5,
+          "renderTriangles": 3240,
+          "batches": 5
+        }
+      ]
+    },
+    {
+      "cardId": "10000010",
+      "models": [
+        {
+          "version": "before",
+          "triangles": 2064,
+          "drawCalls": 4,
+          "renderTriangles": 2064,
+          "batches": 4
+        },
+        {
+          "version": "after",
+          "triangles": 4332,
+          "drawCalls": 5,
+          "renderTriangles": 4332,
+          "batches": 5
+        }
+      ]
+    }
+  ],
+  "dedicatedProfilesObserved": {
+    "count": 36,
+    "ids": [
+      "5053103",
+      "10000000",
+      "10000010",
+      "10000020",
+      "13039848",
+      "14558127",
+      "15025844",
+      "20721928",
+      "23995346",
+      "26202165",
+      "26905245",
+      "28279543",
+      "28649820",
+      "31560081",
+      "32452818",
+      "38033121",
+      "39552864",
+      "40640057",
+      "44508094",
+      "46986414",
+      "54652250",
+      "63977008",
+      "66602787",
+      "68638985",
+      "70095154",
+      "70781052",
+      "71625222",
+      "72989439",
+      "74677422",
+      "77637979",
+      "84013237",
+      "88819587",
+      "89631139",
+      "89943723",
+      "91152256",
+      "97590747"
+    ]
+  },
+  "preservedFallbackFamilies": {
+    "count": 17,
+    "sourceDeclarationUnchanged": true
+  },
+  "preservationScope": "The 28 previous exact profiles, constructed geometry attributes (including colors and joints), scale, named parts and material properties have identical before/after SHA256. These constructed buffers are not a render of all 28 monsters.",
+  "comparisonScene": {
+    "viewport": [
+      1260,
+      800
+    ],
+    "canvas": [
+      438,
+      560
+    ],
+    "pixelRatio": 1,
+    "cameraFov": 37,
+    "cameraRadius": 7.0,
+    "cameraY": 2.3,
+    "lookAt": [
+      0,
+      1.6,
+      0
+    ],
+    "anglesRadians": {
+      "front": 0,
+      "three-quarter": 0.66,
+      "side": 1.5707963267948966
+    },
+    "poses": {
+      "rest": 0,
+      "attack": 0.4
+    },
+    "sourceHtmlSha256": "c31054e05ffaf4e6ca91264de6db7dcce1cc120e2604d32e9c5002d78af7fe2f"
+  }
+}

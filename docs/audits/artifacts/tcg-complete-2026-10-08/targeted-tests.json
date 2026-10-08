@@ -1,0 +1,19 @@
+{
+  "command": "node --test test/tcg-complete-format.test.js test/match-engine.test.js test/match-controller.test.js test/deck-builder-rules.test.js test/current-banlist-compatibility.test.js test/umi-deck-name-limits.test.js test/native-card-registry.test.js",
+  "completedAtUtc": "2026-10-08T22:04:20.122498+00:00",
+  "shellNetworkPermission": "with_additional_permissions network.enabled=true for Node worker IPC",
+  "exitCode": 0,
+  "tests": 281,
+  "pass": 281,
+  "fail": 0,
+  "cancelled": 0,
+  "skipped": 0,
+  "todo": 0,
+  "testFiles": 7,
+  "newOfficialRows": 231,
+  "lifecycleCases": 14,
+  "log": "docs/audits/artifacts/tcg-complete-2026-10-08/targeted-tests.txt",
+  "bytes": 24310,
+  "sha256": "f2f66cf71e9090a3347a68214d9f2abdd881804dedbebae89a10294217ce1f3a",
+  "scope": "Targeted real CDB Deck/Match validation, distinct from native in-Duel WASM and compiled-browser checks."
+}

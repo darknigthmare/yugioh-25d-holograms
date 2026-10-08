@@ -1,5 +1,7 @@
 import { FIELD_SPELL_REFERENCE_ART_PALETTES } from './FieldSpellReferenceArtPalettes.js';
 import { getFieldSpellEnvironmentCatalogEntry } from './FieldSpellEnvironmentCatalog.js';
+import { POPULAR_GOD_MODEL_PROFILES } from './HologramPopularGodModels.js';
+import { POPULAR_STAPLE_PROFILES } from './HologramPopularStapleModels.js';
 
 const ATTRIBUTE_COLORS = Object.freeze({
   LIGHT: '#87eaff', DARK: '#ae75ff', FIRE: '#ff7944', WATER: '#38d8ee',
@@ -34,7 +36,9 @@ const CARD_PROFILES = Object.freeze({
   '5053103': { id: 'battle-ox', family: 'warrior', bodyMetalness: 0.1, bodyRoughness: 0.58, body: '#76503a', accent: '#c8b337', eye: '#c7342e', attack: 'blade', anatomy: 'red-armored-bull', referenceArt: '/cards/cropped/5053103.jpg' },
   '66602787': { id: 'saggi-dark-clown', family: 'magician', bodyMetalness: 0.05, bodyRoughness: 0.62, accentMetalness: 0.08, accentRoughness: 0.55, darkMetalness: 0.08, body: '#17799c', accent: '#dc3b4a', eye: '#e8e66b', attack: 'dark-magic', anatomy: 'asymmetric-jester', referenceArt: '/cards/cropped/66602787.jpg' },
   '28279543': { id: 'curse-of-dragon', family: 'dragon', bodyMetalness: 0.24, bodyRoughness: 0.5, darkMetalness: 0.15, body: '#879451', accent: '#d6d98b', eye: '#e04025', attack: 'dragon-burst', anatomy: 'olive-winged-serpent', referenceArt: '/cards/cropped/28279543.jpg' },
-  '39552864': { id: 'mystical-shine-ball', family: 'orb', body: '#e3eef1', accent: '#c6eeff', eye: '#f8fffa', attack: 'faith-light', anatomy: 'shine-ball', referenceArt: '/cards/cropped/39552864.jpg' }
+  '39552864': { id: 'mystical-shine-ball', family: 'orb', body: '#e3eef1', accent: '#c6eeff', eye: '#f8fffa', attack: 'faith-light', anatomy: 'shine-ball', referenceArt: '/cards/cropped/39552864.jpg' },
+  ...POPULAR_GOD_MODEL_PROFILES,
+  ...POPULAR_STAPLE_PROFILES
 });
 
 export const SUPPORTED_HOLOGRAM_MODEL_IDS = Object.freeze(Object.keys(CARD_PROFILES));

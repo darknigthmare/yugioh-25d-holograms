@@ -1,0 +1,40 @@
+{
+  "inspectedOn": "2026-10-08",
+  "method": "Viewed exact downloaded crop JPEGs and real module screenshots with source/before/after, no generated image used.",
+  "inspectedScreenshots": [
+    {
+      "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/70095154-three-quarter-rest.png",
+      "sha256": "a17bee495ffd091b5dc7ac802e6e67d01adff43ebe552e521d2ffea12a3e2a7b"
+    },
+    {
+      "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/89943723-front-rest.png",
+      "sha256": "e9b14df4ef51405733245eb4d6713c8778032433421290d6a17afd370acbbbd1"
+    },
+    {
+      "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/84013237-three-quarter-rest.png",
+      "sha256": "2e6afaa338c72d73a994f0b077ab195409f8a2d314160362cc5282b2059b13c5"
+    },
+    {
+      "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/72989439-three-quarter-rest.png",
+      "sha256": "c840d6dbb3a245f1e10bedf580d4756ecec02e9326e59560b81b6578f71c1240"
+    },
+    {
+      "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/14558127-front-rest.png",
+      "sha256": "c99f0f94251c825612f8c5cd4aca426f530f110ab2ba737dd29e01c45ed69138"
+    },
+    {
+      "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/89943723-side-attack.png",
+      "sha256": "f63e94656272e84a3b5885a06cde6b67ec2e2837561abed3d022d964a3787bae"
+    }
+  ],
+  "findings": {
+    "70095154": "Silver continuous coiled serpent replaces generic humanoid. Segmented shells, dark seams, yellow eyes, open jaw, cheek cables and dorsal fins; no wings or feet. Head is faceted, unseen thickness and coil dimensions adapted.",
+    "89943723": "Silver muscular hero, red trunk lines, blue chest orb, crown and long forearm fins, black gloves. Lower legs are inferred from cropped source; source portrait pose is not reproduced.",
+    "84013237": "White/gold two-sword knight with green chest jewel, red slit eyes, high gold crown and grooved rear hanging armor. Rear number39 is geometric strokes, not a JPEG texture. Both hands use rest pose, not exact illustration viewpoint.",
+    "72989439": "Blue/dark-purple knight with pale gold high pauldrons/crown, ruby breast/waist gems, diagonal broad silver sword and dark long gold-rimmed shield. Sword overlaps the face at some views; original portrait is a different pose.",
+    "14558127": "Bonus model: pale flared closed kimono skirt/sleeves, bob haircut, brown eyes, orange bow, pink scarf, dark obi and small sandals. Source pose/depth are adapted; cherry background is omitted."
+  },
+  "certification": "Recognisable source motifs and real volumes; not spatial 1:1 or statistical popularity ranking.",
+  "finalTransitiveGodModuleSha256": "7e095ad4bab594756d846b6794add8afb540f962494b7168589d0bc80851f121",
+  "scope": "Final source pin refresh after sibling God cap-winding/bend correction; staple module and scene/camera/source art unchanged."
+}

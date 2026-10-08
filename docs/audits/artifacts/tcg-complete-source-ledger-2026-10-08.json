@@ -1,0 +1,2319 @@
+{
+  "generatedAtUtc": "2026-10-08T22:55:24.223844+00:00",
+  "ok": true,
+  "scope": "Final current source/proof linkage. Old diagnostic artifacts and immutable historical reports retain their original source pins and are excluded from final-case totals. HTTP preview delivery is separately verified after publication.",
+  "reports": [
+    {
+      "name": "format",
+      "report": {
+        "path": "docs/audits/artifacts/tcg-complete-2026-10-08/report.json",
+        "bytes": 99333,
+        "sha256": "5116ce024f5f97e5536061c588d64b0ddeec65b248b9200623040cb9368bb892"
+      },
+      "recordedExecutedDependenciesMatchCurrentBytes": true,
+      "dependencies": [
+        {
+          "path": "src/core/MatchEngine.js",
+          "bytes": 39071,
+          "sha256": "fa39f6163a84ea6adcbf6481b6dad154316a9d522505947b3c1966daa19712b7"
+        },
+        {
+          "path": "src/ui/MatchController.js",
+          "bytes": 25804,
+          "sha256": "9712ace23577eb65ebca16632b8d51411e31c5ee37d6f12b9ddb272c5ab68cbc"
+        },
+        {
+          "path": "src/ui/DeckBuilderRules.js",
+          "bytes": 9516,
+          "sha256": "824e6683279fb894c9eaf554bed8496e6efde2a1f4706037bb78044c9aeea9f3"
+        },
+        {
+          "path": "src/core/tcg/TcgAdvancedFormat.js",
+          "bytes": 2731,
+          "sha256": "058606afc6449ce1ced941c42000c8a109da55cf9b36ad8919b853582c540d40"
+        },
+        {
+          "path": "src/core/tcg/TcgAdvancedBanlistData.js",
+          "bytes": 57732,
+          "sha256": "bdc8c18edb0a6308949e516442106747ada3976334beb105562c17c7d6f5d945"
+        },
+        {
+          "path": "src/core/tcg/TcgCardLegality.js",
+          "bytes": 5154,
+          "sha256": "7b556ecb1af2b729a71f4cdf237182068d5f3d47a85cacef8a91c2661979e874"
+        },
+        {
+          "path": "src/core/CardNameRules.js",
+          "bytes": 970,
+          "sha256": "6e0821869caeb7e4a96a86bfe05043a206d5042d2c3f5fc54c1b931d4ce0b0fa"
+        },
+        {
+          "path": "src/core/native/NativeCardCatalogue.js",
+          "bytes": 15865,
+          "sha256": "7db3547182e650eeb618023059ccec2750d9a074d3258559f6c5040528ab79ca"
+        },
+        {
+          "path": "src/core/native/NativeCardRegistry.js",
+          "bytes": 5752,
+          "sha256": "0d3d50a39fefd3be57b3ea6a4e4b945c204730bb2580d5f96016de01b71dcefd"
+        },
+        {
+          "path": "src/core/native/NativeCardData.js",
+          "bytes": 4737,
+          "sha256": "59a664d8d16593ef2223d895085e81e48d6eaa0d90bb0725b6410a71bdcac568"
+        },
+        {
+          "path": "src/content/SoloCampaign.js",
+          "bytes": 26216,
+          "sha256": "0d7b6766c32bd87a29ff8ed61a442fee0f765ec65057905aeed5412474f1a5eb"
+        },
+        {
+          "path": "src/cards.js",
+          "bytes": 27940,
+          "sha256": "e0a05e98ed0892afc1e8c363b997f785fd74bb061d04c4aafb5fe84908a4a5c8"
+        },
+        {
+          "path": "main.js",
+          "bytes": 191637,
+          "sha256": "b1ad9601ee5d785e30fe532a463bc6adf458cea0115ec27d8b2ecf994df913d0"
+        },
+        {
+          "path": "public/native/card-data.json",
+          "bytes": 7601872,
+          "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+        },
+        {
+          "path": "public/native/scripts.json",
+          "bytes": 35549984,
+          "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+        },
+        {
+          "path": "scripts/generate-tcg-complete-format.py",
+          "bytes": 4922,
+          "sha256": "121ef068fd9dabce69cf931f854c58cc7c7cf3eff337a67db14ea407952d3367"
+        },
+        {
+          "path": "scripts/tcg-complete-format-cases.mjs",
+          "bytes": 14883,
+          "sha256": "a99921449cc5c58e1bdb992eee1f5f61d55e6766af5177ea8d3b1d7633567116"
+        },
+        {
+          "path": "scripts/audit-tcg-complete-format.mjs",
+          "bytes": 9206,
+          "sha256": "f96f8ef511cb64f5d928cf755da1f177604e6b398a3a5cc8aedd6f686dda66eb"
+        },
+        {
+          "path": "test/tcg-complete-format.test.js",
+          "bytes": 1632,
+          "sha256": "8889c06fe3a4bf293c5148bbe3ef8d29c814031cb0811e44e349df456d41d26e"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-complete-2026-10-08/before-match-engine.js.txt",
+          "bytes": 32201,
+          "sha256": "bdae458f903d81a5a2b7fa762c6f6064eced69affebb8c7ec8b91eb15bb4f604"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-complete-2026-10-08/sources.json",
+          "bytes": 2220,
+          "sha256": "be215d2e36208a4d24d4f3d0b450971daf41007842788dd81a8d08fb043beb4b"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-complete-2026-10-08/resolved-advanced-list.json",
+          "bytes": 62949,
+          "sha256": "04f3e6933271e00166ab6ee3ccdf8ea3cb3014569ba1011b69d475260ac38752"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-complete-2026-10-08/targeted-tests.json",
+          "bytes": 888,
+          "sha256": "2eb957cd43152ea19f269ff233db942a377838b03cf170db6612a082ef61a9d4"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-complete-2026-10-08/targeted-tests.txt",
+          "bytes": 24310,
+          "sha256": "f2f66cf71e9090a3347a68214d9f2abdd881804dedbebae89a10294217ce1f3a"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-complete-2026-10-08/official-advanced-list.html.txt",
+          "bytes": 65695,
+          "sha256": "4477c35dea86300050449fa3e9a48291d876338669ba83e8d7371280a2c12806"
+        }
+      ]
+    },
+    {
+      "name": "initialization",
+      "report": {
+        "path": "docs/audits/artifacts/tcg-catalogue-initialization-2026-10-08.json",
+        "bytes": 12136976,
+        "sha256": "1269bde9c30cf0f27bf34ed7677a7d559c0fde434f57d140ffd31a294ec1b931"
+      },
+      "recordedExecutedDependenciesMatchCurrentBytes": true,
+      "dependencies": [
+        {
+          "path": "src/core/native/NativeDuelRuntime.js",
+          "bytes": 9739,
+          "sha256": "07136f4301391bd62e4f29fe611067b15734f53c92354cb6a3cc3b33ff52e6b5"
+        },
+        {
+          "path": "src/core/native/NativeTCGRuleProfile.js",
+          "bytes": 657,
+          "sha256": "5ea356d97beef0b1b35674d47108a95738953ca77d6581eda5524197b94f7c38"
+        },
+        {
+          "path": "src/core/native/NativeLuaCompatibility.js",
+          "bytes": 536,
+          "sha256": "7445d1f73cad6ba208fa0cf869d6f51491e6dd700dedc4cbec6f4342fd8d163e"
+        },
+        {
+          "path": "src/core/native/NativeCardCatalogue.js",
+          "bytes": 15865,
+          "sha256": "7db3547182e650eeb618023059ccec2750d9a074d3258559f6c5040528ab79ca"
+        },
+        {
+          "path": "src/core/native/NativeDuelDecisions.js",
+          "bytes": 35779,
+          "sha256": "4ec35dd4cc12ae7efcb1dd45a39e3cc7a83e359d9af41a84d51f3ffa5bbff724"
+        },
+        {
+          "path": "src/core/tcg/TcgCardLegality.js",
+          "bytes": 5154,
+          "sha256": "7b556ecb1af2b729a71f4cdf237182068d5f3d47a85cacef8a91c2661979e874"
+        },
+        {
+          "path": "src/core/tcg/TcgAdvancedFormat.js",
+          "bytes": 2731,
+          "sha256": "058606afc6449ce1ced941c42000c8a109da55cf9b36ad8919b853582c540d40"
+        },
+        {
+          "path": "scripts/audit-tcg-catalogue-initialization.mjs",
+          "bytes": 10137,
+          "sha256": "dfe23ee2453bc334d1279a2c5c5ab020bf76926aea6c05aa667103208622f12e"
+        },
+        {
+          "path": "public/native/card-data.json",
+          "bytes": 7601872,
+          "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+        },
+        {
+          "path": "public/native/scripts.json",
+          "bytes": 35549984,
+          "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+        },
+        {
+          "path": "public/native/core-build.json",
+          "bytes": 2402,
+          "sha256": "1b2624bc1c60420432a247e1d422b02574991738988205bc4db4cd585a4cd0df"
+        }
+      ]
+    },
+    {
+      "name": "summoning",
+      "report": {
+        "path": "docs/audits/artifacts/tcg-summoning-complete-2026-10-08.json",
+        "bytes": 1393535,
+        "sha256": "9f2d02a1be2e36fb85ce1c510f8ac9dac8c300be26234759427560a0a11dd641"
+      },
+      "recordedExecutedDependenciesMatchCurrentBytes": true,
+      "dependencies": [
+        {
+          "path": "src/core/native/NativeDuelRuntime.js",
+          "bytes": 9739,
+          "sha256": "07136f4301391bd62e4f29fe611067b15734f53c92354cb6a3cc3b33ff52e6b5"
+        },
+        {
+          "path": "src/core/native/NativeTCGRuleProfile.js",
+          "bytes": 657,
+          "sha256": "5ea356d97beef0b1b35674d47108a95738953ca77d6581eda5524197b94f7c38"
+        },
+        {
+          "path": "src/core/native/NativeDuelGame.js",
+          "bytes": 62312,
+          "sha256": "04a3219a0b59bec1aab199efc72fc25069c68acb17233190a898c530add0813f"
+        },
+        {
+          "path": "src/core/native/NativeDuelDecisions.js",
+          "bytes": 35779,
+          "sha256": "4ec35dd4cc12ae7efcb1dd45a39e3cc7a83e359d9af41a84d51f3ffa5bbff724"
+        },
+        {
+          "path": "scripts/audit-tcg-summoning-complete.mjs",
+          "bytes": 36615,
+          "sha256": "2e495a5cf5e47439e4907a56397ea127fc4439b52fdaac507a4d776e5a25da25"
+        }
+      ]
+    },
+    {
+      "name": "chains",
+      "report": {
+        "path": "docs/audits/artifacts/tcg-chain-complete-2026-10-08.json",
+        "bytes": 786151,
+        "sha256": "1f68e97a1b91d5f92c253e965e260217882a739d11ea5934e4b4dd11c7fcf7e9"
+      },
+      "recordedExecutedDependenciesMatchCurrentBytes": true,
+      "dependencies": [
+        {
+          "path": "src/core/native/NativeDuelDecisions.js",
+          "bytes": 35779,
+          "sha256": "4ec35dd4cc12ae7efcb1dd45a39e3cc7a83e359d9af41a84d51f3ffa5bbff724"
+        },
+        {
+          "path": "src/core/native/NativeChainDecisionInfo.js",
+          "bytes": 1541,
+          "sha256": "ba57cbd05832466c404cae2d2ecb89d5cee95e00bfb84318fc3ae65c5c88b589"
+        },
+        {
+          "path": "src/core/native/NativeDuelRuntime.js",
+          "bytes": 9739,
+          "sha256": "07136f4301391bd62e4f29fe611067b15734f53c92354cb6a3cc3b33ff52e6b5"
+        },
+        {
+          "path": "scripts/audit-tcg-chain-complete.mjs",
+          "bytes": 23086,
+          "sha256": "85201aa6db2e8216d571f062cb54125e8db0f7c56bfbf486b5728cab132ab6e1"
+        },
+        {
+          "path": "src/core/native/NativeCardData.js",
+          "bytes": 4737,
+          "sha256": "59a664d8d16593ef2223d895085e81e48d6eaa0d90bb0725b6410a71bdcac568"
+        },
+        {
+          "path": "scripts/native-field-audit-inputs.mjs",
+          "bytes": 1862,
+          "sha256": "c2224fb53c089a05ae8c123aee72cf38b79679248b1777b4916648ea29482a96"
+        },
+        {
+          "path": "scripts/native-field-audit-harness.mjs",
+          "bytes": 12500,
+          "sha256": "d7b1c776f5552fd5eb5f5e70712c0265fd5b75f30d2d07465caadd10887a0734"
+        },
+        {
+          "path": "src/core/native/vendor/ocgcore/index.js",
+          "bytes": 46243,
+          "sha256": "8cfbec622cf5b920e0b58db6d842fcabf1a9ef8eed9f0841bac43a1e9adb0657"
+        },
+        {
+          "path": "public/native/card-data.json",
+          "bytes": 7601872,
+          "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+        },
+        {
+          "path": "public/native/scripts.json",
+          "bytes": 35549984,
+          "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+        },
+        {
+          "path": "public/native/core-build.json",
+          "bytes": 2402,
+          "sha256": "1b2624bc1c60420432a247e1d422b02574991738988205bc4db4cd585a4cd0df"
+        },
+        {
+          "path": "public/native/ocgcore.sync.wasm",
+          "bytes": 935745,
+          "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+        },
+        {
+          "path": "src/core/native/vendor/ocgcore/upstream-source/src/messages.ts",
+          "bytes": 21424,
+          "sha256": "16c94ab5afa9f909fdec98b25ac96aa2e0ebf28a0a5228351b9e165e3cd7e6df"
+        },
+        {
+          "path": "src/core/native/vendor/ocgcore/upstream-source/src/responses.ts",
+          "bytes": 3144,
+          "sha256": "c86eba1b103ba1aaca4b08b5e8f7205d2440a2bb868a0641006eea8ec7365fe2"
+        },
+        {
+          "path": "src/core/native/vendor/ocgcore/upstream-source/src/type_core.ts",
+          "bytes": 18480,
+          "sha256": "f994b163063a5e06403a037ccfb95c8d44fbdb2dafd8e99d38acd6a73fd1ce7d"
+        }
+      ]
+    },
+    {
+      "name": "battle",
+      "report": {
+        "path": "docs/audits/artifacts/tcg-battle-complete-2026-10-08.json",
+        "bytes": 2285819,
+        "sha256": "2cfa399174c4297a25b3359d3d7e24005bb5a8deff817c7a274d15c6a4b5ffb9"
+      },
+      "recordedExecutedDependenciesMatchCurrentBytes": true,
+      "dependencies": [
+        {
+          "path": "src/core/native/NativeBattleLifecycle.js",
+          "bytes": 5611,
+          "sha256": "202704a82ad6624211b063acc7e58cd3a40b0721f0dc9d67a02286ea0174a0c0"
+        },
+        {
+          "path": "src/core/native/NativeDuelVisualEvents.js",
+          "bytes": 35031,
+          "sha256": "2a776f53d0d15eb91eb2c736d95fbdc809d85cdef9491adf9b6c448ef61580ab"
+        },
+        {
+          "path": "src/core/native/NativeDuelRuntime.js",
+          "bytes": 9739,
+          "sha256": "07136f4301391bd62e4f29fe611067b15734f53c92354cb6a3cc3b33ff52e6b5"
+        },
+        {
+          "path": "src/core/native/NativeDuelDecisions.js",
+          "bytes": 35779,
+          "sha256": "4ec35dd4cc12ae7efcb1dd45a39e3cc7a83e359d9af41a84d51f3ffa5bbff724"
+        },
+        {
+          "path": "src/core/native/NativeLuaCompatibility.js",
+          "bytes": 536,
+          "sha256": "7445d1f73cad6ba208fa0cf869d6f51491e6dd700dedc4cbec6f4342fd8d163e"
+        },
+        {
+          "path": "src/core/native/NativeCardScriptCorrections.js",
+          "bytes": 1103,
+          "sha256": "e0073221e78f6f3df94b0b37da4683167a5a8787f21317f5d6a0a619a5c767cd"
+        },
+        {
+          "path": "src/core/native/NativeCardCharacteristics.js",
+          "bytes": 2031,
+          "sha256": "e4d1a7551bf67b32a55f291f59abc411c032217113f63cd35df76db75ad5fa76"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-battle-before-2026-10-08.js.txt",
+          "bytes": 33437,
+          "sha256": "8b2f692bbf099a62c26244098dadfaa10842ce94d4cb0291d9a2e1e0c54af242"
+        },
+        {
+          "path": "scripts/tcg-battle-complete-2026-10-08.mjs",
+          "bytes": 34002,
+          "sha256": "b3d7766443c626853913ddef9aea40f9f14eaf1416a8a15d9543477db19c1146"
+        },
+        {
+          "path": "scripts/native-field-audit-harness.mjs",
+          "bytes": 12500,
+          "sha256": "d7b1c776f5552fd5eb5f5e70712c0265fd5b75f30d2d07465caadd10887a0734"
+        },
+        {
+          "path": "scripts/audit-tcg-battle-source-protocol-2026-10-08.py",
+          "bytes": 2448,
+          "sha256": "9fbee88a1042680f92cfcdcd0d1fe409fce9ae1f223a5adfe47640fb14e03e47"
+        },
+        {
+          "path": "tests/tcg-battle-complete-2026-10-08.test.mjs",
+          "bytes": 7955,
+          "sha256": "c6f0a26ccf2ed0044677945615e48283d82b9e85fe6e45fd148950ee2528267c"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-battle-core-protocol-2026-10-08.json",
+          "bytes": 17073,
+          "sha256": "15250a1870622a6acaf4b87f1f9f220b6428ac5236299cc22081daafee24a7f3"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-chain-official-sources-2026-10-08.json",
+          "bytes": 2268,
+          "sha256": "57c5e2004d3f80c003a6dda4388351244a1bbf14b094e6402649d96cabd3d2bf"
+        },
+        {
+          "path": "scripts/native-field-audit-inputs.mjs",
+          "bytes": 1862,
+          "sha256": "c2224fb53c089a05ae8c123aee72cf38b79679248b1777b4916648ea29482a96"
+        },
+        {
+          "path": "public/native/ocgcore.sync.wasm",
+          "bytes": 935745,
+          "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+        },
+        {
+          "path": "public/native/core-build.json",
+          "bytes": 2402,
+          "sha256": "1b2624bc1c60420432a247e1d422b02574991738988205bc4db4cd585a4cd0df"
+        },
+        {
+          "path": "public/native/card-data.json",
+          "bytes": 7601872,
+          "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+        },
+        {
+          "path": "public/native/scripts.json",
+          "bytes": 35549984,
+          "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+        }
+      ]
+    },
+    {
+      "name": "exodia",
+      "report": {
+        "path": "docs/audits/artifacts/tcg-exodia-public-confirmation-2026-10-08.json",
+        "bytes": 501677,
+        "sha256": "9eea78a0ee0935227c8d35b1b5c7164da0e502ef73d147209ff4222df06a0609"
+      },
+      "recordedExecutedDependenciesMatchCurrentBytes": true,
+      "dependencies": [
+        {
+          "path": "src/core/native/NativeDuelGame.js",
+          "bytes": 62312,
+          "sha256": "04a3219a0b59bec1aab199efc72fc25069c68acb17233190a898c530add0813f"
+        },
+        {
+          "path": "src/core/native/NativeDuelRuntime.js",
+          "bytes": 9739,
+          "sha256": "07136f4301391bd62e4f29fe611067b15734f53c92354cb6a3cc3b33ff52e6b5"
+        },
+        {
+          "path": "src/core/native/NativeDuelVisualEvents.js",
+          "bytes": 35031,
+          "sha256": "2a776f53d0d15eb91eb2c736d95fbdc809d85cdef9491adf9b6c448ef61580ab"
+        },
+        {
+          "path": "src/core/native/NativeBattleLifecycle.js",
+          "bytes": 5611,
+          "sha256": "202704a82ad6624211b063acc7e58cd3a40b0721f0dc9d67a02286ea0174a0c0"
+        },
+        {
+          "path": "src/core/native/NativePublicRevealPolicy.js",
+          "bytes": 4146,
+          "sha256": "6034c3dff716d18597bf4b689b317255695fe1f5a6a860edffe3f2a87abd800e"
+        },
+        {
+          "path": "src/core/native/NativeExodiaRevealPolicy.js",
+          "bytes": 1536,
+          "sha256": "a9d855a4daa6d51a9d4525f855da58cdf0a714036f43c5bc9ce9cadc8eff368e"
+        },
+        {
+          "path": "src/core/native/NativeSourceIntegrity.js",
+          "bytes": 2339,
+          "sha256": "4af7fc0fc34b715ebe3e23ed7cfcf35d74dca662200e4025c7cc7957ac81cd18"
+        },
+        {
+          "path": "src/core/native/NativeCardScriptCorrections.js",
+          "bytes": 1103,
+          "sha256": "e0073221e78f6f3df94b0b37da4683167a5a8787f21317f5d6a0a619a5c767cd"
+        },
+        {
+          "path": "src/core/native/NativeLuaCompatibility.js",
+          "bytes": 536,
+          "sha256": "7445d1f73cad6ba208fa0cf869d6f51491e6dd700dedc4cbec6f4342fd8d163e"
+        },
+        {
+          "path": "src/core/native/NativeCardCatalogue.js",
+          "bytes": 15865,
+          "sha256": "7db3547182e650eeb618023059ccec2750d9a074d3258559f6c5040528ab79ca"
+        },
+        {
+          "path": "src/ui/PrivateCardInspection.js",
+          "bytes": 5637,
+          "sha256": "c2f6da2cedacae2d014d45c15a587838ff772237af5b8e9f0ac195104a5298d0"
+        },
+        {
+          "path": "src/ui/PublicCardConfirmation.js",
+          "bytes": 1553,
+          "sha256": "858a04e67f0b08c9a687a1382f4a0ab7810a5ef3213787e58bb5b5ab480cb513"
+        },
+        {
+          "path": "scripts/native-field-audit-inputs.mjs",
+          "bytes": 1862,
+          "sha256": "c2224fb53c089a05ae8c123aee72cf38b79679248b1777b4916648ea29482a96"
+        },
+        {
+          "path": "tests/tcg-exodia-public-confirmation.test.mjs",
+          "bytes": 21165,
+          "sha256": "1e692a72b5088fd4b00616a673614785e0f14834b0ecf4b5b60af4bbd92ba67c"
+        },
+        {
+          "path": "public/native/core-build.json",
+          "bytes": 2402,
+          "sha256": "1b2624bc1c60420432a247e1d422b02574991738988205bc4db4cd585a4cd0df"
+        },
+        {
+          "path": "public/native/ocgcore.sync.wasm",
+          "bytes": 935745,
+          "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+        },
+        {
+          "path": "public/native/card-data.json",
+          "bytes": 7601872,
+          "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+        },
+        {
+          "path": "public/native/scripts.json",
+          "bytes": 35549984,
+          "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+        }
+      ]
+    },
+    {
+      "name": "godModels",
+      "report": {
+        "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/measurements.json",
+        "bytes": 157372,
+        "sha256": "9ec3579c9f2a702918f3206f8740669479da23745db55b60f480656849b0fd67"
+      },
+      "recordedExecutedDependenciesMatchCurrentBytes": true,
+      "dependencies": [
+        {
+          "path": "node_modules/three/build/three.core.js",
+          "bytes": 1403455,
+          "sha256": "eb077d2417f61d3e6d9264c317cabc4ea35769ed6b0ab533067292a550784c20"
+        },
+        {
+          "path": "node_modules/three/build/three.module.js",
+          "bytes": 603113,
+          "sha256": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a"
+        },
+        {
+          "path": "node_modules/three/examples/jsm/utils/BufferGeometryUtils.js",
+          "bytes": 35539,
+          "sha256": "fda7e946b8e0b5ab39b779206589e7a1079a22eb24efb89d7223e03fdfb1f751"
+        },
+        {
+          "path": "src/ui/CombatVisualProfiles.js",
+          "bytes": 15415,
+          "sha256": "f5c5aff6a712ed97bbe1d9e4064cd5a3b13620539a2311833ca865f1230d9204"
+        },
+        {
+          "path": "src/ui/FieldSpellEnvironmentCatalog.js",
+          "bytes": 24250,
+          "sha256": "37bf5157ca5a8fbfb6c1d93898a3d2efcb3fd620b3c5e61e63f26d46225aee33"
+        },
+        {
+          "path": "src/ui/FieldSpellReferenceArtPalettes.js",
+          "bytes": 32287,
+          "sha256": "39d7a5073366407942497b92de7afe5e319b87957edb19068671bee83f7fbb88"
+        },
+        {
+          "path": "src/ui/HologramMonsterModels.js",
+          "bytes": 24593,
+          "sha256": "e1d187cb29a6ea139b16d26b7154a92c77160c34941a37b13023cfcfe0f2f278"
+        },
+        {
+          "path": "src/ui/HologramPopularGodModels.js",
+          "bytes": 16210,
+          "sha256": "7e095ad4bab594756d846b6794add8afb540f962494b7168589d0bc80851f121"
+        },
+        {
+          "path": "src/ui/HologramPopularStapleModels.js",
+          "bytes": 23103,
+          "sha256": "66784a7c5903a5005064833dead704a9d2a7bad4152a71d8d7cc024ccd610c35"
+        },
+        {
+          "path": "src/ui/HologramPoseAnimation.js",
+          "bytes": 7540,
+          "sha256": "0fd60c0f319ee7a413049ac05199d44e06ab356a94174bc2dc35958b22b8729c"
+        },
+        {
+          "path": "src/ui/HologramReferenceAnatomy.js",
+          "bytes": 63114,
+          "sha256": "e10d0ad431c4c3f00f12c259e76bb83e68ae320315a768ce2e606544fec778d5"
+        },
+        {
+          "path": "scripts/audit-popular-gods-models-2026-10-08.py",
+          "bytes": 19505,
+          "sha256": "215489e845df93c69940436cbb1c26daafd7f1767c7f86f64d57cc0d9bfb5a4d"
+        },
+        {
+          "path": "test/popular-gods-models-2026-10-08.test.js",
+          "bytes": 6690,
+          "sha256": "7cd4d239d31fd9b770652f9c3c92362fbe38586addd96df96975761d45ef911c"
+        },
+        {
+          "path": "package.json",
+          "bytes": 699,
+          "sha256": "fd474067a364cdd85f372a57555e92b47c2a66f064bf299ca1ee29f334400d4e"
+        },
+        {
+          "path": "package-lock.json",
+          "bytes": 28435,
+          "sha256": "5e139fa57cab722513f61d244ae90cf1eda873a4edd84810ce6e64e19b909810"
+        },
+        {
+          "path": "node_modules/three/package.json",
+          "bytes": 4635,
+          "sha256": "aa42494664dba4cf76d89c6975ee38321a402f09a048672e190bad6f13beec93"
+        }
+      ],
+      "finalCaptures": [
+        {
+          "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000020-front-rest.png",
+          "bytes": 373137,
+          "sha256": "509e5e97725e0ef1f45182b1453c0f2f45c5ccdecd766b7627bff904262e25ab"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000020-front-attack.png",
+          "bytes": 372803,
+          "sha256": "522259ede2d1dc250e34ed59786c7bc6ba8ecf32b529d4a5c546e87ad4a516c3"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000020-three-quarter-rest.png",
+          "bytes": 374274,
+          "sha256": "d2956b74f08cb1392e3868fb0823578d42192b50b4884b79ecf53c887471efb8"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000020-three-quarter-attack.png",
+          "bytes": 375702,
+          "sha256": "b56e4d6a1edb2349a1a58e93f8b7daddb133242cd7626cc8c9662fd426a3cb9a"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000020-side-rest.png",
+          "bytes": 358298,
+          "sha256": "afdeba87f86424370e77b1d4e4a1c2582801424e30aed0c67ba809ea90ed3d9d"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000020-side-attack.png",
+          "bytes": 360185,
+          "sha256": "9529bc1f11aed0ca896dfd252a3ef9fd3059bef27a17b7e0f0d4d299d6560872"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000000-front-rest.png",
+          "bytes": 355726,
+          "sha256": "fff00659ca9c70eb2a0581bc423cbe8a2d057a3f05b54ceb02f3488b51097b08"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000000-front-attack.png",
+          "bytes": 354403,
+          "sha256": "61921f68a5a294c63375012aa8c68a647b867df476c28048de15e1f1af6ac3b5"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000000-three-quarter-rest.png",
+          "bytes": 360061,
+          "sha256": "2834af632a3e68f7f68f44c6c06fff48229a83ff140271e50a785fd492445b91"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000000-three-quarter-attack.png",
+          "bytes": 356185,
+          "sha256": "0745c81f0561730021ed5d954010fc662d5e66ecd937e815b6da9527611d2777"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000000-side-rest.png",
+          "bytes": 339746,
+          "sha256": "80032cee3b4a3c46405217396eb71d0b9151c69186e5772af20cb40e585fe2ab"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000000-side-attack.png",
+          "bytes": 344988,
+          "sha256": "3d43dcf4e442bf579fe2df8ff5b9cbf1cd71ad4c989d610635a5688e48828f1b"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000010-front-rest.png",
+          "bytes": 377093,
+          "sha256": "d9724b49b60d7348de9bd84b54f682b25bf169290db3d3e93cbda50024f621f9"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000010-front-attack.png",
+          "bytes": 378104,
+          "sha256": "32060fc98763f756081a2b6fb625aff9370eb2618b5fa92b25c46a5f188a6d62"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000010-three-quarter-rest.png",
+          "bytes": 381518,
+          "sha256": "455b312d6fed3d556470500b7f9a93237e2aa1af8834a564001dc80ae457089b"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000010-three-quarter-attack.png",
+          "bytes": 383685,
+          "sha256": "aea919ffbefd32fdd17b0a3532b45233ef8de064a53ca6e2962e4b18b64dae35"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000010-side-rest.png",
+          "bytes": 355907,
+          "sha256": "31d730805ddfb83c5061cf517240d95f1db1af9ff7d3823bbb5512671956f5a6"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-gods-models-2026-10-08/10000010-side-attack.png",
+          "bytes": 358558,
+          "sha256": "6aaddc5045f58bca08a080d870ceafb27e5e3242382ff5ac11bcb74e2b216f29"
+        }
+      ]
+    },
+    {
+      "name": "stapleModels",
+      "report": {
+        "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/measurements.json",
+        "bytes": 246863,
+        "sha256": "1fbea3a924a93c6517b90b23cffa7c5a9c13cb4cd039c7b6d2a66d894abedc0e"
+      },
+      "recordedExecutedDependenciesMatchCurrentBytes": true,
+      "dependencies": [
+        {
+          "path": "node_modules/three/build/three.core.js",
+          "bytes": 1403455,
+          "sha256": "eb077d2417f61d3e6d9264c317cabc4ea35769ed6b0ab533067292a550784c20"
+        },
+        {
+          "path": "node_modules/three/build/three.module.js",
+          "bytes": 603113,
+          "sha256": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a"
+        },
+        {
+          "path": "node_modules/three/examples/jsm/utils/BufferGeometryUtils.js",
+          "bytes": 35539,
+          "sha256": "fda7e946b8e0b5ab39b779206589e7a1079a22eb24efb89d7223e03fdfb1f751"
+        },
+        {
+          "path": "src/ui/CombatVisualProfiles.js",
+          "bytes": 15415,
+          "sha256": "f5c5aff6a712ed97bbe1d9e4064cd5a3b13620539a2311833ca865f1230d9204"
+        },
+        {
+          "path": "src/ui/FieldSpellEnvironmentCatalog.js",
+          "bytes": 24250,
+          "sha256": "37bf5157ca5a8fbfb6c1d93898a3d2efcb3fd620b3c5e61e63f26d46225aee33"
+        },
+        {
+          "path": "src/ui/FieldSpellReferenceArtPalettes.js",
+          "bytes": 32287,
+          "sha256": "39d7a5073366407942497b92de7afe5e319b87957edb19068671bee83f7fbb88"
+        },
+        {
+          "path": "src/ui/HologramMonsterModels.js",
+          "bytes": 24593,
+          "sha256": "e1d187cb29a6ea139b16d26b7154a92c77160c34941a37b13023cfcfe0f2f278"
+        },
+        {
+          "path": "src/ui/HologramPopularGodModels.js",
+          "bytes": 16210,
+          "sha256": "7e095ad4bab594756d846b6794add8afb540f962494b7168589d0bc80851f121"
+        },
+        {
+          "path": "src/ui/HologramPopularStapleModels.js",
+          "bytes": 23103,
+          "sha256": "66784a7c5903a5005064833dead704a9d2a7bad4152a71d8d7cc024ccd610c35"
+        },
+        {
+          "path": "src/ui/HologramPoseAnimation.js",
+          "bytes": 7540,
+          "sha256": "0fd60c0f319ee7a413049ac05199d44e06ab356a94174bc2dc35958b22b8729c"
+        },
+        {
+          "path": "src/ui/HologramReferenceAnatomy.js",
+          "bytes": 63114,
+          "sha256": "e10d0ad431c4c3f00f12c259e76bb83e68ae320315a768ce2e606544fec778d5"
+        },
+        {
+          "path": "scripts/audit-popular-staples-models-2026-10-08.py",
+          "bytes": 19591,
+          "sha256": "ad66dab2bb9970f60de558f99149e2a3680ca0050ba1ebf2a75341172fece9ac"
+        },
+        {
+          "path": "test/popular-staples-models-2026-10-08.test.js",
+          "bytes": 7341,
+          "sha256": "f1503797629ab813eca2490d8e4b9ae4c3e9eed0fb05e458fff7fe6a87d434b1"
+        },
+        {
+          "path": "src/ui/PopularStapleReferenceArt.js",
+          "bytes": 4992,
+          "sha256": "5dc35be8fc2634608fd4453fcd3168a9e2ff06cf49861007d6e11a65a8fa5ea3"
+        },
+        {
+          "path": "src/core/native/NativeCardReferenceArt.js",
+          "bytes": 2668,
+          "sha256": "b7f2f102783dedc22b2a65be71832bc4002654207d0a7b050f03873143e88c0a"
+        },
+        {
+          "path": "public/native/card-data.json",
+          "bytes": 7601872,
+          "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+        },
+        {
+          "path": "package.json",
+          "bytes": 699,
+          "sha256": "fd474067a364cdd85f372a57555e92b47c2a66f064bf299ca1ee29f334400d4e"
+        },
+        {
+          "path": "package-lock.json",
+          "bytes": 28435,
+          "sha256": "5e139fa57cab722513f61d244ae90cf1eda873a4edd84810ce6e64e19b909810"
+        },
+        {
+          "path": "node_modules/three/package.json",
+          "bytes": 4635,
+          "sha256": "aa42494664dba4cf76d89c6975ee38321a402f09a048672e190bad6f13beec93"
+        }
+      ],
+      "finalCaptures": [
+        {
+          "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/70095154-front-rest.png",
+          "bytes": 332694,
+          "sha256": "08555e597664ebafc8f509053f3d9ecc558aa038fe8d2cf7285edb5bfff74094"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/70095154-front-attack.png",
+          "bytes": 333207,
+          "sha256": "daac22c3b12495fe06f733e6f3d4c76e38981aaca1d84d507ff386faf5865159"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/70095154-three-quarter-rest.png",
+          "bytes": 328578,
+          "sha256": "a17bee495ffd091b5dc7ac802e6e67d01adff43ebe552e521d2ffea12a3e2a7b"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/70095154-three-quarter-attack.png",
+          "bytes": 329055,
+          "sha256": "0bef8b877ff58c95aacf21585d58587bd4f54bf62a1d24e79c759bf8a8ea9e42"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/70095154-side-rest.png",
+          "bytes": 308321,
+          "sha256": "bbe84b98c4c34b63ffba44689e5e29355bd117d2e93078bbcb146ce9ff758c37"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/70095154-side-attack.png",
+          "bytes": 309573,
+          "sha256": "ab3a526ec6951958a7a9c79511ff1079c25423adeef5bf98ea46b412ae8377cc"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/89943723-front-rest.png",
+          "bytes": 359867,
+          "sha256": "e9b14df4ef51405733245eb4d6713c8778032433421290d6a17afd370acbbbd1"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/89943723-front-attack.png",
+          "bytes": 357952,
+          "sha256": "efdebd701a444f7676744f46c334c3ebee461f70a729416353b8ded5c634e110"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/89943723-three-quarter-rest.png",
+          "bytes": 358511,
+          "sha256": "cd8d04f8ab38f9d5836a7b833f2d35a8f4adc6778881d9b89d8f675b99edd53a"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/89943723-three-quarter-attack.png",
+          "bytes": 357399,
+          "sha256": "faeca837e97ba67ab4e0336a86c80083f482b52c898b039750f87e798fe446fe"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/89943723-side-rest.png",
+          "bytes": 329244,
+          "sha256": "d5b9739ab9c6a5fcf76d272861d961002a02fb667bc47d55ad41b552e7e7b759"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/89943723-side-attack.png",
+          "bytes": 334061,
+          "sha256": "f63e94656272e84a3b5885a06cde6b67ec2e2837561abed3d022d964a3787bae"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/84013237-front-rest.png",
+          "bytes": 350132,
+          "sha256": "c697bd02301f2e5cf3afaec8340bd5fd679a867323fee1bf65f2bd870318bc68"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/84013237-front-attack.png",
+          "bytes": 348494,
+          "sha256": "796cca1ff44cabf057439edfec25279b8eba3438f5257864e4e53fc7e84fd469"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/84013237-three-quarter-rest.png",
+          "bytes": 350444,
+          "sha256": "2e6afaa338c72d73a994f0b077ab195409f8a2d314160362cc5282b2059b13c5"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/84013237-three-quarter-attack.png",
+          "bytes": 350085,
+          "sha256": "913d31b97560d60dc0681f39e1a45fe0fe3a505ca5eb163b531c675485c30706"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/84013237-side-rest.png",
+          "bytes": 318781,
+          "sha256": "2aff5e2cc1144e9ea48c47f93046dbd3bcdd3bd9bddc7000f1846cf5169f4f15"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/84013237-side-attack.png",
+          "bytes": 326994,
+          "sha256": "6569099ebbbee7ee6055dac968a3706ededbfd5463fd91e04f63bf282b7d5aa2"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/72989439-front-rest.png",
+          "bytes": 376274,
+          "sha256": "527ae82e11962b5c27a2ec1335eedd184602225de62d40d1a54793e18acb0a0c"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/72989439-front-attack.png",
+          "bytes": 376852,
+          "sha256": "fd961b18ba251f4e38f1635621d389b9cc0232d92984c7f3ac19f11541f1485d"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/72989439-three-quarter-rest.png",
+          "bytes": 374180,
+          "sha256": "c840d6dbb3a245f1e10bedf580d4756ecec02e9326e59560b81b6578f71c1240"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/72989439-three-quarter-attack.png",
+          "bytes": 374828,
+          "sha256": "729c1b0e07df86c4d0609545dfb1581f7bb8565e4bfdd0cd294c293ccc22c76d"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/72989439-side-rest.png",
+          "bytes": 339788,
+          "sha256": "8d5a1de9e042bb602df4eb896a902320cd1b7d024b815cb79ef76cf0171f4607"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/72989439-side-attack.png",
+          "bytes": 347775,
+          "sha256": "3796f0043fd172fb2f6724e5288af83f6f100d54d72b3992ac9e31bdbb70a451"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/14558127-front-rest.png",
+          "bytes": 363826,
+          "sha256": "c99f0f94251c825612f8c5cd4aca426f530f110ab2ba737dd29e01c45ed69138"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/14558127-front-attack.png",
+          "bytes": 359783,
+          "sha256": "ce32c0ebc9a035336ce9ffb5cf693b6df7f7962e37725683836fafdf18dbf40c"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/14558127-three-quarter-rest.png",
+          "bytes": 353813,
+          "sha256": "4eac1dd140950b1159feed29c3842712df61a10c0efd4d82463b07fd935da2a5"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/14558127-three-quarter-attack.png",
+          "bytes": 352829,
+          "sha256": "48c2574f72d298bf47598b8f7e3fbf9daaee4c6bd07910e96c918c460d942270"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/14558127-side-rest.png",
+          "bytes": 325870,
+          "sha256": "408f0b8865b50fbdc9420049e8ea1c56c3111b358a92d6a677fde2417eb56045"
+        },
+        {
+          "path": "docs/audits/artifacts/popular-staples-models-2026-10-08/14558127-side-attack.png",
+          "bytes": 325987,
+          "sha256": "8ca808da3938b025194ce94a415b023b62b3f7d74cd94ff222ea1a3cf48499cd"
+        }
+      ]
+    },
+    {
+      "name": "godBrowser",
+      "report": {
+        "path": "docs/audits/artifacts/tcg-gods-ui-2026-10-08/report.json",
+        "bytes": 182390,
+        "sha256": "c75a24ec117abe73b20121f1858cca7c1d1532c9d00ef86f6b420694372d2fba"
+      },
+      "recordedExecutedDependenciesMatchCurrentBytes": true,
+      "dependencies": [
+        {
+          "path": "scripts/audit-tcg-gods-ui-2026-10-08.py",
+          "bytes": 22412,
+          "sha256": "9f031c1e36ac48e72fb33d1e9fa0677a7476e0dd7305756d8a6c1f5c868c9e08"
+        },
+        {
+          "path": "scripts/audit-continuation-models-ui.py",
+          "bytes": 33677,
+          "sha256": "7f6f4a1d54be8f4bfc6befa4d697a30755c0887c116a60ed124eb8a376951f49"
+        },
+        {
+          "path": "scripts/audit-native-duel-ui.py",
+          "bytes": 28175,
+          "sha256": "0dd4443ef82f496fb398587b9be06c99d953f57c4a48e48cd470fdacbb311c18"
+        },
+        {
+          "path": "scripts/audit-native-duel-views.py",
+          "bytes": 23978,
+          "sha256": "f3f9b64c03273baba856886c4f67df9f371624bb759435887ba9b7f9e49f826c"
+        },
+        {
+          "path": "scripts/prepare-tcg-gods-ui-fixtures.mjs",
+          "bytes": 5631,
+          "sha256": "4a67c3eb10f3161da407fe4453476245a70def6a22d77861af5f666f0c508570"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-gods-ui-fixtures-2026-10-08.json",
+          "bytes": 21884,
+          "sha256": "2ced9cdc3a7025177fe88a6a791e2682f8ca609b1f0403b913464f7dc452ae8c"
+        },
+        {
+          "path": "src/core/tcg/TcgAdvancedBanlistData.js",
+          "bytes": 57732,
+          "sha256": "bdc8c18edb0a6308949e516442106747ada3976334beb105562c17c7d6f5d945"
+        },
+        {
+          "path": "src/core/tcg/TcgAdvancedFormat.js",
+          "bytes": 2731,
+          "sha256": "058606afc6449ce1ced941c42000c8a109da55cf9b36ad8919b853582c540d40"
+        },
+        {
+          "path": "src/core/tcg/TcgCardLegality.js",
+          "bytes": 5154,
+          "sha256": "7b556ecb1af2b729a71f4cdf237182068d5f3d47a85cacef8a91c2661979e874"
+        },
+        {
+          "path": "src/core/native/NativeCardCatalogue.js",
+          "bytes": 15865,
+          "sha256": "7db3547182e650eeb618023059ccec2750d9a074d3258559f6c5040528ab79ca"
+        },
+        {
+          "path": "src/core/native/NativeCardReferenceArt.js",
+          "bytes": 2668,
+          "sha256": "b7f2f102783dedc22b2a65be71832bc4002654207d0a7b050f03873143e88c0a"
+        },
+        {
+          "path": "src/core/native/NativeDuelGame.js",
+          "bytes": 62312,
+          "sha256": "04a3219a0b59bec1aab199efc72fc25069c68acb17233190a898c530add0813f"
+        },
+        {
+          "path": "src/core/native/NativeDuelRuntime.js",
+          "bytes": 9739,
+          "sha256": "07136f4301391bd62e4f29fe611067b15734f53c92354cb6a3cc3b33ff52e6b5"
+        },
+        {
+          "path": "src/core/native/NativeDuelDecisions.js",
+          "bytes": 35779,
+          "sha256": "4ec35dd4cc12ae7efcb1dd45a39e3cc7a83e359d9af41a84d51f3ffa5bbff724"
+        },
+        {
+          "path": "src/core/native/NativeDuelVisualEvents.js",
+          "bytes": 35031,
+          "sha256": "2a776f53d0d15eb91eb2c736d95fbdc809d85cdef9491adf9b6c448ef61580ab"
+        },
+        {
+          "path": "src/ui/DeckBuilderRules.js",
+          "bytes": 9516,
+          "sha256": "824e6683279fb894c9eaf554bed8496e6efde2a1f4706037bb78044c9aeea9f3"
+        },
+        {
+          "path": "src/ui/CombatVisualProfiles.js",
+          "bytes": 15415,
+          "sha256": "f5c5aff6a712ed97bbe1d9e4064cd5a3b13620539a2311833ca865f1230d9204"
+        },
+        {
+          "path": "src/ui/HologramMonsterModels.js",
+          "bytes": 24593,
+          "sha256": "e1d187cb29a6ea139b16d26b7154a92c77160c34941a37b13023cfcfe0f2f278"
+        },
+        {
+          "path": "src/ui/HologramPopularGodModels.js",
+          "bytes": 16210,
+          "sha256": "7e095ad4bab594756d846b6794add8afb540f962494b7168589d0bc80851f121"
+        },
+        {
+          "path": "src/ui/PopularGodReferenceArt.js",
+          "bytes": 3176,
+          "sha256": "7461a0dbbf3b46e14965778b7326c507a132695396450620b13841abfc85e898"
+        },
+        {
+          "path": "src/ui/HologramPoseAnimation.js",
+          "bytes": 7540,
+          "sha256": "0fd60c0f319ee7a413049ac05199d44e06ab356a94174bc2dc35958b22b8729c"
+        },
+        {
+          "path": "src/ui/RealDuelScene3D.js",
+          "bytes": 51900,
+          "sha256": "17cda0a866c3ec01f0f0d4ea07145974a2d660eeffdda9b2f2053e967ec7db44"
+        },
+        {
+          "path": "src/ui/RealDuelView.js",
+          "bytes": 34916,
+          "sha256": "ac86e29a744cd99bf76b33dc902306cf3ea2535af488443b88afbdd3abed2bef"
+        },
+        {
+          "path": "main.js",
+          "bytes": 191637,
+          "sha256": "b1ad9601ee5d785e30fe532a463bc6adf458cea0115ec27d8b2ecf994df913d0"
+        },
+        {
+          "path": "index.html",
+          "bytes": 35643,
+          "sha256": "c27ee3527a5eb985d821124eea671891687056e75a5cb0d0ec76ac706bbd1dbe"
+        },
+        {
+          "path": "style.css",
+          "bytes": 115179,
+          "sha256": "41962bbd2229fc25b2f1d77280a39cc2ff26c5d5963588e3539b183720a89fab"
+        },
+        {
+          "path": "vercel.json",
+          "bytes": 1272,
+          "sha256": "54ace7536aaf92de4eca552f63a6266e790eda597ecfc67dbb0ebe0c9bf3664c"
+        },
+        {
+          "path": "public/cards/reference/10000000.jpg",
+          "bytes": 179154,
+          "sha256": "7eeff78a2e8e8631908f6cba2a8f6a3dba88b375546154fc7ef7730dfdf10e9e"
+        },
+        {
+          "path": "public/cards/cropped/10000000.jpg",
+          "bytes": 134634,
+          "sha256": "8982f5f5d38bae8e743f015286247d68f03ea8140ffe9d1589cfe9f947a50efc"
+        },
+        {
+          "path": "public/cards/small/10000000.jpg",
+          "bytes": 29023,
+          "sha256": "2ecae80669c100339595c55146a1ae8937848578ede90508b2842f566fd117af"
+        },
+        {
+          "path": "public/cards/reference/10000010.jpg",
+          "bytes": 187717,
+          "sha256": "e36f01a9ab25cd4ebf1b4efeaeb08d89d4886fa98649e8cc2cfa2ae5cf24a993"
+        },
+        {
+          "path": "public/cards/cropped/10000010.jpg",
+          "bytes": 145377,
+          "sha256": "fc7e54ffd8d56d493f039e93e8e9d2a94d09f0f3154340fac42110c274e1a64e"
+        },
+        {
+          "path": "public/cards/small/10000010.jpg",
+          "bytes": 29601,
+          "sha256": "888e8ed8457177b097815eec26408657f76c266e79c2b015ad0ba50dceeab034"
+        },
+        {
+          "path": "public/cards/reference/10000020.jpg",
+          "bytes": 184647,
+          "sha256": "f9854648af7a114c566ab263b89fe059fc1d1c49e2c2283c3f9c9bb3947e13ed"
+        },
+        {
+          "path": "public/cards/cropped/10000020.jpg",
+          "bytes": 152008,
+          "sha256": "b5fa4c8979ee56b94fa7ae4e1052ee20af3917e665dd0dfaf4b25d8320060cf6"
+        },
+        {
+          "path": "public/cards/small/10000020.jpg",
+          "bytes": 29445,
+          "sha256": "98f1d3245c76325f94066c35842e8bd0ab71192a7c66febe8c1e53e2933a8de5"
+        }
+      ],
+      "finalCaptures": [
+        {
+          "path": "docs/audits/artifacts/tcg-gods-ui-2026-10-08/god-10000000-god-overview-camera-1280.png",
+          "bytes": 944743,
+          "sha256": "b7cf556aab8433c6a77f9d73401bfe5941e1f26a68f0294fe780624b8352d0c8"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-gods-ui-2026-10-08/god-10000000-god-overview-camera-390.png",
+          "bytes": 270106,
+          "sha256": "65f9798d43c74d98ad445757b8d137e8422de6aaddeea3ba2dd5888c3ff1ad6c"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-gods-ui-2026-10-08/god-10000000-god-player-camera-1280.png",
+          "bytes": 867388,
+          "sha256": "f95f603dcbe0ac4c6f329e351cfe30afa0640f014f1acce37be5edec27160ef1"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-gods-ui-2026-10-08/god-10000000-god-player-camera-390.png",
+          "bytes": 236251,
+          "sha256": "436511c06a7cd4ac028b59957854c86c686a4e4f2ed974479ee99fcb3f231b7c"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-gods-ui-2026-10-08/god-10000000-three-native-tokens-1280.png",
+          "bytes": 846080,
+          "sha256": "7474224c65ff99d1e23fcc73b14330815dfe10e6f1bfefccd91ac3256b7d222f"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-gods-ui-2026-10-08/god-10000000-three-native-tokens-390.png",
+          "bytes": 249997,
+          "sha256": "3882c64746fde7c2001d4d84a784afec5a46d03bf928bfe7b5ad3edc3a3ae739"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-gods-ui-2026-10-08/god-10000010-god-overview-camera-1280.png",
+          "bytes": 952373,
+          "sha256": "da492228cd08ab30d57f411f6123914f28d945c0d9a6ab1de441e7e4c46f58b1"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-gods-ui-2026-10-08/god-10000010-god-overview-camera-390.png",
+          "bytes": 269652,
+          "sha256": "01d03f1f32f25ff9cec4abb7892aa6873047b54a2a5446766ffdd5806f939c66"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-gods-ui-2026-10-08/god-10000010-god-player-camera-1280.png",
+          "bytes": 876058,
+          "sha256": "6866197dbd55dfb2a4826f7ef82352726eb3f496cc45d7fddb6666c4509a7300"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-gods-ui-2026-10-08/god-10000010-god-player-camera-390.png",
+          "bytes": 236075,
+          "sha256": "32796a88783038a8c5b0a291c90d12328639aab1e0f731b67d8bc499d9487959"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-gods-ui-2026-10-08/god-10000010-ra-payment-offered-1280.png",
+          "bytes": 121047,
+          "sha256": "f7db28f5676a920681f4d8a3762108d4239dad11a5b0a9912a50bab1e98fd4d6"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-gods-ui-2026-10-08/god-10000010-ra-payment-offered-390.png",
+          "bytes": 51934,
+          "sha256": "e00a043fa29d367dac974db4a1327ea252c1953e3e3c419b67590f10235da31a"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-gods-ui-2026-10-08/god-10000010-three-native-tokens-1280.png",
+          "bytes": 846438,
+          "sha256": "3a76f32c1884e6a6d9690479887b69434102ea00c111afcbfc9330b6c59d343e"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-gods-ui-2026-10-08/god-10000010-three-native-tokens-390.png",
+          "bytes": 250084,
+          "sha256": "283cd1cae3ffc45646cbde7e4b5fcafa7ec875e08533c8a068c30bf4aaddc365"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-gods-ui-2026-10-08/god-10000020-god-overview-camera-1280.png",
+          "bytes": 945292,
+          "sha256": "1f4973d68fecf3554f78332bd0ce721197b46fa783d5cc80926501387126cccf"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-gods-ui-2026-10-08/god-10000020-god-overview-camera-390.png",
+          "bytes": 270576,
+          "sha256": "31f1998a460d2b343d8f4191bb0905fd10f4b92c50627079213d2c4fa1a5aab3"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-gods-ui-2026-10-08/god-10000020-god-player-camera-1280.png",
+          "bytes": 870100,
+          "sha256": "f0902fcb83d4deda120a074a3c0b60ee5f72ca52fd059ab2a01c32d3f01a8ddd"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-gods-ui-2026-10-08/god-10000020-god-player-camera-390.png",
+          "bytes": 237114,
+          "sha256": "54d08f3aebcbe87a72bdd991226cd3d606a65febfdefea8a9ce0447c6666d24c"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-gods-ui-2026-10-08/god-10000020-three-native-tokens-1280.png",
+          "bytes": 846633,
+          "sha256": "9052063c209f1cbcb71146714375062af80d514f5c9e80a1bfea972aa449b7aa"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-gods-ui-2026-10-08/god-10000020-three-native-tokens-390.png",
+          "bytes": 249965,
+          "sha256": "f4e57d415c307ccece156a81bfc5698ce1a5a7eac611704fb8449f44900abcee"
+        }
+      ],
+      "cases": 6
+    },
+    {
+      "name": "catalogueMatchBrowser",
+      "report": {
+        "path": "docs/audits/artifacts/tcg-catalogue-match-ui-2026-10-08/report.json",
+        "bytes": 194610,
+        "sha256": "c420ebca586494fff82f223ff0ab134d35507f5436002f9961b0d9e465b59cfb"
+      },
+      "recordedExecutedDependenciesMatchCurrentBytes": true,
+      "dependencies": [
+        {
+          "path": "index.html",
+          "bytes": 35643,
+          "sha256": "c27ee3527a5eb985d821124eea671891687056e75a5cb0d0ec76ac706bbd1dbe"
+        },
+        {
+          "path": "main.js",
+          "bytes": 191637,
+          "sha256": "b1ad9601ee5d785e30fe532a463bc6adf458cea0115ec27d8b2ecf994df913d0"
+        },
+        {
+          "path": "scripts/audit-continuation-models-ui.py",
+          "bytes": 33677,
+          "sha256": "7f6f4a1d54be8f4bfc6befa4d697a30755c0887c116a60ed124eb8a376951f49"
+        },
+        {
+          "path": "scripts/audit-native-duel-ui.py",
+          "bytes": 28175,
+          "sha256": "0dd4443ef82f496fb398587b9be06c99d953f57c4a48e48cd470fdacbb311c18"
+        },
+        {
+          "path": "scripts/audit-native-duel-views.py",
+          "bytes": 23978,
+          "sha256": "f3f9b64c03273baba856886c4f67df9f371624bb759435887ba9b7f9e49f826c"
+        },
+        {
+          "path": "scripts/audit-tcg-catalogue-match-ui.py",
+          "bytes": 29667,
+          "sha256": "710e35d21590ccea2e4f9ce2e60cab47c66a9076668346e7fc744589fe7ced31"
+        },
+        {
+          "path": "src/core/MatchEngine.js",
+          "bytes": 39071,
+          "sha256": "fa39f6163a84ea6adcbf6481b6dad154316a9d522505947b3c1966daa19712b7"
+        },
+        {
+          "path": "src/core/native/NativeBattleLifecycle.js",
+          "bytes": 5611,
+          "sha256": "202704a82ad6624211b063acc7e58cd3a40b0721f0dc9d67a02286ea0174a0c0"
+        },
+        {
+          "path": "src/core/native/NativeCardCatalogue.js",
+          "bytes": 15865,
+          "sha256": "7db3547182e650eeb618023059ccec2750d9a074d3258559f6c5040528ab79ca"
+        },
+        {
+          "path": "src/core/native/NativeCardCharacteristics.js",
+          "bytes": 2031,
+          "sha256": "e4d1a7551bf67b32a55f291f59abc411c032217113f63cd35df76db75ad5fa76"
+        },
+        {
+          "path": "src/core/native/NativeCardData.js",
+          "bytes": 4737,
+          "sha256": "59a664d8d16593ef2223d895085e81e48d6eaa0d90bb0725b6410a71bdcac568"
+        },
+        {
+          "path": "src/core/native/NativeCardReferenceArt.js",
+          "bytes": 2668,
+          "sha256": "b7f2f102783dedc22b2a65be71832bc4002654207d0a7b050f03873143e88c0a"
+        },
+        {
+          "path": "src/core/native/NativeCardRegistry.js",
+          "bytes": 5752,
+          "sha256": "0d3d50a39fefd3be57b3ea6a4e4b945c204730bb2580d5f96016de01b71dcefd"
+        },
+        {
+          "path": "src/core/native/NativeCardRegistryData.js",
+          "bytes": 173747,
+          "sha256": "240b8deaf34acb07c2eeba15b2cd37e26a5d6833b6c8a4be83fd048cdc468359"
+        },
+        {
+          "path": "src/core/native/NativeCardScriptCorrections.js",
+          "bytes": 1103,
+          "sha256": "e0073221e78f6f3df94b0b37da4683167a5a8787f21317f5d6a0a619a5c767cd"
+        },
+        {
+          "path": "src/core/native/NativeChainDecisionInfo.js",
+          "bytes": 1541,
+          "sha256": "ba57cbd05832466c404cae2d2ecb89d5cee95e00bfb84318fc3ae65c5c88b589"
+        },
+        {
+          "path": "src/core/native/NativeCoreAssets.js",
+          "bytes": 1401,
+          "sha256": "ea80f9606142a9612d68be4fe0f53c8acdb3061dc171952af1e39baeb8735903"
+        },
+        {
+          "path": "src/core/native/NativeDiceDungeonScriptCorrection.js",
+          "bytes": 1587,
+          "sha256": "80f978a0ea7ac9641a1413ca14e6a9cfd27c28c0d571203391706623072424cc"
+        },
+        {
+          "path": "src/core/native/NativeDuelDecisions.js",
+          "bytes": 35779,
+          "sha256": "4ec35dd4cc12ae7efcb1dd45a39e3cc7a83e359d9af41a84d51f3ffa5bbff724"
+        },
+        {
+          "path": "src/core/native/NativeDuelGame.js",
+          "bytes": 62312,
+          "sha256": "04a3219a0b59bec1aab199efc72fc25069c68acb17233190a898c530add0813f"
+        },
+        {
+          "path": "src/core/native/NativeDuelRuntime.js",
+          "bytes": 9739,
+          "sha256": "07136f4301391bd62e4f29fe611067b15734f53c92354cb6a3cc3b33ff52e6b5"
+        },
+        {
+          "path": "src/core/native/NativeDuelTowerScriptCorrection.js",
+          "bytes": 3790,
+          "sha256": "fa198bb13429613fe9ac2843ea4c5c25251a09c8d7c393953d30725f45a68a6e"
+        },
+        {
+          "path": "src/core/native/NativeDuelVisualEvents.js",
+          "bytes": 35031,
+          "sha256": "2a776f53d0d15eb91eb2c736d95fbdc809d85cdef9491adf9b6c448ef61580ab"
+        },
+        {
+          "path": "src/core/native/NativeExodiaRevealPolicy.js",
+          "bytes": 1536,
+          "sha256": "a9d855a4daa6d51a9d4525f855da58cdf0a714036f43c5bc9ce9cadc8eff368e"
+        },
+        {
+          "path": "src/core/native/NativeLuaCompatibility.js",
+          "bytes": 536,
+          "sha256": "7445d1f73cad6ba208fa0cf869d6f51491e6dd700dedc4cbec6f4342fd8d163e"
+        },
+        {
+          "path": "src/core/native/NativePublicRevealPolicy.js",
+          "bytes": 4146,
+          "sha256": "6034c3dff716d18597bf4b689b317255695fe1f5a6a860edffe3f2a87abd800e"
+        },
+        {
+          "path": "src/core/native/NativeScriptArchive.js",
+          "bytes": 784,
+          "sha256": "8e40d56b6cba11813e217d89538831195e89399b5e0da1c0dfd215ab7610d83c"
+        },
+        {
+          "path": "src/core/native/NativeSourceIntegrity.js",
+          "bytes": 2339,
+          "sha256": "4af7fc0fc34b715ebe3e23ed7cfcf35d74dca662200e4025c7cc7957ac81cd18"
+        },
+        {
+          "path": "src/core/native/NativeTCGRuleProfile.js",
+          "bytes": 657,
+          "sha256": "5ea356d97beef0b1b35674d47108a95738953ca77d6581eda5524197b94f7c38"
+        },
+        {
+          "path": "src/core/tcg/TcgAdvancedBanlistData.js",
+          "bytes": 57732,
+          "sha256": "bdc8c18edb0a6308949e516442106747ada3976334beb105562c17c7d6f5d945"
+        },
+        {
+          "path": "src/core/tcg/TcgAdvancedFormat.js",
+          "bytes": 2731,
+          "sha256": "058606afc6449ce1ced941c42000c8a109da55cf9b36ad8919b853582c540d40"
+        },
+        {
+          "path": "src/core/tcg/TcgCardLegality.js",
+          "bytes": 5154,
+          "sha256": "7b556ecb1af2b729a71f4cdf237182068d5f3d47a85cacef8a91c2661979e874"
+        },
+        {
+          "path": "src/ui/CombatVisualProfiles.js",
+          "bytes": 15415,
+          "sha256": "f5c5aff6a712ed97bbe1d9e4064cd5a3b13620539a2311833ca865f1230d9204"
+        },
+        {
+          "path": "src/ui/DeckBuilderRules.js",
+          "bytes": 9516,
+          "sha256": "824e6683279fb894c9eaf554bed8496e6efde2a1f4706037bb78044c9aeea9f3"
+        },
+        {
+          "path": "src/ui/HologramMonsterModels.js",
+          "bytes": 24593,
+          "sha256": "e1d187cb29a6ea139b16d26b7154a92c77160c34941a37b13023cfcfe0f2f278"
+        },
+        {
+          "path": "src/ui/HologramPopularGodModels.js",
+          "bytes": 16210,
+          "sha256": "7e095ad4bab594756d846b6794add8afb540f962494b7168589d0bc80851f121"
+        },
+        {
+          "path": "src/ui/HologramPopularStapleModels.js",
+          "bytes": 23103,
+          "sha256": "66784a7c5903a5005064833dead704a9d2a7bad4152a71d8d7cc024ccd610c35"
+        },
+        {
+          "path": "src/ui/MatchController.js",
+          "bytes": 25804,
+          "sha256": "9712ace23577eb65ebca16632b8d51411e31c5ee37d6f12b9ddb272c5ab68cbc"
+        },
+        {
+          "path": "src/ui/PopularGodReferenceArt.js",
+          "bytes": 3176,
+          "sha256": "7461a0dbbf3b46e14965778b7326c507a132695396450620b13841abfc85e898"
+        },
+        {
+          "path": "src/ui/PopularStapleReferenceArt.js",
+          "bytes": 4992,
+          "sha256": "5dc35be8fc2634608fd4453fcd3168a9e2ff06cf49861007d6e11a65a8fa5ea3"
+        },
+        {
+          "path": "src/ui/TCGMatchClock.js",
+          "bytes": 1924,
+          "sha256": "7f2f1a718fcf12e5687d20a72e8f7f78e165e95a85aacade82a248e17b44de83"
+        },
+        {
+          "path": "style.css",
+          "bytes": 115179,
+          "sha256": "41962bbd2229fc25b2f1d77280a39cc2ff26c5d5963588e3539b183720a89fab"
+        },
+        {
+          "path": "vercel.json",
+          "bytes": 1272,
+          "sha256": "54ace7536aaf92de4eca552f63a6266e790eda597ecfc67dbb0ebe0c9bf3664c"
+        }
+      ],
+      "finalCaptures": [
+        {
+          "path": "docs/audits/artifacts/tcg-catalogue-match-ui-2026-10-08/catalogue-neos-added-1280.png",
+          "bytes": 248154,
+          "sha256": "1c23abc5bc298648a478d3680d70b545ccd18cb31e8920cea1ccec5fc9ec7f3d"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-catalogue-match-ui-2026-10-08/catalogue-neos-added-390.png",
+          "bytes": 144263,
+          "sha256": "401d2c72d7555b7bf45108c73cf01785351613b522553e45b2c26a03a77caff9"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-catalogue-match-ui-2026-10-08/catalogue-pot-greed-refused-1280.png",
+          "bytes": 246892,
+          "sha256": "d44054fbb23f718789c998fa09f0e72c2784664cb0e9682fccc7696a0d4c68a9"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-catalogue-match-ui-2026-10-08/catalogue-pot-greed-refused-390.png",
+          "bytes": 143595,
+          "sha256": "0e362b99c2f425998f3ed65440b06c1509d7cecbadb716133958ab7574fff356"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-catalogue-match-ui-2026-10-08/match-native-duel2-1280.png",
+          "bytes": 432338,
+          "sha256": "f6286a69129d597ecc55389107bc566d78de134e72b64876448a2e67453c5cdb"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-catalogue-match-ui-2026-10-08/match-native-duel2-390.png",
+          "bytes": 149970,
+          "sha256": "f47028b1f076b47ef990a6c50ca40609eb82302798bf0bc44dea25e6feb2521c"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-catalogue-match-ui-2026-10-08/match-sided-before-reload-1280.png",
+          "bytes": 155637,
+          "sha256": "db28a5a8866f09ced7b751095d47287e6891d1db4d8d47b2ae3bc50bb8d3e7d3"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-catalogue-match-ui-2026-10-08/match-sided-before-reload-390.png",
+          "bytes": 52335,
+          "sha256": "59a54d15bdae7764b8ba601e277909164d5e5e2aec1ea77bb655431bb783ebd1"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-catalogue-match-ui-2026-10-08/match-sided-restored-1280.png",
+          "bytes": 116114,
+          "sha256": "0ea40cdcfed6acbf0f6de05efebbd3dc86fdb9e03bab91e332ad557cb3c7a90d"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-catalogue-match-ui-2026-10-08/match-sided-restored-390.png",
+          "bytes": 73617,
+          "sha256": "43e5d65c33ee3bbb36bc0d209632b51ecc6af91e6cd4ec067e1e814dd0b07132"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-catalogue-match-ui-2026-10-08/tcg-bls-light-dark-native-1280.png",
+          "bytes": 894935,
+          "sha256": "3d1f24d3e5123fb68fc961e6387362f669e455b81055866af84dbcecef1e10ac"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-catalogue-match-ui-2026-10-08/tcg-cyber-tribute-neos-revival-1280.png",
+          "bytes": 865250,
+          "sha256": "f48258dbb86c89231cbd679d23a65be3d635660acb970a368ac44a384b00714d"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-catalogue-match-ui-2026-10-08/tcg-cyber-tribute-neos-revival-390.png",
+          "bytes": 241781,
+          "sha256": "6e791d68537cf32de915f200958e329be78acb4620bc984bfc5d04f25d3b5454"
+        },
+        {
+          "path": "docs/audits/artifacts/tcg-catalogue-match-ui-2026-10-08/tcg-utopia-native-xyz-1280.png",
+          "bytes": 816937,
+          "sha256": "42d3e96a296d1f14f0d0629a2632f2e3e6661d9158c787db822dac44da45d340"
+        }
+      ],
+      "cases": 4
+    }
+  ],
+  "globalChecks": {
+    "path": "docs/audits/artifacts/tcg-complete-checks-2026-10-08/report.json",
+    "bytes": 22853,
+    "sha256": "fe59fa225b6a33f70ac02594ed8d2ca7690d867ddc6a21700d338bf4ae4be28e"
+  },
+  "swissCutoffDependencies": [
+    {
+      "path": "main.js",
+      "bytes": 191637,
+      "sha256": "b1ad9601ee5d785e30fe532a463bc6adf458cea0115ec27d8b2ecf994df913d0"
+    },
+    {
+      "path": "src/core/native/NativeDuelGame.js",
+      "bytes": 62312,
+      "sha256": "04a3219a0b59bec1aab199efc72fc25069c68acb17233190a898c530add0813f"
+    },
+    {
+      "path": "src/ui/TCGMatchClock.js",
+      "bytes": 1924,
+      "sha256": "7f2f1a718fcf12e5687d20a72e8f7f78e165e95a85aacade82a248e17b44de83"
+    },
+    {
+      "path": "test/custom-match-restore.test.js",
+      "bytes": 30681,
+      "sha256": "3b97668f4983cf4035403f5b4c38f7cd822343b0c628d861fd2041c4856078d2"
+    }
+  ],
+  "frozenCompiledBuild": {
+    "frozenAtUtc": "2026-10-08T22:43:01.431912+00:00",
+    "entry": {
+      "path": "/assets/index-CaFyNlVq.js",
+      "bytes": 672465,
+      "sha256": "075c1dd21968352631c5a88c85272c1dbcaa09f36f80bf3939c1c5abc5137c51"
+    },
+    "httpTextAssets": [
+      {
+        "path": "/index.html",
+        "bytes": 36040,
+        "sha256": "80e460ed5a554f23790d8a2aad1932ea67065f41e3e339d8ca58979b9d10848b"
+      },
+      {
+        "path": "/assets/index-CaFyNlVq.js",
+        "bytes": 672465,
+        "sha256": "075c1dd21968352631c5a88c85272c1dbcaa09f36f80bf3939c1c5abc5137c51"
+      },
+      {
+        "path": "/assets/index-Ce4lc5_W.css",
+        "bytes": 84495,
+        "sha256": "3a7edacf3b48736f74fedd48644f2bb03a3a5df7bdde114cb8e10c56857bea36"
+      },
+      {
+        "path": "/assets/NativeDuelGame-B6fnaQfz.js",
+        "bytes": 96452,
+        "sha256": "d47adef9f16b4f087568b0c3bb34f7c8dd025352d86d4db29b9df032a3658288"
+      },
+      {
+        "path": "/assets/FieldEnvironmentRegistry-CW5zbHcP.js",
+        "bytes": 622016,
+        "sha256": "3423def789cb9b59abf5297c9fc36905226dbfb91e2d0d44d988853104af4d4f"
+      },
+      {
+        "path": "/assets/RealDuelView-3mvc8FCQ.js",
+        "bytes": 204144,
+        "sha256": "bd889dfcf9f452ef7e2c6786a55d7e1091b4df78554b4f8d6ab062c381795112"
+      },
+      {
+        "path": "/assets/ocgcore-DWqJvtmv.js",
+        "bytes": 46501,
+        "sha256": "dd1e9936f49901fb5f53efd6d25b19ab5755af65169fee4ef34600a1cfbe5349"
+      }
+    ],
+    "qaGlobalAbsent": true
+  },
+  "frozenAppSources": [
+    {
+      "path": "main.js",
+      "bytes": 191637,
+      "sha256": "b1ad9601ee5d785e30fe532a463bc6adf458cea0115ec27d8b2ecf994df913d0"
+    },
+    {
+      "path": "index.html",
+      "bytes": 35643,
+      "sha256": "c27ee3527a5eb985d821124eea671891687056e75a5cb0d0ec76ac706bbd1dbe"
+    },
+    {
+      "path": "src/api.js",
+      "bytes": 10902,
+      "sha256": "c044a96f88ba3aebf4eb97e94bf773bfd112bb4840ca4a3a118fd80e2ed7be91"
+    },
+    {
+      "path": "src/audio.js",
+      "bytes": 14437,
+      "sha256": "41754678ab255934b22cee21ec6b81e8f620e491c4ec4d8cea3800a0bef526d8"
+    },
+    {
+      "path": "src/board.js",
+      "bytes": 18240,
+      "sha256": "cc3fea4fa467410ca40b444091cdc2c5a1f803e39639fe296cfba9486bebc13d"
+    },
+    {
+      "path": "src/cards.js",
+      "bytes": 27940,
+      "sha256": "e0a05e98ed0892afc1e8c363b997f785fd74bb061d04c4aafb5fe84908a4a5c8"
+    },
+    {
+      "path": "src/content/AIResponsePolicy.js",
+      "bytes": 7838,
+      "sha256": "2277d2d6e8eb0e66c3e95fb08a27598b97ca800343f60d5c03daa7dd9db30c95"
+    },
+    {
+      "path": "src/content/AIStrategy.js",
+      "bytes": 22246,
+      "sha256": "e390a1eefee2c0600096a8b4dedced2d185f6b0b34f7027153106c84a2b38249"
+    },
+    {
+      "path": "src/content/CampaignDuelTracker.js",
+      "bytes": 4158,
+      "sha256": "18ac149a2b930294796e43faa636c186425cc6f751170ca3c5d8c44e9ba9d641"
+    },
+    {
+      "path": "src/content/SoloCampaign.js",
+      "bytes": 26216,
+      "sha256": "0d7b6766c32bd87a29ff8ed61a442fee0f765ec65057905aeed5412474f1a5eb"
+    },
+    {
+      "path": "src/core/AdvancedFieldSpellRules.js",
+      "bytes": 10487,
+      "sha256": "3c563123851215c7d76a6ff1e76fc0343abf43a351e25dfe6d6f71dbd3aaceda"
+    },
+    {
+      "path": "src/core/BattleEngine.js",
+      "bytes": 5226,
+      "sha256": "50d049f0627f7def7cbd693575fb7f89c729282a4fb694b4746da1a57d109c0b"
+    },
+    {
+      "path": "src/core/CardNameRules.js",
+      "bytes": 970,
+      "sha256": "6e0821869caeb7e4a96a86bfe05043a206d5042d2c3f5fc54c1b931d4ce0b0fa"
+    },
+    {
+      "path": "src/core/CardScriptAPI.js",
+      "bytes": 2639,
+      "sha256": "a4c0a02321c04e53fa44eefa5716b9c28f603b8dc5b8a43139bba3cc5b56bfec"
+    },
+    {
+      "path": "src/core/CardState.js",
+      "bytes": 13978,
+      "sha256": "f5a0eb7ba780e1641f5a462be029cd3f3717ec1311f6476653d40e4dc1d9832f"
+    },
+    {
+      "path": "src/core/ChainEngine.js",
+      "bytes": 7255,
+      "sha256": "4a2cd6708f57264381bcfbfdb356d2e6a5fdc4257a178094e5a79cc44f1f4fa2"
+    },
+    {
+      "path": "src/core/ClassicFieldSpellEffects.js",
+      "bytes": 15020,
+      "sha256": "55a63d07f678c3ebedfad6158d3963f8fc00cda1eb6d8bd543567a95ff7d85f3"
+    },
+    {
+      "path": "src/core/ClassicMonsterEffectScripts.js",
+      "bytes": 7710,
+      "sha256": "48c09752494cdf49cb4252fb4a11625b82b8833e38819e588e192f20d6d04fa2"
+    },
+    {
+      "path": "src/core/DefensiveEngine.js",
+      "bytes": 5638,
+      "sha256": "1915e33ad81f22afedc441e617f3bed628c527b32e57052b5812eca1daefee22"
+    },
+    {
+      "path": "src/core/EffectEngine.js",
+      "bytes": 3931,
+      "sha256": "52c841591a87b13fc9ccdb94d682476ce4a8e70094ab77ac78c1f6c5ae5ca429"
+    },
+    {
+      "path": "src/core/FieldRuleRuntime.js",
+      "bytes": 4435,
+      "sha256": "5e5a47827a493a081f9a3ed78c9b4a9a5b3b0c5fff592684203c9fc7a507a3e9"
+    },
+    {
+      "path": "src/core/FieldSpellRules.js",
+      "bytes": 2834,
+      "sha256": "52abde627e6e18420777a379d03a35c780de1acbd9be5d953bca54db3d45a046"
+    },
+    {
+      "path": "src/core/FieldState.js",
+      "bytes": 15094,
+      "sha256": "421dd24f15bd4c63d7c1e90b2bf77372ebbda0337de32faef1f73805b60baa7b"
+    },
+    {
+      "path": "src/core/GameStateStabilizer.js",
+      "bytes": 9666,
+      "sha256": "9c39fd9dee6010c8a1f9e5213983e263e6acb934f899b308b883696c88c07bd4"
+    },
+    {
+      "path": "src/core/LinkZoneRules.js",
+      "bytes": 6058,
+      "sha256": "bf67cfe14efcbfdbdc2e5aece649ca824404cb1724ce1e9dcd30c00e33224bdf"
+    },
+    {
+      "path": "src/core/MatchEngine.js",
+      "bytes": 39071,
+      "sha256": "fa39f6163a84ea6adcbf6481b6dad154316a9d522505947b3c1966daa19712b7"
+    },
+    {
+      "path": "src/core/PSCTParser.js",
+      "bytes": 4988,
+      "sha256": "5f00887f9cff445f4398c0960b7628b3a99ed6645eee871aa4b0655c4731d633"
+    },
+    {
+      "path": "src/core/PhaseEngine.js",
+      "bytes": 2599,
+      "sha256": "a8ca578a832f28c8a83197441e56e0963daae696fd66b17dc8ddc9152d588819"
+    },
+    {
+      "path": "src/core/StrictCardRegistry.js",
+      "bytes": 6317,
+      "sha256": "611e80527743c846d56b463c69a8bfbb2c447c1b32c5fe7b48571b57cb868826"
+    },
+    {
+      "path": "src/core/SummonEngine.js",
+      "bytes": 24641,
+      "sha256": "921945e0d5d8f25c1e2d48ef028f8c8aec851dbbb265f7d34d616532e17785c6"
+    },
+    {
+      "path": "src/core/TriggerEventEngine.js",
+      "bytes": 3089,
+      "sha256": "5f08e99e99174c009086ca04d01919dac54374a9dcc7a69e3fc64274e8e14c65"
+    },
+    {
+      "path": "src/core/TurnEngine.js",
+      "bytes": 2072,
+      "sha256": "b9e23716c3eac4c2c7c1725520751507eac949c803079cd041ce8912249ac824"
+    },
+    {
+      "path": "src/core/native/NativeBattleLifecycle.js",
+      "bytes": 5611,
+      "sha256": "202704a82ad6624211b063acc7e58cd3a40b0721f0dc9d67a02286ea0174a0c0"
+    },
+    {
+      "path": "src/core/native/NativeCardCatalogue.js",
+      "bytes": 15865,
+      "sha256": "7db3547182e650eeb618023059ccec2750d9a074d3258559f6c5040528ab79ca"
+    },
+    {
+      "path": "src/core/native/NativeCardCharacteristics.js",
+      "bytes": 2031,
+      "sha256": "e4d1a7551bf67b32a55f291f59abc411c032217113f63cd35df76db75ad5fa76"
+    },
+    {
+      "path": "src/core/native/NativeCardData.js",
+      "bytes": 4737,
+      "sha256": "59a664d8d16593ef2223d895085e81e48d6eaa0d90bb0725b6410a71bdcac568"
+    },
+    {
+      "path": "src/core/native/NativeCardReferenceArt.js",
+      "bytes": 2668,
+      "sha256": "b7f2f102783dedc22b2a65be71832bc4002654207d0a7b050f03873143e88c0a"
+    },
+    {
+      "path": "src/core/native/NativeCardRegistry.js",
+      "bytes": 5752,
+      "sha256": "0d3d50a39fefd3be57b3ea6a4e4b945c204730bb2580d5f96016de01b71dcefd"
+    },
+    {
+      "path": "src/core/native/NativeCardRegistryData.js",
+      "bytes": 173747,
+      "sha256": "240b8deaf34acb07c2eeba15b2cd37e26a5d6833b6c8a4be83fd048cdc468359"
+    },
+    {
+      "path": "src/core/native/NativeCardScriptCorrections.js",
+      "bytes": 1103,
+      "sha256": "e0073221e78f6f3df94b0b37da4683167a5a8787f21317f5d6a0a619a5c767cd"
+    },
+    {
+      "path": "src/core/native/NativeChainDecisionInfo.js",
+      "bytes": 1541,
+      "sha256": "ba57cbd05832466c404cae2d2ecb89d5cee95e00bfb84318fc3ae65c5c88b589"
+    },
+    {
+      "path": "src/core/native/NativeCoreAssets.js",
+      "bytes": 1401,
+      "sha256": "ea80f9606142a9612d68be4fe0f53c8acdb3061dc171952af1e39baeb8735903"
+    },
+    {
+      "path": "src/core/native/NativeDiceDungeonScriptCorrection.js",
+      "bytes": 1587,
+      "sha256": "80f978a0ea7ac9641a1413ca14e6a9cfd27c28c0d571203391706623072424cc"
+    },
+    {
+      "path": "src/core/native/NativeDuelDecisions.js",
+      "bytes": 35779,
+      "sha256": "4ec35dd4cc12ae7efcb1dd45a39e3cc7a83e359d9af41a84d51f3ffa5bbff724"
+    },
+    {
+      "path": "src/core/native/NativeDuelGame.js",
+      "bytes": 62312,
+      "sha256": "04a3219a0b59bec1aab199efc72fc25069c68acb17233190a898c530add0813f"
+    },
+    {
+      "path": "src/core/native/NativeDuelRuntime.js",
+      "bytes": 9739,
+      "sha256": "07136f4301391bd62e4f29fe611067b15734f53c92354cb6a3cc3b33ff52e6b5"
+    },
+    {
+      "path": "src/core/native/NativeDuelTowerScriptCorrection.js",
+      "bytes": 3790,
+      "sha256": "fa198bb13429613fe9ac2843ea4c5c25251a09c8d7c393953d30725f45a68a6e"
+    },
+    {
+      "path": "src/core/native/NativeDuelVisualEvents.js",
+      "bytes": 35031,
+      "sha256": "2a776f53d0d15eb91eb2c736d95fbdc809d85cdef9491adf9b6c448ef61580ab"
+    },
+    {
+      "path": "src/core/native/NativeExodiaRevealPolicy.js",
+      "bytes": 1536,
+      "sha256": "a9d855a4daa6d51a9d4525f855da58cdf0a714036f43c5bc9ce9cadc8eff368e"
+    },
+    {
+      "path": "src/core/native/NativeLuaCompatibility.js",
+      "bytes": 536,
+      "sha256": "7445d1f73cad6ba208fa0cf869d6f51491e6dd700dedc4cbec6f4342fd8d163e"
+    },
+    {
+      "path": "src/core/native/NativePublicRevealPolicy.js",
+      "bytes": 4146,
+      "sha256": "6034c3dff716d18597bf4b689b317255695fe1f5a6a860edffe3f2a87abd800e"
+    },
+    {
+      "path": "src/core/native/NativeScriptArchive.js",
+      "bytes": 784,
+      "sha256": "8e40d56b6cba11813e217d89538831195e89399b5e0da1c0dfd215ab7610d83c"
+    },
+    {
+      "path": "src/core/native/NativeSourceIntegrity.js",
+      "bytes": 2339,
+      "sha256": "4af7fc0fc34b715ebe3e23ed7cfcf35d74dca662200e4025c7cc7957ac81cd18"
+    },
+    {
+      "path": "src/core/native/NativeTCGRuleProfile.js",
+      "bytes": 657,
+      "sha256": "5ea356d97beef0b1b35674d47108a95738953ca77d6581eda5524197b94f7c38"
+    },
+    {
+      "path": "src/core/native/vendor/ocgcore/chunk-6GYI7QPM.js",
+      "bytes": 42,
+      "sha256": "0a9f270bce85e72ea86909d6b25d962616fe09e73109f78b3e26ea324e09b792"
+    },
+    {
+      "path": "src/core/native/vendor/ocgcore/chunk-L5TW24SS.js",
+      "bytes": 565,
+      "sha256": "e6e321ec2bd37a64c7f78b18afffbe54fff34ec0c3d454147ae5c28fb3c9ddb2"
+    },
+    {
+      "path": "src/core/native/vendor/ocgcore/index.js",
+      "bytes": 46243,
+      "sha256": "8cfbec622cf5b920e0b58db6d842fcabf1a9ef8eed9f0841bac43a1e9adb0657"
+    },
+    {
+      "path": "src/core/native/vendor/ocgcore/ocgcore.sync-MMMSWPBB.js",
+      "bytes": 21357,
+      "sha256": "f4523ad5c2e9f14c8736a91ad94e9e7f8283883a3607781f40afdeae27cdf828"
+    },
+    {
+      "path": "src/core/tcg/TcgAdvancedBanlistData.js",
+      "bytes": 57732,
+      "sha256": "bdc8c18edb0a6308949e516442106747ada3976334beb105562c17c7d6f5d945"
+    },
+    {
+      "path": "src/core/tcg/TcgAdvancedFormat.js",
+      "bytes": 2731,
+      "sha256": "058606afc6449ce1ced941c42000c8a109da55cf9b36ad8919b853582c540d40"
+    },
+    {
+      "path": "src/core/tcg/TcgCardLegality.js",
+      "bytes": 5154,
+      "sha256": "7b556ecb1af2b729a71f4cdf237182068d5f3d47a85cacef8a91c2661979e874"
+    },
+    {
+      "path": "src/game.js",
+      "bytes": 276839,
+      "sha256": "246e7c6caf967e5c7805b59853f2d905e828ad3b1b756beca5bfda4a368428dc"
+    },
+    {
+      "path": "src/network/deck-hash.js",
+      "bytes": 1514,
+      "sha256": "bd19e5a3d84754b81fa5b182ffb9d893dd8571827715edba38df7a13620b5a8e"
+    },
+    {
+      "path": "src/network/duel-game-network-adapter.js",
+      "bytes": 48927,
+      "sha256": "c5d58d787d28a559abad5b974d9a5ced23a80cb0295d1ff9eb2f0b32181b8bdc"
+    },
+    {
+      "path": "src/network/duel-network-session.js",
+      "bytes": 31509,
+      "sha256": "c213298c2c7f976e7bbd7c76ac1897c44df527c3e5967ccb9506e0373f8335b7"
+    },
+    {
+      "path": "src/network/emitter.js",
+      "bytes": 1786,
+      "sha256": "d70ca7ddcdd345346ecb071bc4728359b6676c2351ae858a5edbd87a072e1c30"
+    },
+    {
+      "path": "src/network/index.js",
+      "bytes": 947,
+      "sha256": "eda78a18675a21b20c57d7098d40c549503d4675e875fabe42e0dc5fe9157c9d"
+    },
+    {
+      "path": "src/network/mock-transport.js",
+      "bytes": 4034,
+      "sha256": "fda536a6f47b78ec4f419c4b2e79f7ff251e9b917ffb3cb002a03cb0be4fba1f"
+    },
+    {
+      "path": "src/network/online-duel-controller.js",
+      "bytes": 20865,
+      "sha256": "ba1811c94d2650b0ce55caf6f012b8e5e41fde2cdfcc24684f695f5e3f6cf9ed"
+    },
+    {
+      "path": "src/network/protocol.js",
+      "bytes": 9226,
+      "sha256": "48f8b6aa158ee46b607d93ee67cf98244b606a9a1a21f8b4bf8a703b77eb8556"
+    },
+    {
+      "path": "src/network/session-code.js",
+      "bytes": 5238,
+      "sha256": "a6a183dac6379317f0e7ebdef5b734bc07a0b9226f5778d5a2534bd23a29d3ce"
+    },
+    {
+      "path": "src/network/webrtc-transport.js",
+      "bytes": 12063,
+      "sha256": "115d7b9f66c9de965923e1b66ae20eb26719b6f3803e716ed51ddd4ccd996f7b"
+    },
+    {
+      "path": "src/security.js",
+      "bytes": 858,
+      "sha256": "0ce0db7ee8f606adbe927eb3580dfc0c8864afe5f021b338854594655dc47c59"
+    },
+    {
+      "path": "src/ui/CardSpecificVisualEffects.js",
+      "bytes": 23094,
+      "sha256": "b56382a7b1ba63e299b1bedc18405ad4b01454a182f2160aef544089a4182df7"
+    },
+    {
+      "path": "src/ui/CombatVisualEffects.js",
+      "bytes": 36480,
+      "sha256": "6e685855e5c491e5d2d340baa4a5b399438bf3c4e899e5a888f989c994852e94"
+    },
+    {
+      "path": "src/ui/CombatVisualProfiles.js",
+      "bytes": 15415,
+      "sha256": "f5c5aff6a712ed97bbe1d9e4064cd5a3b13620539a2311833ca865f1230d9204"
+    },
+    {
+      "path": "src/ui/DeckBuilderRules.js",
+      "bytes": 9516,
+      "sha256": "824e6683279fb894c9eaf554bed8496e6efde2a1f4706037bb78044c9aeea9f3"
+    },
+    {
+      "path": "src/ui/DuelViewController.js",
+      "bytes": 10073,
+      "sha256": "40a5948a6fe7731af5faa23d61dfa694a377b14880f2140432285c12c9944b3a"
+    },
+    {
+      "path": "src/ui/FieldContinuationStageDetails.js",
+      "bytes": 14565,
+      "sha256": "3def385c130687a064b02f9e03c7f0c7f85261efa8c7000c36089d38a3d13204"
+    },
+    {
+      "path": "src/ui/FieldEnvironmentAquaticReferences.js",
+      "bytes": 40332,
+      "sha256": "fc2308aafce72862a97b759cfe25b6818b38580ebde74125af3bdc5c074858b2"
+    },
+    {
+      "path": "src/ui/FieldEnvironmentArcaneReferences.js",
+      "bytes": 50646,
+      "sha256": "88776075dac0a9fbc4644e6427a4d3cd49e0305693fb5826056b8f7b4a6d5e3e"
+    },
+    {
+      "path": "src/ui/FieldEnvironmentArchitecturalReferences.js",
+      "bytes": 28182,
+      "sha256": "e9bfe454fd75e9934917ba60d431aaf5549f75c20769290cd5dffc929b8895b1"
+    },
+    {
+      "path": "src/ui/FieldEnvironmentCommunityReferences.js",
+      "bytes": 72014,
+      "sha256": "498c7a20bb5d0d0d1d7c693c0225f87d0b9fdf6822c33cc98ffc2021722a04ef"
+    },
+    {
+      "path": "src/ui/FieldEnvironmentDarkReferences.js",
+      "bytes": 48359,
+      "sha256": "94bbbf083f053b5c37d81801bdf347fe73a67fef13c788f57c8a43f6ee1c79ac"
+    },
+    {
+      "path": "src/ui/FieldEnvironmentEngineeringReferences.js",
+      "bytes": 46085,
+      "sha256": "566328be75b756765ffd33c2eb7738f4825b8d4cdd48c8acec807505d674c8ce"
+    },
+    {
+      "path": "src/ui/FieldEnvironmentFrontierReferences.js",
+      "bytes": 86869,
+      "sha256": "926e4873ff5e4c2a038f310eb6d5c702ed8dbe3d92bced322b88fe1cb21997af"
+    },
+    {
+      "path": "src/ui/FieldEnvironmentGeometry.js",
+      "bytes": 94053,
+      "sha256": "134b5a9e4cf1982b82a43e54f860522833cf1cea16013003b54153fc79dedb3c"
+    },
+    {
+      "path": "src/ui/FieldEnvironmentMysticalReferences.js",
+      "bytes": 27232,
+      "sha256": "1e6ec73411e3dd624542edee60000110bd22f38c6f9e90176f18ce071c7da2cc"
+    },
+    {
+      "path": "src/ui/FieldEnvironmentNatureReferences.js",
+      "bytes": 27448,
+      "sha256": "0d44bdf0379837717ea1be71599d5572edb9209565cf93bfc5ee5d3768f7c824"
+    },
+    {
+      "path": "src/ui/FieldEnvironmentRegistry.js",
+      "bytes": 32180,
+      "sha256": "4312f060be24418091f4f629727766d406043c2a32d79717e9f3220123227dd8"
+    },
+    {
+      "path": "src/ui/FieldEnvironmentRitualReferences.js",
+      "bytes": 77714,
+      "sha256": "ef9992458040028f87a5035ee63dbf01b703435759f97bc827f6ec527bbe401c"
+    },
+    {
+      "path": "src/ui/FieldEnvironmentStageReferences.js",
+      "bytes": 43183,
+      "sha256": "a5c68804172344e32fe93147ee04ddaa6f76ae520e42f19c2255c21d0283dfd8"
+    },
+    {
+      "path": "src/ui/FieldEnvironmentTechnologyReferences.js",
+      "bytes": 32454,
+      "sha256": "930d3121814e730d9274a6d2087bcd301c1b18b07250cff1de9abb70676b4742"
+    },
+    {
+      "path": "src/ui/FieldEnvironmentUrbanReferences.js",
+      "bytes": 32177,
+      "sha256": "b3d94d8d9f427315fec3b0d36c775fc337d827b92ca6a8fd7de8d8665e5e61c9"
+    },
+    {
+      "path": "src/ui/FieldEnvironmentWildReferences.js",
+      "bytes": 38383,
+      "sha256": "b8db1cfd37d85dfd222d0b6c9a89934cc1f9c0d0ce7ae3e95325efafdb07d0c7"
+    },
+    {
+      "path": "src/ui/FieldGeometryThree.js",
+      "bytes": 739,
+      "sha256": "f1ba391ea533f94a6795f160091077d7488c590cf2e42cf2686c7d0a01fe7e82"
+    },
+    {
+      "path": "src/ui/FieldReferenceDetailGeometry.js",
+      "bytes": 25543,
+      "sha256": "20269b947051f75862dc401d991541023144b70bfab81df100e82b942b532fd1"
+    },
+    {
+      "path": "src/ui/FieldSpellAtlas.js",
+      "bytes": 7907,
+      "sha256": "7c3f8d76df119e4fdd8ea31e23b2a275e92556ac93a3190ea09eb28535ccce1a"
+    },
+    {
+      "path": "src/ui/FieldSpellAtlasPreview.js",
+      "bytes": 4420,
+      "sha256": "344ac49c08bae745c87b136d5a34158d5107bb49c7117ef04697ff2975d8353e"
+    },
+    {
+      "path": "src/ui/FieldSpellCardDataSnapshot.js",
+      "bytes": 167899,
+      "sha256": "38fe5564068d6684f9f47b0db51b8a4e03f28ba0f3cbc5512b68f300b27d60e5"
+    },
+    {
+      "path": "src/ui/FieldSpellCoverage.js",
+      "bytes": 7043,
+      "sha256": "f7b900ea9e570b6987d522fce71764d2e99b01b56241f485a8f785f38a209d0d"
+    },
+    {
+      "path": "src/ui/FieldSpellEnvironmentCatalog.js",
+      "bytes": 24250,
+      "sha256": "37bf5157ca5a8fbfb6c1d93898a3d2efcb3fd620b3c5e61e63f26d46225aee33"
+    },
+    {
+      "path": "src/ui/FieldSpellIllustrationBriefManifest.js",
+      "bytes": 34343,
+      "sha256": "a875f7c3138e347a52ff9606e536f2f7dbca70d17ab45a8fd892727f72233f11"
+    },
+    {
+      "path": "src/ui/FieldSpellReferenceArtManifest.js",
+      "bytes": 1729,
+      "sha256": "2c98d28f4fd7d8186f745e18994ad8ebdf1ceae8936f481c7b440219ff8fc486"
+    },
+    {
+      "path": "src/ui/FieldSpellReferenceArtPalettes.js",
+      "bytes": 32287,
+      "sha256": "39d7a5073366407942497b92de7afe5e319b87957edb19068671bee83f7fbb88"
+    },
+    {
+      "path": "src/ui/FieldSpellReferenceArtSnapshot.js",
+      "bytes": 175681,
+      "sha256": "9184710dc78ef3fbd96bfac4bda8dba14fba0754e6add8e47d343f409059dad1"
+    },
+    {
+      "path": "src/ui/FieldSpellRuntimeManifest.js",
+      "bytes": 10027,
+      "sha256": "0918f086daae0c0ac55e355624e89ac934be19b90bc99b3f0a5347be1e53d729"
+    },
+    {
+      "path": "src/ui/HandPlacement.js",
+      "bytes": 1498,
+      "sha256": "7482df3d0bc80df5f547d04acf9d958b8cc09b2fdb33666fcea6942c047e9eee"
+    },
+    {
+      "path": "src/ui/HologramMonsterModels.js",
+      "bytes": 24593,
+      "sha256": "e1d187cb29a6ea139b16d26b7154a92c77160c34941a37b13023cfcfe0f2f278"
+    },
+    {
+      "path": "src/ui/HologramPopularGodModels.js",
+      "bytes": 16210,
+      "sha256": "7e095ad4bab594756d846b6794add8afb540f962494b7168589d0bc80851f121"
+    },
+    {
+      "path": "src/ui/HologramPopularStapleModels.js",
+      "bytes": 23103,
+      "sha256": "66784a7c5903a5005064833dead704a9d2a7bad4152a71d8d7cc024ccd610c35"
+    },
+    {
+      "path": "src/ui/HologramPoseAnimation.js",
+      "bytes": 7540,
+      "sha256": "0fd60c0f319ee7a413049ac05199d44e06ab356a94174bc2dc35958b22b8729c"
+    },
+    {
+      "path": "src/ui/HologramReferenceAnatomy.js",
+      "bytes": 63114,
+      "sha256": "e10d0ad431c4c3f00f12c259e76bb83e68ae320315a768ce2e606544fec778d5"
+    },
+    {
+      "path": "src/ui/MatchController.js",
+      "bytes": 25804,
+      "sha256": "9712ace23577eb65ebca16632b8d51411e31c5ee37d6f12b9ddb272c5ab68cbc"
+    },
+    {
+      "path": "src/ui/NativeDuelPresentationModel.js",
+      "bytes": 3754,
+      "sha256": "3ac3fe31372b9125433caf68601757183c89e7fb08e2b342b45b22b60d8cdf06"
+    },
+    {
+      "path": "src/ui/NativeFieldCoverageSnapshot.js",
+      "bytes": 17593,
+      "sha256": "b483d124759c335565eaf3afe8553b565cd2b6bb503edd7dea95dbf178f6bda2"
+    },
+    {
+      "path": "src/ui/PopularGodReferenceArt.js",
+      "bytes": 3176,
+      "sha256": "7461a0dbbf3b46e14965778b7326c507a132695396450620b13841abfc85e898"
+    },
+    {
+      "path": "src/ui/PopularStapleReferenceArt.js",
+      "bytes": 4992,
+      "sha256": "5dc35be8fc2634608fd4453fcd3168a9e2ff06cf49861007d6e11a65a8fa5ea3"
+    },
+    {
+      "path": "src/ui/PrivateCardInspection.js",
+      "bytes": 5637,
+      "sha256": "c2f6da2cedacae2d014d45c15a587838ff772237af5b8e9f0ac195104a5298d0"
+    },
+    {
+      "path": "src/ui/PublicCardConfirmation.js",
+      "bytes": 1553,
+      "sha256": "858a04e67f0b08c9a687a1382f4a0ab7810a5ef3213787e58bb5b5ab480cb513"
+    },
+    {
+      "path": "src/ui/PublicDuelVisuals.js",
+      "bytes": 11641,
+      "sha256": "1c19b3aafecf843427f96f15ec6b6234c4ab7a18336af68a870a47f2ada9d982"
+    },
+    {
+      "path": "src/ui/RealDuelCameraPresets.js",
+      "bytes": 4035,
+      "sha256": "d2632c5f7b9b3f6a03f0c9bfb2725b13e7ee1951b087e8bb6011ff2007f1c863"
+    },
+    {
+      "path": "src/ui/RealDuelDOM3DAdapter.js",
+      "bytes": 13865,
+      "sha256": "f70945e33a0d5707e77176e30d38e560a80fd9bbda904af071332aad0f956215"
+    },
+    {
+      "path": "src/ui/RealDuelScene3D.js",
+      "bytes": 51900,
+      "sha256": "17cda0a866c3ec01f0f0d4ea07145974a2d660eeffdda9b2f2053e967ec7db44"
+    },
+    {
+      "path": "src/ui/RealDuelView.js",
+      "bytes": 34916,
+      "sha256": "ac86e29a744cd99bf76b33dc902306cf3ea2535af488443b88afbdd3abed2bef"
+    },
+    {
+      "path": "src/ui/SoloCampaignController.js",
+      "bytes": 7713,
+      "sha256": "d41b44f9155a77177feb1801995c89379f1ec69bfb492705d1bbf75c139352c5"
+    },
+    {
+      "path": "src/ui/TCGMatchClock.js",
+      "bytes": 1924,
+      "sha256": "7f2f1a718fcf12e5687d20a72e8f7f78e165e95a85aacade82a248e17b44de83"
+    }
+  ],
+  "preservedBaselineFiles": [
+    {
+      "path": "public/native/ocgcore.sync.wasm",
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    },
+    {
+      "path": "public/native/card-data.json",
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    {
+      "path": "public/native/scripts.json",
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    },
+    {
+      "path": "docs/audits/artifacts/native-field-runtime-continuation-2026-10-08.json",
+      "bytes": 11427282,
+      "sha256": "420219317a89ab1dc1c7dbd8d766c8e042d972e58176a0d2d4ba2c366ecaa3ac"
+    },
+    {
+      "path": "docs/audits/artifacts/native-field-runtime-wave-2026-10-08.json",
+      "bytes": 10473757,
+      "sha256": "33a8463ba98d33018acc35e9ec03486ad798b7df723b23ab407d048ab0130cb6"
+    }
+  ],
+  "finalCaptureCounts": {
+    "modelComparisons": 48,
+    "compiledBrowser": 34
+  },
+  "limits": [
+    "Initialization executes initial_effect and a query for each eligible card, not every card effect branch or combination.",
+    "Native rule fixtures, browser paths and Swiss deadline checks establish distinct scopes.",
+    "Model depth and hidden anatomy are interpreted; no complete spatial 1:1 certification.",
+    "No browser Swiss cutoff claim; six actual WASM deadline cases are documented separately."
+  ]
+}

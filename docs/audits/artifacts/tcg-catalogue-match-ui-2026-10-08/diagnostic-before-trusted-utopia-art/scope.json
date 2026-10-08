@@ -1,0 +1,5 @@
+{
+  "reason": "Coordinator discovered missing trusted full illustration in NativeGame presentation metadata for the existing local Utopia template. Run paused on explicit coordinator instruction before the corrected application rebuild. Current URI assertion fixed to absolute same-origin pathname.",
+  "compiledEntryBeforeFix": "fa62b5d0a9d862bade8c0a3946fa8e69ba2de581e751d4affb96d1c7b806637d",
+  "certification": "Interrupted partial diagnostic; no complete final pass claimed."
+}

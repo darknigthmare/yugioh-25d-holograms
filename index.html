@@ -41,7 +41,7 @@
             <input type="radio" name="game-mode" value="strict" checked>
             <span>
               <strong>TCG Advanced (strict)</strong>
-              <small>Liste Advanced du 21/09/2026 appliquée aux cartes prises en charge.</small>
+              <small>Catalogue TCG complet du moteur et liste Advanced du 21/09/2026.</small>
             </span>
           </label>
           <label class="config-option">
@@ -65,7 +65,7 @@
             <label><input type="radio" name="ai-difficulty" value="hard"> Difficile</label>
           </div>
           <p id="mode-description" class="config-description" aria-live="polite">
-            Mode strict : decks intégrés légaux ; invocations et effets non pris en charge refusés.
+            TCG Advanced : règles modernes, catalogue natif et liste complète de restrictions.
           </p>
           <p id="duel-statistics" class="duel-statistics">0 duel · 0 victoire · 0 défaite</p>
         </fieldset>
@@ -82,9 +82,13 @@
           <label class="config-option">
             <input type="radio" name="duel-series" value="match">
             <span>
-              <strong>Match officiel</strong>
+              <strong>Match TCG</strong>
               <small>Premier à deux victoires ; un Duel nul peut prolonger le Match au-delà de trois Duels.</small>
             </span>
+          </label>
+          <label class="config-option">
+            <input type="checkbox" id="match-time-limit" disabled>
+            <span><strong>Chronomètre Swiss TCG : 50 minutes</strong><small>Le temps inclut le Side Deck. Un Match inachevé à l’expiration se termine par une double défaite, selon la politique KDE-E.</small></span>
           </label>
         </fieldset>
       </div>
@@ -231,6 +235,7 @@
       <div class="title-container">
         <h1>KC HOLOGRAPHICS</h1>
         <span id="match-status" class="match-status hidden" aria-live="polite"></span>
+        <span id="match-clock" class="match-status hidden" role="timer" aria-live="off" aria-label="Temps restant du Match Swiss TCG"></span>
         <span id="campaign-duel-status" class="match-status hidden"></span>
       </div>
 

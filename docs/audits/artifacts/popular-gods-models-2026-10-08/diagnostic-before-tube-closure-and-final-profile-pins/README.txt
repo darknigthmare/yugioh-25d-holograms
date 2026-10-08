@@ -1,0 +1,1 @@
+Diagnostic renders used TubeGeometry with sphere caps and straight Ra wing outlines. See measurements.json for actual captured source hashes. Final source closes TubeGeometry boundary vertices exactly, adds smoother chest/skull volumes and curves Ra wing rims. Final shared profile maps contain 36 exact profiles.

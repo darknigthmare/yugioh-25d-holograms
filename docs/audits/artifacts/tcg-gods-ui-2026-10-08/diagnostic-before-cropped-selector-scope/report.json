@@ -1,0 +1,1032 @@
+{
+  "ok": false,
+  "generatedOn": "2026-10-08",
+  "format": "TCG Advanced strict",
+  "method": "actual compiled UI; forty-card strict-validated deck and initial seeded RNG registered before Start; every later action uses offered visible controls",
+  "noPostStartInjection": true,
+  "expectedEntrySha256": "fa62b5d0a9d862bade8c0a3946fa8e69ba2de581e751d4affb96d1c7b806637d",
+  "sourceDependenciesBefore": {
+    "scripts/audit-tcg-gods-ui-2026-10-08.py": {
+      "bytes": 20599,
+      "sha256": "74883f8ad67cd7884d85fd549fbe9b57985ffa690b521e499fc2e5a617ba5033"
+    },
+    "scripts/audit-continuation-models-ui.py": {
+      "bytes": 33677,
+      "sha256": "7f6f4a1d54be8f4bfc6befa4d697a30755c0887c116a60ed124eb8a376951f49"
+    },
+    "scripts/audit-native-duel-ui.py": {
+      "bytes": 28175,
+      "sha256": "0dd4443ef82f496fb398587b9be06c99d953f57c4a48e48cd470fdacbb311c18"
+    },
+    "scripts/audit-native-duel-views.py": {
+      "bytes": 23978,
+      "sha256": "f3f9b64c03273baba856886c4f67df9f371624bb759435887ba9b7f9e49f826c"
+    },
+    "scripts/prepare-tcg-gods-ui-fixtures.mjs": {
+      "bytes": 5631,
+      "sha256": "4a67c3eb10f3161da407fe4453476245a70def6a22d77861af5f666f0c508570"
+    },
+    "docs/audits/artifacts/tcg-gods-ui-fixtures-2026-10-08.json": {
+      "bytes": 21884,
+      "sha256": "2ced9cdc3a7025177fe88a6a791e2682f8ca609b1f0403b913464f7dc452ae8c"
+    },
+    "src/core/tcg/TcgAdvancedBanlistData.js": {
+      "bytes": 57732,
+      "sha256": "bdc8c18edb0a6308949e516442106747ada3976334beb105562c17c7d6f5d945"
+    },
+    "src/core/tcg/TcgAdvancedFormat.js": {
+      "bytes": 2731,
+      "sha256": "058606afc6449ce1ced941c42000c8a109da55cf9b36ad8919b853582c540d40"
+    },
+    "src/core/tcg/TcgCardLegality.js": {
+      "bytes": 5154,
+      "sha256": "7b556ecb1af2b729a71f4cdf237182068d5f3d47a85cacef8a91c2661979e874"
+    },
+    "src/core/native/NativeCardCatalogue.js": {
+      "bytes": 15865,
+      "sha256": "7db3547182e650eeb618023059ccec2750d9a074d3258559f6c5040528ab79ca"
+    },
+    "src/core/native/NativeCardReferenceArt.js": {
+      "bytes": 2668,
+      "sha256": "b7f2f102783dedc22b2a65be71832bc4002654207d0a7b050f03873143e88c0a"
+    },
+    "src/core/native/NativeDuelGame.js": {
+      "bytes": 61013,
+      "sha256": "a091da22d87b1e0dcdbacb66eb53420e56ad747ed1283a89bbee6ce8ed0005c6"
+    },
+    "src/core/native/NativeDuelRuntime.js": {
+      "bytes": 9739,
+      "sha256": "07136f4301391bd62e4f29fe611067b15734f53c92354cb6a3cc3b33ff52e6b5"
+    },
+    "src/core/native/NativeDuelDecisions.js": {
+      "bytes": 35779,
+      "sha256": "4ec35dd4cc12ae7efcb1dd45a39e3cc7a83e359d9af41a84d51f3ffa5bbff724"
+    },
+    "src/core/native/NativeDuelVisualEvents.js": {
+      "bytes": 35031,
+      "sha256": "2a776f53d0d15eb91eb2c736d95fbdc809d85cdef9491adf9b6c448ef61580ab"
+    },
+    "src/ui/DeckBuilderRules.js": {
+      "bytes": 9516,
+      "sha256": "824e6683279fb894c9eaf554bed8496e6efde2a1f4706037bb78044c9aeea9f3"
+    },
+    "src/ui/CombatVisualProfiles.js": {
+      "bytes": 15415,
+      "sha256": "f5c5aff6a712ed97bbe1d9e4064cd5a3b13620539a2311833ca865f1230d9204"
+    },
+    "src/ui/HologramMonsterModels.js": {
+      "bytes": 24593,
+      "sha256": "e1d187cb29a6ea139b16d26b7154a92c77160c34941a37b13023cfcfe0f2f278"
+    },
+    "src/ui/HologramPopularGodModels.js": {
+      "bytes": 16210,
+      "sha256": "7e095ad4bab594756d846b6794add8afb540f962494b7168589d0bc80851f121"
+    },
+    "src/ui/PopularGodReferenceArt.js": {
+      "bytes": 3176,
+      "sha256": "7461a0dbbf3b46e14965778b7326c507a132695396450620b13841abfc85e898"
+    },
+    "src/ui/HologramPoseAnimation.js": {
+      "bytes": 7540,
+      "sha256": "0fd60c0f319ee7a413049ac05199d44e06ab356a94174bc2dc35958b22b8729c"
+    },
+    "src/ui/RealDuelScene3D.js": {
+      "bytes": 51900,
+      "sha256": "17cda0a866c3ec01f0f0d4ea07145974a2d660eeffdda9b2f2053e967ec7db44"
+    },
+    "src/ui/RealDuelView.js": {
+      "bytes": 34916,
+      "sha256": "ac86e29a744cd99bf76b33dc902306cf3ea2535af488443b88afbdd3abed2bef"
+    },
+    "main.js": {
+      "bytes": 191600,
+      "sha256": "de2277115e61f8fb42a79de99e1c1505e43246b21867d130b51004d96d944093"
+    },
+    "index.html": {
+      "bytes": 35643,
+      "sha256": "c27ee3527a5eb985d821124eea671891687056e75a5cb0d0ec76ac706bbd1dbe"
+    },
+    "style.css": {
+      "bytes": 115179,
+      "sha256": "41962bbd2229fc25b2f1d77280a39cc2ff26c5d5963588e3539b183720a89fab"
+    },
+    "vercel.json": {
+      "bytes": 1272,
+      "sha256": "54ace7536aaf92de4eca552f63a6266e790eda597ecfc67dbb0ebe0c9bf3664c"
+    },
+    "public/cards/reference/10000000.jpg": {
+      "bytes": 179154,
+      "sha256": "7eeff78a2e8e8631908f6cba2a8f6a3dba88b375546154fc7ef7730dfdf10e9e"
+    },
+    "public/cards/cropped/10000000.jpg": {
+      "bytes": 134634,
+      "sha256": "8982f5f5d38bae8e743f015286247d68f03ea8140ffe9d1589cfe9f947a50efc"
+    },
+    "public/cards/small/10000000.jpg": {
+      "bytes": 29023,
+      "sha256": "2ecae80669c100339595c55146a1ae8937848578ede90508b2842f566fd117af"
+    },
+    "public/cards/reference/10000010.jpg": {
+      "bytes": 187717,
+      "sha256": "e36f01a9ab25cd4ebf1b4efeaeb08d89d4886fa98649e8cc2cfa2ae5cf24a993"
+    },
+    "public/cards/cropped/10000010.jpg": {
+      "bytes": 145377,
+      "sha256": "fc7e54ffd8d56d493f039e93e8e9d2a94d09f0f3154340fac42110c274e1a64e"
+    },
+    "public/cards/small/10000010.jpg": {
+      "bytes": 29601,
+      "sha256": "888e8ed8457177b097815eec26408657f76c266e79c2b015ad0ba50dceeab034"
+    },
+    "public/cards/reference/10000020.jpg": {
+      "bytes": 184647,
+      "sha256": "f9854648af7a114c566ab263b89fe059fc1d1c49e2c2283c3f9c9bb3947e13ed"
+    },
+    "public/cards/cropped/10000020.jpg": {
+      "bytes": 152008,
+      "sha256": "b5fa4c8979ee56b94fa7ae4e1052ee20af3917e665dd0dfaf4b25d8320060cf6"
+    },
+    "public/cards/small/10000020.jpg": {
+      "bytes": 29445,
+      "sha256": "98f1d3245c76325f94066c35842e8bd0ab71192a7c66febe8c1e53e2933a8de5"
+    }
+  },
+  "fixtureProof": "docs/audits/artifacts/tcg-gods-ui-fixtures-2026-10-08.json",
+  "fixtureProofSha256": "2ced9cdc3a7025177fe88a6a791e2682f8ca609b1f0403b913464f7dc452ae8c",
+  "essentialBuildAssets": [
+    "index.html",
+    "assets/index-Cq42Nj9S.js",
+    "assets/index-Ce4lc5_W.css",
+    "assets/NativeDuelGame-BskgqojT.js",
+    "assets/FieldEnvironmentRegistry-CW5zbHcP.js",
+    "assets/RealDuelView-3mvc8FCQ.js",
+    "assets/ocgcore-DWqJvtmv.js"
+  ],
+  "productionCsp": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://db.ygoprodeck.com; media-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests",
+  "cases": [
+    {
+      "godId": "10000020",
+      "godName": "Slifer the Sky Dragon",
+      "width": 1280,
+      "height": 900,
+      "fixture": {
+        "main": [
+          "32864",
+          "32864",
+          "549481",
+          "549481",
+          "24874630",
+          "549481",
+          "732302",
+          "732302",
+          "732302",
+          "1184620",
+          "1184620",
+          "32864",
+          "1184620",
+          "1761063",
+          "10000020",
+          "1761063",
+          "1761063",
+          "1784619",
+          "24874630",
+          "1784619",
+          "1784619",
+          "1929294",
+          "1929294",
+          "1929294",
+          "2118022",
+          "24874630",
+          "2118022",
+          "2118022",
+          "2311603",
+          "2311603",
+          "2311603",
+          "2468169",
+          "2468169",
+          "2468169",
+          "2483611",
+          "2483611",
+          "2483611",
+          "2830619",
+          "2830619",
+          "2830619"
+        ],
+        "extra": [],
+        "side": []
+      },
+      "decisions": [
+        {
+          "title": "CHOISIR LA ZONE",
+          "description": "Sélectionnez une option autorisée.",
+          "buttons": [
+            "Votre Zone Monstre 1",
+            "Votre Zone Monstre 2",
+            "Votre Zone Monstre 3",
+            "Votre Zone Monstre 4",
+            "Votre Zone Monstre 5"
+          ],
+          "chosen": "visible offered cards then native confirmation"
+        },
+        {
+          "title": "CHOISIR LA POSITION",
+          "description": "Sélectionnez une option autorisée.",
+          "buttons": [
+            "ATTAQUE FACE RECTO",
+            "DÉFENSE FACE RECTO"
+          ],
+          "chosen": "ATTAQUE FACE RECTO"
+        },
+        {
+          "title": "CHOISIR LA ZONE",
+          "description": "Sélectionnez une option autorisée.",
+          "buttons": [
+            "Votre Zone Monstre 2",
+            "Votre Zone Monstre 3",
+            "Votre Zone Monstre 4",
+            "Votre Zone Monstre 5"
+          ],
+          "chosen": "visible offered cards then native confirmation"
+        },
+        {
+          "title": "CHOISIR LA POSITION",
+          "description": "Sélectionnez une option autorisée.",
+          "buttons": [
+            "ATTAQUE FACE RECTO",
+            "DÉFENSE FACE RECTO"
+          ],
+          "chosen": "ATTAQUE FACE RECTO"
+        },
+        {
+          "title": "CHOISIR LA ZONE",
+          "description": "Sélectionnez une option autorisée.",
+          "buttons": [
+            "Votre Zone Monstre 3",
+            "Votre Zone Monstre 4",
+            "Votre Zone Monstre 5"
+          ],
+          "chosen": "visible offered cards then native confirmation"
+        },
+        {
+          "title": "CHOISIR LA POSITION",
+          "description": "Sélectionnez une option autorisée.",
+          "buttons": [
+            "ATTAQUE FACE RECTO",
+            "DÉFENSE FACE RECTO"
+          ],
+          "chosen": "ATTAQUE FACE RECTO"
+        },
+        {
+          "title": "CHOISIR LES SACRIFICES",
+          "description": "Sélectionnez une option autorisée. La valeur totale doit atteindre au moins 3.",
+          "buttons": [
+            "Metal Fiend Token — Votre Zone Monstre 1 — Sacrifices : 1",
+            "Metal Fiend Token — Votre Zone Monstre 2 — Sacrifices : 1",
+            "Metal Fiend Token — Votre Zone Monstre 3 — Sacrifices : 1"
+          ],
+          "chosen": "visible offered cards then native confirmation"
+        }
+      ],
+      "captures": [
+        {
+          "stage": "three-native-tokens",
+          "path": "docs/audits/artifacts/tcg-gods-ui-2026-10-08/god-10000020-three-native-tokens-1280.png",
+          "sha256": "f05966fe819cca7fc3d3d73b91d156b136b88d9aef560aeb0eac75e3106aaae0"
+        },
+        {
+          "stage": "failure-public-dom",
+          "path": "docs/audits/artifacts/tcg-gods-ui-2026-10-08/god-10000020-failure-public-dom-1280.png",
+          "sha256": "7c46c9755f2a8508335a40cf37bed683b6c8c8f39bb1c60199b381a02ccf4400"
+        }
+      ],
+      "sanctuaryActivations": [
+        {
+          "ordinal": 1,
+          "before": {
+            "ownHand": [
+              {
+                "id": "24874630",
+                "uid": "native_2_83"
+              },
+              {
+                "id": "24874630",
+                "uid": "native_2_84"
+              },
+              {
+                "id": "24874630",
+                "uid": "native_2_85"
+              },
+              {
+                "id": "10000020",
+                "uid": "native_2_86"
+              },
+              {
+                "id": "32864",
+                "uid": "native_2_87"
+              }
+            ],
+            "playerLp": 8000,
+            "opponentLp": 8000,
+            "ownGraveCount": 0,
+            "ownMonsters": []
+          },
+          "after": {
+            "ownHand": [
+              {
+                "id": "24874630",
+                "uid": "native_2_93"
+              },
+              {
+                "id": "24874630",
+                "uid": "native_2_84"
+              },
+              {
+                "id": "10000020",
+                "uid": "native_2_94"
+              },
+              {
+                "id": "32864",
+                "uid": "native_2_95"
+              }
+            ],
+            "playerLp": 8000,
+            "opponentLp": 8000,
+            "ownGraveCount": 1,
+            "ownMonsters": [
+              {
+                "id": "24874631",
+                "uid": "native_2_96",
+                "index": 0,
+                "atk": "ATK 0",
+                "def": "DEF 0"
+              }
+            ]
+          }
+        },
+        {
+          "ordinal": 2,
+          "before": {
+            "ownHand": [
+              {
+                "id": "24874630",
+                "uid": "native_2_93"
+              },
+              {
+                "id": "24874630",
+                "uid": "native_2_84"
+              },
+              {
+                "id": "10000020",
+                "uid": "native_2_94"
+              },
+              {
+                "id": "32864",
+                "uid": "native_2_95"
+              }
+            ],
+            "playerLp": 8000,
+            "opponentLp": 8000,
+            "ownGraveCount": 1,
+            "ownMonsters": [
+              {
+                "id": "24874631",
+                "uid": "native_2_96",
+                "index": 0,
+                "atk": "ATK 0",
+                "def": "DEF 0"
+              }
+            ]
+          },
+          "after": {
+            "ownHand": [
+              {
+                "id": "24874630",
+                "uid": "native_2_97"
+              },
+              {
+                "id": "10000020",
+                "uid": "native_2_98"
+              },
+              {
+                "id": "32864",
+                "uid": "native_2_99"
+              }
+            ],
+            "playerLp": 8000,
+            "opponentLp": 8000,
+            "ownGraveCount": 2,
+            "ownMonsters": [
+              {
+                "id": "24874631",
+                "uid": "native_2_96",
+                "index": 0,
+                "atk": "ATK 0",
+                "def": "DEF 0"
+              },
+              {
+                "id": "24874631",
+                "uid": "native_2_100",
+                "index": 1,
+                "atk": "ATK 0",
+                "def": "DEF 0"
+              }
+            ]
+          }
+        },
+        {
+          "ordinal": 3,
+          "before": {
+            "ownHand": [
+              {
+                "id": "24874630",
+                "uid": "native_2_97"
+              },
+              {
+                "id": "10000020",
+                "uid": "native_2_98"
+              },
+              {
+                "id": "32864",
+                "uid": "native_2_99"
+              }
+            ],
+            "playerLp": 8000,
+            "opponentLp": 8000,
+            "ownGraveCount": 2,
+            "ownMonsters": [
+              {
+                "id": "24874631",
+                "uid": "native_2_96",
+                "index": 0,
+                "atk": "ATK 0",
+                "def": "DEF 0"
+              },
+              {
+                "id": "24874631",
+                "uid": "native_2_100",
+                "index": 1,
+                "atk": "ATK 0",
+                "def": "DEF 0"
+              }
+            ]
+          },
+          "after": {
+            "ownHand": [
+              {
+                "id": "10000020",
+                "uid": "native_2_101"
+              },
+              {
+                "id": "32864",
+                "uid": "native_2_102"
+              }
+            ],
+            "playerLp": 8000,
+            "opponentLp": 8000,
+            "ownGraveCount": 3,
+            "ownMonsters": [
+              {
+                "id": "24874631",
+                "uid": "native_2_96",
+                "index": 0,
+                "atk": "ATK 0",
+                "def": "DEF 0"
+              },
+              {
+                "id": "24874631",
+                "uid": "native_2_100",
+                "index": 1,
+                "atk": "ATK 0",
+                "def": "DEF 0"
+              },
+              {
+                "id": "24874631",
+                "uid": "native_2_103",
+                "index": 2,
+                "atk": "ATK 0",
+                "def": "DEF 0"
+              }
+            ]
+          }
+        }
+      ],
+      "pageErrors": [],
+      "nativeRequestFailures": [],
+      "builderCatalogueStatus": "13 847 cartes TCG • liste Advanced complète du 21/09/2026. Recherchez une carte, un nom ou un effet ; 100 résultats maximum. Les cartes sans illustration locale utilisent un visuel neutre.",
+      "builderDeckSize": "Main: 40 / Extra: 0 / Side: 0",
+      "builderValidation": "Deck valide",
+      "strictUiAcceptedFortyCardDeck": true,
+      "openingOwnHand": [
+        {
+          "id": "24874630",
+          "uid": "native_2_83"
+        },
+        {
+          "id": "24874630",
+          "uid": "native_2_84"
+        },
+        {
+          "id": "24874630",
+          "uid": "native_2_85"
+        },
+        {
+          "id": "10000020",
+          "uid": "native_2_86"
+        },
+        {
+          "id": "32864",
+          "uid": "native_2_87"
+        }
+      ],
+      "tokenProjectionReadiness": {
+        "stableAnimationFrameTicks": 2,
+        "host": {
+          "width": 840,
+          "height": 820,
+          "scrollTop": 0,
+          "scrollLeft": 0
+        },
+        "root": {
+          "width": 840,
+          "height": 820
+        },
+        "cameraParent": {
+          "width": 840,
+          "height": 820
+        },
+        "cameraMatrix": {
+          "transform": "matrix3d(1, 0, 0, 0, 0, -0.89028, 0.455413, -0.000437541, 0, 0.455413, 0.89028, -0.000855343, 420, -363.056, 1197.36, -0.150371)",
+          "values": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            -0.89028,
+            0.455413,
+            -0.000437541,
+            0,
+            0.455413,
+            0.89028,
+            -0.000855343,
+            420,
+            -363.056,
+            1197.36,
+            -0.150371
+          ],
+          "perspective": "none",
+          "transformOrigin": "420px 410px"
+        },
+        "boardMatrix": {
+          "transform": "matrix3d(0.0177778, 0, 0, 0, 0, 0, 0.0177778, 0, 0, 0.0177778, 0, 0, -450, -561.88, 0, 1)",
+          "values": [
+            0.0177778,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0.0177778,
+            0,
+            0,
+            0.0177778,
+            0,
+            0,
+            -450,
+            -561.88,
+            0,
+            1
+          ],
+          "perspective": "none",
+          "transformOrigin": "450px 562.5px"
+        },
+        "handMatrix": {
+          "transform": "matrix3d(0.0116667, 0, 0, 0, 0, -0.00344774, 0.0111456, 0, 0, 0.0111456, 0.00344774, 0, -450, -108.55, 11.2, 1)",
+          "values": [
+            0.0116667,
+            0,
+            0,
+            0,
+            0,
+            -0.00344774,
+            0.0111456,
+            0,
+            0,
+            0.0111456,
+            0.00344774,
+            0,
+            -450,
+            -108.55,
+            11.2,
+            1
+          ],
+          "perspective": "none",
+          "transformOrigin": "450px 110px"
+        }
+      },
+      "threeActualNativeTokensBeforeTribute": {
+        "view": "real",
+        "ownHand": [
+          {
+            "id": "10000020",
+            "uid": "native_2_101"
+          },
+          {
+            "id": "32864",
+            "uid": "native_2_102"
+          }
+        ],
+        "ownMonsters": [
+          {
+            "id": "24874631",
+            "uid": "native_2_96",
+            "index": 0,
+            "atk": "ATK 0",
+            "def": "DEF 0",
+            "label": "Metal Fiend Token, ATK 0, DEF 0",
+            "modelRendered": true,
+            "zoneRect": {
+              "x": 423.0189208984375,
+              "y": 598.2269897460938,
+              "width": 68.42703247070312,
+              "height": 43.89007568359375
+            },
+            "atkRect": {
+              "x": 390.5836486816406,
+              "y": 432.57342529296875,
+              "width": 43.655487060546875,
+              "height": 13.507904052734375
+            },
+            "defRect": {
+              "x": 439.2672119140625,
+              "y": 432.57342529296875,
+              "width": 42.649444580078125,
+              "height": 13.507904052734375
+            },
+            "isToken": true
+          },
+          {
+            "id": "24874631",
+            "uid": "native_2_100",
+            "index": 1,
+            "atk": "ATK 0",
+            "def": "DEF 0",
+            "label": "Metal Fiend Token, ATK 0, DEF 0",
+            "modelRendered": true,
+            "zoneRect": {
+              "x": 516.947021484375,
+              "y": 598.2269897460938,
+              "width": 62.40478515625,
+              "height": 43.89007568359375
+            },
+            "atkRect": {
+              "x": 492.71124267578125,
+              "y": 432.57342529296875,
+              "width": 42.99615478515625,
+              "height": 13.507904052734375
+            },
+            "defRect": {
+              "x": 541.394775390625,
+              "y": 432.57342529296875,
+              "width": 41.9901123046875,
+              "height": 13.507904052734375
+            },
+            "isToken": true
+          },
+          {
+            "id": "24874631",
+            "uid": "native_2_103",
+            "index": 2,
+            "atk": "ATK 0",
+            "def": "DEF 0",
+            "label": "Metal Fiend Token, ATK 0, DEF 0",
+            "modelRendered": true,
+            "zoneRect": {
+              "x": 610.875,
+              "y": 598.2269897460938,
+              "width": 58.25,
+              "height": 43.89007568359375
+            },
+            "atkRect": {
+              "x": 594.8388671875,
+              "y": 432.57342529296875,
+              "width": 42.336669921875,
+              "height": 13.507904052734375
+            },
+            "defRect": {
+              "x": 643.4996337890625,
+              "y": 432.57342529296875,
+              "width": 41.64495849609375,
+              "height": 13.507904052734375
+            },
+            "isToken": true
+          }
+        ],
+        "playerLp": 8000,
+        "opponentLp": 8000,
+        "ownGraveCount": 3,
+        "opponentGraveCount": 0,
+        "phase": "phase-main1",
+        "hostRect": {
+          "x": 220,
+          "y": 80,
+          "width": 840,
+          "height": 820
+        },
+        "camera": "player",
+        "cameraControlsRect": {
+          "x": 230,
+          "y": 90,
+          "width": 500.125,
+          "height": 56
+        },
+        "webglAvailable": "true",
+        "counts": {
+          "boards": 1,
+          "hands": 1,
+          "scenes": 1,
+          "canvases": 1,
+          "css3d": 1
+        },
+        "publicLog": "Le duel commence !\nVous piochez 5 carte(s).\nL’adversaire pioche 5 carte(s).\nChaîne 1 : activation Fiend's Sanctuary.\nVous invoquez Metal Fiend Token.\nChaîne 1 : activation Fiend's Sanctuary.\nVous invoquez Metal Fiend Token.\nChaîne 1 : activation Fiend's Sanctuary.\nVous invoquez Metal Fiend Token.\nVue Arène activée : le plateau et les hologrammes sont espacés.\nVue Réelle 3D activée : vous êtes derrière votre console, face à l’adversaire."
+      },
+      "normalSummonButton": "INVOQUER FACE RECTO",
+      "threeTributeDecision": {
+        "title": "CHOISIR LES SACRIFICES",
+        "description": "Sélectionnez une option autorisée. La valeur totale doit atteindre au moins 3.",
+        "buttons": [
+          "Metal Fiend Token — Votre Zone Monstre 1 — Sacrifices : 1",
+          "Metal Fiend Token — Votre Zone Monstre 2 — Sacrifices : 1",
+          "Metal Fiend Token — Votre Zone Monstre 3 — Sacrifices : 1"
+        ],
+        "chosen": "visible offered cards then native confirmation"
+      },
+      "threeTributeConfirmedLabels": [
+        "Metal Fiend Token — Votre Zone Monstre 1 — Sacrifices : 1",
+        "Metal Fiend Token — Votre Zone Monstre 2 — Sacrifices : 1",
+        "Metal Fiend Token — Votre Zone Monstre 3 — Sacrifices : 1"
+      ],
+      "nativeNormalSummonAfterThreeTributes": {
+        "view": "real",
+        "ownHand": [
+          {
+            "id": "32864",
+            "uid": "native_2_104"
+          }
+        ],
+        "ownMonsters": [
+          {
+            "id": "10000020",
+            "uid": "native_2_101",
+            "index": 0,
+            "atk": "ATK 1000",
+            "def": "DEF 1000",
+            "label": "Slifer the Sky Dragon, ATK 1000, DEF 1000",
+            "modelRendered": true,
+            "zoneRect": {
+              "x": 423.0189208984375,
+              "y": 598.2269897460938,
+              "width": 68.42703247070312,
+              "height": 43.89007568359375
+            },
+            "atkRect": {
+              "x": 369.63995361328125,
+              "y": 432.57342529296875,
+              "width": 64.607421875,
+              "height": 13.507904052734375
+            },
+            "defRect": {
+              "x": 439.2754821777344,
+              "y": 432.57342529296875,
+              "width": 63.46612548828125,
+              "height": 13.507904052734375
+            },
+            "isToken": false
+          }
+        ],
+        "playerLp": 8000,
+        "opponentLp": 8000,
+        "ownGraveCount": 3,
+        "opponentGraveCount": 0,
+        "phase": "phase-main1",
+        "hostRect": {
+          "x": 220,
+          "y": 80,
+          "width": 840,
+          "height": 820
+        },
+        "camera": "player",
+        "cameraControlsRect": {
+          "x": 230,
+          "y": 90,
+          "width": 500.125,
+          "height": 56
+        },
+        "webglAvailable": "true",
+        "counts": {
+          "boards": 1,
+          "hands": 1,
+          "scenes": 1,
+          "canvases": 1,
+          "css3d": 1
+        },
+        "publicLog": "Le duel commence !\nVous piochez 5 carte(s).\nL’adversaire pioche 5 carte(s).\nChaîne 1 : activation Fiend's Sanctuary.\nVous invoquez Metal Fiend Token.\nChaîne 1 : activation Fiend's Sanctuary.\nVous invoquez Metal Fiend Token.\nChaîne 1 : activation Fiend's Sanctuary.\nVous invoquez Metal Fiend Token.\nVue Arène activée : le plateau et les hologrammes sont espacés.\nVue Réelle 3D activée : vous êtes derrière votre console, face à l’adversaire.\nVous invoquez Slifer the Sky Dragon."
+      },
+      "tokensDisappearWithoutGraveyardCards": true,
+      "failurePublicDom": {
+        "state": {
+          "view": "real",
+          "ownHand": [
+            {
+              "id": "32864",
+              "uid": "native_2_104"
+            }
+          ],
+          "ownMonsters": [
+            {
+              "id": "10000020",
+              "uid": "native_2_101",
+              "index": 0,
+              "atk": "ATK 1000",
+              "def": "DEF 1000",
+              "label": "Slifer the Sky Dragon, ATK 1000, DEF 1000",
+              "modelRendered": true,
+              "zoneRect": {
+                "x": 423.0189208984375,
+                "y": 598.2269897460938,
+                "width": 68.42703247070312,
+                "height": 43.89007568359375
+              },
+              "atkRect": {
+                "x": 369.63995361328125,
+                "y": 432.57342529296875,
+                "width": 64.607421875,
+                "height": 13.507904052734375
+              },
+              "defRect": {
+                "x": 439.2754821777344,
+                "y": 432.57342529296875,
+                "width": 63.46612548828125,
+                "height": 13.507904052734375
+              },
+              "isToken": false
+            }
+          ],
+          "playerLp": 8000,
+          "opponentLp": 8000,
+          "ownGraveCount": 3,
+          "opponentGraveCount": 0,
+          "phase": "phase-main1",
+          "hostRect": {
+            "x": 220,
+            "y": 80,
+            "width": 840,
+            "height": 820
+          },
+          "camera": "player",
+          "cameraControlsRect": {
+            "x": 230,
+            "y": 90,
+            "width": 500.125,
+            "height": 56
+          },
+          "webglAvailable": "true",
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "publicLog": "Le duel commence !\nVous piochez 5 carte(s).\nL’adversaire pioche 5 carte(s).\nChaîne 1 : activation Fiend's Sanctuary.\nVous invoquez Metal Fiend Token.\nChaîne 1 : activation Fiend's Sanctuary.\nVous invoquez Metal Fiend Token.\nChaîne 1 : activation Fiend's Sanctuary.\nVous invoquez Metal Fiend Token.\nVue Arène activée : le plateau et les hologrammes sont espacés.\nVue Réelle 3D activée : vous êtes derrière votre console, face à l’adversaire.\nVous invoquez Slifer the Sky Dragon."
+        },
+        "decisionText": null
+      }
+    }
+  ],
+  "limits": [
+    "The fixtures are accepted by the complete dated Advanced policy; provider release scope is a pinned CDB snapshot, not certification of every territorial promo.",
+    "These six UI duels cover three actual 3-Tribute God Normal Summons, token creation/disappearance, Ra payment and displayed current stats, not every God interaction.",
+    "Module before/after geometry comparisons are a separate audit. These captures demonstrate the compiled native game controls, state and rendered public creatures.",
+    "Fiend's Sanctuary and Metal Fiend Token use declared neutral artwork fallback; all three God portraits use exact full/cropped JPGs.",
+    "No private Three.js objects or native engine objects are read by the browser driver. Projected public DOM rectangles establish framing, not integral spatial 1:1."
+  ],
+  "servedResponseFingerprintsBefore": {
+    "index.html": {
+      "bytes": 36040,
+      "sha256": "feca20f473b73ce6f67b82219e84cb07e5dc9421b43634b31255a3624f43b73b"
+    },
+    "assets/FieldEnvironmentRegistry-CW5zbHcP.js": {
+      "bytes": 622016,
+      "sha256": "3423def789cb9b59abf5297c9fc36905226dbfb91e2d0d44d988853104af4d4f"
+    },
+    "assets/FieldGeometryThree-C03fHk5l.js": {
+      "bytes": 535755,
+      "sha256": "1527e2af41fbb2f9a1a9dfb71c4a43035891fe2368cce1e50d9a6afacc968e87"
+    },
+    "assets/FieldSpellAtlas-BqRg7uM-.js": {
+      "bytes": 19402,
+      "sha256": "ecf3b45b3314cbfa96c2008e9bec11b68e7e54c9a5207d6f13cafd4525162316"
+    },
+    "assets/FieldSpellAtlasPreview-BOc86IKQ.js": {
+      "bytes": 2823,
+      "sha256": "355edcfe828267f792950b113b27da8a7b11c5e5c36d0e2956153b451cf2991a"
+    },
+    "assets/FieldSpellCardDataSnapshot-DzxkUNrK.js": {
+      "bytes": 169821,
+      "sha256": "ed2484f6797eac2124cdb6a76d8ec20076f9e79cf05008a0183e26a7fd046b3f"
+    },
+    "assets/FieldSpellRules-DLBFReUe.js": {
+      "bytes": 20919,
+      "sha256": "9b95b5d0b3ac46a7d7cade8d2bed65565dcbb1310d494d9344f61ed12a57f54e"
+    },
+    "assets/NativeDuelGame-BskgqojT.js": {
+      "bytes": 95709,
+      "sha256": "0468247d81d9902a8df16dbece8e64e5b6d9a84aa0f2180dadb9e25f9eeaeffb"
+    },
+    "assets/RealDuelView-3mvc8FCQ.js": {
+      "bytes": 204144,
+      "sha256": "bd889dfcf9f452ef7e2c6786a55d7e1091b4df78554b4f8d6ab062c381795112"
+    },
+    "assets/index-Ce4lc5_W.css": {
+      "bytes": 84495,
+      "sha256": "3a7edacf3b48736f74fedd48644f2bb03a3a5df7bdde114cb8e10c56857bea36"
+    },
+    "assets/index-Cq42Nj9S.js": {
+      "bytes": 672438,
+      "sha256": "fa62b5d0a9d862bade8c0a3946fa8e69ba2de581e751d4affb96d1c7b806637d"
+    },
+    "assets/ocgcore-DWqJvtmv.js": {
+      "bytes": 46501,
+      "sha256": "dd1e9936f49901fb5f53efd6d25b19ab5755af65169fee4ef34600a1cfbe5349"
+    },
+    "assets/ocgcore.sync-MMMSWPBB-2LWfD6lX.js": {
+      "bytes": 20718,
+      "sha256": "433b02687ca9a24dcc846c11d7578d40ba5ab87d1b1321d5d22cd879fae58ed6"
+    },
+    "assets/preload-helper-Czpn1I53.js": {
+      "bytes": 1196,
+      "sha256": "aba87f2a53e45ecdc9113fc30387d16e449d1676428cf5f82dd624c1df97d152"
+    },
+    "native/ocgcore.sync.wasm": {
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    },
+    "native/card-data.json": {
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    "native/scripts.json": {
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    },
+    "native/manifest.json": {
+      "bytes": 3188,
+      "sha256": "9ee4d4f4930b0e561f472eb60e75df8cbdedde918d66fa001f0de69e263d8a05"
+    },
+    "native/field-banlists.json": {
+      "bytes": 70033,
+      "sha256": "0f897a1dc50df76b0b3df6e0680d5750a84113dcad1d3ed9c6422f526fa4db9f"
+    },
+    "cards/reference/10000000.jpg": {
+      "bytes": 179154,
+      "sha256": "7eeff78a2e8e8631908f6cba2a8f6a3dba88b375546154fc7ef7730dfdf10e9e"
+    },
+    "cards/cropped/10000000.jpg": {
+      "bytes": 134634,
+      "sha256": "8982f5f5d38bae8e743f015286247d68f03ea8140ffe9d1589cfe9f947a50efc"
+    },
+    "cards/small/10000000.jpg": {
+      "bytes": 29023,
+      "sha256": "2ecae80669c100339595c55146a1ae8937848578ede90508b2842f566fd117af"
+    },
+    "cards/reference/10000010.jpg": {
+      "bytes": 187717,
+      "sha256": "e36f01a9ab25cd4ebf1b4efeaeb08d89d4886fa98649e8cc2cfa2ae5cf24a993"
+    },
+    "cards/cropped/10000010.jpg": {
+      "bytes": 145377,
+      "sha256": "fc7e54ffd8d56d493f039e93e8e9d2a94d09f0f3154340fac42110c274e1a64e"
+    },
+    "cards/small/10000010.jpg": {
+      "bytes": 29601,
+      "sha256": "888e8ed8457177b097815eec26408657f76c266e79c2b015ad0ba50dceeab034"
+    },
+    "cards/reference/10000020.jpg": {
+      "bytes": 184647,
+      "sha256": "f9854648af7a114c566ab263b89fe059fc1d1c49e2c2283c3f9c9bb3947e13ed"
+    },
+    "cards/cropped/10000020.jpg": {
+      "bytes": 152008,
+      "sha256": "b5fa4c8979ee56b94fa7ae4e1052ee20af3917e665dd0dfaf4b25d8320060cf6"
+    },
+    "cards/small/10000020.jpg": {
+      "bytes": 29445,
+      "sha256": "98f1d3245c76325f94066c35842e8bd0ab71192a7c66febe8c1e53e2933a8de5"
+    }
+  },
+  "failure": {
+    "type": "TimeoutError",
+    "message": "Locator.evaluate: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\".card-zone[data-side=\\\"player\\\"][data-zone-type=\\\"monster\\\"] .card-entity[data-id=\\\"10000020\\\"]\").locator(\"img.holo-sprite\")\n"
+  }
+}

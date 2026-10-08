@@ -1,5 +1,6 @@
 import { nativeCandidateContext, nativeCandidateLabel, nativeCandidateSource,
   nativeEffectStringReference } from '../../ui/NativeDuelPresentationModel.js';
+import { nativeChainDecisionInfo } from './NativeChainDecisionInfo.js';
 
 /**
  * Translate core-owned decisions into the existing decision modal contract.
@@ -70,16 +71,22 @@ function optionsFor(prompt, options = {}) {
   return { ...options, side: options.side ?? options.sideForPlayer?.(prompt.player)
     ?? (prompt.player === 1 ? 'opponent' : 'player') };
 }
-function cardCandidate(ref, index, prompt, options) {
+function mayLabelReference(ref, prompt, options) {
   // Tribute/counter wire references omit position. A synchronized public board
   // projection may confirm visibility without returning a hidden identity.
   // An explicit facedown position or any opposing hand/deck stays private.
-  const publicPositionOmitted = ref.controller !== prompt.player && ref.position == null && integer(ref.code, 1)
+  // Check zones and face position before reading code/description. In addition
+  // to hiding labels, this prevents private getters and resolvers being called.
+  const publicPositionOmitted = ref.controller !== prompt.player && ref.position == null
     && (ref.location & (1 | 2)) === 0 && (ref.location & (64 | 32 | 4 | 8)) !== 0
+    && integer(ref.code, 1)
     && options.isPublicCard?.(ref) === true;
   const hiddenOther = ref.controller !== prompt.player && ((ref.location & (1 | 2)) !== 0
     || ((ref.location & (64 | 32 | 4 | 8)) !== 0 && ((ref.position ?? 8) & 10) !== 0 && !publicPositionOmitted));
-  const known = integer(ref.code, 1) && !hiddenOther;
+  return !hiddenOther;
+}
+function cardCandidate(ref, index, prompt, options) {
+  const known = mayLabelReference(ref, prompt, options) && integer(ref.code, 1);
   // In particular, never resolve code=0 against a mirror containing its real code.
   const card = known ? options.resolveCard?.(ref) ?? readMetadata(options.metadata, ref.code) : null;
   const name = known ? card?.name ?? `Carte ${ref.code}` : 'Carte face verso';
@@ -303,7 +310,8 @@ export function translateNativePrompt(prompt, inputOptions = {}) {
   switch (kind) {
     case 'SELECT_EFFECTYN': case 'SELECT_YESNO':
       choices([true, false], value => ({ value, label: value ? 'OUI' : 'NON' }), 'ACTIVER OU CONFIRMER ?');
-      request.description = descriptionLabel(prompt.description, options, prompt.code);
+      request.description = kind === 'SELECT_EFFECTYN' && !mayLabelReference(prompt, prompt, options)
+        ? 'Confirmer cet effet.' : descriptionLabel(prompt.description, options, prompt.code);
       if (kind === 'SELECT_EFFECTYN') request.card = cardCandidate(prompt, 0, prompt, options);
       convert = yes => typeof yes === 'boolean' ? { type, yes } : null;
       break;
@@ -312,13 +320,16 @@ export function translateNativePrompt(prompt, inputOptions = {}) {
         ? String(value) : descriptionLabel(value, options) }), kind === 'ANNOUNCE_NUMBER' ? 'ANNONCER UN NOMBRE' : 'CHOISIR UN EFFET');
       convert = index => ({ type, [kind === 'ANNOUNCE_NUMBER' ? 'value' : 'index']: index });
       break;
-    case 'SELECT_CHAIN':
+    case 'SELECT_CHAIN': {
+      const info = nativeChainDecisionInfo(prompt);
       request.required = Boolean(prompt.forced);
+      request.description = info.description;
       choices(prompt.selects ?? [], (ref, index) => ({ value: index,
-        label: cardCandidate(ref, index, prompt, options).label }), 'RÉPONDRE À LA CHAÎNE');
+        label: cardCandidate(ref, index, prompt, options).label }), info.title);
       if (!prompt.forced) request.choices.push({ value: null, label: 'PASSER LA PRIORITÉ' });
       convert = index => ({ type, index });
       break;
+    }
     case 'SELECT_CARD': case 'SELECT_TRIBUTE': case 'SELECT_SUM': {
       const must = kind === 'SELECT_SUM' ? prompt.selects_must ?? [] : [];
       const refs = prompt.selects ?? [];
@@ -583,7 +594,9 @@ export async function resolveNativeDuelPrompt({ prompt, runtime, side, metadata,
     while (available.length) {
       const answer = await ask({ ...translated.request, sequence: undefined, candidates: undefined,
         title: kind === 'SORT_CHAIN' ? 'ORDONNER LES EFFETS DÉCLENCHÉS' : 'ORDONNER LES CARTES',
-        description: `Choisissez la carte en position ${chosen.length + 1}.`, required: true,
+        description: kind === 'SORT_CHAIN'
+          ? `Choisissez l’effet pour le Maillon ${chosen.length + 1}. Le dernier Maillon sera résolu en premier.`
+          : `Choisissez la carte en position ${chosen.length + 1}.`, required: true,
         choices: available.map(index => ({ value: index, label: translated.request.candidates[index].label })) });
       if (!available.includes(answer)) return null;
       chosen.push(answer); available.splice(available.indexOf(answer), 1);

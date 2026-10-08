@@ -72,8 +72,8 @@ test('bound prerelease passcodes and duplicate beta versions produce a single ca
 });
 
 test('unknown artwork uses a local PNG accepted by CardState; native-created Tokens stay out of decks', async () => {
-  const neos = createNativeCardTemplate(resources, 89943723);
-  const state = new CardState(neos);
+  const unreferenced = createNativeCardTemplate(resources, 59755122);
+  const state = new CardState(unreferenced);
   assert.equal(state.image_url, NATIVE_UNKNOWN_CARD_IMAGE);
   assert.equal(state.image_url_cropped, NATIVE_UNKNOWN_CARD_IMAGE);
   assert.deepEqual([...((await readFile(new URL('../public/cards/native-unknown.png', import.meta.url))).subarray(0, 8))], [137, 80, 78, 71, 13, 10, 26, 10]);
@@ -104,7 +104,8 @@ function jpegDimensions(bytes) {
 }
 
 test('two Trap Monster illustrations are exact local source JPEGs with pinned bytes, dimensions and metadata', async () => {
-  assert.deepEqual(Object.keys(NATIVE_CARD_REFERENCE_ART).sort(), ['26905245', '28649820']);
+  assert.equal(Object.keys(NATIVE_CARD_REFERENCE_ART).length, 10);
+  assert.ok(['26905245', '28649820'].every(code => NATIVE_CARD_REFERENCE_ART[code]));
   assert.ok(Object.isFrozen(NATIVE_CARD_REFERENCE_ART));
   const hashes = {
     26905245: ['9377a21d60345e052e0564bc38910199f6593c7247791a7805a0ee23e97597bd', 'da4105f998aea65251d2c1f0e3c92ae1802012ddfdb482b997fdbda59846aa60', '4759e30156b2cd9063d64a9395071d68d75932bccd7fec80f630ef0d4f7152ee'],
@@ -163,7 +164,7 @@ test('copied runtime names and monster traits preserve physical artwork and perm
 
 test('unreferenced cards and native-created Tokens retain the neutral local artwork after known references are cached', () => {
   for (const code of [26905245, 28649820]) createNativeCardPresentationTemplate(resources, code);
-  for (const code of [89943723, 71645243]) {
+  for (const code of [59755122, 71645243]) {
     assert.equal(getNativeCardReferenceArt(code), null);
     const template = createNativeCardPresentationTemplate(resources, code);
     assert.equal(template.image_url, NATIVE_UNKNOWN_CARD_IMAGE);

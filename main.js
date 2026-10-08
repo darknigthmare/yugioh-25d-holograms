@@ -2,7 +2,9 @@ import { DuelGame } from './src/game.js';
 import { NATIVE_CARDS } from './src/core/native/NativeCardRegistry.js';
 import { loadNativeCardResources } from './src/core/native/NativeCardData.js';
 import { createNativeCardPresentationTemplate } from './src/core/native/NativeCardCatalogue.js';
+import { createTcgFormatPolicy } from './src/core/tcg/TcgCardLegality.js';
 import { MatchController } from './src/ui/MatchController.js';
+import { TCGMatchClock } from './src/ui/TCGMatchClock.js';
 import { DuelViewController } from './src/ui/DuelViewController.js';
 import { PrivateCardInspection } from './src/ui/PrivateCardInspection.js';
 import { SoloCampaignController } from './src/ui/SoloCampaignController.js';
@@ -69,6 +71,9 @@ const publicCardConfirmation = new PublicCardConfirmation({
   imageUrl: card => safeImageUrl(card.image_url, getCardImageUrl(card.id))
 });
 let pendingMatchLaunch = null;
+let duelLaunchGeneration = 0;
+let matchClock = null;
+let matchClockInterval = null;
 let sideDeckDraft = null;
 let selectedSideDeckCard = null;
 let selectedAttackerIndex = null;
@@ -94,6 +99,7 @@ const STORAGE_KEYS = Object.freeze({
   gameMode: 'ygo_game_mode',
   difficulty: 'ygo_ai_difficulty',
   duelSeries: 'ygo_duel_series',
+  matchTimeLimit: 'ygo_match_time_limit',
   customDeck: 'ygo_custom_deck',
   statistics: 'ygo_duel_statistics',
   activeMatch: 'ygo_active_match_v1',
@@ -390,7 +396,7 @@ document.getElementById('btn-open-field-atlas').addEventListener('click', async 
     document.getElementById('field-atlas-summary').textContent = 'Le catalogue n’a pas pu se charger. Réessayez en le rouvrant.';
   }
 });
-document.getElementById('simulator-card-coverage').textContent = 'Projet fan non officiel. Les 339 Terrains disposent de leurs scripts de duel natifs. Le mode TCG applique les restrictions du corpus local ; le duel libre permet aussi les Terrains OCG et annoncés. Le catalogue indique séparément la précision des décors 3D.';
+document.getElementById('simulator-card-coverage').textContent = 'Projet fan non officiel. Le mode TCG Advanced applique la liste complète du 21/09/2026 au catalogue natif, avec les règles modernes d’Invocation, de Chaîne et de combat. Le Duel libre accueille aussi les cartes OCG et annoncées. Le catalogue indique séparément la précision des décors 3D.';
 const startBtn = document.getElementById('btn-start-duel');
 const campaignController = new SoloCampaignController({
   openDialog, closeDialog,
@@ -1490,17 +1496,22 @@ let selectedGameMode = ['sandbox', 'native'].includes(readStoredValue(STORAGE_KE
 let nativeCatalogueResources = null;
 let nativeCatalogueToolkit = null;
 let nativeCataloguePromise = null;
-const nativeBuilderOptions = () => ({
-  native: selectedGameMode !== 'sandbox', format: selectedGameMode === 'native' ? 'ALL' : 'TCG',
-  isSupportedCard: (card, section) => Boolean(nativeCatalogueResources && nativeCatalogueToolkit?.isSupportedNativeCatalogueCard(nativeCatalogueResources, card, section)),
-  getCopyIdentity: card => nativeCatalogueResources && nativeCatalogueToolkit
-    ? nativeCatalogueToolkit.getNativeCardCopyIdentity(nativeCatalogueResources, card) : getDeckCopyIdentity(card)
-});
+let nativeTcgPolicy = null;
+const nativeBuilderOptions = (mode = selectedGameMode) => {
+  const options = { native: mode !== 'sandbox', format: mode === 'native' ? 'ALL' : 'TCG' };
+  if (!nativeCatalogueResources || !nativeCatalogueToolkit) return options;
+  return { ...options, ...(mode === 'strict' ? nativeTcgPolicy : {}),
+    isSupportedCard: (card, section) => nativeCatalogueToolkit.isSupportedNativeCatalogueCard(nativeCatalogueResources, card, section),
+    getCopyIdentity: mode === 'strict' ? nativeTcgPolicy.getCopyIdentity
+      : card => nativeCatalogueToolkit.getNativeCardCopyIdentity(nativeCatalogueResources, card) };
+};
 const activeLibraryTemplates = () => {
   if (selectedGameMode === 'sandbox') return [...STARTER_CARDS, ...EXTRA_DECK_CARDS];
   const query = document.getElementById('builder-card-search')?.value.trim();
-  if (selectedGameMode !== 'native' || !nativeCatalogueResources || !query) return NATIVE_CARDS;
-  return nativeCatalogueToolkit.searchNativeCardCatalogue(nativeCatalogueResources, query, { limit: 100 });
+  if (!nativeCatalogueResources || !query) return NATIVE_CARDS;
+  return selectedGameMode === 'strict'
+    ? nativeCatalogueToolkit.searchNativeTcgCardCatalogue(nativeCatalogueResources, query, { limit: 100 })
+    : nativeCatalogueToolkit.searchNativeCardCatalogue(nativeCatalogueResources, query, { limit: 100 });
 };
 
 async function ensureNativeCatalogue() {
@@ -1512,8 +1523,9 @@ async function ensureNativeCatalogue() {
     ]);
     nativeCatalogueToolkit = toolkit;
     nativeCatalogueResources = resources;
-    for (const id of [...customDeckMainIds, ...customDeckExtraIds, ...customDeckSideIds]) {
-      const card = toolkit.createNativeCardTemplate(resources, id);
+    nativeTcgPolicy = createTcgFormatPolicy(resources);
+    for (const id of [...NATIVE_CARDS.map(card => card.id), ...customDeckMainIds, ...customDeckExtraIds, ...customDeckSideIds]) {
+      const card = toolkit.createNativeTcgCardTemplate(resources, id) ?? toolkit.createNativeCardTemplate(resources, id);
       if (card) {
         knownCardTemplates.set(String(id), card);
         knownCardTemplates.set(String(card.id), card);
@@ -1670,6 +1682,8 @@ function updateModeControls() {
   const strictMode = selectedGameMode === 'strict';
   const sandboxMode = selectedGameMode === 'sandbox';
   const matchMode = selectedDuelSeries === 'match';
+  const timeOption = document.getElementById('match-time-limit');
+  if (timeOption) timeOption.disabled = !matchMode;
   const sandboxModeInput = document.querySelector('input[name="game-mode"][value="sandbox"]');
   const nativeModeInput = document.querySelector('input[name="game-mode"][value="native"]');
   if (nativeModeInput) nativeModeInput.disabled = matchMode;
@@ -1700,8 +1714,8 @@ function updateModeControls() {
   if (modeDescription) {
     modeDescription.textContent = strictMode
       ? (matchMode
-        ? 'Match officiel : format TCG Advanced strict, Side Deck et premier à deux victoires.'
-        : 'Mode strict : decks intégrés ou personnalisés validés selon la liste Advanced actuelle.')
+        ? 'Match TCG Advanced : Side Deck, choix du premier joueur et premier à deux victoires.'
+        : 'TCG Advanced : catalogue natif et liste complète des cartes interdites, limitées et semi-limitées.')
       : selectedGameMode === 'native' ? 'Duel libre : les 339 Terrains TCG, OCG et annoncés, avec leurs effets complets. Trois copies par nom ; Main Deck de 40 à 60 cartes.' : 'Anime Sandbox : recherche API et expérimentations libres activées.';
   }
 }
@@ -1724,6 +1738,14 @@ difficultyInputs.forEach(input => {
     announceStatus(`Difficulté ${input.parentElement.textContent.trim()} sélectionnée.`);
   });
 });
+
+const matchTimeOption = document.getElementById('match-time-limit');
+if (matchTimeOption) {
+  matchTimeOption.checked = readStoredValue(STORAGE_KEYS.matchTimeLimit) === 'true';
+  matchTimeOption.addEventListener('change', () => {
+    writeStoredValue(STORAGE_KEYS.matchTimeLimit, String(matchTimeOption.checked));
+  });
+}
 
 duelSeriesInputs.forEach(input => {
   input.addEventListener('change', () => {
@@ -1785,7 +1807,7 @@ function updateDeckBuilderLibrary() {
     const template = knownCardTemplates.get(button.dataset.cardId);
     const destination = builderDestination(template);
     const permission = canAddDeckBuilderCard(deck, template, destination, selectedGameMode, nativeBuilderOptions());
-    const copyIdentity = selectedGameMode === 'native' ? nativeBuilderOptions().getCopyIdentity : getDeckCopyIdentity;
+    const copyIdentity = nativeBuilderOptions().getCopyIdentity || getDeckCopyIdentity;
     const count = allCards.filter(card => copyIdentity(card) === copyIdentity(template)).length;
     const limit = getDeckBuilderCopyLimit(template, selectedGameMode, nativeBuilderOptions());
     button.disabled = !permission.allowed;
@@ -1807,11 +1829,11 @@ function filterDeckBuilderLibrary() {
     const kind = document.getElementById('builder-card-filter')?.value || 'all';
     const wrongType = kind === 'field' ? !isFieldSpellCard(card) : kind !== 'all' && card?.card_type !== kind;
     const wrongQuery = Boolean(needle) && !`${card?.name} ${card?.name_en} ${card?.id} ${card?.desc || ''}`.toLocaleLowerCase().includes(needle);
-    button.hidden = wrongType || (selectedGameMode === 'native' && nativeCatalogueResources ? false : wrongQuery);
+    button.hidden = wrongType || (selectedGameMode !== 'sandbox' && nativeCatalogueResources ? false : wrongQuery);
   });
 }
 document.getElementById('builder-card-search')?.addEventListener('input', () => {
-  if (selectedGameMode === 'native' && nativeCatalogueResources) initDeckBuilderUI();
+  if (selectedGameMode !== 'sandbox' && nativeCatalogueResources) initDeckBuilderUI();
   else filterDeckBuilderLibrary();
 });
 document.getElementById('builder-card-filter')?.addEventListener('change', filterDeckBuilderLibrary);
@@ -1859,13 +1881,16 @@ function initDeckBuilderUI() {
   updateDeckBuilderList();
   filterDeckBuilderLibrary();
   const catalogueStatus = document.getElementById('builder-catalogue-status');
-  if (selectedGameMode === 'native') {
+  if (selectedGameMode !== 'sandbox') {
     if (nativeCatalogueResources) {
-      if (catalogueStatus) catalogueStatus.textContent = `${nativeCatalogueToolkit.getNativeCardCatalogueCount(nativeCatalogueResources).toLocaleString('fr-FR')} cartes avec règles natives. Recherchez les partenaires de vos Terrains ; 100 résultats maximum. Les cartes hors bibliothèque illustrée utilisent un visuel neutre.`;
+      const count = selectedGameMode === 'strict'
+        ? nativeCatalogueToolkit.getNativeTcgCardCatalogueCount(nativeCatalogueResources)
+        : nativeCatalogueToolkit.getNativeCardCatalogueCount(nativeCatalogueResources);
+      if (catalogueStatus) catalogueStatus.textContent = `${count.toLocaleString('fr-FR')} cartes ${selectedGameMode === 'strict' ? 'TCG • liste Advanced complète du 21/09/2026' : 'avec règles natives • Duel libre'}. Recherchez une carte, un nom ou un effet ; 100 résultats maximum. Les cartes sans illustration locale utilisent un visuel neutre.`;
     } else {
-      if (catalogueStatus) catalogueStatus.textContent = 'Chargement des cartes partenaires…';
+      if (catalogueStatus) catalogueStatus.textContent = 'Chargement du catalogue et des règles de cartes…';
       if (!nativeCataloguePromise) ensureNativeCatalogue().then(() => {
-        if (selectedGameMode === 'native' && currentSelectedDeckId === 'custom') initDeckBuilderUI();
+        if (selectedGameMode !== 'sandbox' && currentSelectedDeckId === 'custom') initDeckBuilderUI();
       }).catch(() => {
         if (catalogueStatus) catalogueStatus.textContent = 'Chargement impossible. Changez de mode puis réessayez.';
       });
@@ -1980,11 +2005,19 @@ async function resolveOpeningFirstPlayer(sessionLabel = 'Duel') {
 async function initGameInstance(matchLaunch = null) {
   privateCardInspection.clear();
   publicCardConfirmation.clear();
+  const launchGeneration = ++duelLaunchGeneration;
+  let launchMatch = matchLaunch ? matchController : null;
+  const currentLaunch = () => {
+    if (launchGeneration !== duelLaunchGeneration) return false;
+    if (matchClock?.expired) { finishMatchAtTime(); return false; }
+    return !launchMatch || (matchController === launchMatch && launchMatch.getViewModel().status === 'active');
+  };
   const campaignMission = getMission(activeCampaignMissionId);
   campaignTracker = null;
   // Every Duel starts in the unchanged compact presentation.  Switching views
   // later never resets the game state.
   await duelViewController?.setMode('compact');
+  if (!currentLaunch()) return;
   lpAnimationFrames.forEach(frameId => cancelAnimationFrame(frameId));
   lpAnimationFrames.clear();
   cancelUiAnimations();
@@ -2016,14 +2049,16 @@ async function initGameInstance(matchLaunch = null) {
   pendingAction = null;
   previousPendulumAvailable = false;
 
-  if (selectedGameMode === 'native') {
+  if (selectedGameMode !== 'sandbox') {
     try { await ensureNativeCatalogue(); }
     catch {
+      if (!currentLaunch()) return;
       stopHologramHum();
       openDialog(startModal, startBtn);
       announceStatus('Le chargement des cartes partenaires a échoué. Réessayez.');
       return;
     }
+    if (!currentLaunch()) return;
   }
 
   // 1. Resolve selected deck
@@ -2087,11 +2122,16 @@ async function initGameInstance(matchLaunch = null) {
   } else if (selectedDuelSeries === 'match') {
     if (!matchLaunch) {
       const opening = await resolveOpeningFirstPlayer('Duel 1');
+      if (!currentLaunch()) return;
       const openingChooser = opening.chooser;
       const openingFirstPlayer = opening.firstPlayer;
-      matchController = new MatchController();
+      matchController = new MatchController({ engineOptions: nativeBuilderOptions() });
+      launchMatch = matchController;
       try {
         matchController.startMatch({
+          ...(document.getElementById('match-time-limit')?.checked ? {
+            tournamentPolicy: 'TCG_EU_SWISS', timeLimitMinutes: 50
+          } : {}),
           playerIds: ['player', 'opponent'],
           playerLabels: { player: 'Vous', opponent: 'Adversaire IA' },
           firstPlayerId: openingFirstPlayer,
@@ -2110,6 +2150,8 @@ async function initGameInstance(matchLaunch = null) {
           }
         });
         matchLaunch = matchController.getDuelLaunchConfig();
+        launchMatch = matchController;
+        syncMatchClock();
       } catch (error) {
         const issues = error?.issues?.map(issue => issue.message).join(' | ');
         addLogEntry(`Match refusé : ${issues || error.message}`, 'danger');
@@ -2129,6 +2171,7 @@ async function initGameInstance(matchLaunch = null) {
     matchController = null;
     pendingMatchLaunch = null;
     singleStartingPlayer = (await resolveOpeningFirstPlayer('Duel')).firstPlayer;
+    if (!currentLaunch()) return;
   }
 
   const playerLabel = document.getElementById('player-label');
@@ -2151,7 +2194,9 @@ async function initGameInstance(matchLaunch = null) {
       ]);
       GameClass = module.NativeDuelGame;
       nativeResources = resources;
+      if (!currentLaunch()) return;
     } catch (error) {
+      if (!currentLaunch()) return;
       stopHologramHum();
       addLogEntry(`Chargement du duel impossible : ${error.message}`, 'danger');
       openDialog(startModal, startBtn);
@@ -2160,31 +2205,41 @@ async function initGameInstance(matchLaunch = null) {
     }
   }
   game = new GameClass({
-    onStateChange: updateUI,
+    onStateChange: state => { if (currentLaunch()) updateUI(state); },
     onLog: (msg, type) => {
+      if (!currentLaunch()) return;
       const safeMessage = sanitizePublicLogMessage(msg, type);
       addLogEntry(safeMessage, type);
       handleLogSpeech(safeMessage, type);
     },
-    onAnimation: handleGameAnimations,
-    onGameOver: handleGameOver,
-    onDecision: requestUiDecision,
+    onAnimation: event => { if (currentLaunch()) handleGameAnimations(event); },
+    onGameOver: (...result) => { if (currentLaunch()) handleGameOver(...result); },
+    onDecision: request => currentLaunch() ? requestUiDecision(request) : null,
     onChainOpportunity: requestUiChainOpportunity
   }, {
+    isSessionCurrent: currentLaunch,
     rulesMode: selectedGameMode,
     nativeResources,
-    validateDeck: ({ mainDeck, extraDeck }, mode) => validateCustomDeck({ mainDeck, extraDeck, sideDeck: [] }, mode, nativeBuilderOptions()),
+    validateDeck: ({ mainDeck, extraDeck }, mode) => validateCustomDeck({ mainDeck, extraDeck, sideDeck: [] }, mode, {
+      ...nativeBuilderOptions(mode), ...(matchLaunch?.banlistId ? { banlistId: matchLaunch.banlistId } : {})
+    }),
     aiDifficulty: selectedAiDifficulty
   });
 
   const startingPlayerId = matchLaunch?.firstPlayerId || singleStartingPlayer;
-  const duelStarted = await game.startDuel(
+  const launchedGame = game;
+  const duelStarted = await launchedGame.startDuel(
     playerMainCards,
     opponentMainCards,
     playerExtraCards,
     opponentExtraCards,
     { startingPlayer: startingPlayerId }
   );
+  if (!currentLaunch() || game !== launchedGame) {
+    launchedGame.dispose?.();
+    return;
+  }
+  if (recordedFinishedGames.has(launchedGame)) return;
   if (duelStarted === false) {
     stopHologramHum();
     openDialog(startModal, startBtn);
@@ -3365,6 +3420,7 @@ function persistMatchBetweenDuels() {
     controller: matchController.serialize(),
     selectedDeckId: currentSelectedDeckId,
     aiDifficulty: selectedAiDifficulty,
+    clock: matchClock?.serialize() ?? null,
     savedAt: Date.now()
   };
   return writeStoredValue(STORAGE_KEYS.activeMatch, JSON.stringify(payload));
@@ -3374,6 +3430,66 @@ function clearPersistedMatch() {
   removeStoredValue(STORAGE_KEYS.activeMatch);
 }
 
+function stopMatchClock() {
+  if (matchClockInterval !== null) clearInterval(matchClockInterval);
+  matchClockInterval = null;
+  matchClock = null;
+  document.getElementById('match-clock')?.classList.add('hidden');
+}
+
+function syncMatchClock(snapshot = null) {
+  const view = matchController?.getViewModel();
+  if (view?.tournamentPolicy !== 'TCG_EU_SWISS' || !['active', 'between_games'].includes(view.status)) {
+    stopMatchClock();
+    return;
+  }
+  if (matchClockInterval !== null) clearInterval(matchClockInterval);
+  matchClock = new TCGMatchClock({ snapshot });
+  const tick = () => {
+    const label = document.getElementById('match-clock');
+    if (label) {
+      label.textContent = `SWISS TCG · ${matchClock.label()}`;
+      label.classList.remove('hidden');
+    }
+    if (matchClock.expired) finishMatchAtTime();
+  };
+  tick();
+  if (matchClock) matchClockInterval = setInterval(tick, 1000);
+}
+
+function finishMatchAtTime() {
+  const view = matchController?.getViewModel();
+  if (view?.tournamentPolicy !== 'TCG_EU_SWISS' || !['active', 'between_games'].includes(view.status)) return false;
+  const result = matchController.endMatchAtTime();
+  duelLaunchGeneration += 1;
+  stopMatchClock();
+  clearPersistedMatch();
+  game?.dispose?.();
+  activeDuelInProgress = false;
+  lastDuelResult = null;
+  privateCardInspection.clear();
+  publicCardConfirmation.clear();
+  stopHologramHum();
+  stopBGM();
+  window.speechSynthesis?.cancel?.();
+  cancelUiAnimations();
+  cancelBoardAnimations(document.getElementById('duel-board'));
+  if (pendingDecisionResolver) finishDecision(null);
+  if (activeDialog) closeDialog(activeDialog, { restoreFocus: false });
+  document.getElementById('gameover-title').textContent = 'TEMPS ÉCOULÉ · DOUBLE DÉFAITE';
+  document.getElementById('gameover-text').textContent = `Le Match n’est pas terminé après 50 minutes. La politique Swiss KDE-E attribue une défaite aux deux joueurs. Duels terminés : Vous ${result.scores.player} — ${result.scores.opponent} Adversaire.`;
+  restartBtn.textContent = 'NOUVEAU MATCH';
+  document.body.classList.add('duel-ended');
+  nextPhaseBtn.disabled = true;
+  endTurnBtn?.classList.add('hidden');
+  if (endTurnBtn) endTurnBtn.disabled = true;
+  selectedAttackerIndex = selectedHandUid = pendingAction = null;
+  pendingMatchLaunch = null;
+  openDialog(gameoverModal, restartBtn);
+  announceStatus('Temps écoulé. Double défaite du Match Swiss TCG.');
+  return true;
+}
+
 function restorePersistedMatchBetweenDuels() {
   const payload = readStoredJson(STORAGE_KEYS.activeMatch, null);
   if (!payload || payload.version !== 1 || typeof payload.controller !== 'string') {
@@ -3381,11 +3497,15 @@ function restorePersistedMatchBetweenDuels() {
     return false;
   }
   try {
-    const restored = MatchController.deserialize(payload.controller);
+    const restored = MatchController.deserialize(payload.controller, { engineOptions: nativeBuilderOptions('strict') });
     const view = restored.getViewModel();
     if (view.status !== 'between_games') {
       clearPersistedMatch();
       return false;
+    }
+    if (view.tournamentPolicy === 'TCG_EU_SWISS') {
+      if (!payload.clock) throw new Error('Le chronomètre du Match sauvegardé est absent.');
+      new TCGMatchClock({ snapshot: payload.clock });
     }
     matchController = restored;
     pendingMatchLaunch = null;
@@ -3404,6 +3524,8 @@ function restorePersistedMatchBetweenDuels() {
     writeStoredValue(STORAGE_KEYS.gameMode, selectedGameMode);
     writeStoredValue(STORAGE_KEYS.difficulty, selectedAiDifficulty);
     updateModeControls();
+    syncMatchClock(payload.clock ?? null);
+    if (matchController.getViewModel().status === 'complete') return false;
     closeDialog(startModal, { restoreFocus: false });
     openSideDeckEditor();
     if (sideDeckFeedback) {
@@ -3421,6 +3543,8 @@ function restorePersistedMatchBetweenDuels() {
 function returnToConfiguration({ announce = false } = {}) {
   privateCardInspection.clear();
   publicCardConfirmation.clear();
+  duelLaunchGeneration += 1;
+  stopMatchClock();
   leaveCampaign();
   // Leaving the Duel also tears down the active immersive presentation. The
   // cached module may be reused later, but no Real-view animation remains
@@ -3567,6 +3691,16 @@ function renderSideDeckEditor() {
 
       sideDeckDraft[deckRef.section][deckRef.index] = sideCard;
       sideDeckDraft.sideDeck[sideRef.index] = deckCard;
+      const staged = matchController.stageSideDeck('player', sideDeckDraft);
+      if (!staged.valid) {
+        sideDeckDraft[deckRef.section][deckRef.index] = deckCard;
+        sideDeckDraft.sideDeck[sideRef.index] = sideCard;
+        selectedSideDeckCard = null;
+        sideDeckFeedback.textContent = staged.issues?.map(issue => issue.message || issue.code).join(' | ') || 'Échange refusé.';
+        renderSideDeckEditor();
+        return;
+      }
+      persistMatchBetweenDuels();
       selectedSideDeckCard = null;
       sideDeckFeedback.textContent = `${deckCard.name} et ${sideCard.name} ont été échangées.`;
       renderSideDeckEditor();
@@ -3631,7 +3765,7 @@ function openSideDeckEditor() {
   }
 
   const editorModel = matchController.getSideDeckEditorModel('player');
-  sideDeckDraft = structuredClone(editorModel.activeDeck);
+  sideDeckDraft = structuredClone(editorModel.draftDeck || editorModel.activeDeck);
   selectedSideDeckCard = null;
   if (sideDeckScore) {
     sideDeckScore.textContent =
@@ -3834,6 +3968,10 @@ function getDuelReasonLabel(reason) {
 function handleGameOver(resultOrWinner, legacyDetails = null) {
   privateCardInspection.clear();
   publicCardConfirmation.clear();
+  if (matchClock?.expired && matchController?.getViewModel().tournamentPolicy) {
+    finishMatchAtTime();
+    return;
+  }
   if (game && recordedFinishedGames.has(game)) return;
   const result = normalizeDuelResult(resultOrWinner, legacyDetails);
   lastDuelResult = result;
@@ -3904,6 +4042,7 @@ function handleGameOver(resultOrWinner, legacyDetails = null) {
         `${baseResultMessage} Score du Match : Vous ${matchView.scores.player} — ${matchView.scores.opponent} Adversaire. Préparez votre Side Deck avant le Duel suivant.`;
       restartBtn.textContent = 'PRÉPARER LE DUEL SUIVANT';
     } else if (matchView.status === 'complete') {
+      stopMatchClock();
       const playerWon = matchView.winnerId === 'player';
       gameoverTitle.textContent = matchView.winnerId === null
         ? 'MATCH NUL'
@@ -4655,6 +4794,12 @@ if (import.meta.env.DEV) {
   });
 }
 
-queueMicrotask(() => {
-  restorePersistedMatchBetweenDuels();
+queueMicrotask(async () => {
+  if (!readStoredValue(STORAGE_KEYS.activeMatch)) return;
+  try {
+    await ensureNativeCatalogue();
+    restorePersistedMatchBetweenDuels();
+  } catch {
+    announceStatus('Le catalogue du Match sauvegardé n’a pas pu être chargé. Réessayez en rechargeant la page.');
+  }
 });

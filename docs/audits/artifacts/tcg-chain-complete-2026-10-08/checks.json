@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-08",
+  "recordedAtUtc": "2026-10-08T22:03:36.621336+00:00",
+  "ok": true,
+  "command": "node --test tests/tcg-chain-complete.test.mjs tests/native-duel-decisions.test.mjs tests/native-duel-choice-flows.test.mjs tests/native-duel-rule-windows.test.mjs",
+  "results": {
+    "tests": 87,
+    "pass": 87,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "log": {
+    "path": "docs/audits/artifacts/tcg-chain-complete-2026-10-08/targeted-tests.txt",
+    "bytes": 7415,
+    "sha256": "99cf07fdd303d554b94f7b99b1324491adeeaf6ac04160cf40ef8d86c3a9f564"
+  },
+  "scope": "Targeted adapter and actual native chain/timing checks; this is not the global build or CI."
+}

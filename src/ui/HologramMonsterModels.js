@@ -3,6 +3,8 @@ import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { resolveHologramMonsterProfile } from './CombatVisualProfiles.js';
 import { HOLOGRAM_JOINTS, installHologramPoseRig, resolveHologramPartJoint } from './HologramPoseAnimation.js';
 import { buildReferenceMonsterAnatomy } from './HologramReferenceAnatomy.js';
+import { buildPopularGodMonsterAnatomy } from './HologramPopularGodModels.js';
+import { buildPopularStapleAnatomy } from './HologramPopularStapleModels.js';
 
 /** Texture-free articulated silhouettes, merged by material to bound draw calls. */
 export function createHologramMonsterModel(card = {}, { defense = false } = {}) {
@@ -126,7 +128,10 @@ export function createHologramMonsterModel(card = {}, { defense = false } = {}) 
     if (rock) for (let i = 0; i < 4; i += 1) box(`stone-joint-${i}`, 'dark', [0, 1.68 + i * 0.2, 0.34], [0.61, 0.026, 0.023], [0, 0, i % 2 ? 0.12 : -0.08]);
   }
 
-  const refined = buildReferenceMonsterAnatomy(profile, { part, sphere, box, cone, ring, rod, membrane });
+  const helpers = { part, sphere, box, cone, ring, rod, membrane };
+  const refined = buildPopularGodMonsterAnatomy(profile, helpers)
+    || buildPopularStapleAnatomy(profile, helpers)
+    || buildReferenceMonsterAnatomy(profile, helpers);
   if (refined) {
     root.userData.referenceArt = profile.referenceArt;
   } else if (profile.family === 'dragon') {

@@ -12,10 +12,10 @@
     "public/native/card-data.json": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d",
     "public/native/scripts.json": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f",
     "src/core/native/vendor/ocgcore/index.js": "8cfbec622cf5b920e0b58db6d842fcabf1a9ef8eed9f0841bac43a1e9adb0657",
-    "src/core/native/NativeDuelGame.js": "f29c5061f0d47ca657bcd88b0bfbb0954a5dcc51fa4c9c0f1827f9fbfa7c5a11",
+    "src/core/native/NativeDuelGame.js": "04a3219a0b59bec1aab199efc72fc25069c68acb17233190a898c530add0813f",
     "src/core/native/NativeCardCharacteristics.js": "e4d1a7551bf67b32a55f291f59abc411c032217113f63cd35df76db75ad5fa76",
-    "src/core/native/NativeDuelVisualEvents.js": "8b2f692bbf099a62c26244098dadfaa10842ce94d4cb0291d9a2e1e0c54af242",
-    "src/core/native/NativeDuelRuntime.js": "a2c7a18654e968861a0e34a51cd35f17ee5a3e03efc23cbd6a4632be29de3b95",
+    "src/core/native/NativeDuelVisualEvents.js": "2a776f53d0d15eb91eb2c736d95fbdc809d85cdef9491adf9b6c448ef61580ab",
+    "src/core/native/NativeDuelRuntime.js": "07136f4301391bd62e4f29fe611067b15734f53c92354cb6a3cc3b33ff52e6b5",
     "src/core/native/NativeCardScriptCorrections.js": "e0073221e78f6f3df94b0b37da4683167a5a8787f21317f5d6a0a619a5c767cd",
     "src/core/native/NativeDiceDungeonScriptCorrection.js": "80f978a0ea7ac9641a1413ca14e6a9cfd27c28c0d571203391706623072424cc",
     "src/core/native/NativeDuelTowerScriptCorrection.js": "fa198bb13429613fe9ac2843ea4c5c25251a09c8d7c393953d30725f45a68a6e",
@@ -373,6 +373,27 @@
           "target": "player"
         },
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
           "type": "move",
           "target": "player",
           "publicCode": 55144522
@@ -570,6 +591,27 @@
         {
           "type": "shuffle",
           "target": "player"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
         },
         {
           "type": "toggle-position",
@@ -778,6 +820,27 @@
           "target": "player"
         },
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
           "type": "move",
           "target": "player",
           "publicCode": 40619825
@@ -970,6 +1033,27 @@
           "target": "player"
         },
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
           "type": "move",
           "target": "player",
           "publicCode": 83764718
@@ -1153,6 +1237,27 @@
           "target": "player"
         },
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
           "type": "move",
           "target": "player",
           "publicCode": 83764718
@@ -1317,6 +1422,27 @@
         {
           "type": "shuffle",
           "target": "player"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
         },
         {
           "type": "move",
@@ -1538,6 +1664,27 @@
           "target": "player"
         },
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
           "type": "move",
           "target": "player",
           "publicCode": 55144522
@@ -1738,6 +1885,27 @@
           "target": "player"
         },
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
           "type": "move",
           "target": "player",
           "publicCode": 55144522
@@ -1911,6 +2079,27 @@
         {
           "type": "shuffle",
           "target": "player"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
         },
         {
           "type": "move",
@@ -2189,6 +2378,27 @@
           "target": "player"
         },
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
           "type": "toggle-position",
           "target": "player",
           "publicReveal": true,
@@ -2392,6 +2602,27 @@
         {
           "type": "shuffle",
           "target": "player"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
         },
         {
           "type": "toggle-position",
@@ -2651,6 +2882,27 @@
         {
           "type": "shuffle",
           "target": "player"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
         },
         {
           "type": "toggle-position",
@@ -2984,6 +3236,27 @@
           "target": "player"
         },
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
           "type": "move",
           "target": "player",
           "publicCode": 40619825
@@ -3184,6 +3457,27 @@
         {
           "type": "shuffle",
           "target": "player"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
         },
         {
           "type": "move",
@@ -3476,6 +3770,27 @@
           "target": "player"
         },
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
           "type": "move",
           "target": "player",
           "publicCode": 45986603
@@ -3743,6 +4058,27 @@
           "target": "player"
         },
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
           "type": "move",
           "target": "player",
           "publicCode": 4031928
@@ -3789,9 +4125,42 @@
           "type": "chain-end"
         },
         {
+          "type": "native-phase"
+        },
+        {
           "type": "move",
           "target": "opponent",
           "publicCode": 89631139
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
         }
       ]
     },
@@ -3962,6 +4331,27 @@
           "target": "player"
         },
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
           "type": "move",
           "target": "player",
           "publicCode": 55713623
@@ -4001,6 +4391,39 @@
         },
         {
           "type": "chain-end"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
         }
       ]
     },
@@ -4206,6 +4629,27 @@
           "target": "player"
         },
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
           "type": "move",
           "target": "player",
           "publicCode": 40619825
@@ -4280,6 +4724,39 @@
         },
         {
           "type": "chain-end"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
         }
       ]
     },
@@ -4484,6 +4961,27 @@
           "target": "player"
         },
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
           "type": "move",
           "target": "player",
           "publicCode": 31036355
@@ -4675,6 +5173,27 @@
           "target": "player"
         },
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
           "type": "move",
           "target": "player",
           "publicCode": 22959079
@@ -4724,12 +5243,45 @@
           "type": "chain-end"
         },
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
           "type": "move",
           "target": "player",
           "publicCode": 89631139
         },
         {
           "type": "field-disabled"
+        },
+        {
+          "type": "native-phase"
         }
       ]
     },
@@ -4900,6 +5452,27 @@
         }
       ],
       "animations": [
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
         {
           "type": "toggle-position",
           "target": "player",
@@ -5116,6 +5689,27 @@
       ],
       "animations": [
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
           "type": "toggle-position",
           "target": "player",
           "publicReveal": true,
@@ -5298,6 +5892,27 @@
           "target": "player"
         },
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
           "type": "move",
           "target": "player",
           "publicCode": 31036355
@@ -5475,6 +6090,27 @@
         {
           "type": "shuffle",
           "target": "player"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
         },
         {
           "type": "toggle-position",
@@ -5761,6 +6397,27 @@
           "target": "player"
         },
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
           "type": "move",
           "target": "player",
           "publicCode": 77584012
@@ -5830,6 +6487,39 @@
         },
         {
           "type": "chain-end"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
         }
       ]
     },
@@ -6014,6 +6704,27 @@
         {
           "type": "shuffle",
           "target": "player"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
         },
         {
           "type": "move",

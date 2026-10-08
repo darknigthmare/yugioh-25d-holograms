@@ -12,7 +12,7 @@
     "public/native/card-data.json": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d",
     "public/native/scripts.json": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f",
     "src/core/native/vendor/ocgcore/index.js": "8cfbec622cf5b920e0b58db6d842fcabf1a9ef8eed9f0841bac43a1e9adb0657",
-    "src/core/native/NativeDuelGame.js": "f29c5061f0d47ca657bcd88b0bfbb0954a5dcc51fa4c9c0f1827f9fbfa7c5a11"
+    "src/core/native/NativeDuelGame.js": "04a3219a0b59bec1aab199efc72fc25069c68acb17233190a898c530add0813f"
   },
   "scripts": [
     {
@@ -230,12 +230,45 @@
       ],
       "animations": [
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
           "type": "attack-direct",
           "target": "opponent",
           "publicCode": 89631139
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "damage-step"
+        },
+        {
+          "type": "native-battle-step"
         },
         {
           "type": "battle-stats",
@@ -249,7 +282,13 @@
           "cost": false
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "damage-step"
+        },
+        {
+          "type": "native-battle-step"
         }
       ]
     },
@@ -327,12 +366,45 @@
       ],
       "animations": [
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
           "type": "attack-monster",
           "target": "opponent",
           "publicCode": 89631139
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "damage-step"
+        },
+        {
+          "type": "native-battle-step"
         },
         {
           "type": "battle-stats",
@@ -361,7 +433,13 @@
           "publicCode": 97590747
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "damage-step"
+        },
+        {
+          "type": "native-battle-step"
         }
       ]
     },
@@ -445,12 +523,45 @@
       ],
       "animations": [
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
           "type": "attack-monster",
           "target": "opponent",
           "publicCode": 97590747
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "damage-step"
+        },
+        {
+          "type": "native-battle-step"
         },
         {
           "type": "battle-stats",
@@ -469,7 +580,13 @@
           "cost": false
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "damage-step"
+        },
+        {
+          "type": "native-battle-step"
         }
       ]
     },
@@ -539,12 +656,45 @@
       ],
       "animations": [
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
           "type": "attack-monster",
           "target": "opponent",
           "publicCode": 97590747
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "damage-step"
+        },
+        {
+          "type": "native-battle-step"
         },
         {
           "type": "battle-stats",
@@ -577,7 +727,13 @@
           "publicCode": 97590747
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "damage-step"
+        },
+        {
+          "type": "native-battle-step"
         }
       ]
     },
@@ -655,9 +811,39 @@
       ],
       "animations": [
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
           "type": "attack-monster",
           "target": "opponent",
           "publicCode": 89631139
+        },
+        {
+          "type": "native-battle-step"
         },
         {
           "type": "damage-step"
@@ -667,6 +853,9 @@
           "target": "opponent",
           "publicReveal": true,
           "publicCode": 15025844
+        },
+        {
+          "type": "native-battle-step"
         },
         {
           "type": "battle-stats",
@@ -689,7 +878,13 @@
           "publicCode": 15025844
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "damage-step"
+        },
+        {
+          "type": "native-battle-step"
         }
       ]
     },
@@ -768,12 +963,45 @@
       ],
       "animations": [
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
           "type": "attack-monster",
           "target": "opponent",
           "publicCode": 31553716
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "damage-step"
+        },
+        {
+          "type": "native-battle-step"
         },
         {
           "type": "battle-stats",
@@ -807,7 +1035,13 @@
           "publicCode": 31553716
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "damage-step"
+        },
+        {
+          "type": "native-battle-step"
         }
       ]
     },
@@ -885,12 +1119,45 @@
       ],
       "animations": [
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
           "type": "attack-monster",
           "target": "opponent",
           "publicCode": 55410871
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "damage-step"
+        },
+        {
+          "type": "native-battle-step"
         },
         {
           "type": "battle-stats",
@@ -919,7 +1186,13 @@
           "publicCode": 97590747
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "damage-step"
+        },
+        {
+          "type": "native-battle-step"
         }
       ]
     },
@@ -997,12 +1270,45 @@
       ],
       "animations": [
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
           "type": "attack-monster",
           "target": "opponent",
           "publicCode": 94004268
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "damage-step"
+        },
+        {
+          "type": "native-battle-step"
         },
         {
           "type": "battle-stats",
@@ -1031,7 +1337,13 @@
           "publicCode": 94004268
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "damage-step"
+        },
+        {
+          "type": "native-battle-step"
         }
       ]
     },
@@ -1136,6 +1448,45 @@
       ],
       "animations": [
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
           "type": "attack-monster",
           "target": "player",
           "publicCode": 89631139
@@ -1179,7 +1530,13 @@
           "type": "chain-end"
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "damage-step"
+        },
+        {
+          "type": "native-battle-step"
         },
         {
           "type": "battle-stats",
@@ -1192,7 +1549,28 @@
           "publicCode": 97590747
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "damage-step"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
         }
       ]
     },
@@ -1252,6 +1630,45 @@
       "battleStats": [],
       "animations": [
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
           "type": "attack-direct",
           "target": "player",
           "publicCode": 89631139
@@ -1302,6 +1719,21 @@
           "type": "attack-negated",
           "target": "player",
           "publicCode": 89631139
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
         }
       ]
     },
@@ -1432,6 +1864,45 @@
       ],
       "animations": [
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
           "type": "attack-direct",
           "target": "player",
           "publicCode": 89631139
@@ -1519,12 +1990,21 @@
           "type": "chain-end"
         },
         {
+          "type": "attack-replay"
+        },
+        {
           "type": "attack-monster",
           "target": "player",
           "publicCode": 89631139
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "damage-step"
+        },
+        {
+          "type": "native-battle-step"
         },
         {
           "type": "battle-stats",
@@ -1546,7 +2026,28 @@
           "publicCode": 73915052
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "damage-step"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
         }
       ]
     },
@@ -1637,6 +2138,45 @@
       ],
       "animations": [
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
           "type": "attack-monster",
           "target": "player",
           "publicCode": 89631139
@@ -1692,12 +2232,21 @@
           "type": "chain-end"
         },
         {
+          "type": "attack-replay"
+        },
+        {
           "type": "attack-direct",
           "target": "player",
           "publicCode": 89631139
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "damage-step"
+        },
+        {
+          "type": "native-battle-step"
         },
         {
           "type": "battle-stats",
@@ -1711,7 +2260,28 @@
           "cost": false
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "damage-step"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
         }
       ]
     },
@@ -1810,6 +2380,45 @@
       ],
       "animations": [
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
           "type": "attack-monster",
           "target": "player",
           "publicCode": 89631139
@@ -1861,6 +2470,9 @@
           "type": "chain-end"
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "damage-step"
         },
         {
@@ -1868,6 +2480,9 @@
           "target": "player",
           "publicReveal": true,
           "publicCode": 97590747
+        },
+        {
+          "type": "native-battle-step"
         },
         {
           "type": "battle-stats",
@@ -1890,7 +2505,28 @@
           "publicCode": 97590747
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "damage-step"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
         }
       ]
     },
@@ -1982,9 +2618,39 @@
           "target": "player"
         },
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
           "type": "attack-monster",
           "target": "opponent",
           "publicCode": 89631139
+        },
+        {
+          "type": "native-battle-step"
         },
         {
           "type": "damage-step"
@@ -2018,6 +2684,9 @@
           "type": "chain-end"
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "battle-stats",
           "target": "player",
           "publicCode": 89631139
@@ -2044,7 +2713,49 @@
           "publicCode": 23995346
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "damage-step"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
         }
       ]
     },
@@ -2121,9 +2832,51 @@
           "target": "player"
         },
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
           "type": "attack-direct",
           "target": "player",
           "publicCode": 89631139
+        },
+        {
+          "type": "native-battle-step"
         },
         {
           "type": "damage-step"
@@ -2157,12 +2910,36 @@
           "type": "chain-end"
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "battle-stats",
           "target": "opponent",
           "publicCode": 89631139
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "damage-step"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
         }
       ]
     },
@@ -2232,6 +3009,33 @@
       "battleStats": [],
       "animations": [
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
           "type": "attack-monster",
           "target": "opponent",
           "publicCode": 89631139
@@ -2285,6 +3089,12 @@
         },
         {
           "type": "chain-end"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
+          "type": "attack-stopped"
         }
       ]
     },
@@ -2363,6 +3173,45 @@
       "battleStats": [],
       "animations": [
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
           "type": "attack-monster",
           "target": "player",
           "publicCode": 89631139
@@ -2420,9 +3269,30 @@
           "type": "chain-end"
         },
         {
+          "type": "native-battle-step"
+        },
+        {
+          "type": "attack-stopped"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
           "type": "move",
           "target": "opponent",
           "publicCode": 89631139
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
         }
       ]
     },
@@ -2499,6 +3369,27 @@
       "battleStats": [],
       "animations": [
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
           "type": "move",
           "target": "player",
           "publicCode": 97590747
@@ -2518,6 +3409,12 @@
           "target": "player",
           "nativeSummonConfirmed": true,
           "publicCode": 84013237
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-battle-step"
         },
         {
           "type": "attack-monster",
@@ -2612,6 +3509,12 @@
         },
         {
           "type": "chain-end"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
+          "type": "attack-stopped"
         }
       ]
     },
@@ -2685,12 +3588,45 @@
       ],
       "animations": [
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
           "type": "attack-direct",
           "target": "opponent",
           "publicCode": 74157028
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "damage-step"
+        },
+        {
+          "type": "native-battle-step"
         },
         {
           "type": "battle-stats",
@@ -2704,7 +3640,13 @@
           "cost": false
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "damage-step"
+        },
+        {
+          "type": "native-battle-step"
         },
         {
           "type": "attack-direct",
@@ -2712,7 +3654,13 @@
           "publicCode": 74157028
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "damage-step"
+        },
+        {
+          "type": "native-battle-step"
         },
         {
           "type": "battle-stats",
@@ -2726,7 +3674,13 @@
           "cost": false
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "damage-step"
+        },
+        {
+          "type": "native-battle-step"
         }
       ]
     },
@@ -2810,12 +3764,45 @@
       ],
       "animations": [
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-battle-step"
+        },
+        {
           "type": "attack-monster",
           "target": "opponent",
           "publicCode": 18036057
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "damage-step"
+        },
+        {
+          "type": "native-battle-step"
         },
         {
           "type": "battle-stats",
@@ -2871,7 +3858,13 @@
           "publicCode": 97590747
         },
         {
+          "type": "native-battle-step"
+        },
+        {
           "type": "damage-step"
+        },
+        {
+          "type": "native-battle-step"
         }
       ]
     },
@@ -2926,6 +3919,27 @@
       "battleStats": [],
       "animations": [
         {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
+          "type": "native-phase"
+        },
+        {
           "type": "toggle-position",
           "target": "player",
           "publicReveal": true,
@@ -2962,6 +3976,9 @@
           "type": "chain-resolve",
           "target": "player",
           "publicCode": 57585212
+        },
+        {
+          "type": "native-victory"
         },
         {
           "type": "move",

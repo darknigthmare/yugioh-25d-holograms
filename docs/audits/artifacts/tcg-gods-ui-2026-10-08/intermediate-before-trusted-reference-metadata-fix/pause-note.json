@@ -1,0 +1,51 @@
+{
+  "status": "interrupted_by_coordinator",
+  "ok": false,
+  "expectedEntrySha256": "fa62b5d0a9d862bade8c0a3946fa8e69ba2de581e751d4affb96d1c7b806637d",
+  "reason": "Coordinator fixed public trusted image reference priority for Utopia and required a new frozen build. This intermediate God run is not final proof. SIGINT blocked in Playwright cleanup, so only this owned audit process tree was terminated. Final aggregate report was not produced.",
+  "captureCount": 9,
+  "captures": [
+    {
+      "name": "god-10000020-three-native-tokens-1280.png",
+      "sha256": "f05966fe819cca7fc3d3d73b91d156b136b88d9aef560aeb0eac75e3106aaae0"
+    },
+    {
+      "name": "god-10000000-god-overview-camera-1280.png",
+      "sha256": "b7cf556aab8433c6a77f9d73401bfe5941e1f26a68f0294fe780624b8352d0c8"
+    },
+    {
+      "name": "god-10000000-three-native-tokens-1280.png",
+      "sha256": "09a207b108dea8b3586014dadf96a51bc1998044d2d5f694e3c2c2bf66c37d92"
+    },
+    {
+      "name": "god-10000000-god-player-camera-1280.png",
+      "sha256": "f95f603dcbe0ac4c6f329e351cfe30afa0640f014f1acce37be5edec27160ef1"
+    },
+    {
+      "name": "god-10000020-god-overview-camera-390.png",
+      "sha256": "31f1998a460d2b343d8f4191bb0905fd10f4b92c50627079213d2c4fa1a5aab3"
+    },
+    {
+      "name": "god-10000020-god-player-camera-1280.png",
+      "sha256": "a46c20bb05c77217cb585f7f15a7d53e123cfd72a82f6618b535485c32ee9d34"
+    },
+    {
+      "name": "god-10000020-god-player-camera-390.png",
+      "sha256": "54d08f3aebcbe87a72bdd991226cd3d606a65febfdefea8a9ce0447c6666d24c"
+    },
+    {
+      "name": "god-10000020-god-overview-camera-1280.png",
+      "sha256": "c3fcd35fc2e905021d4277f295c118ffc20b036bfad56613442cf0b418ef98a5"
+    },
+    {
+      "name": "god-10000020-three-native-tokens-390.png",
+      "sha256": "ddae95c067c987371c8c7e48ca1f815ccb8b2df865df5e1ea82fefbd9ef2b0cf"
+    }
+  ],
+  "completedOverviewCaptureNames": [
+    "god-10000000-god-overview-camera-1280.png",
+    "god-10000020-god-overview-camera-390.png",
+    "god-10000020-god-overview-camera-1280.png"
+  ],
+  "limits": "Completed screenshot stages show the first Slifer desktop/mobile and Obelisk desktop paths. No source-after or final all-six-case assertion is claimed for this interrupted run."
+}

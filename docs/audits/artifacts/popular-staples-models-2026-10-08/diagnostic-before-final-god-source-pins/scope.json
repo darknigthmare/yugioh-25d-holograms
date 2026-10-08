@@ -1,0 +1,8 @@
+{
+  "reason": "Independent God model module corrected cap winding and Slifer bends after initial sibling-module audit. Staple models unchanged; final gallery refreshed with final transitive source pins.",
+  "previousGodSourceSha256": "d96f69571411d6cb61049ced1535407251560d174a7e4d3682b521f5e262e587",
+  "finalGodSourceSha256": "7e095ad4bab594756d846b6794add8afb540f962494b7168589d0bc80851f121",
+  "unchangedStapleSourceSha256": "66784a7c5903a5005064833dead704a9d2a7bad4152a71d8d7cc024ccd610c35",
+  "previousMeasurementSha256": "b0d55ccc47f58fba0b9930754368b2a800f2f71f5dc971ec7f3c5b0eb85e4928",
+  "captures": "Initial screenshot paths are deterministically replaced by final-source renders; exact initial measurement and screenshot SHA list is preserved here."
+}

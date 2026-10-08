@@ -1,0 +1,36 @@
+# Vague TCG et cartes emblématiques — 8 octobre 2026
+
+Le jeu strict utilise maintenant le catalogue TCG complet du snapshot local, la liste Advanced complète et le profil MR5/SEGOC TCG partagé par le runtime et la façade. Le cœur EDOPro WASM épinglé et les scripts Project Ignis restent l’autorité des règles. La façade répond aux choix natifs ; elle ne remplace pas leurs résolutions par des calculs JavaScript.
+
+## Résultat vérifié
+
+| Chantier | Résultat et preuve |
+| --- | --- |
+| Catalogue strict | **13 847 cartes consultables**, sur 14 355 identités natives. OCG, prépublications non confirmées et cartes hors format exclues ; interdits inspectables mais refusés au Deck. [Format](tcg-complete-format-2026-10-08.md). |
+| Chargement des cartes | **13 847/13 847 handles natifs réussis**, zéro diagnostic Lua et zéro RETRY. Chaque carte est réellement enregistrée puis requêtée. [Audit intégral](tcg-catalogue-initialization-2026-10-08.md). |
+| Liste Advanced | **231 lignes officielles**, dont 121 interdits, 94 limités, 7 semi-limités et 9 retours à trois copies. Limites cumulées Main/Extra/Side, alias de confiance et dates particulières du 28 septembre. [Rapport](artifacts/tcg-complete-2026-10-08/report.json). |
+| Invocations | **70 cas natifs**, 35 procédures/contre-exemples exécutés pour chacun des deux contrôleurs : Normale/Pose/Flip, Sacrifice, Fusion, Rituel, Synchro, Xyz, Lien, Pendule, zones MR5, Jetons et historique de réanimation. [Audit](tcg-summoning-complete-2026-10-08.md). |
+| Chaînes | **17 cas natifs**, 274 réponses typées et 248 choix traduits : SEGOC public/privé, ordre TCG, when/if, Spell Speed 3, négation d’activation ou d’effet et limites une fois par tour. Description cachée refusée avant lecture des données. [Audit](tcg-chain-complete-2026-10-08.md). |
+| Combat et fin de Duel | **56 cas natifs**, pour les deux contrôleurs : calcul ATK/DEF, égalités/zéro/perçants, Damage Step, replays acceptés/refusés/obligatoires, attaquant retiré, première pioche/Battle Phase, défausse à six, LP, Deck Out, Exodia et résultats nuls. [Audit](tcg-battle-complete-2026-10-08.md). |
+| Exodia dans la façade | **Six véritables NativeDuelGame**, mains de cinq/six cartes et victoire simultanée, deux contrôleurs et deux audiences. La révélation publique exige WIN natif 16 dans le même batch et source originale/exécutée épinglée. [Transcripts complets](artifacts/tcg-exodia-public-confirmation-2026-10-08.json). |
+| Match et Side | Registration, pool physique et effectifs conservés ; échanges atomiques, brouillon Side sauvegardé/repris, choix du perdant ou nouveau tirage après nul, quatrième Duel, rematch et ancien Match conservant sa liste enregistrée. Race64 sérialisée en décimal ; affichage rechargé depuis les templates de confiance. |
+| Swiss KDE-E optionnel | **50 minutes**, Side/rechargement inclus ; Match inachevé terminé en double défaite, sans créer de Duel ni WIN. **Six Duels WASM** vérifient zéro réponse/progression après l’échéance, même avant le tick d’interface ou pendant une sélection déjà ouverte. [Contrôles et journaux](artifacts/tcg-complete-checks-2026-10-08/report.json). |
+| Modèles emblématiques | **Huit nouveaux profils** : Slifer, Obelisk, Ra, Cyber Dragon, Elemental HERO Neos, Number 39: Utopia, Black Luster Soldier – Envoy of the Beginning et Ash Blossom. **36 profils dédiés/17 familles**, 48 triptyques source/ancien/nouveau, 28 anciens profils/buffers/matériaux intacts. [Dieux](popular-gods-models-2026-10-08.md), [partenaires](popular-staples-models-2026-10-08.md). |
+| Navigateur compilé | **Dix parcours réussis, 34 captures finales** : six Duels des Dieux, deux parcours Catalogue/Match desktop/mobile, une invocation LIGHT/DARK de BLS et une invocation Xyz d’Utopia. Les six démarrages natifs du lot Catalogue/Match et les six Duels des Dieux utilisent les commandes publiques, sans injection après le démarrage. [Dieux en jeu](tcg-gods-ui-2026-10-08.md), [Catalogue/Match](tcg-catalogue-match-ui-2026-10-08.md). |
+| Contrôle global final | **2 557/2 557 tests**, 152 fichiers, zéro échec/ignoré ; audits des assets réussis, build **123 modules** en 475 ms ; audit des dépendances **zéro vulnérabilité**. [Journaux et empreintes](artifacts/tcg-complete-checks-2026-10-08/report.json). |
+
+Les sept priorités emblématiques sont réalisées ; Ash Blossom est le huitième profil complémentaire. Les nouvelles anatomies utilisent des volumes, articulations et poses du rig existant, avec cinq appels de dessin par modèle. Les 22 nouveaux JPEG locaux proviennent des références publiées ; les 470 JPEG historiques restent inchangés. La référence complète d’Utopia est maintenant utilisée dans sa projection native, tout en gardant son crop historique.
+
+## Build et intégration
+
+Le build final est `assets/index-CaFyNlVq.js`, SHA-256 `075c1dd21968352631c5a88c85272c1dbcaa09f36f80bf3939c1c5abc5137c51`. Les captures finales et leur scope sont consignés par les audits navigateur séparés, qui vérifient les commandes publiques sur le jeu compilé. Râ paie réellement 7 900 LP pour atteindre 100 LP et 7 900 ATK/DEF ; son choix natif reste libellé génériquement, avec le coût officiel dans l’inspecteur. Les essais intermédiaires, leurs échecs de sélecteur/assertion de driver et les builds remplacés sont archivés distinctement et ne sont pas comptés comme parcours finaux. Le [registre des preuves et des sources](artifacts/tcg-complete-source-ledger-2026-10-08.json) relie les rapports, captures et empreintes du build aux fichiers exécutés.
+
+La politique Swiss est celle du [PDF KDE-E v2.5 reçu et archivé](artifacts/tcg-complete-2026-10-08/official-kde-e-policy-v2.5.pdf), SHA-256 `01b419dde56ac142c5f290758e5a48a443c50e309ba1486cb6ce34aeb95a175c`. Elle impose l’arrêt à l’échéance et la double défaite d’un Match Swiss inachevé ; aucune fin de phase, tour supplémentaire ou comparaison de LP n’est ajoutée.
+
+## Conservation et portée
+
+Les archives CDB/Lua/WASM et les matrices historiques **406 scénarios/339 Terrains** et **377 scénarios** restent byte-identiques. Les suites historiques de combat/chaînes ont été réellement rejouées sous la nouvelle façade : leurs résultats, décisions et protocoles restent identiques ; leurs animations comportent les nouveaux événements de phase/replay/victoire. Les rapports antérieurs sont archivés dans [la baseline de régression](artifacts/tcg-complete-regression-baseline-2026-10-08/index.json), séparément des nouveaux digests de source.
+
+L’initialisation intégrale ne joue pas toutes les branches des 13 847 cartes ni toutes leurs combinaisons. Les 143 nouveaux scénarios de règles, les six Exodia de façade, les six coupures Swiss et les parcours navigateur sont des preuves distinctes. Les données de publication territoriale hors références primaires connues reposent sur le snapshot CDB fournisseur. Les règles matérielles d’un tournoi avec juges, documents et pochettes ne sont pas des actions de ce simulateur solo.
+
+Les illustrations exactes sont préservées ; la profondeur, les proportions et les parties non visibles des modèles restent interprétées. Ces preuves ne certifient pas une reconstruction spatiale intégrale 1:1 ni une homologation Konami. Publication sur la branche de travail et aperçu uniquement ; aucune fusion dans master ni promotion en production.

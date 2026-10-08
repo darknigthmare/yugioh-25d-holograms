@@ -1,0 +1,206 @@
+{
+  "date": "2026-10-08",
+  "recordedAtUtc": "2026-10-08T22:22:55.455930+00:00",
+  "ok": true,
+  "baselineLocalCommit": "b8e216cd53ccc640366c91755268291afb1840d2",
+  "sourceAndProofs": [
+    {
+      "path": "src/core/native/NativeDuelDecisions.js",
+      "bytes": 35779,
+      "sha256": "4ec35dd4cc12ae7efcb1dd45a39e3cc7a83e359d9af41a84d51f3ffa5bbff724"
+    },
+    {
+      "path": "src/core/native/NativeChainDecisionInfo.js",
+      "bytes": 1541,
+      "sha256": "ba57cbd05832466c404cae2d2ecb89d5cee95e00bfb84318fc3ae65c5c88b589"
+    },
+    {
+      "path": "scripts/audit-tcg-chain-complete.mjs",
+      "bytes": 23086,
+      "sha256": "85201aa6db2e8216d571f062cb54125e8db0f7c56bfbf486b5728cab132ab6e1"
+    },
+    {
+      "path": "scripts/audit-tcg-chain-adapter.mjs",
+      "bytes": 3460,
+      "sha256": "d99aab52934f50bc9c9c83a904177126b692c26ec2146c5c8ba7178bf97d7c2a"
+    },
+    {
+      "path": "tests/tcg-chain-complete.test.mjs",
+      "bytes": 7402,
+      "sha256": "3b52930f1b238c6e2629283620da9f19c6f221091f9cc77886a258dc6da8f87a"
+    },
+    {
+      "path": "docs/audits/tcg-chain-complete-2026-10-08.md",
+      "bytes": 8586,
+      "sha256": "661ae275536f0ee0a910ae8dd454cce8792bdcc987481989a0235dcc08f1a822"
+    },
+    {
+      "path": "docs/audits/artifacts/tcg-chain-before-2026-10-08.js.txt",
+      "bytes": 35088,
+      "sha256": "1fabda3f41c009307d5a4b5eec2bd2024324e9b00e0dd3cb7674c214861e7e70"
+    },
+    {
+      "path": "docs/audits/artifacts/tcg-chain-official-sources-2026-10-08.json",
+      "bytes": 2268,
+      "sha256": "57c5e2004d3f80c003a6dda4388351244a1bbf14b094e6402649d96cabd3d2bf"
+    },
+    {
+      "path": "docs/audits/artifacts/tcg-chain-complete-2026-10-08/targeted-tests.txt",
+      "bytes": 7415,
+      "sha256": "99cf07fdd303d554b94f7b99b1324491adeeaf6ac04160cf40ef8d86c3a9f564"
+    },
+    {
+      "path": "docs/audits/artifacts/tcg-chain-complete-2026-10-08/checks.json",
+      "bytes": 703,
+      "sha256": "fa7b01d3276e07e95895a06eac5edea444bd12652bf176eb09109860d7377586"
+    },
+    {
+      "path": "docs/audits/artifacts/tcg-chain-complete-2026-10-08.json",
+      "bytes": 786151,
+      "sha256": "1f68e97a1b91d5f92c253e965e260217882a739d11ea5934e4b4dd11c7fcf7e9"
+    },
+    {
+      "path": "docs/audits/artifacts/tcg-chain-adapter-2026-10-08.json",
+      "bytes": 13835,
+      "sha256": "85eafe4708ea63564bf2a6e14a9450d6e6c86b7397ca3ef4e9e71309f5aad11b"
+    }
+  ],
+  "allRecordedDependenciesMatchCurrentBytes": true,
+  "historicalFields": [
+    {
+      "path": "docs/audits/artifacts/native-field-runtime-continuation-2026-10-08.json",
+      "unchangedFromLocalBaseline": true,
+      "sha256": "420219317a89ab1dc1c7dbd8d766c8e042d972e58176a0d2d4ba2c366ecaa3ac",
+      "bytes": 11427282
+    },
+    {
+      "path": "docs/audits/artifacts/native-field-runtime-wave-2026-10-08.json",
+      "unchangedFromLocalBaseline": true,
+      "sha256": "33a8463ba98d33018acc35e9ec03486ad798b7df723b23ab407d048ab0130cb6",
+      "bytes": 10473757
+    }
+  ],
+  "scope": "Chain-owned sources and proofs frozen; report dependencies verified against current bytes. Independent application review and global gate are separate.",
+  "nativeAuditExecutedAtUtc": "2026-10-08T22:19:32.388Z",
+  "nativeAuditCounts": {
+    "scenarios": 17,
+    "passed": 17,
+    "nativeResponses": 274,
+    "translatedUiChoices": 248
+  },
+  "recordedDependencyChecks": [
+    {
+      "path": "public/native/card-data.json",
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d",
+      "matchesRecordedAuditBytes": true
+    },
+    {
+      "path": "public/native/core-build.json",
+      "bytes": 2402,
+      "sha256": "1b2624bc1c60420432a247e1d422b02574991738988205bc4db4cd585a4cd0df",
+      "matchesRecordedAuditBytes": true
+    },
+    {
+      "path": "public/native/ocgcore.sync.wasm",
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+      "matchesRecordedAuditBytes": true
+    },
+    {
+      "path": "public/native/scripts.json",
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f",
+      "matchesRecordedAuditBytes": true
+    },
+    {
+      "path": "scripts/audit-tcg-chain-adapter.mjs",
+      "bytes": 3460,
+      "sha256": "d99aab52934f50bc9c9c83a904177126b692c26ec2146c5c8ba7178bf97d7c2a",
+      "matchesRecordedAuditBytes": true
+    },
+    {
+      "path": "scripts/audit-tcg-chain-complete.mjs",
+      "bytes": 23086,
+      "sha256": "85201aa6db2e8216d571f062cb54125e8db0f7c56bfbf486b5728cab132ab6e1",
+      "matchesRecordedAuditBytes": true
+    },
+    {
+      "path": "scripts/native-field-audit-harness.mjs",
+      "bytes": 12500,
+      "sha256": "d7b1c776f5552fd5eb5f5e70712c0265fd5b75f30d2d07465caadd10887a0734",
+      "matchesRecordedAuditBytes": true
+    },
+    {
+      "path": "scripts/native-field-audit-inputs.mjs",
+      "bytes": 1862,
+      "sha256": "c2224fb53c089a05ae8c123aee72cf38b79679248b1777b4916648ea29482a96",
+      "matchesRecordedAuditBytes": true
+    },
+    {
+      "path": "src/core/native/NativeCardData.js",
+      "bytes": 4737,
+      "sha256": "59a664d8d16593ef2223d895085e81e48d6eaa0d90bb0725b6410a71bdcac568",
+      "matchesRecordedAuditBytes": true
+    },
+    {
+      "path": "src/core/native/NativeChainDecisionInfo.js",
+      "bytes": 1541,
+      "sha256": "ba57cbd05832466c404cae2d2ecb89d5cee95e00bfb84318fc3ae65c5c88b589",
+      "matchesRecordedAuditBytes": true
+    },
+    {
+      "path": "src/core/native/NativeDuelDecisions.js",
+      "bytes": 35779,
+      "sha256": "4ec35dd4cc12ae7efcb1dd45a39e3cc7a83e359d9af41a84d51f3ffa5bbff724",
+      "matchesRecordedAuditBytes": true
+    },
+    {
+      "path": "src/core/native/NativeDuelRuntime.js",
+      "bytes": 9739,
+      "sha256": "07136f4301391bd62e4f29fe611067b15734f53c92354cb6a3cc3b33ff52e6b5",
+      "matchesRecordedAuditBytes": true
+    },
+    {
+      "path": "src/core/native/vendor/ocgcore/index.js",
+      "bytes": 46243,
+      "sha256": "8cfbec622cf5b920e0b58db6d842fcabf1a9ef8eed9f0841bac43a1e9adb0657",
+      "matchesRecordedAuditBytes": true
+    },
+    {
+      "path": "src/core/native/vendor/ocgcore/upstream-source/src/messages.ts",
+      "bytes": 21424,
+      "sha256": "16c94ab5afa9f909fdec98b25ac96aa2e0ebf28a0a5228351b9e165e3cd7e6df",
+      "matchesRecordedAuditBytes": true
+    },
+    {
+      "path": "src/core/native/vendor/ocgcore/upstream-source/src/responses.ts",
+      "bytes": 3144,
+      "sha256": "c86eba1b103ba1aaca4b08b5e8f7205d2440a2bb868a0641006eea8ec7365fe2",
+      "matchesRecordedAuditBytes": true
+    },
+    {
+      "path": "src/core/native/vendor/ocgcore/upstream-source/src/type_core.ts",
+      "bytes": 18480,
+      "sha256": "f994b163063a5e06403a037ccfb95c8d44fbdb2dafd8e99d38acd6a73fd1ce7d",
+      "matchesRecordedAuditBytes": true
+    },
+    {
+      "path": "src/ui/NativeDuelPresentationModel.js",
+      "bytes": 3754,
+      "sha256": "3ac3fe31372b9125433caf68601757183c89e7fb08e2b342b45b22b60d8cdf06",
+      "matchesRecordedAuditBytes": true
+    },
+    {
+      "path": "tests/tcg-chain-complete.test.mjs",
+      "bytes": 7402,
+      "sha256": "3b52930f1b238c6e2629283620da9f19c6f221091f9cc77886a258dc6da8f87a",
+      "matchesRecordedAuditBytes": true
+    }
+  ],
+  "additionalCurrentProfileDependency": {
+    "path": "src/core/native/NativeTCGRuleProfile.js",
+    "bytes": 657,
+    "sha256": "5ea356d97beef0b1b35674d47108a95738953ca77d6581eda5524197b94f7c38"
+  }
+}

@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/workspace/yugioh-25d-holograms/scripts/audit-tcg-catalogue-match-ui.py", line 371, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/yugioh-25d-holograms/scripts/audit-tcg-catalogue-match-ui.py", line 347, in main
+    draft=fixture(kind);item['prestartSavedDeckFixture']=draft;start(page,base,draft,item);launch(page,item);verify(page,args.output,item);finish(page,item);context.close()
+                                                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/yugioh-25d-holograms/scripts/audit-tcg-catalogue-match-ui.py", line 297, in utopia_xyz
+    native_action(page,r'^Invoquer (Celtic Guardian|Gardien Celte)',report)
+  File "/workspace/yugioh-25d-holograms/scripts/audit-tcg-catalogue-match-ui.py", line 142, in native_action
+    assert choice.count(),page.locator('#decision-options').inner_text()
+           ^^^^^^^^^^^^^^
+AssertionError: Invoquer Gardien Celtique
+Poser Gardien Celtique
+Poser Foolish Burial
+Poser Monster Reborn
+Activer Foolish Burial

@@ -39,7 +39,7 @@
   "sourceHashes": {
     "src/core/native/NativeDiceDungeonScriptCorrection.js": "80f978a0ea7ac9641a1413ca14e6a9cfd27c28c0d571203391706623072424cc",
     "src/core/native/NativeSourceIntegrity.js": "4af7fc0fc34b715ebe3e23ed7cfcf35d74dca662200e4025c7cc7957ac81cd18",
-    "src/core/native/NativeDuelRuntime.js": "a2c7a18654e968861a0e34a51cd35f17ee5a3e03efc23cbd6a4632be29de3b95",
+    "src/core/native/NativeDuelRuntime.js": "07136f4301391bd62e4f29fe611067b15734f53c92354cb6a3cc3b33ff52e6b5",
     "src/core/native/NativeCardScriptCorrections.js": "e0073221e78f6f3df94b0b37da4683167a5a8787f21317f5d6a0a619a5c767cd",
     "src/core/native/NativeLuaCompatibility.js": "7445d1f73cad6ba208fa0cf869d6f51491e6dd700dedc4cbec6f4342fd8d163e",
     "scripts/native-field-audit-harness.mjs": "d7b1c776f5552fd5eb5f5e70712c0265fd5b75f30d2d07465caadd10887a0734",

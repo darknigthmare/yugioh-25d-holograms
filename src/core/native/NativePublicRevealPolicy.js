@@ -1,5 +1,6 @@
 import { nativeSourceSha256 } from './NativeSourceIntegrity.js';
 import { applyNativeCardScriptCorrections } from './NativeCardScriptCorrections.js';
+import { NATIVE_EXODIA_PUBLIC_SOURCE } from './NativeExodiaRevealPolicy.js';
 
 // These exact executed sources contain only public ConfirmCards calls. This
 // deliberately bounded list is separate from private looks at either Deck.
@@ -19,6 +20,15 @@ export const NATIVE_PUBLIC_REVEAL_SOURCES = Object.freeze([
 /** Trust the active native link, never merely any public source in its Chain. */
 export function createNativePublicRevealPolicy(resources, { scriptReader } = {}) {
   const trusted = new Map();
+  const exodiaOriginal = resources?.scripts?.get?.(NATIVE_EXODIA_PUBLIC_SOURCE.filename);
+  let exodiaTrusted = false;
+  if (typeof exodiaOriginal === 'string' && nativeSourceSha256(exodiaOriginal) === NATIVE_EXODIA_PUBLIC_SOURCE.sha256) {
+    try {
+      const effective = scriptReader ? scriptReader(NATIVE_EXODIA_PUBLIC_SOURCE.filename) : exodiaOriginal;
+      exodiaTrusted = typeof effective === 'string'
+        && nativeSourceSha256(effective) === NATIVE_EXODIA_PUBLIC_SOURCE.sha256;
+    } catch { /* An unavailable executed source never authorizes a reveal. */ }
+  }
   for (const source of NATIVE_PUBLIC_REVEAL_SOURCES) {
     const original = resources?.scripts?.get?.(source.filename);
     if (typeof original !== 'string' || nativeSourceSha256(original) !== source.originalSha256) continue;
@@ -31,16 +41,22 @@ export function createNativePublicRevealPolicy(resources, { scriptReader } = {})
     } catch { /* A changed or unavailable executed source cannot reveal secrets. */ }
   }
   return (message, location, context) => {
-    if (![0, 1].includes(location?.controller) || !Number.isInteger(location?.code)
-      || location.code <= 0 || !message?.cards?.includes(location)) return false;
-    // These wire messages are public excavations, independent of card policy.
-    if (message.type === 30 || message.type === 42) return true;
-    if (message.type !== 31 || ![0, 1].includes(message.player)
-      || message.player !== 1 - location.controller) return false;
-    const link = context?.chains?.get(context.confirmSourceLink);
-    if (!link || link.negated || ![0, 1].includes(link.loc?.controller)) return false;
-    const source = trusted.get(Number(link.loc.code));
-    if (!source || location.location !== source.location) return false;
-    return source.code === 43940008 || location.controller === link.loc.controller;
+    // Establish the public rule before even reading the candidate's passcode.
+    // A recipient-only confirmation can contain the other viewer's secrets.
+    if (![30, 31, 42].includes(message?.type) || ![0, 1].includes(location?.controller)) return false;
+    if (message.type === 31) {
+      if (![0, 1].includes(message.player) || message.player !== 1 - location.controller) return false;
+      const publicExodia = exodiaTrusted && context?.nativePublicExodiaConfirmations?.has(message);
+      if (!publicExodia) {
+        const link = context?.chains?.get(context.confirmSourceLink);
+        if (!link || link.negated || ![0, 1].includes(link.loc?.controller)) return false;
+        const source = trusted.get(Number(link.loc.code));
+        if (!source || location.location !== source.location
+          || (source.code !== 43940008 && location.controller !== link.loc.controller)) return false;
+      }
+    }
+    // CONFIRM_DECKTOP/EXTRATOP are public wire excavations; CONFIRM_CARDS
+    // reaches this point only with an authorized source or native Exodia WIN.
+    return Number.isInteger(location.code) && location.code > 0 && message.cards?.includes(location) === true;
   };
 }

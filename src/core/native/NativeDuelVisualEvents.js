@@ -5,6 +5,7 @@
  * checked before querying or looking up any identity.
  */
 import { nativeCardKind, nativeCardTypeLabel, nativeRaceName, nativeAttributeName } from './NativeCardCharacteristics.js';
+import { createNativeBattleLifecycle, observeNativeBattleLifecycle, nativeVictoryPresentation } from './NativeBattleLifecycle.js';
 
 const MESSAGE = Object.freeze({
   CONFIRM_DECKTOP: 30, CONFIRM_CARDS: 31, SHUFFLE_DECK: 32, SHUFFLE_HAND: 33,
@@ -91,7 +92,7 @@ export function createNativeVisualContext(options = {}) {
     publicCards: new Map(), publicCodes: new Map(), chains: new Map(), pendingSummons: new Map(),
     pendingSummonOrigins: new Map(),
     battleDestroyed: new Set(), lifePoints: [...(options.lifePoints ?? [8000, 8000])],
-    activeAttack: null, confirmSourceLink: null, materialKinds: new Set(), tributeMaterialCount: 0,
+    activeAttack: null, battleLifecycle: createNativeBattleLifecycle(), confirmSourceLink: null, materialKinds: new Set(), tributeMaterialCount: 0,
     publicSummonSequence: 0, publicSetSequence: 0, nativeTurnCount: 0 };
 }
 
@@ -108,6 +109,7 @@ function ensureContext(context) {
   context.publicSummonSequence ??= 0;
   context.publicSetSequence ??= 0;
   context.nativeTurnCount ??= 0;
+  context.battleLifecycle ??= createNativeBattleLifecycle();
   return context;
 }
 
@@ -273,11 +275,32 @@ export function translateNativeVisualEvents(message, context = {}) {
   const log = (text, type = 'system') => logs.push(Object.freeze({ message: text, type }));
   const ref = loc => nativeLocationToCardRef(loc, context.playerController);
   const msg = message ?? {};
+  const battle = observeNativeBattleLifecycle(context.battleLifecycle, msg);
+  if (battle.replayOffered && msg.type === 13) add({ type: 'attack-replay', stage: 'offered',
+    nativeAttackId: battle.attackId, nativeReplayConfirmed: true });
+  if (battle.battleStep) add({ type: 'native-battle-step', battleStep: battle.battleStep,
+    nativeEvidence: battle.evidence, nativeBattleStepConfirmed: true });
+  if (battle.attackStopped) {
+    add({ type: 'attack-stopped', nativeAttackId: battle.attackId,
+      nativeReplayOffered: battle.replayOffered, reason: 'native-control-returned' });
+    context.activeAttack = null;
+  }
   switch (msg.type) {
     case 40: // NEW_TURN is public and supplies the campaign turn boundary.
       context.nativeTurnCount += 1;
       clearMaterialEvidence(context);
+      context.activeAttack = null;
       break;
+    case 41: // Native public phase, including Battle Phase boundaries.
+      if (battle.phase) add({ type: 'native-phase', ...battle.phase, nativePhaseConfirmed: true });
+      if (battle.phase?.phase !== 'battle') context.activeAttack = null;
+      break;
+    case 5: { // Never derive a winner from a visual LP total or card name.
+      const victory = nativeVictoryPresentation(msg, context.playerController);
+      if (victory && battle.victoryConfirmed) add({ type: 'native-victory', ...victory });
+      context.activeAttack = null;
+      break;
+    }
     case 10: // SELECT_BATTLECMD and SELECT_IDLECMD begin new public actions.
     case 11:
       clearMaterialEvidence(context);
@@ -516,6 +539,8 @@ export function translateNativeVisualEvents(message, context = {}) {
       if (!card) break;
       const targetCard = msg.target ? existingPublicCard(msg.target, context) : null;
       const event = { type: destination ? 'attack-monster' : 'attack-direct', card,
+        nativeAttackId: battle.attackId, nativeReplayConfirmed: battle.replayed === true,
+        replayCount: battle.replayCount ?? 0,
         attackerSide: source.owner, target: destination?.owner ?? (source.owner === 'player' ? 'opponent' : 'player'),
         atkZoneType: source.zoneType, atkZoneIndex: source.zoneIndex,
         ...(destination ? { defZoneType: destination.zoneType, defZoneIndex: destination.zoneIndex,

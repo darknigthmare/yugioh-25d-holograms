@@ -1,0 +1,23 @@
+{
+  "baselineLocalHead": "b8e216cd53ccc640366c91755268291afb1840d2",
+  "reports": [
+    {
+      "path": "docs/audits/artifacts/native-battle-timing-2026-10-08.json",
+      "archivedPath": "docs/audits/artifacts/tcg-complete-regression-baseline-2026-10-08/native-battle-timing-2026-10-08.json",
+      "bytes": 65506,
+      "sha256": "2e5f7acd7e1c53bce9ed52aa438d163addcb68c97675faf2f94decac6496e2e7"
+    },
+    {
+      "path": "docs/audits/artifacts/native-chain-interactions-2026-10-08.json",
+      "archivedPath": "docs/audits/artifacts/tcg-complete-regression-baseline-2026-10-08/native-chain-interactions-2026-10-08.json",
+      "bytes": 132410,
+      "sha256": "51fe1b233b15c8dc9a83dfb633276f4d373ff0f4d420a379f8969e79c86eb588"
+    },
+    {
+      "path": "docs/audits/artifacts/native-dice-dungeon-correction-2026-10-08.json",
+      "archivedPath": "docs/audits/artifacts/tcg-complete-regression-baseline-2026-10-08/native-dice-dungeon-correction-2026-10-08.json",
+      "bytes": 628235,
+      "sha256": "c119530c4d0dd819eff81bd6fb74a63f66163e5bb684f93cde09abf73b2acd8a"
+    }
+  ]
+}

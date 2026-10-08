@@ -1,0 +1,1181 @@
+{
+  "ok": false,
+  "generatedOn": "2026-10-08",
+  "expectedEntrySha256": "fa62b5d0a9d862bade8c0a3946fa8e69ba2de581e751d4affb96d1c7b806637d",
+  "rngFixtureSha256": "6d676b7276815a5df165973dc78b3cfff8bc167482ea2b9971cd6d410f9e0356",
+  "rngScope": "Pre-start deterministic initial crypto source; one-word opening choice returns player without consuming the Deck stream, allowing saved Match first-player restoration. Native later shuffles remain core-owned.",
+  "sourceDependenciesBefore": {
+    "index.html": {
+      "bytes": 35643,
+      "sha256": "c27ee3527a5eb985d821124eea671891687056e75a5cb0d0ec76ac706bbd1dbe"
+    },
+    "main.js": {
+      "bytes": 191600,
+      "sha256": "de2277115e61f8fb42a79de99e1c1505e43246b21867d130b51004d96d944093"
+    },
+    "scripts/audit-continuation-models-ui.py": {
+      "bytes": 33677,
+      "sha256": "7f6f4a1d54be8f4bfc6befa4d697a30755c0887c116a60ed124eb8a376951f49"
+    },
+    "scripts/audit-native-duel-ui.py": {
+      "bytes": 28175,
+      "sha256": "0dd4443ef82f496fb398587b9be06c99d953f57c4a48e48cd470fdacbb311c18"
+    },
+    "scripts/audit-native-duel-views.py": {
+      "bytes": 23978,
+      "sha256": "f3f9b64c03273baba856886c4f67df9f371624bb759435887ba9b7f9e49f826c"
+    },
+    "scripts/audit-tcg-catalogue-match-ui.py": {
+      "bytes": 26426,
+      "sha256": "4e399a010ca680f9b716b1a2040d527151ac11d71bd667532d33f87a931d9935"
+    },
+    "src/core/MatchEngine.js": {
+      "bytes": 39071,
+      "sha256": "fa39f6163a84ea6adcbf6481b6dad154316a9d522505947b3c1966daa19712b7"
+    },
+    "src/core/native/NativeBattleLifecycle.js": {
+      "bytes": 5611,
+      "sha256": "202704a82ad6624211b063acc7e58cd3a40b0721f0dc9d67a02286ea0174a0c0"
+    },
+    "src/core/native/NativeCardCatalogue.js": {
+      "bytes": 15865,
+      "sha256": "7db3547182e650eeb618023059ccec2750d9a074d3258559f6c5040528ab79ca"
+    },
+    "src/core/native/NativeCardCharacteristics.js": {
+      "bytes": 2031,
+      "sha256": "e4d1a7551bf67b32a55f291f59abc411c032217113f63cd35df76db75ad5fa76"
+    },
+    "src/core/native/NativeCardData.js": {
+      "bytes": 4737,
+      "sha256": "59a664d8d16593ef2223d895085e81e48d6eaa0d90bb0725b6410a71bdcac568"
+    },
+    "src/core/native/NativeCardReferenceArt.js": {
+      "bytes": 2668,
+      "sha256": "b7f2f102783dedc22b2a65be71832bc4002654207d0a7b050f03873143e88c0a"
+    },
+    "src/core/native/NativeCardRegistry.js": {
+      "bytes": 5752,
+      "sha256": "0d3d50a39fefd3be57b3ea6a4e4b945c204730bb2580d5f96016de01b71dcefd"
+    },
+    "src/core/native/NativeCardRegistryData.js": {
+      "bytes": 173747,
+      "sha256": "240b8deaf34acb07c2eeba15b2cd37e26a5d6833b6c8a4be83fd048cdc468359"
+    },
+    "src/core/native/NativeCardScriptCorrections.js": {
+      "bytes": 1103,
+      "sha256": "e0073221e78f6f3df94b0b37da4683167a5a8787f21317f5d6a0a619a5c767cd"
+    },
+    "src/core/native/NativeChainDecisionInfo.js": {
+      "bytes": 1541,
+      "sha256": "ba57cbd05832466c404cae2d2ecb89d5cee95e00bfb84318fc3ae65c5c88b589"
+    },
+    "src/core/native/NativeCoreAssets.js": {
+      "bytes": 1401,
+      "sha256": "ea80f9606142a9612d68be4fe0f53c8acdb3061dc171952af1e39baeb8735903"
+    },
+    "src/core/native/NativeDiceDungeonScriptCorrection.js": {
+      "bytes": 1587,
+      "sha256": "80f978a0ea7ac9641a1413ca14e6a9cfd27c28c0d571203391706623072424cc"
+    },
+    "src/core/native/NativeDuelDecisions.js": {
+      "bytes": 35779,
+      "sha256": "4ec35dd4cc12ae7efcb1dd45a39e3cc7a83e359d9af41a84d51f3ffa5bbff724"
+    },
+    "src/core/native/NativeDuelGame.js": {
+      "bytes": 61013,
+      "sha256": "a091da22d87b1e0dcdbacb66eb53420e56ad747ed1283a89bbee6ce8ed0005c6"
+    },
+    "src/core/native/NativeDuelRuntime.js": {
+      "bytes": 9739,
+      "sha256": "07136f4301391bd62e4f29fe611067b15734f53c92354cb6a3cc3b33ff52e6b5"
+    },
+    "src/core/native/NativeDuelTowerScriptCorrection.js": {
+      "bytes": 3790,
+      "sha256": "fa198bb13429613fe9ac2843ea4c5c25251a09c8d7c393953d30725f45a68a6e"
+    },
+    "src/core/native/NativeDuelVisualEvents.js": {
+      "bytes": 35031,
+      "sha256": "2a776f53d0d15eb91eb2c736d95fbdc809d85cdef9491adf9b6c448ef61580ab"
+    },
+    "src/core/native/NativeExodiaRevealPolicy.js": {
+      "bytes": 1536,
+      "sha256": "a9d855a4daa6d51a9d4525f855da58cdf0a714036f43c5bc9ce9cadc8eff368e"
+    },
+    "src/core/native/NativeLuaCompatibility.js": {
+      "bytes": 536,
+      "sha256": "7445d1f73cad6ba208fa0cf869d6f51491e6dd700dedc4cbec6f4342fd8d163e"
+    },
+    "src/core/native/NativePublicRevealPolicy.js": {
+      "bytes": 4146,
+      "sha256": "6034c3dff716d18597bf4b689b317255695fe1f5a6a860edffe3f2a87abd800e"
+    },
+    "src/core/native/NativeScriptArchive.js": {
+      "bytes": 784,
+      "sha256": "8e40d56b6cba11813e217d89538831195e89399b5e0da1c0dfd215ab7610d83c"
+    },
+    "src/core/native/NativeSourceIntegrity.js": {
+      "bytes": 2339,
+      "sha256": "4af7fc0fc34b715ebe3e23ed7cfcf35d74dca662200e4025c7cc7957ac81cd18"
+    },
+    "src/core/native/NativeTCGRuleProfile.js": {
+      "bytes": 657,
+      "sha256": "5ea356d97beef0b1b35674d47108a95738953ca77d6581eda5524197b94f7c38"
+    },
+    "src/core/tcg/TcgAdvancedBanlistData.js": {
+      "bytes": 57732,
+      "sha256": "bdc8c18edb0a6308949e516442106747ada3976334beb105562c17c7d6f5d945"
+    },
+    "src/core/tcg/TcgAdvancedFormat.js": {
+      "bytes": 2731,
+      "sha256": "058606afc6449ce1ced941c42000c8a109da55cf9b36ad8919b853582c540d40"
+    },
+    "src/core/tcg/TcgCardLegality.js": {
+      "bytes": 5154,
+      "sha256": "7b556ecb1af2b729a71f4cdf237182068d5f3d47a85cacef8a91c2661979e874"
+    },
+    "src/ui/CombatVisualProfiles.js": {
+      "bytes": 15415,
+      "sha256": "f5c5aff6a712ed97bbe1d9e4064cd5a3b13620539a2311833ca865f1230d9204"
+    },
+    "src/ui/DeckBuilderRules.js": {
+      "bytes": 9516,
+      "sha256": "824e6683279fb894c9eaf554bed8496e6efde2a1f4706037bb78044c9aeea9f3"
+    },
+    "src/ui/HologramMonsterModels.js": {
+      "bytes": 24593,
+      "sha256": "e1d187cb29a6ea139b16d26b7154a92c77160c34941a37b13023cfcfe0f2f278"
+    },
+    "src/ui/HologramPopularStapleModels.js": {
+      "bytes": 23103,
+      "sha256": "66784a7c5903a5005064833dead704a9d2a7bad4152a71d8d7cc024ccd610c35"
+    },
+    "src/ui/MatchController.js": {
+      "bytes": 25804,
+      "sha256": "9712ace23577eb65ebca16632b8d51411e31c5ee37d6f12b9ddb272c5ab68cbc"
+    },
+    "src/ui/PopularStapleReferenceArt.js": {
+      "bytes": 4992,
+      "sha256": "5dc35be8fc2634608fd4453fcd3168a9e2ff06cf49861007d6e11a65a8fa5ea3"
+    },
+    "style.css": {
+      "bytes": 115179,
+      "sha256": "41962bbd2229fc25b2f1d77280a39cc2ff26c5d5963588e3539b183720a89fab"
+    },
+    "vercel.json": {
+      "bytes": 1272,
+      "sha256": "54ace7536aaf92de4eca552f63a6266e790eda597ecfc67dbb0ebe0c9bf3664c"
+    }
+  },
+  "essentialBuildAssets": [
+    "index.html",
+    "assets/index-Cq42Nj9S.js",
+    "assets/index-Ce4lc5_W.css",
+    "assets/NativeDuelGame-BskgqojT.js",
+    "assets/FieldEnvironmentRegistry-CW5zbHcP.js",
+    "assets/RealDuelView-3mvc8FCQ.js",
+    "assets/ocgcore-DWqJvtmv.js"
+  ],
+  "paths": [
+    {
+      "width": 1280,
+      "height": 900,
+      "kind": "catalogue-tribute-revival-match",
+      "actions": [
+        {
+          "spell": "43422537",
+          "before": {
+            "ownHand": [
+              {
+                "id": "43422537",
+                "uid": "native_2_96"
+              },
+              {
+                "id": "70095154",
+                "uid": "native_2_97"
+              },
+              {
+                "id": "81439173",
+                "uid": "native_2_98"
+              },
+              {
+                "id": "83764718",
+                "uid": "native_2_99"
+              }
+            ],
+            "playerLp": 8000,
+            "opponentLp": 8000,
+            "ownGraveCount": 0,
+            "ownMonsters": [
+              {
+                "id": "39552864",
+                "uid": "native_2_86",
+                "index": 0,
+                "atk": "ATK 500",
+                "def": "DEF 500"
+              }
+            ]
+          },
+          "after": {
+            "ownHand": [
+              {
+                "id": "70095154",
+                "uid": "native_2_100"
+              },
+              {
+                "id": "81439173",
+                "uid": "native_2_101"
+              },
+              {
+                "id": "83764718",
+                "uid": "native_2_102"
+              }
+            ],
+            "playerLp": 8000,
+            "opponentLp": 8000,
+            "ownGraveCount": 1,
+            "ownMonsters": [
+              {
+                "id": "39552864",
+                "uid": "native_2_86",
+                "index": 0,
+                "atk": "ATK 500",
+                "def": "DEF 500"
+              }
+            ]
+          },
+          "decisions": []
+        },
+        {
+          "offeredNativeAction": "Invoquer Cyber Dragon"
+        },
+        {
+          "spell": "81439173",
+          "before": {
+            "ownHand": [
+              {
+                "id": "81439173",
+                "uid": "native_2_103"
+              },
+              {
+                "id": "83764718",
+                "uid": "native_2_104"
+              }
+            ],
+            "playerLp": 8000,
+            "opponentLp": 8000,
+            "ownGraveCount": 2,
+            "ownMonsters": [
+              {
+                "id": "70095154",
+                "uid": "native_2_100",
+                "index": 0,
+                "atk": "ATK 2100",
+                "def": "DEF 1600"
+              }
+            ]
+          },
+          "after": {
+            "ownHand": [
+              {
+                "id": "83764718",
+                "uid": "native_2_105"
+              }
+            ],
+            "playerLp": 8000,
+            "opponentLp": 8000,
+            "ownGraveCount": 4,
+            "ownMonsters": [
+              {
+                "id": "70095154",
+                "uid": "native_2_100",
+                "index": 0,
+                "atk": "ATK 2100",
+                "def": "DEF 1600"
+              }
+            ]
+          },
+          "decisions": [
+            {
+              "title": "CHOISIR LES CARTES",
+              "selectedOwnCandidate": "Elemental HERO Neos — Votre Deck",
+              "code": "89943723"
+            }
+          ]
+        },
+        {
+          "spell": "83764718",
+          "before": {
+            "ownHand": [
+              {
+                "id": "83764718",
+                "uid": "native_2_105"
+              }
+            ],
+            "playerLp": 8000,
+            "opponentLp": 8000,
+            "ownGraveCount": 4,
+            "ownMonsters": [
+              {
+                "id": "70095154",
+                "uid": "native_2_100",
+                "index": 0,
+                "atk": "ATK 2100",
+                "def": "DEF 1600"
+              }
+            ]
+          },
+          "after": {
+            "ownHand": [],
+            "playerLp": 8000,
+            "opponentLp": 8000,
+            "ownGraveCount": 4,
+            "ownMonsters": [
+              {
+                "id": "70095154",
+                "uid": "native_2_100",
+                "index": 0,
+                "atk": "ATK 2100",
+                "def": "DEF 1600"
+              },
+              {
+                "id": "89943723",
+                "uid": "native_2_29",
+                "index": 1,
+                "atk": "ATK 2500",
+                "def": "DEF 2000"
+              }
+            ]
+          },
+          "decisions": [
+            {
+              "title": "CHOISIR LES CARTES",
+              "selectedOwnCandidate": "Elemental HERO Neos — Votre Cimetière · Carte 3",
+              "code": "89943723"
+            },
+            {
+              "title": "CHOISIR LA ZONE",
+              "mandatoryChoice": "Votre Zone Monstre 2"
+            },
+            {
+              "title": "CHOISIR LA POSITION",
+              "mandatoryChoice": "ATTAQUE FACE RECTO"
+            }
+          ]
+        }
+      ],
+      "prestartSavedDeckFixture": {
+        "main": [
+          "89631139",
+          "89631139",
+          "89631139",
+          "5053103",
+          "43422537",
+          "5053103",
+          "97590747",
+          "97590747",
+          "97590747",
+          "14898066",
+          "14898066",
+          "83764718",
+          "66602787",
+          "66602787",
+          "81439173",
+          "13039848",
+          "13039848",
+          "54652250",
+          "70095154",
+          "48305365",
+          "89943723",
+          "49791927",
+          "49791927",
+          "50913601",
+          "24094653",
+          "39552864",
+          "24094653",
+          "12580477",
+          "5318639",
+          "14087893",
+          "44095762",
+          "44095762",
+          "44095762",
+          "4206964",
+          "4206964",
+          "4206964",
+          "15025844",
+          "88819587",
+          "88819587",
+          "31560081"
+        ],
+        "extra": [
+          "23995346",
+          "84013237",
+          "77637979"
+        ],
+        "side": [
+          "72989439",
+          "14558127"
+        ]
+      },
+      "pageErrors": [],
+      "nativeRequestFailures": [],
+      "strictCatalogueStatus": "13 847 cartes TCG • liste Advanced complète du 21/09/2026. Recherchez une carte, un nom ou un effet ; 100 résultats maximum. Les cartes sans illustration locale utilisent un visuel neutre.",
+      "fullCatalogueAddedOutsideOriginal390": {
+        "id": "89943723",
+        "sourceArtDecoded": {
+          "src": "/cards/cropped/89943723.jpg",
+          "width": 624,
+          "height": 624
+        },
+        "savedOwnDeck": {
+          "main": [
+            "89631139",
+            "89631139",
+            "89631139",
+            "5053103",
+            "43422537",
+            "5053103",
+            "97590747",
+            "97590747",
+            "97590747",
+            "14898066",
+            "14898066",
+            "83764718",
+            "66602787",
+            "66602787",
+            "81439173",
+            "13039848",
+            "13039848",
+            "54652250",
+            "70095154",
+            "48305365",
+            "89943723",
+            "49791927",
+            "49791927",
+            "50913601",
+            "24094653",
+            "39552864",
+            "24094653",
+            "12580477",
+            "5318639",
+            "14087893",
+            "44095762",
+            "44095762",
+            "44095762",
+            "4206964",
+            "4206964",
+            "4206964",
+            "15025844",
+            "88819587",
+            "88819587",
+            "31560081"
+          ],
+          "extra": [
+            "23995346",
+            "84013237",
+            "77637979"
+          ],
+          "side": [
+            "72989439",
+            "14558127",
+            "89943723"
+          ]
+        }
+      },
+      "forbiddenVisibleButNotAddable": {
+        "id": "55144522",
+        "disabled": true,
+        "title": "Pot de Cupidité est interdite dans la liste Advanced actuelle.",
+        "text": "INTERDITE"
+      },
+      "regionalExclusions": [
+        {
+          "id": "64865",
+          "kind": "OCG-only",
+          "strictResultCount": 0
+        },
+        {
+          "id": "101402082",
+          "kind": "prerelease-unverified",
+          "strictResultCount": 0
+        }
+      ],
+      "catalogueReloadPreservesOutside390ById": true,
+      "opening": {
+        "view": "compact",
+        "ownHand": [
+          {
+            "id": "39552864",
+            "uid": "native_2_86"
+          },
+          {
+            "id": "43422537",
+            "uid": "native_2_87"
+          },
+          {
+            "id": "70095154",
+            "uid": "native_2_88"
+          },
+          {
+            "id": "81439173",
+            "uid": "native_2_89"
+          },
+          {
+            "id": "83764718",
+            "uid": "native_2_90"
+          }
+        ],
+        "ownMonsters": [],
+        "playerLp": 8000,
+        "opponentLp": 8000,
+        "ownGraveCount": 0,
+        "opponentGraveCount": 0,
+        "phase": "phase-main1",
+        "hostRect": {
+          "x": 290,
+          "y": 80,
+          "width": 700,
+          "height": 640
+        },
+        "camera": null,
+        "cameraControlsRect": null,
+        "webglAvailable": null,
+        "counts": {
+          "boards": 1,
+          "hands": 1,
+          "scenes": 0,
+          "canvases": 0,
+          "css3d": 0
+        },
+        "publicLog": "Le duel commence !\nVous piochez 5 carte(s).\nL’adversaire pioche 5 carte(s).",
+        "matchStatus": "MATCH · DUEL 1 · 0-0",
+        "nativeActionMenuEnabled": true
+      },
+      "decisions": [
+        {
+          "title": "CHOISIR LES SACRIFICES",
+          "selectedPublicCandidate": "Sphère Mystique Lumineuse — Votre Zone Monstre 1 — Sacrifices : 1"
+        },
+        {
+          "title": "CHOISIR LA ZONE",
+          "selectedRequiredCandidate": "Votre Zone Monstre 1"
+        }
+      ],
+      "cyberTributeThroughActualOfferedNormalProcedure": true,
+      "stages": [
+        {
+          "label": "tcg-cyber-tribute-neos-revival",
+          "state": {
+            "view": "real",
+            "ownHand": [],
+            "ownMonsters": [
+              {
+                "id": "70095154",
+                "uid": "native_2_100",
+                "index": 0,
+                "atk": "ATK 2100",
+                "def": "DEF 1600",
+                "label": "Cyber Dragon, ATK 2100, DEF 1600",
+                "modelRendered": true,
+                "zoneRect": {
+                  "x": 423.0189208984375,
+                  "y": 598.2269897460938,
+                  "width": 68.42703247070312,
+                  "height": 43.89007568359375
+                },
+                "atkRect": {
+                  "x": 369.7311096191406,
+                  "y": 432.57342529296875,
+                  "width": 64.57388305664062,
+                  "height": 13.507904052734375
+                },
+                "defRect": {
+                  "x": 439.33349609375,
+                  "y": 432.57342529296875,
+                  "width": 63.317535400390625,
+                  "height": 13.507904052734375
+                }
+              },
+              {
+                "id": "89943723",
+                "uid": "native_2_29",
+                "index": 1,
+                "atk": "ATK 2500",
+                "def": "DEF 2000",
+                "label": "Elemental HERO Neos, ATK 2500, DEF 2000",
+                "modelRendered": true,
+                "zoneRect": {
+                  "x": 516.947021484375,
+                  "y": 598.2269897460938,
+                  "width": 62.40478515625,
+                  "height": 43.89007568359375
+                },
+                "atkRect": {
+                  "x": 467.31689453125,
+                  "y": 432.57342529296875,
+                  "width": 68.3740234375,
+                  "height": 13.507904052734375
+                },
+                "defRect": {
+                  "x": 541.378173828125,
+                  "y": 432.57342529296875,
+                  "width": 67.2535400390625,
+                  "height": 13.507904052734375
+                }
+              }
+            ],
+            "playerLp": 8000,
+            "opponentLp": 8000,
+            "ownGraveCount": 4,
+            "opponentGraveCount": 0,
+            "phase": "phase-main1",
+            "hostRect": {
+              "x": 220,
+              "y": 80,
+              "width": 840,
+              "height": 820
+            },
+            "camera": "player",
+            "cameraControlsRect": {
+              "x": 230,
+              "y": 90,
+              "width": 500.125,
+              "height": 56
+            },
+            "webglAvailable": "true",
+            "counts": {
+              "boards": 1,
+              "hands": 1,
+              "scenes": 1,
+              "canvases": 1,
+              "css3d": 1
+            },
+            "publicLog": "Le duel commence !\nVous piochez 5 carte(s).\nL’adversaire pioche 5 carte(s).\nVous invoquez Sphère Mystique Lumineuse.\nChaîne 1 : activation Double Summon.\nVous invoquez Cyber Dragon.\nChaîne 1 : activation Foolish Burial.\nChaîne 1 : activation Monster Reborn.\nVous invoquez Elemental HERO Neos.\nVue Arène activée : le plateau et les hologrammes sont espacés.\nVue Réelle 3D activée : vous êtes derrière votre console, face à l’adversaire.",
+            "matchStatus": "MATCH · DUEL 1 · 0-0",
+            "nativeActionMenuEnabled": true
+          },
+          "readiness": {
+            "stableAnimationFrameTicks": 2,
+            "host": {
+              "width": 840,
+              "height": 820,
+              "scrollTop": 0,
+              "scrollLeft": 0
+            },
+            "root": {
+              "width": 840,
+              "height": 820
+            },
+            "cameraParent": {
+              "width": 840,
+              "height": 820
+            },
+            "cameraMatrix": {
+              "transform": "matrix3d(1, 0, 0, 0, 0, -0.89028, 0.455413, -0.000437541, 0, 0.455413, 0.89028, -0.000855343, 420, -363.056, 1197.36, -0.150371)",
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                -0.89028,
+                0.455413,
+                -0.000437541,
+                0,
+                0.455413,
+                0.89028,
+                -0.000855343,
+                420,
+                -363.056,
+                1197.36,
+                -0.150371
+              ],
+              "perspective": "none",
+              "transformOrigin": "420px 410px"
+            },
+            "boardMatrix": {
+              "transform": "matrix3d(0.0177778, 0, 0, 0, 0, 0, 0.0177778, 0, 0, 0.0177778, 0, 0, -450, -561.88, 0, 1)",
+              "values": [
+                0.0177778,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0.0177778,
+                0,
+                0,
+                0.0177778,
+                0,
+                0,
+                -450,
+                -561.88,
+                0,
+                1
+              ],
+              "perspective": "none",
+              "transformOrigin": "450px 562.5px"
+            },
+            "handMatrix": {
+              "transform": "matrix3d(0.0116667, 0, 0, 0, 0, -0.00344774, 0.0111456, 0, 0, 0.0111456, 0.00344774, 0, -450, -108.55, 11.2, 1)",
+              "values": [
+                0.0116667,
+                0,
+                0,
+                0,
+                0,
+                -0.00344774,
+                0.0111456,
+                0,
+                0,
+                0.0111456,
+                0.00344774,
+                0,
+                -450,
+                -108.55,
+                11.2,
+                1
+              ],
+              "perspective": "none",
+              "transformOrigin": "450px 110px"
+            }
+          }
+        }
+      ],
+      "loadedHttpAssets": [
+        "/",
+        "/assets/FieldEnvironmentRegistry-CW5zbHcP.js",
+        "/assets/FieldGeometryThree-C03fHk5l.js",
+        "/assets/FieldSpellCardDataSnapshot-DzxkUNrK.js",
+        "/assets/FieldSpellRules-DLBFReUe.js",
+        "/assets/NativeDuelGame-BskgqojT.js",
+        "/assets/RealDuelView-3mvc8FCQ.js",
+        "/assets/index-Ce4lc5_W.css",
+        "/assets/index-Cq42Nj9S.js",
+        "/assets/ocgcore-DWqJvtmv.js",
+        "/assets/ocgcore.sync-MMMSWPBB-2LWfD6lX.js",
+        "/assets/preload-helper-Czpn1I53.js",
+        "/cards/cropped/12580477.jpg",
+        "/cards/cropped/13039848.jpg",
+        "/cards/cropped/14087893.jpg",
+        "/cards/cropped/14558127.jpg",
+        "/cards/cropped/14898066.jpg",
+        "/cards/cropped/15025844.jpg",
+        "/cards/cropped/20409757.jpg",
+        "/cards/cropped/20721928.jpg",
+        "/cards/cropped/23115241.jpg",
+        "/cards/cropped/23995346.jpg",
+        "/cards/cropped/24094653.jpg",
+        "/cards/cropped/26202165.jpg",
+        "/cards/cropped/28279543.jpg",
+        "/cards/cropped/31560081.jpg",
+        "/cards/cropped/31924889.jpg",
+        "/cards/cropped/32452818.jpg",
+        "/cards/cropped/38033121.jpg",
+        "/cards/cropped/39552864.jpg",
+        "/cards/cropped/40640057.jpg",
+        "/cards/cropped/41392891.jpg",
+        "/cards/cropped/4206964.jpg",
+        "/cards/cropped/43793530.jpg",
+        "/cards/cropped/44095762.jpg",
+        "/cards/cropped/44287299.jpg",
+        "/cards/cropped/44430454.jpg",
+        "/cards/cropped/44508094.jpg",
+        "/cards/cropped/46986414.jpg",
+        "/cards/cropped/48305365.jpg",
+        "/cards/cropped/49791927.jpg",
+        "/cards/cropped/5053103.jpg",
+        "/cards/cropped/5318639.jpg",
+        "/cards/cropped/5405694.jpg",
+        "/cards/cropped/54652250.jpg",
+        "/cards/cropped/55144522.jpg",
+        "/cards/cropped/55761792.jpg",
+        "/cards/cropped/6368038.jpg",
+        "/cards/cropped/63977008.jpg",
+        "/cards/cropped/64428736.jpg",
+        "/cards/cropped/66602787.jpg",
+        "/cards/cropped/68638985.jpg",
+        "/cards/cropped/70095154.jpg",
+        "/cards/cropped/70781052.jpg",
+        "/cards/cropped/71625222.jpg",
+        "/cards/cropped/72989439.jpg",
+        "/cards/cropped/74677422.jpg",
+        "/cards/cropped/77637979.jpg",
+        "/cards/cropped/81823360.jpg",
+        "/cards/cropped/83764718.jpg",
+        "/cards/cropped/84013237.jpg",
+        "/cards/cropped/88819587.jpg",
+        "/cards/cropped/89631139.jpg",
+        "/cards/cropped/89943723.jpg",
+        "/cards/cropped/91152256.jpg",
+        "/cards/cropped/94415058.jpg",
+        "/cards/cropped/97590747.jpg",
+        "/cards/native-unknown.png",
+        "/cards/reference/70095154.jpg",
+        "/cards/reference/89943723.jpg",
+        "/cards/small/39552864.jpg",
+        "/cards/small/70095154.jpg",
+        "/cards/small/83764718.jpg",
+        "/cards/small/89943723.jpg",
+        "/custom-card-back.png",
+        "/environments/field-art/1003840.jpg",
+        "/environments/field-art/10080320.jpg",
+        "/environments/field-art/10424147.jpg",
+        "/environments/field-art/1050355.jpg",
+        "/environments/field-art/1061200.jpg",
+        "/environments/field-art/11102908.jpg",
+        "/environments/field-art/1127737.jpg",
+        "/environments/field-art/11808215.jpg",
+        "/environments/field-art/12215894.jpg",
+        "/environments/field-art/12397569.jpg",
+        "/environments/field-art/12644061.jpg",
+        "/environments/field-art/12801833.jpg",
+        "/environments/field-art/12845564.jpg",
+        "/environments/field-art/12931061.jpg",
+        "/environments/field-art/1295111.jpg",
+        "/environments/field-art/13035077.jpg",
+        "/environments/field-art/13301895.jpg",
+        "/environments/field-art/13482262.jpg",
+        "/environments/field-art/13764602.jpg",
+        "/environments/field-art/14001430.jpg",
+        "/environments/field-art/14289852.jpg",
+        "/environments/field-art/14442329.jpg",
+        "/environments/field-art/15306543.jpg",
+        "/environments/field-art/15388353.jpg",
+        "/environments/field-art/15635751.jpg",
+        "/environments/field-art/15854426.jpg",
+        "/environments/field-art/16269385.jpg",
+        "/environments/field-art/16625614.jpg",
+        "/environments/field-art/17000165.jpg",
+        "/environments/field-art/17228908.jpg",
+        "/environments/field-art/17255673.jpg",
+        "/environments/field-art/17621695.jpg",
+        "/environments/field-art/17782288.jpg",
+        "/environments/field-art/1801154.jpg",
+        "/environments/field-art/18114794.jpg",
+        "/environments/field-art/18161786.jpg",
+        "/environments/field-art/18720257.jpg",
+        "/environments/field-art/18890039.jpg",
+        "/environments/field-art/19162134.jpg",
+        "/environments/field-art/19384334.jpg",
+        "/environments/field-art/19814508.jpg",
+        "/environments/field-art/20212491.jpg",
+        "/environments/field-art/20216608.jpg",
+        "/environments/field-art/20720928.jpg",
+        "/environments/field-art/2084239.jpg",
+        "/environments/field-art/2106266.jpg",
+        "/environments/field-art/2144946.jpg",
+        "/environments/field-art/22198672.jpg",
+        "/environments/field-art/22555834.jpg",
+        "/environments/field-art/22702055.jpg",
+        "/environments/field-art/22751868.jpg",
+        "/environments/field-art/22829942.jpg",
+        "/environments/field-art/23160024.jpg",
+        "/environments/field-art/23213239.jpg",
+        "/environments/field-art/23377425.jpg",
+        "/environments/field-art/23424603.jpg",
+        "/environments/field-art/24382602.jpg",
+        "/environments/field-art/24793135.jpg",
+        "/environments/field-art/25163979.jpg",
+        "/environments/field-art/25807544.jpg",
+        "/environments/field-art/26162470.jpg",
+        "/environments/field-art/26232916.jpg",
+        "/environments/field-art/26493435.jpg",
+        "/environments/field-art/26534688.jpg",
+        "/environments/field-art/2674965.jpg",
+        "/environments/field-art/269012.jpg",
+        "/environments/field-art/26920296.jpg",
+        "/environments/field-art/269510.jpg",
+        "/environments/field-art/26984177.jpg",
+        "/environments/field-art/27564031.jpg",
+        "/environments/field-art/27813661.jpg",
+        "/environments/field-art/28120197.jpg",
+        "/environments/field-art/28126717.jpg",
+        "/environments/field-art/2819435.jpg",
+        "/environments/field-art/28388296.jpg",
+        "/environments/field-art/2906939.jpg",
+        "/environments/field-art/29400787.jpg",
+        "/environments/field-art/295517.jpg",
+        "/environments/field-art/29650040.jpg",
+        "/environments/field-art/30336082.jpg",
+        "/environments/field-art/3055018.jpg",
+        "/environments/field-art/30761649.jpg",
+        "/environments/field-art/3113667.jpg",
+        "/environments/field-art/3129133.jpg",
+        "/environments/field-art/31322640.jpg",
+        "/environments/field-art/32353566.jpg",
+        "/environments/field-art/32354768.jpg",
+        "/environments/field-art/32391631.jpg",
+        "/environments/field-art/32999573.jpg",
+        "/environments/field-art/33017655.jpg",
+        "/environments/field-art/33407125.jpg",
+        "/environments/field-art/33550694.jpg",
+        "/environments/field-art/33700664.jpg",
+        "/environments/field-art/33773528.jpg",
+        "/environments/field-art/33814281.jpg",
+        "/environments/field-art/33900648.jpg",
+        "/environments/field-art/33981008.jpg",
+        "/environments/field-art/34103656.jpg",
+        "/environments/field-art/34225426.jpg",
+        "/environments/field-art/34487429.jpg",
+        "/environments/field-art/34572613.jpg",
+        "/environments/field-art/34771947.jpg",
+        "/environments/field-art/34822850.jpg",
+        "/environments/field-art/35371948.jpg",
+        "/environments/field-art/35487920.jpg",
+        "/environments/field-art/35546670.jpg",
+        "/environments/field-art/35550352.jpg",
+        "/environments/field-art/3576031.jpg",
+        "/environments/field-art/35815783.jpg",
+        "/environments/field-art/35956022.jpg",
+        "/environments/field-art/36099620.jpg",
+        "/environments/field-art/36668118.jpg",
+        "/environments/field-art/36742774.jpg",
+        "/environments/field-art/36890111.jpg",
+        "/environments/field-art/37322745.jpg",
+        "/environments/field-art/37654623.jpg",
+        "/environments/field-art/37694547.jpg",
+        "/environments/field-art/38053381.jpg",
+        "/environments/field-art/38057522.jpg",
+        "/environments/field-art/38391684.jpg",
+        "/environments/field-art/3875465.jpg",
+        "/environments/field-art/39210885.jpg",
+        "/environments/field-art/39513225.jpg",
+        "/environments/field-art/39730727.jpg",
+        "/environments/field-art/39838559.jpg",
+        "/environments/field-art/39910367.jpg",
+        "/environments/field-art/40005099.jpg",
+        "/environments/field-art/40089744.jpg",
+        "/environments/field-art/4064256.jpg",
+        "/environments/field-art/41128647.jpg",
+        "/environments/field-art/41371602.jpg",
+        "/environments/field-art/41418852.jpg",
+        "/environments/field-art/42015635.jpg",
+        "/environments/field-art/4215636.jpg",
+        "/environments/field-art/42461852.jpg",
+        "/environments/field-art/43034264.jpg",
+        "/environments/field-art/43175858.jpg",
+        "/environments/field-art/43236494.jpg",
+        "/environments/field-art/43338320.jpg",
+        "/environments/field-art/4357063.jpg",
+        "/environments/field-art/43912676.jpg",
+        "/environments/field-art/43940008.jpg",
+        "/environments/field-art/4398189.jpg",
+        "/environments/field-art/44139064.jpg",
+        "/environments/field-art/44352516.jpg",
+        "/environments/field-art/44710391.jpg",
+        "/environments/field-art/45383307.jpg",
+        "/environments/field-art/4545854.jpg",
+        "/environments/field-art/45778932.jpg",
+        "/environments/field-art/45943516.jpg",
+        "/environments/field-art/46273941.jpg",
+        "/environments/field-art/46500985.jpg",
+        "/environments/field-art/46552140.jpg",
+        "/environments/field-art/4663194.jpg",
+        "/environments/field-art/47355498.jpg",
+        "/environments/field-art/4740489.jpg",
+        "/environments/field-art/47596607.jpg",
+        "/environments/field-art/47679935.jpg",
+        "/environments/field-art/47870325.jpg",
+        "/environments/field-art/48015771.jpg",
+        "/environments/field-art/48179391.jpg",
+        "/environments/field-art/49370016.jpg",
+        "/environments/field-art/49568943.jpg",
+        "/environments/field-art/50005218.jpg",
+        "/environments/field-art/50186558.jpg",
+        "/environments/field-art/50433147.jpg",
+        "/environments/field-art/5050644.jpg",
+        "/environments/field-art/5063379.jpg",
+        "/environments/field-art/50913601.jpg",
+        "/environments/field-art/51208046.jpg",
+        "/environments/field-art/51669847.jpg",
+        "/environments/field-art/52518793.jpg",
+        "/environments/field-art/53039326.jpg",
+        "/environments/field-art/53527835.jpg",
+        "/environments/field-art/53639887.jpg",
+        "/environments/field-art/53819808.jpg",
+        "/environments/field-art/5414777.jpg",
+        "/environments/field-art/54250060.jpg",
+        "/environments/field-art/54306223.jpg",
+        "/environments/field-art/54631665.jpg",
+        "/environments/field-art/55276522.jpg",
+        "/environments/field-art/55553602.jpg",
+        "/environments/field-art/55742055.jpg",
+        "/environments/field-art/56063182.jpg",
+        "/environments/field-art/56074358.jpg",
+        "/environments/field-art/56111151.jpg",
+        "/environments/field-art/56433456.jpg",
+        "/environments/field-art/56594520.jpg",
+        "/environments/field-art/56725612.jpg",
+        "/environments/field-art/56787189.jpg",
+        "/environments/field-art/5697558.jpg",
+        "/environments/field-art/575512.jpg",
+        "/environments/field-art/57554544.jpg",
+        "/environments/field-art/58012707.jpg",
+        "/environments/field-art/5833312.jpg",
+        "/environments/field-art/58406094.jpg",
+        "/environments/field-art/58793369.jpg",
+        "/environments/field-art/58924378.jpg",
+        "/environments/field-art/59048135.jpg",
+        "/environments/field-art/59054773.jpg",
+        "/environments/field-art/59160188.jpg",
+        "/environments/field-art/59197169.jpg",
+        "/environments/field-art/59687381.jpg",
+        "/environments/field-art/60448701.jpg",
+        "/environments/field-art/60514625.jpg",
+        "/environments/field-art/60600821.jpg",
+        "/environments/field-art/60884672.jpg",
+        "/environments/field-art/60946968.jpg",
+        "/environments/field-art/61557074.jpg",
+        "/environments/field-art/61583217.jpg",
+        "/environments/field-art/61654098.jpg",
+        "/environments/field-art/62188962.jpg",
+        "/environments/field-art/62200831.jpg",
+        "/environments/field-art/62265044.jpg",
+        "/environments/field-art/62314831.jpg",
+        "/environments/field-art/63017368.jpg",
+        "/environments/field-art/63035430.jpg",
+        "/environments/field-art/63492244.jpg",
+        "/environments/field-art/63883999.jpg",
+        "/environments/field-art/63899465.jpg",
+        "/environments/field-art/64213017.jpg",
+        "/environments/field-art/64230128.jpg",
+        "/environments/field-art/64400161.jpg",
+        "/environments/field-art/65589010.jpg",
+        "/environments/field-art/65861210.jpg",
+        "/environments/field-art/65938950.jpg",
+        "/environments/field-art/65959844.jpg",
+        "/environments/field-art/66059345.jpg",
+        "/environments/field-art/66399653.jpg",
+        "/environments/field-art/66750703.jpg",
+        "/environments/field-art/66975205.jpg",
+        "/environments/field-art/67237709.jpg",
+        "/environments/field-art/67328336.jpg",
+        "/environments/field-art/67331360.jpg",
+        "/environments/field-art/675319.jpg",
+        "/environments/field-art/67616300.jpg",
+        "/environments/field-art/67831115.jpg",
+        "/environments/field-art/6798031.jpg",
+        "/environments/field-art/68337209.jpg",
+        "/environments/field-art/68462976.jpg",
+        "/environments/field-art/69039982.jpg",
+        "/environments/field-art/6909330.jpg",
+        "/environments/field-art/69217334.jpg",
+        "/environments/field-art/69296555.jpg",
+        "/environments/field-art/69299029.jpg",
+        "/environments/field-art/69408987.jpg",
+        "/environments/field-art/70122149.jpg",
+        "/environments/field-art/70222318.jpg",
+        "/environments/field-art/70422863.jpg",
+        "/environments/field-art/71089030.jpg",
+        "/environments/field-art/712559.jpg",
+        "/environments/field-art/7142724.jpg",
+        "/environments/field-art/71645242.jpg",
+        "/environments/field-art/71650854.jpg",
+        "/environments/field-art/71817640.jpg",
+        "/environments/field-art/71832012.jpg",
+        "/environments/field-art/72043279.jpg",
+        "/environments/field-art/7206349.jpg",
+        "/environments/field-art/72283691.jpg",
+        "/environments/field-art/72772445.jpg",
+        "/environments/field-art/7293697.jpg",
+        "/environments/field-art/73206827.jpg",
+        "/environments/field-art/73787254.jpg",
+        "/environments/field-art/74378580.jpg",
+        "/environments/field-art/74665651.jpg",
+        "/environments/field-art/74733322.jpg",
+        "/environments/field-art/75041269.jpg",
+        "/environments/field-art/75304793.jpg",
+        "/environments/field-art/75782277.jpg",
+        "/environments/field-art/75952542.jpg",
+        "/environments/field-art/76136345.jpg",
+        "/environments/field-art/7617062.jpg",
+        "/environments/field-art/76375976.jpg",
+        "/environments/field-art/76473843.jpg",
+        "/environments/field-art/76869711.jpg",
+        "/environments/field-art/76871889.jpg",
+        "/environments/field-art/77103950.jpg",
+        "/environments/field-art/77297908.jpg",
+        "/environments/field-art/77584012.jpg",
+        "/environments/field-art/77946022.jpg",
+        "/environments/field-art/78082039.jpg",
+        "/environments/field-art/78710386.jpg",
+        "/environments/field-art/7917970.jpg",
+        "/environments/field-art/79555535.jpg",
+        "/environments/field-art/79698395.jpg",
+        "/environments/field-art/80749819.jpg",
+        "/environments/field-art/80921533.jpg",
+        "/environments/field-art/81231742.jpg",
+        "/environments/field-art/81380218.jpg",
+        "/environments/field-art/81777047.jpg",
+        "/environments/field-art/81788994.jpg",
+        "/environments/field-art/82460246.jpg",
+        "/environments/field-art/82999629.jpg",
+        "/environments/field-art/84171830.jpg",
+        "/environments/field-art/84335863.jpg",
+        "/environments/field-art/84504242.jpg",
+        "/environments/field-art/84792926.jpg",
+        "/environments/field-art/85638822.jpg",
+        "/environments/field-art/85668449.jpg",
+        "/environments/field-art/86318356.jpg",
+        "/environments/field-art/86643777.jpg",
+        "/environments/field-art/86809440.jpg",
+        "/environments/field-art/86997073.jpg",
+        "/environments/field-art/87430998.jpg",
+        "/environments/field-art/87624166.jpg",
+        "/environments/field-art/87902575.jpg",
+        "/environments/field-art/8794055.jpg",
+        "/environments/field-art/88288421.jpg",
+        "/environments/field-art/885016.jpg",
+        "/environments/field-art/89264428.jpg",
+        "/environments/field-art/89948817.jpg",
+        "/environments/field-art/90011152.jpg",
+        "/environments/field-art/90173539.jpg",
+        "/environments/field-art/90351981.jpg",
+        "/environments/field-art/90764871.jpg",
+        "/environments/field-art/91002901.jpg",
+        "/environments/field-art/91027843.jpg",
+        "/environments/field-art/91228233.jpg",
+        "/environments/field-art/91880660.jpg",
+        "/environments/field-art/92107604.jpg",
+        "/environments/field-art/92223430.jpg",
+        "/environments/field-art/92481084.jpg",
+        "/environments/field-art/93031067.jpg",
+        "/environments/field-art/93360904.jpg",
+        "/environments/field-art/93729896.jpg",
+        "/environments/field-art/94243005.jpg",
+        "/environments/field-art/94317736.jpg",
+        "/environments/field-art/94585852.jpg",
+        "/environments/field-art/95376428.jpg",
+        "/environments/field-art/95477924.jpg",
+        "/environments/field-art/9547962.jpg",
+        "/environments/field-art/95658967.jpg",
+        "/environments/field-art/95856586.jpg",
+        "/environments/field-art/9597987.jpg",
+        "/environments/field-art/97254001.jpg",
+        "/environments/field-art/975299.jpg",
+        "/environments/field-art/99543666.jpg",
+        "/environments/field-art/99795159.jpg",
+        "/environments/field-art/9989792.jpg",
+        "/environments/kaibacorp-clearing-original.webp",
+        "/fonts/inter-variable.woff2",
+        "/fonts/orbitron-variable.woff2",
+        "/native/card-data.json",
+        "/native/field-banlists.json",
+        "/native/manifest.json",
+        "/native/ocgcore.sync.wasm",
+        "/native/scripts.json",
+        "/playmats/player-console-playmat-original.webp"
+      ]
+    }
+  ],
+  "scope": "Real compiled strict TCG Advanced UI: full catalogue, forbidden/regional eligibility, actual native summon procedures, public surrender, lawful siding, reload and next native Duel.",
+  "limitations": [
+    "Only the recorded duels and registered Decks are certified; not the entire card-interaction universe.",
+    "Public model flags, own stats and visible projections are checked; source geometry 1:1 and transient attack pixels are not claimed.",
+    "No Swiss clock path is certified by this driver."
+  ],
+  "failure": {
+    "type": "AssertionError",
+    "message": "Browser condition did not settle: code=>document.querySelector('#inspector-display img')?.getAttribute('src')==='/cards/reference/'+code+'.jpg'"
+  }
+}
