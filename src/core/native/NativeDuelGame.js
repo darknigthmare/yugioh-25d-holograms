@@ -257,7 +257,8 @@ export class NativeDuelGame {
         getPublicSummonType: reference => this._annotations.get(slotKey(reference))?.summonType,
         queryCard: reference => runtime.queryCard({ ...reference,
           location: reference.overlay_sequence == null ? reference.location : reference.location | L.OVERLAY,
-          overlaySequence: reference.overlaySequence ?? reference.overlay_sequence ?? 0, flags: this._queryFlags() }),
+          overlaySequence: reference.overlaySequence ?? reference.overlay_sequence ?? 0,
+          flags: reference.flags ?? this._queryFlags() }),
         getLifePoints: controller => this[`${this.sideForPlayer(controller)}LP`]
       });
       this.isResolvingAction = false;

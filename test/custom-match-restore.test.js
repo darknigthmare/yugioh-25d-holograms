@@ -74,6 +74,8 @@ function uiFixture(payload, { nativeStartGate = null } = {}) {
     }
   }
   const loads = { nativeModule: 0, nativeResources: 0 };
+  const privateInspection = { cards: ['previous Duel inspection'], clears: 0,
+    clear() { this.cards = []; this.clears += 1; } };
   const writes = new Map();
   const notices = [];
   const nodes = new Map();
@@ -98,6 +100,7 @@ function uiFixture(payload, { nativeStartGate = null } = {}) {
     writeStoredValue: (key, value) => { writes.set(key, value); return true; },
     clearPersistedMatch: noop,
     matchController: null, pendingMatchLaunch: null, game: null, duelViewController: null,
+    privateCardInspection: privateInspection,
     activeCampaignMissionId: null, campaignTracker: null, getMission: () => null,
     selectedDuelSeries: 'single', selectedGameMode: 'strict', selectedAiDifficulty: 'normal',
     currentSelectedDeckId: 'kaiba',
@@ -135,7 +138,7 @@ function uiFixture(payload, { nativeStartGate = null } = {}) {
     vm.runInContext(source, context);
   }
   context.openSideDeckEditor = () => { context.persistMatchBetweenDuels(); };
-  return { context, writes, notices, nodes, loads };
+  return { context, writes, notices, nodes, loads, privateInspection };
 }
 
 test('restoring a saved custom Match preserves its selected identity, registered Side and next-Duel choice', () => {
@@ -197,12 +200,14 @@ test('the UI awaits native startup before marking a registered Duel active', asy
   let reachedStart;
   const started = new Promise(resolve => { reachedStart = resolve; });
   const gate = new Promise(resolve => { releaseStart = resolve; });
-  const { context } = uiFixture(payload, { nativeStartGate: () => { reachedStart(); return gate; } });
+  const { context, privateInspection } = uiFixture(payload, { nativeStartGate: () => { reachedStart(); return gate; } });
   context.restorePersistedMatchBetweenDuels();
   context.matchController.chooseFirstPlayer('player', 'player');
   const prepared = context.matchController.prepareNextDuel();
   const launch = context.initGameInstance(prepared.launch);
   await started;
+  assert.equal(privateInspection.clears, 1, 'previous private inspections are cleared before native startup completes');
+  assert.deepEqual(privateInspection.cards, []);
   assert.ok(context.game instanceof NativeDuelGame);
   assert.equal(context.activeDuelInProgress, false);
   assert.equal(context.game.runtime.started, false);

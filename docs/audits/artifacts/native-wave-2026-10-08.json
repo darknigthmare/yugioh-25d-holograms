@@ -1,0 +1,223 @@
+{
+  "date": "2026-10-08",
+  "stage": "final-local-multi-front-wave",
+  "ok": true,
+  "nativeFieldSummary": {
+    "fields": 339,
+    "scenarios": 377,
+    "historicalScenariosUnchanged": 353,
+    "additionalBranches": 24,
+    "additionalFields": 13
+  },
+  "graphicsSummary": {
+    "dedicatedMonsterProfiles": 25,
+    "newMonsterProfiles": 3,
+    "enrichedFields": 3,
+    "newEffectShapes": 7
+  },
+  "evidence": {
+    "fieldRuntime": {
+      "path": "docs/audits/artifacts/native-field-runtime-wave-2026-10-08.json",
+      "bytes": 10473757,
+      "sha256": "33a8463ba98d33018acc35e9ec03486ad798b7df723b23ab407d048ab0130cb6",
+      "scope": "Actual core effects; 377 scenarios, 339 Fields"
+    },
+    "preservation": {
+      "path": "docs/audits/artifacts/native-field-wave-preservation-2026-10-08.json",
+      "bytes": 939725,
+      "sha256": "7b3f38f43a019b4356f2f1d6c492b4608276c2cdcf35ee37598cb8c4b19f7862",
+      "scope": "All 353 historical scenarios are identical in full"
+    },
+    "waveA": {
+      "path": "docs/audits/artifacts/native-field-branch-wave-a-2026-10-08.json",
+      "bytes": 574322,
+      "sha256": "914cf1885059306d0e372a9d31d52d078baab472be21eaa585e6cd2f6ec4da68",
+      "scope": "12 additional native branches on six Fields"
+    },
+    "waveF": {
+      "path": "docs/audits/artifacts/native-field-branch-wave-f-2026-10-08.json",
+      "bytes": 536211,
+      "sha256": "b6a2fa5ac82e9af3c5d2d78a79f2e489123638f3ee5cb6399c9e7a416445314d",
+      "scope": "12 additional native branches on seven Fields"
+    },
+    "choices": {
+      "path": "docs/audits/artifacts/native-gameplay-choice-locations-2026-10-08.json",
+      "bytes": 141155,
+      "sha256": "cefa440adebc05c6d17fa7bc2f7d08d2446ef9afaf16a109111d6c1de8d44d15",
+      "scope": "Four actual native scenarios; no response indices changed"
+    },
+    "publicPresentation": {
+      "path": "docs/audits/artifacts/native-public-presentation-wave-2026-10-08.json",
+      "bytes": 334140,
+      "sha256": "ce4236ca9815b2e4b104981e99b3acf5175781007f5c6e2d3ca40c6c719b5dfe",
+      "scope": "Seven actual native public-projection scenarios"
+    },
+    "privateAudience": {
+      "path": "docs/audits/artifacts/native-confirmation-privacy-2026-10-08.json",
+      "bytes": 1296194,
+      "sha256": "d7c5aadf7b9b5604d68d5dc9be158a8846bdb049ab5de8aad7ca81d80c05d1ee",
+      "scope": "Ten actual native confirmation-audience scenarios"
+    },
+    "models": {
+      "path": "docs/audits/artifacts/model-wave-2026-10-08/measurements.json",
+      "bytes": 138123,
+      "sha256": "16dcbec3ac3972e7ddb25425bafbe8d89cb1e14247fad6e2bdcb20c2397218cb",
+      "scope": "Three models, 18 comparative module captures"
+    },
+    "fieldDetails": {
+      "path": "docs/audits/artifacts/field-detail-wave-2026-10-08/report.json",
+      "bytes": 47156,
+      "sha256": "e45b75cbfe6a9d4f3b7f81c8a24d79cb3db9f07b9718726c5b2bbc76b11bab22",
+      "scope": "Three Fields, 18 module captures and three comparison boards"
+    },
+    "nativeAttacks": {
+      "path": "docs/audits/artifacts/effects-wave-2026-10-08/native-attacks.json",
+      "bytes": 131543,
+      "sha256": "a6d2562a66ad4f45d9632ff065ec36de2c765d038cc37239ed96ca4fe0f46853",
+      "scope": "Four actual native attacks"
+    },
+    "effectsRendering": {
+      "path": "docs/audits/artifacts/effects-wave-2026-10-08/render-comparison.json",
+      "bytes": 789697,
+      "sha256": "4e7b39e81c9927c8e2dd9dfe33e4bf81abaa9cfe9dbc8bc4027fa36b268dc56c",
+      "scope": "Seven module effects; 84 frames, not an application-duel browser proof"
+    },
+    "checks": {
+      "path": "docs/audits/artifacts/native-wave-checks-2026-10-08.json",
+      "bytes": 2726,
+      "sha256": "9a8117a35f6ec0197ebe5e1ef3133fae9a2f1c04cf80d4897391abd4bce7df68",
+      "scope": "134 local test files; 108 build modules; security zero vulnerabilities"
+    },
+    "gameBrowser": {
+      "path": "docs/audits/artifacts/native-wave-ui-2026-10-08/report.json",
+      "bytes": 215961,
+      "sha256": "d6582a57edb07c35d8994112d34842f1cdf1b2f16b7d4a0983f0a3fe95d7b2e3",
+      "scope": "Actual compiled free-format duels; desktop/mobile; 24 captures"
+    },
+    "choiceBrowser": {
+      "path": "docs/audits/artifacts/native-choice-locations-ui-compiled-2026-10-08/report.json",
+      "bytes": 19938,
+      "sha256": "bc1409c28d625ac7674b07c5633b883bc339725fc501b8f5c9758cad1cf63c4f",
+      "scope": "Actual compiled Charity and Reborn choices; keyboard/touch; six captures"
+    },
+    "privateUiModule": {
+      "path": "docs/audits/artifacts/private-card-inspection-ui-2026-10-08/report.json",
+      "bytes": 20181,
+      "sha256": "65f43bcc5dd89858a8b3329972e70347cb88f8d1983458d2ef4ff6eca8e32b82",
+      "scope": "Isolated real UI module with recorded native descriptors; four captures; no application duel instantiated"
+    }
+  },
+  "compiledBuild": {
+    "tool": "Vite 8.1.5",
+    "transformedModules": 108,
+    "files": [
+      {
+        "path": "/index.html",
+        "bytes": 35567,
+        "sha256": "d146d6c588bd5207c99fff9e2c77b3215e230d55ae986612190c595bc611d08f"
+      },
+      {
+        "path": "/assets/index-BAjs-Biw.js",
+        "bytes": 609998,
+        "sha256": "ab8aece9cffe26026f69778ff4ddf9bba6a0bfc7abbe67435c725df23eed96b7"
+      },
+      {
+        "path": "/assets/index-CYDbbnpQ.css",
+        "bytes": 84286,
+        "sha256": "29e128bc7f48c78871612a098b6cfff175098fb60ab19a9c1f42b0f0b9c094e8"
+      },
+      {
+        "path": "/assets/NativeDuelGame-CMcxLKS8.js",
+        "bytes": 86287,
+        "sha256": "e167d3547e594a26874546f26c03cf03251be4ef85af89363927fb022e5ae48c"
+      },
+      {
+        "path": "/assets/FieldEnvironmentRegistry-Tp8xcD3U.js",
+        "bytes": 611689,
+        "sha256": "b3159d4f38a47411cd674576f2ed13d18706e35406c77b6ddc1a678ce4dcb800"
+      },
+      {
+        "path": "/assets/RealDuelView-BO5VQkMT.js",
+        "bytes": 156240,
+        "sha256": "a49774039d88bc071d44bce8ca286f52a80c6347927356645d489f26fb385bb4"
+      },
+      {
+        "path": "/assets/ocgcore-DWqJvtmv.js",
+        "bytes": 46501,
+        "sha256": "dd1e9936f49901fb5f53efd6d25b19ab5755af65169fee4ef34600a1cfbe5349"
+      }
+    ],
+    "catalogueCompiledIn": "/assets/index-BAjs-Biw.js",
+    "seventhEssentialFile": "Actual OCG bridge chunk; catalogue code is covered by the entry fingerprint. No independent NativeCardCatalogue chunk is assumed."
+  },
+  "sourceHashes": {
+    "main.js": "1465e4f2b7d598362c1a16f04eb83bca9fcbb07aef19d0921fd4c438ca2c89c8",
+    "scripts/audit-card-specific-native-attacks.mjs": "47c0780378e17238d35f7ec911cba93b6b68d13f8e1f83db9a641da62711319f",
+    "scripts/audit-effects-wave.py": "bba5ca22811efcdef12147683c7c0ed139bb8ca5d8ab8cf96ed97efb14383c4c",
+    "scripts/audit-field-coverage.mjs": "af3fea667b2d93aec09410032de8b8f1cf5c74cec0b3226caa50fd254577d6c3",
+    "scripts/audit-field-reference-detail-wave.py": "46a020cc0fa22a5272677d470279b3ba96822e091d6e54b2aa5a45ee6ef4ffe8",
+    "scripts/audit-model-wave.py": "ff416b2799040f808730ca1a1cd1834687d51011e2e69304bc93ec46f6f2e55c",
+    "scripts/audit-native-choice-locations-ui.py": "556dc2c8c0afb0546d58411e30399ddf5d5717c21fcfd6082f195e3e410382ea",
+    "scripts/audit-native-choice-locations.mjs": "0e3890f58e9be6f9aaabff0aaeea2943d9ca2b925c3c7cc04351cf9be2071d30",
+    "scripts/audit-native-confirmation-privacy.mjs": "0a09ee36847bc5bd3aceaff49fbc13232205760219de8e59177ae7d5f299c48a",
+    "scripts/audit-native-field-branch-wave-a.mjs": "290c510e50b184da04d5f6f80369e18029507c31a52d5f203b70d289f2a9f5e8",
+    "scripts/audit-native-field-branch-wave-f.mjs": "2c91ccfabefd34818b5dfd3fb556d2348fa1781dab140d1c326a8314fa158f57",
+    "scripts/audit-native-field-runtime.mjs": "747593a0ac5e501e8eaae82147b844bdc0578af02d4420f1815d5b98ea20cf57",
+    "scripts/audit-native-public-presentation-wave.mjs": "f1dad91022399ef534322c24b2846e348936a7d5004106034bfc65cdd30ccfc8",
+    "scripts/audit-native-wave-ui.py": "60661a551b648802655d1c78a685adbbaea94015b18273ac5a7cf2ca837bd475",
+    "scripts/audit-private-card-inspection-ui.py": "ad9d6bfc7ae3055a7e9daf6d7943f99da4b58047303ff3d00b6725c483556470",
+    "scripts/generate-native-field-coverage.mjs": "30ee308eed7299c2f0bb0ed2ab78511eb103773d567519c3e9eaf6e036c21400",
+    "src/core/native/NativeDuelDecisions.js": "aad5bbb34c29a917569801465ce015209bc027715e594d9b986e6e4b8ce2adbe",
+    "src/core/native/NativeDuelGame.js": "20343ee00c7b70b6b3016459a37cef2ef485c8f249fd200356888e02505c22c5",
+    "src/core/native/NativeDuelVisualEvents.js": "13b5c2897a486c7837d1740b0fded2a96deaf9bc6d1cf0e157511fa4f5746f85",
+    "src/ui/CardSpecificVisualEffects.js": "7dfdb44e13561cd78231c4a5fc8391b6c449ecb36ce328063f93013892d32e88",
+    "src/ui/CombatVisualEffects.js": "6e685855e5c491e5d2d340baa4a5b399438bf3c4e899e5a888f989c994852e94",
+    "src/ui/CombatVisualProfiles.js": "17eccd4166d0bf142cb264100bf7b0c0e334f96b966a041259ceb6ad98c5e11f",
+    "src/ui/FieldEnvironmentDarkReferences.js": "94bbbf083f053b5c37d81801bdf347fe73a67fef13c788f57c8a43f6ee1c79ac",
+    "src/ui/FieldEnvironmentRitualReferences.js": "ef9992458040028f87a5035ee63dbf01b703435759f97bc827f6ec527bbe401c",
+    "src/ui/FieldEnvironmentStageReferences.js": "dc16126856a5591226a36aece9e007a4f819e4e9f2279a079dfdfbf7ae8d701f",
+    "src/ui/FieldReferenceDetailGeometry.js": "7bee231f571b967d15c74ef99e9ed6ab70c3a8ec5401e63ba0021673b73f4767",
+    "src/ui/HologramMonsterModels.js": "934b5b07bcbb035d5b2354783fe599bd8e4e572ffeb737e5ba2f7f67f460135b",
+    "src/ui/HologramReferenceAnatomy.js": "ef5f77fa3df875df02007323b9756b8e8b0f257cfe751d6e95fdb31470af24fe",
+    "src/ui/NativeDuelPresentationModel.js": "27a15280426911bc61e301206922c0bd187afef648a3004a33e5eb2fa14f3142",
+    "src/ui/NativeFieldCoverageSnapshot.js": "ec9b70349e656b3b5ee635e49bb410413c3ba14d9fa637d7a49b35147ead69fa",
+    "src/ui/PrivateCardInspection.js": "9067b39787e3501d244697b6ec9d8fe056749624569b896d01b3de55b2f84a48",
+    "src/ui/PublicDuelVisuals.js": "1c19b3aafecf843427f96f15ec6b6234c4ab7a18336af68a870a47f2ada9d982",
+    "src/ui/RealDuelScene3D.js": "17cda0a866c3ec01f0f0d4ea07145974a2d660eeffdda9b2f2053e967ec7db44",
+    "style.css": "da439056be6e343f893d51304c7802f202511b7b2ad9615e5a4d5679b8ddd0ad",
+    "test/card-specific-visual-effects.test.js": "3de3ec72890e545903e2703bf8adb50f4b9a22de76f7b96d8285353bd67b6802",
+    "test/custom-match-restore.test.js": "54364763d5ccb26bfefacf2b246916bd0a28e9cf9319d7eb496ffba7a5566bf3",
+    "test/field-reference-detail-wave.test.js": "5f190a08a0b8a2d76bf7b8b6758102a99ec9af134b8fe963ae996a9115579327",
+    "test/hologram-reference-anatomy.test.js": "610fe04395b847f4cbe07b1f4ca7c1d02092c7ec9fd21cff4a5c16819a3e8ca1",
+    "test/native-duel-visual-events.test.js": "31129dfd785ea0ddcb06523d924e51e02bcdee441ee45677e00fc60a5c2a4374",
+    "test/native-field-atlas-coverage.test.js": "dfe12df1468b797fcef1bff2673afd472e90ab9bf26d229c507528f10a2f8c18",
+    "test/private-card-inspection.test.js": "f156b4f0e7b494810a86ecc2240d21cfd9fd6090e5636ba39a9c7baca20ac6ad",
+    "test/real-duel-attack-negation.test.js": "67b78de8d137b350edcfc8b7ebbad0e3083ab4c50e86815f4e5c4c47ee0a7c19",
+    "tests/native-confirmation-privacy.test.mjs": "45e3c76649481f190cafd786b20dddd69f4f697e74fe045262a62d6db3e22a53",
+    "tests/native-duel-choice-flows.test.mjs": "9160be7675b1aa86415a008effd326dd88dadf0a5fd05691215aa70858c8e5d8",
+    "tests/native-duel-choice-locations.test.mjs": "6eeaea7704fc6c91fb00c6f835a2c4786ad0dbd6e2977ef1afdf00932b00986f",
+    "tests/native-duel-summoning.test.mjs": "0a544f24f94e4673d2580027d0901bfa78e19f34e2f68acdff96bea84517175d",
+    "tests/native-field-branch-wave-a.test.mjs": "31375f82cf06d2fa690bc6c35a67582b9967c5281d9a670e1889ff58766c4b3b",
+    "tests/native-field-branch-wave-f.test.mjs": "b2408fe85b39bc5c173359ec7068b69566a9bca20b1265be685371c8afd0d058",
+    "tests/native-field-catalogue.test.js": "7d86dcc4dda821685aedd5cd2d2237c92e98bd6026fd7d47bb7d2aa909f09d9e",
+    "tests/native-public-presentation-wave.test.mjs": "474afc074085dda959f0e4e00ddf41937f89a3d7a5c9d6c0f44163e554b21065"
+  },
+  "browserScope": {
+    "actualCompiledApplicationAudits": 2,
+    "isolatedPrivateUiModuleAudits": 1,
+    "realDuelFormat": "Native free format, legal 40-card registration without a TCG F&L claim",
+    "noPostStartInjection": true,
+    "qaHookAbsent": true,
+    "productionCspVerified": true,
+    "servedBodiesComparedBeforeAfter": true,
+    "revivalGlyphApplicationScreenshotCertified": false,
+    "negationSealApplicationScreenshotCertified": false,
+    "projectilePixelsApplicationScreenshotCertified": false
+  },
+  "publication": "Actual remote commit, CI, Vercel and HTTP-body proof recorded after publication in the PR and the external delivery JSON.",
+  "limits": [
+    "At least one native effect branch per Field; not every interaction or catalogue card is certified.",
+    "Exact local source JPEGs; adapted procedural 3D geometry and anatomy, without integral spatial 1:1 certification.",
+    "Module captures and recorded-input UI inspection are distinguished from actual compiled application duels."
+  ]
+}

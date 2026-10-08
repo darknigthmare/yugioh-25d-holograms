@@ -1,0 +1,219 @@
+{
+  "generatedOn": "2026-10-08",
+  "method": "Actual view_image inspection of all 18 final triptychs, plus six source crop/small JPEGs inspected before construction.",
+  "baselineCommit": "251fec0197ed85e40bca2af03e4431db1fef11e5",
+  "measurementsSha256": "16dcbec3ac3972e7ddb25425bafbe8d89cb1e14247fad6e2bdcb20c2397218cb",
+  "reviewedCaptures": [
+    {
+      "cardId": "97590747",
+      "angle": "front",
+      "pose": "rest",
+      "path": "docs/audits/artifacts/model-wave-2026-10-08/97590747-front-rest.png",
+      "sha256": "ed1c54417c7e05904af690102b4eafc0da9dca68f7b3230400654f0f0d0698bf",
+      "reviewed": true,
+      "visualFinding": "Musculature, yeux fermés, moustache pendante, bonnet et poings distincts. Volute réellement amincie, sans jambes de repli.",
+      "poseFinding": "Pose au repos inspectée."
+    },
+    {
+      "cardId": "97590747",
+      "angle": "front",
+      "pose": "attack",
+      "path": "docs/audits/artifacts/model-wave-2026-10-08/97590747-front-attack.png",
+      "sha256": "d28de9837e8a4c723c2c67387e474300c322559ae44ef8e60217671da1954a5c",
+      "reviewed": true,
+      "visualFinding": "Musculature, yeux fermés, moustache pendante, bonnet et poings distincts. Volute réellement amincie, sans jambes de repli.",
+      "poseFinding": "L’inclinaison et le bras armé suivent le rig existant ; aucune image de carte ne sert de corps."
+    },
+    {
+      "cardId": "97590747",
+      "angle": "three-quarter",
+      "pose": "rest",
+      "path": "docs/audits/artifacts/model-wave-2026-10-08/97590747-three-quarter-rest.png",
+      "sha256": "964e1c02b5c886582ff77f167a5de772ffe1720da0fa0a24ed7c6bf40c55017c",
+      "reviewed": true,
+      "visualFinding": "Le volume du torse, les deltoïdes, les bijoux et les deux poings restent lisibles. La volute crème derrière l’épaule est davantage visible.",
+      "poseFinding": "Pose au repos inspectée."
+    },
+    {
+      "cardId": "97590747",
+      "angle": "three-quarter",
+      "pose": "attack",
+      "path": "docs/audits/artifacts/model-wave-2026-10-08/97590747-three-quarter-attack.png",
+      "sha256": "1acbe76ed5b28df803ec1afe427b55ca94ebb67bc448437147f979255af4f6ef",
+      "reviewed": true,
+      "visualFinding": "Le volume du torse, les deltoïdes, les bijoux et les deux poings restent lisibles. La volute crème derrière l’épaule est davantage visible.",
+      "poseFinding": "L’inclinaison et le bras armé suivent le rig existant ; aucune image de carte ne sert de corps."
+    },
+    {
+      "cardId": "97590747",
+      "angle": "side",
+      "pose": "rest",
+      "path": "docs/audits/artifacts/model-wave-2026-10-08/97590747-side-rest.png",
+      "sha256": "93209db1780a4d9d1108ce000c598cd2eab1940b2fddb5122015eb60f97bdf56",
+      "reviewed": true,
+      "visualFinding": "Tête, nez, menton, torse et volute possèdent une profondeur réelle. Les bijoux restent simplifiés.",
+      "poseFinding": "Pose au repos inspectée."
+    },
+    {
+      "cardId": "97590747",
+      "angle": "side",
+      "pose": "attack",
+      "path": "docs/audits/artifacts/model-wave-2026-10-08/97590747-side-attack.png",
+      "sha256": "fd34f7025c2965c3d77a4e149ab850615bccf2b424912485c7b1bdc3a1a70a55",
+      "reviewed": true,
+      "visualFinding": "Tête, nez, menton, torse et volute possèdent une profondeur réelle. Les bijoux restent simplifiés.",
+      "poseFinding": "L’inclinaison et le bras armé suivent le rig existant ; aucune image de carte ne sert de corps."
+    },
+    {
+      "cardId": "15025844",
+      "angle": "front",
+      "pose": "rest",
+      "path": "docs/audits/artifacts/model-wave-2026-10-08/15025844-front-rest.png",
+      "sha256": "b72d1364eea9da5e18427379ff8be0424f4cd2ff0cc5ca98cf32b27d128fe90c",
+      "reviewed": true,
+      "visualFinding": "Coiffe affinée et blanche, visage découvert, mains jointes, longue chevelure et croissants lisibles. Le raccord robe/buste est continu.",
+      "poseFinding": "Pose au repos inspectée."
+    },
+    {
+      "cardId": "15025844",
+      "angle": "front",
+      "pose": "attack",
+      "path": "docs/audits/artifacts/model-wave-2026-10-08/15025844-front-attack.png",
+      "sha256": "7d1157f957ef96113f5057b07be394711ead6a0710edf6f2a8eb315a2434d710",
+      "reviewed": true,
+      "visualFinding": "Coiffe affinée et blanche, visage découvert, mains jointes, longue chevelure et croissants lisibles. Le raccord robe/buste est continu.",
+      "poseFinding": "Les deux avant-bras, paumes et doigts utilisent le même joint STAFF ; la prière se relève sans séparer les mains."
+    },
+    {
+      "cardId": "15025844",
+      "angle": "three-quarter",
+      "pose": "rest",
+      "path": "docs/audits/artifacts/model-wave-2026-10-08/15025844-three-quarter-rest.png",
+      "sha256": "73c46c458383dbed018c0e822323dc5ac6ade96d7acac8efd1eded2f02f00f6e",
+      "reviewed": true,
+      "visualFinding": "Les deux mains restent assemblées au repos et pendant l’action, avec une profondeur réelle des bras, tête et cheveux.",
+      "poseFinding": "Pose au repos inspectée."
+    },
+    {
+      "cardId": "15025844",
+      "angle": "three-quarter",
+      "pose": "attack",
+      "path": "docs/audits/artifacts/model-wave-2026-10-08/15025844-three-quarter-attack.png",
+      "sha256": "107aaf935832443ab5edd9a3c575a03e2cf56aea94286fcae6ef8f335dc6bf06",
+      "reviewed": true,
+      "visualFinding": "Les deux mains restent assemblées au repos et pendant l’action, avec une profondeur réelle des bras, tête et cheveux.",
+      "poseFinding": "Les deux avant-bras, paumes et doigts utilisent le même joint STAFF ; la prière se relève sans séparer les mains."
+    },
+    {
+      "cardId": "15025844",
+      "angle": "side",
+      "pose": "rest",
+      "path": "docs/audits/artifacts/model-wave-2026-10-08/15025844-side-rest.png",
+      "sha256": "cba3f87e01f9b5becd0121fab62dfb9977abc05eed87df2516968cad1cce2e51",
+      "reviewed": true,
+      "visualFinding": "Profil du visage, épaisseur de la coiffe et des épaulières, bras et robe volumétriques. La robe verte basse demeure une extrapolation signalée.",
+      "poseFinding": "Pose au repos inspectée."
+    },
+    {
+      "cardId": "15025844",
+      "angle": "side",
+      "pose": "attack",
+      "path": "docs/audits/artifacts/model-wave-2026-10-08/15025844-side-attack.png",
+      "sha256": "a4d7c2e2009cda4e29b4f34c2463b541d01fd16f64a8311d68421a66ed0033c0",
+      "reviewed": true,
+      "visualFinding": "Profil du visage, épaisseur de la coiffe et des épaulières, bras et robe volumétriques. La robe verte basse demeure une extrapolation signalée.",
+      "poseFinding": "Les deux avant-bras, paumes et doigts utilisent le même joint STAFF ; la prière se relève sans séparer les mains."
+    },
+    {
+      "cardId": "32452818",
+      "angle": "front",
+      "pose": "rest",
+      "path": "docs/audits/artifacts/model-wave-2026-10-08/32452818-front-rest.png",
+      "sha256": "af63ba157f0fe5d94f59f1350a3184a5b7654eebd80f2777fcfd1419abb2a623",
+      "reviewed": true,
+      "visualFinding": "Museau, yeux, dents, oreilles, armure et côté de la lame sont reconnaissables. Bottes raccordées par les tibias ; le plastron ne présente plus de chevauchement de surfaces.",
+      "poseFinding": "Pose au repos inspectée."
+    },
+    {
+      "cardId": "32452818",
+      "angle": "front",
+      "pose": "attack",
+      "path": "docs/audits/artifacts/model-wave-2026-10-08/32452818-front-attack.png",
+      "sha256": "9de4303123aaf34e352bc2187c5c76485361350f0738fb63c98be1cc82aff423",
+      "reviewed": true,
+      "visualFinding": "Museau, yeux, dents, oreilles, armure et côté de la lame sont reconnaissables. Bottes raccordées par les tibias ; le plastron ne présente plus de chevauchement de surfaces.",
+      "poseFinding": "La lame, le poing et le bras du côté illustré partagent WEAPON ; bouclier et jambes conservent leur cohérence."
+    },
+    {
+      "cardId": "32452818",
+      "angle": "three-quarter",
+      "pose": "rest",
+      "path": "docs/audits/artifacts/model-wave-2026-10-08/32452818-three-quarter-rest.png",
+      "sha256": "9ff82c1cbe63eb117486c6738c9346144677786feaa016985616bbd3318e3841",
+      "reviewed": true,
+      "visualFinding": "Deux ouvertures physiques du bouclier, épaisseur de la lame, museau saillant, queue mince segmentée et bottes reliées visibles.",
+      "poseFinding": "Pose au repos inspectée."
+    },
+    {
+      "cardId": "32452818",
+      "angle": "three-quarter",
+      "pose": "attack",
+      "path": "docs/audits/artifacts/model-wave-2026-10-08/32452818-three-quarter-attack.png",
+      "sha256": "2232fd868e0d6802424a71e825a5a966e91844cdce50b17202766d5f2c001672",
+      "reviewed": true,
+      "visualFinding": "Deux ouvertures physiques du bouclier, épaisseur de la lame, museau saillant, queue mince segmentée et bottes reliées visibles.",
+      "poseFinding": "La lame, le poing et le bras du côté illustré partagent WEAPON ; bouclier et jambes conservent leur cohérence."
+    },
+    {
+      "cardId": "32452818",
+      "angle": "side",
+      "pose": "rest",
+      "path": "docs/audits/artifacts/model-wave-2026-10-08/32452818-side-rest.png",
+      "sha256": "eba4882a6b40e351b5b0ec85b228336635e747e630a352d6a953f84a36b839c9",
+      "reviewed": true,
+      "visualFinding": "Corps, museau, arme, bouclier et queue ont une épaisseur effective ; les évidements du bouclier restent de vrais trous.",
+      "poseFinding": "Pose au repos inspectée."
+    },
+    {
+      "cardId": "32452818",
+      "angle": "side",
+      "pose": "attack",
+      "path": "docs/audits/artifacts/model-wave-2026-10-08/32452818-side-attack.png",
+      "sha256": "809141fb3d9c37d4d674efa75a375c68794bafda6c886f909f46641e681a7f5b",
+      "reviewed": true,
+      "visualFinding": "Corps, museau, arme, bouclier et queue ont une épaisseur effective ; les évidements du bouclier restent de vrais trous.",
+      "poseFinding": "La lame, le poing et le bras du côté illustré partagent WEAPON ; bouclier et jambes conservent leur cohérence."
+    }
+  ],
+  "observations": {
+    "97590747": {
+      "source": "Peau jade, muscles massifs, petit bonnet bleu/rouge/or, moustache et barbe fines, torques et bracelets dorés, bas du corps en volutes vertes/crème. Aucun lampion, cornes, ailes ou jambes visibles à reproduire.",
+      "front": "Musculature, yeux fermés, moustache pendante, bonnet et poings distincts. Volute réellement amincie, sans jambes de repli.",
+      "three-quarter": "Le volume du torse, les deltoïdes, les bijoux et les deux poings restent lisibles. La volute crème derrière l’épaule est davantage visible.",
+      "side": "Tête, nez, menton, torse et volute possèdent une profondeur réelle. Les bijoux restent simplifiés.",
+      "action": "L’inclinaison et le bras armé suivent le rig existant ; aucune image de carte ne sert de corps."
+    },
+    "15025844": {
+      "source": "Peau bleue, yeux clos, cheveux blonds droits, coiffe blanche en V à pointes courbes, mains jointes et bordure blanche à croissants aux épaules. Illustration cadrée en buste.",
+      "front": "Coiffe affinée et blanche, visage découvert, mains jointes, longue chevelure et croissants lisibles. Le raccord robe/buste est continu.",
+      "three-quarter": "Les deux mains restent assemblées au repos et pendant l’action, avec une profondeur réelle des bras, tête et cheveux.",
+      "side": "Profil du visage, épaisseur de la coiffe et des épaulières, bras et robe volumétriques. La robe verte basse demeure une extrapolation signalée.",
+      "action": "Les deux avant-bras, paumes et doigts utilisent le même joint STAFF ; la prière se relève sans séparer les mains."
+    },
+    "32452818": {
+      "source": "Rongeur violet aux yeux rouges et deux incisives, casque/armure/bottes bleus, lame large avec gemme verte côté gauche de l’image, bouclier gris-vert ajouré côté droit et queue fine recourbée.",
+      "front": "Museau, yeux, dents, oreilles, armure et côté de la lame sont reconnaissables. Bottes raccordées par les tibias ; le plastron ne présente plus de chevauchement de surfaces.",
+      "three-quarter": "Deux ouvertures physiques du bouclier, épaisseur de la lame, museau saillant, queue mince segmentée et bottes reliées visibles.",
+      "side": "Corps, museau, arme, bouclier et queue ont une épaisseur effective ; les évidements du bouclier restent de vrais trous.",
+      "action": "La lame, le poing et le bras du côté illustré partagent WEAPON ; bouclier et jambes conservent leur cohérence."
+    }
+  },
+  "limitations": [
+    "The comparison renders the actual source modules under identical camera/light conditions.",
+    "Draw calls measure color rendering only; no shadow pass is configured.",
+    "The three models have no illustration texture or standee geometry.",
+    "The original JPEG artwork remains the authoritative appearance reference.",
+    "Action is a mechanical GPU-rig pose at progress 0.4; no native battle or invented card effect is certified by this model audit.",
+    "Mystical Elf is portrayed as a cropped bust: its lower green robe is an explicitly inferred continuation, not a documented full-body original."
+  ]
+}

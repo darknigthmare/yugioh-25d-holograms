@@ -110,7 +110,9 @@ export function createPublicCombatVisual(event, game, positionResolver = () => u
       // A revived Fusion is an ordinary Special Summon. Printed card type
       // alone cannot identify the procedure that actually succeeded.
       if (event.nativeSummonConfirmed === true) {
-        profile = SUMMON_VISUAL_PROFILES[event.summonType] || 'summon';
+        profile = event.summonType === 'special' && event.nativeRevivalConfirmed === true
+          && event.revivalFrom?.zoneType === 'graveyard' ? 'revival'
+          : SUMMON_VISUAL_PROFILES[event.summonType] || 'summon';
       } else if (type === 'reborn-cinematic') profile = 'revival';
       else if (type === 'flip-summon') profile = 'flip-summon';
     }
@@ -199,6 +201,7 @@ export function createPublicCombatVisual(event, game, positionResolver = () => u
     ...(target ? { target: locate(target) } : {}), ...(targetRef ? { targetRef } : {}),
     ...(card ? { card } : {}), ...(profile ? { profile } : {}),
     ...(targetCard ? { targetCard } : {}),
+    ...(type === 'attack-negated' && event.nativeAttackNegated === true ? { nativeAttackNegated: true } : {}),
     ...(ruleChange ? { ruleChange } : {}),
     ...(targetPoseKind ? { poseTarget: 'target', poseKind: targetPoseKind } : {}) });
 }

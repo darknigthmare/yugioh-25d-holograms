@@ -12,15 +12,15 @@
     "public/native/card-data.json": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d",
     "public/native/scripts.json": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f",
     "src/core/native/vendor/ocgcore/index.js": "8cfbec622cf5b920e0b58db6d842fcabf1a9ef8eed9f0841bac43a1e9adb0657",
-    "src/core/native/NativeDuelGame.js": "2c727a2cc433ef84eb6892722504322edb363efa4edb3ff83d2f2dabb047b461",
+    "src/core/native/NativeDuelGame.js": "20343ee00c7b70b6b3016459a37cef2ef485c8f249fd200356888e02505c22c5",
     "src/core/native/NativeCardCharacteristics.js": "e4d1a7551bf67b32a55f291f59abc411c032217113f63cd35df76db75ad5fa76",
-    "src/core/native/NativeDuelVisualEvents.js": "02c6a63d73a3d25c2257539090d7893b487e5c0b106a418e5609d985d007d075",
+    "src/core/native/NativeDuelVisualEvents.js": "13b5c2897a486c7837d1740b0fded2a96deaf9bc6d1cf0e157511fa4f5746f85",
     "src/core/native/NativeDuelRuntime.js": "a2c7a18654e968861a0e34a51cd35f17ee5a3e03efc23cbd6a4632be29de3b95",
     "src/core/native/NativeCardScriptCorrections.js": "e0073221e78f6f3df94b0b37da4683167a5a8787f21317f5d6a0a619a5c767cd",
     "src/core/native/NativeDiceDungeonScriptCorrection.js": "80f978a0ea7ac9641a1413ca14e6a9cfd27c28c0d571203391706623072424cc",
     "src/core/native/NativeDuelTowerScriptCorrection.js": "fa198bb13429613fe9ac2843ea4c5c25251a09c8d7c393953d30725f45a68a6e",
     "src/core/native/NativeSourceIntegrity.js": "4af7fc0fc34b715ebe3e23ed7cfcf35d74dca662200e4025c7cc7957ac81cd18",
-    "src/ui/PublicDuelVisuals.js": "ec889dce5c059436b250fa0c20273c779569a74a162a508fbd179d703008c652",
+    "src/ui/PublicDuelVisuals.js": "1c19b3aafecf843427f96f15ec6b6234c4ab7a18336af68a870a47f2ada9d982",
     "tests/native-duel-chain-interactions.test.mjs": "1f4ad34cee9faeb4e2954339f6bf4f61857b0d35562ad027bbf391faaa9a62fc"
   },
   "scripts": [
@@ -6065,21 +6065,18 @@
           "target": "player"
         },
         {
-          "type": "reveal",
+          "type": "inspect",
           "target": "player",
-          "publicReveal": true,
           "publicCode": 97077563
         },
         {
-          "type": "reveal",
+          "type": "inspect",
           "target": "player",
-          "publicReveal": true,
           "publicCode": 97077563
         },
         {
-          "type": "reveal",
+          "type": "inspect",
           "target": "player",
-          "publicReveal": true,
           "publicCode": 97077563
         },
         {

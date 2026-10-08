@@ -28,6 +28,9 @@ const CARD_PROFILES = Object.freeze({
   '68638985': { id: 'slime-toad', family: 'aquatic', body: '#168955', accent: '#319a68', eye: '#d5c948', attack: 'water', anatomy: 'slime-toad', referenceArt: '/cards/cropped/68638985.jpg' },
   '26905245': { id: 'metal-reflect-slime', family: 'aquatic', body: '#82766d', accent: '#e6ebe8', eye: '#ffffff', attack: 'impact', anatomy: 'metal-reflect-slime', referenceArt: '/cards/cropped/26905245.jpg' },
   '28649820': { id: 'embodiment-of-apophis', family: 'warrior', body: '#18252c', accent: '#40677d', eye: '#ec233d', attack: 'blade', anatomy: 'armored-cobra-apophis', referenceArt: '/cards/cropped/28649820.jpg' },
+  '97590747': { id: 'la-jinn', family: 'fiend', bodyMetalness: 0.12, bodyRoughness: 0.55, darkMetalness: 0.08, body: '#188b54', accent: '#e0bf59', eye: '#122e28', attack: 'impact', anatomy: 'emerald-genie', referenceArt: '/cards/cropped/97590747.jpg' },
+  '15025844': { id: 'mystical-elf', family: 'magician', bodyMetalness: 0.08, bodyRoughness: 0.58, accentMetalness: 0.12, accentRoughness: 0.5, darkMetalness: 0.08, body: '#64b5df', accent: '#e4e9dc', eye: '#26475b', hair: '#bd8f2b', attack: 'dark-magic', anatomy: 'mystical-elf-prayer', referenceArt: '/cards/cropped/15025844.jpg' },
+  '32452818': { id: 'beaver-warrior', family: 'warrior', bodyMetalness: 0.08, bodyRoughness: 0.6, body: '#9883a5', accent: '#377bb3', eye: '#dc2649', attack: 'blade', anatomy: 'blue-armored-rodent', referenceArt: '/cards/cropped/32452818.jpg' },
   '39552864': { id: 'mystical-shine-ball', family: 'orb', body: '#e3eef1', accent: '#c6eeff', eye: '#f8fffa', attack: 'faith-light', anatomy: 'shine-ball', referenceArt: '/cards/cropped/39552864.jpg' }
 });
 

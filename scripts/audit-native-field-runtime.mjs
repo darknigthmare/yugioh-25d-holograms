@@ -10,10 +10,12 @@ import { auditNativeFieldBatchC, NATIVE_FIELD_BATCH_C_IDS } from './audit-native
 import { auditNativeFieldBatchD, NATIVE_FIELD_BATCH_D_IDS } from './audit-native-field-batch-d.mjs';
 import { auditNativeFieldBatchE, NATIVE_FIELD_BATCH_E_IDS } from './audit-native-field-batch-e.mjs';
 import { auditNativeFieldBatchF, NATIVE_FIELD_BATCH_F_IDS } from './audit-native-field-batch-f.mjs';
+import { runNativeFieldBranchWaveA } from './audit-native-field-branch-wave-a.mjs';
+import { runNativeFieldBranchWaveF } from './audit-native-field-branch-wave-f.mjs';
 import { NATIVE_CARD_SCRIPT_CORRECTIONS, getNativeCardScriptCorrection } from '../src/core/native/NativeCardScriptCorrections.js';
 import { FIELD_SPELL_CARD_DATA_SNAPSHOT } from '../src/ui/FieldSpellCardDataSnapshot.js';
 
-export const NATIVE_FIELD_AUDIT_PATH = new URL('../docs/audits/artifacts/native-field-runtime-2026-10-08.json', import.meta.url);
+export const NATIVE_FIELD_AUDIT_PATH = new URL('../docs/audits/artifacts/native-field-runtime-wave-2026-10-08.json', import.meta.url);
 const sha256 = text => createHash('sha256').update(text).digest('hex');
 const json = value => JSON.stringify(value, (_, item) => typeof item === 'bigint' ? item.toString() : item, 2);
 const clone = value => JSON.parse(json(value));
@@ -1846,6 +1848,9 @@ export async function auditNativeFieldEffects(inputs, sharedCore) {
     auditNativeFieldBatchD, auditNativeFieldBatchE, auditNativeFieldBatchF]) {
     scenarios.push(...await audit(inputs, sharedCore));
   }
+  for (const audit of [runNativeFieldBranchWaveA, runNativeFieldBranchWaveF]) {
+    scenarios.push(...await audit(inputs, sharedCore));
+  }
   assert.equal(new Set(scenarios.map(row => row.id)).size, scenarios.length, 'Scenario IDs must be globally unique');
   const assigned = [...NATIVE_FIELD_BATCH_A_IDS, ...NATIVE_FIELD_BATCH_B_IDS, ...NATIVE_FIELD_BATCH_C_IDS,
     ...NATIVE_FIELD_BATCH_D_IDS, ...NATIVE_FIELD_BATCH_E_IDS, ...NATIVE_FIELD_BATCH_F_IDS];
@@ -1860,6 +1865,8 @@ export async function auditNativeFieldRuntime(inputs = null) {
   if (inputs.coreBuild) assert.deepEqual(core.getVersion(), inputs.coreBuild.coreApi, 'Native API must match build provenance');
   const sourceFiles = ['scripts/audit-native-field-runtime.mjs', 'scripts/native-field-audit-inputs.mjs',
     'scripts/native-field-audit-harness.mjs', ...'abcdef'.split('').map(lot => `scripts/audit-native-field-batch-${lot}.mjs`),
+    'scripts/audit-native-field-branch-wave-a.mjs', 'scripts/audit-native-field-branch-wave-f.mjs',
+    'src/core/native/NativeDuelDecisions.js', 'src/ui/NativeDuelPresentationModel.js',
     'src/core/native/NativeDuelRuntime.js', 'src/core/native/NativeCardScriptCorrections.js',
     'src/core/native/NativeDiceDungeonScriptCorrection.js', 'src/core/native/NativeDuelTowerScriptCorrection.js',
     'src/core/native/NativeSourceIntegrity.js', 'src/core/native/vendor/ocgcore/index.js'];
@@ -1870,7 +1877,10 @@ export async function auditNativeFieldRuntime(inputs = null) {
   const effectTested = new Set(scenarios.filter(row => row.status === 'passed').flatMap(row => row.fields));
   for (const entry of matrix) entry.effectTested = effectTested.has(entry.canonicalCode);
   return {
-    generatedOn: '2026-10-08', corePackage: 'ocgcore-wasm', corePackageVersion: '0.1.2', nativeApi: core.getVersion(),
+    generatedOn: '2026-10-08', revision: 'multi-front-wave',
+    evidencePath: 'docs/audits/artifacts/native-field-runtime-wave-2026-10-08.json',
+    previousEvidencePath: 'docs/audits/artifacts/native-field-runtime-2026-10-08.json',
+    corePackage: 'ocgcore-wasm', corePackageVersion: '0.1.2', nativeApi: core.getVersion(),
     coreWasmSha256: inputs.initializer?.wasmBinary ? sha256(new Uint8Array(inputs.initializer.wasmBinary)) : null,
     coreRevision: inputs.coreBuild?.coreRevision ?? null, coreBuild: clone(inputs.coreBuild ?? null),
     flags: auditFlags(inputs.coreModule).toString(), flagNames: ['MODE_MR5', 'TCG_SEGOC_NONPUBLIC', 'TCG_SEGOC_FIRSTTRIGGER'],

@@ -1,0 +1,1817 @@
+{
+  "auditDate": "2026-10-08",
+  "baselineCommit": "251fec0197ed85e40bca2af03e4431db1fef11e5",
+  "method": "intact source JPG / real Chromium WebGL baseline / adapted sculpture, three identical-camera angle pairs per card",
+  "sourceImageEdits": false,
+  "gameOrQaHookInstantiated": false,
+  "baselineFiles": {
+    "FieldEnvironmentGeometry.js": {
+      "bytes": 94053,
+      "sha256": "134b5a9e4cf1982b82a43e54f860522833cf1cea16013003b54153fc79dedb3c"
+    },
+    "FieldEnvironmentNatureReferences.js": {
+      "bytes": 27448,
+      "sha256": "0d44bdf0379837717ea1be71599d5572edb9209565cf93bfc5ee5d3768f7c824"
+    },
+    "FieldEnvironmentArchitecturalReferences.js": {
+      "bytes": 28182,
+      "sha256": "e9bfe454fd75e9934917ba60d431aaf5549f75c20769290cd5dffc929b8895b1"
+    },
+    "FieldEnvironmentTechnologyReferences.js": {
+      "bytes": 32454,
+      "sha256": "930d3121814e730d9274a6d2087bcd301c1b18b07250cff1de9abb70676b4742"
+    },
+    "FieldEnvironmentMysticalReferences.js": {
+      "bytes": 27232,
+      "sha256": "1e6ec73411e3dd624542edee60000110bd22f38c6f9e90176f18ce071c7da2cc"
+    },
+    "FieldEnvironmentUrbanReferences.js": {
+      "bytes": 32177,
+      "sha256": "b3d94d8d9f427315fec3b0d36c775fc337d827b92ca6a8fd7de8d8665e5e61c9"
+    },
+    "FieldEnvironmentAquaticReferences.js": {
+      "bytes": 40332,
+      "sha256": "fc2308aafce72862a97b759cfe25b6818b38580ebde74125af3bdc5c074858b2"
+    },
+    "FieldEnvironmentDarkReferences.js": {
+      "bytes": 48128,
+      "sha256": "f32d83bdeb1f2a3d51f3d405c0b8e546a3a5ad96132d2d0d79e7281bc45a2066"
+    },
+    "FieldEnvironmentWildReferences.js": {
+      "bytes": 38383,
+      "sha256": "b8db1cfd37d85dfd222d0b6c9a89934cc1f9c0d0ce7ae3e95325efafdb07d0c7"
+    },
+    "FieldEnvironmentStageReferences.js": {
+      "bytes": 42908,
+      "sha256": "27b49bb47872ac935dc3d1e064d792843e24a4d79fb9fdfe0134daed311f1f5e"
+    },
+    "FieldEnvironmentArcaneReferences.js": {
+      "bytes": 50646,
+      "sha256": "88776075dac0a9fbc4644e6427a4d3cd49e0305693fb5826056b8f7b4a6d5e3e"
+    },
+    "FieldEnvironmentEngineeringReferences.js": {
+      "bytes": 46085,
+      "sha256": "566328be75b756765ffd33c2eb7738f4825b8d4cdd48c8acec807505d674c8ce"
+    },
+    "FieldEnvironmentCommunityReferences.js": {
+      "bytes": 72014,
+      "sha256": "498c7a20bb5d0d0d1d7c693c0225f87d0b9fdf6822c33cc98ffc2021722a04ef"
+    },
+    "FieldEnvironmentRitualReferences.js": {
+      "bytes": 77429,
+      "sha256": "78d9ce8368ffb8102507d15ba6d12fac74181073c73fa61c6a2d42e415e47bd8"
+    },
+    "FieldEnvironmentFrontierReferences.js": {
+      "bytes": 86869,
+      "sha256": "926e4873ff5e4c2a038f310eb6d5c702ed8dbe3d92bced322b88fe1cb21997af"
+    }
+  },
+  "dependencies": {
+    "src/ui/FieldEnvironmentGeometry.js": {
+      "bytes": 94053,
+      "sha256": "134b5a9e4cf1982b82a43e54f860522833cf1cea16013003b54153fc79dedb3c"
+    },
+    "src/ui/FieldGeometryThree.js": {
+      "bytes": 739,
+      "sha256": "f1ba391ea533f94a6795f160091077d7488c590cf2e42cf2686c7d0a01fe7e82"
+    },
+    "src/ui/FieldEnvironmentRegistry.js": {
+      "bytes": 32180,
+      "sha256": "4312f060be24418091f4f629727766d406043c2a32d79717e9f3220123227dd8"
+    },
+    "src/ui/FieldReferenceDetailGeometry.js": {
+      "bytes": 25175,
+      "sha256": "7bee231f571b967d15c74ef99e9ed6ab70c3a8ec5401e63ba0021673b73f4767"
+    },
+    "src/ui/FieldEnvironmentNatureReferences.js": {
+      "bytes": 27448,
+      "sha256": "0d44bdf0379837717ea1be71599d5572edb9209565cf93bfc5ee5d3768f7c824"
+    },
+    "src/ui/FieldEnvironmentArchitecturalReferences.js": {
+      "bytes": 28182,
+      "sha256": "e9bfe454fd75e9934917ba60d431aaf5549f75c20769290cd5dffc929b8895b1"
+    },
+    "src/ui/FieldEnvironmentTechnologyReferences.js": {
+      "bytes": 32454,
+      "sha256": "930d3121814e730d9274a6d2087bcd301c1b18b07250cff1de9abb70676b4742"
+    },
+    "src/ui/FieldEnvironmentMysticalReferences.js": {
+      "bytes": 27232,
+      "sha256": "1e6ec73411e3dd624542edee60000110bd22f38c6f9e90176f18ce071c7da2cc"
+    },
+    "src/ui/FieldEnvironmentUrbanReferences.js": {
+      "bytes": 32177,
+      "sha256": "b3d94d8d9f427315fec3b0d36c775fc337d827b92ca6a8fd7de8d8665e5e61c9"
+    },
+    "src/ui/FieldEnvironmentAquaticReferences.js": {
+      "bytes": 40332,
+      "sha256": "fc2308aafce72862a97b759cfe25b6818b38580ebde74125af3bdc5c074858b2"
+    },
+    "src/ui/FieldEnvironmentDarkReferences.js": {
+      "bytes": 48359,
+      "sha256": "94bbbf083f053b5c37d81801bdf347fe73a67fef13c788f57c8a43f6ee1c79ac"
+    },
+    "src/ui/FieldEnvironmentWildReferences.js": {
+      "bytes": 38383,
+      "sha256": "b8db1cfd37d85dfd222d0b6c9a89934cc1f9c0d0ce7ae3e95325efafdb07d0c7"
+    },
+    "src/ui/FieldEnvironmentStageReferences.js": {
+      "bytes": 43117,
+      "sha256": "dc16126856a5591226a36aece9e007a4f819e4e9f2279a079dfdfbf7ae8d701f"
+    },
+    "src/ui/FieldEnvironmentArcaneReferences.js": {
+      "bytes": 50646,
+      "sha256": "88776075dac0a9fbc4644e6427a4d3cd49e0305693fb5826056b8f7b4a6d5e3e"
+    },
+    "src/ui/FieldEnvironmentEngineeringReferences.js": {
+      "bytes": 46085,
+      "sha256": "566328be75b756765ffd33c2eb7738f4825b8d4cdd48c8acec807505d674c8ce"
+    },
+    "src/ui/FieldEnvironmentCommunityReferences.js": {
+      "bytes": 72014,
+      "sha256": "498c7a20bb5d0d0d1d7c693c0225f87d0b9fdf6822c33cc98ffc2021722a04ef"
+    },
+    "src/ui/FieldEnvironmentRitualReferences.js": {
+      "bytes": 77714,
+      "sha256": "ef9992458040028f87a5035ee63dbf01b703435759f97bc827f6ec527bbe401c"
+    },
+    "src/ui/FieldEnvironmentFrontierReferences.js": {
+      "bytes": 86869,
+      "sha256": "926e4873ff5e4c2a038f310eb6d5c702ed8dbe3d92bced322b88fe1cb21997af"
+    }
+  },
+  "runner": {
+    "bytes": 12699,
+    "sha256": "46a020cc0fa22a5272677d470279b3ba96822e091d6e54b2aa5a45ee6ef4ffe8"
+  },
+  "sources": [
+    {
+      "cardId": "67616300",
+      "name": "Chicken Game",
+      "target": [
+        0,
+        11,
+        -20
+      ],
+      "fov": 64,
+      "position": [
+        0,
+        24,
+        22
+      ],
+      "background": "#354446",
+      "assetPath": "public/environments/field-art/67616300.jpg",
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/67616300.jpg",
+      "bytes": 113373,
+      "sha256": "866b824d8467d7402f2574e38bbecf33d413c3c103cad32276eb02667b0eced1",
+      "baselineBytesIdentical": true
+    },
+    {
+      "cardId": "81380218",
+      "name": "Chorus of Sanctuary",
+      "target": [
+        0,
+        13,
+        -33
+      ],
+      "fov": 52,
+      "position": [
+        0,
+        19,
+        5
+      ],
+      "background": "#6694ba",
+      "assetPath": "public/environments/field-art/81380218.jpg",
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/81380218.jpg",
+      "bytes": 96288,
+      "sha256": "971029394fdce2966d244cf77a9466d7743cac9eb7c4290faa7619e006c7a606",
+      "baselineBytesIdentical": true
+    },
+    {
+      "cardId": "63883999",
+      "name": "Archfiend Palabyrinth",
+      "target": [
+        0,
+        17,
+        -35
+      ],
+      "fov": 54,
+      "position": [
+        0,
+        20,
+        12
+      ],
+      "background": "#353c54",
+      "assetPath": "public/environments/field-art/63883999.jpg",
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/63883999.jpg",
+      "bytes": 117360,
+      "sha256": "99b01730542eb43b4dd5e6494076ccbc76bf9b8166ac6cd37e5b1a408f12b0d8",
+      "baselineBytesIdentical": true
+    }
+  ],
+  "ok": true,
+  "measurements": [
+    {
+      "cardId": "67616300",
+      "angle": "front",
+      "before": {
+        "preMergePrimitives": 36,
+        "gpuInstanceCount": 6,
+        "drawCalls": 7,
+        "materials": 2,
+        "triangles": 25180,
+        "bounds": {
+          "min": [
+            -28.200000762939453,
+            0,
+            -34.97492980957031
+          ],
+          "max": [
+            28.200000762939453,
+            10.955589294433594,
+            8.5
+          ]
+        },
+        "detail": null,
+        "camera": {
+          "position": [
+            0,
+            24,
+            22
+          ],
+          "target": [
+            0,
+            11,
+            -20
+          ],
+          "fov": 64,
+          "matrixWorld": [
+            1,
+            0,
+            -0.0,
+            0,
+            -0.0,
+            0.9552858906913456,
+            -0.2956837280711308,
+            0,
+            0,
+            0.2956837280711308,
+            0.9552858906913456,
+            0,
+            0,
+            24,
+            22,
+            1
+          ],
+          "projection": [
+            1.6003345290410504,
+            0,
+            0,
+            0,
+            0,
+            1.6003345290410504,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/field-detail-wave-2026-10-08/67616300-front-before.png",
+          "sha256": "1d965c5a67767f28a18d01a0212e91ac0c9eeb33c518849e4ed76afd7bf925cc",
+          "bytes": 102678
+        }
+      },
+      "after": {
+        "preMergePrimitives": 116,
+        "gpuInstanceCount": 9,
+        "drawCalls": 10,
+        "materials": 3,
+        "triangles": 31996,
+        "bounds": {
+          "min": [
+            -28.200000762939453,
+            0,
+            -34.97492980957031
+          ],
+          "max": [
+            28.200000762939453,
+            23.1299991607666,
+            8.5
+          ]
+        },
+        "detail": {
+          "cardId": "67616300",
+          "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/67616300.jpg",
+          "fidelity": "source-inspected-adapted-sculpture",
+          "primitiveCount": 80,
+          "groups": [
+            {
+              "name": "chicken-frightened-mechanical-face",
+              "primitiveCount": 30
+            },
+            {
+              "name": "chicken-green-cliff-buggy",
+              "primitiveCount": 23
+            },
+            {
+              "name": "chicken-rust-forehead-tank",
+              "primitiveCount": 27
+            }
+          ],
+          "features": [
+            "frightened orange mechanical face",
+            "cyan eyes and chrome teeth",
+            "three sweat drops",
+            "green cliff buggy",
+            "rust-colored forehead tank"
+          ],
+          "limits": "Illustrated foreshortening, tiny pilot markings, reflections and the unseen rear remain interpreted."
+        },
+        "camera": {
+          "position": [
+            0,
+            24,
+            22
+          ],
+          "target": [
+            0,
+            11,
+            -20
+          ],
+          "fov": 64,
+          "matrixWorld": [
+            1,
+            0,
+            -0.0,
+            0,
+            -0.0,
+            0.9552858906913456,
+            -0.2956837280711308,
+            0,
+            0,
+            0.2956837280711308,
+            0.9552858906913456,
+            0,
+            0,
+            24,
+            22,
+            1
+          ],
+          "projection": [
+            1.6003345290410504,
+            0,
+            0,
+            0,
+            0,
+            1.6003345290410504,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/field-detail-wave-2026-10-08/67616300-front-after.png",
+          "sha256": "9ab9ddf98e3c47cc238e9590847a7f61f044920f16bf663f82e4ecc3a54e65fe",
+          "bytes": 125819
+        }
+      }
+    },
+    {
+      "cardId": "67616300",
+      "angle": "left",
+      "before": {
+        "preMergePrimitives": 36,
+        "gpuInstanceCount": 6,
+        "drawCalls": 7,
+        "materials": 2,
+        "triangles": 25180,
+        "bounds": {
+          "min": [
+            -28.200000762939453,
+            0,
+            -34.97492980957031
+          ],
+          "max": [
+            28.200000762939453,
+            10.955589294433594,
+            8.5
+          ]
+        },
+        "detail": null,
+        "camera": {
+          "position": [
+            -24,
+            24,
+            22
+          ],
+          "target": [
+            0,
+            11,
+            -20
+          ],
+          "fov": 64,
+          "matrixWorld": [
+            0.8682431421244592,
+            1.3877787807814457e-17,
+            0.49613893835683376,
+            0,
+            0.12876455599593006,
+            0.9657341699694757,
+            -0.22533797299287758,
+            0,
+            -0.47913832582357374,
+            0.25953325982110237,
+            0.838492070191254,
+            0,
+            -24,
+            24,
+            22,
+            1
+          ],
+          "projection": [
+            1.6003345290410504,
+            0,
+            0,
+            0,
+            0,
+            1.6003345290410504,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/field-detail-wave-2026-10-08/67616300-left-before.png",
+          "sha256": "9c82975f51d5d754f8f3d36faf32149eed760f0e0746b85fe06d20559c9ad5ec",
+          "bytes": 100529
+        }
+      },
+      "after": {
+        "preMergePrimitives": 116,
+        "gpuInstanceCount": 9,
+        "drawCalls": 10,
+        "materials": 3,
+        "triangles": 31996,
+        "bounds": {
+          "min": [
+            -28.200000762939453,
+            0,
+            -34.97492980957031
+          ],
+          "max": [
+            28.200000762939453,
+            23.1299991607666,
+            8.5
+          ]
+        },
+        "detail": {
+          "cardId": "67616300",
+          "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/67616300.jpg",
+          "fidelity": "source-inspected-adapted-sculpture",
+          "primitiveCount": 80,
+          "groups": [
+            {
+              "name": "chicken-frightened-mechanical-face",
+              "primitiveCount": 30
+            },
+            {
+              "name": "chicken-green-cliff-buggy",
+              "primitiveCount": 23
+            },
+            {
+              "name": "chicken-rust-forehead-tank",
+              "primitiveCount": 27
+            }
+          ],
+          "features": [
+            "frightened orange mechanical face",
+            "cyan eyes and chrome teeth",
+            "three sweat drops",
+            "green cliff buggy",
+            "rust-colored forehead tank"
+          ],
+          "limits": "Illustrated foreshortening, tiny pilot markings, reflections and the unseen rear remain interpreted."
+        },
+        "camera": {
+          "position": [
+            -24,
+            24,
+            22
+          ],
+          "target": [
+            0,
+            11,
+            -20
+          ],
+          "fov": 64,
+          "matrixWorld": [
+            0.8682431421244592,
+            1.3877787807814457e-17,
+            0.49613893835683376,
+            0,
+            0.12876455599593006,
+            0.9657341699694757,
+            -0.22533797299287758,
+            0,
+            -0.47913832582357374,
+            0.25953325982110237,
+            0.838492070191254,
+            0,
+            -24,
+            24,
+            22,
+            1
+          ],
+          "projection": [
+            1.6003345290410504,
+            0,
+            0,
+            0,
+            0,
+            1.6003345290410504,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/field-detail-wave-2026-10-08/67616300-left-after.png",
+          "sha256": "a910ad0d9446a504da97343a23ff875b741b4a1a4ac517c7175518cfbee42b5d",
+          "bytes": 116695
+        }
+      }
+    },
+    {
+      "cardId": "67616300",
+      "angle": "right",
+      "before": {
+        "preMergePrimitives": 36,
+        "gpuInstanceCount": 6,
+        "drawCalls": 7,
+        "materials": 2,
+        "triangles": 25180,
+        "bounds": {
+          "min": [
+            -28.200000762939453,
+            0,
+            -34.97492980957031
+          ],
+          "max": [
+            28.200000762939453,
+            10.955589294433594,
+            8.5
+          ]
+        },
+        "detail": null,
+        "camera": {
+          "position": [
+            24,
+            24,
+            22
+          ],
+          "target": [
+            0,
+            11,
+            -20
+          ],
+          "fov": 64,
+          "matrixWorld": [
+            0.8682431421244592,
+            -1.3877787807814457e-17,
+            -0.49613893835683376,
+            0,
+            -0.12876455599593006,
+            0.9657341699694757,
+            -0.22533797299287758,
+            0,
+            0.47913832582357374,
+            0.25953325982110237,
+            0.838492070191254,
+            0,
+            24,
+            24,
+            22,
+            1
+          ],
+          "projection": [
+            1.6003345290410504,
+            0,
+            0,
+            0,
+            0,
+            1.6003345290410504,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/field-detail-wave-2026-10-08/67616300-right-before.png",
+          "sha256": "c57c1ccf8c1b1cc665728d0218487c7919cd12aae28d9b30afd18d6e3ec45227",
+          "bytes": 103849
+        }
+      },
+      "after": {
+        "preMergePrimitives": 116,
+        "gpuInstanceCount": 9,
+        "drawCalls": 10,
+        "materials": 3,
+        "triangles": 31996,
+        "bounds": {
+          "min": [
+            -28.200000762939453,
+            0,
+            -34.97492980957031
+          ],
+          "max": [
+            28.200000762939453,
+            23.1299991607666,
+            8.5
+          ]
+        },
+        "detail": {
+          "cardId": "67616300",
+          "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/67616300.jpg",
+          "fidelity": "source-inspected-adapted-sculpture",
+          "primitiveCount": 80,
+          "groups": [
+            {
+              "name": "chicken-frightened-mechanical-face",
+              "primitiveCount": 30
+            },
+            {
+              "name": "chicken-green-cliff-buggy",
+              "primitiveCount": 23
+            },
+            {
+              "name": "chicken-rust-forehead-tank",
+              "primitiveCount": 27
+            }
+          ],
+          "features": [
+            "frightened orange mechanical face",
+            "cyan eyes and chrome teeth",
+            "three sweat drops",
+            "green cliff buggy",
+            "rust-colored forehead tank"
+          ],
+          "limits": "Illustrated foreshortening, tiny pilot markings, reflections and the unseen rear remain interpreted."
+        },
+        "camera": {
+          "position": [
+            24,
+            24,
+            22
+          ],
+          "target": [
+            0,
+            11,
+            -20
+          ],
+          "fov": 64,
+          "matrixWorld": [
+            0.8682431421244592,
+            -1.3877787807814457e-17,
+            -0.49613893835683376,
+            0,
+            -0.12876455599593006,
+            0.9657341699694757,
+            -0.22533797299287758,
+            0,
+            0.47913832582357374,
+            0.25953325982110237,
+            0.838492070191254,
+            0,
+            24,
+            24,
+            22,
+            1
+          ],
+          "projection": [
+            1.6003345290410504,
+            0,
+            0,
+            0,
+            0,
+            1.6003345290410504,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/field-detail-wave-2026-10-08/67616300-right-after.png",
+          "sha256": "0f3aad36fc07f0063946acf73449c11a6d5763de71d055d2bc9f971a6380e157",
+          "bytes": 130489
+        }
+      }
+    },
+    {
+      "cardId": "81380218",
+      "angle": "front",
+      "before": {
+        "preMergePrimitives": 73,
+        "gpuInstanceCount": 73,
+        "drawCalls": 6,
+        "materials": 4,
+        "triangles": 29712,
+        "bounds": {
+          "min": [
+            -19.4,
+            0.22023825328445046,
+            -41.064998626708984
+          ],
+          "max": [
+            17.999999999999996,
+            14,
+            -23.040014266967773
+          ]
+        },
+        "detail": null,
+        "camera": {
+          "position": [
+            0,
+            19,
+            5
+          ],
+          "target": [
+            0,
+            13,
+            -33
+          ],
+          "fov": 52,
+          "matrixWorld": [
+            1,
+            0,
+            -0.0,
+            0,
+            -0.0,
+            0.987762965329069,
+            -0.1559625734730109,
+            0,
+            0,
+            0.1559625734730109,
+            0.987762965329069,
+            0,
+            0,
+            19,
+            5,
+            1
+          ],
+          "projection": [
+            2.050303841579296,
+            0,
+            0,
+            0,
+            0,
+            2.050303841579296,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/field-detail-wave-2026-10-08/81380218-front-before.png",
+          "sha256": "c299f987836474533c66bc46174aa7967dc958572840bf3d055ecd66ab0c6607",
+          "bytes": 102660
+        }
+      },
+      "after": {
+        "preMergePrimitives": 185,
+        "gpuInstanceCount": 75,
+        "drawCalls": 8,
+        "materials": 5,
+        "triangles": 43504,
+        "bounds": {
+          "min": [
+            -20.099999999999998,
+            -0.30000000000000004,
+            -41.064998626708984
+          ],
+          "max": [
+            20.099999999999998,
+            29.01834487915039,
+            -24.08001708984375
+          ]
+        },
+        "detail": {
+          "cardId": "81380218",
+          "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/81380218.jpg",
+          "fidelity": "source-inspected-adapted-sculpture",
+          "primitiveCount": 112,
+          "groups": [
+            {
+              "name": "chorus-winged-laurel-cherub",
+              "primitiveCount": 93
+            },
+            {
+              "name": "chorus-five-black-musical-notes",
+              "primitiveCount": 19
+            }
+          ],
+          "features": [
+            "flying red-haired cherub",
+            "leaf crown and tilted gold halo",
+            "layered cream wing feathers",
+            "draped pale-yellow tunic and bare limbs",
+            "five black musical notes"
+          ],
+          "limits": "The face, curls, fingers, fabric folds and wing anatomy are sculptural approximations; unseen depth is interpreted."
+        },
+        "camera": {
+          "position": [
+            0,
+            19,
+            5
+          ],
+          "target": [
+            0,
+            13,
+            -33
+          ],
+          "fov": 52,
+          "matrixWorld": [
+            1,
+            0,
+            -0.0,
+            0,
+            -0.0,
+            0.987762965329069,
+            -0.1559625734730109,
+            0,
+            0,
+            0.1559625734730109,
+            0.987762965329069,
+            0,
+            0,
+            19,
+            5,
+            1
+          ],
+          "projection": [
+            2.050303841579296,
+            0,
+            0,
+            0,
+            0,
+            2.050303841579296,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/field-detail-wave-2026-10-08/81380218-front-after.png",
+          "sha256": "c445e3bfb3a057756bd650eb60c672dc750e77891799a164a760b395dfcd02dd",
+          "bytes": 160359
+        }
+      }
+    },
+    {
+      "cardId": "81380218",
+      "angle": "left",
+      "before": {
+        "preMergePrimitives": 73,
+        "gpuInstanceCount": 73,
+        "drawCalls": 6,
+        "materials": 4,
+        "triangles": 29712,
+        "bounds": {
+          "min": [
+            -19.4,
+            0.22023825328445046,
+            -41.064998626708984
+          ],
+          "max": [
+            17.999999999999996,
+            14,
+            -23.040014266967773
+          ]
+        },
+        "detail": null,
+        "camera": {
+          "position": [
+            -24,
+            19,
+            5
+          ],
+          "target": [
+            0,
+            13,
+            -33
+          ],
+          "fov": 52,
+          "matrixWorld": [
+            0.8454889030309711,
+            6.938893903907228e-18,
+            0.5339929913879817,
+            0,
+            0.07066026343100376,
+            0.9912064731293581,
+            -0.1118787504324226,
+            0,
+            -0.5292973096694771,
+            0.13232432741736927,
+            0.8380540736433386,
+            0,
+            -24,
+            19,
+            5,
+            1
+          ],
+          "projection": [
+            2.050303841579296,
+            0,
+            0,
+            0,
+            0,
+            2.050303841579296,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/field-detail-wave-2026-10-08/81380218-left-before.png",
+          "sha256": "92b32959d18f6968ddd5e1510b8624542805075777dd89494bd7963af739e2df",
+          "bytes": 85401
+        }
+      },
+      "after": {
+        "preMergePrimitives": 185,
+        "gpuInstanceCount": 75,
+        "drawCalls": 8,
+        "materials": 5,
+        "triangles": 43504,
+        "bounds": {
+          "min": [
+            -20.099999999999998,
+            -0.30000000000000004,
+            -41.064998626708984
+          ],
+          "max": [
+            20.099999999999998,
+            29.01834487915039,
+            -24.08001708984375
+          ]
+        },
+        "detail": {
+          "cardId": "81380218",
+          "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/81380218.jpg",
+          "fidelity": "source-inspected-adapted-sculpture",
+          "primitiveCount": 112,
+          "groups": [
+            {
+              "name": "chorus-winged-laurel-cherub",
+              "primitiveCount": 93
+            },
+            {
+              "name": "chorus-five-black-musical-notes",
+              "primitiveCount": 19
+            }
+          ],
+          "features": [
+            "flying red-haired cherub",
+            "leaf crown and tilted gold halo",
+            "layered cream wing feathers",
+            "draped pale-yellow tunic and bare limbs",
+            "five black musical notes"
+          ],
+          "limits": "The face, curls, fingers, fabric folds and wing anatomy are sculptural approximations; unseen depth is interpreted."
+        },
+        "camera": {
+          "position": [
+            -24,
+            19,
+            5
+          ],
+          "target": [
+            0,
+            13,
+            -33
+          ],
+          "fov": 52,
+          "matrixWorld": [
+            0.8454889030309711,
+            6.938893903907228e-18,
+            0.5339929913879817,
+            0,
+            0.07066026343100376,
+            0.9912064731293581,
+            -0.1118787504324226,
+            0,
+            -0.5292973096694771,
+            0.13232432741736927,
+            0.8380540736433386,
+            0,
+            -24,
+            19,
+            5,
+            1
+          ],
+          "projection": [
+            2.050303841579296,
+            0,
+            0,
+            0,
+            0,
+            2.050303841579296,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/field-detail-wave-2026-10-08/81380218-left-after.png",
+          "sha256": "718daef0b60328e6be6a03b7c522e4cc6229534141b564f4b0dd5cf157d1b1fe",
+          "bytes": 146469
+        }
+      }
+    },
+    {
+      "cardId": "81380218",
+      "angle": "right",
+      "before": {
+        "preMergePrimitives": 73,
+        "gpuInstanceCount": 73,
+        "drawCalls": 6,
+        "materials": 4,
+        "triangles": 29712,
+        "bounds": {
+          "min": [
+            -19.4,
+            0.22023825328445046,
+            -41.064998626708984
+          ],
+          "max": [
+            17.999999999999996,
+            14,
+            -23.040014266967773
+          ]
+        },
+        "detail": null,
+        "camera": {
+          "position": [
+            24,
+            19,
+            5
+          ],
+          "target": [
+            0,
+            13,
+            -33
+          ],
+          "fov": 52,
+          "matrixWorld": [
+            0.8454889030309711,
+            -6.938893903907228e-18,
+            -0.5339929913879817,
+            0,
+            -0.07066026343100376,
+            0.9912064731293581,
+            -0.1118787504324226,
+            0,
+            0.5292973096694771,
+            0.13232432741736927,
+            0.8380540736433386,
+            0,
+            24,
+            19,
+            5,
+            1
+          ],
+          "projection": [
+            2.050303841579296,
+            0,
+            0,
+            0,
+            0,
+            2.050303841579296,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/field-detail-wave-2026-10-08/81380218-right-before.png",
+          "sha256": "30c46088bfec314c389b453274f0f07d7ba39c22669e143ca8786e682e7243d4",
+          "bytes": 84347
+        }
+      },
+      "after": {
+        "preMergePrimitives": 185,
+        "gpuInstanceCount": 75,
+        "drawCalls": 8,
+        "materials": 5,
+        "triangles": 43504,
+        "bounds": {
+          "min": [
+            -20.099999999999998,
+            -0.30000000000000004,
+            -41.064998626708984
+          ],
+          "max": [
+            20.099999999999998,
+            29.01834487915039,
+            -24.08001708984375
+          ]
+        },
+        "detail": {
+          "cardId": "81380218",
+          "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/81380218.jpg",
+          "fidelity": "source-inspected-adapted-sculpture",
+          "primitiveCount": 112,
+          "groups": [
+            {
+              "name": "chorus-winged-laurel-cherub",
+              "primitiveCount": 93
+            },
+            {
+              "name": "chorus-five-black-musical-notes",
+              "primitiveCount": 19
+            }
+          ],
+          "features": [
+            "flying red-haired cherub",
+            "leaf crown and tilted gold halo",
+            "layered cream wing feathers",
+            "draped pale-yellow tunic and bare limbs",
+            "five black musical notes"
+          ],
+          "limits": "The face, curls, fingers, fabric folds and wing anatomy are sculptural approximations; unseen depth is interpreted."
+        },
+        "camera": {
+          "position": [
+            24,
+            19,
+            5
+          ],
+          "target": [
+            0,
+            13,
+            -33
+          ],
+          "fov": 52,
+          "matrixWorld": [
+            0.8454889030309711,
+            -6.938893903907228e-18,
+            -0.5339929913879817,
+            0,
+            -0.07066026343100376,
+            0.9912064731293581,
+            -0.1118787504324226,
+            0,
+            0.5292973096694771,
+            0.13232432741736927,
+            0.8380540736433386,
+            0,
+            24,
+            19,
+            5,
+            1
+          ],
+          "projection": [
+            2.050303841579296,
+            0,
+            0,
+            0,
+            0,
+            2.050303841579296,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/field-detail-wave-2026-10-08/81380218-right-after.png",
+          "sha256": "aaeaad037e954115d8117e6caa1ee40d45f6cfc675d750caf87ff44b8e52faf0",
+          "bytes": 136664
+        }
+      }
+    },
+    {
+      "cardId": "63883999",
+      "angle": "front",
+      "before": {
+        "preMergePrimitives": 62,
+        "gpuInstanceCount": 62,
+        "drawCalls": 8,
+        "materials": 4,
+        "triangles": 9872,
+        "bounds": {
+          "min": [
+            -13.62,
+            -0.045666640144213996,
+            -43.47999954223633
+          ],
+          "max": [
+            13.119998931884766,
+            36,
+            -24.520000457763672
+          ]
+        },
+        "detail": null,
+        "camera": {
+          "position": [
+            0,
+            20,
+            12
+          ],
+          "target": [
+            0,
+            17,
+            -35
+          ],
+          "fov": 54,
+          "matrixWorld": [
+            1,
+            0,
+            -0.0,
+            0,
+            -0.0,
+            0.9979690828636267,
+            -0.06370015422533787,
+            0,
+            0,
+            0.06370015422533787,
+            0.9979690828636267,
+            0,
+            0,
+            20,
+            12,
+            1
+          ],
+          "projection": [
+            1.9626105055051506,
+            0,
+            0,
+            0,
+            0,
+            1.9626105055051506,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/field-detail-wave-2026-10-08/63883999-front-before.png",
+          "sha256": "ee493074a2d64080724d70105e7e7070324f6e1e818bed044c878828f0277641",
+          "bytes": 88908
+        }
+      },
+      "after": {
+        "preMergePrimitives": 177,
+        "gpuInstanceCount": 63,
+        "drawCalls": 9,
+        "materials": 5,
+        "triangles": 21132,
+        "bounds": {
+          "min": [
+            -13.62,
+            -0.045666640144213996,
+            -43.47999954223633
+          ],
+          "max": [
+            13.119998931884766,
+            36,
+            -24.520000457763672
+          ]
+        },
+        "detail": {
+          "cardId": "63883999",
+          "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/63883999.jpg",
+          "fidelity": "source-inspected-adapted-sculpture",
+          "primitiveCount": 115,
+          "groups": [
+            {
+              "name": "palabyrinth-carved-demon-masonry",
+              "primitiveCount": 115
+            }
+          ],
+          "features": [
+            "horned central demon face",
+            "two secondary masonry faces",
+            "vertebral small masks",
+            "bat-shaped crown ears",
+            "spiral masonry seams and tower apertures"
+          ],
+          "limits": "Stone grain, every minor carving, lightning and the exact architectural perspective remain in the preserved illustration."
+        },
+        "camera": {
+          "position": [
+            0,
+            20,
+            12
+          ],
+          "target": [
+            0,
+            17,
+            -35
+          ],
+          "fov": 54,
+          "matrixWorld": [
+            1,
+            0,
+            -0.0,
+            0,
+            -0.0,
+            0.9979690828636267,
+            -0.06370015422533787,
+            0,
+            0,
+            0.06370015422533787,
+            0.9979690828636267,
+            0,
+            0,
+            20,
+            12,
+            1
+          ],
+          "projection": [
+            1.9626105055051506,
+            0,
+            0,
+            0,
+            0,
+            1.9626105055051506,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/field-detail-wave-2026-10-08/63883999-front-after.png",
+          "sha256": "5be6d976d30ce53501bf360585b047768ac8a842032d8c52fad252027aa8cd21",
+          "bytes": 109797
+        }
+      }
+    },
+    {
+      "cardId": "63883999",
+      "angle": "left",
+      "before": {
+        "preMergePrimitives": 62,
+        "gpuInstanceCount": 62,
+        "drawCalls": 8,
+        "materials": 4,
+        "triangles": 9872,
+        "bounds": {
+          "min": [
+            -13.62,
+            -0.045666640144213996,
+            -43.47999954223633
+          ],
+          "max": [
+            13.119998931884766,
+            36,
+            -24.520000457763672
+          ]
+        },
+        "detail": null,
+        "camera": {
+          "position": [
+            -24,
+            20,
+            12
+          ],
+          "target": [
+            0,
+            17,
+            -35
+          ],
+          "fov": 54,
+          "matrixWorld": [
+            0.8906052649078087,
+            -3.469446951953614e-18,
+            0.45477715654866824,
+            0,
+            0.025811110839291784,
+            0.9983881067698281,
+            -0.05054675872694642,
+            0,
+            -0.4540441043287906,
+            0.056755513041098826,
+            0.8891697043105483,
+            0,
+            -24,
+            20,
+            12,
+            1
+          ],
+          "projection": [
+            1.9626105055051506,
+            0,
+            0,
+            0,
+            0,
+            1.9626105055051506,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/field-detail-wave-2026-10-08/63883999-left-before.png",
+          "sha256": "7e70ea0613de72e50612be47ec0b54350d8a0b54f1ec40f4d1e96ed4bcf93499",
+          "bytes": 71953
+        }
+      },
+      "after": {
+        "preMergePrimitives": 177,
+        "gpuInstanceCount": 63,
+        "drawCalls": 9,
+        "materials": 5,
+        "triangles": 21132,
+        "bounds": {
+          "min": [
+            -13.62,
+            -0.045666640144213996,
+            -43.47999954223633
+          ],
+          "max": [
+            13.119998931884766,
+            36,
+            -24.520000457763672
+          ]
+        },
+        "detail": {
+          "cardId": "63883999",
+          "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/63883999.jpg",
+          "fidelity": "source-inspected-adapted-sculpture",
+          "primitiveCount": 115,
+          "groups": [
+            {
+              "name": "palabyrinth-carved-demon-masonry",
+              "primitiveCount": 115
+            }
+          ],
+          "features": [
+            "horned central demon face",
+            "two secondary masonry faces",
+            "vertebral small masks",
+            "bat-shaped crown ears",
+            "spiral masonry seams and tower apertures"
+          ],
+          "limits": "Stone grain, every minor carving, lightning and the exact architectural perspective remain in the preserved illustration."
+        },
+        "camera": {
+          "position": [
+            -24,
+            20,
+            12
+          ],
+          "target": [
+            0,
+            17,
+            -35
+          ],
+          "fov": 54,
+          "matrixWorld": [
+            0.8906052649078087,
+            -3.469446951953614e-18,
+            0.45477715654866824,
+            0,
+            0.025811110839291784,
+            0.9983881067698281,
+            -0.05054675872694642,
+            0,
+            -0.4540441043287906,
+            0.056755513041098826,
+            0.8891697043105483,
+            0,
+            -24,
+            20,
+            12,
+            1
+          ],
+          "projection": [
+            1.9626105055051506,
+            0,
+            0,
+            0,
+            0,
+            1.9626105055051506,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/field-detail-wave-2026-10-08/63883999-left-after.png",
+          "sha256": "907cc2dca37502390f36f1f121b962c6de72f279ce481e90201214c99309e50d",
+          "bytes": 89395
+        }
+      }
+    },
+    {
+      "cardId": "63883999",
+      "angle": "right",
+      "before": {
+        "preMergePrimitives": 62,
+        "gpuInstanceCount": 62,
+        "drawCalls": 8,
+        "materials": 4,
+        "triangles": 9872,
+        "bounds": {
+          "min": [
+            -13.62,
+            -0.045666640144213996,
+            -43.47999954223633
+          ],
+          "max": [
+            13.119998931884766,
+            36,
+            -24.520000457763672
+          ]
+        },
+        "detail": null,
+        "camera": {
+          "position": [
+            24,
+            20,
+            12
+          ],
+          "target": [
+            0,
+            17,
+            -35
+          ],
+          "fov": 54,
+          "matrixWorld": [
+            0.8906052649078087,
+            3.469446951953614e-18,
+            -0.45477715654866824,
+            0,
+            -0.025811110839291784,
+            0.9983881067698281,
+            -0.05054675872694642,
+            0,
+            0.4540441043287906,
+            0.056755513041098826,
+            0.8891697043105483,
+            0,
+            24,
+            20,
+            12,
+            1
+          ],
+          "projection": [
+            1.9626105055051506,
+            0,
+            0,
+            0,
+            0,
+            1.9626105055051506,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/field-detail-wave-2026-10-08/63883999-right-before.png",
+          "sha256": "9f1ed9265c068c34baaa22dc9a2ceea88be74c44960b0913450a8ab37ce09f3b",
+          "bytes": 71391
+        }
+      },
+      "after": {
+        "preMergePrimitives": 177,
+        "gpuInstanceCount": 63,
+        "drawCalls": 9,
+        "materials": 5,
+        "triangles": 21132,
+        "bounds": {
+          "min": [
+            -13.62,
+            -0.045666640144213996,
+            -43.47999954223633
+          ],
+          "max": [
+            13.119998931884766,
+            36,
+            -24.520000457763672
+          ]
+        },
+        "detail": {
+          "cardId": "63883999",
+          "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/63883999.jpg",
+          "fidelity": "source-inspected-adapted-sculpture",
+          "primitiveCount": 115,
+          "groups": [
+            {
+              "name": "palabyrinth-carved-demon-masonry",
+              "primitiveCount": 115
+            }
+          ],
+          "features": [
+            "horned central demon face",
+            "two secondary masonry faces",
+            "vertebral small masks",
+            "bat-shaped crown ears",
+            "spiral masonry seams and tower apertures"
+          ],
+          "limits": "Stone grain, every minor carving, lightning and the exact architectural perspective remain in the preserved illustration."
+        },
+        "camera": {
+          "position": [
+            24,
+            20,
+            12
+          ],
+          "target": [
+            0,
+            17,
+            -35
+          ],
+          "fov": 54,
+          "matrixWorld": [
+            0.8906052649078087,
+            3.469446951953614e-18,
+            -0.45477715654866824,
+            0,
+            -0.025811110839291784,
+            0.9983881067698281,
+            -0.05054675872694642,
+            0,
+            0.4540441043287906,
+            0.056755513041098826,
+            0.8891697043105483,
+            0,
+            24,
+            20,
+            12,
+            1
+          ],
+          "projection": [
+            1.9626105055051506,
+            0,
+            0,
+            0,
+            0,
+            1.9626105055051506,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/field-detail-wave-2026-10-08/63883999-right-after.png",
+          "sha256": "afe36b813ed1e4e4025335d7c74dfa2e2672f7c8d5b760407ce86cedb5e5c299",
+          "bytes": 88279
+        }
+      }
+    }
+  ],
+  "comparisonBoards": [
+    {
+      "cardId": "67616300",
+      "path": "docs/audits/artifacts/field-detail-wave-2026-10-08/67616300-source-before-after-three-angles.jpg",
+      "bytes": 633617,
+      "sha256": "d4f4ea39cfb678ea96474224647a5fa8c3e7933571123154ffc0028bce31a923"
+    },
+    {
+      "cardId": "81380218",
+      "path": "docs/audits/artifacts/field-detail-wave-2026-10-08/81380218-source-before-after-three-angles.jpg",
+      "bytes": 642872,
+      "sha256": "a8077fc7548afebb298c17fdcf8453585400d168dca705d78b53904fc65fbe14"
+    },
+    {
+      "cardId": "63883999",
+      "path": "docs/audits/artifacts/field-detail-wave-2026-10-08/63883999-source-before-after-three-angles.jpg",
+      "bytes": 691758,
+      "sha256": "d3475d904af9efe0a01241e5fa1eb4ef00af74ed42d5842cec99deb328ca8fc5"
+    }
+  ],
+  "gallery": {
+    "path": "docs/audits/artifacts/field-detail-wave-2026-10-08/gallery.html",
+    "bytes": 3867020,
+    "sha256": "c76bb1b71c639abde7004f81755f6bdafdca2ea3105e1644202a76cc9b438e29"
+  },
+  "errors": [],
+  "dependenciesUnchangedDuringCapture": true
+}

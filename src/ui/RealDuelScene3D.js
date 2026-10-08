@@ -1231,10 +1231,18 @@ export class RealDuelScene3D {
 
   playCombatEffect(event = {}) {
     if (this.disposed || !this.active || !this.scene?.add || !this.webglAvailable
-      || this.publicSummary?.duelEnded || this.documentRef?.hidden === true || event.hidden === true) return false;
+      || this.publicSummary?.duelEnded || event.hidden === true) return false;
+    // Chain negation and attack negation share a visual profile. Only the
+    // confirmed public attack result may retire that attack's travel/impact.
+    const cancelledAttack = event.kind === 'negate' && event.nativeAttackNegated === true
+      && this._cancelAttackEffects(event.sourceRef || event.source);
     // The accessible DOM already shows action feedback with reduced motion.
     // Avoid flashes, camera motion and a hidden animation loop in this mode.
-    if (this.windowRef?.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches === true) return false;
+    if (this.documentRef?.hidden === true
+      || this.windowRef?.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches === true) {
+      if (cancelledAttack && this.documentRef?.hidden !== true) this.render();
+      return false;
+    }
     const owner = (event.sourceRef?.owner || event.source?.owner) === 'opponent' ? 'opponent' : 'player';
     const aimAtMonster = event.kind === 'attack';
     const source = this._resolveCombatEndpoint(event.source, owner, aimAtMonster);
@@ -1242,6 +1250,7 @@ export class RealDuelScene3D {
     this._resumeCombatEffectClock();
     if (this._combatEffects.length >= 6) this._combatEffects.shift().dispose();
     const effect = createCombatVisualEffect({ ...event, source, target });
+    if (event.kind === 'attack') effect.attackSourceRef = this._combatSourceReference(event.sourceRef || event.source);
     effect.startedAt = this._now();
     this._combatEffects.push(effect);
     this.scene.add(effect.group);
@@ -1253,12 +1262,43 @@ export class RealDuelScene3D {
     const poseKind = ['attack', 'summon', 'recoil', 'casting'].includes(event.poseKind)
       ? event.poseKind : defaultPoseKind;
     const poseRef = event.poseTarget === 'target' ? targetRef : sourceRef;
-    this._startMonsterPose(poseRef, poseKind, effect.startedAt, effect.duration);
+    this._startMonsterPose(poseRef, poseKind, effect.startedAt, effect.duration, effect);
     if (event.kind === 'attack') {
-      this._startMonsterPose(targetRef, 'recoil', effect.startedAt + effect.duration * 0.55, 360);
+      this._startMonsterPose(targetRef, 'recoil', effect.startedAt + effect.duration * 0.55, 360, effect);
     }
     this.start();
     return true;
+  }
+
+  _combatSourceReference(reference) {
+    if (!reference || Array.isArray(reference) || reference.direct
+      || !['player', 'opponent'].includes(reference.owner)) return null;
+    const zoneType = reference.zoneType || 'main';
+    const zoneIndex = reference.zoneIndex;
+    if (!['main', 'extra'].includes(zoneType) || !Number.isInteger(zoneIndex)
+      || zoneIndex < 0 || zoneIndex >= (zoneType === 'extra' ? 2 : 5)) return null;
+    return Object.freeze({ owner: reference.owner, zoneType, zoneIndex });
+  }
+
+  _cancelAttackEffects(reference) {
+    const source = this._combatSourceReference(reference);
+    if (!source) return false;
+    let cancelled = false;
+    this._combatEffects = this._combatEffects.filter(effect => {
+      const attack = effect.attackSourceRef;
+      if (!attack || attack.owner !== source.owner || attack.zoneType !== source.zoneType
+        || attack.zoneIndex !== source.zoneIndex) return true;
+      // A later effect may already own a pose on the same monster. Restore
+      // only this attack's poses, including a recoil that has not begun yet.
+      for (const [object, pose] of this._monsterPoses) {
+        if (pose.combatEffect === effect) this._cancelMonsterPose(object);
+      }
+      effect.dispose();
+      cancelled = true;
+      return false;
+    });
+    if (cancelled && !this._requiresAnimationFrame()) this._stopFrameLoop();
+    return cancelled;
   }
 
   _cancelMonsterPose(object) {
@@ -1269,7 +1309,7 @@ export class RealDuelScene3D {
     return true;
   }
 
-  _startMonsterPose(reference, kind, startedAt, duration) {
+  _startMonsterPose(reference, kind, startedAt, duration, combatEffect = null) {
     if (!reference || Array.isArray(reference) || reference.direct
       || !['player', 'opponent'].includes(reference.owner)) return false;
     const zoneType = reference.zoneType || 'main';
@@ -1280,7 +1320,7 @@ export class RealDuelScene3D {
     if (!entry) return false;
     this._cancelMonsterPose(entry.object);
     const animation = createHologramPoseAnimation(entry.object, { kind, duration });
-    this._monsterPoses.set(entry.object, { animation, startedAt });
+    this._monsterPoses.set(entry.object, { animation, startedAt, combatEffect });
     return true;
   }
 

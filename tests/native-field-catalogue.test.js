@@ -64,7 +64,7 @@ for (const scenario of report.scenarios) {
 
 test('coverage distinguishes bundled, initialized, effect-tested and browser integration', () => {
   assert.equal(report.summary.effectTested, 339);
-  assert.equal(report.summary.scenarios, 353);
+  assert.equal(report.summary.scenarios, 377);
   assert.equal(report.summary.passedScenarios, report.summary.scenarios);
   assert.equal(report.summary.integrationTested, 0);
   assert.ok(report.matrix.every(entry => entry.initialized && entry.effectTested));

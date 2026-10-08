@@ -1,9 +1,25 @@
 import * as THREE from 'three';
 import { resolveCombatVisualProfile } from './CombatVisualProfiles.js';
+import { resolveCardSpecificVisualProfile, populateCardSpecificVisualEffect } from './CardSpecificVisualEffects.js';
 
 /** One short-lived effect, with no timers, assets or perpetual animation. */
 export function createCombatVisualEffect(options = {}) {
-  const profile = resolveCombatVisualProfile(options);
+  // Reject concealed payloads before any identity getter or allocation of GPU
+  // resources. The scene already suppresses reduced motion; direct callers do
+  // so too, rather than creating a hidden transient render loop.
+  if (options.hidden === true || options.faceDown === true || options.reducedMotion === true
+    || options.card?.isSetFaceDown === true) {
+    const group = new THREE.Group();
+    group.name = 'combat-suppressed'; group.visible = false;
+    let disposed = false;
+    return { group, profile: Object.freeze({ id: 'suppressed', shape: 'none', duration: 0 }),
+      duration: 0, update: () => false, dispose: () => {
+        if (disposed) return false;
+        disposed = true; group.removeFromParent(); group.clear(); return true;
+      } };
+  }
+  const baseProfile = resolveCombatVisualProfile(options);
+  const profile = resolveCardSpecificVisualProfile(options, baseProfile) || baseProfile;
   const source = new THREE.Vector3(...(options.source || [0, 2, 0]));
   const target = new THREE.Vector3(...(options.target || options.source || [0, 2, 0]));
   const travel = target.clone().sub(source);
@@ -48,7 +64,11 @@ export function createCombatVisualEffect(options = {}) {
     rune.rotation.z = progress * Math.PI;
   });
 
-  if (profile.shape === 'field-water') {
+  const specialized = populateCardSpecificVisualEffect({ options, profile, group, travel, distance,
+    material, brightMaterial, dimMaterial, animated, mesh, circle });
+  if (specialized) {
+    // The specialized builder shares this effect's update/disposal ownership.
+  } else if (profile.shape === 'field-water') {
     for (let i = 0; i < 5; i += 1) {
       const ripple = circle(`field-water-ripple-${i}`, .45 + i * .3, zero, true, i % 2 ? material : brightMaterial);
       animated.push(progress => {

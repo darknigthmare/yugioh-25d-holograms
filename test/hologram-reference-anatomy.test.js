@@ -158,3 +158,65 @@ test('official Trap Monster participants use distinct sculpted silver and cobra 
     assert.equal(model.userData.poseRig.disposed, true, 'releasing the material also releases depth/distance rig resources');
   }
 });
+
+test('three frequent starter monsters replace unrelated fallback bodies with checked source volumes', async () => {
+  for (const [id, anatomy, landmarks, colors, absent] of [
+    ['97590747', 'emerald-genie', ['genie-muscular-trunk', 'genie-long-angular-nose', 'genie-narrow-black-goatee', 'genie-tapered-green-mist-tail', 'genie-shoulder-gold-torque-1'], ['#188b54', '#e0bf59', '#193f75'], /^(?:wing-|fiend-horn|fiend-leg|staff|lamp)/],
+    ['15025844', 'mystical-elf-prayer', ['elf-serene-blue-face', 'elf-long-blond-hair-curtain-1', 'elf-white-swept-crown-horn-1', 'prayer-clasped-palm-1', 'prayer-clasped-palm--1'], ['#64b5df', '#bd8f2b', '#e4e9dc', '#477d49'], /^(?:pointed-hat|staff|faith-halo|wing-)/],
+    ['32452818', 'blue-armored-rodent', ['beaver-projecting-rodent-muzzle', 'beaver-large-incisor-1', 'beaver-red-eye-1', 'beaver-thick-kite-shield-with-cutouts', 'sword-beaver-wide-pentagonal-blade', 'beaver-long-curved-segmented-tail-5'], ['#9883a5', '#377bb3', '#dc2649', '#439b45'], /^(?:helmet-crest|armored-torso|paddle-tail)/]
+  ]) {
+    const model = createHologramMonsterModel({ id, name: 'localized public name', uid: 'not-a-profile-key' });
+    assert.equal(model.userData.profile.anatomy, anatomy);
+    assert.ok(SUPPORTED_HOLOGRAM_MODEL_IDS.includes(id));
+    assert.equal(JSON.stringify(model.userData.profile).includes('not-a-profile-key'), false);
+    assert.ok(landmarks.every(part => model.userData.partNames.includes(part)));
+    assert.equal(model.userData.partNames.some(part => absent.test(part)), false);
+    for (const color of colors) assert.ok(containsColor(model, color), `${id}: ${color}`);
+    await access(new URL(`../public${model.userData.referenceArt}`, import.meta.url));
+    assert.ok(model.children.length <= 5 && model.userData.triangleCount <= 6000);
+    const body = model.children.find(mesh => mesh.name.endsWith('-body')).geometry.attributes.position.array;
+    const depths = Array.from({ length: body.length / 3 }, (_, index) => body[index * 3 + 2]);
+    assert.ok(Math.max(...depths) - Math.min(...depths) > .6, 'the actual body has depth, independently of projection rings');
+    for (const mesh of model.children) {
+      assert.equal(mesh.material.map, null);
+      assert.equal(mesh.material.vertexColors, true);
+      assert.equal(mesh.geometry.attributes.position.count, mesh.geometry.attributes.hologramJoint.count);
+      assert.ok([...mesh.geometry.attributes.position.array, ...mesh.geometry.attributes.normal.array].every(Number.isFinite));
+    }
+    release(model);
+    const defense = createHologramMonsterModel({ id }, { defense: true });
+    assert.ok(defense.userData.partNames.includes('defense-barrier'));
+    assert.ok(defense.children.length <= 5 && defense.userData.triangleCount <= 6000);
+    release(defense);
+  }
+});
+
+test('prayer hands and the source-side rodent blade remain coherent through finite GPU actions and complete release', () => {
+  for (const [id, expectedJoint] of [['97590747', HOLOGRAM_JOINTS.WEAPON], ['15025844', HOLOGRAM_JOINTS.STAFF], ['32452818', HOLOGRAM_JOINTS.WEAPON]]) {
+    const model = createHologramMonsterModel({ id });
+    const joints = model.children.flatMap(mesh => [...mesh.geometry.attributes.hologramJoint.array]);
+    assert.ok(joints.filter(joint => joint === expectedJoint).length > 500, 'the actual limbs and held objects share their moving joint');
+    const positions = model.children.map(mesh => ({ reference: mesh.geometry.attributes.position.array, version: mesh.geometry.attributes.position.version }));
+    const colors = model.children.map(mesh => mesh.geometry.attributes.color.array);
+    const pose = createHologramPoseAnimation(model, { kind: 'attack' });
+    for (const progress of [0, .25, .4, .75]) {
+      assert.equal(pose.update(progress), true);
+      assert.ok([...model.userData.poseRig.pose.value.toArray(), ...model.userData.poseRig.life.value.toArray()].every(Number.isFinite));
+    }
+    model.children.forEach((mesh, index) => {
+      assert.equal(mesh.geometry.attributes.position.array, positions[index].reference);
+      assert.equal(mesh.geometry.attributes.position.version, positions[index].version);
+      assert.equal(mesh.geometry.attributes.color.array, colors[index]);
+    });
+    assert.equal(pose.update(1), false);
+    assert.deepEqual(model.userData.poseRig.pose.value.toArray(), [0, 0, 0, 0]);
+    pose.dispose();
+    const resources = new Set();
+    model.traverse(mesh => { for (const resource of [mesh.geometry, mesh.material, mesh.customDepthMaterial, mesh.customDistanceMaterial]) if (resource) resources.add(resource); });
+    let disposals = 0;
+    resources.forEach(resource => resource.addEventListener('dispose', () => { disposals += 1; }));
+    release(model);
+    assert.equal(disposals, resources.size, 'all merged geometry, visible materials and shared shadow materials are disposed');
+    assert.equal(model.userData.poseRig.disposed, true);
+  }
+});

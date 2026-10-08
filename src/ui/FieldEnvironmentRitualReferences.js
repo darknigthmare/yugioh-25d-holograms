@@ -1,4 +1,6 @@
-/** Forty-five individually inspected intact sources supply adapted scenery. Painted figures remain painted; this is not a complete 1:1 spatial reproduction. */
+import { createFieldReferenceDetailGeometry } from './FieldReferenceDetailGeometry.js';
+
+/** Forty-five individually inspected intact sources supply adapted scenery. Additional sculptures are declared per card; this is not a complete 1:1 spatial reproduction. */
 export const RITUAL_CARD_LANDMARKS = Object.freeze({"17782288": "angelechy-overhead-checker-ring-tudor-town", "59048135": "heraldry-linked-diamond-light-ribbons", "80749819": "forgotten-skull-littered-rock-tunnel", "69039982": "crusadia-overhead-gold-white-ray-fan", "81380218": "chorus-cross-topped-violet-cloud-gates", "23213239": "danger-stormy-sea-black-spire-island", "12397569": "baatistina-hollow-spiralling-ice-blades", "53639887": "snake-eye-cracked-altar-cyan-braziers", "71817640": "dragonic-three-flame-columns-cloud-triangles", "7917970": "dragunity-amber-canyon-pink-gold-ribbons", "92223430": "elborz-wind-wrapped-green-alpine-valley", "39730727": "tenyi-steep-angular-rock-ledge", "40089744": "chaos-staggered-blue-white-radial-panels", "50186558": "guardragon-cyan-shield-ruined-recess", "17255673": "mikanko-rainbow-rope-shrine-helical-steps", "81777047": "luminous-red-black-diagonal-speed-bands", "71650854": "mid-breaker-red-orange-globes-blue-streams", "27564031": "malefic-blue-maze-ring-circuit-panels", "68337209": "maliss-magenta-diamond-pixel-raster", "84504242": "megalith-three-octagonal-lit-podiums", "269012": "bound-three-chain-wrapped-monoliths", "885016": "multi-universe-cyan-spires-rune-rings", "62314831": "amritara-seven-clouded-colored-worlds", "60946968": "a-zone-green-spiral-nebula-rock-shelf", "51669847": "vidolia-dripping-oval-stained-panel", "77584012": "pseudo-cyan-outlined-city-grey-world", "79698395": "danger-lagoon-double-natural-arches", "45778932": "rising-soft-diagonal-white-sky-wisps", "24793135": "gizmek-gold-scroll-ink-mountain-river", "30336082": "sangen-engraved-three-flame-cup-pillars", "1127737": "sargasso-broken-floating-carrier-decks", "48015771": "summon-over-pink-wire-dome-control-box", "9597987": "tenchi-dark-wood-hall-octagon-candles", "77946022": "tenyinfinity-broad-gold-rings-black-spires", "56433456": "sanctuary-floating-ruin-stairs-forked-orb", "48179391": "orichalcos-double-rune-rim-six-point-seal", "45943516": "war-rock-toothed-hollow-stone-beast-mountain", "4398189": "white-forest-braided-curled-canopy", "61654098": "discovery-vine-wrapped-abandoned-dish", "67831115": "shadow-midnight-grass-needle-horizon", "35546670": "scars-flooded-leaning-windowed-city", "25163979": "nightmare-orange-cracked-battle-plain", "59197169": "yami-pink-torn-smoke-abyss", "65861210": "beast-paradise-three-obelisks-eye-tree", "43236494": "fairytale-tiled-roofs-chimney-day-clouds"});
 
 export const RITUAL_INSPECTED_ART_PROFILES = Object.freeze(Object.fromEntries([
@@ -79,7 +81,7 @@ export const RITUAL_INSPECTED_ART_PROFILES = Object.freeze(Object.fromEntries([
     [
       "low thin violet fence with scalloped rails and a central cross-topped double gate",
       "foreground coral roses with curled layered petals",
-      "broad white cloud floor and blue sky; cherub and musical notes stay painted"
+      "broad white cloud floor and blue sky; adapted red-haired winged cherub, laurel crown, halo and black musical notes now have sculptural volumes"
     ]
   ],
   [
@@ -909,14 +911,14 @@ export function createRitualReferenceGeometry(ctx) {
       const white=material('#fff4cc',{side:THREE.DoubleSide});white.forceSinglePass=true;for(const i of [-3,-2,-1,0,1,2,3])ribbon('crusadia-wide-overhead-ray-'+i,white,t=>[i*5*t,31-t*31,-37],t=>.12+t*.7,[1,0,0],64);break;
     }
     case '81380218': {
-      const pink=material('#d98999'),violet=material('#b490b7');
+      const pink=material('#d36575'),violet=material('#b490b7'),roseEdge=material('#954450');
       clouds('chorus-wide-white-cloud-floor',m.paper,2,-35,21);
       for(let x=-17;x<=17;x+=1.05)beam('chorus-distant-fine-purple-fence-bar',[x,7,-41],[x,9.4+1.1*Math.exp(-x*x/30),-41],violet,.045);
       paths('chorus-scalloped-fence-rails',violet,[7.4,9.4].map(y=>({path:t=>[-17+t*34,y+.6*Math.cos((t-.5)*Math.PI*2),-41],radius:.065})),80);
       for(const x of [-3,3])beam('chorus-central-double-gate-post',[x,7,-40.9],[x,12,-40.9],violet,.1);
       beam('chorus-central-gate-cross-upright',[0,12,-40.9],[0,14,-40.9],violet,.09);beam('chorus-central-gate-cross-arm',[-.6,13.3,-40.9],[.6,13.3,-40.9],violet,.09);
       paths('chorus-double-gate-crossed-diagonals',violet,[{path:poly([[-3,7,-40.9],[3,11.7,-40.9]]),radius:.055},{path:poly([[3,7,-40.9],[-3,11.7,-40.9]]),radius:.055}],24);
-      const roses=[];for(let i=0;i<12;i++){const x=-16+i*2.8,z=-25+(i%2)*1.4;add('chorus-coral-rose-body',sphere,pink,[x,1,z],[.65,.7,.45]);for(const r of [.23,.44,.6])roses.push({path:t=>[x+r*Math.cos(t*Math.PI*2),1+r*.7*Math.sin(t*Math.PI*2),z+.45+.06*Math.sin(t*9)],radius:.05});}paths('chorus-rose-curled-layered-petals',m.wood,roses,32);break;
+      const roses=[];for(let i=0;i<12;i++){const side=i<6?-1:1,j=i%6,x=side*(12+j%3*3.2),z=-25-Math.floor(j/3)*2.4;add('chorus-coral-rose-body',sphere,pink,[x,1.4,z],[1.7,1.7,.75]);for(const r of [.5,1.05,1.55])roses.push({path:t=>[x+r*Math.cos(t*Math.PI*2),1.4+r*.7*Math.sin(t*Math.PI*2),z+.75+.08*Math.sin(t*9)],radius:.09});}paths('chorus-rose-curled-layered-petals',roseEdge,roses,32);break;
     }
     case '23213239': {
       const water=material('#657d83'),white=material('#e8f4e9');
@@ -1200,5 +1202,5 @@ export function createRitualReferenceGeometry(ctx) {
       for(let i=0;i<12;i++)add('fairytale-rounded-green-rear-treetop',sphere,green,[-16+(i%6)*6.4,4+(i%3),-41+(i%2)],[3,2,2]);clouds('fairytale-white-daytime-sky-clouds',m.paper,25,-42,9);break;
     }
   }
-  return true;
+  createFieldReferenceDetailGeometry(ctx);return true;
 }

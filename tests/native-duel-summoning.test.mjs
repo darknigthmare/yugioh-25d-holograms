@@ -410,7 +410,9 @@ test('an officially Fusion Summoned monster can be revived and emits a Special S
     assert.ok(findMonster(game, 23995346));
     const summons = events.filter(event => event.type === 'summon' && Number(event.card?.id) === 23995346);
     assert.deepEqual(summons.map(event => event.summonType), ['fusion', 'special']);
-    assert.equal(createPublicCombatVisual(summons[1], game).profile, 'special-summon');
+    assert.equal(summons[1].nativeRevivalConfirmed, true);
+    assert.equal(summons[1].revivalFrom.zoneType, 'graveyard');
+    assert.equal(createPublicCombatVisual(summons[1], game).profile, 'revival');
     clean();
   } finally { game.dispose(); }
 });

@@ -1,8 +1,10 @@
 import { DuelGame } from './src/game.js';
 import { NATIVE_CARDS } from './src/core/native/NativeCardRegistry.js';
 import { loadNativeCardResources } from './src/core/native/NativeCardData.js';
+import { createNativeCardPresentationTemplate } from './src/core/native/NativeCardCatalogue.js';
 import { MatchController } from './src/ui/MatchController.js';
 import { DuelViewController } from './src/ui/DuelViewController.js';
+import { PrivateCardInspection } from './src/ui/PrivateCardInspection.js';
 import { SoloCampaignController } from './src/ui/SoloCampaignController.js';
 import { getMission, buildMissionDecks } from './src/content/SoloCampaign.js';
 import { createCampaignDuelTracker } from './src/content/CampaignDuelTracker.js';
@@ -53,6 +55,12 @@ import { escapeHtml, safeImageUrl } from './src/security.js';
 let game = null;
 let matchController = null;
 let duelViewController = null;
+const privateCardInspection = new PrivateCardInspection({
+  documentRef: document,
+  cardDetails: (card, gameState) => gameState?.resources
+    ? createNativeCardPresentationTemplate(gameState.resources, card.id) : null,
+  imageUrl: card => safeImageUrl(card.image_url, getCardImageUrl(card.id))
+});
 let pendingMatchLaunch = null;
 let sideDeckDraft = null;
 let selectedSideDeckCard = null;
@@ -927,7 +935,7 @@ function requestUiDecision(request) {
       const optionButtons = [];
       const confirmButton = document.createElement('button');
       confirmButton.type = 'button';
-      confirmButton.className = 'btn btn-magenta';
+      confirmButton.className = 'btn btn-magenta decision-confirm-button';
       confirmButton.textContent = 'CONFIRMER LES ZONES';
       confirmButton.disabled = true;
 
@@ -1012,7 +1020,7 @@ function requestUiDecision(request) {
         : null;
       const confirmButton = document.createElement('button');
       confirmButton.type = 'button';
-      confirmButton.className = 'btn btn-magenta';
+      confirmButton.className = 'btn btn-magenta decision-confirm-button';
       confirmButton.textContent = 'CONFIRMER LA SÉLECTION';
       confirmButton.disabled = true;
       const selectionSummary = document.createElement('p');
@@ -1083,7 +1091,7 @@ function requestUiDecision(request) {
         const stats = candidate.atk === undefined
           ? ''
           : ` — ATK ${candidate.atk} / DEF ${candidate.def ?? '—'}`;
-        button.textContent = `${candidate.name}${stats}`;
+        button.textContent = candidate.label || `${candidate.name}${stats}`;
         button.addEventListener('click', () => finishDecision(candidate.uid));
         decisionOptions.appendChild(button);
       });
@@ -1963,6 +1971,7 @@ async function resolveOpeningFirstPlayer(sessionLabel = 'Duel') {
  * Initializes the game core
  */
 async function initGameInstance(matchLaunch = null) {
+  privateCardInspection.clear();
   const campaignMission = getMission(activeCampaignMissionId);
   campaignTracker = null;
   // Every Duel starts in the unchanged compact presentation.  Switching views
@@ -3402,6 +3411,7 @@ function restorePersistedMatchBetweenDuels() {
 }
 
 function returnToConfiguration({ announce = false } = {}) {
+  privateCardInspection.clear();
   leaveCampaign();
   // Leaving the Duel also tears down the active immersive presentation. The
   // cached module may be reused later, but no Real-view animation remains
@@ -3813,6 +3823,7 @@ function getDuelReasonLabel(reason) {
 }
 
 function handleGameOver(resultOrWinner, legacyDetails = null) {
+  privateCardInspection.clear();
   if (game && recordedFinishedGames.has(game)) return;
   const result = normalizeDuelResult(resultOrWinner, legacyDetails);
   lastDuelResult = result;
@@ -4040,6 +4051,13 @@ function getAttackProjType(card) {
  * Central event visual routing system
  */
 function handleGameAnimations(event) {
+  // Private confirmations belong only to their authorized local inspection.
+  // Consume even rejected inspect payloads before any public event consumer.
+  if (event?.type === 'inspect') {
+    privateCardInspection.handle(event, game);
+    return;
+  }
+  if (event?.private === true) return;
   campaignTracker?.recordAnimation(event);
   duelViewController?.playAnimation?.(event);
   const boardEl = document.getElementById('duel-board');

@@ -1,3 +1,5 @@
+import { nativeCandidateContext, nativeCandidateLabel, nativeCandidateSource } from '../../ui/NativeDuelPresentationModel.js';
+
 /**
  * Translate core-owned decisions into the existing decision modal contract.
  * No duel state is changed here: only a validated, typed core response escapes.
@@ -81,8 +83,8 @@ function cardCandidate(ref, index, prompt, options) {
   const card = known ? options.resolveCard?.(ref) ?? readMetadata(options.metadata, ref.code) : null;
   const name = known ? card?.name ?? `Carte ${ref.code}` : 'Carte face verso';
   const effectText = known && ref.description != null ? descriptionLabel(ref.description, options, ref.code) : '';
-  return { uid: String(index), name, label: effectText ? `${name} — ${effectText}` : name,
-    source: (ref.location & 4) !== 0 ? 'field' : (ref.location & 64) !== 0 ? 'extra' : 'hand' };
+  return { uid: String(index), name, label: nativeCandidateLabel(name, effectText, ref, prompt.player),
+    source: nativeCandidateSource(ref) };
 }
 function descriptionLabel(description, options, code) {
   const text = options.resolveDescription?.(description, code);
@@ -128,10 +130,7 @@ export function nativeSelectablePlaces(prompt) {
 }
 const placeKey = place => `${place?.player}:${place?.location}:${place?.sequence}`;
 function placeLabel(place, prompt) {
-  const owner = place.player === prompt.player ? 'Votre' : 'Adversaire —';
-  const zone = place.location === 4 ? (place.sequence >= 5 ? 'Zone Monstre Extra' : 'Zone Monstre')
-    : (place.sequence === 5 ? 'Zone Terrain' : place.sequence >= 6 ? 'Zone Pendule' : 'Zone Magie/Piège');
-  return `${owner} ${zone} ${place.sequence + 1}`;
+  return nativeCandidateContext({ controller: place.player, location: place.location, sequence: place.sequence }, prompt.player);
 }
 
 function sumAmounts(card) {
@@ -571,7 +570,7 @@ export async function resolveNativeDuelPrompt({ prompt, runtime, side, metadata,
       const maximum = Math.min(prompt.cards[index].count, remaining);
       if (minimum > maximum) return null;
       const answer = await ask({ ...translated.request, sequence: undefined, candidates: undefined,
-        title: 'RETIRER LES COMPTEURS', description: `${translated.request.candidates[index].name} — ${remaining} compteur(s) restant(s).`,
+        title: 'RETIRER LES COMPTEURS', description: `${translated.request.candidates[index].label} — ${remaining} compteur(s) restant(s).`,
         choices: Array.from({ length: maximum - minimum + 1 }, (_, offset) => ({ value: minimum + offset, label: String(minimum + offset) })) });
       if (!integer(answer, minimum, maximum)) return null;
       counts.push(answer); remaining -= answer;

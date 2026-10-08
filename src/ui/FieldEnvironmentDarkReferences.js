@@ -1,3 +1,5 @@
+import { createFieldReferenceDetailGeometry } from './FieldReferenceDetailGeometry.js';
+
 /** Individually inspected, intact illustrations supply these peripheral volumes.
  * Painted figures remain in the backdrop; dimensions and camera perspective
  * are adapted to the duel corridor, without claiming a complete 1:1 model.
@@ -18,7 +20,7 @@ export const DARK_INSPECTED_ART_PROFILES = Object.freeze(Object.fromEntries([
     [
       "crowded grey ribbed cylindrical towers and tall blade pinnacles",
       "left tower wrapped by a thick continuous spiral",
-      "black silver concentric ground sigil and pointed horn crowns"
+      "black silver concentric ground sigil and pointed horn crowns; three carved demon faces, vertebral masks, bat-shaped ears and apertures now have sculptural volumes"
     ]
   ],
   [
@@ -849,5 +851,5 @@ export function createDarkReferenceGeometry(ctx) {
     }
     default:return false;
   }
-  return true;
+  createFieldReferenceDetailGeometry(ctx);return true;
 }
