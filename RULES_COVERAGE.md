@@ -1,63 +1,104 @@
-# Couverture des règles — 8 septembre 2026
+# Couverture des règles — 7 octobre 2026
 
-Ce document décrit la couverture réellement testée, pas une certification exhaustive TCG. Le mode strict repose sur un registre explicite de 45 cartes locales. Le catalogue de 336 décors de Terrain est **visuel** : il ne signifie pas que 336 effets de cartes sont implémentés.
+Les Duels **TCG Advanced strict** et **Duel libre** utilisent le moteur natif EDOPro/WASM et les scripts Lua de Project Ignis. Les **339 Magies de Terrain sont intégrées**, avec données et scripts locaux ; leurs **339 initialisations** passent sans erreur Lua. **128 scénarios exécutent des effets sur 115 Terrains**. Une initialisation prouve l’enregistrement des effets, pas toutes les branches du script ; ce document ne certifie pas le TCG complet.
 
-## Corrections de cette version
+## Autorité et modes
 
-| Domaine | Comportement intégré et testé |
-| --- | --- |
-| Combat | Même calcul pour les deux camps ; Attaque/Défense, égalités dont 0 contre 0, dégâts directs, protections et remplacements, dégâts perçants uniquement via propriété scriptée ; fin du duel immédiate à 0 LP. |
-| Rejeu d’attaque | Apparition, disparition ou remplacement d’un monstre adverse, y compris mutation transitoire ; passage attaque directe/cible et inverse ; aucune seconde déclaration ni second coût. |
-| Fenêtres de réponse | Déclaration d’attaque sans chaîne préexistante : priorité au joueur du tour puis à son adversaire, deux passes pour fermer ; vitesses 2/3 et interdiction de répondre pendant la résolution. |
-| Identité des cartes | Déplacements Main/Extra et changement de contrôle conservent l’instance sur le Terrain, compteurs et usage d’attaque ; quitter et revenir renouvelle l’instance ; les anciennes cibles ne suivent pas une nouvelle instance. |
-| Déplacements | Retour au propriétaire au Cimetière/exil ; les Jetons cessent d’exister en quittant le Terrain et ne peuvent pas être bannis face verso ; les Matériels Xyz vont au Cimetière quand leur hôte quitte le Terrain pour le Cimetière/exil. |
-| Chaînes | LIFO ; une destruction n’annule pas automatiquement l’effet ; Magies/Pièges persistants exigent la même source face recto ; cartes non persistantes nettoyées à la fin de la chaîne ; distinction annulation de carte/effet. |
-| Stardust | Sacrifice au coût, négation et destruction conditionnelle sur l’instance exacte ; retour End Phase par un effet déclenché de vitesse 1 auquel on peut répondre, sans retour si la carte quitte le Cimetière en réponse. |
-| Statistiques | Les bonus extérieurs subsistent quand les effets du bénéficiaire sont annulés ; même recalcul Main/Extra ; pas de bonus aux monstres face verso ; pas de DEF inventée pour les Liens. |
-| Terrains classiques | Yami, Umi, Forêt, Montagne, Sogen, Terre Dévastée : +200/-200 selon le Type courant, sur les deux camps ; cumul de deux Terrains valides ; aucun bonus avant résolution ou sous annulation. |
-| Synchro/Rituel | Matériaux distincts, contrôle, Niveaux et recettes ; validation du nombre de Syntoniseurs/non-Syntoniseurs ; pas de sacrifices rituels superflus ; pas de carte Rituel utilisée pour son propre coût. |
-| Lien | Contributions 1 ou valeur Lien, recette exacte, Jetons autorisés pour LANphorhynchus ; graphe des huit flèches, orientation adverse, liens Main/Extra et retrait des matériaux avant le calcul des destinations. |
-| Extra Link | Projection du Monstre Lien entrant, chemin co-lié réciproque entre les deux Zones Monstre Extra, revalidation après le choix asynchrone et transaction sans mutation en cas d’échec. |
-| Pendule | Niveaux strictement compris entre deux échelles, une fois par tour ; destinations pointées partagées avec le graphe Lien ; historique d’Invocation correcte des hybrides conservé face recto dans l’Extra Deck. |
-| Conditions de victoire | LP/Deck Out immédiats ; Exodia vérifié à la fin d’un effet et non au milieu ; raison Exodia affichée et enregistrée séparément. Exodia n’est pas ajouté au pool strict. |
+| Route | Cartes proposées | Règles et disponibilité |
+| --- | --- | --- |
+| Strict natif, par défaut | Bibliothèque statique de **390 cartes** : 80 identités précédentes + 310 Terrains supplémentaires, soit 385 Main et cinq Extra. | Main 40–60, Extra/Side 0–15, copies par nom cumulées, listes locales TCG et publication régionale connue. Le catalogue demeure inspectable même lorsqu’une carte est interdite ou pas encore sortie en TCG. |
+| Duel libre natif | 339 Terrains, TCG/OCG/annoncés, plus le catalogue CDB chargé de **14 355 identités** normalisées. | Même format de Deck, trois copies par nom sans liste F&L. Les alias véritables regroupent variantes permanentes et illustrations alternatives. Les cartes partenaires restent soumises à la présence de données/scripts et à leur classification réelle. |
+| Anime Sandbox historique | Pool JavaScript de **80 cartes**, dont **29 effets de Terrain**, avec inspection API. | Résolutions locales explicitement implémentées. La recherche de métadonnées n’ajoute pas automatiquement un script de carte. Les règles et tests historiques restent séparés du moteur natif. |
 
-Les règles déjà existantes de phases, Invocations Normales/Sacrifices, Fusion, Xyz, Main/Extra/Side Deck, liste Advanced locale, Match et confidentialité restent couvertes par les suites de régression.
+Le moteur natif possède phases, Invocations, coûts, cibles, matériaux, restrictions, fenêtres de décision, chaînes, déplacements, compteurs et calcul des dommages. La façade JavaScript envoie une réponse typée parmi les choix proposés et projette ses requêtes vers les vues. Les ATK/DEF, Niveaux/Rangs, Types actuels et positions viennent du moteur ; ni le renderer ni les anciens helpers de Terrain ne recalculent un effet sur cette route.
 
-## Ce qui reste à implémenter pour viser le TCG complet
+MR5 et les flags `TCG_SEGOC_NONPUBLIC | TCG_SEGOC_FIRSTTRIGGER` sont explicitement appliqués aux preuves de règles TCG. Les vrais Duels utilisent une seed issue du générateur cryptographique ; les tests utilisent une seed fixe et leurs positions initiales sont documentées. Les scripts Lua et données CDB ne sont pas réécrits pour réussir un scénario.
 
-- **Scripts de cartes** : les milliers de cartes absentes du registre strict, leurs coûts, cibles, restrictions, conditions et exceptions. Le parser PSCT analyse du texte ; il ne transforme pas arbitrairement une description en effet exécutable.
-- **Événements et timing universels** : SEGOC connecté à une file complète de déclencheurs, effets Flip/fin de combat, chaque fenêtre de phase, annulation d’Invocation hors chaîne et règles de timing propres à chaque carte. Les helpers existants ne suffisent pas à revendiquer toute cette couverture.
-- **Procédures alternatives** : Contact Fusion/substitutions, Rituels utilisant l’ATK ou d’autres sources de matériaux, Rank-Up/Xyz alternatifs, Niveaux de remplacement d’hybrides Xyz-Pendule, Invocations Normales additionnelles.
-- **Effets génériques complexes** : superposition de substitutions/protections, réinitialisations propres à chaque texte, restrictions par nom de carte et durées. Les limites d’usage par joueur/effet et les conjonctions PSCT disposent de tests de primitives, pas de scripts universels.
-- **Formats et plateforme** : distinctions complètes TCG/OCG, Rush/Speed Duel, règlement de tournoi chronométré, multijoueur jouable et sauvegarde intégrale d’un duel ne sont pas livrés par cette version.
+## Niveaux de preuve
 
-Le mode Sandbox permet de consulter des cartes hors registre ; cela ne garantit pas la résolution de leurs effets. Ne pas élargir automatiquement le registre strict à partir du seul type générique d’une carte.
+| Contrôle | Résultat | Portée exacte |
+| --- | --- | --- |
+| Données et Lua locaux | **339 / 339 Terrains** | CDB, chemins sources, commits, SHA-256 et dépendances archivés. |
+| Initialisation native | **339 / 339** | `initial_effect`, enregistrement, requête et démarrage de 339 handles distincts, sans diagnostic Lua. |
+| Scénarios de règles | **128 scénarios / 115 Terrains** | Effets réellement exécutés, messages, réponses et requêtes natives assertés. |
+| Procédures d’Invocation | **20 cas natifs** | Fusion, Rituel, Synchro, Xyz, Lien, Pendule et Flip, matériaux, restrictions, annulations et zones MR5. |
+| Combats et replays | **21 scénarios natifs** | Damage Step, calcul réel, doubles dégâts, annulation, contrôle, deux attaques, pioche privée et match nul. |
+| Choix supplémentaires | **8 parcours officiels + 3 contrats wire** | Déclarations filtrées, poids et préfixes, ajout/retrait, annulation et descriptions cachées. |
+| Chaînes et projection | **25 scénarios natifs** | Ordre de résolution, annulations, Creature Swap, Pièges devenus monstres et nom courant sans changer le passcode physique. |
+| Continuation des choix | **13 parcours officiels** | Options, positions, contreparties, compteurs, ordre du Deck et déclarations. |
+| Fenêtres de décision | **15 scénarios officiels + 1 garde de confidentialité** | Déclarations, sommes, compteurs, ordre du Deck, chaînes obligatoires et Damage Step. |
+| Navigateur compilé | **Desktop 1280 × 900 et mobile 390 × 844** | Bibliothèque 390/339, lancement natif, Invocation Normale, pose de Magie, Extra Deck, IA/pioche suivante et confidentialité ; zéro erreur JS, asset natif en échec ou violation CSP. |
+| Géométrie et source visuelle | **339 illustrations exactes, 339 décors dédiés, 339 références inspectées, 339 reconstructions** | Six nouveaux lots reconstruisent les 209 volumes restants depuis les sources. La géométrie reste distincte de la preuve des règles et d’une reproduction spatiale intégrale 1:1. |
 
-## Architecture et points d’extension
+La [matrice native](docs/audits/artifacts/native-field-runtime-2026-10-07.json) garde `bundled`, `initialized`, `effectTested` et `integrationTested` distincts. Les 339 lignes de l’audit Node ne reçoivent pas artificiellement une preuve navigateur générale. Le [rapport navigateur](docs/audits/artifacts/native-duel-ui-2026-10-07/report.json) couvre son parcours public précis. L’atlas affiche séparément disponibilité du moteur, initialisation et scénario exercé, tout en conservant les 29 effets JavaScript historiques.
 
-- `ClassicFieldSpellEffects.js` contient les six règles continues, identifiées par passcode canonique. `GameStateStabilizer` les applique au même état de duel dans toutes les vues. Le décor ne calcule jamais de statistiques.
-- `LinkZoneRules.js` fournit une projection pure des zones et flèches ; les procédures Lien, Extra Link et Pendule consomment ces destinations après retrait virtuel des matériaux.
-- `BattleEngine.js` calcule le résultat symétrique du combat ; `DuelGame` orchestre décisions, chaînes, Damage Step et animations.
-- `FieldState` et `CardState` contrôlent destinations, propriétaire et identité d’instance. Les protections sont décrites par `DefensiveEngine`, pas déduites de mots présents dans la description.
-- Pour ajouter une carte : texte/ruling officiel → données locales → procédure/effet et fenêtres → tests positifs/négatifs et deux camps → ajout explicite au registre strict → test du parcours UI. Ajouter un décor seul ne suffit pas.
+## Effets exercés dans le moteur natif
 
-## Validation reproductible
+Le second lot ajoute 51 scénarios et 50 Terrains distincts : Weather Forecast et vrais matériaux Lien, Centurion et ses Pièges Continus devenus monstres, Magnacarrier et ses Xyz/superpositions, Patent License, Sangen Summoning et Pseudo Space copiant Wetlands. Les branches non exercées demeurent explicites dans les 115 fiches de l’audit.
+
+Les nouveaux cas exercent aussi Domain (sacrifice, verrou Extra, bonus au calcul), Toon Kingdom, Lair, Lemuria, Marincess via vrai Crystal Heart, Sanctuary, Secret Village, PSY-Frame, Salamangreat, Traptrip, Rikka, Gates, Triamid, Dark Sanctuary, Orichalcos et Pandemonium. Les branches et partenaires précis figurent dans [l’audit natif des Terrains](docs/audits/native-field-rules-2026-10-07.md).
+
+Les [128 scénarios et leur protocole complet](docs/audits/native-field-rules-2026-10-07.md) couvrent :
+
+- **Zombie World, Necrovalley, Molten Destruction, Gaia Power, Wetlands et A Legendary Ocean** : changements de Type/Niveau et statistiques, plancher de DEF, alias Umi et Monster Reborn légalement activé puis annulé à la résolution par Necrovalley.
+- **Dragon Ravine et Gateway to Chaos** : défausse en coût distincte de l’envoi par effet, choix du mode, recherche du véritable monstre Rituel et ajout depuis le Deck.
+- **Fusion Gate et Extra Net** : choix de Fusion et matériaux, bannissement des trois Blue-Eyes, Invocation Fusion native, trois Fusions successives dans les Main Monster Zones MR5 et pioche déclenchée de l’adversaire.
+- **Summon Breaker et Venom Swamp** : troisième Invocation déclenchant le passage en End Phase ; trigger d’End Phase, compteur et perte d’ATK vérifiés par requête.
+- **Mausoleum of the Emperor, Harpies’ Hunting Ground et Geartown** : paiement natif de LP pour une Invocation sans Sacrifice, cible/destruction obligatoire après Invocation et effet déclenché depuis le Cimetière après Typhon.
+- **Magical Citadel of Endymion et Black Garden** : compteur créé par résolution puis consommé dans un choix de remplacement de destruction ; ATK divisée par deux et véritable Rose Token adverse créé par le script.
+- **Union Hangar, Lost World, Pacifis, Dragonic Diagram, Revolving Switchyard, Runick Fountain et Sky Striker Airspace – Area Zero** : équipement et restrictions, remplacement de destruction, jeton et verrou de type, recherche conditionnée à une véritable destruction, limite partagée, recyclage/pioche et effet depuis le Cimetière. Les partenaires réellement utilisés et leurs scripts sont archivés avec les scénarios.
+
+Les [fenêtres natives](docs/audits/native-rule-windows-2026-10-07.md) vérifient notamment Honest dans la Damage Step, Book of Moon exclu de cette réponse, l’ordre de Sangan/Witch obligatoires, les choix de Type/Attribut et les sommes des coûts. La [suite d’Invocations](tests/native-duel-summoning.test.mjs) distingue les vraies procédures de leurs réanimations. Le [parcours Pendule du navigateur](docs/audits/native-pendulum-ui-2026-10-07.md) complète cette preuve sur desktop et mobile.
+
+La présence du moteur et des scripts amont apporte aussi les procédures de Contact Fusion, Invocations alternatives et recettes particulières que le moteur JavaScript historique n’implémentait pas universellement. Elles ne sont plus présentées comme absentes de cette route. Les scénarios ci-dessus ne prouvent toutefois pas chaque recette, fenêtre ou combinaison ni chaque sélection de l’interface.
+
+## Identités, disponibilité TCG et ressources
+
+Les **335 Terrains dont Project Ignis connaît déjà le passcode canonique** utilisent leur source officielle correspondante. Quatre références conservent des scripts de prépublication :
+
+| Canonique affiché | Code natif amont | Carte |
+| --- | --- | --- |
+| 12845564 | 101402095 | Angelechy Endgame Problem |
+| 46273941 | 100458006 | Pere-Zenet Em Heru |
+| 88288421 | 100459016 | Field Power Bonus |
+| 33700664 | 100458039 | Trirealm Rift Territory - Valvols |
+
+Ces correspondances conservent le code et le véritable alias CDB, le contenu Lua et les descriptions sources ; les images utilisent les passcodes canoniques. Un script provisoire ne confirme ni sortie TCG ni admissibilité de tournoi.
+
+Le constructeur strict applique les restrictions des **339 Terrains** datées du 21 septembre 2026 en TCG et conserve leurs statuts OCG comme métadonnées séparées. Le relevé du 7 octobre refuse cinq sorties TCG futures et six Terrains sans sortie TCG dans les éléments disponibles. Les dates/formats du fournisseur restent distingués des preuves Konami disponibles pour les trois ajouts récents. La sortie primaire d’Angelechy Endgame Problem est annoncée au **8 octobre en Europe / 9 octobre en Amérique du Nord**. Une absence dans une liste Forbidden/Limited ne prouve pas une disponibilité régionale.
+
+Dans tous les modes natifs, les cinq noms toujours traités comme **Umi** partagent leur limite Main/Extra/Side. En Duel libre, les autres noms permanents et variantes d’illustration sont également regroupés par leur alias CDB réel : deux Harpie Lady 1 et deux Harpie Lady 2 font quatre copies du même nom et sont refusées. L’identité physique du passcode reste disponible pour le moteur, l’inventaire et la présentation.
+
+Les archives locales contiennent **14 984 lignes CDB** et **13 702 Lua**, avec 13 541 scripts officiels, 135 scripts de prépublication et 26 helpers. Le catalogue de sélection normalise les variantes, filtre les scopes et types hors Duel ordinaire et demande un script réel, sauf pour un monstre Normal simple. Les jetons sont présents dans les données du moteur mais ne sont pas sélectionnables comme cartes de Deck. Voir [ressources, licences et reproduction](docs/audits/native-card-resources-2026-10-07.md).
+
+## Projection publique et limites
+
+Les [événements visuels natifs](docs/audits/native-duel-integration-2026-10-07.md) reconstruisent une projection publique. Les pioches adverses, poses face verso et mouvements vers des zones cachées ne publient pas leur passcode. Les positions Extra Monster Zones et superpositions Xyz sont conservées ; une carte déplacée en coût ne devient pas une destruction inventée. Un Terrain apparaît après résolution réussie, puis réagit à son retrait, remplacement ou annulation.
+
+Les limites restantes concernent la preuve et la plateforme : les milliers de scripts et leurs interactions n’ont pas tous été exercés ; tous les parcours de choix complexes ne sont pas couverts dans le navigateur ; le catalogue libre ne possède pas une vérification exhaustive des listes ou dates territoriales de toutes ses cartes. Rush Duel, Speed Duel, règlement de tournoi chronométré, multijoueur complet et sauvegarde intégrale d’un Duel ne sont pas annoncés comme livrés. Le jeu solo et les modèles procéduraux ne constituent pas une certification Konami ni une reproduction de l’anime 1:1.
+
+Le moteur historique garde ses régressions, ses 29 effets de Terrain et leurs sources/rulings antérieurs. Les [audits du lot JavaScript](docs/audits/terrain-rules-release-batch2-2026-10-07.md) restent consultables comme historique ; leurs chiffres de couverture ne décrivent plus le mode natif par défaut.
+
+## Architecture et validation reproductible
+
+- [NativeDuelRuntime](src/core/native/NativeDuelRuntime.js) possède le handle, les readers synchrones, les décisions typées et les requêtes de l’OCG core.
+- [NativeDuelGame](src/core/native/NativeDuelGame.js) projette l’état natif et orchestre les décisions du joueur, de l’IA et des vues ; [NativeDuelDecisions](src/core/native/NativeDuelDecisions.js) traduit les sélections.
+- [NativeCardData](src/core/native/NativeCardData.js), [NativeCardRegistry](src/core/native/NativeCardRegistry.js) et [NativeCardCatalogue](src/core/native/NativeCardCatalogue.js) séparent données factuelles, bibliothèque statique et catalogue du Duel libre.
+- [DeckBuilderRules](src/ui/DeckBuilderRules.js) conserve les defaults historiques et exige l’option native explicite, avec prédicats de support et identité issus des ressources chargées pour le catalogue libre.
 
 ```sh
+npm run audit:security
 npm run check
-node --check src/game.js
-node --check main.js
+node scripts/audit-native-field-runtime.mjs
+node scripts/generate-native-field-coverage.mjs
 git diff --check
 ```
 
-`check` lance tous les tests Node, l’audit des 336 WebP de Terrain puis le build. Aucun script lint/typecheck séparé n’existe. Le chunk chargé paresseusement de la Vue Réelle reste au-dessus de l’avertissement Vite de 500 kB ; il n’est pas chargé au démarrage de la vue Compacte.
+`check` exécute les tests Node, audite les 339 JPEG sources et les 339 replis locaux, puis compile Vite. Les assertions natives utilisent le WASM et les scripts réellement livrés, sans mock d’effets ni `skip` en cas d’asset absent. Les tests du constructeur couvrent restrictions, publications, Umi et alias du catalogue libre, sans modifier les tests stricts historiques. Les preuves détaillées et captures restent liées depuis les audits ; le gate global de publication est enregistré séparément.
 
-Résultats du gate final : **506 tests réussis**, 336/336 illustrations distinctes valides, build de production et vérifications syntaxiques réussis. Parcours Chromium isolés desktop et mobile : configuration, défi solo, fin de Duel, médaille, déverrouillage et persistance après rechargement ; aucune erreur JavaScript observée. Le fixture de fin de Duel utilise le hook de développement existant, absent du build public.
+## Sources et licences
 
-## Sources primaires consultées
-
-- [Règlement officiel Konami](https://img.yugioh-card.com/en/downloads/rulebook/SD_RuleBook_EN_10.pdf) : phases, combat, Invocations et destinations.
-- [Damage Step](https://www.yugioh-card.com/eu/play/damage-step-rules/) et [Fast Effect Timing](https://www.yugioh-card.com/en/play/fast-effect-timing/) : séquence du combat et priorité.
-- [PSCT, conjonctions](https://www.yugioh-card.com/en/play/psct/psct-7/) : dépendance des parties d’un effet.
-- Base officielle : [Yami](https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4341&ope=2&request_locale=en), [Umi](https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4340&ope=2&request_locale=en), [Forêt](https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4336&ope=2&request_locale=en), [Montagne](https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4338&ope=2&request_locale=en), [Sogen](https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4339&ope=2&request_locale=fr), [Terre Dévastée](https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=4337&ope=2&request_locale=fr), [LANphorhynchus](https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=13530&ope=2&request_locale=en).
-- [Ruling d’un hybride Pendule non correctement invoqué](https://www.db.yugioh-card.com/yugiohdb/faq_search.action?fid=15418&ope=5&request_locale=ja).
+- [Project Ignis CardScripts, commit épinglé](https://github.com/ProjectIgnis/CardScripts/tree/37f270dc813a12d123707ae255f2bda7922999c4) et [BabelCDB, commit épinglé](https://github.com/ProjectIgnis/BabelCDB/tree/fdf92aea31033cd6c44afa89987c5e00665205e2).
+- [Offre complète de sources](public/native/sources/README.md), [notice du sous-système natif](public/native/NOTICE.md) et [NOTICE du wrapper corrigé](src/core/native/vendor/ocgcore/NOTICE.md) : AGPL-3.0-or-later pour le moteur, CardScripts et les nouveaux adaptateurs ; notices MIT propres au wrapper et à Lua. La licence des données et illustrations n’est pas remplacée par celle du code.
+- [Rulebook officiel](https://img.yugioh-card.com/en/downloads/rulebook/SD_RuleBook_EN_10.pdf), [Master Rule 2020](https://www.yugioh-card.com/japan/howto/masterrule2020/), [Fast Effect Timing](https://www.yugioh-card.com/en/play/fast-effect-timing/) et [Damage Step](https://www.yugioh-card.com/eu/play/damage-step-rules/).
+- [Liste Advanced TCG du 21 septembre 2026](https://www.yugioh-card.com/en/limited/list_2026-09-21/) et [liste OCG du 1er octobre 2026](https://www.yugioh-card.com/japan/event/limitregulation/?list=202610), avec sources et rapprochement détaillés dans [le relevé des 339 Terrains](docs/audits/artifacts/field-banlists-2026-10-07.json).

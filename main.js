@@ -1,14 +1,22 @@
 import { DuelGame } from './src/game.js';
+import { NATIVE_CARDS } from './src/core/native/NativeCardRegistry.js';
+import { loadNativeCardResources } from './src/core/native/NativeCardData.js';
 import { MatchController } from './src/ui/MatchController.js';
 import { DuelViewController } from './src/ui/DuelViewController.js';
 import { SoloCampaignController } from './src/ui/SoloCampaignController.js';
 import { getMission, buildMissionDecks } from './src/content/SoloCampaign.js';
 import { createCampaignDuelTracker } from './src/content/CampaignDuelTracker.js';
+import { chooseAIChainResponse, chooseAIResponseTarget } from './src/content/AIResponsePolicy.js';
 import { isHandPlacementDestinationLegal } from './src/ui/HandPlacement.js';
 import { isFieldSpellCard } from './src/core/FieldSpellRules.js';
+import { isSpellCardActivationPermitted } from './src/core/FieldRuleRuntime.js';
+import { normalizeStrictCardId } from './src/core/StrictCardRegistry.js';
+import { getDeckCopyIdentity } from './src/core/CardNameRules.js';
+import { canAddDeckBuilderCard, getDeckBuilderCopyLimit, validateCustomDeck } from './src/ui/DeckBuilderRules.js';
 import {
   initBoardTilt,
   createCardDOM,
+  createMonsterHologramDOM,
   spawnHologram,
   animateAttack,
   createExplosion,
@@ -222,6 +230,11 @@ function dismissActiveDialog() {
     return;
   }
 
+  if (activeDialog.id === 'field-atlas-modal') {
+    closeFieldAtlas();
+    return;
+  }
+
   if (activeDialog.id === 'decision-modal') {
     finishDecision(null);
     return;
@@ -338,6 +351,29 @@ muteBtn.addEventListener('click', () => {
 
 // Setup Start game trigger (safeguard for Web Audio)
 const startModal = document.getElementById('start-modal');
+const fieldAtlasDialog = document.getElementById('field-atlas-modal');
+let fieldAtlas = null;
+let fieldAtlasLoader = null;
+function closeFieldAtlas() {
+  fieldAtlas?.close();
+  closeDialog(fieldAtlasDialog, { restoreFocus: false });
+  openDialog(startModal, document.getElementById('btn-open-field-atlas'));
+}
+document.getElementById('btn-close-field-atlas').addEventListener('click', closeFieldAtlas);
+document.getElementById('btn-open-field-atlas').addEventListener('click', async () => {
+  openDialog(fieldAtlasDialog, document.getElementById('field-atlas-search'));
+  try {
+    fieldAtlasLoader ||= import('./src/ui/FieldSpellAtlas.js');
+    const { FieldSpellAtlas } = await fieldAtlasLoader;
+    if (activeDialog !== fieldAtlasDialog) return;
+    fieldAtlas ||= new FieldSpellAtlas(fieldAtlasDialog);
+    fieldAtlas.open();
+  } catch {
+    fieldAtlasLoader = null;
+    document.getElementById('field-atlas-summary').textContent = 'Le catalogue n’a pas pu se charger. Réessayez en le rouvrant.';
+  }
+});
+document.getElementById('simulator-card-coverage').textContent = 'Projet fan non officiel. Les 339 Terrains disposent de leurs scripts de duel natifs. Le mode TCG applique les restrictions du corpus local ; le duel libre permet aussi les Terrains OCG et annoncés. Le catalogue indique séparément la précision des décors 3D.';
 const startBtn = document.getElementById('btn-start-duel');
 const campaignController = new SoloCampaignController({
   openDialog, closeDialog,
@@ -461,6 +497,19 @@ if (extraZone && extraModal && extraList && closeExtraBtn) {
     const legalFaceUpPendulumUids = new Set(
       (pendulumOptions?.fromExtraDeck || []).map(card => String(card.uid))
     );
+    const pendulumSelectionRequired = pendulumOptions?.nativeSelectionRequired === true;
+    if (availableActions.canPendulumSummon && pendulumSelectionRequired) {
+      const procedureButton = document.createElement('button');
+      procedureButton.type = 'button';
+      procedureButton.className = 'btn btn-magenta native-extra-pendulum-action';
+      procedureButton.textContent = 'CHOISIR LES MONSTRES PENDULE';
+      procedureButton.setAttribute('aria-label', 'Lancer l’Invocation Pendule puis choisir les monstres autorisés dans la Main et l’Extra Deck');
+      procedureButton.addEventListener('click', async () => {
+        closeDialog(extraModal);
+        await game.performPendulumSummon('player');
+      });
+      extraList.appendChild(procedureButton);
+    }
     const extraCards = [
       ...game.playerExtraDeck.map(card => ({ card, faceUp: false })),
       ...(game.playerFaceUpExtraDeck || []).map(card => ({ card, faceUp: true }))
@@ -473,8 +522,11 @@ if (extraZone && extraModal && extraList && closeExtraBtn) {
       const legal = faceUp
         ? availableActions.canPendulumSummon && legalFaceUpPendulumUids.has(String(card.uid))
         : legalExtraUids.has(String(card.uid));
+      const deferredPendulumChoice = faceUp && pendulumSelectionRequired && availableActions.canPendulumSummon;
       const unavailableReason = faceUp
-        ? 'Invocation Pendule indisponible : vérifiez les Échelles, le Niveau, les zones et la limite d’une fois par tour.'
+        ? deferredPendulumChoice
+          ? 'Utilisez « Choisir les monstres Pendule » pour sélectionner les monstres autorisés.'
+          : 'Invocation Pendule indisponible : vérifiez les Échelles, le Niveau, les zones et la limite d’une fois par tour.'
         : 'Invocation indisponible : matériels, procédure ou zone d’arrivée insuffisants.';
       const cardEl = createCardDOM(card, false);
       cardEl.classList.toggle('face-up-extra-card', faceUp);
@@ -490,7 +542,7 @@ if (extraZone && extraModal && extraList && closeExtraBtn) {
               ? `Invoquer par Pendulation ${card.name} depuis l’Extra Deck face recto`
               : `Invoquer ${card.name} depuis l’Extra Deck`
           )
-          : `${card.name}, indisponible. ${unavailableReason}`
+          : `${card.name}${deferredPendulumChoice ? ', Extra Deck face recto' : ', indisponible'}. ${unavailableReason}`
       );
       if (faceUp) {
         const badge = document.createElement('span');
@@ -501,7 +553,7 @@ if (extraZone && extraModal && extraList && closeExtraBtn) {
       if (!legal) {
         const reason = document.createElement('span');
         reason.className = 'extra-card-reason';
-        reason.textContent = 'INDISPONIBLE';
+        reason.textContent = deferredPendulumChoice ? 'CHOIX PENDULE' : 'INDISPONIBLE';
         reason.title = unavailableReason;
         cardEl.appendChild(reason);
       }
@@ -526,7 +578,8 @@ if (extraZone && extraModal && extraList && closeExtraBtn) {
       extraList.appendChild(cardEl);
     });
 
-    openDialog(extraModal, extraList.querySelector('[role="button"]') || closeExtraBtn);
+    openDialog(extraModal, extraList.querySelector('.native-extra-pendulum-action')
+      || extraList.querySelector('[role="button"]') || closeExtraBtn);
   };
 
   extraZone.addEventListener('click', openExtraDeck);
@@ -638,7 +691,22 @@ const btnCancel = document.getElementById('btn-action-cancel');
 const actionModalTitle = document.getElementById('action-modal-title');
 const actionModalDescription = document.getElementById('action-modal-description');
 
+function canActivateHandPendulumScale(card, zoneIndex = null) {
+  if (typeof game?.canActivatePendulumScale === 'function') return game.canActivatePendulumScale(card, 'player', zoneIndex);
+  if (!game || !card?.isPendulumMonster || game.currentTurn !== 'player'
+    || !game.currentPhase.startsWith('main') || game.isResolvingAction
+    || game.pendingSummon || game.pendingExtraSummon || game.isDiscarding) return false;
+  const indices = zoneIndex === null ? [0, 4] : [zoneIndex];
+  return indices.some(index => [0, 4].includes(index) && game.playerSpells[index] === null)
+    && !game.defense.isActionProhibited('player', 'ACTIVATE_EFFECT', card)
+    && isSpellCardActivationPermitted(game, card, 'player', { pendulumScale: true })
+    && !(card.pendulumActivationRequiresEmptyMonsterField
+      && game.getMonsterEntries('player').length);
+}
+
 function prepareActionDialog(card, { zoneType, index, isPendulumScale }) {
+  btnFaceUp.disabled = false;
+  btnFaceDown.disabled = false;
   if (isPendulumScale) {
     const sideLabel = index === 0 ? 'gauche' : 'droite';
     const cardName = card?.name || 'cette carte';
@@ -647,6 +715,10 @@ function prepareActionDialog(card, { zoneType, index, isPendulumScale }) {
     actionModalDescription.textContent =
       `Activer ${cardName} comme Échelle Pendule ${scale} dans la zone ${sideLabel}.`;
     btnFaceUp.textContent = `ACTIVER L’ÉCHELLE ${scale}`;
+    btnFaceUp.disabled = !canActivateHandPendulumScale(card, index);
+    if (btnFaceUp.disabled) {
+      actionModalDescription.textContent = 'Cette Échelle Pendule ne peut pas être activée dans la situation actuelle.';
+    }
     btnFaceDown.classList.add('hidden');
     return;
   }
@@ -656,7 +728,12 @@ function prepareActionDialog(card, { zoneType, index, isPendulumScale }) {
     actionModalDescription.textContent =
       `Activez ${card?.name || 'cette carte'} ou posez-la face cachée dans votre Zone Terrain.`;
     btnFaceUp.textContent = 'ACTIVER LE TERRAIN';
+    btnFaceUp.disabled = !game.canActivateSpell(card, 'player');
+    if (btnFaceUp.disabled) {
+      actionModalDescription.textContent = 'L’activation de ce Terrain est interdite actuellement. Vous pouvez le poser face cachée.';
+    }
     btnFaceDown.textContent = 'POSER FACE CACHÉE';
+    btnFaceDown.disabled = typeof game.canSetSpell === 'function' && !game.canSetSpell(card, 'player');
     btnFaceDown.classList.remove('hidden');
     return;
   }
@@ -668,6 +745,29 @@ function prepareActionDialog(card, { zoneType, index, isPendulumScale }) {
     : 'ACTIVER FACE RECTO';
   btnFaceDown.textContent = 'POSER FACE CACHÉE';
   btnFaceDown.classList.remove('hidden');
+  if (zoneType === 'monster') {
+    const actions = game.getAvailableActions('player');
+    const canNormalSummon = actions.normalSummonCardUids.includes(card.uid);
+    btnFaceUp.disabled = !canNormalSummon;
+    btnFaceDown.disabled = !(actions.normalSetCardUids || actions.normalSummonCardUids).includes(card.uid);
+    if (!canNormalSummon) {
+      actionModalDescription.textContent = btnFaceDown.disabled
+        ? 'Ce monstre ne peut pas être Invoqué Normalement ni posé dans la situation actuelle.'
+        : 'L’Invocation face recto est indisponible ; ce monstre peut être posé face cachée.';
+    }
+  } else {
+    btnFaceUp.disabled = !game.canActivateSpell(card, 'player');
+    btnFaceDown.disabled = typeof game.canSetSpell === 'function' && !game.canSetSpell(card, 'player');
+    if (btnFaceUp.disabled) {
+      actionModalDescription.textContent = 'Cette carte ne peut pas être activée depuis la Main actuellement. Vous pouvez la poser face cachée.';
+    }
+  }
+}
+
+function getActionDialogInitialFocus() {
+  if (!btnFaceUp.disabled) return btnFaceUp;
+  if (!btnFaceDown.disabled && !btnFaceDown.classList.contains('hidden')) return btnFaceDown;
+  return btnCancel;
 }
 
 if (actionModal && btnFaceUp && btnFaceDown && btnCancel) {
@@ -727,6 +827,10 @@ function finishDecision(value) {
 }
 
 function requestUiDecision(request) {
+  if (request?.side === 'opponent') {
+    const choice = chooseAIResponseTarget(game, request);
+    if (choice !== undefined) return choice;
+  }
   if (!request || request.side !== 'player' || !decisionModal) return undefined;
 
   return new Promise(resolve => {
@@ -743,11 +847,11 @@ function requestUiDecision(request) {
       'activate-graveyard-effect',
       'activate-trap'
     ].includes(request.type)) {
-      decisionTitle.textContent = 'ACTIVER UN EFFET ?';
+      decisionTitle.textContent = request.title || 'ACTIVER UN EFFET ?';
       const damageText = request.damage ? ` pour éviter ${request.damage} dommages` : '';
-      decisionDescription.textContent = request.card?.name
+      decisionDescription.textContent = request.description || (request.card?.name
         ? `Souhaitez-vous activer l’effet optionnel de ${request.card.name}${damageText} ?`
-        : 'Souhaitez-vous activer cet effet optionnel ?';
+        : 'Souhaitez-vous activer cet effet optionnel ?');
 
       [
         { label: 'OUI, ACTIVER', value: true, className: 'btn btn-magenta' },
@@ -765,7 +869,25 @@ function requestUiDecision(request) {
       decisionTitle.textContent = request.title || (request.type === 'coin-call' ? 'ANNONCER LE PILE OU FACE' : 'CHOISIR UNE ACTION');
       decisionDescription.textContent = request.description
         || (request.type === 'coin-call' ? 'Choisissez votre annonce avant le lancer.' : 'Sélectionnez une option.');
-      request.choices.forEach(choice => {
+      const choicesContainer = document.createElement('div');
+      choicesContainer.className = 'decision-choice-list';
+      const searchStatus = document.createElement('p');
+      searchStatus.className = 'decision-search-status';
+      searchStatus.setAttribute('role', 'status');
+      searchStatus.setAttribute('aria-live', 'polite');
+      const searchText = value => String(value).normalize('NFD').replace(/\p{M}/gu, '').toLocaleLowerCase();
+      const renderChoices = (query = '') => {
+        choicesContainer.replaceChildren();
+        const needle = searchText(query.trim());
+        const matches = request.searchable
+          ? request.choices.filter(choice => searchText(`${choice.label ?? choice} ${choice.value ?? ''}`).includes(needle))
+          : request.choices;
+        const choices = request.searchable
+          ? matches.slice(0, 100) : matches;
+        searchStatus.textContent = matches.length === 0 ? 'Aucune carte autorisée ne correspond à cette recherche.'
+          : matches.length > choices.length ? `${choices.length} sur ${matches.length} cartes. Précisez votre recherche.`
+            : `${matches.length} carte${matches.length > 1 ? 's' : ''} autorisée${matches.length > 1 ? 's' : ''}.`;
+        choices.forEach(choice => {
         const value = typeof choice === 'object' ? choice.value : choice;
         const label = typeof choice === 'object'
           ? choice.label
@@ -775,8 +897,20 @@ function requestUiDecision(request) {
         button.className = 'btn';
         button.textContent = label;
         button.addEventListener('click', () => finishDecision(value));
-        decisionOptions.appendChild(button);
-      });
+        choicesContainer.appendChild(button);
+        });
+      };
+      if (request.searchable) {
+        const search = document.createElement('input');
+        search.type = 'search';
+        search.placeholder = 'Rechercher une carte par son nom';
+        search.setAttribute('aria-label', 'Rechercher parmi les cartes autorisées');
+        search.addEventListener('input', () => renderChoices(search.value));
+        decisionOptions.appendChild(search);
+        decisionOptions.appendChild(searchStatus);
+      }
+      decisionOptions.appendChild(choicesContainer);
+      renderChoices();
       decisionCancelBtn.textContent = 'ANNULER';
       decisionCancelBtn.classList.toggle('hidden', request.required === true);
     } else if (
@@ -863,7 +997,6 @@ function requestUiDecision(request) {
     } else if (
       request.multiple === true
       && Array.isArray(request.candidates)
-      && request.candidates.length > 0
     ) {
       decisionTitle.textContent = request.title || 'CHOISIR PLUSIEURS CARTES';
       decisionDescription.textContent = request.description || 'Sélectionnez les cartes, puis confirmez.';
@@ -880,6 +1013,16 @@ function requestUiDecision(request) {
       confirmButton.className = 'btn btn-magenta';
       confirmButton.textContent = 'CONFIRMER LA SÉLECTION';
       confirmButton.disabled = true;
+      const selectionSummary = document.createElement('p');
+      selectionSummary.className = 'decision-selection-summary';
+      selectionSummary.setAttribute('role', 'status');
+      selectionSummary.setAttribute('aria-live', 'polite');
+      if (request.includedCandidates?.length) {
+        const included = document.createElement('p');
+        included.className = 'decision-included-cards';
+        included.textContent = `Déjà inclus : ${request.includedCandidates.map(candidate => candidate.label || candidate.name).join(' ; ')}`;
+        decisionOptions.appendChild(included);
+      }
 
       const updateMultipleSelection = () => {
         const selectedKey = [...selected].sort().join('|');
@@ -887,8 +1030,11 @@ function requestUiDecision(request) {
           selected.size < minimum
           || selected.size > maximum
           || (validSelections && !validSelections.has(selectedKey))
+          || (typeof request.validateSelection === 'function' && !request.validateSelection([...selected]))
         );
         confirmButton.textContent = `CONFIRMER (${selected.size}/${maximum})`;
+        selectionSummary.textContent = typeof request.selectionSummary === 'function'
+          ? request.selectionSummary([...selected]) : '';
         announceStatus(
           `${selected.size} carte${selected.size > 1 ? 's' : ''} sélectionnée${selected.size > 1 ? 's' : ''} sur ${maximum}.`
         );
@@ -919,14 +1065,15 @@ function requestUiDecision(request) {
         });
         decisionOptions.appendChild(button);
       });
+      if (typeof request.selectionSummary === 'function') decisionOptions.appendChild(selectionSummary);
       confirmButton.addEventListener('click', () => finishDecision([...selected]));
       decisionOptions.appendChild(confirmButton);
       updateMultipleSelection();
       decisionCancelBtn.textContent = 'ANNULER';
       decisionCancelBtn.classList.toggle('hidden', request.required === true);
     } else if (Array.isArray(request.candidates) && request.candidates.length > 0) {
-      decisionTitle.textContent = 'CHOISIR UNE CARTE';
-      decisionDescription.textContent = 'Sélectionnez la cible de l’effet.';
+      decisionTitle.textContent = request.title || 'CHOISIR UNE CARTE';
+      decisionDescription.textContent = request.description || 'Sélectionnez la cible de l’effet.';
       request.candidates.forEach(candidate => {
         const button = document.createElement('button');
         button.type = 'button';
@@ -941,7 +1088,7 @@ function requestUiDecision(request) {
       decisionCancelBtn.textContent = request.type === 'chain-response'
         ? 'PASSER LA PRIORITÉ'
         : 'UTILISER LE CHOIX CONSEILLÉ';
-      decisionCancelBtn.classList.remove('hidden');
+      decisionCancelBtn.classList.toggle('hidden', request.required === true);
     } else {
       pendingDecisionResolver = null;
       resolve(undefined);
@@ -949,18 +1096,25 @@ function requestUiDecision(request) {
     }
 
     decisionModal.dataset.dismissible = request.required === true ? 'false' : 'true';
-    openDialog(decisionModal, decisionOptions.querySelector('button'));
+    openDialog(decisionModal, decisionOptions.querySelector('input[type="search"], button'));
   });
 }
 
 decisionCancelBtn?.addEventListener('click', () => finishDecision(null));
 
 function requestUiChainOpportunity(request) {
+  if (request?.side === 'opponent') return chooseAIChainResponse(game, request);
   if (!request || request.side !== 'player' || !request.candidates?.length) return null;
+  const timing = request.context?.timingEvent || request.context?.event;
+  const title = request.lastLink ? 'RÉPONDRE À LA CHAÎNE ?'
+    : timing === 'PHASE_END' ? 'AVANT DE QUITTER LA PHASE'
+      : timing === 'SUMMON_SUCCESS' ? 'RÉPONDRE À L’INVOCATION'
+        : timing === 'ATTACK_DECLARATION' ? 'RÉPONDRE À L’ATTAQUE'
+          : 'ACTIVER UN EFFET RAPIDE ?';
   return requestUiDecision({
     type: 'chain-response',
     side: 'player',
-    title: 'RÉPONDRE À LA CHAÎNE ?',
+    title,
     description: 'Sélectionnez une réponse légale ou passez la priorité.',
     candidates: request.candidates.map(candidate => ({
       uid: candidate.cardUid,
@@ -1252,16 +1406,17 @@ const PREMADE_DECKS = {
       '05053103', '05053103', '05053103', // Battle Ox
       '97590747', '97590747', '97590747', // La Jinn
       '14898066', '14898066', '14898066', // Vorse Raider
-      '66602787', '66602787', '66602787', // Saggi
-      '13039848', '13039848', '13039848', // defensive neutral monster
-      '48305365', '48305365', '48305365', // Axe Raider
-      '49791927', '49791927', '49791927', // Tiger Axe
+      '66602787', '66602787', '26202165', // Saggi and Sangan search support
+      '13039848', '13039848', '54652250', // defensive neutral and Flip destruction
+      '48305365', '48305365', '81777047', // Axe Raider and Luminous Spark
+      '49791927', '49791927', '50913601', // Tiger Axe and Mountain
       '24094653', '24094653', '24094653', // Polymerization
-      '12580477', '12580477', '12580477', // Raigeki
+      '12580477', // Raigeki
+      '05318639', '14087893', // Quick-Play interaction: MST and Book of Moon
       '44095762', '44095762', '44095762', // Mirror Force
       '04206964', '04206964', '04206964', // Trap Hole
       '83764718', // Monster Reborn — Limited 1
-      '88819587', '88819587', '88819587' // neutral Dragon support
+      '88819587', '88819587', '31560081' // Dragon support and Flip spell recovery
     ],
     extra: ['23995346', '84013237', '77637979'],
     side: ['40640057', '71625222', '46986414', '15025844', '70781052']
@@ -1270,17 +1425,18 @@ const PREMADE_DECKS = {
     main: [
       '46986414', '46986414', '46986414', // Dark Magician
       '38033121', '38033121', '38033121', // Dark Magician Girl
-      '40640057', '40640057', '40640057', // Kuriboh
+      '40640057', '40640057', '26202165', // Kuriboh and Sangan search support
       '91152256', '91152256', '91152256', // Celtic Guardian
-      '13039848', '13039848', '13039848', // Giant Soldier of Stone
-      '15025844', '15025844', '15025844', // Mystical Elf
+      '13039848', '81380218', '54652250', // Giant Soldier, Chorus and Flip destruction
+      '15025844', '15025844', '31560081', // Mystical Elf and Magician of Faith
       '05405694', '05405694', // Black Luster Soldier
       '55761792', '55761792', // Black Luster Ritual
       '94415058', '94415058', // Stargazer Magician
       '20409757', '20409757', // Timegazer Magician
-      '06368038', '06368038', // Gaia
+      '06368038', '18161786', // Gaia and Mystic Plasma Zone
       '70781052', '70781052', // Summoned Skull
-      '12580477', '12580477', '12580477', // Raigeki
+      '12580477', // Raigeki
+      '05318639', '14087893', // Quick-Play interaction: MST and Book of Moon
       '44095762', '44095762', '44095762', // Mirror Force
       '04206964', '04206964', '04206964', // Trap Hole
       '83764718' // Monster Reborn — Limited 1
@@ -1294,31 +1450,72 @@ const PREMADE_DECKS = {
       '71625222', '71625222', '71625222', // Time Wizard
       '88819587', '88819587', '88819587', // Baby Dragon
       '48305365', '48305365', '48305365', // Axe Raider
-      '64428736', '64428736', '64428736', // Alligator's Sword
-      '44287299', '44287299', '44287299', // Masaki
-      '49791927', '49791927', '49791927', // Tiger Axe
-      '05053103', '05053103', '05053103', // Battle Ox
+      '64428736', '64428736', '56594520', // Alligator's Sword and Gaia Power
+      '44287299', '44287299', '54652250', // Masaki and Flip destruction
+      '49791927', '49791927', '26202165', // Tiger Axe and Sangan search support
+      '05053103', '05053103', '86318356', // Battle Ox and Sogen
       '91152256', '91152256', '91152256', // warrior support
-      '12580477', '12580477', '12580477', // Raigeki
+      '12580477', // Raigeki
+      '05318639', '14087893', // Quick-Play interaction: MST and Book of Moon
       '44095762', '44095762', '44095762', // Mirror Force
       '04206964', '04206964', '04206964', // Trap Hole
       '83764718', // Monster Reborn — Limited 1
-      '13039848', '13039848', '13039848' // defensive neutral monster
+      '13039848', '13039848', '31560081' // defensive neutral and Flip spell recovery
     ],
     extra: ['84013237', '77637979'],
     side: ['40640057', '46986414', '38033121', '15025844', '97590747']
   }
 };
 
-let selectedGameMode = readStoredValue(STORAGE_KEYS.gameMode) === 'sandbox'
-  ? 'sandbox'
+let selectedGameMode = ['sandbox', 'native'].includes(readStoredValue(STORAGE_KEYS.gameMode))
+  ? readStoredValue(STORAGE_KEYS.gameMode)
   : 'strict';
+let nativeCatalogueResources = null;
+let nativeCatalogueToolkit = null;
+let nativeCataloguePromise = null;
+const nativeBuilderOptions = () => ({
+  native: selectedGameMode !== 'sandbox', format: selectedGameMode === 'native' ? 'ALL' : 'TCG',
+  isSupportedCard: (card, section) => Boolean(nativeCatalogueResources && nativeCatalogueToolkit?.isSupportedNativeCatalogueCard(nativeCatalogueResources, card, section)),
+  getCopyIdentity: card => nativeCatalogueResources && nativeCatalogueToolkit
+    ? nativeCatalogueToolkit.getNativeCardCopyIdentity(nativeCatalogueResources, card) : getDeckCopyIdentity(card)
+});
+const activeLibraryTemplates = () => {
+  if (selectedGameMode === 'sandbox') return [...STARTER_CARDS, ...EXTRA_DECK_CARDS];
+  const query = document.getElementById('builder-card-search')?.value.trim();
+  if (selectedGameMode !== 'native' || !nativeCatalogueResources || !query) return NATIVE_CARDS;
+  return nativeCatalogueToolkit.searchNativeCardCatalogue(nativeCatalogueResources, query, { limit: 100 });
+};
+
+async function ensureNativeCatalogue() {
+  if (nativeCatalogueResources) return nativeCatalogueResources;
+  if (nativeCataloguePromise) return nativeCataloguePromise;
+  nativeCataloguePromise = (async () => {
+    const [toolkit, resources] = await Promise.all([
+      import('./src/core/native/NativeCardCatalogue.js'), loadNativeCardResources()
+    ]);
+    nativeCatalogueToolkit = toolkit;
+    nativeCatalogueResources = resources;
+    for (const id of [...customDeckMainIds, ...customDeckExtraIds, ...customDeckSideIds]) {
+      const card = toolkit.createNativeCardTemplate(resources, id);
+      if (card) {
+        knownCardTemplates.set(String(id), card);
+        knownCardTemplates.set(String(card.id), card);
+        canonicalCardTemplates.set(normalizeStrictCardId(id), card);
+        canonicalCardTemplates.set(normalizeStrictCardId(card.id), card);
+      }
+    }
+    return resources;
+  })();
+  try { return await nativeCataloguePromise; }
+  finally { nativeCataloguePromise = null; }
+}
 let selectedAiDifficulty = ['easy', 'normal', 'hard'].includes(readStoredValue(STORAGE_KEYS.difficulty))
   ? readStoredValue(STORAGE_KEYS.difficulty)
   : 'normal';
 let selectedDuelSeries = readStoredValue(STORAGE_KEYS.duelSeries) === 'match'
   ? 'match'
   : 'single';
+if (selectedDuelSeries === 'match' && selectedGameMode !== 'strict') selectedGameMode = 'strict';
 let currentSelectedDeckId = 'kaiba';
 
 function isTemplateExtraDeckCard(card) {
@@ -1330,20 +1527,29 @@ function isTemplateExtraDeckCard(card) {
 }
 
 const knownCardTemplates = new Map(
-  [...STARTER_CARDS, ...EXTRA_DECK_CARDS].map(template => [String(template.id), template])
+  NATIVE_CARDS.map(template => [String(template.id), template])
 );
+
+const canonicalCardTemplates = new Map(
+  NATIVE_CARDS.map(template => [normalizeStrictCardId(template.id), template])
+);
+
+function canonicalCustomDeckIds(ids) {
+  return (Array.isArray(ids) ? ids : []).flatMap(id => {
+    const template = canonicalCardTemplates.get(normalizeStrictCardId(id));
+    return template ? [String(template.id)] : /^\d{1,9}$/.test(String(id)) && Number(id) > 0 ? [normalizeStrictCardId(id)] : [];
+  });
+}
 
 function normalizeCustomDeckIds(mainIds, extraIds) {
   return {
-    main: (Array.isArray(mainIds) ? mainIds : [])
-      .map(String)
+    main: canonicalCustomDeckIds(mainIds)
       .filter(id => {
         const template = knownCardTemplates.get(id);
-        return Boolean(template && !isTemplateExtraDeckCard(template));
+        return !template || !isTemplateExtraDeckCard(template);
       }),
-    extra: (Array.isArray(extraIds) ? extraIds : [])
-      .map(String)
-      .filter(id => isTemplateExtraDeckCard(knownCardTemplates.get(id)))
+    extra: canonicalCustomDeckIds(extraIds)
+      .filter(id => !knownCardTemplates.has(id) || isTemplateExtraDeckCard(knownCardTemplates.get(id)))
   };
 }
 
@@ -1351,11 +1557,13 @@ const savedCustomDeck = readStoredJson(STORAGE_KEYS.customDeck, { main: [], extr
 const normalizedSavedCustomDeck = normalizeCustomDeckIds(savedCustomDeck.main, savedCustomDeck.extra);
 let customDeckMainIds = normalizedSavedCustomDeck.main;
 let customDeckExtraIds = normalizedSavedCustomDeck.extra;
+let customDeckSideIds = canonicalCustomDeckIds(savedCustomDeck.side);
 if (
   JSON.stringify(savedCustomDeck.main || []) !== JSON.stringify(customDeckMainIds)
   || JSON.stringify(savedCustomDeck.extra || []) !== JSON.stringify(customDeckExtraIds)
+  || JSON.stringify(savedCustomDeck.side || []) !== JSON.stringify(customDeckSideIds)
 ) {
-  writeStoredValue(STORAGE_KEYS.customDeck, JSON.stringify(normalizedSavedCustomDeck));
+  writeStoredValue(STORAGE_KEYS.customDeck, JSON.stringify({ ...normalizedSavedCustomDeck, side: customDeckSideIds }));
 }
 const storedStatistics = readStoredJson(STORAGE_KEYS.statistics, {});
 let duelStatistics = {
@@ -1390,9 +1598,11 @@ function saveCustomDeck() {
   const normalized = normalizeCustomDeckIds(customDeckMainIds, customDeckExtraIds);
   customDeckMainIds = normalized.main;
   customDeckExtraIds = normalized.extra;
+  customDeckSideIds = canonicalCustomDeckIds(customDeckSideIds);
   const saved = writeStoredValue(STORAGE_KEYS.customDeck, JSON.stringify({
     main: customDeckMainIds,
-    extra: customDeckExtraIds
+    extra: customDeckExtraIds,
+    side: customDeckSideIds
   }));
   if (!saved) {
     announceStatus('Le navigateur a refusé la sauvegarde locale du Deck. Il reste utilisable pour cette session.');
@@ -1441,8 +1651,11 @@ function updateModeControls() {
   });
 
   const strictMode = selectedGameMode === 'strict';
+  const sandboxMode = selectedGameMode === 'sandbox';
   const matchMode = selectedDuelSeries === 'match';
   const sandboxModeInput = document.querySelector('input[name="game-mode"][value="sandbox"]');
+  const nativeModeInput = document.querySelector('input[name="game-mode"][value="native"]');
+  if (nativeModeInput) nativeModeInput.disabled = matchMode;
   if (sandboxModeInput) {
     sandboxModeInput.disabled = matchMode;
     sandboxModeInput.setAttribute('aria-disabled', matchMode ? 'true' : 'false');
@@ -1450,41 +1663,39 @@ function updateModeControls() {
   }
   const customChoice = document.querySelector('.deck-choice-card[data-deck-id="custom"]');
   if (customChoice) {
-    customChoice.disabled = strictMode;
-    customChoice.classList.toggle('hidden', strictMode);
-    customChoice.setAttribute('aria-hidden', strictMode ? 'true' : 'false');
+    customChoice.disabled = false;
+    customChoice.classList.remove('hidden');
+    customChoice.setAttribute('aria-hidden', 'false');
   }
 
-  if (strictMode && currentSelectedDeckId === 'custom') {
-    selectDeckChoice(document.querySelector('.deck-choice-card[data-deck-id="kaiba"]'));
-  }
+  if (currentSelectedDeckId === 'custom') initDeckBuilderUI();
 
   if (sandboxPanel) {
-    sandboxPanel.classList.toggle('hidden', strictMode);
-    sandboxPanel.setAttribute('aria-hidden', strictMode ? 'true' : 'false');
+    sandboxPanel.classList.toggle('hidden', !sandboxMode);
+    sandboxPanel.setAttribute('aria-hidden', sandboxMode ? 'false' : 'true');
   }
   const sandboxSearchInput = document.getElementById('search-input');
   if (sandboxSearchInput) {
-    sandboxSearchInput.disabled = strictMode;
-    sandboxSearchInput.setAttribute('aria-disabled', strictMode ? 'true' : 'false');
+    sandboxSearchInput.disabled = !sandboxMode;
+    sandboxSearchInput.setAttribute('aria-disabled', sandboxMode ? 'false' : 'true');
   }
 
   if (modeDescription) {
     modeDescription.textContent = strictMode
       ? (matchMode
         ? 'Match officiel : format TCG Advanced strict, Side Deck et premier à deux victoires.'
-        : 'Mode strict : decks intégrés légaux ; invocations et effets non pris en charge refusés.')
-      : 'Anime Sandbox : recherche API et expérimentations libres activées.';
+        : 'Mode strict : decks intégrés ou personnalisés validés selon la liste Advanced actuelle.')
+      : selectedGameMode === 'native' ? 'Duel libre : les 339 Terrains TCG, OCG et annoncés, avec leurs effets complets. Trois copies par nom ; Main Deck de 40 à 60 cartes.' : 'Anime Sandbox : recherche API et expérimentations libres activées.';
   }
 }
 
 gameModeInputs.forEach(input => {
   input.addEventListener('change', () => {
     if (!input.checked) return;
-    selectedGameMode = input.value === 'sandbox' ? 'sandbox' : 'strict';
+    selectedGameMode = ['sandbox', 'native'].includes(input.value) ? input.value : 'strict';
     writeStoredValue(STORAGE_KEYS.gameMode, selectedGameMode);
     updateModeControls();
-    announceStatus(selectedGameMode === 'strict' ? 'Mode TCG Advanced strict sélectionné.' : 'Mode Anime Sandbox sélectionné.');
+    announceStatus(selectedGameMode === 'strict' ? 'Mode TCG Advanced strict sélectionné.' : selectedGameMode === 'native' ? 'Duel libre avec tous les Terrains sélectionné.' : 'Mode Anime Sandbox sélectionné.');
   });
 });
 
@@ -1521,99 +1732,189 @@ choiceCards.forEach(card => {
   });
 });
 
+document.getElementById('builder-add-to-side')?.addEventListener('change', initDeckBuilderUI);
+document.querySelectorAll('[data-builder-preset]').forEach(button => {
+  button.addEventListener('click', () => {
+    const collection = selectedGameMode !== 'sandbox' ? PREMADE_DECKS : SANDBOX_PREMADE_DECKS;
+    const preset = collection[button.dataset.builderPreset];
+    if (!preset) return;
+    customDeckMainIds = [...preset.main];
+    customDeckExtraIds = [...preset.extra];
+    customDeckSideIds = [...(preset.side || [])];
+    saveCustomDeck();
+    initDeckBuilderUI();
+    announceStatus(`Deck personnalisé remplacé par le preset ${button.dataset.builderPreset.toUpperCase()}.`);
+  });
+});
+
+function getCustomDeckCards() {
+  const resolve = ids => ids.map(id => knownCardTemplates.get(id) || { id, name: `Carte ${id} — chargement requis`, card_type: 'unknown' });
+  return {
+    mainDeck: resolve(customDeckMainIds),
+    extraDeck: resolve(customDeckExtraIds),
+    sideDeck: resolve(customDeckSideIds)
+  };
+}
+
+function builderDestination(template) {
+  return document.getElementById('builder-add-to-side')?.checked ? 'sideDeck'
+    : isTemplateExtraDeckCard(template) ? 'extraDeck' : 'mainDeck';
+}
+
+function updateDeckBuilderLibrary() {
+  const deck = getCustomDeckCards();
+  const allCards = [...deck.mainDeck, ...deck.extraDeck, ...deck.sideDeck];
+  document.querySelectorAll('#library-cards-list [data-card-id]').forEach(button => {
+    const template = knownCardTemplates.get(button.dataset.cardId);
+    const destination = builderDestination(template);
+    const permission = canAddDeckBuilderCard(deck, template, destination, selectedGameMode, nativeBuilderOptions());
+    const copyIdentity = selectedGameMode === 'native' ? nativeBuilderOptions().getCopyIdentity : getDeckCopyIdentity;
+    const count = allCards.filter(card => copyIdentity(card) === copyIdentity(template)).length;
+    const limit = getDeckBuilderCopyLimit(template, selectedGameMode, nativeBuilderOptions());
+    button.disabled = !permission.allowed;
+    button.title = permission.allowed ? `${template.name} — ${count}/${limit} copies`
+      : permission.message;
+    button.setAttribute('aria-label', `Ajouter ${template.name} ${destination === 'sideDeck' ? 'au Side Deck' : 'au deck'}`);
+    button.querySelector('.builder-card-count').textContent = limit === 0 ? 'INTERDITE' : `${count}/${limit}`;
+  });
+}
+
 updateModeControls();
 renderDuelStatistics();
 
 // Render the catalog of cards and current custom deck items
+function filterDeckBuilderLibrary() {
+  const needle = (document.getElementById('builder-card-search')?.value || '').trim().toLocaleLowerCase();
+  document.querySelectorAll('#library-cards-list [data-card-id]').forEach(button => {
+    const card = knownCardTemplates.get(button.dataset.cardId);
+    const kind = document.getElementById('builder-card-filter')?.value || 'all';
+    const wrongType = kind === 'field' ? !isFieldSpellCard(card) : kind !== 'all' && card?.card_type !== kind;
+    const wrongQuery = Boolean(needle) && !`${card?.name} ${card?.name_en} ${card?.id} ${card?.desc || ''}`.toLocaleLowerCase().includes(needle);
+    button.hidden = wrongType || (selectedGameMode === 'native' && nativeCatalogueResources ? false : wrongQuery);
+  });
+}
+document.getElementById('builder-card-search')?.addEventListener('input', () => {
+  if (selectedGameMode === 'native' && nativeCatalogueResources) initDeckBuilderUI();
+  else filterDeckBuilderLibrary();
+});
+document.getElementById('builder-card-filter')?.addEventListener('change', filterDeckBuilderLibrary);
+
 function initDeckBuilderUI() {
   const libraryContainer = document.getElementById('library-cards-list');
   libraryContainer.innerHTML = '';
 
   // Combine all normal starter cards + extra cards for the pool
-  const allCardTemplates = [...STARTER_CARDS, ...EXTRA_DECK_CARDS];
+  const allCardTemplates = activeLibraryTemplates();
 
   allCardTemplates.forEach(template => {
+    knownCardTemplates.set(String(template.id), template);
+    canonicalCardTemplates.set(normalizeStrictCardId(template.id), template);
     const cardItem = document.createElement('button');
     cardItem.type = 'button';
     cardItem.className = 'builder-card-item';
-    cardItem.style.backgroundImage = `url("${getCardCroppedImageUrl(template.id)}")`;
-    cardItem.title = `${template.name} - ATK: ${template.atk} / DEF: ${template.def}`;
-    cardItem.setAttribute('aria-label', `Ajouter ${template.name} au deck`);
+    cardItem.dataset.cardId = String(template.id);
+    cardItem.style.backgroundImage = `url("${template.image_url_cropped || getCardCroppedImageUrl(template.id)}")`;
+    if (template.nativeCatalogueOnly) {
+      const label = document.createElement('span');
+      label.className = 'builder-card-name';
+      label.textContent = template.name;
+      cardItem.appendChild(label);
+    }
+    const count = document.createElement('span');
+    count.className = 'builder-card-count';
+    cardItem.appendChild(count);
 
     // Add event to add to my custom deck
     cardItem.addEventListener('click', () => {
-      const isExtra = /Fusion|Synchro|Xyz|Link/i.test(template.type);
-      const targetList = isExtra ? customDeckExtraIds : customDeckMainIds;
-
-      // Count current occurrences (max 3 limit)
-      const count = targetList.filter(id => id === template.id).length;
-      if (count < 3) {
-        targetList.push(template.id);
-        saveCustomDeck();
-        updateDeckBuilderList();
-      } else {
-        announceStatus(`Maximum atteint : trois copies de ${template.name}.`);
-      }
+      const destination = builderDestination(template);
+      const permission = canAddDeckBuilderCard(getCustomDeckCards(), template, destination, selectedGameMode, nativeBuilderOptions());
+      if (!permission.allowed) return announceStatus(permission.message);
+      const targetList = destination === 'sideDeck' ? customDeckSideIds
+        : destination === 'extraDeck' ? customDeckExtraIds : customDeckMainIds;
+      targetList.push(String(template.id));
+      saveCustomDeck();
+      updateDeckBuilderList();
     });
 
     libraryContainer.appendChild(cardItem);
   });
 
   updateDeckBuilderList();
+  filterDeckBuilderLibrary();
+  const catalogueStatus = document.getElementById('builder-catalogue-status');
+  if (selectedGameMode === 'native') {
+    if (nativeCatalogueResources) {
+      if (catalogueStatus) catalogueStatus.textContent = `${nativeCatalogueToolkit.getNativeCardCatalogueCount(nativeCatalogueResources).toLocaleString('fr-FR')} cartes avec règles natives. Recherchez les partenaires de vos Terrains ; 100 résultats maximum. Les cartes hors bibliothèque illustrée utilisent un visuel neutre.`;
+    } else {
+      if (catalogueStatus) catalogueStatus.textContent = 'Chargement des cartes partenaires…';
+      if (!nativeCataloguePromise) ensureNativeCatalogue().then(() => {
+        if (selectedGameMode === 'native' && currentSelectedDeckId === 'custom') initDeckBuilderUI();
+      }).catch(() => {
+        if (catalogueStatus) catalogueStatus.textContent = 'Chargement impossible. Changez de mode puis réessayez.';
+      });
+    }
+  } else if (catalogueStatus) catalogueStatus.textContent = 'Bibliothèque illustrée : 339 Terrains et 51 autres cartes. La disponibilité et les restrictions TCG sont indiquées sur chaque carte.';
 }
 
 function updateDeckBuilderList() {
   const normalized = normalizeCustomDeckIds(customDeckMainIds, customDeckExtraIds);
   customDeckMainIds = normalized.main;
   customDeckExtraIds = normalized.extra;
+  customDeckSideIds = canonicalCustomDeckIds(customDeckSideIds);
   const deckListContainer = document.getElementById('builder-my-deck-list');
   deckListContainer.innerHTML = '';
 
-  const allCardTemplates = [...STARTER_CARDS, ...EXTRA_DECK_CARDS];
-
-  // Map custom deck IDs to actual card templates
-  const mainCards = customDeckMainIds.map(id => allCardTemplates.find(t => t.id === id)).filter(Boolean);
-  const extraCards = customDeckExtraIds.map(id => allCardTemplates.find(t => t.id === id)).filter(Boolean);
-  const myDeckCombined = [...mainCards, ...extraCards];
-
-  myDeckCombined.forEach((template, index) => {
-    const cardItem = document.createElement('button');
-    cardItem.type = 'button';
-    cardItem.className = 'builder-card-item';
-    cardItem.style.backgroundImage = `url("${getCardCroppedImageUrl(template.id)}")`;
-    cardItem.title = `${template.name} (Cliquez pour retirer)`;
-    cardItem.setAttribute('aria-label', `Retirer ${template.name} du deck`);
-
-    cardItem.addEventListener('click', () => {
-      const isExtra = /Fusion|Synchro|Xyz|Link/i.test(template.type);
-      if (isExtra) {
-        const targetIndex = customDeckExtraIds.indexOf(template.id);
-        if (targetIndex !== -1) customDeckExtraIds.splice(targetIndex, 1);
-      } else {
-        const targetIndex = customDeckMainIds.indexOf(template.id);
-        if (targetIndex !== -1) customDeckMainIds.splice(targetIndex, 1);
+  for (const [label, ids] of [
+    ['Main Deck', customDeckMainIds], ['Extra Deck', customDeckExtraIds], ['Side Deck', customDeckSideIds]
+  ]) {
+    const section = document.createElement('section');
+    const heading = document.createElement('h3');
+    heading.className = 'builder-section-title';
+    heading.textContent = `${label} (${ids.length})`;
+    section.appendChild(heading);
+    const grid = document.createElement('div');
+    grid.className = 'builder-cards-grid';
+    ids.forEach((id, index) => {
+      const template = knownCardTemplates.get(id) || { id, name: `Carte ${id} — chargement requis`, image_url_cropped: '/cards/native-unknown.png', nativeCatalogueOnly: true };
+      const cardItem = document.createElement('button');
+      cardItem.type = 'button';
+      cardItem.className = 'builder-card-item';
+      cardItem.style.backgroundImage = `url("${template.image_url_cropped || getCardCroppedImageUrl(template.id)}")`;
+      if (template.nativeCatalogueOnly) {
+        const cardName = document.createElement('span');
+        cardName.className = 'builder-card-name';
+        cardName.textContent = template.name;
+        cardItem.appendChild(cardName);
       }
-      saveCustomDeck();
-      updateDeckBuilderList();
+      cardItem.title = `${template.name} (Cliquez pour retirer)`;
+      cardItem.setAttribute('aria-label', `Retirer ${template.name} du ${label}`);
+      cardItem.addEventListener('click', () => {
+        ids.splice(index, 1);
+        saveCustomDeck();
+        updateDeckBuilderList();
+      });
+      grid.appendChild(cardItem);
     });
-
-    deckListContainer.appendChild(cardItem);
-  });
+    section.appendChild(grid);
+    deckListContainer.appendChild(section);
+  }
 
   // Update stats
   const totalCount = customDeckMainIds.length;
-  document.getElementById('deck-size-val').textContent = `Main: ${totalCount} / Extra: ${customDeckExtraIds.length}`;
+  document.getElementById('deck-size-val').textContent = `Main: ${totalCount} / Extra: ${customDeckExtraIds.length} / Side: ${customDeckSideIds.length}`;
 
   const validityBadge = document.getElementById('deck-validity-badge');
-  const customDeckIsValid = totalCount >= 40 && totalCount <= 60 && customDeckExtraIds.length <= 15;
+  const validation = validateCustomDeck(getCustomDeckCards(), selectedGameMode, nativeBuilderOptions());
+  const customDeckIsValid = validation.valid;
   validityBadge.setAttribute('aria-live', 'polite');
   if (customDeckIsValid) {
-    validityBadge.textContent = "Taille valide";
+    validityBadge.textContent = "Deck valide";
     validityBadge.className = "badge-status success";
   } else {
-    validityBadge.textContent = "40 à 60 cartes requises";
+    validityBadge.textContent = validation.message;
     validityBadge.className = "badge-status danger";
   }
+  updateDeckBuilderLibrary();
 
   if (currentSelectedDeckId === 'custom') {
     startBtn.disabled = !customDeckIsValid;
@@ -1696,24 +1997,37 @@ async function initGameInstance(matchLaunch = null) {
   pendingAction = null;
   previousPendulumAvailable = false;
 
+  if (selectedGameMode === 'native') {
+    try { await ensureNativeCatalogue(); }
+    catch {
+      stopHologramHum();
+      openDialog(startModal, startBtn);
+      announceStatus('Le chargement des cartes partenaires a échoué. Réessayez.');
+      return;
+    }
+  }
+
   // 1. Resolve selected deck
   let mainIds = [];
   let extraIds = [];
   let sideIds = [];
 
-  if (currentSelectedDeckId === 'custom' && !campaignMission) {
+  if (currentSelectedDeckId === 'custom' && !campaignMission && !matchLaunch) {
     const normalized = normalizeCustomDeckIds(customDeckMainIds, customDeckExtraIds);
     customDeckMainIds = normalized.main;
     customDeckExtraIds = normalized.extra;
-    if (customDeckMainIds.length < 40 || customDeckMainIds.length > 60 || customDeckExtraIds.length > 15) {
-      announceStatus("Votre deck personnalisé doit contenir 40 à 60 cartes principales et au maximum 15 cartes Extra.");
+    customDeckSideIds = canonicalCustomDeckIds(customDeckSideIds);
+    const validation = validateCustomDeck(getCustomDeckCards(), selectedGameMode, nativeBuilderOptions());
+    if (!validation.valid) {
+      announceStatus(validation.message);
       openDialog(startModal, document.getElementById('deck-validity-badge'));
       return;
     }
     mainIds = [...customDeckMainIds];
     extraIds = [...customDeckExtraIds];
+    sideIds = [...customDeckSideIds];
   } else {
-    const deckCollection = selectedGameMode === 'strict'
+    const deckCollection = selectedGameMode !== 'sandbox'
       ? PREMADE_DECKS
       : SANDBOX_PREMADE_DECKS;
     const premade = deckCollection[currentSelectedDeckId] || deckCollection.kaiba;
@@ -1723,21 +2037,21 @@ async function initGameInstance(matchLaunch = null) {
   }
 
   // Find card templates
-  const allTemplates = [...STARTER_CARDS, ...EXTRA_DECK_CARDS];
-  let playerMainCards = mainIds.map(id => allTemplates.find(t => t.id === id)).filter(Boolean);
-  let playerExtraCards = extraIds.map(id => allTemplates.find(t => t.id === id)).filter(Boolean);
-  let playerSideCards = sideIds.map(id => allTemplates.find(t => t.id === id)).filter(Boolean);
+  const allTemplates = [...knownCardTemplates.values()];
+  let playerMainCards = mainIds.map(id => allTemplates.find(t => normalizeStrictCardId(t.id) === normalizeStrictCardId(id))).filter(Boolean);
+  let playerExtraCards = extraIds.map(id => allTemplates.find(t => normalizeStrictCardId(t.id) === normalizeStrictCardId(id))).filter(Boolean);
+  let playerSideCards = sideIds.map(id => allTemplates.find(t => normalizeStrictCardId(t.id) === normalizeStrictCardId(id))).filter(Boolean);
 
   // Avoid mirror-character duels: Yugi faces Kaiba, the other presets face Yugi.
   const opponentDeckId = currentSelectedDeckId === 'yugi' ? 'kaiba' : 'yugi';
-  const deckCollection = selectedGameMode === 'strict'
+  const deckCollection = selectedGameMode !== 'sandbox'
     ? PREMADE_DECKS
     : SANDBOX_PREMADE_DECKS;
   const opponentPreset = deckCollection[opponentDeckId];
-  let opponentMainCards = opponentPreset.main.map(id => allTemplates.find(t => t.id === id)).filter(Boolean);
-  let opponentExtraCards = opponentPreset.extra.map(id => allTemplates.find(t => t.id === id)).filter(Boolean);
+  let opponentMainCards = opponentPreset.main.map(id => allTemplates.find(t => normalizeStrictCardId(t.id) === normalizeStrictCardId(id))).filter(Boolean);
+  let opponentExtraCards = opponentPreset.extra.map(id => allTemplates.find(t => normalizeStrictCardId(t.id) === normalizeStrictCardId(id))).filter(Boolean);
   let opponentSideCards = (opponentPreset.side || [])
-    .map(id => allTemplates.find(t => t.id === id))
+    .map(id => allTemplates.find(t => normalizeStrictCardId(t.id) === normalizeStrictCardId(id)))
     .filter(Boolean);
 
   let singleStartingPlayer = 'player';
@@ -1808,7 +2122,25 @@ async function initGameInstance(matchLaunch = null) {
     opponentLabel.textContent = `${campaignMission.opponentName.toUpperCase()} (IA)`;
   }
 
-  game = new DuelGame({
+  let GameClass = DuelGame;
+  let nativeResources;
+  if (selectedGameMode !== 'sandbox') {
+    announceStatus('Chargement des règles et des scripts de cartes…');
+    try {
+      const [module, resources] = await Promise.all([
+        import('./src/core/native/NativeDuelGame.js'), loadNativeCardResources()
+      ]);
+      GameClass = module.NativeDuelGame;
+      nativeResources = resources;
+    } catch (error) {
+      stopHologramHum();
+      addLogEntry(`Chargement du duel impossible : ${error.message}`, 'danger');
+      openDialog(startModal, startBtn);
+      announceStatus('Le chargement des règles a échoué. Vous pouvez réessayer.');
+      return;
+    }
+  }
+  game = new GameClass({
     onStateChange: updateUI,
     onLog: (msg, type) => {
       const safeMessage = sanitizePublicLogMessage(msg, type);
@@ -1821,11 +2153,13 @@ async function initGameInstance(matchLaunch = null) {
     onChainOpportunity: requestUiChainOpportunity
   }, {
     rulesMode: selectedGameMode,
+    nativeResources,
+    validateDeck: ({ mainDeck, extraDeck }, mode) => validateCustomDeck({ mainDeck, extraDeck, sideDeck: [] }, mode, nativeBuilderOptions()),
     aiDifficulty: selectedAiDifficulty
   });
 
   const startingPlayerId = matchLaunch?.firstPlayerId || singleStartingPlayer;
-  const duelStarted = game.startDuel(
+  const duelStarted = await game.startDuel(
     playerMainCards,
     opponentMainCards,
     playerExtraCards,
@@ -1846,7 +2180,7 @@ async function initGameInstance(matchLaunch = null) {
     ? `, Duel ${matchLaunch?.gameNumber || 1} du Match`
     : '';
   announceStatus(
-    `Duel lancé en mode ${selectedGameMode === 'strict' ? 'TCG Advanced strict' : 'Anime Sandbox'}${matchSuffix}, difficulté ${selectedAiDifficulty}. `
+    `Duel lancé en mode ${selectedGameMode === 'strict' ? 'TCG Advanced strict' : selectedGameMode === 'native' ? 'Duel libre • tous les Terrains' : 'Anime Sandbox'}${matchSuffix}, difficulté ${selectedAiDifficulty}. `
     + `${startingPlayerId === 'player' ? 'Vous commencez.' : 'L’adversaire commence.'}`
   );
   startBGM();
@@ -1856,7 +2190,25 @@ async function initGameInstance(matchLaunch = null) {
 /**
  * Update the user interface based on game state
  */
+async function openNativeActionMenu(cardUid = null) {
+  const actionGame = game;
+  const actions = (actionGame?.getAvailableActions?.('player')?.nativeActions || [])
+    .filter(action => !cardUid || action.cardUid === cardUid);
+  if (!actions.length) { announceStatus('Aucun effet ou invocation disponible actuellement.'); return; }
+  const selected = await requestUiDecision({
+    side: 'player', type: 'native-available-actions', title: 'EFFETS ET INVOCATIONS',
+    description: 'Les coûts, cibles et autres choix vous seront demandés après cette sélection.',
+    choices: actions.map(action => ({ value: action.id, label: action.label }))
+  });
+  if (selected != null && game === actionGame) await actionGame.activateNativeAction(selected);
+}
+document.getElementById('btn-native-actions')?.addEventListener('click', () => openNativeActionMenu());
+
 function updateUI(gameState) {
+  const nativeActions = gameState.getAvailableActions?.('player')?.nativeActions || [];
+  const nativeButton = document.getElementById('btn-native-actions');
+  nativeButton?.classList.toggle('hidden', !nativeActions.length);
+  if (nativeButton) nativeButton.disabled = !nativeActions.length;
   campaignTracker?.observeState(gameState);
   const campaignMission = getMission(activeCampaignMissionId);
   const campaignStatus = document.getElementById('campaign-duel-status');
@@ -1936,7 +2288,11 @@ function updateUI(gameState) {
     && !gameState.isResolvingAction
     && !gameState.pendingSummon
     && !gameState.pendingExtraSummon;
-  const hasSequentialPhase = canChoosePlayerPhase && (
+  const phaseActions = gameState.getAvailableActions?.('player') || {};
+  const nativePhases = typeof gameState.activateNativeAction === 'function';
+  const hasSequentialPhase = nativePhases
+    ? canChoosePlayerPhase && (phaseActions.canBattlePhase || phaseActions.canMainPhase2 || (gameState.currentPhase === 'main2' && phaseActions.canEndPhase))
+    : canChoosePlayerPhase && (
     (gameState.currentPhase === 'main1' && gameState.turnCount > 1)
     || gameState.currentPhase === 'battle'
     || gameState.currentPhase === 'main2'
@@ -1958,7 +2314,7 @@ function updateUI(gameState) {
     nextPhaseBtn.setAttribute('aria-disabled', 'true');
   }
   const canEndTurn = canChoosePlayerPhase
-    && ['main1', 'battle', 'main2'].includes(gameState.currentPhase);
+    && (nativePhases ? phaseActions.canEndPhase : ['main1', 'battle', 'main2'].includes(gameState.currentPhase));
   endTurnBtn?.classList.toggle('hidden', !canEndTurn);
   if (endTurnBtn) {
     endTurnBtn.disabled = !canEndTurn;
@@ -1997,6 +2353,8 @@ function updateUI(gameState) {
         `Échelles ${pendulumOptions.scales.leftScale}/${pendulumOptions.scales.rightScale} · `
         + `niveaux ${lowScale + 1} à ${highScale - 1} · `
         + `${eligibleCount} monstre${eligibleCount > 1 ? 's' : ''} disponible${eligibleCount > 1 ? 's' : ''}.`;
+    } else if (pendulumAvailable && pendulumOptions?.nativeSelectionRequired === true) {
+      pendulumStatus.textContent = 'Choisissez les monstres autorisés dans votre Main et votre Extra Deck.';
     } else {
       pendulumStatus.textContent = '';
     }
@@ -2173,7 +2531,7 @@ function renderHand(handCards) {
   const focusedUid = focusedHandCard?.dataset.uid || null;
   const focusedIndex = Number(focusedHandCard?.dataset.handIndex);
   const availableActions = game?.getAvailableActions?.('player') || {};
-  const legalNormalSummons = new Set((availableActions.normalSummonCardUids || []).map(String));
+  const legalNormalSummons = new Set([...(availableActions.normalSummonCardUids || []), ...(availableActions.normalSetCardUids || [])].map(String));
   const canUseHand = Boolean(
     game
     && game.currentTurn === 'player'
@@ -2199,10 +2557,11 @@ function renderHand(handCards) {
       || (
         canUseHand
         && (
-          (card.card_type === 'monster' && legalNormalSummons.has(String(card.uid)))
+          (card.card_type === 'monster' && (legalNormalSummons.has(String(card.uid))
+            || canActivateHandPendulumScale(card)))
           || (
             card.card_type !== 'monster'
-            && (isFieldSpellCard(card) || hasOpenSpellZone)
+            && (typeof game.canSetSpell === 'function' ? (game.canSetSpell(card, 'player') || game.canActivateSpell(card, 'player')) : (isFieldSpellCard(card) || hasOpenSpellZone))
           )
         )
       )
@@ -2303,6 +2662,18 @@ function renderHand(handCards) {
 /**
  * Drag and drop zone highlighting helper
  */
+function canPlaceHandCard(options) {
+  if (typeof game?.activateNativeAction !== 'function') return isHandPlacementDestinationLegal(options);
+  const { card, zoneType, zoneIndex, occupied } = options;
+  const actions = game.getAvailableActions('player');
+  if (isFieldSpellCard(card)) return zoneType === 'field' && (game.canActivateSpell(card, 'player') || game.canSetSpell(card, 'player'));
+  if (card?.card_type === 'monster') {
+    if (zoneType === 'spell') return !occupied && [0, 4].includes(Number(zoneIndex)) && canActivateHandPendulumScale(card, Number(zoneIndex));
+    return zoneType === 'monster' && [...(actions.normalSummonCardUids || []), ...(actions.normalSetCardUids || [])].includes(card.uid);
+  }
+  return zoneType === 'spell' && !occupied && (game.canActivateSpell(card, 'player') || game.canSetSpell(card, 'player'));
+}
+
 function highlightValidDropZones(card) {
   const selectors = isFieldSpellCard(card)
     ? ['.player-field-pos']
@@ -2314,7 +2685,7 @@ function highlightValidDropZones(card) {
   }
   const controlledMonsterCount = game?.getMonsterEntries?.('player')?.length || 0;
   document.querySelectorAll(selectors.join(',')).forEach(zone => {
-    const legal = isHandPlacementDestinationLegal({
+    const legal = canPlaceHandCard({
       card,
       zoneType: zone.dataset.zoneType,
       zoneIndex: Number(zone.dataset.index),
@@ -2346,12 +2717,15 @@ function clearSelectedHandCard() {
 
 async function openMonsterActionMenu(zoneReference) {
   if (!game || game.currentTurn !== 'player' || !game.currentPhase.startsWith('main')) return;
-  const entry = game.getMonsterEntry?.('player', zoneReference);
+  const actionGame = game;
+  const entry = actionGame.getMonsterEntry?.('player', zoneReference);
   const card = entry?.card;
-  if (!card || card.isSetFaceDown || game.isResolvingAction) return;
+  if (!card || game.isResolvingAction || game.pendingSummon || game.pendingExtraSummon || game.isDiscarding
+    || game.chain?.chainStatus !== 'idle') return;
+  const sourceInstance = card.runtimeInstanceId;
 
   const availableEffects = game.getAvailableActions?.('player')?.monsterEffects || [];
-  const effectIsAvailable = availableEffects.some(action => (
+  const effectIsAvailable = !card.isSetFaceDown && availableEffects.some(action => (
     action.zoneIndex === entry.zoneIndex
     && (action.zoneType || 'main') === entry.zoneType
   ));
@@ -2359,8 +2733,14 @@ async function openMonsterActionMenu(zoneReference) {
   if (effectIsAvailable) {
     choices.push({ value: 'effect', label: `ACTIVER L’EFFET DE ${card.name.toUpperCase()}` });
   }
-  if (!card.isLinkMonster && card.extra_type !== 'link') {
-    choices.push({ value: 'position', label: 'CHANGER LA POSITION DE COMBAT' });
+  if (game.getAvailableActions?.('player')?.positionChangeCardUids
+    ? game.getAvailableActions('player').positionChangeCardUids.includes(card.uid)
+    : !card.isLinkMonster && card.extra_type !== 'link'
+    && card.turnSummoned !== game.turnCount && !card.hasChangedPositionThisTurn
+    && !card.hasAttacked && !(card.attacksDeclaredThisTurn > 0)
+    && !game.hasMonsterAttacked?.(entry)) {
+    choices.push({ value: 'position', label: card.isSetFaceDown
+      ? 'FLIPO-INVOQUER EN POSITION D’ATTAQUE' : 'CHANGER LA POSITION DE COMBAT' });
   }
   if (!choices.length) {
     announceStatus(`${card.name} n’a aucune action manuelle disponible actuellement.`);
@@ -2375,11 +2755,50 @@ async function openMonsterActionMenu(zoneReference) {
     choices
   });
 
+  const currentCard = game?.getMonsterEntry?.('player', zoneReference)?.card;
+  if (game !== actionGame || currentCard !== card || card.runtimeInstanceId !== sourceInstance
+    || game.currentTurn !== 'player' || !game.currentPhase.startsWith('main')
+    || game.isResolvingAction || game.pendingSummon || game.pendingExtraSummon || game.isDiscarding
+    || game.chain?.chainStatus !== 'idle') return;
+
   if (choice === 'effect' && effectIsAvailable) {
     await game.activateMonsterEffect?.(zoneReference, 'player');
   } else if (choice === 'position') {
-    game.toggleMonsterPosition(zoneReference);
+    await game.toggleMonsterPosition(zoneReference);
   }
+}
+
+async function openSetCardActionMenu(zoneType, zoneIndex) {
+  const actionGame = game;
+  if (!actionGame || actionGame.currentTurn !== 'player' || !actionGame.currentPhase.startsWith('main')
+    || actionGame.isResolvingAction || actionGame.pendingSummon || actionGame.pendingExtraSummon
+    || actionGame.isDiscarding || actionGame.chain?.chainStatus !== 'idle') return;
+  const currentCard = () => zoneType === 'field'
+    ? actionGame.playerFieldSpell : actionGame.playerSpells[zoneIndex];
+  const card = currentCard();
+  if (!card?.isSetFaceDown) return;
+  if (card.card_type === 'trap' && typeof actionGame.activateNativeAction !== 'function') {
+    announceStatus(`${card.name} s’active dans une fenêtre de réponse correspondant à son effet.`);
+    return;
+  }
+  if (!actionGame.canActivateSpell(card, 'player')) {
+    announceStatus(`${card.name} ne peut pas être activée dans la situation actuelle.`);
+    return;
+  }
+  const sourceInstance = card.runtimeInstanceId;
+  const choice = await requestUiDecision({
+    type: 'set-card-field-action', side: 'player', title: card.name,
+    description: 'L’adversaire pourra répondre à l’activation.',
+    choices: [{ value: 'activate', label: 'ACTIVER FACE RECTO' }]
+  });
+  if (choice !== 'activate' || game !== actionGame || currentCard() !== card
+    || card.runtimeInstanceId !== sourceInstance || !card.isSetFaceDown
+    || actionGame.currentTurn !== 'player' || !actionGame.currentPhase.startsWith('main')
+    || actionGame.isResolvingAction || actionGame.pendingSummon || actionGame.pendingExtraSummon
+    || actionGame.isDiscarding || actionGame.chain?.chainStatus !== 'idle'
+    || !actionGame.canActivateSpell(card, 'player')) return;
+  if (zoneType === 'field') await actionGame.activateSetFieldSpell('player');
+  else await actionGame.activateSetSpellTrap(zoneIndex);
 }
 
 // Set up Drop Zones event listeners
@@ -2443,7 +2862,7 @@ document.querySelectorAll('.card-zone').forEach(zone => {
       };
       prepareActionDialog(cardInstance, pendingAction);
       const actionChoiceModal = document.getElementById('action-modal');
-      openDialog(actionChoiceModal, btnFaceUp);
+      openDialog(actionChoiceModal, getActionDialogInitialFocus());
     }
 
     clearDropZoneHighlights();
@@ -2469,7 +2888,7 @@ document.querySelectorAll('.card-zone').forEach(zone => {
       && !game.isResolvingAction
     ) {
       const selectedCard = game.playerHand.find(card => card.uid === selectedHandUid);
-      const placementIsLegal = isHandPlacementDestinationLegal({
+      const placementIsLegal = canPlaceHandCard({
         card: selectedCard,
         zoneType,
         zoneIndex: index,
@@ -2491,7 +2910,7 @@ document.querySelectorAll('.card-zone').forEach(zone => {
             isPendulumScale: Boolean(selectedCard.isPendulumMonster && zoneType === 'spell')
           };
           prepareActionDialog(selectedCard, pendingAction);
-          openDialog(actionModal, btnFaceUp);
+          openDialog(actionModal, getActionDialogInitialFocus());
         }
         return;
       }
@@ -2529,13 +2948,11 @@ document.querySelectorAll('.card-zone').forEach(zone => {
         ? game.playerFieldSpell
         : game.playerSpells[index];
       if (card && card.isSetFaceDown) {
-        if (confirm(`Voulez-vous activer la carte face cachée : ${card.name} ?`)) {
-          if (zoneType === 'field') {
-            await game.activateSetFieldSpell('player');
-          } else {
-            await game.activateSetSpellTrap(index);
-          }
-        }
+        await openSetCardActionMenu(zoneType, index);
+        return;
+      }
+      if (card && typeof game.activateNativeAction === 'function') {
+        await openNativeActionMenu(card.uid);
         return;
       }
     }
@@ -2572,7 +2989,8 @@ document.querySelectorAll('.card-zone').forEach(zone => {
       document.querySelectorAll('.player-m-zone, .extra-m-zone.player-controlled')
         .forEach(z => z.classList.remove('attacker-active'));
 
-      const selectedKey = game.getMonsterZoneKey?.(selectedAttackerIndex);
+      const selectedKey = selectedAttackerIndex === null
+        ? null : game.getMonsterZoneKey?.(selectedAttackerIndex);
       const clickedKey = game.getMonsterZoneKey?.(monsterReference);
       if (selectedKey === clickedKey) {
         selectedAttackerIndex = null;
@@ -2667,6 +3085,7 @@ document.addEventListener('click', (e) => {
     !e.target.closest('.card-zone')
     && !e.target.closest('.hand-card-wrapper')
     && !e.target.closest('#btn-next-phase')
+    && !e.target.closest('#btn-toggle-view')
     && !e.target.closest('#extra-deck-modal')
     && !e.target.closest('#action-modal')
     && !e.target.closest('#decision-modal')
@@ -2704,17 +3123,21 @@ function updateBoardZoneAccessibility() {
     const hasVisibleCard = Boolean(zone.querySelector(
       '.card-entity[data-card-visible="true"], .monster-hologram-entity[data-card-visible="true"]'
     ));
+    const hasOwnSetCard = zone.dataset.side === 'player'
+      && Boolean(zone.querySelector('.card-entity[data-card-visible="false"]'));
     const isPlacementTarget = zone.classList.contains('active-zone');
     const isTributeCandidate = zone.classList.contains('tribute-candidate');
     const isTributeSelected = zone.classList.contains('tribute-selected');
     const isAttackTarget = zone.classList.contains('can-target');
     const isAttacker = zone.classList.contains('attacker-active');
     const interactive = hasVisibleCard
+      || hasOwnSetCard
       || isPlacementTarget
       || isTributeCandidate
       || isAttackTarget
       || isAttacker;
     const states = [];
+    if (hasOwnSetCard) states.push('votre carte face verso ; sélectionner pour les actions disponibles');
     if (isPlacementTarget) states.push('destination légale pour la carte sélectionnée');
     if (isTributeCandidate) {
       states.push(isTributeSelected ? 'matériel ou sacrifice sélectionné' : 'matériel ou sacrifice disponible');
@@ -2803,7 +3226,15 @@ function updateInspector(card) {
   }
 
   const isMonster = card.card_type === 'monster';
-  const levelStars = isMonster && card.level ? '★'.repeat(card.level) : '';
+  const currentLevel = Number(typeof card.getLevel === 'function' ? card.getLevel() : card.level);
+  const currentRank = Number(typeof card.getRank === 'function' ? card.getRank() : card.rank);
+  const currentLinkRating = Number(card.linkRating ?? card.level);
+  const levelStars = !isMonster ? '' : card.isLinkMonster
+    ? `LIEN ${Number.isInteger(currentLinkRating) ? currentLinkRating : '—'}`
+    : card.extra_type === 'xyz' || card.isXyzMonster === true
+      ? `RANG ${Number.isInteger(currentRank) ? currentRank : '—'}`
+      : Number.isInteger(currentLevel) && currentLevel > 0
+        ? currentLevel <= 12 ? '★'.repeat(currentLevel) : `NIV. ${currentLevel}` : '';
 
   const atk = typeof card.getAtk === 'function' ? card.getAtk() : (card.atk !== undefined ? card.atk : 0);
   const def = typeof card.getDef === 'function' ? card.getDef() : (card.def !== undefined ? card.def : 0);
@@ -2947,7 +3378,7 @@ function restorePersistedMatchBetweenDuels() {
     const restoredDeckChoice = [...choiceCards].find(
       choice => choice.dataset.deckId === String(payload.selectedDeckId || 'kaiba')
     );
-    if (restoredDeckChoice && restoredDeckChoice.dataset.deckId !== 'custom') {
+    if (restoredDeckChoice) {
       selectDeckChoice(restoredDeckChoice);
     }
     writeStoredValue(STORAGE_KEYS.duelSeries, selectedDuelSeries);
@@ -3608,7 +4039,25 @@ function getAttackProjType(card) {
  */
 function handleGameAnimations(event) {
   campaignTracker?.recordAnimation(event);
+  duelViewController?.playAnimation?.(event);
   const boardEl = document.getElementById('duel-board');
+
+  // A Chain may continue after a card changes visibility. Refresh that public
+  // zone at resolution instead of leaving its old artwork until the Chain ends.
+  if (event.type === 'set-monster' || event.type === 'flip-summon'
+    || (event.type === 'toggle-position' && event.publicReveal === true
+      && ['main', 'extra'].includes(event.zoneType || 'main'))) {
+    const reference = { zoneType: event.zoneType || 'main', zoneIndex: event.zoneIndex };
+    syncZoneCard(findMonsterZoneElement(boardEl, event.target, reference),
+      game?.getMonsterEntry?.(event.target, reference)?.card || null, event.target);
+  } else if (event.type === 'mystical-space-typhoon-cinematic') {
+    const zone = event.zoneType === 'field' ? document.getElementById(`${event.target}-field-zone`)
+      : boardEl.querySelector(`.${event.target}-s-zone[data-index="${event.zoneIndex}"]`);
+    const card = event.zoneType === 'field' ? game?.[`${event.target}FieldSpell`]
+      : game?.getSideState?.(event.target)?.spells[event.zoneIndex];
+    syncZoneCard(zone, card || null, event.target);
+    duelViewController?.update(game);
+  }
 
   if (event.type === 'summon') {
     const side = event.target;
@@ -3625,7 +4074,7 @@ function handleGameAnimations(event) {
       playSummon(getZonePan(side, idx));
     }
   }
-  else if (event.type === 'toggle-position') {
+  else if (event.type === 'toggle-position' && ['main', 'extra'].includes(event.zoneType || 'main')) {
     const side = event.target;
     const idx = event.zoneIndex;
     const position = event.position;

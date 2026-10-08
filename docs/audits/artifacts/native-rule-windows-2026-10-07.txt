@@ -1,0 +1,24 @@
+✔ Prohibition declares a real catalogue identity and the core removes its legal summon command (92.481479ms)
+✔ DNA Surgery race announcement preserves the full native Dragon mask for both players (24.319255ms)
+✔ DNA Transplant attribute announcement changes both monsters after its real chain resolves (19.147959ms)
+✔ Wall of Revealing Light pays the announced number by index before the chain response window (19.927219ms)
+✔ Spellbook Organization click order maps original indices to ranks and really reorders the Deck (31.052148ms)
+✔ Kaiser Sea Horse supplies two LIGHT Tributes while the other offered monster stays on the field (20.011306ms)
+✔ Tokusano Shinkyojin validates an exact Level sum and sends cost cards before any chain response (19.933628ms)
+✔ Machina Fortress accepts a minimal greater Level sum and rejects an unnecessary extra discard (19.879127ms)
+✔ Reasoning makes the opponent announce Level 4 and sends the excavated Level 4 (20.40029ms)
+✔ Reasoning makes the opponent announce Level 3 and summons the excavated Level 4 (19.8345ms)
+✔ Defender distributes a real destruction replacement cost across native Spell Counter holders (49.361016ms)
+✔ simultaneous mandatory Sangan and Witch effects cannot pass priority and resolve in the chosen chain order (21.312369ms)
+✔ the real Damage Step offers Honest, excludes Book of Moon, pays its hand cost and calculates modified battle damage (23.065011ms)
+✔ Nekroz Mirror accepts Shurit’s alternate whole Ritual Level from the real encoded sum prompt (24.361018ms)
+✔ Soul Exchange labels an opposing public Tribute whose real wire reference omits position without resolving hidden cards (27.443788ms)
+✔ public-position callback never overrides an explicit facedown, hand, Deck or unknown reference (0.294903ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 446.098301

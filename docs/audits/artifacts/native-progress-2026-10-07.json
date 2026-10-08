@@ -1,0 +1,271 @@
+{
+  "date": "2026-10-07",
+  "ok": true,
+  "scope": "Local final production build; publication/CI and preview HTTP verification are recorded separately at their exact remote commit. No complete spatial 1:1 or exhaustive rule-branch certification.",
+  "baselineLocalCommit": "ba6c62aa6b3db8f15efad52e3ee8d5fcd143b601",
+  "baselineRemoteCommit": "5b552559f0c1ae951d9f0075ba3a340de37d4e94",
+  "checks": {
+    "testFiles": 121,
+    "failedFiles": 0,
+    "skippedFiles": 0,
+    "productionModules": 99,
+    "securityVulnerabilities": 0,
+    "sourceJpegReferences": 339,
+    "resolvedFallbackReferences": 339,
+    "finalAtlasCameraRebuiltAndBrowserVerified": true
+  },
+  "coverage": {
+    "total": 339,
+    "sourceArt": 339,
+    "dedicatedGeometry": 339,
+    "inspectedGeometry": 339,
+    "sourceReconstructedGeometry": 339,
+    "implementedRules": 29,
+    "nativeBundled": 339,
+    "nativeInitialized": 339,
+    "nativeAvailable": 339,
+    "nativeEffectTested": 115,
+    "nativeIntegrationTested": 0
+  },
+  "native": {
+    "catalogue": 339,
+    "bundled": 339,
+    "initialized": 339,
+    "effectTested": 115,
+    "integrationTested": 0,
+    "scenarios": 128,
+    "passedScenarios": 128
+  },
+  "remainingEffectScenarioFields": 224,
+  "chainScenarios": 25,
+  "choiceContinuationScenarios": 13,
+  "geometry": [
+    {
+      "lot": "stage",
+      "report": "docs/audits/artifacts/field-stage-2026-10-07/report.json",
+      "sha256": "686dd6590c96110ba120e88d1ad5ccf31e362d50d7f9a57aa421990dba1b8b81",
+      "references": 24,
+      "comparisons": 72,
+      "maxima": {
+        "primitives": 212,
+        "drawCalls": 15,
+        "materials": 2
+      }
+    },
+    {
+      "lot": "arcane",
+      "report": "docs/audits/artifacts/field-arcane-2026-10-07/report.json",
+      "sha256": "68439510e89cc671d933472a9e87bb5f9e9bf36687cf3dcf552da8d8f296b942",
+      "references": 24,
+      "comparisons": 72,
+      "maxima": {
+        "primitives": 219,
+        "drawCalls": 17,
+        "materials": 9
+      }
+    },
+    {
+      "lot": "engineering",
+      "report": "docs/audits/artifacts/field-engineering-2026-10-07/report.json",
+      "sha256": "8f09f17fe60619aafd15a6256fc13a5298ef53222cedc465b2a9ececa004f3b6",
+      "references": 24,
+      "comparisons": 72,
+      "maxima": {
+        "primitives": 178,
+        "drawCalls": 18,
+        "materials": 9
+      }
+    },
+    {
+      "lot": "community",
+      "report": "docs/audits/artifacts/field-community-2026-10-07/report.json",
+      "sha256": "56edb271ad643c32b53640c426af78350738fef702824b8e09142ea01bd41af2",
+      "references": 47,
+      "comparisons": 141,
+      "maxima": {
+        "primitives": 183,
+        "drawCalls": 17,
+        "materials": 2
+      }
+    },
+    {
+      "lot": "ritual",
+      "report": "docs/audits/artifacts/field-ritual-2026-10-07/report.json",
+      "sha256": "d89713c040bc210bc09876ec196c0db52532ae7ea756b23657a7bb05eff8838a",
+      "references": 45,
+      "comparisons": 135,
+      "maxima": {
+        "primitives": 166,
+        "drawCalls": 12,
+        "materials": 9
+      }
+    },
+    {
+      "lot": "frontier",
+      "report": "docs/audits/artifacts/field-frontier-2026-10-07/report.json",
+      "sha256": "2800b521affced4f06d94c38d3be250d788f726b1f8e9c5cebc97dd1ff4f5d43",
+      "references": 45,
+      "comparisons": 135,
+      "maxima": {
+        "primitives": 208,
+        "drawCalls": 18,
+        "materials": 8
+      }
+    }
+  ],
+  "newReferences": 209,
+  "newComparisons": 627,
+  "geometryReview": "docs/audits/artifacts/field-final-framing-2026-10-07.json",
+  "browserReports": [
+    {
+      "path": "docs/audits/artifacts/field-atlas-ui-2026-10-07/report.json",
+      "sha256": "f239989d3997c0466ddf756686b7ff09e5d43ca1deae784f0a9d8bfb65a4e8af",
+      "ok": true,
+      "testedIndexSha256": "7173898cef8206cb9f0e12525376ad03e857a22e40fca40ea97c0623e0fdb9fd",
+      "viewports": [
+        [
+          1280,
+          900
+        ],
+        [
+          390,
+          844
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/artifacts/native-chain-ui-2026-10-07/report.json",
+      "sha256": "d091df8761e57c7cd43d85c6049d836af1b16cb7c06bdcb513f0322f08295445",
+      "ok": true,
+      "testedIndexSha256": "7173898cef8206cb9f0e12525376ad03e857a22e40fca40ea97c0623e0fdb9fd",
+      "viewports": [
+        [
+          1280,
+          900
+        ],
+        [
+          390,
+          844
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/artifacts/native-field-choice-ui-2026-10-07/report.json",
+      "sha256": "51a52a4a859f74657c334895678d043715f454d6063c4e4b79e5704ce67a816c",
+      "ok": true,
+      "testedIndexSha256": "7173898cef8206cb9f0e12525376ad03e857a22e40fca40ea97c0623e0fdb9fd",
+      "viewports": [
+        [
+          1280,
+          900
+        ],
+        [
+          390,
+          844
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/artifacts/native-choice-ui-2026-10-07/report.json",
+      "sha256": "8f377e9583de82b39ccad1df7d8fd05dfce0143c610e02071357a126c37d33a7",
+      "ok": true,
+      "testedIndexSha256": "7173898cef8206cb9f0e12525376ad03e857a22e40fca40ea97c0623e0fdb9fd",
+      "viewports": [
+        [
+          1280,
+          900
+        ],
+        [
+          390,
+          844
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/artifacts/native-duel-ui-2026-10-07/report.json",
+      "sha256": "f664279419e0c33168e103023e26aef1100850709d31c5df2d5a9e0754ce6f0c",
+      "ok": true,
+      "testedIndexSha256": "7173898cef8206cb9f0e12525376ad03e857a22e40fca40ea97c0623e0fdb9fd",
+      "viewports": [
+        [
+          1280,
+          900
+        ],
+        [
+          390,
+          844
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/artifacts/native-pendulum-ui-2026-10-07/report.json",
+      "sha256": "da91c8fc63e53a2104d13dd698b23ca7779c9f082956f79a3955c68315923e00",
+      "ok": true,
+      "testedIndexSha256": "7173898cef8206cb9f0e12525376ad03e857a22e40fca40ea97c0623e0fdb9fd",
+      "viewports": [
+        [
+          1280,
+          900
+        ],
+        [
+          390,
+          844
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/artifacts/native-duel-views-2026-10-07/report.json",
+      "sha256": "0f13970b2ae3df0d2959bc1a427cc81e0a6980edfbab50c06510db1a9998f2d7",
+      "ok": true,
+      "testedIndexSha256": "7173898cef8206cb9f0e12525376ad03e857a22e40fca40ea97c0623e0fdb9fd",
+      "viewports": [
+        [
+          1280,
+          900
+        ],
+        [
+          390,
+          844
+        ]
+      ]
+    }
+  ],
+  "compiledFiles": {
+    "/index.html": {
+      "bytes": 35408,
+      "sha256": "9092b61cae2f9f267fc6f35c4f90594220bc123ff9681d9b251e5973b1c1c06f"
+    },
+    "/assets/index-CkdHwDWv.js": {
+      "bytes": 598618,
+      "sha256": "7173898cef8206cb9f0e12525376ad03e857a22e40fca40ea97c0623e0fdb9fd"
+    },
+    "/assets/NativeDuelGame-ZSLU0meg.js": {
+      "bytes": 77200,
+      "sha256": "292967a9fa2eab1eed43a2f0ce172a3e1364eeb86f1c66d1a63e55fb49777980"
+    },
+    "/assets/FieldEnvironmentRegistry-Bv70irwA.js": {
+      "bytes": 595263,
+      "sha256": "bfc14aa98ac8ac1e7ddbdfed7949539c51a6e6b9e3866c0af7190a6d084db062"
+    },
+    "/assets/RealDuelView-C5VUebVM.js": {
+      "bytes": 128319,
+      "sha256": "18f305ead7ef6001629ecab7868e3c382ab50a049aee060efd6aa9e7e314bd44"
+    },
+    "/assets/NativeCardCatalogue-C5eue0gh.js": {
+      "bytes": 52243,
+      "sha256": "c11cb94a875c7791d2937e3ffdb04fc29a6d80c63010e6cd6a0e82e6e4a39289"
+    },
+    "/assets/index-BbUkbKmn.css": {
+      "bytes": 82371,
+      "sha256": "71afb732ab7152dc319dfb6b72812913e23121c24f251ef80e0b69c61e0e749e"
+    }
+  },
+  "wasmSha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+  "productionBranchUnchanged": "3e9e7b24d5b90803c802ccde728643f2033738a8",
+  "limits": [
+    "Volumes adapted to the playable board; not full spatial 1:1.",
+    "Figures and complex ornaments may remain painted.",
+    "224 initialized Fields have no dedicated effect scenario; exercised scripts retain untested branches.",
+    "General browser journeys do not mark all 339 native matrix rows integration-tested."
+  ]
+}

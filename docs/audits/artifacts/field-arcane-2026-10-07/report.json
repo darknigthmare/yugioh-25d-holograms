@@ -1,0 +1,1109 @@
+{
+  "auditDate": "2026-10-07",
+  "baselineCommit": "ba6c62aa6b3db8f15efad52e3ee8d5fcd143b601",
+  "auditScriptSha256": "78aa7949eecbe58b50a5c54ddc897cebda81ce340648038e93a0339121a691e2",
+  "geometryModulesSha256": {
+    "src/ui/FieldEnvironmentGeometry.js": "134b5a9e4cf1982b82a43e54f860522833cf1cea16013003b54153fc79dedb3c",
+    "src/ui/FieldGeometryThree.js": "f1ba391ea533f94a6795f160091077d7488c590cf2e42cf2686c7d0a01fe7e82",
+    "src/ui/FieldEnvironmentAquaticReferences.js": "fc2308aafce72862a97b759cfe25b6818b38580ebde74125af3bdc5c074858b2",
+    "src/ui/FieldEnvironmentArcaneReferences.js": "88776075dac0a9fbc4644e6427a4d3cd49e0305693fb5826056b8f7b4a6d5e3e",
+    "src/ui/FieldEnvironmentArchitecturalReferences.js": "e9bfe454fd75e9934917ba60d431aaf5549f75c20769290cd5dffc929b8895b1",
+    "src/ui/FieldEnvironmentCommunityReferences.js": "498c7a20bb5d0d0d1d7c693c0225f87d0b9fdf6822c33cc98ffc2021722a04ef",
+    "src/ui/FieldEnvironmentDarkReferences.js": "f32d83bdeb1f2a3d51f3d405c0b8e546a3a5ad96132d2d0d79e7281bc45a2066",
+    "src/ui/FieldEnvironmentEngineeringReferences.js": "566328be75b756765ffd33c2eb7738f4825b8d4cdd48c8acec807505d674c8ce",
+    "src/ui/FieldEnvironmentFrontierReferences.js": "926e4873ff5e4c2a038f310eb6d5c702ed8dbe3d92bced322b88fe1cb21997af",
+    "src/ui/FieldEnvironmentMysticalReferences.js": "1e6ec73411e3dd624542edee60000110bd22f38c6f9e90176f18ce071c7da2cc",
+    "src/ui/FieldEnvironmentNatureReferences.js": "0d44bdf0379837717ea1be71599d5572edb9209565cf93bfc5ee5d3768f7c824",
+    "src/ui/FieldEnvironmentRitualReferences.js": "78d9ce8368ffb8102507d15ba6d12fac74181073c73fa61c6a2d42e415e47bd8",
+    "src/ui/FieldEnvironmentStageReferences.js": "27b49bb47872ac935dc3d1e064d792843e24a4d79fb9fdfe0134daed311f1f5e",
+    "src/ui/FieldEnvironmentTechnologyReferences.js": "930d3121814e730d9274a6d2087bcd301c1b18b07250cff1de9abb70676b4742",
+    "src/ui/FieldEnvironmentUrbanReferences.js": "b3d94d8d9f427315fec3b0d36c775fc337d827b92ca6a8fd7de8d8665e5e61c9",
+    "src/ui/FieldEnvironmentWildReferences.js": "b8db1cfd37d85dfd222d0b6c9a89934cc1f9c0d0ce7ae3e95325efafdb07d0c7"
+  },
+  "description": "Sources intactes et volumes p\u00e9riph\u00e9riques isol\u00e9s : dimensions adapt\u00e9es, sans promesse de fid\u00e9lit\u00e9 spatiale 1:1.",
+  "moduleSha256": "88776075dac0a9fbc4644e6427a4d3cd49e0305693fb5826056b8f7b4a6d5e3e",
+  "factorySha256": "134b5a9e4cf1982b82a43e54f860522833cf1cea16013003b54153fc79dedb3c",
+  "productionThreeSha256": "f1ba391ea533f94a6795f160091077d7488c590cf2e42cf2686c7d0a01fe7e82",
+  "testSha256": "37fcd544942137f97cbf9c22ed9d3e7ad80b2e976f8285acca84c4eca657fe7a",
+  "baselineSha256": "b83bba7f70345735cdd0921503fbed0579fe71dba67e5c84fd0b849391e0b121",
+  "baselineModules": {
+    "commit": "ba6c62aa6b3db8f15efad52e3ee8d5fcd143b601",
+    "files": {
+      "src/ui/FieldGeometryThree.js": "f1ba391ea533f94a6795f160091077d7488c590cf2e42cf2686c7d0a01fe7e82",
+      "src/ui/FieldEnvironmentRegistry.js": "4312f060be24418091f4f629727766d406043c2a32d79717e9f3220123227dd8",
+      "src/ui/FieldSpellRuntimeManifest.js": "0918f086daae0c0ac55e355624e89ac934be19b90bc99b3f0a5347be1e53d729",
+      "src/ui/FieldSpellEnvironmentCatalog.js": "37bf5157ca5a8fbfb6c1d93898a3d2efcb3fd620b3c5e61e63f26d46225aee33",
+      "src/ui/FieldSpellReferenceArtManifest.js": "2c98d28f4fd7d8186f745e18994ad8ebdf1ceae8936f481c7b440219ff8fc486",
+      "src/ui/FieldSpellReferenceArtPalettes.js": "39d7a5073366407942497b92de7afe5e319b87957edb19068671bee83f7fbb88",
+      "src/ui/FieldEnvironmentGeometry.js": "b83bba7f70345735cdd0921503fbed0579fe71dba67e5c84fd0b849391e0b121",
+      "src/ui/FieldEnvironmentWildReferences.js": "b8db1cfd37d85dfd222d0b6c9a89934cc1f9c0d0ce7ae3e95325efafdb07d0c7",
+      "src/ui/FieldEnvironmentDarkReferences.js": "f32d83bdeb1f2a3d51f3d405c0b8e546a3a5ad96132d2d0d79e7281bc45a2066",
+      "src/ui/FieldEnvironmentAquaticReferences.js": "fc2308aafce72862a97b759cfe25b6818b38580ebde74125af3bdc5c074858b2",
+      "src/ui/FieldEnvironmentUrbanReferences.js": "b3d94d8d9f427315fec3b0d36c775fc337d827b92ca6a8fd7de8d8665e5e61c9",
+      "src/ui/FieldEnvironmentMysticalReferences.js": "1e6ec73411e3dd624542edee60000110bd22f38c6f9e90176f18ce071c7da2cc",
+      "src/ui/FieldEnvironmentTechnologyReferences.js": "930d3121814e730d9274a6d2087bcd301c1b18b07250cff1de9abb70676b4742",
+      "src/ui/FieldEnvironmentArchitecturalReferences.js": "e9bfe454fd75e9934917ba60d431aaf5549f75c20769290cd5dffc929b8895b1",
+      "src/ui/FieldEnvironmentNatureReferences.js": "0d44bdf0379837717ea1be71599d5572edb9209565cf93bfc5ee5d3768f7c824",
+      "src/core/FieldSpellRules.js": "52abde627e6e18420777a379d03a35c780de1acbd9be5d953bca54db3d45a046"
+    }
+  },
+  "references": [
+    {
+      "cardId": "12644061",
+      "name": "Advanced Dark",
+      "camera": [
+        23,
+        22,
+        8
+      ],
+      "target": [
+        0,
+        18,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/12644061.jpg",
+      "sha256": "e1342192b68c4f650782348cb5f04b856b00fb1f1a2e6a92392c3b25230ecbf9"
+    },
+    {
+      "cardId": "23160024",
+      "name": "Amorphous Persona",
+      "camera": [
+        23,
+        22,
+        8
+      ],
+      "target": [
+        0,
+        15,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/23160024.jpg",
+      "sha256": "8c4081f0a030f04e7e72df9eee7b7219c497d884f642bec689e4834c130ef0e4"
+    },
+    {
+      "cardId": "2906939",
+      "name": "Ashtrashen - Gate to the Worlds Beyond",
+      "camera": [
+        23,
+        22,
+        8
+      ],
+      "target": [
+        0,
+        15,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/2906939.jpg",
+      "sha256": "58ed16a91982943f68d5327cf9947ab64396ebfb3f45bb95f57f58e9e2004851"
+    },
+    {
+      "cardId": "30761649",
+      "name": "Barian Untopia",
+      "camera": [
+        23,
+        22,
+        8
+      ],
+      "target": [
+        0,
+        15,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/30761649.jpg",
+      "sha256": "88558ff8b6d21111651f8884c2db1688a99292651d77946d27aaa3879198dfc2"
+    },
+    {
+      "cardId": "39513225",
+      "name": "Barian's Seventh Untopia",
+      "camera": [
+        22,
+        23,
+        4
+      ],
+      "target": [
+        0,
+        8,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/39513225.jpg",
+      "sha256": "54fb3d905c95aa7cd0d27f77e50153070cd996c418eba64e36cb2130db5c7e89"
+    },
+    {
+      "cardId": "3129133",
+      "name": "Delta of Invitation",
+      "camera": [
+        22,
+        23,
+        4
+      ],
+      "target": [
+        0,
+        8,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/3129133.jpg",
+      "sha256": "fb82180e1b2ab9e95d8b22f697642157e78f4d791c98426772a12b029c92a4d5"
+    },
+    {
+      "cardId": "44710391",
+      "name": "Earthbound Geoglyph",
+      "camera": [
+        22,
+        23,
+        4
+      ],
+      "target": [
+        0,
+        8,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/44710391.jpg",
+      "sha256": "3291d40a444068274c7d0c1d0093d6c5196263387e8ab4275cd3a79dc95f71b8"
+    },
+    {
+      "cardId": "71089030",
+      "name": "Earthbound Prison",
+      "camera": [
+        23,
+        22,
+        8
+      ],
+      "target": [
+        0,
+        15,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/71089030.jpg",
+      "sha256": "a8d764df5d04f0e677e796c684592cc38e610b73404d52e09221b6762ba73618"
+    },
+    {
+      "cardId": "74665651",
+      "name": "Dream Mirror of Joy",
+      "camera": [
+        23,
+        22,
+        8
+      ],
+      "target": [
+        0,
+        15,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/74665651.jpg",
+      "sha256": "6c0ef649319c6e6fdb879a4e1dc544d8085d5ae4113d30aaf5b4c619f7cda5ee"
+    },
+    {
+      "cardId": "43912676",
+      "name": "Celestia",
+      "camera": [
+        23,
+        22,
+        8
+      ],
+      "target": [
+        0,
+        15,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/43912676.jpg",
+      "sha256": "6372e75248b2378993c35e21bec2d461d6d954379052e53ad6898b983cf9971c"
+    },
+    {
+      "cardId": "70422863",
+      "name": "Hexatellarknight",
+      "camera": [
+        23,
+        22,
+        8
+      ],
+      "target": [
+        0,
+        15,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/70422863.jpg",
+      "sha256": "cb7f5cfe66ba506bdaaf8ff6d1d4bf861678b737979b1e6c5c31a198f6b42ad0"
+    },
+    {
+      "cardId": "73206827",
+      "name": "Light Barrier",
+      "camera": [
+        23,
+        22,
+        8
+      ],
+      "target": [
+        0,
+        15,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/73206827.jpg",
+      "sha256": "3f1b0841849c6f21c048d6790498e6fe682481371c7c224a56b5f2ea5850e2ab"
+    },
+    {
+      "cardId": "13482262",
+      "name": "Impcantation Thanatosis",
+      "camera": [
+        23,
+        22,
+        8
+      ],
+      "target": [
+        0,
+        15,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/13482262.jpg",
+      "sha256": "00af265520c3d17678b5bd7f7da6c8e34a511e23496bc687d31f14e8eb1843d6"
+    },
+    {
+      "cardId": "36099620",
+      "name": "Realm of Light",
+      "camera": [
+        23,
+        22,
+        8
+      ],
+      "target": [
+        0,
+        15,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/36099620.jpg",
+      "sha256": "2039bbbb89b36cd390fb6bbf9fe9d46e33e5962239d0e14af374b68cf210f9f9"
+    },
+    {
+      "cardId": "32354768",
+      "name": "Oracle of Zefra",
+      "camera": [
+        23,
+        22,
+        8
+      ],
+      "target": [
+        0,
+        15,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/32354768.jpg",
+      "sha256": "f96df7f660491f69502aaa6ab50b7124a70cea00fdd575dc147204ac98ce1908"
+    },
+    {
+      "cardId": "82460246",
+      "name": "Peaceful Planet Calarium",
+      "camera": [
+        23,
+        22,
+        8
+      ],
+      "target": [
+        0,
+        15,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/82460246.jpg",
+      "sha256": "db3e106bba985fa2a4be9d9c5327b27f51a06064cf189bbe4cb0ebc668a50139"
+    },
+    {
+      "cardId": "13764602",
+      "name": "Perfect Sync - A-Un",
+      "camera": [
+        23,
+        22,
+        8
+      ],
+      "target": [
+        0,
+        15,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/13764602.jpg",
+      "sha256": "1af28373d8d8816491c6323ce48fb048d7e3ca631d8de785fe580aa4b2e62f70"
+    },
+    {
+      "cardId": "18720257",
+      "name": "The Weather Forecast",
+      "camera": [
+        23,
+        22,
+        8
+      ],
+      "target": [
+        0,
+        15,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/18720257.jpg",
+      "sha256": "48d340699cf89fd3fc5a0e90a2eb075201b6c82756967a8311cf4cc2c7fc5c4b"
+    },
+    {
+      "cardId": "39210885",
+      "name": "Vaalmonica, the Agathokakological Voice",
+      "camera": [
+        23,
+        22,
+        8
+      ],
+      "target": [
+        0,
+        15,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/39210885.jpg",
+      "sha256": "a47eb01a1aee8b49787648765bb2e948ec3117fdfbdc7e42ba099881f7f06067"
+    },
+    {
+      "cardId": "91880660",
+      "name": "Way Where There's a Will",
+      "camera": [
+        23,
+        22,
+        8
+      ],
+      "target": [
+        0,
+        15,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/91880660.jpg",
+      "sha256": "e53e03372e7438c6defaa54d62b0d5876bd6c4c97649686c0c499ccf2bd467d8"
+    },
+    {
+      "cardId": "22555834",
+      "name": "Stairway to a Fabled Realm",
+      "camera": [
+        23,
+        22,
+        8
+      ],
+      "target": [
+        0,
+        15,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/22555834.jpg",
+      "sha256": "c8fe7d87c307373e619eeb16dfcd6634f3b56ce36c932bd897be4dcb823b29b5"
+    },
+    {
+      "cardId": "50433147",
+      "name": "The Nordic Lights",
+      "camera": [
+        23,
+        22,
+        8
+      ],
+      "target": [
+        0,
+        15,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/50433147.jpg",
+      "sha256": "f6a5fb7a95a54a417c564926bd697b8ec8d87d80a3a190aa8b0827b10bfc0398"
+    },
+    {
+      "cardId": "5414777",
+      "name": "World of Spirits",
+      "camera": [
+        22,
+        23,
+        4
+      ],
+      "target": [
+        0,
+        8,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/5414777.jpg",
+      "sha256": "77f2e208b781697c6b96c05e8a647448d9518bded555b7f41aeabb841fdd47d2"
+    },
+    {
+      "cardId": "32999573",
+      "name": "Xyz Override",
+      "camera": [
+        23,
+        22,
+        8
+      ],
+      "target": [
+        0,
+        15,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/32999573.jpg",
+      "sha256": "70812ccec6e18143fc0aefe508629e6c2e4c8adee4c8bcba47094ff1c4f8a8de"
+    }
+  ],
+  "validation": {
+    "directTests": [
+      {
+        "file": "test/field-arcane-references.test.js",
+        "pass": 7,
+        "exitCode": 0
+      }
+    ],
+    "actualMaxima": {
+      "primitives": 219,
+      "drawCalls": 17,
+      "materials": 9
+    },
+    "budgets": {
+      "maxPrimitives": 220,
+      "maxDrawCalls": 18,
+      "maxMaterials": 10
+    }
+  },
+  "capture": {
+    "details": [
+      {
+        "cardId": "12644061",
+        "before": {
+          "url": null,
+          "primitives": 34,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 516
+        },
+        "after": {
+          "url": null,
+          "primitives": 35,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 9024
+        }
+      },
+      {
+        "cardId": "23160024",
+        "before": {
+          "url": null,
+          "primitives": 29,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 7128
+        },
+        "after": {
+          "url": null,
+          "primitives": 30,
+          "drawCalls": 11,
+          "materials": 6,
+          "triangles": 7576
+        }
+      },
+      {
+        "cardId": "2906939",
+        "before": {
+          "url": null,
+          "primitives": 29,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 7128
+        },
+        "after": {
+          "url": null,
+          "primitives": 53,
+          "drawCalls": 17,
+          "materials": 4,
+          "triangles": 10524
+        }
+      },
+      {
+        "cardId": "30761649",
+        "before": {
+          "url": null,
+          "primitives": 29,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 7128
+        },
+        "after": {
+          "url": null,
+          "primitives": 38,
+          "drawCalls": 7,
+          "materials": 6,
+          "triangles": 19928
+        }
+      },
+      {
+        "cardId": "39513225",
+        "before": {
+          "url": null,
+          "primitives": 29,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 7128
+        },
+        "after": {
+          "url": null,
+          "primitives": 92,
+          "drawCalls": 3,
+          "materials": 3,
+          "triangles": 6072
+        }
+      },
+      {
+        "cardId": "3129133",
+        "before": {
+          "url": null,
+          "primitives": 29,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 7128
+        },
+        "after": {
+          "url": null,
+          "primitives": 39,
+          "drawCalls": 4,
+          "materials": 4,
+          "triangles": 5576
+        }
+      },
+      {
+        "cardId": "44710391",
+        "before": {
+          "url": null,
+          "primitives": 34,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 516
+        },
+        "after": {
+          "url": null,
+          "primitives": 150,
+          "drawCalls": 6,
+          "materials": 5,
+          "triangles": 12132
+        }
+      },
+      {
+        "cardId": "71089030",
+        "before": {
+          "url": null,
+          "primitives": 34,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 516
+        },
+        "after": {
+          "url": null,
+          "primitives": 72,
+          "drawCalls": 8,
+          "materials": 4,
+          "triangles": 18992
+        }
+      },
+      {
+        "cardId": "74665651",
+        "before": {
+          "url": null,
+          "primitives": 48,
+          "drawCalls": 10,
+          "materials": 5,
+          "triangles": 3512
+        },
+        "after": {
+          "url": null,
+          "primitives": 219,
+          "drawCalls": 16,
+          "materials": 6,
+          "triangles": 20864
+        }
+      },
+      {
+        "cardId": "43912676",
+        "before": {
+          "url": null,
+          "primitives": 42,
+          "drawCalls": 6,
+          "materials": 4,
+          "triangles": 2640
+        },
+        "after": {
+          "url": null,
+          "primitives": 52,
+          "drawCalls": 5,
+          "materials": 3,
+          "triangles": 7352
+        }
+      },
+      {
+        "cardId": "70422863",
+        "before": {
+          "url": null,
+          "primitives": 42,
+          "drawCalls": 6,
+          "materials": 4,
+          "triangles": 2640
+        },
+        "after": {
+          "url": null,
+          "primitives": 24,
+          "drawCalls": 11,
+          "materials": 4,
+          "triangles": 13308
+        }
+      },
+      {
+        "cardId": "73206827",
+        "before": {
+          "url": null,
+          "primitives": 42,
+          "drawCalls": 6,
+          "materials": 4,
+          "triangles": 2640
+        },
+        "after": {
+          "url": null,
+          "primitives": 54,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 27488
+        }
+      },
+      {
+        "cardId": "13482262",
+        "before": {
+          "url": null,
+          "primitives": 34,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 516
+        },
+        "after": {
+          "url": null,
+          "primitives": 50,
+          "drawCalls": 17,
+          "materials": 9,
+          "triangles": 13496
+        }
+      },
+      {
+        "cardId": "36099620",
+        "before": {
+          "url": null,
+          "primitives": 42,
+          "drawCalls": 6,
+          "materials": 4,
+          "triangles": 2640
+        },
+        "after": {
+          "url": null,
+          "primitives": 177,
+          "drawCalls": 12,
+          "materials": 5,
+          "triangles": 11260
+        }
+      },
+      {
+        "cardId": "32354768",
+        "before": {
+          "url": null,
+          "primitives": 42,
+          "drawCalls": 6,
+          "materials": 4,
+          "triangles": 2640
+        },
+        "after": {
+          "url": null,
+          "primitives": 15,
+          "drawCalls": 7,
+          "materials": 6,
+          "triangles": 30252
+        }
+      },
+      {
+        "cardId": "82460246",
+        "before": {
+          "url": null,
+          "primitives": 42,
+          "drawCalls": 6,
+          "materials": 4,
+          "triangles": 2640
+        },
+        "after": {
+          "url": null,
+          "primitives": 40,
+          "drawCalls": 6,
+          "materials": 6,
+          "triangles": 24248
+        }
+      },
+      {
+        "cardId": "13764602",
+        "before": {
+          "url": null,
+          "primitives": 22,
+          "drawCalls": 2,
+          "materials": 1,
+          "triangles": 480
+        },
+        "after": {
+          "url": null,
+          "primitives": 4,
+          "drawCalls": 4,
+          "materials": 2,
+          "triangles": 14400
+        }
+      },
+      {
+        "cardId": "18720257",
+        "before": {
+          "url": null,
+          "primitives": 42,
+          "drawCalls": 6,
+          "materials": 4,
+          "triangles": 2640
+        },
+        "after": {
+          "url": null,
+          "primitives": 82,
+          "drawCalls": 7,
+          "materials": 6,
+          "triangles": 17248
+        }
+      },
+      {
+        "cardId": "39210885",
+        "before": {
+          "url": null,
+          "primitives": 42,
+          "drawCalls": 6,
+          "materials": 4,
+          "triangles": 2640
+        },
+        "after": {
+          "url": null,
+          "primitives": 32,
+          "drawCalls": 13,
+          "materials": 6,
+          "triangles": 13592
+        }
+      },
+      {
+        "cardId": "91880660",
+        "before": {
+          "url": null,
+          "primitives": 42,
+          "drawCalls": 6,
+          "materials": 4,
+          "triangles": 2640
+        },
+        "after": {
+          "url": null,
+          "primitives": 8,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 31520
+        }
+      },
+      {
+        "cardId": "22555834",
+        "before": {
+          "url": null,
+          "primitives": 42,
+          "drawCalls": 6,
+          "materials": 4,
+          "triangles": 2640
+        },
+        "after": {
+          "url": null,
+          "primitives": 47,
+          "drawCalls": 7,
+          "materials": 4,
+          "triangles": 11968
+        }
+      },
+      {
+        "cardId": "50433147",
+        "before": {
+          "url": null,
+          "primitives": 42,
+          "drawCalls": 6,
+          "materials": 4,
+          "triangles": 2640
+        },
+        "after": {
+          "url": null,
+          "primitives": 80,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 10108
+        }
+      },
+      {
+        "cardId": "5414777",
+        "before": {
+          "url": null,
+          "primitives": 42,
+          "drawCalls": 6,
+          "materials": 4,
+          "triangles": 2640
+        },
+        "after": {
+          "url": null,
+          "primitives": 117,
+          "drawCalls": 6,
+          "materials": 6,
+          "triangles": 21076
+        }
+      },
+      {
+        "cardId": "32999573",
+        "before": {
+          "url": null,
+          "primitives": 29,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 7128
+        },
+        "after": {
+          "url": null,
+          "primitives": 69,
+          "drawCalls": 8,
+          "materials": 4,
+          "triangles": 6068
+        }
+      }
+    ],
+    "images": 72,
+    "complete": true,
+    "errors": [],
+    "artifacts": [
+      "docs/audits/artifacts/field-arcane-2026-10-07/field-arcane-gates-2026-10-07.jpg",
+      "docs/audits/artifacts/field-arcane-2026-10-07/field-arcane-horizons-2026-10-07.jpg",
+      "docs/audits/artifacts/field-arcane-2026-10-07/field-arcane-sanctuaries-2026-10-07.jpg",
+      "docs/audits/artifacts/field-arcane-2026-10-07/field-arcane-phenomena-2026-10-07.jpg"
+    ],
+    "gallery": "docs/audits/artifacts/field-arcane-2026-10-07/gallery.html",
+    "gallerySha256": "e65ed0600b634ceec00a58d6bfd28caa3532941380c01bab178aa62db864cc16",
+    "galleryValidation": {
+      "images": 72,
+      "activeScripts": 0,
+      "exactSourceJpgs": 24,
+      "browserLoadedImages": 72,
+      "captureDimensions": [
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ]
+      ],
+      "errors": []
+    },
+    "artifactSha256": {
+      "docs/audits/artifacts/field-arcane-2026-10-07/field-arcane-gates-2026-10-07.jpg": "56774fcac110d1e74982e5342a94819e4ddbc5a0791d5aa827f4399eff73e68e",
+      "docs/audits/artifacts/field-arcane-2026-10-07/field-arcane-horizons-2026-10-07.jpg": "f1e05b970f831ba6cd12ab918d3af5d8499f5d34d54fb7fac3bd2d09bd56884c",
+      "docs/audits/artifacts/field-arcane-2026-10-07/field-arcane-sanctuaries-2026-10-07.jpg": "0ef4dddc9824e5af059fdddee70cfc2d3251fd3773fe35af2658717e16e49b10",
+      "docs/audits/artifacts/field-arcane-2026-10-07/field-arcane-phenomena-2026-10-07.jpg": "ea742d97bee8affea57b1f4218d59755637669b9ec2d165780f7b3f3b8400018"
+    }
+  }
+}

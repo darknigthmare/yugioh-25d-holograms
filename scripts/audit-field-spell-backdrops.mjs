@@ -6,6 +6,13 @@ import { fileURLToPath } from 'node:url';
 import {
   FIELD_SPELL_ILLUSTRATION_BRIEF_MANIFEST
 } from '../src/ui/FieldSpellIllustrationBriefManifest.js';
+import { getFieldSpellReferenceArtEntry } from '../src/ui/FieldSpellReferenceArtManifest.js';
+import {
+  FIELD_ENVIRONMENT_REGISTRY,
+  FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE,
+  getFieldEnvironmentForCardId,
+  resolveFieldEnvironmentSelection
+} from '../src/ui/FieldEnvironmentRegistry.js';
 
 const repositoryRoot = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -85,7 +92,13 @@ function readWebpDimensions(buffer) {
   throw new Error('missing VP8, VP8L or VP8X dimensions');
 }
 
-const expectedRelativePaths = FIELD_SPELL_ILLUSTRATION_BRIEF_MANIFEST.map(
+const originalCompositions = FIELD_SPELL_ILLUSTRATION_BRIEF_MANIFEST.filter(
+  brief => brief.assetKind === 'original-composition'
+);
+const sourceIllustrationFallbacks = FIELD_SPELL_ILLUSTRATION_BRIEF_MANIFEST.filter(
+  brief => brief.assetKind === 'source-illustration'
+);
+const expectedRelativePaths = originalCompositions.map(
   brief => brief.assetPath.replace(/^\//, '')
 );
 const expectedFileNames = new Set(
@@ -100,6 +113,49 @@ const actualFileNames = (
 const actualFileNameSet = new Set(actualFileNames);
 
 const errors = [];
+// File presence is only part of completion: the resolved card must actually
+// select its own file, with a supported peripheral geometry family.
+for (const brief of FIELD_SPELL_ILLUSTRATION_BRIEF_MANIFEST) {
+  const environment = getFieldEnvironmentForCardId(brief.cardId);
+  const selection = resolveFieldEnvironmentSelection({
+    playerFieldSpell: {
+      id: brief.cardId,
+      card_type: 'spell',
+      race: 'Field',
+      location: 'field_zone',
+      fieldActivationState: 'resolved',
+      fieldActivationSequence: 1
+    }
+  });
+  if (!environment || environment.backdropUrl !== getFieldSpellReferenceArtEntry(brief.cardId)?.assetPath
+    || environment.fallbackBackdropUrl !== brief.assetPath) {
+    errors.push(`${brief.cardId}: source illustration or archived fallback is not connected to the registry`);
+  }
+  if (selection.isFallback || selection.environment !== environment) {
+    errors.push(`${brief.cardId}: a resolved Field Spell does not select its environment`);
+  }
+  if (
+    environment?.geometryProfile?.family !== brief.environmentFamily
+    || environment?.geometryProfile?.cardId !== brief.cardId
+  ) {
+    errors.push(`${brief.cardId}: peripheral geometry contract is missing or mismatched`);
+  }
+  if (brief.assetKind === 'source-illustration'
+    && brief.assetPath !== getFieldSpellReferenceArtEntry(brief.cardId)?.assetPath) {
+    errors.push(`${brief.cardId}: source fallback must use the unchanged reference JPEG`);
+  }
+}
+const familyBackdropPaths = new Set(
+  Object.values(FIELD_ENVIRONMENT_REGISTRY).map(environment => environment.backdropUrl)
+);
+for (const assetPath of familyBackdropPaths) {
+  try {
+    const buffer = await readFile(path.join(publicRoot, assetPath.replace(/^\//, '')));
+    readWebpDimensions(buffer);
+  } catch (error) {
+    errors.push(`${assetPath}: family fallback is unusable (${error.message})`);
+  }
+}
 const missing = [...expectedFileNames]
   .filter(fileName => !actualFileNameSet.has(fileName))
   .sort();
@@ -162,4 +218,10 @@ if (errors.length) {
     `All assets are distinct RIFF WebP files at `
     + `${expectedWidth}x${expectedHeight} and at least ${minimumFileSize} bytes.`
   );
+  console.log(
+    `${FIELD_SPELL_ILLUSTRATION_BRIEF_MANIFEST.length} resolved visual references select their own source backdrop and geometry; `
+    + `${familyBackdropPaths.size} family/base backdrops are usable.`
+  );
+  console.log(`${originalCompositions.length} original WebP fallbacks and ${sourceIllustrationFallbacks.length} unchanged source JPEG fallbacks.`);
+  console.log(`${FIELD_SPELL_GEOMETRY_LANDMARK_COVERAGE.count} cards have dedicated physical landmarks.`);
 }

@@ -1,4 +1,9 @@
-import { CLASSIC_FIELD_SPELLS } from './core/ClassicFieldSpellEffects.js';
+import { FIELD_SPELL_ENVIRONMENT_CATALOG } from './ui/FieldSpellEnvironmentCatalog.js';
+const nativeFieldImageIds = new Set(FIELD_SPELL_ENVIRONMENT_CATALOG.map(card => String(card.cardId)));
+import {
+  ADDITIONAL_FIELD_SPELLS, CLASSIC_FIELD_SPELLS, SCRIPTED_FIELD_SPELLS, WETLANDS_FIELD_SPELL,
+  TRANSVERSE_CONTINUOUS_FIELD_SPELLS
+} from './core/ClassicFieldSpellEffects.js';
 
 export const STARTER_CARDS = [
   {
@@ -154,6 +159,54 @@ export const STARTER_CARDS = [
     timing: { event: "SUMMON_SUCCESS", optional: true }
   },
   {
+    id: "54652250",
+    name: "Insecte Mangeur d'Hommes",
+    name_en: "Man-Eater Bug",
+    type: "Flip Effect Monster",
+    rulesText: "FLIP : Ciblez 1 monstre sur le Terrain ; détruisez-le.",
+    desc: "FLIP : Ciblez 1 monstre sur le Terrain ; détruisez-le.",
+    atk: 450,
+    def: 600,
+    level: 2,
+    race: "Insect",
+    attribute: "EARTH",
+    card_type: "monster",
+    effectCode: "MAN_EATER_BUG_DESTROY",
+    timing: { event: "FLIPPED_FACE_UP", spellSpeed: 1, usableInDamageStep: true, allowedDamageTimings: ["AFTER_DAMAGE_CALCULATION"] }
+  },
+  {
+    id: "31560081",
+    name: "Magicien de la Foi",
+    name_en: "Magician of Faith",
+    type: "Flip Effect Monster",
+    rulesText: "FLIP : Ciblez 1 Magie dans votre Cimetière ; ajoutez la cible à votre main.",
+    desc: "FLIP : Ciblez 1 Magie dans votre Cimetière ; ajoutez la cible à votre main.",
+    atk: 300,
+    def: 400,
+    level: 1,
+    race: "Spellcaster",
+    attribute: "LIGHT",
+    card_type: "monster",
+    effectCode: "MAGICIAN_OF_FAITH_RECOVER",
+    timing: { event: "FLIPPED_FACE_UP", spellSpeed: 1, usableInDamageStep: true, allowedDamageTimings: ["AFTER_DAMAGE_CALCULATION"] }
+  },
+  {
+    id: "26202165",
+    name: "Sangan",
+    name_en: "Sangan",
+    type: "Effect Monster",
+    rulesText: "Si cette carte est envoyée depuis le Terrain au Cimetière : ajoutez 1 monstre avec max. 1500 ATK depuis votre Deck à votre main, mais vous ne pouvez activer ni de cartes ni d'effets de carte de ce nom le reste de ce tour. Vous ne pouvez utiliser cet effet de \"Sangan\" qu'une fois par tour.",
+    desc: "Si cette carte est envoyée depuis le Terrain au Cimetière : ajoutez 1 monstre avec max. 1500 ATK depuis votre Deck à votre main, mais vous ne pouvez activer ni de cartes ni d'effets de carte de ce nom le reste de ce tour. Vous ne pouvez utiliser cet effet de \"Sangan\" qu'une fois par tour.",
+    atk: 1000,
+    def: 600,
+    level: 3,
+    race: "Fiend",
+    attribute: "DARK",
+    card_type: "monster",
+    effectCode: "SANGAN_SEARCH",
+    timing: { event: "SENT_FROM_FIELD_TO_GRAVEYARD", spellSpeed: 1, usableInDamageStep: true, allowedDamageTimings: ["START_OF_DAMAGE_STEP", "BEFORE_DAMAGE_CALCULATION", "DURING_DAMAGE_CALCULATION", "AFTER_DAMAGE_CALCULATION", "END_OF_DAMAGE_STEP"] }
+  },
+  {
     id: "83764718",
     name: "Monster Reborn",
     name_en: "Monster Reborn",
@@ -180,6 +233,38 @@ export const STARTER_CARDS = [
     race: "Normal",
     attribute: "SPELL",
     card_type: "spell"
+  },
+  {
+    id: "05318639",
+    name: "Typhon d'Espace Mystique",
+    name_en: "Mystical Space Typhoon",
+    type: "Spell Card",
+    rulesText: "Ciblez 1 Magie/Piège sur le Terrain ; détruisez la cible.",
+    desc: "Ciblez 1 Magie/Piège sur le Terrain ; détruisez la cible.",
+    atk: 0,
+    def: 0,
+    level: 0,
+    race: "Quick-Play",
+    attribute: "SPELL",
+    card_type: "spell",
+    effectCode: "MYSTICAL_SPACE_TYPHOON",
+    timing: { spellSpeed: 2 }
+  },
+  {
+    id: "14087893",
+    name: "Livre de la Lune",
+    name_en: "Book of Moon",
+    type: "Spell Card",
+    rulesText: "Ciblez 1 monstre face recto sur le Terrain ; changez la cible en Position de Défense face verso.",
+    desc: "Ciblez 1 monstre face recto sur le Terrain ; changez la cible en Position de Défense face verso.",
+    atk: 0,
+    def: 0,
+    level: 0,
+    race: "Quick-Play",
+    attribute: "SPELL",
+    card_type: "spell",
+    effectCode: "BOOK_OF_MOON",
+    timing: { spellSpeed: 2 }
   },
   {
     id: "55144522",
@@ -478,24 +563,76 @@ export const STARTER_CARDS = [
   }
 ];
 
-const CLASSIC_RACE_LABELS = {
-  Fiend: 'Démon', Spellcaster: 'Magicien', Fairy: 'Elfe', Fish: 'Poisson',
-  'Sea Serpent': 'Serpent de Mer', Thunder: 'Tonnerre', Aqua: 'Aqua',
-  Machine: 'Machine', Pyro: 'Pyro', Insect: 'Insecte', Beast: 'Bête',
-  Plant: 'Plante', 'Beast-Warrior': 'Bête-Guerrier', Dragon: 'Dragon',
-  'Winged Beast': 'Bête Ailée', Warrior: 'Guerrier', Dinosaur: 'Dinosaure',
-  Zombie: 'Zombie', Rock: 'Rocher'
-};
+// Normal Monsters provide canonical playable partners for the implemented
+// Elemental HERO, Aqua/WATER and Fairy Field Spell interactions.
+STARTER_CARDS.push(
+  {
+    id: '23115241', name: 'Anapelera, Sabre X', name_en: 'X-Saber Anu Piranha',
+    type: 'Normal Monster', card_type: 'monster', archetype: 'X-Saber',
+    race: 'Warrior', attribute: 'EARTH', level: 4, atk: 1800, def: 1100,
+    desc: "Une guerrière Sabre X redoutée pour ses attaques félines et son sang-froid durant les batailles. Son ambition sans limite et ses assauts impitoyables provoquent la peur au plus profond de ses ennemis.",
+    rulesSourceUrl: 'https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid=7821&request_locale=fr'
+  },
+  {
+    id: '44430454', name: 'Chambellan des Six Samouraïs', name_en: 'Chamberlain of the Six Samurai',
+    type: 'Normal Monster', card_type: 'monster', archetype: 'Six Samurai',
+    race: 'Warrior', attribute: 'EARTH', level: 3, atk: 200, def: 2000,
+    desc: "Ce silencieux et mystérieux guerrier est l'éminence grise qui aide en secret les Six Samouraïs. Personne ne connaît son passé, mais ses nombreuses cicatrices sont la preuve de son immense expérience.",
+    rulesSourceUrl: 'https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid=7276&request_locale=fr'
+  },
+  {
+    id: '81823360', name: 'Mégalobroyeur X', name_en: 'Megalosmasher X',
+    type: 'Normal Monster', card_type: 'monster', race: 'Dinosaur', attribute: 'WATER',
+    level: 4, atk: 2000, def: 0,
+    desc: "Seule la phosphorescence de ce prédateur primitif à l'armure insonorisante et la mâchoire gargantuesque permettait à ses proies primitives d'en échapper.",
+    rulesSourceUrl: 'https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid=13012&request_locale=fr'
+  },
+  {
+    id: '43793530', name: 'Giga Gagagigo', name_en: 'Giga Gagagigo',
+    type: 'Normal Monster', card_type: 'monster', race: 'Reptile', attribute: 'WATER',
+    level: 5, atk: 2450, def: 1500,
+    desc: "Afin de combattre un mal épouvantable, il a obtenu une puissance considérable par une reconstruction du corps, mais y a perdu son cœur et sa rédemption.",
+    rulesSourceUrl: 'https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid=5871&request_locale=fr'
+  },
+  {
+    id: '20721928', name: 'Sparkman, HÉROS Élémentaire', name_en: 'Elemental HERO Sparkman',
+    type: 'Normal Monster', card_type: 'monster', archetype: 'Elemental HERO',
+    race: 'Warrior', attribute: 'LIGHT', level: 4, atk: 1600, def: 1400,
+    desc: "Un HÉROS Élémentaire et un guerrier de lumière capable de manier parfaitement toute une panoplie d'armes. Son Éclair de Haute Luminescence barre la route à l'infamie.",
+    rulesSourceUrl: 'https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid=6313&request_locale=fr'
+  },
+  {
+    id: '68638985', name: 'Crapaud Slime', name_en: 'Slime Toad',
+    type: 'Normal Monster', card_type: 'monster', race: 'Aqua', attribute: 'WATER',
+    level: 2, atk: 700, def: 500,
+    desc: 'Dépôt visqueux à tête de grenouille, cette créature attaque dans un horrible croassement.',
+    rulesSourceUrl: 'https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid=4555&request_locale=fr'
+  },
+  {
+    id: '39552864', name: 'Sphère Mystique Lumineuse', name_en: 'Mystical Shine Ball',
+    type: 'Normal Monster', card_type: 'monster', race: 'Fairy', attribute: 'LIGHT',
+    level: 2, atk: 500, def: 500,
+    desc: "Une âme de lumière recouverte d'une aura mystique. Si vous apercevez sa forme magnifique, votre souhait sera exaucé.",
+    rulesSourceUrl: 'https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid=5949&request_locale=fr'
+  }
+);
+
 for (const terrain of CLASSIC_FIELD_SPELLS) {
-  const bonuses = terrain.boostedRaces.map(race => CLASSIC_RACE_LABELS[race]).join(', ');
-  const penalties = terrain.weakenedRaces.map(race => CLASSIC_RACE_LABELS[race]).join(', ');
-  const description = `Tous les monstres ${bonuses} sur le Terrain gagnent 200 ATK/DEF.`
-    + (penalties ? ` Tous les monstres ${penalties} sur le Terrain perdent 200 ATK/DEF.` : '');
+  const description = terrain.rulesText;
   STARTER_CARDS.push({
     id: terrain.id, name: terrain.name, name_en: terrain.name_en,
     type: 'Spell Card', card_type: 'spell', race: 'Field', attribute: 'SPELL',
     atk: 0, def: 0, level: 0, rulesText: description, desc: description,
-    effectCode: 'CLASSIC_FIELD_STATS'
+    rulesSourceUrl: terrain.rulesSourceUrl, effectCode: 'CLASSIC_FIELD_STATS'
+  });
+}
+
+for (const terrain of [...ADDITIONAL_FIELD_SPELLS, WETLANDS_FIELD_SPELL, ...TRANSVERSE_CONTINUOUS_FIELD_SPELLS, ...SCRIPTED_FIELD_SPELLS]) {
+  STARTER_CARDS.push({
+    id: terrain.id, name: terrain.name, name_en: terrain.name_en,
+    type: 'Spell Card', card_type: 'spell', race: 'Field', attribute: 'SPELL',
+    atk: 0, def: 0, level: 0, rulesText: terrain.rulesText, desc: terrain.rulesText,
+    rulesSourceUrl: terrain.rulesSourceUrl, effectCode: terrain.effectCode || 'CLASSIC_FIELD_STATS'
   });
 }
 
@@ -514,7 +651,9 @@ export function getCardImageUrl(id) {
 
 export function getCardCroppedImageUrl(id) {
   if (CLASSIC_FIELD_SPELLS.some(card => card.id === normalizeCardImageId(id))) return getCardImageUrl(id);
-  return `/cards/cropped/${normalizeCardImageId(id)}.jpg`;
+  const normalized = normalizeCardImageId(id);
+  if (nativeFieldImageIds.has(normalized) && !STARTER_CARDS.some(card => normalizeCardImageId(card.id) === normalized)) return `/environments/field-art/${normalized}.jpg`;
+  return `/cards/cropped/${normalized}.jpg`;
 }
 
 export const EXTRA_DECK_CARDS = [
@@ -550,7 +689,8 @@ export const EXTRA_DECK_CARDS = [
     extra_type: "synchro",
     belongsInExtraDeck: true,
     effectCode: "STARDUST_NEGATE_DESTRUCTION",
-    timing: { event: "CHAIN_BUILDING", spellSpeed: 2, optional: true }
+    timing: { event: "CHAIN_BUILDING", spellSpeed: 2, optional: true, usableInDamageStep: true,
+      allowedDamageTimings: ["START_OF_DAMAGE_STEP", "BEFORE_DAMAGE_CALCULATION", "DURING_DAMAGE_CALCULATION", "AFTER_DAMAGE_CALCULATION", "END_OF_DAMAGE_STEP"] }
   },
   {
     id: "31924889",

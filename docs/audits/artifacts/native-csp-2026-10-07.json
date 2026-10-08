@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-07",
+  "scope": "Real native runtime ESM modules and local assets under the production CSP; this probe does not exercise the full app UI",
+  "csp": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://db.ygoprodeck.com; media-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests",
+  "pageErrors": [],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "nativeResponses": [
+    {
+      "path": "/src/core/native/NativeDuelRuntime.js",
+      "status": 200
+    },
+    {
+      "path": "/src/core/native/NativeCardData.js",
+      "status": 200
+    },
+    {
+      "path": "/src/core/native/NativeCoreAssets.js",
+      "status": 200
+    },
+    {
+      "path": "/src/core/native/NativeDuelDecisions.js",
+      "status": 200
+    },
+    {
+      "path": "/src/core/native/NativeScriptArchive.js",
+      "status": 200
+    },
+    {
+      "path": "/native/card-data.json",
+      "status": 200
+    },
+    {
+      "path": "/native/scripts.json",
+      "status": 200
+    },
+    {
+      "path": "/native/manifest.json",
+      "status": 200
+    },
+    {
+      "path": "/native/field-banlists.json",
+      "status": 200
+    },
+    {
+      "path": "/src/core/native/vendor/ocgcore/index.js",
+      "status": 200
+    },
+    {
+      "path": "/src/core/native/vendor/ocgcore/chunk-6GYI7QPM.js",
+      "status": 200
+    },
+    {
+      "path": "/src/core/native/vendor/ocgcore/chunk-L5TW24SS.js",
+      "status": 200
+    },
+    {
+      "path": "/native/ocgcore.sync.wasm",
+      "status": 200
+    },
+    {
+      "path": "/src/core/native/vendor/ocgcore/ocgcore.sync-MMMSWPBB.js",
+      "status": 200
+    }
+  ],
+  "result": {
+    "passed": true,
+    "nativeApi": [
+      11,
+      0
+    ],
+    "field": 47355498,
+    "monster": {
+      "code": 24317029,
+      "type": 2097185,
+      "attack": 1700,
+      "defense": 2500,
+      "isPublic": true
+    },
+    "messages": 18,
+    "errors": [],
+    "cardDataRows": 14988
+  },
+  "passed": true
+}

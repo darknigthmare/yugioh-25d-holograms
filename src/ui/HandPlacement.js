@@ -1,7 +1,7 @@
 import { isFieldSpellCard } from '../core/FieldSpellRules.js';
 
 export function getNormalSummonTributeCount(card) {
-  const level = Number(card?.level) || 0;
+  const level = Number(card?.getLevel?.() ?? card?.currentLevel ?? card?.level) || 0;
   if (level >= 7) return 2;
   if (level >= 5) return 1;
   return 0;

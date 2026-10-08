@@ -11,7 +11,9 @@ test('production headers forbid script injection, framing and sensitive browser 
     const [name, ...sources] = value.trim().split(/\s+/);
     return [name, sources];
   }));
-  assert.deepEqual(directives.get('script-src'), ["'self'"]);
+  assert.deepEqual(directives.get('script-src'), ["'self'", "'wasm-unsafe-eval'"]);
+  assert.ok(!directives.get('script-src').some(source => ["'unsafe-eval'", "'unsafe-inline'", '*'].includes(source)),
+    'native WASM compilation must not enable JavaScript eval or inline scripts');
   assert.deepEqual(directives.get('object-src'), ["'none'"]);
   assert.deepEqual(directives.get('frame-ancestors'), ["'none'"]);
   assert.deepEqual(directives.get('base-uri'), ["'self'"]);

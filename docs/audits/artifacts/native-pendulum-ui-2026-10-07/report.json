@@ -1,0 +1,259 @@
+{
+  "ok": true,
+  "target": "compiled production bundle",
+  "productionCsp": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://db.ygoprodeck.com; media-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests",
+  "testedIndexAsset": "/assets/index-CkdHwDWv.js",
+  "testedIndexSha256": "7173898cef8206cb9f0e12525376ad03e857a22e40fca40ea97c0623e0fdb9fd",
+  "testedWasmSha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+  "viewports": [
+    {
+      "width": 1280,
+      "height": 900,
+      "checks": {
+        "exactFortyCardFixtureAndShuffledOpening": true,
+        "twoScalesActivatedViaControls": true,
+        "mstDestroyedScaleMovedFaceUpToExtra": true,
+        "extraModalStartsCoreProcedureWithoutPredeterminedUids": true,
+        "humanChoosesHandAndFaceUpExtraCandidates": true,
+        "nativeMr5HandToMainAndFaceUpExtraToExtraMonsterZone": true,
+        "oncePerTurnProcedureRemoved": true,
+        "opponentConcealment": {
+          "count": 0,
+          "safe": true
+        }
+      },
+      "procedureButtonStyle": {
+        "backgroundColor": "rgba(255, 0, 204, 0.1)",
+        "borderColor": "rgb(255, 0, 204)",
+        "minHeight": "44px",
+        "whiteSpace": "normal",
+        "width": 438,
+        "height": 44
+      },
+      "placements": [
+        {
+          "offered": [
+            "Votre Zone Monstre Extra 6",
+            "Votre Zone Monstre Extra 7"
+          ],
+          "selected": "Votre Zone Monstre Extra 6"
+        },
+        {
+          "offered": [
+            "Votre Zone Monstre 1",
+            "Votre Zone Monstre 2",
+            "Votre Zone Monstre 3",
+            "Votre Zone Monstre 4",
+            "Votre Zone Monstre 5"
+          ],
+          "selected": "Votre Zone Monstre 1"
+        }
+      ],
+      "decisionTrace": [
+        {
+          "stage": "MST target",
+          "title": "CHOISIR LES CARTES",
+          "offered": [
+            "Odd-Eyes Pendulum Dragon",
+            "Magicien Observateur du Temps"
+          ]
+        },
+        {
+          "stage": "Pendulum add/remove",
+          "offered": [
+            "AJOUTER — La Jinn, Génie Mystique de la Lampe",
+            "AJOUTER — Odd-Eyes Pendulum Dragon",
+            "ANNULER"
+          ]
+        },
+        {
+          "stage": "Pendulum add/remove",
+          "offered": [
+            "AJOUTER — Odd-Eyes Pendulum Dragon",
+            "RETIRER — La Jinn, Génie Mystique de la Lampe",
+            "CONFIRMER LES MATÉRIELS"
+          ]
+        }
+      ],
+      "pageErrors": [],
+      "nativeRequestFailures": [],
+      "cspViolations": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "checks": {
+        "exactFortyCardFixtureAndShuffledOpening": true,
+        "twoScalesActivatedViaControls": true,
+        "mstDestroyedScaleMovedFaceUpToExtra": true,
+        "extraModalStartsCoreProcedureWithoutPredeterminedUids": true,
+        "humanChoosesHandAndFaceUpExtraCandidates": true,
+        "nativeMr5HandToMainAndFaceUpExtraToExtraMonsterZone": true,
+        "oncePerTurnProcedureRemoved": true,
+        "opponentConcealment": {
+          "count": 0,
+          "safe": true
+        }
+      },
+      "procedureButtonStyle": {
+        "backgroundColor": "rgba(255, 0, 204, 0.1)",
+        "borderColor": "rgb(255, 0, 204)",
+        "minHeight": "44px",
+        "whiteSpace": "normal",
+        "width": 309,
+        "height": 44
+      },
+      "placements": [
+        {
+          "offered": [
+            "Votre Zone Monstre Extra 6",
+            "Votre Zone Monstre Extra 7"
+          ],
+          "selected": "Votre Zone Monstre Extra 6"
+        },
+        {
+          "offered": [
+            "Votre Zone Monstre 1",
+            "Votre Zone Monstre 2",
+            "Votre Zone Monstre 3",
+            "Votre Zone Monstre 4",
+            "Votre Zone Monstre 5"
+          ],
+          "selected": "Votre Zone Monstre 1"
+        }
+      ],
+      "decisionTrace": [
+        {
+          "stage": "MST target",
+          "title": "CHOISIR LES CARTES",
+          "offered": [
+            "Odd-Eyes Pendulum Dragon",
+            "Magicien Observateur du Temps"
+          ]
+        },
+        {
+          "stage": "Pendulum add/remove",
+          "offered": [
+            "AJOUTER — La Jinn, Génie Mystique de la Lampe",
+            "AJOUTER — Odd-Eyes Pendulum Dragon",
+            "ANNULER"
+          ]
+        },
+        {
+          "stage": "Pendulum add/remove",
+          "offered": [
+            "AJOUTER — Odd-Eyes Pendulum Dragon",
+            "RETIRER — La Jinn, Génie Mystique de la Lampe",
+            "CONFIRMER LES MATÉRIELS"
+          ]
+        }
+      ],
+      "pageErrors": [],
+      "nativeRequestFailures": [],
+      "cspViolations": []
+    }
+  ],
+  "testedHtmlSha256": "9092b61cae2f9f267fc6f35c4f90594220bc123ff9681d9b251e5973b1c1c06f",
+  "testedCssAsset": "/assets/index-BbUkbKmn.css",
+  "testedCssSha256": "71afb732ab7152dc319dfb6b72812913e23121c24f251ef80e0b69c61e0e749e",
+  "testedNativeFacadeAsset": "/assets/NativeDuelGame-ZSLU0meg.js",
+  "testedNativeFacadeSha256": "292967a9fa2eab1eed43a2f0ce172a3e1364eeb86f1c66d1a63e55fb49777980",
+  "testedNativeWrapperAsset": "/assets/ocgcore-D2udBA3b.js",
+  "testedNativeWrapperSha256": "1dc7719c0b30b566be8c833ea2b4e65e4e84f68e77849f05c76a8a362c0775fd",
+  "compiledSnapshotBefore": {
+    "index.html": {
+      "bytes": 35408,
+      "sha256": "9092b61cae2f9f267fc6f35c4f90594220bc123ff9681d9b251e5973b1c1c06f"
+    },
+    "assets/index-CkdHwDWv.js": {
+      "bytes": 598618,
+      "sha256": "7173898cef8206cb9f0e12525376ad03e857a22e40fca40ea97c0623e0fdb9fd"
+    },
+    "assets/index-BbUkbKmn.css": {
+      "bytes": 82371,
+      "sha256": "71afb732ab7152dc319dfb6b72812913e23121c24f251ef80e0b69c61e0e749e"
+    },
+    "assets/NativeDuelGame-ZSLU0meg.js": {
+      "bytes": 77200,
+      "sha256": "292967a9fa2eab1eed43a2f0ce172a3e1364eeb86f1c66d1a63e55fb49777980"
+    },
+    "assets/ocgcore-D2udBA3b.js": {
+      "bytes": 1746,
+      "sha256": "1dc7719c0b30b566be8c833ea2b4e65e4e84f68e77849f05c76a8a362c0775fd"
+    },
+    "native/ocgcore.sync.wasm": {
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    },
+    "native/card-data.json": {
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    "native/scripts.json": {
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    }
+  },
+  "compiledSnapshotAfter": {
+    "index.html": {
+      "bytes": 35408,
+      "sha256": "9092b61cae2f9f267fc6f35c4f90594220bc123ff9681d9b251e5973b1c1c06f"
+    },
+    "assets/index-CkdHwDWv.js": {
+      "bytes": 598618,
+      "sha256": "7173898cef8206cb9f0e12525376ad03e857a22e40fca40ea97c0623e0fdb9fd"
+    },
+    "assets/index-BbUkbKmn.css": {
+      "bytes": 82371,
+      "sha256": "71afb732ab7152dc319dfb6b72812913e23121c24f251ef80e0b69c61e0e749e"
+    },
+    "assets/NativeDuelGame-ZSLU0meg.js": {
+      "bytes": 77200,
+      "sha256": "292967a9fa2eab1eed43a2f0ce172a3e1364eeb86f1c66d1a63e55fb49777980"
+    },
+    "assets/ocgcore-D2udBA3b.js": {
+      "bytes": 1746,
+      "sha256": "1dc7719c0b30b566be8c833ea2b4e65e4e84f68e77849f05c76a8a362c0775fd"
+    },
+    "native/ocgcore.sync.wasm": {
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    },
+    "native/card-data.json": {
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    "native/scripts.json": {
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    }
+  },
+  "immutableCompiledSnapshot": true,
+  "auditScriptSha256": "529894fe208b0b2acb67a09711c1893616244b92931542761441b7161f08fdfa",
+  "inspectedCaptures": {
+    "native-pendulum-board-1280.png": {
+      "bytes": 513155,
+      "sha256": "85219a6ce88fd3c7b18d8e6cb371c91615edd2f426738b007c93e08c644f2863"
+    },
+    "native-pendulum-board-390.png": {
+      "bytes": 127985,
+      "sha256": "c2cdc01d75cc8802f08b0a8477a0a6f6eb5ad99fc6937048f7c9ffc7803756e3"
+    },
+    "native-pendulum-choices-1280.png": {
+      "bytes": 98711,
+      "sha256": "81a4897d7c1b803c3f9dd726afba4e33482a8d6a28bfcc461f1faf7da786dbc3"
+    },
+    "native-pendulum-choices-390.png": {
+      "bytes": 57147,
+      "sha256": "a90194dbdd2da397ecb8022bbc09a13bb7a37d85d4fd2ad088fe9f86509ca67c"
+    },
+    "native-pendulum-extra-1280.png": {
+      "bytes": 499621,
+      "sha256": "55962a726df7c9d0e3b3ad4c618ebcedbf29252354c80801fb82e8d8b46cbb6f"
+    },
+    "native-pendulum-extra-390.png": {
+      "bytes": 115367,
+      "sha256": "ee349caf8604dc22b6a326f7d1789b379e3ecd2ac38eda3807a14ad6b1e0a6a9"
+    }
+  }
+}

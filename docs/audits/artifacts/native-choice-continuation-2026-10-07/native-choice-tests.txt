@@ -1,0 +1,21 @@
+✔ Hazy Flame Sphynx offers distinct native Monster/Spell/Trap declarations and resolves the chosen kind (49.405896ms)
+✔ Hazy Flame Sphynx really accepts index 1 for MAGIE and performs its matching native summon (22.394141ms)
+✔ Hazy Flame Sphynx really accepts index 2 for PIÈGE and performs its matching native summon (21.474599ms)
+✔ Array of Revealing Light keeps a newly Summoned declared Dragon out of the real battle commands (25.038848ms)
+✔ The Hidden City really offers both face-up positions and reveals its chosen monster in position 1 (19.602363ms)
+✔ The Hidden City really offers both face-up positions and reveals its chosen monster in position 4 (18.151182ms)
+✔ Adamancipator Laputite selects a proper subset then puts only those real cards on the ordered Deck top (20.671972ms)
+✔ Way Where There’s a Will announces three by index, keeps the chosen excavation and orders the real Deck bottom (20.279272ms)
+✔ Materiactor Meltthrough preserves all six excavated cards and the human’s nontrivial native top order (19.723386ms)
+✔ Doll House selects two native Graveyard/Deck pairs and summons both as Level 6 DARK without moving the targets (20.127183ms)
+✔ Miracle Restoring allocates zero then two across actual Power Stone holders before its revival target (21.514729ms)
+✔ Herald of the Abyss pays 1500 then makes the opponent send only the declared public Dragon LIGHT (19.873042ms)
+✔ DNA Checkup requests two different attributes from the opponent and draws for the correct player after reveal (17.979013ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 306.328181

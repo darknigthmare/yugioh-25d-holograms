@@ -1,0 +1,72 @@
+{
+  "verifiedAt": "2026-10-07 16:09:46 UTC",
+  "deploymentId": "dpl_7XgcBbkrnFFDYKEFGB9ZcshgC7iX",
+  "url": "https://yugioh-25d-holograms-e0yq21g9l-darknigthmares-projects.vercel.app",
+  "target": null,
+  "readyState": "READY",
+  "remoteCommit": "5b552559f0c1ae951d9f0075ba3a340de37d4e94",
+  "scope": "Previous expansion delivery; not the work in progress.",
+  "http": [
+    {
+      "path": "/index.html",
+      "status": 200,
+      "sha256": "ca7254cd1cc1b1b0c6bf9c96782429d47443c7b1a0da5febe6801762b2360ee2",
+      "expected": "ca7254cd1cc1b1b0c6bf9c96782429d47443c7b1a0da5febe6801762b2360ee2",
+      "match": true,
+      "toolbarRemoved": true,
+      "cspMatches": true,
+      "noQaHook": true,
+      "bytes": 35273
+    },
+    {
+      "path": "/assets/index-Bf3sQIDw.js",
+      "status": 200,
+      "success": true,
+      "sha256": "6de409c77e47c3853b1a554553776a13f576e265824187d6d21b809fd4c7ce33",
+      "bytes": 598302,
+      "match": true
+    },
+    {
+      "path": "/assets/index-WwbnQBsq.css",
+      "status": 200,
+      "success": true,
+      "sha256": "5103d13e4c93cce8f60e430ade9bce9aace0233e3b71dfb7786e11b7bf3c58a1",
+      "bytes": 82264,
+      "match": true
+    },
+    {
+      "path": "/assets/NativeDuelGame-DrR3s3dO.js",
+      "status": 200,
+      "success": true,
+      "sha256": "290a980e79d7e577fa1879eeb35f0ae3b810b2cc2035f93601bb9addc0737eb5",
+      "bytes": 76222,
+      "match": true
+    },
+    {
+      "path": "/assets/NativeCardCatalogue-B6kOTce5.js",
+      "status": 200,
+      "success": true,
+      "sha256": "29f650752ed37814089c8f163599d14f1e1b9a8fab0df6344be4862576d737a8",
+      "bytes": 52243,
+      "match": true
+    },
+    {
+      "path": "/assets/FieldEnvironmentRegistry-Ddm7NeuB.js",
+      "status": 200,
+      "success": true,
+      "sha256": "29024b2231f94fa5d04101d05f6641cc6c725c39e24102c08be0e0ea8957ca97",
+      "bytes": 300120,
+      "match": true
+    },
+    {
+      "path": "/assets/RealDuelView-CkYCZkwN.js",
+      "status": 200,
+      "success": true,
+      "sha256": "839216f9bf834931e23ac9f88e048d1bc9f18a5bc901e747c26657bdb0e4d286",
+      "bytes": 128324,
+      "match": true
+    }
+  ],
+  "binaryWasmHTTPVerification": false,
+  "protectionSettingsChanged": false
+}

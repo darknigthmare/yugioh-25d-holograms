@@ -1,0 +1,901 @@
+{
+  "auditDate": "2026-10-07",
+  "baselineCommit": "2bc79f1",
+  "description": "Sources intactes et volumes p\u00e9riph\u00e9riques isol\u00e9s : dimensions adapt\u00e9es, sans promesse de fid\u00e9lit\u00e9 spatiale 1:1.",
+  "moduleSha256": "f32d83bdeb1f2a3d51f3d405c0b8e546a3a5ad96132d2d0d79e7281bc45a2066",
+  "factorySha256": "b83bba7f70345735cdd0921503fbed0579fe71dba67e5c84fd0b849391e0b121",
+  "productionThreeSha256": "f1ba391ea533f94a6795f160091077d7488c590cf2e42cf2686c7d0a01fe7e82",
+  "testSha256": "de77cf3c4c1d2182bcd41efdff2436acf2f89b41b0aa69cb000379be9c5a013e",
+  "baselineSha256": "5c5d86bee1abaf9244ded5e7dfed65bdb88678e15acffbd896824f502387601a",
+  "references": [
+    {
+      "cardId": "63883999",
+      "name": "Archfiend Palabyrinth",
+      "camera": [
+        23,
+        25,
+        8
+      ],
+      "target": [
+        0,
+        17,
+        -34
+      ],
+      "fov": 58,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/63883999.jpg",
+      "sha256": "99b01730542eb43b4dd5e6494076ccbc76bf9b8166ac6cd37e5b1a408f12b0d8"
+    },
+    {
+      "cardId": "81788994",
+      "name": "Curse of the Shadow Prison",
+      "camera": [
+        23,
+        20,
+        7
+      ],
+      "target": [
+        0,
+        11,
+        -34
+      ],
+      "fov": 58,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/81788994.jpg",
+      "sha256": "aae590528dbd6822d890c91490f3e6726996495cfda16f355d54704358ab5f26"
+    },
+    {
+      "cardId": "16625614",
+      "name": "Dark Sanctuary",
+      "camera": [
+        22,
+        19,
+        8
+      ],
+      "target": [
+        0,
+        15,
+        -34
+      ],
+      "fov": 60,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/16625614.jpg",
+      "sha256": "84f3a0a0a19866fb0f24c0ea49082f70d9ed8adff15db90f0cd38295d1929b93"
+    },
+    {
+      "cardId": "84171830",
+      "name": "Domain of the True Monarchs",
+      "camera": [
+        22,
+        23,
+        5
+      ],
+      "target": [
+        0,
+        16,
+        -37
+      ],
+      "fov": 62,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/84171830.jpg",
+      "sha256": "5494ed3cdf05d7743e7ac7d11c528a55754de2c365fb6cca6f1542b68f96e82b"
+    },
+    {
+      "cardId": "1050355",
+      "name": "Dream Mirror of Terror",
+      "camera": [
+        24,
+        20,
+        6
+      ],
+      "target": [
+        0,
+        14,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/1050355.jpg",
+      "sha256": "f0f205eb7e529cf7734c11bba0bb841759ddd3f39f0a979132502b3861cf1b86"
+    },
+    {
+      "cardId": "70122149",
+      "name": "Evil Eye Domain \u2013 Pareidolia",
+      "camera": [
+        23,
+        23,
+        8
+      ],
+      "target": [
+        0,
+        17,
+        -34
+      ],
+      "fov": 58,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/70122149.jpg",
+      "sha256": "630e24491080fac2dad7122fcd9d8dea83675e6321ea4716d649bd5c79f76052"
+    },
+    {
+      "cardId": "13301895",
+      "name": "Fallen Paradise",
+      "camera": [
+        22,
+        25,
+        12
+      ],
+      "target": [
+        0,
+        16,
+        -34
+      ],
+      "fov": 58,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/13301895.jpg",
+      "sha256": "8a9df7bb7df439a6d9c93da0148916091145174f249bbad4e34bd3ed6d2e16dd"
+    },
+    {
+      "cardId": "99795159",
+      "name": "Ghostrick Mansion",
+      "camera": [
+        22,
+        18,
+        0
+      ],
+      "target": [
+        0,
+        8,
+        -34
+      ],
+      "fov": 52,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/99795159.jpg",
+      "sha256": "7bac6050603020bf28a0d6653612c206325053f2adfa23b350bd84d1876236f7"
+    },
+    {
+      "cardId": "33407125",
+      "name": "Labrynth Labyrinth",
+      "camera": [
+        25,
+        25,
+        6
+      ],
+      "target": [
+        0,
+        14,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/33407125.jpg",
+      "sha256": "0b88332de9319f8f0abe505295f67ddc4950fdcc50b2c52a036b9d42839f72aa"
+    },
+    {
+      "cardId": "59160188",
+      "name": "Lair of Darkness",
+      "camera": [
+        23,
+        19,
+        3
+      ],
+      "target": [
+        0,
+        9,
+        -34
+      ],
+      "fov": 60,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/59160188.jpg",
+      "sha256": "2afffb6689c783f86457daf9bebaab43868cf930ee3f4bf610f465f6f1e2c4eb"
+    },
+    {
+      "cardId": "36890111",
+      "name": "Mansion of the Dreadful Dolls",
+      "camera": [
+        23,
+        22,
+        5
+      ],
+      "target": [
+        0,
+        15,
+        -34
+      ],
+      "fov": 60,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/36890111.jpg",
+      "sha256": "a2da90f7ac3e9ff278bbabbf3e10663da72ff62acc7a0a552bdc45b68fdd4fa9"
+    },
+    {
+      "cardId": "43338320",
+      "name": "Mementomictlan",
+      "camera": [
+        23,
+        19,
+        -2
+      ],
+      "target": [
+        0,
+        7,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/43338320.jpg",
+      "sha256": "74065ee82c232fe762a247b26cd9414c59b66dd36470e2f2541c71b23ff21a7e"
+    },
+    {
+      "cardId": "47355498",
+      "name": "Necrovalley",
+      "camera": [
+        0,
+        15,
+        17
+      ],
+      "target": [
+        0,
+        15,
+        -35
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/47355498.jpg",
+      "sha256": "ba74cca96607c0da56ae0eadb4c5b5273bb5b1d074efef5d3abd4be9120c8d08"
+    },
+    {
+      "cardId": "93729896",
+      "name": "Nightmare Throne",
+      "camera": [
+        22,
+        19,
+        2
+      ],
+      "target": [
+        0,
+        15,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/93729896.jpg",
+      "sha256": "0569d8fb6027325e14b24c713832aac53d9aaf30143fce008c6a0b5e635383ca"
+    },
+    {
+      "cardId": "94585852",
+      "name": "Pandemonium",
+      "camera": [
+        22,
+        22,
+        8
+      ],
+      "target": [
+        0,
+        15,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/94585852.jpg",
+      "sha256": "1f3ec5bcfda2675dc1136115dcea1426f067e8cdfd0a2a6e24a0e33187c3074f"
+    },
+    {
+      "cardId": "40005099",
+      "name": "Shiranui Style Synthesis",
+      "camera": [
+        22,
+        24,
+        8
+      ],
+      "target": [
+        0,
+        14,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/40005099.jpg",
+      "sha256": "89f0f5467674577e9e1a3c2e52aa3e388bd03741bfb93f9d90c0905ae5171492"
+    },
+    {
+      "cardId": "72043279",
+      "name": "Supreme King's Castle",
+      "camera": [
+        22,
+        20,
+        6
+      ],
+      "target": [
+        0,
+        16,
+        -34
+      ],
+      "fov": 58,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/72043279.jpg",
+      "sha256": "f3b29cf302d821e42fd04dbab0a9d90ceda226062cee0cf5cc7f94a7657c6c44"
+    },
+    {
+      "cardId": "33017655",
+      "name": "The Gates of Dark World",
+      "camera": [
+        23,
+        22,
+        6
+      ],
+      "target": [
+        0,
+        14,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/33017655.jpg",
+      "sha256": "ed6cfa0be4cfacfe029b8fc8e89e201303b70a3b5d7c83cb8b8069a373d95b64"
+    },
+    {
+      "cardId": "62188962",
+      "name": "Vampire Kingdom",
+      "camera": [
+        23,
+        22,
+        10
+      ],
+      "target": [
+        0,
+        15,
+        -34
+      ],
+      "fov": 60,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/62188962.jpg",
+      "sha256": "a14cb6db6d21360d2f4459388b56d53332e139cb6dcf41a4f9734e596b825324"
+    },
+    {
+      "cardId": "76871889",
+      "name": "Vendread Nights",
+      "camera": [
+        24,
+        20,
+        8
+      ],
+      "target": [
+        0,
+        14,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/76871889.jpg",
+      "sha256": "c0063ae3cb5f92bbad0c7d2fafcbec75aed74b6a59f047e20d6c4cc6ca2cc849"
+    }
+  ],
+  "validation": {
+    "directTests": [
+      {
+        "file": "test/field-dark-references.test.js",
+        "pass": 10,
+        "exitCode": 0
+      }
+    ],
+    "actualMaxima": {
+      "primitives": 184,
+      "drawCalls": 17,
+      "materials": 7
+    },
+    "budgets": {
+      "maxPrimitives": 220,
+      "maxDrawCalls": 18,
+      "maxMaterials": 10
+    }
+  },
+  "capture": {
+    "details": [
+      {
+        "cardId": "63883999",
+        "before": {
+          "url": null,
+          "primitives": 43,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 532
+        },
+        "after": {
+          "url": null,
+          "primitives": 62,
+          "drawCalls": 8,
+          "materials": 4,
+          "triangles": 9872
+        }
+      },
+      {
+        "cardId": "81788994",
+        "before": {
+          "url": null,
+          "primitives": 34,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 516
+        },
+        "after": {
+          "url": null,
+          "primitives": 7,
+          "drawCalls": 6,
+          "materials": 5,
+          "triangles": 4220
+        }
+      },
+      {
+        "cardId": "16625614",
+        "before": {
+          "url": null,
+          "primitives": 44,
+          "drawCalls": 7,
+          "materials": 5,
+          "triangles": 1328
+        },
+        "after": {
+          "url": null,
+          "primitives": 28,
+          "drawCalls": 8,
+          "materials": 4,
+          "triangles": 2876
+        }
+      },
+      {
+        "cardId": "84171830",
+        "before": {
+          "url": null,
+          "primitives": 32,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 744
+        },
+        "after": {
+          "url": null,
+          "primitives": 16,
+          "drawCalls": 6,
+          "materials": 4,
+          "triangles": 2128
+        }
+      },
+      {
+        "cardId": "1050355",
+        "before": {
+          "url": null,
+          "primitives": 40,
+          "drawCalls": 7,
+          "materials": 4,
+          "triangles": 1388
+        },
+        "after": {
+          "url": null,
+          "primitives": 43,
+          "drawCalls": 11,
+          "materials": 5,
+          "triangles": 6612
+        }
+      },
+      {
+        "cardId": "70122149",
+        "before": {
+          "url": null,
+          "primitives": 43,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 532
+        },
+        "after": {
+          "url": null,
+          "primitives": 62,
+          "drawCalls": 7,
+          "materials": 5,
+          "triangles": 4800
+        }
+      },
+      {
+        "cardId": "13301895",
+        "before": {
+          "url": null,
+          "primitives": 34,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 516
+        },
+        "after": {
+          "url": null,
+          "primitives": 43,
+          "drawCalls": 9,
+          "materials": 6,
+          "triangles": 25240
+        }
+      },
+      {
+        "cardId": "99795159",
+        "before": {
+          "url": null,
+          "primitives": 43,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 532
+        },
+        "after": {
+          "url": null,
+          "primitives": 41,
+          "drawCalls": 12,
+          "materials": 7,
+          "triangles": 3268
+        }
+      },
+      {
+        "cardId": "33407125",
+        "before": {
+          "url": null,
+          "primitives": 162,
+          "drawCalls": 7,
+          "materials": 3,
+          "triangles": 10360
+        },
+        "after": {
+          "url": null,
+          "primitives": 184,
+          "drawCalls": 17,
+          "materials": 4,
+          "triangles": 8860
+        }
+      },
+      {
+        "cardId": "59160188",
+        "before": {
+          "url": null,
+          "primitives": 44,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 636
+        },
+        "after": {
+          "url": null,
+          "primitives": 39,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 2872
+        }
+      },
+      {
+        "cardId": "36890111",
+        "before": {
+          "url": null,
+          "primitives": 43,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 532
+        },
+        "after": {
+          "url": null,
+          "primitives": 73,
+          "drawCalls": 9,
+          "materials": 4,
+          "triangles": 1021
+        }
+      },
+      {
+        "cardId": "43338320",
+        "before": {
+          "url": null,
+          "primitives": 22,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 372
+        },
+        "after": {
+          "url": null,
+          "primitives": 22,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 8168
+        }
+      },
+      {
+        "cardId": "47355498",
+        "before": {
+          "url": null,
+          "primitives": 27,
+          "drawCalls": 3,
+          "materials": 1,
+          "triangles": 460
+        },
+        "after": {
+          "url": null,
+          "primitives": 8,
+          "drawCalls": 7,
+          "materials": 4,
+          "triangles": 10892
+        }
+      },
+      {
+        "cardId": "93729896",
+        "before": {
+          "url": null,
+          "primitives": 34,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 516
+        },
+        "after": {
+          "url": null,
+          "primitives": 15,
+          "drawCalls": 8,
+          "materials": 5,
+          "triangles": 2392
+        }
+      },
+      {
+        "cardId": "94585852",
+        "before": {
+          "url": null,
+          "primitives": 45,
+          "drawCalls": 7,
+          "materials": 5,
+          "triangles": 736
+        },
+        "after": {
+          "url": null,
+          "primitives": 27,
+          "drawCalls": 8,
+          "materials": 4,
+          "triangles": 28992
+        }
+      },
+      {
+        "cardId": "40005099",
+        "before": {
+          "url": null,
+          "primitives": 22,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 372
+        },
+        "after": {
+          "url": null,
+          "primitives": 20,
+          "drawCalls": 5,
+          "materials": 3,
+          "triangles": 13292
+        }
+      },
+      {
+        "cardId": "72043279",
+        "before": {
+          "url": null,
+          "primitives": 43,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 532
+        },
+        "after": {
+          "url": null,
+          "primitives": 30,
+          "drawCalls": 11,
+          "materials": 5,
+          "triangles": 10956
+        }
+      },
+      {
+        "cardId": "33017655",
+        "before": {
+          "url": null,
+          "primitives": 34,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 516
+        },
+        "after": {
+          "url": null,
+          "primitives": 36,
+          "drawCalls": 7,
+          "materials": 3,
+          "triangles": 15332
+        }
+      },
+      {
+        "cardId": "62188962",
+        "before": {
+          "url": null,
+          "primitives": 22,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 372
+        },
+        "after": {
+          "url": null,
+          "primitives": 113,
+          "drawCalls": 12,
+          "materials": 6,
+          "triangles": 2816
+        }
+      },
+      {
+        "cardId": "76871889",
+        "before": {
+          "url": null,
+          "primitives": 22,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 372
+        },
+        "after": {
+          "url": null,
+          "primitives": 155,
+          "drawCalls": 9,
+          "materials": 5,
+          "triangles": 9372
+        }
+      }
+    ],
+    "images": 60,
+    "complete": true,
+    "errors": [],
+    "artifacts": [
+      "docs/audits/artifacts/field-dark-2026-10-07/field-dark-fortresses-2026-10-07.jpg",
+      "docs/audits/artifacts/field-dark-2026-10-07/field-dark-rooms-2026-10-07.jpg",
+      "docs/audits/artifacts/field-dark-2026-10-07/field-dark-rituals-2026-10-07.jpg",
+      "docs/audits/artifacts/field-dark-2026-10-07/field-dark-nightscapes-2026-10-07.jpg"
+    ],
+    "gallery": "docs/audits/artifacts/field-dark-2026-10-07/gallery.html",
+    "gallerySha256": "2a084cd441346a2f32856a842a20e573014af60adc94e1c7bda58fb5e5f66666",
+    "galleryValidation": {
+      "images": 60,
+      "activeScripts": 0,
+      "exactSourceJpgs": 20,
+      "browserLoadedImages": 60,
+      "captureDimensions": [
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ],
+        [
+          600,
+          600
+        ]
+      ],
+      "errors": []
+    },
+    "artifactSha256": {
+      "docs/audits/artifacts/field-dark-2026-10-07/field-dark-fortresses-2026-10-07.jpg": "c9b1592f118870f9f9dcde375ecb04b01a87a67687cbada39b6b682a0ff9fc14",
+      "docs/audits/artifacts/field-dark-2026-10-07/field-dark-rooms-2026-10-07.jpg": "57658c0335118c6c76384448c5628ba037264a4199fa54f55a7c2524b47bc216",
+      "docs/audits/artifacts/field-dark-2026-10-07/field-dark-rituals-2026-10-07.jpg": "1b0158237383eb0ac81f9489d074172f5f6805f2d0158a7411eecfc5953876f6",
+      "docs/audits/artifacts/field-dark-2026-10-07/field-dark-nightscapes-2026-10-07.jpg": "f839b3a63691d135ffbbcab7c216d49bd09e976a2bf22824eec819c0d534b303"
+    }
+  }
+}

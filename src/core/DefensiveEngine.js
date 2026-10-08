@@ -37,8 +37,8 @@ export class DefensiveEngine {
     return this.restrictions.some(res => {
       const matchPlayer = res.playerId === 'both' || res.playerId === playerId;
       const matchAction = res.actionType === actionType;
-      const matchFilter = card ? res.filter(card) : true;
-      return matchPlayer && matchAction && matchFilter;
+      if (!matchPlayer || !matchAction) return false;
+      return card ? res.filter(card) : true;
     });
   }
 
@@ -100,8 +100,8 @@ export class DefensiveEngine {
     return this.protections.some(prot => {
       const matchCard = prot.cardUid === card.uid;
       const matchType = prot.type === protectionType;
-      const matchFilter = prot.filter(context);
-      return matchCard && matchType && matchFilter && this.isDefenseEntryActive(prot, card);
+      if (!matchCard || !matchType || !this.isDefenseEntryActive(prot, card)) return false;
+      return prot.filter(context);
     });
   }
 
@@ -142,7 +142,7 @@ export class DefensiveEngine {
     // Check if any active replacements match the target card and trigger type
     for (const rep of this.replacements) {
       if (event.type === rep.triggerType && event.targetCard && event.targetCard.uid === rep.cardUid) {
-        if (!rep.filter(event) || !this.isDefenseEntryActive(rep, event.targetCard)) {
+        if (!this.isDefenseEntryActive(rep, event.targetCard) || !rep.filter(event)) {
           continue;
         }
 

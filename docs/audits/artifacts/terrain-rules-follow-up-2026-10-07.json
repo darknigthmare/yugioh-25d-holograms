@@ -1,0 +1,1172 @@
+{
+  "date": "2026-10-07",
+  "startedAt": "2026-10-07T11:28:15.632205+00:00",
+  "baseUrl": "http://127.0.0.1:5174",
+  "runtime": "Chromium / SwiftShader",
+  "fixtureMethod": "DEV QA initial CardState positions only",
+  "activationControlsRequired": true,
+  "freePendulumScaleRequired": true,
+  "actions": "Original UI buttons, zones, choices, callbacks, delays and Chains",
+  "cases": [
+    {
+      "scenario": "ocean",
+      "fieldId": "295517",
+      "initial": {
+        "rulesMode": "strict",
+        "generation": 3,
+        "initialNormalSummonIds": []
+      },
+      "pendulumBeforeActivation": {
+        "sameGame": true,
+        "generation": 3,
+        "phase": "main1",
+        "turn": "player",
+        "turnCount": 2,
+        "mode": "real",
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "playerMonsters": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "opponentMonsters": [
+          {
+            "zone": 0,
+            "id": "81823360",
+            "faceUp": true,
+            "atk": 2000,
+            "def": 0,
+            "level": 4,
+            "race": "Dinosaur",
+            "printedRace": "Dinosaur",
+            "position": "attack"
+          },
+          null,
+          null,
+          null,
+          null
+        ],
+        "playerGraveyard": [],
+        "opponentGraveyard": [],
+        "hand": [
+          {
+            "id": "295517",
+            "uid": "terrain-audit-ocean-0",
+            "race": "Field",
+            "atk": 0,
+            "def": 0,
+            "level": 1,
+            "canActivate": true
+          },
+          {
+            "id": "43793530",
+            "uid": "terrain-audit-ocean-1",
+            "race": "Reptile",
+            "atk": 2450,
+            "def": 1500,
+            "level": 5,
+            "canActivate": null
+          },
+          {
+            "id": "94415058",
+            "uid": "terrain-audit-ocean-3",
+            "race": "Spellcaster",
+            "atk": 1200,
+            "def": 2400,
+            "level": 5,
+            "canActivate": null
+          }
+        ],
+        "normalSummonCardUids": [],
+        "field": null,
+        "opposingField": null,
+        "canvasCount": 1,
+        "bodyWidth": 1440,
+        "viewportWidth": 1440,
+        "closedForestTurnLocked": false,
+        "activeBackdrop": {
+          "image": "url(\"http://127.0.0.1:5174/environments/kaibacorp-clearing-original.webp\"), url(\"http://127.0.0.1:5174/environments/kaibacorp-clearing-original.webp\")",
+          "fit": "cover, cover",
+          "filter": "none"
+        }
+      },
+      "freePendulumScaleResolved": {
+        "id": "94415058",
+        "faceUp": true,
+        "location": "pendulum_zone",
+        "isPendulumScale": true,
+        "normalSummonAllowanceUsed": 0
+      },
+      "activated": {
+        "sameGame": true,
+        "generation": 3,
+        "phase": "main1",
+        "turn": "player",
+        "turnCount": 2,
+        "mode": "real",
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "playerMonsters": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "opponentMonsters": [
+          {
+            "zone": 0,
+            "id": "81823360",
+            "faceUp": true,
+            "atk": 2200,
+            "def": 200,
+            "level": 3,
+            "race": "Dinosaur",
+            "printedRace": "Dinosaur",
+            "position": "attack"
+          },
+          null,
+          null,
+          null,
+          null
+        ],
+        "playerGraveyard": [],
+        "opponentGraveyard": [],
+        "hand": [
+          {
+            "id": "43793530",
+            "uid": "terrain-audit-ocean-1",
+            "race": "Reptile",
+            "atk": 2450,
+            "def": 1500,
+            "level": 4,
+            "canActivate": null
+          }
+        ],
+        "normalSummonCardUids": [
+          "terrain-audit-ocean-1"
+        ],
+        "field": {
+          "id": "295517",
+          "state": "resolved",
+          "faceUp": true
+        },
+        "opposingField": null,
+        "canvasCount": 1,
+        "bodyWidth": 1440,
+        "viewportWidth": 1440,
+        "closedForestTurnLocked": false,
+        "activeBackdrop": {
+          "image": "url(\"http://127.0.0.1:5174/environments/field-art/295517.jpg\")",
+          "fit": "contain",
+          "filter": "none"
+        }
+      },
+      "afterSummonOrActivation": {
+        "sameGame": true,
+        "generation": 3,
+        "phase": "main1",
+        "turn": "player",
+        "turnCount": 2,
+        "mode": "real",
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "playerMonsters": [
+          {
+            "zone": 0,
+            "id": "43793530",
+            "faceUp": true,
+            "atk": 2650,
+            "def": 1700,
+            "level": 4,
+            "race": "Reptile",
+            "printedRace": "Reptile",
+            "position": "attack"
+          },
+          null,
+          null,
+          null,
+          null
+        ],
+        "opponentMonsters": [
+          {
+            "zone": 0,
+            "id": "81823360",
+            "faceUp": true,
+            "atk": 2200,
+            "def": 200,
+            "level": 3,
+            "race": "Dinosaur",
+            "printedRace": "Dinosaur",
+            "position": "attack"
+          },
+          null,
+          null,
+          null,
+          null
+        ],
+        "playerGraveyard": [],
+        "opponentGraveyard": [],
+        "hand": [],
+        "normalSummonCardUids": [],
+        "field": {
+          "id": "295517",
+          "state": "resolved",
+          "faceUp": true
+        },
+        "opposingField": null,
+        "canvasCount": 1,
+        "bodyWidth": 1440,
+        "viewportWidth": 1440,
+        "closedForestTurnLocked": false,
+        "activeBackdrop": {
+          "image": "url(\"http://127.0.0.1:5174/environments/field-art/295517.jpg\")",
+          "fit": "contain",
+          "filter": "none"
+        }
+      },
+      "events": [
+        {
+          "type": "activate",
+          "phase": "main1",
+          "damageStep": "none",
+          "cardId": "94415058",
+          "bonus": null,
+          "reduction": null,
+          "calculatedAtk": null,
+          "originalDamage": null,
+          "modifiedDamage": null,
+          "damage": null,
+          "tributeCount": null,
+          "sourceCount": null
+        },
+        {
+          "type": "chain-pop",
+          "phase": "main1",
+          "damageStep": "none",
+          "cardId": "94415058",
+          "bonus": null,
+          "reduction": null,
+          "calculatedAtk": null,
+          "originalDamage": null,
+          "modifiedDamage": null,
+          "damage": null,
+          "tributeCount": null,
+          "sourceCount": null
+        },
+        {
+          "type": "chain-resolve",
+          "phase": "main1",
+          "damageStep": "none",
+          "cardId": "94415058",
+          "bonus": null,
+          "reduction": null,
+          "calculatedAtk": null,
+          "originalDamage": null,
+          "modifiedDamage": null,
+          "damage": null,
+          "tributeCount": null,
+          "sourceCount": null
+        },
+        {
+          "type": "activate",
+          "phase": "main1",
+          "damageStep": "none",
+          "cardId": "295517",
+          "bonus": null,
+          "reduction": null,
+          "calculatedAtk": null,
+          "originalDamage": null,
+          "modifiedDamage": null,
+          "damage": null,
+          "tributeCount": null,
+          "sourceCount": null
+        },
+        {
+          "type": "chain-pop",
+          "phase": "main1",
+          "damageStep": "none",
+          "cardId": "295517",
+          "bonus": null,
+          "reduction": null,
+          "calculatedAtk": null,
+          "originalDamage": null,
+          "modifiedDamage": null,
+          "damage": null,
+          "tributeCount": null,
+          "sourceCount": null
+        },
+        {
+          "type": "chain-resolve",
+          "phase": "main1",
+          "damageStep": "none",
+          "cardId": "295517",
+          "bonus": null,
+          "reduction": null,
+          "calculatedAtk": null,
+          "originalDamage": null,
+          "modifiedDamage": null,
+          "damage": null,
+          "tributeCount": null,
+          "sourceCount": null
+        },
+        {
+          "type": "summon",
+          "phase": "main1",
+          "damageStep": "none",
+          "cardId": "43793530",
+          "bonus": null,
+          "reduction": null,
+          "calculatedAtk": null,
+          "originalDamage": null,
+          "modifiedDamage": null,
+          "damage": null,
+          "tributeCount": 0,
+          "sourceCount": null
+        }
+      ],
+      "visuals": [
+        {
+          "profile": null,
+          "kind": "activate",
+          "played": true,
+          "sourceRef": null,
+          "targetRef": null,
+          "ruleChange": null
+        },
+        {
+          "profile": null,
+          "kind": "activate",
+          "played": true,
+          "sourceRef": {
+            "owner": "player",
+            "zoneType": "field",
+            "zoneIndex": 0
+          },
+          "targetRef": null,
+          "ruleChange": null
+        },
+        {
+          "profile": null,
+          "kind": "summon",
+          "played": true,
+          "sourceRef": {
+            "owner": "player",
+            "zoneType": "main",
+            "zoneIndex": 0
+          },
+          "targetRef": null,
+          "ruleChange": null
+        }
+      ],
+      "elapsedSeconds": 20.052,
+      "passed": true
+    },
+    {
+      "scenario": "village-with-zombie",
+      "fieldId": "68462976",
+      "initial": {
+        "rulesMode": "strict",
+        "generation": 4,
+        "initialNormalSummonIds": []
+      },
+      "activated": {
+        "sameGame": true,
+        "generation": 4,
+        "phase": "main1",
+        "turn": "player",
+        "turnCount": 2,
+        "mode": "real",
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "playerMonsters": [
+          {
+            "zone": 0,
+            "id": "66602787",
+            "faceUp": true,
+            "atk": 600,
+            "def": 1500,
+            "level": 3,
+            "race": "Zombie",
+            "printedRace": "Spellcaster",
+            "position": "attack"
+          },
+          null,
+          null,
+          null,
+          null
+        ],
+        "opponentMonsters": [
+          {
+            "zone": 0,
+            "id": "97590747",
+            "faceUp": true,
+            "atk": 1800,
+            "def": 1000,
+            "level": 4,
+            "race": "Zombie",
+            "printedRace": "Fiend",
+            "position": "attack"
+          },
+          null,
+          null,
+          null,
+          null
+        ],
+        "playerGraveyard": [
+          {
+            "id": "91152256",
+            "race": "Zombie"
+          }
+        ],
+        "opponentGraveyard": [],
+        "hand": [
+          {
+            "id": "14087893",
+            "uid": "terrain-audit-village-with-zombie-3",
+            "race": "Quick-Play",
+            "atk": 0,
+            "def": 0,
+            "level": 1,
+            "canActivate": false
+          },
+          {
+            "id": "22702055",
+            "uid": "terrain-audit-village-with-zombie-4",
+            "race": "Field",
+            "atk": 0,
+            "def": 0,
+            "level": 1,
+            "canActivate": false
+          },
+          {
+            "id": "94415058",
+            "uid": "terrain-audit-village-with-zombie-6",
+            "race": "Spellcaster",
+            "atk": 1200,
+            "def": 2400,
+            "level": 5,
+            "canActivate": null
+          }
+        ],
+        "normalSummonCardUids": [],
+        "field": {
+          "id": "68462976",
+          "state": "resolved",
+          "faceUp": true
+        },
+        "opposingField": {
+          "id": "4064256",
+          "state": "resolved",
+          "faceUp": true
+        },
+        "canvasCount": 1,
+        "bodyWidth": 1440,
+        "viewportWidth": 1440,
+        "closedForestTurnLocked": false,
+        "activeBackdrop": {
+          "image": "url(\"http://127.0.0.1:5174/environments/field-art/68462976.jpg\")",
+          "fit": "contain",
+          "filter": "none"
+        }
+      },
+      "afterSummonOrActivation": {
+        "sameGame": true,
+        "generation": 4,
+        "phase": "main1",
+        "turn": "player",
+        "turnCount": 2,
+        "mode": "real",
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "playerMonsters": [
+          {
+            "zone": 0,
+            "id": "66602787",
+            "faceUp": true,
+            "atk": 600,
+            "def": 1500,
+            "level": 3,
+            "race": "Zombie",
+            "printedRace": "Spellcaster",
+            "position": "attack"
+          },
+          null,
+          null,
+          null,
+          null
+        ],
+        "opponentMonsters": [
+          {
+            "zone": 0,
+            "id": "97590747",
+            "faceUp": true,
+            "atk": 1800,
+            "def": 1000,
+            "level": 4,
+            "race": "Zombie",
+            "printedRace": "Fiend",
+            "position": "attack"
+          },
+          null,
+          null,
+          null,
+          null
+        ],
+        "playerGraveyard": [
+          {
+            "id": "91152256",
+            "race": "Zombie"
+          }
+        ],
+        "opponentGraveyard": [],
+        "hand": [
+          {
+            "id": "14087893",
+            "uid": "terrain-audit-village-with-zombie-3",
+            "race": "Quick-Play",
+            "atk": 0,
+            "def": 0,
+            "level": 1,
+            "canActivate": false
+          },
+          {
+            "id": "22702055",
+            "uid": "terrain-audit-village-with-zombie-4",
+            "race": "Field",
+            "atk": 0,
+            "def": 0,
+            "level": 1,
+            "canActivate": false
+          },
+          {
+            "id": "94415058",
+            "uid": "terrain-audit-village-with-zombie-6",
+            "race": "Spellcaster",
+            "atk": 1200,
+            "def": 2400,
+            "level": 5,
+            "canActivate": null
+          }
+        ],
+        "normalSummonCardUids": [],
+        "field": {
+          "id": "68462976",
+          "state": "resolved",
+          "faceUp": true
+        },
+        "opposingField": {
+          "id": "4064256",
+          "state": "resolved",
+          "faceUp": true
+        },
+        "canvasCount": 1,
+        "bodyWidth": 1440,
+        "viewportWidth": 1440,
+        "closedForestTurnLocked": false,
+        "activeBackdrop": {
+          "image": "url(\"http://127.0.0.1:5174/environments/field-art/68462976.jpg\")",
+          "fit": "contain",
+          "filter": "none"
+        }
+      },
+      "rejectionControl": {
+        "activationControlDisabled": true,
+        "setControlEnabled": true,
+        "validation": "Disabled UI control"
+      },
+      "restrictedControlsAndLegalSet": {
+        "pendulumActivationControlDisabled": true,
+        "pendulumBlockedAt": "hand",
+        "fieldSetThroughUI": {
+          "sameGame": true,
+          "generation": 4,
+          "phase": "main1",
+          "turn": "player",
+          "turnCount": 2,
+          "mode": "real",
+          "playerLP": 8000,
+          "opponentLP": 8000,
+          "playerMonsters": [
+            {
+              "zone": 0,
+              "id": "66602787",
+              "faceUp": true,
+              "atk": 600,
+              "def": 1500,
+              "level": 3,
+              "race": "Zombie",
+              "printedRace": "Spellcaster",
+              "position": "attack"
+            },
+            null,
+            null,
+            null,
+            null
+          ],
+          "opponentMonsters": [
+            {
+              "zone": 0,
+              "id": "97590747",
+              "faceUp": true,
+              "atk": 1800,
+              "def": 1000,
+              "level": 4,
+              "race": "Zombie",
+              "printedRace": "Fiend",
+              "position": "attack"
+            },
+            null,
+            null,
+            null,
+            null
+          ],
+          "playerGraveyard": [
+            {
+              "id": "91152256",
+              "race": "Zombie"
+            },
+            {
+              "id": "68462976",
+              "race": "Field"
+            }
+          ],
+          "opponentGraveyard": [],
+          "hand": [
+            {
+              "id": "14087893",
+              "uid": "terrain-audit-village-with-zombie-3",
+              "race": "Quick-Play",
+              "atk": 0,
+              "def": 0,
+              "level": 1,
+              "canActivate": true
+            },
+            {
+              "id": "94415058",
+              "uid": "terrain-audit-village-with-zombie-6",
+              "race": "Spellcaster",
+              "atk": 1200,
+              "def": 2400,
+              "level": 5,
+              "canActivate": null
+            }
+          ],
+          "normalSummonCardUids": [],
+          "field": {
+            "faceUp": false
+          },
+          "opposingField": {
+            "id": "4064256",
+            "state": "resolved",
+            "faceUp": true
+          },
+          "canvasCount": 1,
+          "bodyWidth": 1440,
+          "viewportWidth": 1440,
+          "closedForestTurnLocked": false,
+          "activeBackdrop": {
+            "image": "url(\"http://127.0.0.1:5174/environments/field-art/4064256.jpg\")",
+            "fit": "contain",
+            "filter": "none"
+          }
+        }
+      },
+      "events": [
+        {
+          "type": "activate",
+          "phase": "main1",
+          "damageStep": "none",
+          "cardId": "68462976",
+          "bonus": null,
+          "reduction": null,
+          "calculatedAtk": null,
+          "originalDamage": null,
+          "modifiedDamage": null,
+          "damage": null,
+          "tributeCount": null,
+          "sourceCount": null
+        },
+        {
+          "type": "chain-pop",
+          "phase": "main1",
+          "damageStep": "none",
+          "cardId": "68462976",
+          "bonus": null,
+          "reduction": null,
+          "calculatedAtk": null,
+          "originalDamage": null,
+          "modifiedDamage": null,
+          "damage": null,
+          "tributeCount": null,
+          "sourceCount": null
+        },
+        {
+          "type": "chain-resolve",
+          "phase": "main1",
+          "damageStep": "none",
+          "cardId": "68462976",
+          "bonus": null,
+          "reduction": null,
+          "calculatedAtk": null,
+          "originalDamage": null,
+          "modifiedDamage": null,
+          "damage": null,
+          "tributeCount": null,
+          "sourceCount": null
+        },
+        {
+          "type": "activate",
+          "phase": "main1",
+          "damageStep": "none",
+          "cardId": null,
+          "bonus": null,
+          "reduction": null,
+          "calculatedAtk": null,
+          "originalDamage": null,
+          "modifiedDamage": null,
+          "damage": null,
+          "tributeCount": null,
+          "sourceCount": null
+        }
+      ],
+      "visuals": [
+        {
+          "profile": null,
+          "kind": "activate",
+          "played": true,
+          "sourceRef": {
+            "owner": "player",
+            "zoneType": "field",
+            "zoneIndex": 0
+          },
+          "targetRef": null,
+          "ruleChange": null
+        }
+      ],
+      "elapsedSeconds": 11.262,
+      "passed": true
+    },
+    {
+      "scenario": "temple-with-canyon",
+      "fieldId": "92481084",
+      "initial": {
+        "rulesMode": "strict",
+        "generation": 5,
+        "initialNormalSummonIds": []
+      },
+      "activated": {
+        "sameGame": true,
+        "generation": 5,
+        "phase": "main1",
+        "turn": "player",
+        "turnCount": 2,
+        "mode": "real",
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "playerMonsters": [
+          {
+            "zone": 0,
+            "id": "48305365",
+            "faceUp": true,
+            "atk": 1700,
+            "def": 1150,
+            "level": 4,
+            "race": "Warrior",
+            "printedRace": "Warrior",
+            "position": "attack"
+          },
+          null,
+          null,
+          null,
+          null
+        ],
+        "opponentMonsters": [
+          {
+            "zone": 0,
+            "faceUp": false,
+            "position": "defense"
+          },
+          null,
+          null,
+          null,
+          null
+        ],
+        "playerGraveyard": [],
+        "opponentGraveyard": [],
+        "hand": [],
+        "normalSummonCardUids": [],
+        "field": {
+          "id": "92481084",
+          "state": "resolved",
+          "faceUp": true
+        },
+        "opposingField": {
+          "id": "28120197",
+          "state": "resolved",
+          "faceUp": true
+        },
+        "canvasCount": 1,
+        "bodyWidth": 1440,
+        "viewportWidth": 1440,
+        "closedForestTurnLocked": false,
+        "activeBackdrop": {
+          "image": "url(\"http://127.0.0.1:5174/environments/field-art/92481084.jpg\")",
+          "fit": "contain",
+          "filter": "none"
+        }
+      },
+      "afterSummonOrActivation": {
+        "sameGame": true,
+        "generation": 5,
+        "phase": "main1",
+        "turn": "player",
+        "turnCount": 2,
+        "mode": "real",
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "playerMonsters": [
+          {
+            "zone": 0,
+            "id": "48305365",
+            "faceUp": true,
+            "atk": 1700,
+            "def": 1150,
+            "level": 4,
+            "race": "Warrior",
+            "printedRace": "Warrior",
+            "position": "attack"
+          },
+          null,
+          null,
+          null,
+          null
+        ],
+        "opponentMonsters": [
+          {
+            "zone": 0,
+            "faceUp": false,
+            "position": "defense"
+          },
+          null,
+          null,
+          null,
+          null
+        ],
+        "playerGraveyard": [],
+        "opponentGraveyard": [],
+        "hand": [],
+        "normalSummonCardUids": [],
+        "field": {
+          "id": "92481084",
+          "state": "resolved",
+          "faceUp": true
+        },
+        "opposingField": {
+          "id": "28120197",
+          "state": "resolved",
+          "faceUp": true
+        },
+        "canvasCount": 1,
+        "bodyWidth": 1440,
+        "viewportWidth": 1440,
+        "closedForestTurnLocked": false,
+        "activeBackdrop": {
+          "image": "url(\"http://127.0.0.1:5174/environments/field-art/92481084.jpg\")",
+          "fit": "contain",
+          "filter": "none"
+        }
+      },
+      "afterAttack": {
+        "sameGame": true,
+        "generation": 5,
+        "phase": "battle",
+        "turn": "player",
+        "turnCount": 2,
+        "mode": "real",
+        "playerLP": 7000,
+        "opponentLP": 8000,
+        "playerMonsters": [
+          {
+            "zone": 0,
+            "id": "48305365",
+            "faceUp": true,
+            "atk": 1700,
+            "def": 1150,
+            "level": 4,
+            "race": "Warrior",
+            "printedRace": "Warrior",
+            "position": "attack"
+          },
+          null,
+          null,
+          null,
+          null
+        ],
+        "opponentMonsters": [
+          {
+            "zone": 0,
+            "id": "13039848",
+            "faceUp": true,
+            "atk": 1300,
+            "def": 2000,
+            "level": 3,
+            "race": "Rock",
+            "printedRace": "Rock",
+            "position": "defense"
+          },
+          null,
+          null,
+          null,
+          null
+        ],
+        "playerGraveyard": [],
+        "opponentGraveyard": [],
+        "hand": [],
+        "normalSummonCardUids": [],
+        "field": {
+          "id": "92481084",
+          "state": "resolved",
+          "faceUp": true
+        },
+        "opposingField": {
+          "id": "28120197",
+          "state": "resolved",
+          "faceUp": true
+        },
+        "canvasCount": 1,
+        "bodyWidth": 1440,
+        "viewportWidth": 1440,
+        "closedForestTurnLocked": false,
+        "activeBackdrop": {
+          "image": "url(\"http://127.0.0.1:5174/environments/field-art/92481084.jpg\")",
+          "fit": "contain",
+          "filter": "none"
+        }
+      },
+      "events": [
+        {
+          "type": "activate",
+          "phase": "main1",
+          "damageStep": "none",
+          "cardId": "92481084",
+          "bonus": null,
+          "reduction": null,
+          "calculatedAtk": null,
+          "originalDamage": null,
+          "modifiedDamage": null,
+          "damage": null,
+          "tributeCount": null,
+          "sourceCount": null
+        },
+        {
+          "type": "chain-pop",
+          "phase": "main1",
+          "damageStep": "none",
+          "cardId": "92481084",
+          "bonus": null,
+          "reduction": null,
+          "calculatedAtk": null,
+          "originalDamage": null,
+          "modifiedDamage": null,
+          "damage": null,
+          "tributeCount": null,
+          "sourceCount": null
+        },
+        {
+          "type": "chain-resolve",
+          "phase": "main1",
+          "damageStep": "none",
+          "cardId": "92481084",
+          "bonus": null,
+          "reduction": null,
+          "calculatedAtk": null,
+          "originalDamage": null,
+          "modifiedDamage": null,
+          "damage": null,
+          "tributeCount": null,
+          "sourceCount": null
+        },
+        {
+          "type": "flip-summon",
+          "phase": "battle",
+          "damageStep": "before_calc",
+          "cardId": "13039848",
+          "bonus": null,
+          "reduction": null,
+          "calculatedAtk": null,
+          "originalDamage": null,
+          "modifiedDamage": null,
+          "damage": null,
+          "tributeCount": null,
+          "sourceCount": null
+        },
+        {
+          "type": "attack-monster",
+          "phase": "battle",
+          "damageStep": "before_calc",
+          "cardId": null,
+          "bonus": null,
+          "reduction": null,
+          "calculatedAtk": null,
+          "originalDamage": null,
+          "modifiedDamage": null,
+          "damage": null,
+          "tributeCount": null,
+          "sourceCount": null
+        },
+        {
+          "type": "canyon-damage-cinematic",
+          "phase": "battle",
+          "damageStep": "calc",
+          "cardId": "28120197",
+          "bonus": null,
+          "reduction": null,
+          "calculatedAtk": null,
+          "originalDamage": 300,
+          "modifiedDamage": 600,
+          "damage": null,
+          "tributeCount": null,
+          "sourceCount": 1
+        },
+        {
+          "type": "temple-minds-eye-cinematic",
+          "phase": "battle",
+          "damageStep": "calc",
+          "cardId": "92481084",
+          "bonus": null,
+          "reduction": null,
+          "calculatedAtk": null,
+          "originalDamage": 600,
+          "modifiedDamage": 1000,
+          "damage": null,
+          "tributeCount": null,
+          "sourceCount": 1
+        },
+        {
+          "type": "lp-loss",
+          "phase": "battle",
+          "damageStep": "calc",
+          "cardId": null,
+          "bonus": null,
+          "reduction": null,
+          "calculatedAtk": null,
+          "originalDamage": null,
+          "modifiedDamage": null,
+          "damage": 1000,
+          "tributeCount": null,
+          "sourceCount": null
+        }
+      ],
+      "visuals": [
+        {
+          "profile": null,
+          "kind": "activate",
+          "played": true,
+          "sourceRef": {
+            "owner": "player",
+            "zoneType": "field",
+            "zoneIndex": 0
+          },
+          "targetRef": null,
+          "ruleChange": null
+        },
+        {
+          "profile": null,
+          "kind": "summon",
+          "played": true,
+          "sourceRef": {
+            "owner": "opponent",
+            "zoneType": "main",
+            "zoneIndex": 0
+          },
+          "targetRef": null,
+          "ruleChange": null
+        },
+        {
+          "profile": null,
+          "kind": "attack",
+          "played": true,
+          "sourceRef": {
+            "owner": "player",
+            "zoneType": "main",
+            "zoneIndex": 0
+          },
+          "targetRef": {
+            "owner": "opponent",
+            "zoneType": "main",
+            "zoneIndex": 0
+          },
+          "ruleChange": null
+        },
+        {
+          "profile": "canyon-damage",
+          "kind": "activate",
+          "played": true,
+          "sourceRef": {
+            "owner": "opponent",
+            "zoneType": "field",
+            "zoneIndex": 0
+          },
+          "targetRef": {
+            "owner": "player",
+            "zoneType": "main",
+            "zoneIndex": 0
+          },
+          "ruleChange": {
+            "kind": "damage-double",
+            "value": 2,
+            "sourceCount": 1,
+            "originalDamage": 300,
+            "modifiedDamage": 600,
+            "damageSide": "player",
+            "directAttack": false
+          }
+        },
+        {
+          "profile": "temple-minds-eye",
+          "kind": "activate",
+          "played": true,
+          "sourceRef": {
+            "owner": "player",
+            "zoneType": "field",
+            "zoneIndex": 0
+          },
+          "targetRef": {
+            "owner": "player",
+            "zoneType": "main",
+            "zoneIndex": 0
+          },
+          "ruleChange": {
+            "kind": "damage-fixed",
+            "value": 1000,
+            "sourceCount": 1,
+            "originalDamage": 600,
+            "modifiedDamage": 1000,
+            "damageSide": "player",
+            "directAttack": false
+          }
+        }
+      ],
+      "elapsedSeconds": 14.057,
+      "passed": true
+    }
+  ],
+  "captures": [
+    "terrain-rules-ocean-desktop-2026-10-07.png"
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "openingAttempts": 3,
+  "implementedFieldIdsExercised": [
+    "295517",
+    "68462976",
+    "92481084"
+  ],
+  "finishedAt": "2026-10-07T11:29:30.297749+00:00",
+  "passed": true
+}

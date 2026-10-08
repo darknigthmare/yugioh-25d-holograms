@@ -1,0 +1,488 @@
+{
+  "auditDate": "2026-10-07",
+  "baseUrl": "http://127.0.0.1:5174",
+  "checks": {
+    "strictLibraryAndLimits": {
+      "library": 64,
+      "presetSizes": [
+        40,
+        3,
+        5
+      ],
+      "potForbidden": true,
+      "rebornLimitedOne": true,
+      "combinedWetlandsLimitThree": true
+    },
+    "builderReloadPreserved": true,
+    "savedCustomDeckBeforeMatch": {
+      "mainDeck": [
+        "89631139",
+        "89631139",
+        "89631139",
+        "5053103",
+        "5053103",
+        "5053103",
+        "97590747",
+        "97590747",
+        "97590747",
+        "14898066",
+        "14898066",
+        "14898066",
+        "66602787",
+        "66602787",
+        "26202165",
+        "13039848",
+        "13039848",
+        "54652250",
+        "48305365",
+        "48305365",
+        "81777047",
+        "49791927",
+        "49791927",
+        "50913601",
+        "24094653",
+        "24094653",
+        "24094653",
+        "12580477",
+        "5318639",
+        "14087893",
+        "44095762",
+        "44095762",
+        "44095762",
+        "4206964",
+        "4206964",
+        "4206964",
+        "83764718",
+        "88819587",
+        "88819587",
+        "31560081"
+      ],
+      "extraDeck": [
+        "23995346",
+        "84013237",
+        "77637979"
+      ],
+      "sideDeck": [
+        "40640057",
+        "71625222",
+        "46986414",
+        "15025844",
+        "70781052",
+        "2084239",
+        "2084239"
+      ]
+    },
+    "selfHostedFontsLoaded": {
+      "faces": [
+        {
+          "family": "Inter",
+          "status": "loaded"
+        },
+        {
+          "family": "Orbitron",
+          "status": "loaded"
+        }
+      ],
+      "externalGoogleFontRequests": 0
+    },
+    "mobileBuilderBeforeLaunch": {
+      "viewport": [
+        390,
+        844
+      ],
+      "bodyWidth": 390,
+      "actualBuilderShown": true,
+      "libraryButtons": 64,
+      "deckSizes": [
+        40,
+        3,
+        7
+      ],
+      "screenshotsUseViewportAndDialogScroll": true
+    },
+    "openingFirstPlayerChoiceClicked": false,
+    "actualMatchDuelOneRegistration": {
+      "version": 2,
+      "mode": "best_of_three",
+      "bestOf": 3,
+      "winsRequired": 2,
+      "status": "active",
+      "screen": "duel",
+      "formatId": "TCG_ADVANCED",
+      "banlistId": "TCG_EU_2026_09_21",
+      "gameNumber": 1,
+      "playerIds": [
+        "player",
+        "opponent"
+      ],
+      "players": [
+        {
+          "id": "player",
+          "label": "Vous",
+          "wins": 0,
+          "isMatchWinner": false,
+          "hasRegisteredDeck": true,
+          "hasStagedSideDeck": false,
+          "activeDeckSizes": {
+            "mainDeck": 40,
+            "extraDeck": 3,
+            "sideDeck": 7
+          },
+          "draftDeckSizes": {
+            "mainDeck": 40,
+            "extraDeck": 3,
+            "sideDeck": 7
+          }
+        },
+        {
+          "id": "opponent",
+          "label": "Adversaire IA",
+          "wins": 0,
+          "isMatchWinner": false,
+          "hasRegisteredDeck": true,
+          "hasStagedSideDeck": false,
+          "activeDeckSizes": {
+            "mainDeck": 40,
+            "extraDeck": 2,
+            "sideDeck": 5
+          },
+          "draftDeckSizes": {
+            "mainDeck": 40,
+            "extraDeck": 2,
+            "sideDeck": 5
+          }
+        }
+      ],
+      "scores": {
+        "player": 0,
+        "opponent": 0
+      },
+      "games": [],
+      "currentDuel": {
+        "gameNumber": 1,
+        "firstPlayerId": "opponent",
+        "decisionPlayerId": "opponent",
+        "completed": false
+      },
+      "nextDuel": null,
+      "winnerId": null,
+      "isDrawnMatch": false,
+      "actions": {
+        "canStartMatch": false,
+        "canRecordDuelResult": true,
+        "canEditSideDeck": false,
+        "canResolveRandomMethod": false,
+        "canChooseFirstPlayer": false,
+        "canStartNextDuel": false
+      }
+    },
+    "actualRegisteredSnapshot": {
+      "mainDeck": [
+        "89631139",
+        "89631139",
+        "89631139",
+        "5053103",
+        "5053103",
+        "5053103",
+        "97590747",
+        "97590747",
+        "97590747",
+        "14898066",
+        "14898066",
+        "14898066",
+        "66602787",
+        "66602787",
+        "26202165",
+        "13039848",
+        "13039848",
+        "54652250",
+        "48305365",
+        "48305365",
+        "81777047",
+        "49791927",
+        "49791927",
+        "50913601",
+        "24094653",
+        "24094653",
+        "24094653",
+        "12580477",
+        "5318639",
+        "14087893",
+        "44095762",
+        "44095762",
+        "44095762",
+        "4206964",
+        "4206964",
+        "4206964",
+        "83764718",
+        "88819587",
+        "88819587",
+        "31560081"
+      ],
+      "extraDeck": [
+        "23995346",
+        "84013237",
+        "77637979"
+      ],
+      "sideDeck": [
+        "40640057",
+        "71625222",
+        "46986414",
+        "15025844",
+        "70781052",
+        "2084239",
+        "2084239"
+      ]
+    },
+    "sideDeckDialogOpenedByResultButton": true,
+    "restoredMatchWithEmptyBuilderDraft": {
+      "customSelected": true,
+      "scores": {
+        "player": 0,
+        "opponent": 1
+      },
+      "registeredSizes": [
+        40,
+        3,
+        7
+      ],
+      "builderDraftSizes": [
+        0,
+        0,
+        0
+      ]
+    },
+    "firstPlayerChoiceReloadPreserved": true,
+    "realMainSideWetlandsSwap": {
+      "mainCardRemoved": "Dragon Blanc aux Yeux Bleus",
+      "sideIndex": 5,
+      "sizesPreserved": [
+        40,
+        3,
+        7
+      ],
+      "cardPoolPreserved": true,
+      "expectedDeck": {
+        "mainDeck": [
+          "2084239",
+          "89631139",
+          "89631139",
+          "5053103",
+          "5053103",
+          "5053103",
+          "97590747",
+          "97590747",
+          "97590747",
+          "14898066",
+          "14898066",
+          "14898066",
+          "66602787",
+          "66602787",
+          "26202165",
+          "13039848",
+          "13039848",
+          "54652250",
+          "48305365",
+          "48305365",
+          "81777047",
+          "49791927",
+          "49791927",
+          "50913601",
+          "24094653",
+          "24094653",
+          "24094653",
+          "12580477",
+          "5318639",
+          "14087893",
+          "44095762",
+          "44095762",
+          "44095762",
+          "4206964",
+          "4206964",
+          "4206964",
+          "83764718",
+          "88819587",
+          "88819587",
+          "31560081"
+        ],
+        "extraDeck": [
+          "23995346",
+          "84013237",
+          "77637979"
+        ],
+        "sideDeck": [
+          "40640057",
+          "71625222",
+          "46986414",
+          "15025844",
+          "70781052",
+          "89631139",
+          "2084239"
+        ]
+      }
+    },
+    "actualDuelTwoFromRegisteredMatchDespiteEmptyDraft": {
+      "view": {
+        "version": 2,
+        "mode": "best_of_three",
+        "bestOf": 3,
+        "winsRequired": 2,
+        "status": "active",
+        "screen": "duel",
+        "formatId": "TCG_ADVANCED",
+        "banlistId": "TCG_EU_2026_09_21",
+        "gameNumber": 2,
+        "playerIds": [
+          "player",
+          "opponent"
+        ],
+        "players": [
+          {
+            "id": "player",
+            "label": "Vous",
+            "wins": 0,
+            "isMatchWinner": false,
+            "hasRegisteredDeck": true,
+            "hasStagedSideDeck": false,
+            "activeDeckSizes": {
+              "mainDeck": 40,
+              "extraDeck": 3,
+              "sideDeck": 7
+            },
+            "draftDeckSizes": {
+              "mainDeck": 40,
+              "extraDeck": 3,
+              "sideDeck": 7
+            }
+          },
+          {
+            "id": "opponent",
+            "label": "Adversaire IA",
+            "wins": 1,
+            "isMatchWinner": false,
+            "hasRegisteredDeck": true,
+            "hasStagedSideDeck": false,
+            "activeDeckSizes": {
+              "mainDeck": 40,
+              "extraDeck": 2,
+              "sideDeck": 5
+            },
+            "draftDeckSizes": {
+              "mainDeck": 40,
+              "extraDeck": 2,
+              "sideDeck": 5
+            }
+          }
+        ],
+        "scores": {
+          "player": 0,
+          "opponent": 1
+        },
+        "games": [
+          {
+            "gameNumber": 1,
+            "winnerId": "opponent",
+            "draw": false,
+            "firstPlayerId": "opponent",
+            "decisionPlayerId": "opponent"
+          }
+        ],
+        "currentDuel": {
+          "gameNumber": 2,
+          "firstPlayerId": "player",
+          "decisionPlayerId": "player",
+          "completed": false
+        },
+        "nextDuel": null,
+        "winnerId": null,
+        "isDrawnMatch": false,
+        "actions": {
+          "canStartMatch": false,
+          "canRecordDuelResult": true,
+          "canEditSideDeck": false,
+          "canResolveRandomMethod": false,
+          "canChooseFirstPlayer": false,
+          "canStartNextDuel": false
+        }
+      },
+      "inventory": {
+        "mode": "strict",
+        "startingPlayer": "player",
+        "main": [
+          "24094653",
+          "12580477",
+          "54652250",
+          "13039848",
+          "05053103",
+          "04206964",
+          "26202165",
+          "05318639",
+          "14898066",
+          "24094653",
+          "2084239",
+          "88819587",
+          "97590747",
+          "89631139",
+          "48305365",
+          "05053103",
+          "48305365",
+          "04206964",
+          "89631139",
+          "14898066",
+          "04206964",
+          "14087893",
+          "97590747",
+          "49791927",
+          "24094653",
+          "50913601",
+          "44095762",
+          "97590747",
+          "49791927",
+          "83764718",
+          "81777047",
+          "66602787",
+          "44095762",
+          "14898066",
+          "66602787",
+          "13039848",
+          "88819587",
+          "05053103",
+          "44095762",
+          "31560081"
+        ],
+        "extra": [
+          "23995346",
+          "84013237",
+          "77637979"
+        ],
+        "handSize": 5,
+        "deckSize": 35,
+        "playerLP": 8000,
+        "opponentLP": 8000
+      },
+      "sidedMainIdentityVerified": true,
+      "wetlandsInMain": 1,
+      "storedMatchClearedOnLaunch": true,
+      "localDraftStillEmpty": true
+    }
+  },
+  "pageErrors": [],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "fontRequests": [
+    "http://127.0.0.1:5174/fonts/inter-variable.woff2",
+    "http://127.0.0.1:5174/fonts/orbitron-variable.woff2",
+    "http://127.0.0.1:5174/fonts/inter-variable.woff2",
+    "http://127.0.0.1:5174/fonts/orbitron-variable.woff2",
+    "http://127.0.0.1:5174/fonts/inter-variable.woff2",
+    "http://127.0.0.1:5174/fonts/orbitron-variable.woff2",
+    "http://127.0.0.1:5174/fonts/inter-variable.woff2",
+    "http://127.0.0.1:5174/fonts/orbitron-variable.woff2"
+  ],
+  "fixtures": [
+    "DEV finishDuel('opponent') ends Duel 1",
+    "local custom draft emptied between Duels while Match save remains intact"
+  ],
+  "scope": "Real custom builder and Match launch/Side Deck controls; no simulated gameplay or production deployment proof.",
+  "passed": true
+}

@@ -31,11 +31,12 @@ function createMaterial({
 
 test('PhaseEngine follows the complete phase cycle and changes turn after End Phase', () => {
   const phases = new PhaseEngine();
+  phases.turnCount = 2;
 
   assert.deepEqual(phases.nextPhase(), {
     phase: 'standby',
     turn: 'player',
-    turnCount: 1
+    turnCount: 2
   });
   assert.equal(phases.nextPhase().phase, 'main1');
 
@@ -53,7 +54,7 @@ test('PhaseEngine follows the complete phase cycle and changes turn after End Ph
   assert.deepEqual(phases.nextPhase(), {
     phase: 'draw',
     turn: 'opponent',
-    turnCount: 2
+    turnCount: 3
   });
 });
 

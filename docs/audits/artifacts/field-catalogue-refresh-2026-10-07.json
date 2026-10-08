@@ -1,0 +1,432 @@
+{
+  "retrievedAt": "2026-10-07T10:34:37.463209+00:00",
+  "beforeSnapshotDate": "2026-07-29",
+  "api": {
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?type=Spell%20Card&race=Field&misc=yes",
+    "status": 200,
+    "bytes": 567874,
+    "sha256": "1072ff92dce6067db90b2d400f15462de70854c020b80991166d70f637815c6e"
+  },
+  "apiArtifact": "field-catalogue-api-2026-10-07.json",
+  "counts": {
+    "previousCanonicalReferences": 336,
+    "currentApiRecords": 342,
+    "canonicalReferences": 339,
+    "releasedCanonicalAdditions": 2,
+    "announcedCanonicalAdditions": 1,
+    "excludedProvisionalRecords": 3,
+    "removedCanonicalRecords": 0,
+    "changedExistingRecords": 4,
+    "sourceJpegs": 339,
+    "originalWebpFallbacks": 336,
+    "unchangedSourceJpegFallbacks": 3
+  },
+  "scopeChecks": {
+    "uniqueApiIds": 342,
+    "nonFieldSpellRecords": 0,
+    "rushDuelRecords": 0,
+    "unexpectedFrameTypes": 0,
+    "formatCountsFromProvider": {
+      "TCG+OCG": 317,
+      "TCG-only": 16,
+      "OCG-only": 8,
+      "neither": 1
+    }
+  },
+  "canonicalAdditions": [
+    {
+      "id": 12845564,
+      "name": "Angelechy Endgame Problem",
+      "type": "Spell Card",
+      "race": "Field",
+      "frameType": "spell",
+      "desc": "This card gains the following effects, based on the number of \"Angelechy\" Monster Cards in your Spell & Trap Zone.\r\n● 1+: Once per turn, during your opponent's Standby Phase: You can draw 1 card.\r\n● 2+: When your opponent would Special Summon a monster(s), you choose the zone(s) to place it.\r\n● 3+: Once per turn, you can activate 1 \"Angelechy\" Trap Card the turn it was Set.\r\n● 4+: Once per turn, when your opponent Special Summons a monster(s) (except during the Damage Step): You can banish that monster(s).\r\n● 5: Once per turn: You can Special Summon 1 \"Angelechy\" monster from your Extra Deck.",
+      "misc_info": [
+        {
+          "views": 6161,
+          "viewsweek": 1791,
+          "upvotes": 0,
+          "downvotes": 0,
+          "formats": [
+            "Common Charity",
+            "TCG"
+          ],
+          "tcg_date": "2026-10-08",
+          "konami_id": 23527,
+          "has_effect": 1
+        }
+      ],
+      "card_images": [
+        {
+          "id": 12845564,
+          "image_url": "https://images.ygoprodeck.com/images/cards/12845564.jpg",
+          "image_url_small": "https://images.ygoprodeck.com/images/cards_small/12845564.jpg",
+          "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/12845564.jpg"
+        }
+      ],
+      "card_sets": [
+        {
+          "set_name": "Beyond the Brave",
+          "set_code": "BETB-EN095",
+          "set_rarity": "Common",
+          "set_rarity_code": "(C)",
+          "set_price": "0"
+        }
+      ],
+      "classification": "canonical-announced-TCG",
+      "konamiId": 23527,
+      "databaseReleaseDate": "2026-10-09",
+      "regionalReleaseDates": {
+        "TCG_EU": "2026-10-08",
+        "TCG_NA": "2026-10-09"
+      },
+      "note": "No tournament eligibility is inferred from previewed text, art, or OTS early sale; current date is 2026-10-07."
+    },
+    {
+      "id": 88288421,
+      "name": "Field Power Bonus",
+      "type": "Spell Card",
+      "race": "Field",
+      "frameType": "spell",
+      "desc": "If a monster(s) is Normal or Special Summoned and there is another monster(s) on the field with the same Type: That Summoned monster(s) gains 1000 ATK/DEF. If this card is destroyed: Negate the effects of all face-up monsters currently on the field, also their ATK/DEF become their original ATK/DEF. Once per turn, during the Standby Phase, if this card is in your GY and there are no cards in the Field Zones: You can place this card face-up on your field.",
+      "misc_info": [
+        {
+          "views": 1890,
+          "viewsweek": 84,
+          "upvotes": 0,
+          "downvotes": 0,
+          "formats": [],
+          "beta_id": 100459016,
+          "konami_id": 23580,
+          "has_effect": 1
+        }
+      ],
+      "card_images": [
+        {
+          "id": 88288421,
+          "image_url": "https://images.ygoprodeck.com/images/cards/88288421.jpg",
+          "image_url_small": "https://images.ygoprodeck.com/images/cards_small/88288421.jpg",
+          "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/88288421.jpg"
+        }
+      ],
+      "classification": "canonical-released-OCG",
+      "konamiId": 23580,
+      "releaseDate": "2026-09-26",
+      "note": "YGOPRODeck formats and release date are empty; official Japanese card database supplies Field type and release date.",
+      "textDiscrepancy": "Provider English adds once per turn to the GY Standby Phase placement; current official Japanese effect ③ does not include that phrase. This is a visual/reference snapshot, not a gameplay script."
+    },
+    {
+      "id": 33700664,
+      "name": "Trirealm Rift Territory - Valvols",
+      "type": "Spell Card",
+      "race": "Field",
+      "frameType": "spell",
+      "desc": "Activate this card by banishing (face-down) 5 cards from your GY and/or the top of your Deck. During your Main Phase: You can add 1 of your face-down banished \"Trirealm Rift\" cards to your hand, except \"Trirealm Rift Territory - Valvols\". You can only use this effect of \"Trirealm Rift Territory - Valvols\" once per turn. While you control a Level 5 or higher \"Trirealm Rift\" monster and you have no cards in your Deck, your opponent cannot activate cards or effects during your turn.",
+      "misc_info": [
+        {
+          "beta_name": "Xenovader△ Territory - Valvols",
+          "views": 12753,
+          "viewsweek": 1176,
+          "upvotes": 0,
+          "downvotes": 0,
+          "formats": [
+            "OCG"
+          ],
+          "beta_id": 100458039,
+          "ocg_date": "2026-09-05",
+          "konami_id": 23563,
+          "has_effect": 1
+        }
+      ],
+      "card_images": [
+        {
+          "id": 33700664,
+          "image_url": "https://images.ygoprodeck.com/images/cards/33700664.jpg",
+          "image_url_small": "https://images.ygoprodeck.com/images/cards_small/33700664.jpg",
+          "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/33700664.jpg"
+        }
+      ],
+      "classification": "canonical-released-OCG",
+      "konamiId": 23563,
+      "releaseDate": "2026-09-05"
+    }
+  ],
+  "excludedProvisionalRecords": [
+    {
+      "id": 101403071,
+      "name": "Autumn",
+      "type": "Spell Card",
+      "race": "Field",
+      "frameType": "spell",
+      "desc": "This card's name becomes \"Summer\" while in the Field Zone. Once per turn: You can place Season Counters on this card equal to the number of cards in your opponent's hand. At the start of the Battle Phase: You can take 1 Field Spell from your hand, Deck, or GY that you can place a Season Counter on, except \"Autumn\", and place it face-up on your field, and if you do, place all Season Counters on this card on that card. If a card(s) in the Field Zone would be destroyed by card effect, you can banish this card from your GY instead.",
+      "misc_info": [
+        {
+          "views": 1219,
+          "viewsweek": 105,
+          "upvotes": 0,
+          "downvotes": 0,
+          "formats": [
+            "OCG"
+          ],
+          "ocg_date": "2026-10-31",
+          "has_effect": 1
+        }
+      ],
+      "card_images": [
+        {
+          "id": 101403071,
+          "image_url": "https://images.ygoprodeck.com/images/cards/101403071.jpg",
+          "image_url_small": "https://images.ygoprodeck.com/images/cards_small/101403071.jpg",
+          "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/101403071.jpg"
+        }
+      ],
+      "classification": "provider-placeholder-announced-OCG",
+      "reason": "Nine-digit provider ID; no canonical printed passcode or Konami CID supplied; not installed as a runtime identity."
+    },
+    {
+      "id": 101403059,
+      "name": "Deep Forest of the Winter Raven",
+      "type": "Spell Card",
+      "race": "Field",
+      "frameType": "spell",
+      "desc": "When this card is activated: You can add 1 \"Winter Raven\" monster from your Deck to your hand. \"Winter Raven\" Monster Cards you control cannot be destroyed by card effects. During your End Phase: You can Set 1 \"Winter Raven\" Trap from your Deck or GY. You can only use this effect of \"Deep Forest of the Winter Raven\" once per turn. You can only activate 1 \"Deep Forest of the Winter Raven\" per turn.",
+      "misc_info": [
+        {
+          "beta_name": "The Deep Forest of the White Crow",
+          "views": 3465,
+          "viewsweek": 315,
+          "upvotes": 0,
+          "downvotes": 0,
+          "formats": [
+            "OCG"
+          ],
+          "ocg_date": "2026-10-31",
+          "has_effect": 1
+        }
+      ],
+      "card_images": [
+        {
+          "id": 101403059,
+          "image_url": "https://images.ygoprodeck.com/images/cards/101403059.jpg",
+          "image_url_small": "https://images.ygoprodeck.com/images/cards_small/101403059.jpg",
+          "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/101403059.jpg"
+        }
+      ],
+      "classification": "provider-placeholder-announced-OCG",
+      "reason": "Nine-digit provider ID; no canonical printed passcode or Konami CID supplied; not installed as a runtime identity."
+    },
+    {
+      "id": 101403056,
+      "name": "Reindsurm Carnation",
+      "type": "Spell Card",
+      "race": "Field",
+      "frameType": "spell",
+      "desc": "While you control a \"Reindsurm\" monster whose original Level is 8 or higher or your opponent has a Dragon monster in their field or GY, the activated effects of your \"Reindsurm\" monsters cannot be negated. Once per turn: You can send 1 \"Reindsurm\" monster or Dragon monster from your hand or face-up field to the GY; add 1 Insect monster from your Deck to your hand with the same original Level, but a different original name.",
+      "misc_info": [
+        {
+          "views": 2354,
+          "viewsweek": 147,
+          "upvotes": 0,
+          "downvotes": 0,
+          "formats": [
+            "OCG"
+          ],
+          "ocg_date": "2026-10-31",
+          "has_effect": 1
+        }
+      ],
+      "card_images": [
+        {
+          "id": 101403056,
+          "image_url": "https://images.ygoprodeck.com/images/cards/101403056.jpg",
+          "image_url_small": "https://images.ygoprodeck.com/images/cards_small/101403056.jpg",
+          "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/101403056.jpg"
+        }
+      ],
+      "classification": "provider-placeholder-announced-OCG",
+      "reason": "Nine-digit provider ID; no canonical printed passcode or Konami CID supplied; not installed as a runtime identity."
+    }
+  ],
+  "changedExistingRecords": [
+    {
+      "id": 2906939,
+      "before": {
+        "name": "Ashtrashen - Gateway to the Worlds Beyond",
+        "archetype": "Ashtra",
+        "effectText": "You can target any number of face-down cards you control; add \"Ashtra\" cards from your Deck to your hand with different names from each other, except Field Spells, equal to the number of those targeted cards that are still face-down, then send those face-down cards to the GY. If a card(s) becomes Set on the field, while you control an \"Ashtra\" monster and a face-down card (except during the Damage Step): You can target 1 card on the field; return it to the hand. You can only use each effect of \"Ashtrashen - Gateway to the Worlds Beyond\" once per turn."
+      },
+      "after": {
+        "name": "Ashtrashen - Gate to the Worlds Beyond",
+        "effectText": "You can target any number of face-down cards you control; add \"Ashtra\" cards from your Deck to your hand, except Field Spells, each with a different name, equal to the number of those face-down cards, then send those face-down cards to the GY. If you control an \"Ashtra\" monster and a face-down card, and either player Sets a card: You can target 1 card on the field; return it to the hand. You can only use each effect of \"Ashtrashen - Gate to the Worlds Beyond\" once per turn.",
+        "archetype": "Ashtra"
+      }
+    },
+    {
+      "id": 38391684,
+      "before": {
+        "name": "Atlantis, City of the Sea Dragon",
+        "archetype": "Atlantis, City of the Sea Dragon",
+        "effectText": "While a monster that mentions \"Atlantis, City of the Sea Dragon\" is on the field, reduce the Levels of all monsters in both players' hands and fields by 1. If you Link Summon a \"Daedalus\" monster, you can reduce the material requirement listed on it by 1 and Link Summon it with 1 less material. If this card is in your GY and you control \"Umi\": You can place this card face-up on your field. You can only use this effect of \"Atlantis, City of the Sea Dragon\" once per turn."
+      },
+      "after": {
+        "name": "Atlantis, City of the Sea Dragon",
+        "effectText": "While a monster that mentions \"Atlantis, City of the Sea Dragon\" is on the field, the Levels of all monsters in both players' hands and on the field are reduced by 1. When you Link Summon a \"Daedalus\" Link Monster, you can reduce the total number of materials by 1 (from Link Rating and from mentioned materials). If this card is in your GY and you control \"Umi\": You can place this card face-up on your field. You can only use this effect of \"Atlantis, City of the Sea Dragon\" once per turn.",
+        "archetype": "Atlantis, City of the Sea Dragon"
+      }
+    },
+    {
+      "id": 39513225,
+      "before": {
+        "name": "Seventh Barian's",
+        "archetype": "Barian's",
+        "effectText": "Each player can only Special Summon non-\"Number\" monsters from the Extra Deck twice per turn while this card is face-up on the field. You can only use each of the following effects of \"Seventh Barian's\" once per turn. During your Main Phase: You can add 1 \"Umbral Horror\" monster from your Deck to your hand, then discard 1 card. During the End Phase: Each player takes 400 damage for each Xyz Monster on the field."
+      },
+      "after": {
+        "name": "Barian's Seventh Untopia",
+        "effectText": "Neither player can Special Summon from the Extra Deck more than 2 times per turn, except \"Number\" monsters. You can only use each of the following effects of \"Barian's Seventh Untopia\" once per turn. During your Main Phase: You can add 1 \"Umbral Horror\" monster from your Deck to your hand, then discard 1 card. During the End Phase: Each player takes damage equal to the number of Xyz Monsters on the field x 400.",
+        "archetype": "Barian's"
+      }
+    },
+    {
+      "id": 4663194,
+      "before": {
+        "name": "Dark City at Midnight",
+        "archetype": null,
+        "effectText": "Each time you Special Summon a Level 8 or higher \"Destiny HERO\" monster(s): All Warrior monsters you currently control gain 300 ATK. You can only use each of the following effects of \"Dark City at Midnight\" once per turn. During your Main Phase, if this card was activated this turn: You can add 1 \"Destiny HERO\" monster, or 1 card that mentions a \"Destiny HERO\" monster's card name, from your Deck to your hand. If this card is destroyed: You can Special Summon 1 \"Destiny HERO\" monster from your Deck (this is treated as a Special Summon with \"Clock Tower Prison\")."
+      },
+      "after": {
+        "name": "Dark City at Midnight",
+        "effectText": "Each time you Special Summon a Level 8 or higher \"Destiny HERO\" monster(s): Warrior monsters you control gain 300 ATK. You can only use each of the following effects of \"Dark City at Midnight\" once per turn. During your Main Phase, if this card was activated this turn: You can add 1 \"Destiny HERO\" monster or 1 card that mentions a \"Destiny HERO\" monster by name from your Deck to your hand. If this card is destroyed: You can Special Summon 1 \"Destiny HERO\" monster from your Deck (this is treated as a Special Summon with \"Clock Tower Prison\").",
+        "archetype": null
+      }
+    }
+  ],
+  "primaryKonamiEvidence": [
+    {
+      "konamiId": 23527,
+      "locale": "en",
+      "sourceUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid=23527&request_locale=en",
+      "responseSha256": "91f8b3b34e514f1272822b88f80a3c64c175e8b92e34f48193d92486f0e79a68",
+      "title": "Angelechy Endgame Problem | Card Details | Yu-Gi-Oh! Neuron(TRADING CARD GAME CARD DATABASE)",
+      "effectText": "This card gains the following effects, based on the number of \"Angelechy\" Monster Cards in your Spell & Trap Zone.\n●1+: Once per turn, during your opponent's Standby Phase: You can draw 1 card.\n●2+: When your opponent would Special Summon a monster(s), you choose the zone(s) to place it.\n●3+: Once per turn, you can activate 1 \"Angelechy\" Trap Card the turn it was Set.\n●4+: Once per turn, when your opponent Special Summons a monster(s) (except during the Damage Step): You can banish that monster(s).\n●5: Once per turn: You can Special Summon 1 \"Angelechy\" monster from your Extra Deck.",
+      "releaseEvidence": "Sets\n2026-10-09\nBETB-EN095\nBEYOND THE BRAVE"
+    },
+    {
+      "konamiId": 23580,
+      "locale": "ja",
+      "sourceUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid=23580&request_locale=ja",
+      "responseSha256": "565c7685e1422f895f176d5bab6291f7f2e966d751bb08c96d57e160b49d1ab5",
+      "title": "環境適応力 | カード詳細 | 遊戯王ニューロン(オフィシャルカードゲーム カードデータベース)",
+      "effectText": "①：モンスターが召喚・特殊召喚された場合、そのモンスターと同じ種族の他のモンスターがフィールドに存在していれば発動する。その召喚・特殊召喚されたモンスターの攻撃力・守備力は１０００アップする。\n②：このカードが破壊された場合に発動する。フィールドの全ての表側表示モンスターの効果は無効化され、その攻撃力・守備力は元々の数値になる。\n③：自分・相手のスタンバイフェイズに、このカードが墓地に存在し、お互いのフィールドゾーンにカードが存在しない場合に発動できる。このカードを自分フィールドに表側表示で置く。",
+      "releaseEvidence": "収録シリーズ\n2026-09-26\nYAC1-JP016\nORIGINAL ARTWORK COLLECTION\nUR\nウルトラレア仕様\n2026-09-26\nYAC1-JP016\nORIGINAL ARTWORK COLLECTION\nSE\nシークレットレア仕様\n2026-09-26\nYAC1-JP016\nORIGINAL ARTWORK COLLECTION\nPSE\nプリズマティックシークレットレア仕様"
+    },
+    {
+      "konamiId": 23563,
+      "locale": "ja",
+      "sourceUrl": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid=23563&request_locale=ja",
+      "responseSha256": "ff955de103a5c9ff64c541b46c096570716b4700fcdac02b54b7859d25afdcbf",
+      "title": "異解△領域－ヴァルヴォルス | カード詳細 | 遊戯王ニューロン(オフィシャルカードゲーム カードデータベース)",
+      "effectText": "自分のデッキの上・墓地から合計５枚のカードを裏側で除外してこのカードを発動できる。\nこのカード名の①の効果は１ターンに１度しか使用できない。\n①：自分メインフェイズに発動できる。「異解△領域－ヴァルヴォルス」以外の自分の除外状態（裏側）の「異解△」カード１枚を手札に加える。\n②：自分フィールドにレベル５以上の「異解△」モンスターが存在し、自分のデッキの枚数が０枚である限り、自分ターンの間、相手はカードの効果を発動できない。",
+      "releaseEvidence": "収録シリーズ\n2026-09-05\nDBGV-JP039\nデッキビルドパック - グロリアス・ヴィクターズ -\nN\nノーマル仕様\n2026-09-05\nDBGV-JP039\nデッキビルドパック - グロリアス・ヴィクターズ -\nP\nパラレル仕様\n関連カード\n検索結果 10件中 1～10件を表示\n10件ずつ表示\n50件ずつ表示\n100件ずつ表示\n50音順\nレベル／ランク順（大きい順）\nレベル／ランク順（小さい順）\n攻撃力順（大きい順）\n攻撃力順（小さい順）\n守備力順（大きい順）\n守備力順（小さい順）\nペンデュラムスケール順（大きい順）\nペンデュラムスケール順（小さい順）\nリンク数（多い順）\nリン"
+    }
+  ],
+  "sourceArtAdditions": {
+    "method": "RGB Lanczos 128x128; Pillow median-cut 8 bins; shadow/light luminance extrema, dominant/secondary top frequencies, signature accent maximum HSV saturation",
+    "entries": [
+      {
+        "cardId": "12845564",
+        "assetPath": "/environments/field-art/12845564.jpg",
+        "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/12845564.jpg",
+        "width": 624,
+        "height": 624,
+        "bytes": 189601,
+        "sha256": "1fb2eea57abcbb9bfd26e56f3fe26abb88f68528f4c1aa7845ff3b0623deab70",
+        "palette": {
+          "shadow": "#353652",
+          "dominant": "#dd9e9b",
+          "secondary": "#42659b",
+          "light": "#f4d2c2",
+          "signatureAccent": "#42659b"
+        }
+      },
+      {
+        "cardId": "33700664",
+        "assetPath": "/environments/field-art/33700664.jpg",
+        "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/33700664.jpg",
+        "width": 624,
+        "height": 624,
+        "bytes": 123909,
+        "sha256": "518af93daa2c68bc56f1d44037815de6143baadce46f58bfa7875980fee81c52",
+        "palette": {
+          "shadow": "#0e1415",
+          "dominant": "#475c73",
+          "secondary": "#0e1415",
+          "light": "#bacacf",
+          "signatureAccent": "#162a38"
+        }
+      },
+      {
+        "cardId": "88288421",
+        "assetPath": "/environments/field-art/88288421.jpg",
+        "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/88288421.jpg",
+        "width": 624,
+        "height": 624,
+        "bytes": 216238,
+        "sha256": "f019ab9ca969ce859f5f50637119fb192c51188553b76935287813e63b37734b",
+        "palette": {
+          "shadow": "#414a3d",
+          "dominant": "#516f5c",
+          "secondary": "#b5ad8e",
+          "light": "#c7ddbc",
+          "signatureAccent": "#30877a"
+        }
+      }
+    ]
+  },
+  "existingSourceArtLiveAudit": "field-source-art-live-2026-10-07.json",
+  "alternativeIllustrationsDoNotAddCardIds": [
+    {
+      "cardId": "95658967",
+      "name": "Ritual Sanctuary",
+      "imageId": "20250830",
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/20250830.jpg",
+      "snapshotUrl": null,
+      "localSha256": "36152cc41081764ca89e3b214aebf22d7ac064f87427086f114fb5194ec2c9b9",
+      "alternative": true,
+      "status": 200,
+      "contentType": "image/jpeg",
+      "etag": "",
+      "lastModified": "Sun, 07 Jun 2026 02:35:05 GMT",
+      "finalUrl": "https://images.ygoprodeck.com/images/cards_cropped/20250830.jpg",
+      "bytes": 160729,
+      "sha256": "1dfbed858599bd18a88487444ca60c68b32b39de628e1c313a6e27294465d6f9",
+      "dimensions": [
+        624,
+        624
+      ],
+      "format": "JPEG",
+      "localMatch": false,
+      "sourceUrlMatchesSnapshot": false,
+      "attempts": 1
+    }
+  ],
+  "fallbackPolicy": "The 336 existing original WebP compositions remain unchanged. The three canonical additions use their unchanged local source JPEG for the primary backdrop and fallback; no new/generated composition is claimed.",
+  "regionLegalitySources": [
+    "https://www.yugioh-card.com/eu/product/beyond-the-brave/",
+    "https://www.yugioh-card.com/en/products/betb/",
+    "https://www.yugioh-card.com/eu/play/card-legality/"
+  ],
+  "banlistSources": {
+    "TCG": {
+      "effectiveDate": "2026-09-21",
+      "sourceUrl": "https://www.yugioh-card.com/en/limited/list_2026-09-21/"
+    },
+    "OCG": {
+      "effectiveDate": "2026-10-01",
+      "sourceUrl": "https://www.yugioh-card.com/japan/event/limitregulation/?list=202610"
+    }
+  },
+  "banlistArtifact": "field-banlists-2026-10-07.json",
+  "gameplayPolicy": "Visual catalogue entries never register gameplay scripts. These three additions are not added to the strict playable card pool.",
+  "translationScope": "English names and effect text for OCG-only cards are provider translations. Official Japanese card text is preserved separately in primaryKonamiEvidence; no official English/FR text or fully implemented rule is claimed for those cards."
+}

@@ -1,8 +1,18 @@
 import * as THREE from 'three';
+import { FIELD_GEOMETRY_THREE } from './FieldGeometryThree.js';
 import {
   normalizeRealDuelCameraPreset,
   resolveRealDuelCameraPose
 } from './RealDuelCameraPresets.js';
+import { createHologramMonsterModel } from './HologramMonsterModels.js';
+import { resolveHologramMonsterProfile } from './CombatVisualProfiles.js';
+import { createCombatVisualEffect } from './CombatVisualEffects.js';
+import { createHologramPoseAnimation } from './HologramPoseAnimation.js';
+import {
+  createFieldEnvironmentGeometry,
+  disposeFieldEnvironmentGeometry,
+  getFieldEnvironmentGeometrySignature
+} from './FieldEnvironmentGeometry.js';
 
 const PLAYER_CONSOLE_PLAYMAT_URL =
   '/playmats/player-console-playmat-original.webp';
@@ -260,23 +270,29 @@ function createTrapezoidGeometry(widthFront, widthBack, depth, height) {
   return geometry;
 }
 
-function disposeMaterial(material) {
+function disposeMaterial(material, disposedTextures = new Set()) {
   if (!material) return;
   for (const value of Object.values(material)) {
-    if (value?.isTexture) value.dispose();
+    if (value?.isTexture && !disposedTextures.has(value)) {
+      disposedTextures.add(value);
+      value.dispose();
+    }
   }
   material.dispose?.();
 }
 
 function disposeObject3D(root) {
+  const geometries = new Set();
+  const materials = new Set();
+  const textures = new Set();
   root?.traverse?.(object => {
-    object.geometry?.dispose?.();
-    if (Array.isArray(object.material)) {
-      object.material.forEach(disposeMaterial);
-    } else {
-      disposeMaterial(object.material);
+    if (object.geometry) geometries.add(object.geometry);
+    for (const material of Array.isArray(object.material) ? object.material : [object.material]) {
+      if (material) materials.add(material);
     }
   });
+  geometries.forEach(geometry => geometry.dispose?.());
+  materials.forEach(material => disposeMaterial(material, textures));
 }
 
 /**
@@ -326,6 +342,12 @@ export class RealDuelScene3D {
     this._cameraLookTarget = new THREE.Vector3();
     this._cameraTransition = null;
     this._animatedVisualsActive = false;
+    this._fieldHolograms = new Map();
+    this._combatEffects = [];
+    this._monsterPoses = new Map();
+    this._fieldEnvironmentGeometry = null;
+    this._fieldEnvironmentGeometrySignature = null;
+    this._effectsPausedAt = null;
     this._cameraUpdateCallback = null;
     this._boundFrame = timestamp => this._onFrame(timestamp);
     this._boundVisibility = () => {
@@ -365,7 +387,7 @@ export class RealDuelScene3D {
     if (immediate) {
       this._cameraTransition = null;
       this.root?.removeAttribute?.('data-camera-transitioning');
-      if (!this._animatedVisualsActive) this._stopFrameLoop();
+      if (!this._requiresAnimationFrame()) this._stopFrameLoop();
       this._applyCameraPose(pose);
       this.render();
       this._notifyCameraUpdate();
@@ -399,7 +421,7 @@ export class RealDuelScene3D {
   }
 
   _requiresAnimationFrame() {
-    return Boolean(this._cameraTransition || this._animatedVisualsActive);
+    return Boolean(this._cameraTransition || this._animatedVisualsActive || this._combatEffects.length || this._monsterPoses.size);
   }
 
   _pauseCameraTransitionClock() {
@@ -426,8 +448,8 @@ export class RealDuelScene3D {
   }
 
   /**
-   * Future genuinely animated WebGL props can opt into continuous rendering.
-   * The shipped scene is static, so this remains false and costs no idle RAF.
+   * Explicit opt-in for continuously animated props. Monster meshes and field
+   * scenery remain static; combat effects request RAF only until completion.
    */
   setAnimatedVisualsActive(active) {
     if (this.disposed) return false;
@@ -1020,6 +1042,19 @@ export class RealDuelScene3D {
     );
     this._groundMaterial?.color?.set('#0b0f0d');
     this._applyEnvironmentSurfaceMaterials(palette, accent, tint);
+    const publicEnvironment = selectionOrEnvironment?.environment || selectionOrEnvironment;
+    const geometryEnvironment = {
+      ...this.environment,
+      fieldSpellCardId: publicEnvironment?.fieldSpellCardId,
+      geometryProfile: publicEnvironment?.geometryProfile
+    };
+    const geometrySignature = getFieldEnvironmentGeometrySignature(geometryEnvironment);
+    if (geometrySignature !== this._fieldEnvironmentGeometrySignature && this.scene.add) {
+      disposeFieldEnvironmentGeometry(this._fieldEnvironmentGeometry);
+      this._fieldEnvironmentGeometry = createFieldEnvironmentGeometry(FIELD_GEOMETRY_THREE, geometryEnvironment);
+      this._fieldEnvironmentGeometrySignature = geometrySignature;
+      this.scene.add(this._fieldEnvironmentGeometry);
+    }
     for (const material of this._accentMaterials) {
       material.color.copy(accent);
       material.emissive.copy(accent).multiplyScalar(0.48);
@@ -1105,8 +1140,189 @@ export class RealDuelScene3D {
     // Retain only the caller-provided public aggregate. The scene currently
     // uses no private card data and intentionally does not inspect hands.
     this.publicSummary = publicSummary || null;
-    if (this.publicSummary?.duelEnded) this.pause();
+    if (this.publicSummary?.duelEnded) {
+      this.clearCombatEffects();
+      this.pause();
+    }
     return this.publicSummary;
+  }
+
+  /** Caller supplies public, face-up field descriptors. Hidden cards are never read. */
+  updateFieldHolograms(descriptors = []) {
+    if (this.disposed || !this.scene?.add) return { renderedKeys: [] };
+    const retained = new Set();
+    for (const descriptor of Array.isArray(descriptors) ? descriptors.slice(0, 12) : []) {
+      if (!descriptor || descriptor.faceUp !== true || descriptor.hidden === true) continue;
+      const owner = descriptor.owner;
+      if (owner !== 'player' && owner !== 'opponent') continue;
+      const zoneType = descriptor.zoneType === 'extra' ? 'extra' : 'main';
+      const zoneIndex = Number(descriptor.zoneIndex);
+      if (!Number.isInteger(zoneIndex) || zoneIndex < 0 || zoneIndex >= (zoneType === 'extra' ? 2 : 5)) continue;
+      const key = String(descriptor.key || `${owner}:${zoneType}:${zoneIndex}`).slice(0, 96);
+      if (retained.has(key)) continue;
+      const card = descriptor.card;
+      if (!card || typeof card !== 'object') continue;
+      // Deliberately allowlist visual metadata: never retain image URLs, UID,
+      // effects, descriptions, decks, hands, or the caller's object reference.
+      const publicCard = Object.fromEntries(['id', 'name', 'name_en', 'race', 'attribute', 'type']
+        .map(field => [field, String(card[field] || '').slice(0, 120)]));
+      const defense = descriptor.position === 'defense';
+      const signature = JSON.stringify([resolveHologramMonsterProfile(publicCard).id, defense]);
+      let entry = this._fieldHolograms.get(key);
+      if (entry?.signature !== signature) {
+        if (entry) {
+          this._cancelMonsterPose(entry.object);
+          entry.object.removeFromParent();
+          disposeObject3D(entry.object);
+        }
+        const object = createHologramMonsterModel(publicCard, { defense });
+        this.scene.add(object);
+        entry = { object, signature, owner, zoneType, zoneIndex };
+        this._fieldHolograms.set(key, entry);
+      }
+      const position = this._validatedWorldPosition(descriptor.worldPosition)
+        || [(zoneIndex - (zoneType === 'extra' ? 0.5 : 2)) * (zoneType === 'extra' ? 4.5 : 2.25), RealDuelScene3D.ARENA_TOP_Y + 0.08, zoneType === 'extra' ? 0 : owner === 'player' ? 3.4 : -3.4];
+      entry.owner = owner;
+      entry.zoneType = zoneType;
+      entry.zoneIndex = zoneIndex;
+      entry.object.position.set(...position);
+      entry.object.rotation.y = owner === 'player' ? Math.PI : 0;
+      retained.add(key);
+    }
+    for (const [key, entry] of this._fieldHolograms) {
+      if (retained.has(key)) continue;
+      this._cancelMonsterPose(entry.object);
+      entry.object.removeFromParent();
+      disposeObject3D(entry.object);
+      this._fieldHolograms.delete(key);
+    }
+    this.render();
+    return { renderedKeys: [...retained] };
+  }
+
+  _validatedWorldPosition(value) {
+    if (!Array.isArray(value) || value.length !== 3 || !value.every(Number.isFinite)) return null;
+    return Math.abs(value[0]) <= 24 && value[1] >= -2 && value[1] <= 16 && Math.abs(value[2]) <= 30
+      ? value.slice() : null;
+  }
+
+  _resolveCombatEndpoint(endpoint, fallbackOwner = 'player', aimAtMonster = false) {
+    const explicit = this._validatedWorldPosition(endpoint)
+      || this._validatedWorldPosition(endpoint?.worldPosition);
+    if (explicit) {
+      // Zone centers live on the board plane; combat aims at the creature.
+      // Absolute vector endpoints and direct console strikes stay explicit.
+      if (aimAtMonster && !Array.isArray(endpoint) && endpoint?.direct !== true) explicit[1] += 1.5;
+      return explicit;
+    }
+    const owner = endpoint?.owner === 'opponent' ? 'opponent'
+      : endpoint?.owner === 'player' ? 'player' : fallbackOwner;
+    if (endpoint?.direct === true) return [0, 3.1, owner === 'player' ? 10.7 : -10.7];
+    const zoneType = endpoint?.zoneType === 'extra' ? 'extra' : 'main';
+    const index = Number(endpoint?.zoneIndex);
+    const zoneIndex = Number.isInteger(index) && index >= 0 && index < (zoneType === 'extra' ? 2 : 5) ? index : 2;
+    for (const entry of this._fieldHolograms.values()) {
+      if (entry.owner === owner && entry.zoneType === zoneType && entry.zoneIndex === zoneIndex) {
+        return [entry.object.position.x, entry.object.position.y + 1.5, entry.object.position.z];
+      }
+    }
+    return [(zoneIndex - (zoneType === 'extra' ? 0.5 : 2)) * (zoneType === 'extra' ? 4.5 : 2.25), 2.2, zoneType === 'extra' ? 0 : owner === 'player' ? 3.4 : -3.4];
+  }
+
+  playCombatEffect(event = {}) {
+    if (this.disposed || !this.active || !this.scene?.add || !this.webglAvailable
+      || this.publicSummary?.duelEnded || this.documentRef?.hidden === true || event.hidden === true) return false;
+    // The accessible DOM already shows action feedback with reduced motion.
+    // Avoid flashes, camera motion and a hidden animation loop in this mode.
+    if (this.windowRef?.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches === true) return false;
+    const owner = (event.sourceRef?.owner || event.source?.owner) === 'opponent' ? 'opponent' : 'player';
+    const aimAtMonster = event.kind === 'attack';
+    const source = this._resolveCombatEndpoint(event.source, owner, aimAtMonster);
+    const target = event.target ? this._resolveCombatEndpoint(event.target, owner, aimAtMonster) : source;
+    this._resumeCombatEffectClock();
+    if (this._combatEffects.length >= 6) this._combatEffects.shift().dispose();
+    const effect = createCombatVisualEffect({ ...event, source, target });
+    effect.startedAt = this._now();
+    this._combatEffects.push(effect);
+    this.scene.add(effect.group);
+    const sourceRef = event.sourceRef || event.source;
+    const targetRef = event.targetRef || event.target;
+    const defaultPoseKind = event.kind === 'attack' ? 'attack'
+      : event.kind === 'summon' ? 'summon'
+        : event.kind === 'destroy' ? 'recoil' : 'casting';
+    const poseKind = ['attack', 'summon', 'recoil', 'casting'].includes(event.poseKind)
+      ? event.poseKind : defaultPoseKind;
+    const poseRef = event.poseTarget === 'target' ? targetRef : sourceRef;
+    this._startMonsterPose(poseRef, poseKind, effect.startedAt, effect.duration);
+    if (event.kind === 'attack') {
+      this._startMonsterPose(targetRef, 'recoil', effect.startedAt + effect.duration * 0.55, 360);
+    }
+    this.start();
+    return true;
+  }
+
+  _cancelMonsterPose(object) {
+    const pose = this._monsterPoses.get(object);
+    if (!pose) return false;
+    pose.animation.dispose();
+    this._monsterPoses.delete(object);
+    return true;
+  }
+
+  _startMonsterPose(reference, kind, startedAt, duration) {
+    if (!reference || Array.isArray(reference) || reference.direct
+      || !['player', 'opponent'].includes(reference.owner)) return false;
+    const zoneType = reference.zoneType || 'main';
+    if (!['main', 'extra'].includes(zoneType) || !Number.isInteger(reference.zoneIndex)) return false;
+    const entry = [...this._fieldHolograms.values()].find(value => (
+      value.owner === reference.owner && value.zoneType === zoneType && value.zoneIndex === reference.zoneIndex
+    ));
+    if (!entry) return false;
+    this._cancelMonsterPose(entry.object);
+    const animation = createHologramPoseAnimation(entry.object, { kind, duration });
+    this._monsterPoses.set(entry.object, { animation, startedAt });
+    return true;
+  }
+
+  _updateMonsterPoses(now) {
+    if (!this._monsterPoses.size) return false;
+    for (const [object, pose] of this._monsterPoses) {
+      if (now < pose.startedAt) continue;
+      if (pose.animation.update((now - pose.startedAt) / pose.animation.duration)) continue;
+      pose.animation.dispose();
+      this._monsterPoses.delete(object);
+    }
+    return true;
+  }
+
+  _updateCombatEffects(now) {
+    if (!this._combatEffects.length) return false;
+    this._combatEffects = this._combatEffects.filter(effect => {
+      if (effect.update((now - effect.startedAt) / effect.duration)) return true;
+      effect.dispose();
+      return false;
+    });
+    return true;
+  }
+
+  _resumeCombatEffectClock() {
+    if (this._effectsPausedAt === null) return;
+    const pausedDuration = Math.max(0, this._now() - this._effectsPausedAt);
+    this._combatEffects.forEach(effect => { effect.startedAt += pausedDuration; });
+    this._monsterPoses.forEach(pose => { pose.startedAt += pausedDuration; });
+    this._effectsPausedAt = null;
+  }
+
+  clearCombatEffects() {
+    const hadEffects = this._combatEffects.length > 0 || this._monsterPoses.size > 0;
+    this._combatEffects.forEach(effect => effect.dispose());
+    this._combatEffects = [];
+    this._monsterPoses.forEach(pose => pose.animation.dispose());
+    this._monsterPoses.clear();
+    this._effectsPausedAt = null;
+    if (!this._requiresAnimationFrame()) this._stopFrameLoop();
+    if (hadEffects) this.render();
+    return true;
   }
 
   resize(width, height) {
@@ -1125,7 +1341,7 @@ export class RealDuelScene3D {
     this._height = nextHeight;
     this._cameraTransition = null;
     this.root?.removeAttribute?.('data-camera-transitioning');
-    if (!this._animatedVisualsActive) this._stopFrameLoop();
+    if (!this._requiresAnimationFrame()) this._stopFrameLoop();
     this._applyCameraPose(
       resolveRealDuelCameraPose(this.cameraPreset, nextWidth)
     );
@@ -1147,6 +1363,7 @@ export class RealDuelScene3D {
     ) return false;
     if (this.running) return true;
     this._resumeCameraTransitionClock();
+    this._resumeCombatEffectClock();
     // Static geometry is rendered exactly once when made visible. A RAF loop
     // is reserved for a camera interpolation or an explicitly animated prop.
     this.render();
@@ -1159,6 +1376,7 @@ export class RealDuelScene3D {
 
   pause() {
     this._pauseCameraTransitionClock();
+    if ((this._combatEffects.length || this._monsterPoses.size) && this._effectsPausedAt === null) this._effectsPausedAt = this._now();
     this._stopFrameLoop();
     return true;
   }
@@ -1166,6 +1384,7 @@ export class RealDuelScene3D {
   deactivate() {
     if (this.disposed) return false;
     this.active = false;
+    this.clearCombatEffects();
     this.pause();
     if (this.root) this.root.hidden = true;
     return true;
@@ -1183,6 +1402,7 @@ export class RealDuelScene3D {
         );
         this._notifyCameraUpdate();
       }
+      this.clearCombatEffects();
       this.render();
       this._stopFrameLoop();
       return;
@@ -1193,10 +1413,11 @@ export class RealDuelScene3D {
   _onFrame(timestamp) {
     this._frameHandle = null;
     if (!this.running) return;
-    const cameraChanged = this._updateCameraTransition(
-      Number.isFinite(timestamp) ? timestamp : this._now()
-    );
-    if (cameraChanged || this._animatedVisualsActive) this.render();
+    const now = Number.isFinite(timestamp) ? timestamp : this._now();
+    const cameraChanged = this._updateCameraTransition(now);
+    const combatChanged = this._updateCombatEffects(now);
+    const poseChanged = this._updateMonsterPoses(now);
+    if (cameraChanged || combatChanged || poseChanged || this._animatedVisualsActive) this.render();
     if (cameraChanged) this._notifyCameraUpdate();
     if (this._requiresAnimationFrame()) {
       this._scheduleFrame();
@@ -1215,6 +1436,8 @@ export class RealDuelScene3D {
 
   _destroyRenderer() {
     this.pause();
+    this.clearCombatEffects();
+    disposeFieldEnvironmentGeometry(this._fieldEnvironmentGeometry);
     disposeObject3D(this.scene);
     this.scene?.clear?.();
     this.renderer?.renderLists?.dispose?.();
@@ -1227,6 +1450,9 @@ export class RealDuelScene3D {
     this.camera = null;
     this._cameraTransition = null;
     this._animatedVisualsActive = false;
+    this._fieldHolograms.clear();
+    this._fieldEnvironmentGeometry = null;
+    this._fieldEnvironmentGeometrySignature = null;
     this._cameraUpdateCallback = null;
     this._accentMaterials = [];
     this._platformMaterial = null;

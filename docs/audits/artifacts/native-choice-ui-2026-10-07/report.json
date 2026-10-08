@@ -1,0 +1,70 @@
+{
+  "ok": true,
+  "target": "compiled production bundle",
+  "productionCsp": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://db.ygoprodeck.com; media-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests",
+  "testedIndexAsset": "/assets/index-CkdHwDWv.js",
+  "testedIndexSha256": "7173898cef8206cb9f0e12525376ad03e857a22e40fca40ea97c0623e0fdb9fd",
+  "testedWasmSha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+  "viewports": [
+    {
+      "width": 1280,
+      "height": 900,
+      "checks": {
+        "exactFortyCardFixtureAndRealShuffledOpening": true,
+        "largeNativeCatalogueHasExplicitResultCountAndSearchFocus": true,
+        "emptySearchAndNumericIdentitySearchChooseActualAnnouncement": true,
+        "nativeWeightsSummaryRejectsPartialAndAllowsExactTen": true,
+        "nativeCostAndTwoDrawResolutionPreserveUnselectedCard": true,
+        "opponentConcealment": {
+          "count": 0,
+          "safe": true
+        }
+      },
+      "announcement": {
+        "initialResults": "100 sur 14339 cartes. Précisez votre recherche.",
+        "chosen": "46986414"
+      },
+      "weightedCost": {
+        "offered": [
+          "Dragon Blanc aux Yeux Bleus — Valeur : 8",
+          "La Jinn, Génie Mystique de la Lampe — Valeur : 4",
+          "Crâne Invoqué — Valeur : 6"
+        ],
+        "selectedSummary": "Valeur totale : 10 · Objectif : exactement 10."
+      },
+      "pageErrors": [],
+      "nativeRequestFailures": [],
+      "cspViolations": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "checks": {
+        "exactFortyCardFixtureAndRealShuffledOpening": true,
+        "largeNativeCatalogueHasExplicitResultCountAndSearchFocus": true,
+        "emptySearchAndNumericIdentitySearchChooseActualAnnouncement": true,
+        "nativeWeightsSummaryRejectsPartialAndAllowsExactTen": true,
+        "nativeCostAndTwoDrawResolutionPreserveUnselectedCard": true,
+        "opponentConcealment": {
+          "count": 0,
+          "safe": true
+        }
+      },
+      "announcement": {
+        "initialResults": "100 sur 14339 cartes. Précisez votre recherche.",
+        "chosen": "46986414"
+      },
+      "weightedCost": {
+        "offered": [
+          "Dragon Blanc aux Yeux Bleus — Valeur : 8",
+          "La Jinn, Génie Mystique de la Lampe — Valeur : 4",
+          "Crâne Invoqué — Valeur : 6"
+        ],
+        "selectedSummary": "Valeur totale : 10 · Objectif : exactement 10."
+      },
+      "pageErrors": [],
+      "nativeRequestFailures": [],
+      "cspViolations": []
+    }
+  ]
+}

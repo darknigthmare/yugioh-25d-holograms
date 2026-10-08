@@ -1,0 +1,144 @@
+{
+  "date": "2026-10-07",
+  "originalFacadeSha256": "384aad03eaa7cd886a7dcfcd880204acee5fe8aed9c15549092c1d186df1a1ce",
+  "unchangedOfficialCore": true,
+  "originalVisualTranslatorSha256": "43e560f075e421ec99d9942c900542b0f006e30c7767416335d4a24a285319e8",
+  "cases": [
+    {
+      "name": "Creature Swap",
+      "stableCardIdentities": [
+        false,
+        false
+      ],
+      "publicNativeSwap": {
+        "type": 55,
+        "card1": {
+          "code": 97590747,
+          "controller": 1,
+          "location": 4,
+          "sequence": 0,
+          "position": 1
+        },
+        "card2": {
+          "code": 89631139,
+          "controller": 0,
+          "location": 4,
+          "sequence": 0,
+          "position": 4
+        }
+      },
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 89631139,
+            "nativeType": 17,
+            "attack": 3000,
+            "defense": 2500,
+            "level": 8,
+            "race": "Dragon",
+            "attribute": "LIGHT",
+            "effectNegated": false,
+            "owner": "opponent"
+          }
+        ],
+        "opponent": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 97590747,
+            "nativeType": 17,
+            "attack": 1800,
+            "defense": 1000,
+            "level": 4,
+            "race": "Fiend",
+            "attribute": "DARK",
+            "effectNegated": false,
+            "owner": "player"
+          }
+        ],
+        "spellZones": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "banishedCounts": [
+          0,
+          0
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            31036355
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      }
+    },
+    {
+      "name": "Metal Reflect Slime",
+      "publicCode": 26905245,
+      "nativeType": 131365,
+      "category": "trap",
+      "type": "Trap Card",
+      "race": "Aqua",
+      "attribute": "WATER",
+      "attack": 0,
+      "defense": 3000,
+      "level": 10,
+      "publicSummonDescriptor": {
+        "category": "trap",
+        "type": "Trap Card",
+        "race": "Aqua",
+        "attribute": ""
+      }
+    },
+    {
+      "name": "Embodiment of Apophis",
+      "publicCode": 28649820,
+      "nativeType": 131349,
+      "category": "trap",
+      "type": "Trap Card",
+      "race": "Reptile",
+      "attribute": "EARTH",
+      "attack": 1600,
+      "defense": 1800,
+      "level": 4,
+      "publicSummonDescriptor": {
+        "category": "trap",
+        "type": "Trap Card",
+        "race": "Reptile",
+        "attribute": ""
+      }
+    }
+  ],
+  "sourceHashes": {
+    "public/native/ocgcore.sync.wasm": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+    "public/native/card-data.json": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d",
+    "public/native/scripts.json": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f",
+    "src/core/native/vendor/ocgcore/index.js": "0b46ae83e05a0b6d4ebf85e4422c6f64bea0a5613ea3c649b6eee50d275bc919"
+  }
+}

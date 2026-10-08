@@ -3,7 +3,9 @@ import { resolve } from 'node:path';
 import process from 'node:process';
 
 import {
-  FIELD_SPELL_ENVIRONMENT_CATALOG
+  FIELD_SPELL_ENVIRONMENT_CATALOG,
+  FIELD_SPELL_ENVIRONMENT_SNAPSHOT,
+  FIELD_SPELL_EXCLUDED_PROVISIONAL_IDS
 } from '../src/ui/FieldSpellEnvironmentCatalog.js';
 
 const [, , inputArgument, outputArgument] = process.argv;
@@ -20,14 +22,18 @@ const outputPath = resolve(
 );
 const payload = JSON.parse(await readFile(inputPath, 'utf8'));
 const apiCards = Array.isArray(payload?.data) ? payload.data : [];
-const apiCardById = new Map(
-  apiCards.map(card => [String(card?.id ?? '').trim(), card])
-);
+const apiCardById = new Map();
+for (const card of apiCards) {
+  const cardId = String(card?.id ?? '').trim();
+  if (apiCardById.has(cardId)) throw new TypeError(`duplicate API card ID ${cardId}`);
+  apiCardById.set(cardId, card);
+}
 const localIds = new Set(
   FIELD_SPELL_ENVIRONMENT_CATALOG.map(entry => entry.cardId)
 );
 const errors = [];
 const snapshotEntries = {};
+const excludedProvisionalIds = new Set(FIELD_SPELL_EXCLUDED_PROVISIONAL_IDS);
 
 for (const catalogEntry of FIELD_SPELL_ENVIRONMENT_CATALOG) {
   const apiCard = apiCardById.get(catalogEntry.cardId);
@@ -41,7 +47,7 @@ for (const catalogEntry of FIELD_SPELL_ENVIRONMENT_CATALOG) {
       + `${JSON.stringify(apiCard.name)} !== ${JSON.stringify(catalogEntry.name)}`
     );
   }
-  if (apiCard.type !== 'Spell Card' || apiCard.race !== 'Field') {
+  if (apiCard.type !== 'Spell Card' || apiCard.race !== 'Field' || apiCard.frameType !== 'spell') {
     errors.push(`non-Field Spell returned for ID ${catalogEntry.cardId}`);
   }
   const effectText = String(apiCard.desc ?? '').trim();
@@ -56,7 +62,9 @@ for (const catalogEntry of FIELD_SPELL_ENVIRONMENT_CATALOG) {
 
 for (const apiCard of apiCards) {
   const apiId = String(apiCard?.id ?? '').trim();
-  if (apiId && !localIds.has(apiId)) errors.push(`unexpected API card ID ${apiId}`);
+  if (apiId && !localIds.has(apiId) && !excludedProvisionalIds.has(apiId)) {
+    errors.push(`unexpected API card ID ${apiId}`);
+  }
 }
 
 if (errors.length) {
@@ -76,8 +84,9 @@ const moduleSource = `/**
  */
 
 export const FIELD_SPELL_CARD_DATA_SNAPSHOT_METADATA = Object.freeze({
-  retrievedOn: '2026-07-29',
-  sourceUrl: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?type=Spell%20Card&race=Field',
+  retrievedOn: '${FIELD_SPELL_ENVIRONMENT_SNAPSHOT.retrievedOn}',
+  previousRetrievedOn: '${FIELD_SPELL_ENVIRONMENT_SNAPSHOT.previousRetrievedOn}',
+  sourceUrl: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?type=Spell%20Card&race=Field&misc=yes',
   expectedCount: ${FIELD_SPELL_ENVIRONMENT_CATALOG.length}
 });
 

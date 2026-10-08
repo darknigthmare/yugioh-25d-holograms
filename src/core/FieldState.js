@@ -5,7 +5,8 @@ import { clearFieldSpellActivation } from './FieldSpellRules.js';
  * Graveyards, Banished cards, and Field Spells.
  */
 export class FieldState {
-  constructor() {
+  constructor({ onTransition = null } = {}) {
+    this.onTransition = typeof onTransition === 'function' ? onTransition : null;
     this.reset();
   }
 
@@ -32,6 +33,7 @@ export class FieldState {
 
     this.playerBanished = [];
     this.opponentBanished = [];
+    this._transitionSnapshots = new WeakMap();
   }
 
   getMonsterZone(controllerId, index) {
@@ -102,6 +104,13 @@ export class FieldState {
 
   transitionCard(cardState, destination, controllerId, zoneIndex = -1, options = {}) {
     if (!cardState) return false;
+    const previous = Object.freeze({
+      location: cardState.location,
+      controllerId: cardState.controllerId,
+      zoneIndex: cardState.zoneIndex,
+      runtimeInstanceId: cardState.runtimeInstanceId,
+      isSetFaceDown: cardState.isSetFaceDown
+    });
     const monsterZones = ['monster_zone', 'extra_monster_zone'];
     const remainsMonster = monsterZones.includes(cardState.location)
       && monsterZones.includes(destination);
@@ -120,7 +129,39 @@ export class FieldState {
     cardState.location = destination;
     cardState.zoneIndex = zoneIndex;
     cardState.controllerId = controllerId;
+    // Xyz Materials are not on the field. Every departure of their host
+    // from a Monster Zone sends them to their owners' GY, including a return
+    // to hand/Deck or using the host as another monster's material. Control
+    // changes and moving between Monster Zones retain the stack (Rulebook,
+    // p. 51). Update the host first so material observers see a coherent field.
+    if (
+      monsterZones.includes(previous.location)
+      && !remainsMonster
+      && Array.isArray(cardState.xyzMaterials)
+    ) {
+      for (const material of cardState.xyzMaterials.splice(0)) {
+        this.sendToGraveyard(material, material.ownerId);
+      }
+    }
+    if (changesZone || previous.controllerId !== controllerId) {
+      this._transitionSnapshots.set(cardState, Object.freeze({
+        card: cardState,
+        from: previous,
+        to: Object.freeze({
+          location: destination, controllerId, zoneIndex,
+          runtimeInstanceId: cardState.runtimeInstanceId,
+          isSetFaceDown: cardState.isSetFaceDown
+        })
+      }));
+      if (options.deferNotification !== true) this.notifyTransition(cardState);
+    }
     return true;
+  }
+
+  notifyTransition(cardState) {
+    const event = this._transitionSnapshots.get(cardState);
+    this._transitionSnapshots.delete(cardState);
+    if (event && this.onTransition) this.onTransition(event);
   }
 
   setMonsterZone(controllerId, index, cardState) {
@@ -131,12 +172,13 @@ export class FieldState {
       else this.opponentMonsterZones[index] = null;
       return true;
     }
-    this.transitionCard(cardState, 'monster_zone', controllerId, index);
+    this.transitionCard(cardState, 'monster_zone', controllerId, index, { deferNotification: true });
     if (controllerId === 'player') {
       this.playerMonsterZones[index] = cardState;
     } else {
       this.opponentMonsterZones[index] = cardState;
     }
+    this.notifyTransition(cardState);
     return true;
   }
 
@@ -152,8 +194,9 @@ export class FieldState {
       this.extraMonsterZones[index] = null;
       return true;
     }
-    this.transitionCard(cardState, 'extra_monster_zone', controllerId, index);
+    this.transitionCard(cardState, 'extra_monster_zone', controllerId, index, { deferNotification: true });
     this.extraMonsterZones[index] = { card: cardState, controllerId };
+    this.notifyTransition(cardState);
     return true;
   }
 
@@ -193,12 +236,13 @@ export class FieldState {
       else this.opponentSpellZones[index] = null;
       return true;
     }
-    this.transitionCard(cardState, 'spell_zone', controllerId, index);
+    this.transitionCard(cardState, 'spell_zone', controllerId, index, { deferNotification: true });
     if (controllerId === 'player') {
       this.playerSpellZones[index] = cardState;
     } else {
       this.opponentSpellZones[index] = cardState;
     }
+    this.notifyTransition(cardState);
     return true;
   }
 
@@ -228,12 +272,13 @@ export class FieldState {
       );
     }
 
-    this.transitionCard(cardState, 'field_zone', controllerId, 0);
+    this.transitionCard(cardState, 'field_zone', controllerId, 0, { deferNotification: true });
     if (controllerId === 'player') {
       this.playerFieldSpellZone = cardState;
     } else {
       this.opponentFieldSpellZone = cardState;
     }
+    this.notifyTransition(cardState);
     return true;
   }
 
@@ -242,12 +287,6 @@ export class FieldState {
       ownerId = cardState.ownerId || ownerId;
       if (cardState.isToken) return this.removeToken(cardState);
       const previousLocation = cardState.location;
-      if (Array.isArray(cardState.xyzMaterials) && cardState.xyzMaterials.length > 0) {
-        const detachedMaterials = cardState.xyzMaterials.splice(0);
-        detachedMaterials.forEach(material => {
-          this.sendToGraveyard(material, material.ownerId);
-        });
-      }
       const cameFromField = ['monster_zone', 'spell_zone', 'pendulum_zone', 'field_zone', 'extra_monster_zone']
         .includes(previousLocation);
       // A Pendulum card already occupies the field while its activation is
@@ -260,12 +299,13 @@ export class FieldState {
       if (cardState.isPendulumMonster && cameFromField && !negatedPendulumActivation) {
         return this.sendToFaceUpExtraDeck(cardState, ownerId);
       }
-      this.transitionCard(cardState, 'graveyard', ownerId, -1);
+      this.transitionCard(cardState, 'graveyard', ownerId, -1, { deferNotification: true });
       if (ownerId === 'player') {
         if (!this.playerGraveyard.includes(cardState)) this.playerGraveyard.push(cardState);
       } else {
         if (!this.opponentGraveyard.includes(cardState)) this.opponentGraveyard.push(cardState);
       }
+      this.notifyTransition(cardState);
       return { destination: 'graveyard', card: cardState };
     }
     return null;
@@ -274,13 +314,14 @@ export class FieldState {
   sendToFaceUpExtraDeck(cardState, ownerId) {
     if (!cardState) return null;
     ownerId = cardState.ownerId || ownerId;
-    this.transitionCard(cardState, 'extra_deck', ownerId, -1, { faceUpExtraDeck: true });
+    this.transitionCard(cardState, 'extra_deck', ownerId, -1, { faceUpExtraDeck: true, deferNotification: true });
     cardState.isSetFaceDown = false;
     cardState.isFaceUpInExtraDeck = true;
     const destination = ownerId === 'player'
       ? this.playerFaceUpExtraDeck
       : this.opponentFaceUpExtraDeck;
     if (!destination.includes(cardState)) destination.push(cardState);
+    this.notifyTransition(cardState);
     return { destination: 'extra_deck_face_up', card: cardState };
   }
 
@@ -289,16 +330,14 @@ export class FieldState {
       ownerId = cardState.ownerId || ownerId;
       // Tokens cannot be banished face-down, even as a cost.
       if (cardState.isToken) return faceDown ? false : this.removeToken(cardState);
-      for (const material of cardState.xyzMaterials.splice(0)) {
-        this.sendToGraveyard(material, material.ownerId);
-      }
-      this.transitionCard(cardState, 'banished', ownerId, -1);
+      this.transitionCard(cardState, 'banished', ownerId, -1, { deferNotification: true });
       cardState.isSetFaceDown = faceDown;
       if (ownerId === 'player') {
         if (!this.playerBanished.includes(cardState)) this.playerBanished.push(cardState);
       } else {
         if (!this.opponentBanished.includes(cardState)) this.opponentBanished.push(cardState);
       }
+      this.notifyTransition(cardState);
     }
   }
 
@@ -317,7 +356,8 @@ export class FieldState {
 
   /**
    * Moves a card to a target location, refreshing its runtime identity,
-   * respecting tokens, and redirecting hand/deck/extra_deck to owner.
+   * respecting destination rules. Public piles are inserted here; callers
+   * insert the returned card in private Hand/Deck/face-down Extra Deck piles.
    */
   moveCard(card, toLocation, targetPlayerId = 'player') {
     if (!card) return null;
@@ -327,12 +367,28 @@ export class FieldState {
       return this.removeToken(card);
     }
 
-    // Normalize destination to card owner for Hand, Deck, Extra Deck
-    const finalPlayer = (toLocation === 'hand' || toLocation === 'deck' || toLocation === 'extra_deck') ? card.ownerId : targetPlayerId;
+    const ownerId = card.ownerId || targetPlayerId;
+    // Fusion/Synchro/Xyz/Link cards cannot enter a hand or Main Deck.
+    const returnsToExtraDeck = ['hand', 'deck'].includes(toLocation) && (
+      card.belongsInExtraDeck || card.extra_type || /Fusion|Synchro|Xyz|Link/i.test(card.type || '')
+    );
+    const finalDestination = returnsToExtraDeck ? 'extra_deck' : toLocation;
+    const ownerDestinations = ['hand', 'deck', 'extra_deck', 'graveyard', 'banished'];
+    const finalPlayer = ownerDestinations.includes(finalDestination) ? ownerId : targetPlayerId;
 
-    this.transitionCard(card, toLocation, finalPlayer, -1);
+    if (finalDestination === 'graveyard') {
+      this.sendToGraveyard(card, ownerId);
+      return { success: true, finalDestination: card.location, finalPlayer: card.controllerId };
+    }
+    if (finalDestination === 'banished') {
+      this.sendToBanished(card, ownerId);
+      return { success: true, finalDestination: card.location, finalPlayer: card.controllerId };
+    }
 
-    return { success: true, finalDestination: toLocation, finalPlayer };
+    this.transitionCard(card, finalDestination, finalPlayer, -1);
+    if (finalDestination === 'extra_deck') card.isFaceUpInExtraDeck = false;
+
+    return { success: true, finalDestination, finalPlayer };
   }
 
   removeToken(card) {

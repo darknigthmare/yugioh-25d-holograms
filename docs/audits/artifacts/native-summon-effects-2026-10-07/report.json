@@ -1,0 +1,147 @@
+{
+  "details": [
+    {
+      "procedure": "fusion",
+      "profile": "fusion-summon",
+      "shape": "fusion",
+      "frames": [
+        {
+          "progress": 0.3,
+          "drawCalls": 12,
+          "triangles": 4160
+        },
+        {
+          "progress": 0.65,
+          "drawCalls": 14,
+          "triangles": 4560
+        }
+      ],
+      "remainingGeometries": 0,
+      "remainingTextures": 0
+    },
+    {
+      "procedure": "synchro",
+      "profile": "synchro-summon",
+      "shape": "synchro",
+      "frames": [
+        {
+          "progress": 0.3,
+          "drawCalls": 6,
+          "triangles": 2400
+        },
+        {
+          "progress": 0.65,
+          "drawCalls": 9,
+          "triangles": 2880
+        }
+      ],
+      "remainingGeometries": 0,
+      "remainingTextures": 0
+    },
+    {
+      "procedure": "xyz",
+      "profile": "xyz-summon",
+      "shape": "xyz",
+      "frames": [
+        {
+          "progress": 0.3,
+          "drawCalls": 5,
+          "triangles": 1888
+        },
+        {
+          "progress": 0.65,
+          "drawCalls": 7,
+          "triangles": 2288
+        }
+      ],
+      "remainingGeometries": 0,
+      "remainingTextures": 0
+    },
+    {
+      "procedure": "link",
+      "profile": "link-summon",
+      "shape": "link",
+      "frames": [
+        {
+          "progress": 0.3,
+          "drawCalls": 11,
+          "triangles": 664
+        },
+        {
+          "progress": 0.65,
+          "drawCalls": 13,
+          "triangles": 1064
+        }
+      ],
+      "remainingGeometries": 0,
+      "remainingTextures": 0
+    },
+    {
+      "procedure": "ritual",
+      "profile": "ritual-summon",
+      "shape": "ritual",
+      "frames": [
+        {
+          "progress": 0.3,
+          "drawCalls": 10,
+          "triangles": 1744
+        },
+        {
+          "progress": 0.65,
+          "drawCalls": 12,
+          "triangles": 2144
+        }
+      ],
+      "remainingGeometries": 0,
+      "remainingTextures": 0
+    },
+    {
+      "procedure": "pendulum",
+      "profile": "pendulum-summon",
+      "shape": "pendulum",
+      "frames": [
+        {
+          "progress": 0.3,
+          "drawCalls": 9,
+          "triangles": 2816
+        },
+        {
+          "progress": 0.65,
+          "drawCalls": 11,
+          "triangles": 3216
+        }
+      ],
+      "remainingGeometries": 0,
+      "remainingTextures": 0
+    },
+    {
+      "procedure": "flip",
+      "profile": "flip-summon",
+      "shape": "flip",
+      "frames": [
+        {
+          "progress": 0.3,
+          "drawCalls": 2,
+          "triangles": 412
+        },
+        {
+          "progress": 0.65,
+          "drawCalls": 4,
+          "triangles": 812
+        }
+      ],
+      "remainingGeometries": 0,
+      "remainingTextures": 0
+    }
+  ],
+  "images": 14,
+  "pageErrors": [],
+  "failedRequests": [],
+  "proofScope": "isolated-presentation; native procedures verified separately",
+  "ok": true,
+  "sourceHashes": {
+    "src/ui/CombatVisualEffects.js": "39c30c48a779c0108e2b6bddeda552dd4413ce2c69e2523b218683128bb76b5b",
+    "src/ui/CombatVisualProfiles.js": "19b011403bee06bdfa9c318b3b50f2d10f4c7eb984fbced529181ca354b6accb",
+    "src/ui/PublicDuelVisuals.js": "ec889dce5c059436b250fa0c20273c779569a74a162a508fbd179d703008c652"
+  }
+}

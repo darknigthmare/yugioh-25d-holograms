@@ -1,7 +1,11 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
+import vm from 'node:vm';
 import { isHandPlacementDestinationLegal } from '../src/ui/HandPlacement.js';
+import { isFieldSpellCard } from '../src/core/FieldSpellRules.js';
+import { canAddDeckBuilderCard } from '../src/ui/DeckBuilderRules.js';
+import { NATIVE_CARDS, getNativeFieldEligibility } from '../src/core/native/NativeCardRegistry.js';
 
 const mainSource = readFileSync(new URL('../main.js', import.meta.url), 'utf8');
 const htmlSource = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
@@ -131,8 +135,89 @@ test('an occupied Main Monster Zone is projected only for a legal Tribute Summon
     controlledMonsterCount: 5
   }), false, 'an occupied Spell/Trap Zone is never made legal by Tribute projection');
 
-  assert.match(mainSource, /function highlightValidDropZones\(card\)[\s\S]*isHandPlacementDestinationLegal\(/);
-  assert.match(mainSource, /const placementIsLegal = isHandPlacementDestinationLegal\([\s\S]*if \(selectedCard && placementIsLegal\)/);
+  assert.match(mainSource, /function canPlaceHandCard\(options\)[\s\S]*typeof game\?\.activateNativeAction !== 'function'[\s\S]*isHandPlacementDestinationLegal\(options\)/);
+  assert.match(mainSource, /function highlightValidDropZones\(card\)[\s\S]*const legal = canPlaceHandCard\(/);
+  assert.match(mainSource, /const placementIsLegal = canPlaceHandCard\([\s\S]*if \(selectedCard && placementIsLegal\)/);
+});
+
+test('native hand placement is offered only for cards available in the core command list', () => {
+  const source = mainSource.match(/function canPlaceHandCard\([^]*?\n\}/)?.[0];
+  assert.ok(source, 'the UI must expose its native/Sandbox placement boundary');
+  const actions = { normalSummonCardUids: ['summonable'], normalSetCardUids: ['settable'] };
+  const context = vm.createContext({
+    isHandPlacementDestinationLegal, isFieldSpellCard,
+    canActivateHandPendulumScale: () => false,
+    game: {
+      activateNativeAction() {}, getAvailableActions: () => actions,
+      canActivateSpell: card => card.uid === 'activatable',
+      canSetSpell: card => card.uid === 'settable'
+    }
+  });
+  vm.runInContext(source, context);
+  const offered = { card_type: 'monster', uid: 'summonable' };
+  assert.equal(context.canPlaceHandCard({ card: offered, zoneType: 'monster', zoneIndex: 2, occupied: false }), true);
+  assert.equal(context.canPlaceHandCard({ card: { ...offered, uid: 'unavailable' }, zoneType: 'monster', zoneIndex: 2, occupied: false }), false);
+  const field = { card_type: 'spell', race: 'Field', uid: 'activatable' };
+  assert.equal(context.canPlaceHandCard({ card: field, zoneType: 'field', zoneIndex: 0, occupied: true }), true);
+  assert.equal(context.canPlaceHandCard({ card: field, zoneType: 'spell', zoneIndex: 2, occupied: false }), false);
+  assert.equal(context.canPlaceHandCard({ card: { card_type: 'spell', uid: 'activatable' }, zoneType: 'spell', zoneIndex: 2, occupied: true }), false);
+  context.game = null;
+  assert.equal(context.canPlaceHandCard({ card: { card_type: 'monster', level: 4 }, zoneType: 'monster', zoneIndex: 2, occupied: true, controlledMonsterCount: 5 }), false,
+    'Sandbox retains the existing occupied-zone legality rule');
+});
+
+test('the native catalogue separates released TCG legality from the unrestricted field corpus', () => {
+  const fields = NATIVE_CARDS.filter(isFieldSpellCard);
+  assert.equal(fields.length, 339);
+  const outsideTcg = fields.find(card => !getNativeFieldEligibility(card, 'TCG').allowed);
+  assert.ok(outsideTcg, 'the catalogue must retain an OCG-only or announced field instead of filtering it away');
+  const deck = { mainDeck: [], extraDeck: [], sideDeck: [] };
+  const strict = canAddDeckBuilderCard(deck, outsideTcg, 'mainDeck', 'strict', { native: true, format: 'TCG' });
+  assert.equal(strict.allowed, false);
+  assert.match(strict.code, /^FIELD_(?:OCG_ONLY|NOT_RELEASED_TCG|TCG_PUBLICATION_UNKNOWN)$/);
+  assert.equal(canAddDeckBuilderCard(deck, outsideTcg, 'mainDeck', 'native', { native: true, format: 'ALL' }).allowed, true);
+  assert.match(htmlSource, /name="game-mode" value="native"/);
+  assert.match(htmlSource, /href="\/native\/sources\/README\.md"[^>]*>sources et licences</);
+});
+
+test('the builder binds Strict, Libre and Sandbox to the appropriate format and trusted native catalogue', () => {
+  const source = mainSource.match(/const nativeBuilderOptions = \(\) => \(\{[^]*?\n\}\);/)?.[0];
+  assert.ok(source, 'builder validation must expose its mode and trusted-data options');
+  const context = vm.createContext({
+    selectedGameMode: 'strict', nativeCatalogueResources: null, nativeCatalogueToolkit: null,
+    getDeckCopyIdentity: card => `local:${card.id}`
+  });
+  vm.runInContext(`${source}\nglobalThis.builderOptions = nativeBuilderOptions;`, context);
+  const card = { id: '1234' };
+  let options = context.builderOptions();
+  assert.equal(options.native, true);
+  assert.equal(options.format, 'TCG');
+  assert.equal(options.isSupportedCard(card, 'main'), false, 'unloaded CDB data cannot establish support');
+  assert.equal(options.getCopyIdentity(card), 'local:1234');
+
+  const resources = {};
+  const calls = [];
+  context.nativeCatalogueResources = resources;
+  context.nativeCatalogueToolkit = {
+    isSupportedNativeCatalogueCard: (...args) => { calls.push(args); return args[1] === card && args[2] === 'main'; },
+    getNativeCardCopyIdentity: (data, template) => data === resources && template === card ? 'trusted-alias' : null
+  };
+  context.selectedGameMode = 'native';
+  options = context.builderOptions();
+  assert.equal(options.native, true);
+  assert.equal(options.format, 'ALL');
+  assert.equal(options.isSupportedCard(card, 'main'), true);
+  assert.equal(options.isSupportedCard(card, 'extra'), false, 'section eligibility is delegated to the trusted CDB');
+  assert.equal(calls[0][0], resources);
+  assert.equal(options.getCopyIdentity(card), 'trusted-alias');
+
+  context.selectedGameMode = 'sandbox';
+  assert.equal(context.builderOptions().native, false);
+  const launch = mainSource.match(/async function initGameInstance\([^]*?\n\}/)?.[0];
+  assert.ok(launch.indexOf('await ensureNativeCatalogue()') < launch.indexOf('validateCustomDeck('),
+    'Libre must resolve stored CDB cards before validating a custom deck');
+  assert.match(launch, /const allTemplates = \[\.\.\.knownCardTemplates\.values\(\)\]/,
+    'duel decks must not depend on a currently filtered catalogue search');
 });
 
 test('Field Spells use only their dedicated replaceable Field Zone', () => {

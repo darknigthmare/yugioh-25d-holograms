@@ -1,5 +1,6 @@
-import { hasResolvedFieldSpellActivation } from './FieldSpellRules.js';
-import { getClassicFieldSpellModifier } from './ClassicFieldSpellEffects.js';
+import { isAdvancedFieldSourceActive } from './AdvancedFieldSpellRules.js';
+import { getClassicFieldSpellModifier, getContinuousFieldSpellLevelModifier } from './ClassicFieldSpellEffects.js';
+import { getFieldRuleMonsterRace } from './FieldRuleRuntime.js';
 
 /**
  * GameStateStabilizer implements TCG Game State Check and Rule Cleanup loops:
@@ -25,6 +26,13 @@ function normalizeExactCardAlias(value) {
     .trim()
     .replace(/\s+/g, ' ')
     .toLocaleLowerCase('fr');
+}
+
+function normalizeCardPasscode(value) {
+  // Database imports may use a number or the printed eight-digit passcode.
+  // Preserve exact identity instead of coercing malformed values to numbers.
+  const passcode = String(value ?? '').trim();
+  return /^\d{1,8}$/.test(passcode) ? passcode.replace(/^0+(?=\d)/, '') : null;
 }
 
 function countsForDarkMagicianGirl(card) {
@@ -90,14 +98,14 @@ export class GameStateStabilizer {
       parts.push([
         m.uid, m.runtimeInstanceId, m.getAtk(), m.getDef(), m.getLevel(),
         m.location, m.zoneIndex, m.controllerId, m.position, m.isSetFaceDown,
-        m.effectNegated, JSON.stringify(m.counters || {})
+        m.effectNegated, m.currentRace, m.currentAttribute, JSON.stringify(m.counters || {})
       ].join(':'));
     });
     for (const side of ['player', 'opponent']) {
       for (const key of ['Graveyard', 'Banished', 'FaceUpExtraDeck']) {
-        parts.push((game.field[`${side}${key}`] || []).map(card => card.uid).join(','));
+        parts.push((game.field[`${side}${key}`] || []).map(card => [card.uid, card.currentRace, card.currentLevel].join(':')).join(','));
       }
-      parts.push((game[`${side}Hand`] || []).map(card => card.uid).join(','));
+      parts.push((game[`${side}Hand`] || []).map(card => [card.uid, card.currentLevel, card.currentRace].join(':')).join(','));
     }
 
     return parts.join("|");
@@ -124,12 +132,36 @@ export class GameStateStabilizer {
       });
     });
 
+    const handMonsters = [game.playerHand || [], game.opponentHand || []].flat()
+      .filter(card => card.card_type === 'monster');
+    const graveMonsters = [game.field.playerGraveyard || [], game.field.opponentGraveyard || []].flat()
+      .filter(card => card.card_type === 'monster');
+    [...handMonsters, ...graveMonsters].forEach(monster => {
+      monster.currentLevel = monster.baseLevel;
+      monster.currentRace = monster.race;
+      monster.currentAttribute = monster.attribute;
+    });
+    handMonsters.forEach(monster => (monster.activeModifiers || []).forEach(modifier => {
+      if (modifier.type === 'level') monster.currentLevel += modifier.value;
+      if (modifier.type === 'attribute') monster.currentAttribute = modifier.value;
+      if (modifier.type === 'race') monster.currentRace = modifier.value;
+    }));
+
     const fieldSpells = [game.field.playerFieldSpellZone, game.field.opponentFieldSpellZone]
-      .filter(card => card && !card.isSetFaceDown && !card.effectNegated
-        && hasResolvedFieldSpellActivation(card));
+      .filter(card => isAdvancedFieldSourceActive(card, game.defense));
+    // Types and Levels determine subsequent stat bonuses: Zombie World can
+    // remove a Forest/Jurassic bonus, and Ocean changes Saber Vault/Wetlands.
+    [...monsters.filter(monster => !monster.isSetFaceDown), ...graveMonsters].forEach(monster => {
+      monster.currentRace = getFieldRuleMonsterRace(monster, fieldSpells, monster.currentRace);
+    });
+    [...monsters.filter(monster => !monster.isSetFaceDown), ...handMonsters].forEach(monster => {
+      fieldSpells.forEach(source => {
+        monster.currentLevel += getContinuousFieldSpellLevelModifier(monster, source);
+      });
+    });
     monsters.filter(monster => !monster.isSetFaceDown).forEach(monster => {
       fieldSpells.forEach(fieldSpell => {
-        const modifier = getClassicFieldSpellModifier(monster, fieldSpell);
+        const modifier = getClassicFieldSpellModifier(monster, fieldSpell, game);
         if (!modifier) return;
         monster.currentAtk += modifier.atk;
         monster.currentDef += modifier.def;
@@ -207,12 +239,10 @@ export class GameStateStabilizer {
       '70903634'  // Right Arm of the Forbidden One
     ];
 
-    const playerHasAllExodia = exodiaIds.every(id =>
-      game.playerHand.some(c => String(c.id) === id)
-    );
-    const opponentHasAllExodia = exodiaIds.every(id =>
-      game.opponentHand.some(c => String(c.id) === id)
-    );
+    const playerPasscodes = new Set(game.playerHand.map(card => normalizeCardPasscode(card.id)));
+    const opponentPasscodes = new Set(game.opponentHand.map(card => normalizeCardPasscode(card.id)));
+    const playerHasAllExodia = exodiaIds.every(id => playerPasscodes.has(id));
+    const opponentHasAllExodia = exodiaIds.every(id => opponentPasscodes.has(id));
 
     if (playerHasAllExodia && opponentHasAllExodia) {
       finish('draw', 'exodia');

@@ -19,12 +19,12 @@ test('lean runtime manifest owns one unique visual contract per canonical Field 
   const validation = validateFieldSpellRuntimeManifest();
 
   assert.equal(validation.valid, true, validation.errors.join('\n'));
-  assert.equal(FIELD_SPELL_RUNTIME_MANIFEST_COUNT, 336);
-  assert.equal(validation.count, 336);
-  assert.equal(validation.uniqueCardIdCount, 336);
-  assert.equal(validation.uniqueAssetPathCount, 336);
-  assert.equal(validation.uniquePaletteCount, 336);
-  assert.equal(validation.uniqueSignatureAccentCount, 336);
+  assert.equal(FIELD_SPELL_RUNTIME_MANIFEST_COUNT, 339);
+  assert.equal(validation.count, 339);
+  assert.equal(validation.uniqueCardIdCount, 339);
+  assert.equal(validation.uniqueAssetPathCount, 339);
+  assert.equal(validation.uniquePaletteCount, 339);
+  assert.equal(validation.uniqueSignatureAccentCount, 339);
   assert.deepEqual(
     new Set(FIELD_SPELL_RUNTIME_MANIFEST.map(entry => entry.cardId)),
     new Set(FIELD_SPELL_ENVIRONMENT_CATALOG.map(entry => entry.cardId))
@@ -42,7 +42,10 @@ test('runtime render values stay exactly aligned with exhaustive generation brie
     assert.equal(runtimeEntry.environmentFamily, brief.environmentFamily);
     assert.equal(runtimeEntry.assetPath, brief.assetPath);
     assert.deepEqual(runtimeEntry.palette, brief.palette);
-    assert.match(
+    assert.equal(runtimeEntry.assetKind, brief.assetKind);
+    if (runtimeEntry.assetKind === 'source-illustration') {
+      assert.equal(runtimeEntry.assetPath, `/environments/field-art/${runtimeEntry.cardId}.jpg`);
+    } else assert.match(
       runtimeEntry.assetPath,
       new RegExp(
         `^${FIELD_SPELL_RUNTIME_ASSET_ROOT}/${runtimeEntry.cardId}-`
@@ -52,6 +55,16 @@ test('runtime render values stay exactly aligned with exhaustive generation brie
     assert.equal(Object.isFrozen(runtimeEntry), true);
     assert.equal(Object.isFrozen(runtimeEntry.palette), true);
   }
+});
+
+test('new reference fallbacks use the exact source JPEG instead of a fabricated composition', () => {
+  const sourceFallbacks = FIELD_SPELL_RUNTIME_MANIFEST.filter(entry => entry.assetKind === 'source-illustration');
+  assert.deepEqual(new Set(sourceFallbacks.map(entry => entry.cardId)), new Set(['12845564', '33700664', '88288421']));
+  assert.equal(FIELD_SPELL_RUNTIME_MANIFEST.filter(entry => entry.assetKind === 'original-composition').length, 336);
+  const first = sourceFallbacks[0];
+  const invalid = FIELD_SPELL_RUNTIME_MANIFEST.map(entry => entry === first
+    ? { ...entry, assetKind: 'original-composition' } : entry);
+  assert.equal(validateFieldSpellRuntimeManifest(invalid).valid, false);
 });
 
 test('runtime lookup is canonical-ID only and the validator rejects shared visuals', () => {

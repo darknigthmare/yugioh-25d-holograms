@@ -1,0 +1,899 @@
+{
+  "auditDate": "2026-10-07",
+  "referenceCount": 20,
+  "baselineCommit": "2bc79f1",
+  "baselineMethod": "Exact git-show 2bc79f1 factory and five reference dependencies archived intact; only factory import URLs rewritten for the static server.",
+  "baselineOriginalSha256": "5c5d86bee1abaf9244ded5e7dfed65bdb88678e15acffbd896824f502387601a",
+  "baselineDependencies": [
+    {
+      "file": "FieldEnvironmentArchitecturalReferences.js",
+      "sha256": "e9bfe454fd75e9934917ba60d431aaf5549f75c20769290cd5dffc929b8895b1"
+    },
+    {
+      "file": "FieldEnvironmentMysticalReferences.js",
+      "sha256": "1e6ec73411e3dd624542edee60000110bd22f38c6f9e90176f18ce071c7da2cc"
+    },
+    {
+      "file": "FieldEnvironmentNatureReferences.js",
+      "sha256": "0d44bdf0379837717ea1be71599d5572edb9209565cf93bfc5ee5d3768f7c824"
+    },
+    {
+      "file": "FieldEnvironmentTechnologyReferences.js",
+      "sha256": "930d3121814e730d9274a6d2087bcd301c1b18b07250cff1de9abb70676b4742"
+    },
+    {
+      "file": "FieldEnvironmentUrbanReferences.js",
+      "sha256": "b3d94d8d9f427315fec3b0d36c775fc337d827b92ca6a8fd7de8d8665e5e61c9"
+    }
+  ],
+  "geometryScope": "Source shapes reconstructed as adapted peripheral volumes; no full spatial 1:1 claim; source characters retained unchanged.",
+  "moduleSha256": "fc2308aafce72862a97b759cfe25b6818b38580ebde74125af3bdc5c074858b2",
+  "factorySha256": "b83bba7f70345735cdd0921503fbed0579fe71dba67e5c84fd0b849391e0b121",
+  "baselineSha256": "d14951d97e134e36e4b69552044d92905b2326f3a25d67b2983ce338b562d3e0",
+  "references": [
+    {
+      "cardId": "38391684",
+      "name": "Atlantis, City of the Sea Dragon",
+      "camera": [
+        9,
+        13,
+        -4
+      ],
+      "target": [
+        0,
+        9,
+        -33
+      ],
+      "fov": 66,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/38391684.jpg",
+      "sourceSha256": "1294411082a9921b901e5d57d5069965e7727c1a5699637f4c8255b3b31eaac7",
+      "baselineSourceSha256": "1294411082a9921b901e5d57d5069965e7727c1a5699637f4c8255b3b31eaac7",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "62200831",
+      "name": "Gunkan Sushipyard Seaside Supper Spot",
+      "camera": [
+        18,
+        22,
+        -6
+      ],
+      "target": [
+        0,
+        7,
+        -33
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/62200831.jpg",
+      "sourceSha256": "fae7fc9760bb8c91522acb701975df6470c7dbcf20ccf31f34d8450265806906",
+      "baselineSourceSha256": "fae7fc9760bb8c91522acb701975df6470c7dbcf20ccf31f34d8450265806906",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "34103656",
+      "name": "Lemuria, the Forgotten City",
+      "camera": [
+        10,
+        14,
+        -8
+      ],
+      "target": [
+        0,
+        8,
+        -33
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/34103656.jpg",
+      "sourceSha256": "0702c667cd41a85920802630a147e3f21328a31885a26b71e5a995973d098a45",
+      "baselineSourceSha256": "0702c667cd41a85920802630a147e3f21328a31885a26b71e5a995973d098a45",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "26534688",
+      "name": "Magellanica, the Deep Sea City",
+      "camera": [
+        8,
+        13,
+        -4
+      ],
+      "target": [
+        0,
+        10,
+        -34
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/26534688.jpg",
+      "sourceSha256": "4134ca2a08ed11514f2fa91bc577540d1a860362e7a8f38c44aecb540e845999",
+      "baselineSourceSha256": "4134ca2a08ed11514f2fa91bc577540d1a860362e7a8f38c44aecb540e845999",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "91027843",
+      "name": "Marincess Battle Ocean",
+      "camera": [
+        2,
+        13,
+        -4
+      ],
+      "target": [
+        0,
+        12,
+        -29
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/91027843.jpg",
+      "sourceSha256": "4a69525080c02e3fa47cdd2e414730cf1891e6dd339807bb8b4f64d24ff9988c",
+      "baselineSourceSha256": "4a69525080c02e3fa47cdd2e414730cf1891e6dd339807bb8b4f64d24ff9988c",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "60448701",
+      "name": "Ogdoadic Origin",
+      "camera": [
+        9,
+        12,
+        -7
+      ],
+      "target": [
+        0,
+        10,
+        -35
+      ],
+      "fov": 73,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/60448701.jpg",
+      "sourceSha256": "7995e3c4ac7149726157aa5ed7af29adc6fc29c9c6f8c53395e142e04b37630a",
+      "baselineSourceSha256": "7995e3c4ac7149726157aa5ed7af29adc6fc29c9c6f8c53395e142e04b37630a",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "2819435",
+      "name": "Pacifis, the Phantasm City",
+      "camera": [
+        8,
+        15,
+        -8
+      ],
+      "target": [
+        0,
+        10,
+        -33
+      ],
+      "fov": 73,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/2819435.jpg",
+      "sourceSha256": "d329db2d6e75696cbf0c1935f87e35867564d2be73b1f6f9767a8865625fb5ed",
+      "baselineSourceSha256": "d329db2d6e75696cbf0c1935f87e35867564d2be73b1f6f9767a8865625fb5ed",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "93031067",
+      "name": "Plunder Patroll Shipyarrrd",
+      "camera": [
+        12,
+        12,
+        -7
+      ],
+      "target": [
+        0,
+        9,
+        -31
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/93031067.jpg",
+      "sourceSha256": "121902cacf57d342f55f66ca698cf0b7b5a1aff63fb07f2828ea132d6b891230",
+      "baselineSourceSha256": "121902cacf57d342f55f66ca698cf0b7b5a1aff63fb07f2828ea132d6b891230",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "77103950",
+      "name": "Primeval Planet Perlereino",
+      "camera": [
+        2,
+        12,
+        -4
+      ],
+      "target": [
+        0,
+        11,
+        -34
+      ],
+      "fov": 70,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/77103950.jpg",
+      "sourceSha256": "f743c20ccbdae34bbabaa271ba7f13d6c0b499e511d1678f8a22aab7f766045e",
+      "baselineSourceSha256": "f743c20ccbdae34bbabaa271ba7f13d6c0b499e511d1678f8a22aab7f766045e",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "69408987",
+      "name": "Spider Web",
+      "camera": [
+        2,
+        10,
+        -7
+      ],
+      "target": [
+        0,
+        10,
+        -31
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/69408987.jpg",
+      "sourceSha256": "62cef49ada6c44316f52adfb711d8c2e0b6008b2f5e9cc1af60599c775be5fd3",
+      "baselineSourceSha256": "62cef49ada6c44316f52adfb711d8c2e0b6008b2f5e9cc1af60599c775be5fd3",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "34225426",
+      "name": "Tearlaments Perlegia",
+      "camera": [
+        9,
+        9,
+        -5
+      ],
+      "target": [
+        0,
+        4,
+        -30
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/34225426.jpg",
+      "sourceSha256": "c47ca8173cc81d8cf1d38c487a28af1508972694a36bcb335007d28e27debb26",
+      "baselineSourceSha256": "c47ca8173cc81d8cf1d38c487a28af1508972694a36bcb335007d28e27debb26",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "8794055",
+      "name": "The Most Distant, Deepest Depths",
+      "camera": [
+        0,
+        12,
+        -7
+      ],
+      "target": [
+        0,
+        12,
+        -34
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/8794055.jpg",
+      "sourceSha256": "46f205e3156743c0403004f409dfee686a1c926a8de57973d8068ea7c79c5e87",
+      "baselineSourceSha256": "46f205e3156743c0403004f409dfee686a1c926a8de57973d8068ea7c79c5e87",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "22702055",
+      "name": "Umi",
+      "camera": [
+        10,
+        14,
+        -6
+      ],
+      "target": [
+        0,
+        1,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/22702055.jpg",
+      "sourceSha256": "8c895df16960d73a61253316be44ae25291fee053da32366b54705dba78f89f0",
+      "baselineSourceSha256": "8c895df16960d73a61253316be44ae25291fee053da32366b54705dba78f89f0",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "82999629",
+      "name": "Umiiruka",
+      "camera": [
+        9,
+        8,
+        -7
+      ],
+      "target": [
+        0,
+        3,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/82999629.jpg",
+      "sourceSha256": "718b6e055d502849bef7f1f400779babd98b93b06cee6327b9d94c701f74bc9d",
+      "baselineSourceSha256": "718b6e055d502849bef7f1f400779babd98b93b06cee6327b9d94c701f74bc9d",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "2084239",
+      "name": "Wetlands",
+      "camera": [
+        3,
+        7,
+        -6
+      ],
+      "target": [
+        0,
+        4,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/2084239.jpg",
+      "sourceSha256": "98dd5b9b5b57d52686adc2eb326254f3a0db5c3ae924919776764f39eb81bf41",
+      "baselineSourceSha256": "98dd5b9b5b57d52686adc2eb326254f3a0db5c3ae924919776764f39eb81bf41",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "94317736",
+      "name": "Hidden Springs of the Far East",
+      "camera": [
+        7,
+        13,
+        -6
+      ],
+      "target": [
+        0,
+        4,
+        -31
+      ],
+      "fov": 67,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/94317736.jpg",
+      "sourceSha256": "4ef709b5bdd9f32171a1796f31a802601e5c986b1fc2652fedc2adcee3cdba5a",
+      "baselineSourceSha256": "4ef709b5bdd9f32171a1796f31a802601e5c986b1fc2652fedc2adcee3cdba5a",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "92107604",
+      "name": "Runick Fountain",
+      "camera": [
+        8,
+        11,
+        -4
+      ],
+      "target": [
+        0,
+        9,
+        -33
+      ],
+      "fov": 69,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/92107604.jpg",
+      "sourceSha256": "b85bf74105ee8c3761e8a5563843c8c72ad1b8b454317257b30ae5185d989c96",
+      "baselineSourceSha256": "b85bf74105ee8c3761e8a5563843c8c72ad1b8b454317257b30ae5185d989c96",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "5697558",
+      "name": "The Hidden City",
+      "camera": [
+        10,
+        15,
+        -2
+      ],
+      "target": [
+        0,
+        10,
+        -35
+      ],
+      "fov": 70,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/5697558.jpg",
+      "sourceSha256": "c2bc7daaadd25a611110463d42e1376d3fed69af5a44be216031375ed1171f63",
+      "baselineSourceSha256": "c2bc7daaadd25a611110463d42e1376d3fed69af5a44be216031375ed1171f63",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "89264428",
+      "name": "Ursarctic Big Dipper",
+      "camera": [
+        10,
+        19,
+        -7
+      ],
+      "target": [
+        0,
+        5,
+        -33
+      ],
+      "fov": 69,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/89264428.jpg",
+      "sourceSha256": "3f691385ae08084698a41babbbabd706ac4513154166a704435e1e587a0db339",
+      "baselineSourceSha256": "3f691385ae08084698a41babbbabd706ac4513154166a704435e1e587a0db339",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "4215636",
+      "name": "Shrine of Mist Valley",
+      "camera": [
+        9,
+        13,
+        -5
+      ],
+      "target": [
+        0,
+        8,
+        -31
+      ],
+      "fov": 68,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/4215636.jpg",
+      "sourceSha256": "b8e734f96be87d7d428f4abaf7e3fdcc9492ca4e1ec5e0b240ec72e047c835e3",
+      "baselineSourceSha256": "b8e734f96be87d7d428f4abaf7e3fdcc9492ca4e1ec5e0b240ec72e047c835e3",
+      "sourceUnchangedFromBaseline": true
+    }
+  ],
+  "capture": {
+    "details": [
+      {
+        "cardId": "38391684",
+        "before": {
+          "url": null,
+          "primitives": 23,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 5768,
+          "fidelity": "procedural-interpretation",
+          "landmark": "umi",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 57,
+          "drawCalls": 6,
+          "materials": 5,
+          "triangles": 724,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "atlantis-red-stepped-temples-and-stone-pool",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "62200831",
+        "before": {
+          "url": null,
+          "primitives": 23,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 5768,
+          "fidelity": "procedural-interpretation",
+          "landmark": "umi",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 103,
+          "drawCalls": 10,
+          "materials": 7,
+          "triangles": 6808,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "sushipyard-yellow-gantries-and-harbor-counters",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "34103656",
+        "before": {
+          "url": null,
+          "primitives": 23,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 5768,
+          "fidelity": "procedural-interpretation",
+          "landmark": "umi",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 96,
+          "drawCalls": 9,
+          "materials": 6,
+          "triangles": 11980,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "lemuria-columned-temple-and-submerged-domes",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "26534688",
+        "before": {
+          "url": null,
+          "primitives": 23,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 5768,
+          "fidelity": "procedural-interpretation",
+          "landmark": "umi",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 209,
+          "drawCalls": 9,
+          "materials": 4,
+          "triangles": 10824,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "magellanica-round-terraces-and-umbrella-arches",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "91027843",
+        "before": {
+          "url": null,
+          "primitives": 23,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 5768,
+          "fidelity": "procedural-interpretation",
+          "landmark": "umi",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 49,
+          "drawCalls": 11,
+          "materials": 7,
+          "triangles": 13988,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "marincess-waterfall-arena-and-torch-platform",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "60448701",
+        "before": {
+          "url": null,
+          "primitives": 93,
+          "drawCalls": 6,
+          "materials": 4,
+          "triangles": 9768,
+          "fidelity": "procedural-interpretation",
+          "landmark": "swamp",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 32,
+          "drawCalls": 4,
+          "materials": 4,
+          "triangles": 8080,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "ogdoadic-black-ripples-and-pointed-horizon",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "2819435",
+        "before": {
+          "url": null,
+          "primitives": 23,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 5768,
+          "fidelity": "procedural-interpretation",
+          "landmark": "umi",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 127,
+          "drawCalls": 15,
+          "materials": 5,
+          "triangles": 22884,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "pacifis-ruined-octagonal-basin-and-water-plume",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "93031067",
+        "before": {
+          "url": null,
+          "primitives": 23,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 5768,
+          "fidelity": "procedural-interpretation",
+          "landmark": "umi",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 76,
+          "drawCalls": 10,
+          "materials": 5,
+          "triangles": 2780,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "plunder-yellow-turret-workshop-and-dock",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "77103950",
+        "before": {
+          "url": null,
+          "primitives": 40,
+          "drawCalls": 10,
+          "materials": 6,
+          "triangles": 8744,
+          "fidelity": "procedural-interpretation",
+          "landmark": "primeval-tidal-planet",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 48,
+          "drawCalls": 7,
+          "materials": 4,
+          "triangles": 34528,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "perlereino-floating-tidal-discs-and-curtains",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "69408987",
+        "before": {
+          "url": null,
+          "primitives": 93,
+          "drawCalls": 6,
+          "materials": 4,
+          "triangles": 9768,
+          "fidelity": "procedural-interpretation",
+          "landmark": "swamp",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 196,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 7628,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "spider-web-radial-silk-and-violet-cave-crystals",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "34225426",
+        "before": {
+          "url": null,
+          "primitives": 23,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 5768,
+          "fidelity": "procedural-interpretation",
+          "landmark": "umi",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 26,
+          "drawCalls": 9,
+          "materials": 4,
+          "triangles": 7368,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "perlegia-gray-rock-shore-and-turquoise-splash",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "8794055",
+        "before": {
+          "url": null,
+          "primitives": 23,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 5768,
+          "fidelity": "procedural-interpretation",
+          "landmark": "umi",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 141,
+          "drawCalls": 5,
+          "materials": 3,
+          "triangles": 18880,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "distant-depths-diagonal-blue-violet-star-cloud",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "22702055",
+        "before": {
+          "url": null,
+          "primitives": 48,
+          "drawCalls": 5,
+          "materials": 2,
+          "triangles": 7320,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "umi-cobalt-swell",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 17,
+          "drawCalls": 7,
+          "materials": 2,
+          "triangles": 28120,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "umi-continuous-oblique-cobalt-swells",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "82999629",
+        "before": {
+          "url": null,
+          "primitives": 54,
+          "drawCalls": 6,
+          "materials": 3,
+          "triangles": 7572,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "umiiruka-breaking-waves",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 55,
+          "drawCalls": 10,
+          "materials": 5,
+          "triangles": 28996,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "umiiruka-layered-breaking-foam-and-distant-shore",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "2084239",
+        "before": {
+          "url": null,
+          "primitives": 172,
+          "drawCalls": 6,
+          "materials": 6,
+          "triangles": 33300,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "reed-basin",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 156,
+          "drawCalls": 5,
+          "materials": 5,
+          "triangles": 14364,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "wetlands-dense-pointed-grass-and-rain",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "94317736",
+        "before": {
+          "url": null,
+          "primitives": 22,
+          "drawCalls": 2,
+          "materials": 1,
+          "triangles": 480,
+          "fidelity": "procedural-interpretation",
+          "landmark": "temple-sanctuary",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 60,
+          "drawCalls": 7,
+          "materials": 6,
+          "triangles": 10236,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "hidden-springs-rock-rim-and-wooded-steam",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "92107604",
+        "before": {
+          "url": null,
+          "primitives": 136,
+          "drawCalls": 8,
+          "materials": 5,
+          "triangles": 5248,
+          "fidelity": "procedural-interpretation",
+          "landmark": "runic-fountain",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 84,
+          "drawCalls": 11,
+          "materials": 5,
+          "triangles": 13136,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "runick-carved-basin-and-twin-water-curtains",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "5697558",
+        "before": {
+          "url": null,
+          "primitives": 28,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 1728,
+          "fidelity": "procedural-interpretation",
+          "landmark": "cave",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 107,
+          "drawCalls": 11,
+          "materials": 5,
+          "triangles": 4576,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "hidden-city-cavern-cut-plateaus-and-spiral-spire",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "89264428",
+        "before": {
+          "url": null,
+          "primitives": 35,
+          "drawCalls": 6,
+          "materials": 5,
+          "triangles": 4904,
+          "fidelity": "procedural-interpretation",
+          "landmark": "seven-star-observatory",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 109,
+          "drawCalls": 7,
+          "materials": 5,
+          "triangles": 8940,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "ursarctic-twin-deck-station-and-luminous-hubs",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "4215636",
+        "before": {
+          "url": null,
+          "primitives": 22,
+          "drawCalls": 2,
+          "materials": 1,
+          "triangles": 480,
+          "fidelity": "procedural-interpretation",
+          "landmark": "temple-sanctuary",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 117,
+          "drawCalls": 11,
+          "materials": 7,
+          "triangles": 6408,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "mist-valley-three-stairs-and-curled-shrine-roof",
+          "geometriesAfterDisposal": 0
+        }
+      }
+    ],
+    "images": 60,
+    "complete": true,
+    "rendererCount": 1,
+    "memoryScope": "renderer.info.memory.geometries after each disposal; GPU allocations beyond Three tracking not measured",
+    "errors": [],
+    "artifacts": [
+      "docs/audits/artifacts/field-aquatic-2026-10-07/aquatic-source-before-after-1.jpg",
+      "docs/audits/artifacts/field-aquatic-2026-10-07/aquatic-source-before-after-2.jpg",
+      "docs/audits/artifacts/field-aquatic-2026-10-07/aquatic-source-before-after-3.jpg",
+      "docs/audits/artifacts/field-aquatic-2026-10-07/aquatic-source-before-after-4.jpg",
+      "docs/audits/artifacts/field-aquatic-2026-10-07/aquatic-source-before-after-5.jpg"
+    ],
+    "artifactSha256": {
+      "aquatic-source-before-after-1.jpg": "4e6e19b10bf974d75d67819ef48dc8ae4e81da318869774aad7a62e512c0e8b7",
+      "aquatic-source-before-after-2.jpg": "d358e7b740200b3f83d4d3120296b3e28f20ac8ad13eafbdc8b9be510669d0ae",
+      "aquatic-source-before-after-3.jpg": "5836ecfed3dbd59a5ae5ce8f599f73e23dd66ec1ef5d39335a6d3995e852b43c",
+      "aquatic-source-before-after-4.jpg": "aa7cc5ada2c874b10eb7ddc7c11a1a82a92458814e32d30f5ef2eff489454ded",
+      "aquatic-source-before-after-5.jpg": "e50873625db6458a4c993d94e2f2095558f5884ae65a5d14ccfd7b8c9b32c2fb"
+    }
+  },
+  "testSha256": "bd0ca9ddb0a94df26f52ad5d4bfef15d355e7327945e4662b4785168bfe873ca"
+}

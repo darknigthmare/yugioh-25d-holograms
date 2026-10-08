@@ -1,0 +1,1144 @@
+{
+  "auditDate": "2026-10-07",
+  "referenceCount": 24,
+  "baselineCommit": "ba6c62aa6b3db8f15efad52e3ee8d5fcd143b601",
+  "baselineMethod": "Exact git-show ba6c62aa6b3db8f15efad52e3ee8d5fcd143b601 factory and every directly imported reference module archived intact; only factory import URLs rewritten for the static server.",
+  "baselineOriginalSha256": "b83bba7f70345735cdd0921503fbed0579fe71dba67e5c84fd0b849391e0b121",
+  "baselineDependencies": [
+    {
+      "file": "FieldEnvironmentAquaticReferences.js",
+      "sha256": "fc2308aafce72862a97b759cfe25b6818b38580ebde74125af3bdc5c074858b2"
+    },
+    {
+      "file": "FieldEnvironmentArchitecturalReferences.js",
+      "sha256": "e9bfe454fd75e9934917ba60d431aaf5549f75c20769290cd5dffc929b8895b1"
+    },
+    {
+      "file": "FieldEnvironmentDarkReferences.js",
+      "sha256": "f32d83bdeb1f2a3d51f3d405c0b8e546a3a5ad96132d2d0d79e7281bc45a2066"
+    },
+    {
+      "file": "FieldEnvironmentMysticalReferences.js",
+      "sha256": "1e6ec73411e3dd624542edee60000110bd22f38c6f9e90176f18ce071c7da2cc"
+    },
+    {
+      "file": "FieldEnvironmentNatureReferences.js",
+      "sha256": "0d44bdf0379837717ea1be71599d5572edb9209565cf93bfc5ee5d3768f7c824"
+    },
+    {
+      "file": "FieldEnvironmentTechnologyReferences.js",
+      "sha256": "930d3121814e730d9274a6d2087bcd301c1b18b07250cff1de9abb70676b4742"
+    },
+    {
+      "file": "FieldEnvironmentUrbanReferences.js",
+      "sha256": "b3d94d8d9f427315fec3b0d36c775fc337d827b92ca6a8fd7de8d8665e5e61c9"
+    },
+    {
+      "file": "FieldEnvironmentWildReferences.js",
+      "sha256": "b8db1cfd37d85dfd222d0b6c9a89934cc1f9c0d0ce7ae3e95325efafdb07d0c7"
+    }
+  ],
+  "geometryScope": "Source shapes reconstructed as adapted peripheral volumes; no full spatial 1:1 claim; source characters retained unchanged.",
+  "factoryDependencies": [
+    {
+      "file": "FieldEnvironmentAquaticReferences.js",
+      "sha256": "fc2308aafce72862a97b759cfe25b6818b38580ebde74125af3bdc5c074858b2"
+    },
+    {
+      "file": "FieldEnvironmentArcaneReferences.js",
+      "sha256": "88776075dac0a9fbc4644e6427a4d3cd49e0305693fb5826056b8f7b4a6d5e3e"
+    },
+    {
+      "file": "FieldEnvironmentArchitecturalReferences.js",
+      "sha256": "e9bfe454fd75e9934917ba60d431aaf5549f75c20769290cd5dffc929b8895b1"
+    },
+    {
+      "file": "FieldEnvironmentCommunityReferences.js",
+      "sha256": "498c7a20bb5d0d0d1d7c693c0225f87d0b9fdf6822c33cc98ffc2021722a04ef"
+    },
+    {
+      "file": "FieldEnvironmentDarkReferences.js",
+      "sha256": "f32d83bdeb1f2a3d51f3d405c0b8e546a3a5ad96132d2d0d79e7281bc45a2066"
+    },
+    {
+      "file": "FieldEnvironmentEngineeringReferences.js",
+      "sha256": "566328be75b756765ffd33c2eb7738f4825b8d4cdd48c8acec807505d674c8ce"
+    },
+    {
+      "file": "FieldEnvironmentFrontierReferences.js",
+      "sha256": "926e4873ff5e4c2a038f310eb6d5c702ed8dbe3d92bced322b88fe1cb21997af"
+    },
+    {
+      "file": "FieldEnvironmentMysticalReferences.js",
+      "sha256": "1e6ec73411e3dd624542edee60000110bd22f38c6f9e90176f18ce071c7da2cc"
+    },
+    {
+      "file": "FieldEnvironmentNatureReferences.js",
+      "sha256": "0d44bdf0379837717ea1be71599d5572edb9209565cf93bfc5ee5d3768f7c824"
+    },
+    {
+      "file": "FieldEnvironmentRitualReferences.js",
+      "sha256": "78d9ce8368ffb8102507d15ba6d12fac74181073c73fa61c6a2d42e415e47bd8"
+    },
+    {
+      "file": "FieldEnvironmentStageReferences.js",
+      "sha256": "27b49bb47872ac935dc3d1e064d792843e24a4d79fb9fdfe0134daed311f1f5e"
+    },
+    {
+      "file": "FieldEnvironmentTechnologyReferences.js",
+      "sha256": "930d3121814e730d9274a6d2087bcd301c1b18b07250cff1de9abb70676b4742"
+    },
+    {
+      "file": "FieldEnvironmentUrbanReferences.js",
+      "sha256": "b3d94d8d9f427315fec3b0d36c775fc337d827b92ca6a8fd7de8d8665e5e61c9"
+    },
+    {
+      "file": "FieldEnvironmentWildReferences.js",
+      "sha256": "b8db1cfd37d85dfd222d0b6c9a89934cc1f9c0d0ce7ae3e95325efafdb07d0c7"
+    }
+  ],
+  "factoryDependencyCount": 14,
+  "registrySha256": "4312f060be24418091f4f629727766d406043c2a32d79717e9f3220123227dd8",
+  "threeNamespaceSha256": "f1ba391ea533f94a6795f160091077d7488c590cf2e42cf2686c7d0a01fe7e82",
+  "threeVersion": "0.180.0",
+  "scriptSha256": "c971238f65e30f0d9f78f0b11e3f566c4c5538bc85af4c63c3b2d739705ab8c0",
+  "moduleSha256": "566328be75b756765ffd33c2eb7738f4825b8d4cdd48c8acec807505d674c8ce",
+  "testSha256": "a4ab8d9697823b557d97ec1b91f2c101d5a5d2a162059a64ad5946c05462cd09",
+  "factorySha256": "134b5a9e4cf1982b82a43e54f860522833cf1cea16013003b54153fc79dedb3c",
+  "baselineSha256": "b3c738d29f90702bb32bc6c0e85d999d9b8f35fe8f3767b2d62aa1f420ab352e",
+  "references": [
+    {
+      "cardId": "3875465",
+      "name": "Appliancer Electrilyrical World",
+      "camera": [
+        5,
+        14,
+        -4
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/3875465.jpg",
+      "sourceSha256": "4821cb129d499f5d5e52aea5bce09f88d827a566d5262ca7dc56de95322b4dc8",
+      "baselineSourceSha256": "4821cb129d499f5d5e52aea5bce09f88d827a566d5262ca7dc56de95322b4dc8",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "86643777",
+      "name": "Bug Matrix",
+      "camera": [
+        10,
+        23,
+        -7
+      ],
+      "target": [
+        0,
+        2,
+        -33
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/86643777.jpg",
+      "sourceSha256": "fb04ed694cf1b2ea1074c6477d6c20e696c8e1ecb5f60bbd2b891e0146781ffa",
+      "baselineSourceSha256": "fb04ed694cf1b2ea1074c6477d6c20e696c8e1ecb5f60bbd2b891e0146781ffa",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "65959844",
+      "name": "Catalyst Field",
+      "camera": [
+        5,
+        14,
+        -4
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/65959844.jpg",
+      "sourceSha256": "9924e8432d790d55489806997b539da728467172901590a9051f5e25bd4a48f4",
+      "baselineSourceSha256": "9924e8432d790d55489806997b539da728467172901590a9051f5e25bd4a48f4",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "1801154",
+      "name": "Centrifugal Field",
+      "camera": [
+        5,
+        14,
+        -4
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/1801154.jpg",
+      "sourceSha256": "c00413e44f2bef35321a9dacb24ff2ab830c5ec742e3de26e869cf893775bc87",
+      "baselineSourceSha256": "c00413e44f2bef35321a9dacb24ff2ab830c5ec742e3de26e869cf893775bc87",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "3576031",
+      "name": "Crystolic Potential",
+      "camera": [
+        5,
+        14,
+        -4
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/3576031.jpg",
+      "sourceSha256": "c45400a5d84b1e5bd4c391439fdea052289a2360df203d52b1d39fe998292b86",
+      "baselineSourceSha256": "c45400a5d84b1e5bd4c391439fdea052289a2360df203d52b1d39fe998292b86",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "44352516",
+      "name": "Cyberdark Inferno",
+      "camera": [
+        5,
+        14,
+        -4
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/44352516.jpg",
+      "sourceSha256": "779348335109f255341f2aa7a99ce2af7e79e0ede71dd806328421e950133c94",
+      "baselineSourceSha256": "779348335109f255341f2aa7a99ce2af7e79e0ede71dd806328421e950133c94",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "12215894",
+      "name": "Deskbot Base",
+      "camera": [
+        11,
+        17,
+        -5
+      ],
+      "target": [
+        0,
+        10,
+        -33
+      ],
+      "fov": 70,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/12215894.jpg",
+      "sourceSha256": "511a9df2c4031656919f24a3072f24afe61ee3ef2f843cfde8a8ebd16486929c",
+      "baselineSourceSha256": "511a9df2c4031656919f24a3072f24afe61ee3ef2f843cfde8a8ebd16486929c",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "41128647",
+      "name": "Dinomic Powerload",
+      "camera": [
+        5,
+        14,
+        -4
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/41128647.jpg",
+      "sourceSha256": "cd3122b2fe052851bb2e19bb6b220fb5abfd94e59921c7531c4ac5b9ecfeca72",
+      "baselineSourceSha256": "cd3122b2fe052851bb2e19bb6b220fb5abfd94e59921c7531c4ac5b9ecfeca72",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "9547962",
+      "name": "Euler’s Circuit",
+      "camera": [
+        5,
+        14,
+        -4
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/9547962.jpg",
+      "sourceSha256": "e99fcc30c8d4cb9b7dfdbf38c1a637d8e8d661daf06e176887903c2b3a172e03",
+      "baselineSourceSha256": "e99fcc30c8d4cb9b7dfdbf38c1a637d8e8d661daf06e176887903c2b3a172e03",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "26162470",
+      "name": "Fandora, the Flying Fighting Furtress",
+      "camera": [
+        11,
+        16,
+        -6
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/26162470.jpg",
+      "sourceSha256": "4fcc352d10187f72b367b664d9307a544aee0673a4124cbc4cabacd339b57462",
+      "baselineSourceSha256": "4fcc352d10187f72b367b664d9307a544aee0673a4124cbc4cabacd339b57462",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "64400161",
+      "name": "Fandora, the Flying Furtress",
+      "camera": [
+        11,
+        16,
+        -6
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/64400161.jpg",
+      "sourceSha256": "6f0f151a17158842af74f3087fbb3e9e456eed20ae530449a8745d3e33007dff",
+      "baselineSourceSha256": "6f0f151a17158842af74f3087fbb3e9e456eed20ae530449a8745d3e33007dff",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "86997073",
+      "name": "Fortissimo the Mobile Fortress",
+      "camera": [
+        5,
+        14,
+        -4
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/86997073.jpg",
+      "sourceSha256": "1b9eb81d0047ed0d93adb3754edf186cdf82b4cad68b4f21af38bdb64c42df19",
+      "baselineSourceSha256": "1b9eb81d0047ed0d93adb3754edf186cdf82b4cad68b4f21af38bdb64c42df19",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "3113667",
+      "name": "Heavy Metal Raiders",
+      "camera": [
+        5,
+        14,
+        -4
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/3113667.jpg",
+      "sourceSha256": "de37a024bc9da48e7895ca3af8757042630d7568bbc4dfc54b905cd0edf5a2b3",
+      "baselineSourceSha256": "de37a024bc9da48e7895ca3af8757042630d7568bbc4dfc54b905cd0edf5a2b3",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "59054773",
+      "name": "Ignister A.I.Land",
+      "camera": [
+        13,
+        16,
+        -7
+      ],
+      "target": [
+        0,
+        9,
+        -33
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/59054773.jpg",
+      "sourceSha256": "6260658e8befff6e2bd0192e64c009e4dea2044e99785c7a2c7dd1137aa24f43",
+      "baselineSourceSha256": "6260658e8befff6e2bd0192e64c009e4dea2044e99785c7a2c7dd1137aa24f43",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "79555535",
+      "name": "Ignition Phoenix",
+      "camera": [
+        5,
+        14,
+        -4
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/79555535.jpg",
+      "sourceSha256": "6d3561564c4a844377de0b3f6d4fea3f04f8746467984235903a3dd87a47d7c4",
+      "baselineSourceSha256": "6d3561564c4a844377de0b3f6d4fea3f04f8746467984235903a3dd87a47d7c4",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "22751868",
+      "name": "Karakuri Showdown Castle",
+      "camera": [
+        5,
+        14,
+        -4
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/22751868.jpg",
+      "sourceSha256": "5e57110a9c1ddff1734d811938a5f0c5a83688df443e479052a27cfd2c8819c5",
+      "baselineSourceSha256": "5e57110a9c1ddff1734d811938a5f0c5a83688df443e479052a27cfd2c8819c5",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "4740489",
+      "name": "Magnetic Field",
+      "camera": [
+        5,
+        14,
+        -4
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/4740489.jpg",
+      "sourceSha256": "107aac5dbd8ca869a408b98e65254d88423ae4ea86ec96088c600b5a7af71916",
+      "baselineSourceSha256": "107aac5dbd8ca869a408b98e65254d88423ae4ea86ec96088c600b5a7af71916",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "44139064",
+      "name": "Megaroid City",
+      "camera": [
+        11,
+        17,
+        -5
+      ],
+      "target": [
+        0,
+        10,
+        -33
+      ],
+      "fov": 70,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/44139064.jpg",
+      "sourceSha256": "2a0f6f263a94f8d425c762d67d8f30094074c3c579a499e8ac2285ef3258c2d6",
+      "baselineSourceSha256": "2a0f6f263a94f8d425c762d67d8f30094074c3c579a499e8ac2285ef3258c2d6",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "46500985",
+      "name": "Metamorformation",
+      "camera": [
+        5,
+        14,
+        -4
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/46500985.jpg",
+      "sourceSha256": "a3585cd0ae5b0928d9a2bcd7b78515220f00d7cd74b7aebb838418e5087be137",
+      "baselineSourceSha256": "a3585cd0ae5b0928d9a2bcd7b78515220f00d7cd74b7aebb838418e5087be137",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "56074358",
+      "name": "Morphtronic Map",
+      "camera": [
+        10,
+        23,
+        -7
+      ],
+      "target": [
+        0,
+        2,
+        -33
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/56074358.jpg",
+      "sourceSha256": "9780064cb95a33fc29e731150ecad7f0125f0da24ee90abdd2f2a19a064649ce",
+      "baselineSourceSha256": "9780064cb95a33fc29e731150ecad7f0125f0da24ee90abdd2f2a19a064649ce",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "23377425",
+      "name": "S-Force Bridgehead",
+      "camera": [
+        5,
+        14,
+        -4
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/23377425.jpg",
+      "sourceSha256": "b8bb478211e4d5191e80862aafc91a19c7224f5807189ce6200b4ba2241fd78c",
+      "baselineSourceSha256": "b8bb478211e4d5191e80862aafc91a19c7224f5807189ce6200b4ba2241fd78c",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "1295111",
+      "name": "Salamangreat Sanctuary",
+      "camera": [
+        10,
+        19,
+        -6
+      ],
+      "target": [
+        0,
+        10,
+        -33
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/1295111.jpg",
+      "sourceSha256": "2e201718245d2f4880672e31cf0eda0754366f1eb2562f79a369f8f287329011",
+      "baselineSourceSha256": "2e201718245d2f4880672e31cf0eda0754366f1eb2562f79a369f8f287329011",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "41371602",
+      "name": "Stand Up Centur-Ion!",
+      "camera": [
+        5,
+        14,
+        -4
+      ],
+      "target": [
+        0,
+        12,
+        -33
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/41371602.jpg",
+      "sourceSha256": "50206745cab2b1c39f42927d3996ad13548d94eddfafad0c318b1aeb7b19f88d",
+      "baselineSourceSha256": "50206745cab2b1c39f42927d3996ad13548d94eddfafad0c318b1aeb7b19f88d",
+      "sourceUnchangedFromBaseline": true
+    },
+    {
+      "cardId": "10424147",
+      "name": "Super Quantal Mech Ship Magnacarrier",
+      "camera": [
+        11,
+        17,
+        -5
+      ],
+      "target": [
+        0,
+        10,
+        -33
+      ],
+      "fov": 70,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/10424147.jpg",
+      "sourceSha256": "f04e333ca0cf4da978ebdde547860932ac86db1f50621267e3bea55304e9663f",
+      "baselineSourceSha256": "f04e333ca0cf4da978ebdde547860932ac86db1f50621267e3bea55304e9663f",
+      "sourceUnchangedFromBaseline": true
+    }
+  ],
+  "capture": {
+    "details": [
+      {
+        "cardId": "3875465",
+        "before": {
+          "url": null,
+          "primitives": 36,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 1944,
+          "fidelity": "procedural-interpretation",
+          "landmark": "digital-cyber",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 79,
+          "drawCalls": 10,
+          "materials": 8,
+          "triangles": 4500,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "appliancer-rounded-workshop-castle-and-fireworks",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "86643777",
+        "before": {
+          "url": null,
+          "primitives": 36,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 1944,
+          "fidelity": "procedural-interpretation",
+          "landmark": "digital-cyber",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 72,
+          "drawCalls": 8,
+          "materials": 8,
+          "triangles": 2664,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "bug-matrix-circuit-board-and-double-chip-pads",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "65959844",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "landmark": "industrial-lab",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 91,
+          "drawCalls": 6,
+          "materials": 4,
+          "triangles": 7680,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "catalyst-orange-ellipses-and-magenta-lightning",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "1801154",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "landmark": "industrial-lab",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 32,
+          "drawCalls": 9,
+          "materials": 5,
+          "triangles": 11136,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "centrifugal-rainbow-curved-energy-bands",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "3576031",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "landmark": "industrial-lab",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 61,
+          "drawCalls": 7,
+          "materials": 6,
+          "triangles": 4396,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "crystolic-molten-stalactites-and-sunset-cave",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "44352516",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "landmark": "industrial-lab",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 35,
+          "drawCalls": 6,
+          "materials": 5,
+          "triangles": 7360,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "cyberdark-lava-surge-and-floating-rocks",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "12215894",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "landmark": "industrial-lab",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 55,
+          "drawCalls": 7,
+          "materials": 6,
+          "triangles": 2400,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "deskbot-circuit-portal-and-blue-scanner-ramp",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "41128647",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "landmark": "mechanical-fortress",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 134,
+          "drawCalls": 4,
+          "materials": 4,
+          "triangles": 7368,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "dinomic-cyan-red-diagonals-and-blue-charge",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "9547962",
+        "before": {
+          "url": null,
+          "primitives": 36,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 1944,
+          "fidelity": "procedural-interpretation",
+          "landmark": "digital-cyber",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 148,
+          "drawCalls": 7,
+          "materials": 4,
+          "triangles": 9072,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "euler-inscribed-circular-graph-and-triangle-markers",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "26162470",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "landmark": "mechanical-fortress",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 55,
+          "drawCalls": 16,
+          "materials": 7,
+          "triangles": 12956,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "fandora-fighting-airship-sails-wings-and-cannons",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "64400161",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "landmark": "mechanical-fortress",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 54,
+          "drawCalls": 15,
+          "materials": 8,
+          "triangles": 12204,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "fandora-airship-long-bowsprit-and-side-wings",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "86997073",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "landmark": "mechanical-fortress",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 88,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 6384,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "fortissimo-hexagonal-duct-chamber-and-three-discs",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "3113667",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "landmark": "mechanical-fortress",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 141,
+          "drawCalls": 3,
+          "materials": 3,
+          "triangles": 6768,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "heavy-metal-radial-lightning-and-magenta-grid",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "59054773",
+        "before": {
+          "url": null,
+          "primitives": 60,
+          "drawCalls": 8,
+          "materials": 4,
+          "triangles": 7608,
+          "fidelity": "procedural-interpretation",
+          "landmark": "cyber-islands",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 152,
+          "drawCalls": 18,
+          "materials": 9,
+          "triangles": 9408,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "ignister-floating-amusement-island-and-ferris-wheel",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "79555535",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "landmark": "mechanical-fortress",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 79,
+          "drawCalls": 11,
+          "materials": 3,
+          "triangles": 12704,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "ignition-phoenix-branching-fire-and-blue-charge",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "22751868",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "landmark": "mechanical-fortress",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 57,
+          "drawCalls": 8,
+          "materials": 6,
+          "triangles": 4301,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "karakuri-tiered-castle-roofs-and-exposed-gears",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "4740489",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "landmark": "industrial-lab",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 87,
+          "drawCalls": 6,
+          "materials": 4,
+          "triangles": 16308,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "magnetic-concentric-platforms-and-green-coils",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "44139064",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "landmark": "industrial-lab",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 83,
+          "drawCalls": 10,
+          "materials": 8,
+          "triangles": 4928,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "megaroid-central-junction-and-elevated-road-bridges",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "46500985",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "landmark": "industrial-lab",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 82,
+          "drawCalls": 6,
+          "materials": 4,
+          "triangles": 7356,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "metamorformation-cyan-radial-halo-and-dust-road",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "56074358",
+        "before": {
+          "url": null,
+          "primitives": 36,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 1944,
+          "fidelity": "procedural-interpretation",
+          "landmark": "digital-cyber",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 74,
+          "drawCalls": 13,
+          "materials": 9,
+          "triangles": 5360,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "morphtronic-map-parchment-magnet-and-lamp",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "23377425",
+        "before": {
+          "url": null,
+          "primitives": 36,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 1944,
+          "fidelity": "procedural-interpretation",
+          "landmark": "digital-cyber",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 61,
+          "drawCalls": 9,
+          "materials": 5,
+          "triangles": 8576,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "sforce-stair-portal-and-orbiting-hologram-discs",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "1295111",
+        "before": {
+          "url": null,
+          "primitives": 36,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 1944,
+          "fidelity": "procedural-interpretation",
+          "landmark": "digital-cyber",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 178,
+          "drawCalls": 12,
+          "materials": 4,
+          "triangles": 20752,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "salamangreat-three-cracked-volcanoes-and-sigil",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "41371602",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "landmark": "mechanical-fortress",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 59,
+          "drawCalls": 9,
+          "materials": 3,
+          "triangles": 8424,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "centurion-pink-runic-rings-and-wind-sparks",
+          "geometriesAfterDisposal": 0
+        }
+      },
+      {
+        "cardId": "10424147",
+        "before": {
+          "url": null,
+          "primitives": 33,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 900,
+          "fidelity": "procedural-interpretation",
+          "landmark": "mechanical-fortress",
+          "geometriesAfterDisposal": 0
+        },
+        "after": {
+          "url": null,
+          "primitives": 41,
+          "drawCalls": 9,
+          "materials": 4,
+          "triangles": 3668,
+          "fidelity": "reference-informed-geometry",
+          "landmark": "magnacarrier-open-bays-and-angular-bridge",
+          "geometriesAfterDisposal": 0
+        }
+      }
+    ],
+    "images": 72,
+    "complete": true,
+    "rendererCount": 1,
+    "memoryScope": "renderer.info.memory.geometries after each disposal; GPU allocations beyond Three tracking not measured",
+    "errors": [],
+    "artifacts": [
+      "docs/audits/artifacts/field-engineering-2026-10-07/engineering-source-before-after-1.jpg",
+      "docs/audits/artifacts/field-engineering-2026-10-07/engineering-source-before-after-2.jpg",
+      "docs/audits/artifacts/field-engineering-2026-10-07/engineering-source-before-after-3.jpg",
+      "docs/audits/artifacts/field-engineering-2026-10-07/engineering-source-before-after-4.jpg",
+      "docs/audits/artifacts/field-engineering-2026-10-07/engineering-source-before-after-5.jpg",
+      "docs/audits/artifacts/field-engineering-2026-10-07/engineering-source-before-after-6.jpg"
+    ],
+    "artifactSha256": {
+      "engineering-source-before-after-1.jpg": "1d8bdc1dedf61eeddff5e432c24ef1f57cd93c9623dcfbca78101ffb47ce0119",
+      "engineering-source-before-after-2.jpg": "db62560345a6bf5402aa66cdf25a5dec217cc8adc85342217bbefb41f669ff7f",
+      "engineering-source-before-after-3.jpg": "dbf10b6a391e0bb181187fca828049b813164a9d5da22586b842766b50e2a3c2",
+      "engineering-source-before-after-4.jpg": "94dac5fc857c4808bd961fd646425991916da8d977254baa7dff848a27767cde",
+      "engineering-source-before-after-5.jpg": "972e70be056ca8975cc33c7b645b984a6f8a401626672cfe08ea1eb00db5f8eb",
+      "engineering-source-before-after-6.jpg": "81fa8855bc3ad0a38e688a74c9f7fa938c3c21711982c1e6d9f48ae26ed305b3"
+    }
+  }
+}

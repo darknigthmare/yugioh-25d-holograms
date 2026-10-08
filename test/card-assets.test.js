@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import { readFile, stat } from 'node:fs/promises';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
@@ -20,8 +21,41 @@ function diskPath(publicUrl) {
   return fileURLToPath(new URL(`../public${publicUrl}`, import.meta.url));
 }
 
+test('Inter and Orbitron load from licensed same-origin variable WOFF2 files without external font requests', async () => {
+  const stylesheet = await readFile(new URL('../style.css', import.meta.url), 'utf8');
+  const provenance = JSON.parse(await readFile(new URL('../public/fonts/provenance.json', import.meta.url), 'utf8'));
+  assert.doesNotMatch(stylesheet, /fonts\.(?:googleapis|gstatic)\.com|@import\s+url\(['"]?https?:/i);
+  assert.equal(provenance.license, 'SIL Open Font License 1.1');
+
+  for (const [family, minWeight, maxWeight] of [['inter', 100, 900], ['orbitron', 400, 900]]) {
+    const filename = `${family}-variable.woff2`;
+    const entry = provenance.files.find(file => file.file === filename);
+    const face = stylesheet.match(new RegExp(`@font-face\\s*\\{[^}]*font-family:\\s*'${family}'[^}]*\\}`, 'i'))?.[0];
+    assert.ok(face, `${family} must have a local @font-face`);
+    assert.match(face, new RegExp(`font-weight:\\s*${minWeight}\\s+${maxWeight}`));
+    assert.match(face, /font-display:\s*swap/);
+    assert.ok(face.includes(`url('/fonts/${filename}') format('woff2')`));
+
+    const bytes = await readFile(diskPath(`/fonts/${filename}`));
+    assert.equal(bytes.toString('ascii', 0, 4), 'wOF2');
+    assert.equal(bytes.readUInt32BE(8), bytes.length, 'WOFF2 file length must match its header');
+    assert.ok(bytes.readUInt16BE(12) > 10, 'the variable font must retain its font tables');
+    assert.equal(bytes.length, entry.bytes);
+    assert.equal(createHash('sha256').update(bytes).digest('hex'), entry.sha256);
+    assert.deepEqual(entry.weightRange, [minWeight, maxWeight]);
+    assert.match(entry.sourceUrl, /^https:\/\/raw\.githubusercontent\.com\/google\/fonts\/main\/ofl\//);
+    assert.equal(entry.conversion.subset, false);
+    assert.equal(entry.conversion.outlineChanges, false);
+    for (const character of 'éèŒœ') assert.ok(entry.verifiedFrenchCharacters.includes(character));
+
+    const license = await readFile(diskPath(`/fonts/${family}-OFL.txt`), 'utf8');
+    assert.match(license, /SIL OPEN FONT LICENSE Version 1\.1/i);
+    assert.match(license, /Copyright/);
+  }
+});
+
 test('every locally supported card has valid same-origin card and cropped image assets', async () => {
-  assert.equal(localCards.length, 45);
+  assert.equal(localCards.length, 80);
 
   for (const card of localCards) {
     for (const publicUrl of [
@@ -57,6 +91,8 @@ test('local image helpers normalize passcodes with leading zeroes', () => {
     getCardCroppedImageUrl('05405694'),
     '/cards/cropped/5405694.jpg'
   );
+  assert.equal(getCardImageUrl('05318639'), '/cards/small/5318639.jpg');
+  assert.equal(getCardCroppedImageUrl(5318639), '/cards/cropped/5318639.jpg');
 });
 
 test('Sandbox API cards never expose a YGOPRODeck image hotlink', () => {

@@ -37,7 +37,11 @@ export class PhaseEngine {
       this.currentTurnOwner = this.currentTurnOwner === 'player' ? 'opponent' : 'player';
       this.turnCount++;
     } else {
-      this.currentPhase = cycle[idx + 1];
+      // The starting player's first turn has neither Battle Phase nor Main
+      // Phase 2 (Main Phase 2 is available only after a Battle Phase).
+      this.currentPhase = this.currentPhase === 'main1' && this.turnCount === 1
+        ? 'end'
+        : cycle[idx + 1];
     }
 
     // Reset Battle sub-states on phase switch
@@ -47,6 +51,8 @@ export class PhaseEngine {
     } else {
       this.battleStep = 'start';
     }
+    this.priorityState = 'OPEN_GAME_STATE';
+    this.battleState = 'BATTLE_STEP_OPEN';
 
     return {
       phase: this.currentPhase,

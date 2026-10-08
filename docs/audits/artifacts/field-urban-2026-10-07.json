@@ -1,0 +1,534 @@
+{
+  "auditDate": "2026-10-07",
+  "baselineCommit": "de9cda6",
+  "description": "Sources intactes et volumes périphériques isolés : dimensions adaptées, sans promesse de fidélité spatiale 1:1.",
+  "moduleSha256": "b3d94d8d9f427315fec3b0d36c775fc337d827b92ca6a8fd7de8d8665e5e61c9",
+  "baselineSha256": "657678fd60a3fc02e923e1099309ae71810d51072610dc69f0db3d9ba5093a7f",
+  "references": [
+    {
+      "cardId": "75041269",
+      "name": "Clock Tower Prison",
+      "camera": [
+        23,
+        19,
+        1
+      ],
+      "target": [
+        0,
+        14,
+        -33
+      ],
+      "fov": 52,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/75041269.jpg",
+      "sha256": "102b7b1177defac9dc4e87a7f0d22ec42ce6d1e7f67f13049262cd1f79ec1af0"
+    },
+    {
+      "cardId": "72283691",
+      "name": "Golden Castle of Stromberg",
+      "camera": [
+        20,
+        18,
+        0
+      ],
+      "target": [
+        0,
+        13,
+        -33
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/72283691.jpg",
+      "sha256": "2bf70d60cf8e2a41d228394c9a08d60b55f2f9b59f7dea90b9764fb6fa8e88b7"
+    },
+    {
+      "cardId": "39910367",
+      "name": "Magical Citadel of Endymion",
+      "camera": [
+        18,
+        20,
+        2
+      ],
+      "target": [
+        0,
+        14,
+        -34
+      ],
+      "fov": 60,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/39910367.jpg",
+      "sha256": "2f1b0c7201e7584f5e1e76bd0d455a13d00ad4a99a16cc0e9e0878f02765cb7f"
+    },
+    {
+      "cardId": "80921533",
+      "name": "Mausoleum of the Emperor",
+      "camera": [
+        19,
+        16,
+        0
+      ],
+      "target": [
+        0,
+        10,
+        -32
+      ],
+      "fov": 52,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/80921533.jpg",
+      "sha256": "d972359c31a9f77cba8cbff4991bfac7e172b8038f16b9eb24cd7084753d46b2"
+    },
+    {
+      "cardId": "24382602",
+      "name": "Mausoleum of White",
+      "camera": [
+        17,
+        17,
+        0
+      ],
+      "target": [
+        2,
+        12,
+        -33
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/24382602.jpg",
+      "sha256": "51c9b0d928d48b8b04d5aa5526ccfccf2f7372aaafa079a3230514bda383184b"
+    },
+    {
+      "cardId": "34487429",
+      "name": "Ancient City – Rainbow Ruins",
+      "camera": [
+        18,
+        18,
+        -4
+      ],
+      "target": [
+        0,
+        10,
+        -36
+      ],
+      "fov": 65,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/34487429.jpg",
+      "sha256": "3e5ca1ea527a359760648b22576cbb8b302c51a0f83c6240c3cbde4abf3805b1"
+    },
+    {
+      "cardId": "56111151",
+      "name": "Kyoutou Waterfront",
+      "camera": [
+        21,
+        20,
+        0
+      ],
+      "target": [
+        0,
+        13,
+        -34
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/56111151.jpg",
+      "sha256": "fe88e9eaa4e156363d9911c8dbfe5524032c69a05854800219127a8a64065f44"
+    },
+    {
+      "cardId": "19814508",
+      "name": "U.A. Stadium",
+      "camera": [
+        20,
+        26,
+        -1
+      ],
+      "target": [
+        0,
+        7,
+        -35
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/19814508.jpg",
+      "sha256": "96295e8e21117ba7e48105373aea00679963e31044d78320a56ba18aad588c68"
+    },
+    {
+      "cardId": "12931061",
+      "name": "U.A. Hyper Stadium",
+      "camera": [
+        20,
+        26,
+        -1
+      ],
+      "target": [
+        0,
+        9,
+        -35
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/12931061.jpg",
+      "sha256": "b75b2ed0d80b531423011c2e68a3ed55779ea3e67bc30ba2771386181fd657c8"
+    },
+    {
+      "cardId": "77297908",
+      "name": "Abyss Playhouse – Fantastic Theater",
+      "camera": [
+        21,
+        16,
+        0
+      ],
+      "target": [
+        0,
+        9,
+        -32
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/77297908.jpg",
+      "sha256": "9d3e43f4fcef6ed375de5557be55783286dae30a5f1e22525423e826aa2702c2"
+    },
+    {
+      "cardId": "33773528",
+      "name": "Amazement Precious Park",
+      "camera": [
+        20,
+        26,
+        1
+      ],
+      "target": [
+        0,
+        10,
+        -34
+      ],
+      "fov": 60,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/33773528.jpg",
+      "sha256": "f0cd18db41719a0266392c4a8f8e37143f89168e3721607f2bd5364c7afba169"
+    },
+    {
+      "cardId": "99543666",
+      "name": "Despia, Theater of the Branded",
+      "camera": [
+        21,
+        22,
+        3
+      ],
+      "target": [
+        0,
+        15,
+        -35
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/99543666.jpg",
+      "sha256": "5cd3bfde992204b093b4030b80b5af20a24a6eb08d6c925e6e375dfa890ad0b2"
+    },
+    {
+      "cardId": "65589010",
+      "name": "Dogmatika Nation",
+      "camera": [
+        22,
+        20,
+        2
+      ],
+      "target": [
+        0,
+        15,
+        -35
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/65589010.jpg",
+      "sha256": "b01eefb84915c188bf217aaef98d69080d9188a348947b5a0d14b6a8f55834e9"
+    },
+    {
+      "cardId": "95658967",
+      "name": "Ritual Sanctuary",
+      "camera": [
+        18,
+        13,
+        -1
+      ],
+      "target": [
+        0,
+        8,
+        -33
+      ],
+      "fov": 55,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/95658967.jpg",
+      "sha256": "36152cc41081764ca89e3b214aebf22d7ac064f87427086f114fb5194ec2c9b9"
+    }
+  ],
+  "capture": {
+    "details": [
+      {
+        "cardId": "75041269",
+        "before": {
+          "url": null,
+          "primitives": 129,
+          "drawCalls": 4,
+          "materials": 4,
+          "triangles": 1584
+        },
+        "after": {
+          "url": null,
+          "primitives": 95,
+          "drawCalls": 13,
+          "materials": 5,
+          "triangles": 4300
+        }
+      },
+      {
+        "cardId": "72283691",
+        "before": {
+          "url": null,
+          "primitives": 55,
+          "drawCalls": 8,
+          "materials": 5,
+          "triangles": 756
+        },
+        "after": {
+          "url": null,
+          "primitives": 65,
+          "drawCalls": 8,
+          "materials": 4,
+          "triangles": 1212
+        }
+      },
+      {
+        "cardId": "39910367",
+        "before": {
+          "url": null,
+          "primitives": 125,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 3064
+        },
+        "after": {
+          "url": null,
+          "primitives": 70,
+          "drawCalls": 12,
+          "materials": 8,
+          "triangles": 8904
+        }
+      },
+      {
+        "cardId": "80921533",
+        "before": {
+          "url": null,
+          "primitives": 25,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 516
+        },
+        "after": {
+          "url": null,
+          "primitives": 23,
+          "drawCalls": 8,
+          "materials": 3,
+          "triangles": 1364
+        }
+      },
+      {
+        "cardId": "24382602",
+        "before": {
+          "url": null,
+          "primitives": 25,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 516
+        },
+        "after": {
+          "url": null,
+          "primitives": 50,
+          "drawCalls": 5,
+          "materials": 5,
+          "triangles": 7084
+        }
+      },
+      {
+        "cardId": "34487429",
+        "before": {
+          "url": null,
+          "primitives": 149,
+          "drawCalls": 17,
+          "materials": 10,
+          "triangles": 2296
+        },
+        "after": {
+          "url": null,
+          "primitives": 64,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 9864
+        }
+      },
+      {
+        "cardId": "56111151",
+        "before": {
+          "url": null,
+          "primitives": 151,
+          "drawCalls": 7,
+          "materials": 5,
+          "triangles": 6636
+        },
+        "after": {
+          "url": null,
+          "primitives": 112,
+          "drawCalls": 9,
+          "materials": 5,
+          "triangles": 3156
+        }
+      },
+      {
+        "cardId": "19814508",
+        "before": {
+          "url": null,
+          "primitives": 18,
+          "drawCalls": 3,
+          "materials": 3,
+          "triangles": 216
+        },
+        "after": {
+          "url": null,
+          "primitives": 29,
+          "drawCalls": 10,
+          "materials": 6,
+          "triangles": 11664
+        }
+      },
+      {
+        "cardId": "12931061",
+        "before": {
+          "url": null,
+          "primitives": 18,
+          "drawCalls": 3,
+          "materials": 3,
+          "triangles": 216
+        },
+        "after": {
+          "url": null,
+          "primitives": 73,
+          "drawCalls": 8,
+          "materials": 6,
+          "triangles": 24200
+        }
+      },
+      {
+        "cardId": "77297908",
+        "before": {
+          "url": null,
+          "primitives": 22,
+          "drawCalls": 7,
+          "materials": 6,
+          "triangles": 3832
+        },
+        "after": {
+          "url": null,
+          "primitives": 60,
+          "drawCalls": 13,
+          "materials": 6,
+          "triangles": 10440
+        }
+      },
+      {
+        "cardId": "33773528",
+        "before": {
+          "url": null,
+          "primitives": 22,
+          "drawCalls": 7,
+          "materials": 6,
+          "triangles": 3832
+        },
+        "after": {
+          "url": null,
+          "primitives": 46,
+          "drawCalls": 13,
+          "materials": 6,
+          "triangles": 3808
+        }
+      },
+      {
+        "cardId": "99543666",
+        "before": {
+          "url": null,
+          "primitives": 22,
+          "drawCalls": 7,
+          "materials": 6,
+          "triangles": 3832
+        },
+        "after": {
+          "url": null,
+          "primitives": 52,
+          "drawCalls": 9,
+          "materials": 4,
+          "triangles": 27176
+        }
+      },
+      {
+        "cardId": "65589010",
+        "before": {
+          "url": null,
+          "primitives": 96,
+          "drawCalls": 3,
+          "materials": 3,
+          "triangles": 1200
+        },
+        "after": {
+          "url": null,
+          "primitives": 73,
+          "drawCalls": 9,
+          "materials": 5,
+          "triangles": 912
+        }
+      },
+      {
+        "cardId": "95658967",
+        "before": {
+          "url": null,
+          "primitives": 38,
+          "drawCalls": 8,
+          "materials": 4,
+          "triangles": 1944
+        },
+        "after": {
+          "url": null,
+          "primitives": 28,
+          "drawCalls": 7,
+          "materials": 6,
+          "triangles": 434
+        }
+      }
+    ],
+    "images": 42,
+    "complete": true,
+    "errors": [],
+    "artifacts": [
+      "docs/audits/artifacts/field-urban-castles-2026-10-07.jpg",
+      "docs/audits/artifacts/field-urban-stadiums-2026-10-07.jpg",
+      "docs/audits/artifacts/field-urban-theaters-2026-10-07.jpg"
+    ],
+    "artifactSha256": {
+      "docs/audits/artifacts/field-urban-castles-2026-10-07.jpg": "41faaef36354137589d22290e404b27a7c5a3a7c06d21a79f74c3d44f7a30e08",
+      "docs/audits/artifacts/field-urban-stadiums-2026-10-07.jpg": "5a15b416d6ea2b6a516f52fc3e30771bfa1b0a9c227e694fdede8b648d4ab0f0",
+      "docs/audits/artifacts/field-urban-theaters-2026-10-07.jpg": "6f75917118bf470bcbe6b89cd91af74deb46e4f3db87ef3d7e282f5dd2a641de"
+    }
+  },
+  "inspection": {
+    "sourcesOpenedIndividually": true,
+    "comparisonBoardsOpened": true,
+    "geometryVersion": "final",
+    "limitations": [
+      "Peripheral dimensions and viewpoint are adapted, not an exact spatial reproduction.",
+      "Characters and painted text remain in the intact source illustration."
+    ]
+  },
+  "validation": {
+    "urbanDirectTests": {
+      "pass": 8,
+      "fail": 0
+    },
+    "generalFieldGeometryDirectTests": {
+      "pass": 11,
+      "fail": 0
+    },
+    "cardsConstructed": 339,
+    "everyTransformedInstanceOutsideCorridor": true,
+    "maximumHorizontalExtentExclusive": 48,
+    "budgets": {
+      "maxPrimitives": 220,
+      "maxDrawCalls": 18,
+      "maxMaterials": 10
+    },
+    "actualMaxima": {
+      "primitives": 112,
+      "drawCalls": 13,
+      "materials": 8
+    }
+  }
+}

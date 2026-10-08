@@ -24,10 +24,15 @@
         <button type="button" id="btn-open-campaign" class="btn btn-magenta">OUVRIR LE PARCOURS</button>
       </div>
       <details class="coverage-disclosure"><summary>Ce que ce simulateur prend réellement en charge</summary>
-        <p>Projet fan non officiel, sans licence commerciale annoncée. Le mode strict porte sur les 45 cartes locales implémentées, pas sur toutes les cartes Yu-Gi-Oh! Les 336 illustrations de Terrain ne signifient pas 336 effets jouables.</p>
+        <p id="simulator-card-coverage">Projet fan non officiel. Le mode strict porte sur les cartes locales implémentées. Le catalogue de Terrains distingue les illustrations, les décors 3D et les effets jouables.</p>
         <p>Duels solo contre l’IA, Match avec Side Deck et parcours d’entraînement original. Pas de multijoueur en ligne ni de reprise d’un duel interrompu. La progression solo, les decks personnalisés et les statistiques sont locaux à ce navigateur.</p>
         <p>Clavier : Tab pour naviguer, Entrée/Espace pour choisir, Échap pour fermer une sélection annulable. La Vue Réelle ne change que la présentation ; toutes les vues partagent le même duel.</p>
+        <p>Moteur de duel libre : <a href="/native/sources/README.md" target="_blank" rel="noopener">sources et licences</a>.</p>
       </details>
+      <div class="campaign-entry field-atlas-entry">
+        <div><strong>CATALOGUE DES TERRAINS</strong><p>Comparez l’illustration originale, le décor 3D et les règles intégrées.</p></div>
+        <button type="button" id="btn-open-field-atlas" class="btn">EXPLORER LES TERRAINS</button>
+      </div>
       <h3 class="free-duel-heading">DUEL LIBRE</h3>
       <div class="duel-config-grid">
         <fieldset class="config-group">
@@ -36,8 +41,12 @@
             <input type="radio" name="game-mode" value="strict" checked>
             <span>
               <strong>TCG Advanced (strict)</strong>
-              <small>Liste Advanced du 18/05/2026 appliquée aux cartes prises en charge.</small>
+              <small>Liste Advanced du 21/09/2026 appliquée aux cartes prises en charge.</small>
             </span>
+          </label>
+          <label class="config-option">
+            <input type="radio" name="game-mode" value="native" aria-describedby="mode-description">
+            <span><strong>Duel libre • tous les Terrains</strong><small>339 Terrains, y compris OCG et cartes annoncées. Sans liste de restrictions.</small></span>
           </label>
           <label class="config-option">
             <input type="radio" name="game-mode" value="sandbox" aria-describedby="mode-description">
@@ -96,16 +105,28 @@
         </button>
         <button type="button" class="deck-choice-card" data-deck-id="custom" aria-pressed="false">
           <span class="deck-choice-header">CRÉER MON DECK</span>
-          <span class="deck-choice-desc">Composez librement votre deck depuis la base de cartes complète.</span>
+          <span class="deck-choice-desc">Composez votre Main, Extra et Side Deck avec les cartes disponibles.</span>
         </button>
       </div>
 
       <!-- Custom Deck Builder Panels (Hidden by default) -->
       <div id="deck-builder-section" class="deck-builder-section hidden">
+        <div class="builder-toolbar">
+          <span>Remplacer par un preset :</span>
+          <button type="button" class="btn" data-builder-preset="kaiba">KAIBA</button>
+          <button type="button" class="btn" data-builder-preset="yugi">YUGI</button>
+          <button type="button" class="btn" data-builder-preset="joey">JOEY</button>
+          <label><input type="checkbox" id="builder-add-to-side"> Ajouter au Side Deck</label>
+        </div>
         <div class="builder-panels">
           <!-- Card Library List -->
           <div class="builder-panel">
             <div class="panel-subheader">BIBLIOTHÈQUE DE CARTES</div>
+            <label for="builder-card-search">Rechercher une carte</label>
+            <input type="search" id="builder-card-search" placeholder="Nom, texte ou numéro de carte">
+            <label for="builder-card-filter">Type de carte</label>
+            <select id="builder-card-filter"><option value="all">Toutes</option><option value="field">Terrains</option><option value="monster">Monstres</option><option value="spell">Magies</option><option value="trap">Pièges</option></select>
+            <p id="builder-catalogue-status" class="config-description" role="status"></p>
             <div id="library-cards-list" class="builder-cards-grid">
               <!-- Rendered dynamically -->
             </div>
@@ -118,7 +139,7 @@
               <span id="deck-size-val">Taille: 0/40</span>
               <span id="deck-validity-badge" class="badge-status danger">Non Valide</span>
             </div>
-            <div id="builder-my-deck-list" class="builder-cards-grid">
+            <div id="builder-my-deck-list" class="builder-deck-sections">
               <!-- Rendered dynamically -->
             </div>
           </div>
@@ -126,6 +147,27 @@
       </div>
 
       <div class="start-action-bar"><button type="button" id="btn-start-duel" class="btn btn-magenta">DÉMARRER LE DUEL LIBRE</button></div>
+    </div>
+  </div>
+
+  <div id="field-atlas-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="field-atlas-title" data-dismissible="true">
+    <div class="modal-content field-atlas-content" tabindex="-1">
+      <div class="field-atlas-header"><h2 id="field-atlas-title" class="modal-title">CATALOGUE DES TERRAINS</h2><button type="button" id="btn-close-field-atlas" class="btn">RETOUR</button></div>
+      <p id="field-atlas-summary" class="config-description">Chargement du catalogue…</p>
+      <div class="field-atlas-tools">
+        <label>Rechercher<input id="field-atlas-search" type="search" class="search-input" placeholder="Nom ou passcode" autocomplete="off"></label>
+        <label>Afficher<select id="field-atlas-filter" class="search-input"><option value="all">Tous les Terrains</option><option value="playable">Effets jouables</option><option value="pending-rules">Effets à intégrer</option><option value="source-reconstructed">Volumes reconstruits</option><option value="pending-reconstruction">Volumes à reconstruire</option><option value="modeled">Décors étudiés</option><option value="pending-model">Décors à étudier</option></select></label>
+      </div>
+      <div class="field-atlas-body">
+        <div class="field-atlas-browser"><p id="field-atlas-results" role="status" aria-live="polite"></p><div id="field-atlas-list" class="field-atlas-list"></div><div class="field-atlas-pagination"><button type="button" id="field-atlas-prev" class="btn">PRÉCÉDENT</button><button type="button" id="field-atlas-next" class="btn">SUIVANT</button></div></div>
+        <article id="field-atlas-detail" class="field-atlas-detail">
+          <h3 id="field-atlas-name"></h3><p id="field-atlas-passcode"></p><p id="field-atlas-publication"></p>
+          <div class="field-atlas-comparison"><figure><img id="field-atlas-source" width="624" height="624" alt=""><figcaption>Illustration originale conservée intégralement</figcaption></figure><figure><div id="field-atlas-canvas"></div><figcaption id="field-atlas-preview-status" role="status"></figcaption></figure></div>
+          <div class="field-atlas-angles" role="group" aria-label="Angle de la vue 3D"><button type="button" class="btn" data-atlas-angle="0">FACE</button><button type="button" class="btn" data-atlas-angle="0.65">TROIS QUARTS</button><button type="button" class="btn" data-atlas-angle="1.57">CÔTÉ</button></div>
+          <p id="field-atlas-model-status" class="config-description"></p><h4 id="field-atlas-rule-status"></h4><p id="field-atlas-effect"></p><a id="field-atlas-rules-link" target="_blank" rel="noopener noreferrer">Texte officiel Konami</a>
+        </article>
+        <p id="field-atlas-empty" hidden>Aucun Terrain ne correspond à cette recherche.</p>
+      </div>
     </div>
   </div>
 
@@ -435,6 +477,7 @@
           <span class="phase-step" id="phase-end" title="End Phase" data-phase-label="End Phase" aria-hidden="true">EP</span>
         </div>
         <div class="command-actions">
+          <button type="button" id="btn-native-actions" class="btn hidden">EFFETS ET INVOCATIONS</button>
           <button type="button" id="btn-pendulum-summon" class="btn btn-magenta hidden" aria-describedby="pendulum-status">INVOCATION PENDULE</button>
           <button type="button" id="btn-next-phase" class="btn">PHASE SUIVANTE</button>
           <button type="button" id="btn-end-turn" class="btn btn-cancel">FIN DU TOUR</button>

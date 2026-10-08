@@ -1,0 +1,428 @@
+{
+  "auditDate": "2026-10-07",
+  "baselineCommit": "de9cda6",
+  "description": "Sources intactes et volumes p\u00e9riph\u00e9riques isol\u00e9s : dimensions adapt\u00e9es, sans promesse de fid\u00e9lit\u00e9 spatiale 1:1.",
+  "moduleSha256": "e9bfe454fd75e9934917ba60d431aaf5549f75c20769290cd5dffc929b8895b1",
+  "baselineSha256": "657678fd60a3fc02e923e1099309ae71810d51072610dc69f0db3d9ba5093a7f",
+  "references": [
+    {
+      "cardId": "68462976",
+      "name": "Secret Village of the Spellcasters",
+      "camera": [
+        0,
+        7,
+        7
+      ],
+      "target": [
+        0,
+        7,
+        -25
+      ],
+      "fov": 65,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/68462976.jpg",
+      "sha256": "aa8e9dfab7830877237d1c37821cff1386c887ad65d9ffc2c94d0a8394b9763e"
+    },
+    {
+      "cardId": "92481084",
+      "name": "Temple of the Mind's Eye",
+      "camera": [
+        0,
+        7,
+        -8
+      ],
+      "target": [
+        0,
+        8,
+        -29
+      ],
+      "fov": 70,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/92481084.jpg",
+      "sha256": "3097dbb6b4c265b577e6238c5629c28f33440c0935912f598d35c4f12f8239ab"
+    },
+    {
+      "cardId": "11102908",
+      "name": "Shien's Castle of Mist",
+      "camera": [
+        0,
+        7,
+        -9
+      ],
+      "target": [
+        0,
+        7,
+        -30
+      ],
+      "fov": 65,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/11102908.jpg",
+      "sha256": "793c3a8931b05471baee9e983acaa88f16cf96115607ff5d36a80f7df28b4bdc"
+    },
+    {
+      "cardId": "53527835",
+      "name": "Dark City",
+      "camera": [
+        0,
+        5,
+        24
+      ],
+      "target": [
+        0,
+        10,
+        -22
+      ],
+      "fov": 70,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/53527835.jpg",
+      "sha256": "bdf2eced08976723f1702064edc2fc72e31fd6e3fdbbb11bbe3ff2e5934efd8d"
+    },
+    {
+      "cardId": "81231742",
+      "name": "Sorcerous Spell Wall",
+      "camera": [
+        0,
+        16,
+        -5
+      ],
+      "target": [
+        0,
+        4,
+        -30
+      ],
+      "fov": 72,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/81231742.jpg",
+      "sha256": "217562b63337a6a15513ad409c71f115b70fda8fe1b69d773a8e81ab824aff7c"
+    },
+    {
+      "cardId": "73787254",
+      "name": "Saber Vault",
+      "camera": [
+        0,
+        8,
+        -14
+      ],
+      "target": [
+        0,
+        7,
+        -32
+      ],
+      "fov": 64,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/73787254.jpg",
+      "sha256": "f8220a9974c748755783a109a63ef611a2e9df881a25897e3268281100ae384a"
+    },
+    {
+      "cardId": "53819808",
+      "name": "Temple of the Six",
+      "camera": [
+        0,
+        7,
+        -9
+      ],
+      "target": [
+        0,
+        6,
+        -30
+      ],
+      "fov": 65,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/53819808.jpg",
+      "sha256": "59f12f18202a9bff36ce427d8d12133fd51cd98fd2818a00733a39217b566c6b"
+    },
+    {
+      "cardId": "33981008",
+      "name": "The Grand Spellbook Tower",
+      "camera": [
+        0,
+        13,
+        -7
+      ],
+      "target": [
+        0,
+        13,
+        -32
+      ],
+      "fov": 65,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/33981008.jpg",
+      "sha256": "cc0bd9b48133e3c497cf91afd23538ee82a0a0c39c76aa8767cf6abb95e9d2de"
+    },
+    {
+      "cardId": "52518793",
+      "name": "Colosseum - Cage of the Gladiator Beasts",
+      "camera": [
+        0,
+        8,
+        -10
+      ],
+      "target": [
+        0,
+        5,
+        -30
+      ],
+      "fov": 70,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/52518793.jpg",
+      "sha256": "5215273a86adbdf5d7af300f9fd54cb596007b3e74ebfae2d32682969e7e4bf3"
+    },
+    {
+      "cardId": "12845564",
+      "name": "Angelechy Endgame Problem",
+      "camera": [
+        0,
+        9,
+        24
+      ],
+      "target": [
+        0,
+        8,
+        -25
+      ],
+      "fov": 66,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/12845564.jpg",
+      "sha256": "1fb2eea57abcbb9bfd26e56f3fe26abb88f68528f4c1aa7845ff3b0623deab70"
+    },
+    {
+      "cardId": "18114794",
+      "name": "Summon Breaker",
+      "camera": [
+        0,
+        8,
+        6
+      ],
+      "target": [
+        0,
+        5,
+        -29
+      ],
+      "fov": 74,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/18114794.jpg",
+      "sha256": "6e97c827ed7263f4dddbf1d423d63e2f2e8fd8d26380e8a22edc169abc35f065"
+    },
+    {
+      "cardId": "95376428",
+      "name": "Extra Net",
+      "camera": [
+        0,
+        8,
+        -12
+      ],
+      "target": [
+        0,
+        7,
+        -32
+      ],
+      "fov": 70,
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/95376428.jpg",
+      "sha256": "a464b9158278aa3c9fcbe60b68be90a327e3643fd0dc2c754de0931c7133128e"
+    }
+  ],
+  "capture": {
+    "details": [
+      {
+        "cardId": "68462976",
+        "before": {
+          "url": null,
+          "primitives": 118,
+          "drawCalls": 7,
+          "materials": 5,
+          "triangles": 7332
+        },
+        "after": {
+          "url": null,
+          "primitives": 63,
+          "drawCalls": 13,
+          "materials": 5,
+          "triangles": 5728
+        }
+      },
+      {
+        "cardId": "92481084",
+        "before": {
+          "url": null,
+          "primitives": 22,
+          "drawCalls": 2,
+          "materials": 1,
+          "triangles": 480
+        },
+        "after": {
+          "url": null,
+          "primitives": 146,
+          "drawCalls": 11,
+          "materials": 8,
+          "triangles": 4292
+        }
+      },
+      {
+        "cardId": "11102908",
+        "before": {
+          "url": null,
+          "primitives": 43,
+          "drawCalls": 4,
+          "materials": 3,
+          "triangles": 532
+        },
+        "after": {
+          "url": null,
+          "primitives": 62,
+          "drawCalls": 10,
+          "materials": 6,
+          "triangles": 3744
+        }
+      },
+      {
+        "cardId": "53527835",
+        "before": {
+          "url": null,
+          "primitives": 110,
+          "drawCalls": 2,
+          "materials": 2,
+          "triangles": 1320
+        },
+        "after": {
+          "url": null,
+          "primitives": 197,
+          "drawCalls": 4,
+          "materials": 4,
+          "triangles": 2432
+        }
+      },
+      {
+        "cardId": "81231742",
+        "before": {
+          "url": null,
+          "primitives": 29,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 7128
+        },
+        "after": {
+          "url": null,
+          "primitives": 50,
+          "drawCalls": 3,
+          "materials": 2,
+          "triangles": 6000
+        }
+      },
+      {
+        "cardId": "73787254",
+        "before": {
+          "url": null,
+          "primitives": 20,
+          "drawCalls": 2,
+          "materials": 1,
+          "triangles": 1600
+        },
+        "after": {
+          "url": null,
+          "primitives": 52,
+          "drawCalls": 7,
+          "materials": 5,
+          "triangles": 2168
+        }
+      },
+      {
+        "cardId": "53819808",
+        "before": {
+          "url": null,
+          "primitives": 22,
+          "drawCalls": 2,
+          "materials": 1,
+          "triangles": 480
+        },
+        "after": {
+          "url": null,
+          "primitives": 62,
+          "drawCalls": 12,
+          "materials": 7,
+          "triangles": 5052
+        }
+      },
+      {
+        "cardId": "33981008",
+        "before": {
+          "url": null,
+          "primitives": 115,
+          "drawCalls": 3,
+          "materials": 3,
+          "triangles": 1428
+        },
+        "after": {
+          "url": null,
+          "primitives": 81,
+          "drawCalls": 10,
+          "materials": 4,
+          "triangles": 5496
+        }
+      },
+      {
+        "cardId": "52518793",
+        "before": {
+          "url": null,
+          "primitives": 18,
+          "drawCalls": 3,
+          "materials": 3,
+          "triangles": 216
+        },
+        "after": {
+          "url": null,
+          "primitives": 130,
+          "drawCalls": 10,
+          "materials": 5,
+          "triangles": 6120
+        }
+      },
+      {
+        "cardId": "12845564",
+        "before": {
+          "url": null,
+          "primitives": 42,
+          "drawCalls": 6,
+          "materials": 4,
+          "triangles": 2640
+        },
+        "after": {
+          "url": null,
+          "primitives": 24,
+          "drawCalls": 6,
+          "materials": 4,
+          "triangles": 1080
+        }
+      },
+      {
+        "cardId": "18114794",
+        "before": {
+          "url": null,
+          "primitives": 29,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 7128
+        },
+        "after": {
+          "url": null,
+          "primitives": 72,
+          "drawCalls": 10,
+          "materials": 7,
+          "triangles": 3832
+        }
+      },
+      {
+        "cardId": "95376428",
+        "before": {
+          "url": null,
+          "primitives": 36,
+          "drawCalls": 5,
+          "materials": 4,
+          "triangles": 1944
+        },
+        "after": {
+          "url": null,
+          "primitives": 26,
+          "drawCalls": 9,
+          "materials": 5,
+          "triangles": 2124
+        }
+      }
+    ],
+    "images": 36,
+    "complete": true,
+    "errors": [],
+    "artifacts": [
+      "docs/audits/artifacts/field-architecture-castles-2026-10-07.jpg",
+      "docs/audits/artifacts/field-architecture-magic-2026-10-07.jpg"
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "oldCommit": "8e5f4e4f0ab6b8ca750e8e1c91c1a58f407e3272",
+  "newCommit": "38d04c9feb1a26617407091380634c87262fe3f8",
+  "apiVersionOld": [
+    11,
+    0
+  ],
+  "apiVersionNew": [
+    11,
+    0
+  ],
+  "ocgapi.hIdentical": true,
+  "ocgapi_types.hIdentical": true,
+  "ocgapi_constants.hIdentical": true,
+  "nativeRegistrationCounts": {
+    "Duel": 251,
+    "Card": 275,
+    "Group": 51,
+    "Effect": 60,
+    "Debug": 13
+  },
+  "nativeRegistrationNamesChanged": false,
+  "effectReferences": 199,
+  "effectReferenceOccurrences": 3606,
+  "oldClassification": {
+    "native": 165,
+    "lua-managed-effect": 24,
+    "native-value-alias": 2,
+    "lua-flag-alias": 6,
+    "unsupported-core-capability": 2
+  },
+  "newClassification": {
+    "native": 167,
+    "lua-managed-effect": 24,
+    "native-value-alias": 2,
+    "lua-flag-alias": 6
+  },
+  "missingCoreCapabilitiesOld": [
+    "EFFECT_OPPO_CHOOSES_SPSUMMON_ZONE",
+    "LOCATION_REASON_SPSUMMON"
+  ],
+  "missingCoreCapabilitiesNew": [],
+  "archive": "/native/sources/ygopro-core-38d04c9f.tar.gz",
+  "archiveSha256": "eb2e32d213c58f23cb9efc3297abfce632d94dca40e4f388e0bb73fff26abc84",
+  "methodCompatibilityNotes": {
+    "Duel.GetMasterRule": "Absent in both native registries; utility.lua:2074 calls it inside Auxiliary.MainAndExtraSpSummonLoop, but the complete 13,702-script corpus has no call to that helper.",
+    "Group.NewGroup": "Absent in both native registries; c60921537.lua:25-26 (Dogmatikamacabre) calls it only when Duel.IsPlayerAffectedByEffect(tp,CARD_SPIRIT_ELIMINATION) returns an effect. This is an upstream card-script branch defect outside the Field subset."
+  }
+}

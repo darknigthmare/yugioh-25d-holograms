@@ -1,0 +1,19 @@
+✔ Crossout announcement offers only its native Deck code filter and banishes the declared copy (190.361587ms)
+✔ Lullaby catalogue excludes Spells and Extra monsters without discovering the opponent Deck (117.272051ms)
+✔ Ancient Gear Gadget combines archetype, monster type and current-name exclusion in real announcement opcodes (121.203041ms)
+✔ Tribe-Infecting Virus offers only races of face-up monsters and never the hidden monster race (24.019434ms)
+✔ Magical Exemplar presents nonconsecutive native number options by index and pays exact counters (54.003125ms)
+✔ Tokusano weighted UI reports 0, 6 and 10 from native values while invalid answers never become responses (26.110497ms)
+✔ Kozmo Dark Planet successive native add/remove choices remove a chosen material before finishing (24.892822ms)
+✔ Kozmo Dark Planet successive native add/remove choices cancel without banishing (26.412171ms)
+✔ mandatory native sum prefix is displayed and counted without entering optional response indices (0.610188ms)
+✔ alternate sum weights and public enemy tribute labels expose arithmetic without resolving hidden identities (0.816678ms)
+✔ hidden chain choices never resolve an encoded effect description that could disclose a private card (0.296766ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 593.458666
