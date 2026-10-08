@@ -1,6 +1,6 @@
-# Couverture des règles — 7 octobre 2026
+# Couverture des règles — 8 octobre 2026
 
-Les Duels **TCG Advanced strict** et **Duel libre** utilisent le moteur natif EDOPro/WASM et les scripts Lua de Project Ignis. Les **339 Magies de Terrain sont intégrées**, avec données et scripts locaux ; leurs **339 initialisations** passent sans erreur Lua. **128 scénarios exécutent des effets sur 115 Terrains**. Une initialisation prouve l’enregistrement des effets, pas toutes les branches du script ; ce document ne certifie pas le TCG complet.
+Les Duels **TCG Advanced strict** et **Duel libre** utilisent le moteur natif EDOPro/WASM et les scripts Lua de Project Ignis. Les **339 Magies de Terrain sont intégrées**, avec données et scripts locaux ; leurs **339 initialisations** passent sans erreur Lua. **353 / 353 scénarios exécutent au moins un effet réel sur chacun des 339 Terrains**. Les six lots du 8 octobre ajoutent 225 scénarios pour les 224 Terrains qui restaient sans effet exercé ; les 128 scénarios antérieurs sont conservés. Une initialisation prouve l’enregistrement des effets, pas toutes les branches du script ; ce document ne certifie pas le TCG complet.
 
 ## Autorité et modes
 
@@ -12,7 +12,7 @@ Les Duels **TCG Advanced strict** et **Duel libre** utilisent le moteur natif ED
 
 Le moteur natif possède phases, Invocations, coûts, cibles, matériaux, restrictions, fenêtres de décision, chaînes, déplacements, compteurs et calcul des dommages. La façade JavaScript envoie une réponse typée parmi les choix proposés et projette ses requêtes vers les vues. Les ATK/DEF, Niveaux/Rangs, Types actuels et positions viennent du moteur ; ni le renderer ni les anciens helpers de Terrain ne recalculent un effet sur cette route.
 
-MR5 et les flags `TCG_SEGOC_NONPUBLIC | TCG_SEGOC_FIRSTTRIGGER` sont explicitement appliqués aux preuves de règles TCG. Les vrais Duels utilisent une seed issue du générateur cryptographique ; les tests utilisent une seed fixe et leurs positions initiales sont documentées. Les scripts Lua et données CDB ne sont pas réécrits pour réussir un scénario.
+MR5 et les flags `TCG_SEGOC_NONPUBLIC | TCG_SEGOC_FIRSTTRIGGER` sont explicitement appliqués aux preuves de règles TCG. Les vrais Duels utilisent une seed issue du générateur cryptographique ; les tests utilisent une seed fixe et leurs positions initiales sont documentées. Les archives Lua/CDB/WASM conservent leurs octets d’origine. Deux corrections explicites des sources exécutées, pour Dice Dungeon et Duel Tower, sont appliquées à la lecture sous garde SHA-256 ; leur provenance, leur justification textuelle et les comparaisons avant/après sont séparées de celles des archives. Les autres scripts gardent leur source livrée.
 
 ## Niveaux de preuve
 
@@ -20,25 +20,29 @@ MR5 et les flags `TCG_SEGOC_NONPUBLIC | TCG_SEGOC_FIRSTTRIGGER` sont expliciteme
 | --- | --- | --- |
 | Données et Lua locaux | **339 / 339 Terrains** | CDB, chemins sources, commits, SHA-256 et dépendances archivés. |
 | Initialisation native | **339 / 339** | `initial_effect`, enregistrement, requête et démarrage de 339 handles distincts, sans diagnostic Lua. |
-| Scénarios de règles | **128 scénarios / 115 Terrains** | Effets réellement exécutés, messages, réponses et requêtes natives assertés. |
+| Scénarios de règles | **353 scénarios / 339 Terrains** | Au moins une branche significative exercée par Terrain, avec messages, décisions, queries et fixtures ; 128 scénarios conservés + 225 nouveaux. |
 | Procédures d’Invocation | **20 cas natifs** | Fusion, Rituel, Synchro, Xyz, Lien, Pendule et Flip, matériaux, restrictions, annulations et zones MR5. |
 | Combats et replays | **21 scénarios natifs** | Damage Step, calcul réel, doubles dégâts, annulation, contrôle, deux attaques, pioche privée et match nul. |
 | Choix supplémentaires | **8 parcours officiels + 3 contrats wire** | Déclarations filtrées, poids et préfixes, ajout/retrait, annulation et descriptions cachées. |
-| Chaînes et projection | **25 scénarios natifs** | Ordre de résolution, annulations, Creature Swap, Pièges devenus monstres et nom courant sans changer le passcode physique. |
+| Chaînes et projection | **26 cas ; validation finale du dernier en cours** | 25 cas historiques, plus trois Poses réelles par Call of the Forgotten, restriction native et permutation masquée. Le gate courant consigne la validation finale de cette suite. |
 | Continuation des choix | **13 parcours officiels** | Options, positions, contreparties, compteurs, ordre du Deck et déclarations. |
 | Fenêtres de décision | **15 scénarios officiels + 1 garde de confidentialité** | Déclarations, sommes, compteurs, ordre du Deck, chaînes obligatoires et Damage Step. |
-| Navigateur compilé | **Desktop 1280 × 900 et mobile 390 × 844** | Bibliothèque 390/339, lancement natif, Invocation Normale, pose de Magie, Extra Deck, IA/pioche suivante et confidentialité ; zéro erreur JS, asset natif en échec ou violation CSP. |
-| Géométrie et source visuelle | **339 illustrations exactes, 339 décors dédiés, 339 références inspectées, 339 reconstructions** | Six nouveaux lots reconstruisent les 209 volumes restants depuis les sources. La géométrie reste distincte de la preuve des règles et d’une reproduction spatiale intégrale 1:1. |
+| Navigateur compilé | **Preuve historique du 7 octobre : desktop 1280 × 900 et mobile 390 × 844** | Parcours public précis de son build : bibliothèque 390/339, lancement, Invocation, poses, Extra Deck, IA/pioche et confidentialité. La validation du nouveau build reste à consigner dans le gate du 8 octobre. |
+| Géométrie et source visuelle | **339 illustrations exactes, 339 décors dédiés, 339 références inspectées, 339 reconstructions** | Les six lots du 7 octobre ont achevé les 209 volumes restants. Ces volumes adaptés au duel restent distincts d’une reconstruction spatiale intégrale 1:1. |
+| Modèles des monstres | **22 modèles dédiés, 17 familles de repli** | Deux nouveaux volumes pour Slime et Apophis, deux références locales exactes et 12 comparaisons ; détails/proportions adaptés, sans certification 3D intégrale. |
+| Corrections des textes de cartes | **Dice Dungeon et Duel Tower** | Transformations bornées de la source exécutée, gardes SHA et duels avant/après ; archives d’origine inchangées. |
 
-La [matrice native](docs/audits/artifacts/native-field-runtime-2026-10-07.json) garde `bundled`, `initialized`, `effectTested` et `integrationTested` distincts. Les 339 lignes de l’audit Node ne reçoivent pas artificiellement une preuve navigateur générale. Le [rapport navigateur](docs/audits/artifacts/native-duel-ui-2026-10-07/report.json) couvre son parcours public précis. L’atlas affiche séparément disponibilité du moteur, initialisation et scénario exercé, tout en conservant les 29 effets JavaScript historiques.
+La [matrice native courante](docs/audits/artifacts/native-field-runtime-2026-10-08.json) garde `bundled`, `initialized`, `effectTested` et `integrationTested` distincts. Les 339 lignes de l’audit Node ne reçoivent pas artificiellement une preuve navigateur générale. Le [rapport navigateur](docs/audits/artifacts/native-duel-ui-2026-10-07/report.json) couvre son parcours public précis. L’atlas affiche séparément disponibilité du moteur, initialisation et scénario exercé, tout en conservant les 29 effets JavaScript historiques.
 
 ## Effets exercés dans le moteur natif
 
-Le second lot ajoute 51 scénarios et 50 Terrains distincts : Weather Forecast et vrais matériaux Lien, Centurion et ses Pièges Continus devenus monstres, Magnacarrier et ses Xyz/superpositions, Patent License, Sangen Summoning et Pseudo Space copiant Wetlands. Les branches non exercées demeurent explicites dans les 115 fiches de l’audit.
+Les six lots du **8 octobre** terminent la couverture des **224 Terrains restants** : [A](docs/audits/native-field-batch-a-2026-10-08.md), [B](docs/audits/native-field-batch-b-2026-10-08.md), [C](docs/audits/native-field-batch-c-2026-10-08.md), [D](docs/audits/native-field-batch-d-2026-10-08.md), [E](docs/audits/native-field-batch-e-2026-10-08.md) et [F](docs/audits/native-field-batch-f-2026-10-08.md). Leurs **225 nouveaux scénarios** comprennent recherches, origines/cibles, coûts, restrictions, fenêtres, combat, compteurs et Invocations. La matrice consolidée marque les **339 effets exercés** ; les branches non certifiées restent indiquées par ID dans les audits. Elle garde `integrationTested: 0` car un résultat headless ne prouve pas le parcours de l’interface.
 
-Les nouveaux cas exercent aussi Domain (sacrifice, verrou Extra, bonus au calcul), Toon Kingdom, Lair, Lemuria, Marincess via vrai Crystal Heart, Sanctuary, Secret Village, PSY-Frame, Salamangreat, Traptrip, Rikka, Gates, Triamid, Dark Sanctuary, Orichalcos et Pandemonium. Les branches et partenaires précis figurent dans [l’audit natif des Terrains](docs/audits/native-field-rules-2026-10-07.md).
+La baseline du **7 octobre** conserve ses 128 scénarios sur 115 Terrains. Son second lot avait ajouté 51 scénarios et 50 Terrains distincts : Weather Forecast et vrais matériaux Lien, Centurion et ses Pièges Continus devenus monstres, Magnacarrier et ses Xyz/superpositions, Patent License, Sangen Summoning et Pseudo Space copiant Wetlands. Ces comptes historiques ne sont pas réécrits.
 
-Les [128 scénarios et leur protocole complet](docs/audits/native-field-rules-2026-10-07.md) couvrent :
+Les cas conservés du 7 octobre exercent aussi Domain (sacrifice, verrou Extra, bonus au calcul), Toon Kingdom, Lair, Lemuria, Marincess via vrai Crystal Heart, Sanctuary, Secret Village, PSY-Frame, Salamangreat, Traptrip, Rikka, Gates, Triamid, Dark Sanctuary, Orichalcos et Pandemonium. Les branches et partenaires précis figurent dans [l’audit natif des Terrains](docs/audits/native-field-rules-2026-10-07.md).
+
+Les [128 scénarios de la baseline et leur protocole complet](docs/audits/native-field-rules-2026-10-07.md) couvraient notamment :
 
 - **Zombie World, Necrovalley, Molten Destruction, Gaia Power, Wetlands et A Legendary Ocean** : changements de Type/Niveau et statistiques, plancher de DEF, alias Umi et Monster Reborn légalement activé puis annulé à la résolution par Necrovalley.
 - **Dragon Ravine et Gateway to Chaos** : défausse en coût distincte de l’envoi par effet, choix du mode, recherche du véritable monstre Rituel et ajout depuis le Deck.
@@ -51,6 +55,14 @@ Les [128 scénarios et leur protocole complet](docs/audits/native-field-rules-20
 Les [fenêtres natives](docs/audits/native-rule-windows-2026-10-07.md) vérifient notamment Honest dans la Damage Step, Book of Moon exclu de cette réponse, l’ordre de Sangan/Witch obligatoires, les choix de Type/Attribut et les sommes des coûts. La [suite d’Invocations](tests/native-duel-summoning.test.mjs) distingue les vraies procédures de leurs réanimations. Le [parcours Pendule du navigateur](docs/audits/native-pendulum-ui-2026-10-07.md) complète cette preuve sur desktop et mobile.
 
 La présence du moteur et des scripts amont apporte aussi les procédures de Contact Fusion, Invocations alternatives et recettes particulières que le moteur JavaScript historique n’implémentait pas universellement. Elles ne sont plus présentées comme absentes de cette route. Les scénarios ci-dessus ne prouvent toutefois pas chaque recette, fenêtre ou combinaison ni chaque sélection de l’interface.
+
+## Corrections locales des sources exécutées
+
+[Dice Dungeon](docs/audits/native-dice-dungeon-correction-2026-10-08.md) applique le dé de chaque joueur à ses propres monstres, y compris quand le contrôleur du Terrain n’est pas le joueur du tour. Les jets et messages RNG restent natifs ; 24 duels corrigés couvrent les résultats 1 à 6 et le retour aux statistiques imprimées en End Phase.
+
+[Duel Tower](docs/audits/native-duel-tower-correction-2026-10-08.md) suit la clause d’égalité explicite des textes Konami FR/EN : chaque joueur éligible peut invoquer ou refuser indépendamment. Les deux Invocations acceptées forment un événement natif simultané ; les monstres attaquent réellement directement malgré le monstre adverse. Onze scénarios conservent les cas avant/après, ATK inégales, aucun monstre révélé, camp plein et autre contrôleur du Terrain.
+
+Les transformateurs vérifient les SHA-256 de l’original et du résultat et ne s’appliquent qu’à leurs fichiers épinglés. Les sources originales, CDB et WASM demeurent byte-identiques. La source effective modifiée est déclarée dans les preuves, plutôt que présentée comme une nouvelle version officielle de Project Ignis.
 
 ## Identités, disponibilité TCG et ressources
 
@@ -75,6 +87,8 @@ Les archives locales contiennent **14 984 lignes CDB** et **13 702 Lua**, avec 1
 
 Les [événements visuels natifs](docs/audits/native-duel-integration-2026-10-07.md) reconstruisent une projection publique. Les pioches adverses, poses face verso et mouvements vers des zones cachées ne publient pas leur passcode. Les positions Extra Monster Zones et superpositions Xyz sont conservées ; une carte déplacée en coût ne devient pas une destruction inventée. Un Terrain apparaît après résolution réussie, puis réagit à son retrait, remplacement ou annulation.
 
+Le décodage de `MSG_SHUFFLE_SET_CARD` suit le wire du core : compte `uint8`, bloc de positions sources puis bloc de destinations. Des destinations nulles masquent volontairement la permutation des cartes posées. La façade traite cette association comme inconnue et conserve des événements anonymes ; le 26e cas de chaînes vérifie les trois Poses et la restriction de Call of the Forgotten. La validation finale du cas et du nouveau navigateur est consignée séparément dans [le gate courant](docs/audits/native-completion-2026-10-08.md).
+
 Les limites restantes concernent la preuve et la plateforme : les milliers de scripts et leurs interactions n’ont pas tous été exercés ; tous les parcours de choix complexes ne sont pas couverts dans le navigateur ; le catalogue libre ne possède pas une vérification exhaustive des listes ou dates territoriales de toutes ses cartes. Rush Duel, Speed Duel, règlement de tournoi chronométré, multijoueur complet et sauvegarde intégrale d’un Duel ne sont pas annoncés comme livrés. Le jeu solo et les modèles procéduraux ne constituent pas une certification Konami ni une reproduction de l’anime 1:1.
 
 Le moteur historique garde ses régressions, ses 29 effets de Terrain et leurs sources/rulings antérieurs. Les [audits du lot JavaScript](docs/audits/terrain-rules-release-batch2-2026-10-07.md) restent consultables comme historique ; leurs chiffres de couverture ne décrivent plus le mode natif par défaut.
@@ -94,7 +108,7 @@ node scripts/generate-native-field-coverage.mjs
 git diff --check
 ```
 
-`check` exécute les tests Node, audite les 339 JPEG sources et les 339 replis locaux, puis compile Vite. Les assertions natives utilisent le WASM et les scripts réellement livrés, sans mock d’effets ni `skip` en cas d’asset absent. Les tests du constructeur couvrent restrictions, publications, Umi et alias du catalogue libre, sans modifier les tests stricts historiques. Les preuves détaillées et captures restent liées depuis les audits ; le gate global de publication est enregistré séparément.
+`check` exécute les tests Node, audite les 339 JPEG sources et les 339 replis locaux, puis compile Vite. Les assertions natives utilisent le WASM et les scripts réellement livrés, sans mock d’effets ni `skip` en cas d’asset absent. Les tests du constructeur couvrent restrictions, publications, Umi et alias du catalogue libre, sans modifier les tests stricts historiques. Les preuves détaillées et captures restent liées depuis les audits ; [le gate courant du 8 octobre](docs/audits/native-completion-2026-10-08.md) réserve les résultats finaux de tests, build, navigateur, CI et aperçu à leur exécution réelle.
 
 ## Sources et licences
 

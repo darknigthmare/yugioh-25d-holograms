@@ -511,6 +511,18 @@ export class NativeDuelGame {
           this._fieldActivations.set(to, { state: 'resolved', source: 'move',
             sequence: ++this._fieldActivationSequence });
         }
+      } else if (message.type === M.SHUFFLE_SET_CARD) {
+        // A masked destination deliberately conceals the permutation. Forget
+        // projection identities so old references cannot follow hidden cards.
+        for (const { from, to } of message.cards ?? []) {
+          for (const loc of [from, to]) {
+            if (!loc?.location) continue;
+            const key = slotKey(loc);
+            this._slotIds.delete(key);
+            this._annotations.delete(key);
+            this._fieldActivations.delete(key);
+          }
+        }
       } else if (message.type === M.SWAP) {
         // SWAP carries both pre-swap locations. Transfer the projection identities
         // atomically; the next native query supplies the new controllers/stats.

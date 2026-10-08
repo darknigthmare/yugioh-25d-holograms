@@ -136,8 +136,8 @@ after(async () => {
   });
   const directory = new URL('../docs/audits/artifacts/', import.meta.url);
   await mkdir(directory, { recursive: true });
-  await writeFile(new URL('native-battle-timing-2026-10-07.json', directory),
-    JSON.stringify({ date: '2026-10-07', engine: 'official ocgcore ABI 11.0 / EDOPro 38d04c9f', flags: String(NATIVE_TCG_DUEL_FLAGS),
+  await writeFile(new URL('native-battle-timing-2026-10-08.json', directory),
+    JSON.stringify({ date: '2026-10-08', engine: 'official ocgcore ABI 11.0 / EDOPro 38d04c9f', flags: String(NATIVE_TCG_DUEL_FLAGS),
       declaredFixturesOnly: true, debugApi: false, testMode: false, pseudoShuffle: false, postStartInjection: false,
       sourceHashes, scripts, cases: evidence }, null, 2) + '\n');
 });

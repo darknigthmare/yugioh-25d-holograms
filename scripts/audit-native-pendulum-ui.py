@@ -222,14 +222,18 @@ def run_view(page,url,view,out,draft):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--dist',type=Path,default=ROOT/'dist')
-    parser.add_argument('--output',type=Path,default=ROOT/'docs/audits/artifacts/native-pendulum-ui-2026-10-07')
+    parser.add_argument('--output',type=Path,default=ROOT/'docs/audits/artifacts/native-pendulum-ui-2026-10-08')
+    parser.add_argument('--audit-date',default='2026-10-08')
     args=parser.parse_args();args.output.mkdir(parents=True,exist_ok=True)
     headers=ui.production_headers();ui.AuditServer.headers_to_add=headers
     server=ThreadingHTTPServer(('127.0.0.1',0),functools.partial(ui.AuditServer,directory=str(args.dist)))
     threading.Thread(target=server.serve_forever,daemon=True).start()
     url=f'http://127.0.0.1:{server.server_port}'
     asset=re.search(r'src="([^"]+/index-[^"]+\.js)"',(args.dist/'index.html').read_text()).group(1)
-    report={'ok':False,'target':'compiled production bundle','productionCsp':headers['Content-Security-Policy'],
+    compiled_before=ui.compiled_fingerprints(args.dist)
+    report={'ok':False,'generatedOn':args.audit_date,'target':'compiled production bundle','productionCsp':headers['Content-Security-Policy'],
+        'auditSourceSha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+        'helperSourceSha256':hashlib.sha256((ROOT/'scripts/audit-native-duel-ui.py').read_bytes()).hexdigest(),
         'testedIndexAsset':asset,'testedIndexSha256':hashlib.sha256((args.dist/asset.lstrip('/')).read_bytes()).hexdigest(),
         'testedWasmSha256':hashlib.sha256((args.dist/'native/ocgcore.sync.wasm').read_bytes()).hexdigest(),'viewports':[]}
     page=None
@@ -237,6 +241,11 @@ def main():
         with sync_playwright() as p:
             browser=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,
                 args=['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader'])
+            req=browser.new_context()
+            served_before=ui.served_fingerprints(req.request,url);req.close()
+            assert served_before==compiled_before,'HTTP assets differ from the compiled snapshot'
+            report['compiledSnapshotBefore']=compiled_before
+            report['servedResponseFingerprintsBefore']=served_before
             for width,height in [(1280,900),(390,844)]:
                 context=browser.new_context(viewport={'width':width,'height':height},reduced_motion='reduce')
                 page=context.new_page();page.set_default_timeout(30000)
@@ -249,8 +258,17 @@ def main():
                             'offered':page.locator('#decision-options button').all_inner_texts()}
                     raise
                 context.close()
+            req=browser.new_context()
+            served_after=ui.served_fingerprints(req.request,url);req.close()
+            compiled_after=ui.compiled_fingerprints(args.dist)
+            report['servedResponseFingerprintsAfter']=served_after
+            report['compiledSnapshotAfter']=compiled_after
+            assert compiled_before==compiled_after==served_before==served_after,'Build changed during the Pendulum audit'
+            report['immutableCompiledSnapshot']=True
             browser.close()
         report['ok']=True
+        report['captureSha256']={path.name:hashlib.sha256(path.read_bytes()).hexdigest()
+                                for path in sorted(args.output.glob('native-*.png'))}
     except Exception as error:
         report['failure']={'type':type(error).__name__,'message':str(error)[:1500]};raise
     finally:

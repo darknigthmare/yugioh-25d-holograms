@@ -1,3 +1,4 @@
+import { getNativeCardReferenceArt } from './NativeCardReferenceArt.js';
 import { getNativeCardTemplate } from './NativeCardRegistry.js';
 import { OcgType as T, OcgScope as S, OcgRace, OcgAttribute, OcgLinkMarker } from './vendor/ocgcore/index.js';
 
@@ -83,6 +84,7 @@ function convertTemplate(resources, code, data, metadata, sourceScript, deckElig
   const raceKey = Object.entries(OcgRace).find(([, value]) => value === data.race)?.[0];
   const attribute = Object.entries(OcgAttribute).find(([, value]) => value === data.attribute)?.[0] ?? '';
   const setcodes = Object.freeze([...data.setcodes]);
+  const referenceArt = getNativeCardReferenceArt(code);
   const nativeMetadata = Object.freeze({
     sourceCode: data.code, sourceDatabase: metadata.sourceDatabase,
     sourceScript, ot: metadata.ot, alias: data.alias,
@@ -110,7 +112,8 @@ function convertTemplate(resources, code, data, metadata, sourceScript, deckElig
     lscale: data.lscale, rscale: data.rscale, leftScale: data.lscale, rightScale: data.rscale,
     pendulumScale: data.lscale, scale: data.lscale,
     linkArrows: Object.freeze(Object.entries(OcgLinkMarker).filter(([, marker]) => data.link_marker & marker).map(([name]) => name.toLowerCase())),
-    image_url: NATIVE_UNKNOWN_CARD_IMAGE, image_url_cropped: NATIVE_UNKNOWN_CARD_IMAGE,
+    image_url: referenceArt?.full.assetPath ?? NATIVE_UNKNOWN_CARD_IMAGE,
+    image_url_cropped: referenceArt?.cropped.assetPath ?? NATIVE_UNKNOWN_CARD_IMAGE,
     nativeEngine: true, supportedInNative: true, supportedInStrict: false, nativeCatalogueOnly: true,
     nativeDeckEligible: deckEligible,
     scriptCode: data.code, scriptStatus: sourceScript ? 'bundled' : 'normal-no-script-needed',

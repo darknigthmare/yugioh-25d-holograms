@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-08",
+  "upstreamIntegrityVerified": true,
+  "allGeneratedVendorFilesByteIdentical": true,
+  "files": [
+    {
+      "path": "src/core/native/vendor/ocgcore/chunk-6GYI7QPM.js",
+      "bytes": 42,
+      "sha256": "0a9f270bce85e72ea86909d6b25d962616fe09e73109f78b3e26ea324e09b792",
+      "byteIdentical": true
+    },
+    {
+      "path": "src/core/native/vendor/ocgcore/chunk-L5TW24SS.js",
+      "bytes": 565,
+      "sha256": "e6e321ec2bd37a64c7f78b18afffbe54fff34ec0c3d454147ae5c28fb3c9ddb2",
+      "byteIdentical": true
+    },
+    {
+      "path": "src/core/native/vendor/ocgcore/index.d.ts",
+      "bytes": 80120,
+      "sha256": "55c301428881b6145db4dcf671e45ffb87682cdca543440ab1affa019038a079",
+      "byteIdentical": true
+    },
+    {
+      "path": "src/core/native/vendor/ocgcore/index.js",
+      "bytes": 46243,
+      "sha256": "8cfbec622cf5b920e0b58db6d842fcabf1a9ef8eed9f0841bac43a1e9adb0657",
+      "byteIdentical": true
+    },
+    {
+      "path": "src/core/native/vendor/ocgcore/ocgcore.sync-MMMSWPBB.js",
+      "bytes": 21357,
+      "sha256": "f4523ad5c2e9f14c8736a91ad94e9e7f8283883a3607781f40afdeae27cdf828",
+      "byteIdentical": true
+    }
+  ]
+}

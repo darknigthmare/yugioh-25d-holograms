@@ -1,0 +1,71 @@
+{
+  "generatedOn": "2026-10-08",
+  "tool": "view_image",
+  "reportSha256": "81752fbb9dfed612f62f6770a7eff884650ddde56bd241f1a91a475288f9b4b8",
+  "captureSha256": {
+    "chain-apophis-details-1280.png": "39ea0a738b34ceede1e9538d575081307a02d44230aa8a9e15c136ce9cb517d4",
+    "chain-apophis-details-390.png": "b6910036e2322d7c360162074b97269ce80a923000c2d9a1d483d1487d8101cb",
+    "chain-apophis-native-summon-pose-1280.png": "ed2ba2caad1eba228f1ae6b4bdb12190fb33d130efad8290d2daf0d73de4f960",
+    "chain-apophis-native-summon-pose-390.png": "f53f9b6664b1f99dfb247334cc1e6ba4aa56e34d46030e83bfd951d26c5afc3a",
+    "chain-arena-1280.png": "241d5dddfdd94c10cecf265466e9bb415019e9fea2e37b876f7f6312a9e408ba",
+    "chain-arena-390.png": "9ae065c0404f908bfaa1795f4aae3cbb1efb1f0b9b9d37a02f22889559fbcda4",
+    "chain-compact-1280.png": "0dc4af334ef6b0ce868cbffc1880c4d72b08b6ea91a24b3efa2734f55b32792c",
+    "chain-compact-390.png": "22b2a70a8dc6039950341ef200a1c7e53578f3d156b6cabea1b99d2bde2fb833",
+    "chain-real-1280.png": "d54d57fc8635210a2ee12c982756caa4f4e8422ea234bfc25ad477443d26679d",
+    "chain-real-390.png": "f00b7069d9d23cd4b03d3d2a766e6763fa9255f55f50bcdd23a8cb927fc666fc",
+    "chain-real-camera-console-1280.png": "281ebb414c55ee8f73c2d5c98a10fd782eede70bb1209a85c8c37b5c2a2b2ef9",
+    "chain-real-camera-console-390.png": "cf6b9af215e3f601b28b0193356ee10a8d703e55a4900cba30451502f8254457",
+    "chain-real-camera-diagonal-left-1280.png": "883270fcde4c696ec55ebb31e4db0f2d45c78465f0c274fc7236c39e4f76c963",
+    "chain-real-camera-diagonal-left-390.png": "3d676f2ee30abf4c4a80d6e072efa081d3ce8ee17df2bcac2ff02aeb2ae377c0",
+    "chain-real-camera-player-1280.png": "5664870d5b38af775083548965bfe2acf07528a88e55c0bd16e327e633dd17f4",
+    "chain-real-camera-player-390.png": "0c1ebcf61ed28ea7f942db67e8c2e143786cde00bbda9b4ada7540c824c41578",
+    "chain-registration-1280.png": "b2552932965bcab739d28b432ad36d2e837a68eca91f9d3e2d63561d622927fd",
+    "chain-registration-390.png": "b145145dca5860472a0daea0c67cd478a6a873e3f257a63f42fd7ef793acd962",
+    "chain-set-1280.png": "516b11e979ab687548e884af8585c993e2d4f605bc23eb09b3a6527b771b574f",
+    "chain-set-390.png": "51530793918149b823f0f7a79880313541b8870a487bb3d439811225086a4422",
+    "chain-slime-details-1280.png": "984b5d6ab6d04144e9a033a96e9667d5b1b500c0d1065f08d212aa5bebc60b63",
+    "chain-slime-details-390.png": "0bb30ffa263d3fa5143d46e5d7a4dc2676cacee61f0151091e18ba3456359ea7",
+    "chain-slime-native-summon-pose-1280.png": "faaa4c340871cc289c654394842f16175ca34c7b7c47203b683aa43f0ab7b799",
+    "chain-slime-native-summon-pose-390.png": "0c4937d73bc99c5640ab48a3305400c29c83c91fd9986f81c025b2a5ce5101b9"
+  },
+  "alreadyInspectedByteIdenticalCaptures": [
+    "chain-apophis-details-390.png",
+    "chain-arena-390.png",
+    "chain-compact-1280.png",
+    "chain-compact-390.png",
+    "chain-real-camera-diagonal-left-390.png",
+    "chain-real-camera-player-390.png",
+    "chain-registration-1280.png",
+    "chain-registration-390.png",
+    "chain-set-390.png",
+    "chain-slime-details-1280.png",
+    "chain-slime-details-390.png",
+    "chain-slime-native-summon-pose-1280.png"
+  ],
+  "reopenedFinalCaptures": [
+    "chain-apophis-details-1280.png",
+    "chain-apophis-native-summon-pose-1280.png",
+    "chain-apophis-native-summon-pose-390.png",
+    "chain-arena-1280.png",
+    "chain-real-1280.png",
+    "chain-real-390.png",
+    "chain-real-camera-console-1280.png",
+    "chain-real-camera-console-390.png",
+    "chain-real-camera-diagonal-left-1280.png",
+    "chain-real-camera-player-1280.png",
+    "chain-set-1280.png",
+    "chain-slime-native-summon-pose-390.png"
+  ],
+  "observations": [
+    "Both new three-dimensional silhouettes are visible after the real native summon resolves, with no decision overlay.",
+    "Slime is a folded metallic spiral with a spiked sphere; Apophis has a dark armored guardian, raised rear cobra and curved ivory blade. Console views show the back of own monsters facing the opponent.",
+    "Both full reference JPEGs and their exact public monster names/types/ATK/DEF are readable in desktop and mobile inspector captures.",
+    "Player, diagonal-left and console mobile cameras show a canvas and toolbar correctly aligned within the host."
+  ],
+  "visualLimits": [
+    "In desktop Console view, floating stat badges can be partly obscured by the camera toolbar; inspector values remain complete.",
+    "Compact and Arena mobile captures show only the current portion of a scrollable board.",
+    "Resolved summon model frames do not prove an active animation phase.",
+    "Three-dimensional proportions and depth are adapted from the two-dimensional illustrations; integral spatial 1:1 fidelity is not claimed."
+  ]
+}

@@ -208,5 +208,110 @@ export function buildReferenceMonsterAnatomy(profile, build) {
     for (let i = 0; i < 3; i += 1) compactRing(`shine-ball-cloud-orbit-${i}`, 'glow', [0, 0.55 + i * 0.55, 0], 0.95 - i * 0.13, [Math.PI / 2, 0, i * 0.13], '#f4ffff');
     return true;
   }
+  if (profile.anatomy === 'metal-reflect-slime') {
+    // The crop shows an irregular folded metallic mass surrounding a separate
+    // spiked silver sphere, rather than the generic aquatic fish silhouette.
+    const mass = [];
+    for (let i = 0; i <= 40; i += 1) {
+      const a = -2.2 + i / 40 * Math.PI * 2.8;
+      const r = 1.15 + Math.sin(a * 2.1) * 0.14;
+      mass.push(new THREE.Vector3(Math.cos(a) * r, 2.05 + Math.sin(a) * r, -0.22 + Math.sin(a * 2) * 0.2));
+    }
+    const curve = new THREE.CatmullRomCurve3(mass);
+    const folded = new THREE.TubeGeometry(curve, 40, 0.32, 7, false);
+    const color = new Float32Array(folded.attributes.position.count * 3);
+    const shade = new THREE.Color('#4b4240'), bronze = new THREE.Color('#928477'), shine = new THREE.Color('#ede8df');
+    const temp = new THREE.Color();
+    for (let i = 0; i < folded.attributes.position.count; i += 1) {
+      const t = folded.attributes.uv.getX(i), u = folded.attributes.uv.getY(i);
+      const center = curve.getPointAt(t);
+      const scale = 0.83 + 0.17 * Math.cos(t * Math.PI * 12);
+      const p = new THREE.Vector3().fromBufferAttribute(folded.attributes.position, i).sub(center).multiplyScalar(scale).add(center);
+      folded.attributes.position.setXYZ(i, p.x, p.y, p.z);
+      temp.copy(shade).lerp(bronze, 0.62).lerp(shine, Math.max(0, Math.cos(u * Math.PI * 2 + t * Math.PI * 12)) ** 5 * 0.8);
+      color.set([temp.r, temp.g, temp.b], i * 3);
+    }
+    folded.computeVertexNormals();folded.setAttribute('color', new THREE.BufferAttribute(color, 3));
+    part('metal-slime-continuous-folded-coil', folded, 'body', [0, 0, 0]);
+    for (let i = 0; i < 12; i += 1) {
+      const a = i / 12 * Math.PI * 2;
+      const center = [Math.cos(a) * 1.14, 2.05 + Math.sin(a) * 1.14, -0.09];
+      sphere(`metal-slime-fold-${i}`, 'body', center, [0.3, 0.24, 0.28], 1, i % 3 ? '#9b8f84' : '#bdb2a8');
+      ribbon(`metal-slime-bright-fold-ridge-${i}`, 'accent', [[center[0] - 0.15, center[1] - 0.11, 0.12], [center[0], center[1] + 0.13, 0.22], [center[0] + 0.16, center[1] + 0.18, 0.1]], 0.022, '#eee9e1');
+    }
+    ribbon('metal-slime-lower-drooping-extension', 'body', [[-0.75, 1.29, -0.05], [-1.17, 0.77, 0], [-1.03, 0.38, 0.11], [-1.33, 0.4, 0.3]], 0.19, '#9d9388');
+    sphere('metal-slime-central-spiked-sphere', 'accent', [0.05, 1.94, 0.61], [0.64, 0.67, 0.57], 2, '#cddbdc');
+    for (let i = 0; i < 9; i += 1) {
+      const a = i / 9 * Math.PI * 2 + 0.12;
+      const start = [0.05 + Math.sin(a) * 0.49, 1.94 + Math.cos(a) * 0.49, 0.64];
+      const end = [0.05 + Math.sin(a) * (i === 4 ? 1.03 : 0.96), 1.94 + Math.cos(a) * (i === 4 ? 1.03 : 0.96), 0.8];
+      rod(`metal-slime-silver-radial-spike-${i}`, 'accent', start, end, 0.15, 0.004, '#edf4ed');
+      rod(`metal-slime-dark-spike-seam-${i}`, 'dark', [start[0] - 0.045, start[1], start[2] + 0.035], [end[0], end[1], end[2] + 0.012], 0.02, 0.002, '#26363c');
+    }
+    rod('metal-slime-forward-central-spike', 'accent', [0.14, 2.04, 1.08], [0.16, 2.36, 1.7], 0.17, 0.005, '#eef4eb');
+    sphere('metal-slime-lower-spiked-droplet', 'accent', [0.03, 0.92, 0.69], [0.26, 0.28, 0.24], 1, '#bccdce');
+    for (const side of [-1, 1]) rod(`metal-slime-lower-droplet-side-spike-${side}`, 'accent', [side * 0.12, 0.94, 0.68], [side * 0.5, 1.01, 0.73], 0.09, 0.003, '#e4ebe8');
+    rod('metal-slime-long-downward-silver-point', 'accent', [0.03, 0.78, 0.69], [0.05, 0.14, 0.72], 0.12, 0.003, '#e4ebe8');
+    // Red belongs to the illustration's radiating backdrop, not an invented eye.
+    return true;
+  }
+  if (profile.anatomy === 'armored-cobra-apophis') {
+    const gold = '#d9a82e', lightGold = '#f4d665', violet = '#966084', ivory = '#ede2b9';
+    sphere('apophis-armored-torso', 'body', [0, 1.97, 0.1], [0.5, 0.7, 0.33]);
+    sphere('apophis-serpent-lower-coil', 'body', [-0.15, 0.47, -0.15], [0.75, 0.34, 0.62]);
+    const tailCurve = new THREE.CatmullRomCurve3([[-0.6, 0.55, -0.2], [-0.98, 0.3, 0.2], [-0.38, 0.24, 0.68], [0.31, 0.32, 0.47], [0.66, 0.4, -0.14]].map(p => new THREE.Vector3(...p)));
+    part('apophis-coiled-tail', new THREE.TubeGeometry(tailCurve, 8, 0.18, 4, false), 'body', [0,0,0]);
+    for (let i = 0; i < 8; i += 1) {
+      sphere(`apophis-purple-ventral-plate-${i}`, 'dark', [0, 0.74 + i * 0.19, 0.36], [0.35 + i * 0.015, 0.13, 0.16], 0, violet);
+      ribbon(`apophis-ventral-plate-seam-${i}`, 'dark', [[-0.27, 0.76 + i * 0.19, 0.45], [0, 0.72 + i * 0.19, 0.53], [0.27, 0.76 + i * 0.19, 0.45]], 0.015, '#3d273e');
+    }
+    const cobra = [[0.04, 1.14, -0.17], [0.31, 2.02, -0.46], [0.6, 2.88, -0.56], [0.58, 3.78, -0.5], [0.13, 4.18, -0.34], [-0.65, 4.08, -0.19], [-1.02, 3.93, 0.01]];
+    const cobraCurve = new THREE.CatmullRomCurve3(cobra.map(p => new THREE.Vector3(...p)));
+    part('apophis-rear-raised-cobra-neck', new THREE.TubeGeometry(cobraCurve, 24, 0.26, 6, false), 'body', [0, 0, 0]);
+    for (let i = 0; i < 12; i += 1) {
+      const p = cobraCurve.getPointAt(0.18 + i * 0.054);
+      part(`apophis-rear-cobra-purple-belly-${i}`, new THREE.SphereGeometry(1, 8, 4), 'dark', [p.x, p.y, p.z + 0.24], [0.23, 0.105, 0.064], undefined, violet);
+    }
+    sphere('apophis-rear-cobra-skull', 'body', [-1.11, 3.97, 0.06], [0.37, 0.16, 0.27], 0, '#5e4c33');
+    sphere('apophis-rear-cobra-open-jaw', 'dark', [-1.08, 3.69, 0.12], [0.29, 0.09, 0.25], 0, '#514224');
+    for (const side of [-1, 1]) {
+      sphere(`apophis-rear-cobra-red-eye-${side}`, 'eye', [-1.15 + side * 0.16, 4.03, 0.26], [0.05, 0.035, 0.026]);
+      rod(`apophis-rear-cobra-ivory-fang-${side}`, 'accent', [-1.21 + side * 0.12, 3.92, 0.26], [-1.25 + side * 0.1, 3.61, 0.26], 0.043, 0.003, ivory);
+    }
+    ribbon('apophis-rear-cobra-forked-tongue', 'eye', [[-1.07, 3.7, 0.35], [-1.15, 3.5, 0.41], [-1.33, 3.24, 0.4]], 0.022, '#c84457');
+    rod('apophis-rear-cobra-tongue-fork', 'eye', [-1.23, 3.38, 0.4], [-1.43, 3.28, 0.4], 0.017, 0.003, '#c84457');
+    sphere('apophis-black-guardian-helmet', 'body', [-0.16, 2.94, 0.15], [0.3, 0.5, 0.29]);
+    const face = new THREE.Shape();face.moveTo(-0.39,3.04);face.lineTo(-0.03,3.04);face.lineTo(0.02,2.67);face.lineTo(-0.16,2.44);face.lineTo(-0.35,2.67);face.closePath();
+    part('apophis-pointed-black-faceplate',new THREE.ExtrudeGeometry(face,{depth:0.035,bevelEnabled:false,steps:1}),'body',[0,0,0.4],undefined,undefined,'#152532');
+    for (const side of [-1, 1]) {
+      ribbon(`apophis-helmet-gold-crest-${side}`, 'accent', [[-0.16 + side * 0.06, 3.38, 0.25], [-0.16 + side * 0.17, 3.2, 0.38], [-0.16 + side * 0.12, 2.83, 0.44], [-0.16 + side * 0.24, 2.65, 0.35]], 0.024, lightGold);
+      sphere(`apophis-guardian-red-eye-${side}`, 'eye', [-0.16 + side * 0.105, 2.84, 0.411], [0.07, 0.026, 0.025]);
+      cone(`apophis-guardian-ivory-chin-fang-${side}`, 'accent', [-0.16 + side * 0.17, 2.55, 0.46], [0.04,0.19,0.04], [Math.PI,0,side*0.15], ivory);
+      rod(`apophis-gold-brow-${side}`, 'accent', [-0.16 + side * 0.035, 2.89, 0.43], [-0.16 + side * 0.21, 2.94, 0.4], 0.026, 0.018, gold);
+      sphere(`apophis-black-pauldron-${side}`, 'body', [side * 0.55, 2.51, 0.01], [0.42, 0.26, 0.4]);
+      ribbon(`apophis-gold-shoulder-scroll-${side}`, 'accent', [[side * 0.2, 2.62, 0.32], [side * 0.39, 2.7, 0.37], [side * 0.71, 2.46, 0.38], [side * 0.88, 2.43, 0.29]], 0.042, lightGold);
+      ribbon(`apophis-gold-chest-rim-${side}`, 'accent', [[side * 0.16, 2.49, 0.37], [side * 0.38, 2.2, 0.45], [side * 0.29, 1.88, 0.5], [0, 1.76, 0.5]], 0.046, gold);
+      sphere(`apophis-chest-serpent-red-gem-${side}`, 'eye', [side * 0.15, 1.78, 0.58], [0.09, 0.115, 0.046]);
+      box(`apophis-chest-serpent-eye-slit-${side}`, 'dark', [side * 0.15,1.78,0.63],[0.018,0.17,0.012],undefined,'#172228');
+      rod(`apophis-chest-ivory-fang-${side}`, 'accent', [side * 0.13, 1.68, 0.52], [side * 0.2, 1.41, 0.55], 0.047, 0.003, ivory);
+      const elbow = [side * 0.89, 1.95, 0.22];
+      rod(`upper-arm-${side}-apophis`, 'dark', [side * 0.56, 2.47, 0.09], elbow, 0.16, 0.13, violet);
+      for (let i = 0; i < 4; i += 1) box(`apophis-arm-violet-scale-${side}-${i}`, 'dark', [side * (0.6 + i * 0.08), 2.4 - i * 0.12, 0.24], [0.25, 0.065, 0.09], [0, 0, side * 0.42], violet);
+      const wrist = side === 1 ? [0.65, 1.18, 0.72] : [-0.84, 1.1, 0.46];
+      rod(`gauntlet-${side}-apophis`, 'body', elbow, wrist, 0.18, 0.13);
+      sphere(`hand-${side}-apophis`, 'body', wrist, [0.16, 0.2, 0.12]);
+      sphere(`apophis-gold-hip-ring-${side}`, 'accent', [side * 0.46, 1.36, 0.15], [0.16, 0.2, 0.19], 0, gold);
+    }
+    // The illustrated blade is a long ivory crescent, with physical thickness.
+    const blade = new THREE.Shape();blade.moveTo(0.55, 1.06);blade.quadraticCurveTo(1.1, 1.55, 1.54, 2.28);blade.quadraticCurveTo(1.87, 2.96, 2.02, 3.91);blade.quadraticCurveTo(2.05, 2.65, 1.65, 1.91);blade.quadraticCurveTo(1.12, 1.21, 0.68, 0.89);blade.closePath();
+    part('sword-apophis-ivory-crescent-blade', new THREE.ExtrudeGeometry(blade, {depth:0.08,bevelEnabled:true,bevelThickness:0.012,bevelSize:0.012,bevelSegments:1,steps:1,curveSegments:8}), 'accent', [0,0,0.82], undefined, undefined, ivory);
+    rod('sword-apophis-dark-grip','body',[0.51,0.75,0.84],[0.69,1.17,0.84],0.06,0.06);
+    ribbon('sword-apophis-serpent-guard','accent',[[0.35,0.83,0.84],[0.28,1.09,0.86],[0.4,1.23,0.86],[0.52,1.17,0.86]],0.045,gold);
+    sphere('sword-apophis-red-hilt-eye','eye',[0.4,1.16,0.91],[0.045,0.065,0.03]);
+    // The lower gold ornament carries the literal red slit-eye motifs.
+    sphere('apophis-gold-serpent-ornament','accent',[0.87,1.01,0.64],[0.48,0.55,0.14],0,gold);
+    for(let i=0;i<3;i+=1){const x=0.6+i*0.27,y=0.82+Math.sin(i*1.6)*0.32;sphere(`apophis-ornament-red-eye-${i}`,'eye',[x,y,0.79],[0.105,0.135,0.045]);box(`apophis-ornament-dark-slit-${i}`,'dark',[x,y,0.84],[0.023,0.2,0.012],undefined,'#142025');}
+    return true;
+  }
   return false;
 }

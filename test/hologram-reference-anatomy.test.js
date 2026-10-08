@@ -118,3 +118,43 @@ test('three Field rule visuals are finite, distinct and dispose every geometry i
     assert.equal(effect.dispose(), false);
   }
 });
+
+test('official Trap Monster participants use distinct sculpted silver and cobra anatomy within the duel budget', async () => {
+  for (const [id, anatomy, landmarks, palette] of [
+    ['26905245', 'metal-reflect-slime', ['metal-slime-continuous-folded-coil', 'metal-slime-central-spiked-sphere', 'metal-slime-silver-radial-spike-8', 'metal-slime-long-downward-silver-point'], ['#e4ebe8', '#9d9388']],
+    ['28649820', 'armored-cobra-apophis', ['apophis-rear-raised-cobra-neck', 'apophis-rear-cobra-ivory-fang-1', 'apophis-purple-ventral-plate-7', 'sword-apophis-ivory-crescent-blade', 'apophis-guardian-red-eye-1'], ['#966084', '#ede2b9', '#d9a82e']]
+  ]) {
+    assert.ok(SUPPORTED_HOLOGRAM_MODEL_IDS.includes(id));
+    const model = createHologramMonsterModel({ id, name: 'localized participant', type: 'Trap Monster' });
+    assert.equal(model.userData.profile.anatomy, anatomy);
+    for (const landmark of landmarks) assert.ok(model.userData.partNames.includes(landmark), `${id}: ${landmark}`);
+    for (const color of palette) assert.ok(containsColor(model, color), `${id}: source palette ${color}`);
+    await access(new URL(`../public${model.userData.referenceArt}`, import.meta.url));
+    assert.ok(model.children.length <= 5);
+    assert.ok(model.userData.triangleCount <= 6000);
+    for (const mesh of model.children) {
+      assert.equal(mesh.material.map, null);
+      assert.equal(mesh.material.vertexColors, true);
+      assert.ok([...mesh.geometry.attributes.position.array, ...mesh.geometry.attributes.normal.array].every(Number.isFinite));
+      assert.equal(mesh.geometry.attributes.position.count, mesh.geometry.attributes.hologramJoint.count);
+    }
+    if (id === '26905245') assert.equal(model.userData.partNames.some(name => /(?:eye|face|wing|fish|leg)/.test(name)), false, 'the metallic source has no invented face or aquatic animal anatomy');
+    if (id === '28649820') {
+      const weaponVertices = model.children.flatMap(mesh => [...mesh.geometry.attributes.hologramJoint.array]).filter(value => value === HOLOGRAM_JOINTS.WEAPON);
+      assert.ok(weaponVertices.length > 300, 'the crescent, grip, guard and actual right arm share the attacking joint');
+    }
+    const positions = model.children.map(mesh => mesh.geometry.attributes.position.version);
+    const pose = createHologramPoseAnimation(model, { kind: 'attack' });
+    for (const progress of [0, .25, .5, .8]) assert.equal(pose.update(progress), true);
+    assert.deepEqual(model.children.map(mesh => mesh.geometry.attributes.position.version), positions, 'poses use the finite GPU rig without geometry uploads');
+    assert.equal(pose.update(1), false);
+    assert.deepEqual(model.userData.poseRig.pose.value.toArray(), [0, 0, 0, 0]);
+    pose.dispose();
+    const geometries = new Set(model.children.map(mesh => mesh.geometry));
+    let geometryDisposals = 0;
+    geometries.forEach(geometry => geometry.addEventListener('dispose', () => { geometryDisposals += 1; }));
+    release(model);
+    assert.equal(geometryDisposals, geometries.size);
+    assert.equal(model.userData.poseRig.disposed, true, 'releasing the material also releases depth/distance rig resources');
+  }
+});

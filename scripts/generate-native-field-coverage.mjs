@@ -3,7 +3,7 @@ import { pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
 import assert from 'node:assert/strict';
 
-const auditUrl = new URL('../docs/audits/artifacts/native-field-runtime-2026-10-07.json', import.meta.url);
+const auditUrl = new URL('../docs/audits/artifacts/native-field-runtime-2026-10-08.json', import.meta.url);
 const outputUrl = new URL('../src/ui/NativeFieldCoverageSnapshot.js', import.meta.url);
 
 /** A compact factual view, without shipping native scenario decks to the UI. */
@@ -23,7 +23,7 @@ export function nativeFieldCoverageSnapshot(report) {
     coreRevision: report.coreRevision, coreWasmSha256: report.coreWasmSha256,
     scriptsCommit: report.resources.sources.scripts.commit,
     databaseCommit: report.resources.sources.database.commit,
-    evidencePath: 'docs/audits/artifacts/native-field-runtime-2026-10-07.json', summary,
+    evidencePath: 'docs/audits/artifacts/native-field-runtime-2026-10-08.json', summary,
     bundledCardIds: ids('bundled'), initializedCardIds: ids('initialized'),
     effectTestedCardIds: ids('effectTested'), integrationTestedCardIds: ids('integrationTested'),
     scriptSourceOverrides: paths };

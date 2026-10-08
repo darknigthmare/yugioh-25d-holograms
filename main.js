@@ -309,6 +309,8 @@ function positionMobileBoardForPlayer() {
   const field = document.getElementById('parallax-container');
   if (!field || field.classList.contains('real-duel-view-active')) return;
   requestAnimationFrame(() => {
+    // A view change or resize can occur after this pan was scheduled.
+    if (window.innerWidth > 600 || field.classList.contains('real-duel-view-active')) return;
     field.scrollLeft = Math.max(0, (field.scrollWidth - field.clientWidth) / 2);
     field.scrollTop = Math.max(0, field.scrollHeight - field.clientHeight);
   });

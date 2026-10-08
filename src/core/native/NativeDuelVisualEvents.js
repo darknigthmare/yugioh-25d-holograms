@@ -527,6 +527,8 @@ export function translateNativeVisualEvents(message, context = {}) {
       for (const { from, to } of msg.cards ?? []) {
         context.publicCards.delete(locKey(from));
         context.publicCards.delete(locKey(to));
+        context.publicCodes.delete(locKey(from));
+        context.publicCodes.delete(locKey(to));
         add({ type: 'move', from: ref(from), to: ref(to), card: null, hidden: true, faceDown: true });
       }
       break;

@@ -26,10 +26,12 @@ test('all 339 catalogue Field Spells execute genuine Lua initial_effect in separ
   }
 });
 
-test('native audit uses MR5 plus both TCG SEGOC flags with unmodified scripts and card data', () => {
+test('native audit keeps upstream archives and card data intact with two explicit read-time rule corrections', () => {
   assert.deepEqual(report.flagNames, ['MODE_MR5', 'TCG_SEGOC_NONPUBLIC', 'TCG_SEGOC_FIRSTTRIGGER']);
-  assert.equal(report.fixture.modifiedScripts, false);
+  assert.equal(report.fixture.modifiedScripts, true);
   assert.equal(report.fixture.modifiedCardData, false);
+  assert.equal(report.fixture.upstreamArchiveBytesModified, false);
+  assert.deepEqual(report.scriptCorrections.map(row => row.cardId), [11808215, 43940008]);
   assert.equal(report.fixture.testMode, false);
   assert.equal(report.fixture.pseudoShuffle, false);
   const flags = BigInt(report.flags);
@@ -61,11 +63,11 @@ for (const scenario of report.scenarios) {
 }
 
 test('coverage distinguishes bundled, initialized, effect-tested and browser integration', () => {
-  assert.equal(report.summary.effectTested, 115);
-  assert.equal(report.summary.scenarios, 128);
+  assert.equal(report.summary.effectTested, 339);
+  assert.equal(report.summary.scenarios, 353);
   assert.equal(report.summary.passedScenarios, report.summary.scenarios);
   assert.equal(report.summary.integrationTested, 0);
-  assert.ok(report.matrix.some(entry => entry.initialized && !entry.effectTested));
+  assert.ok(report.matrix.every(entry => entry.initialized && entry.effectTested));
   for (const entry of report.matrix) {
     assert.equal(entry.integrationTested, false, 'headless execution cannot claim browser verification');
   }

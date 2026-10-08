@@ -30,6 +30,9 @@ def compiled_fingerprints(dist):
     css = re.search(r'href="([^"]+/index-[^"]+\.css)"', html).group(1).lstrip('/')
     paths = ['index.html', entry, css,
              str(next((dist / 'assets').glob('NativeDuelGame-*.js')).relative_to(dist)),
+             str(next((dist / 'assets').glob('NativeCardCatalogue-*.js')).relative_to(dist)),
+             str(next((dist / 'assets').glob('FieldEnvironmentRegistry-*.js')).relative_to(dist)),
+             str(next((dist / 'assets').glob('RealDuelView-*.js')).relative_to(dist)),
              str(next((dist / 'assets').glob('ocgcore-*.js')).relative_to(dist)),
              'native/ocgcore.sync.wasm', 'native/card-data.json', 'native/scripts.json']
     return {path: {'bytes': (dist / path).stat().st_size,
@@ -43,6 +46,8 @@ def served_fingerprints(request, base_url):
     def read(path):
         response = request.get(base_url.rstrip('/') + '/' + path)
         assert response.status == 200, (path, response.status)
+        if not path:
+            assert response.headers.get('content-security-policy') == production_headers()['Content-Security-Policy'], 'Served CSP differs from production headers'
         body = response.body()
         found[path or 'index.html'] = {'bytes': len(body), 'sha256': hashlib.sha256(body).hexdigest()}
         return body
@@ -54,6 +59,10 @@ def served_fingerprints(request, base_url):
     read(css)
     facade = str(Path(entry).parent / re.search(r'NativeDuelGame-[A-Za-z0-9_-]+\.js', entry_body).group(0))
     facade_body = read(facade).decode()
+    for prefix in ['NativeCardCatalogue', 'FieldEnvironmentRegistry', 'RealDuelView']:
+        chunk = re.search(prefix + r'-[A-Za-z0-9_-]+\.js', entry_body + '\n' + facade_body)
+        assert chunk, f'{prefix} lazy chunk missing from the compiled entry'
+        read(str(Path(entry).parent / chunk.group(0)))
     wrapper = str(Path(facade).parent / re.search(r'ocgcore-[A-Za-z0-9_-]+\.js', facade_body).group(0))
     read(wrapper)
     for path in ['native/ocgcore.sync.wasm', 'native/card-data.json', 'native/scripts.json']:
@@ -406,7 +415,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--base-url')
     parser.add_argument('--dist', type=Path, default=ROOT / 'dist')
-    parser.add_argument('--output', type=Path, default=ROOT / 'docs/audits/artifacts/native-duel-ui-2026-10-07')
+    parser.add_argument('--output', type=Path, default=ROOT / 'docs/audits/artifacts/native-duel-ui-2026-10-08')
+    parser.add_argument('--audit-date', default='2026-10-08')
     parser.add_argument('--chromium', default='/usr/bin/chromium')
     parser.add_argument('--only-ravine', action='store_true', help='Debug the cost flow without rerunning completed viewport flows')
     args = parser.parse_args()
@@ -420,7 +430,9 @@ def main():
         server = ThreadingHTTPServer(('127.0.0.1', 0), functools.partial(AuditServer, directory=str(args.dist)))
         threading.Thread(target=server.serve_forever, daemon=True).start()
         args.base_url = f'http://127.0.0.1:{server.server_port}'
-    report = {'ok': False, 'target': 'compiled production bundle', 'productionCsp': headers['Content-Security-Policy'], 'viewports': [], 'ravineCost': {}}
+    report = {'ok': False, 'generatedOn': args.audit_date, 'target': 'compiled production bundle',
+              'productionCsp': headers['Content-Security-Policy'], 'viewports': [], 'ravineCost': {},
+              'auditSourceSha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
     report_path = args.output / ('ravine-debug-report.json' if args.only_ravine else 'report.json')
     draft, rows = custom_deck_fixture()
     try:
@@ -460,6 +472,8 @@ def main():
                 assert compiled_before == compiled_after, 'Local compiled snapshot changed during the audit'
             browser.close()
         report['ok'] = True
+        report['captureSha256'] = {path.name: hashlib.sha256(path.read_bytes()).hexdigest()
+                                  for path in sorted(args.output.glob('native-*.png'))}
     except Exception as error:
         report['failure'] = {'type': type(error).__name__, 'message': str(error)[:1200]}
         raise

@@ -763,6 +763,10 @@ export class RealDuelView {
           throw new Error('The true 3D renderer could not be activated.');
         }
         this.dom3DAdapter?.activate?.();
+        // Compact/Arena can leave the mobile host panned. Hidden overflow
+        // retains that offset and would shift both renderers and camera controls.
+        this.fieldElement.scrollLeft = 0;
+        this.fieldElement.scrollTop = 0;
         this._resize3D();
         this._syncFieldHolograms();
       }

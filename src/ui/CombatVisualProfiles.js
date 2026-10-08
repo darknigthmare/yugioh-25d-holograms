@@ -26,6 +26,8 @@ const CARD_PROFILES = Object.freeze({
   '77637979': { id: 'lanphorhynchus', family: 'dragon', digital: true, body: '#35518e', accent: '#68e7ff', eye: '#edfe6d', attack: 'cyber-beam' },
   '20721928': { id: 'elemental-hero-sparkman', family: 'warrior', body: '#293865', accent: '#d7c16f', eye: '#93f5f0', attack: 'spark-bolt', anatomy: 'sparkman', referenceArt: '/cards/cropped/20721928.jpg' },
   '68638985': { id: 'slime-toad', family: 'aquatic', body: '#168955', accent: '#319a68', eye: '#d5c948', attack: 'water', anatomy: 'slime-toad', referenceArt: '/cards/cropped/68638985.jpg' },
+  '26905245': { id: 'metal-reflect-slime', family: 'aquatic', body: '#82766d', accent: '#e6ebe8', eye: '#ffffff', attack: 'impact', anatomy: 'metal-reflect-slime', referenceArt: '/cards/cropped/26905245.jpg' },
+  '28649820': { id: 'embodiment-of-apophis', family: 'warrior', body: '#18252c', accent: '#40677d', eye: '#ec233d', attack: 'blade', anatomy: 'armored-cobra-apophis', referenceArt: '/cards/cropped/28649820.jpg' },
   '39552864': { id: 'mystical-shine-ball', family: 'orb', body: '#e3eef1', accent: '#c6eeff', eye: '#f8fffa', attack: 'faith-light', anatomy: 'shine-ball', referenceArt: '/cards/cropped/39552864.jpg' }
 });
 

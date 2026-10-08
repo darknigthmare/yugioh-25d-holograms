@@ -490,12 +490,49 @@ test('Pseudo Space exposes its native current Wetlands name while preserving phy
   }finally{game.dispose();}
 });
 
+test('Call of the Forgotten sets three Traps through the public game facade without decoder failure or hidden identity leakage', async () => {
+  const f = await fixture({ decide: info => {
+    if (info.prompt.type !== info.C.OcgMessageType.SELECT_CARD) return info.response;
+    assert.equal(info.prompt.selects.length, 3);
+    assert.ok(info.prompt.selects.every(card => card.code === 97077563 && card.location === info.C.OcgLocation.DECK));
+    assert.equal(info.prompt.min, 1); assert.equal(info.prompt.max, 3);
+    return { type: info.C.OcgResponseType.SELECT_CARD, indicies: [0, 1, 2] };
+  } });
+  const { game, C, add } = f;
+  try {
+    add(80749819, C.OcgLocation.HAND); add(45894482, C.OcgLocation.HAND);
+    add(89631139, C.OcgLocation.MZONE, 0, { side: 'opponent' });
+    for (let i = 0; i < 3; i++) add(97077563, C.OcgLocation.DECK);
+    await f.start();
+    assert.ok(game.pendingNativeDecision.special_summons.some(card => card.code === 45894482));
+    const field = game.playerHand.find(card => card.id === 80749819);
+    assert.equal(await game.activateFieldSpellFromHand(field.uid), true);
+    const traps = game.getSideState('player').spells.filter(card => card?.id === 97077563);
+    assert.equal(traps.length, 3);
+    const selection = f.decisions.find(({ prompt }) => prompt.type === C.OcgMessageType.SELECT_CARD);
+    assert.deepEqual(selection.response.indicies, [0, 1, 2]);
+    assert.ok(traps.every(card => card.isSetFaceDown));
+    assert.equal(game.pendingNativeDecision.special_summons.some(card => card.code === 45894482), false);
+    const shuffle = f.messages.find(message => message.type === C.OcgMessageType.SHUFFLE_SET_CARD);
+    assert.equal(shuffle.cards.length, 3);
+    assert.deepEqual(new Set(shuffle.cards.map(card => card.from.sequence)), new Set([0,1,2]));
+    assert.ok(shuffle.cards.every(card => card.to.location === 0 && card.to.sequence === 0 && card.to.position === 0));
+    assert.ok(f.events.filter(event => event.type === 'move' && event.hidden && event.to === null).length >= 3);
+    f.observe('Three real Sets resolve; shuffled identities are masked', { trapCount: traps.length,
+      nonZombieSpecialSummonForbidden: true, hiddenPermutation: true });
+    f.finish('Call of the Forgotten / three Sets / native restriction / masked shuffle');
+  } finally { game.dispose(); }
+});
+
 after(async () => {
   const resources = await resourcesPromise;
   const hash = bytes => createHash('sha256').update(bytes).digest('hex');
   const files = ['public/native/ocgcore.sync.wasm', 'public/native/card-data.json', 'public/native/scripts.json',
     'src/core/native/vendor/ocgcore/index.js', 'src/core/native/NativeDuelGame.js',
     'src/core/native/NativeCardCharacteristics.js', 'src/core/native/NativeDuelVisualEvents.js',
+    'src/core/native/NativeDuelRuntime.js', 'src/core/native/NativeCardScriptCorrections.js',
+    'src/core/native/NativeDiceDungeonScriptCorrection.js', 'src/core/native/NativeDuelTowerScriptCorrection.js',
+    'src/core/native/NativeSourceIntegrity.js',
     'src/ui/PublicDuelVisuals.js', 'tests/native-duel-chain-interactions.test.mjs'];
   const sourceHashes = Object.fromEntries(await Promise.all(files.map(async path => [path, hash(await readFile(new URL(`../${path}`, import.meta.url)))])));
   const scripts = [...allUsedCodes].sort((a, b) => a - b).map(code => {
@@ -506,8 +543,8 @@ after(async () => {
   });
   const directory = new URL('../docs/audits/artifacts/', import.meta.url);
   await mkdir(directory, { recursive: true });
-  await writeFile(new URL('native-chain-interactions-2026-10-07.json', directory),
-    JSON.stringify({ date: '2026-10-07', engine: 'official ocgcore ABI 11.0 / EDOPro 38d04c9f', flags: String(NATIVE_TCG_DUEL_FLAGS),
+  await writeFile(new URL('native-chain-interactions-2026-10-08.json', directory),
+    JSON.stringify({ date: '2026-10-08', engine: 'official ocgcore ABI 11.0 / EDOPro 38d04c9f', flags: String(NATIVE_TCG_DUEL_FLAGS),
       declaredFixturesOnly: true, debugApi: false, testMode: false, pseudoShuffle: false, postStartInjection: false,
       sourceHashes, scripts, cases: evidence }, null, 2) + '\n');
 });

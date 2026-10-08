@@ -1,0 +1,649 @@
+{
+  "ok": false,
+  "target": "immutable final compiled production bundle",
+  "requireStatBounds": true,
+  "testedIndexAsset": "/assets/index-6LJgo1se.js",
+  "testedIndexSha256": "7a58373020e1c3691c3a4491cc3a4f00c9384bb239402ec930920547b61f813e",
+  "testedWasmSha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+  "productionCsp": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://db.ygoprodeck.com; media-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests",
+  "compiledSnapshotBefore": {
+    "index.html": {
+      "bytes": 35408,
+      "sha256": "9ff914005d1b801face5dba4eeeef154b806210cd655ae420830f8b34f3a9f02"
+    },
+    "assets/index-6LJgo1se.js": {
+      "bytes": 598618,
+      "sha256": "7a58373020e1c3691c3a4491cc3a4f00c9384bb239402ec930920547b61f813e"
+    },
+    "assets/index-BbUkbKmn.css": {
+      "bytes": 82371,
+      "sha256": "71afb732ab7152dc319dfb6b72812913e23121c24f251ef80e0b69c61e0e749e"
+    },
+    "native/ocgcore.sync.wasm": {
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    },
+    "native/card-data.json": {
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    "native/scripts.json": {
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    },
+    "assets/NativeDuelGame-DoVV8df_.js": {
+      "bytes": 83510,
+      "sha256": "ecc376c29441908852136953db43c95a5ca418ddb259751f62be0ed5909e0149"
+    },
+    "assets/ocgcore-CD-0GSYr.js": {
+      "bytes": 1746,
+      "sha256": "b1f89f17cb28ecf81f6f3d3c2903dd31c89ac28d0b579fe991dd342e1fc12738"
+    },
+    "assets/FieldEnvironmentRegistry-Bv70irwA.js": {
+      "bytes": 595263,
+      "sha256": "bfc14aa98ac8ac1e7ddbdfed7949539c51a6e6b9e3866c0af7190a6d084db062"
+    },
+    "assets/FieldGeometryThree-vJgK0QSV.js": {
+      "bytes": 534563,
+      "sha256": "029edd52363bea6334afe124e6c0a5fc45b60b39cc416cfdaf6b6319dbbb8a38"
+    },
+    "assets/FieldSpellAtlas-BvxipQcg.js": {
+      "bytes": 19380,
+      "sha256": "5c8d7f2ff0780d2084907d39574f65bbead5554d22375bc265d345ab84468edc"
+    },
+    "assets/FieldSpellAtlasPreview-DHgaVA6G.js": {
+      "bytes": 2823,
+      "sha256": "3a332e59139275025a36902ee893ae301232fb0105f68fdd8c198613a4462c2b"
+    },
+    "assets/FieldSpellCardDataSnapshot-DzxkUNrK.js": {
+      "bytes": 169821,
+      "sha256": "ed2484f6797eac2124cdb6a76d8ec20076f9e79cf05008a0183e26a7fd046b3f"
+    },
+    "assets/FieldSpellRules-DLBFReUe.js": {
+      "bytes": 20919,
+      "sha256": "9b95b5d0b3ac46a7d7cade8d2bed65565dcbb1310d494d9344f61ed12a57f54e"
+    },
+    "assets/NativeCardCatalogue-DTPgfGLD.js": {
+      "bytes": 53587,
+      "sha256": "aff54529b3dcdccbcc3839faf571fb9cc27226d80e61dcb98c05f65bff15cbe0"
+    },
+    "assets/RealDuelView-DEvyJ5W4.js": {
+      "bytes": 135102,
+      "sha256": "f6950b781cffae58a0750db4fa7293fcf5d50688bfc887dff47108f282cbe505"
+    },
+    "assets/ocgcore.sync-MMMSWPBB-2LWfD6lX.js": {
+      "bytes": 20718,
+      "sha256": "433b02687ca9a24dcc846c11d7578d40ba5ab87d1b1321d5d22cd879fae58ed6"
+    },
+    "cards/reference/26905245.jpg": {
+      "bytes": 171127,
+      "sha256": "9377a21d60345e052e0564bc38910199f6593c7247791a7805a0ee23e97597bd"
+    },
+    "cards/reference/28649820.jpg": {
+      "bytes": 158154,
+      "sha256": "d4bf7c195cd988b1796f07dddc2ad0f7781e4f5bff20731a8ec33884132686b8"
+    },
+    "cards/cropped/26905245.jpg": {
+      "bytes": 165498,
+      "sha256": "da4105f998aea65251d2c1f0e3c92ae1802012ddfdb482b997fdbda59846aa60"
+    },
+    "cards/cropped/28649820.jpg": {
+      "bytes": 141263,
+      "sha256": "eaaeb38bcd2dfa389d96e5769fb978e8ebf04b9ce2d79b5a6dd67ce094797895"
+    }
+  },
+  "generatedOn": "2026-10-08",
+  "sourceAuditSha256": "449b993b0221c064a29788818b33862eb2f8095f1103d4ab361d60c0beb25e57",
+  "sourceHelperSha256": "0dd4443ef82f496fb398587b9be06c99d953f57c4a48e48cd470fdacbb311c18",
+  "settleTimeoutSeconds": 120,
+  "limits": [
+    "Public production controls and observable DOM only; WebGL resource counters observe graphics API allocation/deletion without accessing a game object.",
+    "The cached Real renderer intentionally retains live resources in compact view; three cycles verify stable allocation counts, not zero GPU memory on view switch.",
+    "Complete model disposal is verified separately by audit-trap-monster-models.py.",
+    "Native summon pose captures are legal Special Summon presentation frames; Metal Reflect Slime remains unable to attack."
+  ],
+  "sourceFacadeSha256": "2c727a2cc433ef84eb6892722504322edb363efa4edb3ff83d2f2dabb047b461",
+  "registeredFixture": {
+    "main": [
+      "89631139",
+      "89631139",
+      "89631139",
+      "46986414",
+      "12607053",
+      "46986414",
+      "76812113",
+      "97590747",
+      "97590747",
+      "15025844",
+      "15025844",
+      "26905245",
+      "70781052",
+      "70781052",
+      "28649820",
+      "5053103",
+      "5053103",
+      "5053103",
+      "97590747",
+      "76812113",
+      "76812113",
+      "91152256",
+      "91152256",
+      "91152256",
+      "32452818",
+      "14315573",
+      "32452818",
+      "91939608",
+      "91939608",
+      "91939608",
+      "15025844",
+      "26905245",
+      "70781052",
+      "28649820",
+      "46986414",
+      "12607053",
+      "12607053",
+      "32452818",
+      "14315573",
+      "14315573"
+    ],
+    "extra": [],
+    "side": []
+  },
+  "qaHook": false,
+  "postStartInjection": false,
+  "viewports": [
+    {
+      "width": 1280,
+      "height": 900,
+      "requireStatBounds": true,
+      "checks": {
+        "validFortyCardRegistrationAndRealShuffle": true,
+        "bothTrapsSetThroughControls": true,
+        "slimePublicNativeMonster": {
+          "publicCode": "26905245",
+          "category": "monster",
+          "zone": 0,
+          "position": "defense",
+          "hologram": true,
+          "hologramAttribute": "water",
+          "attack": "ATK 0",
+          "defense": "DEF 3000",
+          "label": "Metal Reflect Slime, ATK 0, DEF 3000",
+          "referenceArt": {
+            "full": {
+              "path": "/cards/reference/26905245.jpg",
+              "width": 813,
+              "height": 1185,
+              "complete": true
+            },
+            "cropped": {
+              "path": "/cards/cropped/26905245.jpg",
+              "width": 624,
+              "height": 624,
+              "complete": true
+            }
+          },
+          "inspector": {
+            "title": "Metal Reflect Slime",
+            "type": "Trap Effect Monster",
+            "stats": "ATK 0 DEF 3000 ★★★★★★★★★★",
+            "statBounds": {
+              "checked": true,
+              "spans": [
+                {
+                  "text": "ATK 0",
+                  "withinInspector": true,
+                  "textFitsSpan": true,
+                  "width": 48,
+                  "textWidth": 48
+                },
+                {
+                  "text": "DEF 3000",
+                  "withinInspector": true,
+                  "textFitsSpan": true,
+                  "width": 81,
+                  "textWidth": 81
+                }
+              ],
+              "allFit": true
+            }
+          }
+        },
+        "nextTurnNativePositionChangeThroughMenu": true,
+        "apophisPublicNativeMonster": {
+          "publicCode": "28649820",
+          "category": "monster",
+          "zone": 1,
+          "position": "defense",
+          "hologram": true,
+          "hologramAttribute": "earth",
+          "attack": "ATK 1600",
+          "defense": "DEF 1800",
+          "label": "Embodiment of Apophis, ATK 1600, DEF 1800",
+          "referenceArt": {
+            "full": {
+              "path": "/cards/reference/28649820.jpg",
+              "width": 813,
+              "height": 1185,
+              "complete": true
+            },
+            "cropped": {
+              "path": "/cards/cropped/28649820.jpg",
+              "width": 624,
+              "height": 624,
+              "complete": true
+            }
+          },
+          "inspector": {
+            "title": "Embodiment of Apophis",
+            "type": "Trap Normal Monster",
+            "stats": "ATK 1600 DEF 1800 ★★★★",
+            "statBounds": {
+              "checked": true,
+              "spans": [
+                {
+                  "text": "ATK 1600",
+                  "withinInspector": true,
+                  "textFitsSpan": true,
+                  "width": 76,
+                  "textWidth": 76
+                },
+                {
+                  "text": "DEF 1800",
+                  "withinInspector": true,
+                  "textFitsSpan": true,
+                  "width": 75,
+                  "textWidth": 75
+                }
+              ],
+              "allFit": true
+            }
+          }
+        },
+        "threeViewsAndReturnSharePublicState": true,
+        "bothModelsUseActualRealCanvas": true,
+        "cachedRendererDoesNotGrowAcrossThreeCycles": true,
+        "opponentConcealment": {
+          "count": 3,
+          "safe": true
+        },
+        "fourExactJpegsLoadedWith200": [
+          "/cards/cropped/26905245.jpg",
+          "/cards/cropped/28649820.jpg",
+          "/cards/reference/26905245.jpg",
+          "/cards/reference/28649820.jpg"
+        ]
+      },
+      "presentations": [
+        {
+          "mode": "compact",
+          "samePublicState": true,
+          "webglCanvasVisible": false
+        },
+        {
+          "mode": "arena",
+          "samePublicState": true,
+          "webglCanvasVisible": false
+        },
+        {
+          "mode": "real",
+          "samePublicState": true,
+          "webglCanvasVisible": true
+        },
+        {
+          "mode": "compact",
+          "samePublicState": true,
+          "webglCanvasVisible": false
+        }
+      ],
+      "gpuStableStateBeforeCycles": [
+        {
+          "lost": false,
+          "created": {
+            "Buffer": 578,
+            "Texture": 6,
+            "Program": 24,
+            "Shader": 48,
+            "Framebuffer": 4,
+            "Renderbuffer": 1,
+            "VertexArray": 225,
+            "Sampler": 0,
+            "Query": 0,
+            "TransformFeedback": 0
+          },
+          "deleted": {
+            "Buffer": 363,
+            "Texture": 0,
+            "Program": 9,
+            "Shader": 48,
+            "Framebuffer": 0,
+            "Renderbuffer": 0,
+            "VertexArray": 108,
+            "Sampler": 0,
+            "Query": 0,
+            "TransformFeedback": 0
+          },
+          "live": {
+            "Buffer": 215,
+            "Texture": 6,
+            "Program": 15,
+            "Shader": 0,
+            "Framebuffer": 4,
+            "Renderbuffer": 1,
+            "VertexArray": 117,
+            "Sampler": 0,
+            "Query": 0,
+            "TransformFeedback": 0
+          }
+        }
+      ],
+      "gpuCycles": [
+        {
+          "cycle": 1,
+          "sameLiveResourceCounts": true,
+          "snapshots": [
+            {
+              "lost": false,
+              "created": {
+                "Buffer": 578,
+                "Texture": 6,
+                "Program": 24,
+                "Shader": 48,
+                "Framebuffer": 4,
+                "Renderbuffer": 1,
+                "VertexArray": 225,
+                "Sampler": 0,
+                "Query": 0,
+                "TransformFeedback": 0
+              },
+              "deleted": {
+                "Buffer": 363,
+                "Texture": 0,
+                "Program": 9,
+                "Shader": 48,
+                "Framebuffer": 0,
+                "Renderbuffer": 0,
+                "VertexArray": 108,
+                "Sampler": 0,
+                "Query": 0,
+                "TransformFeedback": 0
+              },
+              "live": {
+                "Buffer": 215,
+                "Texture": 6,
+                "Program": 15,
+                "Shader": 0,
+                "Framebuffer": 4,
+                "Renderbuffer": 1,
+                "VertexArray": 117,
+                "Sampler": 0,
+                "Query": 0,
+                "TransformFeedback": 0
+              }
+            }
+          ]
+        },
+        {
+          "cycle": 2,
+          "sameLiveResourceCounts": true,
+          "snapshots": [
+            {
+              "lost": false,
+              "created": {
+                "Buffer": 578,
+                "Texture": 6,
+                "Program": 24,
+                "Shader": 48,
+                "Framebuffer": 4,
+                "Renderbuffer": 1,
+                "VertexArray": 225,
+                "Sampler": 0,
+                "Query": 0,
+                "TransformFeedback": 0
+              },
+              "deleted": {
+                "Buffer": 363,
+                "Texture": 0,
+                "Program": 9,
+                "Shader": 48,
+                "Framebuffer": 0,
+                "Renderbuffer": 0,
+                "VertexArray": 108,
+                "Sampler": 0,
+                "Query": 0,
+                "TransformFeedback": 0
+              },
+              "live": {
+                "Buffer": 215,
+                "Texture": 6,
+                "Program": 15,
+                "Shader": 0,
+                "Framebuffer": 4,
+                "Renderbuffer": 1,
+                "VertexArray": 117,
+                "Sampler": 0,
+                "Query": 0,
+                "TransformFeedback": 0
+              }
+            }
+          ]
+        },
+        {
+          "cycle": 3,
+          "sameLiveResourceCounts": true,
+          "snapshots": [
+            {
+              "lost": false,
+              "created": {
+                "Buffer": 578,
+                "Texture": 6,
+                "Program": 24,
+                "Shader": 48,
+                "Framebuffer": 4,
+                "Renderbuffer": 1,
+                "VertexArray": 225,
+                "Sampler": 0,
+                "Query": 0,
+                "TransformFeedback": 0
+              },
+              "deleted": {
+                "Buffer": 363,
+                "Texture": 0,
+                "Program": 9,
+                "Shader": 48,
+                "Framebuffer": 0,
+                "Renderbuffer": 0,
+                "VertexArray": 108,
+                "Sampler": 0,
+                "Query": 0,
+                "TransformFeedback": 0
+              },
+              "live": {
+                "Buffer": 215,
+                "Texture": 6,
+                "Program": 15,
+                "Shader": 0,
+                "Framebuffer": 4,
+                "Renderbuffer": 1,
+                "VertexArray": 117,
+                "Sampler": 0,
+                "Query": 0,
+                "TransformFeedback": 0
+              }
+            }
+          ]
+        }
+      ],
+      "failurePublicControlStateBeforeCapture": {
+        "status": "Votre tour — Main Phase 1",
+        "phases": [
+          "phase-main1"
+        ],
+        "endTurn": {
+          "disabled": false,
+          "visible": true
+        },
+        "nextPhase": {
+          "disabled": false,
+          "visible": true
+        },
+        "decision": null,
+        "log": [
+          "Vue Arène activée : le plateau et les hologrammes sont espacés.",
+          "Vue Réelle 3D activée : vous êtes derrière votre console, face à l’adversaire.",
+          "Vue Compacte activée.",
+          "Vue Arène activée : le plateau et les hologrammes sont espacés.",
+          "Vue Réelle 3D activée : vous êtes derrière votre console, face à l’adversaire.",
+          "Vue Compacte activée.",
+          "Vue Arène activée : le plateau et les hologrammes sont espacés.",
+          "Vue Réelle 3D activée : vous êtes derrière votre console, face à l’adversaire.",
+          "Vue Compacte activée.",
+          "Vue Arène activée : le plateau et les hologrammes sont espacés.",
+          "Vue Réelle 3D activée : vous êtes derrière votre console, face à l’adversaire.",
+          "Vue Compacte activée."
+        ]
+      }
+    }
+  ],
+  "failure": {
+    "type": "AssertionError",
+    "message": "{'errors': [], 'failed': [{'path': '/cards/small/26905245.jpg', 'status': 404}, {'path': '/cards/small/26905245.jpg', 'status': 404}, {'path': '/cards/small/28649820.jpg', 'status': 404}, {'path': '/cards/small/28649820.jpg', 'status': 404}], 'csp': []}"
+  },
+  "captures": {
+    "chain-apophis-details-1280.png": {
+      "bytes": 796272,
+      "sha256": "ec047ce624717d49048dd554d62b438e814bbcb6c58254f28c45cd6ec97b196c"
+    },
+    "chain-apophis-native-summon-pose-1280.png": {
+      "bytes": 798518,
+      "sha256": "9f0aba48ccfc311608cc38a6d874ae6092f907c79ba1c1d099520a064388fc3f"
+    },
+    "chain-arena-1280.png": {
+      "bytes": 696968,
+      "sha256": "241d5dddfdd94c10cecf265466e9bb415019e9fea2e37b876f7f6312a9e408ba"
+    },
+    "chain-compact-1280.png": {
+      "bytes": 646680,
+      "sha256": "0dc4af334ef6b0ce868cbffc1880c4d72b08b6ea91a24b3efa2734f55b32792c"
+    },
+    "chain-real-1280.png": {
+      "bytes": 800105,
+      "sha256": "6211c79c0149c74224ec016668c9bcd87bbce67be2579fbd0d9670d7381534fd"
+    },
+    "chain-real-camera-console-1280.png": {
+      "bytes": 798982,
+      "sha256": "998a545511a969b2f4e62aab981fd2ba322a47a151dd0c60c8ac181c89cd9c4c"
+    },
+    "chain-real-camera-diagonal-left-1280.png": {
+      "bytes": 1034119,
+      "sha256": "0ccf9aa3a4f2de0dedb8bd8d9bcc8cd46b7df869eda37148910f522fa64a8821"
+    },
+    "chain-real-camera-player-1280.png": {
+      "bytes": 971933,
+      "sha256": "10c008696e29ba35288c40713faa813858a8dbd02236e93d60e6db873163a627"
+    },
+    "chain-registration-1280.png": {
+      "bytes": 132111,
+      "sha256": "b2552932965bcab739d28b432ad36d2e837a68eca91f9d3e2d63561d622927fd"
+    },
+    "chain-set-1280.png": {
+      "bytes": 507383,
+      "sha256": "52e1a0d9f24bf771522e654b5e7c675dd244699335d337c71f295d9e1bb34b37"
+    },
+    "chain-slime-details-1280.png": {
+      "bytes": 744738,
+      "sha256": "d3e3533df9a8a1e45abd6547001e3f6c120c6eda5ef1cc7f3c10963961959720"
+    },
+    "chain-slime-native-summon-pose-1280.png": {
+      "bytes": 130299,
+      "sha256": "79829f4519aa730975970247eb632a16e4d09361fc2c786cea38c86d32b7d674"
+    }
+  },
+  "compiledSnapshotAfter": {
+    "index.html": {
+      "bytes": 35408,
+      "sha256": "9ff914005d1b801face5dba4eeeef154b806210cd655ae420830f8b34f3a9f02"
+    },
+    "assets/index-6LJgo1se.js": {
+      "bytes": 598618,
+      "sha256": "7a58373020e1c3691c3a4491cc3a4f00c9384bb239402ec930920547b61f813e"
+    },
+    "assets/index-BbUkbKmn.css": {
+      "bytes": 82371,
+      "sha256": "71afb732ab7152dc319dfb6b72812913e23121c24f251ef80e0b69c61e0e749e"
+    },
+    "native/ocgcore.sync.wasm": {
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    },
+    "native/card-data.json": {
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    "native/scripts.json": {
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    },
+    "assets/NativeDuelGame-DoVV8df_.js": {
+      "bytes": 83510,
+      "sha256": "ecc376c29441908852136953db43c95a5ca418ddb259751f62be0ed5909e0149"
+    },
+    "assets/ocgcore-CD-0GSYr.js": {
+      "bytes": 1746,
+      "sha256": "b1f89f17cb28ecf81f6f3d3c2903dd31c89ac28d0b579fe991dd342e1fc12738"
+    },
+    "assets/FieldEnvironmentRegistry-Bv70irwA.js": {
+      "bytes": 595263,
+      "sha256": "bfc14aa98ac8ac1e7ddbdfed7949539c51a6e6b9e3866c0af7190a6d084db062"
+    },
+    "assets/FieldGeometryThree-vJgK0QSV.js": {
+      "bytes": 534563,
+      "sha256": "029edd52363bea6334afe124e6c0a5fc45b60b39cc416cfdaf6b6319dbbb8a38"
+    },
+    "assets/FieldSpellAtlas-BvxipQcg.js": {
+      "bytes": 19380,
+      "sha256": "5c8d7f2ff0780d2084907d39574f65bbead5554d22375bc265d345ab84468edc"
+    },
+    "assets/FieldSpellAtlasPreview-DHgaVA6G.js": {
+      "bytes": 2823,
+      "sha256": "3a332e59139275025a36902ee893ae301232fb0105f68fdd8c198613a4462c2b"
+    },
+    "assets/FieldSpellCardDataSnapshot-DzxkUNrK.js": {
+      "bytes": 169821,
+      "sha256": "ed2484f6797eac2124cdb6a76d8ec20076f9e79cf05008a0183e26a7fd046b3f"
+    },
+    "assets/FieldSpellRules-DLBFReUe.js": {
+      "bytes": 20919,
+      "sha256": "9b95b5d0b3ac46a7d7cade8d2bed65565dcbb1310d494d9344f61ed12a57f54e"
+    },
+    "assets/NativeCardCatalogue-DTPgfGLD.js": {
+      "bytes": 53587,
+      "sha256": "aff54529b3dcdccbcc3839faf571fb9cc27226d80e61dcb98c05f65bff15cbe0"
+    },
+    "assets/RealDuelView-DEvyJ5W4.js": {
+      "bytes": 135102,
+      "sha256": "f6950b781cffae58a0750db4fa7293fcf5d50688bfc887dff47108f282cbe505"
+    },
+    "assets/ocgcore.sync-MMMSWPBB-2LWfD6lX.js": {
+      "bytes": 20718,
+      "sha256": "433b02687ca9a24dcc846c11d7578d40ba5ab87d1b1321d5d22cd879fae58ed6"
+    },
+    "cards/reference/26905245.jpg": {
+      "bytes": 171127,
+      "sha256": "9377a21d60345e052e0564bc38910199f6593c7247791a7805a0ee23e97597bd"
+    },
+    "cards/reference/28649820.jpg": {
+      "bytes": 158154,
+      "sha256": "d4bf7c195cd988b1796f07dddc2ad0f7781e4f5bff20731a8ec33884132686b8"
+    },
+    "cards/cropped/26905245.jpg": {
+      "bytes": 165498,
+      "sha256": "da4105f998aea65251d2c1f0e3c92ae1802012ddfdb482b997fdbda59846aa60"
+    },
+    "cards/cropped/28649820.jpg": {
+      "bytes": 141263,
+      "sha256": "eaaeb38bcd2dfa389d96e5769fb978e8ebf04b9ce2d79b5a6dd67ce094797895"
+    }
+  },
+  "immutableCompiledSnapshot": true
+}

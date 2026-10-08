@@ -1,0 +1,222 @@
+{
+  "generatedOn": "2026-10-08",
+  "target": "frozen compiled production bundle served locally with production CSP",
+  "buildRevision": "BUILD_FINAL2 after real-view scroll correction; stable two-frame capture gate",
+  "essentialManifestFileCount": 7,
+  "fingerprintedFileCount": 11,
+  "essentialManifestMatched": true,
+  "allThreeAuditsMatchedSameBuild": true,
+  "productionCspMatched": true,
+  "responseAndLocalFingerprints": {
+    "index.html": {
+      "bytes": 35408,
+      "sha256": "30bf78a66cda62f4a4b7b6617ad330ee2c983e5564a51dfff539882b75d3baaf"
+    },
+    "assets/index-DNwe3FSS.js": {
+      "bytes": 598690,
+      "sha256": "38c428237545d8290e07229c5efdda93441dd1088234c31e64aa6ef3f8b59321"
+    },
+    "assets/index-BbUkbKmn.css": {
+      "bytes": 82371,
+      "sha256": "71afb732ab7152dc319dfb6b72812913e23121c24f251ef80e0b69c61e0e749e"
+    },
+    "assets/NativeDuelGame-DocEeHOq.js": {
+      "bytes": 83510,
+      "sha256": "045f647667c998076ba0d3e63433f3015c27cae705bf17546faf49f708e144fb"
+    },
+    "assets/NativeCardCatalogue-DYOc9sug.js": {
+      "bytes": 54064,
+      "sha256": "52372b0fa09af406267d3091d1c476e20572bc62b9f4ecb499f19bb9dd6d1e2b"
+    },
+    "assets/FieldEnvironmentRegistry-Bv70irwA.js": {
+      "bytes": 595263,
+      "sha256": "bfc14aa98ac8ac1e7ddbdfed7949539c51a6e6b9e3866c0af7190a6d084db062"
+    },
+    "assets/RealDuelView-P3kgZYMk.js": {
+      "bytes": 135163,
+      "sha256": "8eff318aa606a12673082fdc532b2640f66eebb177b0849f2103370e0fe4e463"
+    },
+    "assets/ocgcore-CUv6jKK5.js": {
+      "bytes": 1746,
+      "sha256": "2dc99ca041097a1040c9a3cf509ff7f8c7a25e6dda9999b961bbea6649f582e3"
+    },
+    "native/ocgcore.sync.wasm": {
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    },
+    "native/card-data.json": {
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    "native/scripts.json": {
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    }
+  },
+  "auditReports": {
+    "native-duel-ui": {
+      "path": "docs/audits/artifacts/native-duel-ui-2026-10-08/report.json",
+      "reportSha256": "85f03e0c848bb1f0afc59536ac7ef5b2b8c50c672dc2933308a0264539c58840",
+      "auditSourceSha256": "0dd4443ef82f496fb398587b9be06c99d953f57c4a48e48cd470fdacbb311c18",
+      "helperSourceSha256": null,
+      "ok": true,
+      "captureCount": 5,
+      "inspectedCaptures": [
+        "native-builder-1280.png",
+        "native-builder-390.png",
+        "native-duel-1280.png",
+        "native-duel-390.png",
+        "native-ravine-cost.png"
+      ],
+      "publicStages": 0,
+      "pageErrors": 0,
+      "nativeRequestFailures": 0,
+      "cspViolations": 0
+    },
+    "native-duel-views": {
+      "path": "docs/audits/artifacts/native-duel-views-2026-10-08/report.json",
+      "reportSha256": "46074bb66e043a2b0c07a76a7c2d0b7cc80dc9057b6a2d42b23848eba9fc87e3",
+      "auditSourceSha256": "f3f9b64c03273baba856886c4f67df9f371624bb759435887ba9b7f9e49f826c",
+      "helperSourceSha256": "0dd4443ef82f496fb398587b9be06c99d953f57c4a48e48cd470fdacbb311c18",
+      "ok": true,
+      "captureCount": 16,
+      "inspectedCaptures": [
+        "native-mausoleum-arena-1280.png",
+        "native-mausoleum-arena-390.png",
+        "native-mausoleum-compact-1280.png",
+        "native-mausoleum-compact-390.png",
+        "native-mausoleum-real-1280.png",
+        "native-mausoleum-real-390.png",
+        "native-zombie-world-arena-1280.png",
+        "native-zombie-world-arena-390.png",
+        "native-zombie-world-compact-1280.png",
+        "native-zombie-world-compact-390.png",
+        "native-zombie-world-pending-real-1280.png",
+        "native-zombie-world-pending-real-390.png",
+        "native-zombie-world-real-1280.png",
+        "native-zombie-world-real-390.png",
+        "native-zombie-world-set-real-1280.png",
+        "native-zombie-world-set-real-390.png"
+      ],
+      "publicStages": 22,
+      "pageErrors": 0,
+      "nativeRequestFailures": 0,
+      "cspViolations": 0
+    },
+    "native-pendulum-ui": {
+      "path": "docs/audits/artifacts/native-pendulum-ui-2026-10-08/report.json",
+      "reportSha256": "ee51cc75d93f1193324ef8145acfce33ac98bc7f700365e1cd467560035eb824",
+      "auditSourceSha256": "d2826ac966ed1b74f9f3e0592bbb86a4e93675a81913329d5a612ae267f2eeb2",
+      "helperSourceSha256": "0dd4443ef82f496fb398587b9be06c99d953f57c4a48e48cd470fdacbb311c18",
+      "ok": true,
+      "captureCount": 6,
+      "inspectedCaptures": [
+        "native-pendulum-board-1280.png",
+        "native-pendulum-board-390.png",
+        "native-pendulum-choices-1280.png",
+        "native-pendulum-choices-390.png",
+        "native-pendulum-extra-1280.png",
+        "native-pendulum-extra-390.png"
+      ],
+      "publicStages": 0,
+      "pageErrors": 0,
+      "nativeRequestFailures": 0,
+      "cspViolations": 0
+    }
+  },
+  "captureInspection": {
+    "method": "Every final original PNG opened individually with view_image after its final capture; all hashes verified against the completed browser reports",
+    "total": 27,
+    "scope": "Readability, layout, public scenery and visual continuity; not exhaustive 1:1 or GPU memory certification",
+    "mobileRealCameraControlsVisible": true,
+    "firstMobileMausoleumProjectionAligned": true
+  },
+  "realProjectionGate": {
+    "publicReadOnly": true,
+    "stableAnimationFrameTicks": 2,
+    "verifiedRealStages": [
+      {
+        "viewport": 1280,
+        "stage": "mausoleum-real",
+        "dimensions": {
+          "width": 840,
+          "height": 820
+        }
+      },
+      {
+        "viewport": 1280,
+        "stage": "zombie-world-set-real",
+        "dimensions": {
+          "width": 840,
+          "height": 820
+        }
+      },
+      {
+        "viewport": 1280,
+        "stage": "zombie-world-activation-pending-real",
+        "dimensions": {
+          "width": 840,
+          "height": 820
+        }
+      },
+      {
+        "viewport": 1280,
+        "stage": "zombie-world-real-7",
+        "dimensions": {
+          "width": 840,
+          "height": 820
+        }
+      },
+      {
+        "viewport": 1280,
+        "stage": "zombie-world-real-10",
+        "dimensions": {
+          "width": 840,
+          "height": 820
+        }
+      },
+      {
+        "viewport": 390,
+        "stage": "mausoleum-real",
+        "dimensions": {
+          "width": 390,
+          "height": 560
+        }
+      },
+      {
+        "viewport": 390,
+        "stage": "zombie-world-set-real",
+        "dimensions": {
+          "width": 390,
+          "height": 560
+        }
+      },
+      {
+        "viewport": 390,
+        "stage": "zombie-world-activation-pending-real",
+        "dimensions": {
+          "width": 390,
+          "height": 560
+        }
+      },
+      {
+        "viewport": 390,
+        "stage": "zombie-world-real-7",
+        "dimensions": {
+          "width": 390,
+          "height": 560
+        }
+      },
+      {
+        "viewport": 390,
+        "stage": "zombie-world-real-10",
+        "dimensions": {
+          "width": 390,
+          "height": 560
+        }
+      }
+    ],
+    "allLpStatsAndMonsterUidsPreservedAcrossViewCycles": true,
+    "sameCanvasAndSingleDomRoots": true
+  }
+}

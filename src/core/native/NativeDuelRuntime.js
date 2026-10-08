@@ -4,6 +4,7 @@
  * Assets/readers are injected so initialization never fetches during a duel.
  */
 import { loadNativeCoreWasm } from './NativeCoreAssets.js';
+import { applyNativeCardScriptCorrections, getNativeCardScriptCorrection } from './NativeCardScriptCorrections.js';
 import { nativeCardMatchesAnnounceOpcode } from './NativeDuelDecisions.js';
 import { NATIVE_LUA_COMPATIBILITY_NAME, NATIVE_LUA_COMPATIBILITY_SOURCE } from './NativeLuaCompatibility.js';
 
@@ -38,9 +39,23 @@ function synchronousReader(reader, label) {
 /** Accept both canonical official/c123.lua paths and core c123.lua requests. */
 export function createNativeScriptReader(scripts) {
   if (!(scripts instanceof Map)) throw new TypeError('scripts must be a Map');
-  return name => scripts.get(name)
-    ?? (/^c\d+\.lua$/.test(name) ? scripts.get(`official/${name}`) : null)
-    ?? null;
+  const cache = new Map(), correctionsApplied = new Map();
+  const reader = name => {
+    const source = scripts.get(name)
+      ?? (/^c\d+\.lua$/.test(name) ? scripts.get(`official/${name}`) : null)
+      ?? null;
+    if (source === null) return null;
+    const correction = getNativeCardScriptCorrection(name);
+    if (!correction) return source;
+    const previous = cache.get(name);
+    if (previous?.source === source) return previous.effective;
+    const effective = applyNativeCardScriptCorrections(name, source);
+    cache.set(name, { source, effective });
+    correctionsApplied.set(correction.filename, correction);
+    return effective;
+  };
+  Object.defineProperty(reader, 'correctionsApplied', { value: correctionsApplied });
+  return reader;
 }
 
 export async function createNativeDuelRuntime(options = {}) {
@@ -67,7 +82,8 @@ export async function createNativeDuelRuntime(options = {}) {
   const runtime = new NativeDuelRuntime(core, coreModule, {
     ...options,
     cardReader: synchronousReader(cardReader, 'cardReader'),
-    scriptReader: synchronousReader(scriptReader, 'scriptReader')
+    scriptReader: synchronousReader(scriptReader, 'scriptReader'),
+    scriptCorrectionsApplied: scriptReader.correctionsApplied ?? new Map()
   });
   try {
     runtime.initialize();

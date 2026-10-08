@@ -1,0 +1,71 @@
+{
+  "date": "2026-10-08",
+  "scope": "Local final verification; 125 Node test files, field source images/backdrops, final production build. Browser and published deployment proof recorded separately.",
+  "tests": {
+    "command": "npm run check",
+    "files": 125,
+    "passed": 125,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0
+  },
+  "security": {
+    "command": "npm run audit:security",
+    "vulnerabilities": 0
+  },
+  "fieldAssets": {
+    "sourceArt": 339,
+    "backdrops": 339
+  },
+  "build": {
+    "tool": "Vite 8.1.5",
+    "transformedModules": 104,
+    "files": [
+      {
+        "path": "/index.html",
+        "bytes": 35408,
+        "sha256": "30bf78a66cda62f4a4b7b6617ad330ee2c983e5564a51dfff539882b75d3baaf"
+      },
+      {
+        "path": "/assets/index-DNwe3FSS.js",
+        "bytes": 598690,
+        "sha256": "38c428237545d8290e07229c5efdda93441dd1088234c31e64aa6ef3f8b59321"
+      },
+      {
+        "path": "/assets/index-BbUkbKmn.css",
+        "bytes": 82371,
+        "sha256": "71afb732ab7152dc319dfb6b72812913e23121c24f251ef80e0b69c61e0e749e"
+      },
+      {
+        "path": "/assets/NativeDuelGame-DocEeHOq.js",
+        "bytes": 83510,
+        "sha256": "045f647667c998076ba0d3e63433f3015c27cae705bf17546faf49f708e144fb"
+      },
+      {
+        "path": "/assets/FieldEnvironmentRegistry-Bv70irwA.js",
+        "bytes": 595263,
+        "sha256": "bfc14aa98ac8ac1e7ddbdfed7949539c51a6e6b9e3866c0af7190a6d084db062"
+      },
+      {
+        "path": "/assets/RealDuelView-P3kgZYMk.js",
+        "bytes": 135163,
+        "sha256": "8eff318aa606a12673082fdc532b2640f66eebb177b0849f2103370e0fe4e463"
+      },
+      {
+        "path": "/assets/NativeCardCatalogue-DYOc9sug.js",
+        "bytes": 54064,
+        "sha256": "52372b0fa09af406267d3091d1c476e20572bc62b9f4ecb499f19bb9dd6d1e2b"
+      }
+    ]
+  },
+  "wasm": {
+    "path": "public/native/ocgcore.sync.wasm",
+    "bytes": 935745,
+    "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+  },
+  "verificationLogSha256": "eaa1dc534061c17f961fd76318d805aa9e3529364c91345205a2a59727523035",
+  "additionalConfirmedFixes": [
+    "RealDuelView clears residual mobile container scroll before resizing both renderers; delayed pan callback rechecks current view/width.",
+    "Exact small reference JPEGs for the two Trap Monsters are bundled; all six JPEG variants verified."
+  ]
+}

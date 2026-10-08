@@ -1,0 +1,2696 @@
+{
+  "ok": true,
+  "target": "immutable final compiled production bundle",
+  "requireStatBounds": true,
+  "testedIndexAsset": "/assets/index-DNwe3FSS.js",
+  "testedIndexSha256": "38c428237545d8290e07229c5efdda93441dd1088234c31e64aa6ef3f8b59321",
+  "testedWasmSha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+  "productionCsp": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://db.ygoprodeck.com; media-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests",
+  "compiledSnapshotBefore": {
+    "index.html": {
+      "bytes": 35408,
+      "sha256": "30bf78a66cda62f4a4b7b6617ad330ee2c983e5564a51dfff539882b75d3baaf"
+    },
+    "assets/index-DNwe3FSS.js": {
+      "bytes": 598690,
+      "sha256": "38c428237545d8290e07229c5efdda93441dd1088234c31e64aa6ef3f8b59321"
+    },
+    "assets/index-BbUkbKmn.css": {
+      "bytes": 82371,
+      "sha256": "71afb732ab7152dc319dfb6b72812913e23121c24f251ef80e0b69c61e0e749e"
+    },
+    "native/ocgcore.sync.wasm": {
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    },
+    "native/card-data.json": {
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    "native/scripts.json": {
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    },
+    "assets/NativeDuelGame-DocEeHOq.js": {
+      "bytes": 83510,
+      "sha256": "045f647667c998076ba0d3e63433f3015c27cae705bf17546faf49f708e144fb"
+    },
+    "assets/ocgcore-CUv6jKK5.js": {
+      "bytes": 1746,
+      "sha256": "2dc99ca041097a1040c9a3cf509ff7f8c7a25e6dda9999b961bbea6649f582e3"
+    },
+    "assets/FieldEnvironmentRegistry-Bv70irwA.js": {
+      "bytes": 595263,
+      "sha256": "bfc14aa98ac8ac1e7ddbdfed7949539c51a6e6b9e3866c0af7190a6d084db062"
+    },
+    "assets/FieldGeometryThree-vJgK0QSV.js": {
+      "bytes": 534563,
+      "sha256": "029edd52363bea6334afe124e6c0a5fc45b60b39cc416cfdaf6b6319dbbb8a38"
+    },
+    "assets/FieldSpellAtlas-CnzighU6.js": {
+      "bytes": 19380,
+      "sha256": "595441aa8f559786cb1f8c0693833916ea400ea603515c6866898de85fe2b022"
+    },
+    "assets/FieldSpellAtlasPreview-DHgaVA6G.js": {
+      "bytes": 2823,
+      "sha256": "3a332e59139275025a36902ee893ae301232fb0105f68fdd8c198613a4462c2b"
+    },
+    "assets/FieldSpellCardDataSnapshot-DzxkUNrK.js": {
+      "bytes": 169821,
+      "sha256": "ed2484f6797eac2124cdb6a76d8ec20076f9e79cf05008a0183e26a7fd046b3f"
+    },
+    "assets/FieldSpellRules-DLBFReUe.js": {
+      "bytes": 20919,
+      "sha256": "9b95b5d0b3ac46a7d7cade8d2bed65565dcbb1310d494d9344f61ed12a57f54e"
+    },
+    "assets/NativeCardCatalogue-DYOc9sug.js": {
+      "bytes": 54064,
+      "sha256": "52372b0fa09af406267d3091d1c476e20572bc62b9f4ecb499f19bb9dd6d1e2b"
+    },
+    "assets/RealDuelView-P3kgZYMk.js": {
+      "bytes": 135163,
+      "sha256": "8eff318aa606a12673082fdc532b2640f66eebb177b0849f2103370e0fe4e463"
+    },
+    "assets/ocgcore.sync-MMMSWPBB-2LWfD6lX.js": {
+      "bytes": 20718,
+      "sha256": "433b02687ca9a24dcc846c11d7578d40ba5ab87d1b1321d5d22cd879fae58ed6"
+    },
+    "cards/reference/26905245.jpg": {
+      "bytes": 171127,
+      "sha256": "9377a21d60345e052e0564bc38910199f6593c7247791a7805a0ee23e97597bd"
+    },
+    "cards/reference/28649820.jpg": {
+      "bytes": 158154,
+      "sha256": "d4bf7c195cd988b1796f07dddc2ad0f7781e4f5bff20731a8ec33884132686b8"
+    },
+    "cards/cropped/26905245.jpg": {
+      "bytes": 165498,
+      "sha256": "da4105f998aea65251d2c1f0e3c92ae1802012ddfdb482b997fdbda59846aa60"
+    },
+    "cards/cropped/28649820.jpg": {
+      "bytes": 141263,
+      "sha256": "eaaeb38bcd2dfa389d96e5769fb978e8ebf04b9ce2d79b5a6dd67ce094797895"
+    },
+    "cards/small/26905245.jpg": {
+      "bytes": 30149,
+      "sha256": "4759e30156b2cd9063d64a9395071d68d75932bccd7fec80f630ef0d4f7152ee"
+    },
+    "cards/small/28649820.jpg": {
+      "bytes": 28004,
+      "sha256": "e0408c5845482d05e88bff2873cfe30ce635ee466598f801e4fed81be64f0fa1"
+    }
+  },
+  "generatedOn": "2026-10-08",
+  "sourceAuditSha256": "a16f297df2c3e92e72076136c188ea24e2ccdf0573ea746902c40115e7b29fca",
+  "sourceHelperSha256": "0dd4443ef82f496fb398587b9be06c99d953f57c4a48e48cd470fdacbb311c18",
+  "settleTimeoutSeconds": 120,
+  "limits": [
+    "Public production controls and observable DOM only; WebGL resource counters observe graphics API allocation/deletion without accessing a game object.",
+    "The cached Real renderer intentionally retains live resources in compact view; three cycles verify stable allocation counts, not zero GPU memory on view switch.",
+    "Complete model disposal is verified separately by audit-trap-monster-models.py.",
+    "The two summon model screenshots show the resolved native Special Summon with no overlay; they do not certify an active animation frame. Metal Reflect Slime remains unable to attack."
+  ],
+  "sourceFacadeSha256": "2c727a2cc433ef84eb6892722504322edb363efa4edb3ff83d2f2dabb047b461",
+  "registeredFixture": {
+    "main": [
+      "89631139",
+      "89631139",
+      "89631139",
+      "46986414",
+      "12607053",
+      "46986414",
+      "76812113",
+      "97590747",
+      "97590747",
+      "15025844",
+      "15025844",
+      "26905245",
+      "70781052",
+      "70781052",
+      "28649820",
+      "5053103",
+      "5053103",
+      "5053103",
+      "97590747",
+      "76812113",
+      "76812113",
+      "91152256",
+      "91152256",
+      "91152256",
+      "32452818",
+      "14315573",
+      "32452818",
+      "91939608",
+      "91939608",
+      "91939608",
+      "15025844",
+      "26905245",
+      "70781052",
+      "28649820",
+      "46986414",
+      "12607053",
+      "12607053",
+      "32452818",
+      "14315573",
+      "14315573"
+    ],
+    "extra": [],
+    "side": []
+  },
+  "qaHook": false,
+  "postStartInjection": false,
+  "viewports": [
+    {
+      "width": 1280,
+      "height": 900,
+      "requireStatBounds": true,
+      "checks": {
+        "validFortyCardRegistrationAndRealShuffle": true,
+        "bothTrapsSetThroughControls": true,
+        "slimePublicNativeMonster": {
+          "publicCode": "26905245",
+          "category": "monster",
+          "zone": 0,
+          "position": "defense",
+          "hologram": true,
+          "hologramAttribute": "water",
+          "attack": "ATK 0",
+          "defense": "DEF 3000",
+          "label": "Metal Reflect Slime, ATK 0, DEF 3000",
+          "referenceArt": {
+            "full": {
+              "path": "/cards/reference/26905245.jpg",
+              "width": 813,
+              "height": 1185,
+              "complete": true
+            },
+            "cropped": {
+              "path": "/cards/cropped/26905245.jpg",
+              "width": 624,
+              "height": 624,
+              "complete": true
+            }
+          },
+          "inspector": {
+            "title": "Metal Reflect Slime",
+            "type": "Trap Effect Monster",
+            "stats": "ATK 0 DEF 3000 ★★★★★★★★★★",
+            "statBounds": {
+              "checked": true,
+              "spans": [
+                {
+                  "text": "ATK 0",
+                  "withinInspector": true,
+                  "textFitsSpan": true,
+                  "width": 48,
+                  "textWidth": 48
+                },
+                {
+                  "text": "DEF 3000",
+                  "withinInspector": true,
+                  "textFitsSpan": true,
+                  "width": 81,
+                  "textWidth": 81
+                }
+              ],
+              "allFit": true
+            }
+          }
+        },
+        "nextTurnNativePositionChangeThroughMenu": true,
+        "apophisPublicNativeMonster": {
+          "publicCode": "28649820",
+          "category": "monster",
+          "zone": 1,
+          "position": "defense",
+          "hologram": true,
+          "hologramAttribute": "earth",
+          "attack": "ATK 1600",
+          "defense": "DEF 1800",
+          "label": "Embodiment of Apophis, ATK 1600, DEF 1800",
+          "referenceArt": {
+            "full": {
+              "path": "/cards/reference/28649820.jpg",
+              "width": 813,
+              "height": 1185,
+              "complete": true
+            },
+            "cropped": {
+              "path": "/cards/cropped/28649820.jpg",
+              "width": 624,
+              "height": 624,
+              "complete": true
+            }
+          },
+          "inspector": {
+            "title": "Embodiment of Apophis",
+            "type": "Trap Normal Monster",
+            "stats": "ATK 1600 DEF 1800 ★★★★",
+            "statBounds": {
+              "checked": true,
+              "spans": [
+                {
+                  "text": "ATK 1600",
+                  "withinInspector": true,
+                  "textFitsSpan": true,
+                  "width": 76,
+                  "textWidth": 76
+                },
+                {
+                  "text": "DEF 1800",
+                  "withinInspector": true,
+                  "textFitsSpan": true,
+                  "width": 75,
+                  "textWidth": 75
+                }
+              ],
+              "allFit": true
+            }
+          }
+        },
+        "threeViewsAndReturnSharePublicState": true,
+        "realCanvasToolbarAndPublicCameraControlsWithinHost": true,
+        "bothModelsUseActualRealCanvas": true,
+        "cachedRendererDoesNotGrowAcrossThreeCycles": true,
+        "opponentConcealment": {
+          "count": 3,
+          "safe": true
+        },
+        "fourExactJpegsLoadedWith200": [
+          "/cards/cropped/26905245.jpg",
+          "/cards/cropped/28649820.jpg",
+          "/cards/reference/26905245.jpg",
+          "/cards/reference/28649820.jpg"
+        ],
+        "bothSmallArtVariantsLoadedWith200": [
+          "/cards/small/26905245.jpg",
+          "/cards/small/28649820.jpg"
+        ]
+      },
+      "decisionTrace": [
+        {
+          "kind": "settled-public-main1",
+          "elapsedSeconds": 0.03,
+          "status": "Votre tour — Main Phase 1"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "settled-public-main1",
+          "elapsedSeconds": 10.5,
+          "status": "Votre tour — Main Phase 1"
+        },
+        {
+          "kind": "set-card-menu",
+          "publicCode": "26905245",
+          "input": "keyboard Enter on focusable own zone"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "place",
+          "offered": [
+            "Votre Zone Monstre 1",
+            "Votre Zone Monstre 2",
+            "Votre Zone Monstre 3",
+            "Votre Zone Monstre 4",
+            "Votre Zone Monstre 5"
+          ],
+          "choice": "Votre Zone Monstre 1"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "settled-public-main1",
+          "elapsedSeconds": 6.33,
+          "status": "Votre tour — Main Phase 1"
+        },
+        {
+          "kind": "resolved-native-summon-model-frame",
+          "publicCode": "26905245",
+          "filename": "chain-slime-native-summon-pose-1280.png",
+          "dialogueHidden": true,
+          "realModelRendered": true,
+          "status": "Votre tour — Main Phase 1"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "settled-public-main1",
+          "elapsedSeconds": 34.71,
+          "status": "Votre tour — Main Phase 1"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "settled-public-main1",
+          "elapsedSeconds": 2.26,
+          "status": "Votre tour — Main Phase 1"
+        },
+        {
+          "kind": "set-card-menu",
+          "publicCode": "28649820",
+          "input": "keyboard Enter on focusable own zone"
+        },
+        {
+          "kind": "place",
+          "offered": [
+            "Votre Zone Monstre 2",
+            "Votre Zone Monstre 3",
+            "Votre Zone Monstre 4",
+            "Votre Zone Monstre 5"
+          ],
+          "choice": "Votre Zone Monstre 2"
+        },
+        {
+          "kind": "position",
+          "choice": "DÉFENSE FACE RECTO"
+        },
+        {
+          "kind": "settled-public-main1",
+          "elapsedSeconds": 6.19,
+          "status": "Votre tour — Main Phase 1"
+        },
+        {
+          "kind": "resolved-native-summon-model-frame",
+          "publicCode": "28649820",
+          "filename": "chain-apophis-native-summon-pose-1280.png",
+          "dialogueHidden": true,
+          "realModelRendered": true,
+          "status": "Votre tour — Main Phase 1"
+        }
+      ],
+      "pageErrors": [],
+      "nativeRequestFailures": [],
+      "cspViolations": [],
+      "presentations": [
+        {
+          "mode": "compact",
+          "samePublicState": true,
+          "webglCanvasVisible": false
+        },
+        {
+          "mode": "arena",
+          "samePublicState": true,
+          "webglCanvasVisible": false
+        },
+        {
+          "mode": "real",
+          "samePublicState": true,
+          "webglCanvasVisible": true
+        },
+        {
+          "mode": "compact",
+          "samePublicState": true,
+          "webglCanvasVisible": false
+        }
+      ],
+      "gpuStableStateBeforeCycles": [
+        {
+          "lost": false,
+          "created": {
+            "Buffer": 578,
+            "Texture": 6,
+            "Program": 24,
+            "Shader": 48,
+            "Framebuffer": 4,
+            "Renderbuffer": 1,
+            "VertexArray": 225,
+            "Sampler": 0,
+            "Query": 0,
+            "TransformFeedback": 0
+          },
+          "deleted": {
+            "Buffer": 363,
+            "Texture": 0,
+            "Program": 9,
+            "Shader": 48,
+            "Framebuffer": 0,
+            "Renderbuffer": 0,
+            "VertexArray": 108,
+            "Sampler": 0,
+            "Query": 0,
+            "TransformFeedback": 0
+          },
+          "live": {
+            "Buffer": 215,
+            "Texture": 6,
+            "Program": 15,
+            "Shader": 0,
+            "Framebuffer": 4,
+            "Renderbuffer": 1,
+            "VertexArray": 117,
+            "Sampler": 0,
+            "Query": 0,
+            "TransformFeedback": 0
+          }
+        }
+      ],
+      "realCameraBounds": [
+        {
+          "preset": "player",
+          "bounds": {
+            "host": {
+              "x": 220,
+              "y": 80,
+              "width": 840,
+              "height": 820,
+              "right": 1060,
+              "bottom": 900,
+              "scrollTop": 0,
+              "scrollLeft": 0
+            },
+            "canvas": {
+              "x": 220,
+              "y": 80,
+              "width": 840,
+              "height": 820,
+              "right": 1060,
+              "bottom": 900,
+              "withinHost": true,
+              "visible": true
+            },
+            "toolbar": {
+              "x": 230,
+              "y": 90,
+              "width": 500.125,
+              "height": 56,
+              "right": 730.125,
+              "bottom": 146,
+              "withinHost": true,
+              "visible": true
+            },
+            "buttons": [
+              {
+                "preset": "player",
+                "visible": true,
+                "disabled": false,
+                "x": 314.46875,
+                "y": 95,
+                "width": 77.09375,
+                "height": 44,
+                "right": 391.5625,
+                "bottom": 139
+              },
+              {
+                "preset": "diagonal-left",
+                "visible": true,
+                "disabled": false,
+                "x": 396.5625,
+                "y": 96,
+                "width": 72,
+                "height": 44,
+                "right": 468.5625,
+                "bottom": 140
+              },
+              {
+                "preset": "diagonal-right",
+                "visible": true,
+                "disabled": false,
+                "x": 473.5625,
+                "y": 96,
+                "width": 72,
+                "height": 44,
+                "right": 545.5625,
+                "bottom": 140
+              },
+              {
+                "preset": "console",
+                "visible": true,
+                "disabled": false,
+                "x": 550.5625,
+                "y": 96,
+                "width": 84.453125,
+                "height": 44,
+                "right": 635.015625,
+                "bottom": 140
+              },
+              {
+                "preset": "overview",
+                "visible": true,
+                "disabled": false,
+                "x": 640.015625,
+                "y": 96,
+                "width": 84.109375,
+                "height": 44,
+                "right": 724.125,
+                "bottom": 140
+              }
+            ],
+            "css3dProjection": {
+              "stableAnimationFrameTicks": 2,
+              "host": {
+                "width": 840,
+                "height": 820,
+                "scrollTop": 0,
+                "scrollLeft": 0
+              },
+              "root": {
+                "width": 840,
+                "height": 820
+              },
+              "cameraParent": {
+                "width": 840,
+                "height": 820
+              },
+              "cameraMatrix": {
+                "transform": "matrix3d(1, 0, 0, 0, 0, -0.89028, 0.455413, -0.000437541, 0, 0.455413, 0.89028, -0.000855343, 420, -363.056, 1197.36, -0.150371)",
+                "values": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -0.89028,
+                  0.455413,
+                  -0.000437541,
+                  0,
+                  0.455413,
+                  0.89028,
+                  -0.000855343,
+                  420,
+                  -363.056,
+                  1197.36,
+                  -0.150371
+                ],
+                "perspective": "none",
+                "transformOrigin": "420px 410px"
+              },
+              "boardMatrix": {
+                "transform": "matrix3d(0.0177778, 0, 0, 0, 0, 0, 0.0177778, 0, 0, 0.0177778, 0, 0, -450, -561.88, 0, 1)",
+                "values": [
+                  0.0177778,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.0177778,
+                  0,
+                  0,
+                  0.0177778,
+                  0,
+                  0,
+                  -450,
+                  -561.88,
+                  0,
+                  1
+                ],
+                "perspective": "none",
+                "transformOrigin": "450px 562.5px"
+              },
+              "handMatrix": {
+                "transform": "matrix3d(0.0116667, 0, 0, 0, 0, -0.00344774, 0.0111456, 0, 0, 0.0111456, 0.00344774, 0, -450, -108.55, 11.2, 1)",
+                "values": [
+                  0.0116667,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -0.00344774,
+                  0.0111456,
+                  0,
+                  0,
+                  0.0111456,
+                  0.00344774,
+                  0,
+                  -450,
+                  -108.55,
+                  11.2,
+                  1
+                ],
+                "perspective": "none",
+                "transformOrigin": "450px 110px"
+              }
+            }
+          },
+          "selectedPublicButton": {
+            "preset": "player",
+            "visible": true,
+            "disabled": false,
+            "withinViewport": true,
+            "centerReceivesPointer": true,
+            "pressed": "true"
+          }
+        },
+        {
+          "preset": "diagonal-left",
+          "bounds": {
+            "host": {
+              "x": 220,
+              "y": 80,
+              "width": 840,
+              "height": 820,
+              "right": 1060,
+              "bottom": 900,
+              "scrollTop": 0,
+              "scrollLeft": 0
+            },
+            "canvas": {
+              "x": 220,
+              "y": 80,
+              "width": 840,
+              "height": 820,
+              "right": 1060,
+              "bottom": 900,
+              "withinHost": true,
+              "visible": true
+            },
+            "toolbar": {
+              "x": 230,
+              "y": 90,
+              "width": 498.125,
+              "height": 56,
+              "right": 728.125,
+              "bottom": 146,
+              "withinHost": true,
+              "visible": true
+            },
+            "buttons": [
+              {
+                "preset": "player",
+                "visible": true,
+                "disabled": false,
+                "x": 314.46875,
+                "y": 96,
+                "width": 75.09375,
+                "height": 44,
+                "right": 389.5625,
+                "bottom": 140
+              },
+              {
+                "preset": "diagonal-left",
+                "visible": true,
+                "disabled": false,
+                "x": 394.5625,
+                "y": 95,
+                "width": 72,
+                "height": 44,
+                "right": 466.5625,
+                "bottom": 139
+              },
+              {
+                "preset": "diagonal-right",
+                "visible": true,
+                "disabled": false,
+                "x": 471.5625,
+                "y": 96,
+                "width": 72,
+                "height": 44,
+                "right": 543.5625,
+                "bottom": 140
+              },
+              {
+                "preset": "console",
+                "visible": true,
+                "disabled": false,
+                "x": 548.5625,
+                "y": 96,
+                "width": 84.453125,
+                "height": 44,
+                "right": 633.015625,
+                "bottom": 140
+              },
+              {
+                "preset": "overview",
+                "visible": true,
+                "disabled": false,
+                "x": 638.015625,
+                "y": 96,
+                "width": 84.109375,
+                "height": 44,
+                "right": 722.125,
+                "bottom": 140
+              }
+            ],
+            "css3dProjection": {
+              "stableAnimationFrameTicks": 2,
+              "host": {
+                "width": 840,
+                "height": 820,
+                "scrollTop": 0,
+                "scrollLeft": 0
+              },
+              "root": {
+                "width": 840,
+                "height": 820
+              },
+              "cameraParent": {
+                "width": 840,
+                "height": 820
+              },
+              "cameraMatrix": {
+                "transform": "matrix3d(0.939793, -0.159966, -0.301992, 0.000312654, 0, -0.883682, 0.468088, -0.000484613, 0.341743, 0.439906, 0.830478, -0.000859798, 394.884, -428.392, 997.812, -0.0330397)",
+                "values": [
+                  0.939793,
+                  -0.159966,
+                  -0.301992,
+                  0.000312654,
+                  0,
+                  -0.883682,
+                  0.468088,
+                  -0.000484613,
+                  0.341743,
+                  0.439906,
+                  0.830478,
+                  -0.000859798,
+                  394.884,
+                  -428.392,
+                  997.812,
+                  -0.0330397
+                ],
+                "perspective": "none",
+                "transformOrigin": "420px 410px"
+              },
+              "boardMatrix": {
+                "transform": "matrix3d(0.0177778, 0, 0, 0, 0, 0, 0.0177778, 0, 0, 0.0177778, 0, 0, -450, -561.88, 0, 1)",
+                "values": [
+                  0.0177778,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.0177778,
+                  0,
+                  0,
+                  0.0177778,
+                  0,
+                  0,
+                  -450,
+                  -561.88,
+                  0,
+                  1
+                ],
+                "perspective": "none",
+                "transformOrigin": "450px 562.5px"
+              },
+              "handMatrix": {
+                "transform": "matrix3d(0.0116667, 0, 0, 0, 0, -0.00344774, 0.0111456, 0, 0, 0.0111456, 0.00344774, 0, -450, -108.55, 11.2, 1)",
+                "values": [
+                  0.0116667,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -0.00344774,
+                  0.0111456,
+                  0,
+                  0,
+                  0.0111456,
+                  0.00344774,
+                  0,
+                  -450,
+                  -108.55,
+                  11.2,
+                  1
+                ],
+                "perspective": "none",
+                "transformOrigin": "450px 110px"
+              }
+            }
+          },
+          "selectedPublicButton": {
+            "preset": "diagonal-left",
+            "visible": true,
+            "disabled": false,
+            "withinViewport": true,
+            "centerReceivesPointer": true,
+            "pressed": "true"
+          }
+        },
+        {
+          "preset": "console",
+          "bounds": {
+            "host": {
+              "x": 220,
+              "y": 80,
+              "width": 840,
+              "height": 820,
+              "right": 1060,
+              "bottom": 900,
+              "scrollTop": 0,
+              "scrollLeft": 0
+            },
+            "canvas": {
+              "x": 220,
+              "y": 80,
+              "width": 840,
+              "height": 820,
+              "right": 1060,
+              "bottom": 900,
+              "withinHost": true,
+              "visible": true
+            },
+            "toolbar": {
+              "x": 230,
+              "y": 90,
+              "width": 500.140625,
+              "height": 56,
+              "right": 730.140625,
+              "bottom": 146,
+              "withinHost": true,
+              "visible": true
+            },
+            "buttons": [
+              {
+                "preset": "player",
+                "visible": true,
+                "disabled": false,
+                "x": 314.46875,
+                "y": 96,
+                "width": 75.09375,
+                "height": 44,
+                "right": 389.5625,
+                "bottom": 140
+              },
+              {
+                "preset": "diagonal-left",
+                "visible": true,
+                "disabled": false,
+                "x": 394.5625,
+                "y": 96,
+                "width": 72,
+                "height": 44,
+                "right": 466.5625,
+                "bottom": 140
+              },
+              {
+                "preset": "diagonal-right",
+                "visible": true,
+                "disabled": false,
+                "x": 471.5625,
+                "y": 96,
+                "width": 72,
+                "height": 44,
+                "right": 543.5625,
+                "bottom": 140
+              },
+              {
+                "preset": "console",
+                "visible": true,
+                "disabled": false,
+                "x": 548.5625,
+                "y": 95,
+                "width": 86.46875,
+                "height": 44,
+                "right": 635.03125,
+                "bottom": 139
+              },
+              {
+                "preset": "overview",
+                "visible": true,
+                "disabled": false,
+                "x": 640.03125,
+                "y": 96,
+                "width": 84.109375,
+                "height": 44,
+                "right": 724.140625,
+                "bottom": 140
+              }
+            ],
+            "css3dProjection": {
+              "stableAnimationFrameTicks": 2,
+              "host": {
+                "width": 840,
+                "height": 820,
+                "scrollTop": 0,
+                "scrollLeft": 0
+              },
+              "root": {
+                "width": 840,
+                "height": 820
+              },
+              "cameraParent": {
+                "width": 840,
+                "height": 820
+              },
+              "cameraMatrix": {
+                "transform": "matrix3d(1, 0, 0, 0, 0, -0.890835, 0.454326, -0.000414306, 0, 0.454326, 0.890835, -0.000812365, 420, -367.675, 1258.29, -0.147452)",
+                "values": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -0.890835,
+                  0.454326,
+                  -0.000414306,
+                  0,
+                  0.454326,
+                  0.890835,
+                  -0.000812365,
+                  420,
+                  -367.675,
+                  1258.29,
+                  -0.147452
+                ],
+                "perspective": "none",
+                "transformOrigin": "420px 410px"
+              },
+              "boardMatrix": {
+                "transform": "matrix3d(0.0177778, 0, 0, 0, 0, 0, 0.0177778, 0, 0, 0.0177778, 0, 0, -450, -561.88, 0, 1)",
+                "values": [
+                  0.0177778,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.0177778,
+                  0,
+                  0,
+                  0.0177778,
+                  0,
+                  0,
+                  -450,
+                  -561.88,
+                  0,
+                  1
+                ],
+                "perspective": "none",
+                "transformOrigin": "450px 562.5px"
+              },
+              "handMatrix": {
+                "transform": "matrix3d(0.0116667, 0, 0, 0, 0, -0.00344774, 0.0111456, 0, 0, 0.0111456, 0.00344774, 0, -450, -108.55, 11.2, 1)",
+                "values": [
+                  0.0116667,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -0.00344774,
+                  0.0111456,
+                  0,
+                  0,
+                  0.0111456,
+                  0.00344774,
+                  0,
+                  -450,
+                  -108.55,
+                  11.2,
+                  1
+                ],
+                "perspective": "none",
+                "transformOrigin": "450px 110px"
+              }
+            }
+          },
+          "selectedPublicButton": {
+            "preset": "console",
+            "visible": true,
+            "disabled": false,
+            "withinViewport": true,
+            "centerReceivesPointer": true,
+            "pressed": "true"
+          }
+        }
+      ],
+      "gpuCycles": [
+        {
+          "cycle": 1,
+          "sameLiveResourceCounts": true,
+          "snapshots": [
+            {
+              "lost": false,
+              "created": {
+                "Buffer": 578,
+                "Texture": 6,
+                "Program": 24,
+                "Shader": 48,
+                "Framebuffer": 4,
+                "Renderbuffer": 1,
+                "VertexArray": 225,
+                "Sampler": 0,
+                "Query": 0,
+                "TransformFeedback": 0
+              },
+              "deleted": {
+                "Buffer": 363,
+                "Texture": 0,
+                "Program": 9,
+                "Shader": 48,
+                "Framebuffer": 0,
+                "Renderbuffer": 0,
+                "VertexArray": 108,
+                "Sampler": 0,
+                "Query": 0,
+                "TransformFeedback": 0
+              },
+              "live": {
+                "Buffer": 215,
+                "Texture": 6,
+                "Program": 15,
+                "Shader": 0,
+                "Framebuffer": 4,
+                "Renderbuffer": 1,
+                "VertexArray": 117,
+                "Sampler": 0,
+                "Query": 0,
+                "TransformFeedback": 0
+              }
+            }
+          ]
+        },
+        {
+          "cycle": 2,
+          "sameLiveResourceCounts": true,
+          "snapshots": [
+            {
+              "lost": false,
+              "created": {
+                "Buffer": 578,
+                "Texture": 6,
+                "Program": 24,
+                "Shader": 48,
+                "Framebuffer": 4,
+                "Renderbuffer": 1,
+                "VertexArray": 225,
+                "Sampler": 0,
+                "Query": 0,
+                "TransformFeedback": 0
+              },
+              "deleted": {
+                "Buffer": 363,
+                "Texture": 0,
+                "Program": 9,
+                "Shader": 48,
+                "Framebuffer": 0,
+                "Renderbuffer": 0,
+                "VertexArray": 108,
+                "Sampler": 0,
+                "Query": 0,
+                "TransformFeedback": 0
+              },
+              "live": {
+                "Buffer": 215,
+                "Texture": 6,
+                "Program": 15,
+                "Shader": 0,
+                "Framebuffer": 4,
+                "Renderbuffer": 1,
+                "VertexArray": 117,
+                "Sampler": 0,
+                "Query": 0,
+                "TransformFeedback": 0
+              }
+            }
+          ]
+        },
+        {
+          "cycle": 3,
+          "sameLiveResourceCounts": true,
+          "snapshots": [
+            {
+              "lost": false,
+              "created": {
+                "Buffer": 578,
+                "Texture": 6,
+                "Program": 24,
+                "Shader": 48,
+                "Framebuffer": 4,
+                "Renderbuffer": 1,
+                "VertexArray": 225,
+                "Sampler": 0,
+                "Query": 0,
+                "TransformFeedback": 0
+              },
+              "deleted": {
+                "Buffer": 363,
+                "Texture": 0,
+                "Program": 9,
+                "Shader": 48,
+                "Framebuffer": 0,
+                "Renderbuffer": 0,
+                "VertexArray": 108,
+                "Sampler": 0,
+                "Query": 0,
+                "TransformFeedback": 0
+              },
+              "live": {
+                "Buffer": 215,
+                "Texture": 6,
+                "Program": 15,
+                "Shader": 0,
+                "Framebuffer": 4,
+                "Renderbuffer": 1,
+                "VertexArray": 117,
+                "Sampler": 0,
+                "Query": 0,
+                "TransformFeedback": 0
+              }
+            }
+          ]
+        }
+      ],
+      "nativeAssets": [
+        "/cards/cropped/12580477.jpg",
+        "/cards/cropped/13039848.jpg",
+        "/cards/cropped/14087893.jpg",
+        "/cards/cropped/14898066.jpg",
+        "/cards/cropped/15025844.jpg",
+        "/cards/cropped/20409757.jpg",
+        "/cards/cropped/20721928.jpg",
+        "/cards/cropped/23115241.jpg",
+        "/cards/cropped/23995346.jpg",
+        "/cards/cropped/24094653.jpg",
+        "/cards/cropped/26202165.jpg",
+        "/cards/cropped/26905245.jpg",
+        "/cards/cropped/28279543.jpg",
+        "/cards/cropped/28649820.jpg",
+        "/cards/cropped/31560081.jpg",
+        "/cards/cropped/31924889.jpg",
+        "/cards/cropped/32452818.jpg",
+        "/cards/cropped/38033121.jpg",
+        "/cards/cropped/39552864.jpg",
+        "/cards/cropped/40640057.jpg",
+        "/cards/cropped/41392891.jpg",
+        "/cards/cropped/4206964.jpg",
+        "/cards/cropped/43793530.jpg",
+        "/cards/cropped/44095762.jpg",
+        "/cards/cropped/44287299.jpg",
+        "/cards/cropped/44430454.jpg",
+        "/cards/cropped/44508094.jpg",
+        "/cards/cropped/46986414.jpg",
+        "/cards/cropped/48305365.jpg",
+        "/cards/cropped/49791927.jpg",
+        "/cards/cropped/5053103.jpg",
+        "/cards/cropped/5318639.jpg",
+        "/cards/cropped/5405694.jpg",
+        "/cards/cropped/54652250.jpg",
+        "/cards/cropped/55144522.jpg",
+        "/cards/cropped/55761792.jpg",
+        "/cards/cropped/6368038.jpg",
+        "/cards/cropped/63977008.jpg",
+        "/cards/cropped/64428736.jpg",
+        "/cards/cropped/66602787.jpg",
+        "/cards/cropped/68638985.jpg",
+        "/cards/cropped/70781052.jpg",
+        "/cards/cropped/71625222.jpg",
+        "/cards/cropped/74677422.jpg",
+        "/cards/cropped/77637979.jpg",
+        "/cards/cropped/81823360.jpg",
+        "/cards/cropped/83764718.jpg",
+        "/cards/cropped/84013237.jpg",
+        "/cards/cropped/88819587.jpg",
+        "/cards/cropped/89631139.jpg",
+        "/cards/cropped/91152256.jpg",
+        "/cards/cropped/94415058.jpg",
+        "/cards/cropped/97590747.jpg",
+        "/cards/native-unknown.png",
+        "/cards/reference/26905245.jpg",
+        "/cards/reference/28649820.jpg",
+        "/cards/small/15025844.jpg",
+        "/cards/small/20409757.jpg",
+        "/cards/small/26905245.jpg",
+        "/cards/small/28649820.jpg",
+        "/cards/small/32452818.jpg",
+        "/cards/small/77637979.jpg",
+        "/cards/small/97590747.jpg",
+        "/native/card-data.json",
+        "/native/field-banlists.json",
+        "/native/manifest.json",
+        "/native/ocgcore.sync.wasm",
+        "/native/scripts.json"
+      ],
+      "publicFinal": [
+        {
+          "publicCode": "26905245",
+          "category": "monster",
+          "zone": 0,
+          "position": "attack",
+          "hologram": true,
+          "hologramAttribute": "water",
+          "attack": "ATK 0",
+          "defense": "DEF 3000",
+          "label": "Metal Reflect Slime, ATK 0, DEF 3000"
+        },
+        {
+          "publicCode": "28649820",
+          "category": "monster",
+          "zone": 1,
+          "position": "defense",
+          "hologram": true,
+          "hologramAttribute": "earth",
+          "attack": "ATK 1600",
+          "defense": "DEF 1800",
+          "label": "Embodiment of Apophis, ATK 1600, DEF 1800"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "requireStatBounds": true,
+      "checks": {
+        "validFortyCardRegistrationAndRealShuffle": true,
+        "bothTrapsSetThroughControls": true,
+        "slimePublicNativeMonster": {
+          "publicCode": "26905245",
+          "category": "monster",
+          "zone": 0,
+          "position": "defense",
+          "hologram": true,
+          "hologramAttribute": "water",
+          "attack": "ATK 0",
+          "defense": "DEF 3000",
+          "label": "Metal Reflect Slime, ATK 0, DEF 3000",
+          "referenceArt": {
+            "full": {
+              "path": "/cards/reference/26905245.jpg",
+              "width": 813,
+              "height": 1185,
+              "complete": true
+            },
+            "cropped": {
+              "path": "/cards/cropped/26905245.jpg",
+              "width": 624,
+              "height": 624,
+              "complete": true
+            }
+          },
+          "inspector": {
+            "title": "Metal Reflect Slime",
+            "type": "Trap Effect Monster",
+            "stats": "ATK 0 DEF 3000 ★★★★★★★★★★",
+            "statBounds": {
+              "checked": true,
+              "spans": [
+                {
+                  "text": "ATK 0",
+                  "withinInspector": true,
+                  "textFitsSpan": true,
+                  "width": 48,
+                  "textWidth": 48
+                },
+                {
+                  "text": "DEF 3000",
+                  "withinInspector": true,
+                  "textFitsSpan": true,
+                  "width": 81,
+                  "textWidth": 81
+                }
+              ],
+              "allFit": true
+            }
+          }
+        },
+        "nextTurnNativePositionChangeThroughMenu": true,
+        "apophisPublicNativeMonster": {
+          "publicCode": "28649820",
+          "category": "monster",
+          "zone": 1,
+          "position": "defense",
+          "hologram": true,
+          "hologramAttribute": "earth",
+          "attack": "ATK 1600",
+          "defense": "DEF 1800",
+          "label": "Embodiment of Apophis, ATK 1600, DEF 1800",
+          "referenceArt": {
+            "full": {
+              "path": "/cards/reference/28649820.jpg",
+              "width": 813,
+              "height": 1185,
+              "complete": true
+            },
+            "cropped": {
+              "path": "/cards/cropped/28649820.jpg",
+              "width": 624,
+              "height": 624,
+              "complete": true
+            }
+          },
+          "inspector": {
+            "title": "Embodiment of Apophis",
+            "type": "Trap Normal Monster",
+            "stats": "ATK 1600 DEF 1800 ★★★★",
+            "statBounds": {
+              "checked": true,
+              "spans": [
+                {
+                  "text": "ATK 1600",
+                  "withinInspector": true,
+                  "textFitsSpan": true,
+                  "width": 76,
+                  "textWidth": 76
+                },
+                {
+                  "text": "DEF 1800",
+                  "withinInspector": true,
+                  "textFitsSpan": true,
+                  "width": 75,
+                  "textWidth": 75
+                }
+              ],
+              "allFit": true
+            }
+          }
+        },
+        "threeViewsAndReturnSharePublicState": true,
+        "realCanvasToolbarAndPublicCameraControlsWithinHost": true,
+        "bothModelsUseActualRealCanvas": true,
+        "cachedRendererDoesNotGrowAcrossThreeCycles": true,
+        "opponentConcealment": {
+          "count": 3,
+          "safe": true
+        },
+        "fourExactJpegsLoadedWith200": [
+          "/cards/cropped/26905245.jpg",
+          "/cards/cropped/28649820.jpg",
+          "/cards/reference/26905245.jpg",
+          "/cards/reference/28649820.jpg"
+        ],
+        "bothSmallArtVariantsLoadedWith200": [
+          "/cards/small/26905245.jpg",
+          "/cards/small/28649820.jpg"
+        ]
+      },
+      "decisionTrace": [
+        {
+          "kind": "settled-public-main1",
+          "elapsedSeconds": 0.02,
+          "status": "Votre tour — Main Phase 1"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "settled-public-main1",
+          "elapsedSeconds": 5.83,
+          "status": "Votre tour — Main Phase 1"
+        },
+        {
+          "kind": "set-card-menu",
+          "publicCode": "26905245",
+          "input": "keyboard Enter on focusable own zone"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "place",
+          "offered": [
+            "Votre Zone Monstre 1",
+            "Votre Zone Monstre 2",
+            "Votre Zone Monstre 3",
+            "Votre Zone Monstre 4",
+            "Votre Zone Monstre 5"
+          ],
+          "choice": "Votre Zone Monstre 1"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "settled-public-main1",
+          "elapsedSeconds": 2.9,
+          "status": "Votre tour — Main Phase 1"
+        },
+        {
+          "kind": "resolved-native-summon-model-frame",
+          "publicCode": "26905245",
+          "filename": "chain-slime-native-summon-pose-390.png",
+          "dialogueHidden": true,
+          "realModelRendered": true,
+          "status": "Votre tour — Main Phase 1"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "settled-public-main1",
+          "elapsedSeconds": 10.52,
+          "status": "Votre tour — Main Phase 1"
+        },
+        {
+          "kind": "chain",
+          "choice": "PASSER LA PRIORITÉ"
+        },
+        {
+          "kind": "settled-public-main1",
+          "elapsedSeconds": 1.64,
+          "status": "Votre tour — Main Phase 1"
+        },
+        {
+          "kind": "set-card-menu",
+          "publicCode": "28649820",
+          "input": "keyboard Enter on focusable own zone"
+        },
+        {
+          "kind": "place",
+          "offered": [
+            "Votre Zone Monstre 2",
+            "Votre Zone Monstre 3",
+            "Votre Zone Monstre 4",
+            "Votre Zone Monstre 5"
+          ],
+          "choice": "Votre Zone Monstre 2"
+        },
+        {
+          "kind": "position",
+          "choice": "DÉFENSE FACE RECTO"
+        },
+        {
+          "kind": "settled-public-main1",
+          "elapsedSeconds": 3.19,
+          "status": "Votre tour — Main Phase 1"
+        },
+        {
+          "kind": "resolved-native-summon-model-frame",
+          "publicCode": "28649820",
+          "filename": "chain-apophis-native-summon-pose-390.png",
+          "dialogueHidden": true,
+          "realModelRendered": true,
+          "status": "Votre tour — Main Phase 1"
+        }
+      ],
+      "pageErrors": [],
+      "nativeRequestFailures": [],
+      "cspViolations": [],
+      "presentations": [
+        {
+          "mode": "compact",
+          "samePublicState": true,
+          "webglCanvasVisible": false
+        },
+        {
+          "mode": "arena",
+          "samePublicState": true,
+          "webglCanvasVisible": false
+        },
+        {
+          "mode": "real",
+          "samePublicState": true,
+          "webglCanvasVisible": true
+        },
+        {
+          "mode": "compact",
+          "samePublicState": true,
+          "webglCanvasVisible": false
+        }
+      ],
+      "gpuStableStateBeforeCycles": [
+        {
+          "lost": false,
+          "created": {
+            "Buffer": 598,
+            "Texture": 6,
+            "Program": 28,
+            "Shader": 56,
+            "Framebuffer": 4,
+            "Renderbuffer": 1,
+            "VertexArray": 233,
+            "Sampler": 0,
+            "Query": 0,
+            "TransformFeedback": 0
+          },
+          "deleted": {
+            "Buffer": 383,
+            "Texture": 0,
+            "Program": 13,
+            "Shader": 56,
+            "Framebuffer": 0,
+            "Renderbuffer": 0,
+            "VertexArray": 116,
+            "Sampler": 0,
+            "Query": 0,
+            "TransformFeedback": 0
+          },
+          "live": {
+            "Buffer": 215,
+            "Texture": 6,
+            "Program": 15,
+            "Shader": 0,
+            "Framebuffer": 4,
+            "Renderbuffer": 1,
+            "VertexArray": 117,
+            "Sampler": 0,
+            "Query": 0,
+            "TransformFeedback": 0
+          }
+        }
+      ],
+      "realCameraBounds": [
+        {
+          "preset": "player",
+          "bounds": {
+            "host": {
+              "x": 0,
+              "y": 224,
+              "width": 390,
+              "height": 560,
+              "right": 390,
+              "bottom": 784,
+              "scrollTop": 0,
+              "scrollLeft": 0
+            },
+            "canvas": {
+              "x": 0,
+              "y": 224,
+              "width": 390,
+              "height": 560,
+              "right": 390,
+              "bottom": 784,
+              "withinHost": true,
+              "visible": true
+            },
+            "toolbar": {
+              "x": 6,
+              "y": 230,
+              "width": 378,
+              "height": 58,
+              "right": 384,
+              "bottom": 288,
+              "withinHost": true,
+              "visible": true
+            },
+            "buttons": [
+              {
+                "preset": "player",
+                "visible": true,
+                "disabled": false,
+                "x": 11,
+                "y": 234,
+                "width": 64,
+                "height": 48,
+                "right": 75,
+                "bottom": 282
+              },
+              {
+                "preset": "diagonal-left",
+                "visible": true,
+                "disabled": false,
+                "x": 79,
+                "y": 235,
+                "width": 64,
+                "height": 48,
+                "right": 143,
+                "bottom": 283
+              },
+              {
+                "preset": "diagonal-right",
+                "visible": true,
+                "disabled": false,
+                "x": 147,
+                "y": 235,
+                "width": 64,
+                "height": 48,
+                "right": 211,
+                "bottom": 283
+              },
+              {
+                "preset": "console",
+                "visible": true,
+                "disabled": false,
+                "x": 215,
+                "y": 235,
+                "width": 68.859375,
+                "height": 48,
+                "right": 283.859375,
+                "bottom": 283
+              },
+              {
+                "preset": "overview",
+                "visible": true,
+                "disabled": false,
+                "x": 287.859375,
+                "y": 235,
+                "width": 68.5625,
+                "height": 48,
+                "right": 356.421875,
+                "bottom": 283
+              }
+            ],
+            "css3dProjection": {
+              "stableAnimationFrameTicks": 2,
+              "host": {
+                "width": 390,
+                "height": 560,
+                "scrollTop": 0,
+                "scrollLeft": 0
+              },
+              "root": {
+                "width": 390,
+                "height": 560
+              },
+              "cameraParent": {
+                "width": 390,
+                "height": 560
+              },
+              "cameraMatrix": {
+                "transform": "matrix3d(1, 0, 0, 0, 0, -0.871403, 0.490568, -0.000892703, 0, 0.490568, 0.871403, -0.00158572, 195, -243.296, 655.513, -0.192859)",
+                "values": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -0.871403,
+                  0.490568,
+                  -0.000892703,
+                  0,
+                  0.490568,
+                  0.871403,
+                  -0.00158572,
+                  195,
+                  -243.296,
+                  655.513,
+                  -0.192859
+                ],
+                "perspective": "none",
+                "transformOrigin": "195px 280px"
+              },
+              "boardMatrix": {
+                "transform": "matrix3d(0.0177778, 0, 0, 0, 0, 0, 0.0177778, 0, 0, 0.0177778, 0, 0, -450, -561.88, 0, 1)",
+                "values": [
+                  0.0177778,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.0177778,
+                  0,
+                  0,
+                  0.0177778,
+                  0,
+                  0,
+                  -450,
+                  -561.88,
+                  0,
+                  1
+                ],
+                "perspective": "none",
+                "transformOrigin": "450px 562.5px"
+              },
+              "handMatrix": {
+                "transform": "matrix3d(0.0116667, 0, 0, 0, 0, -0.00344774, 0.0111456, 0, 0, 0.0111456, 0.00344774, 0, -450, -108.55, 11.2, 1)",
+                "values": [
+                  0.0116667,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -0.00344774,
+                  0.0111456,
+                  0,
+                  0,
+                  0.0111456,
+                  0.00344774,
+                  0,
+                  -450,
+                  -108.55,
+                  11.2,
+                  1
+                ],
+                "perspective": "none",
+                "transformOrigin": "450px 110px"
+              }
+            }
+          },
+          "selectedPublicButton": {
+            "preset": "player",
+            "visible": true,
+            "disabled": false,
+            "withinViewport": true,
+            "centerReceivesPointer": true,
+            "pressed": "true"
+          }
+        },
+        {
+          "preset": "diagonal-left",
+          "bounds": {
+            "host": {
+              "x": 0,
+              "y": 224,
+              "width": 390,
+              "height": 560,
+              "right": 390,
+              "bottom": 784,
+              "scrollTop": 0,
+              "scrollLeft": 0
+            },
+            "canvas": {
+              "x": 0,
+              "y": 224,
+              "width": 390,
+              "height": 560,
+              "right": 390,
+              "bottom": 784,
+              "withinHost": true,
+              "visible": true
+            },
+            "toolbar": {
+              "x": 6,
+              "y": 230,
+              "width": 378,
+              "height": 58,
+              "right": 384,
+              "bottom": 288,
+              "withinHost": true,
+              "visible": true
+            },
+            "buttons": [
+              {
+                "preset": "player",
+                "visible": true,
+                "disabled": false,
+                "x": 11,
+                "y": 235,
+                "width": 64,
+                "height": 48,
+                "right": 75,
+                "bottom": 283
+              },
+              {
+                "preset": "diagonal-left",
+                "visible": true,
+                "disabled": false,
+                "x": 79,
+                "y": 234,
+                "width": 64,
+                "height": 48,
+                "right": 143,
+                "bottom": 282
+              },
+              {
+                "preset": "diagonal-right",
+                "visible": true,
+                "disabled": false,
+                "x": 147,
+                "y": 235,
+                "width": 64,
+                "height": 48,
+                "right": 211,
+                "bottom": 283
+              },
+              {
+                "preset": "console",
+                "visible": true,
+                "disabled": false,
+                "x": 215,
+                "y": 235,
+                "width": 68.859375,
+                "height": 48,
+                "right": 283.859375,
+                "bottom": 283
+              },
+              {
+                "preset": "overview",
+                "visible": true,
+                "disabled": false,
+                "x": 287.859375,
+                "y": 235,
+                "width": 68.5625,
+                "height": 48,
+                "right": 356.421875,
+                "bottom": 283
+              }
+            ],
+            "css3dProjection": {
+              "stableAnimationFrameTicks": 2,
+              "host": {
+                "width": 390,
+                "height": 560,
+                "scrollTop": 0,
+                "scrollLeft": 0
+              },
+              "root": {
+                "width": 390,
+                "height": 560
+              },
+              "cameraParent": {
+                "width": 390,
+                "height": 560
+              },
+              "cameraMatrix": {
+                "transform": "matrix3d(0.969169, -0.117424, -0.216619, 0.000402731, 0, -0.879141, 0.476562, -0.000886009, 0.246399, 0.461869, 0.852036, -0.00158408, 189.111, -267.947, 594.398, -0.105086)",
+                "values": [
+                  0.969169,
+                  -0.117424,
+                  -0.216619,
+                  0.000402731,
+                  0,
+                  -0.879141,
+                  0.476562,
+                  -0.000886009,
+                  0.246399,
+                  0.461869,
+                  0.852036,
+                  -0.00158408,
+                  189.111,
+                  -267.947,
+                  594.398,
+                  -0.105086
+                ],
+                "perspective": "none",
+                "transformOrigin": "195px 280px"
+              },
+              "boardMatrix": {
+                "transform": "matrix3d(0.0177778, 0, 0, 0, 0, 0, 0.0177778, 0, 0, 0.0177778, 0, 0, -450, -561.88, 0, 1)",
+                "values": [
+                  0.0177778,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.0177778,
+                  0,
+                  0,
+                  0.0177778,
+                  0,
+                  0,
+                  -450,
+                  -561.88,
+                  0,
+                  1
+                ],
+                "perspective": "none",
+                "transformOrigin": "450px 562.5px"
+              },
+              "handMatrix": {
+                "transform": "matrix3d(0.0116667, 0, 0, 0, 0, -0.00344774, 0.0111456, 0, 0, 0.0111456, 0.00344774, 0, -450, -108.55, 11.2, 1)",
+                "values": [
+                  0.0116667,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -0.00344774,
+                  0.0111456,
+                  0,
+                  0,
+                  0.0111456,
+                  0.00344774,
+                  0,
+                  -450,
+                  -108.55,
+                  11.2,
+                  1
+                ],
+                "perspective": "none",
+                "transformOrigin": "450px 110px"
+              }
+            }
+          },
+          "selectedPublicButton": {
+            "preset": "diagonal-left",
+            "visible": true,
+            "disabled": false,
+            "withinViewport": true,
+            "centerReceivesPointer": true,
+            "pressed": "true"
+          }
+        },
+        {
+          "preset": "console",
+          "bounds": {
+            "host": {
+              "x": 0,
+              "y": 224,
+              "width": 390,
+              "height": 560,
+              "right": 390,
+              "bottom": 784,
+              "scrollTop": 0,
+              "scrollLeft": 0
+            },
+            "canvas": {
+              "x": 0,
+              "y": 224,
+              "width": 390,
+              "height": 560,
+              "right": 390,
+              "bottom": 784,
+              "withinHost": true,
+              "visible": true
+            },
+            "toolbar": {
+              "x": 6,
+              "y": 230,
+              "width": 378,
+              "height": 58,
+              "right": 384,
+              "bottom": 288,
+              "withinHost": true,
+              "visible": true
+            },
+            "buttons": [
+              {
+                "preset": "player",
+                "visible": true,
+                "disabled": false,
+                "x": 11,
+                "y": 235,
+                "width": 64,
+                "height": 48,
+                "right": 75,
+                "bottom": 283
+              },
+              {
+                "preset": "diagonal-left",
+                "visible": true,
+                "disabled": false,
+                "x": 79,
+                "y": 235,
+                "width": 64,
+                "height": 48,
+                "right": 143,
+                "bottom": 283
+              },
+              {
+                "preset": "diagonal-right",
+                "visible": true,
+                "disabled": false,
+                "x": 147,
+                "y": 235,
+                "width": 64,
+                "height": 48,
+                "right": 211,
+                "bottom": 283
+              },
+              {
+                "preset": "console",
+                "visible": true,
+                "disabled": false,
+                "x": 215,
+                "y": 234,
+                "width": 70.875,
+                "height": 48,
+                "right": 285.875,
+                "bottom": 282
+              },
+              {
+                "preset": "overview",
+                "visible": true,
+                "disabled": false,
+                "x": 289.875,
+                "y": 235,
+                "width": 68.5625,
+                "height": 48,
+                "right": 358.4375,
+                "bottom": 283
+              }
+            ],
+            "css3dProjection": {
+              "stableAnimationFrameTicks": 2,
+              "host": {
+                "width": 390,
+                "height": 560,
+                "scrollTop": 0,
+                "scrollLeft": 0
+              },
+              "root": {
+                "width": 390,
+                "height": 560
+              },
+              "cameraParent": {
+                "width": 390,
+                "height": 560
+              },
+              "cameraMatrix": {
+                "transform": "matrix3d(1, 0, 0, 0, 0, -0.897483, 0.441049, -0.000717848, 0, 0.441049, 0.897483, -0.00146074, 195, -253.347, 711.05, -0.157301)",
+                "values": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -0.897483,
+                  0.441049,
+                  -0.000717848,
+                  0,
+                  0.441049,
+                  0.897483,
+                  -0.00146074,
+                  195,
+                  -253.347,
+                  711.05,
+                  -0.157301
+                ],
+                "perspective": "none",
+                "transformOrigin": "195px 280px"
+              },
+              "boardMatrix": {
+                "transform": "matrix3d(0.0177778, 0, 0, 0, 0, 0, 0.0177778, 0, 0, 0.0177778, 0, 0, -450, -561.88, 0, 1)",
+                "values": [
+                  0.0177778,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.0177778,
+                  0,
+                  0,
+                  0.0177778,
+                  0,
+                  0,
+                  -450,
+                  -561.88,
+                  0,
+                  1
+                ],
+                "perspective": "none",
+                "transformOrigin": "450px 562.5px"
+              },
+              "handMatrix": {
+                "transform": "matrix3d(0.0116667, 0, 0, 0, 0, -0.00344774, 0.0111456, 0, 0, 0.0111456, 0.00344774, 0, -450, -108.55, 11.2, 1)",
+                "values": [
+                  0.0116667,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -0.00344774,
+                  0.0111456,
+                  0,
+                  0,
+                  0.0111456,
+                  0.00344774,
+                  0,
+                  -450,
+                  -108.55,
+                  11.2,
+                  1
+                ],
+                "perspective": "none",
+                "transformOrigin": "450px 110px"
+              }
+            }
+          },
+          "selectedPublicButton": {
+            "preset": "console",
+            "visible": true,
+            "disabled": false,
+            "withinViewport": true,
+            "centerReceivesPointer": true,
+            "pressed": "true"
+          }
+        }
+      ],
+      "gpuCycles": [
+        {
+          "cycle": 1,
+          "sameLiveResourceCounts": true,
+          "snapshots": [
+            {
+              "lost": false,
+              "created": {
+                "Buffer": 598,
+                "Texture": 6,
+                "Program": 28,
+                "Shader": 56,
+                "Framebuffer": 4,
+                "Renderbuffer": 1,
+                "VertexArray": 233,
+                "Sampler": 0,
+                "Query": 0,
+                "TransformFeedback": 0
+              },
+              "deleted": {
+                "Buffer": 383,
+                "Texture": 0,
+                "Program": 13,
+                "Shader": 56,
+                "Framebuffer": 0,
+                "Renderbuffer": 0,
+                "VertexArray": 116,
+                "Sampler": 0,
+                "Query": 0,
+                "TransformFeedback": 0
+              },
+              "live": {
+                "Buffer": 215,
+                "Texture": 6,
+                "Program": 15,
+                "Shader": 0,
+                "Framebuffer": 4,
+                "Renderbuffer": 1,
+                "VertexArray": 117,
+                "Sampler": 0,
+                "Query": 0,
+                "TransformFeedback": 0
+              }
+            }
+          ]
+        },
+        {
+          "cycle": 2,
+          "sameLiveResourceCounts": true,
+          "snapshots": [
+            {
+              "lost": false,
+              "created": {
+                "Buffer": 598,
+                "Texture": 6,
+                "Program": 28,
+                "Shader": 56,
+                "Framebuffer": 4,
+                "Renderbuffer": 1,
+                "VertexArray": 233,
+                "Sampler": 0,
+                "Query": 0,
+                "TransformFeedback": 0
+              },
+              "deleted": {
+                "Buffer": 383,
+                "Texture": 0,
+                "Program": 13,
+                "Shader": 56,
+                "Framebuffer": 0,
+                "Renderbuffer": 0,
+                "VertexArray": 116,
+                "Sampler": 0,
+                "Query": 0,
+                "TransformFeedback": 0
+              },
+              "live": {
+                "Buffer": 215,
+                "Texture": 6,
+                "Program": 15,
+                "Shader": 0,
+                "Framebuffer": 4,
+                "Renderbuffer": 1,
+                "VertexArray": 117,
+                "Sampler": 0,
+                "Query": 0,
+                "TransformFeedback": 0
+              }
+            }
+          ]
+        },
+        {
+          "cycle": 3,
+          "sameLiveResourceCounts": true,
+          "snapshots": [
+            {
+              "lost": false,
+              "created": {
+                "Buffer": 598,
+                "Texture": 6,
+                "Program": 28,
+                "Shader": 56,
+                "Framebuffer": 4,
+                "Renderbuffer": 1,
+                "VertexArray": 233,
+                "Sampler": 0,
+                "Query": 0,
+                "TransformFeedback": 0
+              },
+              "deleted": {
+                "Buffer": 383,
+                "Texture": 0,
+                "Program": 13,
+                "Shader": 56,
+                "Framebuffer": 0,
+                "Renderbuffer": 0,
+                "VertexArray": 116,
+                "Sampler": 0,
+                "Query": 0,
+                "TransformFeedback": 0
+              },
+              "live": {
+                "Buffer": 215,
+                "Texture": 6,
+                "Program": 15,
+                "Shader": 0,
+                "Framebuffer": 4,
+                "Renderbuffer": 1,
+                "VertexArray": 117,
+                "Sampler": 0,
+                "Query": 0,
+                "TransformFeedback": 0
+              }
+            }
+          ]
+        }
+      ],
+      "nativeAssets": [
+        "/cards/cropped/12580477.jpg",
+        "/cards/cropped/13039848.jpg",
+        "/cards/cropped/14087893.jpg",
+        "/cards/cropped/14898066.jpg",
+        "/cards/cropped/15025844.jpg",
+        "/cards/cropped/20409757.jpg",
+        "/cards/cropped/20721928.jpg",
+        "/cards/cropped/23115241.jpg",
+        "/cards/cropped/23995346.jpg",
+        "/cards/cropped/24094653.jpg",
+        "/cards/cropped/26202165.jpg",
+        "/cards/cropped/26905245.jpg",
+        "/cards/cropped/28279543.jpg",
+        "/cards/cropped/28649820.jpg",
+        "/cards/cropped/31560081.jpg",
+        "/cards/cropped/31924889.jpg",
+        "/cards/cropped/32452818.jpg",
+        "/cards/cropped/38033121.jpg",
+        "/cards/cropped/39552864.jpg",
+        "/cards/cropped/40640057.jpg",
+        "/cards/cropped/41392891.jpg",
+        "/cards/cropped/4206964.jpg",
+        "/cards/cropped/43793530.jpg",
+        "/cards/cropped/44095762.jpg",
+        "/cards/cropped/44287299.jpg",
+        "/cards/cropped/44430454.jpg",
+        "/cards/cropped/44508094.jpg",
+        "/cards/cropped/46986414.jpg",
+        "/cards/cropped/48305365.jpg",
+        "/cards/cropped/49791927.jpg",
+        "/cards/cropped/5053103.jpg",
+        "/cards/cropped/5318639.jpg",
+        "/cards/cropped/5405694.jpg",
+        "/cards/cropped/54652250.jpg",
+        "/cards/cropped/55144522.jpg",
+        "/cards/cropped/55761792.jpg",
+        "/cards/cropped/6368038.jpg",
+        "/cards/cropped/63977008.jpg",
+        "/cards/cropped/64428736.jpg",
+        "/cards/cropped/66602787.jpg",
+        "/cards/cropped/68638985.jpg",
+        "/cards/cropped/70781052.jpg",
+        "/cards/cropped/71625222.jpg",
+        "/cards/cropped/74677422.jpg",
+        "/cards/cropped/77637979.jpg",
+        "/cards/cropped/81823360.jpg",
+        "/cards/cropped/83764718.jpg",
+        "/cards/cropped/84013237.jpg",
+        "/cards/cropped/88819587.jpg",
+        "/cards/cropped/89631139.jpg",
+        "/cards/cropped/91152256.jpg",
+        "/cards/cropped/94415058.jpg",
+        "/cards/cropped/97590747.jpg",
+        "/cards/native-unknown.png",
+        "/cards/reference/26905245.jpg",
+        "/cards/reference/28649820.jpg",
+        "/cards/small/15025844.jpg",
+        "/cards/small/20409757.jpg",
+        "/cards/small/26905245.jpg",
+        "/cards/small/28649820.jpg",
+        "/cards/small/32452818.jpg",
+        "/cards/small/77637979.jpg",
+        "/cards/small/97590747.jpg",
+        "/native/card-data.json",
+        "/native/field-banlists.json",
+        "/native/manifest.json",
+        "/native/ocgcore.sync.wasm",
+        "/native/scripts.json"
+      ],
+      "publicFinal": [
+        {
+          "publicCode": "26905245",
+          "category": "monster",
+          "zone": 0,
+          "position": "attack",
+          "hologram": true,
+          "hologramAttribute": "water",
+          "attack": "ATK 0",
+          "defense": "DEF 3000",
+          "label": "Metal Reflect Slime, ATK 0, DEF 3000"
+        },
+        {
+          "publicCode": "28649820",
+          "category": "monster",
+          "zone": 1,
+          "position": "defense",
+          "hologram": true,
+          "hologramAttribute": "earth",
+          "attack": "ATK 1600",
+          "defense": "DEF 1800",
+          "label": "Embodiment of Apophis, ATK 1600, DEF 1800"
+        }
+      ]
+    }
+  ],
+  "captures": {
+    "chain-apophis-details-1280.png": {
+      "bytes": 796027,
+      "sha256": "39ea0a738b34ceede1e9538d575081307a02d44230aa8a9e15c136ce9cb517d4"
+    },
+    "chain-apophis-details-390.png": {
+      "bytes": 170813,
+      "sha256": "b6910036e2322d7c360162074b97269ce80a923000c2d9a1d483d1487d8101cb"
+    },
+    "chain-apophis-native-summon-pose-1280.png": {
+      "bytes": 798267,
+      "sha256": "ed2ba2caad1eba228f1ae6b4bdb12190fb33d130efad8290d2daf0d73de4f960"
+    },
+    "chain-apophis-native-summon-pose-390.png": {
+      "bytes": 243494,
+      "sha256": "f53f9b6664b1f99dfb247334cc1e6ba4aa56e34d46030e83bfd951d26c5afc3a"
+    },
+    "chain-arena-1280.png": {
+      "bytes": 696968,
+      "sha256": "241d5dddfdd94c10cecf265466e9bb415019e9fea2e37b876f7f6312a9e408ba"
+    },
+    "chain-arena-390.png": {
+      "bytes": 167930,
+      "sha256": "9ae065c0404f908bfaa1795f4aae3cbb1efb1f0b9b9d37a02f22889559fbcda4"
+    },
+    "chain-compact-1280.png": {
+      "bytes": 646680,
+      "sha256": "0dc4af334ef6b0ce868cbffc1880c4d72b08b6ea91a24b3efa2734f55b32792c"
+    },
+    "chain-compact-390.png": {
+      "bytes": 165978,
+      "sha256": "22b2a70a8dc6039950341ef200a1c7e53578f3d156b6cabea1b99d2bde2fb833"
+    },
+    "chain-real-1280.png": {
+      "bytes": 800095,
+      "sha256": "d54d57fc8635210a2ee12c982756caa4f4e8422ea234bfc25ad477443d26679d"
+    },
+    "chain-real-390.png": {
+      "bytes": 246592,
+      "sha256": "f00b7069d9d23cd4b03d3d2a766e6763fa9255f55f50bcdd23a8cb927fc666fc"
+    },
+    "chain-real-camera-console-1280.png": {
+      "bytes": 798950,
+      "sha256": "281ebb414c55ee8f73c2d5c98a10fd782eede70bb1209a85c8c37b5c2a2b2ef9"
+    },
+    "chain-real-camera-console-390.png": {
+      "bytes": 244039,
+      "sha256": "cf6b9af215e3f601b28b0193356ee10a8d703e55a4900cba30451502f8254457"
+    },
+    "chain-real-camera-diagonal-left-1280.png": {
+      "bytes": 1034120,
+      "sha256": "883270fcde4c696ec55ebb31e4db0f2d45c78465f0c274fc7236c39e4f76c963"
+    },
+    "chain-real-camera-diagonal-left-390.png": {
+      "bytes": 296884,
+      "sha256": "3d676f2ee30abf4c4a80d6e072efa081d3ce8ee17df2bcac2ff02aeb2ae377c0"
+    },
+    "chain-real-camera-player-1280.png": {
+      "bytes": 971932,
+      "sha256": "5664870d5b38af775083548965bfe2acf07528a88e55c0bd16e327e633dd17f4"
+    },
+    "chain-real-camera-player-390.png": {
+      "bytes": 268180,
+      "sha256": "0c1ebcf61ed28ea7f942db67e8c2e143786cde00bbda9b4ada7540c824c41578"
+    },
+    "chain-registration-1280.png": {
+      "bytes": 132111,
+      "sha256": "b2552932965bcab739d28b432ad36d2e837a68eca91f9d3e2d63561d622927fd"
+    },
+    "chain-registration-390.png": {
+      "bytes": 63291,
+      "sha256": "b145145dca5860472a0daea0c67cd478a6a873e3f257a63f42fd7ef793acd962"
+    },
+    "chain-set-1280.png": {
+      "bytes": 507381,
+      "sha256": "516b11e979ab687548e884af8585c993e2d4f605bc23eb09b3a6527b771b574f"
+    },
+    "chain-set-390.png": {
+      "bytes": 129712,
+      "sha256": "51530793918149b823f0f7a79880313541b8870a487bb3d439811225086a4422"
+    },
+    "chain-slime-details-1280.png": {
+      "bytes": 743727,
+      "sha256": "984b5d6ab6d04144e9a033a96e9667d5b1b500c0d1065f08d212aa5bebc60b63"
+    },
+    "chain-slime-details-390.png": {
+      "bytes": 167334,
+      "sha256": "0bb30ffa263d3fa5143d46e5d7a4dc2676cacee61f0151091e18ba3456359ea7"
+    },
+    "chain-slime-native-summon-pose-1280.png": {
+      "bytes": 743886,
+      "sha256": "faaa4c340871cc289c654394842f16175ca34c7b7c47203b683aa43f0ab7b799"
+    },
+    "chain-slime-native-summon-pose-390.png": {
+      "bytes": 225324,
+      "sha256": "0c4937d73bc99c5640ab48a3305400c29c83c91fd9986f81c025b2a5ce5101b9"
+    }
+  },
+  "sourceAuditSha256After": "a16f297df2c3e92e72076136c188ea24e2ccdf0573ea746902c40115e7b29fca",
+  "sourceHelperSha256After": "0dd4443ef82f496fb398587b9be06c99d953f57c4a48e48cd470fdacbb311c18",
+  "immutableAuditSources": true,
+  "compiledSnapshotAfter": {
+    "index.html": {
+      "bytes": 35408,
+      "sha256": "30bf78a66cda62f4a4b7b6617ad330ee2c983e5564a51dfff539882b75d3baaf"
+    },
+    "assets/index-DNwe3FSS.js": {
+      "bytes": 598690,
+      "sha256": "38c428237545d8290e07229c5efdda93441dd1088234c31e64aa6ef3f8b59321"
+    },
+    "assets/index-BbUkbKmn.css": {
+      "bytes": 82371,
+      "sha256": "71afb732ab7152dc319dfb6b72812913e23121c24f251ef80e0b69c61e0e749e"
+    },
+    "native/ocgcore.sync.wasm": {
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    },
+    "native/card-data.json": {
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    "native/scripts.json": {
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    },
+    "assets/NativeDuelGame-DocEeHOq.js": {
+      "bytes": 83510,
+      "sha256": "045f647667c998076ba0d3e63433f3015c27cae705bf17546faf49f708e144fb"
+    },
+    "assets/ocgcore-CUv6jKK5.js": {
+      "bytes": 1746,
+      "sha256": "2dc99ca041097a1040c9a3cf509ff7f8c7a25e6dda9999b961bbea6649f582e3"
+    },
+    "assets/FieldEnvironmentRegistry-Bv70irwA.js": {
+      "bytes": 595263,
+      "sha256": "bfc14aa98ac8ac1e7ddbdfed7949539c51a6e6b9e3866c0af7190a6d084db062"
+    },
+    "assets/FieldGeometryThree-vJgK0QSV.js": {
+      "bytes": 534563,
+      "sha256": "029edd52363bea6334afe124e6c0a5fc45b60b39cc416cfdaf6b6319dbbb8a38"
+    },
+    "assets/FieldSpellAtlas-CnzighU6.js": {
+      "bytes": 19380,
+      "sha256": "595441aa8f559786cb1f8c0693833916ea400ea603515c6866898de85fe2b022"
+    },
+    "assets/FieldSpellAtlasPreview-DHgaVA6G.js": {
+      "bytes": 2823,
+      "sha256": "3a332e59139275025a36902ee893ae301232fb0105f68fdd8c198613a4462c2b"
+    },
+    "assets/FieldSpellCardDataSnapshot-DzxkUNrK.js": {
+      "bytes": 169821,
+      "sha256": "ed2484f6797eac2124cdb6a76d8ec20076f9e79cf05008a0183e26a7fd046b3f"
+    },
+    "assets/FieldSpellRules-DLBFReUe.js": {
+      "bytes": 20919,
+      "sha256": "9b95b5d0b3ac46a7d7cade8d2bed65565dcbb1310d494d9344f61ed12a57f54e"
+    },
+    "assets/NativeCardCatalogue-DYOc9sug.js": {
+      "bytes": 54064,
+      "sha256": "52372b0fa09af406267d3091d1c476e20572bc62b9f4ecb499f19bb9dd6d1e2b"
+    },
+    "assets/RealDuelView-P3kgZYMk.js": {
+      "bytes": 135163,
+      "sha256": "8eff318aa606a12673082fdc532b2640f66eebb177b0849f2103370e0fe4e463"
+    },
+    "assets/ocgcore.sync-MMMSWPBB-2LWfD6lX.js": {
+      "bytes": 20718,
+      "sha256": "433b02687ca9a24dcc846c11d7578d40ba5ab87d1b1321d5d22cd879fae58ed6"
+    },
+    "cards/reference/26905245.jpg": {
+      "bytes": 171127,
+      "sha256": "9377a21d60345e052e0564bc38910199f6593c7247791a7805a0ee23e97597bd"
+    },
+    "cards/reference/28649820.jpg": {
+      "bytes": 158154,
+      "sha256": "d4bf7c195cd988b1796f07dddc2ad0f7781e4f5bff20731a8ec33884132686b8"
+    },
+    "cards/cropped/26905245.jpg": {
+      "bytes": 165498,
+      "sha256": "da4105f998aea65251d2c1f0e3c92ae1802012ddfdb482b997fdbda59846aa60"
+    },
+    "cards/cropped/28649820.jpg": {
+      "bytes": 141263,
+      "sha256": "eaaeb38bcd2dfa389d96e5769fb978e8ebf04b9ce2d79b5a6dd67ce094797895"
+    },
+    "cards/small/26905245.jpg": {
+      "bytes": 30149,
+      "sha256": "4759e30156b2cd9063d64a9395071d68d75932bccd7fec80f630ef0d4f7152ee"
+    },
+    "cards/small/28649820.jpg": {
+      "bytes": 28004,
+      "sha256": "e0408c5845482d05e88bff2873cfe30ce635ee466598f801e4fed81be64f0fa1"
+    }
+  },
+  "immutableCompiledSnapshot": true
+}
