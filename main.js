@@ -54,10 +54,21 @@ import {
 } from './src/cards.js';
 import { escapeHtml, safeImageUrl } from './src/security.js';
 import { PublicCardConfirmation } from './src/ui/PublicCardConfirmation.js';
+import { getDuelistAvatar, DEFAULT_DUELIST_AVATAR_ID } from './src/content/DuelistAvatarCatalog.js';
+import {
+  validateDuelistAvatarProfile, collectDuelistAvatarUnlocks,
+  getDuelistAvatarUnlockState, selectDuelistAvatar
+} from './src/content/DuelistAvatarProgress.js';
+import { DuelistAvatarPicker } from './src/ui/DuelistAvatarPicker.js';
 
 let game = null;
 let matchController = null;
 let duelViewController = null;
+let duelistAvatarProfile = null;
+let duelistAvatarPicker = null;
+let duelistAvatarStorageBlocked = false;
+let duelistAvatarReturnDialog = null;
+let currentOpponentAvatarId = 'kaiba';
 const privateCardInspection = new PrivateCardInspection({
   documentRef: document,
   cardDetails: (card, gameState) => gameState?.resources
@@ -102,6 +113,7 @@ const STORAGE_KEYS = Object.freeze({
   matchTimeLimit: 'ygo_match_time_limit',
   customDeck: 'ygo_custom_deck',
   statistics: 'ygo_duel_statistics',
+  duelistAvatar: 'ygo_duelist_avatar_v1',
   activeMatch: 'ygo_active_match_v1',
   realBaseEnvironment: 'ygo_real_base_environment'
 });
@@ -194,6 +206,7 @@ const focusableSelector = [
   'input:not([disabled])',
   'select:not([disabled])',
   'textarea:not([disabled])',
+  'summary',
   '[tabindex]:not([tabindex="-1"])'
 ].join(',');
 
@@ -248,6 +261,11 @@ function dismissActiveDialog() {
   if (activeDialog.id === 'campaign-modal') {
     closeDialog(activeDialog, { restoreFocus: false });
     openDialog(startModal, document.getElementById('btn-open-campaign'));
+    return;
+  }
+
+  if (activeDialog.id === 'duelist-avatar-modal') {
+    duelistAvatarPicker?.close();
     return;
   }
 
@@ -1613,6 +1631,96 @@ let duelStatistics = {
     : null
 };
 
+function getDuelistAvatarContext() {
+  return {
+    statistics: duelStatistics,
+    campaignProgress: campaignController.progress,
+    earnedAvatarIds: duelistAvatarProfile?.earnedAvatarIds || []
+  };
+}
+
+function persistDuelistAvatarProfile() {
+  if (duelistAvatarStorageBlocked) return false;
+  return writeStoredValue(STORAGE_KEYS.duelistAvatar, JSON.stringify(duelistAvatarProfile));
+}
+
+function synchronizeDuelistAvatarAppearance(opponentAvatarId = currentOpponentAvatarId) {
+  const playerAvatar = getDuelistAvatar(duelistAvatarProfile?.selectedAvatarId)
+    || getDuelistAvatar(DEFAULT_DUELIST_AVATAR_ID);
+  const opponentAvatar = getDuelistAvatar(opponentAvatarId) || getDuelistAvatar('kaiba');
+  currentOpponentAvatarId = opponentAvatar.id;
+  const identities = { playerAvatarId: playerAvatar.id, opponentAvatarId: opponentAvatar.id };
+  duelViewController?.setDuelistAvatars?.(identities);
+  const playerLabel = document.getElementById('player-label');
+  if (playerLabel) {
+    playerLabel.textContent = `${playerAvatar.name.toLocaleUpperCase('fr')} (VOUS)`;
+    playerLabel.setAttribute('data-avatar-id', playerAvatar.id);
+    playerLabel.setAttribute('title', playerAvatar.name);
+  }
+  return identities;
+}
+
+function refreshDuelistAvatarUnlocks({ persist = true } = {}) {
+  const result = collectDuelistAvatarUnlocks(duelistAvatarProfile, getDuelistAvatarContext());
+  duelistAvatarProfile = result.profile;
+  const state = getDuelistAvatarUnlockState(duelistAvatarProfile.selectedAvatarId, getDuelistAvatarContext());
+  const selectionChanged = !state.unlocked;
+  if (selectionChanged) duelistAvatarProfile = { ...duelistAvatarProfile, selectedAvatarId: DEFAULT_DUELIST_AVATAR_ID };
+  if (persist && (result.newlyUnlocked.length || selectionChanged)) persistDuelistAvatarProfile();
+  duelistAvatarPicker?.render();
+  synchronizeDuelistAvatarAppearance();
+  return result.newlyUnlocked;
+}
+
+function chooseHumanDuelistAvatar(id) {
+  const choice = selectDuelistAvatar(duelistAvatarProfile, id, getDuelistAvatarContext());
+  if (!choice.accepted) return choice;
+  duelistAvatarProfile = choice.profile;
+  // Explicitly choosing an avatar replaces only this cosmetic preference.
+  duelistAvatarStorageBlocked = false;
+  const saved = persistDuelistAvatarProfile();
+  synchronizeDuelistAvatarAppearance();
+  const message = saved
+    ? `Avatar ${getDuelistAvatar(id).name} sélectionné et enregistré.`
+    : 'Avatar sélectionné pour cette session. Le navigateur a refusé la sauvegarde locale.';
+  announceStatus(message);
+  return { ...choice, saved, message };
+}
+
+function initializeDuelistAvatarSelection() {
+  const checked = validateDuelistAvatarProfile(readStoredValue(STORAGE_KEYS.duelistAvatar));
+  duelistAvatarProfile = checked.profile;
+  duelistAvatarStorageBlocked = !checked.valid;
+  refreshDuelistAvatarUnlocks();
+  const rootElement = document.getElementById('duelist-avatar-picker-root');
+  const dialogElement = document.getElementById('duelist-avatar-modal');
+  if (!rootElement || !dialogElement) return;
+  duelistAvatarPicker = new DuelistAvatarPicker({
+    rootElement, dialogElement,
+    getProfile: () => duelistAvatarProfile,
+    getContext: getDuelistAvatarContext,
+    onSelect: chooseHumanDuelistAvatar,
+    openDialog: (dialog, focus) => {
+      refreshDuelistAvatarUnlocks();
+      duelistAvatarReturnDialog = activeDialog;
+      openDialog(dialog, focus);
+    },
+    closeDialog: dialog => {
+      const ownedDialog = activeDialog === dialog;
+      const returnDialog = duelistAvatarReturnDialog;
+      duelistAvatarReturnDialog = null;
+      closeDialog(dialog, { restoreFocus: false });
+      if (ownedDialog && returnDialog && returnDialog !== dialog) {
+        const focusId = returnDialog.id === 'start-modal' ? 'duelist-avatar-open' : 'btn-settings-avatars';
+        openDialog(returnDialog, document.getElementById(focusId));
+      }
+    }
+  });
+  document.getElementById('btn-settings-avatars')?.addEventListener('click', () => duelistAvatarPicker.open());
+}
+
+initializeDuelistAvatarSelection();
+
 // Setup choice selector interaction
 const choiceCards = document.querySelectorAll('.deck-choice-card');
 const deckBuilderSec = document.getElementById('deck-builder-section');
@@ -2041,6 +2149,8 @@ async function initGameInstance(matchLaunch = null) {
   closeDialog(extraModal, { restoreFocus: false });
   closeDialog(publicZoneModal, { restoreFocus: false });
   closeDialog(settingsModal, { restoreFocus: false });
+  duelistAvatarReturnDialog = null;
+  closeDialog(document.getElementById('duelist-avatar-modal'), { restoreFocus: false });
   closeDialog(document.getElementById('side-deck-modal'), { restoreFocus: false });
 
   selectedAttackerIndex = null;
@@ -2174,13 +2284,11 @@ async function initGameInstance(matchLaunch = null) {
     if (!currentLaunch()) return;
   }
 
-  const playerLabel = document.getElementById('player-label');
   const opponentLabel = document.getElementById('opponent-label');
   const characterNames = { kaiba: 'KAIBA', yugi: 'YUGI', joey: 'JOEY', custom: 'DUELLISTE' };
-  if (playerLabel) playerLabel.textContent = `${characterNames[currentSelectedDeckId] || 'DUELLISTE'} (VOUS)`;
+  synchronizeDuelistAvatarAppearance(opponentDeckId);
   if (opponentLabel) opponentLabel.textContent = `${characterNames[opponentDeckId]} (IA)`;
   if (campaignMission) {
-    playerLabel.textContent = 'PARCOURS SOLO (VOUS)';
     opponentLabel.textContent = `${campaignMission.opponentName.toUpperCase()} (IA)`;
   }
 
@@ -3543,6 +3651,7 @@ function restorePersistedMatchBetweenDuels() {
 function returnToConfiguration({ announce = false } = {}) {
   privateCardInspection.clear();
   publicCardConfirmation.clear();
+  duelistAvatarReturnDialog = null;
   duelLaunchGeneration += 1;
   stopMatchClock();
   leaveCampaign();
@@ -4062,6 +4171,13 @@ function handleGameOver(resultOrWinner, legacyDetails = null) {
     const campaignResult = campaignController.complete(activeCampaignMissionId, result.winner || 'draw', campaignTracker.snapshot(game));
     gameoverText.textContent += ` ${campaignResult.summary}`;
     restartBtn.textContent = 'RÉESSAYER CE DÉFI';
+  }
+
+  const newlyUnlockedAvatars = refreshDuelistAvatarUnlocks();
+  if (newlyUnlockedAvatars.length) {
+    const names = newlyUnlockedAvatars.slice(0, 3).map(id => getDuelistAvatar(id)?.name).filter(Boolean);
+    const remaining = newlyUnlockedAvatars.length > 3 ? ` et ${newlyUnlockedAvatars.length - 3} autre(s)` : '';
+    gameoverText.textContent += ` Avatars débloqués : ${names.join(', ')}${remaining}.`;
   }
 
   document.body.classList.add('duel-ended');

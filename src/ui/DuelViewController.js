@@ -1,3 +1,5 @@
+import { getDuelistAvatar } from '../content/DuelistAvatarCatalog.js';
+
 export const DUEL_VIEW_MODES = Object.freeze(['compact', 'arena', 'real']);
 
 const VIEW_LABELS = Object.freeze({
@@ -64,6 +66,10 @@ export class DuelViewController {
     this.environmentOptions = Object.freeze({
       ...(options.environmentOptions || {})
     });
+    this.duelistAvatars = Object.freeze({
+      playerAvatarId: getDuelistAvatar(options.duelistAvatars?.playerAvatarId)?.id || 'yugi',
+      opponentAvatarId: getDuelistAvatar(options.duelistAvatars?.opponentAvatarId)?.id || 'kaiba'
+    });
     this.mode = normalizeMode(options.initialMode) || deriveMode(this.boardElement);
     this.realView = null;
     this._realViewPromise = null;
@@ -95,6 +101,16 @@ export class DuelViewController {
     if (this._disposed) return null;
     this.environmentOptions = Object.freeze({ ...options });
     return this.realView?.setEnvironmentOptions?.(this.environmentOptions) ?? null;
+  }
+
+  setDuelistAvatars(selection = {}) {
+    if (this._disposed) return null;
+    this.duelistAvatars = Object.freeze({
+      playerAvatarId: getDuelistAvatar(selection.playerAvatarId ?? this.duelistAvatars.playerAvatarId)?.id || 'yugi',
+      opponentAvatarId: getDuelistAvatar(selection.opponentAvatarId ?? this.duelistAvatars.opponentAvatarId)?.id || 'kaiba'
+    });
+    this.realView?.setDuelistAvatars?.(this.duelistAvatars);
+    return this.duelistAvatars;
   }
 
   attach() {
@@ -169,6 +185,7 @@ export class DuelViewController {
           return false;
         }
         this.realView = realView;
+        realView.setDuelistAvatars?.(this.duelistAvatars);
         this.mode = 'real';
         this._applyModePresentation();
         await realView.activate?.(this.gameState);
@@ -239,7 +256,8 @@ export class DuelViewController {
             fieldElement: this.fieldElement,
             boardElement: this.boardElement,
             handElement: this.handElement,
-            environmentOptions: this.environmentOptions
+            environmentOptions: this.environmentOptions,
+            duelistAvatars: this.duelistAvatars
           });
         });
       this._realViewPromise = loadPromise;

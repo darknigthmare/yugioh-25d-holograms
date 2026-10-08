@@ -23,6 +23,7 @@
         <div><strong>PARCOURS SOLO · 12 DÉFIS</strong><p id="campaign-summary">Découvrez les mécaniques, puis visez les médailles.</p></div>
         <button type="button" id="btn-open-campaign" class="btn btn-magenta">OUVRIR LE PARCOURS</button>
       </div>
+      <div id="duelist-avatar-picker-root"></div>
       <details class="coverage-disclosure"><summary>Ce que ce simulateur prend réellement en charge</summary>
         <p id="simulator-card-coverage">Projet fan non officiel. Le mode strict porte sur les cartes locales implémentées. Le catalogue de Terrains distingue les illustrations, les décors 3D et les effets jouables.</p>
         <p>Duels solo contre l’IA, Match avec Side Deck et parcours d’entraînement original. Pas de multijoueur en ligne ni de reprise d’un duel interrompu. La progression solo, les decks personnalisés et les statistiques sont locaux à ce navigateur.</p>
@@ -153,6 +154,8 @@
       <div class="start-action-bar"><button type="button" id="btn-start-duel" class="btn btn-magenta">DÉMARRER LE DUEL LIBRE</button></div>
     </div>
   </div>
+
+  <div id="duelist-avatar-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="duelist-avatar-title" data-dismissible="true"></div>
 
   <div id="field-atlas-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="field-atlas-title" data-dismissible="true">
     <div class="modal-content field-atlas-content" tabindex="-1">
@@ -540,6 +543,7 @@
     <div id="settings-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="settings-modal-title" data-dismissible="true">
       <div class="modal-content" tabindex="-1">
         <h2 id="settings-modal-title" class="modal-title">OPTIONS DE PERSONNALISATION</h2>
+        <button type="button" id="btn-settings-avatars" class="btn">CHOISIR MON AVATAR</button>
         <div class="settings-form">
           <label for="input-card-back">DOS DE CARTE PERSONNALISÉ (URL) :</label>
           <input type="url" id="input-card-back" class="search-input settings-url-input" placeholder="https://example.com/cardback.png" aria-describedby="card-back-help">

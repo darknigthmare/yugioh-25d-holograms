@@ -13,6 +13,7 @@ import { normalizeStrictCardId } from '../src/core/StrictCardRegistry.js';
 import { createTcgFormatPolicy } from '../src/core/tcg/TcgCardLegality.js';
 import { isSupportedNativeCatalogueCard, createNativeTcgCardTemplate } from '../src/core/native/NativeCardCatalogue.js';
 import { TCGMatchClock } from '../src/ui/TCGMatchClock.js';
+import { getDuelistAvatar, DEFAULT_DUELIST_AVATAR_ID } from '../src/content/DuelistAvatarCatalog.js';
 
 const mainSource = readFileSync(new URL('../main.js', import.meta.url), 'utf8');
 const nativeResources = loadNativeCardResources({ fetch: async path => (
@@ -135,6 +136,8 @@ function uiFixture(payload, { nativeStartGate = null, catalogueGate = null } = {
     choiceCards: ['kaiba', 'yugi', 'joey', 'custom'].map(id => ({ ...element(), dataset: { deckId: id } })),
     deckBuilderSec: element(), startBtn: element(), startModal: element(), sideDeckFeedback: element(),
     initDeckBuilderUI: noop, updateModeControls: noop,
+    getDuelistAvatar, DEFAULT_DUELIST_AVATAR_ID,
+    duelistAvatarProfile: { selectedAvatarId: 'yugi' }, currentOpponentAvatarId: 'kaiba',
     closeDialog: noop, openDialog: noop,
     announceStatus: message => notices.push(message),
     document: { getElementById: getElement, querySelectorAll: () => [], body: element() },
@@ -160,7 +163,7 @@ function uiFixture(payload, { nativeStartGate = null, catalogueGate = null } = {
   for (const name of ['isTemplateExtraDeckCard', 'canonicalCustomDeckIds', 'normalizeCustomDeckIds',
     'getCustomDeckCards', 'selectDeckChoice', 'persistMatchBetweenDuels',
     'stopMatchClock', 'syncMatchClock', 'finishMatchAtTime',
-    'restorePersistedMatchBetweenDuels', 'initGameInstance']) {
+    'restorePersistedMatchBetweenDuels', 'synchronizeDuelistAvatarAppearance', 'initGameInstance']) {
     // Module loading is the UI boundary, analogous to the existing audio and
     // rendering injection. The loaded class still runs the real WASM engine.
     const source = productionFunction(name).replace(
@@ -209,7 +212,7 @@ test('a restored registered custom Duel launches its actual Main/Extra snapshot 
   assert.equal(context.game.playerHand.length, 5);
   assert.equal(context.game.playerDeck.length, 35);
   assert.equal(actualMain.includes('2084239'), false, 'registered Side cards are never added to the starting draw pile');
-  assert.equal(nodes.get('player-label').textContent, 'DUELLISTE (VOUS)');
+  assert.equal(nodes.get('player-label').textContent, 'YUGI MUTO (VOUS)');
   assert.ok(notices.some(message => message.includes('Duel 2 du Match')));
   assert.equal(context.customDeckMainIds.length, 0, 'starting a registered Duel does not rewrite the editable draft');
   context.game.dispose();

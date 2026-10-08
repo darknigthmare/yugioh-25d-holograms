@@ -2,6 +2,8 @@
 
 Simulateur de duel solo dans le navigateur, inspiré des arènes holographiques de l’anime. Les modes **TCG Advanced strict** et **Duel libre** utilisent désormais le moteur EDOPro compilé en WebAssembly et les véritables scripts Lua de Project Ignis. Le projet fonctionne sans compte ni backend : le Duel reste dans la page, les préférences et les Matchs entre deux Duels utilisent `localStorage`.
 
+Le bouton **Mon personnage**, dans la préparation du duel et les options, permet de choisir parmi **192 avatars stylisés des huit séries**. Onze personnages sont disponibles dès le départ ; les autres se débloquent avec les duels terminés, les victoires, les médailles et les missions du parcours solo. La collection acquise et le personnage sélectionné sont sauvegardés dans ce navigateur. Le nom du joueur et sa silhouette en Vue Réelle suivent cette sélection, indépendamment du deck. Voir [l’intégration des avatars](docs/audits/duelist-avatar-wave-2026-10-09.md).
+
 ## Modes et bibliothèque
 
 | Mode | Moteur et cartes | Validation du Deck |

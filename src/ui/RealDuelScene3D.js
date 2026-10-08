@@ -8,6 +8,8 @@ import { createHologramMonsterModel } from './HologramMonsterModels.js';
 import { resolveHologramMonsterProfile } from './CombatVisualProfiles.js';
 import { createCombatVisualEffect } from './CombatVisualEffects.js';
 import { createHologramPoseAnimation } from './HologramPoseAnimation.js';
+import { createDuelistAvatarModel } from './DuelistAvatarModels.js';
+import { getDuelistAvatar } from '../content/DuelistAvatarCatalog.js';
 import {
   createFieldEnvironmentGeometry,
   disposeFieldEnvironmentGeometry,
@@ -342,6 +344,21 @@ export class RealDuelScene3D {
     this._cameraLookTarget = new THREE.Vector3();
     this._cameraTransition = null;
     this._animatedVisualsActive = false;
+    this._duelistAvatars = new Map();
+    this._duelistAvatarIds = Object.freeze({ playerAvatarId: 'yugi', opponentAvatarId: 'kaiba' });
+    this._duelistAnimationElapsed = 0;
+    this._duelistAnimationLastNow = null;
+    this._motionPreference = this.windowRef?.matchMedia?.('(prefers-reduced-motion: reduce)') || null;
+    this._reducedMotion = this._motionPreference?.matches === true;
+    this._boundMotionPreference = event => {
+      this._reducedMotion = event.matches === true;
+      this._duelistAnimationLastNow = null;
+      if (this._reducedMotion) {
+        this._duelistAvatars.forEach(avatar => avatar.resetPose());
+        this.render();
+        if (!this._requiresAnimationFrame()) this._stopFrameLoop();
+      } else if (this.active) this.start();
+    };
     this._fieldHolograms = new Map();
     this._combatEffects = [];
     this._monsterPoses = new Map();
@@ -421,7 +438,70 @@ export class RealDuelScene3D {
   }
 
   _requiresAnimationFrame() {
-    return Boolean(this._cameraTransition || this._animatedVisualsActive || this._combatEffects.length || this._monsterPoses.size);
+    return Boolean(this._cameraTransition || this._animatedVisualsActive || this._combatEffects.length || this._monsterPoses.size
+      || (this._duelistAvatars.size && !this._reducedMotion));
+  }
+
+  /** Public appearance IDs only; choices are retained before WebGL is mounted. */
+  setDuelistAvatars({ playerAvatarId, opponentAvatarId } = {}) {
+    if (this.disposed) return false;
+    const ids = {
+      playerAvatarId: getDuelistAvatar(playerAvatarId)?.id || this._duelistAvatarIds.playerAvatarId,
+      opponentAvatarId: getDuelistAvatar(opponentAvatarId)?.id || this._duelistAvatarIds.opponentAvatarId
+    };
+    this._duelistAvatarIds = Object.freeze(ids);
+    if (this.root?.dataset) {
+      this.root.dataset.playerAvatarId = ids.playerAvatarId;
+      this.root.dataset.opponentAvatarId = ids.opponentAvatarId;
+    }
+    if (!this.scene?.add) return true;
+    for (const owner of ['player', 'opponent']) {
+      const avatarId = ids[`${owner}AvatarId`];
+      if (this._duelistAvatars.get(owner)?.avatarId === avatarId) continue;
+      this._duelistAvatars.get(owner)?.dispose();
+      const avatar = createDuelistAvatarModel(avatarId, { owner, reducedMotion: this._reducedMotion });
+      if (owner === 'player') {
+        // Behind the left side of the console; the CSS card layer remains on top.
+        avatar.group.position.set(-3.4, 0, 14.2);
+        avatar.group.rotation.y = 2.73;
+      } else {
+        avatar.group.position.set(0, 0, -15.1);
+      }
+      this._duelistAvatars.set(owner, avatar);
+      this.scene.add(avatar.group);
+    }
+    this._positionPlayerAvatar();
+    this.render();
+    if (this.active) this.start();
+    return true;
+  }
+
+  getDuelistAvatars() {
+    return this._duelistAvatarIds;
+  }
+
+  _positionPlayerAvatar() {
+    const player = this._duelistAvatars.get('player');
+    if (!player || this._width <= 1 || this._height <= 1) return;
+    // Derive the margin from the actual field aspect, rather than the window
+    // size. No camera or interactive zone moves when a narrow view is resized.
+    const pose = resolveRealDuelCameraPose('player', this._width);
+    const camera = new THREE.PerspectiveCamera(pose.fov, this._width / this._height, 0.1, 120);
+    camera.position.set(...pose.position);
+    camera.lookAt(new THREE.Vector3(...pose.target));
+    camera.updateMatrixWorld();
+    const anchor = new THREE.Vector3(1, 4.86 * player.group.scale.y, 14.2).project(camera);
+    player.group.position.x = Math.max(-6.9, Math.min(-1.9, -0.7 / anchor.x));
+  }
+
+  _updateDuelistAvatars(now) {
+    if (!this._duelistAvatars.size || this._reducedMotion) return false;
+    if (this._duelistAnimationLastNow !== null) {
+      this._duelistAnimationElapsed += Math.min(0.1, Math.max(0, (now - this._duelistAnimationLastNow) / 1000));
+    }
+    this._duelistAnimationLastNow = now;
+    this._duelistAvatars.forEach(avatar => avatar.update(this._duelistAnimationElapsed, { reducedMotion: this._reducedMotion }));
+    return true;
   }
 
   _pauseCameraTransitionClock() {
@@ -699,7 +779,7 @@ export class RealDuelScene3D {
       withPlaymat: true
     }));
     this.scene.add(this._createOpponentConsole());
-    this.scene.add(this._createOpponent());
+    this.setDuelistAvatars(this._duelistAvatarIds);
   }
 
   _createConsole({
@@ -925,91 +1005,16 @@ export class RealDuelScene3D {
     }
   }
 
-  _createOpponent() {
-    const opponent = new THREE.Group();
-    opponent.name = 'opponent-character';
-    opponent.position.set(0, 0, -15.1);
-
-    const clothing = new THREE.MeshStandardMaterial({
-      color: '#23344e',
-      roughness: 0.76
-    });
-    const hair = new THREE.MeshStandardMaterial({
-      color: '#21182d',
-      roughness: 0.82
-    });
-    const skin = new THREE.MeshStandardMaterial({
-      color: '#c89474',
-      roughness: 0.9
-    });
-    const torso = new THREE.Mesh(
-      new THREE.CapsuleGeometry(0.78, 2.2, 5, 10),
-      clothing
-    );
-    torso.position.y = 3.2;
-    torso.castShadow = true;
-    opponent.add(torso);
-
-    const shoulders = new THREE.Mesh(
-      new THREE.BoxGeometry(2.15, 0.48, 0.76),
-      clothing
-    );
-    shoulders.position.set(0, 4.12, 0.02);
-    shoulders.castShadow = true;
-    opponent.add(shoulders);
-
-    const hairMass = new THREE.Mesh(
-      new THREE.DodecahedronGeometry(0.74, 0),
-      hair
-    );
-    hairMass.position.set(0, 5.35, -0.22);
-    hairMass.castShadow = true;
-    opponent.add(hairMass);
-
-    const head = new THREE.Mesh(
-      new THREE.IcosahedronGeometry(0.63, 1),
-      skin
-    );
-    head.position.set(0, 5.12, 0.2);
-    head.castShadow = true;
-    opponent.add(head);
-    for (const [x, rotationZ] of [
-      [-0.58, -0.48],
-      [-0.28, -0.2],
-      [0, 0],
-      [0.28, 0.2],
-      [0.58, 0.48]
-    ]) {
-      const spike = new THREE.Mesh(
-        new THREE.ConeGeometry(0.2, 0.82, 5),
-        hair
-      );
-      spike.position.set(x, 5.95 - Math.abs(x) * 0.25, -0.2);
-      spike.rotation.z = rotationZ;
-      spike.castShadow = true;
-      opponent.add(spike);
-    }
-    for (const x of [-0.68, 0.68]) {
-      const arm = new THREE.Mesh(
-        new THREE.CapsuleGeometry(0.2, 1.8, 4, 8),
-        clothing
-      );
-      arm.position.set(x, 3.2, 0);
-      arm.rotation.z = x < 0 ? -0.18 : 0.18;
-      arm.castShadow = true;
-      opponent.add(arm);
-    }
-    return opponent;
-  }
-
   _attachListeners() {
     this.documentRef?.addEventListener?.('visibilitychange', this._boundVisibility);
     this.windowRef?.addEventListener?.('resize', this._boundResize, { passive: true });
+    this._motionPreference?.addEventListener?.('change', this._boundMotionPreference);
   }
 
   _detachListeners() {
     this.documentRef?.removeEventListener?.('visibilitychange', this._boundVisibility);
     this.windowRef?.removeEventListener?.('resize', this._boundResize);
+    this._motionPreference?.removeEventListener?.('change', this._boundMotionPreference);
   }
 
   async activate(selectionOrEnvironment = this.environment, publicSummary = null) {
@@ -1388,6 +1393,7 @@ export class RealDuelScene3D {
     this.camera.aspect = nextWidth / nextHeight;
     this.camera.updateProjectionMatrix();
     this.renderer.setSize(nextWidth, nextHeight, false);
+    this._positionPlayerAvatar();
     this.render();
     this._notifyCameraUpdate();
     return true;
@@ -1415,6 +1421,7 @@ export class RealDuelScene3D {
   }
 
   pause() {
+    this._duelistAnimationLastNow = null;
     this._pauseCameraTransitionClock();
     if ((this._combatEffects.length || this._monsterPoses.size) && this._effectsPausedAt === null) this._effectsPausedAt = this._now();
     this._stopFrameLoop();
@@ -1457,7 +1464,8 @@ export class RealDuelScene3D {
     const cameraChanged = this._updateCameraTransition(now);
     const combatChanged = this._updateCombatEffects(now);
     const poseChanged = this._updateMonsterPoses(now);
-    if (cameraChanged || combatChanged || poseChanged || this._animatedVisualsActive) this.render();
+    const avatarChanged = this._updateDuelistAvatars(now);
+    if (cameraChanged || combatChanged || poseChanged || avatarChanged || this._animatedVisualsActive) this.render();
     if (cameraChanged) this._notifyCameraUpdate();
     if (this._requiresAnimationFrame()) {
       this._scheduleFrame();
@@ -1477,6 +1485,8 @@ export class RealDuelScene3D {
   _destroyRenderer() {
     this.pause();
     this.clearCombatEffects();
+    this._duelistAvatars.forEach(avatar => avatar.dispose());
+    this._duelistAvatars.clear();
     disposeFieldEnvironmentGeometry(this._fieldEnvironmentGeometry);
     disposeObject3D(this.scene);
     this.scene?.clear?.();
