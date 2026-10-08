@@ -1,0 +1,184 @@
+{
+  "scope": "Original observed native/render dependencies before the coordinator-final source pins. No assertion that these intermediate hashes are the final app source.",
+  "sourceSnapshots": [
+    {
+      "sourcePath": "scripts/audit-continuation-effects-native.mjs",
+      "observedSha256": "a5d4a5cb80709dac7f78a68383b7dc070bda3be9a2365fc69974f1cef2e303ab",
+      "sourceRecovery": "current source bytes remain equal",
+      "archivedPath": "sources/scripts/audit-continuation-effects-native.mjs.txt"
+    },
+    {
+      "sourcePath": "scripts/native-field-audit-harness.mjs",
+      "observedSha256": "d7b1c776f5552fd5eb5f5e70712c0265fd5b75f30d2d07465caadd10887a0734",
+      "sourceRecovery": "current source bytes remain equal",
+      "archivedPath": "sources/scripts/native-field-audit-harness.mjs.txt"
+    },
+    {
+      "sourcePath": "scripts/native-field-audit-inputs.mjs",
+      "observedSha256": "c2224fb53c089a05ae8c123aee72cf38b79679248b1777b4916648ea29482a96",
+      "sourceRecovery": "current source bytes remain equal",
+      "archivedPath": "sources/scripts/native-field-audit-inputs.mjs.txt"
+    },
+    {
+      "sourcePath": "src/ui/CombatVisualEffects.js",
+      "observedSha256": "6e685855e5c491e5d2d340baa4a5b399438bf3c4e899e5a888f989c994852e94",
+      "sourceRecovery": "current source bytes remain equal",
+      "archivedPath": "sources/src/ui/CombatVisualEffects.js.txt"
+    },
+    {
+      "sourcePath": "src/ui/CardSpecificVisualEffects.js",
+      "observedSha256": "b56382a7b1ba63e299b1bedc18405ad4b01454a182f2160aef544089a4182df7",
+      "sourceRecovery": "current source bytes remain equal",
+      "archivedPath": "sources/src/ui/CardSpecificVisualEffects.js.txt"
+    },
+    {
+      "sourcePath": "src/ui/CombatVisualProfiles.js",
+      "observedSha256": "2614380d428e4076304d1387c82b4885c52208d432ba9afb3da8eb4a3501aa5b",
+      "sourceRecovery": "current source bytes remain equal",
+      "archivedPath": "sources/src/ui/CombatVisualProfiles.js.txt"
+    },
+    {
+      "sourcePath": "src/ui/PublicDuelVisuals.js",
+      "observedSha256": "1c19b3aafecf843427f96f15ec6b6234c4ab7a18336af68a870a47f2ada9d982",
+      "sourceRecovery": "current source bytes remain equal",
+      "archivedPath": "sources/src/ui/PublicDuelVisuals.js.txt"
+    },
+    {
+      "sourcePath": "src/core/native/NativeDuelVisualEvents.js",
+      "observedSha256": "8b2f692bbf099a62c26244098dadfaa10842ce94d4cb0291d9a2e1e0c54af242",
+      "sourceRecovery": "current source bytes remain equal",
+      "archivedPath": "sources/src/core/native/NativeDuelVisualEvents.js.txt"
+    },
+    {
+      "sourcePath": "src/core/native/NativeDuelRuntime.js",
+      "observedSha256": "a2c7a18654e968861a0e34a51cd35f17ee5a3e03efc23cbd6a4632be29de3b95",
+      "sourceRecovery": "current source bytes remain equal",
+      "archivedPath": "sources/src/core/native/NativeDuelRuntime.js.txt"
+    },
+    {
+      "sourcePath": "src/core/native/NativeDuelDecisions.js",
+      "observedSha256": "1fabda3f41c009307d5a4b5eec2bd2024324e9b00e0dd3cb7674c214861e7e70",
+      "sourceRecovery": "current source bytes remain equal",
+      "archivedPath": "sources/src/core/native/NativeDuelDecisions.js.txt"
+    },
+    {
+      "sourcePath": "src/ui/NativeDuelPresentationModel.js",
+      "observedSha256": "3ac3fe31372b9125433caf68601757183c89e7fb08e2b342b45b22b60d8cdf06",
+      "sourceRecovery": "current source bytes remain equal",
+      "archivedPath": "sources/src/ui/NativeDuelPresentationModel.js.txt"
+    },
+    {
+      "sourcePath": "src/core/native/NativeCardData.js",
+      "observedSha256": "59a664d8d16593ef2223d895085e81e48d6eaa0d90bb0725b6410a71bdcac568",
+      "sourceRecovery": "current source bytes remain equal",
+      "archivedPath": "sources/src/core/native/NativeCardData.js.txt"
+    },
+    {
+      "sourcePath": "src/core/native/NativeScriptArchive.js",
+      "observedSha256": "8e40d56b6cba11813e217d89538831195e89399b5e0da1c0dfd215ab7610d83c",
+      "sourceRecovery": "current source bytes remain equal",
+      "archivedPath": "sources/src/core/native/NativeScriptArchive.js.txt"
+    },
+    {
+      "sourcePath": "src/core/native/NativeCardCharacteristics.js",
+      "observedSha256": "e4d1a7551bf67b32a55f291f59abc411c032217113f63cd35df76db75ad5fa76",
+      "sourceRecovery": "current source bytes remain equal",
+      "archivedPath": "sources/src/core/native/NativeCardCharacteristics.js.txt"
+    },
+    {
+      "sourcePath": "src/core/native/NativeCoreAssets.js",
+      "observedSha256": "ea80f9606142a9612d68be4fe0f53c8acdb3061dc171952af1e39baeb8735903",
+      "sourceRecovery": "current source bytes remain equal",
+      "archivedPath": "sources/src/core/native/NativeCoreAssets.js.txt"
+    },
+    {
+      "sourcePath": "src/core/native/NativeCardScriptCorrections.js",
+      "observedSha256": "e0073221e78f6f3df94b0b37da4683167a5a8787f21317f5d6a0a619a5c767cd",
+      "sourceRecovery": "current source bytes remain equal",
+      "archivedPath": "sources/src/core/native/NativeCardScriptCorrections.js.txt"
+    },
+    {
+      "sourcePath": "src/core/native/NativeLuaCompatibility.js",
+      "observedSha256": "7445d1f73cad6ba208fa0cf869d6f51491e6dd700dedc4cbec6f4342fd8d163e",
+      "sourceRecovery": "current source bytes remain equal",
+      "archivedPath": "sources/src/core/native/NativeLuaCompatibility.js.txt"
+    },
+    {
+      "sourcePath": "src/core/native/vendor/ocgcore/index.js",
+      "observedSha256": "8cfbec622cf5b920e0b58db6d842fcabf1a9ef8eed9f0841bac43a1e9adb0657",
+      "sourceRecovery": "current source bytes remain equal",
+      "archivedPath": "sources/src/core/native/vendor/ocgcore/index.js.txt"
+    },
+    {
+      "sourcePath": "test/continuation-effects-2026-10-08.test.js",
+      "observedSha256": "c6c71f55ce2b079e0e3ddb3b2f9f636a8a7db0cbafa15dcb1070a49e69209fd6",
+      "sourceRecovery": "current source bytes remain equal",
+      "archivedPath": "sources/test/continuation-effects-2026-10-08.test.js.txt"
+    },
+    {
+      "sourcePath": "public/cards/cropped/46986414.jpg",
+      "observedSha256": "cffad3a9a824b3d9538dacc23a447a9ba5047079ab84533e9ec8328544df245c",
+      "sourceRecovery": "current source bytes remain equal",
+      "archivedPath": null
+    },
+    {
+      "sourcePath": "public/cards/cropped/38033121.jpg",
+      "observedSha256": "174be1399df0bbfa292edee5975f6b4ef0b99855af8572b16b3400a84b809051",
+      "sourceRecovery": "current source bytes remain equal",
+      "archivedPath": null
+    },
+    {
+      "sourcePath": "public/cards/cropped/32452818.jpg",
+      "observedSha256": "26e5dfde049976291121af687690e9691255bafd1042a94b5d148508ae6daa71",
+      "sourceRecovery": "current source bytes remain equal",
+      "archivedPath": null
+    },
+    {
+      "sourcePath": "public/cards/cropped/97590747.jpg",
+      "observedSha256": "64185c1dcbb5446ddfdfe2b5e6e23f98109f91f6889a369ad78f68380f717374",
+      "sourceRecovery": "current source bytes remain equal",
+      "archivedPath": null
+    },
+    {
+      "sourcePath": "public/native/ocgcore.sync.wasm",
+      "observedSha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+      "sourceRecovery": "current source bytes remain equal",
+      "archivedPath": null
+    },
+    {
+      "sourcePath": "public/native/core-build.json",
+      "observedSha256": "1b2624bc1c60420432a247e1d422b02574991738988205bc4db4cd585a4cd0df",
+      "sourceRecovery": "current source bytes remain equal",
+      "archivedPath": null
+    },
+    {
+      "sourcePath": "public/native/card-data.json",
+      "observedSha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d",
+      "sourceRecovery": "current source bytes remain equal",
+      "archivedPath": null
+    },
+    {
+      "sourcePath": "public/native/scripts.json",
+      "observedSha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f",
+      "sourceRecovery": "current source bytes remain equal",
+      "archivedPath": null
+    },
+    {
+      "sourcePath": "scripts/audit-continuation-effects-render.py",
+      "observedSha256": "5de01d67d64b1c5756a837e4c4c7109388a887bf7a516ddddfd47483d14b9f19",
+      "sourceRecovery": "current source bytes remain equal",
+      "archivedPath": "sources/scripts/audit-continuation-effects-render.py.txt"
+    },
+    {
+      "sourcePath": "docs/audits/artifacts/continuation-effects-2026-10-08/native-attacks.json",
+      "observedSha256": "6757457f60e72280c3086b6c81348d13aeaafdc95f0fd3d17762e212ce3b5073",
+      "sourceRecovery": "current source bytes remain equal",
+      "archivedPath": null
+    }
+  ],
+  "archivedReportHashes": {
+    "native-attacks.json": "6757457f60e72280c3086b6c81348d13aeaafdc95f0fd3d17762e212ce3b5073",
+    "render-comparison.json": "803f8e34b6aa6693430e6c71e29607c4606e7bb5e00f103873a079c3a8697319",
+    "targeted-tests.txt": "ae44af4fa0af3fa0b511b084355cb753af35bc7f5eb218e97d6baffa3a09437e"
+  }
+}

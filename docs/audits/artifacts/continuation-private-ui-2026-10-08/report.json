@@ -1,0 +1,1230 @@
+{
+  "format": "continuation-private-production-ui-v1",
+  "ok": true,
+  "executedAtUtc": "2026-10-08T21:21:11.148944+00:00",
+  "technicalTimezone": "UTC",
+  "stage": "frozen-compiled-production-csp",
+  "expectedEntrySha256": "799145520bfd285b788d5f6573dde6a557ef82dadda4645a697f97f5d60882be",
+  "essentialBuildAssets": [
+    "index.html",
+    "assets/index-XmnwEEBj.js",
+    "assets/index-Ce4lc5_W.css",
+    "assets/NativeDuelGame-DR4pJFur.js",
+    "assets/FieldEnvironmentRegistry-CW5zbHcP.js",
+    "assets/RealDuelView-CZpDyO-R.js",
+    "assets/ocgcore-DWqJvtmv.js"
+  ],
+  "registeredFixture": {
+    "main": [
+      "89631139",
+      "89631139",
+      "89631139",
+      "76812113",
+      "81439173",
+      "46986414",
+      "15025844",
+      "97590747",
+      "97590747",
+      "70781052",
+      "15025844",
+      "97590747",
+      "70781052",
+      "70781052",
+      "15025844",
+      "5053103",
+      "5053103",
+      "5053103",
+      "46986414",
+      "76812113",
+      "76812113",
+      "91152256",
+      "91152256",
+      "91152256",
+      "32452818",
+      "15521027",
+      "32452818",
+      "91939608",
+      "91939608",
+      "91939608",
+      "32452818",
+      "15521027",
+      "15521027",
+      "46986414",
+      "93542102",
+      "93542102",
+      "93542102",
+      "5318639",
+      "5318639",
+      "5318639"
+    ],
+    "extra": [],
+    "side": []
+  },
+  "method": "Forty-card native free duel registered before Start; varied initial crypto stream; all gameplay uses public UI; observations use visible DOM only.",
+  "tcgAdvancedLegalityCertified": false,
+  "noPostStartInjection": true,
+  "syntheticInspectionEvents": false,
+  "privateCardCountAssumption": "The core owns the dice; the actual count is observed from the legitimate recipient panel and must be 1–6. Six cards are never assumed.",
+  "sourceDependenciesBefore": {
+    "main.js": {
+      "bytes": 184958,
+      "sha256": "b442b4d2f58240c70a2b045c4bbd5957e780b69b1050bb17146938c85f79f7c1"
+    },
+    "style.css": {
+      "bytes": 115179,
+      "sha256": "41962bbd2229fc25b2f1d77280a39cc2ff26c5d5963588e3539b183720a89fab"
+    },
+    "vercel.json": {
+      "bytes": 1272,
+      "sha256": "54ace7536aaf92de4eca552f63a6266e790eda597ecfc67dbb0ebe0c9bf3664c"
+    },
+    "scripts/audit-continuation-private-ui.py": {
+      "bytes": 24665,
+      "sha256": "35b63dfd435bd1ba0270ea24d671f953356dc7f82b463f7b28ef8c5eecdba13a"
+    },
+    "scripts/audit-native-duel-ui.py": {
+      "bytes": 28175,
+      "sha256": "0dd4443ef82f496fb398587b9be06c99d953f57c4a48e48cd470fdacbb311c18"
+    },
+    "scripts/audit-native-wave-ui.py": {
+      "bytes": 33705,
+      "sha256": "60661a551b648802655d1c78a685adbbaea94015b18273ac5a7cf2ca837bd475"
+    },
+    "src/ui/PrivateCardInspection.js": {
+      "bytes": 5637,
+      "sha256": "c2f6da2cedacae2d014d45c15a587838ff772237af5b8e9f0ac195104a5298d0"
+    },
+    "src/ui/PublicCardConfirmation.js": {
+      "bytes": 1553,
+      "sha256": "858a04e67f0b08c9a687a1382f4a0ab7810a5ef3213787e58bb5b5ab480cb513"
+    },
+    "src/core/native/NativeDuelGame.js": {
+      "bytes": 59938,
+      "sha256": "f29c5061f0d47ca657bcd88b0bfbb0954a5dcc51fa4c9c0f1827f9fbfa7c5a11"
+    },
+    "src/core/native/NativeDuelRuntime.js": {
+      "bytes": 9664,
+      "sha256": "a2c7a18654e968861a0e34a51cd35f17ee5a3e03efc23cbd6a4632be29de3b95"
+    },
+    "src/core/native/NativeDuelDecisions.js": {
+      "bytes": 35088,
+      "sha256": "1fabda3f41c009307d5a4b5eec2bd2024324e9b00e0dd3cb7674c214861e7e70"
+    },
+    "src/core/native/NativeDuelVisualEvents.js": {
+      "bytes": 33437,
+      "sha256": "8b2f692bbf099a62c26244098dadfaa10842ce94d4cb0291d9a2e1e0c54af242"
+    },
+    "src/core/native/NativePublicRevealPolicy.js": {
+      "bytes": 3116,
+      "sha256": "eca1ea20ec0e6f130d02f84af84f82fb5cf600f431c1395e94739b09428876f1"
+    },
+    "src/ui/NativeDuelPresentationModel.js": {
+      "bytes": 3754,
+      "sha256": "3ac3fe31372b9125433caf68601757183c89e7fb08e2b342b45b22b60d8cdf06"
+    },
+    "src/core/native/NativeCardCatalogue.js": {
+      "bytes": 13798,
+      "sha256": "76d6a81dde07d60c328f68b8d7e6318d9af073b71d394570b1ce85ca5a027812"
+    },
+    "src/core/native/NativeCardData.js": {
+      "bytes": 4737,
+      "sha256": "59a664d8d16593ef2223d895085e81e48d6eaa0d90bb0725b6410a71bdcac568"
+    },
+    "public/native/card-data.json": {
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    "public/native/scripts.json": {
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    },
+    "public/native/ocgcore.sync.wasm": {
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    }
+  },
+  "compiledSnapshotBefore": {
+    "index.html": {
+      "bytes": 35567,
+      "sha256": "548a47bce13cc7a6d14ee1c5085c0867e6f1ac34d31630e7a0d87e568a524bc3"
+    },
+    "assets/FieldEnvironmentRegistry-CW5zbHcP.js": {
+      "bytes": 622016,
+      "sha256": "3423def789cb9b59abf5297c9fc36905226dbfb91e2d0d44d988853104af4d4f"
+    },
+    "assets/FieldGeometryThree-C0Kdbjch.js": {
+      "bytes": 535746,
+      "sha256": "b6121968a6eed088f4128b5e8ee582ac7cb8e29c25401ce9b5a3873d972382a8"
+    },
+    "assets/FieldSpellAtlas-D6errs9N.js": {
+      "bytes": 19402,
+      "sha256": "9da6079a24b309abc776e25b5e335dbba288de74ca810e1788ecbef3e8e95a44"
+    },
+    "assets/FieldSpellAtlasPreview-CzwopV8E.js": {
+      "bytes": 2823,
+      "sha256": "963f64d1354084271fbae8dab277739513eb8d56eb36873068fd608ac4669cc8"
+    },
+    "assets/FieldSpellCardDataSnapshot-DzxkUNrK.js": {
+      "bytes": 169821,
+      "sha256": "ed2484f6797eac2124cdb6a76d8ec20076f9e79cf05008a0183e26a7fd046b3f"
+    },
+    "assets/FieldSpellRules-DLBFReUe.js": {
+      "bytes": 20919,
+      "sha256": "9b95b5d0b3ac46a7d7cade8d2bed65565dcbb1310d494d9344f61ed12a57f54e"
+    },
+    "assets/NativeDuelGame-DR4pJFur.js": {
+      "bytes": 88812,
+      "sha256": "36c7b35eef9e695e25233a0eb1a38a8968b4f22ab35cccd659c803dd7ae39a21"
+    },
+    "assets/RealDuelView-CZpDyO-R.js": {
+      "bytes": 174817,
+      "sha256": "8c2672cf7b48938f4f93daa71ae6eded94600c1ae8bd120e159ea65007a440fd"
+    },
+    "assets/index-Ce4lc5_W.css": {
+      "bytes": 84495,
+      "sha256": "3a7edacf3b48736f74fedd48644f2bb03a3a5df7bdde114cb8e10c56857bea36"
+    },
+    "assets/index-XmnwEEBj.js": {
+      "bytes": 611206,
+      "sha256": "799145520bfd285b788d5f6573dde6a557ef82dadda4645a697f97f5d60882be"
+    },
+    "assets/ocgcore-DWqJvtmv.js": {
+      "bytes": 46501,
+      "sha256": "dd1e9936f49901fb5f53efd6d25b19ab5755af65169fee4ef34600a1cfbe5349"
+    },
+    "assets/ocgcore.sync-MMMSWPBB-2LWfD6lX.js": {
+      "bytes": 20718,
+      "sha256": "433b02687ca9a24dcc846c11d7578d40ba5ab87d1b1321d5d22cd879fae58ed6"
+    },
+    "assets/preload-helper-Czpn1I53.js": {
+      "bytes": 1196,
+      "sha256": "aba87f2a53e45ecdc9113fc30387d16e449d1676428cf5f82dd624c1df97d152"
+    },
+    "native/ocgcore.sync.wasm": {
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    },
+    "native/card-data.json": {
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    "native/scripts.json": {
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    }
+  },
+  "productionCsp": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://db.ygoprodeck.com; media-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests",
+  "viewports": [
+    {
+      "width": 1280,
+      "height": 900,
+      "ok": true,
+      "trace": [
+        {
+          "title": "CHOISIR LES CARTES",
+          "selected": "Morphtronic Celfon — Votre Deck",
+          "method": "keyboard Space/Enter"
+        },
+        {
+          "title": "EFFETS ET INVOCATIONS",
+          "selected": "Invoquer spécialement Morphtronic Smartfon"
+        },
+        {
+          "title": "CHOISIR LES MATÉRIELS",
+          "selected": "AJOUTER — Morphtronic Celfon — Votre Cimetière · Carte 1"
+        },
+        {
+          "title": "CHOISIR LA ZONE",
+          "selected": "Votre Zone Monstre 1"
+        },
+        {
+          "title": "CHOISIR LA POSITION",
+          "selected": "DÉFENSE FACE RECTO"
+        },
+        {
+          "title": "EFFETS ET INVOCATIONS",
+          "selected": "Activer Morphtronic Smartfon : Excavate and arranje"
+        },
+        {
+          "title": "CHOISIR UN EFFET",
+          "options": [
+            "Top of deck",
+            "Bottom of deck"
+          ],
+          "selected": "Top of deck"
+        },
+        {
+          "title": "ORDONNER LES CARTES",
+          "selectedAuthorizedDeckCard": "Magicien Sombre — Votre Deck"
+        },
+        {
+          "title": "ORDONNER LES CARTES",
+          "selectedAuthorizedDeckCard": "Morphtronic Celfon — Votre Deck"
+        },
+        {
+          "title": "ORDONNER LES CARTES",
+          "selectedAuthorizedDeckCard": "Guerrier Castor — Votre Deck"
+        },
+        {
+          "title": "ORDONNER LES CARTES",
+          "selectedAuthorizedDeckCard": "Bœuf de Combat — Votre Deck"
+        }
+      ],
+      "captures": [
+        "private-smartfon-grouped-1280.png",
+        "private-smartfon-keyboard-details-1280.png",
+        "private-smartfon-closed-board-1280.png"
+      ],
+      "pageErrors": [],
+      "nativeRequestFailures": [],
+      "actualOpeningOwnHand": [
+        "15521027",
+        "81439173",
+        "46986414",
+        "15025844",
+        "97590747"
+      ],
+      "publicGyAfterActualFoolish": [
+        "93542102",
+        "81439173"
+      ],
+      "actualPrivateCardCount": 4,
+      "diceOutcomeNotForcedOrReadFromEngine": true,
+      "groupedPanel": {
+        "count": 1,
+        "role": "region",
+        "modal": null,
+        "title": "Inspection privée",
+        "panel": {
+          "x": 894,
+          "y": 96,
+          "width": 370,
+          "height": 630
+        },
+        "received": "4 cartes reçues.",
+        "names": [
+          "Morphtronic Celfon",
+          "Magicien Sombre",
+          "Bœuf de Combat",
+          "Guerrier Castor"
+        ],
+        "images": [
+          {
+            "url": "http://127.0.0.1:34423/cards/native-unknown.png",
+            "loaded": true,
+            "hidden": false,
+            "alt": "Morphtronic Celfon"
+          },
+          {
+            "url": "/cards/small/46986414.jpg",
+            "loaded": true,
+            "hidden": false,
+            "alt": "Magicien Sombre"
+          },
+          {
+            "url": "/cards/small/5053103.jpg",
+            "loaded": true,
+            "hidden": false,
+            "alt": "Bœuf de Combat"
+          },
+          {
+            "url": "/cards/small/32452818.jpg",
+            "loaded": true,
+            "hidden": false,
+            "alt": "Guerrier Castor"
+          }
+        ],
+        "buttons": [
+          {
+            "label": "Fermer l’inspection privée",
+            "x": 1169.671875,
+            "y": 111,
+            "width": 79.328125,
+            "height": 44
+          },
+          {
+            "label": "Morphtronic Celfon. Consulter ses détails dans cette inspection privée.",
+            "x": 909,
+            "y": 190,
+            "width": 108,
+            "height": 153
+          },
+          {
+            "label": "Magicien Sombre. Consulter ses détails dans cette inspection privée.",
+            "x": 1025,
+            "y": 190,
+            "width": 108,
+            "height": 153
+          },
+          {
+            "label": "Bœuf de Combat. Consulter ses détails dans cette inspection privée.",
+            "x": 1141,
+            "y": 190,
+            "width": 108,
+            "height": 153
+          },
+          {
+            "label": "Guerrier Castor. Consulter ses détails dans cette inspection privée.",
+            "x": 909,
+            "y": 351,
+            "width": 108,
+            "height": 138
+          }
+        ],
+        "selectedName": "Morphtronic Celfon",
+        "description": "● While in Attack Position: Once per turn, you can roll a six-sided die. Reveal cards from top of your Deck equal to the roll and Special Summon 1 Level 4 or lower \"Morphtronic\" monster from among them, ignoring the Summoning conditions. Shuffle the rest into the Deck.\r\n● While in Defense Position: Once per turn, you can roll a six-sided die. Look at cards from top of your Deck equal to the roll, then return them in the same order.",
+        "scrollWidth": 1280,
+        "viewportWidth": 1280,
+        "viewportHeight": 900
+      },
+      "publicStateBeforeInspection": {
+        "hand": [
+          {
+            "id": "46986414",
+            "uid": "native_2_128"
+          },
+          {
+            "id": "15025844",
+            "uid": "native_2_129"
+          },
+          {
+            "id": "97590747",
+            "uid": "native_2_130"
+          }
+        ],
+        "ownMonsters": [
+          {
+            "id": "15521027",
+            "uid": "native_2_83",
+            "index": "0",
+            "defense": true,
+            "atk": "ATK 100",
+            "def": "DEF 100"
+          }
+        ],
+        "deckCount": "34",
+        "gyCount": "1",
+        "banishedCount": "1",
+        "playerLp": "8000",
+        "opponentLp": "8000",
+        "publicLog": "Le duel commence !\nVous piochez 5 carte(s).\nL’adversaire pioche 5 carte(s).\nChaîne 1 : activation Foolish Burial.\nVous invoquez Morphtronic Smartfon.",
+        "publicInspector": "Morphtronic Celfon\nEFFECT MONSTER\nATK 100\nDEF 100\n★\n● While in Attack Position: Once per turn, you can roll a six-sided die. Reveal cards from top of your Deck equal to the roll and Special Summon 1 Level 4 or lower \"Morphtronic\" monster from among them, ignoring the Summoning conditions. Shuffle the rest into the Deck. ● While in Defense Position: Once per turn, you can roll a six-sided die. Look at cards from top of your Deck equal to the roll, then return them in the same order.",
+        "publicConfirmationPanels": 0
+      },
+      "publicStateAfterInspection": {
+        "hand": [
+          {
+            "id": "46986414",
+            "uid": "native_2_128"
+          },
+          {
+            "id": "15025844",
+            "uid": "native_2_129"
+          },
+          {
+            "id": "97590747",
+            "uid": "native_2_130"
+          }
+        ],
+        "ownMonsters": [
+          {
+            "id": "15521027",
+            "uid": "native_2_83",
+            "index": "0",
+            "defense": true,
+            "atk": "ATK 100",
+            "def": "DEF 100"
+          }
+        ],
+        "deckCount": "34",
+        "gyCount": "1",
+        "banishedCount": "1",
+        "playerLp": "8000",
+        "opponentLp": "8000",
+        "publicLog": "Le duel commence !\nVous piochez 5 carte(s).\nL’adversaire pioche 5 carte(s).\nChaîne 1 : activation Foolish Burial.\nVous invoquez Morphtronic Smartfon.\nChaîne 1 : activation Morphtronic Smartfon.",
+        "publicInspector": "Morphtronic Celfon\nEFFECT MONSTER\nATK 100\nDEF 100\n★\n● While in Attack Position: Once per turn, you can roll a six-sided die. Reveal cards from top of your Deck equal to the roll and Special Summon 1 Level 4 or lower \"Morphtronic\" monster from among them, ignoring the Summoning conditions. Shuffle the rest into the Deck. ● While in Defense Position: Once per turn, you can roll a six-sided die. Look at cards from top of your Deck equal to the roll, then return them in the same order.",
+        "publicConfirmationPanels": 0
+      },
+      "publicLogDelta": "\nChaîne 1 : activation Morphtronic Smartfon.",
+      "preexistingPublicNamesExcludedFromLogTest": [
+        "Foolish Burial",
+        "Morphtronic Celfon",
+        "Morphtronic Smartfon"
+      ],
+      "keyboardDetails": {
+        "count": 1,
+        "role": "region",
+        "modal": null,
+        "title": "Inspection privée",
+        "panel": {
+          "x": 894,
+          "y": 96,
+          "width": 370,
+          "height": 502
+        },
+        "received": "4 cartes reçues.",
+        "names": [
+          "Morphtronic Celfon",
+          "Magicien Sombre",
+          "Bœuf de Combat",
+          "Guerrier Castor"
+        ],
+        "images": [
+          {
+            "url": "http://127.0.0.1:34423/cards/native-unknown.png",
+            "loaded": true,
+            "hidden": false,
+            "alt": "Morphtronic Celfon"
+          },
+          {
+            "url": "/cards/small/46986414.jpg",
+            "loaded": true,
+            "hidden": false,
+            "alt": "Magicien Sombre"
+          },
+          {
+            "url": "/cards/small/5053103.jpg",
+            "loaded": true,
+            "hidden": false,
+            "alt": "Bœuf de Combat"
+          },
+          {
+            "url": "/cards/small/32452818.jpg",
+            "loaded": true,
+            "hidden": false,
+            "alt": "Guerrier Castor"
+          }
+        ],
+        "buttons": [
+          {
+            "label": "Fermer l’inspection privée",
+            "x": 1169.671875,
+            "y": 111,
+            "width": 79.328125,
+            "height": 44
+          },
+          {
+            "label": "Morphtronic Celfon. Consulter ses détails dans cette inspection privée.",
+            "x": 909,
+            "y": 190,
+            "width": 108,
+            "height": 153
+          },
+          {
+            "label": "Magicien Sombre. Consulter ses détails dans cette inspection privée.",
+            "x": 1025,
+            "y": 190,
+            "width": 108,
+            "height": 153
+          },
+          {
+            "label": "Bœuf de Combat. Consulter ses détails dans cette inspection privée.",
+            "x": 1141,
+            "y": 190,
+            "width": 108,
+            "height": 153
+          },
+          {
+            "label": "Guerrier Castor. Consulter ses détails dans cette inspection privée.",
+            "x": 909,
+            "y": 351,
+            "width": 108,
+            "height": 138
+          }
+        ],
+        "selectedName": "Guerrier Castor",
+        "description": "Cette créature se retranche en défense lorsqu'elle combat dans la prairie.",
+        "scrollWidth": 1280,
+        "viewportWidth": 1280,
+        "viewportHeight": 900
+      },
+      "closedThrough": "visible close button",
+      "opponentConcealment": {
+        "count": 0,
+        "safe": true
+      },
+      "loadedHttpAssets": [
+        "/assets/FieldSpellCardDataSnapshot-DzxkUNrK.js",
+        "/assets/FieldSpellRules-DLBFReUe.js",
+        "/assets/NativeDuelGame-DR4pJFur.js",
+        "/assets/index-Ce4lc5_W.css",
+        "/assets/index-XmnwEEBj.js",
+        "/assets/ocgcore-DWqJvtmv.js",
+        "/assets/ocgcore.sync-MMMSWPBB-2LWfD6lX.js",
+        "/assets/preload-helper-Czpn1I53.js",
+        "/native/card-data.json",
+        "/native/field-banlists.json",
+        "/native/manifest.json",
+        "/native/ocgcore.sync.wasm",
+        "/native/scripts.json"
+      ],
+      "cspViolations": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "ok": true,
+      "trace": [
+        {
+          "title": "CHOISIR LES CARTES",
+          "selected": "Morphtronic Celfon — Votre Deck",
+          "method": "keyboard Space/Enter"
+        },
+        {
+          "title": "EFFETS ET INVOCATIONS",
+          "selected": "Invoquer spécialement Morphtronic Smartfon"
+        },
+        {
+          "title": "CHOISIR LES MATÉRIELS",
+          "selected": "AJOUTER — Morphtronic Celfon — Votre Cimetière · Carte 1"
+        },
+        {
+          "title": "CHOISIR LA ZONE",
+          "selected": "Votre Zone Monstre 1"
+        },
+        {
+          "title": "CHOISIR LA POSITION",
+          "selected": "DÉFENSE FACE RECTO"
+        },
+        {
+          "title": "EFFETS ET INVOCATIONS",
+          "selected": "Activer Morphtronic Smartfon : Excavate and arranje"
+        },
+        {
+          "title": "CHOISIR UN EFFET",
+          "options": [
+            "Top of deck",
+            "Bottom of deck"
+          ],
+          "selected": "Top of deck"
+        },
+        {
+          "title": "ORDONNER LES CARTES",
+          "selectedAuthorizedDeckCard": "Magicien Sombre — Votre Deck"
+        },
+        {
+          "title": "ORDONNER LES CARTES",
+          "selectedAuthorizedDeckCard": "Morphtronic Celfon — Votre Deck"
+        },
+        {
+          "title": "ORDONNER LES CARTES",
+          "selectedAuthorizedDeckCard": "Guerrier Castor — Votre Deck"
+        },
+        {
+          "title": "ORDONNER LES CARTES",
+          "selectedAuthorizedDeckCard": "Bœuf de Combat — Votre Deck"
+        }
+      ],
+      "captures": [
+        "private-smartfon-grouped-390.png",
+        "private-smartfon-keyboard-details-390.png",
+        "private-smartfon-closed-board-390.png"
+      ],
+      "pageErrors": [],
+      "nativeRequestFailures": [],
+      "actualOpeningOwnHand": [
+        "15521027",
+        "81439173",
+        "46986414",
+        "15025844",
+        "97590747"
+      ],
+      "publicGyAfterActualFoolish": [
+        "93542102",
+        "81439173"
+      ],
+      "actualPrivateCardCount": 4,
+      "diceOutcomeNotForcedOrReadFromEngine": true,
+      "groupedPanel": {
+        "count": 1,
+        "role": "region",
+        "modal": null,
+        "title": "Inspection privée",
+        "panel": {
+          "x": 12,
+          "y": 393.125,
+          "width": 366,
+          "height": 438.875
+        },
+        "received": "4 cartes reçues.",
+        "names": [
+          "Morphtronic Celfon",
+          "Magicien Sombre",
+          "Bœuf de Combat",
+          "Guerrier Castor"
+        ],
+        "images": [
+          {
+            "url": "http://127.0.0.1:34423/cards/native-unknown.png",
+            "loaded": true,
+            "hidden": false,
+            "alt": "Morphtronic Celfon"
+          },
+          {
+            "url": "/cards/small/46986414.jpg",
+            "loaded": true,
+            "hidden": false,
+            "alt": "Magicien Sombre"
+          },
+          {
+            "url": "/cards/small/5053103.jpg",
+            "loaded": true,
+            "hidden": false,
+            "alt": "Bœuf de Combat"
+          },
+          {
+            "url": "/cards/small/32452818.jpg",
+            "loaded": true,
+            "hidden": false,
+            "alt": "Guerrier Castor"
+          }
+        ],
+        "buttons": [
+          {
+            "label": "Fermer l’inspection privée",
+            "x": 283.671875,
+            "y": 408.125,
+            "width": 79.328125,
+            "height": 44
+          },
+          {
+            "label": "Morphtronic Celfon. Consulter ses détails dans cette inspection privée.",
+            "x": 27,
+            "y": 487.125,
+            "width": 106.65625,
+            "height": 153
+          },
+          {
+            "label": "Magicien Sombre. Consulter ses détails dans cette inspection privée.",
+            "x": 141.65625,
+            "y": 487.125,
+            "width": 106.671875,
+            "height": 153
+          },
+          {
+            "label": "Bœuf de Combat. Consulter ses détails dans cette inspection privée.",
+            "x": 256.328125,
+            "y": 487.125,
+            "width": 106.65625,
+            "height": 153
+          },
+          {
+            "label": "Guerrier Castor. Consulter ses détails dans cette inspection privée.",
+            "x": 27,
+            "y": 648.125,
+            "width": 106.65625,
+            "height": 138
+          }
+        ],
+        "selectedName": "Morphtronic Celfon",
+        "description": "● While in Attack Position: Once per turn, you can roll a six-sided die. Reveal cards from top of your Deck equal to the roll and Special Summon 1 Level 4 or lower \"Morphtronic\" monster from among them, ignoring the Summoning conditions. Shuffle the rest into the Deck.\r\n● While in Defense Position: Once per turn, you can roll a six-sided die. Look at cards from top of your Deck equal to the roll, then return them in the same order.",
+        "scrollWidth": 390,
+        "viewportWidth": 390,
+        "viewportHeight": 844
+      },
+      "publicStateBeforeInspection": {
+        "hand": [
+          {
+            "id": "46986414",
+            "uid": "native_2_128"
+          },
+          {
+            "id": "15025844",
+            "uid": "native_2_129"
+          },
+          {
+            "id": "97590747",
+            "uid": "native_2_130"
+          }
+        ],
+        "ownMonsters": [
+          {
+            "id": "15521027",
+            "uid": "native_2_83",
+            "index": "0",
+            "defense": true,
+            "atk": "ATK 100",
+            "def": "DEF 100"
+          }
+        ],
+        "deckCount": "34",
+        "gyCount": "1",
+        "banishedCount": "1",
+        "playerLp": "8000",
+        "opponentLp": "8000",
+        "publicLog": "Le duel commence !\nVous piochez 5 carte(s).\nL’adversaire pioche 5 carte(s).\nChaîne 1 : activation Foolish Burial.\nVous invoquez Morphtronic Smartfon.",
+        "publicInspector": "Morphtronic Celfon\nEFFECT MONSTER\nATK 100\nDEF 100\n★\n● While in Attack Position: Once per turn, you can roll a six-sided die. Reveal cards from top of your Deck equal to the roll and Special Summon 1 Level 4 or lower \"Morphtronic\" monster from among them, ignoring the Summoning conditions. Shuffle the rest into the Deck. ● While in Defense Position: Once per turn, you can roll a six-sided die. Look at cards from top of your Deck equal to the roll, then return them in the same order.",
+        "publicConfirmationPanels": 0
+      },
+      "publicStateAfterInspection": {
+        "hand": [
+          {
+            "id": "46986414",
+            "uid": "native_2_128"
+          },
+          {
+            "id": "15025844",
+            "uid": "native_2_129"
+          },
+          {
+            "id": "97590747",
+            "uid": "native_2_130"
+          }
+        ],
+        "ownMonsters": [
+          {
+            "id": "15521027",
+            "uid": "native_2_83",
+            "index": "0",
+            "defense": true,
+            "atk": "ATK 100",
+            "def": "DEF 100"
+          }
+        ],
+        "deckCount": "34",
+        "gyCount": "1",
+        "banishedCount": "1",
+        "playerLp": "8000",
+        "opponentLp": "8000",
+        "publicLog": "Le duel commence !\nVous piochez 5 carte(s).\nL’adversaire pioche 5 carte(s).\nChaîne 1 : activation Foolish Burial.\nVous invoquez Morphtronic Smartfon.\nChaîne 1 : activation Morphtronic Smartfon.",
+        "publicInspector": "La Jinn, Génie Mystique de la Lampe\nNORMAL MONSTER\nATK 1800\nDEF 1000\n★★★★\nA genie of the lamp that is at the beck and call of its master.",
+        "publicConfirmationPanels": 0
+      },
+      "publicLogDelta": "\nChaîne 1 : activation Morphtronic Smartfon.",
+      "preexistingPublicNamesExcludedFromLogTest": [
+        "Foolish Burial",
+        "Morphtronic Celfon",
+        "Morphtronic Smartfon"
+      ],
+      "keyboardDetails": {
+        "count": 1,
+        "role": "region",
+        "modal": null,
+        "title": "Inspection privée",
+        "panel": {
+          "x": 12,
+          "y": 393.125,
+          "width": 366,
+          "height": 438.875
+        },
+        "received": "4 cartes reçues.",
+        "names": [
+          "Morphtronic Celfon",
+          "Magicien Sombre",
+          "Bœuf de Combat",
+          "Guerrier Castor"
+        ],
+        "images": [
+          {
+            "url": "http://127.0.0.1:34423/cards/native-unknown.png",
+            "loaded": true,
+            "hidden": false,
+            "alt": "Morphtronic Celfon"
+          },
+          {
+            "url": "/cards/small/46986414.jpg",
+            "loaded": true,
+            "hidden": false,
+            "alt": "Magicien Sombre"
+          },
+          {
+            "url": "/cards/small/5053103.jpg",
+            "loaded": true,
+            "hidden": false,
+            "alt": "Bœuf de Combat"
+          },
+          {
+            "url": "/cards/small/32452818.jpg",
+            "loaded": true,
+            "hidden": false,
+            "alt": "Guerrier Castor"
+          }
+        ],
+        "buttons": [
+          {
+            "label": "Fermer l’inspection privée",
+            "x": 283.671875,
+            "y": 408.125,
+            "width": 79.328125,
+            "height": 44
+          },
+          {
+            "label": "Morphtronic Celfon. Consulter ses détails dans cette inspection privée.",
+            "x": 27,
+            "y": 487.125,
+            "width": 106.65625,
+            "height": 153
+          },
+          {
+            "label": "Magicien Sombre. Consulter ses détails dans cette inspection privée.",
+            "x": 141.65625,
+            "y": 487.125,
+            "width": 106.671875,
+            "height": 153
+          },
+          {
+            "label": "Bœuf de Combat. Consulter ses détails dans cette inspection privée.",
+            "x": 256.328125,
+            "y": 487.125,
+            "width": 106.65625,
+            "height": 153
+          },
+          {
+            "label": "Guerrier Castor. Consulter ses détails dans cette inspection privée.",
+            "x": 27,
+            "y": 648.125,
+            "width": 106.65625,
+            "height": 138
+          }
+        ],
+        "selectedName": "Guerrier Castor",
+        "description": "Cette créature se retranche en défense lorsqu'elle combat dans la prairie.",
+        "scrollWidth": 390,
+        "viewportWidth": 390,
+        "viewportHeight": 844
+      },
+      "closedThrough": "keyboard Escape inside real panel",
+      "opponentConcealment": {
+        "count": 0,
+        "safe": true
+      },
+      "loadedHttpAssets": [
+        "/assets/FieldSpellCardDataSnapshot-DzxkUNrK.js",
+        "/assets/FieldSpellRules-DLBFReUe.js",
+        "/assets/NativeDuelGame-DR4pJFur.js",
+        "/assets/index-Ce4lc5_W.css",
+        "/assets/index-XmnwEEBj.js",
+        "/assets/ocgcore-DWqJvtmv.js",
+        "/assets/ocgcore.sync-MMMSWPBB-2LWfD6lX.js",
+        "/assets/preload-helper-Czpn1I53.js",
+        "/native/card-data.json",
+        "/native/field-banlists.json",
+        "/native/manifest.json",
+        "/native/ocgcore.sync.wasm",
+        "/native/scripts.json"
+      ],
+      "cspViolations": []
+    }
+  ],
+  "limits": [
+    "This browser proof is the native recipient/player-controller-0 application flow. Both native recipients/controllers are proved separately in WASM.",
+    "No native object or raw hidden Deck/opponent hand is read. Authorized private UI card names are recorded.",
+    "The close button is exercised on desktop and Escape on mobile in separate actual duels; no fake reopening or synthetic group replacement occurs."
+  ],
+  "servedResponseFingerprintsBefore": {
+    "index.html": {
+      "bytes": 35567,
+      "sha256": "548a47bce13cc7a6d14ee1c5085c0867e6f1ac34d31630e7a0d87e568a524bc3"
+    },
+    "assets/FieldEnvironmentRegistry-CW5zbHcP.js": {
+      "bytes": 622016,
+      "sha256": "3423def789cb9b59abf5297c9fc36905226dbfb91e2d0d44d988853104af4d4f"
+    },
+    "assets/FieldGeometryThree-C0Kdbjch.js": {
+      "bytes": 535746,
+      "sha256": "b6121968a6eed088f4128b5e8ee582ac7cb8e29c25401ce9b5a3873d972382a8"
+    },
+    "assets/FieldSpellAtlas-D6errs9N.js": {
+      "bytes": 19402,
+      "sha256": "9da6079a24b309abc776e25b5e335dbba288de74ca810e1788ecbef3e8e95a44"
+    },
+    "assets/FieldSpellAtlasPreview-CzwopV8E.js": {
+      "bytes": 2823,
+      "sha256": "963f64d1354084271fbae8dab277739513eb8d56eb36873068fd608ac4669cc8"
+    },
+    "assets/FieldSpellCardDataSnapshot-DzxkUNrK.js": {
+      "bytes": 169821,
+      "sha256": "ed2484f6797eac2124cdb6a76d8ec20076f9e79cf05008a0183e26a7fd046b3f"
+    },
+    "assets/FieldSpellRules-DLBFReUe.js": {
+      "bytes": 20919,
+      "sha256": "9b95b5d0b3ac46a7d7cade8d2bed65565dcbb1310d494d9344f61ed12a57f54e"
+    },
+    "assets/NativeDuelGame-DR4pJFur.js": {
+      "bytes": 88812,
+      "sha256": "36c7b35eef9e695e25233a0eb1a38a8968b4f22ab35cccd659c803dd7ae39a21"
+    },
+    "assets/RealDuelView-CZpDyO-R.js": {
+      "bytes": 174817,
+      "sha256": "8c2672cf7b48938f4f93daa71ae6eded94600c1ae8bd120e159ea65007a440fd"
+    },
+    "assets/index-Ce4lc5_W.css": {
+      "bytes": 84495,
+      "sha256": "3a7edacf3b48736f74fedd48644f2bb03a3a5df7bdde114cb8e10c56857bea36"
+    },
+    "assets/index-XmnwEEBj.js": {
+      "bytes": 611206,
+      "sha256": "799145520bfd285b788d5f6573dde6a557ef82dadda4645a697f97f5d60882be"
+    },
+    "assets/ocgcore-DWqJvtmv.js": {
+      "bytes": 46501,
+      "sha256": "dd1e9936f49901fb5f53efd6d25b19ab5755af65169fee4ef34600a1cfbe5349"
+    },
+    "assets/ocgcore.sync-MMMSWPBB-2LWfD6lX.js": {
+      "bytes": 20718,
+      "sha256": "433b02687ca9a24dcc846c11d7578d40ba5ab87d1b1321d5d22cd879fae58ed6"
+    },
+    "assets/preload-helper-Czpn1I53.js": {
+      "bytes": 1196,
+      "sha256": "aba87f2a53e45ecdc9113fc30387d16e449d1676428cf5f82dd624c1df97d152"
+    },
+    "native/ocgcore.sync.wasm": {
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    },
+    "native/card-data.json": {
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    "native/scripts.json": {
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    }
+  },
+  "servedResponseFingerprintsAfter": {
+    "index.html": {
+      "bytes": 35567,
+      "sha256": "548a47bce13cc7a6d14ee1c5085c0867e6f1ac34d31630e7a0d87e568a524bc3"
+    },
+    "assets/FieldEnvironmentRegistry-CW5zbHcP.js": {
+      "bytes": 622016,
+      "sha256": "3423def789cb9b59abf5297c9fc36905226dbfb91e2d0d44d988853104af4d4f"
+    },
+    "assets/FieldGeometryThree-C0Kdbjch.js": {
+      "bytes": 535746,
+      "sha256": "b6121968a6eed088f4128b5e8ee582ac7cb8e29c25401ce9b5a3873d972382a8"
+    },
+    "assets/FieldSpellAtlas-D6errs9N.js": {
+      "bytes": 19402,
+      "sha256": "9da6079a24b309abc776e25b5e335dbba288de74ca810e1788ecbef3e8e95a44"
+    },
+    "assets/FieldSpellAtlasPreview-CzwopV8E.js": {
+      "bytes": 2823,
+      "sha256": "963f64d1354084271fbae8dab277739513eb8d56eb36873068fd608ac4669cc8"
+    },
+    "assets/FieldSpellCardDataSnapshot-DzxkUNrK.js": {
+      "bytes": 169821,
+      "sha256": "ed2484f6797eac2124cdb6a76d8ec20076f9e79cf05008a0183e26a7fd046b3f"
+    },
+    "assets/FieldSpellRules-DLBFReUe.js": {
+      "bytes": 20919,
+      "sha256": "9b95b5d0b3ac46a7d7cade8d2bed65565dcbb1310d494d9344f61ed12a57f54e"
+    },
+    "assets/NativeDuelGame-DR4pJFur.js": {
+      "bytes": 88812,
+      "sha256": "36c7b35eef9e695e25233a0eb1a38a8968b4f22ab35cccd659c803dd7ae39a21"
+    },
+    "assets/RealDuelView-CZpDyO-R.js": {
+      "bytes": 174817,
+      "sha256": "8c2672cf7b48938f4f93daa71ae6eded94600c1ae8bd120e159ea65007a440fd"
+    },
+    "assets/index-Ce4lc5_W.css": {
+      "bytes": 84495,
+      "sha256": "3a7edacf3b48736f74fedd48644f2bb03a3a5df7bdde114cb8e10c56857bea36"
+    },
+    "assets/index-XmnwEEBj.js": {
+      "bytes": 611206,
+      "sha256": "799145520bfd285b788d5f6573dde6a557ef82dadda4645a697f97f5d60882be"
+    },
+    "assets/ocgcore-DWqJvtmv.js": {
+      "bytes": 46501,
+      "sha256": "dd1e9936f49901fb5f53efd6d25b19ab5755af65169fee4ef34600a1cfbe5349"
+    },
+    "assets/ocgcore.sync-MMMSWPBB-2LWfD6lX.js": {
+      "bytes": 20718,
+      "sha256": "433b02687ca9a24dcc846c11d7578d40ba5ab87d1b1321d5d22cd879fae58ed6"
+    },
+    "assets/preload-helper-Czpn1I53.js": {
+      "bytes": 1196,
+      "sha256": "aba87f2a53e45ecdc9113fc30387d16e449d1676428cf5f82dd624c1df97d152"
+    },
+    "native/ocgcore.sync.wasm": {
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    },
+    "native/card-data.json": {
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    "native/scripts.json": {
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    }
+  },
+  "compiledSnapshotAfter": {
+    "index.html": {
+      "bytes": 35567,
+      "sha256": "548a47bce13cc7a6d14ee1c5085c0867e6f1ac34d31630e7a0d87e568a524bc3"
+    },
+    "assets/FieldEnvironmentRegistry-CW5zbHcP.js": {
+      "bytes": 622016,
+      "sha256": "3423def789cb9b59abf5297c9fc36905226dbfb91e2d0d44d988853104af4d4f"
+    },
+    "assets/FieldGeometryThree-C0Kdbjch.js": {
+      "bytes": 535746,
+      "sha256": "b6121968a6eed088f4128b5e8ee582ac7cb8e29c25401ce9b5a3873d972382a8"
+    },
+    "assets/FieldSpellAtlas-D6errs9N.js": {
+      "bytes": 19402,
+      "sha256": "9da6079a24b309abc776e25b5e335dbba288de74ca810e1788ecbef3e8e95a44"
+    },
+    "assets/FieldSpellAtlasPreview-CzwopV8E.js": {
+      "bytes": 2823,
+      "sha256": "963f64d1354084271fbae8dab277739513eb8d56eb36873068fd608ac4669cc8"
+    },
+    "assets/FieldSpellCardDataSnapshot-DzxkUNrK.js": {
+      "bytes": 169821,
+      "sha256": "ed2484f6797eac2124cdb6a76d8ec20076f9e79cf05008a0183e26a7fd046b3f"
+    },
+    "assets/FieldSpellRules-DLBFReUe.js": {
+      "bytes": 20919,
+      "sha256": "9b95b5d0b3ac46a7d7cade8d2bed65565dcbb1310d494d9344f61ed12a57f54e"
+    },
+    "assets/NativeDuelGame-DR4pJFur.js": {
+      "bytes": 88812,
+      "sha256": "36c7b35eef9e695e25233a0eb1a38a8968b4f22ab35cccd659c803dd7ae39a21"
+    },
+    "assets/RealDuelView-CZpDyO-R.js": {
+      "bytes": 174817,
+      "sha256": "8c2672cf7b48938f4f93daa71ae6eded94600c1ae8bd120e159ea65007a440fd"
+    },
+    "assets/index-Ce4lc5_W.css": {
+      "bytes": 84495,
+      "sha256": "3a7edacf3b48736f74fedd48644f2bb03a3a5df7bdde114cb8e10c56857bea36"
+    },
+    "assets/index-XmnwEEBj.js": {
+      "bytes": 611206,
+      "sha256": "799145520bfd285b788d5f6573dde6a557ef82dadda4645a697f97f5d60882be"
+    },
+    "assets/ocgcore-DWqJvtmv.js": {
+      "bytes": 46501,
+      "sha256": "dd1e9936f49901fb5f53efd6d25b19ab5755af65169fee4ef34600a1cfbe5349"
+    },
+    "assets/ocgcore.sync-MMMSWPBB-2LWfD6lX.js": {
+      "bytes": 20718,
+      "sha256": "433b02687ca9a24dcc846c11d7578d40ba5ab87d1b1321d5d22cd879fae58ed6"
+    },
+    "assets/preload-helper-Czpn1I53.js": {
+      "bytes": 1196,
+      "sha256": "aba87f2a53e45ecdc9113fc30387d16e449d1676428cf5f82dd624c1df97d152"
+    },
+    "native/ocgcore.sync.wasm": {
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    },
+    "native/card-data.json": {
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    "native/scripts.json": {
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    }
+  },
+  "sourceDependenciesAfter": {
+    "main.js": {
+      "bytes": 184958,
+      "sha256": "b442b4d2f58240c70a2b045c4bbd5957e780b69b1050bb17146938c85f79f7c1"
+    },
+    "style.css": {
+      "bytes": 115179,
+      "sha256": "41962bbd2229fc25b2f1d77280a39cc2ff26c5d5963588e3539b183720a89fab"
+    },
+    "vercel.json": {
+      "bytes": 1272,
+      "sha256": "54ace7536aaf92de4eca552f63a6266e790eda597ecfc67dbb0ebe0c9bf3664c"
+    },
+    "scripts/audit-continuation-private-ui.py": {
+      "bytes": 24665,
+      "sha256": "35b63dfd435bd1ba0270ea24d671f953356dc7f82b463f7b28ef8c5eecdba13a"
+    },
+    "scripts/audit-native-duel-ui.py": {
+      "bytes": 28175,
+      "sha256": "0dd4443ef82f496fb398587b9be06c99d953f57c4a48e48cd470fdacbb311c18"
+    },
+    "scripts/audit-native-wave-ui.py": {
+      "bytes": 33705,
+      "sha256": "60661a551b648802655d1c78a685adbbaea94015b18273ac5a7cf2ca837bd475"
+    },
+    "src/ui/PrivateCardInspection.js": {
+      "bytes": 5637,
+      "sha256": "c2f6da2cedacae2d014d45c15a587838ff772237af5b8e9f0ac195104a5298d0"
+    },
+    "src/ui/PublicCardConfirmation.js": {
+      "bytes": 1553,
+      "sha256": "858a04e67f0b08c9a687a1382f4a0ab7810a5ef3213787e58bb5b5ab480cb513"
+    },
+    "src/core/native/NativeDuelGame.js": {
+      "bytes": 59938,
+      "sha256": "f29c5061f0d47ca657bcd88b0bfbb0954a5dcc51fa4c9c0f1827f9fbfa7c5a11"
+    },
+    "src/core/native/NativeDuelRuntime.js": {
+      "bytes": 9664,
+      "sha256": "a2c7a18654e968861a0e34a51cd35f17ee5a3e03efc23cbd6a4632be29de3b95"
+    },
+    "src/core/native/NativeDuelDecisions.js": {
+      "bytes": 35088,
+      "sha256": "1fabda3f41c009307d5a4b5eec2bd2024324e9b00e0dd3cb7674c214861e7e70"
+    },
+    "src/core/native/NativeDuelVisualEvents.js": {
+      "bytes": 33437,
+      "sha256": "8b2f692bbf099a62c26244098dadfaa10842ce94d4cb0291d9a2e1e0c54af242"
+    },
+    "src/core/native/NativePublicRevealPolicy.js": {
+      "bytes": 3116,
+      "sha256": "eca1ea20ec0e6f130d02f84af84f82fb5cf600f431c1395e94739b09428876f1"
+    },
+    "src/ui/NativeDuelPresentationModel.js": {
+      "bytes": 3754,
+      "sha256": "3ac3fe31372b9125433caf68601757183c89e7fb08e2b342b45b22b60d8cdf06"
+    },
+    "src/core/native/NativeCardCatalogue.js": {
+      "bytes": 13798,
+      "sha256": "76d6a81dde07d60c328f68b8d7e6318d9af073b71d394570b1ce85ca5a027812"
+    },
+    "src/core/native/NativeCardData.js": {
+      "bytes": 4737,
+      "sha256": "59a664d8d16593ef2223d895085e81e48d6eaa0d90bb0725b6410a71bdcac568"
+    },
+    "public/native/card-data.json": {
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    "public/native/scripts.json": {
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    },
+    "public/native/ocgcore.sync.wasm": {
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    }
+  },
+  "buildAndSourceUnchangedDuringAudit": true,
+  "captureFingerprints": {
+    "private-smartfon-grouped-1280.png": {
+      "bytes": 482183,
+      "sha256": "e0da74d452145756913b5b8daaf294754a54f18beadf046c71d4302dc3e7f1f7"
+    },
+    "private-smartfon-keyboard-details-1280.png": {
+      "bytes": 472899,
+      "sha256": "d2220d3f82dc09429a78c5166da9e07ba6c02968f1e28427b9a982ced36d0fd7"
+    },
+    "private-smartfon-closed-board-1280.png": {
+      "bytes": 451484,
+      "sha256": "9057230c2bd6d1057b351461ad653a8813870450f8f8f72b833b6344a861e005"
+    },
+    "private-smartfon-grouped-390.png": {
+      "bytes": 123319,
+      "sha256": "f91b9f619ee559134a4469c9e07a66576414adf1b62f82b84119d2e7e0c65a39"
+    },
+    "private-smartfon-keyboard-details-390.png": {
+      "bytes": 126928,
+      "sha256": "ef840c66eae6dd3afdf368aa8d7832f94e9f466ef54efcdf7ed46c0929a54e46"
+    },
+    "private-smartfon-closed-board-390.png": {
+      "bytes": 147478,
+      "sha256": "752bdcca90da35c34c82f67daf077db30e04cf6abbd1d567cf1873019766b832"
+    }
+  },
+  "completedAtUtc": "2026-10-08T21:22:45.307451+00:00"
+}

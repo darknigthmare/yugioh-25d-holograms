@@ -1,0 +1,795 @@
+{
+  "date": "2026-10-08",
+  "assembledAtUtc": "2026-10-08T21:33:33.451518+00:00",
+  "scope": "Final source and local proof ledger before publication; remote commit, CI and preview proofs are recorded outside this tree after commit to avoid circular hashes.",
+  "baseline": {
+    "localHead": "5971495fb9425b96416b5e07bfeb6d28ec9bd43c",
+    "remoteParent": "224ab8506fdcec435c59dd91d0235427c521d0ca",
+    "sharedTree": "68b3d4faf45f96dfe37ec41d8b65fbc10f665015"
+  },
+  "nativeFieldCoverage": {
+    "catalogue": 339,
+    "bundled": 339,
+    "initialized": 339,
+    "effectTested": 339,
+    "integrationTested": 0,
+    "scenarios": 406,
+    "passedScenarios": 406
+  },
+  "preservation": {
+    "baselineCount": 377,
+    "currentCount": 406,
+    "preservedHistoricalScenarios": 377,
+    "additionalScenarioCount": 29,
+    "baselineFieldCount": 339,
+    "currentFieldCount": 339,
+    "additionalDistinctFieldCount": 13,
+    "missingHistoricalIds": [],
+    "mismatchedWholeHistoricalObjects": [],
+    "mismatchedRequestedComponents": [],
+    "duplicateBaselineIds": [],
+    "duplicateCurrentIds": []
+  },
+  "historicalReportsUnchanged": [
+    {
+      "path": "docs/audits/artifacts/native-field-runtime-wave-2026-10-08.json",
+      "bytes": 10473757,
+      "sha256": "33a8463ba98d33018acc35e9ec03486ad798b7df723b23ab407d048ab0130cb6"
+    },
+    {
+      "path": "docs/audits/artifacts/field-coverage-wave-2026-10-08.json",
+      "bytes": 354919,
+      "sha256": "91c569cabc896819b659783d8ec0da7e8199bfc90291b83286b2d6f5a993196b"
+    }
+  ],
+  "existingSuitesActuallyReplayed": [
+    {
+      "current": {
+        "path": "docs/audits/artifacts/native-battle-timing-2026-10-08.json",
+        "bytes": 65506,
+        "sha256": "2e5f7acd7e1c53bce9ed52aa438d163addcb68c97675faf2f94decac6496e2e7"
+      },
+      "baseline": {
+        "path": "docs/audits/artifacts/continuation-checks-2026-10-08/baseline-native-battle-timing-2026-10-08.json",
+        "bytes": 65506,
+        "sha256": "72e11b8be998614d95f0b55072bce5e8fb7480d11619336c63f555ef5b4ad41e"
+      },
+      "onlyChangedTopLevelKey": "sourceHashes",
+      "execution": "The unchanged test suite actually reran during the final npm run check; baseline reports are archived byte-for-byte."
+    },
+    {
+      "current": {
+        "path": "docs/audits/artifacts/native-chain-interactions-2026-10-08.json",
+        "bytes": 132410,
+        "sha256": "51fe1b233b15c8dc9a83dfb633276f4d373ff0f4d420a379f8969e79c86eb588"
+      },
+      "baseline": {
+        "path": "docs/audits/artifacts/continuation-checks-2026-10-08/baseline-native-chain-interactions-2026-10-08.json",
+        "bytes": 132410,
+        "sha256": "877de650ed3d316c211364f026036e16777fc446757704eae9e30f01ca4db1fa"
+      },
+      "onlyChangedTopLevelKey": "sourceHashes",
+      "execution": "The unchanged test suite actually reran during the final npm run check; baseline reports are archived byte-for-byte."
+    }
+  ],
+  "validation": {
+    "tests": {
+      "tests": 2102,
+      "pass": 2102,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "testFiles": 141,
+    "vulnerabilities": 0,
+    "viteVersion": "8.1.5",
+    "transformedModules": 111,
+    "buildFrozen": true,
+    "assets": [
+      {
+        "path": "/index.html",
+        "bytes": 35567,
+        "sha256": "548a47bce13cc7a6d14ee1c5085c0867e6f1ac34d31630e7a0d87e568a524bc3"
+      },
+      {
+        "path": "/assets/index-XmnwEEBj.js",
+        "bytes": 611206,
+        "sha256": "799145520bfd285b788d5f6573dde6a557ef82dadda4645a697f97f5d60882be"
+      },
+      {
+        "path": "/assets/index-Ce4lc5_W.css",
+        "bytes": 84495,
+        "sha256": "3a7edacf3b48736f74fedd48644f2bb03a3a5df7bdde114cb8e10c56857bea36"
+      },
+      {
+        "path": "/assets/NativeDuelGame-DR4pJFur.js",
+        "bytes": 88812,
+        "sha256": "36c7b35eef9e695e25233a0eb1a38a8968b4f22ab35cccd659c803dd7ae39a21"
+      },
+      {
+        "path": "/assets/FieldEnvironmentRegistry-CW5zbHcP.js",
+        "bytes": 622016,
+        "sha256": "3423def789cb9b59abf5297c9fc36905226dbfb91e2d0d44d988853104af4d4f"
+      },
+      {
+        "path": "/assets/RealDuelView-CZpDyO-R.js",
+        "bytes": 174817,
+        "sha256": "8c2672cf7b48938f4f93daa71ae6eded94600c1ae8bd120e159ea65007a440fd"
+      },
+      {
+        "path": "/assets/ocgcore-DWqJvtmv.js",
+        "bytes": 46501,
+        "sha256": "dd1e9936f49901fb5f53efd6d25b19ab5755af65169fee4ef34600a1cfbe5349"
+      }
+    ]
+  },
+  "compiledBrowserAudits": {
+    "ok": true,
+    "captureCount": 52,
+    "reports": [
+      {
+        "name": "models",
+        "ok": true,
+        "captureCount": 24,
+        "scope": "Three new models, Double Summon, actual Foolish Burial / Monster Reborn and actual AI attack answered by Negate Attack; five cameras and three views.",
+        "report": {
+          "path": "docs/audits/artifacts/continuation-models-ui-2026-10-08/report.json",
+          "bytes": 213448,
+          "sha256": "80d4a84ffb1717a7fdd932c1e19f565028de8d589b60e51210a89dae34018086"
+        },
+        "captures": [
+          {
+            "path": "docs/audits/artifacts/continuation-models-ui-2026-10-08/wave-camera-console-1280.png",
+            "bytes": 653486,
+            "sha256": "efca61eaaa7ba1664428bb90615b406c7602294c7b4a624dd28bb23899d40038"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-models-ui-2026-10-08/wave-camera-console-390.png",
+            "bytes": 208321,
+            "sha256": "8ac5a73d5763b44b85a8965ab89b41d3634239f39f3467620e35be630ecb9ee3"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-models-ui-2026-10-08/wave-camera-diagonal-left-1280.png",
+            "bytes": 968126,
+            "sha256": "661fb3803442412168e43e4e4dc2ebffe0586edc0ddccfa73fb75e165c9e052a"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-models-ui-2026-10-08/wave-camera-diagonal-left-390.png",
+            "bytes": 280977,
+            "sha256": "c9183b8ca29d99248626b7583b4859ee827780b467eadb9f6ef74018a271b6fb"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-models-ui-2026-10-08/wave-camera-diagonal-right-1280.png",
+            "bytes": 953284,
+            "sha256": "d5080da374b4be897eceb02b85db45e613708cbb6fcb2761d91d724aa390fad7"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-models-ui-2026-10-08/wave-camera-diagonal-right-390.png",
+            "bytes": 278799,
+            "sha256": "fc904b063e779b5c2999d43a178d187cf8e3853432142e5c8ddf30cb4b87859b"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-models-ui-2026-10-08/wave-camera-overview-1280.png",
+            "bytes": 941024,
+            "sha256": "ad424ce0da59c06587b46d58f47ff38c4aa0db1d1ac4b815eff56c121fec4dbd"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-models-ui-2026-10-08/wave-camera-overview-390.png",
+            "bytes": 274539,
+            "sha256": "f4a3df315d5c562a520b74f324c1afa168fd5908478ca7f95105897fdc4c51a5"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-models-ui-2026-10-08/wave-first-real-before-revival-1280.png",
+            "bytes": 831807,
+            "sha256": "5392e172980a7155665cdb6a028a2e784c9afc4d64730639832cf1ecd6143147"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-models-ui-2026-10-08/wave-first-real-before-revival-390.png",
+            "bytes": 250244,
+            "sha256": "0b224061e94088d46401a8b77c74a5deb6bbd90c32c3a268197ff260ca6a25f8"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-models-ui-2026-10-08/wave-native-attack-before-negation-1280.png",
+            "bytes": 135845,
+            "sha256": "846245d437da79bdaa85151cae70044114212d01cd0787ae38c569ac83f6ce37"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-models-ui-2026-10-08/wave-native-attack-before-negation-390.png",
+            "bytes": 60339,
+            "sha256": "f3daff07cec4e355b38e1853be67717dbd3d8b82bf2a17d331ab72d83a1cf105"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-models-ui-2026-10-08/wave-native-attack-negated-motion-1280.png",
+            "bytes": 885757,
+            "sha256": "339b3694eee94c853cef92bbf648c0241a867d25cac5fd88f6ead3f9a28e54b6"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-models-ui-2026-10-08/wave-native-attack-negated-motion-390.png",
+            "bytes": 257804,
+            "sha256": "c10b16313f99d8c382441e180d0cb025713d1f93041d7ae41a2dae721d720474"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-models-ui-2026-10-08/wave-native-revival-motion-1280.png",
+            "bytes": 882628,
+            "sha256": "fadbfb10ce42c068f72fabf5d5343b63f1b2cbec09f3229d25bc4c0433274b74"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-models-ui-2026-10-08/wave-native-revival-motion-390.png",
+            "bytes": 246078,
+            "sha256": "acfaec802bb9ae7807183b40a24b4a8ca9b5130e6a958dea668298df66c2b605"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-models-ui-2026-10-08/wave-repeat-arena-1280.png",
+            "bytes": 564795,
+            "sha256": "202b44e6a4d3358c0cb15482a48aad10ba85af31f61d604ea90edb845ffbc513"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-models-ui-2026-10-08/wave-repeat-arena-390.png",
+            "bytes": 97255,
+            "sha256": "7abe12a28bafd26e73e19f9cc7c09e76d102ef55ad8ef07147f7d76781213053"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-models-ui-2026-10-08/wave-repeat-compact-1280.png",
+            "bytes": 503185,
+            "sha256": "3e9070bb856e3f28cb32af54a469ead357ea8c8cb37b60aa8c94159de66a0552"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-models-ui-2026-10-08/wave-repeat-compact-390.png",
+            "bytes": 94865,
+            "sha256": "c01ea646176f8542dc108075741e04e9e4cb9565e03e9cb501c7b4549fbb307f"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-models-ui-2026-10-08/wave-repeat-real-1280.png",
+            "bytes": 896310,
+            "sha256": "1aed2a75d67bb53bda461c72feb910e8c822fb187c111befa465301619772bba"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-models-ui-2026-10-08/wave-repeat-real-390.png",
+            "bytes": 249168,
+            "sha256": "311a7a99bbdb0c94e67ffe6554935b40df96627270ce4e88b7bc693b8af79ad8"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-models-ui-2026-10-08/wave-three-models-real-1280.png",
+            "bytes": 882628,
+            "sha256": "fadbfb10ce42c068f72fabf5d5343b63f1b2cbec09f3229d25bc4c0433274b74"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-models-ui-2026-10-08/wave-three-models-real-390.png",
+            "bytes": 246078,
+            "sha256": "acfaec802bb9ae7807183b40a24b4a8ca9b5130e6a958dea668298df66c2b605"
+          }
+        ]
+      },
+      {
+        "name": "gameplay",
+        "ok": true,
+        "captureCount": 18,
+        "scope": "Six desktop/mobile paths: Dragon Ravine option and dragon send; MR5 paired scales and MST destination; Gateway public action menu cancel and four-counter search.",
+        "report": {
+          "path": "docs/audits/artifacts/continuation-gameplay-ui-2026-10-08/report.json",
+          "bytes": 291970,
+          "sha256": "9ca27559d654768545c3540f31218d0bfdf4088803760052328af4fc654b4dc7"
+        },
+        "captures": [
+          {
+            "path": "docs/audits/artifacts/continuation-gameplay-ui-2026-10-08/gameplay-gateway-resolved-1280.png",
+            "bytes": 843906,
+            "sha256": "ad0296892e8b5dd89bd1ea20d9f54d678e8f6e33b75bfa2dd1a547ab54feb83b"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-gameplay-ui-2026-10-08/gameplay-gateway-resolved-390.png",
+            "bytes": 246822,
+            "sha256": "3bc010b215ce8fb8421cc9b62476ad0134d33307091ab9e17eb624fdd886e702"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-gameplay-ui-2026-10-08/gameplay-gateway-three-official-effects-1280.png",
+            "bytes": 152653,
+            "sha256": "d3d4ba265a8fb08f335f892737e74c0f08aaf274dad1d922924eedb0f718acbf"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-gameplay-ui-2026-10-08/gameplay-gateway-three-official-effects-390.png",
+            "bytes": 75479,
+            "sha256": "2b27c42c6d94af206bf7071c92ef1570a985d623d4c0ff98110a9b10524ee677"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-gameplay-ui-2026-10-08/gameplay-ravine-activated-1280.png",
+            "bytes": 729906,
+            "sha256": "138517baaab4f4d3f7bb5f75b79832fe4fae0904dccabd1e0c25f4a0a25ce819"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-gameplay-ui-2026-10-08/gameplay-ravine-activated-390.png",
+            "bytes": 200190,
+            "sha256": "a3aefcdfd715d29d7a5226924034464732e6dcb4313241292ed50144b0d34055"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-gameplay-ui-2026-10-08/gameplay-ravine-official-options-1280.png",
+            "bytes": 142029,
+            "sha256": "f994958363975e63d97d6b06474f1ab918ea23f0f265135d3fe568274d285adf"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-gameplay-ui-2026-10-08/gameplay-ravine-official-options-390.png",
+            "bytes": 57739,
+            "sha256": "225e49145246dd1b55e206d8b8c9ca7813ea57be6eaddd3f6701d68673906952"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-gameplay-ui-2026-10-08/gameplay-ravine-resolved-1280.png",
+            "bytes": 714497,
+            "sha256": "87d70045cb65d07c346a2078cbeeb9581c6c3c051b235c3f742bbbe117333e6e"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-gameplay-ui-2026-10-08/gameplay-ravine-resolved-390.png",
+            "bytes": 194919,
+            "sha256": "f16394471d646054ea1eeb5a1c54fc794c54f69a583956c598d1dc1189c08000"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-gameplay-ui-2026-10-08/gameplay-scales-face-up-extra-1280.png",
+            "bytes": 780513,
+            "sha256": "f99036fb5473e888f912c9f6ed6907273ae3122a2cb26ffea24668f7d373cc17"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-gameplay-ui-2026-10-08/gameplay-scales-face-up-extra-390.png",
+            "bytes": 161749,
+            "sha256": "3d33d0caa5d77b0b64bee4ab2766ab8ec35f06b7c24e6a9d9bfb378cf5a40625"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-gameplay-ui-2026-10-08/gameplay-scales-left-only-1280.png",
+            "bytes": 832715,
+            "sha256": "72fa14be1d1e2e719948a401d1c8c2dbf41dfe14eb3d89c4c298276a4d647c69"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-gameplay-ui-2026-10-08/gameplay-scales-left-only-390.png",
+            "bytes": 249553,
+            "sha256": "bbd07545190c055c7c47350c56d2293279a0d91ba5245b1782664a9f83869ec9"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-gameplay-ui-2026-10-08/gameplay-scales-paired-outer-zones-1280.png",
+            "bytes": 836900,
+            "sha256": "94d11ae602e51ed0671d9066e3a910510568d835d62261a2ec0ed3478429cd76"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-gameplay-ui-2026-10-08/gameplay-scales-paired-outer-zones-390.png",
+            "bytes": 249729,
+            "sha256": "2ed66971fc0ef7d373ae6571928b536864de55eda997221491ae84ada95c119b"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-gameplay-ui-2026-10-08/gameplay-scales-resolved-1280.png",
+            "bytes": 816442,
+            "sha256": "60304c408550d4b8b99bb7ddc1d238aa84805e774fb2523f5c293e3767a4ebd3"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-gameplay-ui-2026-10-08/gameplay-scales-resolved-390.png",
+            "bytes": 242594,
+            "sha256": "05c0ea25a3b67f1c8804d7eab51f55fc0c47401fb0dd87123e12ea8950c62cf8"
+          }
+        ]
+      },
+      {
+        "name": "private",
+        "ok": true,
+        "captureCount": 6,
+        "scope": "Two real Smartfon duels, four privately inspected cards per duel, keyboard details/close; no private names added to public journal.",
+        "report": {
+          "path": "docs/audits/artifacts/continuation-private-ui-2026-10-08/report.json",
+          "bytes": 42919,
+          "sha256": "559d0959e9ce9773a5694d0dda4ea743118ca34dc2ff3da3946e94bd9289dba5"
+        },
+        "captures": [
+          {
+            "path": "docs/audits/artifacts/continuation-private-ui-2026-10-08/private-smartfon-closed-board-1280.png",
+            "bytes": 451484,
+            "sha256": "9057230c2bd6d1057b351461ad653a8813870450f8f8f72b833b6344a861e005"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-private-ui-2026-10-08/private-smartfon-closed-board-390.png",
+            "bytes": 147478,
+            "sha256": "752bdcca90da35c34c82f67daf077db30e04cf6abbd1d567cf1873019766b832"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-private-ui-2026-10-08/private-smartfon-grouped-1280.png",
+            "bytes": 482183,
+            "sha256": "e0da74d452145756913b5b8daaf294754a54f18beadf046c71d4302dc3e7f1f7"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-private-ui-2026-10-08/private-smartfon-grouped-390.png",
+            "bytes": 123319,
+            "sha256": "f91b9f619ee559134a4469c9e07a66576414adf1b62f82b84119d2e7e0c65a39"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-private-ui-2026-10-08/private-smartfon-keyboard-details-1280.png",
+            "bytes": 472899,
+            "sha256": "d2220d3f82dc09429a78c5166da9e07ba6c02968f1e28427b9a982ced36d0fd7"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-private-ui-2026-10-08/private-smartfon-keyboard-details-390.png",
+            "bytes": 126928,
+            "sha256": "ef840c66eae6dd3afdf368aa8d7832f94e9f466ef54efcdf7ed46c0929a54e46"
+          }
+        ]
+      },
+      {
+        "name": "public",
+        "ok": true,
+        "captureCount": 4,
+        "scope": "Two real Terraforming searches followed by real Trickstar Live Stage activations; public confirmation details/close at both sizes.",
+        "report": {
+          "path": "docs/audits/artifacts/continuation-public-ui-2026-10-08/report.json",
+          "bytes": 23351,
+          "sha256": "976ebf32a55ce8e5c348cda8531a133a87284211f44546a1abc20ad3a187c532"
+        },
+        "captures": [
+          {
+            "path": "docs/audits/artifacts/continuation-public-ui-2026-10-08/public-confirmed-1280.png",
+            "bytes": 826473,
+            "sha256": "a027abfccde4af6af0a3786e73a9a3bb225eaef750dd2b3daadc77527c5ec877"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-public-ui-2026-10-08/public-confirmed-390.png",
+            "bytes": 183259,
+            "sha256": "865b12beff5f9bd6b9a9233820dd83935b103217a4f43e2e5b5b58e38e99dbe0"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-public-ui-2026-10-08/public-live-stage-1280.png",
+            "bytes": 810996,
+            "sha256": "5966975c4a2e13fbac7754787d76c05adccaa44b03c7d21b5c078630e12c7198"
+          },
+          {
+            "path": "docs/audits/artifacts/continuation-public-ui-2026-10-08/public-live-stage-390.png",
+            "bytes": 218151,
+            "sha256": "691586f15807b46288dba2ec3231fa35c8cfb5ee7bc2ac4c4444f9d1a0779dce"
+          }
+        ]
+      }
+    ],
+    "method": "Actual compiled UI, registered free-duel decks/RNG before start, public controls after start, 17 byte-identical served resources before and after each audit; no QA hook or post-start core/state injection.",
+    "limits": [
+      "These fixtures are not certificates of TCG Advanced deck legality.",
+      "Stable end states and native outcomes do not certify transient projectile/Ankh/seal pixels.",
+      "Gameplay browser cancellation covers the public native action menu; pre-command effect callback dismissal is covered by separate native tests.",
+      "Public UI imported helper dependency hashes were annotated after captures; they are not claimed as before/after helper observations. The changed helper line was the unused French Curse selector; app assets stayed frozen.",
+      "Mobile flows use normal scrolling; simultaneous visibility of the entire board is not certified."
+    ]
+  },
+  "proofs": [
+    {
+      "path": "docs/audits/artifacts/continuation-checks-2026-10-08.json",
+      "bytes": 2791,
+      "sha256": "13ed233f1fbd9dfebfc0624fa000a858fc6942a3e1d3dd838aed4a4de596c892"
+    },
+    {
+      "path": "docs/audits/artifacts/continuation-field-a-2026-10-08.json",
+      "bytes": 449596,
+      "sha256": "54ba6b84c5215966638b4c216dc01a09fdf88b8fcd409f87215f1f3f65f3c0f4"
+    },
+    {
+      "path": "docs/audits/artifacts/continuation-field-b-2026-10-08.json",
+      "bytes": 533272,
+      "sha256": "6f2f2e1c26c048c3c43286b851462cfe6fc88198b4ef730b3db55ccd8254fbc4"
+    },
+    {
+      "path": "docs/audits/artifacts/native-field-runtime-continuation-2026-10-08.json",
+      "bytes": 11427282,
+      "sha256": "420219317a89ab1dc1c7dbd8d766c8e042d972e58176a0d2d4ba2c366ecaa3ac"
+    },
+    {
+      "path": "docs/audits/artifacts/native-field-continuation-preservation-2026-10-08.json",
+      "bytes": 679186,
+      "sha256": "62b0b3f566536f4e51dd2e811641159d145f68dab53137f6096f0ea333e773a2"
+    },
+    {
+      "path": "docs/audits/artifacts/field-coverage-continuation-2026-10-08.json",
+      "bytes": 355131,
+      "sha256": "bbbd8933ebcbe5595d8032925a3e78da6ef575b1ae8c6e340b5d0bab115e0fdc"
+    },
+    {
+      "path": "docs/audits/artifacts/continuation-gameplay-2026-10-08/report.json",
+      "bytes": 458655,
+      "sha256": "b7192082f77559b87b8ae007ab82ee5df7116c29f4bde1eaa83cc44a1e380c45"
+    },
+    {
+      "path": "docs/audits/artifacts/continuation-gameplay-2026-10-08/protocol-source.json",
+      "bytes": 1360,
+      "sha256": "738ce3891414200fc10deacb2d7477ca6de9907312ead172067d2783ce34cbb3"
+    },
+    {
+      "path": "docs/audits/artifacts/native-confirmation-continuation-2026-10-08.json",
+      "bytes": 1887364,
+      "sha256": "a953486eefc65ef8951e18d9c3db408be922060590f9f6159a1e2e7614f10f4d"
+    },
+    {
+      "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/report.json",
+      "bytes": 113533,
+      "sha256": "2a47dacbfe7a47e8cf5889325e4daf45ca965ba66845696d2e1a3cb05524f680"
+    },
+    {
+      "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/preservation.json",
+      "bytes": 159737,
+      "sha256": "850472daa8df03e3b40d05e0844827641c9452c7944c5c65c95543f0323b24bf"
+    },
+    {
+      "path": "docs/audits/artifacts/continuation-monster-2026-10-08/measurements.json",
+      "bytes": 177130,
+      "sha256": "b6c100b8e09547512dad8a6346ad0943f335ef8956753cb7f92da15fb0b3bee5"
+    },
+    {
+      "path": "docs/audits/artifacts/continuation-effects-2026-10-08/native-attacks.json",
+      "bytes": 129059,
+      "sha256": "6757457f60e72280c3086b6c81348d13aeaafdc95f0fd3d17762e212ce3b5073"
+    },
+    {
+      "path": "docs/audits/artifacts/continuation-effects-2026-10-08/render-comparison.json",
+      "bytes": 464599,
+      "sha256": "e510e94bd5cdad6d3e75731353d99dabe90cd888b1f87c0dbcc8c09de86d6f96"
+    },
+    {
+      "path": "docs/audits/artifacts/continuation-effects-2026-10-08/final-source-refresh.json",
+      "bytes": 803,
+      "sha256": "915510f055e11d593e68b5b1466106cbb7107f2bf0274505fdff62eb1f73688a"
+    },
+    {
+      "path": "docs/audits/artifacts/continuation-models-ui-2026-10-08/report.json",
+      "bytes": 213448,
+      "sha256": "80d4a84ffb1717a7fdd932c1e19f565028de8d589b60e51210a89dae34018086"
+    },
+    {
+      "path": "docs/audits/artifacts/continuation-gameplay-ui-2026-10-08/report.json",
+      "bytes": 291970,
+      "sha256": "9ca27559d654768545c3540f31218d0bfdf4088803760052328af4fc654b4dc7"
+    },
+    {
+      "path": "docs/audits/artifacts/continuation-private-ui-2026-10-08/report.json",
+      "bytes": 42919,
+      "sha256": "559d0959e9ce9773a5694d0dda4ea743118ca34dc2ff3da3946e94bd9289dba5"
+    },
+    {
+      "path": "docs/audits/artifacts/continuation-public-ui-2026-10-08/report.json",
+      "bytes": 23351,
+      "sha256": "976ebf32a55ce8e5c348cda8531a133a87284211f44546a1abc20ad3a187c532"
+    }
+  ],
+  "finalChangedSourceFiles": [
+    {
+      "path": "main.js",
+      "bytes": 184958,
+      "sha256": "b442b4d2f58240c70a2b045c4bbd5957e780b69b1050bb17146938c85f79f7c1"
+    },
+    {
+      "path": "scripts/audit-continuation-effects-native.mjs",
+      "bytes": 5920,
+      "sha256": "a5d4a5cb80709dac7f78a68383b7dc070bda3be9a2365fc69974f1cef2e303ab"
+    },
+    {
+      "path": "scripts/audit-continuation-effects-render.py",
+      "bytes": 16004,
+      "sha256": "5de01d67d64b1c5756a837e4c4c7109388a887bf7a516ddddfd47483d14b9f19"
+    },
+    {
+      "path": "scripts/audit-continuation-gameplay-ui.py",
+      "bytes": 25919,
+      "sha256": "ee0ebee5109dcf4f95c42309afed15706343d48f10c76181ce8a79789dfcae6b"
+    },
+    {
+      "path": "scripts/audit-continuation-gameplay.mjs",
+      "bytes": 19708,
+      "sha256": "8ea58409945630e88620dc8439e5b572a24d293646c0508030de8cf6ed7b0bc5"
+    },
+    {
+      "path": "scripts/audit-continuation-models-ui.py",
+      "bytes": 33677,
+      "sha256": "7f6f4a1d54be8f4bfc6befa4d697a30755c0887c116a60ed124eb8a376951f49"
+    },
+    {
+      "path": "scripts/audit-continuation-monster-2026-10-08.py",
+      "bytes": 18218,
+      "sha256": "1399fdb654a9ef93a301c70f45e9d892a9a25b4a9a4a99cbab24d92a56182198"
+    },
+    {
+      "path": "scripts/audit-continuation-private-ui.py",
+      "bytes": 24665,
+      "sha256": "35b63dfd435bd1ba0270ea24d671f953356dc7f82b463f7b28ef8c5eecdba13a"
+    },
+    {
+      "path": "scripts/audit-continuation-public-ui.py",
+      "bytes": 9062,
+      "sha256": "1c26f2f11611f9b766deb702eff2c9c63d7866a73ef31b28c57d9d9410ef44e3"
+    },
+    {
+      "path": "scripts/audit-continuation-terrain-details.py",
+      "bytes": 16429,
+      "sha256": "e2e850cb79748b4f53253826fef8f4d60fe6ba40086ce1d6af61f460c6d12a2f"
+    },
+    {
+      "path": "scripts/audit-continuation-terrain-preservation.mjs",
+      "bytes": 4150,
+      "sha256": "6f4fa9903e2d8d44334a53bad758f884547633890092626fbcfd86a95ada2cc9"
+    },
+    {
+      "path": "scripts/audit-field-coverage.mjs",
+      "bytes": 2146,
+      "sha256": "69989a1aec0a79f5f16822f53378b5ff2fdb0d9169cabc9bc30b3219adb445c0"
+    },
+    {
+      "path": "scripts/audit-native-confirmation-continuation.mjs",
+      "bytes": 14463,
+      "sha256": "69dd4dea65a653f62af2f14b6bd54cc4c1f81186fe6f43845d1d3ff905ba0808"
+    },
+    {
+      "path": "scripts/audit-native-field-continuation-preservation.py",
+      "bytes": 8652,
+      "sha256": "390a2836c2e9224111dba027ec84a3ff64f6fee1716ceeedcb3b3647bfc8793e"
+    },
+    {
+      "path": "scripts/audit-native-field-runtime.mjs",
+      "bytes": 151454,
+      "sha256": "dd4ec36b6aa0cdae38940cfccd1727f9a2b79e2b7645b550a50b7d632347e98d"
+    },
+    {
+      "path": "scripts/generate-native-field-coverage.mjs",
+      "bytes": 3078,
+      "sha256": "0503fa4bdeefd7ebdb255cedfe0f00dbad6399caaf3c64022deda92a32c04585"
+    },
+    {
+      "path": "scripts/native-field-continuation-a.mjs",
+      "bytes": 24507,
+      "sha256": "598bca836e1ee68e2352c4b1309fe4e98b389e0d09412b4d69113d2508bd7ab0"
+    },
+    {
+      "path": "scripts/native-field-continuation-b.mjs",
+      "bytes": 24009,
+      "sha256": "0f423c7d1c7f9a53ade0787367d5f96fae044a0be4c457bc450b34b4f5f28155"
+    },
+    {
+      "path": "src/core/native/NativeDuelDecisions.js",
+      "bytes": 35088,
+      "sha256": "1fabda3f41c009307d5a4b5eec2bd2024324e9b00e0dd3cb7674c214861e7e70"
+    },
+    {
+      "path": "src/core/native/NativeDuelGame.js",
+      "bytes": 59938,
+      "sha256": "f29c5061f0d47ca657bcd88b0bfbb0954a5dcc51fa4c9c0f1827f9fbfa7c5a11"
+    },
+    {
+      "path": "src/core/native/NativeDuelVisualEvents.js",
+      "bytes": 33437,
+      "sha256": "8b2f692bbf099a62c26244098dadfaa10842ce94d4cb0291d9a2e1e0c54af242"
+    },
+    {
+      "path": "src/core/native/NativePublicRevealPolicy.js",
+      "bytes": 3116,
+      "sha256": "eca1ea20ec0e6f130d02f84af84f82fb5cf600f431c1395e94739b09428876f1"
+    },
+    {
+      "path": "src/ui/CardSpecificVisualEffects.js",
+      "bytes": 23094,
+      "sha256": "b56382a7b1ba63e299b1bedc18405ad4b01454a182f2160aef544089a4182df7"
+    },
+    {
+      "path": "src/ui/CombatVisualProfiles.js",
+      "bytes": 15200,
+      "sha256": "2614380d428e4076304d1387c82b4885c52208d432ba9afb3da8eb4a3501aa5b"
+    },
+    {
+      "path": "src/ui/FieldContinuationStageDetails.js",
+      "bytes": 14565,
+      "sha256": "3def385c130687a064b02f9e03c7f0c7f85261efa8c7000c36089d38a3d13204"
+    },
+    {
+      "path": "src/ui/FieldEnvironmentStageReferences.js",
+      "bytes": 43183,
+      "sha256": "a5c68804172344e32fe93147ee04ddaa6f76ae520e42f19c2255c21d0283dfd8"
+    },
+    {
+      "path": "src/ui/FieldReferenceDetailGeometry.js",
+      "bytes": 25543,
+      "sha256": "20269b947051f75862dc401d991541023144b70bfab81df100e82b942b532fd1"
+    },
+    {
+      "path": "src/ui/HologramMonsterModels.js",
+      "bytes": 24303,
+      "sha256": "700a84908bae14b5144295ec8b42eb85d45149c6170af4508b782f36f85c8904"
+    },
+    {
+      "path": "src/ui/HologramReferenceAnatomy.js",
+      "bytes": 63114,
+      "sha256": "e10d0ad431c4c3f00f12c259e76bb83e68ae320315a768ce2e606544fec778d5"
+    },
+    {
+      "path": "src/ui/NativeDuelPresentationModel.js",
+      "bytes": 3754,
+      "sha256": "3ac3fe31372b9125433caf68601757183c89e7fb08e2b342b45b22b60d8cdf06"
+    },
+    {
+      "path": "src/ui/NativeFieldCoverageSnapshot.js",
+      "bytes": 17593,
+      "sha256": "b483d124759c335565eaf3afe8553b565cd2b6bb503edd7dea95dbf178f6bda2"
+    },
+    {
+      "path": "src/ui/PrivateCardInspection.js",
+      "bytes": 5637,
+      "sha256": "c2f6da2cedacae2d014d45c15a587838ff772237af5b8e9f0ac195104a5298d0"
+    },
+    {
+      "path": "src/ui/PublicCardConfirmation.js",
+      "bytes": 1553,
+      "sha256": "858a04e67f0b08c9a687a1382f4a0ab7810a5ef3213787e58bb5b5ab480cb513"
+    },
+    {
+      "path": "style.css",
+      "bytes": 115179,
+      "sha256": "41962bbd2229fc25b2f1d77280a39cc2ff26c5d5963588e3539b183720a89fab"
+    },
+    {
+      "path": "test/continuation-effects-2026-10-08.test.js",
+      "bytes": 6881,
+      "sha256": "c6c71f55ce2b079e0e3ddb3b2f9f636a8a7db0cbafa15dcb1070a49e69209fd6"
+    },
+    {
+      "path": "test/continuation-monster-2026-10-08.test.js",
+      "bytes": 8639,
+      "sha256": "481fbea264cfa2039a63fe40c9c74b654cd733919c66361edf874ea5b4676789"
+    },
+    {
+      "path": "test/continuation-terrain-details.test.js",
+      "bytes": 8944,
+      "sha256": "1ae949d1fe63c83fa86d7763f515a2f053bd8ca3e3601c57c67166cb6143e05b"
+    },
+    {
+      "path": "test/custom-match-restore.test.js",
+      "bytes": 12665,
+      "sha256": "8418b715ea47ac1c36daa914c3ee6fbfae8b32cd4ffc6d81e6e7dd430c7381ee"
+    },
+    {
+      "path": "test/native-field-atlas-coverage.test.js",
+      "bytes": 5655,
+      "sha256": "d50dac79c34e47060f1f17e83795c8e5d7ee892c6acfc83c493b38c6bef8a95f"
+    },
+    {
+      "path": "test/private-card-inspection.test.js",
+      "bytes": 11288,
+      "sha256": "de1b75b31a4d90eefb30636322f6653dee43de3d60b42c9234060e74e24531b4"
+    },
+    {
+      "path": "tests/native-duel-continuation-gameplay.test.mjs",
+      "bytes": 2372,
+      "sha256": "d901817abbdf384abd0420b21401af9caa0a2156351618b327bf3bfc254ebf06"
+    },
+    {
+      "path": "tests/native-field-catalogue.test.js",
+      "bytes": 8348,
+      "sha256": "54a812566b61cf0a1fa314b5995e9b100ca977743977fc3a8c6c2e99599edb23"
+    },
+    {
+      "path": "tests/native-field-continuation-a.test.mjs",
+      "bytes": 2478,
+      "sha256": "c0d59b0fe1db875ba0081c048496b494ee873dc3223bf5efcc9baeca9dfd03f2"
+    },
+    {
+      "path": "tests/native-field-continuation-b.test.mjs",
+      "bytes": 1388,
+      "sha256": "cddf20bd716924ea0cfb99041a571ec0a64629d6587431f39dcca00d3b792b1e"
+    },
+    {
+      "path": "tests/native-public-confirmation-continuation.test.mjs",
+      "bytes": 5088,
+      "sha256": "1917b08c4328a2afe28e8aea164162ab78aa7ac99bb11fbb745c60f11c9006fa"
+    }
+  ],
+  "claims": {
+    "newNativeFieldScenarios": 29,
+    "newDistinctFields": 13,
+    "dedicatedModelProfiles": 28,
+    "previousModelProfilesPreserved": 25,
+    "newModels": 3,
+    "detailedTerrains": 6,
+    "newTerrainVolumes": 379,
+    "otherTerrainsPreserved": 333,
+    "sourceTerrainJpegsPreserved": 339,
+    "newSpecificAttacks": 4,
+    "nativeGameplayCases": 20,
+    "nativeConfirmationCases": 22,
+    "publicRevealPolicySources": 8,
+    "totalFieldUiIntegrationCertified": false,
+    "allOfficialTcgRulesCertified": false,
+    "integralSpatialOneToOneCertified": false
+  }
+}

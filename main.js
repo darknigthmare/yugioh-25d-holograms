@@ -51,11 +51,18 @@ import {
   getCardImageUrl
 } from './src/cards.js';
 import { escapeHtml, safeImageUrl } from './src/security.js';
+import { PublicCardConfirmation } from './src/ui/PublicCardConfirmation.js';
 
 let game = null;
 let matchController = null;
 let duelViewController = null;
 const privateCardInspection = new PrivateCardInspection({
+  documentRef: document,
+  cardDetails: (card, gameState) => gameState?.resources
+    ? createNativeCardPresentationTemplate(gameState.resources, card.id) : null,
+  imageUrl: card => safeImageUrl(card.image_url, getCardImageUrl(card.id))
+});
+const publicCardConfirmation = new PublicCardConfirmation({
   documentRef: document,
   cardDetails: (card, gameState) => gameState?.resources
     ? createNativeCardPresentationTemplate(gameState.resources, card.id) : null,
@@ -1972,6 +1979,7 @@ async function resolveOpeningFirstPlayer(sessionLabel = 'Duel') {
  */
 async function initGameInstance(matchLaunch = null) {
   privateCardInspection.clear();
+  publicCardConfirmation.clear();
   const campaignMission = getMission(activeCampaignMissionId);
   campaignTracker = null;
   // Every Duel starts in the unchanged compact presentation.  Switching views
@@ -3412,6 +3420,7 @@ function restorePersistedMatchBetweenDuels() {
 
 function returnToConfiguration({ announce = false } = {}) {
   privateCardInspection.clear();
+  publicCardConfirmation.clear();
   leaveCampaign();
   // Leaving the Duel also tears down the active immersive presentation. The
   // cached module may be reused later, but no Real-view animation remains
@@ -3824,6 +3833,7 @@ function getDuelReasonLabel(reason) {
 
 function handleGameOver(resultOrWinner, legacyDetails = null) {
   privateCardInspection.clear();
+  publicCardConfirmation.clear();
   if (game && recordedFinishedGames.has(game)) return;
   const result = normalizeDuelResult(resultOrWinner, legacyDetails);
   lastDuelResult = result;
@@ -4054,10 +4064,12 @@ function handleGameAnimations(event) {
   // Private confirmations belong only to their authorized local inspection.
   // Consume even rejected inspect payloads before any public event consumer.
   if (event?.type === 'inspect') {
+    publicCardConfirmation.clear();
     privateCardInspection.handle(event, game);
     return;
   }
   if (event?.private === true) return;
+  if (publicCardConfirmation.handle(event, game)) privateCardInspection.clear();
   campaignTracker?.recordAnimation(event);
   duelViewController?.playAnimation?.(event);
   const boardEl = document.getElementById('duel-board');

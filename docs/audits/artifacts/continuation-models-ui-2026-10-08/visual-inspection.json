@@ -1,0 +1,282 @@
+{
+  "generatedOn": "2026-10-08",
+  "reportSha256": "80d4a84ffb1717a7fdd932c1e19f565028de8d589b60e51210a89dae34018086",
+  "ok": true,
+  "captureCount": 24,
+  "stableNamedStates": 18,
+  "viewports": [
+    [
+      1280,
+      900
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "method": "Every final PNG was opened with view_image. This manual pixel inspection complements public DOM/native control observations and actual binary HTTP response fingerprints.",
+  "sourceDependenciesStillMatchReport": true,
+  "servedAndLocalBuildUnchanged": true,
+  "transientFxPixelsVerified": {
+    "revivalAnkh": false,
+    "attackProjectile": false,
+    "negationBrokenSeal": false
+  },
+  "nativeActionsVerified": {
+    "doubleNormalSummon": true,
+    "foolishBurialCurseOfDragon": true,
+    "rebornFromPublicGraveyard": true,
+    "actualOpponentAttackAnsweredWithOfferedNegateAttack": true
+  },
+  "scope": "Actual compiled application served locally with production CSP and QA hook absent. Initial isolated deck/RNG fixtures are registered before start; subsequent actions use public controls and observations use public DOM only. Native free duel is not a certification of all TCG Advanced legality or full rules/artwork 1:1.",
+  "captures": {
+    "wave-camera-console-1280.png": {
+      "sha256": "efca61eaaa7ba1664428bb90615b406c7602294c7b4a624dd28bb23899d40038",
+      "inspectedWith": "view_image",
+      "findings": [
+        "Battle Ox, Saggi and Curse of Dragon have distinct volumetric silhouettes in the actual compiled real view."
+      ],
+      "limits": [
+        "The player-side figures face the opponent; the gallery is needed to inspect their source-facing details.",
+        "The stat labels are partly overlapped by the fixed camera toolbar; this view does not prove full badge readability."
+      ]
+    },
+    "wave-camera-console-390.png": {
+      "sha256": "8ac5a73d5763b44b85a8965ab89b41d3634239f39f3467620e35be630ecb9ee3",
+      "inspectedWith": "view_image",
+      "findings": [
+        "Battle Ox, Saggi and Curse of Dragon have distinct volumetric silhouettes in the actual compiled real view."
+      ],
+      "limits": [
+        "The player-side figures face the opponent; the gallery is needed to inspect their source-facing details.",
+        "Some lower controls and log content continue below this initial viewport; the page remains scrollable without horizontal body overflow."
+      ]
+    },
+    "wave-camera-diagonal-left-1280.png": {
+      "sha256": "661fb3803442412168e43e4e4dc2ebffe0586edc0ddccfa73fb75e165c9e052a",
+      "inspectedWith": "view_image",
+      "findings": [
+        "Battle Ox, Saggi and Curse of Dragon have distinct volumetric silhouettes in the actual compiled real view."
+      ],
+      "limits": [
+        "The player-side figures face the opponent; the gallery is needed to inspect their source-facing details."
+      ]
+    },
+    "wave-camera-diagonal-left-390.png": {
+      "sha256": "c9183b8ca29d99248626b7583b4859ee827780b467eadb9f6ef74018a271b6fb",
+      "inspectedWith": "view_image",
+      "findings": [
+        "Battle Ox, Saggi and Curse of Dragon have distinct volumetric silhouettes in the actual compiled real view."
+      ],
+      "limits": [
+        "The player-side figures face the opponent; the gallery is needed to inspect their source-facing details.",
+        "Some lower controls and log content continue below this initial viewport; the page remains scrollable without horizontal body overflow."
+      ]
+    },
+    "wave-camera-diagonal-right-1280.png": {
+      "sha256": "d5080da374b4be897eceb02b85db45e613708cbb6fcb2761d91d724aa390fad7",
+      "inspectedWith": "view_image",
+      "findings": [
+        "Battle Ox, Saggi and Curse of Dragon have distinct volumetric silhouettes in the actual compiled real view."
+      ],
+      "limits": [
+        "The player-side figures face the opponent; the gallery is needed to inspect their source-facing details."
+      ]
+    },
+    "wave-camera-diagonal-right-390.png": {
+      "sha256": "fc904b063e779b5c2999d43a178d187cf8e3853432142e5c8ddf30cb4b87859b",
+      "inspectedWith": "view_image",
+      "findings": [
+        "Battle Ox, Saggi and Curse of Dragon have distinct volumetric silhouettes in the actual compiled real view."
+      ],
+      "limits": [
+        "The player-side figures face the opponent; the gallery is needed to inspect their source-facing details.",
+        "Some lower controls and log content continue below this initial viewport; the page remains scrollable without horizontal body overflow."
+      ]
+    },
+    "wave-camera-overview-1280.png": {
+      "sha256": "ad424ce0da59c06587b46d58f47ff38c4aa0db1d1ac4b815eff56c121fec4dbd",
+      "inspectedWith": "view_image",
+      "findings": [
+        "Battle Ox, Saggi and Curse of Dragon have distinct volumetric silhouettes in the actual compiled real view."
+      ],
+      "limits": [
+        "The player-side figures face the opponent; the gallery is needed to inspect their source-facing details."
+      ]
+    },
+    "wave-camera-overview-390.png": {
+      "sha256": "f4a3df315d5c562a520b74f324c1afa168fd5908478ca7f95105897fdc4c51a5",
+      "inspectedWith": "view_image",
+      "findings": [
+        "Battle Ox, Saggi and Curse of Dragon have distinct volumetric silhouettes in the actual compiled real view."
+      ],
+      "limits": [
+        "The player-side figures face the opponent; the gallery is needed to inspect their source-facing details.",
+        "The global camera intentionally renders the creatures and badges small; exact small text readability is not certified.",
+        "Some lower controls and log content continue below this initial viewport; the page remains scrollable without horizontal body overflow."
+      ]
+    },
+    "wave-first-real-before-revival-1280.png": {
+      "sha256": "5392e172980a7155665cdb6a028a2e784c9afc4d64730639832cf1ecd6143147",
+      "inspectedWith": "view_image",
+      "findings": [
+        "Battle Ox and Saggi have distinct public volumetric silhouettes on their real native cards before revival."
+      ],
+      "limits": []
+    },
+    "wave-first-real-before-revival-390.png": {
+      "sha256": "0b224061e94088d46401a8b77c74a5deb6bbd90c32c3a268197ff260ca6a25f8",
+      "inspectedWith": "view_image",
+      "findings": [
+        "Battle Ox and Saggi have distinct public volumetric silhouettes on their real native cards before revival."
+      ],
+      "limits": [
+        "Some lower controls and log content continue below this initial viewport; the page remains scrollable without horizontal body overflow."
+      ]
+    },
+    "wave-native-attack-before-negation-1280.png": {
+      "sha256": "846245d437da79bdaa85151cae70044114212d01cd0787ae38c569ac83f6ce37",
+      "inspectedWith": "view_image",
+      "findings": [
+        "Actual offered Negate Attack choice is readable in the native decision modal."
+      ],
+      "limits": [
+        "The modal obscures the board; this screenshot does not verify projectile pixels."
+      ]
+    },
+    "wave-native-attack-before-negation-390.png": {
+      "sha256": "f3daff07cec4e355b38e1853be67717dbd3d8b82bf2a17d331ab72d83a1cf105",
+      "inspectedWith": "view_image",
+      "findings": [
+        "Actual offered Negate Attack choice is readable in the native decision modal."
+      ],
+      "limits": [
+        "The modal obscures the board; this screenshot does not verify projectile pixels."
+      ]
+    },
+    "wave-native-attack-negated-motion-1280.png": {
+      "sha256": "339b3694eee94c853cef92bbf648c0241a867d25cac5fd88f6ead3f9a28e54b6",
+      "inspectedWith": "view_image",
+      "findings": [
+        "The real scene remains active after the offered trap response; the target sphere remains visible."
+      ],
+      "limits": [
+        "The screenshot is taken after the native negation and does not isolate the transient broken-seal effect."
+      ]
+    },
+    "wave-native-attack-negated-motion-390.png": {
+      "sha256": "c10b16313f99d8c382441e180d0cb025713d1f93041d7ae41a2dae721d720474",
+      "inspectedWith": "view_image",
+      "findings": [
+        "The real scene remains active after the offered trap response; the target sphere remains visible."
+      ],
+      "limits": [
+        "The screenshot is taken after the native negation and does not isolate the transient broken-seal effect.",
+        "Some lower controls and log content continue below this initial viewport; the page remains scrollable without horizontal body overflow."
+      ]
+    },
+    "wave-native-revival-motion-1280.png": {
+      "sha256": "fadbfb10ce42c068f72fabf5d5343b63f1b2cbec09f3229d25bc4c0433274b74",
+      "inspectedWith": "view_image",
+      "findings": [
+        "Battle Ox, Saggi and Curse of Dragon have distinct volumetric silhouettes in the actual compiled real view."
+      ],
+      "limits": [
+        "The player-side figures face the opponent; the gallery is needed to inspect their source-facing details.",
+        "The summoned serpent is visible but these pixels do not isolate the transient Ankh animation."
+      ]
+    },
+    "wave-native-revival-motion-390.png": {
+      "sha256": "acfaec802bb9ae7807183b40a24b4a8ca9b5130e6a958dea668298df66c2b605",
+      "inspectedWith": "view_image",
+      "findings": [
+        "Battle Ox, Saggi and Curse of Dragon have distinct volumetric silhouettes in the actual compiled real view."
+      ],
+      "limits": [
+        "The player-side figures face the opponent; the gallery is needed to inspect their source-facing details.",
+        "The summoned serpent is visible but these pixels do not isolate the transient Ankh animation.",
+        "Some lower controls and log content continue below this initial viewport; the page remains scrollable without horizontal body overflow."
+      ]
+    },
+    "wave-repeat-arena-1280.png": {
+      "sha256": "202b44e6a4d3358c0cb15482a48aad10ba85af31f61d604ea90edb845ffbc513",
+      "inspectedWith": "view_image",
+      "findings": [
+        "The public view mode changes while native LP, hand, UIDs and ATK/DEF remain unchanged according to the DOM report."
+      ],
+      "limits": []
+    },
+    "wave-repeat-arena-390.png": {
+      "sha256": "7abe12a28bafd26e73e19f9cc7c09e76d102ef55ad8ef07147f7d76781213053",
+      "inspectedWith": "view_image",
+      "findings": [
+        "The public view mode changes while native LP, hand, UIDs and ATK/DEF remain unchanged according to the DOM report."
+      ],
+      "limits": [
+        "At width 390 these views require board scrolling; all three monsters are not visible together in the initial screenshot.",
+        "Some lower controls and log content continue below this initial viewport; the page remains scrollable without horizontal body overflow."
+      ]
+    },
+    "wave-repeat-compact-1280.png": {
+      "sha256": "3e9070bb856e3f28cb32af54a469ead357ea8c8cb37b60aa8c94159de66a0552",
+      "inspectedWith": "view_image",
+      "findings": [
+        "The public view mode changes while native LP, hand, UIDs and ATK/DEF remain unchanged according to the DOM report."
+      ],
+      "limits": []
+    },
+    "wave-repeat-compact-390.png": {
+      "sha256": "c01ea646176f8542dc108075741e04e9e4cb9565e03e9cb501c7b4549fbb307f",
+      "inspectedWith": "view_image",
+      "findings": [
+        "The public view mode changes while native LP, hand, UIDs and ATK/DEF remain unchanged according to the DOM report."
+      ],
+      "limits": [
+        "At width 390 these views require board scrolling; all three monsters are not visible together in the initial screenshot.",
+        "Some lower controls and log content continue below this initial viewport; the page remains scrollable without horizontal body overflow."
+      ]
+    },
+    "wave-repeat-real-1280.png": {
+      "sha256": "1aed2a75d67bb53bda461c72feb910e8c822fb187c111befa465301619772bba",
+      "inspectedWith": "view_image",
+      "findings": [
+        "Battle Ox, Saggi and Curse of Dragon have distinct volumetric silhouettes in the actual compiled real view."
+      ],
+      "limits": [
+        "The player-side figures face the opponent; the gallery is needed to inspect their source-facing details."
+      ]
+    },
+    "wave-repeat-real-390.png": {
+      "sha256": "311a7a99bbdb0c94e67ffe6554935b40df96627270ce4e88b7bc693b8af79ad8",
+      "inspectedWith": "view_image",
+      "findings": [
+        "Battle Ox, Saggi and Curse of Dragon have distinct volumetric silhouettes in the actual compiled real view."
+      ],
+      "limits": [
+        "The player-side figures face the opponent; the gallery is needed to inspect their source-facing details.",
+        "Some lower controls and log content continue below this initial viewport; the page remains scrollable without horizontal body overflow."
+      ]
+    },
+    "wave-three-models-real-1280.png": {
+      "sha256": "fadbfb10ce42c068f72fabf5d5343b63f1b2cbec09f3229d25bc4c0433274b74",
+      "inspectedWith": "view_image",
+      "findings": [
+        "Battle Ox, Saggi and Curse of Dragon have distinct volumetric silhouettes in the actual compiled real view."
+      ],
+      "limits": [
+        "The player-side figures face the opponent; the gallery is needed to inspect their source-facing details."
+      ]
+    },
+    "wave-three-models-real-390.png": {
+      "sha256": "acfaec802bb9ae7807183b40a24b4a8ca9b5130e6a958dea668298df66c2b605",
+      "inspectedWith": "view_image",
+      "findings": [
+        "Battle Ox, Saggi and Curse of Dragon have distinct volumetric silhouettes in the actual compiled real view."
+      ],
+      "limits": [
+        "The player-side figures face the opponent; the gallery is needed to inspect their source-facing details.",
+        "Some lower controls and log content continue below this initial viewport; the page remains scrollable without horizontal body overflow."
+      ]
+    }
+  }
+}

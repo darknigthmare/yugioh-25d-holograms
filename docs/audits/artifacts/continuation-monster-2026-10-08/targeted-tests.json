@@ -1,0 +1,19 @@
+{
+  "command": "node --test --test-isolation=none test/continuation-monster-2026-10-08.test.js test/hologram-reference-anatomy.test.js test/hologram-pose-animation.test.js test/real-duel-hologram-models.test.js",
+  "tests": 25,
+  "pass": 25,
+  "fail": 0,
+  "cancelled": 0,
+  "skipped": 0,
+  "todo": 0,
+  "logPath": "docs/audits/artifacts/continuation-monster-2026-10-08/targeted-tests.txt",
+  "logSha256": "9234e6c3d361ab454cbcff5f219ab0b8f8e7678e2563ef928ed85cf07dc3cc0a",
+  "newTests": 4,
+  "sourceFiles": {
+    "test/continuation-monster-2026-10-08.test.js": "481fbea264cfa2039a63fe40c9c74b654cd733919c66361edf874ea5b4676789",
+    "src/ui/CombatVisualProfiles.js": "2614380d428e4076304d1387c82b4885c52208d432ba9afb3da8eb4a3501aa5b",
+    "src/ui/HologramMonsterModels.js": "700a84908bae14b5144295ec8b42eb85d45149c6170af4508b782f36f85c8904",
+    "src/ui/HologramReferenceAnatomy.js": "e10d0ad431c4c3f00f12c259e76bb83e68ae320315a768ce2e606544fec778d5",
+    "src/ui/HologramPoseAnimation.js": "0fd60c0f319ee7a413049ac05199d44e06ab356a94174bc2dc35958b22b8729c"
+  }
+}

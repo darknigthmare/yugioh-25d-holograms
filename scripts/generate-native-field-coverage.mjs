@@ -3,7 +3,7 @@ import { pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
 import assert from 'node:assert/strict';
 
-const auditUrl = new URL('../docs/audits/artifacts/native-field-runtime-wave-2026-10-08.json', import.meta.url);
+const auditUrl = new URL('../docs/audits/artifacts/native-field-runtime-continuation-2026-10-08.json', import.meta.url);
 const outputUrl = new URL('../src/ui/NativeFieldCoverageSnapshot.js', import.meta.url);
 
 /** A compact factual view, without shipping native scenario decks to the UI. */

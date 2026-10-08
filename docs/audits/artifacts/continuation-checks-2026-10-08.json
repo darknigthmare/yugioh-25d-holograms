@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-08",
+  "executedAtUtc": "2026-10-08T21:22:10.083147+00:00",
+  "npmCheck": {
+    "command": "npm run check",
+    "exitCode": 0,
+    "tests": {
+      "tests": 2102,
+      "pass": 2102,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "testFiles": 141,
+    "sandboxOverride": "with_additional_permissions/network.enabled=true (restores subprocess IPC; does not change product code)"
+  },
+  "security": {
+    "command": "npm run audit:security",
+    "exitCode": 0,
+    "vulnerabilities": 0
+  },
+  "build": {
+    "viteVersion": "8.1.5",
+    "transformedModules": 111,
+    "immutableForBrowserAudits": true,
+    "assets": [
+      {
+        "path": "/index.html",
+        "bytes": 35567,
+        "sha256": "548a47bce13cc7a6d14ee1c5085c0867e6f1ac34d31630e7a0d87e568a524bc3"
+      },
+      {
+        "path": "/assets/index-XmnwEEBj.js",
+        "bytes": 611206,
+        "sha256": "799145520bfd285b788d5f6573dde6a557ef82dadda4645a697f97f5d60882be"
+      },
+      {
+        "path": "/assets/index-Ce4lc5_W.css",
+        "bytes": 84495,
+        "sha256": "3a7edacf3b48736f74fedd48644f2bb03a3a5df7bdde114cb8e10c56857bea36"
+      },
+      {
+        "path": "/assets/NativeDuelGame-DR4pJFur.js",
+        "bytes": 88812,
+        "sha256": "36c7b35eef9e695e25233a0eb1a38a8968b4f22ab35cccd659c803dd7ae39a21"
+      },
+      {
+        "path": "/assets/FieldEnvironmentRegistry-CW5zbHcP.js",
+        "bytes": 622016,
+        "sha256": "3423def789cb9b59abf5297c9fc36905226dbfb91e2d0d44d988853104af4d4f"
+      },
+      {
+        "path": "/assets/RealDuelView-CZpDyO-R.js",
+        "bytes": 174817,
+        "sha256": "8c2672cf7b48938f4f93daa71ae6eded94600c1ae8bd120e159ea65007a440fd"
+      },
+      {
+        "path": "/assets/ocgcore-DWqJvtmv.js",
+        "bytes": 46501,
+        "sha256": "dd1e9936f49901fb5f53efd6d25b19ab5755af65169fee4ef34600a1cfbe5349"
+      }
+    ],
+    "catalogueInEntryBundle": true,
+    "notices": [
+      "NativeCardCatalogue both statically/dynamically imported",
+      "Large chunks",
+      "ocgcore.sync.wasm URL resolved at runtime; actual local WASM verified by browser responses"
+    ]
+  },
+  "logs": [
+    {
+      "path": "docs/audits/artifacts/continuation-checks-2026-10-08/check.txt",
+      "bytes": 213564,
+      "sha256": "107b441e6f4d9bc2e2b548495fce2d85dcab36deebb0067fda0805439b7caf17"
+    },
+    {
+      "path": "docs/audits/artifacts/continuation-checks-2026-10-08/confirmation-targeted-tests.txt",
+      "bytes": 3346,
+      "sha256": "905d572659f4bd6a66d81f375235c5e6869456cf2e839e66f21c71a68ff2cb91"
+    },
+    {
+      "path": "docs/audits/artifacts/continuation-checks-2026-10-08/security.txt",
+      "bytes": 521,
+      "sha256": "ce10d89592b5b2d55cb4bdaf4b098f6da78eb23609d6da2dde83e6ade53be768"
+    }
+  ]
+}

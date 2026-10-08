@@ -27,10 +27,10 @@ test('native atlas availability preserves distinct legacy, initialization, effec
 });
 
 test('compact UI proof agrees with each native audit record rather than declaring all effects tested', async () => {
-  const report = JSON.parse(await readFile(new URL('../docs/audits/artifacts/native-field-runtime-wave-2026-10-08.json', import.meta.url), 'utf8'));
+  const report = JSON.parse(await readFile(new URL('../docs/audits/artifacts/native-field-runtime-continuation-2026-10-08.json', import.meta.url), 'utf8'));
   assert.deepEqual(NATIVE_FIELD_COVERAGE_SNAPSHOT, nativeFieldCoverageSnapshot(report));
-  assert.equal(NATIVE_FIELD_COVERAGE_SNAPSHOT.summary.passedScenarios, 377);
-  assert.equal(NATIVE_FIELD_COVERAGE_SNAPSHOT.summary.scenarios, 377);
+  assert.equal(NATIVE_FIELD_COVERAGE_SNAPSHOT.summary.passedScenarios, 406);
+  assert.equal(NATIVE_FIELD_COVERAGE_SNAPSHOT.summary.scenarios, 406);
   assert.equal(Object.isFrozen(NATIVE_FIELD_COVERAGE_SNAPSHOT.effectTestedCardIds), true);
   for (const card of FIELD_SPELL_COVERAGE) {
     const row = report.matrix.find(row => String(row.canonicalCode) === card.cardId);

@@ -28,7 +28,11 @@ export function createHologramMonsterModel(card = {}, { defense = false } = {}) 
     const anatomicalJoint = profile.anatomy === 'mystical-elf-prayer' && /^prayer-/.test(name)
       ? HOLOGRAM_JOINTS.STAFF
       : profile.anatomy === 'blue-armored-rodent' && /^beaver-sword-(?:arm|hand|fist)/.test(name)
-        ? HOLOGRAM_JOINTS.WEAPON : resolveHologramPartJoint(name);
+        ? HOLOGRAM_JOINTS.WEAPON
+        : profile.anatomy === 'red-armored-bull' && /^(?:ox-gripping-|axe-)/.test(name)
+          ? HOLOGRAM_JOINTS.WEAPON
+          : profile.anatomy === 'asymmetric-jester' && /^clown-casting-/.test(name)
+            ? HOLOGRAM_JOINTS.STAFF : resolveHologramPartJoint(name);
     joint.fill(anatomicalJoint);
     geometry.setAttribute('hologramJoint', new THREE.BufferAttribute(joint, 1));
     if (!geometry.attributes.color) {

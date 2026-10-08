@@ -20,7 +20,13 @@ export class PrivateCardInspection {
       || typeof event.inspectionGroupId !== 'string'
       || !/^native-private-inspection-[1-9]\d*$/.test(event.inspectionGroupId)
       || game.winner || !this.documentRef?.body) return true;
-    const card = event.card;
+    this._receive(event.card, game, event.inspectionGroupId);
+    return true;
+  }
+
+  // Rendering is shared with explicit public confirmations. Each consumer
+  // verifies its own audience before entering this method or reading a card.
+  _receive(card, game, groupId) {
     if (!card) return true;
     const text = (value, limit) => String(value ?? '').slice(0, limit);
     const basic = Object.freeze({ id: text(card.id, 12), name: text(card.name, 160),
@@ -33,10 +39,10 @@ export class PrivateCardInspection {
     const printed = Object.freeze({ ...basic,
       desc: text(details?.desc ?? basic.desc, 8000),
       image_url: text(details?.image_url ?? basic.image_url, 2000) });
-    if (this.game !== game || this.groupId !== event.inspectionGroupId) {
+    if (this.game !== game || this.groupId !== groupId) {
       this.clear();
       this.game = game;
-      this.groupId = event.inspectionGroupId;
+      this.groupId = groupId;
       this._createPanel();
     }
     this.cards.push(printed);

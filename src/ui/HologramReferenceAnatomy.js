@@ -456,5 +456,175 @@ export function buildReferenceMonsterAnatomy(profile, build) {
     rod('beaver-shield-ivory-horn', 'accent', [1.12, 2.68, 0.52], [1.28, 3.17, 0.4], 0.077, 0.006, '#c2d4bd');
     return true;
   }
+  if (profile.anatomy === 'red-armored-bull') {
+    const brown = '#76503a', red = '#d62031', gold = '#c8b337', edge = '#ebe68d';
+    sphere('ox-massive-brown-trunk', 'body', [0, 1.99, 0], [0.68, 0.75, 0.43], 1, brown);
+    sphere('ox-red-chest-cuirass', 'accent', [0, 2.1, 0.31], [0.58, 0.58, 0.2], 1, red);
+    ribbon('ox-gold-chest-border', 'accent', [[-.58, 2.43, .35], [-.43, 1.65, .4], [0, 1.48, .44], [.43, 1.65, .4], [.58, 2.43, .35]], .042, gold);
+    sphere('ox-heavy-bovine-head', 'body', [0, 3.04, .02], [.34, .44, .34], 1, brown);
+    sphere('ox-long-brown-muzzle', 'body', [0, 2.87, .36], [.235, .28, .27], 1, '#8d6246');
+    for (const side of [-1, 1]) {
+      sphere(`ox-black-nostril-${side}`, 'dark', [side * .085, 2.825, .59], [.042, .075, .019], 0, '#191913');
+      sphere(`ox-narrow-red-eye-${side}`, 'eye', [side * .175, 3.11, .316], [.054, .024, .025], 0, '#c7342e');
+      sphere(`ox-red-helmet-cheek-${side}`, 'accent', [side * .31, 3.05, -.02], [.13, .41, .29], 1, red);
+      ribbon(`ox-gold-cheek-rim-${side}`, 'accent', [[side * .35, 3.4, .18], [side * .3, 3.17, .32], [side * .26, 2.7, .29], [side * .12, 2.61, .4]], .048, gold);
+      sphere(`ox-red-shoulder-pauldron-${side}`, 'accent', [side * .73, 2.47, -.02], [.41, .48, .4], 1, red);
+      compactRing(`ox-gold-shoulder-rim-${side}`, 'accent', [side * .74, 2.47, .36], .34, [0, 0, side * .12], gold, [1, 1.2, 1]);
+      for (let rivet = 0; rivet < 7; rivet += 1) {
+        const a = rivet / 7 * Math.PI * 2;
+        sphere(`ox-gold-shoulder-rivet-${side}-${rivet}`, 'accent', [side * .74 + Math.sin(a) * .33, 2.47 + Math.cos(a) * .38, .39], [.045, .045, .025], 0, edge);
+      }
+      ribbon(`ox-long-swept-gold-horn-${side}`, 'accent', [[side * .29, 3.5, -.02], [side * .6, 3.54, -.04], [side * 1.08, 3.7, -.03], [side * 1.55, 3.93, .03]], .075, gold);
+      rod(`ox-pointed-horn-tip-${side}`, 'accent', [side * 1.37, 3.83, .01], [side * 1.69, 4.06, .04], .075, .003, edge);
+      compactRing(`ox-gold-horn-collar-${side}`, 'accent', [side * .44, 3.53, -.02], .11, [0, 0, Math.PI / 2], gold);
+      const elbow = [side * .94, 1.98, .22], wrist = [side * .12, side === 1 ? 2.05 : 1.64, .77];
+      rod(`ox-gripping-upper-arm-${side}`, 'body', [side * .67, 2.37, .04], elbow, .235, .2, brown);
+      rod(`ox-gripping-forearm-${side}`, 'body', elbow, wrist, .21, .18, brown);
+      sphere(`ox-gripping-broad-fist-${side}`, 'body', wrist, [.23, .25, .2], 1, '#93694f');
+      for (let finger = 0; finger < 4; finger += 1) {
+        box(`ox-gripping-knuckle-${side}-${finger}`, 'body', [wrist[0] - .14 + finger * .085, wrist[1] + .1, .92], [.08, .145, .065], [0, 0, -.13], '#a17a5a');
+        rod(`ox-gripping-finger-fold-${side}-${finger}`, 'dark', [wrist[0] - .175 + finger * .085, wrist[1] + .02, .963], [wrist[0] - .175 + finger * .085, wrist[1] + .12, .963], .007, .007, '#4d3528');
+      }
+      compactRing(`ox-gripping-gold-wrist-cuff-${side}`, 'accent', [side * .33, side === 1 ? 2.045 : 1.74, .69], .195, [Math.PI / 2, -.75 * side, 0], gold);
+      // The illustration is a cropped bust: these lower limbs continue its
+      // brown body/red armor, rather than claiming an unseen full-body design.
+      rod(`ox-inferred-brown-thigh-${side}`, 'body', [side * .27, 1.38, 0], [side * .36, .79, .04], .23, .19, brown);
+      rod(`ox-inferred-brown-shin-${side}`, 'body', [side * .36, .79, .04], [side * .4, .24, .11], .19, .17, brown);
+      sphere(`ox-inferred-red-greave-${side}`, 'accent', [side * .39, .48, .17], [.23, .35, .19], 1, red);
+      box(`ox-inferred-dark-hoof-${side}`, 'dark', [side * .4, .17, .21], [.4, .22, .44], undefined, '#2f241c');
+      box(`ox-inferred-hoof-cleft-${side}`, 'body', [side * .4, .17, .439], [.022, .15, .008], undefined, '#916c4b');
+    }
+    sphere('ox-red-high-helmet-crown', 'accent', [0, 3.5, -.05], [.32, .43, .3], 1, red);
+    ribbon('ox-gold-v-shaped-visor', 'accent', [[-.34, 3.38, .27], [0, 3.15, .39], [.34, 3.38, .27]], .06, gold);
+    ribbon('ox-gold-helmet-crown-rim', 'accent', [[-.3, 3.57, .21], [-.17, 3.79, .17], [0, 3.93, .12], [.17, 3.79, .17], [.3, 3.57, .21]], .047, gold);
+    cone('ox-helmet-central-gold-spike', 'accent', [0, 3.94, .15], [.09, .62, .11], [0, 0, -.05], edge);
+    rod('ox-dark-bovine-mouth', 'dark', [-.1, 2.69, .53], [.1, 2.69, .53], .013, .009, '#241c17');
+    box('ox-inferred-red-belt', 'accent', [0, 1.38, .15], [1.0, .18, .54], undefined, red);
+    box('ox-inferred-gold-belt-buckle', 'accent', [0, 1.38, .435], [.21, .16, .06], undefined, gold);
+    rod('axe-ox-green-handle', 'body', [.04, 1.13, .79], [.14, 2.64, .79], .075, .066, '#2c6541');
+    ribbon('axe-ox-green-handle-ridge', 'accent', [[-.01, 1.16, .84], [.04, 1.7, .86], [.11, 2.6, .85]], .016, '#579467');
+    const blade = new THREE.Shape();blade.moveTo(.1, 2.35);blade.quadraticCurveTo(.52, 3.18, 1.8, 3.64);blade.quadraticCurveTo(1.47, 2.99, .73, 2.65);blade.quadraticCurveTo(1.4, 2.64, 1.88, 2.97);blade.quadraticCurveTo(1.5, 2.21, .14, 2.12);blade.closePath();
+    part('axe-ox-double-swept-silver-blade', new THREE.ExtrudeGeometry(blade, { depth: .1, bevelEnabled: true, bevelThickness: .015, bevelSize: .015, bevelSegments: 1, curveSegments: 8 }), 'accent', [0, 0, .74], undefined, undefined, '#d4e2df');
+    ribbon('axe-ox-blue-beveled-upper-edge', 'accent', [[.12, 2.36, .87], [.63, 2.98, .87], [1.76, 3.6, .87]], .026, '#9bc8db');
+    const socket = new THREE.Shape();socket.moveTo(-.12, 2.05);socket.lineTo(-.35, 2.34);socket.lineTo(-.21, 2.6);socket.lineTo(.14, 2.54);socket.lineTo(.35, 2.23);socket.closePath();
+    part('axe-ox-dark-angular-socket', new THREE.ExtrudeGeometry(socket, { depth: .12, bevelEnabled: false }), 'dark', [0, 0, .75], undefined, undefined, '#20272a');
+    sphere('axe-ox-silver-socket-boss', 'accent', [0, 2.3, .912], [.14, .18, .04], 1, '#b8c3c1');
+    return true;
+  }
+
+  if (profile.anatomy === 'asymmetric-jester') {
+    const teal = '#17799c', purple = '#755396', white = '#dbe4dc', red = '#dc3b4a', gold = '#e8e66b';
+    const fingerCurve = (name, points, width, tint) => part(name,
+      new THREE.TubeGeometry(new THREE.CatmullRomCurve3(points.map(p => new THREE.Vector3(...p))), 6, width, 4, false),
+      'dark', [0, 0, 0], undefined, undefined, tint);
+    sphere('clown-blue-costumed-trunk', 'body', [0, 1.95, -.06], [.5, .64, .28], 1, teal);
+    part('clown-inferred-continuous-blue-tunic-skirt', new THREE.CylinderGeometry(.27, .58, 1.04, 10), 'body', [0, 1.11, -.03], [1, 1, .65], undefined, teal);
+    sphere('clown-asymmetric-long-mask', 'body', [0, 3.02, .01], [.32, .5, .245], 1, teal);
+    const mask = new THREE.Shape();mask.moveTo(-.24, 3.43);mask.quadraticCurveTo(.12, 3.65, .055, 2.79);mask.lineTo(-.24, 2.6);mask.quadraticCurveTo(-.35, 2.97, -.24, 3.43);mask.closePath();
+    part('clown-white-left-face-mask', new THREE.ExtrudeGeometry(mask, { depth: .055, bevelEnabled: false, curveSegments: 8 }), 'accent', [0, 0, .17], undefined, undefined, white);
+    sphere('clown-red-round-nose', 'accent', [-.115, 3.075, .35], [.098, .1, .082], 1, '#e33e3b');
+    const star = new THREE.Shape();for (let i = 0; i < 10; i += 1) {const a = i * Math.PI / 5 + Math.PI / 2, r = i % 2 ? .065 : .16;const x = -.14 + Math.cos(a) * r, y = 3.275 + Math.sin(a) * r;i ? star.lineTo(x, y) : star.moveTo(x, y);}star.closePath();
+    part('clown-yellow-star-over-left-eye', new THREE.ExtrudeGeometry(star, { depth: .025, bevelEnabled: false }), 'eye', [0, 0, .242], undefined, undefined, gold);
+    sphere('clown-pink-slanted-right-eyelid', 'accent', [.185, 3.25, .245], [.14, .05, .024], 1, '#dd81ac');
+    sphere('clown-yellow-right-iris', 'eye', [.165, 3.245, .275], [.032, .032, .014], 0, gold);
+    sphere('clown-black-right-pupil', 'dark', [.166, 3.245, .29], [.012, .023, .006], 0, '#172525');
+    ribbon('clown-magenta-wide-smile-border', 'accent', [[-.25, 2.78, .21], [-.08, 2.87, .279], [.14, 2.99, .248], [.27, 3.12, .14]], .05, '#cf6ca1');
+    ribbon('clown-wide-white-grinning-teeth', 'accent', [[-.23, 2.8, .244], [-.08, 2.9, .309], [.14, 3.015, .274], [.25, 3.1, .183]], .028, white);
+    for (let tooth = 0; tooth < 8; tooth += 1) {const x = -.2 + tooth * .059, y = 2.82 + tooth * .034;rod(`clown-individual-black-tooth-gap-${tooth}`, 'dark', [x, y -.021, .301 - Math.abs(x) * .27], [x + .012, y + .024, .301 - Math.abs(x) * .27], .005, .005, '#263537');}
+    ribbon('clown-right-cheek-teal-swirl', 'dark', [[.26, 3.17, .198], [.22, 3.15, .246], [.205, 3.05, .266], [.27, 3.075, .19]], .011, '#0c4b5c');
+    rod('clown-striped-neck', 'body', [0, 2.32, .0], [0, 2.63, .04], .12, .12, purple);
+    for (let band = 0; band < 3; band += 1) compactRing(`clown-neck-gold-band-${band}`, 'accent', [0, 2.35 + band * .105, .01], .124, undefined, gold);
+    for (const side of [-1, 1]) {
+      const ear = new THREE.Shape();ear.moveTo(side * .25, 3.23);ear.lineTo(side * .78, 3.16);ear.lineTo(side * .31, 2.95);ear.closePath();
+      part(`clown-large-silver-pointed-ear-${side}`, new THREE.ExtrudeGeometry(ear, { depth: .065, bevelEnabled: false }), 'accent', [0, 0, -.04], undefined, undefined, '#bac9c2');
+      ribbon(`clown-dark-ear-inner-${side}`, 'dark', [[side * .31, 3.18, .04], [side * .63, 3.15, .04], [side * .36, 3.045, .04]], .021, '#52676a');
+      sphere(`clown-blue-puffed-sleeve-${side}`, 'body', [side * .52, 2.18, -.02], [.32, .39, .3], 1, teal);
+      for (let point = 0; point < 3; point += 1) {
+        const x = side * (.34 + point * .14), y = 2.18 + Math.sin(point * .9) * .21;
+        cone(`clown-purple-sleeve-zigzag-${side}-${point}`, 'dark', [x, y, .275], [.07, .22, .025], [0, 0, side * .2], purple);
+      }
+      const elbow = [side * .81, 1.62, .13], wrist = [side * .42, 2.03, .58], palm = [side * .42, 2.22, .66];
+      rod(`clown-casting-white-upper-arm-${side}`, 'accent', [side * .56, 2.12, .0], elbow, .12, .1, white);
+      rod(`clown-casting-white-forearm-${side}`, 'accent', elbow, wrist, .11, .09, white);
+      compactRing(`clown-casting-gold-elbow-cuff-${side}`, 'accent', elbow, .123, [Math.PI / 2, 0, side * .7], gold);
+      compactRing(`clown-casting-purple-wrist-cuff-${side}`, 'dark', wrist, .115, [Math.PI / 2, 0, -side * .65], purple);
+      sphere(`clown-casting-open-purple-palm-${side}`, 'dark', palm, [.18, .23, .105], 1, purple);
+      for (let finger = 0; finger < 3; finger += 1) {
+        const x = palm[0] + (finger - 1) * .11;
+        fingerCurve(`clown-casting-curled-long-finger-${side}-${finger}`, [[x, 2.3, .67], [x + side * .022, 2.57 + finger * .07, .69], [x + side * .07, 2.65 + finger * .07, .57], [x + side * .13, 2.58 + finger * .07, .53]], .046, finger % 2 ? '#966caf' : purple);
+      }
+      fingerCurve(`clown-casting-inward-thumb-${side}`, [[palm[0] - side * .14, 2.19, .66], [palm[0] - side * .23, 2.3, .69], [palm[0] - side * .2, 2.43, .62]], .055, purple);
+      // Lower legs are not visible in the archived bust illustration.
+      rod(`clown-inferred-purple-leg-${side}`, 'dark', [side * .2, .85, 0], [side * .25, .23, .02], .09, .085, purple);
+      sphere(`clown-inferred-blue-shoe-${side}`, 'body', [side * .3, .17, .23], [.22, .16, .4], 1, teal);
+      for (let point = 0; point < 3; point += 1) {
+        const baseY = 2.48 - point * .16, tipX = side * (1.05 + point * .03), tipY = baseY + .14;
+        const collar = new THREE.Shape();collar.moveTo(side * .15, baseY -.08);collar.lineTo(tipX, tipY);collar.lineTo(side * .43, baseY + .23);collar.closePath();
+        part(`clown-red-radial-collar-point-${side}-${point}`, new THREE.ExtrudeGeometry(collar, { depth: .055, bevelEnabled: false }), 'accent', [0, 0, -.16], undefined, undefined, red);
+        sphere(`clown-gold-collar-bell-${side}-${point}`, 'eye', [tipX, tipY, -.125], [.07, .07, .07], 1, gold);
+      }
+    }
+    const hat = new THREE.Shape();hat.moveTo(-1.02, 3.75);hat.quadraticCurveTo(-.39, 3.55, .57, 3.2);hat.quadraticCurveTo(.95, 3.18, 1.01, 3.65);hat.quadraticCurveTo(.82, 3.4, .56, 3.5);hat.quadraticCurveTo(-.31, 3.87, -1.02, 3.75);hat.closePath();
+    part('clown-wide-curved-purple-hat-brim', new THREE.ExtrudeGeometry(hat, { depth: .35, bevelEnabled: true, bevelThickness: .025, bevelSize: .025, bevelSegments: 1, curveSegments: 8 }), 'dark', [0, 0, -.2], undefined, undefined, '#493468');
+    const crown = new THREE.Shape();crown.moveTo(-.31, 3.68);crown.lineTo(-.24, 4.02);crown.lineTo(-.08, 3.85);crown.lineTo(.16, 4.19);crown.lineTo(.16, 3.94);crown.lineTo(.39, 4.12);crown.lineTo(.4, 3.63);crown.closePath();
+    part('clown-red-sawtooth-hat-crown', new THREE.ExtrudeGeometry(crown, { depth: .26, bevelEnabled: false }), 'accent', [0, 0, -.22], undefined, undefined, red);
+    // The source hat is asymmetric: the left brim sweeps to a bare point;
+    // only the separate curled right crown point carries a golden bell.
+    ribbon('clown-purple-right-curved-crown-horn', 'dark', [[.16, 3.79, -.19], [.47, 4.17, -.17], [.81, 4.31, -.1], [1.08, 4.04, .02]], .078, purple);
+    sphere('clown-gold-right-crown-tip-bell', 'eye', [1.08, 4.04, .02], [.085, .085, .085], 1, gold);
+    ribbon('clown-purple-left-swept-brim-horn', 'dark', [[-.76, 3.72, -.05], [-1.0, 3.82, -.04], [-1.16, 4.09, -.06]], .067, purple);
+    rod('clown-purple-left-bare-hat-point', 'dark', [-1.13, 4.04, -.06], [-1.19, 4.29, -.08], .065, .003, purple);
+    return true;
+  }
+
+  if (profile.anatomy === 'olive-winged-serpent') {
+    const olive = '#879451', light = '#d6d98b', dark = '#273d25', vent = '#dc4525';
+    const curve = new THREE.CatmullRomCurve3([[0, 2.86, .34], [0, 2.2, -.16], [.28, 1.55, -.51], [.86, 1.07, -.46], [1.2, 1.36, -.23], [1.23, 2.07, -.14], [1.09, 2.62, -.19]].map(p => new THREE.Vector3(...p)));
+    part('curse-continuous-looped-serpent-trunk', new THREE.TubeGeometry(curve, 30, .22, 8, false), 'body', [0, 0, 0], undefined, undefined, olive);
+    for (let segment = 0; segment < 11; segment += 1) {
+      const t = segment / 12, p = curve.getPoint(t), tangent = curve.getTangent(t), rotation = [0, 0, -Math.atan2(tangent.x, tangent.y)];
+      box(`curse-red-segmented-ventral-plate-${segment}`, 'accent', [p.x, p.y, p.z + .225], [.23, .105, .045], rotation, vent);
+      for (const side of [-1, 1]) sphere(`curse-dark-ventral-border-${segment}-${side}`, 'dark', [p.x + side * .123, p.y, p.z + .207], [.025, .07, .025], 0, dark);
+    }
+    const head = new THREE.Shape();head.moveTo(-.2, -.08);head.lineTo(-.27, .22);head.lineTo(.16, .43);head.lineTo(.74, .26);head.lineTo(1.04, -.04);head.lineTo(.58, .08);head.lineTo(.42, -.12);head.closePath();
+    const skull = new THREE.ExtrudeGeometry(head, { depth: .4, bevelEnabled: true, bevelThickness: .03, bevelSize: .03, bevelSegments: 1 });
+    const skullPositions = skull.attributes.position;
+    // A profile extrusion alone yields a rectangular snout from the front.
+    // Taper its real depth toward the source's narrow hooked nose.
+    for (let vertex = 0; vertex < skullPositions.count; vertex += 1) {
+      const taper = Math.max(.35, 1 - Math.max(0, skullPositions.getX(vertex) - .2) * .8);
+      skullPositions.setZ(vertex, .2 + (skullPositions.getZ(vertex) - .2) * taper);
+    }
+    skull.computeVertexNormals();
+    part('curse-long-angular-horned-skull', skull, 'body', [.2, 2.94, .35], undefined, [0, -Math.PI / 2, 0], light);
+    sphere('curse-raised-olive-forehead-plate', 'body', [0, 3.29, .48], [.27, .2, .23], 1, olive);
+    sphere('curse-raised-long-nasal-plate', 'body', [0, 3.17, .81], [.13, .12, .29], 1, '#a7b167');
+    rod('curse-narrow-ivory-nasal-ridge', 'accent', [0, 3.38, .49], [0, 3.16, 1.11], .042, .012, light);
+    box('curse-dark-open-mouth', 'dark', [0, 2.885, .95], [.31, .19, .51], undefined, '#18271b');
+    sphere('curse-red-mouth-interior', 'accent', [0, 2.85, 1.06], [.12, .105, .26], 1, '#b83628');
+    ribbon('jaw-curse-curved-hooked-lower-mandible', 'body', [[0, 2.91, .53], [0, 2.64, .67], [0, 2.69, 1.0], [0, 2.85, 1.24]], .095, light);
+    for (const side of [-1, 1]) {
+      sphere(`curse-red-recessed-eye-${side}`, 'eye', [side * .229, 3.155, .6], [.024, .04, .08], 1, vent);
+      sphere(`curse-black-eye-slit-${side}`, 'dark', [side * .25, 3.155, .61], [.01, .043, .02], 0, '#172514');
+      ribbon(`curse-ivory-long-head-horn-${side}`, 'accent', [[side * .16, 3.25, .34], [side * .28, 3.55, .14], [side * .4, 3.97, -.04]], .07, light);
+      rod(`curse-head-horn-point-${side}`, 'accent', [side * .38, 3.88, -.01], [side * .47, 4.18, -.12], .065, .002, light);
+      for (let tooth = 0; tooth < 3; tooth += 1) cone(`curse-ivory-upper-fang-${side}-${tooth}`, 'accent', [side * .13, 2.94, .75 + tooth * .15], [.026, .14, .024], [Math.PI, 0, 0], '#ecead2');
+      cone(`jaw-curse-long-lower-fang-${side}`, 'accent', [side * .1, 2.79, .82], [.025, .19, .026], undefined, '#ecead2');
+      sphere(`curse-long-red-skull-vent-${side}`, 'accent', [side * .222, 3.11, .93], [.025, .075, .19], 1, vent);
+      for (let rib = 0; rib < 5; rib += 1) rod(`curse-black-skull-vent-rib-${side}-${rib}`, 'dark', [side * .247, 3.04, .81 + rib * .049], [side * .247, 3.17, .82 + rib * .049], .009, .008, dark);
+      const shoulder = [side * .28, 2.25, -.2], elbow = [side * 1.02, 3.1, -.21], tip = [side * 1.95, 3.64, -.16];
+      ribbon(`wing-${side}-curse-heavy-curved-leading-edge`, 'body', [shoulder, elbow, [side * 1.65, 3.18, -.19], tip], .1, olive);
+      const wing = new THREE.Shape();wing.moveTo(shoulder[0], shoulder[1]);wing.quadraticCurveTo(side * .75, 3.26, elbow[0], elbow[1]);wing.quadraticCurveTo(side * 1.36, 2.99, tip[0], tip[1]);wing.quadraticCurveTo(side * 2.28, 2.91, side * 1.88, 2.44);wing.lineTo(side * 1.6, 2.7);wing.lineTo(side * 1.25, 2.37);wing.lineTo(side * 1.32, 2.16);wing.quadraticCurveTo(side * .86, 2.46, shoulder[0], shoulder[1]);wing.closePath();
+      part(`wing-${side}-curse-sculpted-swept-olive-membrane`, new THREE.ExtrudeGeometry(wing, { depth: .06, bevelEnabled: false, curveSegments: 8 }), 'body', [0, 0, -.23], undefined, undefined, olive);
+      ribbon(`wing-${side}-curse-dark-scalloped-trailing-rim`, 'dark', [[tip[0], tip[1], -.13], [side * 2.05, 3.05, -.13], [side * 1.88, 2.44, -.13], [side * 1.6, 2.7, -.13], [side * 1.25, 2.37, -.13], [side * 1.32, 2.16, -.13], [side * .65, 2.4, -.13]], .025, dark);
+      sphere(`wing-${side}-curse-red-oval-vent`, 'accent', [side * 1.08, 2.81, -.125], [.22, .045, .022], 1, vent);
+      for (let rib = 0; rib < 5; rib += 1) rod(`wing-${side}-curse-black-vent-rib-${rib}`, 'dark', [side * (.91 + rib * .073), 2.77, -.095], [side * (.91 + rib * .073), 2.85, -.095], .008, .008, dark);
+      rod(`curse-back-swept-scapular-spike-${side}`, 'accent', [side * .12, 1.87, -.35], [side * .72, 1.61, -.73], .1, .003, light);
+      rod(`curse-loop-body-swept-spike-${side}`, 'body', [.87 + side * .17, 1.15, -.47], [.92 + side * .43, .7, -.5], .087, .003, olive);
+    }
+    ribbon('curse-hooked-tail-tip', 'body', [[1.09, 2.62, -.19], [.92, 2.88, -.18], [.77, 2.79, -.12], [.86, 2.61, -.08]], .07, olive);
+    rod('curse-pointed-tail-terminal', 'accent', [.86, 2.61, -.08], [1.03, 2.78, -.02], .057, .002, light);
+    return true;
+  }
   return false;
 }

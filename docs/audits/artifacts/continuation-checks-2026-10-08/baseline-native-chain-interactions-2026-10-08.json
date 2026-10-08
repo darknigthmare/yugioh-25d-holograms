@@ -1,0 +1,6111 @@
+{
+  "date": "2026-10-08",
+  "engine": "official ocgcore ABI 11.0 / EDOPro 38d04c9f",
+  "flags": "12885092352",
+  "declaredFixturesOnly": true,
+  "debugApi": false,
+  "testMode": false,
+  "pseudoShuffle": false,
+  "postStartInjection": false,
+  "sourceHashes": {
+    "public/native/ocgcore.sync.wasm": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+    "public/native/card-data.json": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d",
+    "public/native/scripts.json": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f",
+    "src/core/native/vendor/ocgcore/index.js": "8cfbec622cf5b920e0b58db6d842fcabf1a9ef8eed9f0841bac43a1e9adb0657",
+    "src/core/native/NativeDuelGame.js": "20343ee00c7b70b6b3016459a37cef2ef485c8f249fd200356888e02505c22c5",
+    "src/core/native/NativeCardCharacteristics.js": "e4d1a7551bf67b32a55f291f59abc411c032217113f63cd35df76db75ad5fa76",
+    "src/core/native/NativeDuelVisualEvents.js": "13b5c2897a486c7837d1740b0fded2a96deaf9bc6d1cf0e157511fa4f5746f85",
+    "src/core/native/NativeDuelRuntime.js": "a2c7a18654e968861a0e34a51cd35f17ee5a3e03efc23cbd6a4632be29de3b95",
+    "src/core/native/NativeCardScriptCorrections.js": "e0073221e78f6f3df94b0b37da4683167a5a8787f21317f5d6a0a619a5c767cd",
+    "src/core/native/NativeDiceDungeonScriptCorrection.js": "80f978a0ea7ac9641a1413ca14e6a9cfd27c28c0d571203391706623072424cc",
+    "src/core/native/NativeDuelTowerScriptCorrection.js": "fa198bb13429613fe9ac2843ea4c5c25251a09c8d7c393953d30725f45a68a6e",
+    "src/core/native/NativeSourceIntegrity.js": "4af7fc0fc34b715ebe3e23ed7cfcf35d74dca662200e4025c7cc7957ac81cd18",
+    "src/ui/PublicDuelVisuals.js": "1c19b3aafecf843427f96f15ec6b6234c4ab7a18336af68a870a47f2ada9d982",
+    "tests/native-duel-chain-interactions.test.mjs": "1f4ad34cee9faeb4e2954339f6bf4f61857b0d35562ad027bbf391faaa9a62fc"
+  },
+  "scripts": [
+    {
+      "code": 2084239,
+      "sourceCode": 2084239,
+      "name": "Wetlands",
+      "script": "c2084239.lua",
+      "sha256": "ac298b2bc617bba5d3abc40bb8846fca15b868bdd299affe07c0bbf363750a6a"
+    },
+    {
+      "code": 3819470,
+      "sourceCode": 3819470,
+      "name": "Seven Tools of the Bandit",
+      "script": "c3819470.lua",
+      "sha256": "6868da2b97601662d8f33219d3c92585e37c1b8c65ca4a81a5b1d187f669fd3f"
+    },
+    {
+      "code": 4031928,
+      "sourceCode": 4031928,
+      "name": "Change of Heart",
+      "script": "c4031928.lua",
+      "sha256": "a925e8b95a78402999a9e68c1456a67559756076035a94d3ebce12ac214849d0"
+    },
+    {
+      "code": 4178474,
+      "sourceCode": 4178474,
+      "name": "Raigeki Break",
+      "script": "c4178474.lua",
+      "sha256": "c878abb212f72854429a05fcfb51bc5be0481e82d5f92ec739c7091081c8ef99"
+    },
+    {
+      "code": 5318639,
+      "sourceCode": 5318639,
+      "name": "Mystical Space Typhoon",
+      "script": "c5318639.lua",
+      "sha256": "c0c3b32107f110186dc1d2ff6c7898526a013a63f71fd995e699edd4d90506e7"
+    },
+    {
+      "code": 12607053,
+      "sourceCode": 12607053,
+      "name": "Waboku",
+      "script": "c12607053.lua",
+      "sha256": "34b00bb9f11c8c9887bb46a667a8f14a9e8877a0f256fd3fee85f7e2b7c79a85"
+    },
+    {
+      "code": 22959079,
+      "sourceCode": 22959079,
+      "name": "Dimensionhole",
+      "script": "c22959079.lua",
+      "sha256": "65d387202235935be91351cb7834f8d3172ef9c22d9e9cddd7f3ebe6757d06cf"
+    },
+    {
+      "code": 24508238,
+      "sourceCode": 24508238,
+      "name": "D.D. Crow",
+      "script": "c24508238.lua",
+      "sha256": "010c4fd95d1026a05d19fa59bcf4454d0aea2d04014e4c432963d63da60c4694"
+    },
+    {
+      "code": 26905245,
+      "sourceCode": 26905245,
+      "name": "Metal Reflect Slime",
+      "script": "c26905245.lua",
+      "sha256": "70bd95915d9e0b3af1efe1d040354337dcd51a87e34fa2d2114c41254c180878"
+    },
+    {
+      "code": 27243130,
+      "sourceCode": 27243130,
+      "name": "Forbidden Lance",
+      "script": "c27243130.lua",
+      "sha256": "900908794454f9ce918a62a2f9399a60a607d8cec90fb71e087a9bdc5dd4f2ba"
+    },
+    {
+      "code": 28649820,
+      "sourceCode": 28649820,
+      "name": "Embodiment of Apophis",
+      "script": "c28649820.lua",
+      "sha256": "2e1117b08889aaf4bdfee700ebb26df5763cf86a31c212ba0e016dfe74c1a432"
+    },
+    {
+      "code": 31036355,
+      "sourceCode": 31036355,
+      "name": "Creature Swap",
+      "script": "c31036355.lua",
+      "sha256": "ae2b7890d0a4e9e9369fe648b889b27e851e7d815fb5b828e5695cd23fdd2267"
+    },
+    {
+      "code": 36361633,
+      "sourceCode": 36361633,
+      "name": "Threatening Roar",
+      "script": "c36361633.lua",
+      "sha256": "4afd5f6a4576c406686e9d904bbb4e0feb13c1c638c93db6911661d3ed36602c"
+    },
+    {
+      "code": 40619825,
+      "sourceCode": 40619825,
+      "name": "Axe of Despair",
+      "script": "c40619825.lua",
+      "sha256": "681a8c935a2a609a5cc83af72739686f7d19afbe3685728bf4cb396ff4c8b940"
+    },
+    {
+      "code": 41420027,
+      "sourceCode": 41420027,
+      "name": "Solemn Judgment",
+      "script": "c41420027.lua",
+      "sha256": "e4ade21aebbb6eeca19687980cc93d1b8e4e0c4ad1d6400408f789f94f4bb3fb"
+    },
+    {
+      "code": 43898403,
+      "sourceCode": 43898403,
+      "name": "Twin Twisters",
+      "script": "c43898403.lua",
+      "sha256": "0c60e60a6b6973fc89d5ab0eff01a574f7db18edb415617f19a4b7625713eb20"
+    },
+    {
+      "code": 45894482,
+      "sourceCode": 45894482,
+      "name": "Gilasaurus",
+      "script": "c45894482.lua",
+      "sha256": "6379973afe9c35e13999ee3f759c5a4bbca78fee6fc1451d145039917668cbb0"
+    },
+    {
+      "code": 45986603,
+      "sourceCode": 45986603,
+      "name": "Snatch Steal",
+      "script": "c45986603.lua",
+      "sha256": "78b51f03f84b95c8036a40295563836812ef46f269d0e73d5b6e10d4bba60da4"
+    },
+    {
+      "code": 46986414,
+      "sourceCode": 46986414,
+      "name": "Dark Magician",
+      "script": "c46986414.lua",
+      "sha256": null
+    },
+    {
+      "code": 52077741,
+      "sourceCode": 52077741,
+      "name": "Obnoxious Celtic Guard",
+      "script": "c52077741.lua",
+      "sha256": "648b031a22c42a705e0d746f400447dcc056248ceb22df9bf2cbb09c9048a5e5"
+    },
+    {
+      "code": 55144522,
+      "sourceCode": 55144522,
+      "name": "Pot of Greed",
+      "script": "c55144522.lua",
+      "sha256": "c827d7f30d746cdd74bdcbdd9ef5d1612fd6fdb6cc07d981b7a780c7231ba6f7"
+    },
+    {
+      "code": 55713623,
+      "sourceCode": 55713623,
+      "name": "Shrink",
+      "script": "c55713623.lua",
+      "sha256": "282f6d3d8fc190c169baf21bbdbc646ede0828383963d9967d37c550e8645864"
+    },
+    {
+      "code": 59616123,
+      "sourceCode": 59616123,
+      "name": "Trap Stun",
+      "script": "c59616123.lua",
+      "sha256": "3e401e56e7b646a7ee3ce7727a4b13da6afdff11323a2681a45c9550d825f6eb"
+    },
+    {
+      "code": 61740673,
+      "sourceCode": 61740673,
+      "name": "Imperial Order",
+      "script": "c61740673.lua",
+      "sha256": "731fe817220645dda0fc86d804d7a3cdfacc4ed3d223924c9465e905e09d7e9f"
+    },
+    {
+      "code": 68638985,
+      "sourceCode": 68638985,
+      "name": "Slime Toad",
+      "script": "c68638985.lua",
+      "sha256": null
+    },
+    {
+      "code": 77414722,
+      "sourceCode": 77414722,
+      "name": "Magic Jammer",
+      "script": "c77414722.lua",
+      "sha256": "b8844fc656d7cd9959ce8ed5c0d6a51220ffc83328d955bc6daac0d2b09a411f"
+    },
+    {
+      "code": 77584012,
+      "sourceCode": 77584012,
+      "name": "Pseudo Space",
+      "script": "c77584012.lua",
+      "sha256": "122cc2c3eb858c56d698139b14e134ad901a0231df0860c1a3cd5a11d8e0d7b5"
+    },
+    {
+      "code": 80749819,
+      "sourceCode": 80749819,
+      "name": "Call of the Forgotten",
+      "script": "c80749819.lua",
+      "sha256": "7255af9b8c6654aaa6e2ce31ebc10d84f2927eda2b308d99115264ecaed4aa13"
+    },
+    {
+      "code": 82732705,
+      "sourceCode": 82732705,
+      "name": "Skill Drain",
+      "script": "c82732705.lua",
+      "sha256": "23133f525412ab8fcade1e0e38df0aa9c42130363806e4d9859ff93d5d2d28ec"
+    },
+    {
+      "code": 83764718,
+      "sourceCode": 83764718,
+      "name": "Monster Reborn",
+      "script": "c83764718.lua",
+      "sha256": "01822d3feec933370e8d463aed66ff9cd8de1655c4382df40b051650fbe93cb7"
+    },
+    {
+      "code": 89631139,
+      "sourceCode": 89631139,
+      "name": "Blue-Eyes White Dragon",
+      "script": "c89631139.lua",
+      "sha256": null
+    },
+    {
+      "code": 94192409,
+      "sourceCode": 94192409,
+      "name": "Compulsory Evacuation Device",
+      "script": "c94192409.lua",
+      "sha256": "973a7429e613bf803d75d8df70a83eaa23ca32836f7c6a5eb8daa0664946bfb3"
+    },
+    {
+      "code": 97077563,
+      "sourceCode": 97077563,
+      "name": "Call of the Haunted",
+      "script": "c97077563.lua",
+      "sha256": "1b0a26130ffeabac0afbb843e2d8150a05a7e68ac33b06a9133c70c413b4aff5"
+    },
+    {
+      "code": 97590747,
+      "sourceCode": 97590747,
+      "name": "La Jinn the Mystical Genie of the Lamp",
+      "script": "c97590747.lua",
+      "sha256": null
+    },
+    {
+      "code": 98978921,
+      "sourceCode": 98978921,
+      "name": "Link Spider",
+      "script": "c98978921.lua",
+      "sha256": "a68a1dcc3ecfadc4f54a67f861fc5bb262cd97074427ee2e6c071ce1faf7f2ab"
+    }
+  ],
+  "cases": [
+    {
+      "name": "MST / Normal Spell destruction is not negation",
+      "result": "pass",
+      "observations": [],
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [],
+        "opponent": [],
+        "spellZones": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "banishedCounts": [
+          0,
+          0
+        ],
+        "handCounts": [
+          2,
+          0
+        ],
+        "graveyards": [
+          [
+            55144522,
+            5318639
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 6,
+        "11": 3,
+        "15": 1,
+        "16": 7,
+        "18": 2,
+        "33": 1,
+        "40": 2,
+        "41": 7,
+        "50": 4,
+        "70": 2,
+        "71": 2,
+        "72": 2,
+        "73": 2,
+        "74": 1,
+        "83": 1,
+        "90": 1
+      },
+      "decisions": [
+        "SELECT_CHAIN",
+        "SELECT_PLACE",
+        "SELECT_CARD"
+      ],
+      "chainMessages": [
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 55144522
+        },
+        {
+          "type": 70,
+          "link": 2,
+          "publicCode": 5318639
+        },
+        {
+          "type": 72,
+          "link": 2
+        },
+        {
+          "type": 73,
+          "link": 2
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "shuffle",
+          "target": "player"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 55144522
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 55144522
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 55144522
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "target",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 55144522
+        },
+        {
+          "type": "destroy",
+          "target": "player",
+          "publicCode": 55144522
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 55144522
+        },
+        {
+          "type": "draw",
+          "target": "player"
+        },
+        {
+          "type": "draw",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 55144522
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        }
+      ]
+    },
+    {
+      "name": "MST / Continuous Trap destroyed before resolution",
+      "result": "pass",
+      "observations": [],
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [],
+        "opponent": [],
+        "spellZones": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "banishedCounts": [
+          0,
+          0
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            89631139,
+            97077563,
+            5318639
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 11,
+        "11": 3,
+        "15": 2,
+        "16": 12,
+        "18": 1,
+        "33": 1,
+        "40": 2,
+        "41": 7,
+        "50": 3,
+        "53": 1,
+        "70": 2,
+        "71": 2,
+        "72": 2,
+        "73": 2,
+        "74": 1,
+        "83": 2
+      },
+      "decisions": [
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CARD",
+        "SELECT_CHAIN",
+        "SELECT_PLACE",
+        "SELECT_CARD"
+      ],
+      "chainMessages": [
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 97077563
+        },
+        {
+          "type": 70,
+          "link": 2,
+          "publicCode": 5318639
+        },
+        {
+          "type": 72,
+          "link": 2
+        },
+        {
+          "type": 73,
+          "link": 2
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "shuffle",
+          "target": "player"
+        },
+        {
+          "type": "toggle-position",
+          "target": "player",
+          "publicReveal": true,
+          "publicCode": 97077563
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 97077563
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 97077563
+        },
+        {
+          "type": "target",
+          "target": "player"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "target",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 97077563
+        },
+        {
+          "type": "destroy",
+          "target": "player",
+          "publicCode": 97077563
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 97077563
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 97077563
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        }
+      ]
+    },
+    {
+      "name": "MST / Equip Spell destroyed before resolution",
+      "result": "pass",
+      "observations": [],
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 89631139,
+            "category": "monster",
+            "type": "Normal Monster",
+            "nativeType": 17,
+            "attack": 3000,
+            "defense": 2500,
+            "level": 8,
+            "race": "Dragon",
+            "attribute": "LIGHT",
+            "effectNegated": false,
+            "owner": "player"
+          }
+        ],
+        "opponent": [],
+        "spellZones": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "banishedCounts": [
+          0,
+          0
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            40619825,
+            5318639
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 7,
+        "11": 3,
+        "15": 2,
+        "16": 7,
+        "18": 2,
+        "33": 1,
+        "40": 2,
+        "41": 7,
+        "50": 4,
+        "70": 2,
+        "71": 2,
+        "72": 2,
+        "73": 2,
+        "74": 1,
+        "83": 2,
+        "120": 1
+      },
+      "decisions": [
+        "SELECT_CARD",
+        "SELECT_CHAIN",
+        "SELECT_PLACE",
+        "SELECT_CARD"
+      ],
+      "chainMessages": [
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 40619825
+        },
+        {
+          "type": 70,
+          "link": 2,
+          "publicCode": 5318639
+        },
+        {
+          "type": 72,
+          "link": 2
+        },
+        {
+          "type": 73,
+          "link": 2
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "shuffle",
+          "target": "player"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 40619825
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 40619825
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 40619825
+        },
+        {
+          "type": "target",
+          "target": "player"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "target",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 40619825
+        },
+        {
+          "type": "destroy",
+          "target": "player",
+          "publicCode": 40619825
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 40619825
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 40619825
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        }
+      ]
+    },
+    {
+      "name": "D.D. Crow / paid cost / vanished Reborn target",
+      "result": "pass",
+      "observations": [],
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [],
+        "opponent": [],
+        "spellZones": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "banishedCounts": [
+          0,
+          1
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            24508238,
+            83764718
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 11,
+        "11": 3,
+        "15": 2,
+        "16": 12,
+        "18": 1,
+        "33": 1,
+        "40": 2,
+        "41": 7,
+        "50": 4,
+        "70": 2,
+        "71": 2,
+        "72": 2,
+        "73": 2,
+        "74": 1,
+        "83": 2
+      },
+      "decisions": [
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CARD",
+        "SELECT_CHAIN",
+        "SELECT_CARD"
+      ],
+      "chainMessages": [
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 83764718
+        },
+        {
+          "type": 70,
+          "link": 2,
+          "publicCode": 24508238
+        },
+        {
+          "type": 72,
+          "link": 2
+        },
+        {
+          "type": 73,
+          "link": 2
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "shuffle",
+          "target": "player"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 83764718
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 83764718
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 83764718
+        },
+        {
+          "type": "target",
+          "target": "opponent"
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 24508238
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 24508238
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 24508238
+        },
+        {
+          "type": "target",
+          "target": "opponent"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 24508238
+        },
+        {
+          "type": "move",
+          "target": "opponent",
+          "publicCode": 89631139
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 24508238
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 83764718
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 83764718
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 83764718
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        }
+      ]
+    },
+    {
+      "name": "Monster Reborn / opposing owner / current controller",
+      "result": "pass",
+      "observations": [],
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 89631139,
+            "category": "monster",
+            "type": "Normal Monster",
+            "nativeType": 17,
+            "attack": 3000,
+            "defense": 2500,
+            "level": 8,
+            "race": "Dragon",
+            "attribute": "LIGHT",
+            "effectNegated": false,
+            "owner": "opponent"
+          }
+        ],
+        "opponent": [],
+        "spellZones": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "banishedCounts": [
+          0,
+          0
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            83764718
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 6,
+        "11": 3,
+        "15": 1,
+        "16": 5,
+        "18": 2,
+        "19": 1,
+        "33": 1,
+        "40": 2,
+        "41": 7,
+        "50": 3,
+        "62": 1,
+        "63": 1,
+        "70": 1,
+        "71": 1,
+        "72": 1,
+        "73": 1,
+        "74": 1,
+        "83": 1
+      },
+      "decisions": [
+        "SELECT_CARD",
+        "SELECT_PLACE",
+        "SELECT_POSITION"
+      ],
+      "chainMessages": [
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 83764718
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "shuffle",
+          "target": "player"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 83764718
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 83764718
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 83764718
+        },
+        {
+          "type": "target",
+          "target": "opponent"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 83764718
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 89631139
+        },
+        {
+          "type": "summon",
+          "target": "player",
+          "nativeSummonConfirmed": true,
+          "publicCode": 89631139
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 83764718
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 83764718
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        }
+      ]
+    },
+    {
+      "name": "Twin Twisters / partial resolution / two targets / discard",
+      "result": "pass",
+      "observations": [],
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [],
+        "opponent": [],
+        "spellZones": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "banishedCounts": [
+          0,
+          0
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            89631139,
+            12607053,
+            36361633,
+            5318639,
+            43898403
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 13,
+        "11": 3,
+        "15": 3,
+        "16": 12,
+        "18": 2,
+        "33": 1,
+        "40": 2,
+        "41": 7,
+        "50": 7,
+        "70": 2,
+        "71": 2,
+        "72": 2,
+        "73": 2,
+        "74": 1,
+        "83": 3
+      },
+      "decisions": [
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CARD",
+        "SELECT_CARD",
+        "SELECT_CHAIN",
+        "SELECT_PLACE",
+        "SELECT_CARD",
+        "SELECT_CHAIN"
+      ],
+      "chainMessages": [
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 43898403
+        },
+        {
+          "type": 70,
+          "link": 2,
+          "publicCode": 5318639
+        },
+        {
+          "type": 72,
+          "link": 2
+        },
+        {
+          "type": 73,
+          "link": 2
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "shuffle",
+          "target": "player"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 43898403
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 43898403
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 43898403
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 89631139
+        },
+        {
+          "type": "target",
+          "target": "player"
+        },
+        {
+          "type": "target",
+          "target": "player"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "target",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 12607053
+        },
+        {
+          "type": "destroy",
+          "target": "player"
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 43898403
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 36361633
+        },
+        {
+          "type": "destroy",
+          "target": "player"
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 43898403
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 43898403
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        }
+      ]
+    },
+    {
+      "name": "Solemn Judgment / activation negation / half-LP cost",
+      "result": "pass",
+      "observations": [],
+      "final": {
+        "playerLP": 4000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [],
+        "opponent": [],
+        "spellZones": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "banishedCounts": [
+          0,
+          0
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            55144522,
+            41420027
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 4,
+        "11": 3,
+        "16": 7,
+        "18": 1,
+        "33": 1,
+        "40": 2,
+        "41": 7,
+        "50": 3,
+        "53": 1,
+        "70": 2,
+        "71": 2,
+        "72": 2,
+        "73": 2,
+        "74": 1,
+        "75": 1,
+        "100": 1
+      },
+      "decisions": [
+        "SELECT_CHAIN"
+      ],
+      "chainMessages": [
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 55144522
+        },
+        {
+          "type": 70,
+          "link": 2,
+          "publicCode": 41420027
+        },
+        {
+          "type": 72,
+          "link": 2
+        },
+        {
+          "type": 75,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 2
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "shuffle",
+          "target": "player"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 55144522
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 55144522
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 55144522
+        },
+        {
+          "type": "toggle-position",
+          "target": "player",
+          "publicReveal": true,
+          "publicCode": 41420027
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 41420027
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 41420027
+        },
+        {
+          "type": "lp-loss",
+          "target": "player",
+          "amount": 4000,
+          "cost": true
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 41420027
+        },
+        {
+          "type": "chain-negated",
+          "target": "player",
+          "publicCode": 55144522
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 55144522
+        },
+        {
+          "type": "destroy",
+          "target": "player",
+          "publicCode": 55144522
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 41420027
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 55144522
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 55144522
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 41420027
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        }
+      ]
+    },
+    {
+      "name": "Imperial Order / effect disabled / activation retained",
+      "result": "pass",
+      "observations": [],
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [],
+        "opponent": [],
+        "spellZones": [
+          [
+            {
+              "publicCode": 61740673,
+              "nativeType": 131076
+            },
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "banishedCounts": [
+          0,
+          0
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            55144522
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 9,
+        "11": 3,
+        "16": 12,
+        "18": 1,
+        "33": 1,
+        "40": 2,
+        "41": 7,
+        "50": 2,
+        "53": 1,
+        "70": 2,
+        "71": 2,
+        "72": 2,
+        "73": 2,
+        "74": 1,
+        "76": 1
+      },
+      "decisions": [
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN"
+      ],
+      "chainMessages": [
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 55144522
+        },
+        {
+          "type": 70,
+          "link": 2,
+          "publicCode": 61740673
+        },
+        {
+          "type": 72,
+          "link": 2
+        },
+        {
+          "type": 73,
+          "link": 2
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 76,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "shuffle",
+          "target": "player"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 55144522
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 55144522
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 55144522
+        },
+        {
+          "type": "toggle-position",
+          "target": "player",
+          "publicReveal": true,
+          "publicCode": 61740673
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 61740673
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 61740673
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 61740673
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 61740673
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 55144522
+        },
+        {
+          "type": "chain-negated",
+          "target": "player",
+          "publicCode": 55144522
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 55144522
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 55144522
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        }
+      ]
+    },
+    {
+      "name": "Magic Jammer / discard paid before activation negation",
+      "result": "pass",
+      "observations": [],
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [],
+        "opponent": [],
+        "spellZones": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "banishedCounts": [
+          0,
+          0
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            89631139,
+            55144522,
+            77414722
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 5,
+        "11": 3,
+        "15": 1,
+        "16": 7,
+        "18": 1,
+        "33": 1,
+        "40": 2,
+        "41": 7,
+        "50": 4,
+        "53": 1,
+        "70": 2,
+        "71": 2,
+        "72": 2,
+        "73": 2,
+        "74": 1,
+        "75": 1
+      },
+      "decisions": [
+        "SELECT_CHAIN",
+        "SELECT_CARD"
+      ],
+      "chainMessages": [
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 55144522
+        },
+        {
+          "type": 70,
+          "link": 2,
+          "publicCode": 77414722
+        },
+        {
+          "type": 72,
+          "link": 2
+        },
+        {
+          "type": 75,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 2
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "shuffle",
+          "target": "player"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 55144522
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 55144522
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 55144522
+        },
+        {
+          "type": "toggle-position",
+          "target": "player",
+          "publicReveal": true,
+          "publicCode": 77414722
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 77414722
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 77414722
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 89631139
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 77414722
+        },
+        {
+          "type": "chain-negated",
+          "target": "player",
+          "publicCode": 55144522
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 55144522
+        },
+        {
+          "type": "destroy",
+          "target": "player",
+          "publicCode": 55144522
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 77414722
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 55144522
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 55144522
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 77414722
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        }
+      ]
+    },
+    {
+      "name": "Skill Drain / native disabled status / destruction restores effects",
+      "result": "pass",
+      "observations": [
+        {
+          "label": "Skill Drain resolved",
+          "state": {
+            "playerLP": 7000,
+            "opponentLP": 8000,
+            "turn": "player",
+            "phase": "main1",
+            "player": [
+              {
+                "zoneType": "main",
+                "zoneIndex": 0,
+                "faceDown": false,
+                "publicCode": 52077741,
+                "category": "monster",
+                "type": "Effect Monster",
+                "nativeType": 33,
+                "attack": 1400,
+                "defense": 1200,
+                "level": 4,
+                "race": "Warrior",
+                "attribute": "EARTH",
+                "effectNegated": true,
+                "owner": "player"
+              }
+            ],
+            "opponent": [],
+            "spellZones": [
+              [
+                {
+                  "publicCode": 82732705,
+                  "nativeType": 131076
+                },
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "banishedCounts": [
+              0,
+              0
+            ],
+            "handCounts": [
+              1,
+              0
+            ],
+            "graveyards": [
+              [],
+              []
+            ],
+            "winner": null,
+            "endReason": null
+          }
+        }
+      ],
+      "final": {
+        "playerLP": 7000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 52077741,
+            "category": "monster",
+            "type": "Effect Monster",
+            "nativeType": 33,
+            "attack": 1400,
+            "defense": 1200,
+            "level": 4,
+            "race": "Warrior",
+            "attribute": "EARTH",
+            "effectNegated": false,
+            "owner": "player"
+          }
+        ],
+        "opponent": [],
+        "spellZones": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "banishedCounts": [
+          0,
+          0
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            82732705,
+            5318639
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 10,
+        "11": 4,
+        "15": 1,
+        "16": 14,
+        "18": 1,
+        "33": 1,
+        "40": 2,
+        "41": 7,
+        "50": 3,
+        "53": 1,
+        "70": 2,
+        "71": 2,
+        "72": 2,
+        "73": 2,
+        "74": 2,
+        "83": 1,
+        "100": 1
+      },
+      "decisions": [
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CARD"
+      ],
+      "chainMessages": [
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 82732705
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        },
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 5318639
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "shuffle",
+          "target": "player"
+        },
+        {
+          "type": "toggle-position",
+          "target": "player",
+          "publicReveal": true,
+          "publicCode": 82732705
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 82732705
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 82732705
+        },
+        {
+          "type": "lp-loss",
+          "target": "player",
+          "amount": 1000,
+          "cost": true
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 82732705
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 82732705
+        },
+        {
+          "type": "chain-end"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "target",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 82732705
+        },
+        {
+          "type": "destroy",
+          "target": "player",
+          "publicCode": 82732705
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        }
+      ]
+    },
+    {
+      "name": "Call of the Haunted / resolved link / linked destruction",
+      "result": "pass",
+      "observations": [],
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [],
+        "opponent": [],
+        "spellZones": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "banishedCounts": [
+          0,
+          0
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            97077563,
+            89631139,
+            5318639
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 12,
+        "11": 4,
+        "15": 2,
+        "16": 14,
+        "18": 2,
+        "33": 1,
+        "40": 2,
+        "41": 7,
+        "50": 5,
+        "53": 1,
+        "62": 1,
+        "63": 1,
+        "70": 2,
+        "71": 2,
+        "72": 2,
+        "73": 2,
+        "74": 2,
+        "83": 2,
+        "96": 1
+      },
+      "decisions": [
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CARD",
+        "SELECT_CHAIN",
+        "SELECT_PLACE",
+        "SELECT_CHAIN",
+        "SELECT_CARD"
+      ],
+      "chainMessages": [
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 97077563
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        },
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 5318639
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "shuffle",
+          "target": "player"
+        },
+        {
+          "type": "toggle-position",
+          "target": "player",
+          "publicReveal": true,
+          "publicCode": 97077563
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 97077563
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 97077563
+        },
+        {
+          "type": "target",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 97077563
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 89631139
+        },
+        {
+          "type": "target"
+        },
+        {
+          "type": "summon",
+          "target": "player",
+          "nativeSummonConfirmed": true,
+          "publicCode": 89631139
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 97077563
+        },
+        {
+          "type": "chain-end"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "target",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 97077563
+        },
+        {
+          "type": "destroy",
+          "target": "player",
+          "publicCode": 97077563
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 89631139
+        },
+        {
+          "type": "destroy",
+          "target": "player",
+          "publicCode": 89631139
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        }
+      ]
+    },
+    {
+      "name": "Trap Stun / negated continuous destruction link",
+      "result": "pass",
+      "observations": [],
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 89631139,
+            "category": "monster",
+            "type": "Normal Monster",
+            "nativeType": 17,
+            "attack": 3000,
+            "defense": 2500,
+            "level": 8,
+            "race": "Dragon",
+            "attribute": "LIGHT",
+            "effectNegated": false,
+            "owner": "player"
+          }
+        ],
+        "opponent": [],
+        "spellZones": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "banishedCounts": [
+          0,
+          0
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            59616123,
+            97077563,
+            5318639
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 12,
+        "11": 5,
+        "15": 2,
+        "16": 18,
+        "18": 2,
+        "33": 1,
+        "40": 2,
+        "41": 7,
+        "50": 5,
+        "53": 2,
+        "62": 1,
+        "63": 1,
+        "70": 3,
+        "71": 3,
+        "72": 3,
+        "73": 3,
+        "74": 3,
+        "83": 2,
+        "96": 1
+      },
+      "decisions": [
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CARD",
+        "SELECT_CHAIN",
+        "SELECT_PLACE",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CARD"
+      ],
+      "chainMessages": [
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 97077563
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        },
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 59616123
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        },
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 5318639
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "shuffle",
+          "target": "player"
+        },
+        {
+          "type": "toggle-position",
+          "target": "player",
+          "publicReveal": true,
+          "publicCode": 97077563
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 97077563
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 97077563
+        },
+        {
+          "type": "target",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 97077563
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 89631139
+        },
+        {
+          "type": "target"
+        },
+        {
+          "type": "summon",
+          "target": "player",
+          "nativeSummonConfirmed": true,
+          "publicCode": 89631139
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 97077563
+        },
+        {
+          "type": "chain-end"
+        },
+        {
+          "type": "toggle-position",
+          "target": "player",
+          "publicReveal": true,
+          "publicCode": 59616123
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 59616123
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 59616123
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 59616123
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 59616123
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 59616123
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "target",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 97077563
+        },
+        {
+          "type": "destroy",
+          "target": "player",
+          "publicCode": 97077563
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        }
+      ]
+    },
+    {
+      "name": "Axe of Despair / native equip relation / native ATK reset",
+      "result": "pass",
+      "observations": [
+        {
+          "label": "Native equip established",
+          "state": {
+            "playerLP": 8000,
+            "opponentLP": 8000,
+            "turn": "player",
+            "phase": "main1",
+            "player": [
+              {
+                "zoneType": "main",
+                "zoneIndex": 0,
+                "faceDown": false,
+                "publicCode": 89631139,
+                "category": "monster",
+                "type": "Normal Monster",
+                "nativeType": 17,
+                "attack": 4000,
+                "defense": 2500,
+                "level": 8,
+                "race": "Dragon",
+                "attribute": "LIGHT",
+                "effectNegated": false,
+                "owner": "player"
+              }
+            ],
+            "opponent": [],
+            "spellZones": [
+              [
+                null,
+                null,
+                null,
+                null,
+                {
+                  "publicCode": 40619825,
+                  "nativeType": 262146,
+                  "equipCard": {
+                    "controller": 1,
+                    "location": 4,
+                    "sequence": 0,
+                    "position": 1
+                  }
+                }
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "banishedCounts": [
+              0,
+              0
+            ],
+            "handCounts": [
+              1,
+              0
+            ],
+            "graveyards": [
+              [],
+              []
+            ],
+            "winner": null,
+            "endReason": null
+          }
+        }
+      ],
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 89631139,
+            "category": "monster",
+            "type": "Normal Monster",
+            "nativeType": 17,
+            "attack": 3000,
+            "defense": 2500,
+            "level": 8,
+            "race": "Dragon",
+            "attribute": "LIGHT",
+            "effectNegated": false,
+            "owner": "player"
+          }
+        ],
+        "opponent": [],
+        "spellZones": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "banishedCounts": [
+          0,
+          0
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            40619825,
+            5318639
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 7,
+        "11": 4,
+        "12": 1,
+        "15": 2,
+        "16": 9,
+        "18": 2,
+        "33": 1,
+        "40": 2,
+        "41": 7,
+        "50": 4,
+        "70": 2,
+        "71": 2,
+        "72": 2,
+        "73": 2,
+        "74": 2,
+        "83": 2,
+        "93": 1
+      },
+      "decisions": [
+        "SELECT_CARD",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CARD",
+        "SELECT_EFFECTYN"
+      ],
+      "chainMessages": [
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 40619825
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        },
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 5318639
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "shuffle",
+          "target": "player"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 40619825
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 40619825
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 40619825
+        },
+        {
+          "type": "target",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 40619825
+        },
+        {
+          "type": "equip"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 40619825
+        },
+        {
+          "type": "chain-end"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "target",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 40619825
+        },
+        {
+          "type": "destroy",
+          "target": "player",
+          "publicCode": 40619825
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        }
+      ]
+    },
+    {
+      "name": "Compulsory / equip cleanup / private hand movement",
+      "result": "pass",
+      "observations": [],
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [],
+        "opponent": [],
+        "spellZones": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "banishedCounts": [
+          0,
+          0
+        ],
+        "handCounts": [
+          1,
+          0
+        ],
+        "graveyards": [
+          [
+            40619825,
+            94192409
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 11,
+        "11": 4,
+        "15": 2,
+        "16": 14,
+        "18": 1,
+        "33": 2,
+        "40": 2,
+        "41": 7,
+        "50": 4,
+        "53": 1,
+        "70": 2,
+        "71": 2,
+        "72": 2,
+        "73": 2,
+        "74": 2,
+        "83": 2,
+        "93": 1,
+        "160": 3
+      },
+      "decisions": [
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CARD",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CARD"
+      ],
+      "chainMessages": [
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 40619825
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        },
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 94192409
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "shuffle",
+          "target": "player"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 40619825
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 40619825
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 40619825
+        },
+        {
+          "type": "target",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 40619825
+        },
+        {
+          "type": "equip"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 40619825
+        },
+        {
+          "type": "chain-end"
+        },
+        {
+          "type": "toggle-position",
+          "target": "player",
+          "publicReveal": true,
+          "publicCode": 94192409
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 94192409
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 94192409
+        },
+        {
+          "type": "target",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 94192409
+        },
+        {
+          "type": "move",
+          "target": "player"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 40619825
+        },
+        {
+          "type": "destroy",
+          "target": "player",
+          "publicCode": 40619825
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "shuffle",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 94192409
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 94192409
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        }
+      ]
+    },
+    {
+      "name": "Snatch Steal / control changes / equip destruction returns control",
+      "result": "pass",
+      "observations": [
+        {
+          "label": "Stolen control",
+          "identityPreserved": true,
+          "state": {
+            "playerLP": 8000,
+            "opponentLP": 8000,
+            "turn": "player",
+            "phase": "main1",
+            "player": [
+              {
+                "zoneType": "main",
+                "zoneIndex": 0,
+                "faceDown": false,
+                "publicCode": 89631139,
+                "category": "monster",
+                "type": "Normal Monster",
+                "nativeType": 17,
+                "attack": 3000,
+                "defense": 2500,
+                "level": 8,
+                "race": "Dragon",
+                "attribute": "LIGHT",
+                "effectNegated": false,
+                "owner": "opponent"
+              }
+            ],
+            "opponent": [],
+            "spellZones": [
+              [
+                null,
+                null,
+                null,
+                null,
+                {
+                  "publicCode": 45986603,
+                  "nativeType": 262146,
+                  "equipCard": {
+                    "controller": 1,
+                    "location": 4,
+                    "sequence": 0,
+                    "position": 4
+                  }
+                }
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "banishedCounts": [
+              0,
+              0
+            ],
+            "handCounts": [
+              1,
+              0
+            ],
+            "graveyards": [
+              [],
+              []
+            ],
+            "winner": null,
+            "endReason": null
+          }
+        }
+      ],
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [],
+        "opponent": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 89631139,
+            "category": "monster",
+            "type": "Normal Monster",
+            "nativeType": 17,
+            "attack": 3000,
+            "defense": 2500,
+            "level": 8,
+            "race": "Dragon",
+            "attribute": "LIGHT",
+            "effectNegated": false,
+            "owner": "opponent"
+          }
+        ],
+        "spellZones": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "banishedCounts": [
+          0,
+          0
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            45986603,
+            5318639
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 9,
+        "11": 4,
+        "15": 2,
+        "16": 9,
+        "18": 4,
+        "33": 1,
+        "40": 2,
+        "41": 7,
+        "50": 6,
+        "70": 2,
+        "71": 2,
+        "72": 2,
+        "73": 2,
+        "74": 2,
+        "83": 2,
+        "93": 1
+      },
+      "decisions": [
+        "SELECT_CARD",
+        "SELECT_CHAIN",
+        "SELECT_PLACE",
+        "SELECT_CHAIN",
+        "SELECT_CARD"
+      ],
+      "chainMessages": [
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 45986603
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        },
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 5318639
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "shuffle",
+          "target": "player"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 45986603
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 45986603
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 45986603
+        },
+        {
+          "type": "target",
+          "target": "opponent"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 45986603
+        },
+        {
+          "type": "equip"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 45986603
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 89631139
+        },
+        {
+          "type": "chain-end"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "target",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 45986603
+        },
+        {
+          "type": "destroy",
+          "target": "player",
+          "publicCode": 45986603
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "move",
+          "target": "opponent",
+          "publicCode": 89631139
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 5318639
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        }
+      ]
+    },
+    {
+      "name": "Change of Heart / End Phase native control reset",
+      "result": "pass",
+      "observations": [
+        {
+          "label": "Temporary control",
+          "identityPreserved": true,
+          "state": {
+            "playerLP": 8000,
+            "opponentLP": 8000,
+            "turn": "player",
+            "phase": "main1",
+            "player": [
+              {
+                "zoneType": "main",
+                "zoneIndex": 0,
+                "faceDown": false,
+                "publicCode": 89631139,
+                "category": "monster",
+                "type": "Normal Monster",
+                "nativeType": 17,
+                "attack": 3000,
+                "defense": 2500,
+                "level": 8,
+                "race": "Dragon",
+                "attribute": "LIGHT",
+                "effectNegated": false,
+                "owner": "opponent"
+              }
+            ],
+            "opponent": [],
+            "spellZones": [
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "banishedCounts": [
+              0,
+              0
+            ],
+            "handCounts": [
+              0,
+              0
+            ],
+            "graveyards": [
+              [
+                4031928
+              ],
+              []
+            ],
+            "winner": null,
+            "endReason": null
+          }
+        }
+      ],
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [],
+        "opponent": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 89631139,
+            "category": "monster",
+            "type": "Normal Monster",
+            "nativeType": 17,
+            "attack": 3000,
+            "defense": 2500,
+            "level": 8,
+            "race": "Dragon",
+            "attribute": "LIGHT",
+            "effectNegated": false,
+            "owner": "opponent"
+          }
+        ],
+        "spellZones": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "banishedCounts": [
+          0,
+          0
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            4031928
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 13,
+        "10": 1,
+        "11": 6,
+        "15": 1,
+        "16": 11,
+        "18": 3,
+        "33": 1,
+        "40": 4,
+        "41": 17,
+        "50": 4,
+        "70": 1,
+        "71": 1,
+        "72": 1,
+        "73": 1,
+        "74": 1,
+        "83": 1
+      },
+      "decisions": [
+        "SELECT_CARD",
+        "SELECT_PLACE"
+      ],
+      "chainMessages": [
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 4031928
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "shuffle",
+          "target": "player"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 4031928
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 4031928
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 4031928
+        },
+        {
+          "type": "target",
+          "target": "opponent"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 4031928
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 89631139
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 4031928
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 4031928
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        },
+        {
+          "type": "move",
+          "target": "opponent",
+          "publicCode": 89631139
+        }
+      ]
+    },
+    {
+      "name": "Shrink / original ATK update / native End Phase reset",
+      "result": "pass",
+      "observations": [
+        {
+          "label": "Shrink resolved",
+          "nativeBaseAttack": 1500,
+          "state": {
+            "playerLP": 8000,
+            "opponentLP": 8000,
+            "turn": "player",
+            "phase": "main1",
+            "player": [
+              {
+                "zoneType": "main",
+                "zoneIndex": 0,
+                "faceDown": false,
+                "publicCode": 89631139,
+                "category": "monster",
+                "type": "Normal Monster",
+                "nativeType": 17,
+                "attack": 1500,
+                "defense": 2500,
+                "level": 8,
+                "race": "Dragon",
+                "attribute": "LIGHT",
+                "effectNegated": false,
+                "owner": "player"
+              }
+            ],
+            "opponent": [],
+            "spellZones": [
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "banishedCounts": [
+              0,
+              0
+            ],
+            "handCounts": [
+              0,
+              0
+            ],
+            "graveyards": [
+              [
+                55713623
+              ],
+              []
+            ],
+            "winner": null,
+            "endReason": null
+          }
+        }
+      ],
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 89631139,
+            "category": "monster",
+            "type": "Normal Monster",
+            "nativeType": 17,
+            "attack": 3000,
+            "defense": 2500,
+            "level": 8,
+            "race": "Dragon",
+            "attribute": "LIGHT",
+            "effectNegated": false,
+            "owner": "player"
+          }
+        ],
+        "opponent": [],
+        "spellZones": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "banishedCounts": [
+          0,
+          0
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            55713623
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 13,
+        "10": 1,
+        "11": 6,
+        "15": 1,
+        "16": 11,
+        "18": 1,
+        "33": 1,
+        "40": 4,
+        "41": 17,
+        "50": 2,
+        "70": 1,
+        "71": 1,
+        "72": 1,
+        "73": 1,
+        "74": 1,
+        "83": 1
+      },
+      "decisions": [
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CARD"
+      ],
+      "chainMessages": [
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 55713623
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "shuffle",
+          "target": "player"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 55713623
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 55713623
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 55713623
+        },
+        {
+          "type": "target",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 55713623
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 55713623
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 55713623
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        }
+      ]
+    },
+    {
+      "name": "Forbidden Lance / native immunity suppresses equip bonus temporarily",
+      "result": "pass",
+      "observations": [
+        {
+          "label": "Lance immunity active",
+          "state": {
+            "playerLP": 8000,
+            "opponentLP": 8000,
+            "turn": "player",
+            "phase": "main1",
+            "player": [
+              {
+                "zoneType": "main",
+                "zoneIndex": 0,
+                "faceDown": false,
+                "publicCode": 89631139,
+                "category": "monster",
+                "type": "Normal Monster",
+                "nativeType": 17,
+                "attack": 2200,
+                "defense": 2500,
+                "level": 8,
+                "race": "Dragon",
+                "attribute": "LIGHT",
+                "effectNegated": false,
+                "owner": "player"
+              }
+            ],
+            "opponent": [],
+            "spellZones": [
+              [
+                null,
+                null,
+                null,
+                null,
+                {
+                  "publicCode": 40619825,
+                  "nativeType": 262146,
+                  "equipCard": {
+                    "controller": 1,
+                    "location": 4,
+                    "sequence": 0,
+                    "position": 1
+                  }
+                }
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "banishedCounts": [
+              0,
+              0
+            ],
+            "handCounts": [
+              0,
+              0
+            ],
+            "graveyards": [
+              [
+                27243130
+              ],
+              []
+            ],
+            "winner": null,
+            "endReason": null
+          }
+        }
+      ],
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 89631139,
+            "category": "monster",
+            "type": "Normal Monster",
+            "nativeType": 17,
+            "attack": 4000,
+            "defense": 2500,
+            "level": 8,
+            "race": "Dragon",
+            "attribute": "LIGHT",
+            "effectNegated": false,
+            "owner": "player"
+          }
+        ],
+        "opponent": [],
+        "spellZones": [
+          [
+            null,
+            null,
+            null,
+            null,
+            {
+              "publicCode": 40619825,
+              "nativeType": 262146,
+              "equipCard": {
+                "controller": 1,
+                "location": 4,
+                "sequence": 0,
+                "position": 1
+              }
+            }
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "banishedCounts": [
+          0,
+          0
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            27243130
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 15,
+        "10": 1,
+        "11": 7,
+        "15": 2,
+        "16": 15,
+        "18": 2,
+        "33": 1,
+        "40": 4,
+        "41": 17,
+        "50": 3,
+        "70": 2,
+        "71": 2,
+        "72": 2,
+        "73": 2,
+        "74": 2,
+        "83": 2,
+        "93": 1,
+        "160": 2
+      },
+      "decisions": [
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CARD",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CARD"
+      ],
+      "chainMessages": [
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 40619825
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        },
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 27243130
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "shuffle",
+          "target": "player"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 40619825
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 40619825
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 40619825
+        },
+        {
+          "type": "target",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 40619825
+        },
+        {
+          "type": "equip"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 40619825
+        },
+        {
+          "type": "chain-end"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 27243130
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 27243130
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 27243130
+        },
+        {
+          "type": "target",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 27243130
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 27243130
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 27243130
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        }
+      ]
+    },
+    {
+      "name": "Creature Swap / native SWAP identity / legal position restriction",
+      "result": "pass",
+      "observations": [
+        {
+          "label": "SWAP confirmed",
+          "bothIdentitiesPreserved": true,
+          "state": {
+            "playerLP": 8000,
+            "opponentLP": 8000,
+            "turn": "player",
+            "phase": "main1",
+            "player": [
+              {
+                "zoneType": "main",
+                "zoneIndex": 0,
+                "faceDown": false,
+                "publicCode": 89631139,
+                "category": "monster",
+                "type": "Normal Monster",
+                "nativeType": 17,
+                "attack": 3000,
+                "defense": 2500,
+                "level": 8,
+                "race": "Dragon",
+                "attribute": "LIGHT",
+                "effectNegated": false,
+                "owner": "opponent"
+              }
+            ],
+            "opponent": [
+              {
+                "zoneType": "main",
+                "zoneIndex": 0,
+                "faceDown": false,
+                "publicCode": 97590747,
+                "category": "monster",
+                "type": "Normal Monster",
+                "nativeType": 17,
+                "attack": 1800,
+                "defense": 1000,
+                "level": 4,
+                "race": "Fiend",
+                "attribute": "DARK",
+                "effectNegated": false,
+                "owner": "player"
+              }
+            ],
+            "spellZones": [
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "banishedCounts": [
+              0,
+              0
+            ],
+            "handCounts": [
+              0,
+              0
+            ],
+            "graveyards": [
+              [
+                31036355
+              ],
+              []
+            ],
+            "winner": null,
+            "endReason": null
+          }
+        }
+      ],
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 89631139,
+            "category": "monster",
+            "type": "Normal Monster",
+            "nativeType": 17,
+            "attack": 3000,
+            "defense": 2500,
+            "level": 8,
+            "race": "Dragon",
+            "attribute": "LIGHT",
+            "effectNegated": false,
+            "owner": "opponent"
+          }
+        ],
+        "opponent": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 97590747,
+            "category": "monster",
+            "type": "Normal Monster",
+            "nativeType": 17,
+            "attack": 1800,
+            "defense": 1000,
+            "level": 4,
+            "race": "Fiend",
+            "attribute": "DARK",
+            "effectNegated": false,
+            "owner": "player"
+          }
+        ],
+        "spellZones": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "banishedCounts": [
+          0,
+          0
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            31036355
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 8,
+        "11": 3,
+        "15": 2,
+        "16": 5,
+        "18": 3,
+        "33": 1,
+        "40": 2,
+        "41": 7,
+        "50": 2,
+        "55": 1,
+        "70": 1,
+        "71": 1,
+        "72": 1,
+        "73": 1,
+        "74": 1,
+        "80": 2,
+        "160": 2
+      },
+      "decisions": [
+        "SELECT_CARD",
+        "SELECT_PLACE"
+      ],
+      "chainMessages": [
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 31036355
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "shuffle",
+          "target": "player"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 31036355
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 31036355
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 31036355
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 31036355
+        },
+        {
+          "type": "swap",
+          "publicCode": 97590747
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 31036355
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 31036355
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        }
+      ]
+    },
+    {
+      "name": "Dimensionhole / temporary banish / native return without summon",
+      "result": "pass",
+      "observations": [
+        {
+          "label": "Temporarily banished",
+          "state": {
+            "playerLP": 8000,
+            "opponentLP": 8000,
+            "turn": "player",
+            "phase": "main1",
+            "player": [],
+            "opponent": [],
+            "spellZones": [
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "banishedCounts": [
+              1,
+              0
+            ],
+            "handCounts": [
+              0,
+              0
+            ],
+            "graveyards": [
+              [
+                22959079
+              ],
+              []
+            ],
+            "winner": null,
+            "endReason": null
+          }
+        }
+      ],
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 1,
+            "faceDown": false,
+            "publicCode": 89631139,
+            "category": "monster",
+            "type": "Normal Monster",
+            "nativeType": 17,
+            "attack": 3000,
+            "defense": 2500,
+            "level": 8,
+            "race": "Dragon",
+            "attribute": "LIGHT",
+            "effectNegated": false,
+            "owner": "player"
+          }
+        ],
+        "opponent": [],
+        "spellZones": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "banishedCounts": [
+          0,
+          0
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            22959079
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 12,
+        "10": 1,
+        "11": 6,
+        "15": 1,
+        "16": 11,
+        "18": 2,
+        "33": 1,
+        "40": 4,
+        "41": 17,
+        "50": 4,
+        "56": 2,
+        "70": 1,
+        "71": 1,
+        "72": 1,
+        "73": 1,
+        "74": 1,
+        "83": 1
+      },
+      "decisions": [
+        "SELECT_CARD",
+        "SELECT_PLACE"
+      ],
+      "chainMessages": [
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 22959079
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "shuffle",
+          "target": "player"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 22959079
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 22959079
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 22959079
+        },
+        {
+          "type": "target",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 22959079
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 89631139
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 22959079
+        },
+        {
+          "type": "field-disabled"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 22959079
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 89631139
+        },
+        {
+          "type": "field-disabled"
+        }
+      ]
+    },
+    {
+      "name": "Metal Reflect Slime / native Trap Monster transformation",
+      "result": "pass",
+      "observations": [
+        {
+          "label": "Native Slime transformation",
+          "publicSummon": {
+            "category": "monster",
+            "type": "Trap Effect Monster",
+            "race": "Aqua",
+            "attribute": "Water",
+            "profile": "special-summon"
+          },
+          "state": {
+            "playerLP": 8000,
+            "opponentLP": 8000,
+            "turn": "player",
+            "phase": "main1",
+            "player": [
+              {
+                "zoneType": "main",
+                "zoneIndex": 0,
+                "faceDown": false,
+                "publicCode": 26905245,
+                "category": "monster",
+                "type": "Trap Effect Monster",
+                "nativeType": 131365,
+                "attack": 0,
+                "defense": 3000,
+                "level": 10,
+                "race": "Aqua",
+                "attribute": "WATER",
+                "effectNegated": false,
+                "owner": "player"
+              }
+            ],
+            "opponent": [],
+            "spellZones": [
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "banishedCounts": [
+              0,
+              0
+            ],
+            "handCounts": [
+              0,
+              0
+            ],
+            "graveyards": [
+              [],
+              []
+            ],
+            "winner": null,
+            "endReason": null
+          }
+        }
+      ],
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 26905245,
+            "category": "monster",
+            "type": "Trap Effect Monster",
+            "nativeType": 131365,
+            "attack": 0,
+            "defense": 3000,
+            "level": 10,
+            "race": "Aqua",
+            "attribute": "WATER",
+            "effectNegated": false,
+            "owner": "player"
+          }
+        ],
+        "opponent": [],
+        "spellZones": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "banishedCounts": [
+          0,
+          0
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 9,
+        "11": 3,
+        "16": 10,
+        "18": 1,
+        "40": 2,
+        "41": 7,
+        "50": 1,
+        "53": 1,
+        "62": 1,
+        "63": 1,
+        "70": 1,
+        "71": 1,
+        "72": 1,
+        "73": 1,
+        "74": 1
+      },
+      "decisions": [
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_PLACE"
+      ],
+      "chainMessages": [
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 26905245
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "toggle-position",
+          "target": "player",
+          "publicReveal": true,
+          "publicCode": 26905245
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 26905245
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 26905245
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 26905245
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 26905245
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "summon",
+          "target": "player",
+          "nativeSummonConfirmed": true,
+          "publicCode": 26905245
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 26905245
+        },
+        {
+          "type": "chain-end"
+        }
+      ]
+    },
+    {
+      "name": "Apophis / Normal Trap Monster / legal native Link material / reset",
+      "result": "pass",
+      "observations": [
+        {
+          "label": "Native Apophis transformation",
+          "publicSummon": {
+            "category": "monster",
+            "type": "Trap Normal Monster",
+            "race": "Reptile",
+            "attribute": "Earth",
+            "profile": "special-summon"
+          },
+          "state": {
+            "playerLP": 8000,
+            "opponentLP": 8000,
+            "turn": "player",
+            "phase": "main1",
+            "player": [
+              {
+                "zoneType": "main",
+                "zoneIndex": 0,
+                "faceDown": false,
+                "publicCode": 28649820,
+                "category": "monster",
+                "type": "Trap Normal Monster",
+                "nativeType": 131349,
+                "attack": 1600,
+                "defense": 1800,
+                "level": 4,
+                "race": "Reptile",
+                "attribute": "EARTH",
+                "effectNegated": false,
+                "owner": "player"
+              }
+            ],
+            "opponent": [],
+            "spellZones": [
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "banishedCounts": [
+              0,
+              0
+            ],
+            "handCounts": [
+              0,
+              0
+            ],
+            "graveyards": [
+              [],
+              []
+            ],
+            "winner": null,
+            "endReason": null
+          }
+        }
+      ],
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [
+          {
+            "zoneType": "extra",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 98978921,
+            "category": "monster",
+            "type": "Link Effect Monster",
+            "nativeType": 67108897,
+            "attack": 1000,
+            "defense": null,
+            "level": 0,
+            "race": "Cyberse",
+            "attribute": "EARTH",
+            "effectNegated": false,
+            "owner": "player"
+          }
+        ],
+        "opponent": [],
+        "spellZones": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "banishedCounts": [
+          0,
+          0
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            28649820
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 6,
+        "11": 4,
+        "16": 9,
+        "18": 2,
+        "19": 1,
+        "26": 1,
+        "40": 2,
+        "41": 7,
+        "50": 3,
+        "53": 1,
+        "62": 2,
+        "63": 2,
+        "70": 1,
+        "71": 1,
+        "72": 1,
+        "73": 1,
+        "74": 1
+      },
+      "decisions": [
+        "SELECT_CHAIN",
+        "SELECT_PLACE",
+        "SELECT_POSITION",
+        "SELECT_UNSELECT_CARD",
+        "SELECT_PLACE"
+      ],
+      "chainMessages": [
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 28649820
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "toggle-position",
+          "target": "player",
+          "publicReveal": true,
+          "publicCode": 28649820
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 28649820
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 28649820
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 28649820
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 28649820
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "summon",
+          "target": "player",
+          "nativeSummonConfirmed": true,
+          "publicCode": 28649820
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 28649820
+        },
+        {
+          "type": "chain-end"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 28649820
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 98978921
+        },
+        {
+          "type": "summon",
+          "target": "player",
+          "nativeSummonConfirmed": true,
+          "publicCode": 98978921
+        }
+      ]
+    },
+    {
+      "name": "Creature Swap / native destination choice / paired MOVE identities",
+      "result": "pass",
+      "observations": [],
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 1,
+            "faceDown": false,
+            "publicCode": 89631139,
+            "category": "monster",
+            "type": "Normal Monster",
+            "nativeType": 17,
+            "attack": 3000,
+            "defense": 2500,
+            "level": 8,
+            "race": "Dragon",
+            "attribute": "LIGHT",
+            "effectNegated": false,
+            "owner": "opponent"
+          }
+        ],
+        "opponent": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 97590747,
+            "category": "monster",
+            "type": "Normal Monster",
+            "nativeType": 17,
+            "attack": 1800,
+            "defense": 1000,
+            "level": 4,
+            "race": "Fiend",
+            "attribute": "DARK",
+            "effectNegated": false,
+            "owner": "player"
+          }
+        ],
+        "spellZones": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "banishedCounts": [
+          0,
+          0
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            31036355
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 8,
+        "11": 3,
+        "15": 2,
+        "16": 5,
+        "18": 3,
+        "33": 1,
+        "40": 2,
+        "41": 7,
+        "50": 4,
+        "70": 1,
+        "71": 1,
+        "72": 1,
+        "73": 1,
+        "74": 1,
+        "80": 2,
+        "160": 2
+      },
+      "decisions": [
+        "SELECT_CARD",
+        "SELECT_PLACE"
+      ],
+      "chainMessages": [
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 31036355
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "shuffle",
+          "target": "player"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 31036355
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 31036355
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 31036355
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 31036355
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 89631139
+        },
+        {
+          "type": "move",
+          "target": "opponent",
+          "publicCode": 97590747
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 31036355
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 31036355
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        }
+      ]
+    },
+    {
+      "name": "Seven Tools / negated Raigeki Break / activation cost not refunded",
+      "result": "pass",
+      "observations": [],
+      "final": {
+        "playerLP": 7000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 89631139,
+            "category": "monster",
+            "type": "Normal Monster",
+            "nativeType": 17,
+            "attack": 3000,
+            "defense": 2500,
+            "level": 8,
+            "race": "Dragon",
+            "attribute": "LIGHT",
+            "effectNegated": false,
+            "owner": "player"
+          }
+        ],
+        "opponent": [],
+        "spellZones": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "banishedCounts": [
+          0,
+          0
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            46986414,
+            4178474,
+            3819470
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 10,
+        "11": 3,
+        "15": 2,
+        "16": 12,
+        "33": 1,
+        "40": 2,
+        "41": 7,
+        "50": 3,
+        "53": 2,
+        "70": 2,
+        "71": 2,
+        "72": 2,
+        "73": 2,
+        "74": 1,
+        "75": 1,
+        "83": 1,
+        "100": 1
+      },
+      "decisions": [
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CARD",
+        "SELECT_CARD",
+        "SELECT_CHAIN"
+      ],
+      "chainMessages": [
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 4178474
+        },
+        {
+          "type": 70,
+          "link": 2,
+          "publicCode": 3819470
+        },
+        {
+          "type": 72,
+          "link": 2
+        },
+        {
+          "type": 75,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 2
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "shuffle",
+          "target": "player"
+        },
+        {
+          "type": "toggle-position",
+          "target": "player",
+          "publicReveal": true,
+          "publicCode": 4178474
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 4178474
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 4178474
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 46986414
+        },
+        {
+          "type": "target",
+          "target": "player"
+        },
+        {
+          "type": "toggle-position",
+          "target": "player",
+          "publicReveal": true,
+          "publicCode": 3819470
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 3819470
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 3819470
+        },
+        {
+          "type": "lp-loss",
+          "target": "player",
+          "amount": 1000,
+          "cost": true
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 3819470
+        },
+        {
+          "type": "chain-negated",
+          "target": "player",
+          "publicCode": 4178474
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 4178474
+        },
+        {
+          "type": "destroy",
+          "target": "player",
+          "publicCode": 4178474
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 3819470
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 4178474
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 4178474
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 3819470
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        }
+      ]
+    },
+    {
+      "name": "Pseudo Space / current native name / physical identity / official reset",
+      "result": "pass",
+      "observations": [
+        {
+          "label": "Official name and effect copied",
+          "currentName": "Wetlands",
+          "printedName": "Pseudo Space",
+          "nativeCode": 77584012,
+          "nativeAlias": 2084239,
+          "physicalIdentityPreserved": true,
+          "artPreserved": true,
+          "resolvedFieldEvent": {
+            "publicCode": 77584012,
+            "name": "Wetlands",
+            "printedName": "Pseudo Space",
+            "active": true,
+            "resolved": true,
+            "negated": false
+          },
+          "state": {
+            "playerLP": 8000,
+            "opponentLP": 8000,
+            "turn": "player",
+            "phase": "main1",
+            "player": [
+              {
+                "zoneType": "main",
+                "zoneIndex": 0,
+                "faceDown": false,
+                "publicCode": 68638985,
+                "category": "monster",
+                "type": "Normal Monster",
+                "nativeType": 17,
+                "attack": 1900,
+                "defense": 500,
+                "level": 2,
+                "race": "Aqua",
+                "attribute": "WATER",
+                "effectNegated": false,
+                "owner": "player"
+              }
+            ],
+            "opponent": [],
+            "spellZones": [
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "banishedCounts": [
+              1,
+              0
+            ],
+            "handCounts": [
+              0,
+              0
+            ],
+            "graveyards": [
+              [],
+              []
+            ],
+            "winner": null,
+            "endReason": null
+          }
+        }
+      ],
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 68638985,
+            "category": "monster",
+            "type": "Normal Monster",
+            "nativeType": 17,
+            "attack": 700,
+            "defense": 500,
+            "level": 2,
+            "race": "Aqua",
+            "attribute": "WATER",
+            "effectNegated": false,
+            "owner": "player"
+          }
+        ],
+        "opponent": [],
+        "spellZones": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "banishedCounts": [
+          1,
+          0
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 10,
+        "10": 1,
+        "11": 7,
+        "15": 1,
+        "16": 13,
+        "33": 1,
+        "40": 4,
+        "41": 17,
+        "50": 2,
+        "70": 2,
+        "71": 2,
+        "72": 2,
+        "73": 2,
+        "74": 2
+      },
+      "decisions": [
+        "SELECT_CARD"
+      ],
+      "chainMessages": [
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 77584012
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        },
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 77584012
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "shuffle",
+          "target": "player"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 77584012
+        },
+        {
+          "type": "field-source-change",
+          "target": "player",
+          "publicCode": 77584012
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 77584012
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 77584012
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 77584012
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 77584012
+        },
+        {
+          "type": "field-source-change",
+          "target": "player",
+          "publicCode": 77584012
+        },
+        {
+          "type": "chain-end"
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 77584012
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 77584012
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 2084239
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 77584012
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 77584012
+        },
+        {
+          "type": "field-source-change",
+          "target": "player",
+          "publicCode": 77584012
+        },
+        {
+          "type": "chain-end"
+        }
+      ]
+    },
+    {
+      "name": "Call of the Forgotten / three Sets / native restriction / masked shuffle",
+      "result": "pass",
+      "observations": [
+        {
+          "label": "Three real Sets resolve; shuffled identities are masked",
+          "trapCount": 3,
+          "nonZombieSpecialSummonForbidden": true,
+          "hiddenPermutation": true,
+          "state": {
+            "playerLP": 8000,
+            "opponentLP": 8000,
+            "turn": "player",
+            "phase": "main1",
+            "player": [],
+            "opponent": [
+              {
+                "zoneType": "main",
+                "zoneIndex": 0,
+                "faceDown": false,
+                "publicCode": 89631139,
+                "category": "monster",
+                "type": "Normal Monster",
+                "nativeType": 17,
+                "attack": 3000,
+                "defense": 2500,
+                "level": 8,
+                "race": "Dragon",
+                "attribute": "LIGHT",
+                "effectNegated": false,
+                "owner": "opponent"
+              }
+            ],
+            "spellZones": [
+              [
+                {
+                  "faceDown": true
+                },
+                {
+                  "faceDown": true
+                },
+                {
+                  "faceDown": true
+                },
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "banishedCounts": [
+              0,
+              0
+            ],
+            "handCounts": [
+              1,
+              0
+            ],
+            "graveyards": [
+              [],
+              []
+            ],
+            "winner": null,
+            "endReason": null
+          }
+        }
+      ],
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [],
+        "opponent": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 89631139,
+            "category": "monster",
+            "type": "Normal Monster",
+            "nativeType": 17,
+            "attack": 3000,
+            "defense": 2500,
+            "level": 8,
+            "race": "Dragon",
+            "attribute": "LIGHT",
+            "effectNegated": false,
+            "owner": "opponent"
+          }
+        ],
+        "spellZones": [
+          [
+            {
+              "faceDown": true
+            },
+            {
+              "faceDown": true
+            },
+            {
+              "faceDown": true
+            },
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "banishedCounts": [
+          0,
+          0
+        ],
+        "handCounts": [
+          1,
+          0
+        ],
+        "graveyards": [
+          [],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 7,
+        "11": 3,
+        "13": 1,
+        "15": 1,
+        "16": 5,
+        "18": 3,
+        "31": 1,
+        "32": 1,
+        "33": 1,
+        "36": 1,
+        "40": 2,
+        "41": 7,
+        "50": 4,
+        "54": 3,
+        "70": 1,
+        "71": 1,
+        "72": 1,
+        "73": 1,
+        "74": 1,
+        "165": 1
+      },
+      "decisions": [
+        "SELECT_YESNO",
+        "SELECT_CARD",
+        "SELECT_PLACE",
+        "SELECT_PLACE",
+        "SELECT_PLACE"
+      ],
+      "chainMessages": [
+        {
+          "type": 70,
+          "link": 1,
+          "publicCode": 80749819
+        },
+        {
+          "type": 72,
+          "link": 1
+        },
+        {
+          "type": 73,
+          "link": 1
+        }
+      ],
+      "animations": [
+        {
+          "type": "shuffle",
+          "target": "player"
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 80749819
+        },
+        {
+          "type": "field-source-change",
+          "target": "player",
+          "publicCode": 80749819
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 80749819
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 80749819
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 80749819
+        },
+        {
+          "type": "move",
+          "target": "player"
+        },
+        {
+          "type": "activate",
+          "target": "player"
+        },
+        {
+          "type": "move",
+          "target": "player"
+        },
+        {
+          "type": "activate",
+          "target": "player"
+        },
+        {
+          "type": "move",
+          "target": "player"
+        },
+        {
+          "type": "activate",
+          "target": "player"
+        },
+        {
+          "type": "inspect",
+          "target": "player",
+          "publicCode": 97077563
+        },
+        {
+          "type": "inspect",
+          "target": "player",
+          "publicCode": 97077563
+        },
+        {
+          "type": "inspect",
+          "target": "player",
+          "publicCode": 97077563
+        },
+        {
+          "type": "move"
+        },
+        {
+          "type": "move"
+        },
+        {
+          "type": "move"
+        },
+        {
+          "type": "shuffle",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 80749819
+        },
+        {
+          "type": "field-source-change",
+          "target": "player",
+          "publicCode": 80749819
+        },
+        {
+          "type": "chain-end"
+        }
+      ]
+    }
+  ]
+}

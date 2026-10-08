@@ -506,6 +506,7 @@ body.modal-open {
 .private-card-inspection-details { margin-top: 14px; border-top: 1px solid var(--panel-border); padding-top: 12px; }
 .private-card-inspection-type { font-size: .8rem; color: var(--neon-cyan); }
 .private-card-inspection-description { margin-bottom: 0; font-size: .85rem; white-space: pre-wrap; overflow-wrap: anywhere; }
+.public-card-confirmation { right: auto; left: 16px; }
 
 @media (max-width: 600px) {
   .private-card-inspection {
@@ -514,6 +515,7 @@ body.modal-open {
     right: 12px;
     max-height: 52dvh;
   }
+  .public-card-confirmation { left: 12px; right: auto; }
 }
 
 .inspector-image-wrapper {
@@ -4464,4 +4466,5 @@ body.duel-ended .app-container.real-duel-view-active .bottom-bar::after {
 /* Search results use public names when an original card image is unavailable. */
 .builder-card-name { display: block; position: absolute; inset: 15% 4% auto; padding: .35rem; color: #f0f5ff; background: #081426e8; font-size: .72rem; text-align: center; overflow-wrap: anywhere; }
 .decision-choice-list { display: flex; flex-wrap: wrap; gap: .65rem; }
+.decision-choice-list .btn { min-height: 44px; min-width: 44px; max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
 #builder-card-search, #builder-card-filter, #decision-options input[type="search"] { max-width: 100%; padding: .5rem; color: #e9f6ff; background: #0c1a2c; border: 1px solid #396278; border-radius: .35rem; }

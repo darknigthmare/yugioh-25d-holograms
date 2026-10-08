@@ -1,0 +1,20 @@
+{
+  "scenarios": 14,
+  "passed": 14,
+  "failed": 0,
+  "distinctFields": 7
+}
+passed continuation-b-ravine-dragunity-search-cost-and-shared-mode-limit 
+passed continuation-b-ravine-ash-negates-search-cost-remains-and-limit-consumed 
+passed continuation-b-zombie-world-tribute-summon-set-prohibition-both-players 
+passed continuation-b-zombie-world-field-grave-race-and-tribute-revert-after-mst 
+passed continuation-b-union-hangar-unequip-restriction-expires-at-end-phase 
+passed continuation-b-union-hangar-facedown-target-cannot-equip-at-resolution 
+passed continuation-b-spyral-target-protection-restored-after-field-destruction 
+passed continuation-b-spyral-maintenance-no-legal-shuffle-destroys-as-cost 
+passed continuation-b-spyral-maintenance-declined-legal-shuffle-destroys-as-cost 
+passed continuation-b-mound-level-ten-target-and-nontarget-destruction-protection 
+passed continuation-b-mound-battle-destruction-burn-applies-to-both-players 
+passed continuation-b-sky-iris-pendulum-protection-lost-after-field-destruction 
+passed continuation-b-lair-effect-cost-substitution-does-not-enable-opponent-tribute-summon 
+passed continuation-b-lair-source-removed-before-end-no-token-and-attribute-reset 

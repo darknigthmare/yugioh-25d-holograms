@@ -9,6 +9,8 @@ import { createNativeCardPresentationTemplate, isSupportedNativeCatalogueCard,
 import { resolveNativeDuelPrompt, validateNativeDuelResponse } from './NativeDuelDecisions.js';
 import { createNativeVisualContext, translateNativeVisualEvents } from './NativeDuelVisualEvents.js';
 import { nativeCardKind, nativeCardTypeLabel, nativeRaceName, nativeAttributeName } from './NativeCardCharacteristics.js';
+import { nativeEffectStringReference } from '../../ui/NativeDuelPresentationModel.js';
+import { createNativePublicRevealPolicy } from './NativePublicRevealPolicy.js';
 
 const SIDES = ['player', 'opponent'];
 const frozen = values => Object.freeze(values);
@@ -251,6 +253,7 @@ export class NativeDuelGame {
       this.opponentLP = Number(teams[1 - this.playerController]?.startingLP ?? 8000);
       this._visualContext = createNativeVisualContext({
         playerController: this.playerController,
+        isPublicReveal: createNativePublicRevealPolicy(this.resources, { scriptReader: runtime.options.scriptReader }),
         lifePoints: this.playerController === 0 ? [this.playerLP, this.opponentLP] : [this.opponentLP, this.playerLP],
         getCardMetadata: code => this._getMetadata(code),
         getCardAt: reference => this._resolveCard(reference),
@@ -760,6 +763,10 @@ export class NativeDuelGame {
     if (!M || !prompt || this.sideForPlayer(prompt.player) !== side) return [];
     return prompt.type === M.SELECT_IDLECMD ? prompt.activates : prompt.type === M.SELECT_BATTLECMD ? prompt.chains : [];
   }
+  _effectDescription(reference, fallback = '') {
+    const string = nativeEffectStringReference(reference?.description);
+    return string ? this._getMetadata(string.code).strings?.[string.index] || fallback : fallback;
+  }
   getAvailableActions(side = 'player') {
     const available = { normalSummonCardUids: [], monsterSetCardUids: [], spellSetCardUids: [],
       spellActivationCardUids: [], specialSummonCardUids: [], positionChangeCardUids: [],
@@ -808,11 +815,7 @@ export class NativeDuelGame {
       for (const [index, reference] of (prompt[list] || []).entries()) {
         const card = this._resolveCard(reference);
         const description = reference.description;
-        let effectLabel = '';
-        if (description != null) {
-          const effectCode = Number(BigInt(description) >> 4n);
-          effectLabel = this._getMetadata(effectCode).strings?.[Number(BigInt(description) & 15n)] || '';
-        }
+        const effectLabel = this._effectDescription(reference);
         available.nativeActions.push(frozen({ id: `${this._duelGeneration}:${this._promptSerial}:${prompt.type}:${list}:${index}`,
           kind, cardUid: card?.uid, card, description,
           label: `${labels[kind]} ${card?.name || 'une carte'}${effectLabel ? ` : ${effectLabel}` : ''}`,
@@ -845,8 +848,11 @@ export class NativeDuelGame {
       fromHand: [], fromExtraDeck: [], nativeSelectionRequired: true };
   }
   getPendulumScales(side = 'player') {
-    const scales = this.getSideState(side).spells.filter(card => card?.isPendulumScale);
-    return { left: scales[0] || null, right: scales.at(-1) || null };
+    const spells = this.getSideState(side).spells;
+    // MR5 scales occupy the actual outer Spell/Trap zones. A single scale
+    // must never be projected into both sides of the Pendulum pair.
+    return { left: spells[0]?.isPendulumScale ? spells[0] : null,
+      right: spells[4]?.isPendulumScale ? spells[4] : null };
   }
 
   async _submitCommand(kind, listName, card, side = 'player', intent = null) {
@@ -865,11 +871,14 @@ export class NativeDuelGame {
       this.isResolvingAction = true;
       const generation = this._duelGeneration;
       const choice = await this.callbacks.onDecision({ type: 'native-action-effect', side,
-        title: card.name, description: 'Choisissez l’effet à activer.',
-        choices: indices.map(value => ({ value, label: String(candidates[value].description ?? `Effet ${value + 1}`) })) });
+        title: card.name, description: 'Choisissez l’effet à activer.', required: false,
+        choices: indices.map((value, offset) => ({ value,
+          label: this._effectDescription(candidates[value], `Effet ${offset + 1}`) })) });
       if (!this.isDuelGenerationCurrent(generation) || prompt !== this._prompt) return false;
       this.isResolvingAction = false;
-      index = indices.includes(Number(choice)) ? Number(choice) : choice === undefined ? indices[0] : -1;
+      // Modal dismissal, booleans and numeric-looking strings are not consent
+      // to activate an effect or pay its cost. Only an offered typed index is.
+      index = Number.isInteger(choice) && indices.includes(choice) ? choice : -1;
       if (index < 0) return false;
     }
     const response = { type: idle ? R.SELECT_IDLECMD : R.SELECT_BATTLECMD,

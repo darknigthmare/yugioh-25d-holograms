@@ -12,15 +12,15 @@ const snapshot = {
   "coreWasmSha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
   "scriptsCommit": "37f270dc813a12d123707ae255f2bda7922999c4",
   "databaseCommit": "fdf92aea31033cd6c44afa89987c5e00665205e2",
-  "evidencePath": "docs/audits/artifacts/native-field-runtime-wave-2026-10-08.json",
+  "evidencePath": "docs/audits/artifacts/native-field-runtime-continuation-2026-10-08.json",
   "summary": {
     "catalogue": 339,
     "bundled": 339,
     "initialized": 339,
     "effectTested": 339,
     "integrationTested": 0,
-    "scenarios": 377,
-    "passedScenarios": 377
+    "scenarios": 406,
+    "passedScenarios": 406
   },
   "bundledCardIds": [
     "269012",

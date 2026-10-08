@@ -1,0 +1,33 @@
+✔ three new silhouettes belong to playable starter cards and actual campaign decks, including padded Battle Ox (11.702758ms)
+✔ source motifs have real volume and stable palettes within five batches and 6000 triangles in attack and defense (337.114784ms)
+✔ gripping arms, open casting hands and serpent wings share their coherent moving GPU joints without uploads (49.973816ms)
+✔ new public creatures reuse scene objects and a concealed replacement reads no identity and releases all volumes (49.21131ms)
+✔ new card identities have distinctive anatomy, declared support and bounded geometry (31.59845ms)
+✔ merged visible and shadow meshes share pose uniforms and retain complete joint attributes (7.360332ms)
+✔ finite action poses deform wings, staff, recoil and summon without uploads or root drift (44.06103ms)
+✔ new animation supersedes stale handles and reduced motion remains neutral (9.048629ms)
+✔ model material disposal also frees custom GPU shadow materials and invalidates pending poses (5.154517ms)
+✔ flip, recovery and search effects have distinct geometry and release nested book resources (13.147199ms)
+✔ four iconic models consume checked illustration palettes with separate sculpted anatomy (38.674445ms)
+✔ new Field-rule participants have literal, distinctive bodies and matching attack profiles (27.394882ms)
+✔ refined right hand and ornaments follow the casting joint and palettes survive finite GPU poses (5.500757ms)
+✔ three Field rule visuals are finite, distinct and dispose every geometry including roots (4.995478ms)
+✔ official Trap Monster participants use distinct sculpted silver and cobra anatomy within the duel budget (53.468188ms)
+✔ three frequent starter monsters replace unrelated fallback bodies with checked source volumes (114.674967ms)
+✔ prayer hands and the source-side rodent blade remain coherent through finite GPU actions and complete release (47.717435ms)
+✔ iconic creatures have distinct silhouettes and attacks selected by canonical public identity (76.201869ms)
+✔ field synchronization reuses models, honors position and releases changed or concealed creatures (16.56125ms)
+✔ card effects use separate visual families for lightning, protective barriers, revival, typhoon and moon (3.922846ms)
+✔ combat owns RAF only through its final frame and uses existing public monster coordinates (7.221894ms)
+✔ attacks aim above board centers while absolute endpoints and spell locations remain explicit (0.243366ms)
+✔ hidden tabs freeze effects, view deactivation frees them and reduced motion never requests animation (7.195434ms)
+✔ concurrent effects are bounded and duel completion releases GPU resources (4.160783ms)
+✔ a new effect during an explicit pause starts now while the earlier effect resumes its frozen clock (0.967625ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1082.80501

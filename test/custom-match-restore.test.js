@@ -101,6 +101,7 @@ function uiFixture(payload, { nativeStartGate = null } = {}) {
     clearPersistedMatch: noop,
     matchController: null, pendingMatchLaunch: null, game: null, duelViewController: null,
     privateCardInspection: privateInspection,
+    publicCardConfirmation: { clear: noop },
     activeCampaignMissionId: null, campaignTracker: null, getMission: () => null,
     selectedDuelSeries: 'single', selectedGameMode: 'strict', selectedAiDifficulty: 'normal',
     currentSelectedDeckId: 'kaiba',

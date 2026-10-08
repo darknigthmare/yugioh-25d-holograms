@@ -1,0 +1,100 @@
+TAP version 13
+# Subtest: continuation B executes fourteen distinct additional branches across seven Fields
+ok 1 - continuation B executes fourteen distinct additional branches across seven Fields
+  ---
+  duration_ms: 1.284
+  type: 'test'
+  ...
+# Subtest: continuation-b-ravine-dragunity-search-cost-and-shared-mode-limit
+ok 2 - continuation-b-ravine-dragunity-search-cost-and-shared-mode-limit
+  ---
+  duration_ms: 0.284748
+  type: 'test'
+  ...
+# Subtest: continuation-b-ravine-ash-negates-search-cost-remains-and-limit-consumed
+ok 3 - continuation-b-ravine-ash-negates-search-cost-remains-and-limit-consumed
+  ---
+  duration_ms: 0.089133
+  type: 'test'
+  ...
+# Subtest: continuation-b-zombie-world-tribute-summon-set-prohibition-both-players
+ok 4 - continuation-b-zombie-world-tribute-summon-set-prohibition-both-players
+  ---
+  duration_ms: 0.10613
+  type: 'test'
+  ...
+# Subtest: continuation-b-zombie-world-field-grave-race-and-tribute-revert-after-mst
+ok 5 - continuation-b-zombie-world-field-grave-race-and-tribute-revert-after-mst
+  ---
+  duration_ms: 0.124547
+  type: 'test'
+  ...
+# Subtest: continuation-b-union-hangar-unequip-restriction-expires-at-end-phase
+ok 6 - continuation-b-union-hangar-unequip-restriction-expires-at-end-phase
+  ---
+  duration_ms: 0.077486
+  type: 'test'
+  ...
+# Subtest: continuation-b-union-hangar-facedown-target-cannot-equip-at-resolution
+ok 7 - continuation-b-union-hangar-facedown-target-cannot-equip-at-resolution
+  ---
+  duration_ms: 0.107942
+  type: 'test'
+  ...
+# Subtest: continuation-b-spyral-target-protection-restored-after-field-destruction
+ok 8 - continuation-b-spyral-target-protection-restored-after-field-destruction
+  ---
+  duration_ms: 0.12658
+  type: 'test'
+  ...
+# Subtest: continuation-b-spyral-maintenance-no-legal-shuffle-destroys-as-cost
+ok 9 - continuation-b-spyral-maintenance-no-legal-shuffle-destroys-as-cost
+  ---
+  duration_ms: 0.111688
+  type: 'test'
+  ...
+# Subtest: continuation-b-spyral-maintenance-declined-legal-shuffle-destroys-as-cost
+ok 10 - continuation-b-spyral-maintenance-declined-legal-shuffle-destroys-as-cost
+  ---
+  duration_ms: 0.12596
+  type: 'test'
+  ...
+# Subtest: continuation-b-mound-level-ten-target-and-nontarget-destruction-protection
+ok 11 - continuation-b-mound-level-ten-target-and-nontarget-destruction-protection
+  ---
+  duration_ms: 0.138568
+  type: 'test'
+  ...
+# Subtest: continuation-b-mound-battle-destruction-burn-applies-to-both-players
+ok 12 - continuation-b-mound-battle-destruction-burn-applies-to-both-players
+  ---
+  duration_ms: 0.06641
+  type: 'test'
+  ...
+# Subtest: continuation-b-sky-iris-pendulum-protection-lost-after-field-destruction
+ok 13 - continuation-b-sky-iris-pendulum-protection-lost-after-field-destruction
+  ---
+  duration_ms: 0.04702
+  type: 'test'
+  ...
+# Subtest: continuation-b-lair-effect-cost-substitution-does-not-enable-opponent-tribute-summon
+ok 14 - continuation-b-lair-effect-cost-substitution-does-not-enable-opponent-tribute-summon
+  ---
+  duration_ms: 0.04033
+  type: 'test'
+  ...
+# Subtest: continuation-b-lair-source-removed-before-end-no-token-and-attribute-reset
+ok 15 - continuation-b-lair-source-removed-before-end-no-token-and-attribute-reset
+  ---
+  duration_ms: 0.059559
+  type: 'test'
+  ...
+1..15
+# tests 15
+# suites 0
+# pass 15
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 912.242654

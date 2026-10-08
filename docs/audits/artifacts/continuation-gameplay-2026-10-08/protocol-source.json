@@ -1,0 +1,35 @@
+{
+  "format": "continuation-gameplay-protocol-source-v1",
+  "archive": "public/native/sources/ygopro-core-38d04c9f.tar.gz",
+  "archiveBytes": 2682915,
+  "archiveSha256": "eb2e32d213c58f23cb9efc3297abfce632d94dca40e4f388e0bb73fff26abc84",
+  "members": [
+    {
+      "member": "ygopro-core-38d04c9feb1a26617407091380634c87262fe3f8/libduel.cpp",
+      "bytes": 147901,
+      "sha256": "989e5886e9a2728d3ddd55d5a94d7abe4b43022aebf6d873802dd606b63dac05"
+    },
+    {
+      "member": "ygopro-core-38d04c9feb1a26617407091380634c87262fe3f8/playerop.cpp",
+      "bytes": 36188,
+      "sha256": "a92e0465bffb4ee08739ce69791988810bfe33890d6ea9ce99460ecac9d743de"
+    }
+  ],
+  "reviewedProcessors": [
+    "SelectTributeP",
+    "SelectCounter",
+    "SelectSum",
+    "SortCard",
+    "AnnounceCard"
+  ],
+  "opcodeFindings": {
+    "ISTYPE_ISRACE_ISATTRIBUTE": "The shipped C++ pushes the bitwise intersection, rather than a normalized boolean. The adapter is already correct.",
+    "ISCODE": "The shipped C++ compares after a uint32_t cast. The adapter is already correct.",
+    "GETSETCARD": "Commented out in shipped C++; treated as a literal by the default branch. The adapter is already correct."
+  },
+  "utilityStringid": {
+    "source": "utility.lua in public/native/scripts.json",
+    "expression": "return (id&0xfffff)|code<<20",
+    "nativeEffectIndexBits": 20
+  }
+}

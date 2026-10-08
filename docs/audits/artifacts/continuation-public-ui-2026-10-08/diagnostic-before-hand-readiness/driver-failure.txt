@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/workspace/yugioh-25d-holograms/scripts/audit-continuation-public-ui.py", line 138, in <module>
+    if __name__ == '__main__': main()
+                               ^^^^^^
+  File "/workspace/yugioh-25d-holograms/scripts/audit-continuation-public-ui.py", line 125, in main
+    verify(context.new_page(), base, args.output, item, draft); context.close()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/yugioh-25d-holograms/scripts/audit-continuation-public-ui.py", line 55, in verify
+    assert {c['id'] for c in item['openingOwnHand']} == {'73628505', '43422537', '5053103', '66602787', '5318639'}
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

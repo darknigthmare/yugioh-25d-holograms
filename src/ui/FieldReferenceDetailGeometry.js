@@ -1,9 +1,11 @@
 /**
- * Sculptural details read from three preserved card illustrations. These are
+ * Sculptural details read from preserved card illustrations. These are
  * actual closed volumes, not replacement art planes. Their depth, scale and
  * placement are adapted to the public duel corridor; the painted source stays
  * authoritative for small markings and unseen surfaces.
  */
+import { FIELD_CONTINUATION_DETAIL_IDS, FIELD_CONTINUATION_DETAIL_SCOPE,
+  createContinuationStageDetails } from './FieldContinuationStageDetails.js';
 export const FIELD_REFERENCE_DETAIL_IDS = Object.freeze(['67616300', '81380218', '63883999']);
 
 export const FIELD_REFERENCE_DETAIL_SCOPE = Object.freeze({
@@ -125,7 +127,7 @@ function createDetailBuilder(ctx) {
     ctx.root.userData.referenceDetail = Object.freeze({ cardId: profile.cardId,
       sourceUrl: `https://images.ygoprodeck.com/images/cards_cropped/${profile.cardId}.jpg`,
       fidelity: 'source-inspected-adapted-sculpture', primitiveCount,
-      groups: Object.freeze(details), ...FIELD_REFERENCE_DETAIL_SCOPE[profile.cardId] });
+      groups: Object.freeze(details), ...(FIELD_REFERENCE_DETAIL_SCOPE[profile.cardId] ?? FIELD_CONTINUATION_DETAIL_SCOPE[profile.cardId]) });
     return true;
   };
   return { part, custom, tube, line, prism, finish, sphere, box, cone, cylinder, torus };
@@ -315,10 +317,11 @@ function palabyrinthDetails(b) {
 }
 
 export function createFieldReferenceDetailGeometry(ctx) {
-  if (!FIELD_REFERENCE_DETAIL_IDS.includes(ctx.profile.cardId)) return false;
+  if (!FIELD_REFERENCE_DETAIL_IDS.includes(ctx.profile.cardId) && !FIELD_CONTINUATION_DETAIL_IDS.includes(ctx.profile.cardId)) return false;
   const builder = createDetailBuilder(ctx);
   if (ctx.profile.cardId === '67616300') chickenDetails(builder);
   else if (ctx.profile.cardId === '81380218') chorusDetails(builder);
-  else palabyrinthDetails(builder);
+  else if (ctx.profile.cardId === '63883999') palabyrinthDetails(builder);
+  else createContinuationStageDetails(ctx.profile.cardId, builder);
   return builder.finish();
 }

@@ -144,7 +144,9 @@ test('the actual main animation router consumes authorized and rejected inspecti
   assert.ok(handler);
   let publicCalls = 0;
   const publicConsumer = () => { publicCalls += 1; throw new Error('Private event reached a public consumer'); };
+  let publicPanelClears = 0;
   const route = vm.runInNewContext(`(${handler})`, { game, privateCardInspection: inspection,
+    publicCardConfirmation: { clear() { publicPanelClears++; }, handle: publicConsumer },
     campaignTracker: { recordAnimation: publicConsumer }, duelViewController: { playAnimation: publicConsumer },
     document: { getElementById: publicConsumer } });
   route(nativeEvents[0]);
@@ -152,6 +154,7 @@ test('the actual main animation router consumes authorized and rejected inspecti
   route({ ...nativeEvents[0], audienceController: 0, get card() { throw new Error('Wrong audience card read'); } });
   route({ type: 'activate', private: true, get card() { throw new Error('Other private payload read'); } });
   assert.equal(publicCalls, 0);
+  assert.equal(publicPanelClears, 2, 'Both inspection messages retire the previous public confirmation');
 });
 
 test('new Duel, configuration return and game over clear the actual private panel before other work', () => {
@@ -159,5 +162,7 @@ test('new Duel, configuration return and game over clear the actual private pane
   for (const name of ['initGameInstance', 'returnToConfiguration', 'handleGameOver']) {
     const firstStatement = source.match(new RegExp(`(?:async )?function ${name}\\([^]*?\\) \\{\\s*([^;]+;)`))?.[1];
     assert.equal(firstStatement, 'privateCardInspection.clear();', name);
+    const firstTwo = source.match(new RegExp(`(?:async )?function ${name}\\([^]*?\\) \\{\\s*([^;]+;)\\s*([^;]+;)`));
+    assert.equal(firstTwo?.[2], 'publicCardConfirmation.clear();', name);
   }
 });

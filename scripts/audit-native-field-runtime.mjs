@@ -12,10 +12,13 @@ import { auditNativeFieldBatchE, NATIVE_FIELD_BATCH_E_IDS } from './audit-native
 import { auditNativeFieldBatchF, NATIVE_FIELD_BATCH_F_IDS } from './audit-native-field-batch-f.mjs';
 import { runNativeFieldBranchWaveA } from './audit-native-field-branch-wave-a.mjs';
 import { runNativeFieldBranchWaveF } from './audit-native-field-branch-wave-f.mjs';
+import { runNativeFieldContinuationA } from './native-field-continuation-a.mjs';
+import { runNativeFieldContinuationB } from './native-field-continuation-b.mjs';
 import { NATIVE_CARD_SCRIPT_CORRECTIONS, getNativeCardScriptCorrection } from '../src/core/native/NativeCardScriptCorrections.js';
 import { FIELD_SPELL_CARD_DATA_SNAPSHOT } from '../src/ui/FieldSpellCardDataSnapshot.js';
 
-export const NATIVE_FIELD_AUDIT_PATH = new URL('../docs/audits/artifacts/native-field-runtime-wave-2026-10-08.json', import.meta.url);
+export const NATIVE_FIELD_AUDIT_PATH = new URL('../docs/audits/artifacts/native-field-runtime-continuation-2026-10-08.json', import.meta.url);
+export const NATIVE_FIELD_PREVIOUS_AUDIT_PATH = new URL('../docs/audits/artifacts/native-field-runtime-wave-2026-10-08.json', import.meta.url);
 const sha256 = text => createHash('sha256').update(text).digest('hex');
 const json = value => JSON.stringify(value, (_, item) => typeof item === 'bigint' ? item.toString() : item, 2);
 const clone = value => JSON.parse(json(value));
@@ -1848,7 +1851,7 @@ export async function auditNativeFieldEffects(inputs, sharedCore) {
     auditNativeFieldBatchD, auditNativeFieldBatchE, auditNativeFieldBatchF]) {
     scenarios.push(...await audit(inputs, sharedCore));
   }
-  for (const audit of [runNativeFieldBranchWaveA, runNativeFieldBranchWaveF]) {
+  for (const audit of [runNativeFieldBranchWaveA, runNativeFieldBranchWaveF, runNativeFieldContinuationA, runNativeFieldContinuationB]) {
     scenarios.push(...await audit(inputs, sharedCore));
   }
   assert.equal(new Set(scenarios.map(row => row.id)).size, scenarios.length, 'Scenario IDs must be globally unique');
@@ -1866,20 +1869,36 @@ export async function auditNativeFieldRuntime(inputs = null) {
   const sourceFiles = ['scripts/audit-native-field-runtime.mjs', 'scripts/native-field-audit-inputs.mjs',
     'scripts/native-field-audit-harness.mjs', ...'abcdef'.split('').map(lot => `scripts/audit-native-field-batch-${lot}.mjs`),
     'scripts/audit-native-field-branch-wave-a.mjs', 'scripts/audit-native-field-branch-wave-f.mjs',
-    'src/core/native/NativeDuelDecisions.js', 'src/ui/NativeDuelPresentationModel.js',
+    'scripts/native-field-continuation-a.mjs', 'scripts/native-field-continuation-b.mjs',
+    'tests/native-field-continuation-a.test.mjs', 'tests/native-field-continuation-b.test.mjs',
+    'tests/native-field-catalogue.test.js', 'test/native-field-atlas-coverage.test.js',
+    'scripts/generate-native-field-coverage.mjs',
+    'src/core/native/NativeDuelDecisions.js', 'src/core/native/NativePublicRevealPolicy.js', 'src/ui/NativeDuelPresentationModel.js',
     'src/core/native/NativeDuelRuntime.js', 'src/core/native/NativeCardScriptCorrections.js',
     'src/core/native/NativeDiceDungeonScriptCorrection.js', 'src/core/native/NativeDuelTowerScriptCorrection.js',
-    'src/core/native/NativeSourceIntegrity.js', 'src/core/native/vendor/ocgcore/index.js'];
+    'src/core/native/NativeSourceIntegrity.js', 'src/core/native/NativeLuaCompatibility.js',
+    'src/core/native/NativeCardData.js', 'src/core/native/NativeScriptArchive.js', 'src/core/native/NativeCoreAssets.js',
+    'src/core/native/vendor/ocgcore/index.js', 'src/core/native/vendor/ocgcore/ocgcore.sync-MMMSWPBB.js',
+    'src/core/native/vendor/ocgcore/chunk-6GYI7QPM.js', 'src/core/native/vendor/ocgcore/chunk-L5TW24SS.js'];
   const sourceHashes = Object.fromEntries(await Promise.all(sourceFiles.map(async path =>
     [path, sha256(await readFile(new URL(`../${path}`, import.meta.url)))])));
   const matrix = await auditNativeFieldInitialization(inputs, core);
   const scenarios = await auditNativeFieldEffects(inputs, core);
   const effectTested = new Set(scenarios.filter(row => row.status === 'passed').flatMap(row => row.fields));
   for (const entry of matrix) entry.effectTested = effectTested.has(entry.canonicalCode);
+  const previousBytes = await readFile(NATIVE_FIELD_PREVIOUS_AUDIT_PATH);
+  const previous = JSON.parse(previousBytes.toString('utf8'));
+  assert.equal(previous.scenarios.length, 377, 'Historical native Field audit count');
+  assert.equal(scenarios.length, 406, '377 historical plus 15/14 continuation native scenarios');
+  assert.deepEqual(clone(scenarios.slice(0, previous.scenarios.length)), previous.scenarios,
+    'Every field of all 377 historical scenario objects must remain exact');
+  assert.deepEqual(matrix, previous.matrix, 'All 339 historical catalogue matrix rows must remain exact');
   return {
-    generatedOn: '2026-10-08', revision: 'multi-front-wave',
-    evidencePath: 'docs/audits/artifacts/native-field-runtime-wave-2026-10-08.json',
-    previousEvidencePath: 'docs/audits/artifacts/native-field-runtime-2026-10-08.json',
+    generatedOn: '2026-10-08', executedAtUtc: new Date().toISOString(), revision: 'multi-front-continuation',
+    evidencePath: 'docs/audits/artifacts/native-field-runtime-continuation-2026-10-08.json',
+    previousEvidencePath: 'docs/audits/artifacts/native-field-runtime-wave-2026-10-08.json',
+    preservation: { previousScenarioCount: previous.scenarios.length, additionalScenarioCount: 29,
+      previousReportSha256: sha256(previousBytes), entireHistoricalScenariosExact: true, historicalMatrixExact: true },
     corePackage: 'ocgcore-wasm', corePackageVersion: '0.1.2', nativeApi: core.getVersion(),
     coreWasmSha256: inputs.initializer?.wasmBinary ? sha256(new Uint8Array(inputs.initializer.wasmBinary)) : null,
     coreRevision: inputs.coreBuild?.coreRevision ?? null, coreBuild: clone(inputs.coreBuild ?? null),
