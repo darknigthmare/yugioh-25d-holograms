@@ -1,0 +1,2981 @@
+{
+  "date": "2026-10-08",
+  "engine": "official ocgcore ABI 11.0 / EDOPro 38d04c9f",
+  "flags": "12885092352",
+  "declaredFixturesOnly": true,
+  "debugApi": false,
+  "testMode": false,
+  "pseudoShuffle": false,
+  "postStartInjection": false,
+  "sourceHashes": {
+    "public/native/ocgcore.sync.wasm": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+    "public/native/card-data.json": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d",
+    "public/native/scripts.json": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f",
+    "src/core/native/vendor/ocgcore/index.js": "8cfbec622cf5b920e0b58db6d842fcabf1a9ef8eed9f0841bac43a1e9adb0657",
+    "src/core/native/NativeDuelGame.js": "f29c5061f0d47ca657bcd88b0bfbb0954a5dcc51fa4c9c0f1827f9fbfa7c5a11"
+  },
+  "scripts": [
+    {
+      "code": 12607053,
+      "sourceCode": 12607053,
+      "name": "Waboku",
+      "script": "c12607053.lua",
+      "sha256": "34b00bb9f11c8c9887bb46a667a8f14a9e8877a0f256fd3fee85f7e2b7c79a85"
+    },
+    {
+      "code": 14087893,
+      "sourceCode": 14087893,
+      "name": "Book of Moon",
+      "script": "c14087893.lua",
+      "sha256": "25848f596f425817a250bef9038343fbbcd482b40a0312d84c143e927b12083d"
+    },
+    {
+      "code": 14315573,
+      "sourceCode": 14315573,
+      "name": "Negate Attack",
+      "script": "c14315573.lua",
+      "sha256": "3ccbd9bb7dea4ecce7f37793ad083b15970e4f1da7cbd1f65109b475dfbc3d6c"
+    },
+    {
+      "code": 15025844,
+      "sourceCode": 15025844,
+      "name": "Mystical Elf",
+      "script": "c15025844.lua",
+      "sha256": null
+    },
+    {
+      "code": 18036057,
+      "sourceCode": 18036057,
+      "name": "Airknight Parshath",
+      "script": "c18036057.lua",
+      "sha256": "3b0529712c45b0758701f0f3da65c7df59d8eb96efee98067e83f3e6437389c6"
+    },
+    {
+      "code": 23995346,
+      "sourceCode": 23995346,
+      "name": "Blue-Eyes Ultimate Dragon",
+      "script": "c23995346.lua",
+      "sha256": "7bafe02f5263a360cb0feb9f50d88559146e1fb48fb5369dd872312bb6372538"
+    },
+    {
+      "code": 31553716,
+      "sourceCode": 31553716,
+      "name": "Spear Dragon",
+      "script": "c31553716.lua",
+      "sha256": "6fd080e0edfd69d1119ad0072a16384221003681d24787593e53aded9a3b3ca9"
+    },
+    {
+      "code": 37742478,
+      "sourceCode": 37742478,
+      "name": "Honest",
+      "script": "c37742478.lua",
+      "sha256": "45d1e4686dbe65af3f8ceb1b6c129820d18eaed2ab80d1337e57978b6e82b448"
+    },
+    {
+      "code": 40605147,
+      "sourceCode": 40605147,
+      "name": "Solemn Strike",
+      "script": "c40605147.lua",
+      "sha256": "6919100d0234025a8a4adfaed1a236b94f9825c8f77da95a7dfaf3964e14dd99"
+    },
+    {
+      "code": 40640057,
+      "sourceCode": 40640057,
+      "name": "Kuriboh",
+      "script": "c40640057.lua",
+      "sha256": "09622bcf802fc9ce22e4c180b9a6876f8aa31aef6386d61d29a52b762828eafb"
+    },
+    {
+      "code": 46986414,
+      "sourceCode": 46986414,
+      "name": "Dark Magician",
+      "script": "c46986414.lua",
+      "sha256": null
+    },
+    {
+      "code": 55410871,
+      "sourceCode": 55410871,
+      "name": "Blue-Eyes Chaos MAX Dragon",
+      "script": "c55410871.lua",
+      "sha256": "9a8f493d267d6c883fbb3f69431b2f4d75ba26775f08b4ebb59af08ee0deb835"
+    },
+    {
+      "code": 57585212,
+      "sourceCode": 57585212,
+      "name": "Self-Destruct Button",
+      "script": "c57585212.lua",
+      "sha256": "8f211616aff07a8cbf1996d0ee2c5ddfe04e3db48e2857981c54778bc734d542"
+    },
+    {
+      "code": 73915051,
+      "sourceCode": 73915051,
+      "name": "Scapegoat",
+      "script": "c73915051.lua",
+      "sha256": "d710587c2127a02275627a956491c1df3513957c525f86609a8e0a695ef1ed9c"
+    },
+    {
+      "code": 74157028,
+      "sourceCode": 74157028,
+      "name": "Cyber Twin Dragon",
+      "script": "c74157028.lua",
+      "sha256": "cd49504d249e0533a33dc67a0f83f7c99856cc72c55d018f7fe870f39311103b"
+    },
+    {
+      "code": 76812113,
+      "sourceCode": 76812113,
+      "name": "Harpie Lady",
+      "script": "c76812113.lua",
+      "sha256": null
+    },
+    {
+      "code": 84013237,
+      "sourceCode": 84013237,
+      "name": "Number 39: Utopia",
+      "script": "c84013237.lua",
+      "sha256": "9e31ccc17fc5ec91709b6865c5c3de3a8700f1f48404a36318a99c470dcdc4bd"
+    },
+    {
+      "code": 89631139,
+      "sourceCode": 89631139,
+      "name": "Blue-Eyes White Dragon",
+      "script": "c89631139.lua",
+      "sha256": null
+    },
+    {
+      "code": 94004268,
+      "sourceCode": 94004268,
+      "name": "Amazoness Swords Woman",
+      "script": "c94004268.lua",
+      "sha256": "f7e97ae4aff47f0664a1a6622a01df2d7afb90d5d479f6f1de880a32e35d6433"
+    },
+    {
+      "code": 94192409,
+      "sourceCode": 94192409,
+      "name": "Compulsory Evacuation Device",
+      "script": "c94192409.lua",
+      "sha256": "973a7429e613bf803d75d8df70a83eaa23ca32836f7c6a5eb8daa0664946bfb3"
+    },
+    {
+      "code": 97590747,
+      "sourceCode": 97590747,
+      "name": "La Jinn the Mystical Genie of the Lamp",
+      "script": "c97590747.lua",
+      "sha256": null
+    },
+    {
+      "code": 98045062,
+      "sourceCode": 98045062,
+      "name": "Enemy Controller",
+      "script": "c98045062.lua",
+      "sha256": "b8a8d14cd45e2d7944b1a316e1849b762708481d0729078efad091cb4022adea"
+    }
+  ],
+  "cases": [
+    {
+      "name": "direct attack / one attack limit",
+      "result": "pass",
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 5000,
+        "turn": "player",
+        "phase": "battle",
+        "player": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 89631139,
+            "attack": 3000,
+            "defense": 2500
+          }
+        ],
+        "opponent": [],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 16,
+        "10": 2,
+        "11": 2,
+        "16": 16,
+        "40": 2,
+        "41": 8,
+        "91": 1,
+        "110": 1,
+        "111": 1,
+        "113": 1,
+        "114": 1
+      },
+      "decisions": [],
+      "battleStats": [
+        {
+          "target": "player",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "attacker",
+          "nativeStats": {
+            "attack": 3000,
+            "defense": 2500
+          },
+          "destroyed": false
+        }
+      ],
+      "animations": [
+        {
+          "type": "attack-direct",
+          "target": "opponent",
+          "publicCode": 89631139
+        },
+        {
+          "type": "damage-step"
+        },
+        {
+          "type": "battle-stats",
+          "target": "player",
+          "publicCode": 89631139
+        },
+        {
+          "type": "lp-loss",
+          "target": "opponent",
+          "amount": 3000,
+          "cost": false
+        },
+        {
+          "type": "damage-step"
+        }
+      ]
+    },
+    {
+      "name": "attack versus attack difference",
+      "result": "pass",
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 6800,
+        "turn": "player",
+        "phase": "battle",
+        "player": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 89631139,
+            "attack": 3000,
+            "defense": 2500
+          }
+        ],
+        "opponent": [],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [],
+          [
+            97590747
+          ]
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 17,
+        "10": 2,
+        "11": 2,
+        "15": 1,
+        "16": 16,
+        "40": 2,
+        "41": 8,
+        "50": 1,
+        "91": 1,
+        "110": 1,
+        "111": 1,
+        "113": 1,
+        "114": 1
+      },
+      "decisions": [],
+      "battleStats": [
+        {
+          "target": "player",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "attacker",
+          "nativeStats": {
+            "attack": 3000,
+            "defense": 2500
+          },
+          "destroyed": false
+        },
+        {
+          "target": "opponent",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "defender",
+          "nativeStats": {
+            "attack": 1800,
+            "defense": 1000
+          },
+          "destroyed": true
+        }
+      ],
+      "animations": [
+        {
+          "type": "attack-monster",
+          "target": "opponent",
+          "publicCode": 89631139
+        },
+        {
+          "type": "damage-step"
+        },
+        {
+          "type": "battle-stats",
+          "target": "player",
+          "publicCode": 89631139
+        },
+        {
+          "type": "battle-stats",
+          "target": "opponent",
+          "publicCode": 97590747
+        },
+        {
+          "type": "lp-loss",
+          "target": "opponent",
+          "amount": 1200,
+          "cost": false
+        },
+        {
+          "type": "move",
+          "target": "opponent",
+          "publicCode": 97590747
+        },
+        {
+          "type": "destroy",
+          "target": "opponent",
+          "publicCode": 97590747
+        },
+        {
+          "type": "damage-step"
+        }
+      ]
+    },
+    {
+      "name": "stronger defense / attacker damage",
+      "result": "pass",
+      "final": {
+        "playerLP": 7700,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "battle",
+        "player": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 97590747,
+            "attack": 1800,
+            "defense": 1000
+          }
+        ],
+        "opponent": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 46986414,
+            "attack": 2500,
+            "defense": 2100
+          }
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 17,
+        "10": 2,
+        "11": 2,
+        "15": 1,
+        "16": 16,
+        "40": 2,
+        "41": 8,
+        "91": 1,
+        "110": 1,
+        "111": 1,
+        "113": 1,
+        "114": 1
+      },
+      "decisions": [],
+      "battleStats": [
+        {
+          "target": "player",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "attacker",
+          "nativeStats": {
+            "attack": 1800,
+            "defense": 1000
+          },
+          "destroyed": false
+        },
+        {
+          "target": "opponent",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "defender",
+          "nativeStats": {
+            "attack": 2500,
+            "defense": 2100
+          },
+          "destroyed": false
+        }
+      ],
+      "animations": [
+        {
+          "type": "attack-monster",
+          "target": "opponent",
+          "publicCode": 97590747
+        },
+        {
+          "type": "damage-step"
+        },
+        {
+          "type": "battle-stats",
+          "target": "player",
+          "publicCode": 97590747
+        },
+        {
+          "type": "battle-stats",
+          "target": "opponent",
+          "publicCode": 46986414
+        },
+        {
+          "type": "lp-loss",
+          "target": "player",
+          "amount": 300,
+          "cost": false
+        },
+        {
+          "type": "damage-step"
+        }
+      ]
+    },
+    {
+      "name": "equal attack / simultaneous destruction",
+      "result": "pass",
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "battle",
+        "player": [],
+        "opponent": [],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            97590747
+          ],
+          [
+            97590747
+          ]
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 17,
+        "10": 2,
+        "11": 2,
+        "15": 1,
+        "16": 16,
+        "40": 2,
+        "41": 8,
+        "50": 2,
+        "110": 1,
+        "111": 1,
+        "113": 1,
+        "114": 1
+      },
+      "decisions": [],
+      "battleStats": [
+        {
+          "target": "player",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "attacker",
+          "nativeStats": {
+            "attack": 1800,
+            "defense": 1000
+          },
+          "destroyed": true
+        },
+        {
+          "target": "opponent",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "defender",
+          "nativeStats": {
+            "attack": 1800,
+            "defense": 1000
+          },
+          "destroyed": true
+        }
+      ],
+      "animations": [
+        {
+          "type": "attack-monster",
+          "target": "opponent",
+          "publicCode": 97590747
+        },
+        {
+          "type": "damage-step"
+        },
+        {
+          "type": "battle-stats",
+          "target": "player",
+          "publicCode": 97590747
+        },
+        {
+          "type": "battle-stats",
+          "target": "opponent",
+          "publicCode": 97590747
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 97590747
+        },
+        {
+          "type": "destroy",
+          "target": "player",
+          "publicCode": 97590747
+        },
+        {
+          "type": "move",
+          "target": "opponent",
+          "publicCode": 97590747
+        },
+        {
+          "type": "destroy",
+          "target": "opponent",
+          "publicCode": 97590747
+        },
+        {
+          "type": "damage-step"
+        }
+      ]
+    },
+    {
+      "name": "set defender / native reveal / no piercing",
+      "result": "pass",
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "battle",
+        "player": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 89631139,
+            "attack": 3000,
+            "defense": 2500
+          }
+        ],
+        "opponent": [],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [],
+          [
+            15025844
+          ]
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 17,
+        "10": 2,
+        "11": 2,
+        "15": 1,
+        "16": 16,
+        "40": 2,
+        "41": 8,
+        "50": 1,
+        "53": 1,
+        "110": 1,
+        "111": 1,
+        "113": 1,
+        "114": 1
+      },
+      "decisions": [],
+      "battleStats": [
+        {
+          "target": "player",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "attacker",
+          "nativeStats": {
+            "attack": 3000,
+            "defense": 2500
+          },
+          "destroyed": false
+        },
+        {
+          "target": "opponent",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "defender",
+          "nativeStats": {
+            "attack": 800,
+            "defense": 2000
+          },
+          "destroyed": true
+        }
+      ],
+      "animations": [
+        {
+          "type": "attack-monster",
+          "target": "opponent",
+          "publicCode": 89631139
+        },
+        {
+          "type": "damage-step"
+        },
+        {
+          "type": "toggle-position",
+          "target": "opponent",
+          "publicReveal": true,
+          "publicCode": 15025844
+        },
+        {
+          "type": "battle-stats",
+          "target": "player",
+          "publicCode": 89631139
+        },
+        {
+          "type": "battle-stats",
+          "target": "opponent",
+          "publicCode": 15025844
+        },
+        {
+          "type": "move",
+          "target": "opponent",
+          "publicCode": 15025844
+        },
+        {
+          "type": "destroy",
+          "target": "opponent",
+          "publicCode": 15025844
+        },
+        {
+          "type": "damage-step"
+        }
+      ]
+    },
+    {
+      "name": "Spear Dragon / piercing / forced defense",
+      "result": "pass",
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 7100,
+        "turn": "player",
+        "phase": "battle",
+        "player": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 31553716,
+            "attack": 1900,
+            "defense": 0
+          }
+        ],
+        "opponent": [],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [],
+          [
+            97590747
+          ]
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 17,
+        "10": 2,
+        "11": 2,
+        "15": 1,
+        "16": 16,
+        "40": 2,
+        "41": 8,
+        "50": 1,
+        "53": 1,
+        "91": 1,
+        "110": 1,
+        "111": 1,
+        "113": 1,
+        "114": 1
+      },
+      "decisions": [],
+      "battleStats": [
+        {
+          "target": "player",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "attacker",
+          "nativeStats": {
+            "attack": 1900,
+            "defense": 0
+          },
+          "destroyed": false
+        },
+        {
+          "target": "opponent",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "defender",
+          "nativeStats": {
+            "attack": 1800,
+            "defense": 1000
+          },
+          "destroyed": true
+        }
+      ],
+      "animations": [
+        {
+          "type": "attack-monster",
+          "target": "opponent",
+          "publicCode": 31553716
+        },
+        {
+          "type": "damage-step"
+        },
+        {
+          "type": "battle-stats",
+          "target": "player",
+          "publicCode": 31553716
+        },
+        {
+          "type": "battle-stats",
+          "target": "opponent",
+          "publicCode": 97590747
+        },
+        {
+          "type": "lp-loss",
+          "target": "opponent",
+          "amount": 900,
+          "cost": false
+        },
+        {
+          "type": "move",
+          "target": "opponent",
+          "publicCode": 97590747
+        },
+        {
+          "type": "destroy",
+          "target": "opponent",
+          "publicCode": 97590747
+        },
+        {
+          "type": "toggle-position",
+          "target": "player",
+          "publicCode": 31553716
+        },
+        {
+          "type": "damage-step"
+        }
+      ]
+    },
+    {
+      "name": "Chaos MAX / double piercing",
+      "result": "pass",
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 2000,
+        "turn": "player",
+        "phase": "battle",
+        "player": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 55410871,
+            "attack": 4000,
+            "defense": 0
+          }
+        ],
+        "opponent": [],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [],
+          [
+            97590747
+          ]
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 17,
+        "10": 2,
+        "11": 2,
+        "15": 1,
+        "16": 16,
+        "40": 2,
+        "41": 8,
+        "50": 1,
+        "91": 1,
+        "110": 1,
+        "111": 1,
+        "113": 1,
+        "114": 1
+      },
+      "decisions": [],
+      "battleStats": [
+        {
+          "target": "player",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "attacker",
+          "nativeStats": {
+            "attack": 4000,
+            "defense": 0
+          },
+          "destroyed": false
+        },
+        {
+          "target": "opponent",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "defender",
+          "nativeStats": {
+            "attack": 1800,
+            "defense": 1000
+          },
+          "destroyed": true
+        }
+      ],
+      "animations": [
+        {
+          "type": "attack-monster",
+          "target": "opponent",
+          "publicCode": 55410871
+        },
+        {
+          "type": "damage-step"
+        },
+        {
+          "type": "battle-stats",
+          "target": "player",
+          "publicCode": 55410871
+        },
+        {
+          "type": "battle-stats",
+          "target": "opponent",
+          "publicCode": 97590747
+        },
+        {
+          "type": "lp-loss",
+          "target": "opponent",
+          "amount": 6000,
+          "cost": false
+        },
+        {
+          "type": "move",
+          "target": "opponent",
+          "publicCode": 97590747
+        },
+        {
+          "type": "destroy",
+          "target": "opponent",
+          "publicCode": 97590747
+        },
+        {
+          "type": "damage-step"
+        }
+      ]
+    },
+    {
+      "name": "Amazoness / damage redirection",
+      "result": "pass",
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 6500,
+        "turn": "player",
+        "phase": "battle",
+        "player": [],
+        "opponent": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 89631139,
+            "attack": 3000,
+            "defense": 2500
+          }
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            94004268
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 17,
+        "10": 2,
+        "11": 2,
+        "15": 1,
+        "16": 16,
+        "40": 2,
+        "41": 8,
+        "50": 1,
+        "91": 1,
+        "110": 1,
+        "111": 1,
+        "113": 1,
+        "114": 1
+      },
+      "decisions": [],
+      "battleStats": [
+        {
+          "target": "player",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "attacker",
+          "nativeStats": {
+            "attack": 1500,
+            "defense": 1600
+          },
+          "destroyed": true
+        },
+        {
+          "target": "opponent",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "defender",
+          "nativeStats": {
+            "attack": 3000,
+            "defense": 2500
+          },
+          "destroyed": false
+        }
+      ],
+      "animations": [
+        {
+          "type": "attack-monster",
+          "target": "opponent",
+          "publicCode": 94004268
+        },
+        {
+          "type": "damage-step"
+        },
+        {
+          "type": "battle-stats",
+          "target": "player",
+          "publicCode": 94004268
+        },
+        {
+          "type": "battle-stats",
+          "target": "opponent",
+          "publicCode": 89631139
+        },
+        {
+          "type": "lp-loss",
+          "target": "opponent",
+          "amount": 1500,
+          "cost": false
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 94004268
+        },
+        {
+          "type": "destroy",
+          "target": "player",
+          "publicCode": 94004268
+        },
+        {
+          "type": "damage-step"
+        }
+      ]
+    },
+    {
+      "name": "Waboku / damage and destruction prevention",
+      "result": "pass",
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 97590747,
+            "attack": 1800,
+            "defense": 1000
+          }
+        ],
+        "opponent": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 89631139,
+            "attack": 3000,
+            "defense": 2500
+          }
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            12607053
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 32,
+        "10": 2,
+        "11": 5,
+        "15": 1,
+        "16": 32,
+        "40": 4,
+        "41": 17,
+        "50": 1,
+        "53": 1,
+        "70": 1,
+        "71": 1,
+        "72": 1,
+        "73": 1,
+        "74": 1,
+        "110": 1,
+        "111": 1,
+        "113": 1,
+        "114": 1
+      },
+      "decisions": [
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN"
+      ],
+      "battleStats": [
+        {
+          "target": "opponent",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "attacker",
+          "nativeStats": {
+            "attack": 3000,
+            "defense": 2500
+          },
+          "destroyed": false
+        },
+        {
+          "target": "player",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "defender",
+          "nativeStats": {
+            "attack": 1800,
+            "defense": 1000
+          },
+          "destroyed": false
+        }
+      ],
+      "animations": [
+        {
+          "type": "attack-monster",
+          "target": "player",
+          "publicCode": 89631139
+        },
+        {
+          "type": "toggle-position",
+          "target": "player",
+          "publicReveal": true,
+          "publicCode": 12607053
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 12607053
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 12607053
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 12607053
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 12607053
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 12607053
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        },
+        {
+          "type": "damage-step"
+        },
+        {
+          "type": "battle-stats",
+          "target": "opponent",
+          "publicCode": 89631139
+        },
+        {
+          "type": "battle-stats",
+          "target": "player",
+          "publicCode": 97590747
+        },
+        {
+          "type": "damage-step"
+        }
+      ]
+    },
+    {
+      "name": "Negate Attack / native attack negation",
+      "result": "pass",
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [],
+        "opponent": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 89631139,
+            "attack": 3000,
+            "defense": 2500
+          }
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            14315573
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 8,
+        "10": 1,
+        "11": 5,
+        "16": 10,
+        "40": 4,
+        "41": 17,
+        "50": 1,
+        "53": 1,
+        "70": 1,
+        "71": 1,
+        "72": 1,
+        "73": 1,
+        "74": 1,
+        "83": 1,
+        "110": 1,
+        "112": 1
+      },
+      "decisions": [
+        "SELECT_CHAIN"
+      ],
+      "battleStats": [],
+      "animations": [
+        {
+          "type": "attack-direct",
+          "target": "player",
+          "publicCode": 89631139
+        },
+        {
+          "type": "toggle-position",
+          "target": "player",
+          "publicReveal": true,
+          "publicCode": 14315573
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 14315573
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 14315573
+        },
+        {
+          "type": "target",
+          "target": "opponent"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 14315573
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 14315573
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 14315573
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        },
+        {
+          "type": "attack-negated",
+          "target": "player",
+          "publicCode": 89631139
+        }
+      ]
+    },
+    {
+      "name": "Scapegoat / direct attack replay to new token",
+      "result": "pass",
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 1,
+            "faceDown": false,
+            "publicCode": 73915053,
+            "attack": 0,
+            "defense": 0
+          },
+          {
+            "zoneType": "main",
+            "zoneIndex": 2,
+            "faceDown": false,
+            "publicCode": 73915054,
+            "attack": 0,
+            "defense": 0
+          },
+          {
+            "zoneType": "main",
+            "zoneIndex": 3,
+            "faceDown": false,
+            "publicCode": 73915055,
+            "attack": 0,
+            "defense": 0
+          }
+        ],
+        "opponent": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 89631139,
+            "attack": 3000,
+            "defense": 2500
+          }
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            73915051
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 35,
+        "10": 2,
+        "11": 5,
+        "13": 1,
+        "15": 1,
+        "16": 34,
+        "18": 4,
+        "40": 4,
+        "41": 17,
+        "50": 6,
+        "53": 1,
+        "62": 4,
+        "63": 1,
+        "70": 1,
+        "71": 1,
+        "72": 1,
+        "73": 1,
+        "74": 1,
+        "110": 2,
+        "111": 1,
+        "113": 1,
+        "114": 1,
+        "160": 5,
+        "165": 2
+      },
+      "decisions": [
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_PLACE",
+        "SELECT_PLACE",
+        "SELECT_PLACE",
+        "SELECT_PLACE"
+      ],
+      "battleStats": [
+        {
+          "target": "opponent",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "attacker",
+          "nativeStats": {
+            "attack": 3000,
+            "defense": 2500
+          },
+          "destroyed": false
+        },
+        {
+          "target": "player",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "defender",
+          "nativeStats": {
+            "attack": 0,
+            "defense": 0
+          },
+          "destroyed": true
+        }
+      ],
+      "animations": [
+        {
+          "type": "attack-direct",
+          "target": "player",
+          "publicCode": 89631139
+        },
+        {
+          "type": "toggle-position",
+          "target": "player",
+          "publicReveal": true,
+          "publicCode": 73915051
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 73915051
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 73915051
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 73915051
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 73915052
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 73915053
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 73915054
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 73915055
+        },
+        {
+          "type": "summon",
+          "target": "player",
+          "nativeSummonConfirmed": true,
+          "publicCode": 73915052
+        },
+        {
+          "type": "summon",
+          "target": "player",
+          "nativeSummonConfirmed": true,
+          "publicCode": 73915053
+        },
+        {
+          "type": "summon",
+          "target": "player",
+          "nativeSummonConfirmed": true,
+          "publicCode": 73915054
+        },
+        {
+          "type": "summon",
+          "target": "player",
+          "nativeSummonConfirmed": true,
+          "publicCode": 73915055
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 73915051
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 73915051
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        },
+        {
+          "type": "attack-monster",
+          "target": "player",
+          "publicCode": 89631139
+        },
+        {
+          "type": "damage-step"
+        },
+        {
+          "type": "battle-stats",
+          "target": "opponent",
+          "publicCode": 89631139
+        },
+        {
+          "type": "battle-stats",
+          "target": "player",
+          "publicCode": 73915052
+        },
+        {
+          "type": "move",
+          "target": "player"
+        },
+        {
+          "type": "destroy",
+          "target": "player",
+          "publicCode": 73915052
+        },
+        {
+          "type": "damage-step"
+        }
+      ]
+    },
+    {
+      "name": "Compulsory / target departure / direct replay",
+      "result": "pass",
+      "final": {
+        "playerLP": 5000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [],
+        "opponent": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 89631139,
+            "attack": 3000,
+            "defense": 2500
+          }
+        ],
+        "handCounts": [
+          1,
+          0
+        ],
+        "graveyards": [
+          [
+            94192409
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 32,
+        "10": 2,
+        "11": 5,
+        "13": 1,
+        "15": 2,
+        "16": 34,
+        "33": 1,
+        "40": 4,
+        "41": 17,
+        "50": 2,
+        "53": 1,
+        "70": 1,
+        "71": 1,
+        "72": 1,
+        "73": 1,
+        "74": 1,
+        "83": 1,
+        "91": 1,
+        "110": 2,
+        "111": 1,
+        "113": 1,
+        "114": 1,
+        "160": 3
+      },
+      "decisions": [
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CARD"
+      ],
+      "battleStats": [
+        {
+          "target": "opponent",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "attacker",
+          "nativeStats": {
+            "attack": 3000,
+            "defense": 2500
+          },
+          "destroyed": false
+        }
+      ],
+      "animations": [
+        {
+          "type": "attack-monster",
+          "target": "player",
+          "publicCode": 89631139
+        },
+        {
+          "type": "toggle-position",
+          "target": "player",
+          "publicReveal": true,
+          "publicCode": 94192409
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 94192409
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 94192409
+        },
+        {
+          "type": "target",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 94192409
+        },
+        {
+          "type": "move",
+          "target": "player"
+        },
+        {
+          "type": "shuffle",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 94192409
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 94192409
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        },
+        {
+          "type": "attack-direct",
+          "target": "player",
+          "publicCode": 89631139
+        },
+        {
+          "type": "damage-step"
+        },
+        {
+          "type": "battle-stats",
+          "target": "opponent",
+          "publicCode": 89631139
+        },
+        {
+          "type": "lp-loss",
+          "target": "player",
+          "amount": 3000,
+          "cost": false
+        },
+        {
+          "type": "damage-step"
+        }
+      ]
+    },
+    {
+      "name": "Book of Moon / position change / no replay",
+      "result": "pass",
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [],
+        "opponent": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 89631139,
+            "attack": 3000,
+            "defense": 2500
+          }
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            14087893,
+            97590747
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 32,
+        "10": 2,
+        "11": 5,
+        "15": 2,
+        "16": 32,
+        "40": 4,
+        "41": 17,
+        "50": 2,
+        "53": 3,
+        "70": 1,
+        "71": 1,
+        "72": 1,
+        "73": 1,
+        "74": 1,
+        "83": 1,
+        "110": 1,
+        "111": 1,
+        "113": 1,
+        "114": 1
+      },
+      "decisions": [
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CARD"
+      ],
+      "battleStats": [
+        {
+          "target": "opponent",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "attacker",
+          "nativeStats": {
+            "attack": 3000,
+            "defense": 2500
+          },
+          "destroyed": false
+        },
+        {
+          "target": "player",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "defender",
+          "nativeStats": {
+            "attack": 1800,
+            "defense": 1000
+          },
+          "destroyed": true
+        }
+      ],
+      "animations": [
+        {
+          "type": "attack-monster",
+          "target": "player",
+          "publicCode": 89631139
+        },
+        {
+          "type": "toggle-position",
+          "target": "player",
+          "publicReveal": true,
+          "publicCode": 14087893
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 14087893
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 14087893
+        },
+        {
+          "type": "target",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 14087893
+        },
+        {
+          "type": "set-monster",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 14087893
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 14087893
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        },
+        {
+          "type": "damage-step"
+        },
+        {
+          "type": "toggle-position",
+          "target": "player",
+          "publicReveal": true,
+          "publicCode": 97590747
+        },
+        {
+          "type": "battle-stats",
+          "target": "opponent",
+          "publicCode": 89631139
+        },
+        {
+          "type": "battle-stats",
+          "target": "player",
+          "publicCode": 97590747
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 97590747
+        },
+        {
+          "type": "destroy",
+          "target": "player",
+          "publicCode": 97590747
+        },
+        {
+          "type": "damage-step"
+        }
+      ]
+    },
+    {
+      "name": "Honest / Damage Step / exact temporary attack",
+      "result": "pass",
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 5000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 89631139,
+            "attack": 3000,
+            "defense": 2500
+          }
+        ],
+        "opponent": [],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            37742478
+          ],
+          [
+            23995346
+          ]
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 24,
+        "10": 3,
+        "11": 5,
+        "15": 1,
+        "16": 24,
+        "33": 1,
+        "40": 4,
+        "41": 19,
+        "50": 2,
+        "70": 1,
+        "71": 1,
+        "72": 1,
+        "73": 1,
+        "74": 1,
+        "91": 1,
+        "110": 1,
+        "111": 1,
+        "113": 1,
+        "114": 1
+      },
+      "decisions": [
+        "SELECT_CHAIN"
+      ],
+      "battleStats": [
+        {
+          "target": "player",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "attacker",
+          "nativeStats": {
+            "attack": 7500,
+            "defense": 2500
+          },
+          "destroyed": false
+        },
+        {
+          "target": "opponent",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "defender",
+          "nativeStats": {
+            "attack": 4500,
+            "defense": 3800
+          },
+          "destroyed": true
+        }
+      ],
+      "animations": [
+        {
+          "type": "shuffle",
+          "target": "player"
+        },
+        {
+          "type": "attack-monster",
+          "target": "opponent",
+          "publicCode": 89631139
+        },
+        {
+          "type": "damage-step"
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 37742478
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 37742478
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 37742478
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 37742478
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 37742478
+        },
+        {
+          "type": "chain-end"
+        },
+        {
+          "type": "battle-stats",
+          "target": "player",
+          "publicCode": 89631139
+        },
+        {
+          "type": "battle-stats",
+          "target": "opponent",
+          "publicCode": 23995346
+        },
+        {
+          "type": "lp-loss",
+          "target": "opponent",
+          "amount": 3000,
+          "cost": false
+        },
+        {
+          "type": "move",
+          "target": "opponent",
+          "publicCode": 23995346
+        },
+        {
+          "type": "destroy",
+          "target": "opponent",
+          "publicCode": 23995346
+        },
+        {
+          "type": "damage-step"
+        }
+      ]
+    },
+    {
+      "name": "Kuriboh / damage calculation / damage prevention",
+      "result": "pass",
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [],
+        "opponent": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 89631139,
+            "attack": 3000,
+            "defense": 2500
+          }
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            40640057
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 21,
+        "10": 2,
+        "11": 5,
+        "16": 23,
+        "33": 1,
+        "40": 4,
+        "41": 17,
+        "50": 1,
+        "70": 1,
+        "71": 1,
+        "72": 1,
+        "73": 1,
+        "74": 1,
+        "110": 1,
+        "111": 1,
+        "113": 1,
+        "114": 1
+      },
+      "decisions": [
+        "SELECT_CHAIN"
+      ],
+      "battleStats": [
+        {
+          "target": "opponent",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "attacker",
+          "nativeStats": {
+            "attack": 3000,
+            "defense": 2500
+          },
+          "destroyed": false
+        }
+      ],
+      "animations": [
+        {
+          "type": "shuffle",
+          "target": "player"
+        },
+        {
+          "type": "attack-direct",
+          "target": "player",
+          "publicCode": 89631139
+        },
+        {
+          "type": "damage-step"
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 40640057
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 40640057
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 40640057
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 40640057
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 40640057
+        },
+        {
+          "type": "chain-end"
+        },
+        {
+          "type": "battle-stats",
+          "target": "opponent",
+          "publicCode": 89631139
+        },
+        {
+          "type": "damage-step"
+        }
+      ]
+    },
+    {
+      "name": "attack intention scoped / attacker withdrawn",
+      "result": "pass",
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "battle",
+        "player": [],
+        "opponent": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 97590747,
+            "attack": 1800,
+            "defense": 1000
+          }
+        ],
+        "handCounts": [
+          1,
+          0
+        ],
+        "graveyards": [
+          [
+            94192409
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 12,
+        "10": 2,
+        "11": 2,
+        "15": 2,
+        "16": 13,
+        "33": 1,
+        "40": 2,
+        "41": 8,
+        "50": 2,
+        "53": 1,
+        "70": 1,
+        "71": 1,
+        "72": 1,
+        "73": 1,
+        "74": 1,
+        "83": 1,
+        "110": 1,
+        "160": 3
+      },
+      "decisions": [
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CARD"
+      ],
+      "battleStats": [],
+      "animations": [
+        {
+          "type": "attack-monster",
+          "target": "opponent",
+          "publicCode": 89631139
+        },
+        {
+          "type": "toggle-position",
+          "target": "player",
+          "publicReveal": true,
+          "publicCode": 94192409
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 94192409
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 94192409
+        },
+        {
+          "type": "target",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 94192409
+        },
+        {
+          "type": "move",
+          "target": "player"
+        },
+        {
+          "type": "shuffle",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 94192409
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 94192409
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        }
+      ]
+    },
+    {
+      "name": "Enemy Controller / attacking monster control change",
+      "result": "pass",
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "main1",
+        "player": [],
+        "opponent": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 89631139,
+            "attack": 3000,
+            "defense": 2500
+          }
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            97590747,
+            98045062
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 24,
+        "10": 2,
+        "11": 5,
+        "14": 1,
+        "15": 2,
+        "16": 22,
+        "18": 2,
+        "26": 1,
+        "40": 4,
+        "41": 17,
+        "50": 4,
+        "53": 1,
+        "70": 1,
+        "71": 1,
+        "72": 1,
+        "73": 1,
+        "74": 1,
+        "83": 1,
+        "110": 1
+      },
+      "decisions": [
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_OPTION",
+        "SELECT_UNSELECT_CARD",
+        "SELECT_CARD",
+        "SELECT_PLACE"
+      ],
+      "battleStats": [],
+      "animations": [
+        {
+          "type": "attack-monster",
+          "target": "player",
+          "publicCode": 89631139
+        },
+        {
+          "type": "toggle-position",
+          "target": "player",
+          "publicReveal": true,
+          "publicCode": 98045062
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 98045062
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 98045062
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 97590747
+        },
+        {
+          "type": "target",
+          "target": "opponent"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 98045062
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 89631139
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 98045062
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 98045062
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        },
+        {
+          "type": "move",
+          "target": "opponent",
+          "publicCode": 89631139
+        }
+      ]
+    },
+    {
+      "name": "Solemn Strike / effect negation / paid Xyz material",
+      "result": "pass",
+      "final": {
+        "playerLP": 6500,
+        "opponentLP": 8000,
+        "turn": "player",
+        "phase": "battle",
+        "player": [],
+        "opponent": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 89631139,
+            "attack": 3000,
+            "defense": 2500
+          }
+        ],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            97590747,
+            84013237,
+            76812113,
+            40605147
+          ],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 9,
+        "10": 2,
+        "11": 3,
+        "12": 1,
+        "15": 2,
+        "16": 12,
+        "18": 1,
+        "19": 1,
+        "26": 2,
+        "40": 2,
+        "41": 8,
+        "50": 7,
+        "53": 1,
+        "62": 1,
+        "63": 1,
+        "70": 2,
+        "71": 2,
+        "72": 2,
+        "73": 2,
+        "74": 1,
+        "75": 1,
+        "100": 1,
+        "110": 1
+      },
+      "decisions": [
+        "SELECT_UNSELECT_CARD",
+        "SELECT_UNSELECT_CARD",
+        "SELECT_PLACE",
+        "SELECT_POSITION",
+        "SELECT_CHAIN",
+        "SELECT_EFFECTYN",
+        "SELECT_CARD",
+        "SELECT_CHAIN"
+      ],
+      "battleStats": [],
+      "animations": [
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 97590747
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 76812113
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 84013237
+        },
+        {
+          "type": "summon",
+          "target": "player",
+          "nativeSummonConfirmed": true,
+          "publicCode": 84013237
+        },
+        {
+          "type": "attack-monster",
+          "target": "opponent",
+          "publicCode": 84013237
+        },
+        {
+          "type": "activate-monster-effect",
+          "target": "player",
+          "publicCode": 84013237
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 84013237
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 97590747
+        },
+        {
+          "type": "toggle-position",
+          "target": "player",
+          "publicReveal": true,
+          "publicCode": 40605147
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 40605147
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 40605147
+        },
+        {
+          "type": "lp-loss",
+          "target": "player",
+          "amount": 1500,
+          "cost": true
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 40605147
+        },
+        {
+          "type": "chain-negated",
+          "target": "player",
+          "publicCode": 84013237
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 84013237
+        },
+        {
+          "type": "destroy",
+          "target": "player",
+          "publicCode": 84013237
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 76812113
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 40605147
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 84013237
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 84013237
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 40605147
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        }
+      ]
+    },
+    {
+      "name": "Cyber Twin / two native attacks / no third",
+      "result": "pass",
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 2400,
+        "turn": "player",
+        "phase": "battle",
+        "player": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 74157028,
+            "attack": 2800,
+            "defense": 2100
+          }
+        ],
+        "opponent": [],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [],
+          []
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 28,
+        "10": 3,
+        "11": 2,
+        "16": 30,
+        "40": 2,
+        "41": 8,
+        "91": 2,
+        "110": 2,
+        "111": 2,
+        "113": 2,
+        "114": 2
+      },
+      "decisions": [],
+      "battleStats": [
+        {
+          "target": "player",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "attacker",
+          "nativeStats": {
+            "attack": 2800,
+            "defense": 2100
+          },
+          "destroyed": false
+        },
+        {
+          "target": "player",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "attacker",
+          "nativeStats": {
+            "attack": 2800,
+            "defense": 2100
+          },
+          "destroyed": false
+        }
+      ],
+      "animations": [
+        {
+          "type": "attack-direct",
+          "target": "opponent",
+          "publicCode": 74157028
+        },
+        {
+          "type": "damage-step"
+        },
+        {
+          "type": "battle-stats",
+          "target": "player",
+          "publicCode": 74157028
+        },
+        {
+          "type": "lp-loss",
+          "target": "opponent",
+          "amount": 2800,
+          "cost": false
+        },
+        {
+          "type": "damage-step"
+        },
+        {
+          "type": "attack-direct",
+          "target": "opponent",
+          "publicCode": 74157028
+        },
+        {
+          "type": "damage-step"
+        },
+        {
+          "type": "battle-stats",
+          "target": "player",
+          "publicCode": 74157028
+        },
+        {
+          "type": "lp-loss",
+          "target": "opponent",
+          "amount": 2800,
+          "cost": false
+        },
+        {
+          "type": "damage-step"
+        }
+      ]
+    },
+    {
+      "name": "Airknight / battle damage draw / private draw",
+      "result": "pass",
+      "final": {
+        "playerLP": 8000,
+        "opponentLP": 7100,
+        "turn": "player",
+        "phase": "battle",
+        "player": [
+          {
+            "zoneType": "main",
+            "zoneIndex": 0,
+            "faceDown": false,
+            "publicCode": 18036057,
+            "attack": 1900,
+            "defense": 1400
+          }
+        ],
+        "opponent": [],
+        "handCounts": [
+          1,
+          0
+        ],
+        "graveyards": [
+          [],
+          [
+            97590747
+          ]
+        ],
+        "winner": null,
+        "endReason": null
+      },
+      "protocolCounts": {
+        "2": 17,
+        "10": 2,
+        "11": 2,
+        "15": 1,
+        "16": 18,
+        "40": 2,
+        "41": 8,
+        "50": 1,
+        "70": 1,
+        "71": 1,
+        "72": 1,
+        "73": 1,
+        "74": 1,
+        "90": 1,
+        "91": 1,
+        "110": 1,
+        "111": 1,
+        "113": 1,
+        "114": 1
+      },
+      "decisions": [],
+      "battleStats": [
+        {
+          "target": "player",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "attacker",
+          "nativeStats": {
+            "attack": 1900,
+            "defense": 1400
+          },
+          "destroyed": false
+        },
+        {
+          "target": "opponent",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "defender",
+          "nativeStats": {
+            "attack": 1800,
+            "defense": 1000
+          },
+          "destroyed": true
+        }
+      ],
+      "animations": [
+        {
+          "type": "attack-monster",
+          "target": "opponent",
+          "publicCode": 18036057
+        },
+        {
+          "type": "damage-step"
+        },
+        {
+          "type": "battle-stats",
+          "target": "player",
+          "publicCode": 18036057
+        },
+        {
+          "type": "battle-stats",
+          "target": "opponent",
+          "publicCode": 97590747
+        },
+        {
+          "type": "lp-loss",
+          "target": "opponent",
+          "amount": 900,
+          "cost": false
+        },
+        {
+          "type": "activate-monster-effect",
+          "target": "player",
+          "publicCode": 18036057
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 18036057
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 18036057
+        },
+        {
+          "type": "draw",
+          "target": "player"
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 18036057
+        },
+        {
+          "type": "chain-end"
+        },
+        {
+          "type": "move",
+          "target": "opponent",
+          "publicCode": 97590747
+        },
+        {
+          "type": "destroy",
+          "target": "opponent",
+          "publicCode": 97590747
+        },
+        {
+          "type": "damage-step"
+        }
+      ]
+    },
+    {
+      "name": "Self-Destruct Button / simultaneous native draw",
+      "result": "pass",
+      "final": {
+        "playerLP": 0,
+        "opponentLP": 0,
+        "turn": "player",
+        "phase": "main1",
+        "player": [],
+        "opponent": [],
+        "handCounts": [
+          0,
+          0
+        ],
+        "graveyards": [
+          [
+            57585212
+          ],
+          []
+        ],
+        "winner": "draw",
+        "endReason": "lp_zero",
+        "nativeWinReason": 1
+      },
+      "protocolCounts": {
+        "2": 8,
+        "5": 2,
+        "11": 2,
+        "16": 9,
+        "40": 2,
+        "41": 7,
+        "50": 1,
+        "53": 1,
+        "70": 1,
+        "71": 1,
+        "72": 1,
+        "73": 1,
+        "74": 1,
+        "94": 2
+      },
+      "decisions": [
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN",
+        "SELECT_CHAIN"
+      ],
+      "battleStats": [],
+      "animations": [
+        {
+          "type": "toggle-position",
+          "target": "player",
+          "publicReveal": true,
+          "publicCode": 57585212
+        },
+        {
+          "type": "activate",
+          "target": "player",
+          "publicCode": 57585212
+        },
+        {
+          "type": "chain-pop",
+          "target": "player",
+          "publicCode": 57585212
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 57585212
+        },
+        {
+          "type": "lp-update",
+          "target": "player",
+          "amount": 1000,
+          "cost": false
+        },
+        {
+          "type": "lp-update",
+          "target": "opponent",
+          "amount": 8000,
+          "cost": false
+        },
+        {
+          "type": "chain-resolve",
+          "target": "player",
+          "publicCode": 57585212
+        },
+        {
+          "type": "move",
+          "target": "player",
+          "publicCode": 57585212
+        },
+        {
+          "type": "clear-spell",
+          "target": "player"
+        },
+        {
+          "type": "chain-end"
+        }
+      ]
+    }
+  ]
+}

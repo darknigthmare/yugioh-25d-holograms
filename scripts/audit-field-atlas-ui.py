@@ -46,6 +46,7 @@ def verify(page, base_url, width, height, expected, output, view):
     summary = page.locator('#field-atlas-summary').inner_text()
     assert '339 Terrains' in summary and '339 illustrations originales' in summary
     assert f'{expected} volumes reconstruits' in summary and '339 effets disponibles' in summary
+    assert '339 Terrains vérifiés en scénarios' in summary
     assert page.evaluate('typeof window.__YGO_QA__') == 'undefined'
     await_preview(page)
     seen, pages = set(), 0
@@ -62,6 +63,10 @@ def verify(page, base_url, width, height, expected, output, view):
     # The complete catalogue contains 28 full pages plus its final three cards.
     # PAGE_SIZE is 12: 339 cards occupy 29 pages.
     view['catalogue'] = {'uniqueFields': len(seen), 'pages': pages, 'summary': summary}
+    page.locator('#field-atlas-filter').select_option('playable')
+    native_result = page.locator('#field-atlas-results').inner_text()
+    assert int(re.match(r'(\d+)', native_result).group(1)) == 339
+    view['nativeAvailableFilter'] = native_result
     page.locator('#field-atlas-filter').select_option('source-reconstructed')
     result = page.locator('#field-atlas-results').inner_text()
     assert int(re.match(r'(\d+)', result).group(1)) == expected
@@ -81,7 +86,7 @@ def verify(page, base_url, width, height, expected, output, view):
         canvas = await_preview(page)
         assert page.locator('#field-atlas-source').get_attribute('src') == f'/environments/field-art/{code}.jpg'
         assert 'Volumes reconstruits depuis' in page.locator('#field-atlas-model-status').inner_text()
-        assert 'initialisation vérifiée' in page.locator('#field-atlas-rule-status').inner_text()
+        assert 'Effet vérifié en scénario.' in page.locator('#field-atlas-rule-status').inner_text()
         assert page.locator('#field-atlas-effect').inner_text().strip()
         record = {'lot': lot, 'code': code, 'name': page.locator('#field-atlas-name').inner_text(), 'angles': []}
         for angle, label in [('0', 'face'), ('0.65', 'three-quarter'), ('1.57', 'side')]:

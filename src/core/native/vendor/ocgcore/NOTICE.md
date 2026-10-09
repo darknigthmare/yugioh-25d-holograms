@@ -99,3 +99,11 @@ constructor spelling discrepancy. The editable bridge is
 exact alias to the existing native constructor; upstream Lua bytes and native
 source stay unchanged. No `Duel.GetMasterRule` compatibility approximation is
 added for the unused legacy helper that references it.
+
+The October 8 multi-Set correction follows the pinned core's
+`operations.cpp` group Set step 6 and `libduel.cpp` ShuffleSetCard:
+MSG_SHUFFLE_SET_CARD stores a uint8 count, all source locations, then all
+destination locations. Null destination locations intentionally withhold the
+identity-to-zone mapping of shuffled face-down cards. The local decoder reads
+this layout without exposing hidden identities. Original TypeScript, Lua, CDB,
+engine and WASM remain unchanged.

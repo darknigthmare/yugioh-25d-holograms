@@ -1,5 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import { readFileSync } from 'node:fs';
+import vm from 'node:vm';
 import {
   DEFAULT_FIELD_ENVIRONMENT_ID,
   FALLBACK_FIELD_ENVIRONMENT_ID,
@@ -336,6 +338,97 @@ function activeFieldCard(id, sequence = 1, extra = {}) {
     ...extra
   };
 }
+
+test('entering and re-entering Real view clears mobile pan before WebGL and CSS3D resize', async () => {
+  const fixture = createDomFixture();
+  const hand = fixture.documentRef.createElement('div');
+  fixture.app.appendChild(hand);
+  fixture.field.scrollTop = 220;
+  fixture.field.scrollLeft = 285;
+  fixture.field.getBoundingClientRect = () => ({ width: 390, height: 560 });
+  const resizes = [];
+  const scene = {
+    webglAvailable: true,
+    mount() {}, getCamera: () => ({ isPerspectiveCamera: true }),
+    async activate() { return true; },
+    resize(width, height) {
+      resizes.push({ renderer: 'WebGL', width, height, top: fixture.field.scrollTop, left: fixture.field.scrollLeft });
+    }
+  };
+  const adapter = {
+    mount() {}, activate() {}, render() {},
+    resize(width, height) {
+      resizes.push({ renderer: 'CSS3D', width, height, top: fixture.field.scrollTop, left: fixture.field.scrollLeft });
+    }
+  };
+  const view = new RealDuelView({
+    documentRef: fixture.documentRef, fieldElement: fixture.field,
+    boardElement: fixture.board, handElement: hand, enable3D: true,
+    sceneFactory: () => scene, domAdapterFactory: () => adapter
+  });
+  const gameState = { playerLP: 8000, playerHand: [], opponentHand: [] };
+  // Pre-mount resizing is not activation. The regression concerns the first
+  // presentation after the live DOM is placed into the shared camera scene.
+  view.mount();
+  resizes.length = 0;
+  for (const offset of [220, 317]) {
+    fixture.field.scrollTop = offset;
+    fixture.field.scrollLeft = 285;
+    await view.activate(gameState);
+    assert.equal(fixture.field.scrollTop, 0);
+    assert.equal(fixture.field.scrollLeft, 0);
+    assert.deepEqual(resizes.slice(-2), [
+      { renderer: 'WebGL', width: 390, height: 560, top: 0, left: 0 },
+      { renderer: 'CSS3D', width: 390, height: 560, top: 0, left: 0 }
+    ]);
+    assert.equal(view.getGameState(), gameState);
+    assert.equal(fixture.existingCard.parentNode, fixture.existingZone);
+    view.deactivate();
+  }
+  assert.equal(resizes.length, 4);
+  view.dispose();
+});
+
+test('a queued mobile pan cannot scroll Real view or a desktop resize, while ordinary mobile panning still works', () => {
+  const source = readFileSync(new URL('../main.js', import.meta.url), 'utf8');
+  const productionFunction = source.match(/function positionMobileBoardForPlayer\(\) \{[\s\S]*?\n\}/)?.[0];
+  assert.ok(productionFunction, 'execute the actual production pan callback');
+  const fixture = createDomFixture();
+  Object.assign(fixture.field, {
+    scrollTop: 17, scrollLeft: 11,
+    scrollWidth: 960, clientWidth: 390,
+    scrollHeight: 520, clientHeight: 300
+  });
+  const callbacks = [];
+  const windowRef = { innerWidth: 390 };
+  const context = vm.createContext({
+    document: { getElementById: () => fixture.field },
+    window: windowRef, requestAnimationFrame: callback => callbacks.push(callback)
+  });
+  vm.runInContext(productionFunction, context);
+  const schedule = () => vm.runInContext('positionMobileBoardForPlayer()', context);
+
+  schedule();
+  fixture.field.classList.add('real-duel-view-active');
+  callbacks.shift()();
+  assert.equal(fixture.field.scrollTop, 17);
+  assert.equal(fixture.field.scrollLeft, 11);
+  schedule();
+  assert.equal(callbacks.length, 0, 'already-real views never schedule a pan');
+
+  fixture.field.classList.remove('real-duel-view-active');
+  schedule();
+  windowRef.innerWidth = 1280;
+  callbacks.shift()();
+  assert.equal(fixture.field.scrollTop, 17);
+  assert.equal(fixture.field.scrollLeft, 11);
+
+  windowRef.innerWidth = 390;
+  schedule();
+  callbacks.shift()();
+  assert.equal(fixture.field.scrollTop, 220);
+  assert.equal(fixture.field.scrollLeft, 285);
+});
 
 test('Field Environment registry contains every required immutable environment', () => {
   assert.equal(DEFAULT_FIELD_ENVIRONMENT_ID, 'clearing');

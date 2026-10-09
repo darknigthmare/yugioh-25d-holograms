@@ -1,0 +1,979 @@
+{
+  "ok": true,
+  "generatedOn": "2026-10-08",
+  "target": "immutable final compiled production bundle",
+  "qaHook": false,
+  "postStartInjection": false,
+  "productionCsp": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://db.ygoprodeck.com; media-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests",
+  "registeredFixture": {
+    "main": [
+      "32452818",
+      "89631139",
+      "89631139",
+      "46986414",
+      "12607053",
+      "46986414",
+      "76812113",
+      "97590747",
+      "97590747",
+      "15025844",
+      "15025844",
+      "80749819",
+      "70781052",
+      "70781052",
+      "45894482",
+      "5053103",
+      "5053103",
+      "5053103",
+      "97590747",
+      "76812113",
+      "76812113",
+      "91152256",
+      "91152256",
+      "91152256",
+      "32452818",
+      "89631139",
+      "32452818",
+      "91939608",
+      "91939608",
+      "91939608",
+      "15025844",
+      "80749819",
+      "80749819",
+      "97077563",
+      "97077563",
+      "97077563",
+      "70781052",
+      "45894482",
+      "45894482",
+      "46986414"
+    ],
+    "extra": [],
+    "side": []
+  },
+  "compiledSnapshotBefore": {
+    "index.html": {
+      "bytes": 35408,
+      "sha256": "9ff914005d1b801face5dba4eeeef154b806210cd655ae420830f8b34f3a9f02"
+    },
+    "native/ocgcore.sync.wasm": {
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    },
+    "native/card-data.json": {
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    "native/scripts.json": {
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    },
+    "assets/FieldEnvironmentRegistry-Bv70irwA.js": {
+      "bytes": 595263,
+      "sha256": "bfc14aa98ac8ac1e7ddbdfed7949539c51a6e6b9e3866c0af7190a6d084db062"
+    },
+    "assets/FieldGeometryThree-vJgK0QSV.js": {
+      "bytes": 534563,
+      "sha256": "029edd52363bea6334afe124e6c0a5fc45b60b39cc416cfdaf6b6319dbbb8a38"
+    },
+    "assets/FieldSpellAtlas-BvxipQcg.js": {
+      "bytes": 19380,
+      "sha256": "5c8d7f2ff0780d2084907d39574f65bbead5554d22375bc265d345ab84468edc"
+    },
+    "assets/FieldSpellAtlasPreview-DHgaVA6G.js": {
+      "bytes": 2823,
+      "sha256": "3a332e59139275025a36902ee893ae301232fb0105f68fdd8c198613a4462c2b"
+    },
+    "assets/FieldSpellCardDataSnapshot-DzxkUNrK.js": {
+      "bytes": 169821,
+      "sha256": "ed2484f6797eac2124cdb6a76d8ec20076f9e79cf05008a0183e26a7fd046b3f"
+    },
+    "assets/FieldSpellRules-DLBFReUe.js": {
+      "bytes": 20919,
+      "sha256": "9b95b5d0b3ac46a7d7cade8d2bed65565dcbb1310d494d9344f61ed12a57f54e"
+    },
+    "assets/NativeCardCatalogue-DTPgfGLD.js": {
+      "bytes": 53587,
+      "sha256": "aff54529b3dcdccbcc3839faf571fb9cc27226d80e61dcb98c05f65bff15cbe0"
+    },
+    "assets/NativeDuelGame-DoVV8df_.js": {
+      "bytes": 83510,
+      "sha256": "ecc376c29441908852136953db43c95a5ca418ddb259751f62be0ed5909e0149"
+    },
+    "assets/RealDuelView-DEvyJ5W4.js": {
+      "bytes": 135102,
+      "sha256": "f6950b781cffae58a0750db4fa7293fcf5d50688bfc887dff47108f282cbe505"
+    },
+    "assets/index-6LJgo1se.js": {
+      "bytes": 598618,
+      "sha256": "7a58373020e1c3691c3a4491cc3a4f00c9384bb239402ec930920547b61f813e"
+    },
+    "assets/index-BbUkbKmn.css": {
+      "bytes": 82371,
+      "sha256": "71afb732ab7152dc319dfb6b72812913e23121c24f251ef80e0b69c61e0e749e"
+    },
+    "assets/ocgcore-CD-0GSYr.js": {
+      "bytes": 1746,
+      "sha256": "b1f89f17cb28ecf81f6f3d3c2903dd31c89ac28d0b579fe991dd342e1fc12738"
+    },
+    "assets/ocgcore.sync-MMMSWPBB-2LWfD6lX.js": {
+      "bytes": 20718,
+      "sha256": "433b02687ca9a24dcc846c11d7578d40ba5ab87d1b1321d5d22cd879fae58ed6"
+    }
+  },
+  "viewports": [
+    {
+      "width": 390,
+      "height": 844,
+      "availableActionsBefore": [
+        "Invoquer La Jinn, Génie Mystique de la Lampe",
+        "Invoquer Gilasaurus",
+        "Invoquer spécialement Gilasaurus",
+        "Poser La Jinn, Génie Mystique de la Lampe",
+        "Poser Gilasaurus",
+        "Poser Waboku",
+        "Poser Call of the Forgotten",
+        "Activer Call of the Forgotten"
+      ],
+      "cardSelection": {
+        "offered": [
+          "Call of the Haunted",
+          "Call of the Haunted",
+          "Call of the Haunted"
+        ],
+        "clickedIndices": [
+          2,
+          0,
+          1
+        ],
+        "selectedCount": 3,
+        "confirmation": "CONFIRMER (3/3)"
+      },
+      "decisionTrace": [
+        {
+          "title": "ACTIVER OU CONFIRMER ?",
+          "description": "Choix de l’effet",
+          "choice": "OUI"
+        },
+        {
+          "title": "CHOISIR LA ZONE",
+          "offered": [
+            "Votre Zone Magie/Piège 1",
+            "Votre Zone Magie/Piège 2",
+            "Votre Zone Magie/Piège 3",
+            "Votre Zone Magie/Piège 4",
+            "Votre Zone Magie/Piège 5"
+          ],
+          "choice": "Votre Zone Magie/Piège 1"
+        },
+        {
+          "title": "CHOISIR LA ZONE",
+          "offered": [
+            "Votre Zone Magie/Piège 2",
+            "Votre Zone Magie/Piège 3",
+            "Votre Zone Magie/Piège 4",
+            "Votre Zone Magie/Piège 5"
+          ],
+          "choice": "Votre Zone Magie/Piège 2"
+        },
+        {
+          "title": "CHOISIR LA ZONE",
+          "offered": [
+            "Votre Zone Magie/Piège 3",
+            "Votre Zone Magie/Piège 4",
+            "Votre Zone Magie/Piège 5"
+          ],
+          "choice": "Votre Zone Magie/Piège 3"
+        }
+      ],
+      "setPlaces": [
+        "Votre Zone Magie/Piège 1",
+        "Votre Zone Magie/Piège 2",
+        "Votre Zone Magie/Piège 3"
+      ],
+      "availableActionsAfter": [
+        "Invoquer La Jinn, Génie Mystique de la Lampe",
+        "Invoquer Gilasaurus",
+        "Poser La Jinn, Génie Mystique de la Lampe",
+        "Poser Gilasaurus",
+        "Poser Waboku"
+      ],
+      "checks": {
+        "validFortyCardRegistration": true,
+        "realShuffledOpening": true,
+        "threeDistinctCopiesSelectedThroughUi": true,
+        "threeDistinctPlacesChosenThroughUi": true,
+        "threeTrapsSetAndFieldResolved": true,
+        "nonZombieSpecialForbiddenNormalStillAvailable": true,
+        "restrictionExpiresAfterActualOpponentTurn": true,
+        "actualOpposingHiddenCardsRemainAnonymous": true
+      },
+      "publicResolvedState": {
+        "ownSpellZones": [
+          {
+            "zone": 0,
+            "knownOwnCode": "97077563",
+            "faceDown": true
+          },
+          {
+            "zone": 1,
+            "knownOwnCode": "97077563",
+            "faceDown": true
+          },
+          {
+            "zone": 2,
+            "knownOwnCode": "97077563",
+            "faceDown": true
+          }
+        ],
+        "publicField": "80749819",
+        "ownHandCount": 4,
+        "opponentHandCount": 0
+      },
+      "presentations": [
+        {
+          "mode": "compact",
+          "samePublicState": true
+        },
+        {
+          "mode": "arena",
+          "samePublicState": true
+        },
+        {
+          "mode": "real",
+          "samePublicState": true
+        },
+        {
+          "mode": "compact",
+          "samePublicState": true
+        }
+      ],
+      "realPresentationBounds": [
+        {
+          "selector": ".field-container",
+          "present": true,
+          "hidden": false,
+          "display": "block",
+          "visibility": "visible",
+          "rectangle": {
+            "x": 0,
+            "y": 217,
+            "width": 390,
+            "height": 300
+          },
+          "scrollTop": 220,
+          "scrollLeft": 0,
+          "ancestorBounds": [
+            {
+              "tag": "DIV",
+              "className": "app-container real-duel-view-active",
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "visible",
+              "overflowX": "visible",
+              "overflowY": "visible",
+              "rectangle": {
+                "x": 0,
+                "y": -33,
+                "width": 390,
+                "height": 2366
+              }
+            },
+            {
+              "tag": "BODY",
+              "className": "",
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden auto",
+              "overflowX": "hidden",
+              "overflowY": "auto",
+              "rectangle": {
+                "x": 0,
+                "y": -33,
+                "width": 390,
+                "height": 2366
+              }
+            },
+            {
+              "tag": "HTML",
+              "className": "",
+              "scrollTop": 33,
+              "scrollLeft": 0,
+              "overflow": "hidden auto",
+              "overflowX": "hidden",
+              "overflowY": "auto",
+              "rectangle": {
+                "x": 0,
+                "y": -33,
+                "width": 390,
+                "height": 2366
+              }
+            }
+          ],
+          "intersectsViewport": true
+        },
+        {
+          "selector": ".real-duel-scene-3d-canvas",
+          "present": true,
+          "hidden": false,
+          "display": "block",
+          "visibility": "visible",
+          "rectangle": {
+            "x": 0,
+            "y": -3,
+            "width": 390,
+            "height": 300
+          },
+          "scrollTop": 0,
+          "scrollLeft": 0,
+          "ancestorBounds": [
+            {
+              "tag": "DIV",
+              "className": "real-duel-scene-3d",
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "overflowX": "hidden",
+              "overflowY": "hidden",
+              "rectangle": {
+                "x": 0,
+                "y": -3,
+                "width": 390,
+                "height": 300
+              }
+            },
+            {
+              "tag": "DIV",
+              "className": "real-duel-view-layer is-environment-graveyard",
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "overflowX": "hidden",
+              "overflowY": "hidden",
+              "rectangle": {
+                "x": 0,
+                "y": -3,
+                "width": 390,
+                "height": 300
+              }
+            },
+            {
+              "tag": "MAIN",
+              "className": "field-container real-duel-view-active",
+              "scrollTop": 220,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "overflowX": "hidden",
+              "overflowY": "hidden",
+              "rectangle": {
+                "x": 0,
+                "y": 217,
+                "width": 390,
+                "height": 300
+              }
+            },
+            {
+              "tag": "DIV",
+              "className": "app-container real-duel-view-active",
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "visible",
+              "overflowX": "visible",
+              "overflowY": "visible",
+              "rectangle": {
+                "x": 0,
+                "y": -33,
+                "width": 390,
+                "height": 2366
+              }
+            },
+            {
+              "tag": "BODY",
+              "className": "",
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden auto",
+              "overflowX": "hidden",
+              "overflowY": "auto",
+              "rectangle": {
+                "x": 0,
+                "y": -33,
+                "width": 390,
+                "height": 2366
+              }
+            },
+            {
+              "tag": "HTML",
+              "className": "",
+              "scrollTop": 33,
+              "scrollLeft": 0,
+              "overflow": "hidden auto",
+              "overflowX": "hidden",
+              "overflowY": "auto",
+              "rectangle": {
+                "x": 0,
+                "y": -33,
+                "width": 390,
+                "height": 2366
+              }
+            }
+          ],
+          "intersectsViewport": true
+        },
+        {
+          "selector": ".real-duel-camera-controls",
+          "present": true,
+          "hidden": false,
+          "display": "flex",
+          "visibility": "visible",
+          "rectangle": {
+            "x": 6,
+            "y": 3,
+            "width": 378,
+            "height": 58
+          },
+          "scrollTop": 0,
+          "scrollLeft": 0,
+          "ancestorBounds": [
+            {
+              "tag": "MAIN",
+              "className": "field-container real-duel-view-active",
+              "scrollTop": 220,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "overflowX": "hidden",
+              "overflowY": "hidden",
+              "rectangle": {
+                "x": 0,
+                "y": 217,
+                "width": 390,
+                "height": 300
+              }
+            },
+            {
+              "tag": "DIV",
+              "className": "app-container real-duel-view-active",
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "visible",
+              "overflowX": "visible",
+              "overflowY": "visible",
+              "rectangle": {
+                "x": 0,
+                "y": -33,
+                "width": 390,
+                "height": 2366
+              }
+            },
+            {
+              "tag": "BODY",
+              "className": "",
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden auto",
+              "overflowX": "hidden",
+              "overflowY": "auto",
+              "rectangle": {
+                "x": 0,
+                "y": -33,
+                "width": 390,
+                "height": 2366
+              }
+            },
+            {
+              "tag": "HTML",
+              "className": "",
+              "scrollTop": 33,
+              "scrollLeft": 0,
+              "overflow": "hidden auto",
+              "overflowX": "hidden",
+              "overflowY": "auto",
+              "rectangle": {
+                "x": 0,
+                "y": -33,
+                "width": 390,
+                "height": 2366
+              }
+            }
+          ],
+          "intersectsViewport": true
+        },
+        {
+          "selector": ".real-duel-css3d-root",
+          "present": true,
+          "hidden": false,
+          "display": "block",
+          "visibility": "visible",
+          "rectangle": {
+            "x": 0,
+            "y": -3,
+            "width": 390,
+            "height": 300
+          },
+          "scrollTop": 0,
+          "scrollLeft": 0,
+          "ancestorBounds": [
+            {
+              "tag": "MAIN",
+              "className": "field-container real-duel-view-active",
+              "scrollTop": 220,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "overflowX": "hidden",
+              "overflowY": "hidden",
+              "rectangle": {
+                "x": 0,
+                "y": 217,
+                "width": 390,
+                "height": 300
+              }
+            },
+            {
+              "tag": "DIV",
+              "className": "app-container real-duel-view-active",
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "visible",
+              "overflowX": "visible",
+              "overflowY": "visible",
+              "rectangle": {
+                "x": 0,
+                "y": -33,
+                "width": 390,
+                "height": 2366
+              }
+            },
+            {
+              "tag": "BODY",
+              "className": "",
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden auto",
+              "overflowX": "hidden",
+              "overflowY": "auto",
+              "rectangle": {
+                "x": 0,
+                "y": -33,
+                "width": 390,
+                "height": 2366
+              }
+            },
+            {
+              "tag": "HTML",
+              "className": "",
+              "scrollTop": 33,
+              "scrollLeft": 0,
+              "overflow": "hidden auto",
+              "overflowX": "hidden",
+              "overflowY": "auto",
+              "rectangle": {
+                "x": 0,
+                "y": -33,
+                "width": 390,
+                "height": 2366
+              }
+            }
+          ],
+          "intersectsViewport": true
+        },
+        {
+          "selector": "#duel-board",
+          "present": true,
+          "hidden": false,
+          "display": "flex",
+          "visibility": "visible",
+          "rectangle": {
+            "x": -8,
+            "y": -2,
+            "width": 16,
+            "height": 0
+          },
+          "scrollTop": 0,
+          "scrollLeft": 0,
+          "ancestorBounds": [
+            {
+              "tag": "DIV",
+              "className": "",
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "visible",
+              "overflowX": "visible",
+              "overflowY": "visible",
+              "rectangle": {
+                "x": 0,
+                "y": -3,
+                "width": 390,
+                "height": 300
+              }
+            },
+            {
+              "tag": "DIV",
+              "className": "",
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "visible",
+              "overflowX": "visible",
+              "overflowY": "visible",
+              "rectangle": {
+                "x": 0,
+                "y": -3,
+                "width": 390,
+                "height": 300
+              }
+            },
+            {
+              "tag": "DIV",
+              "className": "real-duel-css3d-root",
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "visible",
+              "overflowX": "visible",
+              "overflowY": "visible",
+              "rectangle": {
+                "x": 0,
+                "y": -3,
+                "width": 390,
+                "height": 300
+              }
+            },
+            {
+              "tag": "MAIN",
+              "className": "field-container real-duel-view-active",
+              "scrollTop": 220,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "overflowX": "hidden",
+              "overflowY": "hidden",
+              "rectangle": {
+                "x": 0,
+                "y": 217,
+                "width": 390,
+                "height": 300
+              }
+            },
+            {
+              "tag": "DIV",
+              "className": "app-container real-duel-view-active",
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "visible",
+              "overflowX": "visible",
+              "overflowY": "visible",
+              "rectangle": {
+                "x": 0,
+                "y": -33,
+                "width": 390,
+                "height": 2366
+              }
+            },
+            {
+              "tag": "BODY",
+              "className": "",
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden auto",
+              "overflowX": "hidden",
+              "overflowY": "auto",
+              "rectangle": {
+                "x": 0,
+                "y": -33,
+                "width": 390,
+                "height": 2366
+              }
+            }
+          ],
+          "intersectsViewport": false
+        },
+        {
+          "selector": "#player-hand",
+          "present": true,
+          "hidden": false,
+          "display": "flex",
+          "visibility": "visible",
+          "rectangle": {
+            "x": -5,
+            "y": -2,
+            "width": 11,
+            "height": 1
+          },
+          "scrollTop": 0,
+          "scrollLeft": 0,
+          "ancestorBounds": [
+            {
+              "tag": "DIV",
+              "className": "",
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "visible",
+              "overflowX": "visible",
+              "overflowY": "visible",
+              "rectangle": {
+                "x": 0,
+                "y": -3,
+                "width": 390,
+                "height": 300
+              }
+            },
+            {
+              "tag": "DIV",
+              "className": "",
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "visible",
+              "overflowX": "visible",
+              "overflowY": "visible",
+              "rectangle": {
+                "x": 0,
+                "y": -3,
+                "width": 390,
+                "height": 300
+              }
+            },
+            {
+              "tag": "DIV",
+              "className": "real-duel-css3d-root",
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "visible",
+              "overflowX": "visible",
+              "overflowY": "visible",
+              "rectangle": {
+                "x": 0,
+                "y": -3,
+                "width": 390,
+                "height": 300
+              }
+            },
+            {
+              "tag": "MAIN",
+              "className": "field-container real-duel-view-active",
+              "scrollTop": 220,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "overflowX": "hidden",
+              "overflowY": "hidden",
+              "rectangle": {
+                "x": 0,
+                "y": 217,
+                "width": 390,
+                "height": 300
+              }
+            },
+            {
+              "tag": "DIV",
+              "className": "app-container real-duel-view-active",
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "visible",
+              "overflowX": "visible",
+              "overflowY": "visible",
+              "rectangle": {
+                "x": 0,
+                "y": -33,
+                "width": 390,
+                "height": 2366
+              }
+            },
+            {
+              "tag": "BODY",
+              "className": "",
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden auto",
+              "overflowX": "hidden",
+              "overflowY": "auto",
+              "rectangle": {
+                "x": 0,
+                "y": -33,
+                "width": 390,
+                "height": 2366
+              }
+            }
+          ],
+          "intersectsViewport": false
+        }
+      ],
+      "realScrollAndOwnCardBounds": {
+        "scrollX": 0,
+        "scrollY": 33,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "hostScrollTop": 220,
+        "hostScrollLeft": 0,
+        "documentScrollTop": 33,
+        "cards": [
+          {
+            "knownOwnCode": "97077563",
+            "rectangle": {
+              "x": -5,
+              "y": -2,
+              "width": 1,
+              "height": 0
+            },
+            "intersectsHost": false
+          },
+          {
+            "knownOwnCode": "97077563",
+            "rectangle": {
+              "x": -3,
+              "y": -2,
+              "width": 1,
+              "height": 0
+            },
+            "intersectsHost": false
+          },
+          {
+            "knownOwnCode": "97077563",
+            "rectangle": {
+              "x": -1,
+              "y": -2,
+              "width": 1,
+              "height": 0
+            },
+            "intersectsHost": false
+          }
+        ]
+      },
+      "availableActionsNextOwnTurn": [
+        "Invoquer La Jinn, Génie Mystique de la Lampe",
+        "Invoquer Gilasaurus",
+        "Invoquer spécialement Gilasaurus",
+        "Poser La Jinn, Génie Mystique de la Lampe",
+        "Poser Gilasaurus",
+        "Poser Waboku"
+      ],
+      "opponentConcealment": {
+        "count": 2,
+        "safe": true
+      },
+      "pageErrors": [],
+      "nativeRequestFailures": [],
+      "cspViolations": [],
+      "nativeAssets": [
+        "/native/card-data.json",
+        "/native/field-banlists.json",
+        "/native/manifest.json",
+        "/native/ocgcore.sync.wasm",
+        "/native/scripts.json"
+      ]
+    }
+  ],
+  "sourceHashes": {
+    "scripts/audit-native-multi-set-ui.py": "1303cfd9e071218490ecae5f659e464f96cebe56ddacf0a4c9ad729aebadc31e",
+    "scripts/audit-native-duel-ui.py": "0dd4443ef82f496fb398587b9be06c99d953f57c4a48e48cd470fdacbb311c18",
+    "scripts/audit-native-duel-views.py": "e9f5bedc723dbe8a1d97f804d0e753536b869e861ffe59d00065390a6ca07bbe",
+    "src/core/native/NativeDuelGame.js": "2c727a2cc433ef84eb6892722504322edb363efa4edb3ff83d2f2dabb047b461",
+    "src/core/native/NativeDuelVisualEvents.js": "02c6a63d73a3d25c2257539090d7893b487e5c0b106a418e5609d985d007d075",
+    "src/core/native/vendor/ocgcore/index.js": "8cfbec622cf5b920e0b58db6d842fcabf1a9ef8eed9f0841bac43a1e9adb0657"
+  },
+  "testedResponseCsp": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://db.ygoprodeck.com; media-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests",
+  "provenanceSchemaVersion": 3,
+  "testedHtmlAsset": "/index.html",
+  "testedHtmlSha256": "9ff914005d1b801face5dba4eeeef154b806210cd655ae420830f8b34f3a9f02",
+  "testedIndexHtmlSha256": "9ff914005d1b801face5dba4eeeef154b806210cd655ae420830f8b34f3a9f02",
+  "testedIndexAsset": "/assets/index-6LJgo1se.js",
+  "testedIndexAssetBytes": 598618,
+  "testedIndexAssetSha256": "7a58373020e1c3691c3a4491cc3a4f00c9384bb239402ec930920547b61f813e",
+  "testedIndexSha256": "7a58373020e1c3691c3a4491cc3a4f00c9384bb239402ec930920547b61f813e",
+  "testedCssAsset": "/assets/index-BbUkbKmn.css",
+  "testedCssAssetBytes": 82371,
+  "testedCssAssetSha256": "71afb732ab7152dc319dfb6b72812913e23121c24f251ef80e0b69c61e0e749e",
+  "testedNativeGameAsset": "/assets/NativeDuelGame-DoVV8df_.js",
+  "testedNativeGameAssetBytes": 83510,
+  "testedNativeGameAssetSha256": "ecc376c29441908852136953db43c95a5ca418ddb259751f62be0ed5909e0149",
+  "testedNativeCatalogueAsset": "/assets/NativeCardCatalogue-DTPgfGLD.js",
+  "testedNativeCatalogueAssetBytes": 53587,
+  "testedNativeCatalogueAssetSha256": "aff54529b3dcdccbcc3839faf571fb9cc27226d80e61dcb98c05f65bff15cbe0",
+  "testedRegistryAsset": "/assets/FieldEnvironmentRegistry-Bv70irwA.js",
+  "testedRegistryAssetBytes": 595263,
+  "testedRegistryAssetSha256": "bfc14aa98ac8ac1e7ddbdfed7949539c51a6e6b9e3866c0af7190a6d084db062",
+  "testedRealViewAsset": "/assets/RealDuelView-DEvyJ5W4.js",
+  "testedRealViewAssetBytes": 135102,
+  "testedRealViewAssetSha256": "f6950b781cffae58a0750db4fa7293fcf5d50688bfc887dff47108f282cbe505",
+  "testedNativeCoreAsset": "/assets/ocgcore-CD-0GSYr.js",
+  "testedNativeCoreAssetBytes": 1746,
+  "testedNativeCoreAssetSha256": "b1f89f17cb28ecf81f6f3d3c2903dd31c89ac28d0b579fe991dd342e1fc12738",
+  "testedWasmSha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+  "testedCardDataSha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d",
+  "testedScriptsSha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f",
+  "compiledSnapshotAfter": {
+    "index.html": {
+      "bytes": 35408,
+      "sha256": "9ff914005d1b801face5dba4eeeef154b806210cd655ae420830f8b34f3a9f02"
+    },
+    "native/ocgcore.sync.wasm": {
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    },
+    "native/card-data.json": {
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    "native/scripts.json": {
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    },
+    "assets/FieldEnvironmentRegistry-Bv70irwA.js": {
+      "bytes": 595263,
+      "sha256": "bfc14aa98ac8ac1e7ddbdfed7949539c51a6e6b9e3866c0af7190a6d084db062"
+    },
+    "assets/FieldGeometryThree-vJgK0QSV.js": {
+      "bytes": 534563,
+      "sha256": "029edd52363bea6334afe124e6c0a5fc45b60b39cc416cfdaf6b6319dbbb8a38"
+    },
+    "assets/FieldSpellAtlas-BvxipQcg.js": {
+      "bytes": 19380,
+      "sha256": "5c8d7f2ff0780d2084907d39574f65bbead5554d22375bc265d345ab84468edc"
+    },
+    "assets/FieldSpellAtlasPreview-DHgaVA6G.js": {
+      "bytes": 2823,
+      "sha256": "3a332e59139275025a36902ee893ae301232fb0105f68fdd8c198613a4462c2b"
+    },
+    "assets/FieldSpellCardDataSnapshot-DzxkUNrK.js": {
+      "bytes": 169821,
+      "sha256": "ed2484f6797eac2124cdb6a76d8ec20076f9e79cf05008a0183e26a7fd046b3f"
+    },
+    "assets/FieldSpellRules-DLBFReUe.js": {
+      "bytes": 20919,
+      "sha256": "9b95b5d0b3ac46a7d7cade8d2bed65565dcbb1310d494d9344f61ed12a57f54e"
+    },
+    "assets/NativeCardCatalogue-DTPgfGLD.js": {
+      "bytes": 53587,
+      "sha256": "aff54529b3dcdccbcc3839faf571fb9cc27226d80e61dcb98c05f65bff15cbe0"
+    },
+    "assets/NativeDuelGame-DoVV8df_.js": {
+      "bytes": 83510,
+      "sha256": "ecc376c29441908852136953db43c95a5ca418ddb259751f62be0ed5909e0149"
+    },
+    "assets/RealDuelView-DEvyJ5W4.js": {
+      "bytes": 135102,
+      "sha256": "f6950b781cffae58a0750db4fa7293fcf5d50688bfc887dff47108f282cbe505"
+    },
+    "assets/index-6LJgo1se.js": {
+      "bytes": 598618,
+      "sha256": "7a58373020e1c3691c3a4491cc3a4f00c9384bb239402ec930920547b61f813e"
+    },
+    "assets/index-BbUkbKmn.css": {
+      "bytes": 82371,
+      "sha256": "71afb732ab7152dc319dfb6b72812913e23121c24f251ef80e0b69c61e0e749e"
+    },
+    "assets/ocgcore-CD-0GSYr.js": {
+      "bytes": 1746,
+      "sha256": "b1f89f17cb28ecf81f6f3d3c2903dd31c89ac28d0b579fe991dd342e1fc12738"
+    },
+    "assets/ocgcore.sync-MMMSWPBB-2LWfD6lX.js": {
+      "bytes": 20718,
+      "sha256": "433b02687ca9a24dcc846c11d7578d40ba5ab87d1b1321d5d22cd879fae58ed6"
+    }
+  },
+  "immutableCompiledSnapshot": true,
+  "visualGate": "failed: host scrollTop 220 and all three own Set cards outside host with rounded dimensions 1x0 pixels",
+  "functionalChecksPassed": true,
+  "visualFramingPassed": false,
+  "framingBeforeImage": {
+    "path": "native-multi-set-framing-before-2026-10-08.png",
+    "sha256": "eb7a9716ef96c0faf6cc3cb2b00637a8290cae5b413c4533fc4e0580430600ec"
+  }
+}

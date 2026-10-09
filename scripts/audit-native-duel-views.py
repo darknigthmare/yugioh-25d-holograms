@@ -77,6 +77,61 @@ def cycle(page, target):
     raise AssertionError(f'View selector did not reach {target}')
 
 
+REAL_PROJECTION_READINESS = """() => {
+  const host=document.querySelector('#parallax-container');
+  const layer=document.querySelector('.real-duel-view-layer');
+  const scene=document.querySelector('[data-real-duel-scene3d="true"]');
+  const root=document.querySelector('.real-duel-css3d-root');
+  const camera=root?.firstElementChild?.firstElementChild;
+  const board=document.querySelector('#duel-board');
+  const hand=document.querySelector('#player-hand');
+  if (!host || !layer || !scene || !root || !camera || !board || !hand
+    || document.querySelector('#btn-toggle-view')?.getAttribute('aria-busy')!=='false'
+    || layer.dataset.active!=='true' || scene.hasAttribute('data-camera-transitioning')
+    || host.scrollTop!==0 || host.scrollLeft!==0) return null;
+  const bounds=host.getBoundingClientRect();
+  const width=Math.round(bounds.width),height=Math.round(bounds.height);
+  if (width<=0 || height<=0) return null;
+  const dimensions=element=>({width:element.offsetWidth,height:element.offsetHeight});
+  const matrix=element=>{
+    const style=getComputedStyle(element),transform=style.transform;
+    const match=transform.match(/^matrix3d\\((.+)\\)$/);
+    const values=match?.[1].split(',').map(Number);
+    if (!values || values.length!==16 || values.some(value=>!Number.isFinite(value))) return null;
+    return {transform,values,perspective:style.perspective,transformOrigin:style.transformOrigin};
+  };
+  for (const element of [root,root.firstElementChild,camera]) {
+    if (!element || element.offsetWidth!==width || element.offsetHeight!==height) return null;
+  }
+  const cameraMatrix=matrix(camera),boardMatrix=matrix(board),handMatrix=matrix(hand);
+  if (!cameraMatrix || !boardMatrix || !handMatrix
+    || ![3,7,11].some(index=>Math.abs(cameraMatrix.values[index])>1e-12)) return null;
+  return {host:{width,height,scrollTop:host.scrollTop,scrollLeft:host.scrollLeft},
+    root:dimensions(root),cameraParent:dimensions(camera),
+    cameraMatrix,boardMatrix,handMatrix};
+}"""
+
+
+def wait_real_projection(page):
+    # Wait for the public renderer layout, without changing camera or game state.
+    predicate = """async () => {
+      const read=READ_PUBLIC_PROJECTION;
+      const initial=read();
+      if (!initial) return false;
+      const expected=JSON.stringify(initial);
+      for (let tick=0;tick<2;tick++) {
+        await new Promise(resolve=>requestAnimationFrame(resolve));
+        const next=read();
+        if (!next || JSON.stringify(next)!==expected) return false;
+      }
+      return true;
+    }""".replace('READ_PUBLIC_PROJECTION', REAL_PROJECTION_READINESS)
+    helper.wait_until(page, predicate)
+    readiness = page.evaluate(REAL_PROJECTION_READINESS)
+    assert readiness, 'Real projection changed after its stable capture gate'
+    return {'stableAnimationFrameTicks': 2, **readiness}
+
+
 def assert_public_state(page, report, stage, expected_hand, expected_field, real_environment=None, allow_decision=False):
     if not allow_decision:
         helper.wait_until(page, """() => !document.querySelector('#decision-modal').checkVisibility()""")
@@ -90,11 +145,16 @@ def assert_public_state(page, report, stage, expected_hand, expected_field, real
     assert all(facts['counts'][key] <= 1 for key in ['scenes', 'canvases', 'css3d']), facts
     if facts['view'] == 'real':
         helper.wait_until(page, """() => document.querySelector('.card-zone[data-side="player"][data-zone-type="monster"] .has-real-hologram-model') || document.querySelector('.card-zone[data-side="player"][data-zone-type="monster"].has-real-hologram-model')""")
-        helper.wait_until(page,"""() => !document.querySelector('[data-real-duel-scene3d="true"]')?.hasAttribute('data-camera-transitioning')""")
         # Font/layout ResizeObservers and CSS3D projection settle after mounting.
         # Readonly capture delay; no scene, camera, engine or response injection.
         page.wait_for_timeout(900)
+        readiness = wait_real_projection(page)
         facts = snapshot(page)
+        assert facts['ownHand'] == expected_hand and facts['ownField'] == expected_field, facts
+        assert facts['playerLp'] == 6000 and facts['opponentLp'] == 8000, facts
+        assert facts['monster']['uid'] == report['monsterRuntimeUid'], facts
+        assert facts['monster']['atk'] == 'ATK 3000' and facts['monster']['def'] == 'DEF 2500', facts
+        facts['projectionCaptureReadiness'] = readiness
         assert facts['counts']['scenes'] == facts['counts']['canvases'] == facts['counts']['css3d'] == 1, facts
         assert page.evaluate("""() => {
           const canvas=document.querySelector('.real-duel-scene-3d-canvas');
@@ -236,9 +296,12 @@ def record_build_provenance(request, base_url, report):
     def fetch(path):
         response=request.get(base_url.rstrip('/')+path)
         assert response.ok, f'Build artifact unavailable: {path} ({response.status})'
+        if path == '/':
+            report['testedResponseCsp'] = response.headers.get('content-security-policy')
+            assert report['testedResponseCsp'] == helper.production_headers()['Content-Security-Policy']
         return response.body()
     html=fetch('/')
-    report['provenanceSchemaVersion']=2
+    report['provenanceSchemaVersion']=3
     report['testedHtmlAsset']='/index.html'
     report['testedHtmlSha256']=hashlib.sha256(html).hexdigest()
     report['testedIndexHtmlSha256']=report['testedHtmlSha256']
@@ -248,6 +311,7 @@ def record_build_provenance(request, base_url, report):
     def record(prefix,path):
         body=fetch(path)
         report[f'tested{prefix}Asset']=path
+        report[f'tested{prefix}AssetBytes']=len(body)
         report[f'tested{prefix}AssetSha256']=hashlib.sha256(body).hexdigest()
         return body
     main=record('Index',entry.group(1))
@@ -256,17 +320,24 @@ def record_build_provenance(request, base_url, report):
     game=re.search(r'NativeDuelGame-[A-Za-z0-9_-]+\.js',main.decode())
     assert game, 'NativeDuelGame lazy chunk missing from the compiled entry'
     native_game=record('NativeGame','/assets/'+game.group(0))
+    for prefix, token in [('NativeCatalogue', 'NativeCardCatalogue'), ('Registry', 'FieldEnvironmentRegistry'), ('RealView', 'RealDuelView')]:
+        chunk = re.search(token+r'-[A-Za-z0-9_-]+\.js', main.decode()+'\n'+native_game.decode())
+        assert chunk, f'{token} lazy chunk missing from the compiled entry'
+        record(prefix, '/assets/'+chunk.group(0))
     core=re.search(r'ocgcore-[A-Za-z0-9_-]+\.js',native_game.decode())
     assert core, 'Native core wrapper chunk missing from NativeDuelGame'
     record('NativeCore','/assets/'+core.group(0))
     report['testedWasmSha256']=hashlib.sha256(fetch('/native/ocgcore.sync.wasm')).hexdigest()
+    report['testedCardDataSha256']=hashlib.sha256(fetch('/native/card-data.json')).hexdigest()
+    report['testedScriptsSha256']=hashlib.sha256(fetch('/native/scripts.json')).hexdigest()
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--base-url')
     parser.add_argument('--dist', type=Path, default=ROOT / 'dist')
-    parser.add_argument('--output', type=Path, default=ROOT / 'docs/audits/artifacts/native-duel-views-2026-10-07')
+    parser.add_argument('--output', type=Path, default=ROOT / 'docs/audits/artifacts/native-duel-views-2026-10-08')
+    parser.add_argument('--audit-date', default='2026-10-08')
     parser.add_argument('--chromium', default='/usr/bin/chromium')
     parser.add_argument('--desktop-only', action='store_true')
     args = parser.parse_args()
@@ -279,7 +350,9 @@ def main():
         server = ThreadingHTTPServer(('127.0.0.1', 0), functools.partial(helper.AuditServer, directory=str(args.dist)))
         threading.Thread(target=server.serve_forever, daemon=True).start()
         args.base_url = f'http://127.0.0.1:{server.server_port}'
-    report = {'ok': False, 'target': 'compiled production bundle', 'productionCsp': headers['Content-Security-Policy'],
+    report = {'ok': False, 'generatedOn': args.audit_date, 'target': 'compiled production bundle', 'productionCsp': headers['Content-Security-Policy'],
+              'auditSourceSha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+              'helperSourceSha256': hashlib.sha256((ROOT/'scripts/audit-native-duel-ui.py').read_bytes()).hexdigest(),
               'method': 'actual controls and public DOM only; isolated legal custom deck and seeded RNG',
               'memoryScope': 'DOM renderer counts and approximate JS heap; GPU allocation not measured',
               'captureTimeoutMs': 60000, 'viewports': []}

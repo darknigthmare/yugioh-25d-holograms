@@ -1,0 +1,2190 @@
+{
+  "ok": true,
+  "generatedOn": "2026-10-08",
+  "target": "compiled production bundle",
+  "productionCsp": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://db.ygoprodeck.com; media-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests",
+  "auditSourceSha256": "f3f9b64c03273baba856886c4f67df9f371624bb759435887ba9b7f9e49f826c",
+  "helperSourceSha256": "0dd4443ef82f496fb398587b9be06c99d953f57c4a48e48cd470fdacbb311c18",
+  "method": "actual controls and public DOM only; isolated legal custom deck and seeded RNG",
+  "memoryScope": "DOM renderer counts and approximate JS heap; GPU allocation not measured",
+  "captureTimeoutMs": 60000,
+  "viewports": [
+    {
+      "width": 1280,
+      "height": 900,
+      "ok": true,
+      "pageErrors": [],
+      "nativeRequestFailures": [],
+      "stages": [
+        {
+          "stage": "mausoleum-compact",
+          "view": "compact",
+          "ownHand": [
+            {
+              "id": "4064256",
+              "uid": "native_2_84"
+            },
+            {
+              "id": "14087893",
+              "uid": "native_2_85"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_86"
+            }
+          ],
+          "ownField": {
+            "id": "80921533",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": false
+          },
+          "environment": null,
+          "scene": null,
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 0,
+            "canvases": 0,
+            "css3d": 0
+          },
+          "approximateJsHeapBytes": 107420413,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "mausoleum-arena",
+          "view": "arena",
+          "ownHand": [
+            {
+              "id": "4064256",
+              "uid": "native_2_84"
+            },
+            {
+              "id": "14087893",
+              "uid": "native_2_85"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_86"
+            }
+          ],
+          "ownField": {
+            "id": "80921533",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": false
+          },
+          "environment": null,
+          "scene": null,
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 0,
+            "canvases": 0,
+            "css3d": 0
+          },
+          "approximateJsHeapBytes": 107689395,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "mausoleum-real",
+          "view": "real",
+          "ownHand": [
+            {
+              "id": "4064256",
+              "uid": "native_2_84"
+            },
+            {
+              "id": "14087893",
+              "uid": "native_2_85"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_86"
+            }
+          ],
+          "ownField": {
+            "id": "80921533",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": true
+          },
+          "environment": {
+            "id": "temple-sanctuary",
+            "active": "true",
+            "backdrop": "url(\"/environments/field-art/80921533.jpg\")"
+          },
+          "scene": {
+            "id": "temple-sanctuary",
+            "webglAvailable": "true",
+            "material": "weathered-holographic-stone"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 103809591,
+          "projectionCaptureReadiness": {
+            "stableAnimationFrameTicks": 2,
+            "host": {
+              "width": 840,
+              "height": 820,
+              "scrollTop": 0,
+              "scrollLeft": 0
+            },
+            "root": {
+              "width": 840,
+              "height": 820
+            },
+            "cameraParent": {
+              "width": 840,
+              "height": 820
+            },
+            "cameraMatrix": {
+              "transform": "matrix3d(1, 0, 0, 0, 0, -0.89028, 0.455413, -0.000437541, 0, 0.455413, 0.89028, -0.000855343, 420, -363.056, 1197.36, -0.150371)",
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                -0.89028,
+                0.455413,
+                -0.000437541,
+                0,
+                0.455413,
+                0.89028,
+                -0.000855343,
+                420,
+                -363.056,
+                1197.36,
+                -0.150371
+              ],
+              "perspective": "none",
+              "transformOrigin": "420px 410px"
+            },
+            "boardMatrix": {
+              "transform": "matrix3d(0.0177778, 0, 0, 0, 0, 0, 0.0177778, 0, 0, 0.0177778, 0, 0, -450, -561.88, 0, 1)",
+              "values": [
+                0.0177778,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0.0177778,
+                0,
+                0,
+                0.0177778,
+                0,
+                0,
+                -450,
+                -561.88,
+                0,
+                1
+              ],
+              "perspective": "none",
+              "transformOrigin": "450px 562.5px"
+            },
+            "handMatrix": {
+              "transform": "matrix3d(0.0116667, 0, 0, 0, 0, -0.00344774, 0.0111456, 0, 0, 0.0111456, 0.00344774, 0, -450, -108.55, 11.2, 1)",
+              "values": [
+                0.0116667,
+                0,
+                0,
+                0,
+                0,
+                -0.00344774,
+                0.0111456,
+                0,
+                0,
+                0.0111456,
+                0.00344774,
+                0,
+                -450,
+                -108.55,
+                11.2,
+                1
+              ],
+              "perspective": "none",
+              "transformOrigin": "450px 110px"
+            }
+          },
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-set-real",
+          "view": "real",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": true
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": true
+          },
+          "environment": {
+            "id": "clearing",
+            "active": "true",
+            "backdrop": "url(\"/environments/kaibacorp-clearing-original.webp\")"
+          },
+          "scene": {
+            "id": "clearing",
+            "webglAvailable": "true",
+            "material": "kaibacorp-steel"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 114333176,
+          "projectionCaptureReadiness": {
+            "stableAnimationFrameTicks": 2,
+            "host": {
+              "width": 840,
+              "height": 820,
+              "scrollTop": 0,
+              "scrollLeft": 0
+            },
+            "root": {
+              "width": 840,
+              "height": 820
+            },
+            "cameraParent": {
+              "width": 840,
+              "height": 820
+            },
+            "cameraMatrix": {
+              "transform": "matrix3d(1, 0, 0, 0, 0, -0.89028, 0.455413, -0.000437541, 0, 0.455413, 0.89028, -0.000855343, 420, -363.056, 1197.36, -0.150371)",
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                -0.89028,
+                0.455413,
+                -0.000437541,
+                0,
+                0.455413,
+                0.89028,
+                -0.000855343,
+                420,
+                -363.056,
+                1197.36,
+                -0.150371
+              ],
+              "perspective": "none",
+              "transformOrigin": "420px 410px"
+            },
+            "boardMatrix": {
+              "transform": "matrix3d(0.0177778, 0, 0, 0, 0, 0, 0.0177778, 0, 0, 0.0177778, 0, 0, -450, -561.88, 0, 1)",
+              "values": [
+                0.0177778,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0.0177778,
+                0,
+                0,
+                0.0177778,
+                0,
+                0,
+                -450,
+                -561.88,
+                0,
+                1
+              ],
+              "perspective": "none",
+              "transformOrigin": "450px 562.5px"
+            },
+            "handMatrix": {
+              "transform": "matrix3d(0.0116667, 0, 0, 0, 0, -0.00344774, 0.0111456, 0, 0, 0.0111456, 0.00344774, 0, -450, -108.55, 11.2, 1)",
+              "values": [
+                0.0116667,
+                0,
+                0,
+                0,
+                0,
+                -0.00344774,
+                0.0111456,
+                0,
+                0,
+                0.0111456,
+                0.00344774,
+                0,
+                -450,
+                -108.55,
+                11.2,
+                1
+              ],
+              "perspective": "none",
+              "transformOrigin": "450px 110px"
+            }
+          },
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-activation-pending-real",
+          "view": "real",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": true
+          },
+          "environment": {
+            "id": "clearing",
+            "active": "true",
+            "backdrop": "url(\"/environments/kaibacorp-clearing-original.webp\")"
+          },
+          "scene": {
+            "id": "clearing",
+            "webglAvailable": "true",
+            "material": "kaibacorp-steel"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 119457435,
+          "projectionCaptureReadiness": {
+            "stableAnimationFrameTicks": 2,
+            "host": {
+              "width": 840,
+              "height": 820,
+              "scrollTop": 0,
+              "scrollLeft": 0
+            },
+            "root": {
+              "width": 840,
+              "height": 820
+            },
+            "cameraParent": {
+              "width": 840,
+              "height": 820
+            },
+            "cameraMatrix": {
+              "transform": "matrix3d(1, 0, 0, 0, 0, -0.89028, 0.455413, -0.000437541, 0, 0.455413, 0.89028, -0.000855343, 420, -363.056, 1197.36, -0.150371)",
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                -0.89028,
+                0.455413,
+                -0.000437541,
+                0,
+                0.455413,
+                0.89028,
+                -0.000855343,
+                420,
+                -363.056,
+                1197.36,
+                -0.150371
+              ],
+              "perspective": "none",
+              "transformOrigin": "420px 410px"
+            },
+            "boardMatrix": {
+              "transform": "matrix3d(0.0177778, 0, 0, 0, 0, 0, 0.0177778, 0, 0, 0.0177778, 0, 0, -450, -561.88, 0, 1)",
+              "values": [
+                0.0177778,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0.0177778,
+                0,
+                0,
+                0.0177778,
+                0,
+                0,
+                -450,
+                -561.88,
+                0,
+                1
+              ],
+              "perspective": "none",
+              "transformOrigin": "450px 562.5px"
+            },
+            "handMatrix": {
+              "transform": "matrix3d(0.0116667, 0, 0, 0, 0, -0.00344774, 0.0111456, 0, 0, 0.0111456, 0.00344774, 0, -450, -108.55, 11.2, 1)",
+              "values": [
+                0.0116667,
+                0,
+                0,
+                0,
+                0,
+                -0.00344774,
+                0.0111456,
+                0,
+                0,
+                0.0111456,
+                0.00344774,
+                0,
+                -450,
+                -108.55,
+                11.2,
+                1
+              ],
+              "perspective": "none",
+              "transformOrigin": "450px 110px"
+            }
+          },
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-compact-5",
+          "view": "compact",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": false
+          },
+          "environment": {
+            "id": "graveyard",
+            "active": "false",
+            "backdrop": "url(\"/environments/field-art/4064256.jpg\")"
+          },
+          "scene": {
+            "id": "graveyard",
+            "webglAvailable": "true",
+            "material": "dark-hologram"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 107637097,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-arena-6",
+          "view": "arena",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": false
+          },
+          "environment": {
+            "id": "graveyard",
+            "active": "false",
+            "backdrop": "url(\"/environments/field-art/4064256.jpg\")"
+          },
+          "scene": {
+            "id": "graveyard",
+            "webglAvailable": "true",
+            "material": "dark-hologram"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 107925145,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-real-7",
+          "view": "real",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": true
+          },
+          "environment": {
+            "id": "graveyard",
+            "active": "true",
+            "backdrop": "url(\"/environments/field-art/4064256.jpg\")"
+          },
+          "scene": {
+            "id": "graveyard",
+            "webglAvailable": "true",
+            "material": "dark-hologram"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 108866558,
+          "projectionCaptureReadiness": {
+            "stableAnimationFrameTicks": 2,
+            "host": {
+              "width": 840,
+              "height": 820,
+              "scrollTop": 0,
+              "scrollLeft": 0
+            },
+            "root": {
+              "width": 840,
+              "height": 820
+            },
+            "cameraParent": {
+              "width": 840,
+              "height": 820
+            },
+            "cameraMatrix": {
+              "transform": "matrix3d(1, 0, 0, 0, 0, -0.89028, 0.455413, -0.000437541, 0, 0.455413, 0.89028, -0.000855343, 420, -363.056, 1197.36, -0.150371)",
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                -0.89028,
+                0.455413,
+                -0.000437541,
+                0,
+                0.455413,
+                0.89028,
+                -0.000855343,
+                420,
+                -363.056,
+                1197.36,
+                -0.150371
+              ],
+              "perspective": "none",
+              "transformOrigin": "420px 410px"
+            },
+            "boardMatrix": {
+              "transform": "matrix3d(0.0177778, 0, 0, 0, 0, 0, 0.0177778, 0, 0, 0.0177778, 0, 0, -450, -561.88, 0, 1)",
+              "values": [
+                0.0177778,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0.0177778,
+                0,
+                0,
+                0.0177778,
+                0,
+                0,
+                -450,
+                -561.88,
+                0,
+                1
+              ],
+              "perspective": "none",
+              "transformOrigin": "450px 562.5px"
+            },
+            "handMatrix": {
+              "transform": "matrix3d(0.0116667, 0, 0, 0, 0, -0.00344774, 0.0111456, 0, 0, 0.0111456, 0.00344774, 0, -450, -108.55, 11.2, 1)",
+              "values": [
+                0.0116667,
+                0,
+                0,
+                0,
+                0,
+                -0.00344774,
+                0.0111456,
+                0,
+                0,
+                0.0111456,
+                0.00344774,
+                0,
+                -450,
+                -108.55,
+                11.2,
+                1
+              ],
+              "perspective": "none",
+              "transformOrigin": "450px 110px"
+            }
+          },
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-compact-8",
+          "view": "compact",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": false
+          },
+          "environment": {
+            "id": "graveyard",
+            "active": "false",
+            "backdrop": "url(\"/environments/field-art/4064256.jpg\")"
+          },
+          "scene": {
+            "id": "graveyard",
+            "webglAvailable": "true",
+            "material": "dark-hologram"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 109161270,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-arena-9",
+          "view": "arena",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": false
+          },
+          "environment": {
+            "id": "graveyard",
+            "active": "false",
+            "backdrop": "url(\"/environments/field-art/4064256.jpg\")"
+          },
+          "scene": {
+            "id": "graveyard",
+            "webglAvailable": "true",
+            "material": "dark-hologram"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 109349150,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-real-10",
+          "view": "real",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": true
+          },
+          "environment": {
+            "id": "graveyard",
+            "active": "true",
+            "backdrop": "url(\"/environments/field-art/4064256.jpg\")"
+          },
+          "scene": {
+            "id": "graveyard",
+            "webglAvailable": "true",
+            "material": "dark-hologram"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 104328774,
+          "projectionCaptureReadiness": {
+            "stableAnimationFrameTicks": 2,
+            "host": {
+              "width": 840,
+              "height": 820,
+              "scrollTop": 0,
+              "scrollLeft": 0
+            },
+            "root": {
+              "width": 840,
+              "height": 820
+            },
+            "cameraParent": {
+              "width": 840,
+              "height": 820
+            },
+            "cameraMatrix": {
+              "transform": "matrix3d(1, 0, 0, 0, 0, -0.89028, 0.455413, -0.000437541, 0, 0.455413, 0.89028, -0.000855343, 420, -363.056, 1197.36, -0.150371)",
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                -0.89028,
+                0.455413,
+                -0.000437541,
+                0,
+                0.455413,
+                0.89028,
+                -0.000855343,
+                420,
+                -363.056,
+                1197.36,
+                -0.150371
+              ],
+              "perspective": "none",
+              "transformOrigin": "420px 410px"
+            },
+            "boardMatrix": {
+              "transform": "matrix3d(0.0177778, 0, 0, 0, 0, 0, 0.0177778, 0, 0, 0.0177778, 0, 0, -450, -561.88, 0, 1)",
+              "values": [
+                0.0177778,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0.0177778,
+                0,
+                0,
+                0.0177778,
+                0,
+                0,
+                -450,
+                -561.88,
+                0,
+                1
+              ],
+              "perspective": "none",
+              "transformOrigin": "450px 562.5px"
+            },
+            "handMatrix": {
+              "transform": "matrix3d(0.0116667, 0, 0, 0, 0, -0.00344774, 0.0111456, 0, 0, 0.0111456, 0.00344774, 0, -450, -108.55, 11.2, 1)",
+              "values": [
+                0.0116667,
+                0,
+                0,
+                0,
+                0,
+                -0.00344774,
+                0.0111456,
+                0,
+                0,
+                0.0111456,
+                0.00344774,
+                0,
+                -450,
+                -108.55,
+                11.2,
+                1
+              ],
+              "perspective": "none",
+              "transformOrigin": "450px 110px"
+            }
+          },
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        }
+      ],
+      "mausoleumDecisions": [
+        {
+          "title": "CHOISIR UN EFFET",
+          "choices": [
+            "Choix de l’effet"
+          ]
+        },
+        {
+          "title": "CHOISIR LES CARTES",
+          "choices": [
+            "Dragon Blanc aux Yeux Bleus",
+            "CONFIRMER (0/1)"
+          ]
+        },
+        {
+          "title": "CHOISIR LES CARTES",
+          "choices": [
+            "Dragon Blanc aux Yeux Bleus",
+            "CONFIRMER (1/1)"
+          ]
+        },
+        {
+          "title": "CHOISIR LA POSITION",
+          "choices": [
+            "ATTAQUE FACE RECTO",
+            "DÉFENSE FACE VERSO"
+          ]
+        },
+        {
+          "title": "CHOISIR LA ZONE",
+          "choices": [
+            "Votre Zone Monstre 1",
+            "Votre Zone Monstre 2",
+            "Votre Zone Monstre 3",
+            "Votre Zone Monstre 4",
+            "Votre Zone Monstre 5",
+            "CONFIRMER (0/1)"
+          ]
+        },
+        {
+          "title": "CHOISIR LA ZONE",
+          "choices": [
+            "Votre Zone Monstre 1",
+            "Votre Zone Monstre 2",
+            "Votre Zone Monstre 3",
+            "Votre Zone Monstre 4",
+            "Votre Zone Monstre 5",
+            "CONFIRMER (1/1)"
+          ]
+        }
+      ],
+      "openingOwnHand": [
+        {
+          "id": "4064256",
+          "uid": "native_2_84"
+        },
+        {
+          "id": "14087893",
+          "uid": "native_2_85"
+        },
+        {
+          "id": "4064256",
+          "uid": "native_2_86"
+        },
+        {
+          "id": "89631139",
+          "uid": "native_2_87"
+        },
+        {
+          "id": "80921533",
+          "uid": "native_2_88"
+        }
+      ],
+      "monsterRuntimeUid": "native_2_87",
+      "setFieldDoesNotActivateScenery": true,
+      "pendingActivationDoesNotActivateScenery": true,
+      "realViewSetActivationThroughControls": true,
+      "sameCanvasAcrossViewCycles": true,
+      "cspViolations": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "ok": true,
+      "pageErrors": [],
+      "nativeRequestFailures": [],
+      "stages": [
+        {
+          "stage": "mausoleum-compact",
+          "view": "compact",
+          "ownHand": [
+            {
+              "id": "4064256",
+              "uid": "native_2_84"
+            },
+            {
+              "id": "14087893",
+              "uid": "native_2_85"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_86"
+            }
+          ],
+          "ownField": {
+            "id": "80921533",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": false
+          },
+          "environment": null,
+          "scene": null,
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 0,
+            "canvases": 0,
+            "css3d": 0
+          },
+          "approximateJsHeapBytes": 107375808,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "mausoleum-arena",
+          "view": "arena",
+          "ownHand": [
+            {
+              "id": "4064256",
+              "uid": "native_2_84"
+            },
+            {
+              "id": "14087893",
+              "uid": "native_2_85"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_86"
+            }
+          ],
+          "ownField": {
+            "id": "80921533",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": false
+          },
+          "environment": null,
+          "scene": null,
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 0,
+            "canvases": 0,
+            "css3d": 0
+          },
+          "approximateJsHeapBytes": 107641854,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "mausoleum-real",
+          "view": "real",
+          "ownHand": [
+            {
+              "id": "4064256",
+              "uid": "native_2_84"
+            },
+            {
+              "id": "14087893",
+              "uid": "native_2_85"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_86"
+            }
+          ],
+          "ownField": {
+            "id": "80921533",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": true
+          },
+          "environment": {
+            "id": "temple-sanctuary",
+            "active": "true",
+            "backdrop": "url(\"/environments/field-art/80921533.jpg\")"
+          },
+          "scene": {
+            "id": "temple-sanctuary",
+            "webglAvailable": "true",
+            "material": "weathered-holographic-stone"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 114200996,
+          "projectionCaptureReadiness": {
+            "stableAnimationFrameTicks": 2,
+            "host": {
+              "width": 390,
+              "height": 560,
+              "scrollTop": 0,
+              "scrollLeft": 0
+            },
+            "root": {
+              "width": 390,
+              "height": 560
+            },
+            "cameraParent": {
+              "width": 390,
+              "height": 560
+            },
+            "cameraMatrix": {
+              "transform": "matrix3d(1, 0, 0, 0, 0, -0.871403, 0.490568, -0.000892703, 0, 0.490568, 0.871403, -0.00158572, 195, -243.296, 655.513, -0.192859)",
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                -0.871403,
+                0.490568,
+                -0.000892703,
+                0,
+                0.490568,
+                0.871403,
+                -0.00158572,
+                195,
+                -243.296,
+                655.513,
+                -0.192859
+              ],
+              "perspective": "none",
+              "transformOrigin": "195px 280px"
+            },
+            "boardMatrix": {
+              "transform": "matrix3d(0.0177778, 0, 0, 0, 0, 0, 0.0177778, 0, 0, 0.0177778, 0, 0, -450, -561.88, 0, 1)",
+              "values": [
+                0.0177778,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0.0177778,
+                0,
+                0,
+                0.0177778,
+                0,
+                0,
+                -450,
+                -561.88,
+                0,
+                1
+              ],
+              "perspective": "none",
+              "transformOrigin": "450px 562.5px"
+            },
+            "handMatrix": {
+              "transform": "matrix3d(0.0116667, 0, 0, 0, 0, -0.00344774, 0.0111456, 0, 0, 0.0111456, 0.00344774, 0, -450, -108.55, 11.2, 1)",
+              "values": [
+                0.0116667,
+                0,
+                0,
+                0,
+                0,
+                -0.00344774,
+                0.0111456,
+                0,
+                0,
+                0.0111456,
+                0.00344774,
+                0,
+                -450,
+                -108.55,
+                11.2,
+                1
+              ],
+              "perspective": "none",
+              "transformOrigin": "450px 110px"
+            }
+          },
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-set-real",
+          "view": "real",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": true
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": true
+          },
+          "environment": {
+            "id": "clearing",
+            "active": "true",
+            "backdrop": "url(\"/environments/kaibacorp-clearing-original.webp\")"
+          },
+          "scene": {
+            "id": "clearing",
+            "webglAvailable": "true",
+            "material": "kaibacorp-steel"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 121854751,
+          "projectionCaptureReadiness": {
+            "stableAnimationFrameTicks": 2,
+            "host": {
+              "width": 390,
+              "height": 560,
+              "scrollTop": 0,
+              "scrollLeft": 0
+            },
+            "root": {
+              "width": 390,
+              "height": 560
+            },
+            "cameraParent": {
+              "width": 390,
+              "height": 560
+            },
+            "cameraMatrix": {
+              "transform": "matrix3d(1, 0, 0, 0, 0, -0.871403, 0.490568, -0.000892703, 0, 0.490568, 0.871403, -0.00158572, 195, -243.296, 655.513, -0.192859)",
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                -0.871403,
+                0.490568,
+                -0.000892703,
+                0,
+                0.490568,
+                0.871403,
+                -0.00158572,
+                195,
+                -243.296,
+                655.513,
+                -0.192859
+              ],
+              "perspective": "none",
+              "transformOrigin": "195px 280px"
+            },
+            "boardMatrix": {
+              "transform": "matrix3d(0.0177778, 0, 0, 0, 0, 0, 0.0177778, 0, 0, 0.0177778, 0, 0, -450, -561.88, 0, 1)",
+              "values": [
+                0.0177778,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0.0177778,
+                0,
+                0,
+                0.0177778,
+                0,
+                0,
+                -450,
+                -561.88,
+                0,
+                1
+              ],
+              "perspective": "none",
+              "transformOrigin": "450px 562.5px"
+            },
+            "handMatrix": {
+              "transform": "matrix3d(0.0116667, 0, 0, 0, 0, -0.00344774, 0.0111456, 0, 0, 0.0111456, 0.00344774, 0, -450, -108.55, 11.2, 1)",
+              "values": [
+                0.0116667,
+                0,
+                0,
+                0,
+                0,
+                -0.00344774,
+                0.0111456,
+                0,
+                0,
+                0.0111456,
+                0.00344774,
+                0,
+                -450,
+                -108.55,
+                11.2,
+                1
+              ],
+              "perspective": "none",
+              "transformOrigin": "450px 110px"
+            }
+          },
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-activation-pending-real",
+          "view": "real",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": true
+          },
+          "environment": {
+            "id": "clearing",
+            "active": "true",
+            "backdrop": "url(\"/environments/kaibacorp-clearing-original.webp\")"
+          },
+          "scene": {
+            "id": "clearing",
+            "webglAvailable": "true",
+            "material": "kaibacorp-steel"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 126065546,
+          "projectionCaptureReadiness": {
+            "stableAnimationFrameTicks": 2,
+            "host": {
+              "width": 390,
+              "height": 560,
+              "scrollTop": 0,
+              "scrollLeft": 0
+            },
+            "root": {
+              "width": 390,
+              "height": 560
+            },
+            "cameraParent": {
+              "width": 390,
+              "height": 560
+            },
+            "cameraMatrix": {
+              "transform": "matrix3d(1, 0, 0, 0, 0, -0.871403, 0.490568, -0.000892703, 0, 0.490568, 0.871403, -0.00158572, 195, -243.296, 655.513, -0.192859)",
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                -0.871403,
+                0.490568,
+                -0.000892703,
+                0,
+                0.490568,
+                0.871403,
+                -0.00158572,
+                195,
+                -243.296,
+                655.513,
+                -0.192859
+              ],
+              "perspective": "none",
+              "transformOrigin": "195px 280px"
+            },
+            "boardMatrix": {
+              "transform": "matrix3d(0.0177778, 0, 0, 0, 0, 0, 0.0177778, 0, 0, 0.0177778, 0, 0, -450, -561.88, 0, 1)",
+              "values": [
+                0.0177778,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0.0177778,
+                0,
+                0,
+                0.0177778,
+                0,
+                0,
+                -450,
+                -561.88,
+                0,
+                1
+              ],
+              "perspective": "none",
+              "transformOrigin": "450px 562.5px"
+            },
+            "handMatrix": {
+              "transform": "matrix3d(0.0116667, 0, 0, 0, 0, -0.00344774, 0.0111456, 0, 0, 0.0111456, 0.00344774, 0, -450, -108.55, 11.2, 1)",
+              "values": [
+                0.0116667,
+                0,
+                0,
+                0,
+                0,
+                -0.00344774,
+                0.0111456,
+                0,
+                0,
+                0.0111456,
+                0.00344774,
+                0,
+                -450,
+                -108.55,
+                11.2,
+                1
+              ],
+              "perspective": "none",
+              "transformOrigin": "450px 110px"
+            }
+          },
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-compact-5",
+          "view": "compact",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": false
+          },
+          "environment": {
+            "id": "graveyard",
+            "active": "false",
+            "backdrop": "url(\"/environments/field-art/4064256.jpg\")"
+          },
+          "scene": {
+            "id": "graveyard",
+            "webglAvailable": "true",
+            "material": "dark-hologram"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 109136544,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-arena-6",
+          "view": "arena",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": false
+          },
+          "environment": {
+            "id": "graveyard",
+            "active": "false",
+            "backdrop": "url(\"/environments/field-art/4064256.jpg\")"
+          },
+          "scene": {
+            "id": "graveyard",
+            "webglAvailable": "true",
+            "material": "dark-hologram"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 109425588,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-real-7",
+          "view": "real",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": true
+          },
+          "environment": {
+            "id": "graveyard",
+            "active": "true",
+            "backdrop": "url(\"/environments/field-art/4064256.jpg\")"
+          },
+          "scene": {
+            "id": "graveyard",
+            "webglAvailable": "true",
+            "material": "dark-hologram"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 110359850,
+          "projectionCaptureReadiness": {
+            "stableAnimationFrameTicks": 2,
+            "host": {
+              "width": 390,
+              "height": 560,
+              "scrollTop": 0,
+              "scrollLeft": 0
+            },
+            "root": {
+              "width": 390,
+              "height": 560
+            },
+            "cameraParent": {
+              "width": 390,
+              "height": 560
+            },
+            "cameraMatrix": {
+              "transform": "matrix3d(1, 0, 0, 0, 0, -0.871403, 0.490568, -0.000892703, 0, 0.490568, 0.871403, -0.00158572, 195, -243.296, 655.513, -0.192859)",
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                -0.871403,
+                0.490568,
+                -0.000892703,
+                0,
+                0.490568,
+                0.871403,
+                -0.00158572,
+                195,
+                -243.296,
+                655.513,
+                -0.192859
+              ],
+              "perspective": "none",
+              "transformOrigin": "195px 280px"
+            },
+            "boardMatrix": {
+              "transform": "matrix3d(0.0177778, 0, 0, 0, 0, 0, 0.0177778, 0, 0, 0.0177778, 0, 0, -450, -561.88, 0, 1)",
+              "values": [
+                0.0177778,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0.0177778,
+                0,
+                0,
+                0.0177778,
+                0,
+                0,
+                -450,
+                -561.88,
+                0,
+                1
+              ],
+              "perspective": "none",
+              "transformOrigin": "450px 562.5px"
+            },
+            "handMatrix": {
+              "transform": "matrix3d(0.0116667, 0, 0, 0, 0, -0.00344774, 0.0111456, 0, 0, 0.0111456, 0.00344774, 0, -450, -108.55, 11.2, 1)",
+              "values": [
+                0.0116667,
+                0,
+                0,
+                0,
+                0,
+                -0.00344774,
+                0.0111456,
+                0,
+                0,
+                0.0111456,
+                0.00344774,
+                0,
+                -450,
+                -108.55,
+                11.2,
+                1
+              ],
+              "perspective": "none",
+              "transformOrigin": "450px 110px"
+            }
+          },
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-compact-8",
+          "view": "compact",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": false
+          },
+          "environment": {
+            "id": "graveyard",
+            "active": "false",
+            "backdrop": "url(\"/environments/field-art/4064256.jpg\")"
+          },
+          "scene": {
+            "id": "graveyard",
+            "webglAvailable": "true",
+            "material": "dark-hologram"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 110598142,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-arena-9",
+          "view": "arena",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": false
+          },
+          "environment": {
+            "id": "graveyard",
+            "active": "false",
+            "backdrop": "url(\"/environments/field-art/4064256.jpg\")"
+          },
+          "scene": {
+            "id": "graveyard",
+            "webglAvailable": "true",
+            "material": "dark-hologram"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 110786110,
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        },
+        {
+          "stage": "zombie-world-real-10",
+          "view": "real",
+          "ownHand": [
+            {
+              "id": "14087893",
+              "uid": "native_2_94"
+            },
+            {
+              "id": "4064256",
+              "uid": "native_2_95"
+            }
+          ],
+          "ownField": {
+            "id": "4064256",
+            "faceDown": false
+          },
+          "playerLp": 6000,
+          "opponentLp": 8000,
+          "monster": {
+            "id": "89631139",
+            "uid": "native_2_87",
+            "atk": "ATK 3000",
+            "def": "DEF 2500",
+            "label": "Dragon Blanc aux Yeux Bleus, ATK 3000, DEF 2500",
+            "modelRendered": true
+          },
+          "environment": {
+            "id": "graveyard",
+            "active": "true",
+            "backdrop": "url(\"/environments/field-art/4064256.jpg\")"
+          },
+          "scene": {
+            "id": "graveyard",
+            "webglAvailable": "true",
+            "material": "dark-hologram"
+          },
+          "counts": {
+            "boards": 1,
+            "hands": 1,
+            "scenes": 1,
+            "canvases": 1,
+            "css3d": 1
+          },
+          "approximateJsHeapBytes": 111696750,
+          "projectionCaptureReadiness": {
+            "stableAnimationFrameTicks": 2,
+            "host": {
+              "width": 390,
+              "height": 560,
+              "scrollTop": 0,
+              "scrollLeft": 0
+            },
+            "root": {
+              "width": 390,
+              "height": 560
+            },
+            "cameraParent": {
+              "width": 390,
+              "height": 560
+            },
+            "cameraMatrix": {
+              "transform": "matrix3d(1, 0, 0, 0, 0, -0.871403, 0.490568, -0.000892703, 0, 0.490568, 0.871403, -0.00158572, 195, -243.296, 655.513, -0.192859)",
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                -0.871403,
+                0.490568,
+                -0.000892703,
+                0,
+                0.490568,
+                0.871403,
+                -0.00158572,
+                195,
+                -243.296,
+                655.513,
+                -0.192859
+              ],
+              "perspective": "none",
+              "transformOrigin": "195px 280px"
+            },
+            "boardMatrix": {
+              "transform": "matrix3d(0.0177778, 0, 0, 0, 0, 0, 0.0177778, 0, 0, 0.0177778, 0, 0, -450, -561.88, 0, 1)",
+              "values": [
+                0.0177778,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0.0177778,
+                0,
+                0,
+                0.0177778,
+                0,
+                0,
+                -450,
+                -561.88,
+                0,
+                1
+              ],
+              "perspective": "none",
+              "transformOrigin": "450px 562.5px"
+            },
+            "handMatrix": {
+              "transform": "matrix3d(0.0116667, 0, 0, 0, 0, -0.00344774, 0.0111456, 0, 0, 0.0111456, 0.00344774, 0, -450, -108.55, 11.2, 1)",
+              "values": [
+                0.0116667,
+                0,
+                0,
+                0,
+                0,
+                -0.00344774,
+                0.0111456,
+                0,
+                0,
+                0.0111456,
+                0.00344774,
+                0,
+                -450,
+                -108.55,
+                11.2,
+                1
+              ],
+              "perspective": "none",
+              "transformOrigin": "450px 110px"
+            }
+          },
+          "concealment": {
+            "count": 0,
+            "safe": true
+          }
+        }
+      ],
+      "mausoleumDecisions": [
+        {
+          "title": "CHOISIR UN EFFET",
+          "choices": [
+            "Choix de l’effet"
+          ]
+        },
+        {
+          "title": "CHOISIR LES CARTES",
+          "choices": [
+            "Dragon Blanc aux Yeux Bleus",
+            "CONFIRMER (0/1)"
+          ]
+        },
+        {
+          "title": "CHOISIR LES CARTES",
+          "choices": [
+            "Dragon Blanc aux Yeux Bleus",
+            "CONFIRMER (1/1)"
+          ]
+        },
+        {
+          "title": "CHOISIR LA POSITION",
+          "choices": [
+            "ATTAQUE FACE RECTO",
+            "DÉFENSE FACE VERSO"
+          ]
+        },
+        {
+          "title": "CHOISIR LA ZONE",
+          "choices": [
+            "Votre Zone Monstre 1",
+            "Votre Zone Monstre 2",
+            "Votre Zone Monstre 3",
+            "Votre Zone Monstre 4",
+            "Votre Zone Monstre 5",
+            "CONFIRMER (0/1)"
+          ]
+        },
+        {
+          "title": "CHOISIR LA ZONE",
+          "choices": [
+            "Votre Zone Monstre 1",
+            "Votre Zone Monstre 2",
+            "Votre Zone Monstre 3",
+            "Votre Zone Monstre 4",
+            "Votre Zone Monstre 5",
+            "CONFIRMER (1/1)"
+          ]
+        }
+      ],
+      "openingOwnHand": [
+        {
+          "id": "4064256",
+          "uid": "native_2_84"
+        },
+        {
+          "id": "14087893",
+          "uid": "native_2_85"
+        },
+        {
+          "id": "4064256",
+          "uid": "native_2_86"
+        },
+        {
+          "id": "89631139",
+          "uid": "native_2_87"
+        },
+        {
+          "id": "80921533",
+          "uid": "native_2_88"
+        }
+      ],
+      "monsterRuntimeUid": "native_2_87",
+      "setFieldDoesNotActivateScenery": true,
+      "pendingActivationDoesNotActivateScenery": true,
+      "realViewSetActivationThroughControls": true,
+      "sameCanvasAcrossViewCycles": true,
+      "cspViolations": []
+    }
+  ],
+  "testedResponseCsp": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://db.ygoprodeck.com; media-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests",
+  "provenanceSchemaVersion": 3,
+  "testedHtmlAsset": "/index.html",
+  "testedHtmlSha256": "30bf78a66cda62f4a4b7b6617ad330ee2c983e5564a51dfff539882b75d3baaf",
+  "testedIndexHtmlSha256": "30bf78a66cda62f4a4b7b6617ad330ee2c983e5564a51dfff539882b75d3baaf",
+  "testedIndexAsset": "/assets/index-DNwe3FSS.js",
+  "testedIndexAssetBytes": 598690,
+  "testedIndexAssetSha256": "38c428237545d8290e07229c5efdda93441dd1088234c31e64aa6ef3f8b59321",
+  "testedIndexSha256": "38c428237545d8290e07229c5efdda93441dd1088234c31e64aa6ef3f8b59321",
+  "testedCssAsset": "/assets/index-BbUkbKmn.css",
+  "testedCssAssetBytes": 82371,
+  "testedCssAssetSha256": "71afb732ab7152dc319dfb6b72812913e23121c24f251ef80e0b69c61e0e749e",
+  "testedNativeGameAsset": "/assets/NativeDuelGame-DocEeHOq.js",
+  "testedNativeGameAssetBytes": 83510,
+  "testedNativeGameAssetSha256": "045f647667c998076ba0d3e63433f3015c27cae705bf17546faf49f708e144fb",
+  "testedNativeCatalogueAsset": "/assets/NativeCardCatalogue-DYOc9sug.js",
+  "testedNativeCatalogueAssetBytes": 54064,
+  "testedNativeCatalogueAssetSha256": "52372b0fa09af406267d3091d1c476e20572bc62b9f4ecb499f19bb9dd6d1e2b",
+  "testedRegistryAsset": "/assets/FieldEnvironmentRegistry-Bv70irwA.js",
+  "testedRegistryAssetBytes": 595263,
+  "testedRegistryAssetSha256": "bfc14aa98ac8ac1e7ddbdfed7949539c51a6e6b9e3866c0af7190a6d084db062",
+  "testedRealViewAsset": "/assets/RealDuelView-P3kgZYMk.js",
+  "testedRealViewAssetBytes": 135163,
+  "testedRealViewAssetSha256": "8eff318aa606a12673082fdc532b2640f66eebb177b0849f2103370e0fe4e463",
+  "testedNativeCoreAsset": "/assets/ocgcore-CUv6jKK5.js",
+  "testedNativeCoreAssetBytes": 1746,
+  "testedNativeCoreAssetSha256": "2dc99ca041097a1040c9a3cf509ff7f8c7a25e6dda9999b961bbea6649f582e3",
+  "testedWasmSha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+  "testedCardDataSha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d",
+  "testedScriptsSha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f",
+  "buildUnchangedDuringAudit": true,
+  "captureSha256": {
+    "native-mausoleum-arena-1280.png": "10c78d2d37673c45ac5cc436e0f624de0ba19e0d8fdb1fb4a8dc2658be563dad",
+    "native-mausoleum-arena-390.png": "cc3c9196a30bb463a3d034db93b6d0979efbfaa0f755856793801e63270bbcf9",
+    "native-mausoleum-compact-1280.png": "5ff44fdfe87716cdcd1688725756126a71c0d3b541040c2b6c66d0578f7b40ee",
+    "native-mausoleum-compact-390.png": "0a75d49ff23013ba62a31c26615a2276f73dfff5e4ec6c554c4dfae260de15c7",
+    "native-mausoleum-real-1280.png": "8384c1fab2d0a40ae37d70127ddeffb9f9e96987dde524509d5fb053185b8e12",
+    "native-mausoleum-real-390.png": "464fa10dfc316d05f5037005e206cd222948de887ac2eba9fe454e1758b993dd",
+    "native-zombie-world-arena-1280.png": "9425504f4eb85ffc700d23a7577411db38144e09c466a0900eb86483b4bc8747",
+    "native-zombie-world-arena-390.png": "d0ddb7944c7ff4b39ce6690f781de94778517160b26353626ce1a6ddf88ef523",
+    "native-zombie-world-compact-1280.png": "2ce0ff3feb993c4e2d068b802753f58de1a5e3c1778b7339ff9527009fb1d2dd",
+    "native-zombie-world-compact-390.png": "036cb080fda779e54c667ff70bea58a12711e47de3c57c2555ba055c65770697",
+    "native-zombie-world-pending-real-1280.png": "530f9a5a69e2f62a0c1d53e0c62ef6c0655e6018c1edd75b1c7fe8834ef4318b",
+    "native-zombie-world-pending-real-390.png": "e4206b59623a5dc6cd568386a9fb6b1dce73244727373f845c44f65f48bb92b0",
+    "native-zombie-world-real-1280.png": "b1a4359c507bc517d3044517d56a02ddf6cec99078c828503bb73b067e09a78d",
+    "native-zombie-world-real-390.png": "6c1bdefedf6cd54348d72481cf8029d100e9c7e5b3f693c1aeeebc82197f6867",
+    "native-zombie-world-set-real-1280.png": "cdd46f9295c074584fa89a264aeaa21846c3e93d3a0636f7d583bc9b6d4e575f",
+    "native-zombie-world-set-real-390.png": "8490397e7de67f69be183668cf4350ca588947b392dd0b4fc9e8500f2df6fbbb"
+  }
+}

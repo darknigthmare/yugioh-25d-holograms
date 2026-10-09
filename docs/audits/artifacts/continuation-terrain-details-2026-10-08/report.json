@@ -1,0 +1,4191 @@
+{
+  "auditDate": "2026-10-08",
+  "baselineCommit": "5971495fb9425b96416b5e07bfeb6d28ec9bd43c",
+  "method": "intact source JPG / real Chromium WebGL baseline / adapted sculpture, three identical-camera angle pairs per card",
+  "sourceImageEdits": false,
+  "gameOrQaHookInstantiated": false,
+  "baselineFiles": {
+    "FieldEnvironmentGeometry.js": {
+      "bytes": 94053,
+      "sha256": "134b5a9e4cf1982b82a43e54f860522833cf1cea16013003b54153fc79dedb3c"
+    },
+    "FieldEnvironmentFrontierReferences.js": {
+      "bytes": 86869,
+      "sha256": "926e4873ff5e4c2a038f310eb6d5c702ed8dbe3d92bced322b88fe1cb21997af"
+    },
+    "FieldEnvironmentRitualReferences.js": {
+      "bytes": 77714,
+      "sha256": "ef9992458040028f87a5035ee63dbf01b703435759f97bc827f6ec527bbe401c"
+    },
+    "FieldReferenceDetailGeometry.js": {
+      "bytes": 25175,
+      "sha256": "7bee231f571b967d15c74ef99e9ed6ab70c3a8ec5401e63ba0021673b73f4767"
+    },
+    "FieldEnvironmentCommunityReferences.js": {
+      "bytes": 72014,
+      "sha256": "498c7a20bb5d0d0d1d7c693c0225f87d0b9fdf6822c33cc98ffc2021722a04ef"
+    },
+    "FieldEnvironmentEngineeringReferences.js": {
+      "bytes": 46085,
+      "sha256": "566328be75b756765ffd33c2eb7738f4825b8d4cdd48c8acec807505d674c8ce"
+    },
+    "FieldEnvironmentArcaneReferences.js": {
+      "bytes": 50646,
+      "sha256": "88776075dac0a9fbc4644e6427a4d3cd49e0305693fb5826056b8f7b4a6d5e3e"
+    },
+    "FieldEnvironmentStageReferences.js": {
+      "bytes": 43117,
+      "sha256": "dc16126856a5591226a36aece9e007a4f819e4e9f2279a079dfdfbf7ae8d701f"
+    },
+    "FieldEnvironmentWildReferences.js": {
+      "bytes": 38383,
+      "sha256": "b8db1cfd37d85dfd222d0b6c9a89934cc1f9c0d0ce7ae3e95325efafdb07d0c7"
+    },
+    "FieldEnvironmentDarkReferences.js": {
+      "bytes": 48359,
+      "sha256": "94bbbf083f053b5c37d81801bdf347fe73a67fef13c788f57c8a43f6ee1c79ac"
+    },
+    "FieldEnvironmentAquaticReferences.js": {
+      "bytes": 40332,
+      "sha256": "fc2308aafce72862a97b759cfe25b6818b38580ebde74125af3bdc5c074858b2"
+    },
+    "FieldEnvironmentUrbanReferences.js": {
+      "bytes": 32177,
+      "sha256": "b3d94d8d9f427315fec3b0d36c775fc337d827b92ca6a8fd7de8d8665e5e61c9"
+    },
+    "FieldEnvironmentMysticalReferences.js": {
+      "bytes": 27232,
+      "sha256": "1e6ec73411e3dd624542edee60000110bd22f38c6f9e90176f18ce071c7da2cc"
+    },
+    "FieldEnvironmentTechnologyReferences.js": {
+      "bytes": 32454,
+      "sha256": "930d3121814e730d9274a6d2087bcd301c1b18b07250cff1de9abb70676b4742"
+    },
+    "FieldEnvironmentArchitecturalReferences.js": {
+      "bytes": 28182,
+      "sha256": "e9bfe454fd75e9934917ba60d431aaf5549f75c20769290cd5dffc929b8895b1"
+    },
+    "FieldEnvironmentNatureReferences.js": {
+      "bytes": 27448,
+      "sha256": "0d44bdf0379837717ea1be71599d5572edb9209565cf93bfc5ee5d3768f7c824"
+    }
+  },
+  "dependencies": {
+    "src/ui/FieldEnvironmentGeometry.js": {
+      "bytes": 94053,
+      "sha256": "134b5a9e4cf1982b82a43e54f860522833cf1cea16013003b54153fc79dedb3c"
+    },
+    "src/ui/FieldGeometryThree.js": {
+      "bytes": 739,
+      "sha256": "f1ba391ea533f94a6795f160091077d7488c590cf2e42cf2686c7d0a01fe7e82"
+    },
+    "src/ui/FieldEnvironmentRegistry.js": {
+      "bytes": 32180,
+      "sha256": "4312f060be24418091f4f629727766d406043c2a32d79717e9f3220123227dd8"
+    },
+    "src/ui/FieldReferenceDetailGeometry.js": {
+      "bytes": 25543,
+      "sha256": "20269b947051f75862dc401d991541023144b70bfab81df100e82b942b532fd1"
+    },
+    "src/ui/FieldContinuationStageDetails.js": {
+      "bytes": 14565,
+      "sha256": "3def385c130687a064b02f9e03c7f0c7f85261efa8c7000c36089d38a3d13204"
+    },
+    "src/ui/FieldEnvironmentFrontierReferences.js": {
+      "bytes": 86869,
+      "sha256": "926e4873ff5e4c2a038f310eb6d5c702ed8dbe3d92bced322b88fe1cb21997af"
+    },
+    "src/ui/FieldEnvironmentRitualReferences.js": {
+      "bytes": 77714,
+      "sha256": "ef9992458040028f87a5035ee63dbf01b703435759f97bc827f6ec527bbe401c"
+    },
+    "src/ui/FieldEnvironmentCommunityReferences.js": {
+      "bytes": 72014,
+      "sha256": "498c7a20bb5d0d0d1d7c693c0225f87d0b9fdf6822c33cc98ffc2021722a04ef"
+    },
+    "src/ui/FieldEnvironmentEngineeringReferences.js": {
+      "bytes": 46085,
+      "sha256": "566328be75b756765ffd33c2eb7738f4825b8d4cdd48c8acec807505d674c8ce"
+    },
+    "src/ui/FieldEnvironmentArcaneReferences.js": {
+      "bytes": 50646,
+      "sha256": "88776075dac0a9fbc4644e6427a4d3cd49e0305693fb5826056b8f7b4a6d5e3e"
+    },
+    "src/ui/FieldEnvironmentStageReferences.js": {
+      "bytes": 43183,
+      "sha256": "a5c68804172344e32fe93147ee04ddaa6f76ae520e42f19c2255c21d0283dfd8"
+    },
+    "src/ui/FieldEnvironmentWildReferences.js": {
+      "bytes": 38383,
+      "sha256": "b8db1cfd37d85dfd222d0b6c9a89934cc1f9c0d0ce7ae3e95325efafdb07d0c7"
+    },
+    "src/ui/FieldEnvironmentDarkReferences.js": {
+      "bytes": 48359,
+      "sha256": "94bbbf083f053b5c37d81801bdf347fe73a67fef13c788f57c8a43f6ee1c79ac"
+    },
+    "src/ui/FieldEnvironmentAquaticReferences.js": {
+      "bytes": 40332,
+      "sha256": "fc2308aafce72862a97b759cfe25b6818b38580ebde74125af3bdc5c074858b2"
+    },
+    "src/ui/FieldEnvironmentUrbanReferences.js": {
+      "bytes": 32177,
+      "sha256": "b3d94d8d9f427315fec3b0d36c775fc337d827b92ca6a8fd7de8d8665e5e61c9"
+    },
+    "src/ui/FieldEnvironmentMysticalReferences.js": {
+      "bytes": 27232,
+      "sha256": "1e6ec73411e3dd624542edee60000110bd22f38c6f9e90176f18ce071c7da2cc"
+    },
+    "src/ui/FieldEnvironmentTechnologyReferences.js": {
+      "bytes": 32454,
+      "sha256": "930d3121814e730d9274a6d2087bcd301c1b18b07250cff1de9abb70676b4742"
+    },
+    "src/ui/FieldEnvironmentArchitecturalReferences.js": {
+      "bytes": 28182,
+      "sha256": "e9bfe454fd75e9934917ba60d431aaf5549f75c20769290cd5dffc929b8895b1"
+    },
+    "src/ui/FieldEnvironmentNatureReferences.js": {
+      "bytes": 27448,
+      "sha256": "0d44bdf0379837717ea1be71599d5572edb9209565cf93bfc5ee5d3768f7c824"
+    }
+  },
+  "runner": {
+    "bytes": 16429,
+    "sha256": "e2e850cb79748b4f53253826fef8f4d60fe6ba40086ce1d6af61f460c6d12a2f"
+  },
+  "sources": [
+    {
+      "cardId": "7617062",
+      "name": "Ghostrick Museum",
+      "target": [
+        0,
+        15,
+        -31
+      ],
+      "fov": 60,
+      "position": [
+        0,
+        22,
+        16
+      ],
+      "background": "#344957",
+      "assetPath": "public/environments/field-art/7617062.jpg",
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/7617062.jpg",
+      "bytes": 121370,
+      "sha256": "1c95c6014ef966418c89fb72a2f42997ebc28ad802d58130f344596c9ee5c7a6",
+      "baselineBytesIdentical": true
+    },
+    {
+      "cardId": "15388353",
+      "name": "Nouvelles Restaurant \"At Table\"",
+      "target": [
+        0,
+        13,
+        -30
+      ],
+      "fov": 54,
+      "position": [
+        0,
+        18,
+        13
+      ],
+      "background": "#51445e",
+      "assetPath": "public/environments/field-art/15388353.jpg",
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/15388353.jpg",
+      "bytes": 165240,
+      "sha256": "f84f02aac56bd31a9be262dfe7be60e120ef086cf8ca888e1e837fcf78fc6cc8",
+      "baselineBytesIdentical": true
+    },
+    {
+      "cardId": "49370016",
+      "name": "P.U.N.K. JAM Extreme Session",
+      "target": [
+        0,
+        15,
+        -33
+      ],
+      "fov": 60,
+      "position": [
+        0,
+        19,
+        11
+      ],
+      "background": "#352e58",
+      "assetPath": "public/environments/field-art/49370016.jpg",
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/49370016.jpg",
+      "bytes": 257447,
+      "sha256": "f7d74cc7e58a9c479f8bc241725edae57eac596a04306f9077c3cee20747ba23",
+      "baselineBytesIdentical": true
+    },
+    {
+      "cardId": "63492244",
+      "name": "Trickstar Light Arena",
+      "target": [
+        0,
+        14,
+        -29
+      ],
+      "fov": 61,
+      "position": [
+        0,
+        20,
+        14
+      ],
+      "background": "#445546",
+      "assetPath": "public/environments/field-art/63492244.jpg",
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/63492244.jpg",
+      "bytes": 125814,
+      "sha256": "75a74ba78dfb70f64a588008e2616dc960ba27a95027b6afca36aaeb59196daf",
+      "baselineBytesIdentical": true
+    },
+    {
+      "cardId": "51208046",
+      "name": "Trickstar Live Stage",
+      "target": [
+        0,
+        14,
+        -31
+      ],
+      "fov": 60,
+      "position": [
+        0,
+        19,
+        11
+      ],
+      "background": "#543356",
+      "assetPath": "public/environments/field-art/51208046.jpg",
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/51208046.jpg",
+      "bytes": 128257,
+      "sha256": "ff6a4800fa5ac5c68cf8a3fe754421bc8de4e3261c447ec4d1620a22871cb2c7",
+      "baselineBytesIdentical": true
+    },
+    {
+      "cardId": "35371948",
+      "name": "Trickstar Light Stage",
+      "target": [
+        0,
+        12,
+        -29
+      ],
+      "fov": 60,
+      "position": [
+        0,
+        18,
+        12
+      ],
+      "background": "#3f6153",
+      "assetPath": "public/environments/field-art/35371948.jpg",
+      "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/35371948.jpg",
+      "bytes": 144246,
+      "sha256": "91cd64a11de62b246d63329f9b5396d1147cdfa6acd8dd7c19fc29a33181f157",
+      "baselineBytesIdentical": true
+    }
+  ],
+  "ok": true,
+  "measurements": [
+    {
+      "cardId": "7617062",
+      "angle": "front",
+      "before": {
+        "preMergePrimitives": 49,
+        "gpuInstanceCount": 9,
+        "drawCalls": 9,
+        "materials": 1,
+        "triangles": 10188,
+        "bounds": {
+          "min": [
+            -21.219999313354492,
+            0,
+            -36.5
+          ],
+          "max": [
+            21.219999313354492,
+            19.657499849796295,
+            3.214484214782715
+          ]
+        },
+        "detail": null,
+        "camera": {
+          "position": [
+            0,
+            22,
+            16
+          ],
+          "target": [
+            0,
+            15,
+            -31
+          ],
+          "fov": 60,
+          "matrixWorld": [
+            1,
+            0,
+            -0.0,
+            0,
+            -0.0,
+            0.9890901778818174,
+            -0.14731130308878132,
+            0,
+            0,
+            0.14731130308878132,
+            0.9890901778818174,
+            0,
+            0,
+            22,
+            16,
+            1
+          ],
+          "projection": [
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 74,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 13,
+            "BoxGeometry": 2,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 1,
+            "CylinderGeometry": 30,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 3,
+            "SphereGeometry": 3,
+            "BufferGeometry": 11,
+            "InstancedMesh": 9
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/7617062-front-before.png",
+          "sha256": "1e11c24c6d12bae3122f687105080c42426225849205e113449ed4ad5a607954",
+          "bytes": 35104
+        }
+      },
+      "after": {
+        "preMergePrimitives": 89,
+        "gpuInstanceCount": 10,
+        "drawCalls": 10,
+        "materials": 2,
+        "triangles": 14184,
+        "bounds": {
+          "min": [
+            -21.219999313354492,
+            -0.44365498423576355,
+            -36.5
+          ],
+          "max": [
+            21.219999313354492,
+            29.346132278442383,
+            3.214484214782715
+          ]
+        },
+        "detail": {
+          "cardId": "7617062",
+          "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/7617062.jpg",
+          "fidelity": "source-inspected-adapted-sculpture",
+          "primitiveCount": 40,
+          "groups": [
+            {
+              "name": "museum-fossil-mirror-and-relics",
+              "primitiveCount": 40
+            }
+          ],
+          "features": [
+            "long dinosaur fossil skull with open jaws and pointed teeth",
+            "gilded mirror scrolls and finials",
+            "broken golden vessel and scattered shards"
+          ],
+          "limits": "Fossil anatomy and mirror ornament are adapted closed volumes. The mummy, riders, ghost portrait and unseen museum depth remain painted."
+        },
+        "camera": {
+          "position": [
+            0,
+            22,
+            16
+          ],
+          "target": [
+            0,
+            15,
+            -31
+          ],
+          "fov": 60,
+          "matrixWorld": [
+            1,
+            0,
+            -0.0,
+            0,
+            -0.0,
+            0.9890901778818174,
+            -0.14731130308878132,
+            0,
+            0,
+            0.14731130308878132,
+            0.9890901778818174,
+            0,
+            0,
+            22,
+            16,
+            1
+          ],
+          "projection": [
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 87,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 14,
+            "BoxGeometry": 3,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 2,
+            "CylinderGeometry": 31,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 4,
+            "SphereGeometry": 4,
+            "BufferGeometry": 17,
+            "InstancedMesh": 10
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/7617062-front-after.png",
+          "sha256": "fcc55637108d729a476e4ce38e8798c2e30bd17fd9e530542ff5b503b09a67ec",
+          "bytes": 55623
+        }
+      },
+      "pixelComparison": {
+        "sameDimensions": true,
+        "threshold": "at least one RGB channel differs by more than 8/255",
+        "changedPixels": 7937,
+        "changedFraction": 0.02204722222222222,
+        "meanAbsoluteChannelDifference": 1.5912416666666667,
+        "sourceSimilarityScore": false
+      }
+    },
+    {
+      "cardId": "7617062",
+      "angle": "left",
+      "before": {
+        "preMergePrimitives": 49,
+        "gpuInstanceCount": 9,
+        "drawCalls": 9,
+        "materials": 1,
+        "triangles": 10188,
+        "bounds": {
+          "min": [
+            -21.219999313354492,
+            0,
+            -36.5
+          ],
+          "max": [
+            21.219999313354492,
+            19.657499849796295,
+            3.214484214782715
+          ]
+        },
+        "detail": null,
+        "camera": {
+          "position": [
+            -24,
+            22,
+            16
+          ],
+          "target": [
+            0,
+            15,
+            -31
+          ],
+          "fov": 60,
+          "matrixWorld": [
+            0.8906052649078087,
+            1.0408340855860843e-17,
+            0.4547771565486682,
+            0,
+            0.059799390708247746,
+            0.9913172804908925,
+            -0.11710714013698514,
+            0,
+            -0.45082845405920663,
+            0.1314916324339353,
+            0.8828723891992798,
+            0,
+            -24,
+            22,
+            16,
+            1
+          ],
+          "projection": [
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 74,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 13,
+            "BoxGeometry": 2,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 1,
+            "CylinderGeometry": 30,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 3,
+            "SphereGeometry": 3,
+            "BufferGeometry": 11,
+            "InstancedMesh": 9
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/7617062-left-before.png",
+          "sha256": "34664c5aeb5c311b6c39da28e4b353e421535b53c91260c5685bcf8956b1cfe3",
+          "bytes": 30728
+        }
+      },
+      "after": {
+        "preMergePrimitives": 89,
+        "gpuInstanceCount": 10,
+        "drawCalls": 10,
+        "materials": 2,
+        "triangles": 14184,
+        "bounds": {
+          "min": [
+            -21.219999313354492,
+            -0.44365498423576355,
+            -36.5
+          ],
+          "max": [
+            21.219999313354492,
+            29.346132278442383,
+            3.214484214782715
+          ]
+        },
+        "detail": {
+          "cardId": "7617062",
+          "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/7617062.jpg",
+          "fidelity": "source-inspected-adapted-sculpture",
+          "primitiveCount": 40,
+          "groups": [
+            {
+              "name": "museum-fossil-mirror-and-relics",
+              "primitiveCount": 40
+            }
+          ],
+          "features": [
+            "long dinosaur fossil skull with open jaws and pointed teeth",
+            "gilded mirror scrolls and finials",
+            "broken golden vessel and scattered shards"
+          ],
+          "limits": "Fossil anatomy and mirror ornament are adapted closed volumes. The mummy, riders, ghost portrait and unseen museum depth remain painted."
+        },
+        "camera": {
+          "position": [
+            -24,
+            22,
+            16
+          ],
+          "target": [
+            0,
+            15,
+            -31
+          ],
+          "fov": 60,
+          "matrixWorld": [
+            0.8906052649078087,
+            1.0408340855860843e-17,
+            0.4547771565486682,
+            0,
+            0.059799390708247746,
+            0.9913172804908925,
+            -0.11710714013698514,
+            0,
+            -0.45082845405920663,
+            0.1314916324339353,
+            0.8828723891992798,
+            0,
+            -24,
+            22,
+            16,
+            1
+          ],
+          "projection": [
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 87,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 14,
+            "BoxGeometry": 3,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 2,
+            "CylinderGeometry": 31,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 4,
+            "SphereGeometry": 4,
+            "BufferGeometry": 17,
+            "InstancedMesh": 10
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/7617062-left-after.png",
+          "sha256": "7e1e4b2c75970061a7bc112c2b40cc6b75ec97182d3c206faf33b25e2dabf48c",
+          "bytes": 45058
+        }
+      },
+      "pixelComparison": {
+        "sameDimensions": true,
+        "threshold": "at least one RGB channel differs by more than 8/255",
+        "changedPixels": 5092,
+        "changedFraction": 0.014144444444444444,
+        "meanAbsoluteChannelDifference": 1.0052694444444445,
+        "sourceSimilarityScore": false
+      }
+    },
+    {
+      "cardId": "7617062",
+      "angle": "right",
+      "before": {
+        "preMergePrimitives": 49,
+        "gpuInstanceCount": 9,
+        "drawCalls": 9,
+        "materials": 1,
+        "triangles": 10188,
+        "bounds": {
+          "min": [
+            -21.219999313354492,
+            0,
+            -36.5
+          ],
+          "max": [
+            21.219999313354492,
+            19.657499849796295,
+            3.214484214782715
+          ]
+        },
+        "detail": null,
+        "camera": {
+          "position": [
+            24,
+            22,
+            16
+          ],
+          "target": [
+            0,
+            15,
+            -31
+          ],
+          "fov": 60,
+          "matrixWorld": [
+            0.8906052649078087,
+            -1.0408340855860843e-17,
+            -0.4547771565486682,
+            0,
+            -0.059799390708247746,
+            0.9913172804908925,
+            -0.11710714013698514,
+            0,
+            0.45082845405920663,
+            0.1314916324339353,
+            0.8828723891992798,
+            0,
+            24,
+            22,
+            16,
+            1
+          ],
+          "projection": [
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 74,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 13,
+            "BoxGeometry": 2,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 1,
+            "CylinderGeometry": 30,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 3,
+            "SphereGeometry": 3,
+            "BufferGeometry": 11,
+            "InstancedMesh": 9
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/7617062-right-before.png",
+          "sha256": "247c40236512717df6a3e11e76e8ff60b398672ed51a6b4a83020a68cc0c80b3",
+          "bytes": 31770
+        }
+      },
+      "after": {
+        "preMergePrimitives": 89,
+        "gpuInstanceCount": 10,
+        "drawCalls": 10,
+        "materials": 2,
+        "triangles": 14184,
+        "bounds": {
+          "min": [
+            -21.219999313354492,
+            -0.44365498423576355,
+            -36.5
+          ],
+          "max": [
+            21.219999313354492,
+            29.346132278442383,
+            3.214484214782715
+          ]
+        },
+        "detail": {
+          "cardId": "7617062",
+          "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/7617062.jpg",
+          "fidelity": "source-inspected-adapted-sculpture",
+          "primitiveCount": 40,
+          "groups": [
+            {
+              "name": "museum-fossil-mirror-and-relics",
+              "primitiveCount": 40
+            }
+          ],
+          "features": [
+            "long dinosaur fossil skull with open jaws and pointed teeth",
+            "gilded mirror scrolls and finials",
+            "broken golden vessel and scattered shards"
+          ],
+          "limits": "Fossil anatomy and mirror ornament are adapted closed volumes. The mummy, riders, ghost portrait and unseen museum depth remain painted."
+        },
+        "camera": {
+          "position": [
+            24,
+            22,
+            16
+          ],
+          "target": [
+            0,
+            15,
+            -31
+          ],
+          "fov": 60,
+          "matrixWorld": [
+            0.8906052649078087,
+            -1.0408340855860843e-17,
+            -0.4547771565486682,
+            0,
+            -0.059799390708247746,
+            0.9913172804908925,
+            -0.11710714013698514,
+            0,
+            0.45082845405920663,
+            0.1314916324339353,
+            0.8828723891992798,
+            0,
+            24,
+            22,
+            16,
+            1
+          ],
+          "projection": [
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 87,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 14,
+            "BoxGeometry": 3,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 2,
+            "CylinderGeometry": 31,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 4,
+            "SphereGeometry": 4,
+            "BufferGeometry": 17,
+            "InstancedMesh": 10
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/7617062-right-after.png",
+          "sha256": "baaccf9b81701d9f244ff45f177d7f6dcdc12c1a31d88200612df2b5d867de30",
+          "bytes": 51328
+        }
+      },
+      "pixelComparison": {
+        "sameDimensions": true,
+        "threshold": "at least one RGB channel differs by more than 8/255",
+        "changedPixels": 7317,
+        "changedFraction": 0.020325,
+        "meanAbsoluteChannelDifference": 1.4598,
+        "sourceSimilarityScore": false
+      }
+    },
+    {
+      "cardId": "15388353",
+      "angle": "front",
+      "before": {
+        "preMergePrimitives": 104,
+        "gpuInstanceCount": 12,
+        "drawCalls": 12,
+        "materials": 1,
+        "triangles": 12084,
+        "bounds": {
+          "min": [
+            -21.720613479614258,
+            0,
+            -38.28205451846774
+          ],
+          "max": [
+            21.989999771118164,
+            26.5,
+            -20.190000534057617
+          ]
+        },
+        "detail": null,
+        "camera": {
+          "position": [
+            0,
+            18,
+            13
+          ],
+          "target": [
+            0,
+            13,
+            -30
+          ],
+          "fov": 54,
+          "matrixWorld": [
+            1,
+            0,
+            -0.0,
+            0,
+            -0.0,
+            0.9933073803012535,
+            -0.11550085817456439,
+            0,
+            0,
+            0.11550085817456439,
+            0.9933073803012535,
+            0,
+            0,
+            18,
+            13,
+            1
+          ],
+          "projection": [
+            1.9626105055051506,
+            0,
+            0,
+            0,
+            0,
+            1.9626105055051506,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 96,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 13,
+            "BoxGeometry": 3,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 2,
+            "CylinderGeometry": 39,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 2,
+            "SphereGeometry": 5,
+            "BufferGeometry": 18,
+            "InstancedMesh": 12
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/15388353-front-before.png",
+          "sha256": "16930ad33039fae435eb7bde412e020c23083b375682190e1913426458e5e64e",
+          "bytes": 70472
+        }
+      },
+      "after": {
+        "preMergePrimitives": 198,
+        "gpuInstanceCount": 13,
+        "drawCalls": 13,
+        "materials": 2,
+        "triangles": 21348,
+        "bounds": {
+          "min": [
+            -21.720613479614258,
+            0,
+            -38.28205451846774
+          ],
+          "max": [
+            21.989999771118164,
+            26.5,
+            -20.190000534057617
+          ]
+        },
+        "detail": {
+          "cardId": "15388353",
+          "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/15388353.jpg",
+          "fidelity": "source-inspected-adapted-sculpture",
+          "primitiveCount": 94,
+          "groups": [
+            {
+              "name": "restaurant-window-sign-and-ironwork",
+              "primitiveCount": 94
+            }
+          ],
+          "features": [
+            "golden arched-window radial mullions",
+            "ornamental iron fish sign",
+            "stair gate pickets and golden finials",
+            "dark slate ridge with small heart ornaments"
+          ],
+          "limits": "Window and gate placements follow the existing corridor adaptation. The exact facade perspective, engraving, vegetation and unseen building depth remain interpreted."
+        },
+        "camera": {
+          "position": [
+            0,
+            18,
+            13
+          ],
+          "target": [
+            0,
+            13,
+            -30
+          ],
+          "fov": 54,
+          "matrixWorld": [
+            1,
+            0,
+            -0.0,
+            0,
+            -0.0,
+            0.9933073803012535,
+            -0.11550085817456439,
+            0,
+            0,
+            0.11550085817456439,
+            0.9933073803012535,
+            0,
+            0,
+            18,
+            13,
+            1
+          ],
+          "projection": [
+            1.9626105055051506,
+            0,
+            0,
+            0,
+            0,
+            1.9626105055051506,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 151,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 14,
+            "BoxGeometry": 4,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 3,
+            "CylinderGeometry": 40,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 3,
+            "SphereGeometry": 6,
+            "BufferGeometry": 66,
+            "InstancedMesh": 13
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/15388353-front-after.png",
+          "sha256": "b4f76cdf1e745bb549dec2c1755917feeb55c0d76e4f038702a8267df821f2b8",
+          "bytes": 86556
+        }
+      },
+      "pixelComparison": {
+        "sameDimensions": true,
+        "threshold": "at least one RGB channel differs by more than 8/255",
+        "changedPixels": 7462,
+        "changedFraction": 0.02072777777777778,
+        "meanAbsoluteChannelDifference": 0.8934425925925926,
+        "sourceSimilarityScore": false
+      }
+    },
+    {
+      "cardId": "15388353",
+      "angle": "left",
+      "before": {
+        "preMergePrimitives": 104,
+        "gpuInstanceCount": 12,
+        "drawCalls": 12,
+        "materials": 1,
+        "triangles": 12084,
+        "bounds": {
+          "min": [
+            -21.720613479614258,
+            0,
+            -38.28205451846774
+          ],
+          "max": [
+            21.989999771118164,
+            26.5,
+            -20.190000534057617
+          ]
+        },
+        "detail": null,
+        "camera": {
+          "position": [
+            -24,
+            18,
+            13
+          ],
+          "target": [
+            0,
+            13,
+            -30
+          ],
+          "fov": 54,
+          "matrixWorld": [
+            0.8731977020149124,
+            -3.469446951953614e-18,
+            0.48736615926413723,
+            0,
+            0.04923141659093061,
+            0.9948848769417228,
+            -0.08820628805875068,
+            0,
+            -0.4848732213850612,
+            0.10101525445522107,
+            0.8687311883149013,
+            0,
+            -24,
+            18,
+            13,
+            1
+          ],
+          "projection": [
+            1.9626105055051506,
+            0,
+            0,
+            0,
+            0,
+            1.9626105055051506,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 96,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 13,
+            "BoxGeometry": 3,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 2,
+            "CylinderGeometry": 39,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 2,
+            "SphereGeometry": 5,
+            "BufferGeometry": 18,
+            "InstancedMesh": 12
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/15388353-left-before.png",
+          "sha256": "1b9ce4ec3054e4f6d997bcbc271cd14d229c491472c1681b137475177d0e5bfe",
+          "bytes": 70891
+        }
+      },
+      "after": {
+        "preMergePrimitives": 198,
+        "gpuInstanceCount": 13,
+        "drawCalls": 13,
+        "materials": 2,
+        "triangles": 21348,
+        "bounds": {
+          "min": [
+            -21.720613479614258,
+            0,
+            -38.28205451846774
+          ],
+          "max": [
+            21.989999771118164,
+            26.5,
+            -20.190000534057617
+          ]
+        },
+        "detail": {
+          "cardId": "15388353",
+          "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/15388353.jpg",
+          "fidelity": "source-inspected-adapted-sculpture",
+          "primitiveCount": 94,
+          "groups": [
+            {
+              "name": "restaurant-window-sign-and-ironwork",
+              "primitiveCount": 94
+            }
+          ],
+          "features": [
+            "golden arched-window radial mullions",
+            "ornamental iron fish sign",
+            "stair gate pickets and golden finials",
+            "dark slate ridge with small heart ornaments"
+          ],
+          "limits": "Window and gate placements follow the existing corridor adaptation. The exact facade perspective, engraving, vegetation and unseen building depth remain interpreted."
+        },
+        "camera": {
+          "position": [
+            -24,
+            18,
+            13
+          ],
+          "target": [
+            0,
+            13,
+            -30
+          ],
+          "fov": 54,
+          "matrixWorld": [
+            0.8731977020149124,
+            -3.469446951953614e-18,
+            0.48736615926413723,
+            0,
+            0.04923141659093061,
+            0.9948848769417228,
+            -0.08820628805875068,
+            0,
+            -0.4848732213850612,
+            0.10101525445522107,
+            0.8687311883149013,
+            0,
+            -24,
+            18,
+            13,
+            1
+          ],
+          "projection": [
+            1.9626105055051506,
+            0,
+            0,
+            0,
+            0,
+            1.9626105055051506,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 151,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 14,
+            "BoxGeometry": 4,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 3,
+            "CylinderGeometry": 40,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 3,
+            "SphereGeometry": 6,
+            "BufferGeometry": 66,
+            "InstancedMesh": 13
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/15388353-left-after.png",
+          "sha256": "c9a7d76c1e3e526a6e58d73783d4884af3dd9a7e44606fe3ec3b8f378198b654",
+          "bytes": 86227
+        }
+      },
+      "pixelComparison": {
+        "sameDimensions": true,
+        "threshold": "at least one RGB channel differs by more than 8/255",
+        "changedPixels": 5444,
+        "changedFraction": 0.015122222222222223,
+        "meanAbsoluteChannelDifference": 0.7120101851851852,
+        "sourceSimilarityScore": false
+      }
+    },
+    {
+      "cardId": "15388353",
+      "angle": "right",
+      "before": {
+        "preMergePrimitives": 104,
+        "gpuInstanceCount": 12,
+        "drawCalls": 12,
+        "materials": 1,
+        "triangles": 12084,
+        "bounds": {
+          "min": [
+            -21.720613479614258,
+            0,
+            -38.28205451846774
+          ],
+          "max": [
+            21.989999771118164,
+            26.5,
+            -20.190000534057617
+          ]
+        },
+        "detail": null,
+        "camera": {
+          "position": [
+            24,
+            18,
+            13
+          ],
+          "target": [
+            0,
+            13,
+            -30
+          ],
+          "fov": 54,
+          "matrixWorld": [
+            0.8731977020149124,
+            3.469446951953614e-18,
+            -0.48736615926413723,
+            0,
+            -0.04923141659093061,
+            0.9948848769417228,
+            -0.08820628805875068,
+            0,
+            0.4848732213850612,
+            0.10101525445522107,
+            0.8687311883149013,
+            0,
+            24,
+            18,
+            13,
+            1
+          ],
+          "projection": [
+            1.9626105055051506,
+            0,
+            0,
+            0,
+            0,
+            1.9626105055051506,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 96,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 13,
+            "BoxGeometry": 3,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 2,
+            "CylinderGeometry": 39,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 2,
+            "SphereGeometry": 5,
+            "BufferGeometry": 18,
+            "InstancedMesh": 12
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/15388353-right-before.png",
+          "sha256": "a7481cafadaf633132517c039954531534267cda005052cfe1ec61b20ed31d6d",
+          "bytes": 69563
+        }
+      },
+      "after": {
+        "preMergePrimitives": 198,
+        "gpuInstanceCount": 13,
+        "drawCalls": 13,
+        "materials": 2,
+        "triangles": 21348,
+        "bounds": {
+          "min": [
+            -21.720613479614258,
+            0,
+            -38.28205451846774
+          ],
+          "max": [
+            21.989999771118164,
+            26.5,
+            -20.190000534057617
+          ]
+        },
+        "detail": {
+          "cardId": "15388353",
+          "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/15388353.jpg",
+          "fidelity": "source-inspected-adapted-sculpture",
+          "primitiveCount": 94,
+          "groups": [
+            {
+              "name": "restaurant-window-sign-and-ironwork",
+              "primitiveCount": 94
+            }
+          ],
+          "features": [
+            "golden arched-window radial mullions",
+            "ornamental iron fish sign",
+            "stair gate pickets and golden finials",
+            "dark slate ridge with small heart ornaments"
+          ],
+          "limits": "Window and gate placements follow the existing corridor adaptation. The exact facade perspective, engraving, vegetation and unseen building depth remain interpreted."
+        },
+        "camera": {
+          "position": [
+            24,
+            18,
+            13
+          ],
+          "target": [
+            0,
+            13,
+            -30
+          ],
+          "fov": 54,
+          "matrixWorld": [
+            0.8731977020149124,
+            3.469446951953614e-18,
+            -0.48736615926413723,
+            0,
+            -0.04923141659093061,
+            0.9948848769417228,
+            -0.08820628805875068,
+            0,
+            0.4848732213850612,
+            0.10101525445522107,
+            0.8687311883149013,
+            0,
+            24,
+            18,
+            13,
+            1
+          ],
+          "projection": [
+            1.9626105055051506,
+            0,
+            0,
+            0,
+            0,
+            1.9626105055051506,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 151,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 14,
+            "BoxGeometry": 4,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 3,
+            "CylinderGeometry": 40,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 3,
+            "SphereGeometry": 6,
+            "BufferGeometry": 66,
+            "InstancedMesh": 13
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/15388353-right-after.png",
+          "sha256": "018e984286cd4b1be8f84e8226914d931d9cab1bf594dcd810650d369920d96d",
+          "bytes": 84226
+        }
+      },
+      "pixelComparison": {
+        "sameDimensions": true,
+        "threshold": "at least one RGB channel differs by more than 8/255",
+        "changedPixels": 5693,
+        "changedFraction": 0.015813888888888888,
+        "meanAbsoluteChannelDifference": 0.6998842592592592,
+        "sourceSimilarityScore": false
+      }
+    },
+    {
+      "cardId": "49370016",
+      "angle": "front",
+      "before": {
+        "preMergePrimitives": 68,
+        "gpuInstanceCount": 5,
+        "drawCalls": 5,
+        "materials": 1,
+        "triangles": 13074,
+        "bounds": {
+          "min": [
+            -22.15957260131836,
+            0.9702093601226807,
+            -35
+          ],
+          "max": [
+            22.171297073364258,
+            27.200000762939453,
+            -28.82240104675293
+          ]
+        },
+        "detail": null,
+        "camera": {
+          "position": [
+            0,
+            19,
+            11
+          ],
+          "target": [
+            0,
+            15,
+            -33
+          ],
+          "fov": 60,
+          "matrixWorld": [
+            1,
+            0,
+            -0.0,
+            0,
+            -0.0,
+            0.9958932064677039,
+            -0.09053574604251853,
+            0,
+            0,
+            0.09053574604251853,
+            0.9958932064677039,
+            0,
+            0,
+            19,
+            11,
+            1
+          ],
+          "projection": [
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 72,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 13,
+            "BoxGeometry": 2,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 1,
+            "CylinderGeometry": 28,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 3,
+            "SphereGeometry": 4,
+            "BufferGeometry": 14,
+            "InstancedMesh": 5
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/49370016-front-before.png",
+          "sha256": "ac733bf6961bc6d054c797baa03d4bccdb1ebec79f3346a84fdd53d2484f601c",
+          "bytes": 68409
+        }
+      },
+      "after": {
+        "preMergePrimitives": 142,
+        "gpuInstanceCount": 6,
+        "drawCalls": 6,
+        "materials": 2,
+        "triangles": 22578,
+        "bounds": {
+          "min": [
+            -22.15957260131836,
+            0.9702093601226807,
+            -35
+          ],
+          "max": [
+            22.171297073364258,
+            27.200000762939453,
+            -28.674999237060547
+          ]
+        },
+        "detail": {
+          "cardId": "49370016",
+          "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/49370016.jpg",
+          "fidelity": "source-inspected-adapted-sculpture",
+          "primitiveCount": 74,
+          "groups": [
+            {
+              "name": "punk-speaker-rims-and-neon-bands",
+              "primitiveCount": 74
+            }
+          ],
+          "features": [
+            "cyan beveled speaker-panel outlines",
+            "concentric cyan driver membranes",
+            "radial gold hub rings",
+            "segmented pink and yellow light tubes"
+          ],
+          "limits": "Speaker topology, borders and tube color bands follow the source. The performer, deity figure, painted reflections and unseen rear remain in the illustration."
+        },
+        "camera": {
+          "position": [
+            0,
+            19,
+            11
+          ],
+          "target": [
+            0,
+            15,
+            -33
+          ],
+          "fov": 60,
+          "matrixWorld": [
+            1,
+            0,
+            -0.0,
+            0,
+            -0.0,
+            0.9958932064677039,
+            -0.09053574604251853,
+            0,
+            0,
+            0.09053574604251853,
+            0.9958932064677039,
+            0,
+            0,
+            19,
+            11,
+            1
+          ],
+          "projection": [
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 133,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 14,
+            "BoxGeometry": 3,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 2,
+            "CylinderGeometry": 29,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 4,
+            "SphereGeometry": 5,
+            "BufferGeometry": 68,
+            "InstancedMesh": 6
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/49370016-front-after.png",
+          "sha256": "493c4b2f174c794290fbc4aa4491df3a72b462c0bb5517e1e585cdff0c9c5045",
+          "bytes": 87116
+        }
+      },
+      "pixelComparison": {
+        "sameDimensions": true,
+        "threshold": "at least one RGB channel differs by more than 8/255",
+        "changedPixels": 6832,
+        "changedFraction": 0.018977777777777777,
+        "meanAbsoluteChannelDifference": 1.040237037037037,
+        "sourceSimilarityScore": false
+      }
+    },
+    {
+      "cardId": "49370016",
+      "angle": "left",
+      "before": {
+        "preMergePrimitives": 68,
+        "gpuInstanceCount": 5,
+        "drawCalls": 5,
+        "materials": 1,
+        "triangles": 13074,
+        "bounds": {
+          "min": [
+            -22.15957260131836,
+            0.9702093601226807,
+            -35
+          ],
+          "max": [
+            22.171297073364258,
+            27.200000762939453,
+            -28.82240104675293
+          ]
+        },
+        "detail": null,
+        "camera": {
+          "position": [
+            -24,
+            19,
+            11
+          ],
+          "target": [
+            0,
+            15,
+            -33
+          ],
+          "fov": 60,
+          "matrixWorld": [
+            0.8778955729143844,
+            0,
+            0.4788521306805733,
+            0,
+            0.038095430060599865,
+            0.9968304199190299,
+            -0.0698416217777664,
+            0,
+            -0.47733437050543803,
+            0.079555728417573,
+            0.8751130125933031,
+            0,
+            -24,
+            19,
+            11,
+            1
+          ],
+          "projection": [
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 72,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 13,
+            "BoxGeometry": 2,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 1,
+            "CylinderGeometry": 28,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 3,
+            "SphereGeometry": 4,
+            "BufferGeometry": 14,
+            "InstancedMesh": 5
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/49370016-left-before.png",
+          "sha256": "597ac035a62114ff255ab1210bb89fa14646ae8a2b7948f387ec1e9e59f727b9",
+          "bytes": 57451
+        }
+      },
+      "after": {
+        "preMergePrimitives": 142,
+        "gpuInstanceCount": 6,
+        "drawCalls": 6,
+        "materials": 2,
+        "triangles": 22578,
+        "bounds": {
+          "min": [
+            -22.15957260131836,
+            0.9702093601226807,
+            -35
+          ],
+          "max": [
+            22.171297073364258,
+            27.200000762939453,
+            -28.674999237060547
+          ]
+        },
+        "detail": {
+          "cardId": "49370016",
+          "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/49370016.jpg",
+          "fidelity": "source-inspected-adapted-sculpture",
+          "primitiveCount": 74,
+          "groups": [
+            {
+              "name": "punk-speaker-rims-and-neon-bands",
+              "primitiveCount": 74
+            }
+          ],
+          "features": [
+            "cyan beveled speaker-panel outlines",
+            "concentric cyan driver membranes",
+            "radial gold hub rings",
+            "segmented pink and yellow light tubes"
+          ],
+          "limits": "Speaker topology, borders and tube color bands follow the source. The performer, deity figure, painted reflections and unseen rear remain in the illustration."
+        },
+        "camera": {
+          "position": [
+            -24,
+            19,
+            11
+          ],
+          "target": [
+            0,
+            15,
+            -33
+          ],
+          "fov": 60,
+          "matrixWorld": [
+            0.8778955729143844,
+            0,
+            0.4788521306805733,
+            0,
+            0.038095430060599865,
+            0.9968304199190299,
+            -0.0698416217777664,
+            0,
+            -0.47733437050543803,
+            0.079555728417573,
+            0.8751130125933031,
+            0,
+            -24,
+            19,
+            11,
+            1
+          ],
+          "projection": [
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 133,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 14,
+            "BoxGeometry": 3,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 2,
+            "CylinderGeometry": 29,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 4,
+            "SphereGeometry": 5,
+            "BufferGeometry": 68,
+            "InstancedMesh": 6
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/49370016-left-after.png",
+          "sha256": "02e1ddda59595ec9362bf2ab95a0d41f656dc8dc424dc4d3c70c4ec0d2791f9d",
+          "bytes": 71524
+        }
+      },
+      "pixelComparison": {
+        "sameDimensions": true,
+        "threshold": "at least one RGB channel differs by more than 8/255",
+        "changedPixels": 5304,
+        "changedFraction": 0.014733333333333333,
+        "meanAbsoluteChannelDifference": 0.7546231481481481,
+        "sourceSimilarityScore": false
+      }
+    },
+    {
+      "cardId": "49370016",
+      "angle": "right",
+      "before": {
+        "preMergePrimitives": 68,
+        "gpuInstanceCount": 5,
+        "drawCalls": 5,
+        "materials": 1,
+        "triangles": 13074,
+        "bounds": {
+          "min": [
+            -22.15957260131836,
+            0.9702093601226807,
+            -35
+          ],
+          "max": [
+            22.171297073364258,
+            27.200000762939453,
+            -28.82240104675293
+          ]
+        },
+        "detail": null,
+        "camera": {
+          "position": [
+            24,
+            19,
+            11
+          ],
+          "target": [
+            0,
+            15,
+            -33
+          ],
+          "fov": 60,
+          "matrixWorld": [
+            0.8778955729143844,
+            0,
+            -0.4788521306805733,
+            0,
+            -0.038095430060599865,
+            0.9968304199190299,
+            -0.0698416217777664,
+            0,
+            0.47733437050543803,
+            0.079555728417573,
+            0.8751130125933031,
+            0,
+            24,
+            19,
+            11,
+            1
+          ],
+          "projection": [
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 72,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 13,
+            "BoxGeometry": 2,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 1,
+            "CylinderGeometry": 28,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 3,
+            "SphereGeometry": 4,
+            "BufferGeometry": 14,
+            "InstancedMesh": 5
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/49370016-right-before.png",
+          "sha256": "4bb20073ef59bbb0afc0f40b5f9270c991f9d86a3523c2aa46245e48ebda2e70",
+          "bytes": 59453
+        }
+      },
+      "after": {
+        "preMergePrimitives": 142,
+        "gpuInstanceCount": 6,
+        "drawCalls": 6,
+        "materials": 2,
+        "triangles": 22578,
+        "bounds": {
+          "min": [
+            -22.15957260131836,
+            0.9702093601226807,
+            -35
+          ],
+          "max": [
+            22.171297073364258,
+            27.200000762939453,
+            -28.674999237060547
+          ]
+        },
+        "detail": {
+          "cardId": "49370016",
+          "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/49370016.jpg",
+          "fidelity": "source-inspected-adapted-sculpture",
+          "primitiveCount": 74,
+          "groups": [
+            {
+              "name": "punk-speaker-rims-and-neon-bands",
+              "primitiveCount": 74
+            }
+          ],
+          "features": [
+            "cyan beveled speaker-panel outlines",
+            "concentric cyan driver membranes",
+            "radial gold hub rings",
+            "segmented pink and yellow light tubes"
+          ],
+          "limits": "Speaker topology, borders and tube color bands follow the source. The performer, deity figure, painted reflections and unseen rear remain in the illustration."
+        },
+        "camera": {
+          "position": [
+            24,
+            19,
+            11
+          ],
+          "target": [
+            0,
+            15,
+            -33
+          ],
+          "fov": 60,
+          "matrixWorld": [
+            0.8778955729143844,
+            0,
+            -0.4788521306805733,
+            0,
+            -0.038095430060599865,
+            0.9968304199190299,
+            -0.0698416217777664,
+            0,
+            0.47733437050543803,
+            0.079555728417573,
+            0.8751130125933031,
+            0,
+            24,
+            19,
+            11,
+            1
+          ],
+          "projection": [
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 133,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 14,
+            "BoxGeometry": 3,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 2,
+            "CylinderGeometry": 29,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 4,
+            "SphereGeometry": 5,
+            "BufferGeometry": 68,
+            "InstancedMesh": 6
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/49370016-right-after.png",
+          "sha256": "bb64978152e4aedcc674cbe93cfd63ed72db4417807ad0ee6d97284c5a3ce889",
+          "bytes": 73557
+        }
+      },
+      "pixelComparison": {
+        "sameDimensions": true,
+        "threshold": "at least one RGB channel differs by more than 8/255",
+        "changedPixels": 5313,
+        "changedFraction": 0.014758333333333333,
+        "meanAbsoluteChannelDifference": 0.7727601851851852,
+        "sourceSimilarityScore": false
+      }
+    },
+    {
+      "cardId": "63492244",
+      "angle": "front",
+      "before": {
+        "preMergePrimitives": 120,
+        "gpuInstanceCount": 6,
+        "drawCalls": 7,
+        "materials": 2,
+        "triangles": 30648,
+        "bounds": {
+          "min": [
+            -21.5670223236084,
+            0.871999979019165,
+            -35.29999923706055
+          ],
+          "max": [
+            20.799999237060547,
+            25.4363956451416,
+            -22.5209903717041
+          ]
+        },
+        "detail": null,
+        "camera": {
+          "position": [
+            0,
+            20,
+            14
+          ],
+          "target": [
+            0,
+            14,
+            -29
+          ],
+          "fov": 61,
+          "matrixWorld": [
+            1,
+            0,
+            -0.0,
+            0,
+            -0.0,
+            0.9904048953654893,
+            -0.13819603191146362,
+            0,
+            0,
+            0.13819603191146362,
+            0.9904048953654893,
+            0,
+            0,
+            20,
+            14,
+            1
+          ],
+          "projection": [
+            1.6976631193260892,
+            0,
+            0,
+            0,
+            0,
+            1.6976631193260892,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 52,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 14,
+            "BoxGeometry": 3,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 1,
+            "CylinderGeometry": 10,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 2,
+            "SphereGeometry": 6,
+            "BufferGeometry": 8,
+            "InstancedMesh": 6
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/63492244-front-before.png",
+          "sha256": "8964ffd65cce49a0dbec4b3f9050ad3f8deff0d91eba3d4643e65a04f54c7a4d",
+          "bytes": 61811
+        }
+      },
+      "after": {
+        "preMergePrimitives": 195,
+        "gpuInstanceCount": 7,
+        "drawCalls": 8,
+        "materials": 3,
+        "triangles": 43548,
+        "bounds": {
+          "min": [
+            -21.5670223236084,
+            0.31663236021995544,
+            -35.29999923706055
+          ],
+          "max": [
+            20.799999237060547,
+            25.4363956451416,
+            -22.5209903717041
+          ]
+        },
+        "detail": {
+          "cardId": "63492244",
+          "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/63492244.jpg",
+          "fidelity": "source-inspected-adapted-sculpture",
+          "primitiveCount": 75,
+          "groups": [
+            {
+              "name": "arena-owl-logos-and-flower-border",
+              "primitiveCount": 75
+            }
+          ],
+          "features": [
+            "rounded two-lobed red owl logos",
+            "three lower pink logo lobes",
+            "white oval eye reflections",
+            "dense flowers with leaves along the stage border"
+          ],
+          "limits": "Logo lobes and flowers use adapted closed sculpture. The full crowd, moving confetti, optical beams and exact floral count remain painted."
+        },
+        "camera": {
+          "position": [
+            0,
+            20,
+            14
+          ],
+          "target": [
+            0,
+            14,
+            -29
+          ],
+          "fov": 61,
+          "matrixWorld": [
+            1,
+            0,
+            -0.0,
+            0,
+            -0.0,
+            0.9904048953654893,
+            -0.13819603191146362,
+            0,
+            0,
+            0.13819603191146362,
+            0.9904048953654893,
+            0,
+            0,
+            20,
+            14,
+            1
+          ],
+          "projection": [
+            1.6976631193260892,
+            0,
+            0,
+            0,
+            0,
+            1.6976631193260892,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 61,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 15,
+            "BoxGeometry": 4,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 2,
+            "CylinderGeometry": 11,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 3,
+            "SphereGeometry": 7,
+            "BufferGeometry": 10,
+            "InstancedMesh": 7
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/63492244-front-after.png",
+          "sha256": "fff0298fcc91d73612eaede03fee7de0c83e3dd77463f084c87cad735d752715",
+          "bytes": 74806
+        }
+      },
+      "pixelComparison": {
+        "sameDimensions": true,
+        "threshold": "at least one RGB channel differs by more than 8/255",
+        "changedPixels": 6464,
+        "changedFraction": 0.017955555555555554,
+        "meanAbsoluteChannelDifference": 0.8261740740740741,
+        "sourceSimilarityScore": false
+      }
+    },
+    {
+      "cardId": "63492244",
+      "angle": "left",
+      "before": {
+        "preMergePrimitives": 120,
+        "gpuInstanceCount": 6,
+        "drawCalls": 7,
+        "materials": 2,
+        "triangles": 30648,
+        "bounds": {
+          "min": [
+            -21.5670223236084,
+            0.871999979019165,
+            -35.29999923706055
+          ],
+          "max": [
+            20.799999237060547,
+            25.4363956451416,
+            -22.5209903717041
+          ]
+        },
+        "detail": null,
+        "camera": {
+          "position": [
+            -24,
+            20,
+            14
+          ],
+          "target": [
+            0,
+            14,
+            -29
+          ],
+          "fov": 61,
+          "matrixWorld": [
+            0.8731977020149124,
+            -6.938893903907228e-18,
+            0.48736615926413707,
+            0,
+            0.05894552142581084,
+            0.9926589545666064,
+            -0.1056107258879111,
+            0,
+            -0.4837883821462805,
+            0.12094709553657013,
+            0.866787518012086,
+            0,
+            -24,
+            20,
+            14,
+            1
+          ],
+          "projection": [
+            1.6976631193260892,
+            0,
+            0,
+            0,
+            0,
+            1.6976631193260892,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 52,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 14,
+            "BoxGeometry": 3,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 1,
+            "CylinderGeometry": 10,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 2,
+            "SphereGeometry": 6,
+            "BufferGeometry": 8,
+            "InstancedMesh": 6
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/63492244-left-before.png",
+          "sha256": "d3bdc80a0085e4e3e5d73e046da38b098d4e2b25730e4581011cb418284a26b6",
+          "bytes": 56148
+        }
+      },
+      "after": {
+        "preMergePrimitives": 195,
+        "gpuInstanceCount": 7,
+        "drawCalls": 8,
+        "materials": 3,
+        "triangles": 43548,
+        "bounds": {
+          "min": [
+            -21.5670223236084,
+            0.31663236021995544,
+            -35.29999923706055
+          ],
+          "max": [
+            20.799999237060547,
+            25.4363956451416,
+            -22.5209903717041
+          ]
+        },
+        "detail": {
+          "cardId": "63492244",
+          "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/63492244.jpg",
+          "fidelity": "source-inspected-adapted-sculpture",
+          "primitiveCount": 75,
+          "groups": [
+            {
+              "name": "arena-owl-logos-and-flower-border",
+              "primitiveCount": 75
+            }
+          ],
+          "features": [
+            "rounded two-lobed red owl logos",
+            "three lower pink logo lobes",
+            "white oval eye reflections",
+            "dense flowers with leaves along the stage border"
+          ],
+          "limits": "Logo lobes and flowers use adapted closed sculpture. The full crowd, moving confetti, optical beams and exact floral count remain painted."
+        },
+        "camera": {
+          "position": [
+            -24,
+            20,
+            14
+          ],
+          "target": [
+            0,
+            14,
+            -29
+          ],
+          "fov": 61,
+          "matrixWorld": [
+            0.8731977020149124,
+            -6.938893903907228e-18,
+            0.48736615926413707,
+            0,
+            0.05894552142581084,
+            0.9926589545666064,
+            -0.1056107258879111,
+            0,
+            -0.4837883821462805,
+            0.12094709553657013,
+            0.866787518012086,
+            0,
+            -24,
+            20,
+            14,
+            1
+          ],
+          "projection": [
+            1.6976631193260892,
+            0,
+            0,
+            0,
+            0,
+            1.6976631193260892,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 61,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 15,
+            "BoxGeometry": 4,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 2,
+            "CylinderGeometry": 11,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 3,
+            "SphereGeometry": 7,
+            "BufferGeometry": 10,
+            "InstancedMesh": 7
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/63492244-left-after.png",
+          "sha256": "d0558282c464f36edf29c65c90988d54812f1463e0af24f1f02e7b8a3a177d02",
+          "bytes": 68193
+        }
+      },
+      "pixelComparison": {
+        "sameDimensions": true,
+        "threshold": "at least one RGB channel differs by more than 8/255",
+        "changedPixels": 4911,
+        "changedFraction": 0.013641666666666667,
+        "meanAbsoluteChannelDifference": 0.658150925925926,
+        "sourceSimilarityScore": false
+      }
+    },
+    {
+      "cardId": "63492244",
+      "angle": "right",
+      "before": {
+        "preMergePrimitives": 120,
+        "gpuInstanceCount": 6,
+        "drawCalls": 7,
+        "materials": 2,
+        "triangles": 30648,
+        "bounds": {
+          "min": [
+            -21.5670223236084,
+            0.871999979019165,
+            -35.29999923706055
+          ],
+          "max": [
+            20.799999237060547,
+            25.4363956451416,
+            -22.5209903717041
+          ]
+        },
+        "detail": null,
+        "camera": {
+          "position": [
+            24,
+            20,
+            14
+          ],
+          "target": [
+            0,
+            14,
+            -29
+          ],
+          "fov": 61,
+          "matrixWorld": [
+            0.8731977020149124,
+            6.938893903907228e-18,
+            -0.48736615926413707,
+            0,
+            -0.05894552142581084,
+            0.9926589545666064,
+            -0.1056107258879111,
+            0,
+            0.4837883821462805,
+            0.12094709553657013,
+            0.866787518012086,
+            0,
+            24,
+            20,
+            14,
+            1
+          ],
+          "projection": [
+            1.6976631193260892,
+            0,
+            0,
+            0,
+            0,
+            1.6976631193260892,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 52,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 14,
+            "BoxGeometry": 3,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 1,
+            "CylinderGeometry": 10,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 2,
+            "SphereGeometry": 6,
+            "BufferGeometry": 8,
+            "InstancedMesh": 6
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/63492244-right-before.png",
+          "sha256": "1b0de1890c69cb72a8446e48dcfdf0a08032092fd6a498dcaebd7b0324547fcf",
+          "bytes": 57567
+        }
+      },
+      "after": {
+        "preMergePrimitives": 195,
+        "gpuInstanceCount": 7,
+        "drawCalls": 8,
+        "materials": 3,
+        "triangles": 43548,
+        "bounds": {
+          "min": [
+            -21.5670223236084,
+            0.31663236021995544,
+            -35.29999923706055
+          ],
+          "max": [
+            20.799999237060547,
+            25.4363956451416,
+            -22.5209903717041
+          ]
+        },
+        "detail": {
+          "cardId": "63492244",
+          "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/63492244.jpg",
+          "fidelity": "source-inspected-adapted-sculpture",
+          "primitiveCount": 75,
+          "groups": [
+            {
+              "name": "arena-owl-logos-and-flower-border",
+              "primitiveCount": 75
+            }
+          ],
+          "features": [
+            "rounded two-lobed red owl logos",
+            "three lower pink logo lobes",
+            "white oval eye reflections",
+            "dense flowers with leaves along the stage border"
+          ],
+          "limits": "Logo lobes and flowers use adapted closed sculpture. The full crowd, moving confetti, optical beams and exact floral count remain painted."
+        },
+        "camera": {
+          "position": [
+            24,
+            20,
+            14
+          ],
+          "target": [
+            0,
+            14,
+            -29
+          ],
+          "fov": 61,
+          "matrixWorld": [
+            0.8731977020149124,
+            6.938893903907228e-18,
+            -0.48736615926413707,
+            0,
+            -0.05894552142581084,
+            0.9926589545666064,
+            -0.1056107258879111,
+            0,
+            0.4837883821462805,
+            0.12094709553657013,
+            0.866787518012086,
+            0,
+            24,
+            20,
+            14,
+            1
+          ],
+          "projection": [
+            1.6976631193260892,
+            0,
+            0,
+            0,
+            0,
+            1.6976631193260892,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 61,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 15,
+            "BoxGeometry": 4,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 2,
+            "CylinderGeometry": 11,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 3,
+            "SphereGeometry": 7,
+            "BufferGeometry": 10,
+            "InstancedMesh": 7
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/63492244-right-after.png",
+          "sha256": "877ac412047b2dd1d2939e66885bdeb918a2e5c9c7cfb3945c270e2e451f49da",
+          "bytes": 69671
+        }
+      },
+      "pixelComparison": {
+        "sameDimensions": true,
+        "threshold": "at least one RGB channel differs by more than 8/255",
+        "changedPixels": 4895,
+        "changedFraction": 0.013597222222222222,
+        "meanAbsoluteChannelDifference": 0.6596120370370371,
+        "sourceSimilarityScore": false
+      }
+    },
+    {
+      "cardId": "51208046",
+      "angle": "front",
+      "before": {
+        "preMergePrimitives": 47,
+        "gpuInstanceCount": 8,
+        "drawCalls": 9,
+        "materials": 2,
+        "triangles": 9760,
+        "bounds": {
+          "min": [
+            -21.280000686645508,
+            0.15000000000000002,
+            -36.068058013916016
+          ],
+          "max": [
+            20.8799991607666,
+            27.280000686645508,
+            -25.39240837097168
+          ]
+        },
+        "detail": null,
+        "camera": {
+          "position": [
+            0,
+            19,
+            11
+          ],
+          "target": [
+            0,
+            14,
+            -31
+          ],
+          "fov": 60,
+          "matrixWorld": [
+            1,
+            0,
+            -0.0,
+            0,
+            -0.0,
+            0.9929882741949438,
+            -0.11821288978511235,
+            0,
+            0,
+            0.11821288978511235,
+            0.9929882741949438,
+            0,
+            0,
+            19,
+            11,
+            1
+          ],
+          "projection": [
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 50,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 14,
+            "BoxGeometry": 4,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 1,
+            "CylinderGeometry": 3,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 2,
+            "SphereGeometry": 4,
+            "BufferGeometry": 12,
+            "InstancedMesh": 8
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/51208046-front-before.png",
+          "sha256": "e154c7328a5522a1aab14484272e88eff522a6cae6f9606f83b4d915c41870cc",
+          "bytes": 70597
+        }
+      },
+      "after": {
+        "preMergePrimitives": 79,
+        "gpuInstanceCount": 9,
+        "drawCalls": 10,
+        "materials": 3,
+        "triangles": 19096,
+        "bounds": {
+          "min": [
+            -21.280000686645508,
+            0.15000000000000002,
+            -36.068058013916016
+          ],
+          "max": [
+            20.8799991607666,
+            27.280000686645508,
+            -25.39240837097168
+          ]
+        },
+        "detail": {
+          "cardId": "51208046",
+          "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/51208046.jpg",
+          "fidelity": "source-inspected-adapted-sculpture",
+          "primitiveCount": 32,
+          "groups": [
+            {
+              "name": "live-pink-skull-and-speaker-membranes",
+              "primitiveCount": 32
+            }
+          ],
+          "features": [
+            "large domed pink skull silhouette with three lower teeth",
+            "two pale oval eyes and a heart-shaped nose",
+            "golden round skull edge",
+            "concentric speaker membranes and small ports"
+          ],
+          "limits": "Skull depth, speaker scale and golden border are adapted to the existing stage. The performers, audience, lens glare and unseen faces remain painted."
+        },
+        "camera": {
+          "position": [
+            0,
+            19,
+            11
+          ],
+          "target": [
+            0,
+            14,
+            -31
+          ],
+          "fov": 60,
+          "matrixWorld": [
+            1,
+            0,
+            -0.0,
+            0,
+            -0.0,
+            0.9929882741949438,
+            -0.11821288978511235,
+            0,
+            0,
+            0.11821288978511235,
+            0.9929882741949438,
+            0,
+            0,
+            19,
+            11,
+            1
+          ],
+          "projection": [
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 71,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 15,
+            "BoxGeometry": 5,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 2,
+            "CylinderGeometry": 4,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 3,
+            "SphereGeometry": 5,
+            "BufferGeometry": 26,
+            "InstancedMesh": 9
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/51208046-front-after.png",
+          "sha256": "7cbc3309e21e0d5ca30daea568da59a4d83badb18ad52f7b0c1baf6cd6c4ba8a",
+          "bytes": 109718
+        }
+      },
+      "pixelComparison": {
+        "sameDimensions": true,
+        "threshold": "at least one RGB channel differs by more than 8/255",
+        "changedPixels": 29684,
+        "changedFraction": 0.08245555555555556,
+        "meanAbsoluteChannelDifference": 2.803937962962963,
+        "sourceSimilarityScore": false
+      }
+    },
+    {
+      "cardId": "51208046",
+      "angle": "left",
+      "before": {
+        "preMergePrimitives": 47,
+        "gpuInstanceCount": 8,
+        "drawCalls": 9,
+        "materials": 2,
+        "triangles": 9760,
+        "bounds": {
+          "min": [
+            -21.280000686645508,
+            0.15000000000000002,
+            -36.068058013916016
+          ],
+          "max": [
+            20.8799991607666,
+            27.280000686645508,
+            -25.39240837097168
+          ]
+        },
+        "detail": null,
+        "camera": {
+          "position": [
+            -24,
+            19,
+            11
+          ],
+          "target": [
+            0,
+            14,
+            -31
+          ],
+          "fov": 60,
+          "matrixWorld": [
+            0.8682431421244592,
+            3.469446951953614e-18,
+            0.4961389383568339,
+            0,
+            0.051010284391258015,
+            0.9947005456295313,
+            -0.08926799768470152,
+            0,
+            -0.493509672691599,
+            0.10281451514408312,
+            0.8636419272102982,
+            0,
+            -24,
+            19,
+            11,
+            1
+          ],
+          "projection": [
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 50,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 14,
+            "BoxGeometry": 4,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 1,
+            "CylinderGeometry": 3,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 2,
+            "SphereGeometry": 4,
+            "BufferGeometry": 12,
+            "InstancedMesh": 8
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/51208046-left-before.png",
+          "sha256": "802c2cf71a7dd38616ac048a1c71623c188c2852156ed9b017ff4e1445259251",
+          "bytes": 64506
+        }
+      },
+      "after": {
+        "preMergePrimitives": 79,
+        "gpuInstanceCount": 9,
+        "drawCalls": 10,
+        "materials": 3,
+        "triangles": 19096,
+        "bounds": {
+          "min": [
+            -21.280000686645508,
+            0.15000000000000002,
+            -36.068058013916016
+          ],
+          "max": [
+            20.8799991607666,
+            27.280000686645508,
+            -25.39240837097168
+          ]
+        },
+        "detail": {
+          "cardId": "51208046",
+          "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/51208046.jpg",
+          "fidelity": "source-inspected-adapted-sculpture",
+          "primitiveCount": 32,
+          "groups": [
+            {
+              "name": "live-pink-skull-and-speaker-membranes",
+              "primitiveCount": 32
+            }
+          ],
+          "features": [
+            "large domed pink skull silhouette with three lower teeth",
+            "two pale oval eyes and a heart-shaped nose",
+            "golden round skull edge",
+            "concentric speaker membranes and small ports"
+          ],
+          "limits": "Skull depth, speaker scale and golden border are adapted to the existing stage. The performers, audience, lens glare and unseen faces remain painted."
+        },
+        "camera": {
+          "position": [
+            -24,
+            19,
+            11
+          ],
+          "target": [
+            0,
+            14,
+            -31
+          ],
+          "fov": 60,
+          "matrixWorld": [
+            0.8682431421244592,
+            3.469446951953614e-18,
+            0.4961389383568339,
+            0,
+            0.051010284391258015,
+            0.9947005456295313,
+            -0.08926799768470152,
+            0,
+            -0.493509672691599,
+            0.10281451514408312,
+            0.8636419272102982,
+            0,
+            -24,
+            19,
+            11,
+            1
+          ],
+          "projection": [
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 71,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 15,
+            "BoxGeometry": 5,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 2,
+            "CylinderGeometry": 4,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 3,
+            "SphereGeometry": 5,
+            "BufferGeometry": 26,
+            "InstancedMesh": 9
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/51208046-left-after.png",
+          "sha256": "c01c9e5b65a97bf7b54851128a069394dfc28ae889d819f77f3e037698a50b7e",
+          "bytes": 94141
+        }
+      },
+      "pixelComparison": {
+        "sameDimensions": true,
+        "threshold": "at least one RGB channel differs by more than 8/255",
+        "changedPixels": 21243,
+        "changedFraction": 0.059008333333333336,
+        "meanAbsoluteChannelDifference": 2.0124574074074073,
+        "sourceSimilarityScore": false
+      }
+    },
+    {
+      "cardId": "51208046",
+      "angle": "right",
+      "before": {
+        "preMergePrimitives": 47,
+        "gpuInstanceCount": 8,
+        "drawCalls": 9,
+        "materials": 2,
+        "triangles": 9760,
+        "bounds": {
+          "min": [
+            -21.280000686645508,
+            0.15000000000000002,
+            -36.068058013916016
+          ],
+          "max": [
+            20.8799991607666,
+            27.280000686645508,
+            -25.39240837097168
+          ]
+        },
+        "detail": null,
+        "camera": {
+          "position": [
+            24,
+            19,
+            11
+          ],
+          "target": [
+            0,
+            14,
+            -31
+          ],
+          "fov": 60,
+          "matrixWorld": [
+            0.8682431421244592,
+            -3.469446951953614e-18,
+            -0.4961389383568339,
+            0,
+            -0.051010284391258015,
+            0.9947005456295313,
+            -0.08926799768470152,
+            0,
+            0.493509672691599,
+            0.10281451514408312,
+            0.8636419272102982,
+            0,
+            24,
+            19,
+            11,
+            1
+          ],
+          "projection": [
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 50,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 14,
+            "BoxGeometry": 4,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 1,
+            "CylinderGeometry": 3,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 2,
+            "SphereGeometry": 4,
+            "BufferGeometry": 12,
+            "InstancedMesh": 8
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/51208046-right-before.png",
+          "sha256": "473e42011080d70019e57c68d80d7b9fc359e90d6f59a9dbc6ebe011c97d9ae6",
+          "bytes": 61237
+        }
+      },
+      "after": {
+        "preMergePrimitives": 79,
+        "gpuInstanceCount": 9,
+        "drawCalls": 10,
+        "materials": 3,
+        "triangles": 19096,
+        "bounds": {
+          "min": [
+            -21.280000686645508,
+            0.15000000000000002,
+            -36.068058013916016
+          ],
+          "max": [
+            20.8799991607666,
+            27.280000686645508,
+            -25.39240837097168
+          ]
+        },
+        "detail": {
+          "cardId": "51208046",
+          "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/51208046.jpg",
+          "fidelity": "source-inspected-adapted-sculpture",
+          "primitiveCount": 32,
+          "groups": [
+            {
+              "name": "live-pink-skull-and-speaker-membranes",
+              "primitiveCount": 32
+            }
+          ],
+          "features": [
+            "large domed pink skull silhouette with three lower teeth",
+            "two pale oval eyes and a heart-shaped nose",
+            "golden round skull edge",
+            "concentric speaker membranes and small ports"
+          ],
+          "limits": "Skull depth, speaker scale and golden border are adapted to the existing stage. The performers, audience, lens glare and unseen faces remain painted."
+        },
+        "camera": {
+          "position": [
+            24,
+            19,
+            11
+          ],
+          "target": [
+            0,
+            14,
+            -31
+          ],
+          "fov": 60,
+          "matrixWorld": [
+            0.8682431421244592,
+            -3.469446951953614e-18,
+            -0.4961389383568339,
+            0,
+            -0.051010284391258015,
+            0.9947005456295313,
+            -0.08926799768470152,
+            0,
+            0.493509672691599,
+            0.10281451514408312,
+            0.8636419272102982,
+            0,
+            24,
+            19,
+            11,
+            1
+          ],
+          "projection": [
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 71,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 15,
+            "BoxGeometry": 5,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 2,
+            "CylinderGeometry": 4,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 3,
+            "SphereGeometry": 5,
+            "BufferGeometry": 26,
+            "InstancedMesh": 9
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/51208046-right-after.png",
+          "sha256": "a40ec0d3d413a36197622cdcd7f44550ba6b3e33d85bbe4e8968684b7bc18bcf",
+          "bytes": 90694
+        }
+      },
+      "pixelComparison": {
+        "sameDimensions": true,
+        "threshold": "at least one RGB channel differs by more than 8/255",
+        "changedPixels": 21256,
+        "changedFraction": 0.05904444444444444,
+        "meanAbsoluteChannelDifference": 2.0037148148148147,
+        "sourceSimilarityScore": false
+      }
+    },
+    {
+      "cardId": "35371948",
+      "angle": "front",
+      "before": {
+        "preMergePrimitives": 88,
+        "gpuInstanceCount": 6,
+        "drawCalls": 6,
+        "materials": 1,
+        "triangles": 36328,
+        "bounds": {
+          "min": [
+            -20.51702308654785,
+            0,
+            -33.1
+          ],
+          "max": [
+            20.514041900634766,
+            24.402204513549805,
+            -24.329999923706055
+          ]
+        },
+        "detail": null,
+        "camera": {
+          "position": [
+            0,
+            18,
+            12
+          ],
+          "target": [
+            0,
+            12,
+            -29
+          ],
+          "fov": 60,
+          "matrixWorld": [
+            1,
+            0,
+            -0.0,
+            0,
+            -0.0,
+            0.9894610641341026,
+            -0.1447991801171858,
+            0,
+            0,
+            0.1447991801171858,
+            0.9894610641341026,
+            0,
+            0,
+            18,
+            12,
+            1
+          ],
+          "projection": [
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 93,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 13,
+            "BoxGeometry": 3,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 1,
+            "CylinderGeometry": 32,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 2,
+            "SphereGeometry": 3,
+            "BufferGeometry": 31,
+            "InstancedMesh": 6
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/35371948-front-before.png",
+          "sha256": "1e3d56431a9ae0e96f5fb564c966901c6a018d5a192b3c762d20069fb76f892e",
+          "bytes": 41408
+        }
+      },
+      "after": {
+        "preMergePrimitives": 152,
+        "gpuInstanceCount": 7,
+        "drawCalls": 7,
+        "materials": 2,
+        "triangles": 45736,
+        "bounds": {
+          "min": [
+            -20.51702308654785,
+            0,
+            -33.1
+          ],
+          "max": [
+            20.514041900634766,
+            24.402204513549805,
+            -24.329999923706055
+          ]
+        },
+        "detail": {
+          "cardId": "35371948",
+          "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/35371948.jpg",
+          "fidelity": "source-inspected-adapted-sculpture",
+          "primitiveCount": 64,
+          "groups": [
+            {
+              "name": "light-stage-jewel-bouquets-and-gold-filigrane",
+              "primitiveCount": 64
+            }
+          ],
+          "features": [
+            "multicolored jewel-flower bouquets",
+            "golden stems and column arabesques",
+            "small gold crest leaves around the existing curls"
+          ],
+          "limits": "Flower jewels and gold filigree are adapted volumes. The four performers, mirrored screen image, cloth, lighting and exact spatial perspective remain painted."
+        },
+        "camera": {
+          "position": [
+            0,
+            18,
+            12
+          ],
+          "target": [
+            0,
+            12,
+            -29
+          ],
+          "fov": 60,
+          "matrixWorld": [
+            1,
+            0,
+            -0.0,
+            0,
+            -0.0,
+            0.9894610641341026,
+            -0.1447991801171858,
+            0,
+            0,
+            0.1447991801171858,
+            0.9894610641341026,
+            0,
+            0,
+            18,
+            12,
+            1
+          ],
+          "projection": [
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 122,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 14,
+            "BoxGeometry": 4,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 2,
+            "CylinderGeometry": 33,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 3,
+            "SphereGeometry": 4,
+            "BufferGeometry": 53,
+            "InstancedMesh": 7
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/35371948-front-after.png",
+          "sha256": "2987ad9adaf0e1d296194e93c126e9141a92718a99ef4b6132e3727f107ea7cd",
+          "bytes": 50048
+        }
+      },
+      "pixelComparison": {
+        "sameDimensions": true,
+        "threshold": "at least one RGB channel differs by more than 8/255",
+        "changedPixels": 3042,
+        "changedFraction": 0.00845,
+        "meanAbsoluteChannelDifference": 0.34490185185185185,
+        "sourceSimilarityScore": false
+      }
+    },
+    {
+      "cardId": "35371948",
+      "angle": "left",
+      "before": {
+        "preMergePrimitives": 88,
+        "gpuInstanceCount": 6,
+        "drawCalls": 6,
+        "materials": 1,
+        "triangles": 36328,
+        "bounds": {
+          "min": [
+            -20.51702308654785,
+            0,
+            -33.1
+          ],
+          "max": [
+            20.514041900634766,
+            24.402204513549805,
+            -24.329999923706055
+          ]
+        },
+        "detail": null,
+        "camera": {
+          "position": [
+            -24,
+            18,
+            12
+          ],
+          "target": [
+            0,
+            12,
+            -29
+          ],
+          "fov": 60,
+          "matrixWorld": [
+            0.8630144693469346,
+            0,
+            0.5051792015689373,
+            0,
+            0.06329868461246636,
+            0.992118966460671,
+            -0.10813525287963005,
+            0,
+            -0.501197867338001,
+            0.12529946683450024,
+            0.8562130233690851,
+            0,
+            -24,
+            18,
+            12,
+            1
+          ],
+          "projection": [
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 93,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 13,
+            "BoxGeometry": 3,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 1,
+            "CylinderGeometry": 32,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 2,
+            "SphereGeometry": 3,
+            "BufferGeometry": 31,
+            "InstancedMesh": 6
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/35371948-left-before.png",
+          "sha256": "73cea9c93bcdafa0e4b554101b80ac7cd05a241f9f5fdd9e0e356047a71a3d31",
+          "bytes": 37114
+        }
+      },
+      "after": {
+        "preMergePrimitives": 152,
+        "gpuInstanceCount": 7,
+        "drawCalls": 7,
+        "materials": 2,
+        "triangles": 45736,
+        "bounds": {
+          "min": [
+            -20.51702308654785,
+            0,
+            -33.1
+          ],
+          "max": [
+            20.514041900634766,
+            24.402204513549805,
+            -24.329999923706055
+          ]
+        },
+        "detail": {
+          "cardId": "35371948",
+          "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/35371948.jpg",
+          "fidelity": "source-inspected-adapted-sculpture",
+          "primitiveCount": 64,
+          "groups": [
+            {
+              "name": "light-stage-jewel-bouquets-and-gold-filigrane",
+              "primitiveCount": 64
+            }
+          ],
+          "features": [
+            "multicolored jewel-flower bouquets",
+            "golden stems and column arabesques",
+            "small gold crest leaves around the existing curls"
+          ],
+          "limits": "Flower jewels and gold filigree are adapted volumes. The four performers, mirrored screen image, cloth, lighting and exact spatial perspective remain painted."
+        },
+        "camera": {
+          "position": [
+            -24,
+            18,
+            12
+          ],
+          "target": [
+            0,
+            12,
+            -29
+          ],
+          "fov": 60,
+          "matrixWorld": [
+            0.8630144693469346,
+            0,
+            0.5051792015689373,
+            0,
+            0.06329868461246636,
+            0.992118966460671,
+            -0.10813525287963005,
+            0,
+            -0.501197867338001,
+            0.12529946683450024,
+            0.8562130233690851,
+            0,
+            -24,
+            18,
+            12,
+            1
+          ],
+          "projection": [
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 122,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 14,
+            "BoxGeometry": 4,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 2,
+            "CylinderGeometry": 33,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 3,
+            "SphereGeometry": 4,
+            "BufferGeometry": 53,
+            "InstancedMesh": 7
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/35371948-left-after.png",
+          "sha256": "b551bb667d8b911281c1c033b3be4765f7bda61bd6ecc65049b0cd59c4f2a86f",
+          "bytes": 44445
+        }
+      },
+      "pixelComparison": {
+        "sameDimensions": true,
+        "threshold": "at least one RGB channel differs by more than 8/255",
+        "changedPixels": 2450,
+        "changedFraction": 0.006805555555555555,
+        "meanAbsoluteChannelDifference": 0.273112037037037,
+        "sourceSimilarityScore": false
+      }
+    },
+    {
+      "cardId": "35371948",
+      "angle": "right",
+      "before": {
+        "preMergePrimitives": 88,
+        "gpuInstanceCount": 6,
+        "drawCalls": 6,
+        "materials": 1,
+        "triangles": 36328,
+        "bounds": {
+          "min": [
+            -20.51702308654785,
+            0,
+            -33.1
+          ],
+          "max": [
+            20.514041900634766,
+            24.402204513549805,
+            -24.329999923706055
+          ]
+        },
+        "detail": null,
+        "camera": {
+          "position": [
+            24,
+            18,
+            12
+          ],
+          "target": [
+            0,
+            12,
+            -29
+          ],
+          "fov": 60,
+          "matrixWorld": [
+            0.8630144693469346,
+            0,
+            -0.5051792015689373,
+            0,
+            -0.06329868461246636,
+            0.992118966460671,
+            -0.10813525287963005,
+            0,
+            0.501197867338001,
+            0.12529946683450024,
+            0.8562130233690851,
+            0,
+            24,
+            18,
+            12,
+            1
+          ],
+          "projection": [
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 93,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 13,
+            "BoxGeometry": 3,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 1,
+            "CylinderGeometry": 32,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 2,
+            "SphereGeometry": 3,
+            "BufferGeometry": 31,
+            "InstancedMesh": 6
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/35371948-right-before.png",
+          "sha256": "e703c566a53a680d892fff996a94e22c15244b174981fb30d13bd639cab3a015",
+          "bytes": 37168
+        }
+      },
+      "after": {
+        "preMergePrimitives": 152,
+        "gpuInstanceCount": 7,
+        "drawCalls": 7,
+        "materials": 2,
+        "triangles": 45736,
+        "bounds": {
+          "min": [
+            -20.51702308654785,
+            0,
+            -33.1
+          ],
+          "max": [
+            20.514041900634766,
+            24.402204513549805,
+            -24.329999923706055
+          ]
+        },
+        "detail": {
+          "cardId": "35371948",
+          "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/35371948.jpg",
+          "fidelity": "source-inspected-adapted-sculpture",
+          "primitiveCount": 64,
+          "groups": [
+            {
+              "name": "light-stage-jewel-bouquets-and-gold-filigrane",
+              "primitiveCount": 64
+            }
+          ],
+          "features": [
+            "multicolored jewel-flower bouquets",
+            "golden stems and column arabesques",
+            "small gold crest leaves around the existing curls"
+          ],
+          "limits": "Flower jewels and gold filigree are adapted volumes. The four performers, mirrored screen image, cloth, lighting and exact spatial perspective remain painted."
+        },
+        "camera": {
+          "position": [
+            24,
+            18,
+            12
+          ],
+          "target": [
+            0,
+            12,
+            -29
+          ],
+          "fov": 60,
+          "matrixWorld": [
+            0.8630144693469346,
+            0,
+            -0.5051792015689373,
+            0,
+            -0.06329868461246636,
+            0.992118966460671,
+            -0.10813525287963005,
+            0,
+            0.501197867338001,
+            0.12529946683450024,
+            0.8562130233690851,
+            0,
+            24,
+            18,
+            12,
+            1
+          ],
+          "projection": [
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            1.7320508075688774,
+            0,
+            0,
+            0,
+            0,
+            -1.001000500250125,
+            -1,
+            0,
+            0,
+            -0.2001000500250125,
+            0
+          ]
+        },
+        "disposal": {
+          "allocated": 122,
+          "allExactlyOnce": true,
+          "byKind": {
+            "MeshStandardMaterial": 14,
+            "BoxGeometry": 4,
+            "DodecahedronGeometry": 1,
+            "ConeGeometry": 2,
+            "CylinderGeometry": 33,
+            "IcosahedronGeometry": 1,
+            "TorusGeometry": 3,
+            "SphereGeometry": 4,
+            "BufferGeometry": 53,
+            "InstancedMesh": 7
+          },
+          "childrenRemaining": 0,
+          "rendererGeometriesRemaining": 0
+        },
+        "capture": {
+          "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/35371948-right-after.png",
+          "sha256": "deeab813e075f7fcf708ad078d3829883022579c911daae4f750d67352f97de5",
+          "bytes": 44568
+        }
+      },
+      "pixelComparison": {
+        "sameDimensions": true,
+        "threshold": "at least one RGB channel differs by more than 8/255",
+        "changedPixels": 2457,
+        "changedFraction": 0.006825,
+        "meanAbsoluteChannelDifference": 0.27057314814814815,
+        "sourceSimilarityScore": false
+      }
+    }
+  ],
+  "comparisonBoards": [
+    {
+      "cardId": "7617062",
+      "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/7617062-source-before-after-three-angles.jpg",
+      "bytes": 628530,
+      "sha256": "65ce1e9a0d83644967e3942c7e533313a51d4c6791799471a5d58fec26711c00"
+    },
+    {
+      "cardId": "15388353",
+      "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/15388353-source-before-after-three-angles.jpg",
+      "bytes": 700300,
+      "sha256": "4aacbf6f0ff2d81f95df7d4265ca4e19307f7380998cb8d562da3dcbe6f1d1e9"
+    },
+    {
+      "cardId": "49370016",
+      "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/49370016-source-before-after-three-angles.jpg",
+      "bytes": 801761,
+      "sha256": "f2d396c120ef07ca3ae217f3f4d3649fedcfe8a52bc5422aec0003f5cd6b3b57"
+    },
+    {
+      "cardId": "63492244",
+      "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/63492244-source-before-after-three-angles.jpg",
+      "bytes": 623973,
+      "sha256": "8a541ccc80ecf0a1249d66480c76e1e65b04a8345157a9237dc2e10120c5a708"
+    },
+    {
+      "cardId": "51208046",
+      "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/51208046-source-before-after-three-angles.jpg",
+      "bytes": 695748,
+      "sha256": "9fef7bad5f28b7abd2d75afa6e6e517a15e57a47362f96b6b52fdccdd6bafc1e"
+    },
+    {
+      "cardId": "35371948",
+      "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/35371948-source-before-after-three-angles.jpg",
+      "bytes": 677954,
+      "sha256": "01ff14b171f3e47738f5bbc6e8625510b6fde76faedc34232d07d0cf51c6fc6e"
+    }
+  ],
+  "gallery": {
+    "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/gallery.html",
+    "bytes": 6803198,
+    "sha256": "aa6aa56fe938fcd4ea81fce7dd2f506e95da120aa23cbb9f389d67e6a49fe987"
+  },
+  "errors": [],
+  "dependenciesUnchangedDuringCapture": true,
+  "preservation": {
+    "path": "docs/audits/artifacts/continuation-terrain-details-2026-10-08/preservation.json",
+    "bytes": 159737,
+    "sha256": "850472daa8df03e3b40d05e0844827641c9452c7944c5c65c95543f0323b24bf",
+    "sourceCount": 339,
+    "unchangedGeometryCount": 333,
+    "intentionallyDetailedCount": 6,
+    "sourceJpegsIntact": true,
+    "runner": {
+      "path": "scripts/audit-continuation-terrain-preservation.mjs",
+      "bytes": 4150,
+      "sha256": "6f4fa9903e2d8d44334a53bad758f884547633890092626fbcfd86a95ada2cc9"
+    }
+  }
+}

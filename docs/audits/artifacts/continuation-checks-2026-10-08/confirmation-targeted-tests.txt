@@ -1,0 +1,42 @@
+✔ six genuine native Smartfon confirmations group in one accessible private panel for controller 1 (2.870605ms)
+✔ recipient authorization precedes card getters and any image or DOM allocation for both native controllers (0.341874ms)
+✔ authorized printed CDB descriptions and local art enrich the panel without a duel instance or native stat query (335.148873ms)
+✔ a different group or duel replaces old cards, and closing or Escape drops all inspection state (0.596176ms)
+✔ authorized opposing Deck cards use text nodes and local details without reading runtime identity or active image URLs (0.328503ms)
+✔ the actual main animation router consumes authorized and rejected inspections before public or campaign consumers (2.184353ms)
+✔ new Duel, configuration return and game over clear the actual private panel before other work (1.392122ms)
+✔ public confirmation needs its active source, not an unrelated trusted lower Chain link (0.814745ms)
+✔ source, executed bytes, audience and location must all match the public rule (5.963733ms)
+✔ native link tracking brackets costs and resolution, then clears on negation and Chain end (1.441527ms)
+✔ public panel rejects private, unconfirmed and unrelated payloads before reading identities (0.771619ms)
+✔ all eight bounded public policies have native cases for both controllers and keep private inspection (1.117961ms)
+✔ authentic confirmation continuation: private-smartfon-defense-0 (0.140161ms)
+✔ authentic confirmation continuation: private-smartfon-defense-1 (0.070185ms)
+✔ authentic confirmation continuation: private-diabolos-opposing-deck-0 (0.070205ms)
+✔ authentic confirmation continuation: private-diabolos-opposing-deck-1 (0.105699ms)
+✔ authentic confirmation continuation: public-smartfon-attack-decktop-0 (0.285559ms)
+✔ authentic confirmation continuation: public-smartfon-attack-decktop-1 (0.10663ms)
+✔ authentic confirmation continuation: public-gaia-cost-and-search-0 (0.044146ms)
+✔ authentic confirmation continuation: public-gaia-cost-and-search-1 (0.030326ms)
+✔ authentic confirmation continuation: public-duel-tower-both-decks-0 (0.027491ms)
+✔ authentic confirmation continuation: public-duel-tower-both-decks-1 (0.028002ms)
+✔ authentic confirmation continuation: public-search-32807846-0 (0.02643ms)
+✔ authentic confirmation continuation: public-search-32807846-1 (0.020782ms)
+✔ authentic confirmation continuation: public-search-73628505-0 (0.092169ms)
+✔ authentic confirmation continuation: public-search-73628505-1 (0.022173ms)
+✔ authentic confirmation continuation: public-dragon-ravine-search-0 (0.020241ms)
+✔ authentic confirmation continuation: public-dragon-ravine-search-1 (0.021382ms)
+✔ authentic confirmation continuation: public-union-hangar-search-0 (0.047091ms)
+✔ authentic confirmation continuation: public-union-hangar-search-1 (0.046039ms)
+✔ authentic confirmation continuation: public-grave-trigger-26202165-0 (0.029575ms)
+✔ authentic confirmation continuation: public-grave-trigger-26202165-1 (0.021993ms)
+✔ authentic confirmation continuation: public-grave-trigger-78010363-0 (0.023836ms)
+✔ authentic confirmation continuation: public-grave-trigger-78010363-1 (0.021022ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1556.910422

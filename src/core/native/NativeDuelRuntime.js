@@ -4,8 +4,10 @@
  * Assets/readers are injected so initialization never fetches during a duel.
  */
 import { loadNativeCoreWasm } from './NativeCoreAssets.js';
+import { applyNativeCardScriptCorrections, getNativeCardScriptCorrection } from './NativeCardScriptCorrections.js';
 import { nativeCardMatchesAnnounceOpcode } from './NativeDuelDecisions.js';
 import { NATIVE_LUA_COMPATIBILITY_NAME, NATIVE_LUA_COMPATIBILITY_SOURCE } from './NativeLuaCompatibility.js';
+import { NATIVE_TCG_DUEL_FLAGS } from './NativeTCGRuleProfile.js';
 
 export const NATIVE_CORE_PACKAGE = 'ocgcore-wasm';
 export const NATIVE_CORE_PACKAGE_VERSION = '0.1.2';
@@ -38,9 +40,23 @@ function synchronousReader(reader, label) {
 /** Accept both canonical official/c123.lua paths and core c123.lua requests. */
 export function createNativeScriptReader(scripts) {
   if (!(scripts instanceof Map)) throw new TypeError('scripts must be a Map');
-  return name => scripts.get(name)
-    ?? (/^c\d+\.lua$/.test(name) ? scripts.get(`official/${name}`) : null)
-    ?? null;
+  const cache = new Map(), correctionsApplied = new Map();
+  const reader = name => {
+    const source = scripts.get(name)
+      ?? (/^c\d+\.lua$/.test(name) ? scripts.get(`official/${name}`) : null)
+      ?? null;
+    if (source === null) return null;
+    const correction = getNativeCardScriptCorrection(name);
+    if (!correction) return source;
+    const previous = cache.get(name);
+    if (previous?.source === source) return previous.effective;
+    const effective = applyNativeCardScriptCorrections(name, source);
+    cache.set(name, { source, effective });
+    correctionsApplied.set(correction.filename, correction);
+    return effective;
+  };
+  Object.defineProperty(reader, 'correctionsApplied', { value: correctionsApplied });
+  return reader;
 }
 
 export async function createNativeDuelRuntime(options = {}) {
@@ -66,8 +82,10 @@ export async function createNativeDuelRuntime(options = {}) {
   }
   const runtime = new NativeDuelRuntime(core, coreModule, {
     ...options,
+    flags: options.flags ?? NATIVE_TCG_DUEL_FLAGS,
     cardReader: synchronousReader(cardReader, 'cardReader'),
-    scriptReader: synchronousReader(scriptReader, 'scriptReader')
+    scriptReader: synchronousReader(scriptReader, 'scriptReader'),
+    scriptCorrectionsApplied: scriptReader.correctionsApplied ?? new Map()
   });
   try {
     runtime.initialize();
@@ -92,14 +110,13 @@ export class NativeDuelRuntime {
   }
 
   initialize() {
-    const { OcgDuelMode } = this.constants;
     const seed = this.options.seed ?? createSeed();
     if (!Array.isArray(seed) || seed.length !== 4 || seed.some(value => typeof value !== 'bigint')
       || seed.every(value => value === 0n)) {
       throw new TypeError('seed must contain four BigInts and may not be all zero');
     }
     this.handle = this.core.createDuel({
-      flags: this.options.flags ?? OcgDuelMode.MODE_MR5,
+      flags: this.options.flags ?? NATIVE_TCG_DUEL_FLAGS,
       seed,
       team1: { ...DEFAULT_TEAM, ...this.options.team1 },
       team2: { ...DEFAULT_TEAM, ...this.options.team2 },

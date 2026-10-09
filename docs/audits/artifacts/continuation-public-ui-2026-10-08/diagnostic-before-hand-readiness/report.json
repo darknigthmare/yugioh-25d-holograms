@@ -1,0 +1,108 @@
+{
+  "ok": false,
+  "date": "2026-10-08",
+  "scope": "Actual frozen compiled native game; Terraforming search, source-authorized public confirmation and Live Stage activation, no post-start fixture or debug hook.",
+  "expectedEntrySha256": "799145520bfd285b788d5f6573dde6a557ef82dadda4645a697f97f5d60882be",
+  "fixture": {
+    "main": [
+      "13039848",
+      "269012",
+      "13039848",
+      "269012",
+      "43422537",
+      "269012",
+      "14898066",
+      "269510",
+      "14898066",
+      "269510",
+      "14898066",
+      "5318639",
+      "15025844",
+      "295517",
+      "66602787",
+      "295517",
+      "15025844",
+      "295517",
+      "5053103",
+      "575512",
+      "51208046",
+      "575512",
+      "20721928",
+      "575512",
+      "91152256",
+      "73628505",
+      "23115241",
+      "675319",
+      "23115241",
+      "675319",
+      "32452818",
+      "712559",
+      "32452818",
+      "712559",
+      "32452818",
+      "712559",
+      "39552864",
+      "885016",
+      "39552864",
+      "885016"
+    ],
+    "extra": [
+      "23995346"
+    ],
+    "side": []
+  },
+  "essentialBuildAssets": [
+    "index.html",
+    "assets/index-XmnwEEBj.js",
+    "assets/index-Ce4lc5_W.css",
+    "assets/NativeDuelGame-DR4pJFur.js",
+    "assets/FieldEnvironmentRegistry-CW5zbHcP.js",
+    "assets/RealDuelView-CZpDyO-R.js",
+    "assets/ocgcore-DWqJvtmv.js"
+  ],
+  "viewports": [
+    {
+      "width": 1280,
+      "height": 900,
+      "errors": [],
+      "nativeFailures": [],
+      "actions": [],
+      "openingOwnHand": []
+    }
+  ],
+  "productionCsp": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://db.ygoprodeck.com; media-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests",
+  "dependencies": {
+    "scripts/audit-continuation-public-ui.py": {
+      "bytes": 9006,
+      "sha256": "b87e17960b98cacb7d024a6724a0ced78f69caea387601f6942ec113093e313c"
+    },
+    "main.js": {
+      "bytes": 184958,
+      "sha256": "b442b4d2f58240c70a2b045c4bbd5957e780b69b1050bb17146938c85f79f7c1"
+    },
+    "style.css": {
+      "bytes": 115179,
+      "sha256": "41962bbd2229fc25b2f1d77280a39cc2ff26c5d5963588e3539b183720a89fab"
+    },
+    "src/ui/PrivateCardInspection.js": {
+      "bytes": 5637,
+      "sha256": "c2f6da2cedacae2d014d45c15a587838ff772237af5b8e9f0ac195104a5298d0"
+    },
+    "src/ui/PublicCardConfirmation.js": {
+      "bytes": 1553,
+      "sha256": "858a04e67f0b08c9a687a1382f4a0ab7810a5ef3213787e58bb5b5ab480cb513"
+    },
+    "src/core/native/NativePublicRevealPolicy.js": {
+      "bytes": 3116,
+      "sha256": "eca1ea20ec0e6f130d02f84af84f82fb5cf600f431c1395e94739b09428876f1"
+    },
+    "src/core/native/NativeDuelVisualEvents.js": {
+      "bytes": 33437,
+      "sha256": "8b2f692bbf099a62c26244098dadfaa10842ce94d4cb0291d9a2e1e0c54af242"
+    }
+  },
+  "failure": {
+    "type": "AssertionError",
+    "message": ""
+  }
+}

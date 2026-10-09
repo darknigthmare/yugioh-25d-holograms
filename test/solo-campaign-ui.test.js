@@ -18,7 +18,8 @@ test('solo campaign is an accessible optional route beside the unchanged free du
 test('missions reuse one selected duel engine and authoritative animation/state callbacks', () => {
   assert.equal((main.match(/game = new GameClass\(/g) || []).length, 1);
   assert.match(main, /let GameClass = DuelGame;[\s\S]*if \(selectedGameMode !== 'sandbox'\)[\s\S]*GameClass = module\.NativeDuelGame/);
-  assert.match(main, /const duelStarted = await game\.startDuel\(/);
+  assert.match(main, /const launchedGame = game;[\s\S]*const duelStarted = await launchedGame\.startDuel\(/);
+  assert.match(main, /!currentLaunch\(\) \|\| game !== launchedGame/);
   assert.match(main, /buildMissionDecks\(campaignMission\.id\)/);
   assert.match(main, /campaignTracker\?\.recordAnimation\(event\)/);
   assert.match(main, /campaignTracker\?\.observeState\(gameState\)/);

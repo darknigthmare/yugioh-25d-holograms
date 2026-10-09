@@ -1,6 +1,7 @@
 import { MatchEngine } from '../core/MatchEngine.js';
 import { isStrictCardSupported, normalizeStrictCardId } from '../core/StrictCardRegistry.js';
 import { getDeckCopyIdentity } from '../core/CardNameRules.js';
+import { getTcgSnapshotCopyIdentity } from '../core/tcg/TcgAdvancedFormat.js';
 import {
   getNativeCardRegistration, getNativeFieldEligibility, isNativeCardSupported,
   NATIVE_FIELD_RESTRICTIONS
@@ -19,16 +20,24 @@ function allCards(deck) {
 }
 
 function copyIdentity(card, mode, options = {}) {
-  return mode === 'native' && typeof options.getCopyIdentity === 'function'
-    ? normalizeStrictCardId(options.getCopyIdentity(card)) : getDeckCopyIdentity(card);
+  const trustedStrictCatalogue = mode === 'strict' && options.native === true
+    && typeof options.isSupportedCard === 'function' && typeof options.getCardEligibility === 'function';
+  return (mode === 'native' || trustedStrictCatalogue) && typeof options.getCopyIdentity === 'function'
+    ? normalizeStrictCardId(options.getCopyIdentity(card))
+    : mode === 'sandbox' ? getDeckCopyIdentity(card) : getTcgSnapshotCopyIdentity(card);
 }
 
 export function getDeckBuilderCopyLimit(card, mode = 'strict', options = {}) {
   if (mode === 'sandbox' || mode === 'native') return 3;
-  const id = getDeckCopyIdentity(card);
+  if (options.native === true && typeof options.isSupportedCard === 'function'
+    && typeof options.getCardEligibility === 'function' && typeof options.getCardRestriction === 'function') {
+    const datedLimit = options.getCardRestriction(card, options.banlistId);
+    if (Number.isInteger(datedLimit) && datedLimit >= 0 && datedLimit <= 3) return datedLimit;
+  }
+  const id = copyIdentity(card, mode, options);
   if (options.native) {
     const field = NATIVE_FIELD_RESTRICTIONS.get(id);
-    if (field) {
+    if (field && options.format === 'OCG') {
       const status = options.format === 'OCG' ? field.ocgStatus : field.tcgStatus;
       if (status === 'Forbidden') return 0;
       if (status === 'Limited') return 1;
@@ -36,12 +45,7 @@ export function getDeckBuilderCopyLimit(card, mode = 'strict', options = {}) {
       return 3;
     }
   }
-  const list = validator.banlists[validator.getMatchState().banlistId];
-  const contains = ids => ids.some(value => normalizeStrictCardId(value) === id);
-  if (contains(list.forbidden)) return 0;
-  if (contains(list.limited)) return 1;
-  if (contains(list.semi_limited)) return 2;
-  return 3;
+  return validator.getCardCopyLimit({ id }, 'TCG_ADVANCED', options.banlistId ?? validator.getMatchState().banlistId);
 }
 
 function isSupportedInSection(card, section, native = false, cataloguePredicate = null) {
@@ -54,16 +58,22 @@ function isSupportedInSection(card, section, native = false, cataloguePredicate 
 
 export function canAddDeckBuilderCard(deck, card, section, mode = 'strict', options = {}) {
   const native = mode === 'native' || options.native === true;
-  const cataloguePredicate = mode === 'native' && typeof options.isSupportedCard === 'function'
+  const cataloguePredicate = (mode === 'native' || (native && typeof options.getCardEligibility === 'function')) && typeof options.isSupportedCard === 'function'
     ? options.isSupportedCard : null;
   if (!sections.includes(section)) return { allowed: false, message: 'Choisissez une section du Deck.' };
+  if (mode === 'strict' && options.banlistId && !validator.banlists[options.banlistId]) {
+    return { allowed: false, code: 'UNKNOWN_BANLIST', message: 'La liste Advanced sélectionnée est inconnue.' };
+  }
   if (!card || (mode !== 'sandbox' && !isSupportedInSection(card, section, native, cataloguePredicate))) {
     return { allowed: false, message: native
       ? 'Cette carte ne peut pas être ajoutée à cette section dans le moteur natif.'
       : 'Cette carte ne peut pas être ajoutée à cette section en mode strict.' };
   }
   if (native && mode === 'strict') {
-    const eligibility = getNativeFieldEligibility(card, options.format ?? 'TCG', options);
+    const expectedSection = section === 'mainDeck' ? 'main' : section === 'extraDeck' ? 'extra' : 'side';
+    const eligibility = typeof options.getCardEligibility === 'function'
+      ? options.getCardEligibility(card, expectedSection)
+      : getNativeFieldEligibility(card, options.format ?? 'TCG', options);
     if (!eligibility.allowed) return eligibility;
   }
   if (section !== 'sideDeck'
@@ -96,7 +106,7 @@ function issueMessage(issue, deck, mode, options) {
   }
   if (issue.code === 'UNSUPPORTED_STRICT_CARD') return 'Une carte du Deck n’est pas disponible en mode strict.';
   if (issue.code === 'UNSUPPORTED_NATIVE_CARD') return 'Une carte du Deck n’est pas disponible dans le moteur natif.';
-  if (issue.code.startsWith('FIELD_')) return issue.message;
+  if (issue.code.startsWith('FIELD_') || issue.code.startsWith('TCG_') || issue.code.startsWith('UNKNOWN_')) return issue.message;
   return 'Une carte se trouve dans une section de Deck incorrecte.';
 }
 
@@ -106,7 +116,7 @@ export function validateCustomDeck(deck, mode = 'strict', options = {}) {
   if (native && mode !== 'sandbox') return validateNativeCustomDeck(deck, mode, options);
   const validation = mode === 'sandbox'
     ? validator.validateDeck(deck, 'TCG_ADVANCED', 'BUILDER_SANDBOX_UNLIMITED')
-    : validator.validateDeck(deck);
+    : validator.validateDeck(deck, 'TCG_ADVANCED', options.banlistId);
   const issues = [...validation.issues];
   if (mode !== 'sandbox') {
     for (const section of sections) {
@@ -129,9 +139,12 @@ function validateNativeCustomDeck(deck, mode, options) {
   // below using the native field snapshot and existing non-field Advanced list.
   const validation = validator.validateDeck(deck, 'TCG_ADVANCED', 'BUILDER_SANDBOX_UNLIMITED');
   const issues = validation.issues.filter(issue => issue.code !== 'COPY_LIMIT_EXCEEDED');
+  if (mode === 'strict' && options.banlistId && !validator.banlists[options.banlistId]) {
+    issues.push({ code: 'UNKNOWN_BANLIST', message: 'La liste Advanced sélectionnée est inconnue.' });
+  }
   const counts = new Map();
   const allowedByIdentity = new Map();
-  const cataloguePredicate = mode === 'native' && typeof options.isSupportedCard === 'function'
+  const cataloguePredicate = (mode === 'native' || typeof options.getCardEligibility === 'function') && typeof options.isSupportedCard === 'function'
     ? options.isSupportedCard : null;
   for (const section of sections) {
     cardsIn(deck, section).forEach((card, index) => {
@@ -139,7 +152,10 @@ function validateNativeCustomDeck(deck, mode, options) {
       if (!supported) {
         issues.push({ code: 'UNSUPPORTED_NATIVE_CARD', section, index });
       } else if (mode === 'strict') {
-        const eligibility = getNativeFieldEligibility(card, options.format ?? 'TCG', options);
+        const expectedSection = section === 'mainDeck' ? 'main' : section === 'extraDeck' ? 'extra' : 'side';
+        const eligibility = typeof options.getCardEligibility === 'function'
+          ? options.getCardEligibility(card, expectedSection)
+          : getNativeFieldEligibility(card, options.format ?? 'TCG', options);
         if (!eligibility.allowed) issues.push({ ...eligibility, section, index, cardId: normalizeStrictCardId(card.id) });
       }
       if (!card || (!getNativeCardRegistration(card) && !supported)) return;

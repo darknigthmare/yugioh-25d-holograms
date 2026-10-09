@@ -1,0 +1,312 @@
+#!/usr/bin/env python3
+"""Real compiled strict-TCG 3-Tribute summons on desktop and mobile.
+
+Requires the coordinator-frozen entry SHA; never builds the application.
+Forty-card Advanced-valid fixtures and the initial RNG are installed before
+Start only. Every subsequent action uses offered browser controls.
+"""
+import argparse
+from collections import Counter
+import functools
+import hashlib
+from http.server import ThreadingHTTPServer
+import importlib.util
+import json
+from pathlib import Path
+import re
+import threading
+import time
+from urllib.parse import urlsplit
+
+from playwright.sync_api import sync_playwright
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def helper(name, filename):
+    spec=importlib.util.spec_from_file_location(name,ROOT/'scripts'/filename)
+    module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);return module
+
+
+wave=helper('tcg_gods_compiled_helpers','audit-continuation-models-ui.py')
+ui=wave.ui
+views=wave.views
+FIXTURE_PATH=ROOT/'docs/audits/artifacts/tcg-gods-ui-fixtures-2026-10-08.json'
+
+
+def source_fingerprints():
+    paths=['scripts/audit-tcg-gods-ui-2026-10-08.py','scripts/audit-continuation-models-ui.py',
+      'scripts/audit-native-duel-ui.py','scripts/audit-native-duel-views.py',
+      'scripts/prepare-tcg-gods-ui-fixtures.mjs','docs/audits/artifacts/tcg-gods-ui-fixtures-2026-10-08.json',
+      'src/core/tcg/TcgAdvancedBanlistData.js','src/core/tcg/TcgAdvancedFormat.js',
+      'src/core/tcg/TcgCardLegality.js','src/core/native/NativeCardCatalogue.js',
+      'src/core/native/NativeCardReferenceArt.js','src/core/native/NativeDuelGame.js',
+      'src/core/native/NativeDuelRuntime.js','src/core/native/NativeDuelDecisions.js',
+      'src/core/native/NativeDuelVisualEvents.js','src/ui/DeckBuilderRules.js',
+      'src/ui/CombatVisualProfiles.js','src/ui/HologramMonsterModels.js',
+      'src/ui/HologramPopularGodModels.js','src/ui/PopularGodReferenceArt.js',
+      'src/ui/HologramPoseAnimation.js','src/ui/RealDuelScene3D.js','src/ui/RealDuelView.js',
+      'main.js','index.html','style.css','vercel.json']
+    paths += [f'public/cards/{kind}/{code}.jpg' for code in ['10000000','10000010','10000020'] for kind in ['reference','cropped','small']]
+    return {path:{'bytes':(ROOT/path).stat().st_size,'sha256':hashlib.sha256((ROOT/path).read_bytes()).hexdigest()}for path in paths}
+
+
+def build_fingerprints(dist):
+    values,essential=wave.compiled_wave_fingerprints(dist)
+    for path in ['native/manifest.json','native/field-banlists.json']:
+        body=(dist/path).read_bytes();values[path]={'bytes':len(body),'sha256':hashlib.sha256(body).hexdigest()}
+    for code in ['10000000','10000010','10000020']:
+        for kind in ['reference','cropped','small']:
+            path=f'cards/{kind}/{code}.jpg';body=(dist/path).read_bytes();values[path]={'bytes':len(body),'sha256':hashlib.sha256(body).hexdigest()}
+    return values,essential
+
+
+def public_state(page):
+    state=wave.snapshot(page)
+    state['ownMonsters']=[{**card,'isToken':card['id']=='24874631'}for card in state['ownMonsters']]
+    return state
+
+
+def screenshot(page,output,case,stage):
+    path=output/f'god-{case["godId"]}-{stage}-{case["width"]}.png'
+    page.screenshot(path=str(path),animations='disabled',timeout=60000)
+    return {'stage':stage,'path':str(path.relative_to(ROOT)),'sha256':hashlib.sha256(path.read_bytes()).hexdigest()}
+
+
+def settle(page,case,expected_count=None,summoning=False,output=None):
+    """Answer only actual currently visible native prompt buttons."""
+    deadline=time.monotonic()+40
+    while time.monotonic()<deadline:
+        modal=page.locator('#decision-modal')
+        if modal.is_visible():
+            page.evaluate('() => new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))')
+            title=page.locator('#decision-modal-title').inner_text()
+            description=page.locator('#decision-modal-description').inner_text()
+            options=page.locator('#decision-options button:not([disabled])').filter(visible=True)
+            facts={'title':title,'description':description,'buttons':options.all_inner_texts()}
+            cards=page.locator('#decision-options .decision-card-option').filter(visible=True)
+            confirm=page.locator('#decision-options .decision-confirm-button')
+            if cards.count():
+                if 'SACRIFICES' in title:
+                    assert summoning and cards.count()==3,facts
+                    assert all('Metal Fiend Token' in text for text in cards.all_inner_texts()),facts
+                    assert not confirm.is_enabled(),facts
+                    case['threeTributeDecision']=facts
+                    for index in range(3):cards.nth(index).click()
+                    assert confirm.is_enabled(),facts
+                    case['threeTributeConfirmedLabels']=cards.all_inner_texts()
+                    confirm.click()
+                else:
+                    # Token creation and summon destination use a required
+                    # SELECT_PLACE multi-choice. One offered empty zone suffices.
+                    assert 'ZONE' in title or 'CARTES' in title,facts
+                    cards.first.click();assert confirm.is_enabled(),facts;confirm.click()
+                facts['chosen']='visible offered cards then native confirmation'
+            elif summoning and case['godId']=='10000010' and options.filter(has_text=re.compile('^OUI$')).count():
+                # The real core offers SELECT_EFFECTYN with system description
+                # 221 here. Its public caption is generic although the Ra CDB
+                # inspector contains the full LP effect. Preserve that caption,
+                # identify the already summoned public Ra and verify the actual
+                # LP/stat result after choosing the offered OUI control.
+                before_payment=public_state(page)
+                assert title=='ACTIVER OU CONFIRMER ?' and options.filter(has_text=re.compile('^NON$')).count(),facts
+                assert case.get('threeTributeConfirmedLabels') and len(before_payment['ownMonsters'])==1
+                assert before_payment['ownMonsters'][0]['id']=='10000010',before_payment
+                case['raPaymentOffered']=facts
+                case['raPublicCardBeforePayment']=before_payment['ownMonsters'][0]
+                case['raLpBeforePayment']=before_payment['playerLp']
+                assert case['raLpBeforePayment']==8000
+                case['captures'].append(screenshot(page,output,case,'ra-payment-offered'))
+                button=options.filter(has_text=re.compile('^OUI$')).first
+                case['raPaymentButton']=button.evaluate('(b)=>{const r=b.getBoundingClientRect();return {label:b.textContent,width:r.width,height:r.height}}')
+                assert case['raPaymentButton']['height']>=44
+                button.click();facts['chosen']='OUI'
+            else:
+                passer=options.filter(has_text=re.compile('PASSER LA PRIORITÉ|^NON$'))
+                cancel=page.locator('#btn-decision-cancel')
+                if passer.count():facts['chosen']=passer.first.inner_text();passer.first.click()
+                elif cancel.is_visible() and cancel.is_enabled():cancel.click();facts['chosen']='ANNULER optional prompt'
+                else:
+                    assert options.count(),facts
+                    facts['chosen']=options.first.inner_text();options.first.click()
+            case['decisions'].append(facts)
+        else:
+            state=public_state(page)
+            own=state['ownMonsters']
+            has_count=expected_count is None or len(own)==expected_count
+            has_god=not summoning or any(card['id']==case['godId']for card in own)
+            if has_count and has_god and page.locator('#btn-end-turn').is_enabled():return state
+        page.wait_for_timeout(75)
+    raise AssertionError('Native control sequence did not settle: '+json.dumps(public_state(page))[:1000])
+
+
+def activate_sanctuary(page,case,count):
+    before=public_state(page)
+    page.locator('#player-hand .card-entity[data-id="24874630"]').first.click()
+    zones=page.locator('.card-zone[data-side="player"][data-zone-type="spell"].active-zone')
+    assert zones.count();zones.first.click()
+    page.locator('#action-modal').wait_for(state='visible')
+    assert page.locator('#btn-action-faceup').is_enabled()
+    page.locator('#btn-action-faceup').click();page.locator('#action-modal').wait_for(state='hidden')
+    after=settle(page,case,expected_count=count)
+    assert len(after['ownMonsters'])==count and all(card['id']=='24874631'for card in after['ownMonsters'])
+    assert after['ownGraveCount']==count and after['playerLp']==8000
+    case['sanctuaryActivations'].append({'ordinal':count,'before':wave.game_facts(before),'after':wave.game_facts(after)})
+
+
+def inspect_god(page,fixture):
+    code=fixture['godId'];zone=page.locator('.card-zone[data-side="player"][data-zone-type="monster"]').filter(has=page.locator(f'.card-entity[data-id="{code}"]'));card=zone.locator('.card-entity')
+    card.focus()
+    ui.wait_until(page,'name=>document.querySelector("#inspector-display .inspector-title")?.textContent===name',fixture['godName'])
+    result={'title':page.locator('#inspector-display .inspector-title').inner_text(),
+      'type':page.locator('#inspector-display .inspector-type').inner_text(),
+      'stats':page.locator('#inspector-display .inspector-stats').inner_text(),
+      'description':page.locator('#inspector-display .inspector-desc').inner_text(),'images':{}}
+    for kind,image in [('reference',page.locator('#inspector-display .inspector-image-wrapper img')),('cropped',zone.locator('img.holo-sprite'))]:
+        image.evaluate('(i)=>i.decode()');facts=image.evaluate('(i)=>({path:new URL(i.currentSrc).pathname,width:i.naturalWidth,height:i.naturalHeight,complete:i.complete})')
+        assert facts['path']==f'/cards/{kind}/{code}.jpg' and facts['complete'] and facts['width']>0
+        result['images'][kind]=facts
+    for stat in fixture['expectedGodStats']:assert str(stat)in result['stats'],result
+    return result
+
+
+def verify_case(page,base_url,output,fixture,case):
+    errors=[];failed=[];loaded=set()
+    case.update(decisions=[],captures=[],sanctuaryActivations=[],pageErrors=errors,nativeRequestFailures=failed)
+    page.on('pageerror',lambda error:errors.append(str(error)[:500]))
+    page.on('requestfailed',lambda request:failed.append(urlsplit(request.url).path)if'/native/'in request.url else None)
+    page.on('response',lambda response:loaded.add(urlsplit(response.url).path)if response.status==200 and('/native/'in response.url or'/assets/'in response.url)else None)
+    page.add_init_script(ui.RNG_FIXTURE)
+    page.add_init_script(f"localStorage.setItem('ygo_custom_deck',{json.dumps(json.dumps(fixture['deck']))});")
+    response=page.goto(base_url,wait_until='domcontentloaded')
+    assert response.header_value('content-security-policy')==ui.production_headers()['Content-Security-Policy']
+    assert page.evaluate('typeof window.__YGO_QA__')=='undefined'
+    page.locator('input[name="duel-series"][value="single"]').check()
+    page.locator('input[name="game-mode"][value="strict"]').check()
+    page.locator('[data-deck-id="custom"]').click()
+    ui.wait_until(page,'() => document.querySelector("#builder-catalogue-status")?.textContent.includes("cartes TCG")')
+    case['builderCatalogueStatus']=page.locator('#builder-catalogue-status').inner_text()
+    case['builderDeckSize']=page.locator('#deck-size-val').inner_text()
+    case['builderValidation']=page.locator('#deck-validity-badge').inner_text()
+    assert case['builderValidation']=='Deck valide' and case['builderDeckSize']=='Main: 40 / Extra: 0 / Side: 0'
+    assert page.locator('input[name="game-mode"][value="strict"]').is_checked()
+    case['strictUiAcceptedFortyCardDeck']=True
+    page.locator('#btn-start-duel').click()
+    ui.wait_until(page,'() => !document.querySelector("#start-modal").checkVisibility() || [...document.querySelectorAll("#decision-options button")].some(b=>b.checkVisibility())')
+    first=page.get_by_role('button',name='JE COMMENCE',exact=True)
+    if first.is_visible():first.click()
+    page.locator('#start-modal').wait_for(state='hidden');page.wait_for_selector('#player-hand .card-entity')
+    ui.await_player_main(page)
+    case['openingOwnHand']=public_state(page)['ownHand']
+    assert Counter(card['id']for card in case['openingOwnHand'])==Counter(fixture['expectedOpeningIds']),case['openingOwnHand']
+    for count in [1,2,3]:activate_sanctuary(page,case,count)
+    wave.switch_view(page,'real');case['tokenProjectionReadiness']=views.wait_real_projection(page)
+    before=public_state(page)
+    assert len(before['ownMonsters'])==3 and all(card['modelRendered']for card in before['ownMonsters'])
+    case['threeActualNativeTokensBeforeTribute']=before;case['captures'].append(screenshot(page,output,case,'three-native-tokens'))
+    page.locator(f'#player-hand .card-entity[data-id="{fixture["godId"]}"]').click()
+    offered=page.locator('.card-zone[data-side="player"][data-zone-type="monster"].active-zone')
+    assert offered.count()>0,'The native core did not offer the 3-Tribute summon'
+    offered.first.click();page.locator('#action-modal').wait_for(state='visible')
+    assert page.locator('#btn-action-faceup').is_enabled()
+    case['normalSummonButton']=page.locator('#btn-action-faceup').inner_text()
+    assert not page.locator('#btn-action-facedown').is_visible() or not page.locator('#btn-action-facedown').is_enabled()
+    page.locator('#btn-action-faceup').click();page.locator('#action-modal').wait_for(state='hidden')
+    after=settle(page,case,expected_count=1,summoning=True,output=output)
+    # Native commands return before the visible LP counter's 800 ms animation
+    # completes. Observe its actual final value before comparing public facts.
+    ui.wait_until(page,'lp=>Number(document.querySelector("#player-lp")?.textContent.replace(/[^0-9]/g,""))===lp',fixture['expectedPlayerLp'])
+    after=public_state(page)
+    assert case.get('threeTributeConfirmedLabels'),case
+    god=after['ownMonsters'][0]
+    assert god['id']==fixture['godId'] and god['atk']==f'ATK {fixture["expectedGodStats"][0]}' and god['def']==f'DEF {fixture["expectedGodStats"][1]}',god
+    assert after['playerLp']==fixture['expectedPlayerLp'] and after['opponentLp']==8000
+    assert after['ownGraveCount']==3,'Tokens must disappear rather than populate the Graveyard'
+    assert [card['id']for card in after['ownHand']]==[fixture['expectedRemainingHandId']]
+    assert all(card['id']!='24874631'for card in after['ownMonsters'])
+    case['nativeNormalSummonAfterThreeTributes']=after
+    case['tokensDisappearWithoutGraveyardCards']=True
+    if fixture['godId']=='10000010':
+        assert case.get('raPaymentOffered') and case['raLpBeforePayment']==8000
+        case['raNativePaymentResolved']={'lpBefore':case['raLpBeforePayment'],'lpAfter':after['playerLp'],
+          'paid':case['raLpBeforePayment']-after['playerLp'],'attack':god['atk'],'defense':god['def']}
+    case['godInspector']=inspect_god(page,fixture)
+    if fixture['godId']=='10000010':
+        assert 'pay LP so that you only have 100 left' in case['godInspector']['description']
+    page.locator('.real-duel-camera-button[data-camera-preset="player"]').click()
+    case['godProjectionReadiness']=views.wait_real_projection(page)
+    current=public_state(page);assert current['ownMonsters'][0]['modelRendered'] and current['webglAvailable']=='true'
+    assert all(current['counts'][key]==1 for key in ['scenes','canvases','css3d','boards','hands'])
+    case['godFraming']=wave.framing(current,[fixture['godId']]);case['captures'].append(screenshot(page,output,case,'god-player-camera'))
+    saved=wave.game_facts(current)
+    page.locator('.real-duel-camera-button[data-camera-preset="overview"]').click();views.wait_real_projection(page)
+    assert wave.game_facts(public_state(page))==saved
+    case['captures'].append(screenshot(page,output,case,'god-overview-camera'))
+    case['cameraChangePreservesNativeIdentityLpHandStats']=True
+    case['opponentConcealment']=ui.verify_concealment(page)
+    case['loadedNativeAndBuildAssets']=sorted(loaded)
+    assert '/native/ocgcore.sync.wasm'in loaded and'/native/scripts.json'in loaded and'/native/card-data.json'in loaded
+    case['cspViolations']=page.evaluate('window.__auditCspViolations || []')
+    assert not errors and not failed and not case['cspViolations']
+    assert page.evaluate('typeof window.__YGO_QA__')=='undefined'
+    assert page.evaluate('document.body.scrollWidth<=innerWidth')
+    assert not re.search(r'moteur natif est arrêté|Lua error|RETRY',current['publicLog'],re.I)
+    case['ok']=True
+
+
+def main():
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--dist',type=Path,default=ROOT/'dist');parser.add_argument('--base-url')
+    parser.add_argument('--expected-entry-sha256',required=True)
+    parser.add_argument('--output',type=Path,default=ROOT/'docs/audits/artifacts/tcg-gods-ui-2026-10-08')
+    parser.add_argument('--desktop-only',action='store_true');args=parser.parse_args()
+    assert re.fullmatch('[a-f0-9]{64}',args.expected_entry_sha256)
+    fixtures=json.loads(FIXTURE_PATH.read_text());assert fixtures['ok'] and len(fixtures['fixtures'])==3
+    source_before=source_fingerprints();local_before,essential=build_fingerprints(args.dist)
+    entry=next(path for path in local_before if re.fullmatch('assets/index-[^/]+\\.js',path))
+    assert local_before[entry]['sha256']==args.expected_entry_sha256,'Build is not coordinator-frozen'
+    args.output.mkdir(parents=True,exist_ok=True);server=None
+    if not args.base_url:
+        ui.AuditServer.headers_to_add=ui.production_headers()
+        server=ThreadingHTTPServer(('127.0.0.1',0),functools.partial(ui.AuditServer,directory=str(args.dist)))
+        threading.Thread(target=server.serve_forever,daemon=True).start();args.base_url=f'http://127.0.0.1:{server.server_port}'
+    report={'ok':False,'generatedOn':'2026-10-08','format':'TCG Advanced strict','method':'actual compiled UI; forty-card strict-validated deck and initial seeded RNG registered before Start; every later action uses offered visible controls',
+      'noPostStartInjection':True,'expectedEntrySha256':args.expected_entry_sha256,'sourceDependenciesBefore':source_before,
+      'fixtureProof':str(FIXTURE_PATH.relative_to(ROOT)),'fixtureProofSha256':hashlib.sha256(FIXTURE_PATH.read_bytes()).hexdigest(),
+      'essentialBuildAssets':essential,'productionCsp':ui.production_headers()['Content-Security-Policy'],'cases':[],
+      'limits':['The fixtures are accepted by the complete dated Advanced policy; provider release scope is a pinned CDB snapshot, not certification of every territorial promo.',
+        'These six UI duels cover three actual 3-Tribute God Normal Summons, token creation/disappearance, Ra payment and displayed current stats, not every God interaction.',
+        'Module before/after geometry comparisons are a separate audit. These captures demonstrate the compiled native game controls, state and rendered public creatures.',
+        "Fiend's Sanctuary and Metal Fiend Token use declared neutral artwork fallback; all three God portraits use exact full/cropped JPGs.",
+        'No private Three.js objects or native engine objects are read by the browser driver. Projected public DOM rectangles establish framing, not integral spatial 1:1.']}
+    try:
+        with sync_playwright()as driver:
+            browser=driver.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader'])
+            context=browser.new_context();before=wave.fingerprints(context.request,args.base_url,local_before);context.close()
+            assert before==local_before,'Actual served build differs from frozen local bytes';report['servedResponseFingerprintsBefore']=before
+            for fixture in fixtures['fixtures']:
+                for width,height in [(1280,900)]+([]if args.desktop_only else[(390,844)]):
+                    case={'godId':fixture['godId'],'godName':fixture['godName'],'width':width,'height':height,'fixture':fixture['deck']};report['cases'].append(case)
+                    context=browser.new_context(viewport={'width':width,'height':height},reduced_motion='no-preference');page=context.new_page();page.set_default_timeout(30000)
+                    try:verify_case(page,args.base_url,args.output,fixture,case)
+                    except Exception:
+                        case['failurePublicDom']={'state':public_state(page),'decisionText':page.locator('#decision-modal').inner_text()if page.locator('#decision-modal').is_visible()else None}
+                        case['captures'].append(screenshot(page,args.output,case,'failure-public-dom'));raise
+                    finally:context.close()
+                    # Preserve completed observations if the coordinator needs
+                    # to pause this process before the final build comparison.
+                    (args.output/'report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+            context=browser.new_context();after=wave.fingerprints(context.request,args.base_url,local_before);context.close();report['servedResponseFingerprintsAfter']=after
+            assert before==after,'Served build changed while capturing';local_after,essential_after=build_fingerprints(args.dist)
+            assert local_before==local_after and essential==essential_after;report['compiledSnapshotBefore']=local_before;report['compiledSnapshotAfter']=local_after
+            report['sourceDependenciesAfter']=source_fingerprints();assert source_before==report['sourceDependenciesAfter'],'Source changed while capturing'
+            report['buildAndSourcesUnchangedDuringAudit']=True;report['ok']=True;browser.close()
+    except Exception as error:
+        report['failure']={'type':type(error).__name__,'message':str(error)[:1800]};raise
+    finally:
+        (args.output/'report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+        if server:server.shutdown();server.server_close()
+    print(json.dumps({'ok':True,'cases':len(report['cases']),'captures':sum(len(case['captures'])for case in report['cases']),'entrySha256':args.expected_entry_sha256}))
+
+
+if __name__=='__main__':main()

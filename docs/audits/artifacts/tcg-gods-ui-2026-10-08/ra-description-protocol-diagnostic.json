@@ -1,0 +1,83 @@
+{
+  "scope": "Separate headless actual WASM protocol diagnostic; no browser or compiled UI proof.",
+  "ok": true,
+  "sourceHashes": {
+    "scripts/probe-ra-prompt-description-2026-10-08.mjs": "85ced258a1d323710cfbf900fe8b249ac577f6b6e942346a199dbd1d447d7982",
+    "public/native/card-data.json": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d",
+    "public/native/scripts.json": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f",
+    "public/native/ocgcore.sync.wasm": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+    "src/core/native/NativeDuelDecisions.js": "4ec35dd4cc12ae7efcb1dd45a39e3cc7a83e359d9af41a84d51f3ffa5bbff724",
+    "src/ui/NativeDuelPresentationModel.js": "3ac3fe31372b9125433caf68601757183c89e7fb08e2b342b45b22b60d8cdf06"
+  },
+  "raMetadata": {
+    "code": 10000010,
+    "sourceCode": 10000010,
+    "name": "The Winged Dragon of Ra",
+    "description": "Cannot be Special Summoned. Requires 3 Tributes to Normal Summon (cannot be Normal Set). This card's Normal Summon cannot be negated. When Normal Summoned, other cards and effects cannot be activated. When this card is Normal Summoned: You can pay LP so that you only have 100 left; this card gains ATK/DEF equal to the amount of LP paid. You can pay 1000 LP, then target 1 monster on the field; destroy that target.",
+    "strings": [
+      "When this card is Normal Summoned: You can pay LP so that you only have 100 left; this card gains ATK/DEF equal to the amount of LP paid",
+      "Destroy 1 monster on the field",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "ot": 3,
+    "category": 1,
+    "sourceDatabase": "cards.cdb",
+    "rawSetcode": "487",
+    "rawRace": "2097152",
+    "rawLevel": 10
+  },
+  "expectedStringDescription": "10485770485760",
+  "actualDecision": {
+    "prompt": {
+      "type": 12,
+      "player": 0,
+      "code": 10000010,
+      "controller": 0,
+      "location": 4,
+      "sequence": 0,
+      "position": 1,
+      "description": "221"
+    },
+    "response": {
+      "type": 2,
+      "yes": true
+    }
+  },
+  "decodedReference": null,
+  "translatedDescription": "Choix de l’effet",
+  "resolvedRaQuery": {
+    "code": 10000010,
+    "position": 1,
+    "type": 33,
+    "level": 10,
+    "attribute": 64,
+    "race": "2097152",
+    "attack": 7900,
+    "defense": 7900,
+    "reason": 16,
+    "counters": {},
+    "status": 3072,
+    "isPublic": true
+  },
+  "payLpMessages": [
+    {
+      "type": 100,
+      "player": 0,
+      "amount": 7900
+    }
+  ],
+  "closed": true
+}

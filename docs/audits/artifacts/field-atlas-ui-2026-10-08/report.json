@@ -1,0 +1,392 @@
+{
+  "ok": true,
+  "method": "compiled production bundle, public controls and DOM only; no game injection",
+  "productionCsp": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://db.ygoprodeck.com; media-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests",
+  "expectedReconstructed": 339,
+  "scope": "339-card pagination, evidence filters and six representative 3D previews; complete spatial 1:1 fidelity is not certified",
+  "viewports": [
+    {
+      "width": 1280,
+      "height": 900,
+      "ok": true,
+      "catalogue": {
+        "uniqueFields": 339,
+        "pages": 29,
+        "summary": "339 Terrains · 339 illustrations originales · 339 décors étudiés · 339 volumes reconstruits · 339 effets disponibles · 339 Terrains vérifiés en scénarios"
+      },
+      "nativeAvailableFilter": "339 Terrains · page 1/29",
+      "reconstructedFilter": "339 Terrains · page 1/29",
+      "pendingFilter": "0 Terrain · page 1/1",
+      "representatives": [
+        {
+          "lot": "stage",
+          "code": "67616300",
+          "name": "Chicken Game",
+          "angles": [
+            {
+              "angle": "face",
+              "image": "1280-stage-67616300-face.jpg",
+              "sha256": "ce1dab91c0f3eb5ac780726b1986d417bc919604bb9bf050c876af1d374388d5"
+            },
+            {
+              "angle": "three-quarter",
+              "image": "1280-stage-67616300-three-quarter.jpg",
+              "sha256": "bb8096faba0e1c937b979f6e939e0a7611e6ba9f12593aad9d607631f91d9058"
+            },
+            {
+              "angle": "side",
+              "image": "1280-stage-67616300-side.jpg",
+              "sha256": "cba8e63a848da4b526cb5fbec845e4e79b87c9ce90a8af80f56df3dbbe901405"
+            }
+          ],
+          "publicCapture": "1280-stage-public-atlas.jpg"
+        },
+        {
+          "lot": "arcane",
+          "code": "74665651",
+          "name": "Dream Mirror of Joy",
+          "angles": [
+            {
+              "angle": "face",
+              "image": "1280-arcane-74665651-face.jpg",
+              "sha256": "f0bc3ad8a92a3b274903309293cbfaa3b5e5e27b2ca5eec9ec98a187befaf621"
+            },
+            {
+              "angle": "three-quarter",
+              "image": "1280-arcane-74665651-three-quarter.jpg",
+              "sha256": "3d4fd99c5c4ae9f6a709c61da7ee650ff63711549fde328d3bb10635ce1da5ad"
+            },
+            {
+              "angle": "side",
+              "image": "1280-arcane-74665651-side.jpg",
+              "sha256": "48fbdb51ad43eec2bb11a9c77e86fe4a6b010f5365f58c063938c1a7f2902393"
+            }
+          ]
+        },
+        {
+          "lot": "engineering",
+          "code": "59054773",
+          "name": "Ignister A.I.Land",
+          "angles": [
+            {
+              "angle": "face",
+              "image": "1280-engineering-59054773-face.jpg",
+              "sha256": "e441fc969dc9a01c4e5bd570645483e5fe0af88685b9ee149bfd8ef8673d742c"
+            },
+            {
+              "angle": "three-quarter",
+              "image": "1280-engineering-59054773-three-quarter.jpg",
+              "sha256": "6eb9d0b7df5ce2ecf550886f27badede735e9264994462545ef01cc6568356ee"
+            },
+            {
+              "angle": "side",
+              "image": "1280-engineering-59054773-side.jpg",
+              "sha256": "3f8ea841be573b4d818bb6148378f614478e65ed546f7341f5c49893969659fb"
+            }
+          ]
+        },
+        {
+          "lot": "community",
+          "code": "43175858",
+          "name": "Toon Kingdom",
+          "angles": [
+            {
+              "angle": "face",
+              "image": "1280-community-43175858-face.jpg",
+              "sha256": "4675377068157953a3036ac1bd31150c24701aebca5f48f5f6d9309b8ebcca9a"
+            },
+            {
+              "angle": "three-quarter",
+              "image": "1280-community-43175858-three-quarter.jpg",
+              "sha256": "51c689b483b6c79471028c97bac401d84721db62afad6cdd8749c6245c60334e"
+            },
+            {
+              "angle": "side",
+              "image": "1280-community-43175858-side.jpg",
+              "sha256": "b80b4cc84d3039c948b276a0ba7e5b81014934ae37140e62602bee128a941f11"
+            }
+          ]
+        },
+        {
+          "lot": "ritual",
+          "code": "48179391",
+          "name": "The Seal of Orichalcos",
+          "angles": [
+            {
+              "angle": "face",
+              "image": "1280-ritual-48179391-face.jpg",
+              "sha256": "51bc813b24575755217e0329c7fcb0eba490a862f35c2e020d94dd85a0358b87"
+            },
+            {
+              "angle": "three-quarter",
+              "image": "1280-ritual-48179391-three-quarter.jpg",
+              "sha256": "f64d9924f2e6d26d75f839a632a81caeb0a4a09ef2cb2a5c27a7b34321a24fb2"
+            },
+            {
+              "angle": "side",
+              "image": "1280-ritual-48179391-side.jpg",
+              "sha256": "43b7438782e78bc9984e42d68f76aca2740ca29103d50ea55796b292a897deff"
+            }
+          ]
+        },
+        {
+          "lot": "frontier",
+          "code": "57554544",
+          "name": "Fire King Island",
+          "angles": [
+            {
+              "angle": "face",
+              "image": "1280-frontier-57554544-face.jpg",
+              "sha256": "29a2b9427899a9f2aac3267cc45f040d78a105d2be8a1ba70b1dee2753528b10"
+            },
+            {
+              "angle": "three-quarter",
+              "image": "1280-frontier-57554544-three-quarter.jpg",
+              "sha256": "e4f7dc151474172c8162509259c4f74ab9a2cfb93a213c14627bba1e08b6973d"
+            },
+            {
+              "angle": "side",
+              "image": "1280-frontier-57554544-side.jpg",
+              "sha256": "336ee419e4a1586949571fb60c392cc977002c60f84bb7c0559c06afc6bea038"
+            }
+          ],
+          "publicCapture": "1280-frontier-public-atlas.jpg"
+        }
+      ],
+      "pageErrors": [],
+      "requestFailures": [],
+      "cspViolations": [],
+      "closeAndReopenDisposesCanvas": true,
+      "exactPasscode": true,
+      "emptySearch": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "ok": true,
+      "catalogue": {
+        "uniqueFields": 339,
+        "pages": 29,
+        "summary": "339 Terrains · 339 illustrations originales · 339 décors étudiés · 339 volumes reconstruits · 339 effets disponibles · 339 Terrains vérifiés en scénarios"
+      },
+      "nativeAvailableFilter": "339 Terrains · page 1/29",
+      "reconstructedFilter": "339 Terrains · page 1/29",
+      "pendingFilter": "0 Terrain · page 1/1",
+      "representatives": [
+        {
+          "lot": "stage",
+          "code": "67616300",
+          "name": "Chicken Game",
+          "angles": [
+            {
+              "angle": "face",
+              "image": "390-stage-67616300-face.jpg",
+              "sha256": "4a0eff55a72416dbbcff38b9bb9d32ff445e395c9e7830676814c6398a1ef4ef"
+            },
+            {
+              "angle": "three-quarter",
+              "image": "390-stage-67616300-three-quarter.jpg",
+              "sha256": "a4073758b3a159579026c1453d1c3b2e2fa424de1686b4ecc32279b23415da20"
+            },
+            {
+              "angle": "side",
+              "image": "390-stage-67616300-side.jpg",
+              "sha256": "e55969eac8f68587a7c76fcfed11706c817cc55b0b301ac90f787e2364c41a94"
+            }
+          ],
+          "publicCapture": "390-stage-public-atlas.jpg"
+        },
+        {
+          "lot": "arcane",
+          "code": "74665651",
+          "name": "Dream Mirror of Joy",
+          "angles": [
+            {
+              "angle": "face",
+              "image": "390-arcane-74665651-face.jpg",
+              "sha256": "69a6139d779913e79d7515ab8b7f33ff7610f8f1f0c79ac1fb56363d53436bbe"
+            },
+            {
+              "angle": "three-quarter",
+              "image": "390-arcane-74665651-three-quarter.jpg",
+              "sha256": "bf3cb1fa114565a185d84f283766bcef5c4a1d870bd1cff021f90129c721d621"
+            },
+            {
+              "angle": "side",
+              "image": "390-arcane-74665651-side.jpg",
+              "sha256": "f238278353147003a2269374dd9fde9720d3f86afbd5744a5f8232d6861c1040"
+            }
+          ]
+        },
+        {
+          "lot": "engineering",
+          "code": "59054773",
+          "name": "Ignister A.I.Land",
+          "angles": [
+            {
+              "angle": "face",
+              "image": "390-engineering-59054773-face.jpg",
+              "sha256": "802c7fc9dbee7865ef2783a8ce63d2d27367132e2fa52b8d5b12bcf075a5486c"
+            },
+            {
+              "angle": "three-quarter",
+              "image": "390-engineering-59054773-three-quarter.jpg",
+              "sha256": "7777c8471aff0c83fd2511ef369b06ab0a2ff90a4d347d3ae6d408ea3d822bdf"
+            },
+            {
+              "angle": "side",
+              "image": "390-engineering-59054773-side.jpg",
+              "sha256": "fb9b31521ba7978d5fc1029cbf31525de49237c33a7734812b76a5842f51d8ca"
+            }
+          ]
+        },
+        {
+          "lot": "community",
+          "code": "43175858",
+          "name": "Toon Kingdom",
+          "angles": [
+            {
+              "angle": "face",
+              "image": "390-community-43175858-face.jpg",
+              "sha256": "7a62d96db82bc26420cc2cf643619f085b9006ba7d28fd497bb263039339b704"
+            },
+            {
+              "angle": "three-quarter",
+              "image": "390-community-43175858-three-quarter.jpg",
+              "sha256": "ab43242eec94c2894a501605d9e8de143aeb56ef1521831bb1ab97c0e2660a40"
+            },
+            {
+              "angle": "side",
+              "image": "390-community-43175858-side.jpg",
+              "sha256": "479c8f6326c9853b4bf77d1bf2bbf707ca2df9e3d10ec532a7f12c930b740b30"
+            }
+          ]
+        },
+        {
+          "lot": "ritual",
+          "code": "48179391",
+          "name": "The Seal of Orichalcos",
+          "angles": [
+            {
+              "angle": "face",
+              "image": "390-ritual-48179391-face.jpg",
+              "sha256": "912d9bd12da664e28b28e034b4395b188c6d6c7baea1bc81b1e165cc12691f8a"
+            },
+            {
+              "angle": "three-quarter",
+              "image": "390-ritual-48179391-three-quarter.jpg",
+              "sha256": "cabb3a3e6f899822669f6ad7fde03f4e1565b75713112af3b33eb0358e628ceb"
+            },
+            {
+              "angle": "side",
+              "image": "390-ritual-48179391-side.jpg",
+              "sha256": "b07fb4a4a5473ce532f1843c0f7f7c4bed7ab01dd84eee1ee6e1b1936119ee5c"
+            }
+          ]
+        },
+        {
+          "lot": "frontier",
+          "code": "57554544",
+          "name": "Fire King Island",
+          "angles": [
+            {
+              "angle": "face",
+              "image": "390-frontier-57554544-face.jpg",
+              "sha256": "04f5506c2626fe2894d08be08e97de0c930e768cf851c08d9bfd6652f620d804"
+            },
+            {
+              "angle": "three-quarter",
+              "image": "390-frontier-57554544-three-quarter.jpg",
+              "sha256": "6cd2ab208c1db59715017d1c37ce6dd92524f999ecc4a632301ed95724e505c3"
+            },
+            {
+              "angle": "side",
+              "image": "390-frontier-57554544-side.jpg",
+              "sha256": "2ab9fc68c2b49f5b6b03c13edd41115811c4af70226b131d2ee0137a9657b062"
+            }
+          ],
+          "publicCapture": "390-frontier-public-atlas.jpg"
+        }
+      ],
+      "pageErrors": [],
+      "requestFailures": [],
+      "cspViolations": [],
+      "closeAndReopenDisposesCanvas": true,
+      "exactPasscode": true,
+      "emptySearch": true
+    }
+  ],
+  "testedResponseCsp": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://db.ygoprodeck.com; media-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests",
+  "provenanceSchemaVersion": 3,
+  "testedHtmlAsset": "/index.html",
+  "testedHtmlSha256": "30bf78a66cda62f4a4b7b6617ad330ee2c983e5564a51dfff539882b75d3baaf",
+  "testedIndexHtmlSha256": "30bf78a66cda62f4a4b7b6617ad330ee2c983e5564a51dfff539882b75d3baaf",
+  "testedIndexAsset": "/assets/index-DNwe3FSS.js",
+  "testedIndexAssetBytes": 598690,
+  "testedIndexAssetSha256": "38c428237545d8290e07229c5efdda93441dd1088234c31e64aa6ef3f8b59321",
+  "testedIndexSha256": "38c428237545d8290e07229c5efdda93441dd1088234c31e64aa6ef3f8b59321",
+  "testedCssAsset": "/assets/index-BbUkbKmn.css",
+  "testedCssAssetBytes": 82371,
+  "testedCssAssetSha256": "71afb732ab7152dc319dfb6b72812913e23121c24f251ef80e0b69c61e0e749e",
+  "testedNativeGameAsset": "/assets/NativeDuelGame-DocEeHOq.js",
+  "testedNativeGameAssetBytes": 83510,
+  "testedNativeGameAssetSha256": "045f647667c998076ba0d3e63433f3015c27cae705bf17546faf49f708e144fb",
+  "testedNativeCatalogueAsset": "/assets/NativeCardCatalogue-DYOc9sug.js",
+  "testedNativeCatalogueAssetBytes": 54064,
+  "testedNativeCatalogueAssetSha256": "52372b0fa09af406267d3091d1c476e20572bc62b9f4ecb499f19bb9dd6d1e2b",
+  "testedRegistryAsset": "/assets/FieldEnvironmentRegistry-Bv70irwA.js",
+  "testedRegistryAssetBytes": 595263,
+  "testedRegistryAssetSha256": "bfc14aa98ac8ac1e7ddbdfed7949539c51a6e6b9e3866c0af7190a6d084db062",
+  "testedRealViewAsset": "/assets/RealDuelView-P3kgZYMk.js",
+  "testedRealViewAssetBytes": 135163,
+  "testedRealViewAssetSha256": "8eff318aa606a12673082fdc532b2640f66eebb177b0849f2103370e0fe4e463",
+  "testedNativeCoreAsset": "/assets/ocgcore-CUv6jKK5.js",
+  "testedNativeCoreAssetBytes": 1746,
+  "testedNativeCoreAssetSha256": "2dc99ca041097a1040c9a3cf509ff7f8c7a25e6dda9999b961bbea6649f582e3",
+  "testedWasmSha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+  "testedCardDataSha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d",
+  "testedScriptsSha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f",
+  "buildUnchangedDuringAudit": true,
+  "captureSha256": {
+    "1280-arcane-74665651-face.jpg": "f0bc3ad8a92a3b274903309293cbfaa3b5e5e27b2ca5eec9ec98a187befaf621",
+    "1280-arcane-74665651-side.jpg": "48fbdb51ad43eec2bb11a9c77e86fe4a6b010f5365f58c063938c1a7f2902393",
+    "1280-arcane-74665651-three-quarter.jpg": "3d4fd99c5c4ae9f6a709c61da7ee650ff63711549fde328d3bb10635ce1da5ad",
+    "1280-community-43175858-face.jpg": "4675377068157953a3036ac1bd31150c24701aebca5f48f5f6d9309b8ebcca9a",
+    "1280-community-43175858-side.jpg": "b80b4cc84d3039c948b276a0ba7e5b81014934ae37140e62602bee128a941f11",
+    "1280-community-43175858-three-quarter.jpg": "51c689b483b6c79471028c97bac401d84721db62afad6cdd8749c6245c60334e",
+    "1280-engineering-59054773-face.jpg": "e441fc969dc9a01c4e5bd570645483e5fe0af88685b9ee149bfd8ef8673d742c",
+    "1280-engineering-59054773-side.jpg": "3f8ea841be573b4d818bb6148378f614478e65ed546f7341f5c49893969659fb",
+    "1280-engineering-59054773-three-quarter.jpg": "6eb9d0b7df5ce2ecf550886f27badede735e9264994462545ef01cc6568356ee",
+    "1280-frontier-57554544-face.jpg": "29a2b9427899a9f2aac3267cc45f040d78a105d2be8a1ba70b1dee2753528b10",
+    "1280-frontier-57554544-side.jpg": "336ee419e4a1586949571fb60c392cc977002c60f84bb7c0559c06afc6bea038",
+    "1280-frontier-57554544-three-quarter.jpg": "e4f7dc151474172c8162509259c4f74ab9a2cfb93a213c14627bba1e08b6973d",
+    "1280-frontier-public-atlas.jpg": "1c7fd6d7a447311e87d9a0f31851c614a058214e973d2aae0ca32c366f2279db",
+    "1280-ritual-48179391-face.jpg": "51bc813b24575755217e0329c7fcb0eba490a862f35c2e020d94dd85a0358b87",
+    "1280-ritual-48179391-side.jpg": "43b7438782e78bc9984e42d68f76aca2740ca29103d50ea55796b292a897deff",
+    "1280-ritual-48179391-three-quarter.jpg": "f64d9924f2e6d26d75f839a632a81caeb0a4a09ef2cb2a5c27a7b34321a24fb2",
+    "1280-stage-67616300-face.jpg": "ce1dab91c0f3eb5ac780726b1986d417bc919604bb9bf050c876af1d374388d5",
+    "1280-stage-67616300-side.jpg": "cba8e63a848da4b526cb5fbec845e4e79b87c9ce90a8af80f56df3dbbe901405",
+    "1280-stage-67616300-three-quarter.jpg": "bb8096faba0e1c937b979f6e939e0a7611e6ba9f12593aad9d607631f91d9058",
+    "1280-stage-public-atlas.jpg": "fcfaf4f76d5677d6df2581ec6b55c748ab4b52d87f02ada48ea4fc88050eca61",
+    "390-arcane-74665651-face.jpg": "69a6139d779913e79d7515ab8b7f33ff7610f8f1f0c79ac1fb56363d53436bbe",
+    "390-arcane-74665651-side.jpg": "f238278353147003a2269374dd9fde9720d3f86afbd5744a5f8232d6861c1040",
+    "390-arcane-74665651-three-quarter.jpg": "bf3cb1fa114565a185d84f283766bcef5c4a1d870bd1cff021f90129c721d621",
+    "390-community-43175858-face.jpg": "7a62d96db82bc26420cc2cf643619f085b9006ba7d28fd497bb263039339b704",
+    "390-community-43175858-side.jpg": "479c8f6326c9853b4bf77d1bf2bbf707ca2df9e3d10ec532a7f12c930b740b30",
+    "390-community-43175858-three-quarter.jpg": "ab43242eec94c2894a501605d9e8de143aeb56ef1521831bb1ab97c0e2660a40",
+    "390-engineering-59054773-face.jpg": "802c7fc9dbee7865ef2783a8ce63d2d27367132e2fa52b8d5b12bcf075a5486c",
+    "390-engineering-59054773-side.jpg": "fb9b31521ba7978d5fc1029cbf31525de49237c33a7734812b76a5842f51d8ca",
+    "390-engineering-59054773-three-quarter.jpg": "7777c8471aff0c83fd2511ef369b06ab0a2ff90a4d347d3ae6d408ea3d822bdf",
+    "390-frontier-57554544-face.jpg": "04f5506c2626fe2894d08be08e97de0c930e768cf851c08d9bfd6652f620d804",
+    "390-frontier-57554544-side.jpg": "2ab9fc68c2b49f5b6b03c13edd41115811c4af70226b131d2ee0137a9657b062",
+    "390-frontier-57554544-three-quarter.jpg": "6cd2ab208c1db59715017d1c37ce6dd92524f999ecc4a632301ed95724e505c3",
+    "390-frontier-public-atlas.jpg": "19840773f6a934740e2d3aacd1c64a27f498537c99ef27ec75c4dc9c3b0b793c",
+    "390-ritual-48179391-face.jpg": "912d9bd12da664e28b28e034b4395b188c6d6c7baea1bc81b1e165cc12691f8a",
+    "390-ritual-48179391-side.jpg": "b07fb4a4a5473ce532f1843c0f7f7c4bed7ab01dd84eee1ee6e1b1936119ee5c",
+    "390-ritual-48179391-three-quarter.jpg": "cabb3a3e6f899822669f6ad7fde03f4e1565b75713112af3b33eb0358e628ceb",
+    "390-stage-67616300-face.jpg": "4a0eff55a72416dbbcff38b9bb9d32ff445e395c9e7830676814c6398a1ef4ef",
+    "390-stage-67616300-side.jpg": "e55969eac8f68587a7c76fcfed11706c817cc55b0b301ac90f787e2364c41a94",
+    "390-stage-67616300-three-quarter.jpg": "a4073758b3a159579026c1453d1c3b2e2fa424de1686b4ecc32279b23415da20",
+    "390-stage-public-atlas.jpg": "30dc0d14ec6bdad66c1b06ece349d928b8f3e5c754b08641444bca20bffc41a2"
+  }
+}

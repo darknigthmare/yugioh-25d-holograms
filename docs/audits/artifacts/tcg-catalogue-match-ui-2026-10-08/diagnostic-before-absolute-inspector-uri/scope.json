@@ -1,0 +1,5 @@
+{
+  "reason": "Driver expected a relative src while safeImageUrl returns an absolute same-origin URL. Focus workaround did not address this impossible relative-string assertion. Run interrupted intentionally before timeout; application and compiled build unchanged.",
+  "requiredFix": "Compare decoded URL origin and pathname; decode exact full JPEG.",
+  "reportProvenance": "The interrupted second run could not serialize its loaded-asset set (failure.txt). The report retained from the first fully serialized diagnostic is preserved here; it is not claimed as a second-run proof. This driver-only serialization issue is corrected before subsequent runs."
+}

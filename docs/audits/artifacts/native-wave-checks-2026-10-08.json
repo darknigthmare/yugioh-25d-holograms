@@ -1,0 +1,83 @@
+{
+  "date": "2026-10-08",
+  "scope": "Final local complete verification. Local reporter counts executed test files; named test counts are recorded separately from the CI logs. Browser and published deployment proof are separate.",
+  "tests": {
+    "command": "npm run check",
+    "files": 134,
+    "passed": 134,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "localReporter": {
+      "tests": 134,
+      "pass": 134,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    }
+  },
+  "security": {
+    "command": "npm run audit:security",
+    "vulnerabilities": 0,
+    "logSha256": "ce10d89592b5b2d55cb4bdaf4b098f6da78eb23609d6da2dde83e6ade53be768"
+  },
+  "fieldAssets": {
+    "sourceArt": 339,
+    "backdrops": 339
+  },
+  "build": {
+    "tool": "Vite 8.1.5",
+    "transformedModules": 108,
+    "files": [
+      {
+        "path": "/index.html",
+        "bytes": 35567,
+        "sha256": "d146d6c588bd5207c99fff9e2c77b3215e230d55ae986612190c595bc611d08f"
+      },
+      {
+        "path": "/assets/index-BAjs-Biw.js",
+        "bytes": 609998,
+        "sha256": "ab8aece9cffe26026f69778ff4ddf9bba6a0bfc7abbe67435c725df23eed96b7"
+      },
+      {
+        "path": "/assets/index-CYDbbnpQ.css",
+        "bytes": 84286,
+        "sha256": "29e128bc7f48c78871612a098b6cfff175098fb60ab19a9c1f42b0f0b9c094e8"
+      },
+      {
+        "path": "/assets/NativeDuelGame-CMcxLKS8.js",
+        "bytes": 86287,
+        "sha256": "e167d3547e594a26874546f26c03cf03251be4ef85af89363927fb022e5ae48c"
+      },
+      {
+        "path": "/assets/FieldEnvironmentRegistry-Tp8xcD3U.js",
+        "bytes": 611689,
+        "sha256": "b3159d4f38a47411cd674576f2ed13d18706e35406c77b6ddc1a678ce4dcb800"
+      },
+      {
+        "path": "/assets/RealDuelView-BO5VQkMT.js",
+        "bytes": 156240,
+        "sha256": "a49774039d88bc071d44bce8ca286f52a80c6347927356645d489f26fb385bb4"
+      },
+      {
+        "path": "/assets/ocgcore-DWqJvtmv.js",
+        "bytes": 46501,
+        "sha256": "dd1e9936f49901fb5f53efd6d25b19ab5755af65169fee4ef34600a1cfbe5349"
+      }
+    ],
+    "catalogueCompiledIn": "/assets/index-BAjs-Biw.js",
+    "seventhEssentialFile": "Actual OCG bridge chunk; catalogue code is covered by the entry fingerprint. No independent NativeCardCatalogue chunk is assumed."
+  },
+  "wasm": {
+    "path": "public/native/ocgcore.sync.wasm",
+    "bytes": 935745,
+    "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+  },
+  "verificationLogSha256": "29fe97cbb5b4a15d2f18501e7702f28ecb35ebda9d6fd3ceed7bc2bd37641aa9",
+  "nonBlockingBuildNotices": [
+    "Runtime-provided sync WASM URL",
+    "NativeCardCatalogue static and dynamic import co-location",
+    "Existing chunks above 500kB"
+  ]
+}

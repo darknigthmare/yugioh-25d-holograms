@@ -5,6 +5,7 @@ import {
 import { RealDuelScene3D } from './RealDuelScene3D.js';
 import { RealDuelDOM3DAdapter } from './RealDuelDOM3DAdapter.js';
 import { Vector3 } from 'three';
+import { getDuelistAvatar } from '../content/DuelistAvatarCatalog.js';
 import {
   createPublicCombatVisual,
   createPublicFieldHolograms,
@@ -125,6 +126,10 @@ export class RealDuelView {
     this.environmentResolver = options.environmentResolver
       || resolveFieldEnvironmentSelection;
     this.environmentOptions = Object.freeze({ ...(options.environmentOptions || {}) });
+    this.duelistAvatars = Object.freeze({
+      playerAvatarId: getDuelistAvatar(options.duelistAvatars?.playerAvatarId)?.id || 'yugi',
+      opponentAvatarId: getDuelistAvatar(options.duelistAvatars?.opponentAvatarId)?.id || 'kaiba'
+    });
     this.sceneFactory = options.sceneFactory
       || (sceneOptions => new RealDuelScene3D(sceneOptions));
     this.domAdapterFactory = options.domAdapterFactory
@@ -219,6 +224,16 @@ export class RealDuelView {
     return this.active ? this._applyCurrentEnvironment() : this.selection;
   }
 
+  setDuelistAvatars(selection = {}) {
+    if (this.disposed) return null;
+    this.duelistAvatars = Object.freeze({
+      playerAvatarId: getDuelistAvatar(selection.playerAvatarId ?? this.duelistAvatars.playerAvatarId)?.id || 'yugi',
+      opponentAvatarId: getDuelistAvatar(selection.opponentAvatarId ?? this.duelistAvatars.opponentAvatarId)?.id || 'kaiba'
+    });
+    this.scene3D?.setDuelistAvatars?.(this.duelistAvatars);
+    return this.duelistAvatars;
+  }
+
   mount() {
     if (this.disposed) {
       throw new Error('A disposed RealDuelView cannot be mounted.');
@@ -274,8 +289,10 @@ export class RealDuelView {
       documentRef: this.documentRef,
       windowRef: this.windowRef,
       hostElement: this.layerElement,
-      pixelRatioLimit: 1.5
+      pixelRatioLimit: 1.5,
+      duelistAvatars: this.duelistAvatars
     });
+    scene3D.setDuelistAvatars?.(this.duelistAvatars);
     scene3D.mount?.(this.layerElement);
     if (scene3D.webglAvailable === false || !scene3D.getCamera?.()) {
       scene3D.dispose?.();
@@ -763,6 +780,10 @@ export class RealDuelView {
           throw new Error('The true 3D renderer could not be activated.');
         }
         this.dom3DAdapter?.activate?.();
+        // Compact/Arena can leave the mobile host panned. Hidden overflow
+        // retains that offset and would shift both renderers and camera controls.
+        this.fieldElement.scrollLeft = 0;
+        this.fieldElement.scrollTop = 0;
         this._resize3D();
         this._syncFieldHolograms();
       }

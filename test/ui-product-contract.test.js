@@ -31,7 +31,7 @@ test('Duel results preserve the end reason and never claim that a nonexistent re
 test('reset, Match persistence and configuration return are explicit and reload-free', () => {
   assert.match(htmlSource, /id="btn-return-config"/);
   assert.match(htmlSource, /id="btn-reset"[^>]*>ABANDONNER LE DUEL</);
-  assert.match(mainSource, /MatchController\.deserialize\(payload\.controller\)/);
+  assert.match(mainSource, /MatchController\.deserialize\(payload\.controller, \{ engineOptions: nativeBuilderOptions\('strict'\) \}\)/);
   assert.match(mainSource, /matchController\.serialize\(\)/);
   assert.match(mainSource, /window\.addEventListener\('beforeunload'/);
   assert.doesNotMatch(mainSource, /window\.location\.reload/);
@@ -181,10 +181,11 @@ test('the native catalogue separates released TCG legality from the unrestricted
 });
 
 test('the builder binds Strict, Libre and Sandbox to the appropriate format and trusted native catalogue', () => {
-  const source = mainSource.match(/const nativeBuilderOptions = \(\) => \(\{[^]*?\n\}\);/)?.[0];
+  const source = mainSource.match(/const nativeBuilderOptions = \(mode = selectedGameMode\) => \{[^]*?\n\};/)?.[0];
   assert.ok(source, 'builder validation must expose its mode and trusted-data options');
   const context = vm.createContext({
     selectedGameMode: 'strict', nativeCatalogueResources: null, nativeCatalogueToolkit: null,
+    nativeTcgPolicy: { getCopyIdentity: card => `tcg:${card.id}` },
     getDeckCopyIdentity: card => `local:${card.id}`
   });
   vm.runInContext(`${source}\nglobalThis.builderOptions = nativeBuilderOptions;`, context);
@@ -192,8 +193,7 @@ test('the builder binds Strict, Libre and Sandbox to the appropriate format and 
   let options = context.builderOptions();
   assert.equal(options.native, true);
   assert.equal(options.format, 'TCG');
-  assert.equal(options.isSupportedCard(card, 'main'), false, 'unloaded CDB data cannot establish support');
-  assert.equal(options.getCopyIdentity(card), 'local:1234');
+  assert.equal(options.isSupportedCard, undefined, 'unloaded catalogue retains the established local-registry validator');
 
   const resources = {};
   const calls = [];
@@ -210,6 +210,9 @@ test('the builder binds Strict, Libre and Sandbox to the appropriate format and 
   assert.equal(options.isSupportedCard(card, 'extra'), false, 'section eligibility is delegated to the trusted CDB');
   assert.equal(calls[0][0], resources);
   assert.equal(options.getCopyIdentity(card), 'trusted-alias');
+  const strictOptions = context.builderOptions('strict');
+  assert.equal(strictOptions.format, 'TCG', 'restoration explicitly uses strict options regardless of current preference');
+  assert.equal(strictOptions.getCopyIdentity(card), 'tcg:1234');
 
   context.selectedGameMode = 'sandbox';
   assert.equal(context.builderOptions().native, false);

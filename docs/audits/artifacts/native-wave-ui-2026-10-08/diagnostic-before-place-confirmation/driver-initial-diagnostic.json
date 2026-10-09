@@ -1,0 +1,227 @@
+{
+  "stage": "driver-diagnostic-not-app-defect",
+  "failure": {
+    "type": "AssertionError",
+    "message": "Public placement decisions did not settle"
+  },
+  "buildSha256": "ab8aece9cffe26026f69778ff4ddf9bba6a0bfc7abbe67435c725df23eed96b7",
+  "reason": "The older helper toggled the first multi-selection Zone option repeatedly instead of pressing the enabled CONFIRMER button. Public DOM shows correct 0/1 then 1/1 native Zone selection.",
+  "publicDom": [
+    {
+      "title": "CHOISIR LA ZONE",
+      "description": "Sélectionnez une option autorisée.",
+      "buttons": [
+        {
+          "text": "Votre Zone Monstre 2",
+          "visible": true,
+          "disabled": false,
+          "className": "decision-card-option"
+        },
+        {
+          "text": "Votre Zone Monstre 3",
+          "visible": true,
+          "disabled": false,
+          "className": "decision-card-option"
+        },
+        {
+          "text": "Votre Zone Monstre 4",
+          "visible": true,
+          "disabled": false,
+          "className": "decision-card-option"
+        },
+        {
+          "text": "Votre Zone Monstre 5",
+          "visible": true,
+          "disabled": false,
+          "className": "decision-card-option"
+        },
+        {
+          "text": "CONFIRMER (0/1)",
+          "visible": true,
+          "disabled": true,
+          "className": "btn btn-magenta decision-confirm-button"
+        },
+        {
+          "text": "ANNULER",
+          "visible": false,
+          "disabled": false,
+          "className": "btn btn-cancel hidden"
+        }
+      ],
+      "focused": "Votre Zone Monstre 2"
+    },
+    {
+      "title": "CHOISIR LA ZONE",
+      "description": "Sélectionnez une option autorisée.",
+      "buttons": [
+        {
+          "text": "Votre Zone Monstre 2",
+          "visible": true,
+          "disabled": false,
+          "className": "decision-card-option selected"
+        },
+        {
+          "text": "Votre Zone Monstre 3",
+          "visible": true,
+          "disabled": false,
+          "className": "decision-card-option"
+        },
+        {
+          "text": "Votre Zone Monstre 4",
+          "visible": true,
+          "disabled": false,
+          "className": "decision-card-option"
+        },
+        {
+          "text": "Votre Zone Monstre 5",
+          "visible": true,
+          "disabled": false,
+          "className": "decision-card-option"
+        },
+        {
+          "text": "CONFIRMER (1/1)",
+          "visible": true,
+          "disabled": false,
+          "className": "btn btn-magenta decision-confirm-button"
+        },
+        {
+          "text": "ANNULER",
+          "visible": false,
+          "disabled": false,
+          "className": "btn btn-cancel hidden"
+        }
+      ],
+      "focused": "Votre Zone Monstre 2"
+    },
+    {
+      "title": "CHOISIR LA ZONE",
+      "description": "Sélectionnez une option autorisée.",
+      "buttons": [
+        {
+          "text": "Votre Zone Monstre 2",
+          "visible": true,
+          "disabled": false,
+          "className": "decision-card-option"
+        },
+        {
+          "text": "Votre Zone Monstre 3",
+          "visible": true,
+          "disabled": false,
+          "className": "decision-card-option"
+        },
+        {
+          "text": "Votre Zone Monstre 4",
+          "visible": true,
+          "disabled": false,
+          "className": "decision-card-option"
+        },
+        {
+          "text": "Votre Zone Monstre 5",
+          "visible": true,
+          "disabled": false,
+          "className": "decision-card-option"
+        },
+        {
+          "text": "CONFIRMER (0/1)",
+          "visible": true,
+          "disabled": true,
+          "className": "btn btn-magenta decision-confirm-button"
+        },
+        {
+          "text": "ANNULER",
+          "visible": false,
+          "disabled": false,
+          "className": "btn btn-cancel hidden"
+        }
+      ],
+      "focused": "Votre Zone Monstre 2"
+    },
+    {
+      "title": "CHOISIR LA ZONE",
+      "description": "Sélectionnez une option autorisée.",
+      "buttons": [
+        {
+          "text": "Votre Zone Monstre 2",
+          "visible": true,
+          "disabled": false,
+          "className": "decision-card-option selected"
+        },
+        {
+          "text": "Votre Zone Monstre 3",
+          "visible": true,
+          "disabled": false,
+          "className": "decision-card-option"
+        },
+        {
+          "text": "Votre Zone Monstre 4",
+          "visible": true,
+          "disabled": false,
+          "className": "decision-card-option"
+        },
+        {
+          "text": "Votre Zone Monstre 5",
+          "visible": true,
+          "disabled": false,
+          "className": "decision-card-option"
+        },
+        {
+          "text": "CONFIRMER (1/1)",
+          "visible": true,
+          "disabled": false,
+          "className": "btn btn-magenta decision-confirm-button"
+        },
+        {
+          "text": "ANNULER",
+          "visible": false,
+          "disabled": false,
+          "className": "btn btn-cancel hidden"
+        }
+      ],
+      "focused": "Votre Zone Monstre 2"
+    },
+    {
+      "title": "CHOISIR LA ZONE",
+      "description": "Sélectionnez une option autorisée.",
+      "buttons": [
+        {
+          "text": "Votre Zone Monstre 2",
+          "visible": true,
+          "disabled": false,
+          "className": "decision-card-option"
+        },
+        {
+          "text": "Votre Zone Monstre 3",
+          "visible": true,
+          "disabled": false,
+          "className": "decision-card-option"
+        },
+        {
+          "text": "Votre Zone Monstre 4",
+          "visible": true,
+          "disabled": false,
+          "className": "decision-card-option"
+        },
+        {
+          "text": "Votre Zone Monstre 5",
+          "visible": true,
+          "disabled": false,
+          "className": "decision-card-option"
+        },
+        {
+          "text": "CONFIRMER (0/1)",
+          "visible": true,
+          "disabled": true,
+          "className": "btn btn-magenta decision-confirm-button"
+        },
+        {
+          "text": "ANNULER",
+          "visible": false,
+          "disabled": false,
+          "className": "btn btn-cancel hidden"
+        }
+      ],
+      "focused": "Votre Zone Monstre 2"
+    }
+  ],
+  "capture": "failure-public-dom.png"
+}

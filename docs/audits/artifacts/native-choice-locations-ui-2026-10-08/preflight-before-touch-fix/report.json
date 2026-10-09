@@ -1,0 +1,310 @@
+{
+  "generatedOn": "2026-10-08",
+  "status": "passed",
+  "registeredFixture": {
+    "main": [
+      "76812113",
+      "46986414",
+      "32452818",
+      "46986414",
+      "89631139",
+      "46986414",
+      "97590747",
+      "97590747",
+      "97590747",
+      "15025844",
+      "15025844",
+      "79571449",
+      "70781052",
+      "70781052",
+      "83764718",
+      "5053103",
+      "5053103",
+      "5053103",
+      "89631139",
+      "76812113",
+      "76812113",
+      "91152256",
+      "91152256",
+      "91152256",
+      "32452818",
+      "89631139",
+      "32452818",
+      "91939608",
+      "91939608",
+      "91939608",
+      "15025844",
+      "79571449",
+      "79571449",
+      "70781052",
+      "83764718",
+      "83764718",
+      "5318639",
+      "5318639",
+      "5318639",
+      "44095762"
+    ],
+    "extra": [],
+    "side": []
+  },
+  "sourceDependencies": [
+    {
+      "path": "main.js",
+      "bytes": 183449,
+      "sha256": "d9a59e90874379ab48bfebf5b3f4653c3f3dea47885ec60ffa8491dddf35a0cb"
+    },
+    {
+      "path": "src/core/native/NativeDuelDecisions.js",
+      "bytes": 35244,
+      "sha256": "65f8cbb3330172cd41fdc30bf6bb6c7611677a00d88712d40d6859cd42c2254a"
+    },
+    {
+      "path": "src/ui/NativeDuelPresentationModel.js",
+      "bytes": 3008,
+      "sha256": "06bef4ca603efbf6eb7f7cf0d4b938fc714533e88e9326795daece6ad4ae1e91"
+    },
+    {
+      "path": "scripts/audit-native-choice-locations-ui.py",
+      "bytes": 11228,
+      "sha256": "8f4d2f25be03385bd7bd6bdc6cf4bde70d0ded5baa241392d70d3d7d0d8896eb"
+    },
+    {
+      "path": "scripts/audit-native-duel-ui.py",
+      "bytes": 28175,
+      "sha256": "0dd4443ef82f496fb398587b9be06c99d953f57c4a48e48cd470fdacbb311c18"
+    },
+    {
+      "path": "public/native/ocgcore.sync.wasm",
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    },
+    {
+      "path": "public/native/card-data.json",
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    {
+      "path": "public/native/scripts.json",
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    }
+  ],
+  "viewports": [
+    {
+      "width": 1440,
+      "trace": [],
+      "selections": {
+        "79571449": {
+          "title": "CHOISIR LES CARTES",
+          "offered": [
+            "Force de Miroir — Votre main · Carte 1",
+            "Dragon Blanc aux Yeux Bleus — Votre main · Carte 2",
+            "Dragon Blanc aux Yeux Bleus — Votre main · Carte 3",
+            "Monster Reborn — Votre main · Carte 4",
+            "Guerrier Castor — Votre main · Carte 5",
+            "Dragon Blanc aux Yeux Bleus — Votre main · Carte 6",
+            "Guerrier Castor — Votre main · Carte 7"
+          ],
+          "clickedIndices": [
+            2,
+            1
+          ],
+          "confirmation": "CONFIRMER (2/2)",
+          "keyboardSelection": true,
+          "buttonRectangles": [
+            {
+              "width": 396.71875,
+              "height": 44,
+              "left": 521.640625,
+              "right": 918.359375
+            },
+            {
+              "width": 396.71875,
+              "height": 44,
+              "left": 521.640625,
+              "right": 918.359375
+            },
+            {
+              "width": 396.71875,
+              "height": 44,
+              "left": 521.640625,
+              "right": 918.359375
+            },
+            {
+              "width": 396.71875,
+              "height": 44,
+              "left": 521.640625,
+              "right": 918.359375
+            },
+            {
+              "width": 396.71875,
+              "height": 44,
+              "left": 521.640625,
+              "right": 918.359375
+            },
+            {
+              "width": 396.71875,
+              "height": 44,
+              "left": 521.640625,
+              "right": 918.359375
+            },
+            {
+              "width": 396.71875,
+              "height": 44,
+              "left": 521.640625,
+              "right": 918.359375
+            }
+          ]
+        },
+        "83764718": {
+          "title": "CHOISIR LES CARTES",
+          "offered": [
+            "Dragon Blanc aux Yeux Bleus — Votre Cimetière · Carte 2",
+            "Dragon Blanc aux Yeux Bleus — Votre Cimetière · Carte 1"
+          ],
+          "clickedIndices": [
+            1
+          ],
+          "confirmation": "CONFIRMER (1/1)",
+          "keyboardSelection": true,
+          "buttonRectangles": [
+            {
+              "width": 396.71875,
+              "height": 44,
+              "left": 521.640625,
+              "right": 918.359375
+            },
+            {
+              "width": 396.71875,
+              "height": 44,
+              "left": 521.640625,
+              "right": 918.359375
+            }
+          ]
+        }
+      },
+      "checks": {
+        "validFortyCardFreeRegistration": true,
+        "nativeArchivesLoaded": true,
+        "realCharityDrawAndTwoDiscards": true,
+        "duplicateMainAndGyLabelsDistinct": true,
+        "realRebornSummonConfirmedInPublicBoard": true,
+        "keyboardSpaceAndEnter": true,
+        "touchTargetsAtLeast44pxAndInsideViewport": true,
+        "noQaHookOrPostStartInjection": true
+      },
+      "errors": []
+    },
+    {
+      "width": 390,
+      "trace": [],
+      "selections": {
+        "79571449": {
+          "title": "CHOISIR LES CARTES",
+          "offered": [
+            "Force de Miroir — Votre main · Carte 1",
+            "Dragon Blanc aux Yeux Bleus — Votre main · Carte 2",
+            "Dragon Blanc aux Yeux Bleus — Votre main · Carte 3",
+            "Monster Reborn — Votre main · Carte 4",
+            "Guerrier Castor — Votre main · Carte 5",
+            "Dragon Blanc aux Yeux Bleus — Votre main · Carte 6",
+            "Guerrier Castor — Votre main · Carte 7"
+          ],
+          "clickedIndices": [
+            2,
+            1
+          ],
+          "confirmation": "CONFIRMER (2/2)",
+          "keyboardSelection": true,
+          "buttonRectangles": [
+            {
+              "width": 328,
+              "height": 44,
+              "left": 31,
+              "right": 359
+            },
+            {
+              "width": 328,
+              "height": 52,
+              "left": 31,
+              "right": 359
+            },
+            {
+              "width": 328,
+              "height": 52,
+              "left": 31,
+              "right": 359
+            },
+            {
+              "width": 328,
+              "height": 44,
+              "left": 31,
+              "right": 359
+            },
+            {
+              "width": 328,
+              "height": 44,
+              "left": 31,
+              "right": 359
+            },
+            {
+              "width": 328,
+              "height": 52,
+              "left": 31,
+              "right": 359
+            },
+            {
+              "width": 328,
+              "height": 44,
+              "left": 31,
+              "right": 359
+            }
+          ]
+        },
+        "83764718": {
+          "title": "CHOISIR LES CARTES",
+          "offered": [
+            "Dragon Blanc aux Yeux Bleus — Votre Cimetière · Carte 2",
+            "Dragon Blanc aux Yeux Bleus — Votre Cimetière · Carte 1"
+          ],
+          "clickedIndices": [
+            1
+          ],
+          "confirmation": "CONFIRMER (1/1)",
+          "keyboardSelection": true,
+          "buttonRectangles": [
+            {
+              "width": 328,
+              "height": 52,
+              "left": 31,
+              "right": 359
+            },
+            {
+              "width": 328,
+              "height": 52,
+              "left": 31,
+              "right": 359
+            }
+          ]
+        }
+      },
+      "checks": {
+        "validFortyCardFreeRegistration": true,
+        "nativeArchivesLoaded": true,
+        "realCharityDrawAndTwoDiscards": true,
+        "duplicateMainAndGyLabelsDistinct": true,
+        "realRebornSummonConfirmedInPublicBoard": true,
+        "keyboardSpaceAndEnter": true,
+        "touchTargetsAtLeast44pxAndInsideViewport": true,
+        "noQaHookOrPostStartInjection": true
+      },
+      "errors": []
+    }
+  ],
+  "limits": [
+    "This run uses the actual source application via Vite with production NODE_ENV; it is not a compiled production-CSP proof.",
+    "The browser exercises own Main/GY duplicate choices; both-GY ownership and facedown enemy targets are proven separately by official-WASM scenarios.",
+    "Confirmation touch target height was not gated in this first preflight; screenshots show its pre-fix size. This report predates the root confirmation-target fix."
+  ],
+  "stage": "source-preflight-before-confirmation-touch-fix"
+}

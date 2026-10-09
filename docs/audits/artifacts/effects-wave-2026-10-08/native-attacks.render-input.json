@@ -1,0 +1,5603 @@
+{
+  "date": "2026-10-08",
+  "scope": "Four actual native attacks; seven public presentations for isolated renderer inspection",
+  "nativeApi": [
+    11,
+    0
+  ],
+  "fixtureBeforeStartOnly": true,
+  "postStartInjection": false,
+  "debugApi": false,
+  "sourceHashes": {
+    "scripts/audit-card-specific-native-attacks.mjs": "a50e48ea8347d23e2d8cc82c8eb61772f209c1e5cf4366ff2c1f5b34b6f93c05",
+    "scripts/native-field-audit-harness.mjs": "d7b1c776f5552fd5eb5f5e70712c0265fd5b75f30d2d07465caadd10887a0734",
+    "scripts/native-field-audit-inputs.mjs": "c2224fb53c089a05ae8c123aee72cf38b79679248b1777b4916648ea29482a96",
+    "src/ui/CombatVisualEffects.js": "6e685855e5c491e5d2d340baa4a5b399438bf3c4e899e5a888f989c994852e94",
+    "src/ui/CardSpecificVisualEffects.js": "7dfdb44e13561cd78231c4a5fc8391b6c449ecb36ce328063f93013892d32e88",
+    "src/ui/CombatVisualProfiles.js": "17eccd4166d0bf142cb264100bf7b0c0e334f96b966a041259ceb6ad98c5e11f",
+    "src/ui/PublicDuelVisuals.js": "1c19b3aafecf843427f96f15ec6b6234c4ab7a18336af68a870a47f2ada9d982",
+    "src/core/native/NativeDuelVisualEvents.js": "13b5c2897a486c7837d1740b0fded2a96deaf9bc6d1cf0e157511fa4f5746f85",
+    "test/card-specific-visual-effects.test.js": "3de3ec72890e545903e2703bf8adb50f4b9a22de76f7b96d8285353bd67b6802",
+    "public/cards/cropped/89631139.jpg": "09f5b2399875b2e6523f6825d5d19375c81e398ba2487d1bd5e7d8254a691671",
+    "public/cards/cropped/74677422.jpg": "c4b7c037546f337bdc90d75972b9443dde0877caf7d1fa2a97e928782c2ccfd2",
+    "public/cards/cropped/91152256.jpg": "344d22059ce3dd807bd20bf5ee28f201516f2f60ca31be944fe987ca7157e983",
+    "public/cards/cropped/70781052.jpg": "161faa58ed999149be77a32d652c45939fef14cdedd9fd2e1a69a134b98c709f",
+    "public/cards/cropped/83764718.jpg": "42c690d107656caf814dca3aa42babc17038cd2be037147999c5636b22061334",
+    "public/cards/cropped/44095762.jpg": "131f801c9ca1acacae02555e485484c834ae38f32a882aff7e722c00d22f71ca",
+    "public/native/ocgcore.sync.wasm": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+    "public/native/card-data.json": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d",
+    "public/native/scripts.json": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+  },
+  "referencedNativeEvidence": {
+    "path": "docs/audits/artifacts/effects-wave-2026-10-08/referenced-native-public-evidence.json",
+    "originalPath": "docs/audits/artifacts/native-public-presentation-wave-2026-10-08.json",
+    "sha256": "ff911726ec4b617fba329913af4ba1e39356896f72c67323b89e30563d71294a"
+  },
+  "summary": {
+    "nativeAttacks": 4,
+    "passed": 4,
+    "presentations": 7
+  },
+  "scenarios": [
+    {
+      "id": "native-attack-89631139",
+      "fields": [],
+      "description": "An actual MR5 Battle command attacks a public Mystical Elf and resolves native destruction and damage.",
+      "status": "passed",
+      "nativeApi": [
+        11,
+        0
+      ],
+      "flags": "12885092352",
+      "fixtureSeed": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "fixtureTeams": {
+        "team1": {
+          "startingLP": 8000,
+          "startingDrawCount": 0,
+          "drawCountPerTurn": 0
+        },
+        "team2": {
+          "startingLP": 8000,
+          "startingDrawCount": 0,
+          "drawCountPerTurn": 0
+        }
+      },
+      "scriptCorrections": [],
+      "messages": [
+        {
+          "type": 40,
+          "player": 0
+        },
+        {
+          "type": 41,
+          "phase": 1
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "27"
+        },
+        {
+          "type": 41,
+          "phase": 2
+        },
+        {
+          "type": 41,
+          "phase": 4
+        },
+        {
+          "type": 11,
+          "player": 0,
+          "summons": [],
+          "special_summons": [],
+          "pos_changes": [
+            {
+              "code": 89631139,
+              "controller": 0,
+              "location": 4,
+              "sequence": 0
+            }
+          ],
+          "monster_sets": [],
+          "spell_sets": [],
+          "activates": [],
+          "to_bp": false,
+          "to_ep": true,
+          "shuffle": false
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "23"
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 4,
+          "selects": []
+        },
+        {
+          "type": 41,
+          "phase": 512
+        },
+        {
+          "type": 40,
+          "player": 1
+        },
+        {
+          "type": 41,
+          "phase": 1
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "27"
+        },
+        {
+          "type": 41,
+          "phase": 2
+        },
+        {
+          "type": 41,
+          "phase": 4
+        },
+        {
+          "type": 11,
+          "player": 1,
+          "summons": [],
+          "special_summons": [],
+          "pos_changes": [
+            {
+              "code": 15025844,
+              "controller": 1,
+              "location": 4,
+              "sequence": 0
+            }
+          ],
+          "monster_sets": [],
+          "spell_sets": [],
+          "activates": [],
+          "to_bp": true,
+          "to_ep": true,
+          "shuffle": false
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "23"
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 4,
+          "selects": []
+        },
+        {
+          "type": 41,
+          "phase": 512
+        },
+        {
+          "type": 40,
+          "player": 0
+        },
+        {
+          "type": 41,
+          "phase": 1
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "27"
+        },
+        {
+          "type": 41,
+          "phase": 2
+        },
+        {
+          "type": 41,
+          "phase": 4
+        },
+        {
+          "type": 11,
+          "player": 0,
+          "summons": [],
+          "special_summons": [],
+          "pos_changes": [
+            {
+              "code": 89631139,
+              "controller": 0,
+              "location": 4,
+              "sequence": 0
+            }
+          ],
+          "monster_sets": [],
+          "spell_sets": [],
+          "activates": [],
+          "to_bp": true,
+          "to_ep": true,
+          "shuffle": false
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "23"
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 4,
+          "selects": []
+        },
+        {
+          "type": 41,
+          "phase": 8
+        },
+        {
+          "type": 10,
+          "player": 0,
+          "chains": [],
+          "attacks": [
+            {
+              "code": 89631139,
+              "controller": 0,
+              "location": 4,
+              "sequence": 0,
+              "can_direct": false
+            }
+          ],
+          "to_m2": true,
+          "to_ep": true
+        },
+        {
+          "type": 2,
+          "hint_type": 3,
+          "player": 0,
+          "hint": "549"
+        },
+        {
+          "type": 15,
+          "player": 0,
+          "can_cancel": true,
+          "min": 1,
+          "max": 1,
+          "selects": [
+            {
+              "code": 15025844,
+              "controller": 1,
+              "location": 4,
+              "sequence": 0,
+              "position": 1
+            }
+          ]
+        },
+        {
+          "type": 110,
+          "card": {
+            "controller": 0,
+            "location": 4,
+            "sequence": 0,
+            "position": 1
+          },
+          "target": {
+            "controller": 1,
+            "location": 4,
+            "sequence": 0,
+            "position": 1
+          }
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 4096,
+          "hint_timing_other": 0,
+          "selects": []
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 4096,
+          "selects": []
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "24"
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "24"
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 16777216,
+          "hint_timing_other": 16777216,
+          "selects": []
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 16777216,
+          "hint_timing_other": 16777216,
+          "selects": []
+        },
+        {
+          "type": 113
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "40"
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "40"
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 0,
+          "selects": []
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 0,
+          "selects": []
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "41"
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "41"
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 8192,
+          "hint_timing_other": 0,
+          "selects": []
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 8192,
+          "selects": []
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "42"
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "42"
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 16384,
+          "hint_timing_other": 0,
+          "selects": []
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 16384,
+          "selects": []
+        },
+        {
+          "type": 111,
+          "card": {
+            "controller": 0,
+            "location": 4,
+            "sequence": 0,
+            "position": 1,
+            "attack": 3000,
+            "defense": 2500,
+            "destroyed": false
+          },
+          "target": {
+            "controller": 1,
+            "location": 4,
+            "sequence": 0,
+            "position": 1,
+            "attack": 800,
+            "defense": 2000,
+            "destroyed": true
+          }
+        },
+        {
+          "type": 91,
+          "player": 1,
+          "amount": 2200
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "43"
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "43"
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 134217728,
+          "hint_timing_other": 134348800,
+          "selects": []
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 134348800,
+          "hint_timing_other": 134217728,
+          "selects": []
+        },
+        {
+          "type": 50,
+          "card": 15025844,
+          "from": {
+            "controller": 1,
+            "location": 4,
+            "sequence": 0,
+            "position": 1
+          },
+          "to": {
+            "controller": 1,
+            "location": 16,
+            "sequence": 0,
+            "position": 5
+          },
+          "reason": 33
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "44"
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "44"
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 8912896,
+          "selects": []
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 8912896,
+          "hint_timing_other": 0,
+          "selects": []
+        },
+        {
+          "type": 114
+        },
+        {
+          "type": 10,
+          "player": 0,
+          "chains": [],
+          "attacks": [],
+          "to_m2": true,
+          "to_ep": true
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "29"
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 67108864,
+          "selects": []
+        },
+        {
+          "type": 41,
+          "phase": 256
+        },
+        {
+          "type": 11,
+          "player": 0,
+          "summons": [],
+          "special_summons": [],
+          "pos_changes": [],
+          "monster_sets": [],
+          "spell_sets": [],
+          "activates": [],
+          "to_bp": false,
+          "to_ep": true,
+          "shuffle": false
+        }
+      ],
+      "decisions": [
+        {
+          "prompt": {
+            "type": 11,
+            "player": 0,
+            "summons": [],
+            "special_summons": [],
+            "pos_changes": [
+              {
+                "code": 89631139,
+                "controller": 0,
+                "location": 4,
+                "sequence": 0
+              }
+            ],
+            "monster_sets": [],
+            "spell_sets": [],
+            "activates": [],
+            "to_bp": false,
+            "to_ep": true,
+            "shuffle": false
+          },
+          "response": {
+            "type": 1,
+            "action": 7,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 4,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 11,
+            "player": 1,
+            "summons": [],
+            "special_summons": [],
+            "pos_changes": [
+              {
+                "code": 15025844,
+                "controller": 1,
+                "location": 4,
+                "sequence": 0
+              }
+            ],
+            "monster_sets": [],
+            "spell_sets": [],
+            "activates": [],
+            "to_bp": true,
+            "to_ep": true,
+            "shuffle": false
+          },
+          "response": {
+            "type": 1,
+            "action": 7,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 4,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 11,
+            "player": 0,
+            "summons": [],
+            "special_summons": [],
+            "pos_changes": [
+              {
+                "code": 89631139,
+                "controller": 0,
+                "location": 4,
+                "sequence": 0
+              }
+            ],
+            "monster_sets": [],
+            "spell_sets": [],
+            "activates": [],
+            "to_bp": true,
+            "to_ep": true,
+            "shuffle": false
+          },
+          "response": {
+            "type": 1,
+            "action": 6,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 4,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 10,
+            "player": 0,
+            "chains": [],
+            "attacks": [
+              {
+                "code": 89631139,
+                "controller": 0,
+                "location": 4,
+                "sequence": 0,
+                "can_direct": false
+              }
+            ],
+            "to_m2": true,
+            "to_ep": true
+          },
+          "response": {
+            "type": 0,
+            "action": 1,
+            "index": 0
+          }
+        },
+        {
+          "prompt": {
+            "type": 15,
+            "player": 0,
+            "can_cancel": true,
+            "min": 1,
+            "max": 1,
+            "selects": [
+              {
+                "code": 15025844,
+                "controller": 1,
+                "location": 4,
+                "sequence": 0,
+                "position": 1
+              }
+            ]
+          },
+          "response": {
+            "type": 5,
+            "indicies": [
+              0
+            ]
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 4096,
+            "hint_timing_other": 0,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 4096,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 16777216,
+            "hint_timing_other": 16777216,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 16777216,
+            "hint_timing_other": 16777216,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 0,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 0,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 8192,
+            "hint_timing_other": 0,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 8192,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 16384,
+            "hint_timing_other": 0,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 16384,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 134217728,
+            "hint_timing_other": 134348800,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 134348800,
+            "hint_timing_other": 134217728,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 8912896,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 8912896,
+            "hint_timing_other": 0,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 10,
+            "player": 0,
+            "chains": [],
+            "attacks": [],
+            "to_m2": true,
+            "to_ep": true
+          },
+          "response": {
+            "type": 0,
+            "action": 2,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 67108864,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        }
+      ],
+      "queries": [
+        {
+          "query": {
+            "controller": 0,
+            "location": 4,
+            "sequence": 0,
+            "flags": 660443
+          },
+          "result": {
+            "code": 89631139,
+            "position": 1,
+            "type": 17,
+            "level": 8,
+            "attribute": 16,
+            "race": "8192",
+            "attack": 3000,
+            "defense": 2500,
+            "reason": 0,
+            "counters": {},
+            "status": 1032,
+            "isPublic": true
+          }
+        },
+        {
+          "query": {
+            "controller": 1,
+            "location": 4,
+            "sequence": 0,
+            "flags": 660443
+          },
+          "result": {
+            "code": 15025844,
+            "position": 1,
+            "type": 17,
+            "level": 4,
+            "attribute": 16,
+            "race": "2",
+            "attack": 800,
+            "defense": 2000,
+            "reason": 0,
+            "counters": {},
+            "status": 1032,
+            "isPublic": true
+          }
+        },
+        {
+          "query": {
+            "controller": 1,
+            "location": 16,
+            "flags": 4097
+          },
+          "result": [
+            {
+              "code": 15025844,
+              "reason": 33,
+              "isPublic": true
+            }
+          ]
+        },
+        {
+          "query": {
+            "field": true
+          },
+          "result": {
+            "flags": "190464",
+            "players": [
+              {
+                "lp": 8000,
+                "monsters": [
+                  {
+                    "position": 1,
+                    "materials": 0
+                  },
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                "spells": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                "deck_size": 1,
+                "hand_size": 0,
+                "grave_size": 0,
+                "banish_size": 0,
+                "extra_size": 0,
+                "extra_faceup_count": 0
+              },
+              {
+                "lp": 5800,
+                "monsters": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                "spells": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                "deck_size": 1,
+                "hand_size": 0,
+                "grave_size": 1,
+                "banish_size": 0,
+                "extra_size": 0,
+                "extra_faceup_count": 0
+              }
+            ],
+            "chain": []
+          }
+        },
+        {
+          "query": {
+            "controller": 0,
+            "location": 4,
+            "sequence": 0,
+            "flags": 660443
+          },
+          "result": {
+            "code": 89631139,
+            "position": 1,
+            "type": 17,
+            "level": 8,
+            "attribute": 16,
+            "race": "8192",
+            "attack": 3000,
+            "defense": 2500,
+            "reason": 0,
+            "counters": {},
+            "status": 2098184,
+            "isPublic": true
+          }
+        }
+      ],
+      "fixtureCards": [
+        {
+          "canonicalCode": 89631139,
+          "sourceCode": 89631139,
+          "name": "Blue-Eyes White Dragon",
+          "controller": 0,
+          "location": 4,
+          "sequence": 0,
+          "position": 1,
+          "scriptPath": null,
+          "scriptSha256": null,
+          "effectiveScriptSha256": null
+        },
+        {
+          "canonicalCode": 15025844,
+          "sourceCode": 15025844,
+          "name": "Mystical Elf",
+          "controller": 1,
+          "location": 4,
+          "sequence": 0,
+          "position": 1,
+          "scriptPath": null,
+          "scriptSha256": null,
+          "effectiveScriptSha256": null
+        },
+        {
+          "canonicalCode": 46986414,
+          "sourceCode": 46986414,
+          "name": "Dark Magician",
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "position": 8,
+          "scriptPath": null,
+          "scriptSha256": null,
+          "effectiveScriptSha256": null
+        },
+        {
+          "canonicalCode": 46986414,
+          "sourceCode": 46986414,
+          "name": "Dark Magician",
+          "controller": 1,
+          "location": 1,
+          "sequence": 0,
+          "position": 8,
+          "scriptPath": null,
+          "scriptSha256": null,
+          "effectiveScriptSha256": null
+        }
+      ],
+      "errors": [],
+      "initialPublicProjection": [
+        {
+          "controller": 0,
+          "location": 4,
+          "sequence": 0,
+          "result": {
+            "code": 89631139,
+            "position": 1,
+            "type": 17,
+            "level": 8,
+            "attribute": 16,
+            "race": "8192",
+            "attack": 3000,
+            "defense": 2500,
+            "reason": 0,
+            "counters": {},
+            "status": 1032,
+            "isPublic": true
+          }
+        },
+        {
+          "controller": 1,
+          "location": 4,
+          "sequence": 0,
+          "result": {
+            "code": 15025844,
+            "position": 1,
+            "type": 17,
+            "level": 4,
+            "attribute": 16,
+            "race": "2",
+            "attack": 800,
+            "defense": 2000,
+            "reason": 0,
+            "counters": {},
+            "status": 1032,
+            "isPublic": true
+          }
+        }
+      ],
+      "publicEvents": [
+        {
+          "type": "attack-monster",
+          "card": {
+            "id": "89631139",
+            "isSetFaceDown": false,
+            "position": "attack",
+            "controllerId": "player",
+            "name": "Blue-Eyes White Dragon"
+          },
+          "attackerSide": "player",
+          "target": "opponent",
+          "atkZoneType": "main",
+          "atkZoneIndex": 0,
+          "defZoneType": "main",
+          "defZoneIndex": 0,
+          "targetCard": {
+            "id": "15025844",
+            "isSetFaceDown": false,
+            "position": "attack",
+            "controllerId": "opponent",
+            "name": "Mystical Elf"
+          },
+          "targetFaceDown": false
+        },
+        {
+          "type": "damage-step",
+          "stage": "start"
+        },
+        {
+          "type": "battle-stats",
+          "target": "player",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "attacker",
+          "card": {
+            "id": "89631139",
+            "isSetFaceDown": false,
+            "position": "attack",
+            "controllerId": "player",
+            "name": "Blue-Eyes White Dragon"
+          },
+          "nativeStats": {
+            "attack": 3000,
+            "defense": 2500
+          },
+          "destroyed": false
+        },
+        {
+          "type": "battle-stats",
+          "target": "opponent",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "defender",
+          "card": {
+            "id": "15025844",
+            "isSetFaceDown": false,
+            "position": "attack",
+            "controllerId": "opponent",
+            "name": "Mystical Elf"
+          },
+          "nativeStats": {
+            "attack": 800,
+            "defense": 2000
+          },
+          "destroyed": true
+        },
+        {
+          "type": "lp-loss",
+          "target": "opponent",
+          "damage": 2200,
+          "amount": 2200,
+          "lp": 5800,
+          "previousLP": 8000,
+          "cost": false
+        },
+        {
+          "type": "move",
+          "target": "opponent",
+          "zoneType": "graveyard",
+          "zoneIndex": 0,
+          "from": {
+            "owner": "opponent",
+            "zoneType": "main",
+            "zoneIndex": 0
+          },
+          "to": {
+            "owner": "opponent",
+            "zoneType": "graveyard",
+            "zoneIndex": 0
+          },
+          "card": {
+            "id": "15025844",
+            "isSetFaceDown": false,
+            "position": "defense",
+            "controllerId": "opponent",
+            "name": "Mystical Elf"
+          },
+          "hidden": false,
+          "faceDown": false
+        },
+        {
+          "type": "destroy",
+          "target": "opponent",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "card": {
+            "id": "15025844",
+            "isSetFaceDown": false,
+            "position": "defense",
+            "controllerId": "opponent",
+            "name": "Mystical Elf"
+          },
+          "hidden": false,
+          "faceDown": false
+        },
+        {
+          "type": "damage-step",
+          "stage": "end"
+        }
+      ]
+    },
+    {
+      "id": "native-attack-74677422",
+      "fields": [],
+      "description": "An actual MR5 Battle command attacks a public Mystical Elf and resolves native destruction and damage.",
+      "status": "passed",
+      "nativeApi": [
+        11,
+        0
+      ],
+      "flags": "12885092352",
+      "fixtureSeed": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "fixtureTeams": {
+        "team1": {
+          "startingLP": 8000,
+          "startingDrawCount": 0,
+          "drawCountPerTurn": 0
+        },
+        "team2": {
+          "startingLP": 8000,
+          "startingDrawCount": 0,
+          "drawCountPerTurn": 0
+        }
+      },
+      "scriptCorrections": [],
+      "messages": [
+        {
+          "type": 40,
+          "player": 0
+        },
+        {
+          "type": 41,
+          "phase": 1
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "27"
+        },
+        {
+          "type": 41,
+          "phase": 2
+        },
+        {
+          "type": 41,
+          "phase": 4
+        },
+        {
+          "type": 11,
+          "player": 0,
+          "summons": [],
+          "special_summons": [],
+          "pos_changes": [
+            {
+              "code": 74677422,
+              "controller": 0,
+              "location": 4,
+              "sequence": 0
+            }
+          ],
+          "monster_sets": [],
+          "spell_sets": [],
+          "activates": [],
+          "to_bp": false,
+          "to_ep": true,
+          "shuffle": false
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "23"
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 4,
+          "selects": []
+        },
+        {
+          "type": 41,
+          "phase": 512
+        },
+        {
+          "type": 40,
+          "player": 1
+        },
+        {
+          "type": 41,
+          "phase": 1
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "27"
+        },
+        {
+          "type": 41,
+          "phase": 2
+        },
+        {
+          "type": 41,
+          "phase": 4
+        },
+        {
+          "type": 11,
+          "player": 1,
+          "summons": [],
+          "special_summons": [],
+          "pos_changes": [
+            {
+              "code": 15025844,
+              "controller": 1,
+              "location": 4,
+              "sequence": 0
+            }
+          ],
+          "monster_sets": [],
+          "spell_sets": [],
+          "activates": [],
+          "to_bp": true,
+          "to_ep": true,
+          "shuffle": false
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "23"
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 4,
+          "selects": []
+        },
+        {
+          "type": 41,
+          "phase": 512
+        },
+        {
+          "type": 40,
+          "player": 0
+        },
+        {
+          "type": 41,
+          "phase": 1
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "27"
+        },
+        {
+          "type": 41,
+          "phase": 2
+        },
+        {
+          "type": 41,
+          "phase": 4
+        },
+        {
+          "type": 11,
+          "player": 0,
+          "summons": [],
+          "special_summons": [],
+          "pos_changes": [
+            {
+              "code": 74677422,
+              "controller": 0,
+              "location": 4,
+              "sequence": 0
+            }
+          ],
+          "monster_sets": [],
+          "spell_sets": [],
+          "activates": [],
+          "to_bp": true,
+          "to_ep": true,
+          "shuffle": false
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "23"
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 4,
+          "selects": []
+        },
+        {
+          "type": 41,
+          "phase": 8
+        },
+        {
+          "type": 10,
+          "player": 0,
+          "chains": [],
+          "attacks": [
+            {
+              "code": 74677422,
+              "controller": 0,
+              "location": 4,
+              "sequence": 0,
+              "can_direct": false
+            }
+          ],
+          "to_m2": true,
+          "to_ep": true
+        },
+        {
+          "type": 2,
+          "hint_type": 3,
+          "player": 0,
+          "hint": "549"
+        },
+        {
+          "type": 15,
+          "player": 0,
+          "can_cancel": true,
+          "min": 1,
+          "max": 1,
+          "selects": [
+            {
+              "code": 15025844,
+              "controller": 1,
+              "location": 4,
+              "sequence": 0,
+              "position": 1
+            }
+          ]
+        },
+        {
+          "type": 110,
+          "card": {
+            "controller": 0,
+            "location": 4,
+            "sequence": 0,
+            "position": 1
+          },
+          "target": {
+            "controller": 1,
+            "location": 4,
+            "sequence": 0,
+            "position": 1
+          }
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 4096,
+          "hint_timing_other": 0,
+          "selects": []
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 4096,
+          "selects": []
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "24"
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "24"
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 16777216,
+          "hint_timing_other": 16777216,
+          "selects": []
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 16777216,
+          "hint_timing_other": 16777216,
+          "selects": []
+        },
+        {
+          "type": 113
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "40"
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "40"
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 0,
+          "selects": []
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 0,
+          "selects": []
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "41"
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "41"
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 8192,
+          "hint_timing_other": 0,
+          "selects": []
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 8192,
+          "selects": []
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "42"
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "42"
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 16384,
+          "hint_timing_other": 0,
+          "selects": []
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 16384,
+          "selects": []
+        },
+        {
+          "type": 111,
+          "card": {
+            "controller": 0,
+            "location": 4,
+            "sequence": 0,
+            "position": 1,
+            "attack": 2400,
+            "defense": 2000,
+            "destroyed": false
+          },
+          "target": {
+            "controller": 1,
+            "location": 4,
+            "sequence": 0,
+            "position": 1,
+            "attack": 800,
+            "defense": 2000,
+            "destroyed": true
+          }
+        },
+        {
+          "type": 91,
+          "player": 1,
+          "amount": 1600
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "43"
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "43"
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 134217728,
+          "hint_timing_other": 134348800,
+          "selects": []
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 134348800,
+          "hint_timing_other": 134217728,
+          "selects": []
+        },
+        {
+          "type": 50,
+          "card": 15025844,
+          "from": {
+            "controller": 1,
+            "location": 4,
+            "sequence": 0,
+            "position": 1
+          },
+          "to": {
+            "controller": 1,
+            "location": 16,
+            "sequence": 0,
+            "position": 5
+          },
+          "reason": 33
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "44"
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "44"
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 8912896,
+          "selects": []
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 8912896,
+          "hint_timing_other": 0,
+          "selects": []
+        },
+        {
+          "type": 114
+        },
+        {
+          "type": 10,
+          "player": 0,
+          "chains": [],
+          "attacks": [],
+          "to_m2": true,
+          "to_ep": true
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "29"
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 67108864,
+          "selects": []
+        },
+        {
+          "type": 41,
+          "phase": 256
+        },
+        {
+          "type": 11,
+          "player": 0,
+          "summons": [],
+          "special_summons": [],
+          "pos_changes": [],
+          "monster_sets": [],
+          "spell_sets": [],
+          "activates": [],
+          "to_bp": false,
+          "to_ep": true,
+          "shuffle": false
+        }
+      ],
+      "decisions": [
+        {
+          "prompt": {
+            "type": 11,
+            "player": 0,
+            "summons": [],
+            "special_summons": [],
+            "pos_changes": [
+              {
+                "code": 74677422,
+                "controller": 0,
+                "location": 4,
+                "sequence": 0
+              }
+            ],
+            "monster_sets": [],
+            "spell_sets": [],
+            "activates": [],
+            "to_bp": false,
+            "to_ep": true,
+            "shuffle": false
+          },
+          "response": {
+            "type": 1,
+            "action": 7,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 4,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 11,
+            "player": 1,
+            "summons": [],
+            "special_summons": [],
+            "pos_changes": [
+              {
+                "code": 15025844,
+                "controller": 1,
+                "location": 4,
+                "sequence": 0
+              }
+            ],
+            "monster_sets": [],
+            "spell_sets": [],
+            "activates": [],
+            "to_bp": true,
+            "to_ep": true,
+            "shuffle": false
+          },
+          "response": {
+            "type": 1,
+            "action": 7,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 4,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 11,
+            "player": 0,
+            "summons": [],
+            "special_summons": [],
+            "pos_changes": [
+              {
+                "code": 74677422,
+                "controller": 0,
+                "location": 4,
+                "sequence": 0
+              }
+            ],
+            "monster_sets": [],
+            "spell_sets": [],
+            "activates": [],
+            "to_bp": true,
+            "to_ep": true,
+            "shuffle": false
+          },
+          "response": {
+            "type": 1,
+            "action": 6,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 4,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 10,
+            "player": 0,
+            "chains": [],
+            "attacks": [
+              {
+                "code": 74677422,
+                "controller": 0,
+                "location": 4,
+                "sequence": 0,
+                "can_direct": false
+              }
+            ],
+            "to_m2": true,
+            "to_ep": true
+          },
+          "response": {
+            "type": 0,
+            "action": 1,
+            "index": 0
+          }
+        },
+        {
+          "prompt": {
+            "type": 15,
+            "player": 0,
+            "can_cancel": true,
+            "min": 1,
+            "max": 1,
+            "selects": [
+              {
+                "code": 15025844,
+                "controller": 1,
+                "location": 4,
+                "sequence": 0,
+                "position": 1
+              }
+            ]
+          },
+          "response": {
+            "type": 5,
+            "indicies": [
+              0
+            ]
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 4096,
+            "hint_timing_other": 0,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 4096,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 16777216,
+            "hint_timing_other": 16777216,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 16777216,
+            "hint_timing_other": 16777216,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 0,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 0,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 8192,
+            "hint_timing_other": 0,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 8192,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 16384,
+            "hint_timing_other": 0,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 16384,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 134217728,
+            "hint_timing_other": 134348800,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 134348800,
+            "hint_timing_other": 134217728,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 8912896,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 8912896,
+            "hint_timing_other": 0,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 10,
+            "player": 0,
+            "chains": [],
+            "attacks": [],
+            "to_m2": true,
+            "to_ep": true
+          },
+          "response": {
+            "type": 0,
+            "action": 2,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 67108864,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        }
+      ],
+      "queries": [
+        {
+          "query": {
+            "controller": 0,
+            "location": 4,
+            "sequence": 0,
+            "flags": 660443
+          },
+          "result": {
+            "code": 74677422,
+            "position": 1,
+            "type": 17,
+            "level": 7,
+            "attribute": 32,
+            "race": "8192",
+            "attack": 2400,
+            "defense": 2000,
+            "reason": 0,
+            "counters": {},
+            "status": 1032,
+            "isPublic": true
+          }
+        },
+        {
+          "query": {
+            "controller": 1,
+            "location": 4,
+            "sequence": 0,
+            "flags": 660443
+          },
+          "result": {
+            "code": 15025844,
+            "position": 1,
+            "type": 17,
+            "level": 4,
+            "attribute": 16,
+            "race": "2",
+            "attack": 800,
+            "defense": 2000,
+            "reason": 0,
+            "counters": {},
+            "status": 1032,
+            "isPublic": true
+          }
+        },
+        {
+          "query": {
+            "controller": 1,
+            "location": 16,
+            "flags": 4097
+          },
+          "result": [
+            {
+              "code": 15025844,
+              "reason": 33,
+              "isPublic": true
+            }
+          ]
+        },
+        {
+          "query": {
+            "field": true
+          },
+          "result": {
+            "flags": "190464",
+            "players": [
+              {
+                "lp": 8000,
+                "monsters": [
+                  {
+                    "position": 1,
+                    "materials": 0
+                  },
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                "spells": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                "deck_size": 1,
+                "hand_size": 0,
+                "grave_size": 0,
+                "banish_size": 0,
+                "extra_size": 0,
+                "extra_faceup_count": 0
+              },
+              {
+                "lp": 6400,
+                "monsters": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                "spells": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                "deck_size": 1,
+                "hand_size": 0,
+                "grave_size": 1,
+                "banish_size": 0,
+                "extra_size": 0,
+                "extra_faceup_count": 0
+              }
+            ],
+            "chain": []
+          }
+        },
+        {
+          "query": {
+            "controller": 0,
+            "location": 4,
+            "sequence": 0,
+            "flags": 660443
+          },
+          "result": {
+            "code": 74677422,
+            "position": 1,
+            "type": 17,
+            "level": 7,
+            "attribute": 32,
+            "race": "8192",
+            "attack": 2400,
+            "defense": 2000,
+            "reason": 0,
+            "counters": {},
+            "status": 2098184,
+            "isPublic": true
+          }
+        }
+      ],
+      "fixtureCards": [
+        {
+          "canonicalCode": 74677422,
+          "sourceCode": 74677422,
+          "name": "Red-Eyes Black Dragon",
+          "controller": 0,
+          "location": 4,
+          "sequence": 0,
+          "position": 1,
+          "scriptPath": null,
+          "scriptSha256": null,
+          "effectiveScriptSha256": null
+        },
+        {
+          "canonicalCode": 15025844,
+          "sourceCode": 15025844,
+          "name": "Mystical Elf",
+          "controller": 1,
+          "location": 4,
+          "sequence": 0,
+          "position": 1,
+          "scriptPath": null,
+          "scriptSha256": null,
+          "effectiveScriptSha256": null
+        },
+        {
+          "canonicalCode": 46986414,
+          "sourceCode": 46986414,
+          "name": "Dark Magician",
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "position": 8,
+          "scriptPath": null,
+          "scriptSha256": null,
+          "effectiveScriptSha256": null
+        },
+        {
+          "canonicalCode": 46986414,
+          "sourceCode": 46986414,
+          "name": "Dark Magician",
+          "controller": 1,
+          "location": 1,
+          "sequence": 0,
+          "position": 8,
+          "scriptPath": null,
+          "scriptSha256": null,
+          "effectiveScriptSha256": null
+        }
+      ],
+      "errors": [],
+      "initialPublicProjection": [
+        {
+          "controller": 0,
+          "location": 4,
+          "sequence": 0,
+          "result": {
+            "code": 74677422,
+            "position": 1,
+            "type": 17,
+            "level": 7,
+            "attribute": 32,
+            "race": "8192",
+            "attack": 2400,
+            "defense": 2000,
+            "reason": 0,
+            "counters": {},
+            "status": 1032,
+            "isPublic": true
+          }
+        },
+        {
+          "controller": 1,
+          "location": 4,
+          "sequence": 0,
+          "result": {
+            "code": 15025844,
+            "position": 1,
+            "type": 17,
+            "level": 4,
+            "attribute": 16,
+            "race": "2",
+            "attack": 800,
+            "defense": 2000,
+            "reason": 0,
+            "counters": {},
+            "status": 1032,
+            "isPublic": true
+          }
+        }
+      ],
+      "publicEvents": [
+        {
+          "type": "attack-monster",
+          "card": {
+            "id": "74677422",
+            "isSetFaceDown": false,
+            "position": "attack",
+            "controllerId": "player",
+            "name": "Red-Eyes Black Dragon"
+          },
+          "attackerSide": "player",
+          "target": "opponent",
+          "atkZoneType": "main",
+          "atkZoneIndex": 0,
+          "defZoneType": "main",
+          "defZoneIndex": 0,
+          "targetCard": {
+            "id": "15025844",
+            "isSetFaceDown": false,
+            "position": "attack",
+            "controllerId": "opponent",
+            "name": "Mystical Elf"
+          },
+          "targetFaceDown": false
+        },
+        {
+          "type": "damage-step",
+          "stage": "start"
+        },
+        {
+          "type": "battle-stats",
+          "target": "player",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "attacker",
+          "card": {
+            "id": "74677422",
+            "isSetFaceDown": false,
+            "position": "attack",
+            "controllerId": "player",
+            "name": "Red-Eyes Black Dragon"
+          },
+          "nativeStats": {
+            "attack": 2400,
+            "defense": 2000
+          },
+          "destroyed": false
+        },
+        {
+          "type": "battle-stats",
+          "target": "opponent",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "defender",
+          "card": {
+            "id": "15025844",
+            "isSetFaceDown": false,
+            "position": "attack",
+            "controllerId": "opponent",
+            "name": "Mystical Elf"
+          },
+          "nativeStats": {
+            "attack": 800,
+            "defense": 2000
+          },
+          "destroyed": true
+        },
+        {
+          "type": "lp-loss",
+          "target": "opponent",
+          "damage": 1600,
+          "amount": 1600,
+          "lp": 6400,
+          "previousLP": 8000,
+          "cost": false
+        },
+        {
+          "type": "move",
+          "target": "opponent",
+          "zoneType": "graveyard",
+          "zoneIndex": 0,
+          "from": {
+            "owner": "opponent",
+            "zoneType": "main",
+            "zoneIndex": 0
+          },
+          "to": {
+            "owner": "opponent",
+            "zoneType": "graveyard",
+            "zoneIndex": 0
+          },
+          "card": {
+            "id": "15025844",
+            "isSetFaceDown": false,
+            "position": "defense",
+            "controllerId": "opponent",
+            "name": "Mystical Elf"
+          },
+          "hidden": false,
+          "faceDown": false
+        },
+        {
+          "type": "destroy",
+          "target": "opponent",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "card": {
+            "id": "15025844",
+            "isSetFaceDown": false,
+            "position": "defense",
+            "controllerId": "opponent",
+            "name": "Mystical Elf"
+          },
+          "hidden": false,
+          "faceDown": false
+        },
+        {
+          "type": "damage-step",
+          "stage": "end"
+        }
+      ]
+    },
+    {
+      "id": "native-attack-91152256",
+      "fields": [],
+      "description": "An actual MR5 Battle command attacks a public Mystical Elf and resolves native destruction and damage.",
+      "status": "passed",
+      "nativeApi": [
+        11,
+        0
+      ],
+      "flags": "12885092352",
+      "fixtureSeed": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "fixtureTeams": {
+        "team1": {
+          "startingLP": 8000,
+          "startingDrawCount": 0,
+          "drawCountPerTurn": 0
+        },
+        "team2": {
+          "startingLP": 8000,
+          "startingDrawCount": 0,
+          "drawCountPerTurn": 0
+        }
+      },
+      "scriptCorrections": [],
+      "messages": [
+        {
+          "type": 40,
+          "player": 0
+        },
+        {
+          "type": 41,
+          "phase": 1
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "27"
+        },
+        {
+          "type": 41,
+          "phase": 2
+        },
+        {
+          "type": 41,
+          "phase": 4
+        },
+        {
+          "type": 11,
+          "player": 0,
+          "summons": [],
+          "special_summons": [],
+          "pos_changes": [
+            {
+              "code": 91152256,
+              "controller": 0,
+              "location": 4,
+              "sequence": 0
+            }
+          ],
+          "monster_sets": [],
+          "spell_sets": [],
+          "activates": [],
+          "to_bp": false,
+          "to_ep": true,
+          "shuffle": false
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "23"
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 4,
+          "selects": []
+        },
+        {
+          "type": 41,
+          "phase": 512
+        },
+        {
+          "type": 40,
+          "player": 1
+        },
+        {
+          "type": 41,
+          "phase": 1
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "27"
+        },
+        {
+          "type": 41,
+          "phase": 2
+        },
+        {
+          "type": 41,
+          "phase": 4
+        },
+        {
+          "type": 11,
+          "player": 1,
+          "summons": [],
+          "special_summons": [],
+          "pos_changes": [
+            {
+              "code": 15025844,
+              "controller": 1,
+              "location": 4,
+              "sequence": 0
+            }
+          ],
+          "monster_sets": [],
+          "spell_sets": [],
+          "activates": [],
+          "to_bp": true,
+          "to_ep": true,
+          "shuffle": false
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "23"
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 4,
+          "selects": []
+        },
+        {
+          "type": 41,
+          "phase": 512
+        },
+        {
+          "type": 40,
+          "player": 0
+        },
+        {
+          "type": 41,
+          "phase": 1
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "27"
+        },
+        {
+          "type": 41,
+          "phase": 2
+        },
+        {
+          "type": 41,
+          "phase": 4
+        },
+        {
+          "type": 11,
+          "player": 0,
+          "summons": [],
+          "special_summons": [],
+          "pos_changes": [
+            {
+              "code": 91152256,
+              "controller": 0,
+              "location": 4,
+              "sequence": 0
+            }
+          ],
+          "monster_sets": [],
+          "spell_sets": [],
+          "activates": [],
+          "to_bp": true,
+          "to_ep": true,
+          "shuffle": false
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "23"
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 4,
+          "selects": []
+        },
+        {
+          "type": 41,
+          "phase": 8
+        },
+        {
+          "type": 10,
+          "player": 0,
+          "chains": [],
+          "attacks": [
+            {
+              "code": 91152256,
+              "controller": 0,
+              "location": 4,
+              "sequence": 0,
+              "can_direct": false
+            }
+          ],
+          "to_m2": true,
+          "to_ep": true
+        },
+        {
+          "type": 2,
+          "hint_type": 3,
+          "player": 0,
+          "hint": "549"
+        },
+        {
+          "type": 15,
+          "player": 0,
+          "can_cancel": true,
+          "min": 1,
+          "max": 1,
+          "selects": [
+            {
+              "code": 15025844,
+              "controller": 1,
+              "location": 4,
+              "sequence": 0,
+              "position": 1
+            }
+          ]
+        },
+        {
+          "type": 110,
+          "card": {
+            "controller": 0,
+            "location": 4,
+            "sequence": 0,
+            "position": 1
+          },
+          "target": {
+            "controller": 1,
+            "location": 4,
+            "sequence": 0,
+            "position": 1
+          }
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 4096,
+          "hint_timing_other": 0,
+          "selects": []
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 4096,
+          "selects": []
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "24"
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "24"
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 16777216,
+          "hint_timing_other": 16777216,
+          "selects": []
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 16777216,
+          "hint_timing_other": 16777216,
+          "selects": []
+        },
+        {
+          "type": 113
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "40"
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "40"
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 0,
+          "selects": []
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 0,
+          "selects": []
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "41"
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "41"
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 8192,
+          "hint_timing_other": 0,
+          "selects": []
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 8192,
+          "selects": []
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "42"
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "42"
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 16384,
+          "hint_timing_other": 0,
+          "selects": []
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 16384,
+          "selects": []
+        },
+        {
+          "type": 111,
+          "card": {
+            "controller": 0,
+            "location": 4,
+            "sequence": 0,
+            "position": 1,
+            "attack": 1400,
+            "defense": 1200,
+            "destroyed": false
+          },
+          "target": {
+            "controller": 1,
+            "location": 4,
+            "sequence": 0,
+            "position": 1,
+            "attack": 800,
+            "defense": 2000,
+            "destroyed": true
+          }
+        },
+        {
+          "type": 91,
+          "player": 1,
+          "amount": 600
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "43"
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "43"
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 134217728,
+          "hint_timing_other": 134348800,
+          "selects": []
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 134348800,
+          "hint_timing_other": 134217728,
+          "selects": []
+        },
+        {
+          "type": 50,
+          "card": 15025844,
+          "from": {
+            "controller": 1,
+            "location": 4,
+            "sequence": 0,
+            "position": 1
+          },
+          "to": {
+            "controller": 1,
+            "location": 16,
+            "sequence": 0,
+            "position": 5
+          },
+          "reason": 33
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "44"
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "44"
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 8912896,
+          "selects": []
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 8912896,
+          "hint_timing_other": 0,
+          "selects": []
+        },
+        {
+          "type": 114
+        },
+        {
+          "type": 10,
+          "player": 0,
+          "chains": [],
+          "attacks": [],
+          "to_m2": true,
+          "to_ep": true
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "29"
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 67108864,
+          "selects": []
+        },
+        {
+          "type": 41,
+          "phase": 256
+        },
+        {
+          "type": 11,
+          "player": 0,
+          "summons": [],
+          "special_summons": [],
+          "pos_changes": [],
+          "monster_sets": [],
+          "spell_sets": [],
+          "activates": [],
+          "to_bp": false,
+          "to_ep": true,
+          "shuffle": false
+        }
+      ],
+      "decisions": [
+        {
+          "prompt": {
+            "type": 11,
+            "player": 0,
+            "summons": [],
+            "special_summons": [],
+            "pos_changes": [
+              {
+                "code": 91152256,
+                "controller": 0,
+                "location": 4,
+                "sequence": 0
+              }
+            ],
+            "monster_sets": [],
+            "spell_sets": [],
+            "activates": [],
+            "to_bp": false,
+            "to_ep": true,
+            "shuffle": false
+          },
+          "response": {
+            "type": 1,
+            "action": 7,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 4,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 11,
+            "player": 1,
+            "summons": [],
+            "special_summons": [],
+            "pos_changes": [
+              {
+                "code": 15025844,
+                "controller": 1,
+                "location": 4,
+                "sequence": 0
+              }
+            ],
+            "monster_sets": [],
+            "spell_sets": [],
+            "activates": [],
+            "to_bp": true,
+            "to_ep": true,
+            "shuffle": false
+          },
+          "response": {
+            "type": 1,
+            "action": 7,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 4,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 11,
+            "player": 0,
+            "summons": [],
+            "special_summons": [],
+            "pos_changes": [
+              {
+                "code": 91152256,
+                "controller": 0,
+                "location": 4,
+                "sequence": 0
+              }
+            ],
+            "monster_sets": [],
+            "spell_sets": [],
+            "activates": [],
+            "to_bp": true,
+            "to_ep": true,
+            "shuffle": false
+          },
+          "response": {
+            "type": 1,
+            "action": 6,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 4,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 10,
+            "player": 0,
+            "chains": [],
+            "attacks": [
+              {
+                "code": 91152256,
+                "controller": 0,
+                "location": 4,
+                "sequence": 0,
+                "can_direct": false
+              }
+            ],
+            "to_m2": true,
+            "to_ep": true
+          },
+          "response": {
+            "type": 0,
+            "action": 1,
+            "index": 0
+          }
+        },
+        {
+          "prompt": {
+            "type": 15,
+            "player": 0,
+            "can_cancel": true,
+            "min": 1,
+            "max": 1,
+            "selects": [
+              {
+                "code": 15025844,
+                "controller": 1,
+                "location": 4,
+                "sequence": 0,
+                "position": 1
+              }
+            ]
+          },
+          "response": {
+            "type": 5,
+            "indicies": [
+              0
+            ]
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 4096,
+            "hint_timing_other": 0,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 4096,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 16777216,
+            "hint_timing_other": 16777216,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 16777216,
+            "hint_timing_other": 16777216,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 0,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 0,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 8192,
+            "hint_timing_other": 0,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 8192,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 16384,
+            "hint_timing_other": 0,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 16384,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 134217728,
+            "hint_timing_other": 134348800,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 134348800,
+            "hint_timing_other": 134217728,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 8912896,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 8912896,
+            "hint_timing_other": 0,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 10,
+            "player": 0,
+            "chains": [],
+            "attacks": [],
+            "to_m2": true,
+            "to_ep": true
+          },
+          "response": {
+            "type": 0,
+            "action": 2,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 67108864,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        }
+      ],
+      "queries": [
+        {
+          "query": {
+            "controller": 0,
+            "location": 4,
+            "sequence": 0,
+            "flags": 660443
+          },
+          "result": {
+            "code": 91152256,
+            "position": 1,
+            "type": 17,
+            "level": 4,
+            "attribute": 1,
+            "race": "1",
+            "attack": 1400,
+            "defense": 1200,
+            "reason": 0,
+            "counters": {},
+            "status": 1032,
+            "isPublic": true
+          }
+        },
+        {
+          "query": {
+            "controller": 1,
+            "location": 4,
+            "sequence": 0,
+            "flags": 660443
+          },
+          "result": {
+            "code": 15025844,
+            "position": 1,
+            "type": 17,
+            "level": 4,
+            "attribute": 16,
+            "race": "2",
+            "attack": 800,
+            "defense": 2000,
+            "reason": 0,
+            "counters": {},
+            "status": 1032,
+            "isPublic": true
+          }
+        },
+        {
+          "query": {
+            "controller": 1,
+            "location": 16,
+            "flags": 4097
+          },
+          "result": [
+            {
+              "code": 15025844,
+              "reason": 33,
+              "isPublic": true
+            }
+          ]
+        },
+        {
+          "query": {
+            "field": true
+          },
+          "result": {
+            "flags": "190464",
+            "players": [
+              {
+                "lp": 8000,
+                "monsters": [
+                  {
+                    "position": 1,
+                    "materials": 0
+                  },
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                "spells": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                "deck_size": 1,
+                "hand_size": 0,
+                "grave_size": 0,
+                "banish_size": 0,
+                "extra_size": 0,
+                "extra_faceup_count": 0
+              },
+              {
+                "lp": 7400,
+                "monsters": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                "spells": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                "deck_size": 1,
+                "hand_size": 0,
+                "grave_size": 1,
+                "banish_size": 0,
+                "extra_size": 0,
+                "extra_faceup_count": 0
+              }
+            ],
+            "chain": []
+          }
+        },
+        {
+          "query": {
+            "controller": 0,
+            "location": 4,
+            "sequence": 0,
+            "flags": 660443
+          },
+          "result": {
+            "code": 91152256,
+            "position": 1,
+            "type": 17,
+            "level": 4,
+            "attribute": 1,
+            "race": "1",
+            "attack": 1400,
+            "defense": 1200,
+            "reason": 0,
+            "counters": {},
+            "status": 2098184,
+            "isPublic": true
+          }
+        }
+      ],
+      "fixtureCards": [
+        {
+          "canonicalCode": 91152256,
+          "sourceCode": 91152256,
+          "name": "Celtic Guardian",
+          "controller": 0,
+          "location": 4,
+          "sequence": 0,
+          "position": 1,
+          "scriptPath": null,
+          "scriptSha256": null,
+          "effectiveScriptSha256": null
+        },
+        {
+          "canonicalCode": 15025844,
+          "sourceCode": 15025844,
+          "name": "Mystical Elf",
+          "controller": 1,
+          "location": 4,
+          "sequence": 0,
+          "position": 1,
+          "scriptPath": null,
+          "scriptSha256": null,
+          "effectiveScriptSha256": null
+        },
+        {
+          "canonicalCode": 46986414,
+          "sourceCode": 46986414,
+          "name": "Dark Magician",
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "position": 8,
+          "scriptPath": null,
+          "scriptSha256": null,
+          "effectiveScriptSha256": null
+        },
+        {
+          "canonicalCode": 46986414,
+          "sourceCode": 46986414,
+          "name": "Dark Magician",
+          "controller": 1,
+          "location": 1,
+          "sequence": 0,
+          "position": 8,
+          "scriptPath": null,
+          "scriptSha256": null,
+          "effectiveScriptSha256": null
+        }
+      ],
+      "errors": [],
+      "initialPublicProjection": [
+        {
+          "controller": 0,
+          "location": 4,
+          "sequence": 0,
+          "result": {
+            "code": 91152256,
+            "position": 1,
+            "type": 17,
+            "level": 4,
+            "attribute": 1,
+            "race": "1",
+            "attack": 1400,
+            "defense": 1200,
+            "reason": 0,
+            "counters": {},
+            "status": 1032,
+            "isPublic": true
+          }
+        },
+        {
+          "controller": 1,
+          "location": 4,
+          "sequence": 0,
+          "result": {
+            "code": 15025844,
+            "position": 1,
+            "type": 17,
+            "level": 4,
+            "attribute": 16,
+            "race": "2",
+            "attack": 800,
+            "defense": 2000,
+            "reason": 0,
+            "counters": {},
+            "status": 1032,
+            "isPublic": true
+          }
+        }
+      ],
+      "publicEvents": [
+        {
+          "type": "attack-monster",
+          "card": {
+            "id": "91152256",
+            "isSetFaceDown": false,
+            "position": "attack",
+            "controllerId": "player",
+            "name": "Celtic Guardian"
+          },
+          "attackerSide": "player",
+          "target": "opponent",
+          "atkZoneType": "main",
+          "atkZoneIndex": 0,
+          "defZoneType": "main",
+          "defZoneIndex": 0,
+          "targetCard": {
+            "id": "15025844",
+            "isSetFaceDown": false,
+            "position": "attack",
+            "controllerId": "opponent",
+            "name": "Mystical Elf"
+          },
+          "targetFaceDown": false
+        },
+        {
+          "type": "damage-step",
+          "stage": "start"
+        },
+        {
+          "type": "battle-stats",
+          "target": "player",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "attacker",
+          "card": {
+            "id": "91152256",
+            "isSetFaceDown": false,
+            "position": "attack",
+            "controllerId": "player",
+            "name": "Celtic Guardian"
+          },
+          "nativeStats": {
+            "attack": 1400,
+            "defense": 1200
+          },
+          "destroyed": false
+        },
+        {
+          "type": "battle-stats",
+          "target": "opponent",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "defender",
+          "card": {
+            "id": "15025844",
+            "isSetFaceDown": false,
+            "position": "attack",
+            "controllerId": "opponent",
+            "name": "Mystical Elf"
+          },
+          "nativeStats": {
+            "attack": 800,
+            "defense": 2000
+          },
+          "destroyed": true
+        },
+        {
+          "type": "lp-loss",
+          "target": "opponent",
+          "damage": 600,
+          "amount": 600,
+          "lp": 7400,
+          "previousLP": 8000,
+          "cost": false
+        },
+        {
+          "type": "move",
+          "target": "opponent",
+          "zoneType": "graveyard",
+          "zoneIndex": 0,
+          "from": {
+            "owner": "opponent",
+            "zoneType": "main",
+            "zoneIndex": 0
+          },
+          "to": {
+            "owner": "opponent",
+            "zoneType": "graveyard",
+            "zoneIndex": 0
+          },
+          "card": {
+            "id": "15025844",
+            "isSetFaceDown": false,
+            "position": "defense",
+            "controllerId": "opponent",
+            "name": "Mystical Elf"
+          },
+          "hidden": false,
+          "faceDown": false
+        },
+        {
+          "type": "destroy",
+          "target": "opponent",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "card": {
+            "id": "15025844",
+            "isSetFaceDown": false,
+            "position": "defense",
+            "controllerId": "opponent",
+            "name": "Mystical Elf"
+          },
+          "hidden": false,
+          "faceDown": false
+        },
+        {
+          "type": "damage-step",
+          "stage": "end"
+        }
+      ]
+    },
+    {
+      "id": "native-attack-70781052",
+      "fields": [],
+      "description": "An actual MR5 Battle command attacks a public Mystical Elf and resolves native destruction and damage.",
+      "status": "passed",
+      "nativeApi": [
+        11,
+        0
+      ],
+      "flags": "12885092352",
+      "fixtureSeed": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "fixtureTeams": {
+        "team1": {
+          "startingLP": 8000,
+          "startingDrawCount": 0,
+          "drawCountPerTurn": 0
+        },
+        "team2": {
+          "startingLP": 8000,
+          "startingDrawCount": 0,
+          "drawCountPerTurn": 0
+        }
+      },
+      "scriptCorrections": [],
+      "messages": [
+        {
+          "type": 40,
+          "player": 0
+        },
+        {
+          "type": 41,
+          "phase": 1
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "27"
+        },
+        {
+          "type": 41,
+          "phase": 2
+        },
+        {
+          "type": 41,
+          "phase": 4
+        },
+        {
+          "type": 11,
+          "player": 0,
+          "summons": [],
+          "special_summons": [],
+          "pos_changes": [
+            {
+              "code": 70781052,
+              "controller": 0,
+              "location": 4,
+              "sequence": 0
+            }
+          ],
+          "monster_sets": [],
+          "spell_sets": [],
+          "activates": [],
+          "to_bp": false,
+          "to_ep": true,
+          "shuffle": false
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "23"
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 4,
+          "selects": []
+        },
+        {
+          "type": 41,
+          "phase": 512
+        },
+        {
+          "type": 40,
+          "player": 1
+        },
+        {
+          "type": 41,
+          "phase": 1
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "27"
+        },
+        {
+          "type": 41,
+          "phase": 2
+        },
+        {
+          "type": 41,
+          "phase": 4
+        },
+        {
+          "type": 11,
+          "player": 1,
+          "summons": [],
+          "special_summons": [],
+          "pos_changes": [
+            {
+              "code": 15025844,
+              "controller": 1,
+              "location": 4,
+              "sequence": 0
+            }
+          ],
+          "monster_sets": [],
+          "spell_sets": [],
+          "activates": [],
+          "to_bp": true,
+          "to_ep": true,
+          "shuffle": false
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "23"
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 4,
+          "selects": []
+        },
+        {
+          "type": 41,
+          "phase": 512
+        },
+        {
+          "type": 40,
+          "player": 0
+        },
+        {
+          "type": 41,
+          "phase": 1
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "27"
+        },
+        {
+          "type": 41,
+          "phase": 2
+        },
+        {
+          "type": 41,
+          "phase": 4
+        },
+        {
+          "type": 11,
+          "player": 0,
+          "summons": [],
+          "special_summons": [],
+          "pos_changes": [
+            {
+              "code": 70781052,
+              "controller": 0,
+              "location": 4,
+              "sequence": 0
+            }
+          ],
+          "monster_sets": [],
+          "spell_sets": [],
+          "activates": [],
+          "to_bp": true,
+          "to_ep": true,
+          "shuffle": false
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "23"
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 4,
+          "selects": []
+        },
+        {
+          "type": 41,
+          "phase": 8
+        },
+        {
+          "type": 10,
+          "player": 0,
+          "chains": [],
+          "attacks": [
+            {
+              "code": 70781052,
+              "controller": 0,
+              "location": 4,
+              "sequence": 0,
+              "can_direct": false
+            }
+          ],
+          "to_m2": true,
+          "to_ep": true
+        },
+        {
+          "type": 2,
+          "hint_type": 3,
+          "player": 0,
+          "hint": "549"
+        },
+        {
+          "type": 15,
+          "player": 0,
+          "can_cancel": true,
+          "min": 1,
+          "max": 1,
+          "selects": [
+            {
+              "code": 15025844,
+              "controller": 1,
+              "location": 4,
+              "sequence": 0,
+              "position": 1
+            }
+          ]
+        },
+        {
+          "type": 110,
+          "card": {
+            "controller": 0,
+            "location": 4,
+            "sequence": 0,
+            "position": 1
+          },
+          "target": {
+            "controller": 1,
+            "location": 4,
+            "sequence": 0,
+            "position": 1
+          }
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 4096,
+          "hint_timing_other": 0,
+          "selects": []
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 4096,
+          "selects": []
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "24"
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "24"
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 16777216,
+          "hint_timing_other": 16777216,
+          "selects": []
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 16777216,
+          "hint_timing_other": 16777216,
+          "selects": []
+        },
+        {
+          "type": 113
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "40"
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "40"
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 0,
+          "selects": []
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 0,
+          "selects": []
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "41"
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "41"
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 8192,
+          "hint_timing_other": 0,
+          "selects": []
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 8192,
+          "selects": []
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "42"
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "42"
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 16384,
+          "hint_timing_other": 0,
+          "selects": []
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 16384,
+          "selects": []
+        },
+        {
+          "type": 111,
+          "card": {
+            "controller": 0,
+            "location": 4,
+            "sequence": 0,
+            "position": 1,
+            "attack": 2500,
+            "defense": 1200,
+            "destroyed": false
+          },
+          "target": {
+            "controller": 1,
+            "location": 4,
+            "sequence": 0,
+            "position": 1,
+            "attack": 800,
+            "defense": 2000,
+            "destroyed": true
+          }
+        },
+        {
+          "type": 91,
+          "player": 1,
+          "amount": 1700
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "43"
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "43"
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 134217728,
+          "hint_timing_other": 134348800,
+          "selects": []
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 134348800,
+          "hint_timing_other": 134217728,
+          "selects": []
+        },
+        {
+          "type": 50,
+          "card": 15025844,
+          "from": {
+            "controller": 1,
+            "location": 4,
+            "sequence": 0,
+            "position": 1
+          },
+          "to": {
+            "controller": 1,
+            "location": 16,
+            "sequence": 0,
+            "position": 5
+          },
+          "reason": 33
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 0,
+          "hint": "44"
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "44"
+        },
+        {
+          "type": 16,
+          "player": 0,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 8912896,
+          "selects": []
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 8912896,
+          "hint_timing_other": 0,
+          "selects": []
+        },
+        {
+          "type": 114
+        },
+        {
+          "type": 10,
+          "player": 0,
+          "chains": [],
+          "attacks": [],
+          "to_m2": true,
+          "to_ep": true
+        },
+        {
+          "type": 2,
+          "hint_type": 1,
+          "player": 1,
+          "hint": "29"
+        },
+        {
+          "type": 16,
+          "player": 1,
+          "spe_count": 0,
+          "forced": false,
+          "hint_timing": 0,
+          "hint_timing_other": 67108864,
+          "selects": []
+        },
+        {
+          "type": 41,
+          "phase": 256
+        },
+        {
+          "type": 11,
+          "player": 0,
+          "summons": [],
+          "special_summons": [],
+          "pos_changes": [],
+          "monster_sets": [],
+          "spell_sets": [],
+          "activates": [],
+          "to_bp": false,
+          "to_ep": true,
+          "shuffle": false
+        }
+      ],
+      "decisions": [
+        {
+          "prompt": {
+            "type": 11,
+            "player": 0,
+            "summons": [],
+            "special_summons": [],
+            "pos_changes": [
+              {
+                "code": 70781052,
+                "controller": 0,
+                "location": 4,
+                "sequence": 0
+              }
+            ],
+            "monster_sets": [],
+            "spell_sets": [],
+            "activates": [],
+            "to_bp": false,
+            "to_ep": true,
+            "shuffle": false
+          },
+          "response": {
+            "type": 1,
+            "action": 7,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 4,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 11,
+            "player": 1,
+            "summons": [],
+            "special_summons": [],
+            "pos_changes": [
+              {
+                "code": 15025844,
+                "controller": 1,
+                "location": 4,
+                "sequence": 0
+              }
+            ],
+            "monster_sets": [],
+            "spell_sets": [],
+            "activates": [],
+            "to_bp": true,
+            "to_ep": true,
+            "shuffle": false
+          },
+          "response": {
+            "type": 1,
+            "action": 7,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 4,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 11,
+            "player": 0,
+            "summons": [],
+            "special_summons": [],
+            "pos_changes": [
+              {
+                "code": 70781052,
+                "controller": 0,
+                "location": 4,
+                "sequence": 0
+              }
+            ],
+            "monster_sets": [],
+            "spell_sets": [],
+            "activates": [],
+            "to_bp": true,
+            "to_ep": true,
+            "shuffle": false
+          },
+          "response": {
+            "type": 1,
+            "action": 6,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 4,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 10,
+            "player": 0,
+            "chains": [],
+            "attacks": [
+              {
+                "code": 70781052,
+                "controller": 0,
+                "location": 4,
+                "sequence": 0,
+                "can_direct": false
+              }
+            ],
+            "to_m2": true,
+            "to_ep": true
+          },
+          "response": {
+            "type": 0,
+            "action": 1,
+            "index": 0
+          }
+        },
+        {
+          "prompt": {
+            "type": 15,
+            "player": 0,
+            "can_cancel": true,
+            "min": 1,
+            "max": 1,
+            "selects": [
+              {
+                "code": 15025844,
+                "controller": 1,
+                "location": 4,
+                "sequence": 0,
+                "position": 1
+              }
+            ]
+          },
+          "response": {
+            "type": 5,
+            "indicies": [
+              0
+            ]
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 4096,
+            "hint_timing_other": 0,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 4096,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 16777216,
+            "hint_timing_other": 16777216,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 16777216,
+            "hint_timing_other": 16777216,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 0,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 0,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 8192,
+            "hint_timing_other": 0,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 8192,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 16384,
+            "hint_timing_other": 0,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 16384,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 134217728,
+            "hint_timing_other": 134348800,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 134348800,
+            "hint_timing_other": 134217728,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 0,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 8912896,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 8912896,
+            "hint_timing_other": 0,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 10,
+            "player": 0,
+            "chains": [],
+            "attacks": [],
+            "to_m2": true,
+            "to_ep": true
+          },
+          "response": {
+            "type": 0,
+            "action": 2,
+            "index": null
+          }
+        },
+        {
+          "prompt": {
+            "type": 16,
+            "player": 1,
+            "spe_count": 0,
+            "forced": false,
+            "hint_timing": 0,
+            "hint_timing_other": 67108864,
+            "selects": []
+          },
+          "response": {
+            "type": 8,
+            "index": null
+          }
+        }
+      ],
+      "queries": [
+        {
+          "query": {
+            "controller": 0,
+            "location": 4,
+            "sequence": 0,
+            "flags": 660443
+          },
+          "result": {
+            "code": 70781052,
+            "position": 1,
+            "type": 17,
+            "level": 6,
+            "attribute": 32,
+            "race": "8",
+            "attack": 2500,
+            "defense": 1200,
+            "reason": 0,
+            "counters": {},
+            "status": 1032,
+            "isPublic": true
+          }
+        },
+        {
+          "query": {
+            "controller": 1,
+            "location": 4,
+            "sequence": 0,
+            "flags": 660443
+          },
+          "result": {
+            "code": 15025844,
+            "position": 1,
+            "type": 17,
+            "level": 4,
+            "attribute": 16,
+            "race": "2",
+            "attack": 800,
+            "defense": 2000,
+            "reason": 0,
+            "counters": {},
+            "status": 1032,
+            "isPublic": true
+          }
+        },
+        {
+          "query": {
+            "controller": 1,
+            "location": 16,
+            "flags": 4097
+          },
+          "result": [
+            {
+              "code": 15025844,
+              "reason": 33,
+              "isPublic": true
+            }
+          ]
+        },
+        {
+          "query": {
+            "field": true
+          },
+          "result": {
+            "flags": "190464",
+            "players": [
+              {
+                "lp": 8000,
+                "monsters": [
+                  {
+                    "position": 1,
+                    "materials": 0
+                  },
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                "spells": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                "deck_size": 1,
+                "hand_size": 0,
+                "grave_size": 0,
+                "banish_size": 0,
+                "extra_size": 0,
+                "extra_faceup_count": 0
+              },
+              {
+                "lp": 6300,
+                "monsters": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                "spells": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                "deck_size": 1,
+                "hand_size": 0,
+                "grave_size": 1,
+                "banish_size": 0,
+                "extra_size": 0,
+                "extra_faceup_count": 0
+              }
+            ],
+            "chain": []
+          }
+        },
+        {
+          "query": {
+            "controller": 0,
+            "location": 4,
+            "sequence": 0,
+            "flags": 660443
+          },
+          "result": {
+            "code": 70781052,
+            "position": 1,
+            "type": 17,
+            "level": 6,
+            "attribute": 32,
+            "race": "8",
+            "attack": 2500,
+            "defense": 1200,
+            "reason": 0,
+            "counters": {},
+            "status": 2098184,
+            "isPublic": true
+          }
+        }
+      ],
+      "fixtureCards": [
+        {
+          "canonicalCode": 70781052,
+          "sourceCode": 70781052,
+          "name": "Summoned Skull",
+          "controller": 0,
+          "location": 4,
+          "sequence": 0,
+          "position": 1,
+          "scriptPath": null,
+          "scriptSha256": null,
+          "effectiveScriptSha256": null
+        },
+        {
+          "canonicalCode": 15025844,
+          "sourceCode": 15025844,
+          "name": "Mystical Elf",
+          "controller": 1,
+          "location": 4,
+          "sequence": 0,
+          "position": 1,
+          "scriptPath": null,
+          "scriptSha256": null,
+          "effectiveScriptSha256": null
+        },
+        {
+          "canonicalCode": 46986414,
+          "sourceCode": 46986414,
+          "name": "Dark Magician",
+          "controller": 0,
+          "location": 1,
+          "sequence": 0,
+          "position": 8,
+          "scriptPath": null,
+          "scriptSha256": null,
+          "effectiveScriptSha256": null
+        },
+        {
+          "canonicalCode": 46986414,
+          "sourceCode": 46986414,
+          "name": "Dark Magician",
+          "controller": 1,
+          "location": 1,
+          "sequence": 0,
+          "position": 8,
+          "scriptPath": null,
+          "scriptSha256": null,
+          "effectiveScriptSha256": null
+        }
+      ],
+      "errors": [],
+      "initialPublicProjection": [
+        {
+          "controller": 0,
+          "location": 4,
+          "sequence": 0,
+          "result": {
+            "code": 70781052,
+            "position": 1,
+            "type": 17,
+            "level": 6,
+            "attribute": 32,
+            "race": "8",
+            "attack": 2500,
+            "defense": 1200,
+            "reason": 0,
+            "counters": {},
+            "status": 1032,
+            "isPublic": true
+          }
+        },
+        {
+          "controller": 1,
+          "location": 4,
+          "sequence": 0,
+          "result": {
+            "code": 15025844,
+            "position": 1,
+            "type": 17,
+            "level": 4,
+            "attribute": 16,
+            "race": "2",
+            "attack": 800,
+            "defense": 2000,
+            "reason": 0,
+            "counters": {},
+            "status": 1032,
+            "isPublic": true
+          }
+        }
+      ],
+      "publicEvents": [
+        {
+          "type": "attack-monster",
+          "card": {
+            "id": "70781052",
+            "isSetFaceDown": false,
+            "position": "attack",
+            "controllerId": "player",
+            "name": "Summoned Skull"
+          },
+          "attackerSide": "player",
+          "target": "opponent",
+          "atkZoneType": "main",
+          "atkZoneIndex": 0,
+          "defZoneType": "main",
+          "defZoneIndex": 0,
+          "targetCard": {
+            "id": "15025844",
+            "isSetFaceDown": false,
+            "position": "attack",
+            "controllerId": "opponent",
+            "name": "Mystical Elf"
+          },
+          "targetFaceDown": false
+        },
+        {
+          "type": "damage-step",
+          "stage": "start"
+        },
+        {
+          "type": "battle-stats",
+          "target": "player",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "attacker",
+          "card": {
+            "id": "70781052",
+            "isSetFaceDown": false,
+            "position": "attack",
+            "controllerId": "player",
+            "name": "Summoned Skull"
+          },
+          "nativeStats": {
+            "attack": 2500,
+            "defense": 1200
+          },
+          "destroyed": false
+        },
+        {
+          "type": "battle-stats",
+          "target": "opponent",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "participant": "defender",
+          "card": {
+            "id": "15025844",
+            "isSetFaceDown": false,
+            "position": "attack",
+            "controllerId": "opponent",
+            "name": "Mystical Elf"
+          },
+          "nativeStats": {
+            "attack": 800,
+            "defense": 2000
+          },
+          "destroyed": true
+        },
+        {
+          "type": "lp-loss",
+          "target": "opponent",
+          "damage": 1700,
+          "amount": 1700,
+          "lp": 6300,
+          "previousLP": 8000,
+          "cost": false
+        },
+        {
+          "type": "move",
+          "target": "opponent",
+          "zoneType": "graveyard",
+          "zoneIndex": 0,
+          "from": {
+            "owner": "opponent",
+            "zoneType": "main",
+            "zoneIndex": 0
+          },
+          "to": {
+            "owner": "opponent",
+            "zoneType": "graveyard",
+            "zoneIndex": 0
+          },
+          "card": {
+            "id": "15025844",
+            "isSetFaceDown": false,
+            "position": "defense",
+            "controllerId": "opponent",
+            "name": "Mystical Elf"
+          },
+          "hidden": false,
+          "faceDown": false
+        },
+        {
+          "type": "destroy",
+          "target": "opponent",
+          "zoneType": "main",
+          "zoneIndex": 0,
+          "card": {
+            "id": "15025844",
+            "isSetFaceDown": false,
+            "position": "defense",
+            "controllerId": "opponent",
+            "name": "Mystical Elf"
+          },
+          "hidden": false,
+          "faceDown": false
+        },
+        {
+          "type": "damage-step",
+          "stage": "end"
+        }
+      ]
+    }
+  ],
+  "presentations": [
+    {
+      "label": "Blue-Eyes White Dragon",
+      "sourceScenario": "native-attack-89631139",
+      "nativeEventType": "attack-monster",
+      "visual": {
+        "kind": "attack",
+        "source": [
+          -3,
+          2,
+          0
+        ],
+        "sourceRef": {
+          "owner": "player",
+          "zoneType": "main",
+          "zoneIndex": 0
+        },
+        "target": [
+          3,
+          2,
+          0
+        ],
+        "targetRef": {
+          "owner": "opponent",
+          "zoneType": "main",
+          "zoneIndex": 0
+        },
+        "card": {
+          "id": "89631139",
+          "name": "Blue-Eyes White Dragon",
+          "name_en": "",
+          "race": "",
+          "attribute": "",
+          "type": ""
+        }
+      }
+    },
+    {
+      "label": "Destruction réellement résolue",
+      "sourceScenario": "native-attack-89631139",
+      "nativeEventType": "destroy",
+      "visual": {
+        "kind": "destroy",
+        "source": [
+          3,
+          0.5,
+          0
+        ],
+        "sourceRef": {
+          "owner": "opponent",
+          "zoneType": "main",
+          "zoneIndex": 0
+        },
+        "card": {
+          "id": "15025844",
+          "name": "Mystical Elf",
+          "name_en": "",
+          "race": "",
+          "attribute": "",
+          "type": ""
+        }
+      }
+    },
+    {
+      "label": "Red-Eyes Black Dragon",
+      "sourceScenario": "native-attack-74677422",
+      "nativeEventType": "attack-monster",
+      "visual": {
+        "kind": "attack",
+        "source": [
+          -3,
+          2,
+          0
+        ],
+        "sourceRef": {
+          "owner": "player",
+          "zoneType": "main",
+          "zoneIndex": 0
+        },
+        "target": [
+          3,
+          2,
+          0
+        ],
+        "targetRef": {
+          "owner": "opponent",
+          "zoneType": "main",
+          "zoneIndex": 0
+        },
+        "card": {
+          "id": "74677422",
+          "name": "Red-Eyes Black Dragon",
+          "name_en": "",
+          "race": "",
+          "attribute": "",
+          "type": ""
+        }
+      }
+    },
+    {
+      "label": "Celtic Guardian",
+      "sourceScenario": "native-attack-91152256",
+      "nativeEventType": "attack-monster",
+      "visual": {
+        "kind": "attack",
+        "source": [
+          -3,
+          2,
+          0
+        ],
+        "sourceRef": {
+          "owner": "player",
+          "zoneType": "main",
+          "zoneIndex": 0
+        },
+        "target": [
+          3,
+          2,
+          0
+        ],
+        "targetRef": {
+          "owner": "opponent",
+          "zoneType": "main",
+          "zoneIndex": 0
+        },
+        "card": {
+          "id": "91152256",
+          "name": "Celtic Guardian",
+          "name_en": "",
+          "race": "",
+          "attribute": "",
+          "type": ""
+        }
+      }
+    },
+    {
+      "label": "Summoned Skull",
+      "sourceScenario": "native-attack-70781052",
+      "nativeEventType": "attack-monster",
+      "visual": {
+        "kind": "attack",
+        "source": [
+          -3,
+          2,
+          0
+        ],
+        "sourceRef": {
+          "owner": "player",
+          "zoneType": "main",
+          "zoneIndex": 0
+        },
+        "target": [
+          3,
+          2,
+          0
+        ],
+        "targetRef": {
+          "owner": "opponent",
+          "zoneType": "main",
+          "zoneIndex": 0
+        },
+        "card": {
+          "id": "70781052",
+          "name": "Summoned Skull",
+          "name_en": "",
+          "race": "",
+          "attribute": "",
+          "type": ""
+        }
+      }
+    },
+    {
+      "label": "Réanimation confirmée depuis le Cimetière adverse",
+      "sourceScenario": "confirmed-revival-from-opposing-graveyard-controller-0",
+      "sourceEvidenceFile": "docs/audits/artifacts/effects-wave-2026-10-08/referenced-native-public-evidence.json",
+      "originalEvidenceFile": "docs/audits/artifacts/native-public-presentation-wave-2026-10-08.json",
+      "nativeEventType": "summon",
+      "visual": {
+        "kind": "summon",
+        "source": [
+          -3,
+          0.5,
+          0
+        ],
+        "sourceRef": {
+          "owner": "player",
+          "zoneType": "main",
+          "zoneIndex": 0
+        },
+        "card": {
+          "id": "89631139",
+          "name": "Dragon Blanc aux Yeux Bleus",
+          "name_en": "Blue-Eyes White Dragon",
+          "race": "Dragon",
+          "attribute": "Light",
+          "type": "Normal Monster"
+        },
+        "profile": "revival"
+      }
+    },
+    {
+      "label": "Annulation native de Monster Reborn",
+      "sourceScenario": "necrovalley-negation-never-announces-revival",
+      "sourceEvidenceFile": "docs/audits/artifacts/effects-wave-2026-10-08/referenced-native-public-evidence.json",
+      "originalEvidenceFile": "docs/audits/artifacts/native-public-presentation-wave-2026-10-08.json",
+      "nativeEventType": "chain-negated",
+      "visual": {
+        "kind": "negate",
+        "source": [
+          -3,
+          0.5,
+          0
+        ],
+        "card": {
+          "id": "83764718",
+          "name": "Monster Reborn",
+          "name_en": "Monster Reborn",
+          "race": "Normal",
+          "attribute": "SPELL",
+          "type": "Spell Card"
+        }
+      }
+    }
+  ]
+}

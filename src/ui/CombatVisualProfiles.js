@@ -1,5 +1,7 @@
 import { FIELD_SPELL_REFERENCE_ART_PALETTES } from './FieldSpellReferenceArtPalettes.js';
 import { getFieldSpellEnvironmentCatalogEntry } from './FieldSpellEnvironmentCatalog.js';
+import { POPULAR_GOD_MODEL_PROFILES } from './HologramPopularGodModels.js';
+import { POPULAR_STAPLE_PROFILES } from './HologramPopularStapleModels.js';
 
 const ATTRIBUTE_COLORS = Object.freeze({
   LIGHT: '#87eaff', DARK: '#ae75ff', FIRE: '#ff7944', WATER: '#38d8ee',
@@ -26,7 +28,17 @@ const CARD_PROFILES = Object.freeze({
   '77637979': { id: 'lanphorhynchus', family: 'dragon', digital: true, body: '#35518e', accent: '#68e7ff', eye: '#edfe6d', attack: 'cyber-beam' },
   '20721928': { id: 'elemental-hero-sparkman', family: 'warrior', body: '#293865', accent: '#d7c16f', eye: '#93f5f0', attack: 'spark-bolt', anatomy: 'sparkman', referenceArt: '/cards/cropped/20721928.jpg' },
   '68638985': { id: 'slime-toad', family: 'aquatic', body: '#168955', accent: '#319a68', eye: '#d5c948', attack: 'water', anatomy: 'slime-toad', referenceArt: '/cards/cropped/68638985.jpg' },
-  '39552864': { id: 'mystical-shine-ball', family: 'orb', body: '#e3eef1', accent: '#c6eeff', eye: '#f8fffa', attack: 'faith-light', anatomy: 'shine-ball', referenceArt: '/cards/cropped/39552864.jpg' }
+  '26905245': { id: 'metal-reflect-slime', family: 'aquatic', body: '#82766d', accent: '#e6ebe8', eye: '#ffffff', attack: 'impact', anatomy: 'metal-reflect-slime', referenceArt: '/cards/cropped/26905245.jpg' },
+  '28649820': { id: 'embodiment-of-apophis', family: 'warrior', body: '#18252c', accent: '#40677d', eye: '#ec233d', attack: 'blade', anatomy: 'armored-cobra-apophis', referenceArt: '/cards/cropped/28649820.jpg' },
+  '97590747': { id: 'la-jinn', family: 'fiend', bodyMetalness: 0.12, bodyRoughness: 0.55, darkMetalness: 0.08, body: '#188b54', accent: '#e0bf59', eye: '#122e28', attack: 'impact', anatomy: 'emerald-genie', referenceArt: '/cards/cropped/97590747.jpg' },
+  '15025844': { id: 'mystical-elf', family: 'magician', bodyMetalness: 0.08, bodyRoughness: 0.58, accentMetalness: 0.12, accentRoughness: 0.5, darkMetalness: 0.08, body: '#64b5df', accent: '#e4e9dc', eye: '#26475b', hair: '#bd8f2b', attack: 'dark-magic', anatomy: 'mystical-elf-prayer', referenceArt: '/cards/cropped/15025844.jpg' },
+  '32452818': { id: 'beaver-warrior', family: 'warrior', bodyMetalness: 0.08, bodyRoughness: 0.6, body: '#9883a5', accent: '#377bb3', eye: '#dc2649', attack: 'blade', anatomy: 'blue-armored-rodent', referenceArt: '/cards/cropped/32452818.jpg' },
+  '5053103': { id: 'battle-ox', family: 'warrior', bodyMetalness: 0.1, bodyRoughness: 0.58, body: '#76503a', accent: '#c8b337', eye: '#c7342e', attack: 'blade', anatomy: 'red-armored-bull', referenceArt: '/cards/cropped/5053103.jpg' },
+  '66602787': { id: 'saggi-dark-clown', family: 'magician', bodyMetalness: 0.05, bodyRoughness: 0.62, accentMetalness: 0.08, accentRoughness: 0.55, darkMetalness: 0.08, body: '#17799c', accent: '#dc3b4a', eye: '#e8e66b', attack: 'dark-magic', anatomy: 'asymmetric-jester', referenceArt: '/cards/cropped/66602787.jpg' },
+  '28279543': { id: 'curse-of-dragon', family: 'dragon', bodyMetalness: 0.24, bodyRoughness: 0.5, darkMetalness: 0.15, body: '#879451', accent: '#d6d98b', eye: '#e04025', attack: 'dragon-burst', anatomy: 'olive-winged-serpent', referenceArt: '/cards/cropped/28279543.jpg' },
+  '39552864': { id: 'mystical-shine-ball', family: 'orb', body: '#e3eef1', accent: '#c6eeff', eye: '#f8fffa', attack: 'faith-light', anatomy: 'shine-ball', referenceArt: '/cards/cropped/39552864.jpg' },
+  ...POPULAR_GOD_MODEL_PROFILES,
+  ...POPULAR_STAPLE_PROFILES
 });
 
 export const SUPPORTED_HOLOGRAM_MODEL_IDS = Object.freeze(Object.keys(CARD_PROFILES));

@@ -1,0 +1,107 @@
+TAP version 13
+# Subtest: fifteen native continuation A branches preserve archives and all 377 historical scenarios
+    # Subtest: continuation-a-chicken-opponent-recovery-cost-and-response-lock
+    ok 1 - continuation-a-chicken-opponent-recovery-cost-and-response-lock
+      ---
+      duration_ms: 1.119122
+      type: 'test'
+      ...
+    # Subtest: continuation-a-chicken-destroy-option-removes-prevention
+    ok 2 - continuation-a-chicken-destroy-option-removes-prevention
+      ---
+      duration_ms: 0.234072
+      type: 'test'
+      ...
+    # Subtest: continuation-a-chicken-equal-lp-control-and-dynamic-prevention
+    ok 3 - continuation-a-chicken-equal-lp-control-and-dynamic-prevention
+      ---
+      duration_ms: 0.1064
+      type: 'test'
+      ...
+    # Subtest: continuation-a-gateway-six-counter-cap-cost-limit-and-reset
+    ok 4 - continuation-a-gateway-six-counter-cap-cost-limit-and-reset
+      ---
+      duration_ms: 0.188473
+      type: 'test'
+      ...
+    # Subtest: continuation-a-gateway-deck-exclusion-hand-discard-and-activation-oath
+    ok 5 - continuation-a-gateway-deck-exclusion-hand-discard-and-activation-oath
+      ---
+      duration_ms: 0.107352
+      type: 'test'
+      ...
+    # Subtest: continuation-a-village-owner-without-spellcaster-recovers-on-normal-summon
+    ok 6 - continuation-a-village-owner-without-spellcaster-recovers-on-normal-summon
+      ---
+      duration_ms: 0.077266
+      type: 'test'
+      ...
+    # Subtest: continuation-a-village-opponent-spellcaster-unlocks-own-spells
+    ok 7 - continuation-a-village-opponent-spellcaster-unlocks-own-spells
+      ---
+      duration_ms: 0.12019
+      type: 'test'
+      ...
+    # Subtest: continuation-a-garden-exact-plant-total-revival-exempts-halving
+    ok 8 - continuation-a-garden-exact-plant-total-revival-exempts-halving
+      ---
+      duration_ms: 0.106129
+      type: 'test'
+      ...
+    # Subtest: continuation-a-garden-full-opposing-zones-halves-without-token
+    ok 9 - continuation-a-garden-full-opposing-zones-halves-without-token
+      ---
+      duration_ms: 0.134672
+      type: 'test'
+      ...
+    # Subtest: continuation-a-garden-simultaneous-summon-halves-both-one-token
+    ok 10 - continuation-a-garden-simultaneous-summon-halves-both-one-token
+      ---
+      duration_ms: 0.15309
+      type: 'test'
+      ...
+    # Subtest: continuation-a-garden-second-active-copy-proves-revival-exemption
+    ok 11 - continuation-a-garden-second-active-copy-proves-revival-exemption
+      ---
+      duration_ms: 0.115424
+      type: 'test'
+      ...
+    # Subtest: continuation-a-island-empty-field-hand-special-shared-limit-reset
+    ok 12 - continuation-a-island-empty-field-hand-special-shared-limit-reset
+      ---
+      duration_ms: 0.061523
+      type: 'test'
+      ...
+    # Subtest: continuation-a-island-banished-field-destroys-only-own-monsters
+    ok 13 - continuation-a-island-banished-field-destroys-only-own-monsters
+      ---
+      duration_ms: 0.050486
+      type: 'test'
+      ...
+    # Subtest: continuation-a-palabyrinth-deck-summon-effect-banish-and-name-limit
+    ok 14 - continuation-a-palabyrinth-deck-summon-effect-banish-and-name-limit
+      ---
+      duration_ms: 0.051677
+      type: 'test'
+      ...
+    # Subtest: continuation-a-palabyrinth-full-zones-removal-frees-grave-revival
+    ok 15 - continuation-a-palabyrinth-full-zones-removal-frees-grave-revival
+      ---
+      duration_ms: 0.045238
+      type: 'test'
+      ...
+    1..15
+ok 1 - fifteen native continuation A branches preserve archives and all 377 historical scenarios
+  ---
+  duration_ms: 945.247699
+  type: 'test'
+  ...
+1..1
+# tests 16
+# suites 0
+# pass 16
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1055.053697

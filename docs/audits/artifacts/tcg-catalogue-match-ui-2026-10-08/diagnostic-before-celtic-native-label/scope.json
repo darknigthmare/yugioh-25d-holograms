@@ -1,0 +1,11 @@
+{
+  "diagnosticOnly": true,
+  "buildEntrySha256": "075c1dd21968352631c5a88c85272c1dbcaa09f36f80bf3939c1c5abc5137c51",
+  "passedPaths": [
+    "desktop-catalogue-match",
+    "mobile-catalogue-match",
+    "bls-procedure"
+  ],
+  "failure": "Driver expected Gardien Celte while actual CDB action says Gardien Celtique; app correctly offers the summon. No app mutation.",
+  "captures": 13
+}

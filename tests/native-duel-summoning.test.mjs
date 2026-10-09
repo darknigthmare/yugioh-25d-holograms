@@ -5,6 +5,7 @@ import { NativeDuelGame, NATIVE_TCG_DUEL_FLAGS } from '../src/core/native/Native
 import { loadNativeCardResources } from '../src/core/native/NativeCardData.js';
 import { chooseNativeAIResponse, nativeSelectablePlaces, validateNativeDuelResponse } from '../src/core/native/NativeDuelDecisions.js';
 import { createPublicCombatVisual } from '../src/ui/PublicDuelVisuals.js';
+import { createNativeCardPresentationTemplate } from '../src/core/native/NativeCardCatalogue.js';
 
 const resourcesPromise = loadNativeCardResources({ fetch: async path => (
   new Response(await readFile(new URL(`../public${path}`, import.meta.url)))
@@ -410,7 +411,9 @@ test('an officially Fusion Summoned monster can be revived and emits a Special S
     assert.ok(findMonster(game, 23995346));
     const summons = events.filter(event => event.type === 'summon' && Number(event.card?.id) === 23995346);
     assert.deepEqual(summons.map(event => event.summonType), ['fusion', 'special']);
-    assert.equal(createPublicCombatVisual(summons[1], game).profile, 'special-summon');
+    assert.equal(summons[1].nativeRevivalConfirmed, true);
+    assert.equal(summons[1].revivalFrom.zoneType, 'graveyard');
+    assert.equal(createPublicCombatVisual(summons[1], game).profile, 'revival');
     clean();
   } finally { game.dispose(); }
 });
@@ -481,7 +484,8 @@ test('Soul Exchange identifies a public enemy Tribute but keeps the enemy Set mo
     assert.ok(tribute);
     const index = tribute.prompt.selects.findIndex(card => card.controller === game.controllerForSide('opponent'));
     assert.equal(tribute.prompt.selects[index].position, undefined);
-    assert.equal(tribute.request.candidates[index].name, 'Dark Magician');
+    assert.equal(tribute.request.candidates[index].name,
+      createNativeCardPresentationTemplate(await resourcesPromise, 46986414).name);
     const target = decisions.find(({ prompt }) => prompt.type === C.OcgMessageType.SELECT_CARD
       && prompt.selects.some(card => card.sequence === 1 && card.controller === game.controllerForSide('opponent')));
     assert.ok(target);

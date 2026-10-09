@@ -1,8 +1,11 @@
+import { getNativeCardReferenceArt } from './NativeCardReferenceArt.js';
 import { getNativeCardTemplate } from './NativeCardRegistry.js';
+import { createTcgFormatPolicy } from '../tcg/TcgCardLegality.js';
 import { OcgType as T, OcgScope as S, OcgRace, OcgAttribute, OcgLinkMarker } from './vendor/ocgcore/index.js';
 
 export const NATIVE_UNKNOWN_CARD_IMAGE = '/cards/native-unknown.png';
 const catalogueCache = new WeakMap();
+const tcgCatalogueCache = new WeakMap();
 const extraMask = T.FUSION | T.SYNCHRO | T.XYZ | T.LINK;
 const excludedTypes = T.TOKEN | T.MAXIMUM | 0x8000000; // Skill cards are outside ordinary duels.
 const excludedScopes = S.ANIME | S.ILLEGAL | S.VIDEO_GAME | S.CUSTOM | S.RUSH | S.LEGEND | S.HIDDEN;
@@ -83,6 +86,7 @@ function convertTemplate(resources, code, data, metadata, sourceScript, deckElig
   const raceKey = Object.entries(OcgRace).find(([, value]) => value === data.race)?.[0];
   const attribute = Object.entries(OcgAttribute).find(([, value]) => value === data.attribute)?.[0] ?? '';
   const setcodes = Object.freeze([...data.setcodes]);
+  const referenceArt = getNativeCardReferenceArt(code);
   const nativeMetadata = Object.freeze({
     sourceCode: data.code, sourceDatabase: metadata.sourceDatabase,
     sourceScript, ot: metadata.ot, alias: data.alias,
@@ -110,7 +114,8 @@ function convertTemplate(resources, code, data, metadata, sourceScript, deckElig
     lscale: data.lscale, rscale: data.rscale, leftScale: data.lscale, rightScale: data.rscale,
     pendulumScale: data.lscale, scale: data.lscale,
     linkArrows: Object.freeze(Object.entries(OcgLinkMarker).filter(([, marker]) => data.link_marker & marker).map(([name]) => name.toLowerCase())),
-    image_url: NATIVE_UNKNOWN_CARD_IMAGE, image_url_cropped: NATIVE_UNKNOWN_CARD_IMAGE,
+    image_url: referenceArt?.full.assetPath ?? NATIVE_UNKNOWN_CARD_IMAGE,
+    image_url_cropped: referenceArt?.cropped.assetPath ?? NATIVE_UNKNOWN_CARD_IMAGE,
     nativeEngine: true, supportedInNative: true, supportedInStrict: false, nativeCatalogueOnly: true,
     nativeDeckEligible: deckEligible,
     scriptCode: data.code, scriptStatus: sourceScript ? 'bundled' : 'normal-no-script-needed',
@@ -209,14 +214,14 @@ export function createNativeCardPresentationTemplate(resources, cardOrCode) {
 /** Validate a stored/deck-builder card against trusted CDB templates. The free
  * builder supplies this predicate; the strict registry remains unchanged. */
 export function isSupportedNativeCatalogueCard(resources, card, expectedSection = null) {
-  if (!card || card.supportedInNative === false || ![null, 'main', 'extra'].includes(expectedSection)) return false;
+  if (!card || card.supportedInNative === false || ![null, 'main', 'extra', 'side'].includes(expectedSection)) return false;
   const code = numericCode(card); if (code === null) return false;
   const index = catalogue(resources); const template = index.templates.get(index.canonical(code));
   if (!template || card.card_type !== template.card_type || card.type !== template.type) return false;
   if ((card.extra_type ?? null) !== (template.extra_type ?? null)) return false;
   const extra = Boolean(template.belongsInExtraDeck || template.extra_type);
   if (Boolean(card.belongsInExtraDeck || card.extra_type) !== extra) return false;
-  return !expectedSection || extra === (expectedSection === 'extra');
+  return !expectedSection || expectedSection === 'side' || extra === (expectedSection === 'extra');
 }
 
 /** The CDB alias is the authoritative permanent copy identity (Harpie Lady,
@@ -229,6 +234,46 @@ export function getNativeCardCopyIdentity(resources, cardOrCode) {
   return String(index.canonical(Number(data.alias || data.code)));
 }
 
+function tcgCatalogue(resources) {
+  let result = tcgCatalogueCache.get(resources);
+  if (!result) {
+    const policy = createTcgFormatPolicy(resources);
+    const templates = new Map();
+    for (const base of catalogue(resources).templates.values()) {
+      const eligibility = policy.getCardEligibility(base);
+      if (!eligibility.allowed) continue;
+      const copyLimit = policy.getCardRestriction(base);
+      const restriction = ['Forbidden', 'Limited', 'Semi-Limited', 'Unlimited'][copyLimit];
+      templates.set(Number(base.id), Object.freeze({ ...base,
+        supportedInStrict: true, banlistVerified: true, tcgCopyLimit: copyLimit,
+        tcgRestriction: restriction, tcgEligibility: Object.freeze({ ...eligibility }),
+        nativeMetadata: Object.freeze({ ...base.nativeMetadata,
+          legality: 'tcg-advanced', banlistVerified: true, asOf: policy.asOf }) }));
+    }
+    result = { policy, templates };
+    tcgCatalogueCache.set(resources, result);
+  }
+  return result;
+}
+
+/** Eligible ordinary TCG cards with the complete dated Advanced restrictions.
+ * Forbidden cards remain inspectable; the builder refuses their addition. */
+export function createNativeTcgCardTemplate(resources, cardOrCode) {
+  const code = numericCode(cardOrCode);
+  return code === null ? null : tcgCatalogue(resources).templates.get(catalogue(resources).canonical(code)) ?? null;
+}
+
+export function getNativeTcgCardCatalogueCount(resources) {
+  return tcgCatalogue(resources).templates.size;
+}
+
+export function searchNativeTcgCardCatalogue(resources, query = '', options = {}) {
+  const index = tcgCatalogue(resources);
+  return searchNativeCardCatalogue(resources, query, { ...options,
+    predicate: card => index.templates.has(Number(card.id)) })
+    .map(card => index.templates.get(Number(card.id)));
+}
+
 /** Name, passcode and rules-text search; results are bounded for the builder. */
 export function searchNativeCardCatalogue(resources, query = '', options = {}) {
   const index = catalogue(resources);
@@ -238,9 +283,10 @@ export function searchNativeCardCatalogue(resources, query = '', options = {}) {
   const code = numericCode(query);
   if (code !== null) {
     const card = index.templates.get(index.canonical(code));
-    return card ? [card] : [];
+    return card && (!options.predicate || options.predicate(card)) ? [card] : [];
   }
-  const matches = index.rows.filter(row => terms.every(term => row.text.includes(term)));
+  const matches = index.rows.filter(row => terms.every(term => row.text.includes(term))
+    && (!options.predicate || options.predicate(row.template)));
   if (normalized) matches.sort((a, b) => {
     const score = row => row.name === normalized || normalize(row.template.name_en) === normalized ? 0
       : normalize(row.template.name_en).startsWith(normalized) ? 1 : terms.every(term => row.name.includes(term)) ? 2 : 3;

@@ -1,0 +1,47 @@
+{
+  "asOf": "2026-10-08",
+  "sources": [
+    {
+      "url": "https://www.yugioh-card.com/en/limited/list_2026-09-21/",
+      "finalUrl": "https://www.yugioh-card.com/en/limited/list_2026-09-21/",
+      "httpStatus": 200,
+      "bytes": 65695,
+      "sha256": "4477c35dea86300050449fa3e9a48291d876338669ba83e8d7371280a2c12806",
+      "fetchedAtUtc": "2026-10-08T21:46:00Z",
+      "localArchive": "docs/audits/artifacts/tcg-complete-2026-10-08/official-advanced-list.html.txt",
+      "scope": "Advanced restriction table"
+    },
+    {
+      "url": "https://www.yugioh-card.com/en/limited/",
+      "finalUrl": "https://www.yugioh-card.com/en/limited/",
+      "httpStatus": 200,
+      "bytes": 26243,
+      "sha256": "2a58d4ddea4adfd8e47e15d451238d1a6b39c2d6764283d9d55e57f911afb258",
+      "fetchedAtUtc": "2026-10-08T21:46:00Z",
+      "localArchive": null,
+      "scope": "Construction rules"
+    },
+    {
+      "url": "https://www.yugioh-card.com/en/downloads/rulebook/SD_RuleBook_EN_10.pdf",
+      "finalUrl": "https://www.yugioh-card.com/en/downloads/rulebook/SD_RuleBook_EN_10.pdf",
+      "httpStatus": 200,
+      "bytes": 3415528,
+      "sha256": "82be14641b2b7940467034a5b14b0d4037835831866537738d34fd9df5a0f444",
+      "fetchedAtUtc": "2026-10-08T21:46:00Z",
+      "localArchive": null,
+      "scope": "Rulebook v10"
+    },
+    {
+      "url": "https://img.yugioh-card.com/eu/wp-content/uploads/2025/09/Official-KDE-E-Yu-Gi-Oh-TRADING-CARD-GAME-Tournament-Policy-Version-2.5.pdf",
+      "finalUrl": "https://img.yugioh-card.com/eu/wp-content/uploads/2025/09/Official-KDE-E-Yu-Gi-Oh-TRADING-CARD-GAME-Tournament-Policy-Version-2.5.pdf",
+      "httpStatus": 200,
+      "bytes": 906589,
+      "sha256": "01b419dde56ac142c5f290758e5a48a443c50e309ba1486cb6ce34aeb95a175c",
+      "fetchedAtUtc": "2026-10-08T21:49:10.790903Z",
+      "localArchive": null,
+      "scope": "KDE-E tournament policy v2.5"
+    }
+  ],
+  "fetchedAtUtcPrecision": "The first three source fetch times are minute precision (UTC); policy fetch records the request completion timestamp.",
+  "tableResolution": "Official names matched to pinned CDB English names after Unicode casefold and whitespace normalization. No provider banlist values used."
+}

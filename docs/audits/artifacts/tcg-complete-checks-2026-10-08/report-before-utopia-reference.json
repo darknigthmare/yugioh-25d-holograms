@@ -1,0 +1,298 @@
+{
+  "executedAtUtc": "2026-10-08T22:27:22.021208+00:00",
+  "command": "npm run check",
+  "exitCode": 0,
+  "tests": 2551,
+  "passed": 2551,
+  "failed": 0,
+  "skipped": 0,
+  "testFiles": 152,
+  "buildModules": 123,
+  "vulnerabilities": 0,
+  "initialFailedExpectations": 4,
+  "initialFailureReason": "Three source-shape contracts updated for the guarded launcher/trusted format; one public translated card name now comes from trusted catalogue. Actual privacy/launch tests remain.",
+  "logs": [
+    {
+      "path": "docs/audits/artifacts/tcg-complete-checks-2026-10-08/yugioh-tcg-complete-check-2026-10-08.log",
+      "bytes": 253476,
+      "sha256": "708f20f2b393d680c56027c54707fd613cf6611befba350645b09a10de98ea37"
+    },
+    {
+      "path": "docs/audits/artifacts/tcg-complete-checks-2026-10-08/yugioh-tcg-complete-check-initial-contract-failures-2026-10-08.log",
+      "bytes": 300847,
+      "sha256": "77a224527e90356a559429eae6210c38847633f954fc21f343b0dd04ea2f0494"
+    },
+    {
+      "path": "docs/audits/artifacts/tcg-complete-checks-2026-10-08/yugioh-tcg-complete-check-corrections-2026-10-08.log",
+      "bytes": 4246,
+      "sha256": "9d65d6610b6b8c05d5c73d1f10d0d6f72154e96dedc2d85428c394ee67f5e173"
+    },
+    {
+      "path": "docs/audits/artifacts/tcg-complete-checks-2026-10-08/yugioh-tcg-complete-security-2026-10-08.json",
+      "bytes": 361,
+      "sha256": "2d9451b84583ea8dbf19fa6c8d63fb0a255dc0aebec221e4b5031e41d2593eb5"
+    },
+    {
+      "path": "docs/audits/artifacts/tcg-complete-checks-2026-10-08/tcg-root-final-targeted.log",
+      "bytes": 2912,
+      "sha256": "dc2c702c4d415e411474896d7585098fd86dbbd4f7d3bf3f12a345508e40511b"
+    }
+  ],
+  "preserved": [
+    {
+      "path": "public/native/ocgcore.sync.wasm",
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+      "baselineIdentical": true
+    },
+    {
+      "path": "public/native/card-data.json",
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d",
+      "baselineIdentical": true
+    },
+    {
+      "path": "public/native/scripts.json",
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f",
+      "baselineIdentical": true
+    },
+    {
+      "path": "docs/audits/artifacts/native-field-runtime-continuation-2026-10-08.json",
+      "bytes": 11427282,
+      "sha256": "420219317a89ab1dc1c7dbd8d766c8e042d972e58176a0d2d4ba2c366ecaa3ac",
+      "baselineIdentical": true
+    },
+    {
+      "path": "docs/audits/artifacts/native-field-runtime-wave-2026-10-08.json",
+      "bytes": 10473757,
+      "sha256": "33a8463ba98d33018acc35e9ec03486ad798b7df723b23ab407d048ab0130cb6",
+      "baselineIdentical": true
+    }
+  ],
+  "regressionsReexecuted": [
+    {
+      "path": "docs/audits/artifacts/native-battle-timing-2026-10-08.json",
+      "baselineArchive": "docs/audits/artifacts/tcg-complete-regression-baseline-2026-10-08/native-battle-timing-2026-10-08.json",
+      "baselineSha256": "2e5f7acd7e1c53bce9ed52aa438d163addcb68c97675faf2f94decac6496e2e7",
+      "currentSha256": "e84913cc69d580cc5e12f840e5ce88adfd0da454309dee8dcee668c5d8db24d2",
+      "baselineCases": 21,
+      "currentCases": 21,
+      "topLevelChangedKeys": [
+        "sourceHashes",
+        "cases"
+      ],
+      "nativeCaseCountUnchanged": true,
+      "caseChangedKeys": [
+        "animations"
+      ],
+      "nativeOutcomesDecisionsAndProtocolUnchanged": true
+    },
+    {
+      "path": "docs/audits/artifacts/native-chain-interactions-2026-10-08.json",
+      "baselineArchive": "docs/audits/artifacts/tcg-complete-regression-baseline-2026-10-08/native-chain-interactions-2026-10-08.json",
+      "baselineSha256": "51fe1b233b15c8dc9a83dfb633276f4d373ff0f4d420a379f8969e79c86eb588",
+      "currentSha256": "d127500ddf0b01ac0d551beb312261521c1bd7f9289041b468864fee0f8abbfd",
+      "baselineCases": 26,
+      "currentCases": 26,
+      "topLevelChangedKeys": [
+        "sourceHashes",
+        "cases"
+      ],
+      "nativeCaseCountUnchanged": true,
+      "caseChangedKeys": [
+        "animations"
+      ],
+      "nativeOutcomesDecisionsAndProtocolUnchanged": true
+    },
+    {
+      "path": "docs/audits/artifacts/native-dice-dungeon-correction-2026-10-08.json",
+      "baselineArchive": "docs/audits/artifacts/tcg-complete-regression-baseline-2026-10-08/native-dice-dungeon-correction-2026-10-08.json",
+      "baselineSha256": "c119530c4d0dd819eff81bd6fb74a63f66163e5bb684f93cde09abf73b2acd8a",
+      "currentSha256": "c3ca9912e9e22e66575ea5ee530e39703b7d543601f467346d6293aaa9f17277",
+      "baselineCases": 24,
+      "currentCases": 24,
+      "topLevelChangedKeys": [
+        "sourceHashes"
+      ],
+      "nativeCaseCountUnchanged": true,
+      "caseChangedKeys": [],
+      "nativeOutcomesDecisionsAndProtocolUnchanged": true
+    }
+  ],
+  "buildFreeze": {
+    "frozenAtUtc": "2026-10-08T22:26:20.907979+00:00",
+    "entry": {
+      "path": "/assets/index-Cq42Nj9S.js",
+      "bytes": 672438,
+      "sha256": "fa62b5d0a9d862bade8c0a3946fa8e69ba2de581e751d4affb96d1c7b806637d"
+    },
+    "httpTextAssets": [
+      {
+        "path": "/index.html",
+        "bytes": 36040,
+        "sha256": "feca20f473b73ce6f67b82219e84cb07e5dc9421b43634b31255a3624f43b73b"
+      },
+      {
+        "path": "/assets/index-Cq42Nj9S.js",
+        "bytes": 672438,
+        "sha256": "fa62b5d0a9d862bade8c0a3946fa8e69ba2de581e751d4affb96d1c7b806637d"
+      },
+      {
+        "path": "/assets/index-Ce4lc5_W.css",
+        "bytes": 84495,
+        "sha256": "3a7edacf3b48736f74fedd48644f2bb03a3a5df7bdde114cb8e10c56857bea36"
+      },
+      {
+        "path": "/assets/NativeDuelGame-BskgqojT.js",
+        "bytes": 95709,
+        "sha256": "0468247d81d9902a8df16dbece8e64e5b6d9a84aa0f2180dadb9e25f9eeaeffb"
+      },
+      {
+        "path": "/assets/FieldEnvironmentRegistry-CW5zbHcP.js",
+        "bytes": 622016,
+        "sha256": "3423def789cb9b59abf5297c9fc36905226dbfb91e2d0d44d988853104af4d4f"
+      },
+      {
+        "path": "/assets/RealDuelView-3mvc8FCQ.js",
+        "bytes": 204144,
+        "sha256": "bd889dfcf9f452ef7e2c6786a55d7e1091b4df78554b4f8d6ab062c381795112"
+      },
+      {
+        "path": "/assets/ocgcore-DWqJvtmv.js",
+        "bytes": 46501,
+        "sha256": "dd1e9936f49901fb5f53efd6d25b19ab5755af65169fee4ef34600a1cfbe5349"
+      }
+    ],
+    "appSourceHashes": {
+      "main.js": "de2277115e61f8fb42a79de99e1c1505e43246b21867d130b51004d96d944093",
+      "index.html": "c27ee3527a5eb985d821124eea671891687056e75a5cb0d0ec76ac706bbd1dbe",
+      "src/api.js": "c044a96f88ba3aebf4eb97e94bf773bfd112bb4840ca4a3a118fd80e2ed7be91",
+      "src/audio.js": "41754678ab255934b22cee21ec6b81e8f620e491c4ec4d8cea3800a0bef526d8",
+      "src/board.js": "cc3fea4fa467410ca40b444091cdc2c5a1f803e39639fe296cfba9486bebc13d",
+      "src/cards.js": "e0a05e98ed0892afc1e8c363b997f785fd74bb061d04c4aafb5fe84908a4a5c8",
+      "src/content/AIResponsePolicy.js": "2277d2d6e8eb0e66c3e95fb08a27598b97ca800343f60d5c03daa7dd9db30c95",
+      "src/content/AIStrategy.js": "e390a1eefee2c0600096a8b4dedced2d185f6b0b34f7027153106c84a2b38249",
+      "src/content/CampaignDuelTracker.js": "18ac149a2b930294796e43faa636c186425cc6f751170ca3c5d8c44e9ba9d641",
+      "src/content/SoloCampaign.js": "0d7b6766c32bd87a29ff8ed61a442fee0f765ec65057905aeed5412474f1a5eb",
+      "src/core/AdvancedFieldSpellRules.js": "3c563123851215c7d76a6ff1e76fc0343abf43a351e25dfe6d6f71dbd3aaceda",
+      "src/core/BattleEngine.js": "50d049f0627f7def7cbd693575fb7f89c729282a4fb694b4746da1a57d109c0b",
+      "src/core/CardNameRules.js": "6e0821869caeb7e4a96a86bfe05043a206d5042d2c3f5fc54c1b931d4ce0b0fa",
+      "src/core/CardScriptAPI.js": "a4c0a02321c04e53fa44eefa5716b9c28f603b8dc5b8a43139bba3cc5b56bfec",
+      "src/core/CardState.js": "f5a0eb7ba780e1641f5a462be029cd3f3717ec1311f6476653d40e4dc1d9832f",
+      "src/core/ChainEngine.js": "4a2cd6708f57264381bcfbfdb356d2e6a5fdc4257a178094e5a79cc44f1f4fa2",
+      "src/core/ClassicFieldSpellEffects.js": "55a63d07f678c3ebedfad6158d3963f8fc00cda1eb6d8bd543567a95ff7d85f3",
+      "src/core/ClassicMonsterEffectScripts.js": "48c09752494cdf49cb4252fb4a11625b82b8833e38819e588e192f20d6d04fa2",
+      "src/core/DefensiveEngine.js": "1915e33ad81f22afedc441e617f3bed628c527b32e57052b5812eca1daefee22",
+      "src/core/EffectEngine.js": "52c841591a87b13fc9ccdb94d682476ce4a8e70094ab77ac78c1f6c5ae5ca429",
+      "src/core/FieldRuleRuntime.js": "5e5a47827a493a081f9a3ed78c9b4a9a5b3b0c5fff592684203c9fc7a507a3e9",
+      "src/core/FieldSpellRules.js": "52abde627e6e18420777a379d03a35c780de1acbd9be5d953bca54db3d45a046",
+      "src/core/FieldState.js": "421dd24f15bd4c63d7c1e90b2bf77372ebbda0337de32faef1f73805b60baa7b",
+      "src/core/GameStateStabilizer.js": "9c39fd9dee6010c8a1f9e5213983e263e6acb934f899b308b883696c88c07bd4",
+      "src/core/LinkZoneRules.js": "bf67cfe14efcbfdbdc2e5aece649ca824404cb1724ce1e9dcd30c00e33224bdf",
+      "src/core/MatchEngine.js": "fa39f6163a84ea6adcbf6481b6dad154316a9d522505947b3c1966daa19712b7",
+      "src/core/PSCTParser.js": "5f00887f9cff445f4398c0960b7628b3a99ed6645eee871aa4b0655c4731d633",
+      "src/core/PhaseEngine.js": "a8ca578a832f28c8a83197441e56e0963daae696fd66b17dc8ddc9152d588819",
+      "src/core/StrictCardRegistry.js": "611e80527743c846d56b463c69a8bfbb2c447c1b32c5fe7b48571b57cb868826",
+      "src/core/SummonEngine.js": "921945e0d5d8f25c1e2d48ef028f8c8aec851dbbb265f7d34d616532e17785c6",
+      "src/core/TriggerEventEngine.js": "5f08e99e99174c009086ca04d01919dac54374a9dcc7a69e3fc64274e8e14c65",
+      "src/core/TurnEngine.js": "b9e23716c3eac4c2c7c1725520751507eac949c803079cd041ce8912249ac824",
+      "src/core/native/NativeBattleLifecycle.js": "202704a82ad6624211b063acc7e58cd3a40b0721f0dc9d67a02286ea0174a0c0",
+      "src/core/native/NativeCardCatalogue.js": "7db3547182e650eeb618023059ccec2750d9a074d3258559f6c5040528ab79ca",
+      "src/core/native/NativeCardCharacteristics.js": "e4d1a7551bf67b32a55f291f59abc411c032217113f63cd35df76db75ad5fa76",
+      "src/core/native/NativeCardData.js": "59a664d8d16593ef2223d895085e81e48d6eaa0d90bb0725b6410a71bdcac568",
+      "src/core/native/NativeCardReferenceArt.js": "b7f2f102783dedc22b2a65be71832bc4002654207d0a7b050f03873143e88c0a",
+      "src/core/native/NativeCardRegistry.js": "0d3d50a39fefd3be57b3ea6a4e4b945c204730bb2580d5f96016de01b71dcefd",
+      "src/core/native/NativeCardRegistryData.js": "240b8deaf34acb07c2eeba15b2cd37e26a5d6833b6c8a4be83fd048cdc468359",
+      "src/core/native/NativeCardScriptCorrections.js": "e0073221e78f6f3df94b0b37da4683167a5a8787f21317f5d6a0a619a5c767cd",
+      "src/core/native/NativeChainDecisionInfo.js": "ba57cbd05832466c404cae2d2ecb89d5cee95e00bfb84318fc3ae65c5c88b589",
+      "src/core/native/NativeCoreAssets.js": "ea80f9606142a9612d68be4fe0f53c8acdb3061dc171952af1e39baeb8735903",
+      "src/core/native/NativeDiceDungeonScriptCorrection.js": "80f978a0ea7ac9641a1413ca14e6a9cfd27c28c0d571203391706623072424cc",
+      "src/core/native/NativeDuelDecisions.js": "4ec35dd4cc12ae7efcb1dd45a39e3cc7a83e359d9af41a84d51f3ffa5bbff724",
+      "src/core/native/NativeDuelGame.js": "a091da22d87b1e0dcdbacb66eb53420e56ad747ed1283a89bbee6ce8ed0005c6",
+      "src/core/native/NativeDuelRuntime.js": "07136f4301391bd62e4f29fe611067b15734f53c92354cb6a3cc3b33ff52e6b5",
+      "src/core/native/NativeDuelTowerScriptCorrection.js": "fa198bb13429613fe9ac2843ea4c5c25251a09c8d7c393953d30725f45a68a6e",
+      "src/core/native/NativeDuelVisualEvents.js": "2a776f53d0d15eb91eb2c736d95fbdc809d85cdef9491adf9b6c448ef61580ab",
+      "src/core/native/NativeExodiaRevealPolicy.js": "a9d855a4daa6d51a9d4525f855da58cdf0a714036f43c5bc9ce9cadc8eff368e",
+      "src/core/native/NativeLuaCompatibility.js": "7445d1f73cad6ba208fa0cf869d6f51491e6dd700dedc4cbec6f4342fd8d163e",
+      "src/core/native/NativePublicRevealPolicy.js": "6034c3dff716d18597bf4b689b317255695fe1f5a6a860edffe3f2a87abd800e",
+      "src/core/native/NativeScriptArchive.js": "8e40d56b6cba11813e217d89538831195e89399b5e0da1c0dfd215ab7610d83c",
+      "src/core/native/NativeSourceIntegrity.js": "4af7fc0fc34b715ebe3e23ed7cfcf35d74dca662200e4025c7cc7957ac81cd18",
+      "src/core/native/NativeTCGRuleProfile.js": "5ea356d97beef0b1b35674d47108a95738953ca77d6581eda5524197b94f7c38",
+      "src/core/native/vendor/ocgcore/chunk-6GYI7QPM.js": "0a9f270bce85e72ea86909d6b25d962616fe09e73109f78b3e26ea324e09b792",
+      "src/core/native/vendor/ocgcore/chunk-L5TW24SS.js": "e6e321ec2bd37a64c7f78b18afffbe54fff34ec0c3d454147ae5c28fb3c9ddb2",
+      "src/core/native/vendor/ocgcore/index.js": "8cfbec622cf5b920e0b58db6d842fcabf1a9ef8eed9f0841bac43a1e9adb0657",
+      "src/core/native/vendor/ocgcore/ocgcore.sync-MMMSWPBB.js": "f4523ad5c2e9f14c8736a91ad94e9e7f8283883a3607781f40afdeae27cdf828",
+      "src/core/tcg/TcgAdvancedBanlistData.js": "bdc8c18edb0a6308949e516442106747ada3976334beb105562c17c7d6f5d945",
+      "src/core/tcg/TcgAdvancedFormat.js": "058606afc6449ce1ced941c42000c8a109da55cf9b36ad8919b853582c540d40",
+      "src/core/tcg/TcgCardLegality.js": "7b556ecb1af2b729a71f4cdf237182068d5f3d47a85cacef8a91c2661979e874",
+      "src/game.js": "246e7c6caf967e5c7805b59853f2d905e828ad3b1b756beca5bfda4a368428dc",
+      "src/network/deck-hash.js": "bd19e5a3d84754b81fa5b182ffb9d893dd8571827715edba38df7a13620b5a8e",
+      "src/network/duel-game-network-adapter.js": "c5d58d787d28a559abad5b974d9a5ced23a80cb0295d1ff9eb2f0b32181b8bdc",
+      "src/network/duel-network-session.js": "c213298c2c7f976e7bbd7c76ac1897c44df527c3e5967ccb9506e0373f8335b7",
+      "src/network/emitter.js": "d70ca7ddcdd345346ecb071bc4728359b6676c2351ae858a5edbd87a072e1c30",
+      "src/network/index.js": "eda78a18675a21b20c57d7098d40c549503d4675e875fabe42e0dc5fe9157c9d",
+      "src/network/mock-transport.js": "fda536a6f47b78ec4f419c4b2e79f7ff251e9b917ffb3cb002a03cb0be4fba1f",
+      "src/network/online-duel-controller.js": "ba1811c94d2650b0ce55caf6f012b8e5e41fde2cdfcc24684f695f5e3f6cf9ed",
+      "src/network/protocol.js": "48f8b6aa158ee46b607d93ee67cf98244b606a9a1a21f8b4bf8a703b77eb8556",
+      "src/network/session-code.js": "a6a183dac6379317f0e7ebdef5b734bc07a0b9226f5778d5a2534bd23a29d3ce",
+      "src/network/webrtc-transport.js": "115d7b9f66c9de965923e1b66ae20eb26719b6f3803e716ed51ddd4ccd996f7b",
+      "src/security.js": "0ce0db7ee8f606adbe927eb3580dfc0c8864afe5f021b338854594655dc47c59",
+      "src/ui/CardSpecificVisualEffects.js": "b56382a7b1ba63e299b1bedc18405ad4b01454a182f2160aef544089a4182df7",
+      "src/ui/CombatVisualEffects.js": "6e685855e5c491e5d2d340baa4a5b399438bf3c4e899e5a888f989c994852e94",
+      "src/ui/CombatVisualProfiles.js": "f5c5aff6a712ed97bbe1d9e4064cd5a3b13620539a2311833ca865f1230d9204",
+      "src/ui/DeckBuilderRules.js": "824e6683279fb894c9eaf554bed8496e6efde2a1f4706037bb78044c9aeea9f3",
+      "src/ui/DuelViewController.js": "40a5948a6fe7731af5faa23d61dfa694a377b14880f2140432285c12c9944b3a",
+      "src/ui/FieldContinuationStageDetails.js": "3def385c130687a064b02f9e03c7f0c7f85261efa8c7000c36089d38a3d13204",
+      "src/ui/FieldEnvironmentAquaticReferences.js": "fc2308aafce72862a97b759cfe25b6818b38580ebde74125af3bdc5c074858b2",
+      "src/ui/FieldEnvironmentArcaneReferences.js": "88776075dac0a9fbc4644e6427a4d3cd49e0305693fb5826056b8f7b4a6d5e3e",
+      "src/ui/FieldEnvironmentArchitecturalReferences.js": "e9bfe454fd75e9934917ba60d431aaf5549f75c20769290cd5dffc929b8895b1",
+      "src/ui/FieldEnvironmentCommunityReferences.js": "498c7a20bb5d0d0d1d7c693c0225f87d0b9fdf6822c33cc98ffc2021722a04ef",
+      "src/ui/FieldEnvironmentDarkReferences.js": "94bbbf083f053b5c37d81801bdf347fe73a67fef13c788f57c8a43f6ee1c79ac",
+      "src/ui/FieldEnvironmentEngineeringReferences.js": "566328be75b756765ffd33c2eb7738f4825b8d4cdd48c8acec807505d674c8ce",
+      "src/ui/FieldEnvironmentFrontierReferences.js": "926e4873ff5e4c2a038f310eb6d5c702ed8dbe3d92bced322b88fe1cb21997af",
+      "src/ui/FieldEnvironmentGeometry.js": "134b5a9e4cf1982b82a43e54f860522833cf1cea16013003b54153fc79dedb3c",
+      "src/ui/FieldEnvironmentMysticalReferences.js": "1e6ec73411e3dd624542edee60000110bd22f38c6f9e90176f18ce071c7da2cc",
+      "src/ui/FieldEnvironmentNatureReferences.js": "0d44bdf0379837717ea1be71599d5572edb9209565cf93bfc5ee5d3768f7c824",
+      "src/ui/FieldEnvironmentRegistry.js": "4312f060be24418091f4f629727766d406043c2a32d79717e9f3220123227dd8",
+      "src/ui/FieldEnvironmentRitualReferences.js": "ef9992458040028f87a5035ee63dbf01b703435759f97bc827f6ec527bbe401c",
+      "src/ui/FieldEnvironmentStageReferences.js": "a5c68804172344e32fe93147ee04ddaa6f76ae520e42f19c2255c21d0283dfd8",
+      "src/ui/FieldEnvironmentTechnologyReferences.js": "930d3121814e730d9274a6d2087bcd301c1b18b07250cff1de9abb70676b4742",
+      "src/ui/FieldEnvironmentUrbanReferences.js": "b3d94d8d9f427315fec3b0d36c775fc337d827b92ca6a8fd7de8d8665e5e61c9",
+      "src/ui/FieldEnvironmentWildReferences.js": "b8db1cfd37d85dfd222d0b6c9a89934cc1f9c0d0ce7ae3e95325efafdb07d0c7",
+      "src/ui/FieldGeometryThree.js": "f1ba391ea533f94a6795f160091077d7488c590cf2e42cf2686c7d0a01fe7e82",
+      "src/ui/FieldReferenceDetailGeometry.js": "20269b947051f75862dc401d991541023144b70bfab81df100e82b942b532fd1",
+      "src/ui/FieldSpellAtlas.js": "7c3f8d76df119e4fdd8ea31e23b2a275e92556ac93a3190ea09eb28535ccce1a",
+      "src/ui/FieldSpellAtlasPreview.js": "344ac49c08bae745c87b136d5a34158d5107bb49c7117ef04697ff2975d8353e",
+      "src/ui/FieldSpellCardDataSnapshot.js": "38fe5564068d6684f9f47b0db51b8a4e03f28ba0f3cbc5512b68f300b27d60e5",
+      "src/ui/FieldSpellCoverage.js": "f7b900ea9e570b6987d522fce71764d2e99b01b56241f485a8f785f38a209d0d",
+      "src/ui/FieldSpellEnvironmentCatalog.js": "37bf5157ca5a8fbfb6c1d93898a3d2efcb3fd620b3c5e61e63f26d46225aee33",
+      "src/ui/FieldSpellIllustrationBriefManifest.js": "a875f7c3138e347a52ff9606e536f2f7dbca70d17ab45a8fd892727f72233f11",
+      "src/ui/FieldSpellReferenceArtManifest.js": "2c98d28f4fd7d8186f745e18994ad8ebdf1ceae8936f481c7b440219ff8fc486",
+      "src/ui/FieldSpellReferenceArtPalettes.js": "39d7a5073366407942497b92de7afe5e319b87957edb19068671bee83f7fbb88",
+      "src/ui/FieldSpellReferenceArtSnapshot.js": "9184710dc78ef3fbd96bfac4bda8dba14fba0754e6add8e47d343f409059dad1",
+      "src/ui/FieldSpellRuntimeManifest.js": "0918f086daae0c0ac55e355624e89ac934be19b90bc99b3f0a5347be1e53d729",
+      "src/ui/HandPlacement.js": "7482df3d0bc80df5f547d04acf9d958b8cc09b2fdb33666fcea6942c047e9eee",
+      "src/ui/HologramMonsterModels.js": "e1d187cb29a6ea139b16d26b7154a92c77160c34941a37b13023cfcfe0f2f278",
+      "src/ui/HologramPopularGodModels.js": "7e095ad4bab594756d846b6794add8afb540f962494b7168589d0bc80851f121",
+      "src/ui/HologramPopularStapleModels.js": "66784a7c5903a5005064833dead704a9d2a7bad4152a71d8d7cc024ccd610c35",
+      "src/ui/HologramPoseAnimation.js": "0fd60c0f319ee7a413049ac05199d44e06ab356a94174bc2dc35958b22b8729c",
+      "src/ui/HologramReferenceAnatomy.js": "e10d0ad431c4c3f00f12c259e76bb83e68ae320315a768ce2e606544fec778d5",
+      "src/ui/MatchController.js": "9712ace23577eb65ebca16632b8d51411e31c5ee37d6f12b9ddb272c5ab68cbc",
+      "src/ui/NativeDuelPresentationModel.js": "3ac3fe31372b9125433caf68601757183c89e7fb08e2b342b45b22b60d8cdf06",
+      "src/ui/NativeFieldCoverageSnapshot.js": "b483d124759c335565eaf3afe8553b565cd2b6bb503edd7dea95dbf178f6bda2",
+      "src/ui/PopularGodReferenceArt.js": "7461a0dbbf3b46e14965778b7326c507a132695396450620b13841abfc85e898",
+      "src/ui/PopularStapleReferenceArt.js": "5dc35be8fc2634608fd4453fcd3168a9e2ff06cf49861007d6e11a65a8fa5ea3",
+      "src/ui/PrivateCardInspection.js": "c2f6da2cedacae2d014d45c15a587838ff772237af5b8e9f0ac195104a5298d0",
+      "src/ui/PublicCardConfirmation.js": "858a04e67f0b08c9a687a1382f4a0ab7810a5ef3213787e58bb5b5ab480cb513",
+      "src/ui/PublicDuelVisuals.js": "1c19b3aafecf843427f96f15ec6b6234c4ab7a18336af68a870a47f2ada9d982",
+      "src/ui/RealDuelCameraPresets.js": "d2632c5f7b9b3f6a03f0c9bfb2725b13e7ee1951b087e8bb6011ff2007f1c863",
+      "src/ui/RealDuelDOM3DAdapter.js": "f70945e33a0d5707e77176e30d38e560a80fd9bbda904af071332aad0f956215",
+      "src/ui/RealDuelScene3D.js": "17cda0a866c3ec01f0f0d4ea07145974a2d660eeffdda9b2f2053e967ec7db44",
+      "src/ui/RealDuelView.js": "ac86e29a744cd99bf76b33dc902306cf3ea2535af488443b88afbdd3abed2bef",
+      "src/ui/SoloCampaignController.js": "d41b44f9155a77177feb1801995c89379f1ec69bfb492705d1bbf75c139352c5",
+      "src/ui/TCGMatchClock.js": "7f2f1a718fcf12e5687d20a72e8f7f78e165e95a85aacade82a248e17b44de83"
+    },
+    "qaGlobalAbsent": true
+  }
+}

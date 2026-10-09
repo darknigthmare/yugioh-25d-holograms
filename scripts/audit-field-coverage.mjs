@@ -3,7 +3,8 @@ import { FIELD_SPELL_COVERAGE, getFieldSpellCoverageSummary } from '../src/ui/Fi
 
 const summary = getFieldSpellCoverageSummary();
 const report = {
-  date: '2026-10-07',
+  date: '2026-10-08', executedAtUtc: new Date().toISOString(),
+  nativeEvidencePath: 'docs/audits/artifacts/native-field-runtime-continuation-2026-10-08.json',
   scope: {
     geometry: 'Adapted peripheral volumes; source illustrations preserved; no full spatial 1:1 claim.',
     implementedRules: 'Legacy JavaScript only; native availability and exercised effects are separate.',
@@ -36,6 +37,6 @@ const report = {
     publication: card.publication
   }))
 };
-await writeFile(new URL('../docs/audits/artifacts/field-coverage-progress-2026-10-07.json', import.meta.url),
+await writeFile(new URL('../docs/audits/artifacts/field-coverage-continuation-2026-10-08.json', import.meta.url),
   `${JSON.stringify(report, null, 2)}\n`);
 console.log(JSON.stringify(summary));

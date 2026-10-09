@@ -1,0 +1,294 @@
+{
+  "date": "2026-10-08",
+  "scope": "Final local integrated native effects, exact source art and compiled browser verification. Publication/CI/preview references are recorded separately for the actual remote commit.",
+  "native": {
+    "path": "docs/audits/artifacts/native-field-runtime-2026-10-08.json",
+    "sha256": "7cf1f43fe4606225151014cb6b00c1390defa1b78f8629c44f25d42e985951b6",
+    "summary": {
+      "catalogue": 339,
+      "bundled": 339,
+      "initialized": 339,
+      "effectTested": 339,
+      "integrationTested": 0,
+      "scenarios": 353,
+      "passedScenarios": 353
+    },
+    "previousScenariosRetained": 128,
+    "remainingFieldsCompleted": 224,
+    "newScenarios": 225,
+    "scriptCorrections": [
+      {
+        "cardId": 11808215,
+        "filename": "c11808215.lua",
+        "upstreamSha256": "bdabb87f4746b36edb8a88d6e5620e426cc97e4317a67439faa120e55466c86e",
+        "correctedSha256": "ec1b64aa682d4ff098fcc3ef8239eece2a03a479511e79006fdee09cd6c6832c",
+        "upstreamBytes": 2948,
+        "correctedBytes": 2992,
+        "reason": "Each player applies their own die result. The upstream script assigns the turn player's result to the Field controller when those players differ.",
+        "scope": "Swap the two already-rolled results when turn_p differs from tp; preserve the native RNG calls, roll messages, target groups and End Phase resets."
+      },
+      {
+        "cardId": 43940008,
+        "filename": "c43940008.lua",
+        "upstreamPath": "official/c43940008.lua",
+        "upstreamSha256": "43d4454ff05c1e05ec47eb69023e45750b4e0e9bf186c4b718e72432ba0f1460",
+        "correctedSha256": "32bfc7a639718a0f1631dd6eec0ee9018334e7273aeabb09065d5e0eb213a11e",
+        "verifiedOn": "2026-10-08",
+        "reason": "Konami TCG EN/FR explicitly permits each player to Special Summon when the revealed ATK are tied. The bundled source returns without either summon.",
+        "officialSources": [
+          "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid=17244&request_locale=en",
+          "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid=17244&request_locale=fr"
+        ],
+        "substitutions": [
+          {
+            "before": "\tif atk[tp]==atk[1-tp] then return end\n\tlocal p=(atk[tp]>atk[1-tp]) and tp or 1-tp\n\tif not Duel.IsExistingMatchingCard(Card.IsCanBeSpecialSummoned,p,LOCATION_HAND,0,1,nil,e,0,p,false,false)\n\t\tor not Duel.SelectYesNo(p,aux.Stringid(id,3)) then return end\n\tDuel.Hint(HINT_SELECTMSG,p,HINTMSG_SPSUMMON)\n\tlocal sc=Duel.SelectMatchingCard(p,Card.IsCanBeSpecialSummoned,p,LOCATION_HAND,0,1,1,nil,e,0,p,false,false):GetFirst()\n\tif not sc then return end\n\tif Duel.SpecialSummonStep(sc,0,p,p,false,false,POS_FACEUP) then\n\t\t--Can attack directly\n\t\tlocal e1=Effect.CreateEffect(c)\n\t\te1:SetDescription(3205)\n\t\te1:SetProperty(EFFECT_FLAG_CLIENT_HINT)\n\t\te1:SetType(EFFECT_TYPE_SINGLE)\n\t\te1:SetCode(EFFECT_DIRECT_ATTACK)\n\t\te1:SetReset(RESET_EVENT|RESETS_STANDARD)\n\t\tsc:RegisterEffect(e1)\n\tend\n\tDuel.SpecialSummonComplete()",
+            "after": "\tlocal highest_atk=math.max(atk[tp],atk[1-tp])\n\tif highest_atk<0 then return end\n\tfor _,p in ipairs(players) do\n\t\tif atk[p]==highest_atk and Duel.GetLocationCount(p,LOCATION_MZONE)>0\n\t\t\tand Duel.IsExistingMatchingCard(Card.IsCanBeSpecialSummoned,p,LOCATION_HAND,0,1,nil,e,0,p,false,false)\n\t\t\tand Duel.SelectYesNo(p,aux.Stringid(id,3)) then\n\t\t\tDuel.Hint(HINT_SELECTMSG,p,HINTMSG_SPSUMMON)\n\t\t\tlocal sc=Duel.SelectMatchingCard(p,Card.IsCanBeSpecialSummoned,p,LOCATION_HAND,0,1,1,nil,e,0,p,false,false):GetFirst()\n\t\t\tif sc and Duel.SpecialSummonStep(sc,0,p,p,false,false,POS_FACEUP) then\n\t\t\t\t--Can attack directly\n\t\t\t\tlocal e1=Effect.CreateEffect(c)\n\t\t\t\te1:SetDescription(3205)\n\t\t\t\te1:SetProperty(EFFECT_FLAG_CLIENT_HINT)\n\t\t\t\te1:SetType(EFFECT_TYPE_SINGLE)\n\t\t\t\te1:SetCode(EFFECT_DIRECT_ATTACK)\n\t\t\t\te1:SetReset(RESET_EVENT|RESETS_STANDARD)\n\t\t\t\tsc:RegisterEffect(e1)\n\t\t\tend\n\t\tend\n\tend\n\tDuel.SpecialSummonComplete()",
+            "occurrences": 1
+          }
+        ]
+      }
+    ],
+    "upstreamArchiveBytesModified": false
+  },
+  "geometry": {
+    "sourceArt": 339,
+    "dedicated": 339,
+    "inspected": 339,
+    "sourceReconstructed": 339,
+    "fullSpatialOneToOneCertified": false
+  },
+  "models": {
+    "dedicated": 22,
+    "fallbackFamilies": 17,
+    "newCodes": [
+      26905245,
+      28649820
+    ],
+    "moduleComparisonCaptures": 12
+  },
+  "checks": {
+    "date": "2026-10-08",
+    "scope": "Local final verification; 125 Node test files, field source images/backdrops, final production build. Browser and published deployment proof recorded separately.",
+    "tests": {
+      "command": "npm run check",
+      "files": 125,
+      "passed": 125,
+      "failed": 0,
+      "skipped": 0,
+      "cancelled": 0
+    },
+    "security": {
+      "command": "npm run audit:security",
+      "vulnerabilities": 0
+    },
+    "fieldAssets": {
+      "sourceArt": 339,
+      "backdrops": 339
+    },
+    "build": {
+      "tool": "Vite 8.1.5",
+      "transformedModules": 104,
+      "files": [
+        {
+          "path": "/index.html",
+          "bytes": 35408,
+          "sha256": "30bf78a66cda62f4a4b7b6617ad330ee2c983e5564a51dfff539882b75d3baaf"
+        },
+        {
+          "path": "/assets/index-DNwe3FSS.js",
+          "bytes": 598690,
+          "sha256": "38c428237545d8290e07229c5efdda93441dd1088234c31e64aa6ef3f8b59321"
+        },
+        {
+          "path": "/assets/index-BbUkbKmn.css",
+          "bytes": 82371,
+          "sha256": "71afb732ab7152dc319dfb6b72812913e23121c24f251ef80e0b69c61e0e749e"
+        },
+        {
+          "path": "/assets/NativeDuelGame-DocEeHOq.js",
+          "bytes": 83510,
+          "sha256": "045f647667c998076ba0d3e63433f3015c27cae705bf17546faf49f708e144fb"
+        },
+        {
+          "path": "/assets/FieldEnvironmentRegistry-Bv70irwA.js",
+          "bytes": 595263,
+          "sha256": "bfc14aa98ac8ac1e7ddbdfed7949539c51a6e6b9e3866c0af7190a6d084db062"
+        },
+        {
+          "path": "/assets/RealDuelView-P3kgZYMk.js",
+          "bytes": 135163,
+          "sha256": "8eff318aa606a12673082fdc532b2640f66eebb177b0849f2103370e0fe4e463"
+        },
+        {
+          "path": "/assets/NativeCardCatalogue-DYOc9sug.js",
+          "bytes": 54064,
+          "sha256": "52372b0fa09af406267d3091d1c476e20572bc62b9f4ecb499f19bb9dd6d1e2b"
+        }
+      ]
+    },
+    "wasm": {
+      "path": "public/native/ocgcore.sync.wasm",
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    },
+    "verificationLogSha256": "eaa1dc534061c17f961fd76318d805aa9e3529364c91345205a2a59727523035",
+    "additionalConfirmedFixes": [
+      "RealDuelView clears residual mobile container scroll before resizing both renderers; delayed pan callback rechecks current view/width.",
+      "Exact small reference JPEGs for the two Trap Monsters are bundled; all six JPEG variants verified."
+    ]
+  },
+  "chainCases": 26,
+  "browserReports": [
+    {
+      "path": "docs/audits/artifacts/field-atlas-ui-2026-10-08/report.json",
+      "sha256": "e1c51b6ab0d52e8a37bceef36ff10b74519579d3c2053a24b57990999ee957bf",
+      "ok": true,
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 900
+        },
+        {
+          "width": 390,
+          "height": 844
+        }
+      ],
+      "allSevenFinalBuildFilesMatch": true,
+      "fingerprintMethod": "served response body fingerprints",
+      "compiledBuildUnchangedDuringAudit": true
+    },
+    {
+      "path": "docs/audits/artifacts/native-duel-ui-2026-10-08/report.json",
+      "sha256": "85f03e0c848bb1f0afc59536ac7ef5b2b8c50c672dc2933308a0264539c58840",
+      "ok": true,
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 900
+        },
+        {
+          "width": 390,
+          "height": 844
+        }
+      ],
+      "allSevenFinalBuildFilesMatch": true,
+      "fingerprintMethod": "served response body fingerprints",
+      "compiledBuildUnchangedDuringAudit": true
+    },
+    {
+      "path": "docs/audits/artifacts/native-duel-views-2026-10-08/report.json",
+      "sha256": "46074bb66e043a2b0c07a76a7c2d0b7cc80dc9057b6a2d42b23848eba9fc87e3",
+      "ok": true,
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 900
+        },
+        {
+          "width": 390,
+          "height": 844
+        }
+      ],
+      "allSevenFinalBuildFilesMatch": true,
+      "fingerprintMethod": "served response body fingerprints",
+      "compiledBuildUnchangedDuringAudit": true
+    },
+    {
+      "path": "docs/audits/artifacts/native-pendulum-ui-2026-10-08/report.json",
+      "sha256": "ee51cc75d93f1193324ef8145acfce33ac98bc7f700365e1cd467560035eb824",
+      "ok": true,
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 900
+        },
+        {
+          "width": 390,
+          "height": 844
+        }
+      ],
+      "allSevenFinalBuildFilesMatch": true,
+      "fingerprintMethod": "served response body fingerprints",
+      "compiledBuildUnchangedDuringAudit": true
+    },
+    {
+      "path": "docs/audits/artifacts/native-chain-ui-2026-10-08/report.json",
+      "sha256": "81752fbb9dfed612f62f6770a7eff884650ddde56bd241f1a91a475288f9b4b8",
+      "ok": true,
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 900
+        },
+        {
+          "width": 390,
+          "height": 844
+        }
+      ],
+      "allSevenFinalBuildFilesMatch": true,
+      "fingerprintMethod": "compiled snapshot before/after with successful browser asset loads",
+      "compiledBuildUnchangedDuringAudit": true
+    },
+    {
+      "path": "docs/audits/artifacts/native-multi-set-ui-2026-10-08/report.json",
+      "sha256": "a752db5d26f55e5b325a7b4e59cff95bc7c6016fab8ab7ada1d2fab4ef7438ef",
+      "ok": true,
+      "viewports": [
+        {
+          "width": 1280,
+          "height": 900
+        },
+        {
+          "width": 390,
+          "height": 844
+        }
+      ],
+      "allSevenFinalBuildFilesMatch": true,
+      "fingerprintMethod": "served response body fingerprints",
+      "compiledBuildUnchangedDuringAudit": true
+    }
+  ],
+  "finalBuildFiles": [
+    {
+      "path": "/index.html",
+      "bytes": 35408,
+      "sha256": "30bf78a66cda62f4a4b7b6617ad330ee2c983e5564a51dfff539882b75d3baaf"
+    },
+    {
+      "path": "/assets/index-DNwe3FSS.js",
+      "bytes": 598690,
+      "sha256": "38c428237545d8290e07229c5efdda93441dd1088234c31e64aa6ef3f8b59321"
+    },
+    {
+      "path": "/assets/index-BbUkbKmn.css",
+      "bytes": 82371,
+      "sha256": "71afb732ab7152dc319dfb6b72812913e23121c24f251ef80e0b69c61e0e749e"
+    },
+    {
+      "path": "/assets/NativeDuelGame-DocEeHOq.js",
+      "bytes": 83510,
+      "sha256": "045f647667c998076ba0d3e63433f3015c27cae705bf17546faf49f708e144fb"
+    },
+    {
+      "path": "/assets/FieldEnvironmentRegistry-Bv70irwA.js",
+      "bytes": 595263,
+      "sha256": "bfc14aa98ac8ac1e7ddbdfed7949539c51a6e6b9e3866c0af7190a6d084db062"
+    },
+    {
+      "path": "/assets/RealDuelView-P3kgZYMk.js",
+      "bytes": 135163,
+      "sha256": "8eff318aa606a12673082fdc532b2640f66eebb177b0849f2103370e0fe4e463"
+    },
+    {
+      "path": "/assets/NativeCardCatalogue-DYOc9sug.js",
+      "bytes": 54064,
+      "sha256": "52372b0fa09af406267d3091d1c476e20572bc62b9f4ecb499f19bb9dd6d1e2b"
+    }
+  ],
+  "limits": [
+    "At least one native effect branch per Field; all branches and all card interactions are not certified.",
+    "Headless integrationTested remains zero; browser proofs exercise named public flows, not every Field.",
+    "Exact source images; procedural geometry and anatomy adapted to the board and rendering budgets.",
+    "Remote binary WASM SHA is not claimed from text-only deployment fetching."
+  ]
+}

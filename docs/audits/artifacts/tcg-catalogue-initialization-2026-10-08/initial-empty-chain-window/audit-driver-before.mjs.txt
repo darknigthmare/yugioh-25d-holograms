@@ -1,0 +1,122 @@
+import assert from 'node:assert/strict';
+import { readFile, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+import { pathToFileURL } from 'node:url';
+import { resolve } from 'node:path';
+import { performance } from 'node:perf_hooks';
+import { loadNativeAuditInputs } from './native-field-audit-inputs.mjs';
+import { createNativeDuelRuntime, NativeDuelRuntime, createNativeScriptReader } from '../src/core/native/NativeDuelRuntime.js';
+import { createNativeTcgCardTemplate, getNativeTcgCardCatalogueCount } from '../src/core/native/NativeCardCatalogue.js';
+import { NATIVE_TCG_DUEL_FLAGS } from '../src/core/native/NativeTCGRuleProfile.js';
+
+const ROOT = new URL('../', import.meta.url);
+const OUTPUT = 'docs/audits/artifacts/tcg-catalogue-initialization-2026-10-08.json';
+const sha256 = bytes => createHash('sha256').update(bytes).digest('hex');
+const clean = value => JSON.parse(JSON.stringify(value, (_, item) => typeof item === 'bigint' ? String(item) : item));
+
+export function getCompleteTcgCatalogue(resources) {
+  const cards = new Map();
+  for (const code of resources.cards.keys()) {
+    const template = createNativeTcgCardTemplate(resources, code);
+    if (template) cards.set(Number(template.id), template);
+  }
+  assert.equal(cards.size, getNativeTcgCardCatalogueCount(resources), 'Every public TCG catalogue identifier must be measured');
+  return [...cards.values()].sort((a, b) => Number(a.id) - Number(b.id));
+}
+
+/** One unchanged core/WASM, fresh isolated Lua state and handle for each card.
+ * A card in its proper initial Deck triggers native card initialization without
+ * inventing a post-start debug action or pretending to execute every effect. */
+export function initializeTcgCatalogueCard(core, constants, baseOptions, template) {
+  const startedAt = performance.now();
+  const scriptReads = new Map(), originalReader = baseOptions.scriptReader;
+  const runtime = new NativeDuelRuntime(core, constants, { ...baseOptions,
+    scriptReader: filename => {
+      const source = originalReader(filename); scriptReads.set(filename, source); return source;
+    } });
+  const code = Number(template.id), data = baseOptions.cardReader(template.nativeCode ?? code);
+  const location = template.belongsInExtraDeck ? constants.OcgLocation.EXTRA : constants.OcgLocation.DECK;
+  let initialized = false, query = null, nativeMessages = [], prompt = null, thrownError = null;
+  try {
+    runtime.initialize();
+    runtime.addCard({ code, controller: 0, location, sequence: 0, position: constants.OcgPosition.FACEDOWN_DEFENSE });
+    initialized = true;
+    runtime.start();
+    const result = runtime.advance({ maxSteps: 64 });
+    nativeMessages = result.messages; prompt = result.prompt;
+    query = runtime.queryCard({ controller: 0, location, sequence: 0,
+      flags: constants.OcgQueryFlags.CODE | constants.OcgQueryFlags.TYPE | constants.OcgQueryFlags.POSITION });
+  } catch (error) { thrownError = { name: error.name, message: error.message }; }
+  finally { runtime.close(); }
+  const retryCount = nativeMessages.filter(message => message.type === constants.OcgMessageType.RETRY).length;
+  const queryMatches = query?.code === data?.code && query?.type === data?.type;
+  const ok = initialized && thrownError === null && runtime.errors.length === 0 && retryCount === 0
+    && prompt?.type === constants.OcgMessageType.SELECT_IDLECMD && queryMatches;
+  return { code, nativeCode: data?.code, name: template.name_en ?? template.name, type: data?.type,
+    initialLocation: template.belongsInExtraDeck ? 'EXTRA' : 'DECK',
+    ok, initialized, query: clean(query), expectedCode: data?.code, expectedType: data?.type, queryMatches,
+    promptType: prompt?.type ?? null, messageTypes: [...new Set(nativeMessages.map(message => message.type))],
+    retryCount, nativeDiagnostics: clean(runtime.errors), thrownError, handleClosed: runtime.closed,
+    elapsedMs: Number((performance.now() - startedAt).toFixed(3)),
+    scriptReads: [...scriptReads].map(([filename, source]) => ({ filename,
+      sha256: source === null ? null : sha256(source), bytes: source === null ? 0 : Buffer.byteLength(source) })) };
+}
+
+export async function auditTcgCatalogueInitialization(inputs, core, { sampleSize = null, onProgress } = {}) {
+  const startedAt = performance.now(), catalogue = getCompleteTcgCatalogue(inputs.resources);
+  const count = sampleSize == null ? catalogue.length : Math.min(catalogue.length, sampleSize);
+  const selected = sampleSize == null ? catalogue : Array.from({ length: count }, (_, index) =>
+    catalogue[Math.floor(index * catalogue.length / count)]);
+  const base = await createNativeDuelRuntime({ coreModule: inputs.coreModule, createCore: () => core,
+    ...inputs.resources, seed: [1n, 2n, 3n, 4n],
+    team1: { startingLP: 8000, startingDrawCount: 0, drawCountPerTurn: 0 },
+    team2: { startingLP: 8000, startingDrawCount: 0, drawCountPerTurn: 0 },
+    scriptReader: createNativeScriptReader(inputs.resources.scripts) });
+  const baseOptions = base.options; base.close();
+  assert.equal(baseOptions.flags, NATIVE_TCG_DUEL_FLAGS);
+  const results = [];
+  for (const template of selected) {
+    results.push(initializeTcgCatalogueCard(core, inputs.coreModule, baseOptions, template));
+    if (results.length % 500 === 0 || results.length === selected.length) onProgress?.({ completed: results.length,
+      total: selected.length, failed: results.filter(result => !result.ok).length,
+      elapsedMs: Math.round(performance.now() - startedAt) });
+  }
+  const sourcePaths = ['src/core/native/NativeDuelRuntime.js', 'src/core/native/NativeTCGRuleProfile.js',
+    'src/core/native/NativeLuaCompatibility.js', 'src/core/native/NativeCardCatalogue.js',
+    'src/core/tcg/TcgCardLegality.js', 'src/core/tcg/TcgAdvancedFormat.js', 'scripts/audit-tcg-catalogue-initialization.mjs',
+    'public/native/card-data.json', 'public/native/scripts.json', 'public/native/core-build.json'];
+  const sourcePins = await Promise.all(sourcePaths.map(async path => {
+    const bytes = await readFile(new URL(path, ROOT)); return { path, sha256: sha256(bytes), bytes: bytes.length };
+  }));
+  const elapsedMs = Number((performance.now() - startedAt).toFixed(3));
+  return { format: 'tcg-catalogue-initialization-v1', generatedAt: new Date().toISOString(),
+    ok: results.every(result => result.ok), completeCatalogue: sampleSize == null,
+    catalogueCount: catalogue.length, measuredCount: results.length, passedCount: results.filter(result => result.ok).length,
+    failedCount: results.filter(result => !result.ok).length, elapsedMs,
+    estimatedCompleteElapsedMs: sampleSize == null ? elapsedMs : Math.round(elapsedMs * catalogue.length / count),
+    wasmInstanceCount: 1, freshIsolatedNativeHandlePerCard: true, allHandlesDestroyed: results.every(result => result.handleClosed),
+    coreRevision: inputs.coreBuild.coreRevision, wasmSha256: inputs.coreBuild.wasmSha256,
+    tcgFlags: String(NATIVE_TCG_DUEL_FLAGS), seeds: ['1', '2', '3', '4'],
+    sourcePins, fixture: { drawCounts: 0, currentCardController: 0, cardsPerDuel: 1,
+      correctInitialDeckSection: true, postStartCardInjection: false, debugLua: false,
+      strict40CardDeckLegalityClaim: false, startingEffectEvaluationOnly: true },
+    limits: ['Native initial_effect registration and first idle prompt only; individual card effect branches are not exercised.',
+      'A one-card zero-draw fixture is a compatibility probe, not a legal tournament Deck.',
+      'Forbidden cards remain in the inspectable TCG catalogue and are measured; deck legality is enforced separately.'],
+    failures: results.filter(result => !result.ok), results };
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+  const sampleArgument = process.argv.find(argument => argument.startsWith('--sample='));
+  const sampleSize = sampleArgument ? Number(sampleArgument.split('=')[1]) : null;
+  if (sampleSize !== null) assert.ok(Number.isInteger(sampleSize) && sampleSize > 0);
+  const inputs = await loadNativeAuditInputs(), core = await inputs.coreModule.default({ ...inputs.initializer, sync: true });
+  const report = await auditTcgCatalogueInitialization(inputs, core, { sampleSize,
+    onProgress: state => console.log(JSON.stringify({ progress: state })) });
+  const output = sampleSize == null ? OUTPUT : OUTPUT.replace('.json', `-sample-${sampleSize}.json`);
+  await writeFile(new URL(output, ROOT), `${JSON.stringify(report, null, 2)}\n`);
+  console.log(JSON.stringify({ ok: report.ok, catalogueCount: report.catalogueCount,
+    measured: report.measuredCount, passed: report.passedCount, failed: report.failedCount,
+    elapsedMs: report.elapsedMs, estimatedCompleteElapsedMs: report.estimatedCompleteElapsedMs, output }));
+  if (!report.ok) process.exitCode = 1;
+}

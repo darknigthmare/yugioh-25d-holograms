@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/workspace/yugioh-25d-holograms/scripts/audit-tcg-catalogue-match-ui.py", line 353, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/yugioh-25d-holograms/scripts/audit-tcg-catalogue-match-ui.py", line 330, in main
+    launch(page,item);tribute_revival(page,args.output,item);siding_restore(page,args.output,item,own);finish(page,item);context.close()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/yugioh-25d-holograms/scripts/audit-tcg-catalogue-match-ui.py", line 232, in tribute_revival
+    capture_models(page,output,report,'tcg-cyber-tribute-neos-revival',{'70095154':(2100,1600),'89943723':(2500,2000)})
+  File "/workspace/yugioh-25d-holograms/scripts/audit-tcg-catalogue-match-ui.py", line 216, in capture_models
+    ui.wait_until(page,"code=>document.querySelector('#inspector-display img')?.getAttribute('src')==='/cards/reference/'+code+'.jpg'",code)
+  File "/workspace/yugioh-25d-holograms/scripts/audit-native-duel-ui.py", line 149, in wait_until
+    raise AssertionError(f'Browser condition did not settle: {predicate[:160]}')
+AssertionError: Browser condition did not settle: code=>document.querySelector('#inspector-display img')?.getAttribute('src')==='/cards/reference/'+code+'.jpg'

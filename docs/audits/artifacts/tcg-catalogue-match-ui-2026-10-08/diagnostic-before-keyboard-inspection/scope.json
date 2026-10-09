@@ -1,0 +1,12 @@
+{
+  "reason": "Hover of the original card anchor in immersive CSS3D view did not change the inspector. No application error or failed native request. Retrying with public keyboard focus before deciding whether illustration binding is a game bug.",
+  "successfulPathBeforeFailure": [
+    "TCG catalogue Neos addition and reload",
+    "forbidden Pot of Greed disabled",
+    "OCG/prerelease exclusions",
+    "40-card strict Match start",
+    "Cyber Dragon genuine offered Tribute",
+    "Foolish Burial and Monster Reborn Neos"
+  ],
+  "fixtureScope": "Saved Deck and initial RNG before start; visible controls after start."
+}

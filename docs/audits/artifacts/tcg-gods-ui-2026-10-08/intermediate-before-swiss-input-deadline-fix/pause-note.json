@@ -1,0 +1,65 @@
+{
+  "status": "interrupted_by_coordinator",
+  "ok": false,
+  "expectedEntrySha256": "75e2bfd25c28d39ca0a1d007742d75678e80190b3cc60933236eb2fc91fb292e",
+  "reason": "Coordinator fixed the Swiss input deadline boundary and required a new build. This intermediate God run is not final proof. Only this owned audit process tree was terminated; completed cases remain in checkpoint-report.json.",
+  "captures": [
+    {
+      "name": "god-10000000-god-player-camera-390.png",
+      "sha256": "f7b2b45288d06461eadc47a5bc7a5a31ff3fecc8237018bdcbadd2fbdfc22fab"
+    },
+    {
+      "name": "god-10000020-three-native-tokens-1280.png",
+      "sha256": "460c26188bd114291f7552c4eadbbb116c346f38f69e85a6916e93160fd70d7c"
+    },
+    {
+      "name": "god-10000000-god-overview-camera-1280.png",
+      "sha256": "c5e249357d38b940de20aa8e6127451034d9088343e67dfe304018ec8cb024ec"
+    },
+    {
+      "name": "god-10000000-three-native-tokens-1280.png",
+      "sha256": "7474224c65ff99d1e23fcc73b14330815dfe10e6f1bfefccd91ac3256b7d222f"
+    },
+    {
+      "name": "god-10000010-three-native-tokens-1280.png",
+      "sha256": "f3073a9912a1cfd61c7ad0b9e12b153ed926fbeb4e110adc270aea80ff7a5882"
+    },
+    {
+      "name": "god-10000000-god-player-camera-1280.png",
+      "sha256": "6c305adaf0e5869e8adc0538de8003dec17ab4d4475d15f3f249127b2aed5283"
+    },
+    {
+      "name": "god-10000000-god-overview-camera-390.png",
+      "sha256": "62929fa8e82e8b41eee10eab941268e7345624cd66042f4cc0a549bad19892ba"
+    },
+    {
+      "name": "god-10000020-god-overview-camera-390.png",
+      "sha256": "d29fe35b2ae36dc7d02cd1e6c6031077c64278c7d25992bb4d1782a9b0394ff6"
+    },
+    {
+      "name": "god-10000020-god-player-camera-1280.png",
+      "sha256": "7c46c9755f2a8508335a40cf37bed683b6c8c8f39bb1c60199b381a02ccf4400"
+    },
+    {
+      "name": "god-10000020-god-player-camera-390.png",
+      "sha256": "2faedaecf9baa85dc2435ecc61aa7ae89f8685b5935d7e6b07c10cea2fb667ad"
+    },
+    {
+      "name": "god-10000000-three-native-tokens-390.png",
+      "sha256": "918b7813dabce6d70a3db8f401f2735b53d590dca64b873f7246f687b060f38f"
+    },
+    {
+      "name": "god-10000020-god-overview-camera-1280.png",
+      "sha256": "f85fd702583eb5b78e2d239ae73ed19ed7e0692c44a40786d33e39d918db9055"
+    },
+    {
+      "name": "god-10000010-failure-public-dom-1280.png",
+      "sha256": "f7db28f5676a920681f4d8a3762108d4239dad11a5b0a9912a50bab1e98fd4d6"
+    },
+    {
+      "name": "god-10000020-three-native-tokens-390.png",
+      "sha256": "d1af1d33c43d4d2f98443555510c78e2133be8ffdebd0f9b6bd1d0d8d64ceab2"
+    }
+  ],
+  "limits": "Checkpoint flags cover only completed cases on this older frozen build; no final all-six-case or source-after / HTTP-after assertion is claimed."
+}

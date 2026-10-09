@@ -1,0 +1,358 @@
+{
+  "generatedOn": "2026-10-08",
+  "method": "All 18 source/baseline/after PNG triptychs were opened with view_image at front, three-quarter and side, rest and action. Pixel inspection is a manual comparison, not a numerical fidelity percentage.",
+  "reportPath": "docs/audits/artifacts/continuation-monster-2026-10-08/measurements.json",
+  "reportSha256": "b6c100b8e09547512dad8a6346ad0943f335ef8956753cb7f92da15fb0b3bee5",
+  "ok": true,
+  "captures": [
+    {
+      "cardId": "5053103",
+      "angle": "front",
+      "pose": "rest",
+      "path": "docs/audits/artifacts/continuation-monster-2026-10-08/5053103-front-rest.png",
+      "sha256": "398abdcbb74b6c1f4cb8f5f8a5bfa4477dbd9f3e33ab3ad847e401a39e9d0a4e",
+      "inspected": true,
+      "findings": {
+        "observed": [
+          "Red armor and gold-rimmed shoulder pauldrons, swept helmet horns and brown bovine muzzle replace the generic sword-and-shield warrior.",
+          "Both gripping arms, fists, handle and silver double-swept axe remain coherent during the shared weapon pose.",
+          "Front/three-quarter/side views show the blade thickness and sculpted body; all extremities fit the final gallery frame."
+        ],
+        "limits": [
+          "The reference is a cropped bust; legs, hooves, belt and greaves are declared inferred continuations.",
+          "Facial relief, rivets and axe bevel highlights remain simplified procedural facets."
+        ]
+      }
+    },
+    {
+      "cardId": "5053103",
+      "angle": "front",
+      "pose": "attack",
+      "path": "docs/audits/artifacts/continuation-monster-2026-10-08/5053103-front-attack.png",
+      "sha256": "e502470f58e3f559a01702f056a249a830b72bd11a8a690c44ca8fb9f24cb600",
+      "inspected": true,
+      "findings": {
+        "observed": [
+          "Red armor and gold-rimmed shoulder pauldrons, swept helmet horns and brown bovine muzzle replace the generic sword-and-shield warrior.",
+          "Both gripping arms, fists, handle and silver double-swept axe remain coherent during the shared weapon pose.",
+          "Front/three-quarter/side views show the blade thickness and sculpted body; all extremities fit the final gallery frame."
+        ],
+        "limits": [
+          "The reference is a cropped bust; legs, hooves, belt and greaves are declared inferred continuations.",
+          "Facial relief, rivets and axe bevel highlights remain simplified procedural facets."
+        ]
+      }
+    },
+    {
+      "cardId": "5053103",
+      "angle": "three-quarter",
+      "pose": "rest",
+      "path": "docs/audits/artifacts/continuation-monster-2026-10-08/5053103-three-quarter-rest.png",
+      "sha256": "a6d9da94b613efb28144ebb8e2f071bab466053d4b913e491cbe79b9262cf8f6",
+      "inspected": true,
+      "findings": {
+        "observed": [
+          "Red armor and gold-rimmed shoulder pauldrons, swept helmet horns and brown bovine muzzle replace the generic sword-and-shield warrior.",
+          "Both gripping arms, fists, handle and silver double-swept axe remain coherent during the shared weapon pose.",
+          "Front/three-quarter/side views show the blade thickness and sculpted body; all extremities fit the final gallery frame."
+        ],
+        "limits": [
+          "The reference is a cropped bust; legs, hooves, belt and greaves are declared inferred continuations.",
+          "Facial relief, rivets and axe bevel highlights remain simplified procedural facets."
+        ]
+      }
+    },
+    {
+      "cardId": "5053103",
+      "angle": "three-quarter",
+      "pose": "attack",
+      "path": "docs/audits/artifacts/continuation-monster-2026-10-08/5053103-three-quarter-attack.png",
+      "sha256": "773565a70376a6f4ee2e5d349d1403763f97c1b825290d864efb7fa7a7c24cfe",
+      "inspected": true,
+      "findings": {
+        "observed": [
+          "Red armor and gold-rimmed shoulder pauldrons, swept helmet horns and brown bovine muzzle replace the generic sword-and-shield warrior.",
+          "Both gripping arms, fists, handle and silver double-swept axe remain coherent during the shared weapon pose.",
+          "Front/three-quarter/side views show the blade thickness and sculpted body; all extremities fit the final gallery frame."
+        ],
+        "limits": [
+          "The reference is a cropped bust; legs, hooves, belt and greaves are declared inferred continuations.",
+          "Facial relief, rivets and axe bevel highlights remain simplified procedural facets."
+        ]
+      }
+    },
+    {
+      "cardId": "5053103",
+      "angle": "side",
+      "pose": "rest",
+      "path": "docs/audits/artifacts/continuation-monster-2026-10-08/5053103-side-rest.png",
+      "sha256": "16afb21268fa28fd8d2d1704de0d23abc7cf695add43b7fcc9919feb82f7d77b",
+      "inspected": true,
+      "findings": {
+        "observed": [
+          "Red armor and gold-rimmed shoulder pauldrons, swept helmet horns and brown bovine muzzle replace the generic sword-and-shield warrior.",
+          "Both gripping arms, fists, handle and silver double-swept axe remain coherent during the shared weapon pose.",
+          "Front/three-quarter/side views show the blade thickness and sculpted body; all extremities fit the final gallery frame."
+        ],
+        "limits": [
+          "The reference is a cropped bust; legs, hooves, belt and greaves are declared inferred continuations.",
+          "Facial relief, rivets and axe bevel highlights remain simplified procedural facets."
+        ]
+      }
+    },
+    {
+      "cardId": "5053103",
+      "angle": "side",
+      "pose": "attack",
+      "path": "docs/audits/artifacts/continuation-monster-2026-10-08/5053103-side-attack.png",
+      "sha256": "94197b04fa40e835c8422e098d7681b40a9a398cd0140d3d15c882e04cf00ff8",
+      "inspected": true,
+      "findings": {
+        "observed": [
+          "Red armor and gold-rimmed shoulder pauldrons, swept helmet horns and brown bovine muzzle replace the generic sword-and-shield warrior.",
+          "Both gripping arms, fists, handle and silver double-swept axe remain coherent during the shared weapon pose.",
+          "Front/three-quarter/side views show the blade thickness and sculpted body; all extremities fit the final gallery frame."
+        ],
+        "limits": [
+          "The reference is a cropped bust; legs, hooves, belt and greaves are declared inferred continuations.",
+          "Facial relief, rivets and axe bevel highlights remain simplified procedural facets."
+        ]
+      }
+    },
+    {
+      "cardId": "66602787",
+      "angle": "front",
+      "pose": "rest",
+      "path": "docs/audits/artifacts/continuation-monster-2026-10-08/66602787-front-rest.png",
+      "sha256": "49c22ef7bddfb3f565945ed1bbab0a8f2a2cddfa9880416358dbe0c9d0f67ce2",
+      "inspected": true,
+      "findings": {
+        "observed": [
+          "Asymmetric white/teal face, yellow eye star, round red nose, white grin, red collar and purple open hands replace a staff-carrying mage.",
+          "Bare swept left brim and curled bell-tipped right crown preserve the asymmetry seen in the JPEG.",
+          "A continuous inferred lower tunic replaces an earlier visible torso/skirt gap; hands and forearms share the casting joint."
+        ],
+        "limits": [
+          "The lower tunic, shoes and legs continue a cropped bust and are not documented original full-body costume.",
+          "The mask and hat use extruded source contours, with adapted depths and simplified facial relief."
+        ]
+      }
+    },
+    {
+      "cardId": "66602787",
+      "angle": "front",
+      "pose": "attack",
+      "path": "docs/audits/artifacts/continuation-monster-2026-10-08/66602787-front-attack.png",
+      "sha256": "c55e89b598104bab58cec3b110b2b37e8d3d27353c30696e3910644d73fb038b",
+      "inspected": true,
+      "findings": {
+        "observed": [
+          "Asymmetric white/teal face, yellow eye star, round red nose, white grin, red collar and purple open hands replace a staff-carrying mage.",
+          "Bare swept left brim and curled bell-tipped right crown preserve the asymmetry seen in the JPEG.",
+          "A continuous inferred lower tunic replaces an earlier visible torso/skirt gap; hands and forearms share the casting joint."
+        ],
+        "limits": [
+          "The lower tunic, shoes and legs continue a cropped bust and are not documented original full-body costume.",
+          "The mask and hat use extruded source contours, with adapted depths and simplified facial relief."
+        ]
+      }
+    },
+    {
+      "cardId": "66602787",
+      "angle": "three-quarter",
+      "pose": "rest",
+      "path": "docs/audits/artifacts/continuation-monster-2026-10-08/66602787-three-quarter-rest.png",
+      "sha256": "6d563461c6c88e7969d620fc22e952243e8fada54c27d5f9c55cb2ac71d604fe",
+      "inspected": true,
+      "findings": {
+        "observed": [
+          "Asymmetric white/teal face, yellow eye star, round red nose, white grin, red collar and purple open hands replace a staff-carrying mage.",
+          "Bare swept left brim and curled bell-tipped right crown preserve the asymmetry seen in the JPEG.",
+          "A continuous inferred lower tunic replaces an earlier visible torso/skirt gap; hands and forearms share the casting joint."
+        ],
+        "limits": [
+          "The lower tunic, shoes and legs continue a cropped bust and are not documented original full-body costume.",
+          "The mask and hat use extruded source contours, with adapted depths and simplified facial relief."
+        ]
+      }
+    },
+    {
+      "cardId": "66602787",
+      "angle": "three-quarter",
+      "pose": "attack",
+      "path": "docs/audits/artifacts/continuation-monster-2026-10-08/66602787-three-quarter-attack.png",
+      "sha256": "41798c923946bc23af750538455f94a2a3e3dc5ad09783e011c6286ac579ee44",
+      "inspected": true,
+      "findings": {
+        "observed": [
+          "Asymmetric white/teal face, yellow eye star, round red nose, white grin, red collar and purple open hands replace a staff-carrying mage.",
+          "Bare swept left brim and curled bell-tipped right crown preserve the asymmetry seen in the JPEG.",
+          "A continuous inferred lower tunic replaces an earlier visible torso/skirt gap; hands and forearms share the casting joint."
+        ],
+        "limits": [
+          "The lower tunic, shoes and legs continue a cropped bust and are not documented original full-body costume.",
+          "The mask and hat use extruded source contours, with adapted depths and simplified facial relief."
+        ]
+      }
+    },
+    {
+      "cardId": "66602787",
+      "angle": "side",
+      "pose": "rest",
+      "path": "docs/audits/artifacts/continuation-monster-2026-10-08/66602787-side-rest.png",
+      "sha256": "1a6592e8398b2f6971187be5539ff20e10347e9a0e70026c1b2ea106b70889cf",
+      "inspected": true,
+      "findings": {
+        "observed": [
+          "Asymmetric white/teal face, yellow eye star, round red nose, white grin, red collar and purple open hands replace a staff-carrying mage.",
+          "Bare swept left brim and curled bell-tipped right crown preserve the asymmetry seen in the JPEG.",
+          "A continuous inferred lower tunic replaces an earlier visible torso/skirt gap; hands and forearms share the casting joint."
+        ],
+        "limits": [
+          "The lower tunic, shoes and legs continue a cropped bust and are not documented original full-body costume.",
+          "The mask and hat use extruded source contours, with adapted depths and simplified facial relief."
+        ]
+      }
+    },
+    {
+      "cardId": "66602787",
+      "angle": "side",
+      "pose": "attack",
+      "path": "docs/audits/artifacts/continuation-monster-2026-10-08/66602787-side-attack.png",
+      "sha256": "872bd83c1b16e643cd1352933703e950ba6ecc4f5bb7e8d093a0f3378697fc39",
+      "inspected": true,
+      "findings": {
+        "observed": [
+          "Asymmetric white/teal face, yellow eye star, round red nose, white grin, red collar and purple open hands replace a staff-carrying mage.",
+          "Bare swept left brim and curled bell-tipped right crown preserve the asymmetry seen in the JPEG.",
+          "A continuous inferred lower tunic replaces an earlier visible torso/skirt gap; hands and forearms share the casting joint."
+        ],
+        "limits": [
+          "The lower tunic, shoes and legs continue a cropped bust and are not documented original full-body costume.",
+          "The mask and hat use extruded source contours, with adapted depths and simplified facial relief."
+        ]
+      }
+    },
+    {
+      "cardId": "28279543",
+      "angle": "front",
+      "pose": "rest",
+      "path": "docs/audits/artifacts/continuation-monster-2026-10-08/28279543-front-rest.png",
+      "sha256": "a71b26c0d269505e629912c278f833a0f2547f42aaf0143449118b965a3f679b",
+      "inspected": true,
+      "findings": {
+        "observed": [
+          "Olive flying serpent, looped continuous trunk, red ventral segments, horned tapered skull and hooked jaw replace a purple dragon with legs.",
+          "Solid swept/scalloped olive wings retain red slit details; actual wing and jaw articulation is visible between rest/action.",
+          "The final narrower snout is tapered in real geometry and all wing tips fit the gallery frame at radius 7.0."
+        ],
+        "limits": [
+          "The curve orientation and hidden reverse/depth are adapted for the duel camera.",
+          "Skull, wing surfaces and vents are faceted; this is not an integral spatial 1:1 reproduction."
+        ]
+      }
+    },
+    {
+      "cardId": "28279543",
+      "angle": "front",
+      "pose": "attack",
+      "path": "docs/audits/artifacts/continuation-monster-2026-10-08/28279543-front-attack.png",
+      "sha256": "d7291a1f96381ad0bd62e7a729ae291c07416220299b4b3597550e762c775e1e",
+      "inspected": true,
+      "findings": {
+        "observed": [
+          "Olive flying serpent, looped continuous trunk, red ventral segments, horned tapered skull and hooked jaw replace a purple dragon with legs.",
+          "Solid swept/scalloped olive wings retain red slit details; actual wing and jaw articulation is visible between rest/action.",
+          "The final narrower snout is tapered in real geometry and all wing tips fit the gallery frame at radius 7.0."
+        ],
+        "limits": [
+          "The curve orientation and hidden reverse/depth are adapted for the duel camera.",
+          "Skull, wing surfaces and vents are faceted; this is not an integral spatial 1:1 reproduction."
+        ]
+      }
+    },
+    {
+      "cardId": "28279543",
+      "angle": "three-quarter",
+      "pose": "rest",
+      "path": "docs/audits/artifacts/continuation-monster-2026-10-08/28279543-three-quarter-rest.png",
+      "sha256": "9f11233a69d6572b936c1e7e500b95638f5e346e659f20f7df9ad3a778091a70",
+      "inspected": true,
+      "findings": {
+        "observed": [
+          "Olive flying serpent, looped continuous trunk, red ventral segments, horned tapered skull and hooked jaw replace a purple dragon with legs.",
+          "Solid swept/scalloped olive wings retain red slit details; actual wing and jaw articulation is visible between rest/action.",
+          "The final narrower snout is tapered in real geometry and all wing tips fit the gallery frame at radius 7.0."
+        ],
+        "limits": [
+          "The curve orientation and hidden reverse/depth are adapted for the duel camera.",
+          "Skull, wing surfaces and vents are faceted; this is not an integral spatial 1:1 reproduction."
+        ]
+      }
+    },
+    {
+      "cardId": "28279543",
+      "angle": "three-quarter",
+      "pose": "attack",
+      "path": "docs/audits/artifacts/continuation-monster-2026-10-08/28279543-three-quarter-attack.png",
+      "sha256": "f955f3f96b7385ba398e1e8aa016698a376484124ca85c8c8707279cdc782410",
+      "inspected": true,
+      "findings": {
+        "observed": [
+          "Olive flying serpent, looped continuous trunk, red ventral segments, horned tapered skull and hooked jaw replace a purple dragon with legs.",
+          "Solid swept/scalloped olive wings retain red slit details; actual wing and jaw articulation is visible between rest/action.",
+          "The final narrower snout is tapered in real geometry and all wing tips fit the gallery frame at radius 7.0."
+        ],
+        "limits": [
+          "The curve orientation and hidden reverse/depth are adapted for the duel camera.",
+          "Skull, wing surfaces and vents are faceted; this is not an integral spatial 1:1 reproduction."
+        ]
+      }
+    },
+    {
+      "cardId": "28279543",
+      "angle": "side",
+      "pose": "rest",
+      "path": "docs/audits/artifacts/continuation-monster-2026-10-08/28279543-side-rest.png",
+      "sha256": "1e554bf31a5b4a1325617e9471ed8cc1acff8d0c149919fd70e4ab9d6dc03bc7",
+      "inspected": true,
+      "findings": {
+        "observed": [
+          "Olive flying serpent, looped continuous trunk, red ventral segments, horned tapered skull and hooked jaw replace a purple dragon with legs.",
+          "Solid swept/scalloped olive wings retain red slit details; actual wing and jaw articulation is visible between rest/action.",
+          "The final narrower snout is tapered in real geometry and all wing tips fit the gallery frame at radius 7.0."
+        ],
+        "limits": [
+          "The curve orientation and hidden reverse/depth are adapted for the duel camera.",
+          "Skull, wing surfaces and vents are faceted; this is not an integral spatial 1:1 reproduction."
+        ]
+      }
+    },
+    {
+      "cardId": "28279543",
+      "angle": "side",
+      "pose": "attack",
+      "path": "docs/audits/artifacts/continuation-monster-2026-10-08/28279543-side-attack.png",
+      "sha256": "1425ed5939be0ff1fe9b70627139e89cd02e89e0d859d167afb40c47d21f63e0",
+      "inspected": true,
+      "findings": {
+        "observed": [
+          "Olive flying serpent, looped continuous trunk, red ventral segments, horned tapered skull and hooked jaw replace a purple dragon with legs.",
+          "Solid swept/scalloped olive wings retain red slit details; actual wing and jaw articulation is visible between rest/action.",
+          "The final narrower snout is tapered in real geometry and all wing tips fit the gallery frame at radius 7.0."
+        ],
+        "limits": [
+          "The curve orientation and hidden reverse/depth are adapted for the duel camera.",
+          "Skull, wing surfaces and vents are faceted; this is not an integral spatial 1:1 reproduction."
+        ]
+      }
+    }
+  ],
+  "correctionsBeforeFinalCapture": [
+    "Joined Saggi lower tunic to trunk.",
+    "Corrected Saggi hat asymmetry and removed the invented left golden hat bell.",
+    "Tapered Curse of Dragon skull depth toward its narrow hooked nose.",
+    "Framed both before/after renderers at camera radius 7.0 to keep wing tips visible."
+  ],
+  "scope": "Actual source-module comparison under matching scene conditions; no compiled app, native battle outcome or TCG rule completeness is certified here."
+}

@@ -1,0 +1,1912 @@
+{
+  "ok": true,
+  "date": "2026-10-09",
+  "executedAtUtc": "2026-10-08T23:52:16.331561+00:00",
+  "driver": {
+    "path": "/tmp/yugioh-avatar-browser-2026-10-09.py",
+    "bytes": 27593,
+    "sha256": "13a8c0fd788986f8d9e4eef69a35c86c3ee07d5d5d3d7dcd2906107a5e1571fb"
+  },
+  "scope": "Actual public DOM avatar selector and native Duel. No QA hook is called; no started Game is injected or mutated.",
+  "phase": "compiled",
+  "sourceBefore": {
+    "main.js": {
+      "bytes": 196766,
+      "sha256": "4249f4dbcde3c79124fb255b9905c4daa68abf1e30c5d0a589ad62ce8397ccd0"
+    },
+    "index.html": {
+      "bytes": 35954,
+      "sha256": "d3b960d4cf6088bceab62161e43f279bf40cc4089459ad83ffbdca8b3e352de2"
+    },
+    "style.css": {
+      "bytes": 127694,
+      "sha256": "6bbce84fbccfc6a59992609a2659f6a0f27059354d6a6300ebc2d4d1e29f43fc"
+    },
+    "src/content/DuelistAvatarCatalog.js": {
+      "bytes": 43400,
+      "sha256": "73ac16fd6f2a6e550934ff0fd48c0af2761ddb3859d3399fb1b6b8993f94dedb"
+    },
+    "src/content/DuelistAvatarProgress.js": {
+      "bytes": 9736,
+      "sha256": "ab23b1e01d5b90999ca5574ea4e1e42721b1ce9ae0b27c1d5b11c25f09ca8603"
+    },
+    "src/ui/DuelistAvatarModels.js": {
+      "bytes": 27743,
+      "sha256": "0c00c1601a89cf836b9ecbfc60acdaf10a18213d020a97969412798142c8e363"
+    },
+    "src/ui/DuelistAvatarPicker.js": {
+      "bytes": 15630,
+      "sha256": "c39af793a6cf27648f8a104c0ac7b364f896c06ac470d17922af305644196215"
+    },
+    "src/ui/DuelistAvatarPortrait.js": {
+      "bytes": 15497,
+      "sha256": "a0e8d2da7de92aff3f2dc2ccfd364dec5c2c6f26c88cb74dbbae243d41eae18e"
+    },
+    "src/ui/DuelViewController.js": {
+      "bytes": 10960,
+      "sha256": "4a1f90c43cbe85589936a5af6462d1b385fc257aac61f4bf63ea9a194f8cdb37"
+    },
+    "src/ui/RealDuelView.js": {
+      "bytes": 35789,
+      "sha256": "509be7826db7e148d17989c2a347513d181c2f74ba86b99439fdab4babf212fc"
+    },
+    "src/ui/RealDuelScene3D.js": {
+      "bytes": 54108,
+      "sha256": "5fee001557d8e442cbdddb88d40e50c20ef551c7ef64d7f31ed34793c24fb6b0"
+    },
+    "src/core/native/NativeDuelGame.js": {
+      "bytes": 62312,
+      "sha256": "04a3219a0b59bec1aab199efc72fc25069c68acb17233190a898c530add0813f"
+    },
+    "public/native/ocgcore.sync.wasm": {
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    },
+    "public/native/card-data.json": {
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    "public/native/scripts.json": {
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    }
+  },
+  "paths": [
+    {
+      "width": 1280,
+      "height": 900,
+      "reducedMotion": "no-preference",
+      "pageErrors": [],
+      "nativeRequestFailures": [],
+      "loaded": [
+        "/",
+        "/assets/FieldEnvironmentRegistry-CW5zbHcP.js",
+        "/assets/FieldGeometryThree-CrvvuBIg.js",
+        "/assets/FieldSpellCardDataSnapshot-DzxkUNrK.js",
+        "/assets/FieldSpellRules-DLBFReUe.js",
+        "/assets/NativeDuelGame-CJlB6I_4.js",
+        "/assets/RealDuelView-BK1zPXPY.js",
+        "/assets/index-CnIvvC2Y.css",
+        "/assets/index-u38YK6zY.js",
+        "/assets/ocgcore-DWqJvtmv.js",
+        "/assets/ocgcore.sync-MMMSWPBB-2LWfD6lX.js",
+        "/assets/preload-helper-Czpn1I53.js",
+        "/cards/cropped/5053103.jpg",
+        "/cards/small/14898066.jpg",
+        "/cards/small/24094653.jpg",
+        "/cards/small/26202165.jpg",
+        "/cards/small/48305365.jpg",
+        "/cards/small/5053103.jpg",
+        "/custom-card-back.png",
+        "/environments/kaibacorp-clearing-original.webp",
+        "/fonts/inter-variable.woff2",
+        "/fonts/orbitron-variable.woff2",
+        "/native/card-data.json",
+        "/native/field-banlists.json",
+        "/native/manifest.json",
+        "/native/ocgcore.sync.wasm",
+        "/native/scripts.json",
+        "/playmats/player-console-playmat-original.webp"
+      ],
+      "debugHookAbsent": true,
+      "all192ReachableThroughEightPages": [
+        "yugi",
+        "atem",
+        "kaiba",
+        "joey",
+        "tea",
+        "tristan",
+        "serenity",
+        "mokuba",
+        "mai",
+        "pegasus",
+        "bakura",
+        "yami-bakura",
+        "marik",
+        "yami-marik",
+        "ishizu",
+        "odion",
+        "weevil",
+        "rex",
+        "bandit-keith",
+        "bonz",
+        "mako",
+        "espa-roba",
+        "duke",
+        "rebecca",
+        "arthur-hawkins",
+        "dartz",
+        "rafael",
+        "solomon",
+        "jaden",
+        "syrus",
+        "zane",
+        "alexis",
+        "chazz",
+        "bastion",
+        "chumley",
+        "atticus",
+        "blair",
+        "aster",
+        "jesse",
+        "jim",
+        "axel",
+        "adrian",
+        "crowler",
+        "banner",
+        "sheppard",
+        "sartorius",
+        "yubel",
+        "camula",
+        "titan",
+        "tania",
+        "kagemaru",
+        "dimitri",
+        "trueman",
+        "abidos",
+        "don-zaloog",
+        "alice",
+        "yusei",
+        "jack",
+        "crow",
+        "akiza",
+        "leo",
+        "luna",
+        "kalin",
+        "carly",
+        "mina",
+        "trudge",
+        "greiger",
+        "devack",
+        "misty",
+        "roman",
+        "rex-goodwin",
+        "antinomy",
+        "aporia",
+        "z-one",
+        "placido",
+        "lester",
+        "jakob",
+        "sherry",
+        "andre",
+        "jean",
+        "yuma",
+        "astral",
+        "tori",
+        "bronk",
+        "kite",
+        "shark",
+        "rio",
+        "anna",
+        "cathy",
+        "flip",
+        "caswell",
+        "quinton",
+        "quattro",
+        "trey",
+        "vetrix",
+        "dr-faker",
+        "heartland",
+        "nistro",
+        "dextra",
+        "girag",
+        "alito",
+        "dumon",
+        "vector",
+        "mizar",
+        "yuya",
+        "zuzu",
+        "yuto",
+        "yugo",
+        "yuri",
+        "celina",
+        "rin",
+        "lulu",
+        "declan",
+        "riley",
+        "shay",
+        "sora",
+        "gong",
+        "silvio",
+        "yusho",
+        "yoko",
+        "leo-akaba",
+        "dennis",
+        "moon-shadow",
+        "shinji",
+        "sergey",
+        "roget",
+        "chojiro",
+        "skip",
+        "gloria",
+        "grace",
+        "zarc",
+        "ray",
+        "playmaker",
+        "soulburner",
+        "varis",
+        "blue-angel",
+        "ghost-gal",
+        "the-gore",
+        "ai",
+        "roboppi",
+        "akira",
+        "shoichi",
+        "jin",
+        "naoki",
+        "spectre",
+        "windy",
+        "lightning",
+        "flame",
+        "aqua",
+        "earth",
+        "kiyoshi",
+        "queen",
+        "yuga",
+        "luke",
+        "romin",
+        "gakuto",
+        "roa",
+        "nail",
+        "asana",
+        "mimi",
+        "yoshio",
+        "tiger",
+        "otes",
+        "yuro",
+        "yujin",
+        "yuka",
+        "yuran",
+        "yuo",
+        "yuga-goha",
+        "ranze",
+        "rinnosuke",
+        "sebastian",
+        "yudias",
+        "yuhi",
+        "yuamu",
+        "zwijo",
+        "manabu",
+        "mitsuko",
+        "manya",
+        "nyandestar",
+        "the-luge",
+        "rovian",
+        "yuna",
+        "asaka",
+        "london",
+        "epoch",
+        "ranran",
+        "tremolo",
+        "phaser",
+        "bochi",
+        "chupataro",
+        "kuadul"
+      ],
+      "eightSeriesCounts": {
+        "dm": 28,
+        "gx": 28,
+        "5ds": 24,
+        "zexal": 24,
+        "arc-v": 28,
+        "vrains": 20,
+        "sevens": 20,
+        "go-rush": 20
+      },
+      "lockedInspectableAndNotSelectable": {
+        "id": "atem",
+        "condition": "Duel Monsters\n\nPERSONNAGE À DÉBLOQUER\n\nAtem\n\nChevelure étoilée, posture droite et cape de pharaon.\n\nCondition de déblocage\n\n12 médailles de campagne\n\n0 / 12 médailles\n\nPersonnage verrouillé",
+        "profileUnchanged": true
+      },
+      "accentedYugiSearchResults": [
+        "yugi",
+        "solomon"
+      ],
+      "accentAndJapaneseAliases": true,
+      "horizontalOverflow": {
+        "width": 1280,
+        "body": 1280,
+        "dialog": 1138,
+        "dialogClient": 1138
+      },
+      "tabAfterHelpSummary": {
+        "id": "duelist-avatar-close",
+        "inside": true,
+        "tag": "BUTTON"
+      },
+      "findings": [],
+      "reverseTabInside": true,
+      "keyboardSelectionRetainsFocusOnSelectedPortrait": true,
+      "selectedFreeAvatar": {
+        "version": 1,
+        "selectedAvatarId": "jaden",
+        "earnedAvatarIds": []
+      },
+      "escapeReturnsStartAndTrigger": true,
+      "reloadSelectionPersists": true,
+      "sceneBefore": {
+        "realDuelScene3d": "true",
+        "webglAvailable": "true",
+        "playerPlaymatLoaded": "true",
+        "playerAvatarId": "jaden",
+        "opponentAvatarId": "yugi",
+        "environmentId": "clearing",
+        "arenaMaterial": "kaibacorp-steel",
+        "cameraPreset": "player"
+      },
+      "nativeStateBeforeAvatarSwap": {
+        "ownHand": [
+          {
+            "id": "24094653",
+            "uid": "native_2_86",
+            "atk": null,
+            "def": null
+          },
+          {
+            "id": "5053103",
+            "uid": "native_2_87",
+            "atk": null,
+            "def": null
+          },
+          {
+            "id": "48305365",
+            "uid": "native_2_88",
+            "atk": null,
+            "def": null
+          },
+          {
+            "id": "26202165",
+            "uid": "native_2_89",
+            "atk": null,
+            "def": null
+          },
+          {
+            "id": "14898066",
+            "uid": "native_2_90",
+            "atk": null,
+            "def": null
+          }
+        ],
+        "ownMonsters": [],
+        "playerLp": "8000",
+        "opponentLp": "8000",
+        "ownGraveCount": "0",
+        "opponentGraveCount": "0",
+        "phase": "phase-main1",
+        "publicLog": "Le duel commence !\nVous piochez 5 carte(s).\nL’adversaire pioche 5 carte(s).\nVue Arène activée : le plateau et les hologrammes sont espacés.\nVue Réelle 3D activée : vous êtes derrière votre console, face à l’adversaire."
+      },
+      "escapeReturnsSettingsAndTrigger": true,
+      "nativeStateAfterAvatarSwap": {
+        "ownHand": [
+          {
+            "id": "24094653",
+            "uid": "native_2_86",
+            "atk": null,
+            "def": null
+          },
+          {
+            "id": "5053103",
+            "uid": "native_2_87",
+            "atk": null,
+            "def": null
+          },
+          {
+            "id": "48305365",
+            "uid": "native_2_88",
+            "atk": null,
+            "def": null
+          },
+          {
+            "id": "26202165",
+            "uid": "native_2_89",
+            "atk": null,
+            "def": null
+          },
+          {
+            "id": "14898066",
+            "uid": "native_2_90",
+            "atk": null,
+            "def": null
+          }
+        ],
+        "ownMonsters": [],
+        "playerLp": "8000",
+        "opponentLp": "8000",
+        "ownGraveCount": "0",
+        "opponentGraveCount": "0",
+        "phase": "phase-main1",
+        "publicLog": "Le duel commence !\nVous piochez 5 carte(s).\nL’adversaire pioche 5 carte(s).\nVue Arène activée : le plateau et les hologrammes sont espacés.\nVue Réelle 3D activée : vous êtes derrière votre console, face à l’adversaire."
+      },
+      "nativeStatePreservedDuringHumanAvatarSwap": true,
+      "sceneAfter": {
+        "realDuelScene3d": "true",
+        "webglAvailable": "true",
+        "playerPlaymatLoaded": "true",
+        "playerAvatarId": "kaiba",
+        "opponentAvatarId": "yugi",
+        "environmentId": "clearing",
+        "arenaMaterial": "kaibacorp-steel",
+        "cameraPreset": "player"
+      },
+      "realNormalSummonAfterAvatarSwap": {
+        "id": "5053103",
+        "index": "0",
+        "publicState": {
+          "ownHand": [
+            {
+              "id": "24094653",
+              "uid": "native_2_86",
+              "atk": null,
+              "def": null
+            },
+            {
+              "id": "48305365",
+              "uid": "native_2_96",
+              "atk": null,
+              "def": null
+            },
+            {
+              "id": "26202165",
+              "uid": "native_2_97",
+              "atk": null,
+              "def": null
+            },
+            {
+              "id": "14898066",
+              "uid": "native_2_98",
+              "atk": null,
+              "def": null
+            }
+          ],
+          "ownMonsters": [
+            {
+              "id": "5053103",
+              "uid": "native_2_87",
+              "atk": null,
+              "def": null
+            }
+          ],
+          "playerLp": "8000",
+          "opponentLp": "8000",
+          "ownGraveCount": "0",
+          "opponentGraveCount": "0",
+          "phase": "phase-main1",
+          "publicLog": "Le duel commence !\nVous piochez 5 carte(s).\nL’adversaire pioche 5 carte(s).\nVue Arène activée : le plateau et les hologrammes sont espacés.\nVue Réelle 3D activée : vous êtes derrière votre console, face à l’adversaire.\nVous invoquez Bœuf de Combat."
+        }
+      },
+      "nativeAssetsLoaded": [
+        "/native/card-data.json",
+        "/native/field-banlists.json",
+        "/native/manifest.json",
+        "/native/ocgcore.sync.wasm",
+        "/native/scripts.json"
+      ],
+      "cspViolations": [],
+      "ok": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "reducedMotion": "reduce",
+      "pageErrors": [],
+      "nativeRequestFailures": [],
+      "loaded": [
+        "/",
+        "/assets/FieldEnvironmentRegistry-CW5zbHcP.js",
+        "/assets/FieldGeometryThree-CrvvuBIg.js",
+        "/assets/FieldSpellCardDataSnapshot-DzxkUNrK.js",
+        "/assets/FieldSpellRules-DLBFReUe.js",
+        "/assets/NativeDuelGame-CJlB6I_4.js",
+        "/assets/RealDuelView-BK1zPXPY.js",
+        "/assets/index-CnIvvC2Y.css",
+        "/assets/index-u38YK6zY.js",
+        "/assets/ocgcore-DWqJvtmv.js",
+        "/assets/ocgcore.sync-MMMSWPBB-2LWfD6lX.js",
+        "/assets/preload-helper-Czpn1I53.js",
+        "/cards/cropped/5053103.jpg",
+        "/cards/small/14898066.jpg",
+        "/cards/small/24094653.jpg",
+        "/cards/small/26202165.jpg",
+        "/cards/small/48305365.jpg",
+        "/cards/small/5053103.jpg",
+        "/custom-card-back.png",
+        "/environments/kaibacorp-clearing-original.webp",
+        "/fonts/inter-variable.woff2",
+        "/fonts/orbitron-variable.woff2",
+        "/native/card-data.json",
+        "/native/field-banlists.json",
+        "/native/manifest.json",
+        "/native/ocgcore.sync.wasm",
+        "/native/scripts.json",
+        "/playmats/player-console-playmat-original.webp"
+      ],
+      "debugHookAbsent": true,
+      "all192ReachableThroughEightPages": [
+        "yugi",
+        "atem",
+        "kaiba",
+        "joey",
+        "tea",
+        "tristan",
+        "serenity",
+        "mokuba",
+        "mai",
+        "pegasus",
+        "bakura",
+        "yami-bakura",
+        "marik",
+        "yami-marik",
+        "ishizu",
+        "odion",
+        "weevil",
+        "rex",
+        "bandit-keith",
+        "bonz",
+        "mako",
+        "espa-roba",
+        "duke",
+        "rebecca",
+        "arthur-hawkins",
+        "dartz",
+        "rafael",
+        "solomon",
+        "jaden",
+        "syrus",
+        "zane",
+        "alexis",
+        "chazz",
+        "bastion",
+        "chumley",
+        "atticus",
+        "blair",
+        "aster",
+        "jesse",
+        "jim",
+        "axel",
+        "adrian",
+        "crowler",
+        "banner",
+        "sheppard",
+        "sartorius",
+        "yubel",
+        "camula",
+        "titan",
+        "tania",
+        "kagemaru",
+        "dimitri",
+        "trueman",
+        "abidos",
+        "don-zaloog",
+        "alice",
+        "yusei",
+        "jack",
+        "crow",
+        "akiza",
+        "leo",
+        "luna",
+        "kalin",
+        "carly",
+        "mina",
+        "trudge",
+        "greiger",
+        "devack",
+        "misty",
+        "roman",
+        "rex-goodwin",
+        "antinomy",
+        "aporia",
+        "z-one",
+        "placido",
+        "lester",
+        "jakob",
+        "sherry",
+        "andre",
+        "jean",
+        "yuma",
+        "astral",
+        "tori",
+        "bronk",
+        "kite",
+        "shark",
+        "rio",
+        "anna",
+        "cathy",
+        "flip",
+        "caswell",
+        "quinton",
+        "quattro",
+        "trey",
+        "vetrix",
+        "dr-faker",
+        "heartland",
+        "nistro",
+        "dextra",
+        "girag",
+        "alito",
+        "dumon",
+        "vector",
+        "mizar",
+        "yuya",
+        "zuzu",
+        "yuto",
+        "yugo",
+        "yuri",
+        "celina",
+        "rin",
+        "lulu",
+        "declan",
+        "riley",
+        "shay",
+        "sora",
+        "gong",
+        "silvio",
+        "yusho",
+        "yoko",
+        "leo-akaba",
+        "dennis",
+        "moon-shadow",
+        "shinji",
+        "sergey",
+        "roget",
+        "chojiro",
+        "skip",
+        "gloria",
+        "grace",
+        "zarc",
+        "ray",
+        "playmaker",
+        "soulburner",
+        "varis",
+        "blue-angel",
+        "ghost-gal",
+        "the-gore",
+        "ai",
+        "roboppi",
+        "akira",
+        "shoichi",
+        "jin",
+        "naoki",
+        "spectre",
+        "windy",
+        "lightning",
+        "flame",
+        "aqua",
+        "earth",
+        "kiyoshi",
+        "queen",
+        "yuga",
+        "luke",
+        "romin",
+        "gakuto",
+        "roa",
+        "nail",
+        "asana",
+        "mimi",
+        "yoshio",
+        "tiger",
+        "otes",
+        "yuro",
+        "yujin",
+        "yuka",
+        "yuran",
+        "yuo",
+        "yuga-goha",
+        "ranze",
+        "rinnosuke",
+        "sebastian",
+        "yudias",
+        "yuhi",
+        "yuamu",
+        "zwijo",
+        "manabu",
+        "mitsuko",
+        "manya",
+        "nyandestar",
+        "the-luge",
+        "rovian",
+        "yuna",
+        "asaka",
+        "london",
+        "epoch",
+        "ranran",
+        "tremolo",
+        "phaser",
+        "bochi",
+        "chupataro",
+        "kuadul"
+      ],
+      "eightSeriesCounts": {
+        "dm": 28,
+        "gx": 28,
+        "5ds": 24,
+        "zexal": 24,
+        "arc-v": 28,
+        "vrains": 20,
+        "sevens": 20,
+        "go-rush": 20
+      },
+      "lockedInspectableAndNotSelectable": {
+        "id": "atem",
+        "condition": "Duel Monsters\n\nPERSONNAGE À DÉBLOQUER\n\nAtem\n\nChevelure étoilée, posture droite et cape de pharaon.\n\nCondition de déblocage\n\n12 médailles de campagne\n\n0 / 12 médailles\n\nPersonnage verrouillé",
+        "profileUnchanged": true
+      },
+      "accentedYugiSearchResults": [
+        "yugi",
+        "solomon"
+      ],
+      "accentAndJapaneseAliases": true,
+      "horizontalOverflow": {
+        "width": 390,
+        "body": 390,
+        "dialog": 364,
+        "dialogClient": 364
+      },
+      "tabAfterHelpSummary": {
+        "id": "duelist-avatar-close",
+        "inside": true,
+        "tag": "BUTTON"
+      },
+      "findings": [],
+      "reverseTabInside": true,
+      "keyboardSelectionRetainsFocusOnSelectedPortrait": true,
+      "selectedFreeAvatar": {
+        "version": 1,
+        "selectedAvatarId": "jaden",
+        "earnedAvatarIds": []
+      },
+      "escapeReturnsStartAndTrigger": true,
+      "reloadSelectionPersists": true,
+      "sceneBefore": {
+        "realDuelScene3d": "true",
+        "webglAvailable": "true",
+        "playerPlaymatLoaded": "true",
+        "playerAvatarId": "jaden",
+        "opponentAvatarId": "yugi",
+        "environmentId": "clearing",
+        "arenaMaterial": "kaibacorp-steel",
+        "cameraPreset": "player"
+      },
+      "nativeStateBeforeAvatarSwap": {
+        "ownHand": [
+          {
+            "id": "24094653",
+            "uid": "native_2_86",
+            "atk": null,
+            "def": null
+          },
+          {
+            "id": "5053103",
+            "uid": "native_2_87",
+            "atk": null,
+            "def": null
+          },
+          {
+            "id": "48305365",
+            "uid": "native_2_88",
+            "atk": null,
+            "def": null
+          },
+          {
+            "id": "26202165",
+            "uid": "native_2_89",
+            "atk": null,
+            "def": null
+          },
+          {
+            "id": "14898066",
+            "uid": "native_2_90",
+            "atk": null,
+            "def": null
+          }
+        ],
+        "ownMonsters": [],
+        "playerLp": "8000",
+        "opponentLp": "8000",
+        "ownGraveCount": "0",
+        "opponentGraveCount": "0",
+        "phase": "phase-main1",
+        "publicLog": "Le duel commence !\nVous piochez 5 carte(s).\nL’adversaire pioche 5 carte(s).\nVue Arène activée : le plateau et les hologrammes sont espacés.\nVue Réelle 3D activée : vous êtes derrière votre console, face à l’adversaire."
+      },
+      "escapeReturnsSettingsAndTrigger": true,
+      "nativeStateAfterAvatarSwap": {
+        "ownHand": [
+          {
+            "id": "24094653",
+            "uid": "native_2_86",
+            "atk": null,
+            "def": null
+          },
+          {
+            "id": "5053103",
+            "uid": "native_2_87",
+            "atk": null,
+            "def": null
+          },
+          {
+            "id": "48305365",
+            "uid": "native_2_88",
+            "atk": null,
+            "def": null
+          },
+          {
+            "id": "26202165",
+            "uid": "native_2_89",
+            "atk": null,
+            "def": null
+          },
+          {
+            "id": "14898066",
+            "uid": "native_2_90",
+            "atk": null,
+            "def": null
+          }
+        ],
+        "ownMonsters": [],
+        "playerLp": "8000",
+        "opponentLp": "8000",
+        "ownGraveCount": "0",
+        "opponentGraveCount": "0",
+        "phase": "phase-main1",
+        "publicLog": "Le duel commence !\nVous piochez 5 carte(s).\nL’adversaire pioche 5 carte(s).\nVue Arène activée : le plateau et les hologrammes sont espacés.\nVue Réelle 3D activée : vous êtes derrière votre console, face à l’adversaire."
+      },
+      "nativeStatePreservedDuringHumanAvatarSwap": true,
+      "sceneAfter": {
+        "realDuelScene3d": "true",
+        "webglAvailable": "true",
+        "playerPlaymatLoaded": "true",
+        "playerAvatarId": "kaiba",
+        "opponentAvatarId": "yugi",
+        "environmentId": "clearing",
+        "arenaMaterial": "kaibacorp-steel",
+        "cameraPreset": "player"
+      },
+      "realNormalSummonAfterAvatarSwap": {
+        "id": "5053103",
+        "index": "0",
+        "publicState": {
+          "ownHand": [
+            {
+              "id": "24094653",
+              "uid": "native_2_86",
+              "atk": null,
+              "def": null
+            },
+            {
+              "id": "48305365",
+              "uid": "native_2_96",
+              "atk": null,
+              "def": null
+            },
+            {
+              "id": "26202165",
+              "uid": "native_2_97",
+              "atk": null,
+              "def": null
+            },
+            {
+              "id": "14898066",
+              "uid": "native_2_98",
+              "atk": null,
+              "def": null
+            }
+          ],
+          "ownMonsters": [
+            {
+              "id": "5053103",
+              "uid": "native_2_87",
+              "atk": null,
+              "def": null
+            }
+          ],
+          "playerLp": "8000",
+          "opponentLp": "8000",
+          "ownGraveCount": "0",
+          "opponentGraveCount": "0",
+          "phase": "phase-main1",
+          "publicLog": "Le duel commence !\nVous piochez 5 carte(s).\nL’adversaire pioche 5 carte(s).\nVue Arène activée : le plateau et les hologrammes sont espacés.\nVue Réelle 3D activée : vous êtes derrière votre console, face à l’adversaire.\nVous invoquez Bœuf de Combat."
+        }
+      },
+      "nativeAssetsLoaded": [
+        "/native/card-data.json",
+        "/native/field-banlists.json",
+        "/native/manifest.json",
+        "/native/ocgcore.sync.wasm",
+        "/native/scripts.json"
+      ],
+      "cspViolations": [],
+      "ok": true
+    },
+    {
+      "width": 1280,
+      "height": 900,
+      "kind": "genuine-progress-from-pre-bootstrap-two-loss-fixture",
+      "preBootstrapFixture": {
+        "ygo_duel_statistics": {
+          "duels": 2,
+          "wins": 0,
+          "losses": 2,
+          "draws": 0,
+          "reasons": {
+            "concession": 2
+          },
+          "last": null
+        },
+        "description": "Two completed losses before bootstrap; the next actual concession is counted by the production app."
+      },
+      "pageErrors": [],
+      "nativeRequestFailures": [],
+      "loaded": [
+        "/",
+        "/assets/FieldSpellCardDataSnapshot-DzxkUNrK.js",
+        "/assets/FieldSpellRules-DLBFReUe.js",
+        "/assets/NativeDuelGame-CJlB6I_4.js",
+        "/assets/index-CnIvvC2Y.css",
+        "/assets/index-u38YK6zY.js",
+        "/assets/ocgcore-DWqJvtmv.js",
+        "/assets/ocgcore.sync-MMMSWPBB-2LWfD6lX.js",
+        "/assets/preload-helper-Czpn1I53.js",
+        "/cards/small/14898066.jpg",
+        "/cards/small/24094653.jpg",
+        "/cards/small/26202165.jpg",
+        "/cards/small/48305365.jpg",
+        "/cards/small/5053103.jpg",
+        "/custom-card-back.png",
+        "/fonts/inter-variable.woff2",
+        "/fonts/orbitron-variable.woff2",
+        "/native/card-data.json",
+        "/native/field-banlists.json",
+        "/native/manifest.json",
+        "/native/ocgcore.sync.wasm",
+        "/native/scripts.json"
+      ],
+      "debugHookAbsent": true,
+      "actualConcessionPublicResult": "DÉFAITE...\n\nVous avez abandonné ce Duel. Avatars débloqués : Tristan Taylor, Syrus Truesdale, Leo et 5 autre(s).\n\nRETOUR À LA CONFIGURATION\nRECOMMENCER",
+      "statisticsAfterGenuineFinishedDuel": {
+        "duels": 3,
+        "wins": 0,
+        "losses": 3,
+        "draws": 0,
+        "reasons": {
+          "lp_zero": 0,
+          "deck_out": 0,
+          "exodia": 0,
+          "surrender": 1,
+          "draw": 0,
+          "other": 0
+        },
+        "last": {
+          "reason": "surrender",
+          "reasonLabel": "abandon",
+          "durationSeconds": 0,
+          "format": "single",
+          "mode": "strict",
+          "difficulty": "easy",
+          "recordedAt": "2026-10-08T23:53:24.976Z"
+        }
+      },
+      "earnedProfileAfterGenuineFinishedDuel": {
+        "version": 1,
+        "selectedAvatarId": "yugi",
+        "earnedAvatarIds": [
+          "tristan",
+          "syrus",
+          "leo",
+          "tori",
+          "zuzu",
+          "naoki",
+          "romin",
+          "yuhi"
+        ]
+      },
+      "genuinelyEarnedAvatarSelectableAfterReload": true,
+      "ok": true
+    },
+    {
+      "width": 1280,
+      "height": 900,
+      "kind": "genuine-native-exodia-win-from-legal-pre-bootstrap-deck",
+      "preBootstrapFixture": {
+        "ygo_custom_deck": {
+          "main": [
+            "89631139",
+            "89631139",
+            "89631139",
+            "5053103",
+            "70903634",
+            "5053103",
+            "97590747",
+            "97590747",
+            "97590747",
+            "14898066",
+            "14898066",
+            "7902349",
+            "66602787",
+            "66602787",
+            "8124921",
+            "13039848",
+            "13039848",
+            "54652250",
+            "44519536",
+            "48305365",
+            "81777047",
+            "49791927",
+            "49791927",
+            "50913601",
+            "24094653",
+            "33396948",
+            "24094653",
+            "12580477",
+            "5318639",
+            "14087893",
+            "44095762",
+            "44095762",
+            "44095762",
+            "4206964",
+            "4206964",
+            "4206964",
+            "83764718",
+            "88819587",
+            "88819587",
+            "31560081"
+          ],
+          "extra": [
+            "23995346",
+            "84013237",
+            "77637979"
+          ],
+          "side": []
+        },
+        "description": "Legal Main 40 / Extra 3 / Side 0; five unique Exodia parts at the deterministic initial shuffle positions. No changes after Duel start."
+      },
+      "pageErrors": [],
+      "nativeRequestFailures": [],
+      "loaded": [
+        "/",
+        "/assets/FieldSpellCardDataSnapshot-DzxkUNrK.js",
+        "/assets/FieldSpellRules-DLBFReUe.js",
+        "/assets/NativeDuelGame-CJlB6I_4.js",
+        "/assets/index-CnIvvC2Y.css",
+        "/assets/index-u38YK6zY.js",
+        "/assets/ocgcore-DWqJvtmv.js",
+        "/assets/ocgcore.sync-MMMSWPBB-2LWfD6lX.js",
+        "/assets/preload-helper-Czpn1I53.js",
+        "/cards/cropped/12580477.jpg",
+        "/cards/cropped/13039848.jpg",
+        "/cards/cropped/14087893.jpg",
+        "/cards/cropped/14898066.jpg",
+        "/cards/cropped/15025844.jpg",
+        "/cards/cropped/20409757.jpg",
+        "/cards/cropped/20721928.jpg",
+        "/cards/cropped/23115241.jpg",
+        "/cards/cropped/23995346.jpg",
+        "/cards/cropped/24094653.jpg",
+        "/cards/cropped/26202165.jpg",
+        "/cards/cropped/28279543.jpg",
+        "/cards/cropped/31560081.jpg",
+        "/cards/cropped/31924889.jpg",
+        "/cards/cropped/32452818.jpg",
+        "/cards/cropped/38033121.jpg",
+        "/cards/cropped/39552864.jpg",
+        "/cards/cropped/40640057.jpg",
+        "/cards/cropped/41392891.jpg",
+        "/cards/cropped/4206964.jpg",
+        "/cards/cropped/43793530.jpg",
+        "/cards/cropped/44095762.jpg",
+        "/cards/cropped/44287299.jpg",
+        "/cards/cropped/44430454.jpg",
+        "/cards/cropped/44508094.jpg",
+        "/cards/cropped/46986414.jpg",
+        "/cards/cropped/48305365.jpg",
+        "/cards/cropped/49791927.jpg",
+        "/cards/cropped/5053103.jpg",
+        "/cards/cropped/5318639.jpg",
+        "/cards/cropped/5405694.jpg",
+        "/cards/cropped/54652250.jpg",
+        "/cards/cropped/55144522.jpg",
+        "/cards/cropped/55761792.jpg",
+        "/cards/cropped/6368038.jpg",
+        "/cards/cropped/63977008.jpg",
+        "/cards/cropped/64428736.jpg",
+        "/cards/cropped/66602787.jpg",
+        "/cards/cropped/68638985.jpg",
+        "/cards/cropped/70781052.jpg",
+        "/cards/cropped/71625222.jpg",
+        "/cards/cropped/74677422.jpg",
+        "/cards/cropped/77637979.jpg",
+        "/cards/cropped/81823360.jpg",
+        "/cards/cropped/83764718.jpg",
+        "/cards/cropped/84013237.jpg",
+        "/cards/cropped/88819587.jpg",
+        "/cards/cropped/89631139.jpg",
+        "/cards/cropped/91152256.jpg",
+        "/cards/cropped/94415058.jpg",
+        "/cards/cropped/97590747.jpg",
+        "/cards/native-unknown.png",
+        "/custom-card-back.png",
+        "/environments/field-art/1003840.jpg",
+        "/environments/field-art/10080320.jpg",
+        "/environments/field-art/10424147.jpg",
+        "/environments/field-art/1050355.jpg",
+        "/environments/field-art/1061200.jpg",
+        "/environments/field-art/11102908.jpg",
+        "/environments/field-art/1127737.jpg",
+        "/environments/field-art/11808215.jpg",
+        "/environments/field-art/12215894.jpg",
+        "/environments/field-art/12397569.jpg",
+        "/environments/field-art/12644061.jpg",
+        "/environments/field-art/12801833.jpg",
+        "/environments/field-art/12845564.jpg",
+        "/environments/field-art/12931061.jpg",
+        "/environments/field-art/1295111.jpg",
+        "/environments/field-art/13035077.jpg",
+        "/environments/field-art/13301895.jpg",
+        "/environments/field-art/13482262.jpg",
+        "/environments/field-art/13764602.jpg",
+        "/environments/field-art/14001430.jpg",
+        "/environments/field-art/14289852.jpg",
+        "/environments/field-art/14442329.jpg",
+        "/environments/field-art/15306543.jpg",
+        "/environments/field-art/15388353.jpg",
+        "/environments/field-art/15635751.jpg",
+        "/environments/field-art/15854426.jpg",
+        "/environments/field-art/16269385.jpg",
+        "/environments/field-art/16625614.jpg",
+        "/environments/field-art/17000165.jpg",
+        "/environments/field-art/17228908.jpg",
+        "/environments/field-art/17255673.jpg",
+        "/environments/field-art/17621695.jpg",
+        "/environments/field-art/17782288.jpg",
+        "/environments/field-art/1801154.jpg",
+        "/environments/field-art/18114794.jpg",
+        "/environments/field-art/18161786.jpg",
+        "/environments/field-art/18720257.jpg",
+        "/environments/field-art/18890039.jpg",
+        "/environments/field-art/19162134.jpg",
+        "/environments/field-art/19384334.jpg",
+        "/environments/field-art/19814508.jpg",
+        "/environments/field-art/20212491.jpg",
+        "/environments/field-art/20216608.jpg",
+        "/environments/field-art/20720928.jpg",
+        "/environments/field-art/2084239.jpg",
+        "/environments/field-art/2106266.jpg",
+        "/environments/field-art/2144946.jpg",
+        "/environments/field-art/22198672.jpg",
+        "/environments/field-art/22555834.jpg",
+        "/environments/field-art/22702055.jpg",
+        "/environments/field-art/22751868.jpg",
+        "/environments/field-art/22829942.jpg",
+        "/environments/field-art/23160024.jpg",
+        "/environments/field-art/23213239.jpg",
+        "/environments/field-art/23377425.jpg",
+        "/environments/field-art/23424603.jpg",
+        "/environments/field-art/24382602.jpg",
+        "/environments/field-art/24793135.jpg",
+        "/environments/field-art/25163979.jpg",
+        "/environments/field-art/25807544.jpg",
+        "/environments/field-art/26162470.jpg",
+        "/environments/field-art/26232916.jpg",
+        "/environments/field-art/26493435.jpg",
+        "/environments/field-art/26534688.jpg",
+        "/environments/field-art/2674965.jpg",
+        "/environments/field-art/269012.jpg",
+        "/environments/field-art/26920296.jpg",
+        "/environments/field-art/269510.jpg",
+        "/environments/field-art/26984177.jpg",
+        "/environments/field-art/27564031.jpg",
+        "/environments/field-art/27813661.jpg",
+        "/environments/field-art/28120197.jpg",
+        "/environments/field-art/28126717.jpg",
+        "/environments/field-art/2819435.jpg",
+        "/environments/field-art/28388296.jpg",
+        "/environments/field-art/2906939.jpg",
+        "/environments/field-art/29400787.jpg",
+        "/environments/field-art/295517.jpg",
+        "/environments/field-art/29650040.jpg",
+        "/environments/field-art/30336082.jpg",
+        "/environments/field-art/3055018.jpg",
+        "/environments/field-art/30761649.jpg",
+        "/environments/field-art/3113667.jpg",
+        "/environments/field-art/3129133.jpg",
+        "/environments/field-art/31322640.jpg",
+        "/environments/field-art/32353566.jpg",
+        "/environments/field-art/32354768.jpg",
+        "/environments/field-art/32391631.jpg",
+        "/environments/field-art/32999573.jpg",
+        "/environments/field-art/33017655.jpg",
+        "/environments/field-art/33407125.jpg",
+        "/environments/field-art/33550694.jpg",
+        "/environments/field-art/33700664.jpg",
+        "/environments/field-art/33773528.jpg",
+        "/environments/field-art/33814281.jpg",
+        "/environments/field-art/33900648.jpg",
+        "/environments/field-art/33981008.jpg",
+        "/environments/field-art/34103656.jpg",
+        "/environments/field-art/34225426.jpg",
+        "/environments/field-art/34487429.jpg",
+        "/environments/field-art/34572613.jpg",
+        "/environments/field-art/34771947.jpg",
+        "/environments/field-art/34822850.jpg",
+        "/environments/field-art/35371948.jpg",
+        "/environments/field-art/35487920.jpg",
+        "/environments/field-art/35546670.jpg",
+        "/environments/field-art/35550352.jpg",
+        "/environments/field-art/3576031.jpg",
+        "/environments/field-art/35815783.jpg",
+        "/environments/field-art/35956022.jpg",
+        "/environments/field-art/36099620.jpg",
+        "/environments/field-art/36668118.jpg",
+        "/environments/field-art/36742774.jpg",
+        "/environments/field-art/36890111.jpg",
+        "/environments/field-art/37322745.jpg",
+        "/environments/field-art/37654623.jpg",
+        "/environments/field-art/37694547.jpg",
+        "/environments/field-art/38053381.jpg",
+        "/environments/field-art/38057522.jpg",
+        "/environments/field-art/38391684.jpg",
+        "/environments/field-art/3875465.jpg",
+        "/environments/field-art/39210885.jpg",
+        "/environments/field-art/39513225.jpg",
+        "/environments/field-art/39730727.jpg",
+        "/environments/field-art/39838559.jpg",
+        "/environments/field-art/39910367.jpg",
+        "/environments/field-art/40005099.jpg",
+        "/environments/field-art/40089744.jpg",
+        "/environments/field-art/4064256.jpg",
+        "/environments/field-art/41128647.jpg",
+        "/environments/field-art/41371602.jpg",
+        "/environments/field-art/41418852.jpg",
+        "/environments/field-art/42015635.jpg",
+        "/environments/field-art/4215636.jpg",
+        "/environments/field-art/42461852.jpg",
+        "/environments/field-art/43034264.jpg",
+        "/environments/field-art/43175858.jpg",
+        "/environments/field-art/43236494.jpg",
+        "/environments/field-art/43338320.jpg",
+        "/environments/field-art/4357063.jpg",
+        "/environments/field-art/43912676.jpg",
+        "/environments/field-art/43940008.jpg",
+        "/environments/field-art/4398189.jpg",
+        "/environments/field-art/44139064.jpg",
+        "/environments/field-art/44352516.jpg",
+        "/environments/field-art/44710391.jpg",
+        "/environments/field-art/45383307.jpg",
+        "/environments/field-art/4545854.jpg",
+        "/environments/field-art/45778932.jpg",
+        "/environments/field-art/45943516.jpg",
+        "/environments/field-art/46273941.jpg",
+        "/environments/field-art/46500985.jpg",
+        "/environments/field-art/46552140.jpg",
+        "/environments/field-art/4663194.jpg",
+        "/environments/field-art/47355498.jpg",
+        "/environments/field-art/4740489.jpg",
+        "/environments/field-art/47596607.jpg",
+        "/environments/field-art/47679935.jpg",
+        "/environments/field-art/47870325.jpg",
+        "/environments/field-art/48015771.jpg",
+        "/environments/field-art/48179391.jpg",
+        "/environments/field-art/49370016.jpg",
+        "/environments/field-art/49568943.jpg",
+        "/environments/field-art/50005218.jpg",
+        "/environments/field-art/50186558.jpg",
+        "/environments/field-art/50433147.jpg",
+        "/environments/field-art/5050644.jpg",
+        "/environments/field-art/5063379.jpg",
+        "/environments/field-art/50913601.jpg",
+        "/environments/field-art/51208046.jpg",
+        "/environments/field-art/51669847.jpg",
+        "/environments/field-art/52518793.jpg",
+        "/environments/field-art/53039326.jpg",
+        "/environments/field-art/53527835.jpg",
+        "/environments/field-art/53639887.jpg",
+        "/environments/field-art/53819808.jpg",
+        "/environments/field-art/5414777.jpg",
+        "/environments/field-art/54250060.jpg",
+        "/environments/field-art/54306223.jpg",
+        "/environments/field-art/54631665.jpg",
+        "/environments/field-art/55276522.jpg",
+        "/environments/field-art/55553602.jpg",
+        "/environments/field-art/55742055.jpg",
+        "/environments/field-art/56063182.jpg",
+        "/environments/field-art/56074358.jpg",
+        "/environments/field-art/56111151.jpg",
+        "/environments/field-art/56433456.jpg",
+        "/environments/field-art/56594520.jpg",
+        "/environments/field-art/56725612.jpg",
+        "/environments/field-art/56787189.jpg",
+        "/environments/field-art/5697558.jpg",
+        "/environments/field-art/575512.jpg",
+        "/environments/field-art/57554544.jpg",
+        "/environments/field-art/58012707.jpg",
+        "/environments/field-art/5833312.jpg",
+        "/environments/field-art/58406094.jpg",
+        "/environments/field-art/58793369.jpg",
+        "/environments/field-art/58924378.jpg",
+        "/environments/field-art/59048135.jpg",
+        "/environments/field-art/59054773.jpg",
+        "/environments/field-art/59160188.jpg",
+        "/environments/field-art/59197169.jpg",
+        "/environments/field-art/59687381.jpg",
+        "/environments/field-art/60448701.jpg",
+        "/environments/field-art/60514625.jpg",
+        "/environments/field-art/60600821.jpg",
+        "/environments/field-art/60884672.jpg",
+        "/environments/field-art/60946968.jpg",
+        "/environments/field-art/61557074.jpg",
+        "/environments/field-art/61583217.jpg",
+        "/environments/field-art/61654098.jpg",
+        "/environments/field-art/62188962.jpg",
+        "/environments/field-art/62200831.jpg",
+        "/environments/field-art/62265044.jpg",
+        "/environments/field-art/62314831.jpg",
+        "/environments/field-art/63017368.jpg",
+        "/environments/field-art/63035430.jpg",
+        "/environments/field-art/63492244.jpg",
+        "/environments/field-art/63883999.jpg",
+        "/environments/field-art/63899465.jpg",
+        "/environments/field-art/64213017.jpg",
+        "/environments/field-art/64230128.jpg",
+        "/environments/field-art/64400161.jpg",
+        "/environments/field-art/65589010.jpg",
+        "/environments/field-art/65861210.jpg",
+        "/environments/field-art/65938950.jpg",
+        "/environments/field-art/65959844.jpg",
+        "/environments/field-art/66059345.jpg",
+        "/environments/field-art/66399653.jpg",
+        "/environments/field-art/66750703.jpg",
+        "/environments/field-art/66975205.jpg",
+        "/environments/field-art/67237709.jpg",
+        "/environments/field-art/67328336.jpg",
+        "/environments/field-art/67331360.jpg",
+        "/environments/field-art/675319.jpg",
+        "/environments/field-art/67616300.jpg",
+        "/environments/field-art/67831115.jpg",
+        "/environments/field-art/6798031.jpg",
+        "/environments/field-art/68337209.jpg",
+        "/environments/field-art/68462976.jpg",
+        "/environments/field-art/69039982.jpg",
+        "/environments/field-art/6909330.jpg",
+        "/environments/field-art/69217334.jpg",
+        "/environments/field-art/69296555.jpg",
+        "/environments/field-art/69299029.jpg",
+        "/environments/field-art/69408987.jpg",
+        "/environments/field-art/70122149.jpg",
+        "/environments/field-art/70222318.jpg",
+        "/environments/field-art/70422863.jpg",
+        "/environments/field-art/71089030.jpg",
+        "/environments/field-art/712559.jpg",
+        "/environments/field-art/7142724.jpg",
+        "/environments/field-art/71645242.jpg",
+        "/environments/field-art/71650854.jpg",
+        "/environments/field-art/71817640.jpg",
+        "/environments/field-art/71832012.jpg",
+        "/environments/field-art/72043279.jpg",
+        "/environments/field-art/7206349.jpg",
+        "/environments/field-art/72283691.jpg",
+        "/environments/field-art/72772445.jpg",
+        "/environments/field-art/7293697.jpg",
+        "/environments/field-art/73206827.jpg",
+        "/environments/field-art/73787254.jpg",
+        "/environments/field-art/74378580.jpg",
+        "/environments/field-art/74665651.jpg",
+        "/environments/field-art/74733322.jpg",
+        "/environments/field-art/75041269.jpg",
+        "/environments/field-art/75304793.jpg",
+        "/environments/field-art/75782277.jpg",
+        "/environments/field-art/75952542.jpg",
+        "/environments/field-art/76136345.jpg",
+        "/environments/field-art/7617062.jpg",
+        "/environments/field-art/76375976.jpg",
+        "/environments/field-art/76473843.jpg",
+        "/environments/field-art/76869711.jpg",
+        "/environments/field-art/76871889.jpg",
+        "/environments/field-art/77103950.jpg",
+        "/environments/field-art/77297908.jpg",
+        "/environments/field-art/77584012.jpg",
+        "/environments/field-art/77946022.jpg",
+        "/environments/field-art/78082039.jpg",
+        "/environments/field-art/78710386.jpg",
+        "/environments/field-art/7917970.jpg",
+        "/environments/field-art/79555535.jpg",
+        "/environments/field-art/79698395.jpg",
+        "/environments/field-art/80749819.jpg",
+        "/environments/field-art/80921533.jpg",
+        "/environments/field-art/81231742.jpg",
+        "/environments/field-art/81380218.jpg",
+        "/environments/field-art/81777047.jpg",
+        "/environments/field-art/81788994.jpg",
+        "/environments/field-art/82460246.jpg",
+        "/environments/field-art/82999629.jpg",
+        "/environments/field-art/84171830.jpg",
+        "/environments/field-art/84335863.jpg",
+        "/environments/field-art/84504242.jpg",
+        "/environments/field-art/84792926.jpg",
+        "/environments/field-art/85638822.jpg",
+        "/environments/field-art/85668449.jpg",
+        "/environments/field-art/86318356.jpg",
+        "/environments/field-art/86643777.jpg",
+        "/environments/field-art/86809440.jpg",
+        "/environments/field-art/86997073.jpg",
+        "/environments/field-art/87430998.jpg",
+        "/environments/field-art/87624166.jpg",
+        "/environments/field-art/87902575.jpg",
+        "/environments/field-art/8794055.jpg",
+        "/environments/field-art/88288421.jpg",
+        "/environments/field-art/885016.jpg",
+        "/environments/field-art/89264428.jpg",
+        "/environments/field-art/89948817.jpg",
+        "/environments/field-art/90011152.jpg",
+        "/environments/field-art/90173539.jpg",
+        "/environments/field-art/90351981.jpg",
+        "/environments/field-art/90764871.jpg",
+        "/environments/field-art/91002901.jpg",
+        "/environments/field-art/91027843.jpg",
+        "/environments/field-art/91228233.jpg",
+        "/environments/field-art/91880660.jpg",
+        "/environments/field-art/92107604.jpg",
+        "/environments/field-art/92223430.jpg",
+        "/environments/field-art/92481084.jpg",
+        "/environments/field-art/93031067.jpg",
+        "/environments/field-art/93360904.jpg",
+        "/environments/field-art/93729896.jpg",
+        "/environments/field-art/94243005.jpg",
+        "/environments/field-art/94317736.jpg",
+        "/environments/field-art/94585852.jpg",
+        "/environments/field-art/95376428.jpg",
+        "/environments/field-art/95477924.jpg",
+        "/environments/field-art/9547962.jpg",
+        "/environments/field-art/95658967.jpg",
+        "/environments/field-art/95856586.jpg",
+        "/environments/field-art/9597987.jpg",
+        "/environments/field-art/97254001.jpg",
+        "/environments/field-art/975299.jpg",
+        "/environments/field-art/99543666.jpg",
+        "/environments/field-art/99795159.jpg",
+        "/environments/field-art/9989792.jpg",
+        "/fonts/inter-variable.woff2",
+        "/fonts/orbitron-variable.woff2",
+        "/native/card-data.json",
+        "/native/field-banlists.json",
+        "/native/manifest.json",
+        "/native/ocgcore.sync.wasm",
+        "/native/scripts.json"
+      ],
+      "debugHookAbsent": true,
+      "actualAdvancedDeckValidation": {
+        "status": "Deck valide",
+        "sizes": "Main: 40 / Extra: 3 / Side: 0",
+        "catalogue": "13 847 cartes TCG • liste Advanced complète du 21/09/2026. Recherchez une carte, un nom ou un effet ; 100 résultats maximum. Les cartes sans illustration locale utilisent un visuel neutre."
+      },
+      "genuineNativeExodiaResult": "VICTOIRE !\n\nVictoire par Exodia : vous avez réuni les cinq parties en main. Avatars débloqués : Mokuba Kaiba.\n\nRETOUR À LA CONFIGURATION\nRECOMMENCER",
+      "winningPublicOwnHand": [
+        {
+          "id": "33396948",
+          "uid": "native_2_86"
+        },
+        {
+          "id": "70903634",
+          "uid": "native_2_87"
+        },
+        {
+          "id": "44519536",
+          "uid": "native_2_88"
+        },
+        {
+          "id": "8124921",
+          "uid": "native_2_89"
+        },
+        {
+          "id": "7902349",
+          "uid": "native_2_90"
+        }
+      ],
+      "statisticsAfterGenuineNativeWin": {
+        "duels": 1,
+        "wins": 1,
+        "losses": 0,
+        "draws": 0,
+        "reasons": {
+          "lp_zero": 0,
+          "deck_out": 0,
+          "exodia": 1,
+          "surrender": 0,
+          "draw": 0,
+          "other": 0
+        },
+        "last": {
+          "reason": "exodia",
+          "reasonLabel": "Exodia",
+          "durationSeconds": 0,
+          "format": "single",
+          "mode": "strict",
+          "difficulty": "easy",
+          "recordedAt": "2026-10-08T23:53:31.648Z"
+        }
+      },
+      "earnedProfileAfterGenuineNativeWin": {
+        "version": 1,
+        "selectedAvatarId": "yugi",
+        "earnedAvatarIds": [
+          "mokuba"
+        ]
+      },
+      "genuinelyWonAvatarSelectableAndPersistentAfterReload": true,
+      "nativeAssetsLoaded": [
+        "/native/card-data.json",
+        "/native/field-banlists.json",
+        "/native/manifest.json",
+        "/native/ocgcore.sync.wasm",
+        "/native/scripts.json"
+      ],
+      "ok": true
+    }
+  ],
+  "expectedEntrySha256": "de12db2a24b25bcc3d16f82c882d887d3597922ea8ca8f4c37cc9daaeb7b5ebd",
+  "compiledAssets": {
+    "index.html": {
+      "bytes": 36351,
+      "sha256": "7a50a0e3eddd4651f2ae763392b5bde49a5ab2438c22d0f897f4af3d768e6c7c"
+    },
+    "assets/FieldEnvironmentRegistry-CW5zbHcP.js": {
+      "bytes": 622016,
+      "sha256": "3423def789cb9b59abf5297c9fc36905226dbfb91e2d0d44d988853104af4d4f"
+    },
+    "assets/FieldGeometryThree-CrvvuBIg.js": {
+      "bytes": 534418,
+      "sha256": "86b435b4027e4bd97da57af5b30cc02cdf28e8c4313000dbac86564be206c27a"
+    },
+    "assets/FieldSpellAtlas-D-2ZMuDI.js": {
+      "bytes": 19402,
+      "sha256": "c3ded9c567bb0818c297f06165c86e6eb49854ff33f619f8beaefce1ff89c3d1"
+    },
+    "assets/FieldSpellAtlasPreview-BwvXRaha.js": {
+      "bytes": 2823,
+      "sha256": "5479bf8f2276b9211ffd9e9e12b8543161f0ee292f7d5dddb0da0bd47f3a96ec"
+    },
+    "assets/FieldSpellCardDataSnapshot-DzxkUNrK.js": {
+      "bytes": 169821,
+      "sha256": "ed2484f6797eac2124cdb6a76d8ec20076f9e79cf05008a0183e26a7fd046b3f"
+    },
+    "assets/FieldSpellRules-DLBFReUe.js": {
+      "bytes": 20919,
+      "sha256": "9b95b5d0b3ac46a7d7cade8d2bed65565dcbb1310d494d9344f61ed12a57f54e"
+    },
+    "assets/NativeDuelGame-CJlB6I_4.js": {
+      "bytes": 96452,
+      "sha256": "c87b92ef8fc2bbc54e07a4c8261a4ff2dbdce645a83fef1570d40f6cfaa6445e"
+    },
+    "assets/RealDuelView-BK1zPXPY.js": {
+      "bytes": 221701,
+      "sha256": "2d735ed297ffbff16c41c6101a54c3a66dd907b053c295fac8ace10d0241f235"
+    },
+    "assets/index-CnIvvC2Y.css": {
+      "bytes": 95549,
+      "sha256": "f213796135c8f6176292330be121cb2096dde252d90b979878fd0013149e228e"
+    },
+    "assets/index-u38YK6zY.js": {
+      "bytes": 742088,
+      "sha256": "de12db2a24b25bcc3d16f82c882d887d3597922ea8ca8f4c37cc9daaeb7b5ebd"
+    },
+    "assets/ocgcore-DWqJvtmv.js": {
+      "bytes": 46501,
+      "sha256": "dd1e9936f49901fb5f53efd6d25b19ab5755af65169fee4ef34600a1cfbe5349"
+    },
+    "assets/ocgcore.sync-MMMSWPBB-2LWfD6lX.js": {
+      "bytes": 20718,
+      "sha256": "433b02687ca9a24dcc846c11d7578d40ba5ab87d1b1321d5d22cd879fae58ed6"
+    },
+    "assets/preload-helper-Czpn1I53.js": {
+      "bytes": 1196,
+      "sha256": "aba87f2a53e45ecdc9113fc30387d16e449d1676428cf5f82dd624c1df97d152"
+    },
+    "native/ocgcore.sync.wasm": {
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    },
+    "native/card-data.json": {
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    "native/scripts.json": {
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    }
+  },
+  "baseUrl": "http://127.0.0.1:44841",
+  "servedBefore": {
+    "index.html": {
+      "bytes": 36351,
+      "sha256": "7a50a0e3eddd4651f2ae763392b5bde49a5ab2438c22d0f897f4af3d768e6c7c"
+    },
+    "assets/FieldEnvironmentRegistry-CW5zbHcP.js": {
+      "bytes": 622016,
+      "sha256": "3423def789cb9b59abf5297c9fc36905226dbfb91e2d0d44d988853104af4d4f"
+    },
+    "assets/FieldGeometryThree-CrvvuBIg.js": {
+      "bytes": 534418,
+      "sha256": "86b435b4027e4bd97da57af5b30cc02cdf28e8c4313000dbac86564be206c27a"
+    },
+    "assets/FieldSpellAtlas-D-2ZMuDI.js": {
+      "bytes": 19402,
+      "sha256": "c3ded9c567bb0818c297f06165c86e6eb49854ff33f619f8beaefce1ff89c3d1"
+    },
+    "assets/FieldSpellAtlasPreview-BwvXRaha.js": {
+      "bytes": 2823,
+      "sha256": "5479bf8f2276b9211ffd9e9e12b8543161f0ee292f7d5dddb0da0bd47f3a96ec"
+    },
+    "assets/FieldSpellCardDataSnapshot-DzxkUNrK.js": {
+      "bytes": 169821,
+      "sha256": "ed2484f6797eac2124cdb6a76d8ec20076f9e79cf05008a0183e26a7fd046b3f"
+    },
+    "assets/FieldSpellRules-DLBFReUe.js": {
+      "bytes": 20919,
+      "sha256": "9b95b5d0b3ac46a7d7cade8d2bed65565dcbb1310d494d9344f61ed12a57f54e"
+    },
+    "assets/NativeDuelGame-CJlB6I_4.js": {
+      "bytes": 96452,
+      "sha256": "c87b92ef8fc2bbc54e07a4c8261a4ff2dbdce645a83fef1570d40f6cfaa6445e"
+    },
+    "assets/RealDuelView-BK1zPXPY.js": {
+      "bytes": 221701,
+      "sha256": "2d735ed297ffbff16c41c6101a54c3a66dd907b053c295fac8ace10d0241f235"
+    },
+    "assets/index-CnIvvC2Y.css": {
+      "bytes": 95549,
+      "sha256": "f213796135c8f6176292330be121cb2096dde252d90b979878fd0013149e228e"
+    },
+    "assets/index-u38YK6zY.js": {
+      "bytes": 742088,
+      "sha256": "de12db2a24b25bcc3d16f82c882d887d3597922ea8ca8f4c37cc9daaeb7b5ebd"
+    },
+    "assets/ocgcore-DWqJvtmv.js": {
+      "bytes": 46501,
+      "sha256": "dd1e9936f49901fb5f53efd6d25b19ab5755af65169fee4ef34600a1cfbe5349"
+    },
+    "assets/ocgcore.sync-MMMSWPBB-2LWfD6lX.js": {
+      "bytes": 20718,
+      "sha256": "433b02687ca9a24dcc846c11d7578d40ba5ab87d1b1321d5d22cd879fae58ed6"
+    },
+    "assets/preload-helper-Czpn1I53.js": {
+      "bytes": 1196,
+      "sha256": "aba87f2a53e45ecdc9113fc30387d16e449d1676428cf5f82dd624c1df97d152"
+    },
+    "native/ocgcore.sync.wasm": {
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    },
+    "native/card-data.json": {
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    "native/scripts.json": {
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    }
+  },
+  "servedAfter": {
+    "index.html": {
+      "bytes": 36351,
+      "sha256": "7a50a0e3eddd4651f2ae763392b5bde49a5ab2438c22d0f897f4af3d768e6c7c"
+    },
+    "assets/FieldEnvironmentRegistry-CW5zbHcP.js": {
+      "bytes": 622016,
+      "sha256": "3423def789cb9b59abf5297c9fc36905226dbfb91e2d0d44d988853104af4d4f"
+    },
+    "assets/FieldGeometryThree-CrvvuBIg.js": {
+      "bytes": 534418,
+      "sha256": "86b435b4027e4bd97da57af5b30cc02cdf28e8c4313000dbac86564be206c27a"
+    },
+    "assets/FieldSpellAtlas-D-2ZMuDI.js": {
+      "bytes": 19402,
+      "sha256": "c3ded9c567bb0818c297f06165c86e6eb49854ff33f619f8beaefce1ff89c3d1"
+    },
+    "assets/FieldSpellAtlasPreview-BwvXRaha.js": {
+      "bytes": 2823,
+      "sha256": "5479bf8f2276b9211ffd9e9e12b8543161f0ee292f7d5dddb0da0bd47f3a96ec"
+    },
+    "assets/FieldSpellCardDataSnapshot-DzxkUNrK.js": {
+      "bytes": 169821,
+      "sha256": "ed2484f6797eac2124cdb6a76d8ec20076f9e79cf05008a0183e26a7fd046b3f"
+    },
+    "assets/FieldSpellRules-DLBFReUe.js": {
+      "bytes": 20919,
+      "sha256": "9b95b5d0b3ac46a7d7cade8d2bed65565dcbb1310d494d9344f61ed12a57f54e"
+    },
+    "assets/NativeDuelGame-CJlB6I_4.js": {
+      "bytes": 96452,
+      "sha256": "c87b92ef8fc2bbc54e07a4c8261a4ff2dbdce645a83fef1570d40f6cfaa6445e"
+    },
+    "assets/RealDuelView-BK1zPXPY.js": {
+      "bytes": 221701,
+      "sha256": "2d735ed297ffbff16c41c6101a54c3a66dd907b053c295fac8ace10d0241f235"
+    },
+    "assets/index-CnIvvC2Y.css": {
+      "bytes": 95549,
+      "sha256": "f213796135c8f6176292330be121cb2096dde252d90b979878fd0013149e228e"
+    },
+    "assets/index-u38YK6zY.js": {
+      "bytes": 742088,
+      "sha256": "de12db2a24b25bcc3d16f82c882d887d3597922ea8ca8f4c37cc9daaeb7b5ebd"
+    },
+    "assets/ocgcore-DWqJvtmv.js": {
+      "bytes": 46501,
+      "sha256": "dd1e9936f49901fb5f53efd6d25b19ab5755af65169fee4ef34600a1cfbe5349"
+    },
+    "assets/ocgcore.sync-MMMSWPBB-2LWfD6lX.js": {
+      "bytes": 20718,
+      "sha256": "433b02687ca9a24dcc846c11d7578d40ba5ab87d1b1321d5d22cd879fae58ed6"
+    },
+    "assets/preload-helper-Czpn1I53.js": {
+      "bytes": 1196,
+      "sha256": "aba87f2a53e45ecdc9113fc30387d16e449d1676428cf5f82dd624c1df97d152"
+    },
+    "native/ocgcore.sync.wasm": {
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    },
+    "native/card-data.json": {
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    "native/scripts.json": {
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    }
+  },
+  "frozenCompiledAssetsUnchanged": true,
+  "sourceAfter": {
+    "main.js": {
+      "bytes": 196766,
+      "sha256": "4249f4dbcde3c79124fb255b9905c4daa68abf1e30c5d0a589ad62ce8397ccd0"
+    },
+    "index.html": {
+      "bytes": 35954,
+      "sha256": "d3b960d4cf6088bceab62161e43f279bf40cc4089459ad83ffbdca8b3e352de2"
+    },
+    "style.css": {
+      "bytes": 127694,
+      "sha256": "6bbce84fbccfc6a59992609a2659f6a0f27059354d6a6300ebc2d4d1e29f43fc"
+    },
+    "src/content/DuelistAvatarCatalog.js": {
+      "bytes": 43400,
+      "sha256": "73ac16fd6f2a6e550934ff0fd48c0af2761ddb3859d3399fb1b6b8993f94dedb"
+    },
+    "src/content/DuelistAvatarProgress.js": {
+      "bytes": 9736,
+      "sha256": "ab23b1e01d5b90999ca5574ea4e1e42721b1ce9ae0b27c1d5b11c25f09ca8603"
+    },
+    "src/ui/DuelistAvatarModels.js": {
+      "bytes": 27743,
+      "sha256": "0c00c1601a89cf836b9ecbfc60acdaf10a18213d020a97969412798142c8e363"
+    },
+    "src/ui/DuelistAvatarPicker.js": {
+      "bytes": 15630,
+      "sha256": "c39af793a6cf27648f8a104c0ac7b364f896c06ac470d17922af305644196215"
+    },
+    "src/ui/DuelistAvatarPortrait.js": {
+      "bytes": 15497,
+      "sha256": "a0e8d2da7de92aff3f2dc2ccfd364dec5c2c6f26c88cb74dbbae243d41eae18e"
+    },
+    "src/ui/DuelViewController.js": {
+      "bytes": 10960,
+      "sha256": "4a1f90c43cbe85589936a5af6462d1b385fc257aac61f4bf63ea9a194f8cdb37"
+    },
+    "src/ui/RealDuelView.js": {
+      "bytes": 35789,
+      "sha256": "509be7826db7e148d17989c2a347513d181c2f74ba86b99439fdab4babf212fc"
+    },
+    "src/ui/RealDuelScene3D.js": {
+      "bytes": 54108,
+      "sha256": "5fee001557d8e442cbdddb88d40e50c20ef551c7ef64d7f31ed34793c24fb6b0"
+    },
+    "src/core/native/NativeDuelGame.js": {
+      "bytes": 62312,
+      "sha256": "04a3219a0b59bec1aab199efc72fc25069c68acb17233190a898c530add0813f"
+    },
+    "public/native/ocgcore.sync.wasm": {
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    },
+    "public/native/card-data.json": {
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    "public/native/scripts.json": {
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    }
+  },
+  "captures": {
+    "avatar-earned-after-genuine-concession.png": {
+      "bytes": 74467,
+      "sha256": "18df979e2ffd68c51c2362c8d62131bc9dfabfb13286ed940acfdb4359f4b22a"
+    },
+    "avatar-earned-after-genuine-native-exodia-win.png": {
+      "bytes": 77776,
+      "sha256": "63d797e2cf9e53d5a8a1099adc2257aab9905fae24d4a8c1188e0e48e9dbf8d0"
+    },
+    "avatar-jaden-selected-1280.png": {
+      "bytes": 302299,
+      "sha256": "c135fae7908bd52329ef9d6d6a95b6611a05cf28bab7eba0403d6c4fe0c47851"
+    },
+    "avatar-jaden-selected-390.png": {
+      "bytes": 131392,
+      "sha256": "ccec57e67d54284ce456863e37e1f51e0e7dbaeb15249f50c738a39b1c75b59b"
+    },
+    "avatar-locked-atem-1280.png": {
+      "bytes": 298312,
+      "sha256": "d1a761998d38aa80c007c2d34bdcb87d3beb25c46024b7e92c5adee5529bab58"
+    },
+    "avatar-locked-atem-390.png": {
+      "bytes": 127464,
+      "sha256": "e54406c6be1347e993f05f7fae1fd4efbe8c8e9400673613d77efe335dde1b9a"
+    },
+    "avatar-mokuba-earned-selected.png": {
+      "bytes": 299250,
+      "sha256": "c0ab445f7f18ce5dc7c29be3ae9aacbabcf75bed59b1398477bc2f5f00bbe50f"
+    },
+    "avatar-native-jaden-overview-1280.png": {
+      "bytes": 887841,
+      "sha256": "609776a54974279136a9389efa6b4843f36ed3de756bdfd4262e69b44ece6df4"
+    },
+    "avatar-native-jaden-overview-390.png": {
+      "bytes": 282275,
+      "sha256": "8e6dd4011037e25861f0927b2123d9dfdd2febad71d65ce22cb33a15479a69ac"
+    },
+    "avatar-native-jaden-player-camera-1280.png": {
+      "bytes": 866260,
+      "sha256": "f0d6fa9d8d4ee774becef41ad112ef2729c4ff04a1be8a7d3b030d3eabab16b1"
+    },
+    "avatar-native-jaden-player-camera-390.png": {
+      "bytes": 265543,
+      "sha256": "7ad4d8ab502a959295fce5bbf8296b64e49793cd36d4c4e5f9446cf60f1aac82"
+    },
+    "avatar-native-kaiba-after-summon-1280.png": {
+      "bytes": 935606,
+      "sha256": "4bb972d7f9bc154733c33530048220dc00a8c87b66d1dbf0f22a35e3af3aabc0"
+    },
+    "avatar-native-kaiba-after-summon-390.png": {
+      "bytes": 266088,
+      "sha256": "09e212a28e61a06b92c6a7440cbec89fb6023dc073bcca7b502488c5dfe06686"
+    },
+    "avatar-native-kaiba-player-camera-1280.png": {
+      "bytes": 865683,
+      "sha256": "e2be79ba89f4e69fc9d7fcbd81a2df5a45d260faf9f48db2d0f00097c92bb69b"
+    },
+    "avatar-native-kaiba-player-camera-390.png": {
+      "bytes": 264534,
+      "sha256": "e15038a94a40fdea7c4b4430af3d7199d72761318b9bb7b8eefbc9466893c96b"
+    },
+    "avatar-roster-desktop-mobile-1280.png": {
+      "bytes": 418898,
+      "sha256": "cad1e7b835f1786238ca49aac2333111b9723396ede03db74488db23e7ef7c3a"
+    },
+    "avatar-roster-desktop-mobile-390.png": {
+      "bytes": 150396,
+      "sha256": "d7ab704d32d52bd3a82da8c600c05d0f254c223ef385938013444ae1f7aa0aae"
+    },
+    "avatar-tristan-earned-selected.png": {
+      "bytes": 298446,
+      "sha256": "7ca9b92e6b7743f10d4e8292db72456bc2f3d37998e02bff9a0391890675f6e8"
+    }
+  }
+}

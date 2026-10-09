@@ -13,7 +13,7 @@ test('native atlas availability preserves distinct legacy, initialization, effec
   assert.equal(summary.nativeAvailable, 339);
   assert.equal(summary.nativeBundled, 339);
   assert.equal(summary.nativeInitialized, 339);
-  assert.equal(summary.nativeEffectTested, 115);
+  assert.equal(summary.nativeEffectTested, 339);
   assert.equal(summary.nativeIntegrationTested, 0);
   assert.equal(summary.dedicatedGeometry, 339);
   assert.equal(summary.inspectedGeometry, 339);
@@ -22,15 +22,15 @@ test('native atlas availability preserves distinct legacy, initialization, effec
   assert.equal(filterFieldSpellCoverage({ status: 'pending-rules' }).length, 310);
   assert.equal(filterFieldSpellCoverage({ status: 'playable', engine: 'native' }).length, 339);
   assert.equal(filterFieldSpellCoverage({ status: 'pending-rules', engine: 'native' }).length, 0);
-  assert.equal(filterFieldSpellCoverage({ status: 'native-effect-tested', engine: 'native' }).length, 115);
-  assert.equal(FIELD_SPELL_COVERAGE.some(card => card.nativeInitialized && !card.nativeEffectTested), true);
+  assert.equal(filterFieldSpellCoverage({ status: 'native-effect-tested', engine: 'native' }).length, 339);
+  assert.equal(FIELD_SPELL_COVERAGE.some(card => card.nativeInitialized && !card.nativeEffectTested), false);
 });
 
 test('compact UI proof agrees with each native audit record rather than declaring all effects tested', async () => {
-  const report = JSON.parse(await readFile(new URL('../docs/audits/artifacts/native-field-runtime-2026-10-07.json', import.meta.url), 'utf8'));
+  const report = JSON.parse(await readFile(new URL('../docs/audits/artifacts/native-field-runtime-continuation-2026-10-08.json', import.meta.url), 'utf8'));
   assert.deepEqual(NATIVE_FIELD_COVERAGE_SNAPSHOT, nativeFieldCoverageSnapshot(report));
-  assert.equal(NATIVE_FIELD_COVERAGE_SNAPSHOT.summary.passedScenarios, 128);
-  assert.equal(NATIVE_FIELD_COVERAGE_SNAPSHOT.summary.scenarios, 128);
+  assert.equal(NATIVE_FIELD_COVERAGE_SNAPSHOT.summary.passedScenarios, 406);
+  assert.equal(NATIVE_FIELD_COVERAGE_SNAPSHOT.summary.scenarios, 406);
   assert.equal(Object.isFrozen(NATIVE_FIELD_COVERAGE_SNAPSHOT.effectTestedCardIds), true);
   for (const card of FIELD_SPELL_COVERAGE) {
     const row = report.matrix.find(row => String(row.canonicalCode) === card.cardId);
@@ -66,12 +66,12 @@ function viewStub(engine) {
     filter: node('filter'), render() {}, nodes };
 }
 
-test('atlas text explains 339 native available cards and 115 scenario-tested fields separately', async () => {
+test('atlas text explains 339 native available cards and 339 scenario-tested fields separately', async () => {
   const view = viewStub('native');
   FieldSpellAtlas.prototype.open.call(view);
   const summary = view.nodes.get('#field-atlas-summary').textContent;
   assert.match(summary, /339 effets disponibles/);
-  assert.match(summary, /115 Terrains vérifiés en scénarios/);
+  assert.match(summary, /339 Terrains vérifiés en scénarios/);
   assert.match(summary, /339 décors étudiés/);
   assert.match(summary, /339 volumes reconstruits/);
   view.visible = false;
@@ -79,7 +79,8 @@ test('atlas text explains 339 native available cards and 115 scenario-tested fie
   await FieldSpellAtlas.prototype.select.call(view, newField);
   assert.match(view.nodes.get('#field-atlas-rule-status').textContent, /initialisation vérifiée/);
   assert.match(view.nodes.get('#field-atlas-rule-status').textContent, /Effet vérifié en scénario/);
-  const initializedOnly = FIELD_SPELL_COVERAGE.find(card => card.nativeInitialized && !card.nativeEffectTested);
+  // Retain the weaker-evidence label contract for a future new catalogue entry.
+  const initializedOnly = { ...newField, nativeEffectTested: false };
   await FieldSpellAtlas.prototype.select.call(view, initializedOnly);
   assert.match(view.nodes.get('#field-atlas-rule-status').textContent, /Scénarios d’effets à compléter/);
   assert.equal(view.nodes.get('#field-atlas-rules-link').textContent, 'Source de l’effet — Project Ignis');

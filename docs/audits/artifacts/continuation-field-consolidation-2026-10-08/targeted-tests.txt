@@ -1,0 +1,2524 @@
+TAP version 13
+# Subtest: native atlas availability preserves distinct legacy, initialization, effect and geometry evidence
+ok 1 - native atlas availability preserves distinct legacy, initialization, effect and geometry evidence
+  ---
+  duration_ms: 1.845876
+  type: 'test'
+  ...
+# Subtest: compact UI proof agrees with each native audit record rather than declaring all effects tested
+ok 2 - compact UI proof agrees with each native audit record rather than declaring all effects tested
+  ---
+  duration_ms: 97.490036
+  type: 'test'
+  ...
+# Subtest: new releases retain regional publication status independently of engine availability
+ok 3 - new releases retain regional publication status independently of engine availability
+  ---
+  duration_ms: 0.747984
+  type: 'test'
+  ...
+# Subtest: atlas text explains 339 native available cards and 339 scenario-tested fields separately
+ok 4 - atlas text explains 339 native available cards and 339 scenario-tested fields separately
+  ---
+  duration_ms: 39.705622
+  type: 'test'
+  ...
+# Subtest: all 339 catalogue Field Spells execute genuine Lua initial_effect in separate native duels
+ok 5 - all 339 catalogue Field Spells execute genuine Lua initial_effect in separate native duels
+  ---
+  duration_ms: 4.775709
+  type: 'test'
+  ...
+# Subtest: native audit keeps upstream archives and card data intact with two explicit read-time rule corrections
+ok 6 - native audit keeps upstream archives and card data intact with two explicit read-time rule corrections
+  ---
+  duration_ms: 0.155494
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: zombie-world-race
+ok 7 - genuine native field effect: zombie-world-race
+  ---
+  duration_ms: 0.242514
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: necrovalley-gravekeepers-stats
+ok 8 - genuine native field effect: necrovalley-gravekeepers-stats
+  ---
+  duration_ms: 0.088633
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: molten-destruction-fire
+ok 9 - genuine native field effect: molten-destruction-fire
+  ---
+  duration_ms: 0.096986
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: gaia-power-earth
+ok 10 - genuine native field effect: gaia-power-earth
+  ---
+  duration_ms: 0.066721
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: wetlands-water-aqua-low-level
+ok 11 - genuine native field effect: wetlands-water-aqua-low-level
+  ---
+  duration_ms: 0.075374
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: legendary-ocean-alias-level
+ok 12 - genuine native field effect: legendary-ocean-alias-level
+  ---
+  duration_ms: 0.08008
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: necrovalley-graveyard-revival-negation
+ok 13 - genuine native field effect: necrovalley-graveyard-revival-negation
+  ---
+  duration_ms: 0.146411
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: dragon-ravine-discard-send
+ok 14 - genuine native field effect: dragon-ravine-discard-send
+  ---
+  duration_ms: 0.228023
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: fusion-gate-banish-materials
+ok 15 - genuine native field effect: fusion-gate-banish-materials
+  ---
+  duration_ms: 0.114693
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: fusion-gate-repeat-mr5-main-zones
+ok 16 - genuine native field effect: fusion-gate-repeat-mr5-main-zones
+  ---
+  duration_ms: 0.079139
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: extra-net-opponent-extra-draw
+ok 17 - genuine native field effect: extra-net-opponent-extra-draw
+  ---
+  duration_ms: 0.048794
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: summon-breaker-third-summon-end-phase
+ok 18 - genuine native field effect: summon-breaker-third-summon-end-phase
+  ---
+  duration_ms: 0.040191
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: venom-swamp-end-phase-counter
+ok 19 - genuine native field effect: venom-swamp-end-phase-counter
+  ---
+  duration_ms: 0.032629
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: mausoleum-two-tribute-lp-cost
+ok 20 - genuine native field effect: mausoleum-two-tribute-lp-cost
+  ---
+  duration_ms: 0.038208
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: harpies-hunting-ground-target-destroy
+ok 21 - genuine native field effect: harpies-hunting-ground-target-destroy
+  ---
+  duration_ms: 0.033721
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: geartown-destroy-special-summon
+ok 22 - genuine native field effect: geartown-destroy-special-summon
+  ---
+  duration_ms: 0.067201
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: magical-citadel-counter-destroy-replacement
+ok 23 - genuine native field effect: magical-citadel-counter-destroy-replacement
+  ---
+  duration_ms: 0.058548
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: gateway-to-chaos-activation-search
+ok 24 - genuine native field effect: gateway-to-chaos-activation-search
+  ---
+  duration_ms: 0.038659
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: black-garden-normal-summon-token
+ok 25 - genuine native field effect: black-garden-normal-summon-token
+  ---
+  duration_ms: 0.029965
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: angelechy-endgame-opponent-special-zone-choice
+ok 26 - genuine native field effect: angelechy-endgame-opponent-special-zone-choice
+  ---
+  duration_ms: 0.039149
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: magical-meltdown-search-activation-oath
+ok 27 - genuine native field effect: magical-meltdown-search-activation-oath
+  ---
+  duration_ms: 0.074832
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: oracle-of-zefra-search-activation-oath
+ok 28 - genuine native field effect: oracle-of-zefra-search-activation-oath
+  ---
+  duration_ms: 0.120551
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: prank-kids-place-search-activation-oath
+ok 29 - genuine native field effect: prank-kids-place-search-activation-oath
+  ---
+  duration_ms: 0.081112
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: pareidolia-search-activation-oath
+ok 30 - genuine native field effect: pareidolia-search-activation-oath
+  ---
+  duration_ms: 0.102354
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: therion-discolosseum-search-activation-oath
+ok 31 - genuine native field effect: therion-discolosseum-search-activation-oath
+  ---
+  duration_ms: 0.089144
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: perlereino-search-activation-oath
+ok 32 - genuine native field effect: perlereino-search-activation-oath
+  ---
+  duration_ms: 0.125979
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: fire-king-island-destroy-search-shared-limit
+ok 33 - genuine native field effect: fire-king-island-destroy-search-shared-limit
+  ---
+  duration_ms: 0.117376
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: dragonic-diagram-destroy-search-once-per-turn
+ok 34 - genuine native field effect: dragonic-diagram-destroy-search-once-per-turn
+  ---
+  duration_ms: 0.12623
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: union-hangar-search-summon-equip-restriction
+ok 35 - genuine native field effect: union-hangar-search-summon-equip-restriction
+  ---
+  duration_ms: 0.082744
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: spyral-resort-search-end-phase-maintenance
+ok 36 - genuine native field effect: spyral-resort-search-end-phase-maintenance
+  ---
+  duration_ms: 0.08609
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: trickstar-light-stage-search-lock-end-phase-send
+ok 37 - genuine native field effect: trickstar-light-stage-search-lock-end-phase-send
+  ---
+  duration_ms: 0.03954
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: hidden-city-search-flip-ignition
+ok 38 - genuine native field effect: hidden-city-search-flip-ignition
+  ---
+  duration_ms: 0.094262
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: vendread-nights-discard-cost-search
+ok 39 - genuine native field effect: vendread-nights-discard-cost-search
+  ---
+  duration_ms: 0.05955
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: ua-stadium-normal-search-special-attack
+ok 40 - genuine native field effect: ua-stadium-normal-search-special-attack
+  ---
+  duration_ms: 0.042133
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: myutant-lab-banished-summon-unique-bonus-bottom-draw
+ok 41 - genuine native field effect: myutant-lab-banished-summon-unique-bonus-bottom-draw
+  ---
+  duration_ms: 0.038969
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: drytron-fafnir-search-summon-level-reduction
+ok 42 - genuine native field effect: drytron-fafnir-search-summon-level-reduction
+  ---
+  duration_ms: 0.031928
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: chicken-game-lp-draw-lowest-player-damage-prevention
+ok 43 - genuine native field effect: chicken-game-lp-draw-lowest-player-damage-prevention
+  ---
+  duration_ms: 0.031908
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: pacifis-normal-search-lock-opponent-reaction-token
+ok 44 - genuine native field effect: pacifis-normal-search-lock-opponent-reaction-token
+  ---
+  duration_ms: 0.035564
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: lost-world-dinosaur-token-destruction-replacement
+ok 45 - genuine native field effect: lost-world-dinosaur-token-destruction-replacement
+  ---
+  duration_ms: 0.031007
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: revolving-switchyard-discard-search-shared-limit
+ok 46 - genuine native field effect: revolving-switchyard-discard-search-shared-limit
+  ---
+  duration_ms: 0.030616
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: sky-striker-area-zero-destroy-deck-summon
+ok 47 - genuine native field effect: sky-striker-area-zero-destroy-deck-summon
+  ---
+  duration_ms: 0.029845
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: runick-fountain-quickplay-recycle-draw
+ok 48 - genuine native field effect: runick-fountain-quickplay-recycle-draw
+  ---
+  duration_ms: 0.035924
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: reichphobia-search-three-defense-target-destroy
+ok 49 - genuine native field effect: reichphobia-search-three-defense-target-destroy
+  ---
+  duration_ms: 0.093311
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: magical-meltdown-fusion-activation-negation-prevention
+ok 50 - genuine native field effect: magical-meltdown-fusion-activation-negation-prevention
+  ---
+  duration_ms: 0.035874
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: fire-king-island-field-leaves-destroys-own-monsters
+ok 51 - genuine native field effect: fire-king-island-field-leaves-destroys-own-monsters
+  ---
+  duration_ms: 0.029324
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: pareidolia-destruction-targeted-graveyard-recovery
+ok 52 - genuine native field effect: pareidolia-destruction-targeted-graveyard-recovery
+  ---
+  duration_ms: 0.02711
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: revolving-switchyard-level-ten-summon-deck-level-change
+ok 53 - genuine native field effect: revolving-switchyard-level-ten-summon-deck-level-change
+  ---
+  duration_ms: 0.028963
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: mountain-bilateral-race-bonus-removal
+ok 54 - genuine native field effect: mountain-bilateral-race-bonus-removal
+  ---
+  duration_ms: 0.276346
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: sogen-warrior-beastwarrior-bonus-removal
+ok 55 - genuine native field effect: sogen-warrior-beastwarrior-bonus-removal
+  ---
+  duration_ms: 0.047972
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: umi-aqua-bonus-machine-penalty-removal
+ok 56 - genuine native field effect: umi-aqua-bonus-machine-penalty-removal
+  ---
+  duration_ms: 0.034432
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: umiiruka-water-bonus-defense-penalty-removal
+ok 57 - genuine native field effect: umiiruka-water-bonus-defense-penalty-removal
+  ---
+  duration_ms: 0.031758
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: lemuria-counted-water-level-increase-end-phase-reset
+ok 58 - genuine native field effect: lemuria-counted-water-level-increase-end-phase-reset
+  ---
+  duration_ms: 0.030416
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: gates-dark-world-cost-effect-discard-trigger-draw
+ok 59 - genuine native field effect: gates-dark-world-cost-effect-discard-trigger-draw
+  ---
+  duration_ms: 0.030305
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: triamid-fortress-effect-protection-leave-grave-recovery
+ok 60 - genuine native field effect: triamid-fortress-effect-protection-leave-grave-recovery
+  ---
+  duration_ms: 0.031487
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: triamid-cruiser-normal-summon-recover-draw-discard-search
+ok 61 - genuine native field effect: triamid-cruiser-normal-summon-recover-draw-discard-search
+  ---
+  duration_ms: 0.029594
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: triamid-kingolem-rock-bonus-grave-trigger-special
+ok 62 - genuine native field effect: triamid-kingolem-rock-bonus-grave-trigger-special
+  ---
+  duration_ms: 0.026049
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: aroma-garden-recover-jasmine-draw-bonus-destruction-heal
+ok 63 - genuine native field effect: aroma-garden-recover-jasmine-draw-bonus-destruction-heal
+  ---
+  duration_ms: 0.027471
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: pandemonium-effect-destruction-lower-level-archfiend-search
+ok 64 - genuine native field effect: pandemonium-effect-destruction-lower-level-archfiend-search
+  ---
+  duration_ms: 0.064697
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: pandemonium-standby-archfiend-upkeep-cost-replacement
+ok 65 - genuine native field effect: pandemonium-standby-archfiend-upkeep-cost-replacement
+  ---
+  duration_ms: 0.04006
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: domain-monarchs-level-reduction-true-tribute-extra-lock-removal
+ok 66 - genuine native field effect: domain-monarchs-level-reduction-true-tribute-extra-lock-removal
+  ---
+  duration_ms: 0.061142
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: toon-kingdom-facedown-banish-target-protection-destruction-replacement
+ok 67 - genuine native field effect: toon-kingdom-facedown-banish-target-protection-destruction-replacement
+  ---
+  duration_ms: 0.037056
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: lair-darkness-opponent-cost-once-token-count-end-phase
+ok 68 - genuine native field effect: lair-darkness-opponent-cost-once-token-count-end-phase
+  ---
+  duration_ms: 0.0332
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: marincess-ocean-real-link-summon-grave-equip-bonus
+ok 69 - genuine native field effect: marincess-ocean-real-link-summon-grave-equip-bonus
+  ---
+  duration_ms: 0.14625
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: hidden-village-ninja-summon-recovery-same-name-activation-lock
+ok 70 - genuine native field effect: hidden-village-ninja-summon-recovery-same-name-activation-lock
+  ---
+  duration_ms: 0.039389
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: psy-frame-circuit-alpha-driver-triggered-real-synchro
+ok 71 - genuine native field effect: psy-frame-circuit-alpha-driver-triggered-real-synchro
+  ---
+  duration_ms: 0.031898
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: salamangreat-sanctuary-genuine-reincarnation-link-once
+ok 72 - genuine native field effect: salamangreat-sanctuary-genuine-reincarnation-link-once
+  ---
+  duration_ms: 0.032459
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: traptrip-garden-extra-normal-banish-cost-special-limit
+ok 73 - genuine native field effect: traptrip-garden-extra-normal-banish-cost-special-limit
+  ---
+  duration_ms: 0.032188
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: rikka-konkon-deck-set-plant-lock-opponent-tribute-cost
+ok 74 - genuine native field effect: rikka-konkon-deck-set-plant-lock-opponent-tribute-cost
+  ---
+  duration_ms: 0.031126
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: sanctuary-sky-fairy-battle-damage-zero
+ok 75 - genuine native field effect: sanctuary-sky-fairy-battle-damage-zero
+  ---
+  duration_ms: 0.031237
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: sanctuary-sky-removal-restores-fairy-battle-damage
+ok 76 - genuine native field effect: sanctuary-sky-removal-restores-fairy-battle-damage
+  ---
+  duration_ms: 0.028012
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: ancient-forest-flip-without-effects-battle-end-destruction
+ok 77 - genuine native field effect: ancient-forest-flip-without-effects-battle-end-destruction
+  ---
+  duration_ms: 0.029825
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: dark-sanctuary-real-coin-attack-resolution
+ok 78 - genuine native field effect: dark-sanctuary-real-coin-attack-resolution
+  ---
+  duration_ms: 0.029144
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: orichalcos-true-special-destruction-extra-lock-protection-duel-oath
+ok 79 - genuine native field effect: orichalcos-true-special-destruction-extra-lock-protection-duel-oath
+  ---
+  duration_ms: 0.030545
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: marincess-ocean-crystal-heart-material-opponent-immunity
+ok 80 - genuine native field effect: marincess-ocean-crystal-heart-material-opponent-immunity
+  ---
+  duration_ms: 0.031738
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: rikka-konkon-glamour-opponent-tribute-two-distinct-searches
+ok 81 - genuine native field effect: rikka-konkon-glamour-opponent-tribute-two-distinct-searches
+  ---
+  duration_ms: 0.057416
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: domain-monarchs-damage-calculation-only-tribute-attack-bonus
+ok 82 - genuine native field effect: domain-monarchs-damage-calculation-only-tribute-attack-bonus
+  ---
+  duration_ms: 0.052569
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: dark-sanctuary-heads-negates-attack-half-atk-effect-damage
+ok 83 - genuine native field effect: dark-sanctuary-heads-negates-attack-half-atk-effect-damage
+  ---
+  duration_ms: 0.070166
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: catalyst-field-true-gemini-extra-summon-banish-return
+ok 84 - genuine native field effect: catalyst-field-true-gemini-extra-summon-banish-return
+  ---
+  duration_ms: 0.155423
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: giant-ballpark-damage-step-mill-three-normal-insects
+ok 85 - genuine native field effect: giant-ballpark-damage-step-mill-three-normal-insects
+  ---
+  duration_ms: 0.038838
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: generaider-stage-opponent-draw-boss-four-tokens-end-destruction
+ok 86 - genuine native field effect: generaider-stage-opponent-draw-boss-four-tokens-end-destruction
+  ---
+  duration_ms: 0.057727
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: magnetic-field-targeted-revival-once-battle-survivor-bounce
+ok 87 - genuine native field effect: magnetic-field-targeted-revival-once-battle-survivor-bounce
+  ---
+  duration_ms: 0.070826
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: cyberdark-inferno-bounce-extra-normal-equip-opponent-search
+ok 88 - genuine native field effect: cyberdark-inferno-bounce-extra-normal-equip-opponent-search
+  ---
+  duration_ms: 0.049554
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: dream-mirror-joy-highest-level-target-protection
+ok 89 - genuine native field effect: dream-mirror-joy-highest-level-target-protection
+  ---
+  duration_ms: 0.034392
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: dream-mirror-terror-two-opponent-specials-cost-swap-joy
+ok 90 - genuine native field effect: dream-mirror-terror-two-opponent-specials-cost-swap-joy
+  ---
+  duration_ms: 0.043475
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: madolche-chateau-grave-shuffle-bilateral-bonus-return-hand
+ok 91 - genuine native field effect: madolche-chateau-grave-shuffle-bilateral-bonus-return-hand
+  ---
+  duration_ms: 0.032639
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: mystic-mine-monster-count-switch-effects-attacks-self-destroy
+ok 92 - genuine native field effect: mystic-mine-monster-count-switch-effects-attacks-self-destroy
+  ---
+  duration_ms: 0.029234
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: realm-light-one-counter-per-mill-batch-two-counter-replacement
+ok 93 - genuine native field effect: realm-light-one-counter-per-mill-batch-two-counter-replacement
+  ---
+  duration_ms: 0.030956
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: advanced-dark-attribute-grave-damage-step-deck-cost-prevention
+ok 94 - genuine native field effect: advanced-dark-attribute-grave-damage-step-deck-cost-prevention
+  ---
+  duration_ms: 0.033851
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: amorphous-persona-bilateral-bonus-tribute-pendulum-draw
+ok 95 - genuine native field effect: amorphous-persona-bilateral-bonus-tribute-pendulum-draw
+  ---
+  duration_ms: 0.030486
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: s-force-bridgehead-search-oath-same-column-battle-protection
+ok 96 - genuine native field effect: s-force-bridgehead-search-oath-same-column-battle-protection
+  ---
+  duration_ms: 0.029425
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: duel-academy-three-race-branches-independent-turn-limits
+ok 97 - genuine native field effect: duel-academy-three-race-branches-independent-turn-limits
+  ---
+  duration_ms: 0.034672
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: hexatellarknight-real-xyz-material-bonus-cost-negate-attack
+ok 98 - genuine native field effect: hexatellarknight-real-xyz-material-bonus-cost-negate-attack
+  ---
+  duration_ms: 0.207071
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: magnacarrier-three-matching-xyz-genuine-overlay-king-six-materials
+ok 99 - genuine native field effect: magnacarrier-three-matching-xyz-genuine-overlay-king-six-materials
+  ---
+  duration_ms: 0.065208
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: fa-circuit-battle-only-level-boost-battle-draw-destroy-search
+ok 100 - genuine native field effect: fa-circuit-battle-only-level-boost-battle-draw-destroy-search
+  ---
+  duration_ms: 0.036385
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: fa-city-main-battle-levels-opponent-target-lock-removal
+ok 101 - genuine native field effect: fa-city-main-battle-levels-opponent-target-lock-removal
+  ---
+  duration_ms: 0.028753
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: fa-offroad-main-only-level-battle-loss-random-discard-search
+ok 102 - genuine native field effect: fa-offroad-main-only-level-battle-loss-random-discard-search
+  ---
+  duration_ms: 0.029755
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: doll-house-gy-normal-name-pair-level-six-dark-once
+ok 103 - genuine native field effect: doll-house-gy-normal-name-pair-level-six-dark-once
+  ---
+  duration_ms: 0.087071
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: live-twin-channel-tribute-cost-negate-empty-field-recover-hand
+ok 104 - genuine native field effect: live-twin-channel-tribute-cost-negate-empty-field-recover-hand
+  ---
+  duration_ms: 0.036985
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: punk-session-banish-cost-special-three-lp-payments-two-draws
+ok 105 - genuine native field effect: punk-session-banish-cost-special-three-lp-payments-two-draws
+  ---
+  duration_ms: 0.038678
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: magicians-salvation-deck-set-oath-real-reborn-other-name
+ok 106 - genuine native field effect: magicians-salvation-deck-set-oath-real-reborn-other-name
+  ---
+  duration_ms: 0.031948
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: patent-license-real-ddd-link-opponent-type-lock-grave-recovery
+ok 107 - genuine native field effect: patent-license-real-ddd-link-opponent-type-lock-grave-recovery
+  ---
+  duration_ms: 0.035283
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: light-barrier-arcana-real-choice-tails-standby-disables-choice
+ok 108 - genuine native field effect: light-barrier-arcana-real-choice-tails-standby-disables-choice
+  ---
+  duration_ms: 0.030636
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: weather-forecast-deck-faceup-canvas-true-spell-link-materials
+ok 109 - genuine native field effect: weather-forecast-deck-faceup-canvas-true-spell-link-materials
+  ---
+  duration_ms: 0.032569
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: maliss-underground-real-link-third-trap-name-boost-attack-targets
+ok 110 - genuine native field effect: maliss-underground-real-link-third-trap-name-boost-attack-targets
+  ---
+  duration_ms: 0.037396
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: sangen-summoning-search-effect-discard-own-main1-immunity-boundary
+ok 111 - genuine native field effect: sangen-summoning-search-effect-discard-own-main1-immunity-boundary
+  ---
+  duration_ms: 0.031458
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: sangen-summoning-battle-destruction-doubles-true-dragon-synchro
+ok 112 - genuine native field effect: sangen-summoning-battle-destruction-doubles-true-dragon-synchro
+  ---
+  duration_ms: 0.030526
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: stand-up-centurion-real-continuous-trap-place-protection-quick-synchro
+ok 113 - genuine native field effect: stand-up-centurion-real-continuous-trap-place-protection-quick-synchro
+  ---
+  duration_ms: 0.041623
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: laputite-owned-rock-bonus-native-three-card-top-sort-and-draw
+ok 114 - genuine native field effect: laputite-owned-rock-bonus-native-three-card-top-sort-and-draw
+  ---
+  duration_ms: 0.078498
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: cynet-universe-link-bonus-opposing-grave-return-extra-zone-send
+ok 115 - genuine native field effect: cynet-universe-link-bonus-opposing-grave-return-extra-zone-send
+  ---
+  duration_ms: 0.041773
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: kozmotown-level-lp-loss-two-card-redraw-destroy-search
+ok 116 - genuine native field effect: kozmotown-level-lp-loss-two-card-redraw-destroy-search
+  ---
+  duration_ms: 0.034112
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: majesty-pegasus-bilateral-bonus-real-pendulum-tribute-deck-special
+ok 117 - genuine native field effect: majesty-pegasus-bilateral-bonus-real-pendulum-tribute-deck-special
+  ---
+  duration_ms: 0.055264
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: summon-over-six-real-special-events-main1-gate-both-side-board-send
+ok 118 - genuine native field effect: summon-over-six-real-special-events-main1-gate-both-side-board-send
+  ---
+  duration_ms: 0.035343
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: skyscraper-attacker-only-real-damage-calculation-bonus
+ok 119 - genuine native field effect: skyscraper-attacker-only-real-damage-calculation-bonus
+  ---
+  duration_ms: 0.02608
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: hero-city-real-battle-destruction-reason-revival-effect-exclusion
+ok 120 - genuine native field effect: hero-city-real-battle-destruction-reason-revival-effect-exclusion
+  ---
+  duration_ms: 0.027652
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: wattcastle-real-battle-permanent-attacker-atk-reduction
+ok 121 - genuine native field effect: wattcastle-real-battle-permanent-attacker-atk-reduction
+  ---
+  duration_ms: 0.028913
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: luminous-spark-bilateral-light-stats-dark-exclusion-removal
+ok 122 - genuine native field effect: luminous-spark-bilateral-light-stats-dark-exclusion-removal
+  ---
+  duration_ms: 0.240702
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: rising-air-current-bilateral-wind-stats-light-exclusion-removal
+ok 123 - genuine native field effect: rising-air-current-bilateral-wind-stats-light-exclusion-removal
+  ---
+  duration_ms: 0.034401
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: mystic-plasma-bilateral-dark-stats-light-exclusion-removal
+ok 124 - genuine native field effect: mystic-plasma-bilateral-dark-stats-light-exclusion-removal
+  ---
+  duration_ms: 0.030746
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: yami-bilateral-spellcaster-fiend-bonus-fairy-penalty-removal
+ok 125 - genuine native field effect: yami-bilateral-spellcaster-fiend-bonus-fairy-penalty-removal
+  ---
+  duration_ms: 0.028162
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: chorus-sanctuary-defense-position-bilateral-bonus-position-change
+ok 126 - genuine native field effect: chorus-sanctuary-defense-position-bilateral-bonus-position-change
+  ---
+  duration_ms: 0.029555
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: empowerment-discard-deck-special-four-banish-cost-aether-search
+ok 127 - genuine native field effect: empowerment-discard-deck-special-four-banish-cost-aether-search
+  ---
+  duration_ms: 0.031177
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: elborz-reveal-tribute-reduction-true-extra-wingedbeast-normal
+ok 128 - genuine native field effect: elborz-reveal-tribute-reduction-true-extra-wingedbeast-normal
+  ---
+  duration_ms: 0.030476
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: war-rock-mountain-search-opponent-battle-start-special-replacement
+ok 129 - genuine native field effect: war-rock-mountain-search-opponent-battle-start-special-replacement
+  ---
+  duration_ms: 0.029244
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: wraitsoth-search-oath-distinct-faceup-attribute-count-removal
+ok 130 - genuine native field effect: wraitsoth-search-oath-distinct-faceup-attribute-count-removal
+  ---
+  duration_ms: 0.071818
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: ichirin-qualifying-defense-negates-only-first-opponent-monster-effect
+ok 131 - genuine native field effect: ichirin-qualifying-defense-negates-only-first-opponent-monster-effect
+  ---
+  duration_ms: 0.03991
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: ojama-country-base-stat-swap-send-cost-targeted-revival-removal
+ok 132 - genuine native field effect: ojama-country-base-stat-swap-send-cost-targeted-revival-removal
+  ---
+  duration_ms: 0.028022
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: pseudo-space-real-wetlands-banish-cost-official-effect-copy-reset
+ok 133 - genuine native field effect: pseudo-space-real-wetlands-banish-cost-official-effect-copy-reset
+  ---
+  duration_ms: 0.029374
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: catapult-zone-real-battle-replacement-rock-send-effect-once
+ok 134 - genuine native field effect: catapult-zone-real-battle-replacement-rock-send-effect-once
+  ---
+  duration_ms: 0.02681
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-clear-world-wind-spell-cost-maintenance
+ok 135 - genuine native field effect: batch-a-clear-world-wind-spell-cost-maintenance
+  ---
+  duration_ms: 0.029785
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-amritara-destruction-defense-revival
+ok 136 - genuine native field effect: batch-a-amritara-destruction-defense-revival
+  ---
+  duration_ms: 0.028844
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-acroquey-grave-banish-three-bottom-sort
+ok 137 - genuine native field effect: batch-a-acroquey-grave-banish-three-bottom-sort
+  ---
+  duration_ms: 0.031066
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-gunkan-normal-summon-decktop-placement
+ok 138 - genuine native field effect: batch-a-gunkan-normal-summon-decktop-placement
+  ---
+  duration_ms: 0.028343
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-calarium-search-counted-light-bonus
+ok 139 - genuine native field effect: batch-a-calarium-search-counted-light-bonus
+  ---
+  duration_ms: 0.028934
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-breaking-world-public-ritual-level-end-reset
+ok 140 - genuine native field effect: batch-a-breaking-world-public-ritual-level-end-reset
+  ---
+  duration_ms: 0.211418
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-spring-zone-counter-attack
+ok 141 - genuine native field effect: batch-a-spring-zone-counter-attack
+  ---
+  duration_ms: 0.031217
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-wedju-hand-deck-monsters-continuous-spells
+ok 142 - genuine native field effect: batch-a-wedju-hand-deck-monsters-continuous-spells
+  ---
+  duration_ms: 0.028022
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-ryzeal-cross-two-bottom-draw
+ok 143 - genuine native field effect: batch-a-ryzeal-cross-two-bottom-draw
+  ---
+  duration_ms: 0.084567
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-ai-land-real-hand-summon
+ok 144 - genuine native field effect: batch-a-ai-land-real-hand-summon
+  ---
+  duration_ms: 0.064587
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-stromberg-deck-summon-normal-lock
+ok 145 - genuine native field effect: batch-a-stromberg-deck-summon-normal-lock
+  ---
+  duration_ms: 0.124837
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-white-forest-search-current-tuner-reset
+ok 146 - genuine native field effect: batch-a-white-forest-search-current-tuner-reset
+  ---
+  duration_ms: 0.061562
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-deskbot-stats-hand-recycle-draw
+ok 147 - genuine native field effect: batch-a-deskbot-stats-hand-recycle-draw
+  ---
+  duration_ms: 0.035643
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-fandora-five-names-field-cost-board-destroy
+ok 148 - genuine native field effect: batch-a-fandora-five-names-field-cost-board-destroy
+  ---
+  duration_ms: 0.034502
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-dino-wrestling-grave-banish-cost-deck-summon
+ok 149 - genuine native field effect: batch-a-dino-wrestling-grave-banish-cost-deck-summon
+  ---
+  duration_ms: 0.027021
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-ecole-normal-destroy-token-stats-leave-cleanup
+ok 150 - genuine native field effect: batch-a-ecole-normal-destroy-token-stats-leave-cleanup
+  ---
+  duration_ms: 0.026921
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-zodiac-owned-archetype-stats-restoration
+ok 151 - genuine native field effect: batch-a-zodiac-owned-archetype-stats-restoration
+  ---
+  duration_ms: 0.028493
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-dice-dungeon-search-native-roll-attack-reset
+ok 152 - genuine native field effect: batch-a-dice-dungeon-search-native-roll-attack-reset
+  ---
+  duration_ms: 0.02692
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-gizmek-excavate-equal-stat-machine-banish
+ok 153 - genuine native field effect: batch-a-gizmek-excavate-equal-stat-machine-banish
+  ---
+  duration_ms: 0.024587
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-imperial-tomb-horus-search-hand-bottom-current-name
+ok 154 - genuine native field effect: batch-a-imperial-tomb-horus-search-hand-bottom-current-name
+  ---
+  duration_ms: 0.028753
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-boot-sector-two-hand-rokkets-defense-bonus
+ok 155 - genuine native field effect: batch-a-boot-sector-two-hand-rokkets-defense-bonus
+  ---
+  duration_ms: 0.031708
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-new-frontier-opponent-fusion-albaz-search
+ok 156 - genuine native field effect: batch-a-new-frontier-opponent-fusion-albaz-search
+  ---
+  duration_ms: 0.027952
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-shiranui-hand-send-cost-zero-defense-zombie-revive
+ok 157 - genuine native field effect: batch-a-shiranui-hand-send-cost-zero-defense-zombie-revive
+  ---
+  duration_ms: 0.024897
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-numeron-network-official-calling-copy-four-summons
+ok 158 - genuine native field effect: batch-a-numeron-network-official-calling-copy-four-summons
+  ---
+  duration_ms: 0.031066
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-brain-lab-native-lp-cost-counter-leave-damage
+ok 159 - genuine native field effect: batch-a-brain-lab-native-lp-cost-counter-leave-damage
+  ---
+  duration_ms: 0.029905
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-vampire-opponent-deck-send-own-vampire-destroy
+ok 160 - genuine native field effect: batch-a-vampire-opponent-deck-send-own-vampire-destroy
+  ---
+  duration_ms: 0.0262
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-ghostrick-facedown-direct-attack-search-damage
+ok 161 - genuine native field effect: batch-a-ghostrick-facedown-direct-attack-search-damage
+  ---
+  duration_ms: 0.028192
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-soul-gate-native-set-destruction-activation-summon
+ok 162 - genuine native field effect: batch-a-soul-gate-native-set-destruction-activation-summon
+  ---
+  duration_ms: 0.02628
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-crusadia-bilateral-link-only-bonus-removal
+ok 163 - genuine native field effect: batch-a-crusadia-bilateral-link-only-bonus-removal
+  ---
+  duration_ms: 0.027011
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-danger-targeted-continuing-direct-attack
+ok 164 - genuine native field effect: batch-a-danger-targeted-continuing-direct-attack
+  ---
+  duration_ms: 0.027071
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-tilted-effect-draw-reveal-field-send-bottom-redraw
+ok 165 - genuine native field effect: batch-a-tilted-effect-draw-reveal-field-send-bottom-redraw
+  ---
+  duration_ms: 0.114843
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-bug-matrix-hand-insect-native-overlay
+ok 166 - genuine native field effect: batch-a-bug-matrix-hand-insect-native-overlay
+  ---
+  duration_ms: 0.072869
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-xyz-territory-rank-damage-calculation-only
+ok 167 - genuine native field effect: batch-a-xyz-territory-rank-damage-calculation-only
+  ---
+  duration_ms: 0.030165
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-secret-village-opponent-spell-prohibition
+ok 168 - genuine native field effect: batch-a-secret-village-opponent-spell-prohibition
+  ---
+  duration_ms: 0.029734
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-xyz-override-facedown-hand-cost-preserves-overlays
+ok 169 - genuine native field effect: batch-a-xyz-override-facedown-hand-cost-preserves-overlays
+  ---
+  duration_ms: 0.058127
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-laser-qlip-real-additional-normal-summon
+ok 170 - genuine native field effect: batch-a-laser-qlip-real-additional-normal-summon
+  ---
+  duration_ms: 0.029574
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-a-acid-earth-bilateral-stat-restore-non-earth
+ok 171 - genuine native field effect: batch-a-acid-earth-bilateral-stat-restore-non-earth
+  ---
+  duration_ms: 0.049234
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-trickstar-set-lock-end-return
+ok 172 - genuine native field effect: batch-b-trickstar-set-lock-end-return
+  ---
+  duration_ms: 0.027591
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-allure-spellcaster-stats
+ok 173 - genuine native field effect: batch-b-allure-spellcaster-stats
+  ---
+  duration_ms: 0.024336
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-materiactor-excavate-reorder-six
+ok 174 - genuine native field effect: batch-b-materiactor-excavate-reorder-six
+  ---
+  duration_ms: 0.380752
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-vanquish-different-attribute-search
+ok 175 - genuine native field effect: batch-b-vanquish-different-attribute-search
+  ---
+  duration_ms: 0.156896
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-ghoti-banish-fish-cost-search
+ok 176 - genuine native field effect: batch-b-ghoti-banish-fish-cost-search
+  ---
+  duration_ms: 0.131958
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-barian-search-discard
+ok 177 - genuine native field effect: batch-b-barian-search-discard
+  ---
+  duration_ms: 0.254783
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-tenyinfinity-activation-search
+ok 178 - genuine native field effect: batch-b-tenyinfinity-activation-search
+  ---
+  duration_ms: 0.121262
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-coulomb-real-hand-normal-boost
+ok 179 - genuine native field effect: batch-b-coulomb-real-hand-normal-boost
+  ---
+  duration_ms: 0.038287
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-mausoleum-normal-level-buff
+ok 180 - genuine native field effect: batch-b-mausoleum-normal-level-buff
+  ---
+  duration_ms: 0.030556
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-nouvelles-activation-recipe
+ok 181 - genuine native field effect: batch-b-nouvelles-activation-recipe
+  ---
+  duration_ms: 0.028743
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-ritual-sanctuary-discard-spell-search
+ok 182 - genuine native field effect: batch-b-ritual-sanctuary-discard-spell-search
+  ---
+  duration_ms: 0.028583
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-appliancer-activation-search
+ok 183 - genuine native field effect: batch-b-appliancer-activation-search
+  ---
+  duration_ms: 0.026089
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-white-rose-plant-special
+ok 184 - genuine native field effect: batch-b-white-rose-plant-special
+  ---
+  duration_ms: 0.02608
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-gimmick-mansion-search
+ok 185 - genuine native field effect: batch-b-gimmick-mansion-search
+  ---
+  duration_ms: 0.025469
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-snake-eye-monster-continuous-spell
+ok 186 - genuine native field effect: batch-b-snake-eye-monster-continuous-spell
+  ---
+  duration_ms: 0.027261
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-starlight-tuner-tribute-different-level
+ok 187 - genuine native field effect: batch-b-starlight-tuner-tribute-different-level
+  ---
+  duration_ms: 0.02683
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-iron-lab-maintenance-destruction
+ok 188 - genuine native field effect: batch-b-iron-lab-maintenance-destruction
+  ---
+  duration_ms: 0.02642
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-stars-align-spirit-return-recovery
+ok 189 - genuine native field effect: batch-b-stars-align-spirit-return-recovery
+  ---
+  duration_ms: 0.027992
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-guardragon-total-link-rating
+ok 190 - genuine native field effect: batch-b-guardragon-total-link-rating
+  ---
+  duration_ms: 0.038798
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-ua-search-paid-extra-normal
+ok 191 - genuine native field effect: batch-b-ua-search-paid-extra-normal
+  ---
+  duration_ms: 0.04036
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-amazement-set-turn-attraction
+ok 192 - genuine native field effect: batch-b-amazement-set-turn-attraction
+  ---
+  duration_ms: 0.027942
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-archfiend-controller-fiend-buff
+ok 193 - genuine native field effect: batch-b-archfiend-controller-fiend-buff
+  ---
+  duration_ms: 0.025999
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-gmx-set-and-stack-hand
+ok 194 - genuine native field effect: batch-b-gmx-set-and-stack-hand
+  ---
+  duration_ms: 0.027882
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-mikanko-forced-equipped-target
+ok 195 - genuine native field effect: batch-b-mikanko-forced-equipped-target
+  ---
+  duration_ms: 0.028523
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-hidden-springs-main-two-recovery
+ok 196 - genuine native field effect: batch-b-hidden-springs-main-two-recovery
+  ---
+  duration_ms: 0.025819
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-perlegia-controller-fusion-buff
+ok 197 - genuine native field effect: batch-b-perlegia-controller-fusion-buff
+  ---
+  duration_ms: 0.024436
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-ghostrick-museum-native-attack-lock
+ok 198 - genuine native field effect: batch-b-ghostrick-museum-native-attack-lock
+  ---
+  duration_ms: 0.028984
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-midbreaker-main-one-protection
+ok 199 - genuine native field effect: batch-b-midbreaker-main-one-protection
+  ---
+  duration_ms: 0.028052
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-metaphys-tribute-free-next-turn-banish
+ok 200 - genuine native field effect: batch-b-metaphys-tribute-free-next-turn-banish
+  ---
+  duration_ms: 0.05361
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-scrap-bilateral-stats
+ok 201 - genuine native field effect: batch-b-scrap-bilateral-stats
+  ---
+  duration_ms: 0.090977
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-colosseum-deck-special-counter
+ok 202 - genuine native field effect: batch-b-colosseum-deck-special-counter
+  ---
+  duration_ms: 0.044197
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-sargasso-real-xyz-and-end-damage
+ok 203 - genuine native field effect: batch-b-sargasso-real-xyz-and-end-damage
+  ---
+  duration_ms: 0.029624
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-ghostrick-mansion-direct-halved-damage
+ok 204 - genuine native field effect: batch-b-ghostrick-mansion-direct-halved-damage
+  ---
+  duration_ms: 0.059239
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-nordic-lights-destruction-cascade
+ok 205 - genuine native field effect: batch-b-nordic-lights-destruction-cascade
+  ---
+  duration_ms: 0.031577
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-dinomic-bilateral-stats
+ok 206 - genuine native field effect: batch-b-dinomic-bilateral-stats
+  ---
+  duration_ms: 0.029054
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-canyon-rock-defense-double
+ok 207 - genuine native field effect: batch-b-canyon-rock-defense-double
+  ---
+  duration_ms: 0.091337
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-forest-four-races-bilateral
+ok 208 - genuine native field effect: batch-b-forest-four-races-bilateral
+  ---
+  duration_ms: 0.071598
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-b-mind-eye-fixed-real-battle-damage
+ok 209 - genuine native field effect: batch-b-mind-eye-fixed-real-battle-damage
+  ---
+  duration_ms: 0.034332
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: rainbow-ruins-four-crystals-draw-once
+ok 210 - genuine native field effect: rainbow-ruins-four-crystals-draw-once
+  ---
+  duration_ms: 0.123686
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: nightmare-throne-zero-zero-fiend-search
+ok 211 - genuine native field effect: nightmare-throne-zero-zero-fiend-search
+  ---
+  duration_ms: 0.111218
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: megaroid-destroy-other-search-once
+ok 212 - genuine native field effect: megaroid-destroy-other-search-once
+  ---
+  duration_ms: 0.063055
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: sacred-beasts-paradise-level-ten-draw-two
+ok 213 - genuine native field effect: sacred-beasts-paradise-level-ten-draw-two
+  ---
+  duration_ms: 0.031277
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: dragunity-divine-wind-grave-dragon-recovery
+ok 214 - genuine native field effect: dragunity-divine-wind-grave-dragon-recovery
+  ---
+  duration_ms: 0.02687
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: trickstar-live-stage-activation-grave-recovery
+ok 215 - genuine native field effect: trickstar-live-stage-activation-grave-recovery
+  ---
+  duration_ms: 0.025519
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: dreamland-synchro-normal-summon-level
+ok 216 - genuine native field effect: dreamland-synchro-normal-summon-level
+  ---
+  duration_ms: 0.026079
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: noble-arms-museum-lp-search-fire-warrior-bonus
+ok 217 - genuine native field effect: noble-arms-museum-lp-search-fire-warrior-bonus
+  ---
+  duration_ms: 0.024286
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: ursarctic-big-dipper-true-special-counter
+ok 218 - genuine native field effect: ursarctic-big-dipper-true-special-counter
+  ---
+  duration_ms: 0.027411
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: yummy-mignon-counted-light-beast-bonus
+ok 219 - genuine native field effect: yummy-mignon-counted-light-beast-bonus
+  ---
+  duration_ms: 0.026701
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: dragonic-pendulum-bonus-destruction-search
+ok 220 - genuine native field effect: dragonic-pendulum-bonus-destruction-search
+  ---
+  duration_ms: 0.029174
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: assault-zone-activation-mentioned-monster-search
+ok 221 - genuine native field effect: assault-zone-activation-mentioned-monster-search
+  ---
+  duration_ms: 0.025669
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: fairy-tail-ball-activation-search
+ok 222 - genuine native field effect: fairy-tail-ball-activation-search
+  ---
+  duration_ms: 0.027892
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: baatistina-deck-send-opponent-three-special
+ok 223 - genuine native field effect: baatistina-deck-send-opponent-three-special
+  ---
+  duration_ms: 0.025078
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: rb-funk-dock-search-opponent-destruction-recover
+ok 224 - genuine native field effect: rb-funk-dock-search-opponent-destruction-recover
+  ---
+  duration_ms: 0.027993
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: world-legacy-scars-discard-draw-qualifying-bonus
+ok 225 - genuine native field effect: world-legacy-scars-discard-draw-qualifying-bonus
+  ---
+  duration_ms: 0.023806
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: vaylantz-konig-opponent-column-continuous-spell
+ok 226 - genuine native field effect: vaylantz-konig-opponent-column-continuous-spell
+  ---
+  duration_ms: 0.028453
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: floowandereeze-map-reveal-banish-true-normal
+ok 227 - genuine native field effect: floowandereeze-map-reveal-banish-true-normal
+  ---
+  duration_ms: 0.037486
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: impcantation-thanatosis-two-summons-revealed-shuffle
+ok 228 - genuine native field effect: impcantation-thanatosis-two-summons-revealed-shuffle
+  ---
+  duration_ms: 0.030045
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: world-legacy-shadow-insect-defense-special
+ok 229 - genuine native field effect: world-legacy-shadow-insect-defense-special
+  ---
+  duration_ms: 0.0263
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: castle-link-real-pointed-main-zone-move
+ok 230 - genuine native field effect: castle-link-real-pointed-main-zone-move
+  ---
+  duration_ms: 0.024386
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: fairy-tale-prologue-light-beast-draw
+ok 231 - genuine native field effect: fairy-tale-prologue-light-beast-draw
+  ---
+  duration_ms: 0.023455
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: archfiend-strategy-banish-fiend-search
+ok 232 - genuine native field effect: archfiend-strategy-banish-fiend-search
+  ---
+  duration_ms: 0.024607
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: clock-tower-opponent-standby-four-counters-dreadmaster
+ok 233 - genuine native field effect: clock-tower-opponent-standby-four-counters-dreadmaster
+  ---
+  duration_ms: 0.027682
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: fusion-recycling-plant-discard-polymerization-recover
+ok 234 - genuine native field effect: fusion-recycling-plant-discard-polymerization-recover
+  ---
+  duration_ms: 0.024927
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: vaylantz-shinra-same-column-spell-zone-summon
+ok 235 - genuine native field effect: vaylantz-shinra-same-column-spell-zone-summon
+  ---
+  duration_ms: 0.025348
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: treasures-kings-set-apophis-name-search
+ok 236 - genuine native field effect: treasures-kings-set-apophis-name-search
+  ---
+  duration_ms: 0.07378
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: world-legacy-discovery-bilateral-chalice-bonus
+ok 237 - genuine native field effect: world-legacy-discovery-bilateral-chalice-bonus
+  ---
+  duration_ms: 0.042193
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: performapal-theater-distinct-types-count
+ok 238 - genuine native field effect: performapal-theater-distinct-types-count
+  ---
+  duration_ms: 0.025468
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: ignition-phoenix-pendulum-destroy-extra-search
+ok 239 - genuine native field effect: ignition-phoenix-pendulum-destroy-extra-search
+  ---
+  duration_ms: 0.031197
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: centrifugal-fusion-destroy-listed-material-revive
+ok 240 - genuine native field effect: centrifugal-fusion-destroy-listed-material-revive
+  ---
+  duration_ms: 0.027281
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: megalith-portal-true-ritual-trigger-grave-recovery
+ok 241 - genuine native field effect: megalith-portal-true-ritual-trigger-grave-recovery
+  ---
+  duration_ms: 0.029414
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: fallen-paradise-real-sacred-beast-draw-two
+ok 242 - genuine native field effect: fallen-paradise-real-sacred-beast-draw-two
+  ---
+  duration_ms: 0.025478
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: fortissimo-hand-meklord-army-special-once
+ok 243 - genuine native field effect: fortissimo-hand-meklord-army-special-once
+  ---
+  duration_ms: 0.025488
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: spider-web-real-attack-defense-lock
+ok 244 - genuine native field effect: spider-web-real-attack-defense-lock
+  ---
+  duration_ms: 0.027001
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: array-revealing-light-declared-race-summon-turn-lock
+ok 245 - genuine native field effect: array-revealing-light-declared-race-summon-turn-lock
+  ---
+  duration_ms: 0.030425
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: shien-castle-real-damage-calculation-only-loss
+ok 246 - genuine native field effect: shien-castle-real-damage-calculation-only-loss
+  ---
+  duration_ms: 0.024947
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: camelot-temporary-banish-place-table-search-and-return
+ok 247 - genuine native field effect: camelot-temporary-banish-place-table-search-and-return
+  ---
+  duration_ms: 0.027812
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: synchro-world-opponent-destruction-summons-crimson
+ok 248 - genuine native field effect: synchro-world-opponent-destruction-summons-crimson
+  ---
+  duration_ms: 0.027081
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: flavian-discard-gladiator-search
+ok 249 - genuine native field effect: flavian-discard-gladiator-search
+  ---
+  duration_ms: 0.025618
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: shipyarrrd-discard-plunder-search
+ok 250 - genuine native field effect: shipyarrrd-discard-plunder-search
+  ---
+  duration_ms: 0.067271
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: ashtrashen-facedown-target-search-send
+ok 251 - genuine native field effect: ashtrashen-facedown-target-search-send
+  ---
+  duration_ms: 0.032239
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: dueltaining-five-different-levels-draw-two
+ok 252 - genuine native field effect: dueltaining-five-different-levels-draw-two
+  ---
+  duration_ms: 0.032028
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: magellanica-native-level-increase-and-end-reset
+ok 253 - genuine native field effect: magellanica-native-level-increase-and-end-reset
+  ---
+  duration_ms: 0.025588
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: perfect-toon-world-search-current-code-once
+ok 254 - genuine native field effect: perfect-toon-world-search-current-code-once
+  ---
+  duration_ms: 0.025107
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: gold-golgonda-discard-extra-xyz-and-attack-bonus
+ok 255 - genuine native field effect: gold-golgonda-discard-extra-xyz-and-attack-bonus
+  ---
+  duration_ms: 0.027702
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: chaos-zone-banish-counter-per-monster
+ok 256 - genuine native field effect: chaos-zone-banish-counter-per-monster
+  ---
+  duration_ms: 0.025087
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: jj-kewl-tune-tuner-tribute-search-restriction
+ok 257 - genuine native field effect: jj-kewl-tune-tuner-tribute-search-restriction
+  ---
+  duration_ms: 0.025918
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: obsidim-destroy-field-summons-ashened
+ok 258 - genuine native field effect: obsidim-destroy-field-summons-ashened
+  ---
+  duration_ms: 0.026761
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: way-where-will-excavate-add-bottom
+ok 259 - genuine native field effect: way-where-will-excavate-add-bottom
+  ---
+  duration_ms: 0.052329
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: barian-untopia-protects-number-negative-control
+ok 260 - genuine native field effect: barian-untopia-protects-number-negative-control
+  ---
+  duration_ms: 0.061803
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: stairway-fabled-activation-sends-deck-monster
+ok 261 - genuine native field effect: stairway-fabled-activation-sends-deck-monster
+  ---
+  duration_ms: 0.038678
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: delta-invitation-send-zombie-create-token
+ok 262 - genuine native field effect: delta-invitation-send-zombie-create-token
+  ---
+  duration_ms: 0.030446
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: call-forgotten-sets-three-haunted-native-restriction
+ok 263 - genuine native field effect: call-forgotten-sets-three-haunted-native-restriction
+  ---
+  duration_ms: 0.031487
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: call-forgotten-haunted-chain-sends-opponent-monster
+ok 264 - genuine native field effect: call-forgotten-haunted-chain-sends-opponent-monster
+  ---
+  duration_ms: 0.024657
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: valvols-five-facedown-banish-cost-retrieve-archetype
+ok 265 - genuine native field effect: valvols-five-facedown-banish-cost-retrieve-archetype
+  ---
+  duration_ms: 0.02655
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: euler-graveyard-banish-discard-tindangle-search
+ok 266 - genuine native field effect: euler-graveyard-banish-discard-tindangle-search
+  ---
+  duration_ms: 0.029955
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: tenchi-kaimei-opponent-mst-revives-facedown-ninja
+ok 267 - genuine native field effect: tenchi-kaimei-opponent-mst-revives-facedown-ninja
+  ---
+  duration_ms: 0.034332
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: mound-bound-destruction-search-divine
+ok 268 - genuine native field effect: mound-bound-destruction-search-divine
+  ---
+  duration_ms: 0.028042
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: shadow-prison-shaddoll-effect-counter-opponent-turn-debuff
+ok 269 - genuine native field effect: shadow-prison-shaddoll-effect-counter-opponent-turn-debuff
+  ---
+  duration_ms: 0.02662
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: karakuri-castle-destruction-revives-level-four
+ok 270 - genuine native field effect: karakuri-castle-destruction-revives-level-four
+  ---
+  duration_ms: 0.024237
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: morphtronic-map-destruction-revival
+ok 271 - genuine native field effect: morphtronic-map-destruction-revival
+  ---
+  duration_ms: 0.024337
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: magikey-world-search-maftea-and-bottom-hand
+ok 272 - genuine native field effect: magikey-world-search-maftea-and-bottom-hand
+  ---
+  duration_ms: 0.049234
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: kyoutou-counter-per-field-to-grave
+ok 273 - genuine native field effect: kyoutou-counter-per-field-to-grave
+  ---
+  duration_ms: 0.090486
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: earthbound-geoglyph-level-ten-field-immunity
+ok 274 - genuine native field effect: earthbound-geoglyph-level-ten-field-immunity
+  ---
+  duration_ms: 0.037857
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: cynet-storm-linked-monster-stats
+ok 275 - genuine native field effect: cynet-storm-linked-monster-stats
+  ---
+  duration_ms: 0.028623
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: savage-colosseum-end-destroys-nonattacker
+ok 276 - genuine native field effect: savage-colosseum-end-destroys-nonattacker
+  ---
+  duration_ms: 0.106309
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: supreme-castle-damage-step-evil-hero-cost
+ok 277 - genuine native field effect: supreme-castle-damage-step-evil-hero-cost
+  ---
+  duration_ms: 0.041552
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: chronomaly-babylon-matching-level-banish-and-revive
+ok 278 - genuine native field effect: chronomaly-babylon-matching-level-banish-and-revive
+  ---
+  duration_ms: 0.031147
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: divine-wind-bounce-wind-summons-deck
+ok 279 - genuine native field effect: divine-wind-bounce-wind-summons-deck
+  ---
+  duration_ms: 0.028784
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: meklord-fortress-destruction-emperor-search
+ok 280 - genuine native field effect: meklord-fortress-destruction-emperor-search
+  ---
+  duration_ms: 0.027512
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: libromancer-first-search-different-controlled-name
+ok 281 - genuine native field effect: libromancer-first-search-different-controlled-name
+  ---
+  duration_ms: 0.035934
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: temple-six-normal-summon-bushido-opponent-attack
+ok 282 - genuine native field effect: temple-six-normal-summon-bushido-opponent-attack
+  ---
+  duration_ms: 0.030425
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: dark-city-real-battle-damage-calculation-only
+ok 283 - genuine native field effect: dark-city-real-battle-damage-calculation-only
+  ---
+  duration_ms: 0.0263
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: wasteland-three-races-two-players-negative-control
+ok 284 - genuine native field effect: wasteland-three-races-two-players-negative-control
+  ---
+  duration_ms: 0.025729
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: jurassic-world-dinosaur-both-sides-negative-control
+ok 285 - genuine native field effect: jurassic-world-dinosaur-both-sides-negative-control
+  ---
+  duration_ms: 0.580512
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-55742055-three-names-end-phase-send
+ok 286 - genuine native field effect: batch-e-55742055-three-names-end-phase-send
+  ---
+  duration_ms: 0.0598
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-66750703-summon-counters-and-cost
+ok 287 - genuine native field effect: batch-e-66750703-summon-counters-and-cost
+  ---
+  duration_ms: 0.034852
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-97254001-unused-zones-season-counters
+ok 288 - genuine native field effect: batch-e-97254001-unused-zones-season-counters
+  ---
+  duration_ms: 0.031428
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-55276522-three-races-three-destinations
+ok 289 - genuine native field effect: batch-e-55276522-three-races-three-destinations
+  ---
+  duration_ms: 0.035433
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-95856586-predraw-top-shining-draw
+ok 290 - genuine native field effect: batch-e-95856586-predraw-top-shining-draw
+  ---
+  duration_ms: 0.027752
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-46273941-normal-revival-draw
+ok 291 - genuine native field effect: batch-e-46273941-normal-revival-draw
+  ---
+  duration_ms: 0.025839
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-975299-boss-rush-search-bes-summon
+ok 292 - genuine native field effect: batch-e-975299-boss-rush-search-bes-summon
+  ---
+  duration_ms: 0.030245
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-17000165-destroy-zero-revive-dark-reptile
+ok 293 - genuine native field effect: batch-e-17000165-destroy-zero-revive-dark-reptile
+  ---
+  duration_ms: 0.030526
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-74733322-medius-additional-normal-summon
+ok 294 - genuine native field effect: batch-e-74733322-medius-additional-normal-summon
+  ---
+  duration_ms: 0.027481
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-2674965-lp-cost-banishment-recovery
+ok 295 - genuine native field effect: batch-e-2674965-lp-cost-banishment-recovery
+  ---
+  duration_ms: 0.058869
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-7206349-five-earth-stat-threshold
+ok 296 - genuine native field effect: batch-e-7206349-five-earth-stat-threshold
+  ---
+  duration_ms: 0.08011
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-26162470-distinct-names-search-discard
+ok 297 - genuine native field effect: batch-e-26162470-distinct-names-search-discard
+  ---
+  duration_ms: 0.036975
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-64213017-revival-lp-loss-no-attack
+ok 298 - genuine native field effect: batch-e-64213017-revival-lp-loss-no-attack
+  ---
+  duration_ms: 0.029534
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-2106266-reveal-gaia-search-dragon
+ok 299 - genuine native field effect: batch-e-2106266-reveal-gaia-search-dragon
+  ---
+  duration_ms: 0.066781
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-269510-dragon-defense-and-nonlink-attack-ban
+ok 300 - genuine native field effect: batch-e-269510-dragon-defense-and-nonlink-attack-ban
+  ---
+  duration_ms: 0.033991
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-87902575-normal-summon-temporary-banish-return
+ok 301 - genuine native field effect: batch-e-87902575-normal-summon-temporary-banish-return
+  ---
+  duration_ms: 0.030045
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-23213239-battle-destroyed-danger-retaliation
+ok 302 - genuine native field effect: batch-e-23213239-battle-destroyed-danger-retaliation
+  ---
+  duration_ms: 0.029695
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-5414777-light-dragon-synchro-defense-trigger
+ok 303 - genuine native field effect: batch-e-5414777-light-dragon-synchro-defense-trigger
+  ---
+  duration_ms: 0.027401
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-13764602-search-spirit-token-extra-lock
+ok 304 - genuine native field effect: batch-e-13764602-search-spirit-token-extra-lock
+  ---
+  duration_ms: 0.061943
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-65589010-opponent-destroys-field-both-extra-to-grave
+ok 305 - genuine native field effect: batch-e-65589010-opponent-destroys-field-both-extra-to-grave
+  ---
+  duration_ms: 0.030075
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-34822850-standby-infernoid-token
+ok 306 - genuine native field effect: batch-e-34822850-standby-infernoid-token
+  ---
+  duration_ms: 0.02648
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-25163979-move-knightmare-main-zone
+ok 307 - genuine native field effect: batch-e-25163979-move-knightmare-main-zone
+  ---
+  duration_ms: 0.026059
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-60448701-destroyed-field-distinct-reptile-mill
+ok 308 - genuine native field effect: batch-e-60448701-destroyed-field-distinct-reptile-mill
+  ---
+  duration_ms: 0.068143
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-61557074-attribute-bonus-search-and-persistent-skip
+ok 309 - genuine native field effect: batch-e-61557074-attribute-bonus-search-and-persistent-skip
+  ---
+  duration_ms: 0.034001
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-63899465-opponent-condition-and-extra-normal
+ok 310 - genuine native field effect: batch-e-63899465-opponent-condition-and-extra-normal
+  ---
+  duration_ms: 0.02718
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-32353566-witchcrafter-search-before-effect-discard
+ok 311 - genuine native field effect: batch-e-32353566-witchcrafter-search-before-effect-discard
+  ---
+  duration_ms: 0.026881
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-70222318-plant-cost-sylvan-top
+ok 312 - genuine native field effect: batch-e-70222318-plant-cost-sylvan-top
+  ---
+  duration_ms: 0.027311
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-38391684-umi-grave-placement-and-levels
+ok 313 - genuine native field effect: batch-e-38391684-umi-grave-placement-and-levels
+  ---
+  duration_ms: 0.025338
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-65938950-opponent-normal-tuner-draw-penalty
+ok 314 - genuine native field effect: batch-e-65938950-opponent-normal-tuner-draw-penalty
+  ---
+  duration_ms: 0.038087
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-4215636-wind-destruction-recruits-negated-wind
+ok 315 - genuine native field effect: batch-e-4215636-wind-destruction-recruits-negated-wind
+  ---
+  duration_ms: 0.032108
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-33407125-nonlabrynth-normal-trap-fiend-revival
+ok 316 - genuine native field effect: batch-e-33407125-nonlabrynth-normal-trap-fiend-revival
+  ---
+  duration_ms: 0.028964
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-58406094-light-dragon-bounce-draw
+ok 317 - genuine native field effect: batch-e-58406094-light-dragon-bounce-draw
+  ---
+  duration_ms: 0.0331
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-39730727-opponent-effect-special-summon-draw-two
+ok 318 - genuine native field effect: batch-e-39730727-opponent-effect-special-summon-draw-two
+  ---
+  duration_ms: 0.027371
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-90351981-grave-discard-cost-recovery
+ok 319 - genuine native field effect: batch-e-90351981-grave-discard-cost-recovery
+  ---
+  duration_ms: 0.025829
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-59687381-column-target-and-destruction-protection
+ok 320 - genuine native field effect: batch-e-59687381-column-target-and-destruction-protection
+  ---
+  duration_ms: 0.025559
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-42015635-neos-and-listed-fusion-stat-bonus
+ok 321 - genuine native field effect: batch-e-42015635-neos-and-listed-fusion-stat-bonus
+  ---
+  duration_ms: 0.034291
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: batch-e-81231742-own-turn-attack-opponent-turn-defense
+ok 322 - genuine native field effect: batch-e-81231742-own-turn-attack-opponent-turn-defense
+  ---
+  duration_ms: 0.023355
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-crystolic-archetype-bonus
+ok 323 - genuine native field effect: f-crystolic-archetype-bonus
+  ---
+  duration_ms: 0.024627
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-metamorformation-normal-pendulum-bonus
+ok 324 - genuine native field effect: f-metamorformation-normal-pendulum-bonus
+  ---
+  duration_ms: 0.026469
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-saber-vault-level-scaled-bonus
+ok 325 - genuine native field effect: f-saber-vault-level-scaled-bonus
+  ---
+  duration_ms: 0.02611
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-amazoness-village-archetype-bonus
+ok 326 - genuine native field effect: f-amazoness-village-archetype-bonus
+  ---
+  duration_ms: 0.026389
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-celestia-wyrm-bonus
+ok 327 - genuine native field effect: f-celestia-wyrm-bonus
+  ---
+  duration_ms: 0.025468
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-closed-forest-monster-grave-count-and-field-prohibition
+ok 328 - genuine native field effect: f-closed-forest-monster-grave-count-and-field-prohibition
+  ---
+  duration_ms: 0.02638
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-enneapolis-return-real-pendulum-monster
+ok 329 - genuine native field effect: f-enneapolis-return-real-pendulum-monster
+  ---
+  duration_ms: 0.025288
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-jurrac-volcano-destroy-dinosaur-deck-summon
+ok 330 - genuine native field effect: f-jurrac-volcano-destroy-dinosaur-deck-summon
+  ---
+  duration_ms: 0.029214
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-field-power-bonus-same-type-summon
+ok 331 - genuine native field effect: f-field-power-bonus-same-type-summon
+  ---
+  duration_ms: 0.023986
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-angelechy-problem-cost-extra-summon-continuous-spell
+ok 332 - genuine native field effect: f-angelechy-problem-cost-extra-summon-continuous-spell
+  ---
+  duration_ms: 0.02642
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-solfachord-harmonia-faceup-extra-return
+ok 333 - genuine native field effect: f-solfachord-harmonia-faceup-extra-return
+  ---
+  duration_ms: 0.025508
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-vidolia-banished-count-continuous-negative-owner
+ok 334 - genuine native field effect: f-vidolia-banished-count-continuous-negative-owner
+  ---
+  duration_ms: 0.022243
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-vaalmonica-activation-archetype-search
+ok 335 - genuine native field effect: f-vaalmonica-activation-archetype-search
+  ---
+  duration_ms: 0.023866
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-icejade-cradle-grave-recovery
+ok 336 - genuine native field effect: f-icejade-cradle-grave-recovery
+  ---
+  duration_ms: 0.025148
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-dark-city-midnight-activated-turn-search
+ok 337 - genuine native field effect: f-dark-city-midnight-activated-turn-search
+  ---
+  duration_ms: 0.025048
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-mimighoul-dungeon-deck-search-and-facedown-prohibition
+ok 338 - genuine native field effect: f-mimighoul-dungeon-deck-search-and-facedown-prohibition
+  ---
+  duration_ms: 0.027681
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-sky-iris-destroy-faceup-card-odd-eyes-search
+ok 339 - genuine native field effect: f-sky-iris-destroy-faceup-card-odd-eyes-search
+  ---
+  duration_ms: 0.025969
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-earthbound-prison-target-native-effect-negation
+ok 340 - genuine native field effect: f-earthbound-prison-target-native-effect-negation
+  ---
+  duration_ms: 0.025378
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-multi-universe-destroy-self-place-real-field
+ok 341 - genuine native field effect: f-multi-universe-destroy-self-place-real-field
+  ---
+  duration_ms: 0.025789
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-mementomictlan-end-phase-real-grave-set
+ok 342 - genuine native field effect: f-mementomictlan-end-phase-real-grave-set
+  ---
+  duration_ms: 0.025609
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-purrely-street-end-phase-real-overlay
+ok 343 - genuine native field effect: f-purrely-street-end-phase-real-overlay
+  ---
+  duration_ms: 0.024577
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-grand-spellbook-tower-standby-bottom-return-draw
+ok 344 - genuine native field effect: f-grand-spellbook-tower-standby-bottom-return-draw
+  ---
+  duration_ms: 0.02649
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-labyrinth-wall-shadow-place-native-continuous-gate
+ok 345 - genuine native field effect: f-labyrinth-wall-shadow-place-native-continuous-gate
+  ---
+  duration_ms: 0.024797
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-symph-amplifire-real-monster-effect-counter-and-boost
+ok 346 - genuine native field effect: f-symph-amplifire-real-monster-effect-counter-and-boost
+  ---
+  duration_ms: 0.207512
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-abyss-playhouse-reveal-pair-distinct-script-search
+ok 347 - genuine native field effect: f-abyss-playhouse-reveal-pair-distinct-script-search
+  ---
+  duration_ms: 0.054472
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-augmented-heraldry-discard-search-turn-oath
+ok 348 - genuine native field effect: f-augmented-heraldry-discard-search-turn-oath
+  ---
+  duration_ms: 0.031968
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-onomatopia-real-utopia-xyz-counter-team-bonus
+ok 349 - genuine native field effect: f-onomatopia-real-utopia-xyz-counter-team-bonus
+  ---
+  duration_ms: 0.028543
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-despia-theater-real-level-twelve-fusion-materials
+ok 350 - genuine native field effect: f-despia-theater-real-level-twelve-fusion-materials
+  ---
+  duration_ms: 0.082214
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-malefic-world-real-predraw-three-reveal-random-hand
+ok 351 - genuine native field effect: f-malefic-world-real-predraw-three-reveal-random-hand
+  ---
+  duration_ms: 0.047321
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-naturia-forest-opponent-activation-negated-search
+ok 352 - genuine native field effect: f-naturia-forest-opponent-activation-negated-search
+  ---
+  duration_ms: 0.034572
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-smile-action-banished-spell-return-discard-negate-attack
+ok 353 - genuine native field effect: f-smile-action-banished-spell-return-discard-negate-attack
+  ---
+  duration_ms: 0.031137
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-heavy-metal-raiders-first-battle-survival-attack-gain
+ok 354 - genuine native field effect: f-heavy-metal-raiders-first-battle-survival-attack-gain
+  ---
+  duration_ms: 0.030226
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-otherworld-a-zone-real-damage-calculation-only-debuff
+ok 355 - genuine native field effect: f-otherworld-a-zone-real-damage-calculation-only-debuff
+  ---
+  duration_ms: 0.028182
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-gouki-cage-match-counter-removal-on-real-battle
+ok 356 - genuine native field effect: f-gouki-cage-match-counter-removal-on-real-battle
+  ---
+  duration_ms: 0.025859
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-duel-tower-unequal-reveal-banish-hand-special-direct
+ok 357 - genuine native field effect: f-duel-tower-unequal-reveal-banish-hand-special-direct
+  ---
+  duration_ms: 0.039259
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-zaralaam-adventurer-battle-damage-search
+ok 358 - genuine native field effect: f-zaralaam-adventurer-battle-damage-search
+  ---
+  duration_ms: 0.030246
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: f-lost-flowers-adventurer-battle-draw-search
+ok 359 - genuine native field effect: f-lost-flowers-adventurer-battle-draw-search
+  ---
+  duration_ms: 0.029384
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: branch-a-calarium-effect-revival-once-nontuner-control
+ok 360 - genuine native field effect: branch-a-calarium-effect-revival-once-nontuner-control
+  ---
+  duration_ms: 0.025759
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: branch-a-calarium-battle-destruction-revival
+ok 361 - genuine native field effect: branch-a-calarium-battle-destruction-revival
+  ---
+  duration_ms: 0.024357
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: branch-a-wedju-mass-destruction-one-free-zone
+ok 362 - genuine native field effect: branch-a-wedju-mass-destruction-one-free-zone
+  ---
+  duration_ms: 0.02694
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: branch-a-wedju-full-zones-no-replacement
+ok 363 - genuine native field effect: branch-a-wedju-full-zones-no-replacement
+  ---
+  duration_ms: 0.02699
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: branch-a-brain-lab-extra-normal-summon-counter-limit
+ok 364 - genuine native field effect: branch-a-brain-lab-extra-normal-summon-counter-limit
+  ---
+  duration_ms: 0.025759
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: branch-a-brain-lab-two-lp-replacements-two-counter-damage
+ok 365 - genuine native field effect: branch-a-brain-lab-two-lp-replacements-two-counter-damage
+  ---
+  duration_ms: 0.025688
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: branch-a-boot-sector-grave-difference-one
+ok 366 - genuine native field effect: branch-a-boot-sector-grave-difference-one
+  ---
+  duration_ms: 0.081362
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: branch-a-boot-sector-grave-distinct-names
+ok 367 - genuine native field effect: branch-a-boot-sector-grave-distinct-names
+  ---
+  duration_ms: 0.030276
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: branch-a-ecole-token-no-direct-attack
+ok 368 - genuine native field effect: branch-a-ecole-token-no-direct-attack
+  ---
+  duration_ms: 0.028703
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: branch-a-ecole-simultaneous-summon-does-not-consume-trigger
+ok 369 - genuine native field effect: branch-a-ecole-simultaneous-summon-does-not-consume-trigger
+  ---
+  duration_ms: 0.02642
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: branch-a-xyz-override-second-use-must-detach
+ok 370 - genuine native field effect: branch-a-xyz-override-second-use-must-detach
+  ---
+  duration_ms: 0.02692
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: branch-a-xyz-override-next-turn-restores-replacement
+ok 371 - genuine native field effect: branch-a-xyz-override-next-turn-restores-replacement
+  ---
+  duration_ms: 0.024927
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: wf-malefic-four-card-pool-two-normal-draws-replaced
+ok 372 - genuine native field effect: wf-malefic-four-card-pool-two-normal-draws-replaced
+  ---
+  duration_ms: 0.028593
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: wf-malefic-insufficient-pool-preserves-normal-draw
+ok 373 - genuine native field effect: wf-malefic-insufficient-pool-preserves-normal-draw
+  ---
+  duration_ms: 0.027201
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: wf-dream-joy-highest-level-targets-and-light-condition
+ok 374 - genuine native field effect: wf-dream-joy-highest-level-targets-and-light-condition
+  ---
+  duration_ms: 0.030536
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: wf-dream-terror-per-event-damage-and-end-phase-exchange
+ok 375 - genuine native field effect: wf-dream-terror-per-event-damage-and-end-phase-exchange
+  ---
+  duration_ms: 0.025719
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: wf-future-visions-no-free-zone-at-return
+ok 376 - genuine native field effect: wf-future-visions-no-free-zone-at-return
+  ---
+  duration_ms: 0.02669
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: wf-future-visions-source-gone-no-delayed-return
+ok 377 - genuine native field effect: wf-future-visions-source-gone-no-delayed-return
+  ---
+  duration_ms: 0.026971
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: wf-metaphys-factor-one-free-summon-second-needs-tributes
+ok 378 - genuine native field effect: wf-metaphys-factor-one-free-summon-second-needs-tributes
+  ---
+  duration_ms: 0.025949
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: wf-metaphys-factor-response-blocked
+ok 379 - genuine native field effect: wf-metaphys-factor-response-blocked
+  ---
+  duration_ms: 0.027611
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: wf-metaphys-factor-response-allowed-control
+ok 380 - genuine native field effect: wf-metaphys-factor-response-allowed-control
+  ---
+  duration_ms: 0.025668
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: wf-galloping-gaia-dragon-reveal-reverse-search-shared-limit
+ok 381 - genuine native field effect: wf-galloping-gaia-dragon-reveal-reverse-search-shared-limit
+  ---
+  duration_ms: 0.024076
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: wf-galloping-gaia-real-fusion-battle-response-reenabled-after-mst
+ok 382 - genuine native field effect: wf-galloping-gaia-real-fusion-battle-response-reenabled-after-mst
+  ---
+  duration_ms: 0.028983
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: wf-argostars-trap-summon-damage-negation-reset-and-banished-condition
+ok 383 - genuine native field effect: wf-argostars-trap-summon-damage-negation-reset-and-banished-condition
+  ---
+  duration_ms: 0.02665
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: continuation-a-chicken-opponent-recovery-cost-and-response-lock
+ok 384 - genuine native field effect: continuation-a-chicken-opponent-recovery-cost-and-response-lock
+  ---
+  duration_ms: 0.023085
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: continuation-a-chicken-destroy-option-removes-prevention
+ok 385 - genuine native field effect: continuation-a-chicken-destroy-option-removes-prevention
+  ---
+  duration_ms: 0.02637
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: continuation-a-chicken-equal-lp-control-and-dynamic-prevention
+ok 386 - genuine native field effect: continuation-a-chicken-equal-lp-control-and-dynamic-prevention
+  ---
+  duration_ms: 0.023245
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: continuation-a-gateway-six-counter-cap-cost-limit-and-reset
+ok 387 - genuine native field effect: continuation-a-gateway-six-counter-cap-cost-limit-and-reset
+  ---
+  duration_ms: 0.02664
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: continuation-a-gateway-deck-exclusion-hand-discard-and-activation-oath
+ok 388 - genuine native field effect: continuation-a-gateway-deck-exclusion-hand-discard-and-activation-oath
+  ---
+  duration_ms: 0.025809
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: continuation-a-village-owner-without-spellcaster-recovers-on-normal-summon
+ok 389 - genuine native field effect: continuation-a-village-owner-without-spellcaster-recovers-on-normal-summon
+  ---
+  duration_ms: 0.02717
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: continuation-a-village-opponent-spellcaster-unlocks-own-spells
+ok 390 - genuine native field effect: continuation-a-village-opponent-spellcaster-unlocks-own-spells
+  ---
+  duration_ms: 0.023045
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: continuation-a-garden-exact-plant-total-revival-exempts-halving
+ok 391 - genuine native field effect: continuation-a-garden-exact-plant-total-revival-exempts-halving
+  ---
+  duration_ms: 0.023656
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: continuation-a-garden-full-opposing-zones-halves-without-token
+ok 392 - genuine native field effect: continuation-a-garden-full-opposing-zones-halves-without-token
+  ---
+  duration_ms: 0.071727
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: continuation-a-garden-simultaneous-summon-halves-both-one-token
+ok 393 - genuine native field effect: continuation-a-garden-simultaneous-summon-halves-both-one-token
+  ---
+  duration_ms: 0.031487
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: continuation-a-garden-second-active-copy-proves-revival-exemption
+ok 394 - genuine native field effect: continuation-a-garden-second-active-copy-proves-revival-exemption
+  ---
+  duration_ms: 0.025729
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: continuation-a-island-empty-field-hand-special-shared-limit-reset
+ok 395 - genuine native field effect: continuation-a-island-empty-field-hand-special-shared-limit-reset
+  ---
+  duration_ms: 0.02645
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: continuation-a-island-banished-field-destroys-only-own-monsters
+ok 396 - genuine native field effect: continuation-a-island-banished-field-destroys-only-own-monsters
+  ---
+  duration_ms: 0.025449
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: continuation-a-palabyrinth-deck-summon-effect-banish-and-name-limit
+ok 397 - genuine native field effect: continuation-a-palabyrinth-deck-summon-effect-banish-and-name-limit
+  ---
+  duration_ms: 0.02663
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: continuation-a-palabyrinth-full-zones-removal-frees-grave-revival
+ok 398 - genuine native field effect: continuation-a-palabyrinth-full-zones-removal-frees-grave-revival
+  ---
+  duration_ms: 0.025759
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: continuation-b-ravine-dragunity-search-cost-and-shared-mode-limit
+ok 399 - genuine native field effect: continuation-b-ravine-dragunity-search-cost-and-shared-mode-limit
+  ---
+  duration_ms: 0.028353
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: continuation-b-ravine-ash-negates-search-cost-remains-and-limit-consumed
+ok 400 - genuine native field effect: continuation-b-ravine-ash-negates-search-cost-remains-and-limit-consumed
+  ---
+  duration_ms: 0.024828
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: continuation-b-zombie-world-tribute-summon-set-prohibition-both-players
+ok 401 - genuine native field effect: continuation-b-zombie-world-tribute-summon-set-prohibition-both-players
+  ---
+  duration_ms: 0.028333
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: continuation-b-zombie-world-field-grave-race-and-tribute-revert-after-mst
+ok 402 - genuine native field effect: continuation-b-zombie-world-field-grave-race-and-tribute-revert-after-mst
+  ---
+  duration_ms: 0.055043
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: continuation-b-union-hangar-unequip-restriction-expires-at-end-phase
+ok 403 - genuine native field effect: continuation-b-union-hangar-unequip-restriction-expires-at-end-phase
+  ---
+  duration_ms: 0.030926
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: continuation-b-union-hangar-facedown-target-cannot-equip-at-resolution
+ok 404 - genuine native field effect: continuation-b-union-hangar-facedown-target-cannot-equip-at-resolution
+  ---
+  duration_ms: 0.097637
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: continuation-b-spyral-target-protection-restored-after-field-destruction
+ok 405 - genuine native field effect: continuation-b-spyral-target-protection-restored-after-field-destruction
+  ---
+  duration_ms: 0.044337
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: continuation-b-spyral-maintenance-no-legal-shuffle-destroys-as-cost
+ok 406 - genuine native field effect: continuation-b-spyral-maintenance-no-legal-shuffle-destroys-as-cost
+  ---
+  duration_ms: 0.026139
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: continuation-b-spyral-maintenance-declined-legal-shuffle-destroys-as-cost
+ok 407 - genuine native field effect: continuation-b-spyral-maintenance-declined-legal-shuffle-destroys-as-cost
+  ---
+  duration_ms: 0.029284
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: continuation-b-mound-level-ten-target-and-nontarget-destruction-protection
+ok 408 - genuine native field effect: continuation-b-mound-level-ten-target-and-nontarget-destruction-protection
+  ---
+  duration_ms: 0.028674
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: continuation-b-mound-battle-destruction-burn-applies-to-both-players
+ok 409 - genuine native field effect: continuation-b-mound-battle-destruction-burn-applies-to-both-players
+  ---
+  duration_ms: 0.02664
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: continuation-b-sky-iris-pendulum-protection-lost-after-field-destruction
+ok 410 - genuine native field effect: continuation-b-sky-iris-pendulum-protection-lost-after-field-destruction
+  ---
+  duration_ms: 0.027251
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: continuation-b-lair-effect-cost-substitution-does-not-enable-opponent-tribute-summon
+ok 411 - genuine native field effect: continuation-b-lair-effect-cost-substitution-does-not-enable-opponent-tribute-summon
+  ---
+  duration_ms: 0.025178
+  type: 'test'
+  ...
+# Subtest: genuine native field effect: continuation-b-lair-source-removed-before-end-no-token-and-attribute-reset
+ok 412 - genuine native field effect: continuation-b-lair-source-removed-before-end-no-token-and-attribute-reset
+  ---
+  duration_ms: 0.03338
+  type: 'test'
+  ...
+# Subtest: coverage distinguishes bundled, initialized, effect-tested and browser integration
+ok 413 - coverage distinguishes bundled, initialized, effect-tested and browser integration
+  ---
+  duration_ms: 1.1643
+  type: 'test'
+  ...
+# Subtest: compact UI coverage preserves the exact tested core and individual Field Spell evidence
+ok 414 - compact UI coverage preserves the exact tested core and individual Field Spell evidence
+  ---
+  duration_ms: 0.790658
+  type: 'test'
+  ...
+# Subtest: 24 additional Field Spells have successful scenarios with their actual upstream partners
+ok 415 - 24 additional Field Spells have successful scenarios with their actual upstream partners
+  ---
+  duration_ms: 0.696127
+  type: 'test'
+  ...
+# Subtest: Dark Sanctuary resolves both RNG coin branches through actual native attacks
+ok 416 - Dark Sanctuary resolves both RNG coin branches through actual native attacks
+  ---
+  duration_ms: 0.450368
+  type: 'test'
+  ...
+# Subtest: Pseudo Space copy preserves the physical passcode while the current-name alias and effect reset
+ok 417 - Pseudo Space copy preserves the physical passcode while the current-name alias and effect reset
+  ---
+  duration_ms: 0.141853
+  type: 'test'
+  ...
+# Subtest: current native core implements the Angelechy opponent Special Summon zone decision
+ok 418 - current native core implements the Angelechy opponent Special Summon zone decision
+  ---
+  duration_ms: 0.108102
+  type: 'test'
+  ...
+# Subtest: prerelease canonical bindings use the original upstream physical card and script
+ok 419 - prerelease canonical bindings use the original upstream physical card and script
+  ---
+  duration_ms: 0.168984
+  type: 'test'
+  ...
+1..419
+# tests 419
+# suites 0
+# pass 419
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 13656.787845

@@ -277,14 +277,14 @@ test('hidden chain choices never resolve an encoded effect description that coul
   const options = { metadata,
     resolveDescription: () => { descriptions += 1; return 'Private effect identity'; },
     resolveCard: () => { cards += 1; return { name: 'Private identity' }; } };
-  for (const ref of [
-    { code: 46986414, controller: 1, location: 4, position: 8 },
-    { code: 46986414, controller: 1, location: 2, position: 8 },
-    { code: 0, controller: 1, location: 4, position: 1 }
+  for (const [ref, label] of [
+    [{ code: 46986414, controller: 1, location: 4, position: 8 }, 'Carte face verso — Adversaire — Zone Monstre 1 · Défense face verso'],
+    [{ code: 46986414, controller: 1, location: 2, position: 8 }, 'Carte face verso — Main adverse'],
+    [{ code: 0, controller: 1, location: 4, position: 1 }, 'Carte face verso — Adversaire — Zone Monstre 1 · Attaque face recto']
   ]) {
     const descriptor = translateNativePrompt({ type: 16, player: 0, forced: true,
       selects: [{ ...ref, sequence: 0, description: BigInt(46986414) << 4n }] }, options);
-    assert.equal(descriptor.request.choices[0].label, 'Carte face verso');
+    assert.equal(descriptor.request.choices[0].label, label);
     assert.equal(descriptor.request.required, true);
     assert.equal(descriptor.toResponse(null), null);
   }

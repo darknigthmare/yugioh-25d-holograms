@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/workspace/yugioh-25d-holograms/scripts/audit-tcg-catalogue-match-ui.py", line 359, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/yugioh-25d-holograms/scripts/audit-tcg-catalogue-match-ui.py", line 339, in main
+    draft=fixture(kind);item['prestartSavedDeckFixture']=draft;start(page,base,draft,item);launch(page,item);verify(page,args.output,item);finish(page,item);context.close()
+                                                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/yugioh-25d-holograms/scripts/audit-tcg-catalogue-match-ui.py", line 285, in bls_procedure
+    assert {'39552864','46986414'}<=set(banished),banished;page.locator('#btn-close-public-zone').click()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: []

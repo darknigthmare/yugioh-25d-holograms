@@ -1,8 +1,10 @@
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { resolveHologramMonsterProfile } from './CombatVisualProfiles.js';
-import { installHologramPoseRig, resolveHologramPartJoint } from './HologramPoseAnimation.js';
+import { HOLOGRAM_JOINTS, installHologramPoseRig, resolveHologramPartJoint } from './HologramPoseAnimation.js';
 import { buildReferenceMonsterAnatomy } from './HologramReferenceAnatomy.js';
+import { buildPopularGodMonsterAnatomy } from './HologramPopularGodModels.js';
+import { buildPopularStapleAnatomy } from './HologramPopularStapleModels.js';
 
 /** Texture-free articulated silhouettes, merged by material to bound draw calls. */
 export function createHologramMonsterModel(card = {}, { defense = false } = {}) {
@@ -12,9 +14,9 @@ export function createHologramMonsterModel(card = {}, { defense = false } = {}) 
   root.userData.profile = profile;
   root.userData.partNames = [];
   const materials = {
-    body: new THREE.MeshStandardMaterial({ color: '#ffffff', vertexColors: true, emissive: profile.accent, emissiveIntensity: 0.08, metalness: 0.55, roughness: 0.32, side: THREE.DoubleSide }),
-    accent: new THREE.MeshStandardMaterial({ color: '#ffffff', vertexColors: true, emissive: profile.accent, emissiveIntensity: 0.13, metalness: 0.65, roughness: 0.25, side: THREE.DoubleSide }),
-    dark: new THREE.MeshStandardMaterial({ color: '#ffffff', vertexColors: true, emissive: profile.accent, emissiveIntensity: 0.04, metalness: 0.45, roughness: 0.46, side: THREE.DoubleSide }),
+    body: new THREE.MeshStandardMaterial({ color: '#ffffff', vertexColors: true, emissive: profile.accent, emissiveIntensity: 0.08, metalness: profile.bodyMetalness ?? 0.55, roughness: profile.bodyRoughness ?? 0.32, side: THREE.DoubleSide }),
+    accent: new THREE.MeshStandardMaterial({ color: '#ffffff', vertexColors: true, emissive: profile.accent, emissiveIntensity: 0.13, metalness: profile.accentMetalness ?? 0.65, roughness: profile.accentRoughness ?? 0.25, side: THREE.DoubleSide }),
+    dark: new THREE.MeshStandardMaterial({ color: '#ffffff', vertexColors: true, emissive: profile.accent, emissiveIntensity: 0.04, metalness: profile.darkMetalness ?? 0.45, roughness: 0.46, side: THREE.DoubleSide }),
     eye: new THREE.MeshBasicMaterial({ color: '#ffffff', vertexColors: true, toneMapped: false }),
     glow: new THREE.MeshBasicMaterial({ color: '#ffffff', vertexColors: true, transparent: true, opacity: 0.32, depthWrite: false, side: THREE.DoubleSide, forceSinglePass: true, blending: THREE.AdditiveBlending, toneMapped: false })
   };
@@ -22,7 +24,18 @@ export function createHologramMonsterModel(card = {}, { defense = false } = {}) 
   const batches = new Map(Object.keys(materials).map(key => [key, []]));
   function registerGeometry(name, geometry, material, tint) {
     const joint = new Float32Array(geometry.attributes.position.count);
-    joint.fill(resolveHologramPartJoint(name));
+    // The clasped hands must move together; the source rodent holds its blade
+    // on the opposite side to the generic warrior. Rotation is around X, so
+    // the existing rig pivot remains valid for either shoulder at y=2.37.
+    const anatomicalJoint = profile.anatomy === 'mystical-elf-prayer' && /^prayer-/.test(name)
+      ? HOLOGRAM_JOINTS.STAFF
+      : profile.anatomy === 'blue-armored-rodent' && /^beaver-sword-(?:arm|hand|fist)/.test(name)
+        ? HOLOGRAM_JOINTS.WEAPON
+        : profile.anatomy === 'red-armored-bull' && /^(?:ox-gripping-|axe-)/.test(name)
+          ? HOLOGRAM_JOINTS.WEAPON
+          : profile.anatomy === 'asymmetric-jester' && /^clown-casting-/.test(name)
+            ? HOLOGRAM_JOINTS.STAFF : resolveHologramPartJoint(name);
+    joint.fill(anatomicalJoint);
     geometry.setAttribute('hologramJoint', new THREE.BufferAttribute(joint, 1));
     if (!geometry.attributes.color) {
       const vertexColor = new THREE.Color(tint || palette[material]);
@@ -115,7 +128,10 @@ export function createHologramMonsterModel(card = {}, { defense = false } = {}) 
     if (rock) for (let i = 0; i < 4; i += 1) box(`stone-joint-${i}`, 'dark', [0, 1.68 + i * 0.2, 0.34], [0.61, 0.026, 0.023], [0, 0, i % 2 ? 0.12 : -0.08]);
   }
 
-  const refined = buildReferenceMonsterAnatomy(profile, { part, sphere, box, cone, ring, rod, membrane });
+  const helpers = { part, sphere, box, cone, ring, rod, membrane };
+  const refined = buildPopularGodMonsterAnatomy(profile, helpers)
+    || buildPopularStapleAnatomy(profile, helpers)
+    || buildReferenceMonsterAnatomy(profile, helpers);
   if (refined) {
     root.userData.referenceArt = profile.referenceArt;
   } else if (profile.family === 'dragon') {

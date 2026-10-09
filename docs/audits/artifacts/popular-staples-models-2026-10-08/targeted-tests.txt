@@ -1,0 +1,19 @@
+✔ Cyber Dragon: exact CDB identity and downloaded original JPEGs, including padded ID (54.05022ms)
+✔ Cyber Dragon: closed source landmarks, bounded batches and coherent moving limbs in attack/defense (50.01102ms)
+✔ Elemental HERO Neos: exact CDB identity and downloaded original JPEGs, including padded ID (42.570155ms)
+✔ Elemental HERO Neos: closed source landmarks, bounded batches and coherent moving limbs in attack/defense (22.539328ms)
+✔ Number 39: Utopia: exact CDB identity and downloaded original JPEGs, including padded ID (40.186212ms)
+✔ Number 39: Utopia: closed source landmarks, bounded batches and coherent moving limbs in attack/defense (27.500645ms)
+✔ Black Luster Soldier - Envoy of the Beginning: exact CDB identity and downloaded original JPEGs, including padded ID (37.504732ms)
+✔ Black Luster Soldier - Envoy of the Beginning: closed source landmarks, bounded batches and coherent moving limbs in attack/defense (28.652827ms)
+✔ Ash Blossom & Joyous Spring: exact CDB identity and downloaded original JPEGs, including padded ID (29.154936ms)
+✔ Ash Blossom & Joyous Spring: closed source landmarks, bounded batches and coherent moving limbs in attack/defense (20.370098ms)
+✔ popular models preserve scene reuse and remove concealed replacements before reading identity (35.582116ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 515.517762

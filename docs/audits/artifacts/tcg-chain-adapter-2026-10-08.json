@@ -1,0 +1,532 @@
+{
+  "date": "2026-10-08",
+  "executedAtUtc": "2026-10-08T22:03:47.334Z",
+  "ok": true,
+  "scope": "Twelve synthetic adapter visibility guards. These are not twelve additional native duels.",
+  "baseline": {
+    "commit": "b8e216cd53ccc640366c91755268291afb1840d2",
+    "path": "docs/audits/artifacts/tcg-chain-before-2026-10-08.js.txt",
+    "sha256": "1fabda3f41c009307d5a4b5eec2bd2024324e9b00e0dd3cb7674c214861e7e70"
+  },
+  "cases": [
+    {
+      "kind": "SELECT_EFFECTYN",
+      "referenceVisibility": "opposing hidden",
+      "location": 1,
+      "position": 8,
+      "before": {
+        "reads": {
+          "identityGetter": 2,
+          "descriptionGetter": 1,
+          "descriptionResolver": 1,
+          "cardResolver": 0
+        },
+        "description": "Texte secret adverse",
+        "labels": [
+          "OUI",
+          "NON"
+        ],
+        "legalResponse": {
+          "type": 2,
+          "yes": false
+        }
+      },
+      "after": {
+        "reads": {
+          "identityGetter": 0,
+          "descriptionGetter": 0,
+          "descriptionResolver": 0,
+          "cardResolver": 0
+        },
+        "description": "Confirmer cet effet.",
+        "labels": [
+          "OUI",
+          "NON"
+        ],
+        "legalResponse": {
+          "type": 2,
+          "yes": false
+        }
+      },
+      "ok": true
+    },
+    {
+      "kind": "SELECT_EFFECTYN",
+      "referenceVisibility": "opposing hidden",
+      "location": 2,
+      "position": 8,
+      "before": {
+        "reads": {
+          "identityGetter": 2,
+          "descriptionGetter": 1,
+          "descriptionResolver": 1,
+          "cardResolver": 0
+        },
+        "description": "Texte secret adverse",
+        "labels": [
+          "OUI",
+          "NON"
+        ],
+        "legalResponse": {
+          "type": 2,
+          "yes": false
+        }
+      },
+      "after": {
+        "reads": {
+          "identityGetter": 0,
+          "descriptionGetter": 0,
+          "descriptionResolver": 0,
+          "cardResolver": 0
+        },
+        "description": "Confirmer cet effet.",
+        "labels": [
+          "OUI",
+          "NON"
+        ],
+        "legalResponse": {
+          "type": 2,
+          "yes": false
+        }
+      },
+      "ok": true
+    },
+    {
+      "kind": "SELECT_EFFECTYN",
+      "referenceVisibility": "opposing hidden",
+      "location": 4,
+      "position": 8,
+      "before": {
+        "reads": {
+          "identityGetter": 2,
+          "descriptionGetter": 1,
+          "descriptionResolver": 1,
+          "cardResolver": 0
+        },
+        "description": "Texte secret adverse",
+        "labels": [
+          "OUI",
+          "NON"
+        ],
+        "legalResponse": {
+          "type": 2,
+          "yes": false
+        }
+      },
+      "after": {
+        "reads": {
+          "identityGetter": 0,
+          "descriptionGetter": 0,
+          "descriptionResolver": 0,
+          "cardResolver": 0
+        },
+        "description": "Confirmer cet effet.",
+        "labels": [
+          "OUI",
+          "NON"
+        ],
+        "legalResponse": {
+          "type": 2,
+          "yes": false
+        }
+      },
+      "ok": true
+    },
+    {
+      "kind": "SELECT_EFFECTYN",
+      "referenceVisibility": "opposing hidden",
+      "location": 8,
+      "position": 8,
+      "before": {
+        "reads": {
+          "identityGetter": 2,
+          "descriptionGetter": 1,
+          "descriptionResolver": 1,
+          "cardResolver": 0
+        },
+        "description": "Texte secret adverse",
+        "labels": [
+          "OUI",
+          "NON"
+        ],
+        "legalResponse": {
+          "type": 2,
+          "yes": false
+        }
+      },
+      "after": {
+        "reads": {
+          "identityGetter": 0,
+          "descriptionGetter": 0,
+          "descriptionResolver": 0,
+          "cardResolver": 0
+        },
+        "description": "Confirmer cet effet.",
+        "labels": [
+          "OUI",
+          "NON"
+        ],
+        "legalResponse": {
+          "type": 2,
+          "yes": false
+        }
+      },
+      "ok": true
+    },
+    {
+      "kind": "SELECT_EFFECTYN",
+      "referenceVisibility": "opposing hidden",
+      "location": 32,
+      "position": 8,
+      "before": {
+        "reads": {
+          "identityGetter": 2,
+          "descriptionGetter": 1,
+          "descriptionResolver": 1,
+          "cardResolver": 0
+        },
+        "description": "Texte secret adverse",
+        "labels": [
+          "OUI",
+          "NON"
+        ],
+        "legalResponse": {
+          "type": 2,
+          "yes": false
+        }
+      },
+      "after": {
+        "reads": {
+          "identityGetter": 0,
+          "descriptionGetter": 0,
+          "descriptionResolver": 0,
+          "cardResolver": 0
+        },
+        "description": "Confirmer cet effet.",
+        "labels": [
+          "OUI",
+          "NON"
+        ],
+        "legalResponse": {
+          "type": 2,
+          "yes": false
+        }
+      },
+      "ok": true
+    },
+    {
+      "kind": "SELECT_EFFECTYN",
+      "referenceVisibility": "opposing hidden",
+      "location": 64,
+      "position": 8,
+      "before": {
+        "reads": {
+          "identityGetter": 2,
+          "descriptionGetter": 1,
+          "descriptionResolver": 1,
+          "cardResolver": 0
+        },
+        "description": "Texte secret adverse",
+        "labels": [
+          "OUI",
+          "NON"
+        ],
+        "legalResponse": {
+          "type": 2,
+          "yes": false
+        }
+      },
+      "after": {
+        "reads": {
+          "identityGetter": 0,
+          "descriptionGetter": 0,
+          "descriptionResolver": 0,
+          "cardResolver": 0
+        },
+        "description": "Confirmer cet effet.",
+        "labels": [
+          "OUI",
+          "NON"
+        ],
+        "legalResponse": {
+          "type": 2,
+          "yes": false
+        }
+      },
+      "ok": true
+    },
+    {
+      "kind": "SELECT_CHAIN",
+      "referenceVisibility": "opposing hidden",
+      "location": 1,
+      "position": 8,
+      "before": {
+        "reads": {
+          "identityGetter": 1,
+          "descriptionGetter": 0,
+          "descriptionResolver": 0,
+          "cardResolver": 0
+        },
+        "description": "Sélectionnez une option autorisée.",
+        "labels": [
+          "Carte face verso — Deck adverse",
+          "PASSER LA PRIORITÉ"
+        ],
+        "legalResponse": {
+          "type": 8,
+          "index": null
+        }
+      },
+      "after": {
+        "reads": {
+          "identityGetter": 0,
+          "descriptionGetter": 0,
+          "descriptionResolver": 0,
+          "cardResolver": 0
+        },
+        "description": "Activez un effet proposé ou passez la priorité à l’autre joueur. Les Maillons se résolvent dans l’ordre inverse de leur activation.",
+        "labels": [
+          "Carte face verso — Deck adverse",
+          "PASSER LA PRIORITÉ"
+        ],
+        "legalResponse": {
+          "type": 8,
+          "index": null
+        }
+      },
+      "ok": true
+    },
+    {
+      "kind": "SELECT_CHAIN",
+      "referenceVisibility": "opposing hidden",
+      "location": 2,
+      "position": 8,
+      "before": {
+        "reads": {
+          "identityGetter": 1,
+          "descriptionGetter": 0,
+          "descriptionResolver": 0,
+          "cardResolver": 0
+        },
+        "description": "Sélectionnez une option autorisée.",
+        "labels": [
+          "Carte face verso — Main adverse",
+          "PASSER LA PRIORITÉ"
+        ],
+        "legalResponse": {
+          "type": 8,
+          "index": null
+        }
+      },
+      "after": {
+        "reads": {
+          "identityGetter": 0,
+          "descriptionGetter": 0,
+          "descriptionResolver": 0,
+          "cardResolver": 0
+        },
+        "description": "Activez un effet proposé ou passez la priorité à l’autre joueur. Les Maillons se résolvent dans l’ordre inverse de leur activation.",
+        "labels": [
+          "Carte face verso — Main adverse",
+          "PASSER LA PRIORITÉ"
+        ],
+        "legalResponse": {
+          "type": 8,
+          "index": null
+        }
+      },
+      "ok": true
+    },
+    {
+      "kind": "SELECT_CHAIN",
+      "referenceVisibility": "opposing hidden",
+      "location": 4,
+      "position": 8,
+      "before": {
+        "reads": {
+          "identityGetter": 1,
+          "descriptionGetter": 0,
+          "descriptionResolver": 0,
+          "cardResolver": 0
+        },
+        "description": "Sélectionnez une option autorisée.",
+        "labels": [
+          "Carte face verso — Adversaire — Zone Monstre 1 · Défense face verso",
+          "PASSER LA PRIORITÉ"
+        ],
+        "legalResponse": {
+          "type": 8,
+          "index": null
+        }
+      },
+      "after": {
+        "reads": {
+          "identityGetter": 0,
+          "descriptionGetter": 0,
+          "descriptionResolver": 0,
+          "cardResolver": 0
+        },
+        "description": "Activez un effet proposé ou passez la priorité à l’autre joueur. Les Maillons se résolvent dans l’ordre inverse de leur activation.",
+        "labels": [
+          "Carte face verso — Adversaire — Zone Monstre 1 · Défense face verso",
+          "PASSER LA PRIORITÉ"
+        ],
+        "legalResponse": {
+          "type": 8,
+          "index": null
+        }
+      },
+      "ok": true
+    },
+    {
+      "kind": "SELECT_CHAIN",
+      "referenceVisibility": "opposing hidden",
+      "location": 8,
+      "position": 8,
+      "before": {
+        "reads": {
+          "identityGetter": 1,
+          "descriptionGetter": 0,
+          "descriptionResolver": 0,
+          "cardResolver": 0
+        },
+        "description": "Sélectionnez une option autorisée.",
+        "labels": [
+          "Carte face verso — Adversaire — Zone Magie/Piège 1 · face verso",
+          "PASSER LA PRIORITÉ"
+        ],
+        "legalResponse": {
+          "type": 8,
+          "index": null
+        }
+      },
+      "after": {
+        "reads": {
+          "identityGetter": 0,
+          "descriptionGetter": 0,
+          "descriptionResolver": 0,
+          "cardResolver": 0
+        },
+        "description": "Activez un effet proposé ou passez la priorité à l’autre joueur. Les Maillons se résolvent dans l’ordre inverse de leur activation.",
+        "labels": [
+          "Carte face verso — Adversaire — Zone Magie/Piège 1 · face verso",
+          "PASSER LA PRIORITÉ"
+        ],
+        "legalResponse": {
+          "type": 8,
+          "index": null
+        }
+      },
+      "ok": true
+    },
+    {
+      "kind": "SELECT_CHAIN",
+      "referenceVisibility": "opposing hidden",
+      "location": 32,
+      "position": 8,
+      "before": {
+        "reads": {
+          "identityGetter": 1,
+          "descriptionGetter": 0,
+          "descriptionResolver": 0,
+          "cardResolver": 0
+        },
+        "description": "Sélectionnez une option autorisée.",
+        "labels": [
+          "Carte face verso — Bannissement adverse · Carte 1 · face verso",
+          "PASSER LA PRIORITÉ"
+        ],
+        "legalResponse": {
+          "type": 8,
+          "index": null
+        }
+      },
+      "after": {
+        "reads": {
+          "identityGetter": 0,
+          "descriptionGetter": 0,
+          "descriptionResolver": 0,
+          "cardResolver": 0
+        },
+        "description": "Activez un effet proposé ou passez la priorité à l’autre joueur. Les Maillons se résolvent dans l’ordre inverse de leur activation.",
+        "labels": [
+          "Carte face verso — Bannissement adverse · Carte 1 · face verso",
+          "PASSER LA PRIORITÉ"
+        ],
+        "legalResponse": {
+          "type": 8,
+          "index": null
+        }
+      },
+      "ok": true
+    },
+    {
+      "kind": "SELECT_CHAIN",
+      "referenceVisibility": "opposing hidden",
+      "location": 64,
+      "position": 8,
+      "before": {
+        "reads": {
+          "identityGetter": 1,
+          "descriptionGetter": 0,
+          "descriptionResolver": 0,
+          "cardResolver": 0
+        },
+        "description": "Sélectionnez une option autorisée.",
+        "labels": [
+          "Carte face verso — Extra Deck adverse · face verso",
+          "PASSER LA PRIORITÉ"
+        ],
+        "legalResponse": {
+          "type": 8,
+          "index": null
+        }
+      },
+      "after": {
+        "reads": {
+          "identityGetter": 0,
+          "descriptionGetter": 0,
+          "descriptionResolver": 0,
+          "cardResolver": 0
+        },
+        "description": "Activez un effet proposé ou passez la priorité à l’autre joueur. Les Maillons se résolvent dans l’ordre inverse de leur activation.",
+        "labels": [
+          "Carte face verso — Extra Deck adverse · face verso",
+          "PASSER LA PRIORITÉ"
+        ],
+        "legalResponse": {
+          "type": 8,
+          "index": null
+        }
+      },
+      "ok": true
+    }
+  ],
+  "sources": [
+    {
+      "path": "src/core/native/NativeDuelDecisions.js",
+      "sha256": "4ec35dd4cc12ae7efcb1dd45a39e3cc7a83e359d9af41a84d51f3ffa5bbff724",
+      "bytes": 35779
+    },
+    {
+      "path": "src/core/native/NativeChainDecisionInfo.js",
+      "sha256": "ba57cbd05832466c404cae2d2ecb89d5cee95e00bfb84318fc3ae65c5c88b589",
+      "bytes": 1541
+    },
+    {
+      "path": "src/ui/NativeDuelPresentationModel.js",
+      "sha256": "3ac3fe31372b9125433caf68601757183c89e7fb08e2b342b45b22b60d8cdf06",
+      "bytes": 3754
+    },
+    {
+      "path": "scripts/audit-tcg-chain-adapter.mjs",
+      "sha256": "d99aab52934f50bc9c9c83a904177126b692c26ec2146c5c8ba7178bf97d7c2a",
+      "bytes": 3460
+    },
+    {
+      "path": "tests/tcg-chain-complete.test.mjs",
+      "sha256": "3b52930f1b238c6e2629283620da9f19c6f221091f9cc77886a258dc6da8f87a",
+      "bytes": 7402
+    }
+  ]
+}

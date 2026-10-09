@@ -1,0 +1,8 @@
+{
+  "failure": "Native Spell 81439173 did not finish through legal controls",
+  "scope": "Driver target-name matching under inspection; frozen application remains unchanged.",
+  "driverSha256": "6f1bbed1c1fb07179b0f490435ab7c89822146c9fe1f74751a3ebef9c13196c2",
+  "confirmedCause": "The driver regex omitted the displayed starter translation Mal\u00e9diction du Dragon. Final Foolish and Reborn decisions selected that exact visible label; only the driver regex changed.",
+  "applicationSourceChanged": false,
+  "sameFrozenEntrySha256": "799145520bfd285b788d5f6573dde6a557ef82dadda4645a697f97f5d60882be"
+}

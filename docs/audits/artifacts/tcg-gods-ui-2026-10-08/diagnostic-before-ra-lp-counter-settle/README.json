@@ -1,0 +1,13 @@
+{
+  "scope": "Diagnostic run, not final six-duel proof. Five complete cases and Ra mobile stopped during LP display animation.",
+  "expectedEntrySha256": "075c1dd21968352631c5a88c85272c1dbcaa09f36f80bf3939c1c5abc5137c51",
+  "pngs": 19,
+  "actualRaMobileStats": [
+    "ATK 7900",
+    "DEF 7900"
+  ],
+  "snapshotLpDuringAnimation": 2423,
+  "sourceEvidence": "main.js animateLpChange uses getMotionDuration(800); driver returned when native commands re-enabled, before the visible counter finished.",
+  "driverBeforeSha256": "7f082c69b715489ae3c22b89ba3715467346b0052f7e0864687e6894f87939f2",
+  "requiredCorrection": "Wait for final public LP counter then refresh the public DOM snapshot; no application change."
+}

@@ -1,0 +1,12 @@
+{
+  "scope": "The four actual native attacks and module render gallery were genuinely rerun after final source pins, not relabelled historical results. Original reports and exact code dependencies are preserved separately.",
+  "originalEvidenceDirectory": "diagnostic-before-final-source-pins",
+  "nativePublicPresentationsStrictlyEqual": true,
+  "renderedAfterProfilesStrictlyEqual": true,
+  "changedNativeDependencies": {},
+  "finalNativeReportSha256": "6757457f60e72280c3086b6c81348d13aeaafdc95f0fd3d17762e212ce3b5073",
+  "finalRenderReportSha256": "e510e94bd5cdad6d3e75731353d99dabe90cd888b1f87c0dbcc8c09de86d6f96",
+  "finalTestsSha256": "c8e054f13d8fae92f73f542f2ebe9315a1d3f2bc9ca08d3505f489642bc87aeb",
+  "renderedFrameGeometryStrictlyEqual": true,
+  "changedNativeDependenciesObserved": false
+}

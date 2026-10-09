@@ -1,0 +1,11 @@
+✔ test/continuation-terrain-details.test.js (1249.460065ms)
+✔ test/field-reference-detail-wave.test.js (1033.769062ms)
+✔ test/field-stage-references.test.js (2004.426903ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2018.520616

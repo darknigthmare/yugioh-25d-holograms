@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/workspace/yugioh-25d-holograms/scripts/audit-tcg-catalogue-match-ui.py", line 358, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/yugioh-25d-holograms/scripts/audit-tcg-catalogue-match-ui.py", line 333, in main
+    launch(page,item);tribute_revival(page,args.output,item);siding_restore(page,args.output,item,own);finish(page,item);context.close()
+                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/yugioh-25d-holograms/scripts/audit-tcg-catalogue-match-ui.py", line 266, in siding_restore
+    state=public_state(page);assert 'Duel 2'in state['matchStatus'],state['matchStatus']
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: MATCH · DUEL 2 · 0-1

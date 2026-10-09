@@ -126,16 +126,37 @@ test('failed summons have no success animation and token summons use public nati
 });
 
 test('public reveals are explicit and do not turn a confirmed face-down card into a hologram', () => {
-  const ctx = context({ queryCard: () => { throw new Error('confirmation should not query hidden stats'); } });
+  const ctx = context({ isPublicReveal: () => true,
+    queryCard: () => { throw new Error('confirmation should not query hidden stats'); } });
   const result = translate({ type: M.CONFIRM_CARDS, player: 0,
     cards: [{ code: blueEyes, controller: 1, location: L.HAND, sequence: 2 }] }, ctx);
   assert.equal(result.events[0].type, 'reveal');
   assert.equal(result.events[0].card.id, String(blueEyes));
   assert.equal(result.events[0].publicReveal, true);
   assert.equal(createPublicCombatVisual(result.events[0], {}), null);
-  const privateView = context({ isPublicReveal: () => false });
-  assert.deepEqual(translate({ type: M.CONFIRM_CARDS, player: 0,
-    cards: [{ code: blueEyes, controller: 1, location: L.DECK, sequence: 2 }] }, privateView), { events: [], logs: [] });
+  for (const playerController of [0, 1]) {
+    let metadataReads = 0;
+    const privateView = context({ playerController, isPublicReveal: () => false,
+      getCardMetadata: code => { metadataReads += 1; return metadata(code); },
+      queryCard: () => { throw new Error('private inspection should not query hidden stats'); } });
+    const inspection = translate({ type: M.CONFIRM_CARDS, player: playerController,
+      cards: [{ code: blueEyes, controller: 1 - playerController, location: L.DECK, sequence: 2 }] }, privateView);
+    assert.equal(inspection.events.length, 1);
+    assert.equal(inspection.events[0].type, 'inspect');
+    assert.equal(inspection.events[0].card.id, String(blueEyes));
+    assert.equal(inspection.events[0].private, true);
+    assert.equal(inspection.events[0].audienceController, playerController);
+    assert.equal(inspection.events[0].nativeAudienceConfirmed, true);
+    assert.equal(inspection.events[0].publicReveal, false);
+    assert.deepEqual(inspection.logs, []);
+    assert.equal(createPublicCombatVisual(inspection.events[0], {}), null);
+    assert.equal(privateView.publicCodes.size, 0);
+    const readsAfterInspection = metadataReads;
+    assert.deepEqual(translate({ type: M.CONFIRM_CARDS, player: 1 - playerController,
+      cards: [{ get code() { throw new Error('non-recipient identity read'); },
+        controller: playerController, location: L.DECK, sequence: 2 }] }, privateView), { events: [], logs: [] });
+    assert.equal(metadataReads, readsAfterInspection, 'the non-recipient must not resolve an identity');
+  }
 });
 
 test('attacks retain both public zone references while the defending Set stays anonymous', () => {

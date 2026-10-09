@@ -1,0 +1,51 @@
+{
+  "fetchedAtUtc": "2026-10-08T21:58:26.521487+00:00",
+  "scope": "Source response provenance, not a copy of the rules; use official links and rulebook printed pages 44–50.",
+  "sources": [
+    {
+      "id": "rulebook-v10",
+      "url": "https://www.yugioh-card.com/en/downloads/rulebook/SD_RuleBook_EN_10.pdf",
+      "finalUrl": "https://img.yugioh-card.com/en/downloads/rulebook/SD_RuleBook_EN_10.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 3415528,
+      "sha256": "82be14641b2b7940467034a5b14b0d4037835831866537738d34fd9df5a0f444"
+    },
+    {
+      "id": "fast-effect-timing",
+      "url": "https://www.yugioh-card.com/en/play/fast-effect-timing/",
+      "finalUrl": "https://www.yugioh-card.com/en/play/fast-effect-timing/",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 31254,
+      "sha256": "8b4d90c574d8707dff76831b1dc7c6e29e82fe43318ca29e2b9942d0d13824a7"
+    },
+    {
+      "id": "rules-update-2021",
+      "url": "https://www.yugioh-card.com/en/play/2021_rules_update/",
+      "finalUrl": "https://www.yugioh-card.com/en/play/2021_rules_update/",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 26869,
+      "sha256": "6a11bdbbbc536cf67aae46524c0eeb6d176cd7f60a4e9ca0668a3987d0367cf5"
+    },
+    {
+      "id": "psct-conditions-activation-effects",
+      "url": "https://www.yugioh-card.com/eu/play/understanding-card-text/part-3-conditions-activations-and-effects/",
+      "finalUrl": "https://www.yugioh-card.com/eu/play/understanding-card-text/part-3-conditions-activations-and-effects/",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 106470,
+      "sha256": "6fc04ac6d591be328e5d4b2e7f4a4d2585ecc4e7c4d7835342b81a6aabe5f387"
+    },
+    {
+      "id": "psct-conjunctions",
+      "url": "https://www.yugioh-card.com/eu/play/understanding-card-text/part-7-conjunction-functions/",
+      "finalUrl": "https://www.yugioh-card.com/eu/play/understanding-card-text/part-7-conjunction-functions/",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 105913,
+      "sha256": "77c5c3aa43a507f9031cb87e6a8a57f7ae487b184ffb4d8482015b032ee2273f"
+    }
+  ]
+}

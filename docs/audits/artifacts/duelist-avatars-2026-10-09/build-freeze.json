@@ -1,0 +1,709 @@
+{
+  "date": "2026-10-09",
+  "executedAtUtc": "2026-10-08T23:51:45.421959+00:00",
+  "localBaseline": "d6e0ff65b08e32ae6b4629d0f8e97a45b4543d01",
+  "entry": "/assets/index-u38YK6zY.js",
+  "source": {
+    "main.js": {
+      "bytes": 196766,
+      "sha256": "4249f4dbcde3c79124fb255b9905c4daa68abf1e30c5d0a589ad62ce8397ccd0"
+    },
+    "index.html": {
+      "bytes": 35954,
+      "sha256": "d3b960d4cf6088bceab62161e43f279bf40cc4089459ad83ffbdca8b3e352de2"
+    },
+    "style.css": {
+      "bytes": 127694,
+      "sha256": "6bbce84fbccfc6a59992609a2659f6a0f27059354d6a6300ebc2d4d1e29f43fc"
+    },
+    "package.json": {
+      "bytes": 699,
+      "sha256": "fd474067a364cdd85f372a57555e92b47c2a66f064bf299ca1ee29f334400d4e"
+    },
+    "package-lock.json": {
+      "bytes": 28435,
+      "sha256": "5e139fa57cab722513f61d244ae90cf1eda873a4edd84810ce6e64e19b909810"
+    },
+    "vercel.json": {
+      "bytes": 1272,
+      "sha256": "54ace7536aaf92de4eca552f63a6266e790eda597ecfc67dbb0ebe0c9bf3664c"
+    },
+    "src/api.js": {
+      "bytes": 10902,
+      "sha256": "c044a96f88ba3aebf4eb97e94bf773bfd112bb4840ca4a3a118fd80e2ed7be91"
+    },
+    "src/audio.js": {
+      "bytes": 14437,
+      "sha256": "41754678ab255934b22cee21ec6b81e8f620e491c4ec4d8cea3800a0bef526d8"
+    },
+    "src/board.js": {
+      "bytes": 18240,
+      "sha256": "cc3fea4fa467410ca40b444091cdc2c5a1f803e39639fe296cfba9486bebc13d"
+    },
+    "src/cards.js": {
+      "bytes": 27940,
+      "sha256": "e0a05e98ed0892afc1e8c363b997f785fd74bb061d04c4aafb5fe84908a4a5c8"
+    },
+    "src/content/AIResponsePolicy.js": {
+      "bytes": 7838,
+      "sha256": "2277d2d6e8eb0e66c3e95fb08a27598b97ca800343f60d5c03daa7dd9db30c95"
+    },
+    "src/content/AIStrategy.js": {
+      "bytes": 22246,
+      "sha256": "e390a1eefee2c0600096a8b4dedced2d185f6b0b34f7027153106c84a2b38249"
+    },
+    "src/content/CampaignDuelTracker.js": {
+      "bytes": 4158,
+      "sha256": "18ac149a2b930294796e43faa636c186425cc6f751170ca3c5d8c44e9ba9d641"
+    },
+    "src/content/DuelistAvatarCatalog.js": {
+      "bytes": 43400,
+      "sha256": "73ac16fd6f2a6e550934ff0fd48c0af2761ddb3859d3399fb1b6b8993f94dedb"
+    },
+    "src/content/DuelistAvatarProgress.js": {
+      "bytes": 9736,
+      "sha256": "ab23b1e01d5b90999ca5574ea4e1e42721b1ce9ae0b27c1d5b11c25f09ca8603"
+    },
+    "src/content/SoloCampaign.js": {
+      "bytes": 26216,
+      "sha256": "0d7b6766c32bd87a29ff8ed61a442fee0f765ec65057905aeed5412474f1a5eb"
+    },
+    "src/core/AdvancedFieldSpellRules.js": {
+      "bytes": 10487,
+      "sha256": "3c563123851215c7d76a6ff1e76fc0343abf43a351e25dfe6d6f71dbd3aaceda"
+    },
+    "src/core/BattleEngine.js": {
+      "bytes": 5226,
+      "sha256": "50d049f0627f7def7cbd693575fb7f89c729282a4fb694b4746da1a57d109c0b"
+    },
+    "src/core/CardNameRules.js": {
+      "bytes": 970,
+      "sha256": "6e0821869caeb7e4a96a86bfe05043a206d5042d2c3f5fc54c1b931d4ce0b0fa"
+    },
+    "src/core/CardScriptAPI.js": {
+      "bytes": 2639,
+      "sha256": "a4c0a02321c04e53fa44eefa5716b9c28f603b8dc5b8a43139bba3cc5b56bfec"
+    },
+    "src/core/CardState.js": {
+      "bytes": 13978,
+      "sha256": "f5a0eb7ba780e1641f5a462be029cd3f3717ec1311f6476653d40e4dc1d9832f"
+    },
+    "src/core/ChainEngine.js": {
+      "bytes": 7255,
+      "sha256": "4a2cd6708f57264381bcfbfdb356d2e6a5fdc4257a178094e5a79cc44f1f4fa2"
+    },
+    "src/core/ClassicFieldSpellEffects.js": {
+      "bytes": 15020,
+      "sha256": "55a63d07f678c3ebedfad6158d3963f8fc00cda1eb6d8bd543567a95ff7d85f3"
+    },
+    "src/core/ClassicMonsterEffectScripts.js": {
+      "bytes": 7710,
+      "sha256": "48c09752494cdf49cb4252fb4a11625b82b8833e38819e588e192f20d6d04fa2"
+    },
+    "src/core/DefensiveEngine.js": {
+      "bytes": 5638,
+      "sha256": "1915e33ad81f22afedc441e617f3bed628c527b32e57052b5812eca1daefee22"
+    },
+    "src/core/EffectEngine.js": {
+      "bytes": 3931,
+      "sha256": "52c841591a87b13fc9ccdb94d682476ce4a8e70094ab77ac78c1f6c5ae5ca429"
+    },
+    "src/core/FieldRuleRuntime.js": {
+      "bytes": 4435,
+      "sha256": "5e5a47827a493a081f9a3ed78c9b4a9a5b3b0c5fff592684203c9fc7a507a3e9"
+    },
+    "src/core/FieldSpellRules.js": {
+      "bytes": 2834,
+      "sha256": "52abde627e6e18420777a379d03a35c780de1acbd9be5d953bca54db3d45a046"
+    },
+    "src/core/FieldState.js": {
+      "bytes": 15094,
+      "sha256": "421dd24f15bd4c63d7c1e90b2bf77372ebbda0337de32faef1f73805b60baa7b"
+    },
+    "src/core/GameStateStabilizer.js": {
+      "bytes": 9666,
+      "sha256": "9c39fd9dee6010c8a1f9e5213983e263e6acb934f899b308b883696c88c07bd4"
+    },
+    "src/core/LinkZoneRules.js": {
+      "bytes": 6058,
+      "sha256": "bf67cfe14efcbfdbdc2e5aece649ca824404cb1724ce1e9dcd30c00e33224bdf"
+    },
+    "src/core/MatchEngine.js": {
+      "bytes": 39071,
+      "sha256": "fa39f6163a84ea6adcbf6481b6dad154316a9d522505947b3c1966daa19712b7"
+    },
+    "src/core/PSCTParser.js": {
+      "bytes": 4988,
+      "sha256": "5f00887f9cff445f4398c0960b7628b3a99ed6645eee871aa4b0655c4731d633"
+    },
+    "src/core/PhaseEngine.js": {
+      "bytes": 2599,
+      "sha256": "a8ca578a832f28c8a83197441e56e0963daae696fd66b17dc8ddc9152d588819"
+    },
+    "src/core/StrictCardRegistry.js": {
+      "bytes": 6317,
+      "sha256": "611e80527743c846d56b463c69a8bfbb2c447c1b32c5fe7b48571b57cb868826"
+    },
+    "src/core/SummonEngine.js": {
+      "bytes": 24641,
+      "sha256": "921945e0d5d8f25c1e2d48ef028f8c8aec851dbbb265f7d34d616532e17785c6"
+    },
+    "src/core/TriggerEventEngine.js": {
+      "bytes": 3089,
+      "sha256": "5f08e99e99174c009086ca04d01919dac54374a9dcc7a69e3fc64274e8e14c65"
+    },
+    "src/core/TurnEngine.js": {
+      "bytes": 2072,
+      "sha256": "b9e23716c3eac4c2c7c1725520751507eac949c803079cd041ce8912249ac824"
+    },
+    "src/core/native/NativeBattleLifecycle.js": {
+      "bytes": 5611,
+      "sha256": "202704a82ad6624211b063acc7e58cd3a40b0721f0dc9d67a02286ea0174a0c0"
+    },
+    "src/core/native/NativeCardCatalogue.js": {
+      "bytes": 15865,
+      "sha256": "7db3547182e650eeb618023059ccec2750d9a074d3258559f6c5040528ab79ca"
+    },
+    "src/core/native/NativeCardCharacteristics.js": {
+      "bytes": 2031,
+      "sha256": "e4d1a7551bf67b32a55f291f59abc411c032217113f63cd35df76db75ad5fa76"
+    },
+    "src/core/native/NativeCardData.js": {
+      "bytes": 4737,
+      "sha256": "59a664d8d16593ef2223d895085e81e48d6eaa0d90bb0725b6410a71bdcac568"
+    },
+    "src/core/native/NativeCardReferenceArt.js": {
+      "bytes": 2668,
+      "sha256": "b7f2f102783dedc22b2a65be71832bc4002654207d0a7b050f03873143e88c0a"
+    },
+    "src/core/native/NativeCardRegistry.js": {
+      "bytes": 5752,
+      "sha256": "0d3d50a39fefd3be57b3ea6a4e4b945c204730bb2580d5f96016de01b71dcefd"
+    },
+    "src/core/native/NativeCardRegistryData.js": {
+      "bytes": 173747,
+      "sha256": "240b8deaf34acb07c2eeba15b2cd37e26a5d6833b6c8a4be83fd048cdc468359"
+    },
+    "src/core/native/NativeCardScriptCorrections.js": {
+      "bytes": 1103,
+      "sha256": "e0073221e78f6f3df94b0b37da4683167a5a8787f21317f5d6a0a619a5c767cd"
+    },
+    "src/core/native/NativeChainDecisionInfo.js": {
+      "bytes": 1541,
+      "sha256": "ba57cbd05832466c404cae2d2ecb89d5cee95e00bfb84318fc3ae65c5c88b589"
+    },
+    "src/core/native/NativeCoreAssets.js": {
+      "bytes": 1401,
+      "sha256": "ea80f9606142a9612d68be4fe0f53c8acdb3061dc171952af1e39baeb8735903"
+    },
+    "src/core/native/NativeDiceDungeonScriptCorrection.js": {
+      "bytes": 1587,
+      "sha256": "80f978a0ea7ac9641a1413ca14e6a9cfd27c28c0d571203391706623072424cc"
+    },
+    "src/core/native/NativeDuelDecisions.js": {
+      "bytes": 35779,
+      "sha256": "4ec35dd4cc12ae7efcb1dd45a39e3cc7a83e359d9af41a84d51f3ffa5bbff724"
+    },
+    "src/core/native/NativeDuelGame.js": {
+      "bytes": 62312,
+      "sha256": "04a3219a0b59bec1aab199efc72fc25069c68acb17233190a898c530add0813f"
+    },
+    "src/core/native/NativeDuelRuntime.js": {
+      "bytes": 9739,
+      "sha256": "07136f4301391bd62e4f29fe611067b15734f53c92354cb6a3cc3b33ff52e6b5"
+    },
+    "src/core/native/NativeDuelTowerScriptCorrection.js": {
+      "bytes": 3790,
+      "sha256": "fa198bb13429613fe9ac2843ea4c5c25251a09c8d7c393953d30725f45a68a6e"
+    },
+    "src/core/native/NativeDuelVisualEvents.js": {
+      "bytes": 35031,
+      "sha256": "2a776f53d0d15eb91eb2c736d95fbdc809d85cdef9491adf9b6c448ef61580ab"
+    },
+    "src/core/native/NativeExodiaRevealPolicy.js": {
+      "bytes": 1536,
+      "sha256": "a9d855a4daa6d51a9d4525f855da58cdf0a714036f43c5bc9ce9cadc8eff368e"
+    },
+    "src/core/native/NativeLuaCompatibility.js": {
+      "bytes": 536,
+      "sha256": "7445d1f73cad6ba208fa0cf869d6f51491e6dd700dedc4cbec6f4342fd8d163e"
+    },
+    "src/core/native/NativePublicRevealPolicy.js": {
+      "bytes": 4146,
+      "sha256": "6034c3dff716d18597bf4b689b317255695fe1f5a6a860edffe3f2a87abd800e"
+    },
+    "src/core/native/NativeScriptArchive.js": {
+      "bytes": 784,
+      "sha256": "8e40d56b6cba11813e217d89538831195e89399b5e0da1c0dfd215ab7610d83c"
+    },
+    "src/core/native/NativeSourceIntegrity.js": {
+      "bytes": 2339,
+      "sha256": "4af7fc0fc34b715ebe3e23ed7cfcf35d74dca662200e4025c7cc7957ac81cd18"
+    },
+    "src/core/native/NativeTCGRuleProfile.js": {
+      "bytes": 657,
+      "sha256": "5ea356d97beef0b1b35674d47108a95738953ca77d6581eda5524197b94f7c38"
+    },
+    "src/core/native/vendor/ocgcore/NOTICE.md": {
+      "bytes": 6313,
+      "sha256": "d404bc1be0ea0b323f88bb95295a7927bfba370a58373a4566775bdddaa4d931"
+    },
+    "src/core/native/vendor/ocgcore/apply-patches.mjs": {
+      "bytes": 6971,
+      "sha256": "813d32aac9927bda9629fe92bd2ce6eabf86da3636f59780ee54b68dc3bae16b"
+    },
+    "src/core/native/vendor/ocgcore/chunk-6GYI7QPM.js": {
+      "bytes": 42,
+      "sha256": "0a9f270bce85e72ea86909d6b25d962616fe09e73109f78b3e26ea324e09b792"
+    },
+    "src/core/native/vendor/ocgcore/chunk-L5TW24SS.js": {
+      "bytes": 565,
+      "sha256": "e6e321ec2bd37a64c7f78b18afffbe54fff34ec0c3d454147ae5c28fb3c9ddb2"
+    },
+    "src/core/native/vendor/ocgcore/index.d.ts": {
+      "bytes": 80120,
+      "sha256": "55c301428881b6145db4dcf671e45ffb87682cdca543440ab1affa019038a079"
+    },
+    "src/core/native/vendor/ocgcore/index.js": {
+      "bytes": 46243,
+      "sha256": "8cfbec622cf5b920e0b58db6d842fcabf1a9ef8eed9f0841bac43a1e9adb0657"
+    },
+    "src/core/native/vendor/ocgcore/ocgcore.sync-MMMSWPBB.js": {
+      "bytes": 21357,
+      "sha256": "f4523ad5c2e9f14c8736a91ad94e9e7f8283883a3607781f40afdeae27cdf828"
+    },
+    "src/core/native/vendor/ocgcore/upstream-source/src/data.ts": {
+      "bytes": 6533,
+      "sha256": "1378182502e4c5c104284e46615fb498cdc757f32d784d3a87b4c276d46b2ba4"
+    },
+    "src/core/native/vendor/ocgcore/upstream-source/src/index.ts": {
+      "bytes": 16622,
+      "sha256": "af865b6ec453129a8adb6aea71fefec494a8698750f8c27833f51133bc4b0c01"
+    },
+    "src/core/native/vendor/ocgcore/upstream-source/src/internal/buffer.ts": {
+      "bytes": 4858,
+      "sha256": "bd465d84c753e320cb8e5696ecb68e027cd81e00c67022d375ea1a6ed57cbbaa"
+    },
+    "src/core/native/vendor/ocgcore/upstream-source/src/internal/utils.ts": {
+      "bytes": 701,
+      "sha256": "7533925bb35ad24ee5f420c3d20388df5c7a9bb0aaf7b086018a78729ff4a8e5"
+    },
+    "src/core/native/vendor/ocgcore/upstream-source/src/messages.ts": {
+      "bytes": 21424,
+      "sha256": "16c94ab5afa9f909fdec98b25ac96aa2e0ebf28a0a5228351b9e165e3cd7e6df"
+    },
+    "src/core/native/vendor/ocgcore/upstream-source/src/opcodes.ts": {
+      "bytes": 9385,
+      "sha256": "682d366bebcc0a12b78ea3c1a9738a87fa5647c868a893c6fdddce7c12490aaa"
+    },
+    "src/core/native/vendor/ocgcore/upstream-source/src/queries.ts": {
+      "bytes": 5642,
+      "sha256": "44f102cb6d44d894a00bbe68b53f32b8cbb5350badf5122c218139a3fbf1f4de"
+    },
+    "src/core/native/vendor/ocgcore/upstream-source/src/responses.ts": {
+      "bytes": 3144,
+      "sha256": "c86eba1b103ba1aaca4b08b5e8f7205d2440a2bb868a0641006eea8ec7365fe2"
+    },
+    "src/core/native/vendor/ocgcore/upstream-source/src/type_core.ts": {
+      "bytes": 18480,
+      "sha256": "f994b163063a5e06403a037ccfb95c8d44fbdb2dafd8e99d38acd6a73fd1ce7d"
+    },
+    "src/core/native/vendor/ocgcore/upstream-source/src/type_handle.ts": {
+      "bytes": 167,
+      "sha256": "381d8d53def70211fcc2c2c6681ea04462928f743859ca1b75bcb7bba7f896c6"
+    },
+    "src/core/native/vendor/ocgcore/upstream-source/src/type_message.ts": {
+      "bytes": 21659,
+      "sha256": "205f9b71339a8a873c6a66242354e8b31748f6d85b835416bd80dd8f25f8c4da"
+    },
+    "src/core/native/vendor/ocgcore/upstream-source/src/type_response.ts": {
+      "bytes": 4587,
+      "sha256": "376c6f190f3be8ca1bcd9786c81ba826116d2e4493c0fffe94dcf9b1d1f07b3e"
+    },
+    "src/core/native/vendor/ocgcore/upstream-source/src/type_serialize.ts": {
+      "bytes": 18989,
+      "sha256": "9124bf3f4d79d40a061130c89b2ab5b399d47d2a44be89603dfb3fbcffea5569"
+    },
+    "src/core/tcg/TcgAdvancedBanlistData.js": {
+      "bytes": 57732,
+      "sha256": "bdc8c18edb0a6308949e516442106747ada3976334beb105562c17c7d6f5d945"
+    },
+    "src/core/tcg/TcgAdvancedFormat.js": {
+      "bytes": 2731,
+      "sha256": "058606afc6449ce1ced941c42000c8a109da55cf9b36ad8919b853582c540d40"
+    },
+    "src/core/tcg/TcgCardLegality.js": {
+      "bytes": 5154,
+      "sha256": "7b556ecb1af2b729a71f4cdf237182068d5f3d47a85cacef8a91c2661979e874"
+    },
+    "src/game.js": {
+      "bytes": 276839,
+      "sha256": "246e7c6caf967e5c7805b59853f2d905e828ad3b1b756beca5bfda4a368428dc"
+    },
+    "src/network/INTEGRATION.md": {
+      "bytes": 8755,
+      "sha256": "91e9a5b8c843168414910602b6537ed25fa8d2ec9b6e42b00dccc7f81c9c7a73"
+    },
+    "src/network/ONLINE_CONTROLLER.md": {
+      "bytes": 7897,
+      "sha256": "7f60ff742add305814665b2243bc1f747800a4459e06fc09891e6a681a927368"
+    },
+    "src/network/deck-hash.js": {
+      "bytes": 1514,
+      "sha256": "bd19e5a3d84754b81fa5b182ffb9d893dd8571827715edba38df7a13620b5a8e"
+    },
+    "src/network/duel-game-network-adapter.js": {
+      "bytes": 48927,
+      "sha256": "c5d58d787d28a559abad5b974d9a5ced23a80cb0295d1ff9eb2f0b32181b8bdc"
+    },
+    "src/network/duel-network-session.js": {
+      "bytes": 31509,
+      "sha256": "c213298c2c7f976e7bbd7c76ac1897c44df527c3e5967ccb9506e0373f8335b7"
+    },
+    "src/network/emitter.js": {
+      "bytes": 1786,
+      "sha256": "d70ca7ddcdd345346ecb071bc4728359b6676c2351ae858a5edbd87a072e1c30"
+    },
+    "src/network/index.js": {
+      "bytes": 947,
+      "sha256": "eda78a18675a21b20c57d7098d40c549503d4675e875fabe42e0dc5fe9157c9d"
+    },
+    "src/network/mock-transport.js": {
+      "bytes": 4034,
+      "sha256": "fda536a6f47b78ec4f419c4b2e79f7ff251e9b917ffb3cb002a03cb0be4fba1f"
+    },
+    "src/network/online-duel-controller.js": {
+      "bytes": 20865,
+      "sha256": "ba1811c94d2650b0ce55caf6f012b8e5e41fde2cdfcc24684f695f5e3f6cf9ed"
+    },
+    "src/network/protocol.js": {
+      "bytes": 9226,
+      "sha256": "48f8b6aa158ee46b607d93ee67cf98244b606a9a1a21f8b4bf8a703b77eb8556"
+    },
+    "src/network/session-code.js": {
+      "bytes": 5238,
+      "sha256": "a6a183dac6379317f0e7ebdef5b734bc07a0b9226f5778d5a2534bd23a29d3ce"
+    },
+    "src/network/webrtc-transport.js": {
+      "bytes": 12063,
+      "sha256": "115d7b9f66c9de965923e1b66ae20eb26719b6f3803e716ed51ddd4ccd996f7b"
+    },
+    "src/security.js": {
+      "bytes": 858,
+      "sha256": "0ce0db7ee8f606adbe927eb3580dfc0c8864afe5f021b338854594655dc47c59"
+    },
+    "src/ui/CardSpecificVisualEffects.js": {
+      "bytes": 23094,
+      "sha256": "b56382a7b1ba63e299b1bedc18405ad4b01454a182f2160aef544089a4182df7"
+    },
+    "src/ui/CombatVisualEffects.js": {
+      "bytes": 36480,
+      "sha256": "6e685855e5c491e5d2d340baa4a5b399438bf3c4e899e5a888f989c994852e94"
+    },
+    "src/ui/CombatVisualProfiles.js": {
+      "bytes": 15415,
+      "sha256": "f5c5aff6a712ed97bbe1d9e4064cd5a3b13620539a2311833ca865f1230d9204"
+    },
+    "src/ui/DeckBuilderRules.js": {
+      "bytes": 9516,
+      "sha256": "824e6683279fb894c9eaf554bed8496e6efde2a1f4706037bb78044c9aeea9f3"
+    },
+    "src/ui/DuelViewController.js": {
+      "bytes": 10960,
+      "sha256": "4a1f90c43cbe85589936a5af6462d1b385fc257aac61f4bf63ea9a194f8cdb37"
+    },
+    "src/ui/DuelistAvatarModels.js": {
+      "bytes": 27743,
+      "sha256": "0c00c1601a89cf836b9ecbfc60acdaf10a18213d020a97969412798142c8e363"
+    },
+    "src/ui/DuelistAvatarPicker.js": {
+      "bytes": 15630,
+      "sha256": "c39af793a6cf27648f8a104c0ac7b364f896c06ac470d17922af305644196215"
+    },
+    "src/ui/DuelistAvatarPortrait.js": {
+      "bytes": 15497,
+      "sha256": "a0e8d2da7de92aff3f2dc2ccfd364dec5c2c6f26c88cb74dbbae243d41eae18e"
+    },
+    "src/ui/FieldContinuationStageDetails.js": {
+      "bytes": 14565,
+      "sha256": "3def385c130687a064b02f9e03c7f0c7f85261efa8c7000c36089d38a3d13204"
+    },
+    "src/ui/FieldEnvironmentAquaticReferences.js": {
+      "bytes": 40332,
+      "sha256": "fc2308aafce72862a97b759cfe25b6818b38580ebde74125af3bdc5c074858b2"
+    },
+    "src/ui/FieldEnvironmentArcaneReferences.js": {
+      "bytes": 50646,
+      "sha256": "88776075dac0a9fbc4644e6427a4d3cd49e0305693fb5826056b8f7b4a6d5e3e"
+    },
+    "src/ui/FieldEnvironmentArchitecturalReferences.js": {
+      "bytes": 28182,
+      "sha256": "e9bfe454fd75e9934917ba60d431aaf5549f75c20769290cd5dffc929b8895b1"
+    },
+    "src/ui/FieldEnvironmentCommunityReferences.js": {
+      "bytes": 72014,
+      "sha256": "498c7a20bb5d0d0d1d7c693c0225f87d0b9fdf6822c33cc98ffc2021722a04ef"
+    },
+    "src/ui/FieldEnvironmentDarkReferences.js": {
+      "bytes": 48359,
+      "sha256": "94bbbf083f053b5c37d81801bdf347fe73a67fef13c788f57c8a43f6ee1c79ac"
+    },
+    "src/ui/FieldEnvironmentEngineeringReferences.js": {
+      "bytes": 46085,
+      "sha256": "566328be75b756765ffd33c2eb7738f4825b8d4cdd48c8acec807505d674c8ce"
+    },
+    "src/ui/FieldEnvironmentFrontierReferences.js": {
+      "bytes": 86869,
+      "sha256": "926e4873ff5e4c2a038f310eb6d5c702ed8dbe3d92bced322b88fe1cb21997af"
+    },
+    "src/ui/FieldEnvironmentGeometry.js": {
+      "bytes": 94053,
+      "sha256": "134b5a9e4cf1982b82a43e54f860522833cf1cea16013003b54153fc79dedb3c"
+    },
+    "src/ui/FieldEnvironmentMysticalReferences.js": {
+      "bytes": 27232,
+      "sha256": "1e6ec73411e3dd624542edee60000110bd22f38c6f9e90176f18ce071c7da2cc"
+    },
+    "src/ui/FieldEnvironmentNatureReferences.js": {
+      "bytes": 27448,
+      "sha256": "0d44bdf0379837717ea1be71599d5572edb9209565cf93bfc5ee5d3768f7c824"
+    },
+    "src/ui/FieldEnvironmentRegistry.js": {
+      "bytes": 32180,
+      "sha256": "4312f060be24418091f4f629727766d406043c2a32d79717e9f3220123227dd8"
+    },
+    "src/ui/FieldEnvironmentRitualReferences.js": {
+      "bytes": 77714,
+      "sha256": "ef9992458040028f87a5035ee63dbf01b703435759f97bc827f6ec527bbe401c"
+    },
+    "src/ui/FieldEnvironmentStageReferences.js": {
+      "bytes": 43183,
+      "sha256": "a5c68804172344e32fe93147ee04ddaa6f76ae520e42f19c2255c21d0283dfd8"
+    },
+    "src/ui/FieldEnvironmentTechnologyReferences.js": {
+      "bytes": 32454,
+      "sha256": "930d3121814e730d9274a6d2087bcd301c1b18b07250cff1de9abb70676b4742"
+    },
+    "src/ui/FieldEnvironmentUrbanReferences.js": {
+      "bytes": 32177,
+      "sha256": "b3d94d8d9f427315fec3b0d36c775fc337d827b92ca6a8fd7de8d8665e5e61c9"
+    },
+    "src/ui/FieldEnvironmentWildReferences.js": {
+      "bytes": 38383,
+      "sha256": "b8db1cfd37d85dfd222d0b6c9a89934cc1f9c0d0ce7ae3e95325efafdb07d0c7"
+    },
+    "src/ui/FieldGeometryThree.js": {
+      "bytes": 739,
+      "sha256": "f1ba391ea533f94a6795f160091077d7488c590cf2e42cf2686c7d0a01fe7e82"
+    },
+    "src/ui/FieldReferenceDetailGeometry.js": {
+      "bytes": 25543,
+      "sha256": "20269b947051f75862dc401d991541023144b70bfab81df100e82b942b532fd1"
+    },
+    "src/ui/FieldSpellAtlas.js": {
+      "bytes": 7907,
+      "sha256": "7c3f8d76df119e4fdd8ea31e23b2a275e92556ac93a3190ea09eb28535ccce1a"
+    },
+    "src/ui/FieldSpellAtlasPreview.js": {
+      "bytes": 4420,
+      "sha256": "344ac49c08bae745c87b136d5a34158d5107bb49c7117ef04697ff2975d8353e"
+    },
+    "src/ui/FieldSpellCardDataSnapshot.js": {
+      "bytes": 167899,
+      "sha256": "38fe5564068d6684f9f47b0db51b8a4e03f28ba0f3cbc5512b68f300b27d60e5"
+    },
+    "src/ui/FieldSpellCoverage.js": {
+      "bytes": 7043,
+      "sha256": "f7b900ea9e570b6987d522fce71764d2e99b01b56241f485a8f785f38a209d0d"
+    },
+    "src/ui/FieldSpellEnvironmentCatalog.js": {
+      "bytes": 24250,
+      "sha256": "37bf5157ca5a8fbfb6c1d93898a3d2efcb3fd620b3c5e61e63f26d46225aee33"
+    },
+    "src/ui/FieldSpellIllustrationBriefManifest.js": {
+      "bytes": 34343,
+      "sha256": "a875f7c3138e347a52ff9606e536f2f7dbca70d17ab45a8fd892727f72233f11"
+    },
+    "src/ui/FieldSpellReferenceArtManifest.js": {
+      "bytes": 1729,
+      "sha256": "2c98d28f4fd7d8186f745e18994ad8ebdf1ceae8936f481c7b440219ff8fc486"
+    },
+    "src/ui/FieldSpellReferenceArtPalettes.js": {
+      "bytes": 32287,
+      "sha256": "39d7a5073366407942497b92de7afe5e319b87957edb19068671bee83f7fbb88"
+    },
+    "src/ui/FieldSpellReferenceArtSnapshot.js": {
+      "bytes": 175681,
+      "sha256": "9184710dc78ef3fbd96bfac4bda8dba14fba0754e6add8e47d343f409059dad1"
+    },
+    "src/ui/FieldSpellRuntimeManifest.js": {
+      "bytes": 10027,
+      "sha256": "0918f086daae0c0ac55e355624e89ac934be19b90bc99b3f0a5347be1e53d729"
+    },
+    "src/ui/HandPlacement.js": {
+      "bytes": 1498,
+      "sha256": "7482df3d0bc80df5f547d04acf9d958b8cc09b2fdb33666fcea6942c047e9eee"
+    },
+    "src/ui/HologramMonsterModels.js": {
+      "bytes": 24593,
+      "sha256": "e1d187cb29a6ea139b16d26b7154a92c77160c34941a37b13023cfcfe0f2f278"
+    },
+    "src/ui/HologramPopularGodModels.js": {
+      "bytes": 16210,
+      "sha256": "7e095ad4bab594756d846b6794add8afb540f962494b7168589d0bc80851f121"
+    },
+    "src/ui/HologramPopularStapleModels.js": {
+      "bytes": 23103,
+      "sha256": "66784a7c5903a5005064833dead704a9d2a7bad4152a71d8d7cc024ccd610c35"
+    },
+    "src/ui/HologramPoseAnimation.js": {
+      "bytes": 7540,
+      "sha256": "0fd60c0f319ee7a413049ac05199d44e06ab356a94174bc2dc35958b22b8729c"
+    },
+    "src/ui/HologramReferenceAnatomy.js": {
+      "bytes": 63114,
+      "sha256": "e10d0ad431c4c3f00f12c259e76bb83e68ae320315a768ce2e606544fec778d5"
+    },
+    "src/ui/MatchController.js": {
+      "bytes": 25804,
+      "sha256": "9712ace23577eb65ebca16632b8d51411e31c5ee37d6f12b9ddb272c5ab68cbc"
+    },
+    "src/ui/NativeDuelPresentationModel.js": {
+      "bytes": 3754,
+      "sha256": "3ac3fe31372b9125433caf68601757183c89e7fb08e2b342b45b22b60d8cdf06"
+    },
+    "src/ui/NativeFieldCoverageSnapshot.js": {
+      "bytes": 17593,
+      "sha256": "b483d124759c335565eaf3afe8553b565cd2b6bb503edd7dea95dbf178f6bda2"
+    },
+    "src/ui/PopularGodReferenceArt.js": {
+      "bytes": 3176,
+      "sha256": "7461a0dbbf3b46e14965778b7326c507a132695396450620b13841abfc85e898"
+    },
+    "src/ui/PopularStapleReferenceArt.js": {
+      "bytes": 4992,
+      "sha256": "5dc35be8fc2634608fd4453fcd3168a9e2ff06cf49861007d6e11a65a8fa5ea3"
+    },
+    "src/ui/PrivateCardInspection.js": {
+      "bytes": 5637,
+      "sha256": "c2f6da2cedacae2d014d45c15a587838ff772237af5b8e9f0ac195104a5298d0"
+    },
+    "src/ui/PublicCardConfirmation.js": {
+      "bytes": 1553,
+      "sha256": "858a04e67f0b08c9a687a1382f4a0ab7810a5ef3213787e58bb5b5ab480cb513"
+    },
+    "src/ui/PublicDuelVisuals.js": {
+      "bytes": 11641,
+      "sha256": "1c19b3aafecf843427f96f15ec6b6234c4ab7a18336af68a870a47f2ada9d982"
+    },
+    "src/ui/RealDuelCameraPresets.js": {
+      "bytes": 4035,
+      "sha256": "d2632c5f7b9b3f6a03f0c9bfb2725b13e7ee1951b087e8bb6011ff2007f1c863"
+    },
+    "src/ui/RealDuelDOM3DAdapter.js": {
+      "bytes": 13865,
+      "sha256": "f70945e33a0d5707e77176e30d38e560a80fd9bbda904af071332aad0f956215"
+    },
+    "src/ui/RealDuelScene3D.js": {
+      "bytes": 54108,
+      "sha256": "5fee001557d8e442cbdddb88d40e50c20ef551c7ef64d7f31ed34793c24fb6b0"
+    },
+    "src/ui/RealDuelView.js": {
+      "bytes": 35789,
+      "sha256": "509be7826db7e148d17989c2a347513d181c2f74ba86b99439fdab4babf212fc"
+    },
+    "src/ui/SoloCampaignController.js": {
+      "bytes": 7713,
+      "sha256": "d41b44f9155a77177feb1801995c89379f1ec69bfb492705d1bbf75c139352c5"
+    },
+    "src/ui/TCGMatchClock.js": {
+      "bytes": 1924,
+      "sha256": "7f2f1a718fcf12e5687d20a72e8f7f78e165e95a85aacade82a248e17b44de83"
+    },
+    "public/native/ocgcore.sync.wasm": {
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    },
+    "public/native/card-data.json": {
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    "public/native/scripts.json": {
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    }
+  },
+  "compiled": {
+    "index.html": {
+      "bytes": 36351,
+      "sha256": "7a50a0e3eddd4651f2ae763392b5bde49a5ab2438c22d0f897f4af3d768e6c7c"
+    },
+    "assets/FieldEnvironmentRegistry-CW5zbHcP.js": {
+      "bytes": 622016,
+      "sha256": "3423def789cb9b59abf5297c9fc36905226dbfb91e2d0d44d988853104af4d4f"
+    },
+    "assets/FieldGeometryThree-CrvvuBIg.js": {
+      "bytes": 534418,
+      "sha256": "86b435b4027e4bd97da57af5b30cc02cdf28e8c4313000dbac86564be206c27a"
+    },
+    "assets/FieldSpellAtlas-D-2ZMuDI.js": {
+      "bytes": 19402,
+      "sha256": "c3ded9c567bb0818c297f06165c86e6eb49854ff33f619f8beaefce1ff89c3d1"
+    },
+    "assets/FieldSpellAtlasPreview-BwvXRaha.js": {
+      "bytes": 2823,
+      "sha256": "5479bf8f2276b9211ffd9e9e12b8543161f0ee292f7d5dddb0da0bd47f3a96ec"
+    },
+    "assets/FieldSpellCardDataSnapshot-DzxkUNrK.js": {
+      "bytes": 169821,
+      "sha256": "ed2484f6797eac2124cdb6a76d8ec20076f9e79cf05008a0183e26a7fd046b3f"
+    },
+    "assets/FieldSpellRules-DLBFReUe.js": {
+      "bytes": 20919,
+      "sha256": "9b95b5d0b3ac46a7d7cade8d2bed65565dcbb1310d494d9344f61ed12a57f54e"
+    },
+    "assets/NativeDuelGame-CJlB6I_4.js": {
+      "bytes": 96452,
+      "sha256": "c87b92ef8fc2bbc54e07a4c8261a4ff2dbdce645a83fef1570d40f6cfaa6445e"
+    },
+    "assets/RealDuelView-BK1zPXPY.js": {
+      "bytes": 221701,
+      "sha256": "2d735ed297ffbff16c41c6101a54c3a66dd907b053c295fac8ace10d0241f235"
+    },
+    "assets/index-CnIvvC2Y.css": {
+      "bytes": 95549,
+      "sha256": "f213796135c8f6176292330be121cb2096dde252d90b979878fd0013149e228e"
+    },
+    "assets/index-u38YK6zY.js": {
+      "bytes": 742088,
+      "sha256": "de12db2a24b25bcc3d16f82c882d887d3597922ea8ca8f4c37cc9daaeb7b5ebd"
+    },
+    "assets/ocgcore-DWqJvtmv.js": {
+      "bytes": 46501,
+      "sha256": "dd1e9936f49901fb5f53efd6d25b19ab5755af65169fee4ef34600a1cfbe5349"
+    },
+    "assets/ocgcore.sync-MMMSWPBB-2LWfD6lX.js": {
+      "bytes": 20718,
+      "sha256": "433b02687ca9a24dcc846c11d7578d40ba5ab87d1b1321d5d22cd879fae58ed6"
+    },
+    "assets/preload-helper-Czpn1I53.js": {
+      "bytes": 1196,
+      "sha256": "aba87f2a53e45ecdc9113fc30387d16e449d1676428cf5f82dd624c1df97d152"
+    }
+  },
+  "check": {
+    "path": "/tmp/yugioh-avatar-check-final-2026-10-09.log",
+    "bytes": 258401,
+    "sha256": "00641df9b512bec8e9a293d7c9f0be603f348ce8474c137c5faf4e83007f6261",
+    "tests": 2600,
+    "pass": 2600,
+    "fail": 0,
+    "modules": 128
+  },
+  "protectedNativeBaseline": {
+    "src/core/native/NativeDuelGame.js": "04a3219a0b59bec1aab199efc72fc25069c68acb17233190a898c530add0813f",
+    "public/native/ocgcore.sync.wasm": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+    "public/native/card-data.json": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d",
+    "public/native/scripts.json": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+  }
+}

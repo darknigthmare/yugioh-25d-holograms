@@ -1,0 +1,11 @@
+{
+  "generatedOn": "2026-10-08",
+  "command": "node --test test/popular-staples-models-2026-10-08.test.js",
+  "tests": 11,
+  "pass": 11,
+  "fail": 0,
+  "skip": 0,
+  "todo": 0,
+  "logSha256": "a4f8c3633efaeeb2522300131bf72392b70a827c1aaa7aeb83c435bbf22f51d2",
+  "testSourceSha256": "f1503797629ab813eca2490d8e4b9ae4c3e9eed0fb05e458fff7fe6a87d434b1"
+}

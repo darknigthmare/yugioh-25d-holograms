@@ -1,0 +1,639 @@
+{
+  "auditDate": "2026-10-08",
+  "scope": "isolated production nonmodal panel; six recorded official-WASM CONFIRM_CARDS descriptors; factual local CDB descriptions and images; no new duel or application game injection",
+  "nativeCase": "private-smartfon-defense-own-deck-controller-1",
+  "nativeTrace": {
+    "path": "docs/audits/artifacts/native-confirmation-privacy-2026-10-08.json",
+    "bytes": 1296194,
+    "sha256": "d7c5aadf7b9b5604d68d5dc9be158a8846bdb049ab5de8aad7ca81d80c05d1ee"
+  },
+  "buildProvenance": {
+    "index": {
+      "path": "dist/index.html",
+      "bytes": 35567,
+      "sha256": "d146d6c588bd5207c99fff9e2c77b3215e230d55ae986612190c595bc611d08f"
+    },
+    "entry": {
+      "url": "/assets/index-BAjs-Biw.js",
+      "bytes": 609998,
+      "sha256": "ab8aece9cffe26026f69778ff4ddf9bba6a0bfc7abbe67435c725df23eed96b7"
+    },
+    "note": "Root final build frozen before this isolated source-module audit; the runner does not build or run an application duel."
+  },
+  "dependencies": {
+    "main.js": {
+      "bytes": 184360,
+      "sha256": "1465e4f2b7d598362c1a16f04eb83bca9fcbb07aef19d0921fd4c438ca2c89c8"
+    },
+    "style.css": {
+      "bytes": 114938,
+      "sha256": "da439056be6e343f893d51304c7802f202511b7b2ad9615e5a4d5679b8ddd0ad"
+    },
+    "src/ui/PrivateCardInspection.js": {
+      "bytes": 5427,
+      "sha256": "9067b39787e3501d244697b6ec9d8fe056749624569b896d01b3de55b2f84a48"
+    },
+    "src/core/native/NativeDuelVisualEvents.js": {
+      "bytes": 32464,
+      "sha256": "13b5c2897a486c7837d1740b0fded2a96deaf9bc6d1cf0e157511fa4f5746f85"
+    },
+    "src/core/native/NativeCardCatalogue.js": {
+      "bytes": 13798,
+      "sha256": "76d6a81dde07d60c328f68b8d7e6318d9af073b71d394570b1ce85ca5a027812"
+    },
+    "src/core/native/NativeCardData.js": {
+      "bytes": 4737,
+      "sha256": "59a664d8d16593ef2223d895085e81e48d6eaa0d90bb0725b6410a71bdcac568"
+    },
+    "src/core/native/NativeScriptArchive.js": {
+      "bytes": 784,
+      "sha256": "8e40d56b6cba11813e217d89538831195e89399b5e0da1c0dfd215ab7610d83c"
+    },
+    "src/core/native/NativeCardScriptCorrections.js": {
+      "bytes": 1103,
+      "sha256": "e0073221e78f6f3df94b0b37da4683167a5a8787f21317f5d6a0a619a5c767cd"
+    },
+    "src/core/native/NativeSourceIntegrity.js": {
+      "bytes": 2339,
+      "sha256": "4af7fc0fc34b715ebe3e23ed7cfcf35d74dca662200e4025c7cc7957ac81cd18"
+    },
+    "src/core/native/NativeCardRegistry.js": {
+      "bytes": 5752,
+      "sha256": "0d3d50a39fefd3be57b3ea6a4e4b945c204730bb2580d5f96016de01b71dcefd"
+    },
+    "src/core/native/NativeCardReferenceArt.js": {
+      "bytes": 2379,
+      "sha256": "12df49a5caadff32ebda500903f6de8a9fdd8c348b77f8cf73bef126949dafc9"
+    },
+    "src/cards.js": {
+      "bytes": 27940,
+      "sha256": "e0a05e98ed0892afc1e8c363b997f785fd74bb061d04c4aafb5fe84908a4a5c8"
+    },
+    "public/native/card-data.json": {
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    "public/native/scripts.json": {
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    },
+    "public/native/manifest.json": {
+      "bytes": 3188,
+      "sha256": "9ee4d4f4930b0e561f472eb60e75df8cbdedde918d66fa001f0de69e263d8a05"
+    },
+    "public/native/field-banlists.json": {
+      "bytes": 70033,
+      "sha256": "0f897a1dc50df76b0b3df6e0680d5750a84113dcad1d3ed9c6422f526fa4db9f"
+    },
+    "dist/index.html": {
+      "bytes": 35567,
+      "sha256": "d146d6c588bd5207c99fff9e2c77b3215e230d55ae986612190c595bc611d08f"
+    },
+    "dist/assets/index-BAjs-Biw.js": {
+      "bytes": 609998,
+      "sha256": "ab8aece9cffe26026f69778ff4ddf9bba6a0bfc7abbe67435c725df23eed96b7"
+    }
+  },
+  "runner": {
+    "bytes": 12705,
+    "sha256": "ad9d6bfc7ae3055a7e9daf6d7943f99da4b58047303ff3d00b6725c483556470"
+  },
+  "sizes": [
+    {
+      "width": 1280,
+      "height": 900,
+      "grouped": {
+        "panelCount": 1,
+        "panel": {
+          "x": 894,
+          "y": 96,
+          "width": 370,
+          "height": 531
+        },
+        "modal": null,
+        "role": "region",
+        "title": "Inspection privée",
+        "names": [
+          "La Jinn, Génie Mystique de la Lampe",
+          "Jerry Beans Man",
+          "Alexandrite Dragon",
+          "Dark Hole",
+          "Monster Reborn",
+          "Typhon d'Espace Mystique"
+        ],
+        "images": [
+          {
+            "alt": "La Jinn, Génie Mystique de la Lampe",
+            "url": "/cards/small/97590747.jpg",
+            "loaded": true,
+            "hidden": false
+          },
+          {
+            "alt": "Jerry Beans Man",
+            "url": "http://127.0.0.1:42563/cards/native-unknown.png",
+            "loaded": true,
+            "hidden": false
+          },
+          {
+            "alt": "Alexandrite Dragon",
+            "url": "http://127.0.0.1:42563/cards/native-unknown.png",
+            "loaded": true,
+            "hidden": false
+          },
+          {
+            "alt": "Dark Hole",
+            "url": "http://127.0.0.1:42563/cards/native-unknown.png",
+            "loaded": true,
+            "hidden": false
+          },
+          {
+            "alt": "Monster Reborn",
+            "url": "/cards/small/83764718.jpg",
+            "loaded": true,
+            "hidden": false
+          },
+          {
+            "alt": "Typhon d'Espace Mystique",
+            "url": "/cards/small/5318639.jpg",
+            "loaded": true,
+            "hidden": false
+          }
+        ],
+        "buttons": [
+          {
+            "label": "Fermer l’inspection privée",
+            "x": 1169.671875,
+            "y": 111,
+            "width": 79.328125,
+            "height": 44
+          },
+          {
+            "label": "La Jinn, Génie Mystique de la Lampe. Consulter ses détails dans cette inspection privée.",
+            "x": 909,
+            "y": 190,
+            "width": 108,
+            "height": 168
+          },
+          {
+            "label": "Jerry Beans Man. Consulter ses détails dans cette inspection privée.",
+            "x": 1025,
+            "y": 190,
+            "width": 108,
+            "height": 168
+          },
+          {
+            "label": "Alexandrite Dragon. Consulter ses détails dans cette inspection privée.",
+            "x": 1141,
+            "y": 190,
+            "width": 108,
+            "height": 168
+          },
+          {
+            "label": "Dark Hole. Consulter ses détails dans cette inspection privée.",
+            "x": 909,
+            "y": 366,
+            "width": 108,
+            "height": 168
+          },
+          {
+            "label": "Monster Reborn. Consulter ses détails dans cette inspection privée.",
+            "x": 1025,
+            "y": 366,
+            "width": 108,
+            "height": 168
+          },
+          {
+            "label": "Typhon d'Espace Mystique. Consulter ses détails dans cette inspection privée.",
+            "x": 1141,
+            "y": 366,
+            "width": 108,
+            "height": 168
+          }
+        ],
+        "selectedName": "La Jinn, Génie Mystique de la Lampe",
+        "privateStateCardCount": 6,
+        "publicLog": "Journal public : aucune carte inspectée.",
+        "viewport": {
+          "width": 1280,
+          "height": 900,
+          "scrollWidth": 1280
+        }
+      },
+      "keyboardDetails": {
+        "panelCount": 1,
+        "panel": {
+          "x": 894,
+          "y": 96,
+          "width": 370,
+          "height": 547
+        },
+        "modal": null,
+        "role": "region",
+        "title": "Inspection privée",
+        "names": [
+          "La Jinn, Génie Mystique de la Lampe",
+          "Jerry Beans Man",
+          "Alexandrite Dragon",
+          "Dark Hole",
+          "Monster Reborn",
+          "Typhon d'Espace Mystique"
+        ],
+        "images": [
+          {
+            "alt": "La Jinn, Génie Mystique de la Lampe",
+            "url": "/cards/small/97590747.jpg",
+            "loaded": true,
+            "hidden": false
+          },
+          {
+            "alt": "Jerry Beans Man",
+            "url": "http://127.0.0.1:42563/cards/native-unknown.png",
+            "loaded": true,
+            "hidden": false
+          },
+          {
+            "alt": "Alexandrite Dragon",
+            "url": "http://127.0.0.1:42563/cards/native-unknown.png",
+            "loaded": true,
+            "hidden": false
+          },
+          {
+            "alt": "Dark Hole",
+            "url": "http://127.0.0.1:42563/cards/native-unknown.png",
+            "loaded": true,
+            "hidden": false
+          },
+          {
+            "alt": "Monster Reborn",
+            "url": "/cards/small/83764718.jpg",
+            "loaded": true,
+            "hidden": false
+          },
+          {
+            "alt": "Typhon d'Espace Mystique",
+            "url": "/cards/small/5318639.jpg",
+            "loaded": true,
+            "hidden": false
+          }
+        ],
+        "buttons": [
+          {
+            "label": "Fermer l’inspection privée",
+            "x": 1169.671875,
+            "y": 111,
+            "width": 79.328125,
+            "height": 44
+          },
+          {
+            "label": "La Jinn, Génie Mystique de la Lampe. Consulter ses détails dans cette inspection privée.",
+            "x": 909,
+            "y": 190,
+            "width": 108,
+            "height": 168
+          },
+          {
+            "label": "Jerry Beans Man. Consulter ses détails dans cette inspection privée.",
+            "x": 1025,
+            "y": 190,
+            "width": 108,
+            "height": 168
+          },
+          {
+            "label": "Alexandrite Dragon. Consulter ses détails dans cette inspection privée.",
+            "x": 1141,
+            "y": 190,
+            "width": 108,
+            "height": 168
+          },
+          {
+            "label": "Dark Hole. Consulter ses détails dans cette inspection privée.",
+            "x": 909,
+            "y": 366,
+            "width": 108,
+            "height": 168
+          },
+          {
+            "label": "Monster Reborn. Consulter ses détails dans cette inspection privée.",
+            "x": 1025,
+            "y": 366,
+            "width": 108,
+            "height": 168
+          },
+          {
+            "label": "Typhon d'Espace Mystique. Consulter ses détails dans cette inspection privée.",
+            "x": 1141,
+            "y": 366,
+            "width": 108,
+            "height": 168
+          }
+        ],
+        "selectedName": "Typhon d'Espace Mystique",
+        "privateStateCardCount": 6,
+        "publicLog": "Journal public : aucune carte inspectée.",
+        "viewport": {
+          "width": 1280,
+          "height": 900,
+          "scrollWidth": 1280
+        }
+      },
+      "recipientRejectedWithoutIdentityRead": true,
+      "differentGroupReplaced": true,
+      "closeEscapeAndLifecycleClearPassed": true,
+      "illustrationsAvailable": 3,
+      "printedOnlyPlaceholders": 3,
+      "captures": [
+        {
+          "path": "docs/audits/artifacts/private-card-inspection-ui-2026-10-08/private-inspection-six-cards-1280.png",
+          "bytes": 350989,
+          "sha256": "0a1c3f8b29692f11174d5fa24c039e17ab19b8866ec749a76adaeb5bea593195"
+        },
+        {
+          "path": "docs/audits/artifacts/private-card-inspection-ui-2026-10-08/private-inspection-keyboard-details-1280.png",
+          "bytes": 350886,
+          "sha256": "3077c41c78198c0f81aff06000d31cd7b4b97a67bbd383be43da24fbaa2db122"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "grouped": {
+        "panelCount": 1,
+        "panel": {
+          "x": 12,
+          "y": 393.125,
+          "width": 366,
+          "height": 438.875
+        },
+        "modal": null,
+        "role": "region",
+        "title": "Inspection privée",
+        "names": [
+          "La Jinn, Génie Mystique de la Lampe",
+          "Jerry Beans Man",
+          "Alexandrite Dragon",
+          "Dark Hole",
+          "Monster Reborn",
+          "Typhon d'Espace Mystique"
+        ],
+        "images": [
+          {
+            "alt": "La Jinn, Génie Mystique de la Lampe",
+            "url": "/cards/small/97590747.jpg",
+            "loaded": true,
+            "hidden": false
+          },
+          {
+            "alt": "Jerry Beans Man",
+            "url": "http://127.0.0.1:42563/cards/native-unknown.png",
+            "loaded": true,
+            "hidden": false
+          },
+          {
+            "alt": "Alexandrite Dragon",
+            "url": "http://127.0.0.1:42563/cards/native-unknown.png",
+            "loaded": true,
+            "hidden": false
+          },
+          {
+            "alt": "Dark Hole",
+            "url": "http://127.0.0.1:42563/cards/native-unknown.png",
+            "loaded": true,
+            "hidden": false
+          },
+          {
+            "alt": "Monster Reborn",
+            "url": "/cards/small/83764718.jpg",
+            "loaded": true,
+            "hidden": false
+          },
+          {
+            "alt": "Typhon d'Espace Mystique",
+            "url": "/cards/small/5318639.jpg",
+            "loaded": true,
+            "hidden": false
+          }
+        ],
+        "buttons": [
+          {
+            "label": "Fermer l’inspection privée",
+            "x": 283.671875,
+            "y": 408.125,
+            "width": 79.328125,
+            "height": 44
+          },
+          {
+            "label": "La Jinn, Génie Mystique de la Lampe. Consulter ses détails dans cette inspection privée.",
+            "x": 27,
+            "y": 487.125,
+            "width": 106.65625,
+            "height": 168
+          },
+          {
+            "label": "Jerry Beans Man. Consulter ses détails dans cette inspection privée.",
+            "x": 141.65625,
+            "y": 487.125,
+            "width": 106.671875,
+            "height": 168
+          },
+          {
+            "label": "Alexandrite Dragon. Consulter ses détails dans cette inspection privée.",
+            "x": 256.328125,
+            "y": 487.125,
+            "width": 106.65625,
+            "height": 168
+          },
+          {
+            "label": "Dark Hole. Consulter ses détails dans cette inspection privée.",
+            "x": 27,
+            "y": 663.125,
+            "width": 106.65625,
+            "height": 168
+          },
+          {
+            "label": "Monster Reborn. Consulter ses détails dans cette inspection privée.",
+            "x": 141.65625,
+            "y": 663.125,
+            "width": 106.671875,
+            "height": 168
+          },
+          {
+            "label": "Typhon d'Espace Mystique. Consulter ses détails dans cette inspection privée.",
+            "x": 256.328125,
+            "y": 663.125,
+            "width": 106.65625,
+            "height": 168
+          }
+        ],
+        "selectedName": "La Jinn, Génie Mystique de la Lampe",
+        "privateStateCardCount": 6,
+        "publicLog": "Journal public : aucune carte inspectée.",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "scrollWidth": 390
+        }
+      },
+      "keyboardDetails": {
+        "panelCount": 1,
+        "panel": {
+          "x": 12,
+          "y": 393.125,
+          "width": 366,
+          "height": 438.875
+        },
+        "modal": null,
+        "role": "region",
+        "title": "Inspection privée",
+        "names": [
+          "La Jinn, Génie Mystique de la Lampe",
+          "Jerry Beans Man",
+          "Alexandrite Dragon",
+          "Dark Hole",
+          "Monster Reborn",
+          "Typhon d'Espace Mystique"
+        ],
+        "images": [
+          {
+            "alt": "La Jinn, Génie Mystique de la Lampe",
+            "url": "/cards/small/97590747.jpg",
+            "loaded": true,
+            "hidden": false
+          },
+          {
+            "alt": "Jerry Beans Man",
+            "url": "http://127.0.0.1:42563/cards/native-unknown.png",
+            "loaded": true,
+            "hidden": false
+          },
+          {
+            "alt": "Alexandrite Dragon",
+            "url": "http://127.0.0.1:42563/cards/native-unknown.png",
+            "loaded": true,
+            "hidden": false
+          },
+          {
+            "alt": "Dark Hole",
+            "url": "http://127.0.0.1:42563/cards/native-unknown.png",
+            "loaded": true,
+            "hidden": false
+          },
+          {
+            "alt": "Monster Reborn",
+            "url": "/cards/small/83764718.jpg",
+            "loaded": true,
+            "hidden": false
+          },
+          {
+            "alt": "Typhon d'Espace Mystique",
+            "url": "/cards/small/5318639.jpg",
+            "loaded": true,
+            "hidden": false
+          }
+        ],
+        "buttons": [
+          {
+            "label": "Fermer l’inspection privée",
+            "x": 283.671875,
+            "y": 408.125,
+            "width": 79.328125,
+            "height": 44
+          },
+          {
+            "label": "La Jinn, Génie Mystique de la Lampe. Consulter ses détails dans cette inspection privée.",
+            "x": 27,
+            "y": 487.125,
+            "width": 106.65625,
+            "height": 168
+          },
+          {
+            "label": "Jerry Beans Man. Consulter ses détails dans cette inspection privée.",
+            "x": 141.65625,
+            "y": 487.125,
+            "width": 106.671875,
+            "height": 168
+          },
+          {
+            "label": "Alexandrite Dragon. Consulter ses détails dans cette inspection privée.",
+            "x": 256.328125,
+            "y": 487.125,
+            "width": 106.65625,
+            "height": 168
+          },
+          {
+            "label": "Dark Hole. Consulter ses détails dans cette inspection privée.",
+            "x": 27,
+            "y": 663.125,
+            "width": 106.65625,
+            "height": 168
+          },
+          {
+            "label": "Monster Reborn. Consulter ses détails dans cette inspection privée.",
+            "x": 141.65625,
+            "y": 663.125,
+            "width": 106.671875,
+            "height": 168
+          },
+          {
+            "label": "Typhon d'Espace Mystique. Consulter ses détails dans cette inspection privée.",
+            "x": 256.328125,
+            "y": 663.125,
+            "width": 106.65625,
+            "height": 168
+          }
+        ],
+        "selectedName": "Typhon d'Espace Mystique",
+        "privateStateCardCount": 6,
+        "publicLog": "Journal public : aucune carte inspectée.",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "scrollWidth": 390
+        }
+      },
+      "recipientRejectedWithoutIdentityRead": true,
+      "differentGroupReplaced": true,
+      "closeEscapeAndLifecycleClearPassed": true,
+      "illustrationsAvailable": 3,
+      "printedOnlyPlaceholders": 3,
+      "captures": [
+        {
+          "path": "docs/audits/artifacts/private-card-inspection-ui-2026-10-08/private-inspection-six-cards-390.png",
+          "bytes": 102408,
+          "sha256": "760b917abc8d41847c4f504ad5480ae08d82cf194eae032006f70ed631ebda39"
+        },
+        {
+          "path": "docs/audits/artifacts/private-card-inspection-ui-2026-10-08/private-inspection-keyboard-details-390.png",
+          "bytes": 105688,
+          "sha256": "0a0b5deecd4fa674ae23c9146b517a4db4c3b0ec3c127aacf0c9903f429036c1"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "localArtwork": [
+    {
+      "assetPath": "/cards/native-unknown.png",
+      "bytes": 7624,
+      "sha256": "519c1650ed87d5a5a8055c3ccc5b4b9010c6de98ce80f7d6e311b387007d13c7"
+    },
+    {
+      "assetPath": "/cards/small/5318639.jpg",
+      "bytes": 23981,
+      "sha256": "5beb7a91f50f06be96ea54de2ed44d90bcbabf4adf0bb424387b0216c4079144"
+    },
+    {
+      "assetPath": "/cards/small/83764718.jpg",
+      "bytes": 19447,
+      "sha256": "7cdeaa331ef3b2b7a3f5dcc271108fd5bbac01bcb27c1618f439fbd12a7bca17"
+    },
+    {
+      "assetPath": "/cards/small/97590747.jpg",
+      "bytes": 23132,
+      "sha256": "9badc06982c5fa131ee2252b1e454701598a2529841bc5f85688fd060c8abe41"
+    }
+  ],
+  "dependenciesUnchangedDuringCapture": true,
+  "ok": true
+}

@@ -1,7 +1,10 @@
-import { getDeckCopyIdentity } from './CardNameRules.js';
+import {
+  CURRENT_TCG_BANLIST_ID, createCurrentTcgBanlist,
+  getTcgSnapshotCopyIdentity, TCG_SWISS_POLICY
+} from './tcg/TcgAdvancedFormat.js';
 
 const DEFAULT_FORMAT_ID = 'TCG_ADVANCED';
-const DEFAULT_BANLIST_ID = 'TCG_EU_2026_09_21';
+const DEFAULT_BANLIST_ID = CURRENT_TCG_BANLIST_ID;
 const SERIALIZATION_VERSION = 2;
 const MAX_SERIALIZED_LENGTH = 2_000_000;
 const UNSAFE_OBJECT_KEYS = new Set(['__proto__', 'prototype', 'constructor']);
@@ -13,7 +16,14 @@ const UNSAFE_OBJECT_KEYS = new Set(['__proto__', 'prototype', 'constructor']);
  * from the visual duel runtime so it can be persisted and tested deterministically.
  */
 export class MatchEngine {
-  constructor() {
+  constructor(options = {}) {
+    this._validationOptions = {};
+    for (const name of ['getCopyIdentity', 'getCardEligibility', 'getCardRestriction', 'isSupportedCard']) {
+      if (options[name] !== undefined && typeof options[name] !== 'function') {
+        throw new TypeError(`${name} must be a trusted card resolver function.`);
+      }
+      if (options[name]) this._validationOptions[name] = options[name];
+    }
     this.formats = {
       TCG_ADVANCED: {
         mainMin: 40,
@@ -31,11 +41,8 @@ export class MatchEngine {
       }
     };
 
-    // Verified local subset of the official Advanced list effective 21 September
-    // 2026: https://www.yugioh-card.com/en/limited/list_2026-09-21/
-    // Local limits are unchanged since May. Keep the previous snapshot so saved
-    // Matches continue under their registered list; these entries do not cover
-    // every card on the full official list.
+    // The previous limited local snapshot remains unchanged for existing saves.
+    // New Matches use the complete, source-pinned current Konami Advanced list.
     this.banlists = {
       TCG_EU_2026_05_18: {
         forbidden: [
@@ -51,20 +58,7 @@ export class MatchEngine {
         ],
         semi_limited: []
       },
-      TCG_EU_2026_09_21: {
-        forbidden: [
-          '55144522' // Pot of Greed
-        ],
-        limited: [
-          '83764718', // Monster Reborn
-          '33396948', // Exodia the Forbidden One
-          '07902349', // Left Leg of the Forbidden One (printed passcode)
-          '44519536', // Right Leg of the Forbidden One
-          '15303296', // Left Arm of the Forbidden One
-          '70903634'  // Right Arm of the Forbidden One
-        ],
-        semi_limited: []
-      }
+      [DEFAULT_BANLIST_ID]: createCurrentTcgBanlist()
     };
 
     this.resetMatch();
@@ -77,12 +71,12 @@ export class MatchEngine {
   validateDeck(deck, formatId = DEFAULT_FORMAT_ID, banlistId = DEFAULT_BANLIST_ID) {
     const normalizedDeck = this._normalizeDeck(deck);
     const format = this.formats[formatId] || this.formats[DEFAULT_FORMAT_ID];
-    const banlist = this.banlists[banlistId] || {
-      forbidden: [],
-      limited: [],
-      semi_limited: []
-    };
     const issues = [];
+
+    if (!this.formats[formatId]) issues.push({ code: 'UNKNOWN_FORMAT', message: `Unknown match format: ${formatId}` });
+    if (!this.banlists[banlistId] && banlistId !== 'BUILDER_SANDBOX_UNLIMITED') {
+      issues.push({ code: 'UNKNOWN_BANLIST', message: `Unknown banlist: ${banlistId}` });
+    }
 
     for (const section of ['mainDeck', 'extraDeck', 'sideDeck']) {
       if (deck?.[section] !== undefined && !Array.isArray(deck[section])) {
@@ -128,6 +122,21 @@ export class MatchEngine {
             index,
             message: `${section}[${index}] must be a card with a valid id.`
           });
+          return;
+        }
+        const expectedSection = section === 'mainDeck' ? 'main' : section === 'extraDeck' ? 'extra' : 'side';
+        if (this._validationOptions.isSupportedCard
+          && !this._validationOptions.isSupportedCard(card, expectedSection)) {
+          issues.push({ code: 'UNSUPPORTED_TCG_CARD', section, index,
+            message: `${card.name || this._cardId(card)} is not supported by the trusted card catalogue.` });
+        }
+        if (this._validationOptions.getCardEligibility) {
+          const eligibility = this._validationOptions.getCardEligibility(card, expectedSection);
+          if (eligibility?.allowed !== true) {
+            issues.push({ code: eligibility?.code || 'TCG_CARD_INELIGIBLE', ...eligibility, section, index,
+              cardId: this._cardId(card),
+              message: eligibility?.message || 'This card is not eligible for TCG play.' });
+          }
         }
       });
     }
@@ -163,18 +172,14 @@ export class MatchEngine {
 
     allCards.forEach(card => {
       if (this._cardId(card) === null) return;
-      const id = getDeckCopyIdentity(card);
+      const id = this._copyIdentity(card);
       counts.set(id, (counts.get(id) || 0) + 1);
       if (!cardById.has(id)) cardById.set(id, card);
     });
 
     for (const [id, count] of counts) {
       const card = cardById.get(id);
-      let allowed = format.baseCopyLimit;
-
-      if (this._banlistContains(banlist.forbidden, id)) allowed = 0;
-      else if (this._banlistContains(banlist.limited, id)) allowed = 1;
-      else if (this._banlistContains(banlist.semi_limited, id)) allowed = 2;
+      const allowed = this.getCardCopyLimit({ id }, formatId, banlistId);
 
       if (count > allowed) {
         issues.push({
@@ -199,6 +204,24 @@ export class MatchEngine {
       || card?.extra_type
       || /Fusion|Synchro|Xyz|Link/i.test(card?.type || '')
     );
+  }
+
+  getCardCopyLimit(card, formatId = DEFAULT_FORMAT_ID, banlistId = DEFAULT_BANLIST_ID) {
+    const datedLimit = formatId === DEFAULT_FORMAT_ID
+      ? this._validationOptions.getCardRestriction?.(card, banlistId) : null;
+    if (Number.isInteger(datedLimit) && datedLimit >= 0 && datedLimit <= 3) return datedLimit;
+    const id = getTcgSnapshotCopyIdentity(card);
+    const format = this.formats[formatId] || this.formats[DEFAULT_FORMAT_ID];
+    const list = this.banlists[banlistId];
+    if (!list) return format.baseCopyLimit;
+    if (this._banlistContains(list.forbidden, id)) return 0;
+    if (this._banlistContains(list.limited, id)) return 1;
+    if (this._banlistContains(list.semi_limited, id)) return 2;
+    return format.baseCopyLimit;
+  }
+
+  getValidationOptions() {
+    return { ...this._validationOptions };
   }
 
   /**
@@ -239,11 +262,13 @@ export class MatchEngine {
 
     // Card metadata cannot be rewritten during siding to disguise an Extra Deck card.
     const originalKinds = new Map();
+    const originalDefinitions = new Map();
     for (const card of [...original.mainDeck, ...original.extraDeck, ...original.sideDeck]) {
       const id = this._cardId(card);
       if (id !== null && !originalKinds.has(id)) {
         originalKinds.set(id, this.belongsInExtraDeck(card));
       }
+      if (id !== null && !originalDefinitions.has(id)) originalDefinitions.set(id, this._cardDefinition(card));
     }
     for (const card of [...candidate.mainDeck, ...candidate.extraDeck, ...candidate.sideDeck]) {
       const id = this._cardId(card);
@@ -257,6 +282,10 @@ export class MatchEngine {
           cardId: id,
           message: `Card ${id} changed deck classification during Side Deck exchange.`
         });
+      } else if (id !== null && originalDefinitions.has(id)
+        && originalDefinitions.get(id) !== this._cardDefinition(card)) {
+        issues.push({ code: 'SIDE_DECK_CARD_MUTATED', cardId: id,
+          message: `Card ${id} changed its registered definition during Side Deck exchange.` });
       }
     }
 
@@ -290,7 +319,9 @@ export class MatchEngine {
       winnerId: null,
       games: [],
       registeredDecks: {},
-      activeDecks: {}
+      activeDecks: {},
+      tournamentPolicy: null, timeLimitMinutes: null,
+      completionReason: null, doubleLoss: false, timedOutDuringDuel: false
     };
     return this.getMatchState();
   }
@@ -308,6 +339,17 @@ export class MatchEngine {
     const firstPlayerId = config.firstPlayerId || config.firstPlayer || playerIds[0];
     const formatId = config.formatId || DEFAULT_FORMAT_ID;
     const banlistId = config.banlistId || DEFAULT_BANLIST_ID;
+    const tournamentPolicy = config.tournamentPolicy ?? null;
+    if (tournamentPolicy !== null && tournamentPolicy !== TCG_SWISS_POLICY.id) {
+      throw new RangeError('Unknown tournament policy.');
+    }
+    if (tournamentPolicy && (formatId !== DEFAULT_FORMAT_ID
+      || (config.timeLimitMinutes !== undefined && config.timeLimitMinutes !== TCG_SWISS_POLICY.timeLimitMinutes))) {
+      throw new RangeError('TCG EU Swiss requires Advanced format and a 50-minute limit.');
+    }
+    if (!tournamentPolicy && config.timeLimitMinutes != null) {
+      throw new RangeError('A time limit requires an explicit tournament policy.');
+    }
 
     if (!playerIds.includes(firstPlayerId)) {
       throw new RangeError('firstPlayerId must identify one of the two match players.');
@@ -360,7 +402,9 @@ export class MatchEngine {
       winnerId: null,
       games: [],
       registeredDecks,
-      activeDecks
+      activeDecks,
+      tournamentPolicy, timeLimitMinutes: tournamentPolicy ? TCG_SWISS_POLICY.timeLimitMinutes : null,
+      completionReason: null, doubleLoss: false, timedOutDuringDuel: false
     };
 
     return this.getMatchState();
@@ -429,6 +473,7 @@ export class MatchEngine {
       this._state.status = 'complete';
       this._state.winnerId = scoreWinner;
       this._state.nextFirstPlayerId = null;
+      this._state.completionReason = 'two_wins';
     } else {
       this._state.status = 'between_games';
       // Tournament policy gives a Duelist the choice; there is no automatic
@@ -436,6 +481,24 @@ export class MatchEngine {
       this._state.nextFirstPlayerId = null;
     }
 
+    return this.getMatchState();
+  }
+
+  /** Tournament clocks are owned by the UI. Time expiry never invents a Duel
+   * win: current KDE-E Swiss policy ends an unfinished Match in a double loss. */
+  endMatchAtTime() {
+    if (this._state.tournamentPolicy !== TCG_SWISS_POLICY.id) {
+      throw new Error('Time expiry requires the explicit TCG EU Swiss tournament policy.');
+    }
+    if (!['active', 'between_games'].includes(this._state.status)) {
+      throw new Error('Only an unfinished Match can end on time.');
+    }
+    this._state.timedOutDuringDuel = this._state.status === 'active';
+    this._state.status = 'complete';
+    this._state.winnerId = null;
+    this._state.nextFirstPlayerId = null;
+    this._state.completionReason = 'time_limit';
+    this._state.doubleLoss = true;
     return this.getMatchState();
   }
 
@@ -625,8 +688,8 @@ export class MatchEngine {
     return this.restore(serialized);
   }
 
-  static deserialize(serialized) {
-    const engine = new MatchEngine();
+  static deserialize(serialized, options = {}) {
+    const engine = new MatchEngine(options);
     engine.restore(serialized);
     return engine;
   }
@@ -713,7 +776,10 @@ export class MatchEngine {
       throw new RangeError('Serialized scores do not match game history.');
     }
 
-    const terminal = matchEndedAt !== null;
+    const timedOut = raw.completionReason === 'time_limit';
+    const policy = this._validateTournamentState(raw, timedOut);
+    const terminal = matchEndedAt !== null || timedOut;
+    if (timedOut && matchEndedAt !== null) throw new RangeError('Time expiry cannot overwrite a completed Match result.');
     if ((raw.status === 'complete') !== terminal) {
       throw new RangeError('Serialized match completion state is inconsistent.');
     }
@@ -721,14 +787,15 @@ export class MatchEngine {
       throw new RangeError('A match cannot be between games before game 1.');
     }
 
-    const expectedGameNumber = raw.status === 'active' ? games.length + 1 : games.length;
+    const interruptedDuel = timedOut && raw.timedOutDuringDuel;
+    const expectedGameNumber = raw.status === 'active' || interruptedDuel ? games.length + 1 : games.length;
     if (raw.gameNumber !== expectedGameNumber || expectedGameNumber < 1) {
       throw new RangeError('Serialized current game number is inconsistent.');
     }
 
     const expectedCompletedFirstPlayer = games.at(-1)?.firstPlayerId || null;
     const currentFirstPlayerIsValid = playerIds.includes(raw.currentFirstPlayerId);
-    const currentFirstPlayerMatchesState = raw.status === 'active'
+    const currentFirstPlayerMatchesState = raw.status === 'active' || interruptedDuel
       ? (
         currentFirstPlayerIsValid
         && (expectedGameNumber !== 1 || raw.currentFirstPlayerId === raw.initialFirstPlayerId)
@@ -739,7 +806,7 @@ export class MatchEngine {
     }
     const currentFirstPlayerId = raw.currentFirstPlayerId;
 
-    const derivedWinner = terminal
+    const derivedWinner = terminal && !timedOut
       ? this._winnerFromScores(scores, playerIds)
       : null;
     if ((raw.winnerId ?? null) !== derivedWinner) {
@@ -785,11 +852,16 @@ export class MatchEngine {
       winnerId: derivedWinner,
       games,
       registeredDecks,
-      activeDecks
+      activeDecks,
+      ...policy,
+      completionReason: timedOut ? 'time_limit' : terminal ? 'two_wins' : null,
+      doubleLoss: timedOut, timedOutDuringDuel: Boolean(interruptedDuel)
     };
   }
 
   _createRestoredIdleState(raw) {
+    const policy = this._validateTournamentState(raw, false);
+    if (policy.tournamentPolicy !== null) throw new RangeError('Idle Match cannot contain a tournament clock.');
     const playerIds = this._validatePlayerIds(raw.playerIds || ['player', 'opponent']);
     if (
       raw.gameNumber !== 0
@@ -843,7 +915,8 @@ export class MatchEngine {
       winnerId: null,
       games: [],
       registeredDecks,
-      activeDecks
+      activeDecks,
+      ...policy, completionReason: null, doubleLoss: false, timedOutDuringDuel: false
     };
   }
 
@@ -916,6 +989,9 @@ export class MatchEngine {
 
   _cloneSafe(value, seen = new WeakSet(), depth = 0) {
     if (value === null || typeof value === 'string' || typeof value === 'boolean') return value;
+    // Native CDB races are unsigned 64-bit masks. Decimal strings preserve all
+    // bits in JSON; duel initialization resolves the immutable CDB data by ID.
+    if (typeof value === 'bigint') return value.toString();
     if (typeof value === 'number') {
       if (!Number.isFinite(value)) throw new TypeError('Match state cannot contain non-finite numbers.');
       return value;
@@ -956,6 +1032,39 @@ export class MatchEngine {
     const id = String(rawId).trim();
     if (!id) return null;
     return /^\d+$/.test(id) ? id.replace(/^0+(?=\d)/, '') : id;
+  }
+
+  _copyIdentity(card) {
+    const resolved = this._validationOptions.getCopyIdentity?.(card);
+    return getTcgSnapshotCopyIdentity(resolved == null ? card : resolved);
+  }
+
+  _cardDefinition(card) {
+    const value = this._cloneSafe(card);
+    value.id = this._cardId(card);
+    // Runtime-only locations/identifiers do not change a registered card. All
+    // actual names, rules text, stats, classifications and native metadata do.
+    for (const key of ['uid', 'owner', 'controller', 'position', 'location', 'sequence', 'selected']) delete value[key];
+    const canonical = input => Array.isArray(input) ? input.map(canonical)
+      : input && typeof input === 'object'
+        ? Object.fromEntries(Object.keys(input).sort().map(key => [key, canonical(input[key])])) : input;
+    return JSON.stringify(canonical(value));
+  }
+
+  _validateTournamentState(raw, timedOut) {
+    const tournamentPolicy = raw.tournamentPolicy ?? null;
+    const timeLimitMinutes = raw.timeLimitMinutes ?? null;
+    if (tournamentPolicy !== null && tournamentPolicy !== TCG_SWISS_POLICY.id) throw new RangeError('Serialized tournament policy is unknown.');
+    if (tournamentPolicy === null ? timeLimitMinutes !== null : timeLimitMinutes !== TCG_SWISS_POLICY.timeLimitMinutes
+      || raw.formatId !== DEFAULT_FORMAT_ID) throw new RangeError('Serialized tournament time limit is inconsistent.');
+    if (timedOut) {
+      if (raw.status !== 'complete' || tournamentPolicy !== TCG_SWISS_POLICY.id || raw.doubleLoss !== true
+        || typeof raw.timedOutDuringDuel !== 'boolean') throw new RangeError('Serialized timed Match result is inconsistent.');
+    } else if ((raw.doubleLoss ?? false) !== false || (raw.timedOutDuringDuel ?? false) !== false
+      || (raw.completionReason != null && !(raw.status === 'complete' && raw.completionReason === 'two_wins'))) {
+      throw new RangeError('Serialized Match completion reason is inconsistent.');
+    }
+    return { tournamentPolicy, timeLimitMinutes };
   }
 
   _poolCounts(deck) {

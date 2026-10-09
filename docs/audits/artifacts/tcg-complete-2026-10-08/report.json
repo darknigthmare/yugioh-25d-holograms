@@ -1,0 +1,3728 @@
+{
+  "format": "tcg-complete-format-audit-v1",
+  "date": "2026-10-08",
+  "auditedAtUtc": "2026-10-08T22:39:36.768Z",
+  "ok": true,
+  "baseCommit": "b8e216cd53ccc640366c91755268291afb1840d2",
+  "scope": "Complete official Advanced restriction table, trusted CDB copy identities, provider regional eligibility, registered Deck/Side/Match rules and optional KDE-E Swiss expiry; not a certification of all card interactions or every territory-specific promo release.",
+  "officialList": {
+    "id": "TCG_EU_2026_09_21",
+    "asOf": "2026-10-08",
+    "effectiveDate": "2026-09-21",
+    "sourceUrl": "https://www.yugioh-card.com/en/limited/list_2026-09-21/",
+    "sourceSha256": "4477c35dea86300050449fa3e9a48291d876338669ba83e8d7371280a2c12806",
+    "sourceBytes": 65695,
+    "databaseSha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d",
+    "databaseCommit": "fdf92aea31033cd6c44afa89987c5e00665205e2",
+    "officialTableRows": 231,
+    "restrictedNames": 222,
+    "forbidden": 121,
+    "limited": 94,
+    "semiLimited": 7,
+    "newlyUnlimited": 9,
+    "allOfficialNamesResolved": true,
+    "delayedChanges": [
+      "MIND MASTER",
+      "ELDER ENTITY NORDEN"
+    ]
+  },
+  "officialRowsTested": 231,
+  "lifecycleCasesTested": 14,
+  "officialRows": [
+    {
+      "name": "AGIDO THE ANCIENT SENTINEL",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "62320425",
+      "physicalCodes": [
+        "62320425"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "ARCHLORD KRISTYA",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "59509952",
+      "physicalCodes": [
+        "59509952"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "ARCHNEMESES PROTOS",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "6728559",
+      "physicalCodes": [
+        "6728559"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "ARTIFACT MJOLLNIR",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "80237445",
+      "physicalCodes": [
+        "80237445"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "ARTIFACT SCYTHE",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "20292186",
+      "physicalCodes": [
+        "20292186"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "BARRIER STATUE OF THE DROUGHT",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "19740112",
+      "physicalCodes": [
+        "19740112"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "BARRIER STATUE OF THE INFERNO",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "47961808",
+      "physicalCodes": [
+        "47961808"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "BARRIER STATUE OF THE STORMWINDS",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "73356503",
+      "physicalCodes": [
+        "73356503"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "BARRIER STATUE OF THE TORRENT",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "10963799",
+      "physicalCodes": [
+        "10963799"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "BLACKWING - GOFU THE VAGUE SHADOW",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "9929398",
+      "physicalCodes": [
+        "9929398"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "BLOCK DRAGON",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "94689206",
+      "physicalCodes": [
+        "94689206"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "CYBER-STEIN",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "69015963",
+      "physicalCodes": [
+        "69015963"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "DANDYLION",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "15341821",
+      "physicalCodes": [
+        "15341821"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "DIMENSION SHIFTER",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "91800273",
+      "physicalCodes": [
+        "91800273"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "DJINN RELEASER OF RITUALS",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "8903700",
+      "physicalCodes": [
+        "8903700"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "ECLIPSE WYVERN",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "51858306",
+      "physicalCodes": [
+        "51858306"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "FIBER JAR",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "78706415",
+      "physicalCodes": [
+        "78706415"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "FISHBORG BLASTER",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "93369354",
+      "physicalCodes": [
+        "93369354"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "FOSSIL DYNA PACHYCEPHALO",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "42009836",
+      "physicalCodes": [
+        "42009836"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "GIMMICK PUPPET NIGHTMARE",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "55204071",
+      "physicalCodes": [
+        "55204071"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "GRINDER GOLEM",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "75732622",
+      "physicalCodes": [
+        "75732622"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "JOWGEN THE SPIRITUALIST",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "41855169",
+      "physicalCodes": [
+        "41855169"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "K9-04 NOROI",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "47960073",
+      "physicalCodes": [
+        "47960073"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "KELBEK THE ANCIENT VANGUARD",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "25926710",
+      "physicalCodes": [
+        "25926710"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "KEWL TUNE ROTARY",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "17209452",
+      "physicalCodes": [
+        "17209452"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "LEVEL EATER",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "57421866",
+      "physicalCodes": [
+        "57421866"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "MAGICAL SCIENTIST",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "34206604",
+      "physicalCodes": [
+        "34206604"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "MAXX \"C\"",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "23434538",
+      "physicalCodes": [
+        "23434538"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "NATURIA ROSEWHIP",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "61049315",
+      "physicalCodes": [
+        "61049315"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "PHOENIXIAN CLUSTER AMARYLLIS",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "23558733",
+      "physicalCodes": [
+        "23558733"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "RONINTOADIN",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "1357146",
+      "physicalCodes": [
+        "1357146"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "SPYRAL MASTER PLAN",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "91258852",
+      "physicalCodes": [
+        "91258852"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "THE TYRANT NEPTUNE",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "88071625",
+      "physicalCodes": [
+        "88071625"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "VICTORY DRAGON",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "44910027",
+      "physicalCodes": [
+        "44910027"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "WIND-UP HUNTER",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "16923472",
+      "physicalCodes": [
+        "16923472"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "SUPREME KING DRAGON STARVING VENOM",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "43387895",
+      "physicalCodes": [
+        "43387895"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "TEARLAMENTS KITKALLOS",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "92731385",
+      "physicalCodes": [
+        "92731385"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "APOLLOUSA, BOW OF THE GODDESS",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "4280258",
+      "physicalCodes": [
+        "4280258",
+        "4280259"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "CRYSTRON HALQIFIBRAX",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "50588353",
+      "physicalCodes": [
+        "50588353"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "CURIOUS, THE LIGHTSWORN DOMINION",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "98095162",
+      "physicalCodes": [
+        "98095162"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "GUARDRAGON AGARPAIN",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "59537380",
+      "physicalCodes": [
+        "59537380"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "GUARDRAGON ELPY",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "86148577",
+      "physicalCodes": [
+        "86148577"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "HEAVYMETALFOES ELECTRUMITE",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "24094258",
+      "physicalCodes": [
+        "24094258"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "ISOLDE, TWO TALES OF THE NOBLE KNIGHTS",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "59934749",
+      "physicalCodes": [
+        "59934749"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "KNIGHTMARE GOBLIN",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "39064822",
+      "physicalCodes": [
+        "39064822"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "KNIGHTMARE GRYPHON",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "65330383",
+      "physicalCodes": [
+        "65330383"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "KNIGHTMARE MERMAID",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "3679218",
+      "physicalCodes": [
+        "3679218"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "LINK DECODER",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "30342076",
+      "physicalCodes": [
+        "30342076"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "LINKROSS",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "85243784",
+      "physicalCodes": [
+        "85243784"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "MALISS <Q> WHITE BINDER",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "95454996",
+      "physicalCodes": [
+        "95454996"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "MECHA PHANTOM BEAST AURORADON",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "44097050",
+      "physicalCodes": [
+        "44097050"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "MOON OF THE CLOSED HEAVEN",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "71818935",
+      "physicalCodes": [
+        "71818935"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "PRANK-KIDS MEOW-MEOW-MU",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "25725326",
+      "physicalCodes": [
+        "25725326"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "PREDAPLANT VERTE ANACONDA",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "70369116",
+      "physicalCodes": [
+        "70369116"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "PROTECTCODE TALKER",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "58036229",
+      "physicalCodes": [
+        "58036229"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "REPRODOCUS",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "34989413",
+      "physicalCodes": [
+        "34989413"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "SIMORGH, BIRD OF SOVEREIGNTY",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "72330894",
+      "physicalCodes": [
+        "72330894"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "SPLASH MAGE",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "59859086",
+      "physicalCodes": [
+        "59859086"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "SPRIGHT ELF",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "27381364",
+      "physicalCodes": [
+        "27381364"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "SUPERHEAVY SAMURAI SCARECROW",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "33918636",
+      "physicalCodes": [
+        "33918636"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "TOPOLOGIC GUMBLAR DRAGON",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "22593417",
+      "physicalCodes": [
+        "22593417"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "UNION CARRIER",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "83152482",
+      "physicalCodes": [
+        "83152482"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "BARONNE DE FLEUR",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "84815190",
+      "physicalCodes": [
+        "84815190"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "BORRELOAD SAVAGE DRAGON",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "27548199",
+      "physicalCodes": [
+        "27548199"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "CHAOS RULER, THE CHAOTIC MAGICAL DRAGON",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "3040496",
+      "physicalCodes": [
+        "3040496"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "HERALD OF THE ARC LIGHT",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "79606837",
+      "physicalCodes": [
+        "79606837"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "HOT RED DRAGON ARCHFIEND KING CALAMITY",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "62242678",
+      "physicalCodes": [
+        "62242678"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "PHANTASMAL LORD ULTIMITL BISHBAALKIN",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "90884403",
+      "physicalCodes": [
+        "90884403"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "PSY-FRAMELORD OMEGA",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "74586817",
+      "physicalCodes": [
+        "74586817"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "TEMPEST MAGICIAN",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "63101919",
+      "physicalCodes": [
+        "63101919"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "ABYSS DWELLER",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "21044178",
+      "physicalCodes": [
+        "21044178"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "BAHAMUT SHARK",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "440556",
+      "physicalCodes": [
+        "440556"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "BEATRICE, LADY OF THE ETERNAL",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "27552504",
+      "physicalCodes": [
+        "27552504"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "CXYZ GIMMICK PUPPET FANATIX MACHINIX",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "3685372",
+      "physicalCodes": [
+        "3685372"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "EVILSWARM OUROBOROS",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "38273745",
+      "physicalCodes": [
+        "38273745"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "KASHTIRA ARISE-HEART",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "48626373",
+      "physicalCodes": [
+        "48626373"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "KING OF THE FERAL IMPS",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "11398059",
+      "physicalCodes": [
+        "11398059"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "LAVALVAL CHAIN",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "34086406",
+      "physicalCodes": [
+        "34086406"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "NUMBER 16: SHOCK MASTER",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "54719828",
+      "physicalCodes": [
+        "54719828"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "NUMBER 42: GALAXY TOMAHAWK",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "10389142",
+      "physicalCodes": [
+        "10389142"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "NUMBER 67: PAIR-A-DICE SMASHER",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "35772782",
+      "physicalCodes": [
+        "35772782"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "NUMBER 86: HEROIC CHAMPION - RHONGOMYNIAD",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "63504681",
+      "physicalCodes": [
+        "63504681"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "NUMBER 89: DIABLOSIS THE MIND HACKER",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "95474755",
+      "physicalCodes": [
+        "95474755"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "NUMBER 95: GALAXY-EYES DARK MATTER DRAGON",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "58820923",
+      "physicalCodes": [
+        "58820923"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "NUMBER S0: UTOPIC ZEXAL",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "52653092",
+      "physicalCodes": [
+        "52653092"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "OUTER ENTITY AZATHOT",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "34945480",
+      "physicalCodes": [
+        "34945480"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "TRUE KING OF ALL CALAMITIES",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "88581108",
+      "physicalCodes": [
+        "88581108"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "ZOODIAC BROADBULL",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "85115440",
+      "physicalCodes": [
+        "85115440"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "BUTTERFLY DAGGER - ELMA",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "69243953",
+      "physicalCodes": [
+        "69243953"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "CARD OF SAFE RETURN",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "57953380",
+      "physicalCodes": [
+        "57953380"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "COLD WAVE",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "60682203",
+      "physicalCodes": [
+        "60682203"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "CONFISCATION",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "17375316",
+      "physicalCodes": [
+        "17375316"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "DELINQUENT DUO",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "44763025",
+      "physicalCodes": [
+        "44763025"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "DIMENSION FUSION",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "23557835",
+      "physicalCodes": [
+        "23557835"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "GIANT TRUNADE",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "42703248",
+      "physicalCodes": [
+        "42703248"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "GRACEFUL CHARITY",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "79571449",
+      "physicalCodes": [
+        "79571449"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "HEAVY STORM",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "19613556",
+      "physicalCodes": [
+        "19613556"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "KAISER COLOSSEUM",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "35059553",
+      "physicalCodes": [
+        "35059553"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "LAST WILL",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "85602018",
+      "physicalCodes": [
+        "85602018"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "MASS DRIVER",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "34906152",
+      "physicalCodes": [
+        "34906152"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "MYSTIC MINE",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "76375976",
+      "physicalCodes": [
+        "76375976"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "ORIGINAL SINFUL SPOILS - SNAKE-EYE",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "89023486",
+      "physicalCodes": [
+        "89023486"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "PAINFUL CHOICE",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "74191942",
+      "physicalCodes": [
+        "74191942"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "POT OF GREED",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "55144522",
+      "physicalCodes": [
+        "55144522"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "SMOKE GRENADE OF THE THIEF",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "63789924",
+      "physicalCodes": [
+        "63789924"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "SOUL CHARGE",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "54447022",
+      "physicalCodes": [
+        "54447022"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "THE FORCEFUL SENTRY",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "42829885",
+      "physicalCodes": [
+        "42829885"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "APPOINTER OF THE RED LOTUS",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "43262273",
+      "physicalCodes": [
+        "43262273"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "BRANDED EXPULSION",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "1041278",
+      "physicalCodes": [
+        "1041278"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "DIMENSIONAL BARRIER",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "83326048",
+      "physicalCodes": [
+        "83326048"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "HARPIE'S FEATHER STORM",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "87639778",
+      "physicalCodes": [
+        "87639778"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "IMPERIAL ORDER",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "61740673",
+      "physicalCodes": [
+        "61740673"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "LAST TURN",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "28566710",
+      "physicalCodes": [
+        "28566710"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "RED REBOOT",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "23002292",
+      "physicalCodes": [
+        "23002292"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "RETURN FROM THE DIFFERENT DIMENSION",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "27174286",
+      "physicalCodes": [
+        "27174286"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "ROYAL OPPRESSION",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "93016201",
+      "physicalCodes": [
+        "93016201"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "SELF-DESTRUCT BUTTON",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "57585212",
+      "physicalCodes": [
+        "57585212"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "SIXTH SENSE",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "3280747",
+      "physicalCodes": [
+        "3280747"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "SUMMON LIMIT",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "23516703",
+      "physicalCodes": [
+        "23516703"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "TRAP DUSTSHOOT",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "64697231",
+      "physicalCodes": [
+        "64697231"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "ULTIMATE OFFERING",
+      "status": "Forbidden",
+      "copyLimit": 0,
+      "identity": "80604091",
+      "physicalCodes": [
+        "80604091",
+        "80604092"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "LEFT ARM OF THE FORBIDDEN ONE",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "7902349",
+      "physicalCodes": [
+        "7902349"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "LEFT LEG OF THE FORBIDDEN ONE",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "44519536",
+      "physicalCodes": [
+        "44519536"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "RIGHT ARM OF THE FORBIDDEN ONE",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "70903634",
+      "physicalCodes": [
+        "70903634"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "RIGHT LEG OF THE FORBIDDEN ONE",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "8124921",
+      "physicalCodes": [
+        "8124921"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "ASTROGRAPH SORCERER",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "76794549",
+      "physicalCodes": [
+        "76794549"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "BYSTIAL DRUISWURM",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "6637331",
+      "physicalCodes": [
+        "6637331"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "BYSTIAL MAGNAMHUT",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "33854624",
+      "physicalCodes": [
+        "33854624"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "CUPSY☆YUMMY",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "31425736",
+      "physicalCodes": [
+        "31425736"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "DRACOTAIL MULULU",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "7375867",
+      "physicalCodes": [
+        "7375867"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "ELFNOTE TINIA",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "59581480",
+      "physicalCodes": [
+        "59581480"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "EXODIA THE FORBIDDEN ONE",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "33396948",
+      "physicalCodes": [
+        "33396948",
+        "33396949",
+        "33396950",
+        "33396951"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "EXT RYZEAL",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "34022970",
+      "physicalCodes": [
+        "34022970"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "FAIRY TAIL - SNOW",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "55623480",
+      "physicalCodes": [
+        "55623480"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "KELDO THE SACRED PROTECTOR",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "63542003",
+      "physicalCodes": [
+        "63542003"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "K9-66A JOKUL",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "28642461",
+      "physicalCodes": [
+        "28642461"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "MALISS <P> DORMOUSE",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "32061192",
+      "physicalCodes": [
+        "32061192"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "MALISS <P> WHITE RABBIT",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "69272449",
+      "physicalCodes": [
+        "69272449"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "MATHMECH CIRCULAR",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "36521307",
+      "physicalCodes": [
+        "36521307"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "MISCELLANEOUSAURUS",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "38572779",
+      "physicalCodes": [
+        "38572779"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "MUDORA THE SWORD ORACLE",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "99937011",
+      "physicalCodes": [
+        "99937011"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "PSY-FRAMEGEAR GAMMA",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "38814750",
+      "physicalCodes": [
+        "38814750"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "SUBSTITOAD",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "20663556",
+      "physicalCodes": [
+        "20663556"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "TEARLAMENTS HAVNIS",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "37961969",
+      "physicalCodes": [
+        "37961969"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "TEARLAMENTS MERRLI",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "74078255",
+      "physicalCodes": [
+        "74078255"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "TEARLAMENTS SCHEIREN",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "572850",
+      "physicalCodes": [
+        "572850"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "TENPAI DRAGON CHUNDRA",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "91810826",
+      "physicalCodes": [
+        "91810826"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "VANQUISH SOUL HOLLIE SUE",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "93156774",
+      "physicalCodes": [
+        "93156774"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "ZOODIAC RATPIER",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "78872731",
+      "physicalCodes": [
+        "78872731"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "FIENDSMITH'S LACRIMA",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "46640168",
+      "physicalCodes": [
+        "46640168"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "GEM-KNIGHT MASTER DIAMOND",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "39512984",
+      "physicalCodes": [
+        "39512984"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "PHANTOM OF YUBEL",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "80453041",
+      "physicalCodes": [
+        "80453041"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "LINKURIBOH",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "41999284",
+      "physicalCodes": [
+        "41999284"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "STRIKER DRAGON",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "73539069",
+      "physicalCodes": [
+        "73539069"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "SUMMON SORCERESS",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "61665245",
+      "physicalCodes": [
+        "61665245"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "SUNAVALON DRYAS",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "93896655",
+      "physicalCodes": [
+        "93896655"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "SUNVINE HEALER",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "65563871",
+      "physicalCodes": [
+        "65563871"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "YUMMY★SNATCHY",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "30581601",
+      "physicalCodes": [
+        "30581601",
+        "30581602"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "AME NO HABAKIRI NO MITSURUGI",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "13332685",
+      "physicalCodes": [
+        "13332685"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "CUPSY★YUMMY WAY",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "31603289",
+      "physicalCodes": [
+        "31603289"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "T.G. HYPER LIBRARIAN",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "90953320",
+      "physicalCodes": [
+        "90953320"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "DAIGUSTO EMERAL",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "581014",
+      "physicalCodes": [
+        "581014"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "NUMBER 40: GIMMICK PUPPET OF STRINGS",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "75433814",
+      "physicalCodes": [
+        "75433814"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "NUMBER C40: GIMMICK PUPPET OF DARK STRINGS",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "69170557",
+      "physicalCodes": [
+        "69170557"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "RYZEAL DETONATOR",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "34909328",
+      "physicalCodes": [
+        "34909328"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "\"A CASE FOR K9\"",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "80181649",
+      "physicalCodes": [
+        "80181649"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "BONFIRE",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "85106525",
+      "physicalCodes": [
+        "85106525",
+        "85106526"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "BRANDED FUSION",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "44362883",
+      "physicalCodes": [
+        "44362883"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "BRILLIANT FUSION",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "7394770",
+      "physicalCodes": [
+        "7394770"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "CALLED BY THE GRAVE",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "24224830",
+      "physicalCodes": [
+        "24224830",
+        "24224831"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "CARD DESTRUCTION",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "72892473",
+      "physicalCodes": [
+        "72892473"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "CARD OF DEMISE",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "59750328",
+      "physicalCodes": [
+        "59750328"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "CHAIN STRIKE",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "91623717",
+      "physicalCodes": [
+        "91623717"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "CHAOS SPACE",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "99266988",
+      "physicalCodes": [
+        "99266988"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "CHICKEN GAME",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "67616300",
+      "physicalCodes": [
+        "67616300"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "CROSSOUT DESIGNATOR",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "65681983",
+      "physicalCodes": [
+        "65681983"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "DIVINE WIND OF MIST VALLEY",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "15854426",
+      "physicalCodes": [
+        "15854426"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "FINAL COUNTDOWN",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "95308449",
+      "physicalCodes": [
+        "95308449"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "FOOLISH BURIAL",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "81439173",
+      "physicalCodes": [
+        "81439173",
+        "81439174"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "GATEWAY OF THE SIX",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "27970830",
+      "physicalCodes": [
+        "27970830"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "GOLD SARCOPHAGUS",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "75500286",
+      "physicalCodes": [
+        "75500286"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "HARPIE'S FEATHER DUSTER",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "18144506",
+      "physicalCodes": [
+        "18144506",
+        "18144507",
+        "18144508"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "INFERNITY LAUNCHER",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "66957584",
+      "physicalCodes": [
+        "66957584"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "INSTANT FUSION",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "1845204",
+      "physicalCodes": [
+        "1845204"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "INTO THE VOID",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "93946239",
+      "physicalCodes": [
+        "93946239"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "KETU DRACOTAIL",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "6153210",
+      "physicalCodes": [
+        "6153210"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "MAGICAL MID-BREAKER FIELD",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "71650854",
+      "physicalCodes": [
+        "71650854"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "MONSTER GATE",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "43040603",
+      "physicalCodes": [
+        "43040603"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "MONSTER REBORN",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "83764718",
+      "physicalCodes": [
+        "83764718",
+        "83764719",
+        "83764720"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "OBEDIENCE SCHOOLED",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "72537897",
+      "physicalCodes": [
+        "72537897"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "ONE DAY OF PEACE",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "33782437",
+      "physicalCodes": [
+        "33782437"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "ONE FOR ONE",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "2295440",
+      "physicalCodes": [
+        "2295440",
+        "2295441"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "POT OF PROSPERITY",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "84211599",
+      "physicalCodes": [
+        "84211599"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "PROHIBITED POWER PATRON PORTAL - TERMINUS",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "25661743",
+      "physicalCodes": [
+        "25661743"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "RADIANT TYPHOON CHANT",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "67115133",
+      "physicalCodes": [
+        "67115133"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "RAHU DRACOTAIL",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "32548318",
+      "physicalCodes": [
+        "32548318"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "REASONING",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "58577036",
+      "physicalCodes": [
+        "58577036"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "REINFORCEMENT OF THE ARMY",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "32807846",
+      "physicalCodes": [
+        "32807846",
+        "32807847",
+        "32807848"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "SANGEN KAIMEN",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "66730191",
+      "physicalCodes": [
+        "66730191"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "SANGEN SUMMONING",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "30336082",
+      "physicalCodes": [
+        "30336082"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "SEKKA'S LIGHT",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "24940422",
+      "physicalCodes": [
+        "24940422"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "SET ROTATION",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "73468603",
+      "physicalCodes": [
+        "73468603"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "SKY STRIKER MECHA - HORNET DRONES",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "52340444",
+      "physicalCodes": [
+        "52340444"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "SLASH DRAW",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "71344451",
+      "physicalCodes": [
+        "71344451"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "SYNCHRO OVERTAKE",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "99243014",
+      "physicalCodes": [
+        "99243014"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "TERRAFORMING",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "73628505",
+      "physicalCodes": [
+        "73628505"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "THAT GRASS LOOKS GREENER",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "11110587",
+      "physicalCodes": [
+        "11110587"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "TRIPLE TACTICS TALENT",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "25311006",
+      "physicalCodes": [
+        "25311006"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "ANTI-SPELL FRAGRANCE",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "58921041",
+      "physicalCodes": [
+        "58921041"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "GOZEN MATCH",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "53334471",
+      "physicalCodes": [
+        "53334471"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "MAGICAL EXPLOSION",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "32723153",
+      "physicalCodes": [
+        "32723153"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "NATURIA SACRED TREE",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "3734202",
+      "physicalCodes": [
+        "3734202"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "RIVALRY OF WARLORDS",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "90846359",
+      "physicalCodes": [
+        "90846359"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "SKILL DRAIN",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "82732705",
+      "physicalCodes": [
+        "82732705"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "SOLEMN JUDGMENT",
+      "status": "Limited",
+      "copyLimit": 1,
+      "identity": "41420027",
+      "physicalCodes": [
+        "41420027"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "DRACOTAIL LUKIAS",
+      "status": "Semi-Limited",
+      "copyLimit": 2,
+      "identity": "75003700",
+      "physicalCodes": [
+        "75003700"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "DROLL & LOCK BIRD",
+      "status": "Semi-Limited",
+      "copyLimit": 2,
+      "identity": "94145021",
+      "physicalCodes": [
+        "94145021",
+        "94145022"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "ICE RYZEAL",
+      "status": "Semi-Limited",
+      "copyLimit": 2,
+      "identity": "8633261",
+      "physicalCodes": [
+        "8633261"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "SWORD RYZEAL",
+      "status": "Semi-Limited",
+      "copyLimit": 2,
+      "identity": "35844557",
+      "physicalCodes": [
+        "35844557"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "DRACOTAIL ARTHALION",
+      "status": "Semi-Limited",
+      "copyLimit": 2,
+      "identity": "33760966",
+      "physicalCodes": [
+        "33760966"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "BRANDED IN HIGH SPIRITS",
+      "status": "Semi-Limited",
+      "copyLimit": 2,
+      "identity": "29948294",
+      "physicalCodes": [
+        "29948294"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "MALISS IN UNDERGROUND",
+      "status": "Semi-Limited",
+      "copyLimit": 2,
+      "identity": "68337209",
+      "physicalCodes": [
+        "68337209",
+        "68337210"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "MIND MASTER",
+      "status": "Unlimited",
+      "copyLimit": 3,
+      "identity": "96782886",
+      "physicalCodes": [
+        "96782886"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "UNCHAINED SOUL OF SHARVARA",
+      "status": "Unlimited",
+      "copyLimit": 3,
+      "identity": "41165831",
+      "physicalCodes": [
+        "41165831"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "ELDER ENTITY NORDEN",
+      "status": "Unlimited",
+      "copyLimit": 3,
+      "identity": "17412721",
+      "physicalCodes": [
+        "17412721"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "M-X-SABER INVOKER",
+      "status": "Unlimited",
+      "copyLimit": 3,
+      "identity": "4423206",
+      "physicalCodes": [
+        "4423206"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "WIND-UP CARRIER ZENMAITY",
+      "status": "Unlimited",
+      "copyLimit": 3,
+      "identity": "81122844",
+      "physicalCodes": [
+        "81122844"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "METAMORPHOSIS",
+      "status": "Unlimited",
+      "copyLimit": 3,
+      "identity": "46411259",
+      "physicalCodes": [
+        "46411259"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "MIRAGE OF NIGHTMARE",
+      "status": "Unlimited",
+      "copyLimit": 3,
+      "identity": "41482598",
+      "physicalCodes": [
+        "41482598"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "PREMATURE BURIAL",
+      "status": "Unlimited",
+      "copyLimit": 3,
+      "identity": "70828912",
+      "physicalCodes": [
+        "70828912"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    },
+    {
+      "name": "PURRELY DELICIOUS MEMORY",
+      "status": "Unlimited",
+      "copyLimit": 3,
+      "identity": "55584558",
+      "physicalCodes": [
+        "55584558"
+      ],
+      "allowedCopiesValid": true,
+      "excessCopiesRejectedAcrossSections": true,
+      "builderAgrees": true,
+      "aliasesAndForgedNamesCannotBypass": true
+    }
+  ],
+  "lifecycle": [
+    {
+      "id": "real-cdb-register-side-restore-preserves-race-mask",
+      "ok": true
+    },
+    {
+      "id": "side-metadata-forgery-is-transactionally-rejected",
+      "ok": true
+    },
+    {
+      "id": "side-exact-main-extra-side-sizes-and-physical-pool",
+      "ok": true
+    },
+    {
+      "id": "draw-extends-to-duel-four-new-random-method-loser-choice",
+      "ok": true
+    },
+    {
+      "id": "rejected-opening-choice-does-not-mutate-match",
+      "ok": true
+    },
+    {
+      "id": "rematch-restores-original-decks-and-needs-fresh-opening-choice",
+      "ok": true
+    },
+    {
+      "id": "swiss-time-double-loss-active-duel-roundtrip",
+      "ok": true
+    },
+    {
+      "id": "swiss-time-double-loss-between-duels-roundtrip",
+      "ok": true
+    },
+    {
+      "id": "untimed-match-and-completed-result-cannot-be-overwritten-by-clock",
+      "ok": true
+    },
+    {
+      "id": "strict-restore-keeps-trusted-regional-resolver",
+      "ok": true
+    },
+    {
+      "id": "unknown-format-and-banlist-do-not-silently-become-unlimited",
+      "ok": true
+    },
+    {
+      "id": "permanent-name-and-alternate-art-mixed-side-limits",
+      "ok": true
+    },
+    {
+      "id": "delayed-september-unlimited-changes-are-date-aware",
+      "ok": true
+    },
+    {
+      "id": "builder-complete-catalogue-strict-and-free-modes-differ-correctly",
+      "ok": true
+    }
+  ],
+  "targetedChecks": {
+    "command": "node --test test/tcg-complete-format.test.js test/match-engine.test.js test/match-controller.test.js test/deck-builder-rules.test.js test/current-banlist-compatibility.test.js test/umi-deck-name-limits.test.js test/native-card-registry.test.js",
+    "completedAtUtc": "2026-10-08T22:04:20.122498+00:00",
+    "shellNetworkPermission": "with_additional_permissions network.enabled=true for Node worker IPC",
+    "exitCode": 0,
+    "tests": 281,
+    "pass": 281,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "testFiles": 7,
+    "newOfficialRows": 231,
+    "lifecycleCases": 14,
+    "log": "docs/audits/artifacts/tcg-complete-2026-10-08/targeted-tests.txt",
+    "bytes": 24310,
+    "sha256": "f2f66cf71e9090a3347a68214d9f2abdd881804dedbebae89a10294217ce1f3a",
+    "scope": "Targeted real CDB Deck/Match validation, distinct from native in-Duel WASM and compiled-browser checks."
+  },
+  "beforeAfter": [
+    {
+      "cardId": "23434538",
+      "name": "Maxx \"C\"",
+      "officialLimit": 0,
+      "copies": 1,
+      "beforeAccepted": true,
+      "afterRejected": true,
+      "issues": [
+        {
+          "code": "COPY_LIMIT_EXCEEDED",
+          "cardId": "23434538",
+          "allowed": 0,
+          "found": 1
+        }
+      ]
+    },
+    {
+      "cardId": "4280258",
+      "name": "Apollousa, Bow of the Goddess",
+      "officialLimit": 0,
+      "copies": 1,
+      "beforeAccepted": true,
+      "afterRejected": true,
+      "issues": [
+        {
+          "code": "COPY_LIMIT_EXCEEDED",
+          "cardId": "4280258",
+          "allowed": 0,
+          "found": 1
+        }
+      ]
+    },
+    {
+      "cardId": "76375976",
+      "name": "Mystic Mine",
+      "officialLimit": 0,
+      "copies": 1,
+      "beforeAccepted": true,
+      "afterRejected": true,
+      "issues": [
+        {
+          "code": "COPY_LIMIT_EXCEEDED",
+          "cardId": "76375976",
+          "allowed": 0,
+          "found": 1
+        }
+      ]
+    },
+    {
+      "cardId": "61665245",
+      "name": "Summon Sorceress",
+      "officialLimit": 1,
+      "copies": 2,
+      "beforeAccepted": true,
+      "afterRejected": true,
+      "issues": [
+        {
+          "code": "COPY_LIMIT_EXCEEDED",
+          "cardId": "61665245",
+          "allowed": 1,
+          "found": 2
+        }
+      ]
+    },
+    {
+      "cardId": "32807846",
+      "name": "Reinforcement of the Army",
+      "officialLimit": 1,
+      "copies": 2,
+      "beforeAccepted": true,
+      "afterRejected": true,
+      "issues": [
+        {
+          "code": "COPY_LIMIT_EXCEEDED",
+          "cardId": "32807846",
+          "allowed": 1,
+          "found": 2
+        }
+      ]
+    },
+    {
+      "cardId": "73628505",
+      "name": "Terraforming",
+      "officialLimit": 1,
+      "copies": 2,
+      "beforeAccepted": true,
+      "afterRejected": true,
+      "issues": [
+        {
+          "code": "COPY_LIMIT_EXCEEDED",
+          "cardId": "73628505",
+          "allowed": 1,
+          "found": 2
+        }
+      ]
+    },
+    {
+      "cardId": "41420027",
+      "name": "Solemn Judgment",
+      "officialLimit": 1,
+      "copies": 2,
+      "beforeAccepted": true,
+      "afterRejected": true,
+      "issues": [
+        {
+          "code": "COPY_LIMIT_EXCEEDED",
+          "cardId": "41420027",
+          "allowed": 1,
+          "found": 2
+        }
+      ]
+    },
+    {
+      "cardId": "94145021",
+      "name": "Droll & Lock Bird",
+      "officialLimit": 2,
+      "copies": 3,
+      "beforeAccepted": true,
+      "afterRejected": true,
+      "issues": [
+        {
+          "code": "COPY_LIMIT_EXCEEDED",
+          "cardId": "94145021",
+          "allowed": 2,
+          "found": 3
+        }
+      ]
+    }
+  ],
+  "unknownListBypass": {
+    "beforeAccepted": true,
+    "afterRejected": true
+  },
+  "catalogue": {
+    "canonicalSearchable": 14355,
+    "regionalEligibility": {
+      "eligible": 13847,
+      "rejected": 508,
+      "byRejectionCode": {
+        "TCG_NOT_RELEASED": 486,
+        "FIELD_OCG_ONLY": 6,
+        "TCG_PRERELEASE_UNVERIFIED": 16
+      },
+      "evidenceCounts": {
+        "pinned-cdb-tcg-scope": 13846,
+        "pinned-cdb-snapshot": 502,
+        "provider-snapshot-and-native-ot": 4,
+        "primary-publication": 3
+      },
+      "samples": {
+        "TCG_NOT_RELEASED": [
+          {
+            "id": "64865",
+            "name": "Cyberse Code Magician",
+            "message": "Cyberse Code Magician : aucune sortie TCG confirmée dans le relevé actuel."
+          },
+          {
+            "id": "212652",
+            "name": "Trap of the Poisonous Scorpion",
+            "message": "Trap of the Poisonous Scorpion : aucune sortie TCG confirmée dans le relevé actuel."
+          },
+          {
+            "id": "595626",
+            "name": "Ankuriboh",
+            "message": "Ankuriboh : aucune sortie TCG confirmée dans le relevé actuel."
+          }
+        ],
+        "FIELD_OCG_ONLY": [
+          {
+            "id": "7293697",
+            "name": "Toon World the Perfect World",
+            "message": "Toon World the Perfect World : sortie OCG uniquement dans le relevé actuel."
+          },
+          {
+            "id": "32353566",
+            "name": "Witchcrafter Walpurgis",
+            "message": "Witchcrafter Walpurgis : sortie OCG uniquement dans le relevé actuel."
+          },
+          {
+            "id": "60600821",
+            "name": "Spring",
+            "message": "Spring : sortie OCG uniquement dans le relevé actuel."
+          }
+        ],
+        "TCG_PRERELEASE_UNVERIFIED": [
+          {
+            "id": "101402082",
+            "name": "Tigress in Silent Repose",
+            "message": "Tigress in Silent Repose : publication TCG annoncée ou non confirmée, carte indisponible en Advanced."
+          },
+          {
+            "id": "101402083",
+            "name": "Just Flip a Coin",
+            "message": "Just Flip a Coin : publication TCG annoncée ou non confirmée, carte indisponible en Advanced."
+          },
+          {
+            "id": "101402084",
+            "name": "Kumenyo, the Nine-Hued Deer",
+            "message": "Kumenyo, the Nine-Hued Deer : publication TCG annoncée ou non confirmée, carte indisponible en Advanced."
+          }
+        ]
+      }
+    }
+  },
+  "premade": [
+    {
+      "name": "kaiba",
+      "main": 40,
+      "extra": 3,
+      "side": 5,
+      "valid": true
+    },
+    {
+      "name": "yugi",
+      "main": 40,
+      "extra": 2,
+      "side": 5,
+      "valid": true
+    },
+    {
+      "name": "joey",
+      "main": 40,
+      "extra": 2,
+      "side": 5,
+      "valid": true
+    }
+  ],
+  "campaign": [
+    {
+      "mission": "first-formation",
+      "player": "player",
+      "valid": true,
+      "main": 40,
+      "extra": 0,
+      "side": 0
+    },
+    {
+      "mission": "first-formation",
+      "player": "opponent",
+      "valid": true,
+      "main": 40,
+      "extra": 0,
+      "side": 0
+    },
+    {
+      "mission": "hold-the-line",
+      "player": "player",
+      "valid": true,
+      "main": 40,
+      "extra": 0,
+      "side": 0
+    },
+    {
+      "mission": "hold-the-line",
+      "player": "opponent",
+      "valid": true,
+      "main": 40,
+      "extra": 0,
+      "side": 0
+    },
+    {
+      "mission": "tribute-investment",
+      "player": "player",
+      "valid": true,
+      "main": 40,
+      "extra": 0,
+      "side": 0
+    },
+    {
+      "mission": "tribute-investment",
+      "player": "opponent",
+      "valid": true,
+      "main": 40,
+      "extra": 0,
+      "side": 0
+    },
+    {
+      "mission": "terrain-reading",
+      "player": "player",
+      "valid": true,
+      "main": 40,
+      "extra": 0,
+      "side": 0
+    },
+    {
+      "mission": "terrain-reading",
+      "player": "opponent",
+      "valid": true,
+      "main": 40,
+      "extra": 0,
+      "side": 0
+    },
+    {
+      "mission": "three-dragons",
+      "player": "player",
+      "valid": true,
+      "main": 40,
+      "extra": 1,
+      "side": 0
+    },
+    {
+      "mission": "three-dragons",
+      "player": "opponent",
+      "valid": true,
+      "main": 40,
+      "extra": 0,
+      "side": 0
+    },
+    {
+      "mission": "synchronization",
+      "player": "player",
+      "valid": true,
+      "main": 40,
+      "extra": 2,
+      "side": 0
+    },
+    {
+      "mission": "synchronization",
+      "player": "opponent",
+      "valid": true,
+      "main": 40,
+      "extra": 1,
+      "side": 0
+    },
+    {
+      "mission": "rank-four",
+      "player": "player",
+      "valid": true,
+      "main": 40,
+      "extra": 2,
+      "side": 0
+    },
+    {
+      "mission": "rank-four",
+      "player": "opponent",
+      "valid": true,
+      "main": 40,
+      "extra": 1,
+      "side": 0
+    },
+    {
+      "mission": "link-exchange",
+      "player": "player",
+      "valid": true,
+      "main": 40,
+      "extra": 2,
+      "side": 0
+    },
+    {
+      "mission": "link-exchange",
+      "player": "opponent",
+      "valid": true,
+      "main": 40,
+      "extra": 1,
+      "side": 0
+    },
+    {
+      "mission": "ritual-balance",
+      "player": "player",
+      "valid": true,
+      "main": 40,
+      "extra": 0,
+      "side": 0
+    },
+    {
+      "mission": "ritual-balance",
+      "player": "opponent",
+      "valid": true,
+      "main": 40,
+      "extra": 1,
+      "side": 0
+    },
+    {
+      "mission": "pendulum-window",
+      "player": "player",
+      "valid": true,
+      "main": 40,
+      "extra": 2,
+      "side": 0
+    },
+    {
+      "mission": "pendulum-window",
+      "player": "opponent",
+      "valid": true,
+      "main": 40,
+      "extra": 2,
+      "side": 0
+    },
+    {
+      "mission": "measured-resistance",
+      "player": "player",
+      "valid": true,
+      "main": 40,
+      "extra": 1,
+      "side": 0
+    },
+    {
+      "mission": "measured-resistance",
+      "player": "opponent",
+      "valid": true,
+      "main": 40,
+      "extra": 2,
+      "side": 0
+    },
+    {
+      "mission": "adaptive-finale",
+      "player": "player",
+      "valid": true,
+      "main": 40,
+      "extra": 4,
+      "side": 0
+    },
+    {
+      "mission": "adaptive-finale",
+      "player": "opponent",
+      "valid": true,
+      "main": 40,
+      "extra": 4,
+      "side": 0
+    }
+  ],
+  "swissPolicy": {
+    "id": "TCG_EU_SWISS",
+    "timeLimitMinutes": 50,
+    "sourceUrl": "https://img.yugioh-card.com/eu/wp-content/uploads/2025/09/Official-KDE-E-Yu-Gi-Oh-TRADING-CARD-GAME-Tournament-Policy-Version-2.5.pdf",
+    "sourceSha256": "01b419dde56ac142c5f290758e5a48a443c50e309ba1486cb6ce34aeb95a175c",
+    "page": 44,
+    "unfinishedMatchResult": "double_loss"
+  },
+  "resourcesPreserved": [
+    {
+      "path": "public/native/card-data.json",
+      "byteIdenticalToBase": true,
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    {
+      "path": "public/native/scripts.json",
+      "byteIdenticalToBase": true,
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    },
+    {
+      "path": "public/native/manifest.json",
+      "byteIdenticalToBase": true,
+      "bytes": 3188,
+      "sha256": "9ee4d4f4930b0e561f472eb60e75df8cbdedde918d66fa001f0de69e263d8a05"
+    },
+    {
+      "path": "public/native/field-banlists.json",
+      "byteIdenticalToBase": true,
+      "bytes": 70033,
+      "sha256": "0f897a1dc50df76b0b3df6e0680d5750a84113dcad1d3ed9c6422f526fa4db9f"
+    },
+    {
+      "path": "src/core/CardNameRules.js",
+      "byteIdenticalToBase": true,
+      "bytes": 970,
+      "sha256": "6e0821869caeb7e4a96a86bfe05043a206d5042d2c3f5fc54c1b931d4ce0b0fa"
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "src/core/MatchEngine.js",
+      "bytes": 39071,
+      "sha256": "fa39f6163a84ea6adcbf6481b6dad154316a9d522505947b3c1966daa19712b7"
+    },
+    {
+      "path": "src/ui/MatchController.js",
+      "bytes": 25804,
+      "sha256": "9712ace23577eb65ebca16632b8d51411e31c5ee37d6f12b9ddb272c5ab68cbc"
+    },
+    {
+      "path": "src/ui/DeckBuilderRules.js",
+      "bytes": 9516,
+      "sha256": "824e6683279fb894c9eaf554bed8496e6efde2a1f4706037bb78044c9aeea9f3"
+    },
+    {
+      "path": "src/core/tcg/TcgAdvancedFormat.js",
+      "bytes": 2731,
+      "sha256": "058606afc6449ce1ced941c42000c8a109da55cf9b36ad8919b853582c540d40"
+    },
+    {
+      "path": "src/core/tcg/TcgAdvancedBanlistData.js",
+      "bytes": 57732,
+      "sha256": "bdc8c18edb0a6308949e516442106747ada3976334beb105562c17c7d6f5d945"
+    },
+    {
+      "path": "src/core/tcg/TcgCardLegality.js",
+      "bytes": 5154,
+      "sha256": "7b556ecb1af2b729a71f4cdf237182068d5f3d47a85cacef8a91c2661979e874"
+    },
+    {
+      "path": "src/core/CardNameRules.js",
+      "bytes": 970,
+      "sha256": "6e0821869caeb7e4a96a86bfe05043a206d5042d2c3f5fc54c1b931d4ce0b0fa"
+    },
+    {
+      "path": "src/core/native/NativeCardCatalogue.js",
+      "bytes": 15865,
+      "sha256": "7db3547182e650eeb618023059ccec2750d9a074d3258559f6c5040528ab79ca"
+    },
+    {
+      "path": "src/core/native/NativeCardRegistry.js",
+      "bytes": 5752,
+      "sha256": "0d3d50a39fefd3be57b3ea6a4e4b945c204730bb2580d5f96016de01b71dcefd"
+    },
+    {
+      "path": "src/core/native/NativeCardData.js",
+      "bytes": 4737,
+      "sha256": "59a664d8d16593ef2223d895085e81e48d6eaa0d90bb0725b6410a71bdcac568"
+    },
+    {
+      "path": "src/content/SoloCampaign.js",
+      "bytes": 26216,
+      "sha256": "0d7b6766c32bd87a29ff8ed61a442fee0f765ec65057905aeed5412474f1a5eb"
+    },
+    {
+      "path": "src/cards.js",
+      "bytes": 27940,
+      "sha256": "e0a05e98ed0892afc1e8c363b997f785fd74bb061d04c4aafb5fe84908a4a5c8"
+    },
+    {
+      "path": "main.js",
+      "bytes": 191637,
+      "sha256": "b1ad9601ee5d785e30fe532a463bc6adf458cea0115ec27d8b2ecf994df913d0"
+    },
+    {
+      "path": "public/native/card-data.json",
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    {
+      "path": "public/native/scripts.json",
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    },
+    {
+      "path": "scripts/generate-tcg-complete-format.py",
+      "bytes": 4922,
+      "sha256": "121ef068fd9dabce69cf931f854c58cc7c7cf3eff337a67db14ea407952d3367"
+    },
+    {
+      "path": "scripts/tcg-complete-format-cases.mjs",
+      "bytes": 14883,
+      "sha256": "a99921449cc5c58e1bdb992eee1f5f61d55e6766af5177ea8d3b1d7633567116"
+    },
+    {
+      "path": "scripts/audit-tcg-complete-format.mjs",
+      "bytes": 9206,
+      "sha256": "f96f8ef511cb64f5d928cf755da1f177604e6b398a3a5cc8aedd6f686dda66eb"
+    },
+    {
+      "path": "test/tcg-complete-format.test.js",
+      "bytes": 1632,
+      "sha256": "8889c06fe3a4bf293c5148bbe3ef8d29c814031cb0811e44e349df456d41d26e"
+    },
+    {
+      "path": "docs/audits/artifacts/tcg-complete-2026-10-08/before-match-engine.js.txt",
+      "bytes": 32201,
+      "sha256": "bdae458f903d81a5a2b7fa762c6f6064eced69affebb8c7ec8b91eb15bb4f604"
+    },
+    {
+      "path": "docs/audits/artifacts/tcg-complete-2026-10-08/sources.json",
+      "bytes": 2220,
+      "sha256": "be215d2e36208a4d24d4f3d0b450971daf41007842788dd81a8d08fb043beb4b"
+    },
+    {
+      "path": "docs/audits/artifacts/tcg-complete-2026-10-08/resolved-advanced-list.json",
+      "bytes": 62949,
+      "sha256": "04f3e6933271e00166ab6ee3ccdf8ea3cb3014569ba1011b69d475260ac38752"
+    },
+    {
+      "path": "docs/audits/artifacts/tcg-complete-2026-10-08/targeted-tests.json",
+      "bytes": 888,
+      "sha256": "2eb957cd43152ea19f269ff233db942a377838b03cf170db6612a082ef61a9d4"
+    },
+    {
+      "path": "docs/audits/artifacts/tcg-complete-2026-10-08/targeted-tests.txt",
+      "bytes": 24310,
+      "sha256": "f2f66cf71e9090a3347a68214d9f2abdd881804dedbebae89a10294217ce1f3a"
+    },
+    {
+      "path": "docs/audits/artifacts/tcg-complete-2026-10-08/official-advanced-list.html.txt",
+      "bytes": 65695,
+      "sha256": "4477c35dea86300050449fa3e9a48291d876338669ba83e8d7371280a2c12806"
+    }
+  ],
+  "limitations": [
+    "Restrictions count copies across all three registered sections and do not use arbitrary card names/aliases supplied by deck objects.",
+    "CDB TCG scope verifies the pinned provider snapshot, not an official publication date for every card or European promo.",
+    "The app clock integration and compiled browser end-to-end evidence are supplied by the root task separately.",
+    "These are real catalogue registration and Match state tests, not native in-Duel WASM executions.",
+    "The historical May list stays the historical small local snapshot to preserve existing Match saves; current new Matches use the complete September table.",
+    "Physical-event rules about sleeves, marked cards, judge penalties, attendance and translation documents are outside a digital duel runtime."
+  ]
+}

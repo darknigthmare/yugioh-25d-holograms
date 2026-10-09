@@ -1,0 +1,16 @@
+✔ TCG compatibility probe initializes actual native card 97590747 in DECK (618.09219ms)
+✔ TCG compatibility probe initializes actual native card 14558127 in DECK (18.109019ms)
+✔ TCG compatibility probe initializes actual native card 23995346 in EXTRA (17.581837ms)
+✔ TCG compatibility probe initializes actual native card 24094653 in DECK (16.681153ms)
+✔ TCG compatibility probe initializes actual native card 41420027 in DECK (16.345468ms)
+✔ TCG compatibility probe initializes actual native card 70551291 in DECK (18.2561ms)
+✔ TCG compatibility probe records a real missing card Lua failure without accepting it as supported (19.156869ms)
+✔ dictionary compaction preserves every byte of a real native sample report (10.563418ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 843.30699

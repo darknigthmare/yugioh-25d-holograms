@@ -1,0 +1,639 @@
+/**
+ * Public, presentation-only projection of OCG API 11 messages. The native core
+ * decides every result; this module never runs a JS card effect or stat bonus.
+ * Native queries can contain either player's secrets, so message visibility is
+ * checked before querying or looking up any identity.
+ */
+import { nativeCardKind, nativeCardTypeLabel, nativeRaceName, nativeAttributeName } from './NativeCardCharacteristics.js';
+
+const MESSAGE = Object.freeze({
+  CONFIRM_DECKTOP: 30, CONFIRM_CARDS: 31, SHUFFLE_DECK: 32, SHUFFLE_HAND: 33,
+  SHUFFLE_SET_CARD: 36, DECK_TOP: 38, SHUFFLE_EXTRA: 39, CONFIRM_EXTRATOP: 42,
+  MOVE: 50, POS_CHANGE: 53, SET: 54, SWAP: 55, FIELD_DISABLED: 56,
+  SUMMONING: 60, SUMMONED: 61, SPSUMMONING: 62, SPSUMMONED: 63,
+  FLIPSUMMONING: 64, FLIPSUMMONED: 65, CHAINING: 70, CHAINED: 71,
+  CHAIN_SOLVING: 72, CHAIN_SOLVED: 73, CHAIN_END: 74, CHAIN_NEGATED: 75,
+  CHAIN_DISABLED: 76, BECOME_TARGET: 83, DRAW: 90, DAMAGE: 91, RECOVER: 92,
+  EQUIP: 93, LPUPDATE: 94, CARD_TARGET: 96, CANCEL_TARGET: 97, PAY_LPCOST: 100,
+  ADD_COUNTER: 101, REMOVE_COUNTER: 102, ATTACK: 110, BATTLE: 111,
+  ATTACK_DISABLED: 112, DAMAGE_STEP_START: 113, DAMAGE_STEP_END: 114,
+  TOSS_COIN: 130, TOSS_DICE: 131, REMOVE_CARDS: 190
+});
+const LOCATION = Object.freeze({ DECK: 1, HAND: 2, MZONE: 4, SZONE: 8,
+  GRAVE: 16, REMOVED: 32, EXTRA: 64, OVERLAY: 128, FZONE: 256, PZONE: 512 });
+const FACEUP = 5;
+const FACEDOWN = 10;
+const DESTROY_REASON = 1;
+const TOKEN_TYPE = 0x4000;
+const MATERIAL_REASON = 8;
+const NORMAL_SUMMON_REASON = 16;
+const MATERIAL_SUMMON_REASONS = Object.freeze({
+  fusion: 0x40000, synchro: 0x80000, ritual: 0x100000, xyz: 0x200000, link: 0x10000000
+});
+
+/** Excludes private target/equip/overlay identities and card prose. */
+export const NATIVE_PUBLIC_VISUAL_QUERY_FLAGS = 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128
+  | 256 | 512 | 1024 | 2048 | 4096 | 131072 | 1048576 | 8388608 | 16777216;
+
+const isController = value => value === 0 || value === 1;
+const faceUp = position => Number.isInteger(position) && Boolean(position & FACEUP)
+  && !(position & FACEDOWN);
+const pose = position => (position & 12) ? 'defense' : 'attack';
+const sideFor = (controller, context) => !isController(controller) ? null
+  : controller === (context.playerController ?? 0) ? 'player' : 'opponent';
+const locKey = loc => `${loc.controller}:${loc.location}:${loc.sequence}:${loc.overlay_sequence ?? '-'}`;
+const fieldZone = ref => ['main', 'extra', 'spell', 'field', 'pendulum'].includes(ref?.zoneType);
+const publicLocation = loc => loc && !(loc.position & FACEDOWN) && (loc.location === LOCATION.GRAVE
+  || loc.location === LOCATION.OVERLAY || (faceUp(loc.position)
+    && [LOCATION.MZONE, LOCATION.SZONE, LOCATION.FZONE, LOCATION.PZONE, LOCATION.REMOVED, LOCATION.EXTRA].includes(loc.location)));
+
+/** Extra Monster Zones use shared board indexes, mirrored for the other team. */
+export function nativeLocationToCardRef(loc, playerController = 0) {
+  if (!loc || !isController(loc.controller) || !Number.isInteger(loc.sequence) || loc.sequence < 0) return null;
+  const owner = loc.controller === playerController ? 'player' : 'opponent';
+  const sequence = loc.sequence;
+  if (Number.isInteger(loc.overlay_sequence) || (loc.location & LOCATION.OVERLAY)) {
+    const hostLocation = loc.location & ~LOCATION.OVERLAY;
+    const host = hostLocation ? nativeLocationToCardRef({ controller: loc.controller,
+      location: hostLocation, sequence }, playerController) : null;
+    return Object.freeze({ owner, zoneType: 'overlay', zoneIndex: host?.zoneIndex ?? sequence,
+      ...(host ? { hostZoneType: host.zoneType } : {}),
+      ...(Number.isInteger(loc.overlay_sequence) ? { overlayIndex: loc.overlay_sequence } : {}) });
+  }
+  let zoneType;
+  let zoneIndex = sequence;
+  if (loc.location === LOCATION.MZONE) {
+    if (sequence > 6) return null;
+    zoneType = sequence < 5 ? 'main' : 'extra';
+    if (sequence >= 5) zoneIndex = owner === 'player' ? sequence - 5 : 6 - sequence;
+  } else if (loc.location === LOCATION.SZONE) {
+    if (sequence > 7) return null;
+    zoneType = sequence === 5 ? 'field' : sequence >= 6 ? 'pendulum' : 'spell';
+    if (sequence === 5) zoneIndex = 0;
+    if (sequence >= 6) zoneIndex = sequence - 6;
+  } else if (loc.location === LOCATION.FZONE) {
+    zoneType = 'field'; zoneIndex = 0;
+  } else if (loc.location === LOCATION.PZONE) {
+    if (sequence > 1) return null;
+    zoneType = 'pendulum';
+  } else {
+    zoneType = { 1: 'deck', 2: 'hand', 16: 'graveyard', 32: 'banished', 64: 'extra-deck', 128: 'overlay' }[loc.location];
+  }
+  if (!zoneType) return null;
+  return Object.freeze({ owner, zoneType, zoneIndex,
+    ...(loc.location === LOCATION.OVERLAY && Number.isInteger(loc.overlay_sequence)
+      ? { overlayIndex: loc.overlay_sequence } : {}) });
+}
+
+/** Reuse this context for one duel, then discard it when the duel is closed. */
+export function createNativeVisualContext(options = {}) {
+  return { ...options, playerController: options.playerController ?? 0,
+    publicCards: new Map(), publicCodes: new Map(), chains: new Map(), pendingSummons: new Map(),
+    pendingSummonOrigins: new Map(),
+    battleDestroyed: new Set(), lifePoints: [...(options.lifePoints ?? [8000, 8000])],
+    activeAttack: null, confirmSourceLink: null, materialKinds: new Set(), tributeMaterialCount: 0,
+    publicSummonSequence: 0, publicSetSequence: 0, nativeTurnCount: 0 };
+}
+
+function ensureContext(context) {
+  context.publicCards ??= new Map();
+  context.publicCodes ??= new Map();
+  context.chains ??= new Map();
+  context.pendingSummons ??= new Map();
+  context.pendingSummonOrigins ??= new Map();
+  context.battleDestroyed ??= new Set();
+  context.lifePoints ??= [8000, 8000];
+  context.materialKinds ??= new Set();
+  context.tributeMaterialCount ??= 0;
+  context.publicSummonSequence ??= 0;
+  context.publicSetSequence ??= 0;
+  context.nativeTurnCount ??= 0;
+  return context;
+}
+
+function queryPublic(loc, context, code) {
+  if (typeof context.queryCard !== 'function') return null;
+  const result = context.queryCard({ controller: loc.controller,
+    location: Number.isInteger(loc.overlay_sequence) ? loc.location | LOCATION.OVERLAY : loc.location,
+    sequence: loc.sequence, overlaySequence: loc.overlay_sequence ?? 0,
+    flags: NATIVE_PUBLIC_VISUAL_QUERY_FLAGS });
+  if (!result || typeof result.then === 'function' || result.isHidden === true) return null;
+  // A batch may already have moved a different card into this location.
+  if (code && result.code && Number(result.code) !== Number(code)) return null;
+  return result;
+}
+
+function exactStats(query) {
+  if (!query) return null;
+  const result = {};
+  for (const key of ['attack', 'defense', 'baseAttack', 'baseDefense', 'level', 'rank']) {
+    if (Number.isInteger(query[key])) result[key] = query[key];
+  }
+  if (query.link && Number.isInteger(query.link.rating)) result.linkRating = query.link.rating;
+  if (query.counters && typeof query.counters === 'object') {
+    result.counters = Object.freeze(Object.fromEntries(Object.entries(query.counters)
+      .filter(([type, count]) => /^\d+$/.test(type) && Number.isInteger(count) && count >= 0)));
+  }
+  return Object.freeze(result);
+}
+
+function clearMaterialEvidence(context) {
+  context.materialKinds.clear();
+  context.tributeMaterialCount = 0;
+  context.pendingSummonOrigins.clear();
+}
+
+function forgetPublicSlot(loc, context) {
+  const key = locKey(loc);
+  context.publicCards.delete(key);
+  context.publicCodes.delete(key);
+  context.pendingSummonOrigins.delete(key);
+}
+
+function forgetMovedLocation(loc, context) {
+  if ([LOCATION.GRAVE, LOCATION.REMOVED, LOCATION.EXTRA].includes(loc.location)) {
+    // Removing/inserting a card renumbers the rest of this public pile. A
+    // previously revealed slot is no longer a stable physical identity.
+    const prefix = `${loc.controller}:${loc.location}:`;
+    for (const map of [context.publicCards, context.publicCodes]) {
+      for (const key of map.keys()) if (key.startsWith(prefix)) map.delete(key);
+    }
+  }
+  forgetPublicSlot(loc, context);
+}
+
+function recordMaterialEvidence(query, context) {
+  const reason = query?.reason;
+  if (!Number.isInteger(reason) || !(reason & MATERIAL_REASON)) return;
+  for (const [kind, flag] of Object.entries(MATERIAL_SUMMON_REASONS)) {
+    if (reason & flag) context.materialKinds.add(kind);
+  }
+  if (reason & NORMAL_SUMMON_REASON) context.tributeMaterialCount += 1;
+}
+
+function specialSummonType(summon, context, completion) {
+  // The ABI exposes material REASON_* flags, but not the monster's summon_type.
+  // Printed Fusion/Link type alone cannot distinguish a proper Summon from a
+  // revival. Require recent native material evidence as well as a matching card.
+  const procedure = context.getPublicSummonType?.(summon.loc, completion);
+  if (procedure === 'pendulum') return 'pendulum';
+  if (summon.card?.isToken || context.materialKinds.size !== 1) return 'special';
+  const kind = [...context.materialKinds][0];
+  return new RegExp(`\\b${kind}\\b`, 'i').test(`${summon.card?.extra_type ?? ''} ${summon.card?.type ?? ''}`)
+    ? kind : 'special';
+}
+
+/** Call only for a location already made public by the message stream. */
+export function readNativePublicCardStats(loc, context) {
+  const known = context.publicCards?.get(locKey(loc));
+  if (!publicLocation(loc) && !known) return null;
+  return exactStats(queryPublic(loc, context, context.publicCodes?.get(locKey(loc))));
+}
+
+function publicCard(code, loc, context, { reveal = false, query = true } = {}) {
+  if (!reveal && !publicLocation(loc)) return null;
+  const validCode = Number.isInteger(Number(code)) && Number(code) > 0;
+  if (!validCode) return context.publicCards.get(locKey(loc)) ?? null;
+  const metadata = context.getCardMetadata?.(Number(code)) ?? {};
+  const card = { id: String(metadata.id ?? code).slice(0, 12), isSetFaceDown: false,
+    position: pose(loc.position), controllerId: sideFor(loc.controller, context) };
+  for (const key of ['name', 'name_en', 'race', 'attribute', 'type', 'card_type', 'extra_type']) {
+    if (typeof metadata[key] === 'string') card[key] = metadata[key].slice(0, 120);
+  }
+  const info = query ? queryPublic(loc, context, code) : null;
+  // QUERY_CODE keeps the physical source; QUERY_ALIAS carries a changed name.
+  // Only a safe public query can supply this second metadata lookup.
+  const nameCode = Number(info?.alias || code);
+  if (Number.isInteger(nameCode) && nameCode > 0 && nameCode !== Number(code)) {
+    const currentName = context.getCardMetadata?.(nameCode);
+    card.printedName = card.name;
+    card.printedName_en = card.name_en;
+    for (const key of ['name', 'name_en']) {
+      if (typeof currentName?.[key] === 'string') card[key] = currentName[key].slice(0, 120);
+    }
+    card.currentNameCode = nameCode;
+  }
+  if (Number.isInteger(info?.type) && nativeCardKind(info.type)) {
+    card.type = nativeCardTypeLabel(info.type);
+    card.card_type = nativeCardKind(info.type);
+    if (card.card_type === 'monster') {
+      if (info.race != null) card.race = nativeRaceName(info.race);
+      if (info.attribute != null) card.attribute = nativeAttributeName(info.attribute);
+    }
+  }
+  const stats = exactStats(info);
+  if (stats) {
+    card.nativeStats = stats;
+    if ('attack' in stats) card.atk = card.currentAtk = stats.attack;
+    if ('defense' in stats) card.def = card.currentDef = stats.defense;
+    for (const key of ['level', 'rank', 'linkRating', 'counters']) {
+      if (key in stats) card[key] = stats[key];
+    }
+  }
+  if (metadata.isToken === true || (Number(info?.type ?? metadata.nativeType ?? 0) & TOKEN_TYPE)) {
+    card.isToken = true;
+    if (!card.type) card.type = 'Token';
+  }
+  return Object.freeze(card);
+}
+
+function remember(loc, card, context, code) {
+  if (card && publicLocation(loc)) {
+    context.publicCards.set(locKey(loc), card);
+    if (Number.isInteger(Number(code)) && Number(code) > 0) context.publicCodes.set(locKey(loc), Number(code));
+  }
+}
+
+function existingPublicCard(loc, context) {
+  if (!publicLocation(loc)) return null;
+  const cached = context.publicCards.get(locKey(loc));
+  if (cached) {
+    const code = context.publicCodes.get(locKey(loc));
+    return code ? publicCard(code, loc, context) : cached;
+  }
+  // An initial public field projection is useful for replay/load or tests.
+  const card = context.getCardAt?.(loc);
+  if (!card || card.isSetFaceDown === true || card.hidden === true) return null;
+  return publicCard(card.id, loc, { ...context, getCardMetadata: () => card });
+}
+
+const refFields = ref => ref ? { target: ref.owner, zoneType: ref.zoneType, zoneIndex: ref.zoneIndex } : {};
+const safeName = card => card?.name ? ` **${card.name.replace(/[<>\r\n]/g, '')}**` : '';
+
+/**
+ * @param {import('./vendor/ocgcore/index.js').OcgMessage} message Decoded API 11 message.
+ * @param {object} context Metadata/native readers and per-duel public state.
+ * @returns {{events: object[], logs: {message: string, type: string}[]}}
+ */
+export function translateNativeVisualEvents(message, context = {}) {
+  ensureContext(context);
+  const events = [];
+  const logs = [];
+  const add = event => events.push(Object.freeze(event));
+  const log = (text, type = 'system') => logs.push(Object.freeze({ message: text, type }));
+  const ref = loc => nativeLocationToCardRef(loc, context.playerController);
+  const msg = message ?? {};
+  switch (msg.type) {
+    case 40: // NEW_TURN is public and supplies the campaign turn boundary.
+      context.nativeTurnCount += 1;
+      clearMaterialEvidence(context);
+      break;
+    case 10: // SELECT_BATTLECMD and SELECT_IDLECMD begin new public actions.
+    case 11:
+      clearMaterialEvidence(context);
+      break;
+    case MESSAGE.DRAW: {
+      const side = sideFor(msg.player, context);
+      if (!side) break;
+      // DRAW contains the raw passcodes of both hands, even for normal draws.
+      for (const ignored of msg.drawn ?? []) add({ type: 'draw', target: side, card: null, hidden: true });
+      log(`${side === 'player' ? 'Vous piochez' : "L’adversaire pioche"} ${(msg.drawn ?? []).length} carte(s).`, side);
+      break;
+    }
+    case MESSAGE.SET: {
+      const destination = ref(msg);
+      if (!destination || !fieldZone(destination)) break;
+      forgetPublicSlot(msg, context);
+      add({ type: ['main', 'extra'].includes(destination.zoneType) ? 'set-monster' : 'activate',
+        ...refFields(destination), card: null, faceDown: true, hidden: true, position: pose(msg.position),
+        nativeAction: 'set', publicEventId: `native-public-set-${++context.publicSetSequence}` });
+      clearMaterialEvidence(context);
+      log(`${destination.owner === 'player' ? 'Vous posez' : "L’adversaire pose"} une carte face cachée.`, destination.owner);
+      break;
+    }
+    case MESSAGE.SUMMONING:
+    case MESSAGE.SPSUMMONING:
+    case MESSAGE.FLIPSUMMONING: {
+      const destination = ref(msg);
+      if (!destination || !['main', 'extra'].includes(destination.zoneType)) break;
+      const card = publicLocation(msg) ? publicCard(msg.code, msg, context) : null;
+      if (card) remember(msg, card, context, msg.code);
+      const summonType = msg.type === MESSAGE.SPSUMMONING ? 'special' : msg.type === MESSAGE.FLIPSUMMONING ? 'flip' : 'normal';
+      const origin = context.pendingSummonOrigins.get(locKey(msg));
+      context.pendingSummonOrigins.delete(locKey(msg));
+      const nativeRevival = msg.type === MESSAGE.SPSUMMONING && Boolean(card)
+        && origin?.code === Number(msg.code) && origin.from?.zoneType === 'graveyard';
+      context.pendingSummons.set(locKey(msg), { loc: { ...msg }, destination, card, summonType,
+        ...(nativeRevival ? { revivalFrom: origin.from } : {}) });
+      break;
+    }
+    case MESSAGE.SUMMONED:
+    case MESSAGE.SPSUMMONED:
+    case MESSAGE.FLIPSUMMONED: {
+      const kind = msg.type === MESSAGE.SPSUMMONED ? 'special' : msg.type === MESSAGE.FLIPSUMMONED ? 'flip' : 'normal';
+      for (const [key, summon] of context.pendingSummons) {
+        if (summon.summonType !== kind) continue;
+        const tributeCount = kind === 'normal' ? context.tributeMaterialCount : 0;
+        const summonType = kind === 'special' ? specialSummonType(summon, context, msg)
+          : kind === 'normal' && tributeCount > 0 ? 'tribute' : kind;
+        const card = summon.card ? Object.freeze({ ...summon.card,
+          // This identifier numbers successful public declarations. It is not
+          // the native card pointer, hidden instance state or deck identity.
+          runtimeInstanceId: `native-public-summon-${++context.publicSummonSequence}`,
+          turnSummoned: context.nativeTurnCount, summonType }) : null;
+        add({ type: kind === 'flip' ? 'flip-summon' : 'summon', ...refFields(summon.destination),
+          card, faceDown: !card, hidden: !card,
+          position: pose(summon.loc.position), summonType, tributeCount,
+          nativeSummonConfirmed: true,
+          ...(kind === 'special' && summon.revivalFrom && card
+            ? { nativeRevivalConfirmed: true, revivalFrom: summon.revivalFrom } : {}) });
+        log(`${summon.destination.owner === 'player' ? 'Vous invoquez' : "L’adversaire invoque"}${safeName(summon.card)}.`, summon.destination.owner);
+        context.pendingSummons.delete(key);
+      }
+      clearMaterialEvidence(context);
+      break;
+    }
+    case MESSAGE.MOVE: {
+      const from = ref(msg.from);
+      const to = ref(msg.to);
+      if (!from && !to) break;
+      const previous = context.publicCards.get(locKey(msg.from));
+      const card = to && publicLocation(msg.to) ? publicCard(msg.card, msg.to, context) : null;
+      // Overlay destinations have position=0 and therefore carry no new
+      // revealed identity. A face-up public monster becoming a material is
+      // nevertheless an announced move: query its exact native material
+      // reason without publishing the query or identifying hidden materials.
+      const publicOverlayMaterial = to?.zoneType === 'overlay'
+        && ['main', 'extra'].includes(from?.zoneType)
+        && faceUp(msg.from?.position);
+      const info = card || publicOverlayMaterial ? queryPublic(msg.to, context, msg.card) : null;
+      const publicReason = card || publicOverlayMaterial
+        ? Number.isInteger(msg.reason) ? msg.reason : info?.reason : null;
+      recordMaterialEvidence({ reason: publicReason }, context);
+      forgetMovedLocation(msg.from, context);
+      forgetMovedLocation(msg.to, context);
+      context.pendingSummons.delete(locKey(msg.from));
+      if (card) remember(msg.to, card, context, msg.card);
+      if (card && from?.zoneType === 'graveyard' && ['main', 'extra'].includes(to?.zoneType)) {
+        context.pendingSummonOrigins.set(locKey(msg.to), { code: Number(msg.card), from });
+      }
+      add({ type: 'move', ...(to ? refFields(to) : refFields(from)), from, to,
+        card, hidden: !card, faceDown: Boolean(msg.to?.position & FACEDOWN) });
+      const destroyed = context.battleDestroyed.delete(locKey(msg.from)) || Boolean(publicReason & DESTROY_REASON);
+      if (from && fieldZone(from) && (!to || !fieldZone(to)) && destroyed) {
+        // A hidden monster's destruction identifies only its former public zone.
+        const oldCard = faceUp(msg.from?.position) ? previous ?? card : null;
+        add({ type: 'destroy', ...refFields(from), card: oldCard, hidden: !oldCard,
+          faceDown: !oldCard });
+      }
+      if (from && ['spell', 'field', 'pendulum'].includes(from.zoneType)
+        && (!to || to.owner !== from.owner || to.zoneType !== from.zoneType || to.zoneIndex !== from.zoneIndex)) {
+        add({ type: 'clear-spell', ...refFields(from) });
+      }
+      if (from?.zoneType === 'field' || to?.zoneType === 'field') {
+        add({ type: 'field-source-change', ...(to?.zoneType === 'field' ? refFields(to) : refFields(from)),
+          card: to?.zoneType === 'field' ? card : null, from, to, hidden: !card });
+      }
+      break;
+    }
+    case MESSAGE.POS_CHANGE: {
+      const destination = ref(msg);
+      if (!destination) break;
+      const card = publicLocation(msg) ? publicCard(msg.code, msg, context) : null;
+      forgetPublicSlot(msg, context);
+      if (card) remember(msg, card, context, msg.code);
+      const becameVisible = !faceUp(msg.prev_position) && faceUp(msg.position);
+      const becameHidden = !faceUp(msg.position);
+      add({ type: becameHidden && ['main', 'extra'].includes(destination.zoneType) ? 'set-monster'
+        : 'toggle-position',
+        ...refFields(destination), card, position: pose(msg.position), faceDown: becameHidden,
+        hidden: !card, publicReveal: becameVisible, nativePositionChange: true });
+      break;
+    }
+    case MESSAGE.CONFIRM_CARDS: {
+      // CONFIRM_CARDS names the recipient, not a public audience. In particular,
+      // a private look at either Deck must not read metadata for another viewer.
+      // A caller may separately prove that a confirmation is public; otherwise
+      // only the addressed viewer receives a private inspection descriptor.
+      let inspectionGroupId = null;
+      let publicConfirmationGroupId = null;
+      for (const loc of msg.cards ?? []) {
+        const explicitlyPublic = context.isPublicReveal?.(msg, loc, context) === true;
+        if (!explicitlyPublic && (!isController(msg.player)
+          || msg.player !== context.playerController)) continue;
+        const destination = ref(loc);
+        if (!destination) continue;
+        const card = publicCard(loc.code, loc, context, { reveal: true, query: false });
+        if (!card) continue;
+        if (explicitlyPublic) {
+          publicConfirmationGroupId ??= `native-public-confirmation-${context.publicConfirmationSequence
+            = (context.publicConfirmationSequence ?? 0) + 1}`;
+          add({ type: 'reveal', ...refFields(destination), card, publicReveal: true,
+            nativeConfirmationConfirmed: true, confirmationGroupId: publicConfirmationGroupId });
+          log(`Carte révélée :${safeName(card)}.`, destination.owner);
+        } else {
+          inspectionGroupId ??= `native-private-inspection-${context.privateInspectionSequence
+            = (context.privateInspectionSequence ?? 0) + 1}`;
+          add({ type: 'inspect', ...refFields(destination), card, private: true,
+            audienceController: msg.player, nativeAudienceConfirmed: true, publicReveal: false,
+            inspectionGroupId });
+        }
+        // Inspection supplies no public field identity or native stat query.
+      }
+      break;
+    }
+    case MESSAGE.CONFIRM_DECKTOP:
+    case MESSAGE.CONFIRM_EXTRATOP: {
+      for (const loc of msg.cards ?? []) {
+        if (context.isPublicReveal && context.isPublicReveal(msg, loc, context) !== true) continue;
+        const destination = ref(loc);
+        if (!destination) continue;
+        const card = publicCard(loc.code, loc, context, { reveal: true, query: false });
+        if (!card) continue;
+        add({ type: 'reveal', ...refFields(destination), card, publicReveal: true });
+        log(`Carte révélée :${safeName(card)}.`, destination.owner);
+        // Confirmation reveals an identity, not a new face-up field position.
+      }
+      break;
+    }
+    case MESSAGE.DECK_TOP: {
+      if (!faceUp(msg.position)) break;
+      const loc = { controller: msg.player, location: LOCATION.DECK, sequence: msg.count, position: msg.position };
+      const destination = ref(loc);
+      const card = publicCard(msg.code, loc, context, { reveal: true, query: false });
+      if (destination && card) add({ type: 'reveal', ...refFields(destination), card, publicReveal: true });
+      break;
+    }
+    case MESSAGE.CHAINING: {
+      const source = ref(msg);
+      if (!source) break;
+      // Declaring this link publicly reveals this source, including hand effects.
+      const card = publicCard(msg.code, msg, context, { reveal: true });
+      remember(msg, card, context, msg.code);
+      const link = { source, card, loc: { ...msg }, negated: false };
+      context.chains.set(msg.chain_size, link);
+      // Costs can reveal a card after CHAINING and before CHAINED. Resolving
+      // links are tracked separately from every other member of this Chain.
+      context.confirmSourceLink = msg.chain_size;
+      add({ type: source.zoneType === 'main' || source.zoneType === 'extra' ? 'activate-monster-effect' : 'activate',
+        ...refFields(source), card, linkNumber: msg.chain_size, faceDown: false, nativeChain: true });
+      add({ type: 'chain-pop', ...refFields(source), card, linkNumber: msg.chain_size });
+      log(`Chaîne ${msg.chain_size} : activation${safeName(card)}.`, source.owner);
+      break;
+    }
+    case MESSAGE.CHAINED:
+      if (context.confirmSourceLink === msg.chain_size) context.confirmSourceLink = null;
+      break;
+    case MESSAGE.CHAIN_SOLVING:
+    case MESSAGE.CHAIN_SOLVED:
+    case MESSAGE.CHAIN_NEGATED:
+    case MESSAGE.CHAIN_DISABLED: {
+      const link = context.chains.get(msg.chain_size);
+      if (msg.type === MESSAGE.CHAIN_SOLVING) {
+        clearMaterialEvidence(context);
+        context.confirmSourceLink = link && !link.negated ? msg.chain_size : null;
+      }
+      const negated = msg.type === MESSAGE.CHAIN_NEGATED || msg.type === MESSAGE.CHAIN_DISABLED;
+      if (link && negated) link.negated = true;
+      if ((negated || msg.type === MESSAGE.CHAIN_SOLVED)
+        && context.confirmSourceLink === msg.chain_size) context.confirmSourceLink = null;
+      add({ type: negated ? 'chain-negated' : 'chain-resolve', ...(link ? refFields(link.source) : {}),
+        ...(link?.card ? { card: link.card } : {}), linkNumber: msg.chain_size,
+        stage: msg.type === MESSAGE.CHAIN_SOLVING ? 'solving' : msg.type === MESSAGE.CHAIN_SOLVED ? 'resolved' : 'negated',
+        negated: negated || link?.negated === true });
+      if (msg.type === MESSAGE.CHAIN_SOLVED && link?.source.zoneType === 'field') {
+        const stillPresent = context.publicCards.get(locKey(link.loc)) === link.card;
+        // A resolving effect can change the public name of this physical card.
+        // Refresh only the event payload: the retained pointer tracks whether
+        // this chain source has been removed or replaced in the meantime.
+        const card = !link.negated && stillPresent
+          ? publicCard(context.publicCodes.get(locKey(link.loc)), link.loc, context) ?? link.card
+          : link.card;
+        add({ type: 'field-source-change', ...refFields(link.source), card,
+          resolved: true, negated: link.negated, active: !link.negated && stillPresent });
+      }
+      if (msg.type === MESSAGE.CHAIN_SOLVED) clearMaterialEvidence(context);
+      break;
+    }
+    case MESSAGE.CHAIN_END:
+      add({ type: 'chain-end' }); context.chains.clear(); context.confirmSourceLink = null;
+      clearMaterialEvidence(context); break;
+    case MESSAGE.ATTACK: {
+      const source = ref(msg.card);
+      const destination = msg.target ? ref(msg.target) : null;
+      if (!source || !['main', 'extra'].includes(source.zoneType)) break;
+      const card = existingPublicCard(msg.card, context);
+      if (!card) break;
+      const targetCard = msg.target ? existingPublicCard(msg.target, context) : null;
+      const event = { type: destination ? 'attack-monster' : 'attack-direct', card,
+        attackerSide: source.owner, target: destination?.owner ?? (source.owner === 'player' ? 'opponent' : 'player'),
+        atkZoneType: source.zoneType, atkZoneIndex: source.zoneIndex,
+        ...(destination ? { defZoneType: destination.zoneType, defZoneIndex: destination.zoneIndex,
+          targetCard, targetFaceDown: !targetCard } : {}) };
+      context.activeAttack = event;
+      add(event);
+      break;
+    }
+    case MESSAGE.BATTLE: {
+      // Damage Step stats are authoritative calculation-local values, not boosts
+      // inferred from a visible Field Spell or the difference between two stats.
+      for (const [participant, loc] of [['attacker', msg.card], ['defender', msg.target]]) {
+        const destination = ref(loc);
+        if (!destination) continue;
+        if (loc.destroyed) context.battleDestroyed.add(locKey(loc));
+        if (!publicLocation(loc)) continue;
+        const card = existingPublicCard(loc, context);
+        const stats = exactStats(loc);
+        add({ type: 'battle-stats', ...refFields(destination), participant,
+          ...(card ? { card } : {}), nativeStats: stats, destroyed: loc.destroyed === true });
+      }
+      break;
+    }
+    case MESSAGE.ATTACK_DISABLED:
+      add({ ...(context.activeAttack ?? {}), type: 'attack-negated', nativeAttackNegated: true });
+      context.activeAttack = null; break;
+    case MESSAGE.DAMAGE_STEP_START:
+    case MESSAGE.DAMAGE_STEP_END:
+      add({ type: 'damage-step', stage: msg.type === MESSAGE.DAMAGE_STEP_START ? 'start' : 'end' });
+      if (msg.type === MESSAGE.DAMAGE_STEP_END) context.activeAttack = null;
+      break;
+    case MESSAGE.DAMAGE:
+    case MESSAGE.RECOVER:
+    case MESSAGE.PAY_LPCOST:
+    case MESSAGE.LPUPDATE: {
+      const side = sideFor(msg.player, context);
+      if (!side) break;
+      const before = context.lifePoints[msg.player];
+      const amount = Number.isInteger(msg.amount) && msg.amount >= 0 ? msg.amount : 0;
+      const lp = msg.type === MESSAGE.LPUPDATE ? msg.lp
+        : msg.type === MESSAGE.RECOVER ? before + amount : Math.max(0, before - amount);
+      if (!Number.isInteger(lp) || lp < 0) break;
+      context.lifePoints[msg.player] = lp;
+      add({ type: msg.type === MESSAGE.RECOVER ? 'lp-gain' : msg.type === MESSAGE.LPUPDATE ? 'lp-update' : 'lp-loss',
+        target: side, damage: before > lp ? before - lp : 0,
+        amount, lp, previousLP: before, cost: msg.type === MESSAGE.PAY_LPCOST });
+      break;
+    }
+    case MESSAGE.ADD_COUNTER:
+    case MESSAGE.REMOVE_COUNTER: {
+      const destination = ref(msg);
+      if (!destination) break;
+      const card = context.publicCards.get(locKey(msg));
+      // The count and location are public; hidden identity remains untouched.
+      add({ type: 'counter-change', ...refFields(destination), counterType: msg.counter_type,
+        count: msg.count, delta: msg.type === MESSAGE.ADD_COUNTER ? msg.count : -msg.count,
+        ...(card ? { card, nativeStats: readNativePublicCardStats(msg, context) } : {}) });
+      break;
+    }
+    case MESSAGE.BECOME_TARGET:
+      for (const loc of msg.cards ?? []) {
+        const destination = ref(loc);
+        if (destination) add({ type: 'target', ...refFields(destination) });
+      }
+      break;
+    case MESSAGE.EQUIP:
+    case MESSAGE.CARD_TARGET:
+    case MESSAGE.CANCEL_TARGET: {
+      const source = ref(msg.card); const destination = ref(msg.target);
+      if (source && destination) add({ type: msg.type === MESSAGE.EQUIP ? 'equip'
+        : msg.type === MESSAGE.CANCEL_TARGET ? 'cancel-target' : 'target', source, to: destination });
+      break;
+    }
+    case MESSAGE.FIELD_DISABLED:
+      add({ type: 'field-disabled', fieldMask: msg.field_mask }); break;
+    case MESSAGE.SHUFFLE_DECK:
+    case MESSAGE.SHUFFLE_HAND:
+    case MESSAGE.SHUFFLE_EXTRA: {
+      const side = sideFor(msg.player, context);
+      if (side) add({ type: 'shuffle', target: side, zoneType: msg.type === MESSAGE.SHUFFLE_DECK
+        ? 'deck' : msg.type === MESSAGE.SHUFFLE_HAND ? 'hand' : 'extra-deck' });
+      break;
+    }
+    case MESSAGE.SHUFFLE_SET_CARD:
+      for (const { from, to } of msg.cards ?? []) {
+        forgetPublicSlot(from, context);
+        forgetPublicSlot(to, context);
+        add({ type: 'move', from: ref(from), to: ref(to), card: null, hidden: true, faceDown: true });
+      }
+      break;
+    case MESSAGE.SWAP: {
+      const first = ref(msg.card1); const second = ref(msg.card2);
+      const firstCard = publicLocation(msg.card1) ? publicCard(msg.card1.code, msg.card1, context, { query: false }) : null;
+      const secondCard = publicLocation(msg.card2) ? publicCard(msg.card2.code, msg.card2, context, { query: false }) : null;
+      if (first && second) add({ type: 'swap', from: first, to: second,
+        card: firstCard, targetCard: secondCard, hidden: !firstCard || !secondCard });
+      forgetPublicSlot(msg.card1, context); forgetPublicSlot(msg.card2, context);
+      // SWAP reports pre-swap locations. Keep a revealed physical identity only
+      // at its announced destination; a face-down participant stays anonymous.
+      const firstDestination = { ...msg.card2, code: msg.card1.code, position: msg.card1.position };
+      const secondDestination = { ...msg.card1, code: msg.card2.code, position: msg.card2.position };
+      if (firstCard) remember(firstDestination, publicCard(msg.card1.code, firstDestination, context), context, msg.card1.code);
+      if (secondCard) remember(secondDestination, publicCard(msg.card2.code, secondDestination, context), context, msg.card2.code);
+      break;
+    }
+    case MESSAGE.REMOVE_CARDS:
+      for (const loc of msg.cards ?? []) {
+        const destination = ref(loc);
+        forgetMovedLocation(loc, context); context.pendingSummons.delete(locKey(loc));
+        if (destination) add({ type: 'move', from: destination, to: null, card: null, hidden: true });
+      }
+      break;
+    case MESSAGE.TOSS_COIN:
+    case MESSAGE.TOSS_DICE:
+      add({ type: msg.type === MESSAGE.TOSS_COIN ? 'coin-toss' : 'dice-roll',
+        target: sideFor(msg.player, context), results: Object.freeze([...(msg.results ?? [])]) });
+      break;
+    default: break;
+  }
+  return { events, logs };
+}

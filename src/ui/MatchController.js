@@ -1,4 +1,5 @@
 import { MatchEngine } from '../core/MatchEngine.js';
+import { CURRENT_TCG_BANLIST_ID } from '../core/tcg/TcgAdvancedFormat.js';
 
 const CONTROLLER_SERIALIZATION_VERSION = 2;
 const MAX_SERIALIZED_LENGTH = 4_000_000;
@@ -17,7 +18,7 @@ export class MatchController {
       throw new TypeError('engine must be a MatchEngine instance.');
     }
 
-    this.engine = options.engine || new MatchEngine();
+    this.engine = options.engine || new MatchEngine(options.engineOptions);
     this._playerLabels = {};
     this._duelDecisions = [];
     this._pendingFirstPlayerDecision = null;
@@ -30,11 +31,15 @@ export class MatchController {
    */
   startMatch(options = {}) {
     const config = options && typeof options === 'object' ? options : {};
+    const playerIds = config.playerIds || config.players || ['player', 'opponent'];
+    const candidateChooser = config.initialDecisionPlayerId || config.firstPlayerId || config.firstPlayer || playerIds[0];
+    this._assertPlayerId(candidateChooser, playerIds, 'initialDecisionPlayerId');
+    const labels = this._normalizeLabels(config.playerLabels, playerIds);
     const state = this.engine.startMatch(config);
     const initialDecisionPlayerId = config.initialDecisionPlayerId || state.initialFirstPlayerId;
 
     this._assertPlayerId(initialDecisionPlayerId, state.playerIds, 'initialDecisionPlayerId');
-    this._playerLabels = this._normalizeLabels(config.playerLabels, state.playerIds);
+    this._playerLabels = labels;
     this._duelDecisions = [{
       gameNumber: 1,
       decisionPlayerId: initialDecisionPlayerId,
@@ -44,6 +49,23 @@ export class MatchController {
     this._stagedDecks = {};
 
     return this.getViewModel();
+  }
+
+  /** A new Match starts from the original registered Main/Extra/Side layout,
+   * uses the current list, and needs a fresh opening decision before drawing. */
+  rematch(options = {}) {
+    const state = this.engine.getMatchState();
+    if (state.status !== 'complete') throw new Error('A rematch requires a completed Match.');
+    if (!options.firstPlayerId || !options.initialDecisionPlayerId) {
+      throw new Error('A rematch requires a fresh random-method winner and first-player decision.');
+    }
+    return this.startMatch({
+      playerIds: state.playerIds, playerLabels: this._playerLabels,
+      decks: state.registeredDecks, formatId: state.formatId,
+      banlistId: CURRENT_TCG_BANLIST_ID,
+      ...(state.tournamentPolicy ? { tournamentPolicy: state.tournamentPolicy, timeLimitMinutes: state.timeLimitMinutes } : {}),
+      ...options
+    });
   }
 
   /**
@@ -83,6 +105,13 @@ export class MatchController {
 
   recordGameResult(winnerId = null) {
     return this.recordDuelResult(winnerId);
+  }
+
+  endMatchAtTime() {
+    this.engine.endMatchAtTime();
+    this._pendingFirstPlayerDecision = null;
+    this._stagedDecks = {};
+    return this.getViewModel();
   }
 
   /**
@@ -297,7 +326,7 @@ export class MatchController {
       between_games: 'side_deck',
       complete: 'complete'
     };
-    const currentDecisionIndex = state.status === 'active'
+    const currentDecisionIndex = state.status === 'active' || state.timedOutDuringDuel
       ? state.gameNumber - 1
       : state.games.length - 1;
     const currentDecision = currentDecisionIndex >= 0
@@ -350,7 +379,8 @@ export class MatchController {
         gameNumber: currentDecision.gameNumber,
         firstPlayerId: currentDecision.firstPlayerId,
         decisionPlayerId: currentDecision.decisionPlayerId,
-        completed: state.status !== 'active'
+        completed: state.status !== 'active',
+        ...(state.timedOutDuringDuel ? { interrupted: true } : {})
       } : null,
       nextDuel: state.status === 'between_games' ? {
         gameNumber: state.games.length + 1,
@@ -360,7 +390,11 @@ export class MatchController {
         firstPlayerDecisionRequired: !pending?.firstPlayerId
       } : null,
       winnerId: state.winnerId,
-      isDrawnMatch: state.status === 'complete' && state.winnerId === null,
+      isDrawnMatch: state.status === 'complete' && state.winnerId === null && !state.doubleLoss,
+      isDoubleLoss: state.doubleLoss === true,
+      completionReason: state.completionReason,
+      tournamentPolicy: state.tournamentPolicy,
+      timeLimitMinutes: state.timeLimitMinutes,
       actions: {
         canStartMatch: state.status === 'idle' || state.status === 'complete',
         canRecordDuelResult: state.status === 'active',
@@ -422,7 +456,9 @@ export class MatchController {
       throw new RangeError(`Unsupported match controller version: ${payload.version}`);
     }
 
-    const trialEngine = new MatchEngine();
+    const trialEngine = new MatchEngine(this.engine.getValidationOptions());
+    trialEngine.formats = clonePlain(this.engine.formats);
+    trialEngine.banlists = clonePlain(this.engine.banlists);
     trialEngine.restore(payload.engine);
     const controllerState = this._validateControllerState(
       payload.controller,
@@ -441,8 +477,8 @@ export class MatchController {
     return this.restore(serialized);
   }
 
-  static deserialize(serialized) {
-    const controller = new MatchController();
+  static deserialize(serialized, options = {}) {
+    const controller = new MatchController(options);
     controller.restore(serialized);
     return controller;
   }
@@ -458,7 +494,7 @@ export class MatchController {
       throw new TypeError('Serialized Duel decisions are invalid.');
     }
 
-    const expectedDecisionCount = state.status === 'active'
+    const expectedDecisionCount = state.status === 'active' || state.timedOutDuringDuel
       ? state.gameNumber
       : state.games.length;
     if (raw.duelDecisions.length !== expectedDecisionCount) {
@@ -632,6 +668,7 @@ export class MatchController {
 }
 
 function clonePlain(value, seen = new WeakSet(), depth = 0) {
+  if (typeof value === 'bigint') return value.toString();
   if (
     value === null
     || typeof value === 'string'
