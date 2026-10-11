@@ -1,0 +1,16 @@
+{
+  "createdAt": "2026-10-11T17:18:58.358340+00:00",
+  "proofs": {
+    "README.md": "cf8bfcc994d70555e14a4b31cf9060523dd2d55bc4bf631506079ee405e3c11c",
+    "construction-audit.json": "d4037b5856aefa21197adc92e96c12045a53d7cf8f6afb85f207125571b18cf5",
+    "construction-audit.mjs": "a6589a8ebfc5e25e35e90e86e55d60249c0008093f94be457fa7173082a4adf3",
+    "reference-model-gallery.png": "b947aab57839515f8580750151cfb2f32543422af7dcb9c18227850afd3f4ba2",
+    "reference-model-gallery.json": "1666134beb91e0682f295eceba05b177ad9c7c6dab5fe6fa4ca74bf70de45d9e",
+    "render-gallery.py": "efbfd75550bf9c1ad37aa8e65fc41d4eda823545be4d630008b19fbf1c9f4e2b",
+    "illustrated-exceptions.test.mjs": "943ba4c17bc9fa1997885a39297be1e7b4363f5a6a780b0fedbc508225205f41",
+    "test-output.txt": "00ba20206efdbd3b0dc35b3a44bc3c92e277df6fbb89ad251cfb77c625772ccd"
+  },
+  "ownedSources": {
+    "src/ui/HologramTokenIllustratedExceptions.js": "29ada3f0825d726b4c12664c73ced64beab227eb13fd3d8af10c58ab92b50c3d"
+  }
+}

@@ -30,7 +30,8 @@
     "src/ui/HologramPoseAnimation.js": "0fd60c0f319ee7a413049ac05199d44e06ab356a94174bc2dc35958b22b8729c",
     "test/hologram-token-models.test.js": "a48efd7cf1392f1bda17dfc32192c759623e92034fe68269a81c61e59068e470",
     "test/hologram-token-botanical-models.test.js": "8be1baf39bb40b151b48573bd9ce04852889891d83a2b8cc7e0c33cbac94055c",
-    "tests/token-construct-refinement.test.mjs": "71b93422b501c385b9de96e73b19f2f5fa97d37a9e294c688346d9af99b406bb"
+    "tests/token-construct-refinement.test.mjs": "71b93422b501c385b9de96e73b19f2f5fa97d37a9e294c688346d9af99b406bb",
+    "tests/token-illustrated-exceptions.test.mjs": "c25ed906fdfce0c350bedc8f1aa6c6caa00eceb289046109834f9508d7d734d8"
   },
   "referenceManifest": {
     "path": "docs/audits/artifacts/token-monster-inventory-2026-10-11/token-reference-art.json",
@@ -38,11 +39,12 @@
   },
   "files": {
     "final-gallery.py": "c055b5a514c8c9613a41907a389075ad3ea493c1f2028b28b90b257a78302a07",
+    "ci-portability-tests.txt": "253223efa61b4fad06de5dc6fbdd745047158e3068fc2ab670389889d3ca2e3f",
     "audit-final-models.mjs": "b47df6ec42d9523246f8ed7ff3779f18d926f237788bf8544bdc59661576b728",
     "compare-existing-models.mjs": "daf71a68b925fbfb520305282d414d54b56ebe187e1a8555f25357f6757ec86c",
     "before-gallery.py": "ab6e3813afbe466f5f9593781c276ad5042836587ddacaeac4dc632af4dfd0d7",
-    "README.md": "9c1a05277dc97d6118bb2d964f4bc05188854179455ffefb3bb4f8f73d8102da",
-    "delivery-index.json": "4554f8cc08ab4c8671cbfd3724eb36b9cd95a423b1b4b5e96118b31068b58ae7",
+    "README.md": "a9a6a4e16612d507cf58cf917a31184f7ac962617b0100566042fae1faac7195",
+    "delivery-index.json": "69425d32fb4eb1f7c9251ca02addab4e60cc317694cb9129f0f8dc2a1aa89ac3",
     "final/all-tokens-09.png": "8051bb0704994f038db841000b0dc5306624e1ad4fe57466a6d0ed7804f13eb4",
     "final/anatomies-02.png": "8bb1df816b8b43fd0a1a0035bf59f1991f19384a4b993df0aea5487bfe2e3c37",
     "final/non-token-regression.json": "58adf29a153d08c3be9bbaa575215336e8079a4ab991ab84bd5c89f59fe8c4a8",
@@ -77,15 +79,17 @@
     "construct-refinement/construct-final-gallery.png": "d4da239fc0c7e7331bde6ef0be98e4098a35322d295a8cd4d95efae5f03e0a8f",
     "construct-refinement/final-cards.json": "4241f455ac0b0d4d1ed60a936abc8f417e4c618d876dc97e221fa0ad12c4d435",
     "construct-refinement/construct-final-gallery-pins.json": "fa8c20eace4a800ab6e268d3fe867b4499451ef8f5db9f48c790b5066120414c",
+    "illustrated-exceptions/README.original-2026-10-11.md.txt": "cf8bfcc994d70555e14a4b31cf9060523dd2d55bc4bf631506079ee405e3c11c",
     "illustrated-exceptions/construction-audit.json": "d4037b5856aefa21197adc92e96c12045a53d7cf8f6afb85f207125571b18cf5",
-    "illustrated-exceptions/illustrated-exceptions.test.mjs": "943ba4c17bc9fa1997885a39297be1e7b4363f5a6a780b0fedbc508225205f41",
-    "illustrated-exceptions/manifest.json": "821940222ff1959bbf723a488aa188398b343a14b436e1c629123688d3205bc2",
+    "illustrated-exceptions/manifest.json": "135822132dcf87e2ed6bf6cd82e8ab40e481c58ec13287585173c0f8721ad1e3",
     "illustrated-exceptions/render-gallery.py": "efbfd75550bf9c1ad37aa8e65fc41d4eda823545be4d630008b19fbf1c9f4e2b",
     "illustrated-exceptions/construction-audit.mjs": "a6589a8ebfc5e25e35e90e86e55d60249c0008093f94be457fa7173082a4adf3",
     "illustrated-exceptions/reference-model-gallery.png": "b947aab57839515f8580750151cfb2f32543422af7dcb9c18227850afd3f4ba2",
     "illustrated-exceptions/reference-model-gallery.json": "1666134beb91e0682f295eceba05b177ad9c7c6dab5fe6fa4ca74bf70de45d9e",
+    "illustrated-exceptions/manifest.original-2026-10-11.json.txt": "821940222ff1959bbf723a488aa188398b343a14b436e1c629123688d3205bc2",
     "illustrated-exceptions/test-output.txt": "00ba20206efdbd3b0dc35b3a44bc3c92e277df6fbb89ad251cfb77c625772ccd",
-    "illustrated-exceptions/README.md": "cf8bfcc994d70555e14a4b31cf9060523dd2d55bc4bf631506079ee405e3c11c",
+    "illustrated-exceptions/illustrated-exceptions.test.mjs.txt": "943ba4c17bc9fa1997885a39297be1e7b4363f5a6a780b0fedbc508225205f41",
+    "illustrated-exceptions/README.md": "c9560d2a3b02841b21863462eac0a69ee86472d86c455c1fb2b8fad50e9fe20f",
     "references/contact-inventory.json": "b10739645786ff5fe5a3d73bea48d9392f03e1fbd01809769e8e519390f3553c",
     "references/api-contact-1.jpg": "b96d85e9b55646fdf8348ea0accd8638487cda294d6e7a2b935519f620f78ab5",
     "references/api-contact-3.jpg": "33c739d4b59cc0e140c16fd651561cbc9609f08be190df6f343fd5b9f4d1e63d",
@@ -99,5 +103,23 @@
     "before/before-gallery-pins.json": "d93238c6ff513494fc2921be923204f8d861b0c694abf6425c14af8824af80de",
     "baseline-imports/CombatVisualProfiles.mjs": "01a3d14b29e8d8a5380a6b9aede7704580e788d536af744c5f4bad3acba64ee7",
     "baseline-imports/HologramMonsterModels.mjs": "d78236f231fa99349d53a52a5f1fa264e35f243e56b9e84c4d9c8648476720de"
+  },
+  "ciPortabilityCorrection": {
+    "priorManifestSha256": "1bb22a3d453e9676d2a5d9d7260a50bdb23a39a70220fcc58d37d5ea54f0a267",
+    "historicalTestArchive": "illustrated-exceptions/illustrated-exceptions.test.mjs.txt",
+    "historicalTestSha256": "943ba4c17bc9fa1997885a39297be1e7b4363f5a6a780b0fedbc508225205f41",
+    "liveTestPath": "tests/token-illustrated-exceptions.test.mjs",
+    "liveTestSha256": "c25ed906fdfce0c350bedc8f1aa6c6caa00eceb289046109834f9508d7d734d8",
+    "liveTestChangedOnlyFourImportSpecifiers": true,
+    "portableTargetedTestsPassed": 4,
+    "log": "ci-portability-tests.txt",
+    "historicalExecutionLogsCapturesMeasurementsAndGeometrySourcesUnchanged": true,
+    "amendedDeliveryMetadata": [
+      "README.md",
+      "manifest.json",
+      "delivery-index.json",
+      "illustrated-exceptions/README.md",
+      "illustrated-exceptions/manifest.json"
+    ]
   }
 }

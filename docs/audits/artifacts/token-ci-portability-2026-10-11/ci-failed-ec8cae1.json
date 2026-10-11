@@ -1,0 +1,238 @@
+{
+  "wave": "native-token-catalogue-and-models",
+  "asOf": "2026-10-11",
+  "observedAtUtc": "2026-10-11T18:42:51.949Z",
+  "status": "FAILED",
+  "repository": "darknigthmare/yugioh-25d-holograms",
+  "headSha": "ec8cae1f5534e78985f48fe116cb0b9f44b45da9",
+  "sourceTree": "2a76faa61692c6c9faa572808ca8dc0cff726b08",
+  "localSourceCommit": "86bfc0e359916b6b87c010e8b6384f90c5726a9d",
+  "remoteRun": {
+    "id": 38164643761,
+    "number": 30,
+    "attempt": 1,
+    "url": "https://github.com/darknigthmare/yugioh-25d-holograms/actions/runs/38164643761",
+    "event": "pull_request",
+    "status": "completed",
+    "conclusion": "failure",
+    "headSha": "ec8cae1f5534e78985f48fe116cb0b9f44b45da9",
+    "headBranch": "codex/duel-fidelity-2026-10-01",
+    "createdAtUtc": "2026-10-11T18:38:12Z",
+    "updatedAtUtc": "2026-10-11T18:40:17Z"
+  },
+  "jobs": [
+    {
+      "id": 114544557525,
+      "name": "verify",
+      "status": "completed",
+      "conclusion": "failure",
+      "run_id": 38164643761,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Setup Node",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Install dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Audit dependency advisories",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Test and build",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 6
+        },
+        {
+          "name": "Post Setup Node",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 11
+        },
+        {
+          "name": "Post Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13
+        }
+      ]
+    }
+  ],
+  "prSnapshot": {
+    "number": 3,
+    "url": "https://github.com/darknigthmare/yugioh-25d-holograms/pull/3",
+    "state": "open",
+    "draft": true,
+    "merged": false,
+    "head": "codex/duel-fidelity-2026-10-01",
+    "headSha": "ec8cae1f5534e78985f48fe116cb0b9f44b45da9",
+    "base": "master",
+    "baseSha": "025f8ebd928cd8881c0e5e0d626dda63c933bf31",
+    "mergeCommitSha": "807e62b6360f6d621f455e1a180dc89a609a486c"
+  },
+  "checkout": {
+    "actualMergeSha": "807e62b6360f6d621f455e1a180dc89a609a486c",
+    "headSha": "ec8cae1f5534e78985f48fe116cb0b9f44b45da9",
+    "mergeTree": "2a76faa61692c6c9faa572808ca8dc0cff726b08",
+    "headTree": "2a76faa61692c6c9faa572808ca8dc0cff726b08",
+    "expectedSourceTree": "2a76faa61692c6c9faa572808ca8dc0cff726b08",
+    "exactTreeEqual": true,
+    "mergeParents": [
+      "025f8ebd928cd8881c0e5e0d626dda63c933bf31",
+      "ec8cae1f5534e78985f48fe116cb0b9f44b45da9"
+    ],
+    "evidenceLines": [
+      "2026-10-11T18:38:17.0468322Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +807e62b6360f6d621f455e1a180dc89a609a486c:refs/remotes/pull/3/merge",
+      "2026-10-11T18:39:12.0943714Z  * [new ref]         807e62b6360f6d621f455e1a180dc89a609a486c -> pull/3/merge",
+      "2026-10-11T18:39:13.9545419Z 807e62b6360f6d621f455e1a180dc89a609a486c"
+    ],
+    "localCommitTree": "2a76faa61692c6c9faa572808ca8dc0cff726b08"
+  },
+  "ciMetrics": {
+    "nodeVersion": "24.21.0",
+    "npmVersion": "11.19.0",
+    "installCompletedSuccessfully": true,
+    "securityAuditCompletedSuccessfully": true,
+    "vulnerabilities": 0,
+    "tests": 2728,
+    "passed": 2727,
+    "failed": 1,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "durationMs": 57739.545265,
+    "buildReached": false,
+    "modulesTransformed": null,
+    "builtEntry": null,
+    "evidenceLines": [
+      "2026-10-11T18:39:14.6403693Z node: v24.21.0",
+      "2026-10-11T18:39:14.6404119Z npm: 11.19.0",
+      "2026-10-11T18:39:15.1257921Z ##[group]Run npm ci",
+      "2026-10-11T18:39:16.8128308Z found 0 vulnerabilities",
+      "2026-10-11T18:39:16.8602574Z ##[group]Run npm run audit:security",
+      "2026-10-11T18:39:17.3695118Z found 0 vulnerabilities",
+      "2026-10-11T18:39:17.3865304Z ##[group]Run npm run check",
+      "2026-10-11T18:40:15.3966551Z ℹ tests 2728",
+      "2026-10-11T18:40:15.3966980Z ℹ pass 2727",
+      "2026-10-11T18:40:15.3967190Z ℹ fail 1",
+      "2026-10-11T18:40:15.3967400Z ℹ cancelled 0",
+      "2026-10-11T18:40:15.3967612Z ℹ skipped 0",
+      "2026-10-11T18:40:15.3967809Z ℹ todo 0",
+      "2026-10-11T18:40:15.3968048Z ℹ duration_ms 57739.545265"
+    ]
+  },
+  "failure": {
+    "file": "docs/audits/artifacts/token-monster-models-2026-10-11/illustrated-exceptions/illustrated-exceptions.test.mjs",
+    "nativeOrAppRuleBugClaimed": false,
+    "code": "ERR_MODULE_NOT_FOUND",
+    "missingPath": "/workspace/yugioh-25d-holograms/node_modules/three/build/three.module.js",
+    "reason": "Node's default test discovery executes an archived proof test with a machine-specific absolute module import; the GitHub runner lacks this /workspace path.",
+    "evidenceLines": [
+      "2026-10-11T18:39:18.0020778Z     throw new ERR_MODULE_NOT_FOUND(",
+      "2026-10-11T18:39:18.0098677Z Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/yugioh-25d-holograms/node_modules/three/build/three.module.js' imported from /home/runner/work/yugioh-25d-holograms/yugioh-25d-holograms/docs/audits/artifacts/token-monster-models-2026-10-11/illustrated-exceptions/illustrated-exceptions.test.mjs",
+      "2026-10-11T18:39:18.0178871Z   code: 'ERR_MODULE_NOT_FOUND',",
+      "2026-10-11T18:39:18.0183837Z ✖ docs/audits/artifacts/token-monster-models-2026-10-11/illustrated-exceptions/illustrated-exceptions.test.mjs (72.852467ms)",
+      "2026-10-11T18:40:15.3970934Z ✖ docs/audits/artifacts/token-monster-models-2026-10-11/illustrated-exceptions/illustrated-exceptions.test.mjs (72.852467ms)",
+      "2026-10-11T18:40:15.4029015Z ##[error]Process completed with exit code 1."
+    ]
+  },
+  "localFreeze": {
+    "path": "/workspace/yugioh-token-build-freeze-2026-10-11.json",
+    "bytes": 179638,
+    "sha256": "1ee6840a88bdab54193f4edf6db3b09ff18524cb42ed5cf5c584fce320c3069d",
+    "executedAtUtc": "2026-10-11T18:11:33.507403+00:00",
+    "entry": "/assets/index-Dm3uaqMp.js",
+    "builtEntry": null,
+    "keys": [
+      "date",
+      "executedAtUtc",
+      "localBaseline",
+      "entry",
+      "source",
+      "compiled",
+      "additionalStaticAssets",
+      "sourceBeforeFullCheck",
+      "check",
+      "security",
+      "protectedNativeArchives",
+      "protectedNativeFacade",
+      "publicNativeTokenReasonCorrection"
+    ],
+    "check": {
+      "path": "/workspace/yugioh-token-check-final-2026-10-11.txt",
+      "bytes": 273021,
+      "sha256": "5f34940fd331f57aa21e8a85d1ecfc176ab66e5c91252165764c9d8e0d47029e",
+      "tests": 2731,
+      "pass": 2731,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "modules": 146
+    },
+    "security": {
+      "path": "/workspace/yugioh-token-security-final-2026-10-11.txt",
+      "bytes": 521,
+      "sha256": "ce10d89592b5b2d55cb4bdaf4b098f6da78eb23609d6da2dde83e6ade53be768"
+    },
+    "compiledEntry": {
+      "path": "assets/index-Dm3uaqMp.js",
+      "bytes": 974597,
+      "sha256": "c4033f703dd088c0cb8b77a78678522c904191dad2c23d16a10c1b5df8b03a0f",
+      "locallyReadFileMatched": true
+    },
+    "role": "Local successful build provenance and expectation only; this failed CI never ran Vite and exposes no binary build SHA."
+  },
+  "remoteArtifacts": [],
+  "remoteCompiledBinaryShaObserved": false,
+  "workflow": {
+    "path": ".github/workflows/ci.yml",
+    "readAtHead": "ec8cae1f5534e78985f48fe116cb0b9f44b45da9",
+    "content": "name: CI\n\non:\n  push:\n    branches: [master, main]\n  pull_request:\n\npermissions:\n  contents: read\n\nconcurrency:\n  group: ci-${{ github.workflow }}-${{ github.ref }}\n  cancel-in-progress: true\n\njobs:\n  verify:\n    runs-on: ubuntu-latest\n    timeout-minutes: 15\n    steps:\n      - name: Checkout\n        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6, verified upstream tag\n        with:\n          persist-credentials: false\n\n      - name: Setup Node\n        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6, verified upstream tag\n        with:\n          node-version: '24'\n          cache: npm\n\n      - name: Install dependencies\n        run: npm ci\n\n      - name: Audit dependency advisories\n        run: npm run audit:security\n\n      - name: Test and build\n        run: npm run check\n"
+  },
+  "decodedLogs": {
+    "path": "/workspace/yugioh-token-ci-delivery-2026-10-11.txt",
+    "sourceTool": "github_fetch_workflow_job_logs",
+    "jobId": 114544557525,
+    "encoding": "UTF-8",
+    "exactDecodedContentsPreserved": true,
+    "bytes": 373339,
+    "sha256": "0f31e51c81332e7f4f3356130323061ad0175c271ef6dbb0656b9daa20e94edd",
+    "characters": 367786
+  },
+  "permissions": {
+    "githubReadsOnly": true,
+    "repoFilesChanged": false,
+    "testsOrBuildOrBrowserRerun": false,
+    "publicationOrPrMutation": false,
+    "olderAvatarRunUsedAsEvidence": false
+  }
+}

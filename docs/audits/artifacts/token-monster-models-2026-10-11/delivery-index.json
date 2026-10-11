@@ -250,13 +250,13 @@
     },
     {
       "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/illustrated-exceptions/illustrated-exceptions.test.mjs",
-      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/illustrated-exceptions/illustrated-exceptions.test.mjs",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/illustrated-exceptions/illustrated-exceptions.test.mjs.txt",
       "sha256": "943ba4c17bc9fa1997885a39297be1e7b4363f5a6a780b0fedbc508225205f41",
       "byteIdentical": true
     },
     {
       "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/illustrated-exceptions/manifest.json",
-      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/illustrated-exceptions/manifest.json",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/illustrated-exceptions/manifest.original-2026-10-11.json.txt",
       "sha256": "821940222ff1959bbf723a488aa188398b343a14b436e1c629123688d3205bc2",
       "byteIdentical": true
     },
@@ -292,7 +292,7 @@
     },
     {
       "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/illustrated-exceptions/README.md",
-      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/illustrated-exceptions/README.md",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/illustrated-exceptions/README.original-2026-10-11.md.txt",
       "sha256": "cf8bfcc994d70555e14a4b31cf9060523dd2d55bc4bf631506079ee405e3c11c",
       "byteIdentical": true
     },
@@ -366,7 +366,31 @@
   "newDeliveryFiles": [
     "README.md",
     "delivery-index.json",
-    "manifest.json"
+    "manifest.json",
+    "illustrated-exceptions/README.md",
+    "illustrated-exceptions/manifest.json",
+    "ci-portability-tests.txt"
   ],
-  "note": "Copies byte-for-byte of executed final proofs, baseline originals and reference sheets. Absolute paths are preserved intentionally."
+  "note": "Historical source proofs, scripts and renamed archives remain byte-for-byte identical to their executed originals. Active README/manifest metadata amended for CI are distinct derived delivery files; absolute original paths are preserved.",
+  "deliveryAmendment": {
+    "reason": "Prevent automatic execution of environment-specific archived test while restoring live portable coverage.",
+    "priorIndexSha256": "4554f8cc08ab4c8671cbfd3724eb36b9cd95a423b1b4b5e96118b31068b58ae7",
+    "priorGlobalManifestSha256": "1bb22a3d453e9676d2a5d9d7260a50bdb23a39a70220fcc58d37d5ea54f0a267",
+    "backupRoot": "/workspace/yugioh-token-models-2026-10-11/delivery-before-ci-fix-ec8cae1",
+    "renamedArchives": {
+      "illustrated-exceptions/illustrated-exceptions.test.mjs": "illustrated-exceptions/illustrated-exceptions.test.mjs.txt",
+      "illustrated-exceptions/README.md": "illustrated-exceptions/README.original-2026-10-11.md.txt",
+      "illustrated-exceptions/manifest.json": "illustrated-exceptions/manifest.original-2026-10-11.json.txt"
+    },
+    "derivedMetadata": [
+      "README.md",
+      "manifest.json",
+      "delivery-index.json",
+      "illustrated-exceptions/README.md",
+      "illustrated-exceptions/manifest.json"
+    ],
+    "liveTestPath": "tests/token-illustrated-exceptions.test.mjs",
+    "liveTestSha256": "c25ed906fdfce0c350bedc8f1aa6c6caa00eceb289046109834f9508d7d734d8",
+    "targetedTestsPassed": 4
+  }
 }

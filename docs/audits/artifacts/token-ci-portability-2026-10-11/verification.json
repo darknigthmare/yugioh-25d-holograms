@@ -1,0 +1,167 @@
+{
+  "date": "2026-10-11",
+  "executedAtUtc": "2026-10-11T18:51:05.317593+00:00",
+  "ok": true,
+  "scope": "Portable discovery of four unchanged geometry assertions; application, native archives and compiled runtime unchanged. No new browser run is claimed.",
+  "check": {
+    "tests": 2731,
+    "pass": 2731,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "modules": 146,
+    "path": "docs/audits/artifacts/token-ci-portability-2026-10-11/check-final.txt",
+    "bytes": 273041,
+    "sha256": "f60e4a9f94ee2d0d1d01c3b09cb677f796cd39d0049e4603ecb9bd4454354913"
+  },
+  "applicationFreeze": {
+    "path": "docs/audits/artifacts/token-delivery-gates-2026-10-11/build-freeze.json",
+    "bytes": 179638,
+    "sha256": "1ee6840a88bdab54193f4edf6db3b09ff18524cb42ed5cf5c584fce320c3069d",
+    "sourcePinsVerifiedBeforeAfter": 653,
+    "unchanged": true
+  },
+  "compiled": {
+    "index.html": {
+      "bytes": 36909,
+      "sha256": "608307080c0bbda3725d5ad561b280652227163eb898b1b9c33abc6e92fd9183"
+    },
+    "assets/BufferGeometryUtils-BKpJ-veU.js": {
+      "bytes": 3787,
+      "sha256": "302050589f3f8be509350bb12af8bf524c584a9af6e194f5debb4d4d437432f1"
+    },
+    "assets/DuelistAvatarModels-CuFLdziN.js": {
+      "bytes": 23934,
+      "sha256": "9689a51465f35216c3fbd157fd83a433631267ba50b7a0e2568da2234f733f9d"
+    },
+    "assets/DuelistAvatarPreview3D-Cw_bXE0p.js": {
+      "bytes": 7823,
+      "sha256": "27a20a510dd99721a049862a1c4f9f13f7f26c1a92a97fb8bc0558e774d867e0"
+    },
+    "assets/FieldEnvironmentRegistry-ZfoXP0Rs.js": {
+      "bytes": 601483,
+      "sha256": "abaa529c95e387c9cb3923047715801fd8cc94b7bffd13b4c0091a49750dd147"
+    },
+    "assets/FieldGeometryThree-DPwaKRze.js": {
+      "bytes": 455,
+      "sha256": "6a7ed54ac19c34ebdd37b151590e2895afbc468c39b1421e669bd43c98e0f675"
+    },
+    "assets/FieldSpellAtlas-B2_layOC.js": {
+      "bytes": 19541,
+      "sha256": "2f1a657779fa9f3393bdf56a86c9e7ae4e3949fbc682c327bfd3e852dc7cc4bf"
+    },
+    "assets/FieldSpellAtlasPreview-BMKpaAy-.js": {
+      "bytes": 2864,
+      "sha256": "09db631edc4b2defa06c205c840419c32da9594e1a2227a2b25468e44fec802b"
+    },
+    "assets/FieldSpellEnvironmentCatalog-IB-DikF5.js": {
+      "bytes": 19419,
+      "sha256": "52b9997943e87d83bf973cf02f3e725bda1a7af65cf679d20ae00ca04a06696f"
+    },
+    "assets/FieldSpellReferenceArtPalettes-BicCo6qW.js": {
+      "bytes": 20661,
+      "sha256": "f160b9c4dd8704da292b3da40cb64a077973e6ffec765be369de5bbed4a6229c"
+    },
+    "assets/FieldSpellRules-C14vMJqk.js": {
+      "bytes": 1513,
+      "sha256": "a89917bb41d27e098574c102be6c76f90732801bc4a57b3ea575de353238b785"
+    },
+    "assets/HologramMonsterModels-DnIskS50.js": {
+      "bytes": 191925,
+      "sha256": "be021801ce2d1ec10bb8f92cca68f9d2135e0c56e6cbd8f2f710c043fc0ae5cf"
+    },
+    "assets/NativeDuelGame-CybUikLp.js": {
+      "bytes": 96591,
+      "sha256": "8f92c1548d91476820d23cadb500181c950a886dc82a08640525f9ccc0ee1304"
+    },
+    "assets/RealDuelView-CwPoQ9xg.js": {
+      "bytes": 110635,
+      "sha256": "2471cf55f797ad1012bb9f8175c4b7acb5caeb61fbf5e396aea8752f2e5a96ec"
+    },
+    "assets/TokenModelAtlas-BiPbzXUW.js": {
+      "bytes": 19531,
+      "sha256": "cf139f3a2ba59c9c9c8662ba485b63a9f28eb525ba31867e626ae6559b9c427c"
+    },
+    "assets/TokenModelAtlasPreview-CWcHspgN.js": {
+      "bytes": 9061,
+      "sha256": "cb970355c911ed0d33e6a9f8615f6ac98da05d78cbe7fa49ac6daafb9513ed2b"
+    },
+    "assets/TokenMonsterModelProfiles-DLqS_Mkb.js": {
+      "bytes": 40111,
+      "sha256": "1a51ed26562f07f90971604bcfe806ec4e03e883ce3147b32cbd3fb33408da87"
+    },
+    "assets/TokenMonsterProfiles-8edmKnus.js": {
+      "bytes": 339158,
+      "sha256": "cfa1627786d304819d4ead8bb295aea2b2129ee86076d3b4eb8899776c3bd3bb"
+    },
+    "assets/index-CAb6dB3t.css": {
+      "bytes": 106859,
+      "sha256": "8d8e168552715ef514413ee620c0f4be3589c819fd3f32265419bd8e3265e564"
+    },
+    "assets/index-Dm3uaqMp.js": {
+      "bytes": 974597,
+      "sha256": "c4033f703dd088c0cb8b77a78678522c904191dad2c23d16a10c1b5df8b03a0f"
+    },
+    "assets/ocgcore-DWqJvtmv.js": {
+      "bytes": 46501,
+      "sha256": "dd1e9936f49901fb5f53efd6d25b19ab5755af65169fee4ef34600a1cfbe5349"
+    },
+    "assets/ocgcore.sync-MMMSWPBB-2LWfD6lX.js": {
+      "bytes": 20718,
+      "sha256": "433b02687ca9a24dcc846c11d7578d40ba5ab87d1b1321d5d22cd879fae58ed6"
+    },
+    "assets/preload-helper-Czpn1I53.js": {
+      "bytes": 1196,
+      "sha256": "aba87f2a53e45ecdc9113fc30387d16e449d1676428cf5f82dd624c1df97d152"
+    },
+    "assets/three.module-DPisSP3D.js": {
+      "bytes": 540667,
+      "sha256": "629f8bd9080742d307ae8959969d2fee668d723b1ef0ac91f04038281671949a"
+    }
+  },
+  "compiledBodyCount": 24,
+  "additionalStaticAssetCount": 478,
+  "allAdditionalStaticAssetsExact": true,
+  "protectedNativeArchives": {
+    "public/native/ocgcore.sync.wasm": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+    "public/native/card-data.json": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d",
+    "public/native/scripts.json": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+  },
+  "protectedNativeFacade": {
+    "path": "src/core/native/NativeDuelGame.js",
+    "bytes": 62598,
+    "sha256": "8c61bad0482d49babd7d20187b12251a2af11f967b83fc58cd5b4aeb1c4d6c01"
+  },
+  "historicalProofs": {
+    "count": 1847,
+    "bytes": 492607582,
+    "unchanged": true,
+    "snapshot": {
+      "path": "/workspace/yugioh-token-history-before-2026-10-11.json",
+      "bytes": 373286,
+      "sha256": "4aa2ccd2a21202aae2803a486933b52856d493b2e245d9cbbf674f58e5cc12a2"
+    }
+  },
+  "executableTest": {
+    "path": "tests/token-illustrated-exceptions.test.mjs",
+    "bytes": 6057,
+    "sha256": "c25ed906fdfce0c350bedc8f1aa6c6caa00eceb289046109834f9508d7d734d8",
+    "assertions": 4
+  },
+  "archivedExecutedTest": {
+    "path": "docs/audits/artifacts/token-monster-models-2026-10-11/illustrated-exceptions/illustrated-exceptions.test.mjs.txt",
+    "bytes": 6211,
+    "sha256": "943ba4c17bc9fa1997885a39297be1e7b4363f5a6a780b0fedbc508225205f41",
+    "originalBytesPreserved": true
+  },
+  "reusedCompiledBrowserProof": {
+    "path": "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/report.json",
+    "bytes": 1378948,
+    "sha256": "540c5c7c2aa3400f28b7ca751172c6e2e8be2d09fe0d5e2105a88a193e3e7c19",
+    "paths": 9,
+    "captures": 50,
+    "compiledBodiesIdentical": true
+  },
+  "securityScope": "Dependencies are unchanged; previous local audit and failed first CI install/audit each found zero vulnerabilities. Final CI is checked separately on its exact new SHA."
+}
