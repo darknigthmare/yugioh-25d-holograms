@@ -1,0 +1,1448 @@
+{
+  "measurements": [
+    {
+      "avatarId": "yugi",
+      "kind": "idle",
+      "gesture": null,
+      "drawCalls": 6,
+      "triangles": 6276,
+      "bones": 8,
+      "gpuBoneTextureAllocated": true,
+      "rig": {
+        "leftShoulder": [
+          0,
+          0,
+          0
+        ],
+        "leftElbow": [
+          0,
+          0,
+          0
+        ],
+        "leftWrist": [
+          0,
+          0,
+          0
+        ],
+        "duelDisk": [
+          0,
+          0,
+          0
+        ],
+        "rightShoulder": [
+          0,
+          0,
+          0
+        ],
+        "rightElbow": [
+          0,
+          0,
+          0
+        ],
+        "rightWrist": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "avatarId": "yugi",
+      "kind": "summon",
+      "gesture": {
+        "gestureId": 1,
+        "kind": "summon",
+        "strength": 1,
+        "duration": 1.2,
+        "elapsed": 0.45599999999999996,
+        "held": false,
+        "reducedMotion": false,
+        "progress": 0.38,
+        "active": true
+      },
+      "drawCalls": 6,
+      "triangles": 6276,
+      "bones": 8,
+      "gpuBoneTextureAllocated": true,
+      "rig": {
+        "leftShoulder": [
+          -0.48,
+          -0.05,
+          -0.16
+        ],
+        "leftElbow": [
+          -0.3,
+          0,
+          0
+        ],
+        "leftWrist": [
+          0.08,
+          -0.08,
+          0
+        ],
+        "duelDisk": [
+          0.14,
+          0,
+          0.03
+        ],
+        "rightShoulder": [
+          -0.9,
+          0.16,
+          0.32
+        ],
+        "rightElbow": [
+          -0.42,
+          0,
+          0.05
+        ],
+        "rightWrist": [
+          0.38,
+          0,
+          -0.06
+        ]
+      }
+    },
+    {
+      "avatarId": "yugi",
+      "kind": "casting",
+      "gesture": {
+        "gestureId": 1,
+        "kind": "casting",
+        "strength": 1,
+        "duration": 1.35,
+        "elapsed": 0.513,
+        "held": false,
+        "reducedMotion": false,
+        "progress": 0.38,
+        "active": true
+      },
+      "drawCalls": 6,
+      "triangles": 6276,
+      "bones": 8,
+      "gpuBoneTextureAllocated": true,
+      "rig": {
+        "leftShoulder": [
+          -0.62,
+          -0.09,
+          -0.18
+        ],
+        "leftElbow": [
+          -0.2,
+          0,
+          0
+        ],
+        "leftWrist": [
+          -0.05,
+          -0.14,
+          0
+        ],
+        "duelDisk": [
+          0.16,
+          0.05,
+          0.08
+        ],
+        "rightShoulder": [
+          -0.78,
+          0.22,
+          0.48
+        ],
+        "rightElbow": [
+          -0.64,
+          0,
+          -0.06
+        ],
+        "rightWrist": [
+          0.5,
+          -0.18,
+          0.12
+        ]
+      }
+    },
+    {
+      "avatarId": "yugi",
+      "kind": "attack",
+      "gesture": {
+        "gestureId": 1,
+        "kind": "attack",
+        "strength": 1,
+        "duration": 1,
+        "elapsed": 0.38,
+        "held": false,
+        "reducedMotion": false,
+        "progress": 0.38,
+        "active": true
+      },
+      "drawCalls": 6,
+      "triangles": 6276,
+      "bones": 8,
+      "gpuBoneTextureAllocated": true,
+      "rig": {
+        "leftShoulder": [
+          -0.3,
+          0.08,
+          -0.12
+        ],
+        "leftElbow": [
+          -0.17,
+          0,
+          0
+        ],
+        "leftWrist": [
+          0,
+          0,
+          0
+        ],
+        "duelDisk": [
+          0.1,
+          0,
+          0
+        ],
+        "rightShoulder": [
+          -1.12,
+          0.22,
+          0.34
+        ],
+        "rightElbow": [
+          -0.31,
+          0,
+          -0.08
+        ],
+        "rightWrist": [
+          0.12,
+          -0.12,
+          -0.08
+        ]
+      }
+    },
+    {
+      "avatarId": "yugi",
+      "kind": "damage",
+      "gesture": {
+        "gestureId": 1,
+        "kind": "damage",
+        "strength": 1,
+        "duration": 0.8,
+        "elapsed": 0.30400000000000005,
+        "held": false,
+        "reducedMotion": false,
+        "progress": 0.38000000000000006,
+        "active": true
+      },
+      "drawCalls": 6,
+      "triangles": 6276,
+      "bones": 8,
+      "gpuBoneTextureAllocated": true,
+      "rig": {
+        "leftShoulder": [
+          -0.18,
+          0,
+          -0.12
+        ],
+        "leftElbow": [
+          -0.36,
+          0,
+          0
+        ],
+        "leftWrist": [
+          -0.12,
+          0,
+          0
+        ],
+        "duelDisk": [
+          0,
+          0,
+          0
+        ],
+        "rightShoulder": [
+          -0.17,
+          -0.08,
+          -0.12
+        ],
+        "rightElbow": [
+          -0.32,
+          0,
+          0
+        ],
+        "rightWrist": [
+          -0.06,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "avatarId": "yugi",
+      "kind": "victory",
+      "gesture": {
+        "gestureId": 1,
+        "kind": "victory",
+        "strength": 1,
+        "duration": 1.7,
+        "elapsed": 0.646,
+        "held": false,
+        "reducedMotion": false,
+        "progress": 0.38,
+        "active": true
+      },
+      "drawCalls": 6,
+      "triangles": 6276,
+      "bones": 8,
+      "gpuBoneTextureAllocated": true,
+      "rig": {
+        "leftShoulder": [
+          -0.28,
+          0,
+          -0.12
+        ],
+        "leftElbow": [
+          -0.22,
+          0,
+          0
+        ],
+        "leftWrist": [
+          0,
+          0,
+          0
+        ],
+        "duelDisk": [
+          0.12,
+          0,
+          0.025
+        ],
+        "rightShoulder": [
+          -0.35,
+          0.12,
+          2.32
+        ],
+        "rightElbow": [
+          -0.16,
+          0,
+          0.3
+        ],
+        "rightWrist": [
+          0.12,
+          0,
+          0.05
+        ]
+      }
+    },
+    {
+      "avatarId": "yugi",
+      "kind": "defeat",
+      "gesture": {
+        "gestureId": 1,
+        "kind": "defeat",
+        "strength": 1,
+        "duration": 1.65,
+        "elapsed": 0.627,
+        "held": false,
+        "reducedMotion": false,
+        "progress": 0.38,
+        "active": true
+      },
+      "drawCalls": 6,
+      "triangles": 6276,
+      "bones": 8,
+      "gpuBoneTextureAllocated": true,
+      "rig": {
+        "leftShoulder": [
+          0.14,
+          0,
+          0.025
+        ],
+        "leftElbow": [
+          0.16,
+          0,
+          0
+        ],
+        "leftWrist": [
+          0.08,
+          0,
+          0
+        ],
+        "duelDisk": [
+          -0.1,
+          0,
+          0
+        ],
+        "rightShoulder": [
+          0.12,
+          0,
+          -0.025
+        ],
+        "rightElbow": [
+          0.1,
+          0,
+          0
+        ],
+        "rightWrist": [
+          0.06,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "avatarId": "yugi",
+      "kind": "draw",
+      "gesture": {
+        "gestureId": 1,
+        "kind": "draw",
+        "strength": 1,
+        "duration": 1.25,
+        "elapsed": 0.475,
+        "held": false,
+        "reducedMotion": false,
+        "progress": 0.38,
+        "active": true
+      },
+      "drawCalls": 6,
+      "triangles": 6276,
+      "bones": 8,
+      "gpuBoneTextureAllocated": true,
+      "rig": {
+        "leftShoulder": [
+          -0.13,
+          0,
+          -0.035
+        ],
+        "leftElbow": [
+          -0.06,
+          0,
+          0
+        ],
+        "leftWrist": [
+          0,
+          0,
+          0
+        ],
+        "duelDisk": [
+          0,
+          0,
+          0
+        ],
+        "rightShoulder": [
+          -0.13,
+          0,
+          0.035
+        ],
+        "rightElbow": [
+          -0.06,
+          0,
+          0
+        ],
+        "rightWrist": [
+          0.05,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "avatarId": "kaiba",
+      "kind": "idle",
+      "gesture": null,
+      "drawCalls": 7,
+      "triangles": 9166,
+      "bones": 8,
+      "gpuBoneTextureAllocated": true,
+      "rig": {
+        "leftShoulder": [
+          0,
+          0,
+          0
+        ],
+        "leftElbow": [
+          0,
+          0,
+          0
+        ],
+        "leftWrist": [
+          0,
+          0,
+          0
+        ],
+        "duelDisk": [
+          0,
+          0,
+          0
+        ],
+        "rightShoulder": [
+          0,
+          0,
+          0
+        ],
+        "rightElbow": [
+          0,
+          0,
+          0
+        ],
+        "rightWrist": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "avatarId": "kaiba",
+      "kind": "summon",
+      "gesture": {
+        "gestureId": 1,
+        "kind": "summon",
+        "strength": 1,
+        "duration": 1.2,
+        "elapsed": 0.45599999999999996,
+        "held": false,
+        "reducedMotion": false,
+        "progress": 0.38,
+        "active": true
+      },
+      "drawCalls": 7,
+      "triangles": 9166,
+      "bones": 8,
+      "gpuBoneTextureAllocated": true,
+      "rig": {
+        "leftShoulder": [
+          -0.48,
+          -0.05,
+          -0.16
+        ],
+        "leftElbow": [
+          -0.3,
+          0,
+          0
+        ],
+        "leftWrist": [
+          0.08,
+          -0.08,
+          0
+        ],
+        "duelDisk": [
+          0.14,
+          0,
+          0.03
+        ],
+        "rightShoulder": [
+          -0.9,
+          0.16,
+          0.32
+        ],
+        "rightElbow": [
+          -0.42,
+          0,
+          0.05
+        ],
+        "rightWrist": [
+          0.38,
+          0,
+          -0.06
+        ]
+      }
+    },
+    {
+      "avatarId": "kaiba",
+      "kind": "casting",
+      "gesture": {
+        "gestureId": 1,
+        "kind": "casting",
+        "strength": 1,
+        "duration": 1.35,
+        "elapsed": 0.513,
+        "held": false,
+        "reducedMotion": false,
+        "progress": 0.38,
+        "active": true
+      },
+      "drawCalls": 7,
+      "triangles": 9166,
+      "bones": 8,
+      "gpuBoneTextureAllocated": true,
+      "rig": {
+        "leftShoulder": [
+          -0.62,
+          -0.09,
+          -0.18
+        ],
+        "leftElbow": [
+          -0.2,
+          0,
+          0
+        ],
+        "leftWrist": [
+          -0.05,
+          -0.14,
+          0
+        ],
+        "duelDisk": [
+          0.16,
+          0.05,
+          0.08
+        ],
+        "rightShoulder": [
+          -0.78,
+          0.22,
+          0.48
+        ],
+        "rightElbow": [
+          -0.64,
+          0,
+          -0.06
+        ],
+        "rightWrist": [
+          0.5,
+          -0.18,
+          0.12
+        ]
+      }
+    },
+    {
+      "avatarId": "kaiba",
+      "kind": "attack",
+      "gesture": {
+        "gestureId": 1,
+        "kind": "attack",
+        "strength": 1,
+        "duration": 1,
+        "elapsed": 0.38,
+        "held": false,
+        "reducedMotion": false,
+        "progress": 0.38,
+        "active": true
+      },
+      "drawCalls": 7,
+      "triangles": 9166,
+      "bones": 8,
+      "gpuBoneTextureAllocated": true,
+      "rig": {
+        "leftShoulder": [
+          -0.3,
+          0.08,
+          -0.12
+        ],
+        "leftElbow": [
+          -0.17,
+          0,
+          0
+        ],
+        "leftWrist": [
+          0,
+          0,
+          0
+        ],
+        "duelDisk": [
+          0.1,
+          0,
+          0
+        ],
+        "rightShoulder": [
+          -1.12,
+          0.22,
+          0.34
+        ],
+        "rightElbow": [
+          -0.31,
+          0,
+          -0.08
+        ],
+        "rightWrist": [
+          0.12,
+          -0.12,
+          -0.08
+        ]
+      }
+    },
+    {
+      "avatarId": "kaiba",
+      "kind": "damage",
+      "gesture": {
+        "gestureId": 1,
+        "kind": "damage",
+        "strength": 1,
+        "duration": 0.8,
+        "elapsed": 0.30400000000000005,
+        "held": false,
+        "reducedMotion": false,
+        "progress": 0.38000000000000006,
+        "active": true
+      },
+      "drawCalls": 7,
+      "triangles": 9166,
+      "bones": 8,
+      "gpuBoneTextureAllocated": true,
+      "rig": {
+        "leftShoulder": [
+          -0.18,
+          0,
+          -0.12
+        ],
+        "leftElbow": [
+          -0.36,
+          0,
+          0
+        ],
+        "leftWrist": [
+          -0.12,
+          0,
+          0
+        ],
+        "duelDisk": [
+          0,
+          0,
+          0
+        ],
+        "rightShoulder": [
+          -0.17,
+          -0.08,
+          -0.12
+        ],
+        "rightElbow": [
+          -0.32,
+          0,
+          0
+        ],
+        "rightWrist": [
+          -0.06,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "avatarId": "kaiba",
+      "kind": "victory",
+      "gesture": {
+        "gestureId": 1,
+        "kind": "victory",
+        "strength": 1,
+        "duration": 1.7,
+        "elapsed": 0.646,
+        "held": false,
+        "reducedMotion": false,
+        "progress": 0.38,
+        "active": true
+      },
+      "drawCalls": 7,
+      "triangles": 9166,
+      "bones": 8,
+      "gpuBoneTextureAllocated": true,
+      "rig": {
+        "leftShoulder": [
+          -0.28,
+          0,
+          -0.12
+        ],
+        "leftElbow": [
+          -0.22,
+          0,
+          0
+        ],
+        "leftWrist": [
+          0,
+          0,
+          0
+        ],
+        "duelDisk": [
+          0.12,
+          0,
+          0.025
+        ],
+        "rightShoulder": [
+          -0.35,
+          0.12,
+          2.32
+        ],
+        "rightElbow": [
+          -0.16,
+          0,
+          0.3
+        ],
+        "rightWrist": [
+          0.12,
+          0,
+          0.05
+        ]
+      }
+    },
+    {
+      "avatarId": "kaiba",
+      "kind": "defeat",
+      "gesture": {
+        "gestureId": 1,
+        "kind": "defeat",
+        "strength": 1,
+        "duration": 1.65,
+        "elapsed": 0.627,
+        "held": false,
+        "reducedMotion": false,
+        "progress": 0.38,
+        "active": true
+      },
+      "drawCalls": 7,
+      "triangles": 9166,
+      "bones": 8,
+      "gpuBoneTextureAllocated": true,
+      "rig": {
+        "leftShoulder": [
+          0.14,
+          0,
+          0.025
+        ],
+        "leftElbow": [
+          0.16,
+          0,
+          0
+        ],
+        "leftWrist": [
+          0.08,
+          0,
+          0
+        ],
+        "duelDisk": [
+          -0.1,
+          0,
+          0
+        ],
+        "rightShoulder": [
+          0.12,
+          0,
+          -0.025
+        ],
+        "rightElbow": [
+          0.1,
+          0,
+          0
+        ],
+        "rightWrist": [
+          0.06,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "avatarId": "kaiba",
+      "kind": "draw",
+      "gesture": {
+        "gestureId": 1,
+        "kind": "draw",
+        "strength": 1,
+        "duration": 1.25,
+        "elapsed": 0.475,
+        "held": false,
+        "reducedMotion": false,
+        "progress": 0.38,
+        "active": true
+      },
+      "drawCalls": 7,
+      "triangles": 9166,
+      "bones": 8,
+      "gpuBoneTextureAllocated": true,
+      "rig": {
+        "leftShoulder": [
+          -0.13,
+          0,
+          -0.035
+        ],
+        "leftElbow": [
+          -0.06,
+          0,
+          0
+        ],
+        "leftWrist": [
+          0,
+          0,
+          0
+        ],
+        "duelDisk": [
+          0,
+          0,
+          0
+        ],
+        "rightShoulder": [
+          -0.13,
+          0,
+          0.035
+        ],
+        "rightElbow": [
+          -0.06,
+          0,
+          0
+        ],
+        "rightWrist": [
+          0.05,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "avatarId": "jaden",
+      "kind": "idle",
+      "gesture": null,
+      "drawCalls": 6,
+      "triangles": 7168,
+      "bones": 8,
+      "gpuBoneTextureAllocated": true,
+      "rig": {
+        "leftShoulder": [
+          0,
+          0,
+          0
+        ],
+        "leftElbow": [
+          0,
+          0,
+          0
+        ],
+        "leftWrist": [
+          0,
+          0,
+          0
+        ],
+        "duelDisk": [
+          0,
+          0,
+          0
+        ],
+        "rightShoulder": [
+          0,
+          0,
+          0
+        ],
+        "rightElbow": [
+          0,
+          0,
+          0
+        ],
+        "rightWrist": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "avatarId": "jaden",
+      "kind": "summon",
+      "gesture": {
+        "gestureId": 1,
+        "kind": "summon",
+        "strength": 1,
+        "duration": 1.2,
+        "elapsed": 0.45599999999999996,
+        "held": false,
+        "reducedMotion": false,
+        "progress": 0.38,
+        "active": true
+      },
+      "drawCalls": 6,
+      "triangles": 7168,
+      "bones": 8,
+      "gpuBoneTextureAllocated": true,
+      "rig": {
+        "leftShoulder": [
+          -0.48,
+          -0.05,
+          -0.16
+        ],
+        "leftElbow": [
+          -0.3,
+          0,
+          0
+        ],
+        "leftWrist": [
+          0.08,
+          -0.08,
+          0
+        ],
+        "duelDisk": [
+          0.14,
+          0,
+          0.03
+        ],
+        "rightShoulder": [
+          -0.9,
+          0.16,
+          0.32
+        ],
+        "rightElbow": [
+          -0.42,
+          0,
+          0.05
+        ],
+        "rightWrist": [
+          0.38,
+          0,
+          -0.06
+        ]
+      }
+    },
+    {
+      "avatarId": "jaden",
+      "kind": "casting",
+      "gesture": {
+        "gestureId": 1,
+        "kind": "casting",
+        "strength": 1,
+        "duration": 1.35,
+        "elapsed": 0.513,
+        "held": false,
+        "reducedMotion": false,
+        "progress": 0.38,
+        "active": true
+      },
+      "drawCalls": 6,
+      "triangles": 7168,
+      "bones": 8,
+      "gpuBoneTextureAllocated": true,
+      "rig": {
+        "leftShoulder": [
+          -0.62,
+          -0.09,
+          -0.18
+        ],
+        "leftElbow": [
+          -0.2,
+          0,
+          0
+        ],
+        "leftWrist": [
+          -0.05,
+          -0.14,
+          0
+        ],
+        "duelDisk": [
+          0.16,
+          0.05,
+          0.08
+        ],
+        "rightShoulder": [
+          -0.78,
+          0.22,
+          0.48
+        ],
+        "rightElbow": [
+          -0.64,
+          0,
+          -0.06
+        ],
+        "rightWrist": [
+          0.5,
+          -0.18,
+          0.12
+        ]
+      }
+    },
+    {
+      "avatarId": "jaden",
+      "kind": "attack",
+      "gesture": {
+        "gestureId": 1,
+        "kind": "attack",
+        "strength": 1,
+        "duration": 1,
+        "elapsed": 0.38,
+        "held": false,
+        "reducedMotion": false,
+        "progress": 0.38,
+        "active": true
+      },
+      "drawCalls": 6,
+      "triangles": 7168,
+      "bones": 8,
+      "gpuBoneTextureAllocated": true,
+      "rig": {
+        "leftShoulder": [
+          -0.3,
+          0.08,
+          -0.12
+        ],
+        "leftElbow": [
+          -0.17,
+          0,
+          0
+        ],
+        "leftWrist": [
+          0,
+          0,
+          0
+        ],
+        "duelDisk": [
+          0.1,
+          0,
+          0
+        ],
+        "rightShoulder": [
+          -1.12,
+          0.22,
+          0.34
+        ],
+        "rightElbow": [
+          -0.31,
+          0,
+          -0.08
+        ],
+        "rightWrist": [
+          0.12,
+          -0.12,
+          -0.08
+        ]
+      }
+    },
+    {
+      "avatarId": "jaden",
+      "kind": "damage",
+      "gesture": {
+        "gestureId": 1,
+        "kind": "damage",
+        "strength": 1,
+        "duration": 0.8,
+        "elapsed": 0.30400000000000005,
+        "held": false,
+        "reducedMotion": false,
+        "progress": 0.38000000000000006,
+        "active": true
+      },
+      "drawCalls": 6,
+      "triangles": 7168,
+      "bones": 8,
+      "gpuBoneTextureAllocated": true,
+      "rig": {
+        "leftShoulder": [
+          -0.18,
+          0,
+          -0.12
+        ],
+        "leftElbow": [
+          -0.36,
+          0,
+          0
+        ],
+        "leftWrist": [
+          -0.12,
+          0,
+          0
+        ],
+        "duelDisk": [
+          0,
+          0,
+          0
+        ],
+        "rightShoulder": [
+          -0.17,
+          -0.08,
+          -0.12
+        ],
+        "rightElbow": [
+          -0.32,
+          0,
+          0
+        ],
+        "rightWrist": [
+          -0.06,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "avatarId": "jaden",
+      "kind": "victory",
+      "gesture": {
+        "gestureId": 1,
+        "kind": "victory",
+        "strength": 1,
+        "duration": 1.7,
+        "elapsed": 0.646,
+        "held": false,
+        "reducedMotion": false,
+        "progress": 0.38,
+        "active": true
+      },
+      "drawCalls": 6,
+      "triangles": 7168,
+      "bones": 8,
+      "gpuBoneTextureAllocated": true,
+      "rig": {
+        "leftShoulder": [
+          -0.28,
+          0,
+          -0.12
+        ],
+        "leftElbow": [
+          -0.22,
+          0,
+          0
+        ],
+        "leftWrist": [
+          0,
+          0,
+          0
+        ],
+        "duelDisk": [
+          0.12,
+          0,
+          0.025
+        ],
+        "rightShoulder": [
+          -0.35,
+          0.12,
+          2.32
+        ],
+        "rightElbow": [
+          -0.16,
+          0,
+          0.3
+        ],
+        "rightWrist": [
+          0.12,
+          0,
+          0.05
+        ]
+      }
+    },
+    {
+      "avatarId": "jaden",
+      "kind": "defeat",
+      "gesture": {
+        "gestureId": 1,
+        "kind": "defeat",
+        "strength": 1,
+        "duration": 1.65,
+        "elapsed": 0.627,
+        "held": false,
+        "reducedMotion": false,
+        "progress": 0.38,
+        "active": true
+      },
+      "drawCalls": 6,
+      "triangles": 7168,
+      "bones": 8,
+      "gpuBoneTextureAllocated": true,
+      "rig": {
+        "leftShoulder": [
+          0.14,
+          0,
+          0.025
+        ],
+        "leftElbow": [
+          0.16,
+          0,
+          0
+        ],
+        "leftWrist": [
+          0.08,
+          0,
+          0
+        ],
+        "duelDisk": [
+          -0.1,
+          0,
+          0
+        ],
+        "rightShoulder": [
+          0.12,
+          0,
+          -0.025
+        ],
+        "rightElbow": [
+          0.1,
+          0,
+          0
+        ],
+        "rightWrist": [
+          0.06,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "avatarId": "jaden",
+      "kind": "draw",
+      "gesture": {
+        "gestureId": 1,
+        "kind": "draw",
+        "strength": 1,
+        "duration": 1.25,
+        "elapsed": 0.475,
+        "held": false,
+        "reducedMotion": false,
+        "progress": 0.38,
+        "active": true
+      },
+      "drawCalls": 6,
+      "triangles": 7168,
+      "bones": 8,
+      "gpuBoneTextureAllocated": true,
+      "rig": {
+        "leftShoulder": [
+          -0.13,
+          0,
+          -0.035
+        ],
+        "leftElbow": [
+          -0.06,
+          0,
+          0
+        ],
+        "leftWrist": [
+          0,
+          0,
+          0
+        ],
+        "duelDisk": [
+          0,
+          0,
+          0
+        ],
+        "rightShoulder": [
+          -0.13,
+          0,
+          0.035
+        ],
+        "rightElbow": [
+          -0.06,
+          0,
+          0
+        ],
+        "rightWrist": [
+          0.05,
+          0,
+          0
+        ]
+      }
+    }
+  ],
+  "disposal": [
+    {
+      "avatarId": "yugi",
+      "kind": "idle",
+      "boneTextureDisposals": 1
+    },
+    {
+      "avatarId": "yugi",
+      "kind": "summon",
+      "boneTextureDisposals": 1
+    },
+    {
+      "avatarId": "yugi",
+      "kind": "casting",
+      "boneTextureDisposals": 1
+    },
+    {
+      "avatarId": "yugi",
+      "kind": "attack",
+      "boneTextureDisposals": 1
+    },
+    {
+      "avatarId": "yugi",
+      "kind": "damage",
+      "boneTextureDisposals": 1
+    },
+    {
+      "avatarId": "yugi",
+      "kind": "victory",
+      "boneTextureDisposals": 1
+    },
+    {
+      "avatarId": "yugi",
+      "kind": "defeat",
+      "boneTextureDisposals": 1
+    },
+    {
+      "avatarId": "yugi",
+      "kind": "draw",
+      "boneTextureDisposals": 1
+    },
+    {
+      "avatarId": "kaiba",
+      "kind": "idle",
+      "boneTextureDisposals": 1
+    },
+    {
+      "avatarId": "kaiba",
+      "kind": "summon",
+      "boneTextureDisposals": 1
+    },
+    {
+      "avatarId": "kaiba",
+      "kind": "casting",
+      "boneTextureDisposals": 1
+    },
+    {
+      "avatarId": "kaiba",
+      "kind": "attack",
+      "boneTextureDisposals": 1
+    },
+    {
+      "avatarId": "kaiba",
+      "kind": "damage",
+      "boneTextureDisposals": 1
+    },
+    {
+      "avatarId": "kaiba",
+      "kind": "victory",
+      "boneTextureDisposals": 1
+    },
+    {
+      "avatarId": "kaiba",
+      "kind": "defeat",
+      "boneTextureDisposals": 1
+    },
+    {
+      "avatarId": "kaiba",
+      "kind": "draw",
+      "boneTextureDisposals": 1
+    },
+    {
+      "avatarId": "jaden",
+      "kind": "idle",
+      "boneTextureDisposals": 1
+    },
+    {
+      "avatarId": "jaden",
+      "kind": "summon",
+      "boneTextureDisposals": 1
+    },
+    {
+      "avatarId": "jaden",
+      "kind": "casting",
+      "boneTextureDisposals": 1
+    },
+    {
+      "avatarId": "jaden",
+      "kind": "attack",
+      "boneTextureDisposals": 1
+    },
+    {
+      "avatarId": "jaden",
+      "kind": "damage",
+      "boneTextureDisposals": 1
+    },
+    {
+      "avatarId": "jaden",
+      "kind": "victory",
+      "boneTextureDisposals": 1
+    },
+    {
+      "avatarId": "jaden",
+      "kind": "defeat",
+      "boneTextureDisposals": 1
+    },
+    {
+      "avatarId": "jaden",
+      "kind": "draw",
+      "boneTextureDisposals": 1
+    }
+  ],
+  "memoryBefore": {
+    "geometries": 152,
+    "textures": 24
+  },
+  "memoryAfter": {
+    "geometries": 0,
+    "textures": 0
+  }
+}

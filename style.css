@@ -4589,3 +4589,35 @@ body.duel-ended .app-container.real-duel-view-active .bottom-bar::after {
 @media (prefers-reduced-motion: reduce) {
   .duelist-avatar-card { transition: none; }
 }
+
+/* On-demand character studio. A single local canvas stays attached to its host. */
+.duelist-avatar-preview-pane { min-width: 0; }
+.duelist-avatar-preview-modes { display: flex; gap: 6px; padding: 10px; border-bottom: 1px solid #3f4c66; background: #101727; }
+.duelist-avatar-preview-modes .duelist-avatar-button { flex: 1; padding: 8px 10px; }
+.duelist-avatar-preview-modes .duelist-avatar-button[aria-pressed="true"] { background: #24535e; border-color: #8bd9e6; color: #e7fcff; }
+.duelist-avatar-svg-preview { width: 100%; height: 100%; }
+.duelist-avatar-svg-preview[hidden], .duelist-avatar-preview-stage[hidden], .duelist-avatar-rotation-controls[hidden] { display: none; }
+.duelist-avatar-preview-stage { display: block; width: 100%; height: 100%; touch-action: pan-y; cursor: grab; }
+.duelist-avatar-preview-stage:active { cursor: grabbing; }
+.duelist-avatar-preview-stage:focus-visible { outline: 3px solid #d3f9ff; outline-offset: -4px; }
+.duelist-avatar-preview-stage canvas { display: block; width: 100%; height: 100%; }
+.duelist-avatar-rotation-controls { padding: 10px; background: #101727; border-top: 1px solid #3f4c66; }
+.duelist-avatar-rotation-buttons { display: flex; justify-content: space-between; gap: 5px; }
+.duelist-avatar-rotation-buttons .duelist-avatar-button { padding: 8px; font-size: 10px; }
+.duelist-avatar-rotation-controls p { margin-top: 9px; font-size: 10px; line-height: 1.6; color: #acc0d7; }
+.duelist-avatar-preview-status { padding: 10px 13px; color: #cbd5e7; font-size: 11px; line-height: 1.6; }
+.duelist-avatar-preview-status:empty { display: none; }
+.duelist-avatar-backup { margin-top: 17px; padding: 13px; background: #111a2a; border: 1px solid #3e4e6b; border-radius: 9px; }
+.duelist-avatar-backup > p:first-child { margin-top: 0; }
+.duelist-avatar-backup-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.duelist-avatar-backup-actions .duelist-avatar-button { min-height: 38px; }
+.duelist-avatar-file-input { display: none; }
+@media (max-width: 600px) {
+  .duelist-avatar-detail[data-preview-mode="portrait"] .duelist-avatar-preview-modes { padding: 7px 5px; gap: 4px; }
+  .duelist-avatar-detail[data-preview-mode="portrait"] .duelist-avatar-preview-modes .duelist-avatar-button { font-size: 9px; padding: 8px 4px; }
+  .duelist-avatar-detail[data-preview-mode="portrait"] .duelist-avatar-detail-art { min-height: 230px; }
+  .duelist-avatar-detail[data-preview-mode="3d"] { display: block; }
+  .duelist-avatar-detail[data-preview-mode="3d"] .duelist-avatar-detail-art { height: 330px; min-height: 330px; }
+  .duelist-avatar-rotation-buttons .duelist-avatar-button { flex: 1; }
+  .duelist-avatar-backup-actions .duelist-avatar-button { flex: 1 1 135px; }
+}

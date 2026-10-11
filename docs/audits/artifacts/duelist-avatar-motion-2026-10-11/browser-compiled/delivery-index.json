@@ -1,0 +1,288 @@
+{
+  "ok": true,
+  "date": "2026-10-11",
+  "scope": "Final compiled browser delivery; original proof bytes preserved. Source/HMR and globally failed diagnostics are excluded. The index does not include its own digest.",
+  "originalFilesPreserved": 63,
+  "captures": 52,
+  "browserPaths": 8,
+  "sourceFiles": 161,
+  "httpBodies": 21,
+  "zeroUnexpectedErrors": true,
+  "expectedDisabledWebglDiagnostics": 3,
+  "reportSha256": "ed8bfe7aec40bcfa3caa3abf200be16de2ab092828a23e783c1870dd5e2d4951",
+  "freezeSha256": "ac66a4463fc67f5590662b835318d0e8f34efc0b8871c539c7a66445b8921e92",
+  "files": {
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/README.md": {
+      "bytes": 2605,
+      "sha256": "c5049aa0fd7f1b2d1f2797817964298cfb91b0f07a95609160c91d5c3d67c172"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-earned-after-genuine-concession.png": {
+      "bytes": 117800,
+      "sha256": "3f438f35c1947c2b8a1b440be9cc8f58635e46c447bdf8d4a79236ae9cd0369f"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-earned-after-genuine-native-exodia-win.png": {
+      "bytes": 124295,
+      "sha256": "5021c3743b376774a91c3e8573bb0480ed3af6c2a7e2cd543545257fc3c581bf"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-jaden-selected-1280.png": {
+      "bytes": 295623,
+      "sha256": "0aec170b7d3512728ed40862a1450a6f1ca83ca5b56b82ad51c44315c59efe3e"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-jaden-selected-390.png": {
+      "bytes": 128660,
+      "sha256": "9f0463d6e8a04a9cdd6d9391c9518926eedb8f4ed909cd46f89fa4caf27edd9a"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-locked-atem-1280.png": {
+      "bytes": 288974,
+      "sha256": "229acaf49803a8a39d6a356be0a4483ba0c1971055442ff22505f5ef1a1b53b0"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-locked-atem-390.png": {
+      "bytes": 127188,
+      "sha256": "53e1ce9407a2eb2ebc214c514f70c826258754802a6aa93d722ce61c216f4592"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-mokuba-earned-selected.png": {
+      "bytes": 297842,
+      "sha256": "c5c986ab43dfa214e3e9d9070707dc3d508c9fdd427ef9c9a88df4d180bf69f2"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-motion-concession-collection-download.json": {
+      "bytes": 179,
+      "sha256": "eb5aca4bd9c45bb65e2370fc00155969d0822d79c3b281d0f99f78ca05b02fff"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-motion-exodia-collection-download.json": {
+      "bytes": 91,
+      "sha256": "cf75f7f274f46db4c96693ba7e60e6b2835b05e982107b320bb91699de12dc3a"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-motion-exodia-four-parts-before-turn.png": {
+      "bytes": 803738,
+      "sha256": "f1caf4ece0019e3c032de1ce67b0fcf1ae11a592d110f2c99b4be06b84d7dc9e"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-motion-focus-without-dom-checkvisibility-390.png": {
+      "bytes": 162135,
+      "sha256": "107b7e9fa6ff7ab1ce4ee528efcf24538cae877d9227852ec99de4489e009779"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-motion-import-refused-preserves-collection.png": {
+      "bytes": 352801,
+      "sha256": "8c7cf9dac494277ec38748f18df4598137ed3294b1ed101a6bea9ef9c1d8a9c4"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-motion-invalid-malformed.json": {
+      "bytes": 1,
+      "sha256": "021fb596db81e6d02bf3d2586ee3981fe519f275c0ac9ca76bbcf2ebb4097d96"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-motion-invalid-null.json": {
+      "bytes": 4,
+      "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-motion-invalid-oversized.json": {
+      "bytes": 64001,
+      "sha256": "7dc49b384b2e2177eb2a1e9b720144b3dc69681b08f49d679abdd93374466c9b"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-motion-invalid-unknown.json": {
+      "bytes": 63,
+      "sha256": "3f2e39c6d9abb84ef4bf40a03eb4aa6a794af0e9629d96f19f8c3568e6e06779"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-motion-merged-collection-download.json": {
+      "bytes": 192,
+      "sha256": "e7af12c5d596a9d7560fbc1ed735e1a08fb20571853eed0d2f841dc01c459bc3"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-motion-native-attack-damage-1280.png": {
+      "bytes": 956240,
+      "sha256": "9845d31d4361cd7a2fd422692d6439a63d7c2347bc0a2142f8cc8869d1828bc4"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-motion-session-collection-download.json": {
+      "bytes": 91,
+      "sha256": "cf75f7f274f46db4c96693ba7e60e6b2835b05e982107b320bb91699de12dc3a"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-motion-storage-refused-session-preserved.png": {
+      "bytes": 350859,
+      "sha256": "ad00f5c1149d86d4de08d748f2e662440387f22f49d52d31d0f35763376f4cf4"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-motion-summon-casting-1280.png": {
+      "bytes": 911189,
+      "sha256": "decfb94cb59eeb6088934fe9f1b6f0b775cea87e8723809f7fa03e3356b22342"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-motion-summon-casting-390.png": {
+      "bytes": 257063,
+      "sha256": "d3680fc07abdd7aebf051010fea085ff7331ea64b2ad0eb6c6d6583b3b9cf03b"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-motion-webgl-unavailable-portrait-fallback.png": {
+      "bytes": 135930,
+      "sha256": "9a9b705e9b2e982657fd6ec10ff4ad8fd4c4b0164604840c1327af1af83b17c5"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-native-jaden-overview-1280.png": {
+      "bytes": 877047,
+      "sha256": "7fc263cf413a44317cc35dcb30a2b75118d1786f2560ff9ec9554e22eb570130"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-native-jaden-overview-390.png": {
+      "bytes": 279375,
+      "sha256": "894753d4aedb81ec8c674745248c5ebdf2ce9a9f9f2f820d443a00bfc804faa0"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-native-jaden-player-camera-1280.png": {
+      "bytes": 836756,
+      "sha256": "1d91164fb72bf86d2b4fa206bfbb14c02671f27949660267cfd92fa62dd6ab2e"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-native-jaden-player-camera-390.png": {
+      "bytes": 258207,
+      "sha256": "8c4f212647ed925df25be6c5b539790befe0ac10c2e9629768d198b1cd7d26b4"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-native-kaiba-after-summon-1280.png": {
+      "bytes": 904980,
+      "sha256": "691bd783486306f049c74a1c1e82f62e5c48c360cb33d8be514112a978bf5078"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-native-kaiba-after-summon-390.png": {
+      "bytes": 258004,
+      "sha256": "dc24209db51970c6c925c253e29b494981572a25f1847b05b597820e655a9c32"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-native-kaiba-player-camera-1280.png": {
+      "bytes": 835448,
+      "sha256": "ec2ba98c5ea738f305223c04e1b3c1fd8775e64fc6193eb8770f65e7e3ece30d"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-native-kaiba-player-camera-390.png": {
+      "bytes": 256246,
+      "sha256": "e29d942d21f9b6d823e3bc4b6800daf8e1efa981f651b5dd7e89523329764159"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-roster-desktop-mobile-1280.png": {
+      "bytes": 410160,
+      "sha256": "4370649e5b42717ba243f6075e1fd43b8f1f490ea9a30319102a364192269ef6"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-roster-desktop-mobile-390.png": {
+      "bytes": 148828,
+      "sha256": "5b9d5040215a901026fd5a9e209cbc0356bd45e6f40162c43d8d89895827dfc7"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-studio-atem-1280.png": {
+      "bytes": 280539,
+      "sha256": "e07ea9a05bfbdf02a31e632e067b6cd5c867fdbc466581b97f45ece77741cfa3"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-studio-atem-390.png": {
+      "bytes": 85021,
+      "sha256": "791cd821bae8c0fe168bdd42443baf6e96b1802af45a0f7f6261dbe1714212c5"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-studio-context-loss-fallback-1280.png": {
+      "bytes": 421987,
+      "sha256": "0ec140d93e98473861b32469fe13c70b2e3597e1801bb4623eee76fb9af34f0f"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-studio-context-loss-fallback-390.png": {
+      "bytes": 132394,
+      "sha256": "c818e799422e828ed9176204fc3462bc53406a42593165549e5fc0770de69553"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-studio-jaden-1280.png": {
+      "bytes": 274191,
+      "sha256": "ffe0f63d46418dd81c80c6a0a71d6ec852ece49aad1fdfc17f2fbd9b42edefd0"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-studio-jaden-390.png": {
+      "bytes": 78359,
+      "sha256": "b9cbbe0f2d0be7503779543ac418088adb171e57f6281412408d2c6764570501"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-studio-kaiba-1280.png": {
+      "bytes": 274086,
+      "sha256": "a40a00ad2ef1827d08d708f35026a1968b2a1c76bb15595e99b380786b3a8a42"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-studio-kaiba-390.png": {
+      "bytes": 78608,
+      "sha256": "b2e560f043cf3f8f464923553c22996ecff9a622aca7990e7d305f80561350a9"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-studio-playmaker-1280.png": {
+      "bytes": 275979,
+      "sha256": "2f5b417ef2d62d05542ac30ab5a6a9b6958327cb5074b7cf5ed7fa6e2fbe885d"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-studio-playmaker-390.png": {
+      "bytes": 79498,
+      "sha256": "fca5a6191d676827b0e737ba0039d8b862a5f21a611a48f6f490d7cc584ee91d"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-studio-reduced-static-a-1280.png": {
+      "bytes": 19782,
+      "sha256": "8b52b068f6f28c30324a9645f2dea8dd94cbf9ea6a2562a9640cffad286851a0"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-studio-reduced-static-a-390.png": {
+      "bytes": 27306,
+      "sha256": "01f3d500a687ea6e441039623835447863f077695658fd84fcbed35bc3e06095"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-studio-reduced-static-b-1280.png": {
+      "bytes": 19782,
+      "sha256": "8b52b068f6f28c30324a9645f2dea8dd94cbf9ea6a2562a9640cffad286851a0"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-studio-reduced-static-b-390.png": {
+      "bytes": 27306,
+      "sha256": "01f3d500a687ea6e441039623835447863f077695658fd84fcbed35bc3e06095"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-studio-yudias-1280.png": {
+      "bytes": 277662,
+      "sha256": "a67a773978d022afa82c08d2fae954e18c493bab99ea69d33dcf439f68d28528"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-studio-yudias-390.png": {
+      "bytes": 80015,
+      "sha256": "44216cabe95953ae8279f4aad62bb3bdf74a376bf6e189e058fa0c7ac3c66366"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-studio-yuga-1280.png": {
+      "bytes": 276793,
+      "sha256": "062527a557be00b8ffc3d57846aa4a5719f61d543e8647316cdb066d3b3d3237"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-studio-yuga-390.png": {
+      "bytes": 80050,
+      "sha256": "d9fabe2f2b542eebba6f04c22301b605a8dc3823321b71b593f998b4a1635603"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-studio-yugi-1280.png": {
+      "bytes": 299344,
+      "sha256": "54f8fc08fc038908b2fb4d543710d9ca5d3b58f852f1c9447b4574eff54bc872"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-studio-yugi-390.png": {
+      "bytes": 94983,
+      "sha256": "980c3b2063f7e3bfe5961fd68fa46bffc91c5c9e05f0ba844a20bcdff27a7186"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-studio-yuma-1280.png": {
+      "bytes": 276054,
+      "sha256": "132343e5b66700bc23c4b9e954dd21c76a646590457e408bf889d70e2fc9914a"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-studio-yuma-390.png": {
+      "bytes": 79722,
+      "sha256": "499fcee589865da92498570f66658c2b29baea4c7bc8fd4a5e5f0a8631eed8e5"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-studio-yusei-1280.png": {
+      "bytes": 271375,
+      "sha256": "737b2ea73bef79926f7d7ebe93d22ba8269c92ba6cbb7957feb1704a1baa9e33"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-studio-yusei-390.png": {
+      "bytes": 78261,
+      "sha256": "d5c6bf3321e18338f53f7989431d931f0f0d8161a8596124e8bfb4512df9e9e5"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-studio-yuya-1280.png": {
+      "bytes": 274937,
+      "sha256": "7d81b4820dd74953c585c0332717431ada1e9db75d47dcec3d153b5189a623f3"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-studio-yuya-390.png": {
+      "bytes": 78062,
+      "sha256": "12320cc015491ebe828d9afc843dcdac583f23fe92414ec77a7b1e4b052745a9"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/avatar-tristan-earned-selected.png": {
+      "bytes": 296807,
+      "sha256": "a43f69b95089137d6e68f26f191f3f138e31bc4b2c3720333a38ab80e595049f"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/logs.txt": {
+      "bytes": 1551,
+      "sha256": "a8cbcd09d3f4a7278bd03ea325502eb08ee91ecbb28b55025edddecdf6084b29"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/progress.json": {
+      "bytes": 144,
+      "sha256": "1485fa12b75a625853b217e39ad0ab2c2ad37476500adf952128a15a3a68f145"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/proof-verification.json": {
+      "bytes": 10984,
+      "sha256": "2297c1130aa7b4c405a7311d72803547378bb23b9798697b682e0453893aa9a5"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/report.json": {
+      "bytes": 419127,
+      "sha256": "ed8bfe7aec40bcfa3caa3abf200be16de2ab092828a23e783c1870dd5e2d4951"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/verify-proof-files.py": {
+      "bytes": 4961,
+      "sha256": "a39c88b4eb89f280be10dedaa50ee149a7ae8c2f5e70510b0c941e25721540d3"
+    },
+    "docs/audits/duelist-avatar-motion-browser-2026-10-11.md": {
+      "bytes": 9199,
+      "sha256": "a85067df6b32dc6003aa82e59eaf350dfdda4ed8ec2e6708eceb9e46a490caad"
+    },
+    "scripts/audit-duelist-avatar-motion-browser.py": {
+      "bytes": 64829,
+      "sha256": "5f9f5dd25cbb51edaadbed3ea965091dadc1ed2073309fde043f4b62a417c49c"
+    }
+  }
+}

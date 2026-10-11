@@ -4,6 +4,8 @@ Simulateur de duel solo dans le navigateur, inspiré des arènes holographiques 
 
 Le bouton **Mon personnage**, dans la préparation du duel et les options, permet de choisir parmi **192 avatars stylisés des huit séries**. Onze personnages sont disponibles dès le départ ; les autres se débloquent avec les duels terminés, les victoires, les médailles et les missions du parcours solo. La collection acquise et le personnage sélectionné sont sauvegardés dans ce navigateur. Le nom du joueur et sa silhouette en Vue Réelle suivent cette sélection, indépendamment du deck. Voir [l’intégration des avatars](docs/audits/duelist-avatar-wave-2026-10-09.md).
 
+Le sélecteur propose aussi une **Vue 3D plein corps**, manipulable à la souris, au toucher ou au clavier. **Exporter ma collection** et **Importer ma collection** transfèrent les apparences acquises entre navigateurs en conservant les acquisitions locales. Les personnages articulés réagissent aux invocations, effets, attaques et dégâts publics du moteur ; le résultat du duel affiche une pose de victoire, défaite ou match nul. Voir la [continuation du 11 octobre](docs/audits/duelist-avatar-motion-wave-2026-10-11.md), qui corrige aussi le choix indépendant des zones d’invocations successives dans une chaîne.
+
 ## Modes et bibliothèque
 
 | Mode | Moteur et cartes | Validation du Deck |

@@ -1,0 +1,4 @@
+PASS 1280px checkVisibility=native: closed 32 retained, open 34 retained, 9 focus assertions, 0 page errors
+PASS 1280px checkVisibility=deleted before bootstrap: closed 32 retained, open 34 retained, 9 focus assertions, 0 page errors
+PASS 390px checkVisibility=native: closed 32 retained, open 34 retained, 9 focus assertions, 0 page errors
+PASS 390px checkVisibility=deleted before bootstrap: closed 32 retained, open 34 retained, 9 focus assertions, 0 page errors

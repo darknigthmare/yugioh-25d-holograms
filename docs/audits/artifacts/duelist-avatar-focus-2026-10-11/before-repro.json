@@ -1,0 +1,796 @@
+[
+  {
+    "width": 1280,
+    "retained": [
+      {
+        "id": "duelist-avatar-close",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": null,
+        "text": "Fermer ×"
+      },
+      {
+        "id": "duelist-avatar-search",
+        "tag": "INPUT",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": null,
+        "text": ""
+      },
+      {
+        "id": "duelist-avatar-series",
+        "tag": "SELECT",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": null,
+        "text": "Toutes les sériesDuel MonstersGX5D’sZEXALARC-VVRAI"
+      },
+      {
+        "id": "duelist-avatar-availability",
+        "tag": "SELECT",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": null,
+        "text": "Tous les personnagesDisponiblesÀ débloquer"
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "yugi",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "atem",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "kaiba",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "joey",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "tea",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "tristan",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "serenity",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "mokuba",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "mai",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "pegasus",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "bakura",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "yami-bakura",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "marik",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "yami-marik",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "ishizu",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "odion",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "weevil",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "rex",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "bandit-keith",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "bonz",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "mako",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "espa-roba",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "duke",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "rebecca",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "duelist-avatar-next",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": null,
+        "text": "Suivant →"
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": null,
+        "text": "Portrait"
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": null,
+        "text": "Vue 3D"
+      },
+      {
+        "id": "",
+        "tag": "SUMMARY",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": {
+          "open": false,
+          "isFirstSummary": true
+        },
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": null,
+        "text": "Collection et sauvegarde"
+      },
+      {
+        "id": "duelist-avatar-export",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": {
+          "open": false,
+          "isFirstSummary": false
+        },
+        "disabled": false,
+        "cssVisibility": false,
+        "avatar": null,
+        "text": "Exporter ma collection"
+      },
+      {
+        "id": "duelist-avatar-import",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": {
+          "open": false,
+          "isFirstSummary": false
+        },
+        "disabled": false,
+        "cssVisibility": false,
+        "avatar": null,
+        "text": "Importer ma collection"
+      }
+    ],
+    "afterTab": {
+      "id": "",
+      "tag": "BODY"
+    },
+    "afterShiftTab": {
+      "id": "",
+      "tag": "BUTTON",
+      "text": "Vue 3D"
+    }
+  },
+  {
+    "width": 390,
+    "retained": [
+      {
+        "id": "duelist-avatar-close",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": null,
+        "text": "Fermer ×"
+      },
+      {
+        "id": "duelist-avatar-search",
+        "tag": "INPUT",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": null,
+        "text": ""
+      },
+      {
+        "id": "duelist-avatar-series",
+        "tag": "SELECT",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": null,
+        "text": "Toutes les sériesDuel MonstersGX5D’sZEXALARC-VVRAI"
+      },
+      {
+        "id": "duelist-avatar-availability",
+        "tag": "SELECT",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": null,
+        "text": "Tous les personnagesDisponiblesÀ débloquer"
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "yugi",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "atem",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "kaiba",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "joey",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "tea",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "tristan",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "serenity",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "mokuba",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "mai",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "pegasus",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "bakura",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "yami-bakura",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "marik",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "yami-marik",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "ishizu",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "odion",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "weevil",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "rex",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "bandit-keith",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "bonz",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "mako",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "espa-roba",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "duke",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": "rebecca",
+        "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+      },
+      {
+        "id": "duelist-avatar-next",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": null,
+        "text": "Suivant →"
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": null,
+        "text": "Portrait"
+      },
+      {
+        "id": "",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": null,
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": null,
+        "text": "Vue 3D"
+      },
+      {
+        "id": "",
+        "tag": "SUMMARY",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": {
+          "open": false,
+          "isFirstSummary": true
+        },
+        "disabled": false,
+        "cssVisibility": true,
+        "avatar": null,
+        "text": "Collection et sauvegarde"
+      },
+      {
+        "id": "duelist-avatar-export",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": {
+          "open": false,
+          "isFirstSummary": false
+        },
+        "disabled": false,
+        "cssVisibility": false,
+        "avatar": null,
+        "text": "Exporter ma collection"
+      },
+      {
+        "id": "duelist-avatar-import",
+        "tag": "BUTTON",
+        "tabIndex": 0,
+        "rects": 1,
+        "closedDetails": {
+          "open": false,
+          "isFirstSummary": false
+        },
+        "disabled": false,
+        "cssVisibility": false,
+        "avatar": null,
+        "text": "Importer ma collection"
+      }
+    ],
+    "afterTab": {
+      "id": "",
+      "tag": "BODY"
+    },
+    "afterShiftTab": {
+      "id": "",
+      "tag": "BUTTON",
+      "text": "Vue 3D"
+    }
+  }
+]

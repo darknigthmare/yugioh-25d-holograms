@@ -1,0 +1,36 @@
+✔ neutral skinning preserves the actual original coordinates and shared geometry budget (109.75839ms)
+✔ shoulder, elbow, wrist and disk use anatomical pivots with rigid attachments (10.507499ms)
+✔ seven public gestures articulate distinct poses and return to idle after their duration (51.541049ms)
+✔ gesture replacement and cancellation have stable identifiers and cannot leave a stale pose (21.633618ms)
+✔ clock origins and backwards clocks never finish a new gesture instantly or rewind it (6.729057ms)
+✔ terminal held poses apply synchronously without RAF, survive updates and clear cleanly (27.465542ms)
+✔ reduced motion omits transients and holds gentle static results in both preference directions (5.641257ms)
+✔ only allowlisted public gesture fields are used and excessive strength is bounded (5.640726ms)
+✔ repeated gestures reuse mesh buffers and release the skeleton texture exactly once (14.103122ms)
+✔ the entire curated roster renders within the geometry budget without colour-only duplicates (1355.884143ms)
+✔ iconic duelists have distinct complete silhouettes with finite bounded geometry (151.23818ms)
+✔ recognizable signature parts are present for the established iconic looks (27.085271ms)
+✔ idle updates animate the rig without allocating or modifying geometry (15.734593ms)
+✔ disposal releases each owned GPU resource once, detaches the avatar and is idempotent (7.318487ms)
+✔ appearance resolution uses the catalogue without inspecting supplied private metadata (7.540451ms)
+✔ Scene3D retains pre-mount choices, swaps only changed avatars and disposes replaced models (14.058656ms)
+✔ actual avatars request idle RAF while reduced motion and visibility stop their movement (8.75747ms)
+✔ reference-corrected Yuga and Romin render shorts, canonical gloves and leggings in both representations (66.700739ms)
+✔ Playmaker VR and Yudias keep their separate helmet, hair and cape palettes (60.465399ms)
+✔ Nyandestar and Bochi are recognizable animal adaptations with no human haircut or necklace (23.733733ms)
+✔ Zuwijo has blond upper locks and purple tips in both representations (13.420056ms)
+✔ the once-colliding tall duelists retain distinct canonical clothing instead of numerical jitter (35.852655ms)
+✔ canonical optional visual fields cannot be replaced by supplied species, headgear or private state (17.769932ms)
+✔ human silhouette markup is complete, deterministic and contains no active or external content (8.400994ms)
+✔ saved avatar metadata cannot replace the canonical portrait or introduce markup (0.276226ms)
+✔ emblematic protagonists have different visible silhouettes across the eight series (0.497578ms)
+✔ search ignores accents and includes the original names and localized aliases (13.560787ms)
+✔ series and availability filters partition the actual unlock state (2.406075ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1731.917651

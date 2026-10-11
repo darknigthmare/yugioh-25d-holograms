@@ -58,8 +58,29 @@ function accessoryShape(accessory, accent, variant) {
     case 'necklace': return `<path d="M101 124 L105 146 L120 157 L135 146 L140 124" stroke="${accent}" stroke-width="2.5" fill="none"/><path d="M120 151 L126 160 L120 169 L114 160 Z" fill="${accent}" stroke="${LINE}" stroke-width="1.5"/>`;
     case 'earpiece': return `<path d="M159 87 L169 89 L170 111 L162 115 Z" fill="${accent}" stroke="${LINE}" stroke-width="2"/><path d="M166 109 L155 115 L144 115" stroke="${LINE}" stroke-width="2" fill="none"/>`;
     case 'staff': return `<path d="M202 77 L190 270" stroke="${accent}" stroke-width="6"/><path d="M202 45 L215 60 L201 78 L188 61 Z" fill="${accent}" stroke="${LINE}" stroke-width="2"/><circle cx="201" cy="61" r="6" fill="#e6efff"/>`;
-    default: return variant === 13 ? `<circle cx="155" cy="111" r="4" fill="${accent}" stroke="${LINE}" stroke-width="1.5"/>` : '';
+    default: return '';
   }
+}
+
+function animalFace(species, skin, hair, accent) {
+  const cat = species === 'cat';
+  const ears = cat
+    ? `<path data-avatar-detail="cat-ears" d="M77 85 L69 42 L103 67 M137 67 L170 42 L164 85" fill="${skin}" stroke="${LINE}" stroke-width="3"/><path d="M80 71 L78 55 L91 69 M149 69 L161 55 L159 72" fill="#bd9da6"/>`
+    : `<path data-avatar-detail="dog-ears" d="M79 86 L55 39 Q73 34 99 64 M141 64 Q168 32 186 38 L163 86" fill="${hair}" stroke="${LINE}" stroke-width="3"/><path d="M80 73 L68 49 L90 65 M151 65 L174 48 L161 74" fill="#d9a6bd"/>`;
+  const muzzle = '#f0f2ed';
+  return `${ears}<ellipse data-avatar-detail="animal-face" cx="120" cy="96" rx="47" ry="41" fill="${skin}" stroke="${LINE}" stroke-width="3"/>
+    <path d="M86 93 Q96 84 108 93 Q101 105 89 100 Z M132 93 Q144 84 154 93 Q149 105 136 100 Z" fill="#f6f8fa" stroke="${LINE}" stroke-width="1.8"/>
+    <path d="M97 89 L97 99 M143 89 L143 99" stroke="${accent}" stroke-width="4"/>
+    <ellipse cx="120" cy="115" rx="24" ry="17" fill="${muzzle}"/><path d="M114 108 Q120 104 127 108 L120 115 Z" fill="${LINE}"/>
+    <path d="M120 115 L120 121 M109 119 Q114 125 120 121 Q127 125 132 119" stroke="${LINE}" stroke-width="1.6" fill="none"/>
+    ${cat ? '' : '<path data-avatar-detail="bochi-white-forehead-stripe" d="M114 106 L120 62 L127 106 Z" fill="#f6f2e7"/><ellipse cx="95" cy="86" rx="6" ry="8" fill="#f6f2e7"/><ellipse cx="146" cy="86" rx="6" ry="8" fill="#f6f2e7"/>'}
+    ${cat ? `<path data-avatar-detail="cat-whiskers" d="M91 113 L65 105 M91 118 L62 117 M91 122 L66 129 M149 113 L175 105 M149 118 L178 117 M149 122 L174 129" stroke="#e1e6e9" stroke-width="2"/><path data-avatar-detail="nyandestar-forehead-star" d="M120 65 L124 74 L134 75 L126 81 L129 91 L120 85 L111 91 L114 81 L106 75 L116 74 Z" fill="${accent}" stroke="${LINE}" stroke-width="1.5"/>` : `<path data-avatar-detail="bochi-spiked-collar" d="M99 129 Q120 137 142 129 L145 142 Q120 151 96 142 Z" fill="#747c87" stroke="${LINE}" stroke-width="2"/><path d="M100 138 L104 149 L109 140 M114 141 L120 154 L124 142 M133 140 L139 151 L141 137" fill="#dce2e7" stroke="${LINE}" stroke-width="1.4"/>`}`;
+}
+
+function headdressShape(kind, accessoryColor) {
+  if (kind === 'hat' || kind === 'headband') return `<g data-avatar-detail="headgear-${kind}">${accessoryShape(kind, accessoryColor, 0)}</g>`;
+  if (kind !== 'helmet') return '';
+  return `<g data-avatar-detail="headgear-helmet"><path d="M76 70 L81 56 L98 60 L104 51 L120 63 L137 51 L144 60 L161 56 L166 71 L153 77 L151 89 L142 84 L144 71 L121 78 L97 71 L99 85 L87 90 L86 78 Z" fill="${accessoryColor}" stroke="${LINE}" stroke-width="2.5"/></g>`;
 }
 
 function signatureDetails(id, hair, accent) {
@@ -72,6 +93,7 @@ function signatureDetails(id, hair, accent) {
     case 'yuma': return `<path d="M105 124 L107 148 L120 159 L133 148 L136 124" stroke="#dec37f" stroke-width="2" fill="none"/><path d="M116 150 L124 150 L124 172 L131 172 L131 178 L124 178 L124 183 L116 183 Z" fill="#dec37f" stroke="${LINE}" stroke-width="1.5"/><path d="M114 150 L120 145 L126 150 L120 156 Z" fill="${accent}"/>`;
     case 'yubel': return `<path d="M79 59 L63 29 L88 43 L95 61 M145 59 L174 29 L161 66" fill="#e7dce8" stroke="${LINE}" stroke-width="3"/><path d="M119 80 L125 90 L119 99 L113 90 Z" fill="${accent}" stroke="${LINE}" stroke-width="1.5"/>`;
     case 'astral': return `<path d="M119 64 L125 74 L119 84 L113 74 Z" fill="#e4fbff" stroke="${accent}" stroke-width="1.5"/><path d="M95 108 L107 114 M132 115 L144 109 M110 139 L120 150 L131 138" stroke="#c7f7ff" stroke-width="2" fill="none"/>`;
+    case 'girag': return '<path data-avatar-detail="girag-open-shirt-chest" d="M104 130 L136 130 L131 180 L109 180 Z" fill="#c89570" stroke="#ece8dc" stroke-width="5"/>';
     default: return '';
   }
 }
@@ -84,34 +106,47 @@ export function renderDuelistAvatarPortrait(avatarOrId, { className = '', label,
   const visual = avatar.visual;
   const { hairStyle, hairColor, hairAccent, skinColor, outfitStyle, outfitColor, accentColor, accessory, variant, build, pose, height } = visual;
   const broad = build === 'broad' ? 8 : build === 'slim' ? -3 : 0;
+  const species = visual.species || 'human';
+  const animal = species === 'cat' || species === 'dog';
+  const skirt = !animal && (outfitStyle === 'robe' || visual.bottomStyle === 'skirt' || (!visual.bottomStyle && (outfitStyle === 'dress' || avatar.id === 'mai')));
+  const shorts = !animal && (visual.bottomStyle === 'shorts' || (!visual.bottomStyle && outfitStyle === 'sport'));
+  const bottomColor = visual.bottomColor || outfitColor;
+  const legColor = visual.legwearColor || (animal || skirt || shorts ? skinColor : visual.bottomColor || '#141a2b');
+  const bootColor = visual.bootColor || (animal ? skinColor : outfitStyle === 'sport' ? '#f6f2e7' : '#141a2b');
+  const gloveColor = visual.gloveColor || skinColor;
+  const accessoryColor = visual.accessoryColor || accentColor;
+  const secondaryAccessoryColor = visual.secondaryAccessoryColor || outfitColor;
   const raised = pose === 'energetic' || pose === 'confident';
   const leftHand = raised ? 'M76 145 L60 158 L46 129 L34 131 L47 178 L66 180 L84 164 Z' : 'M76 145 L61 167 L54 208 L67 213 L83 176 L91 157 Z';
   const rightHand = pose === 'ready' ? 'M162 145 L177 154 L192 141 L202 152 L183 179 L164 172 L151 155 Z' : 'M162 145 L177 166 L184 208 L171 213 L156 176 L149 157 Z';
-  const rear = accessory === 'cape' ? `<path d="M83 128 L54 149 L34 263 L106 248 L120 154 L138 253 L213 267 L186 148 L156 128 Z" fill="${accentColor}" stroke="${LINE}" stroke-width="3"/>` : accessory === 'wings' ? `<path d="M85 144 L24 106 L30 175 L68 205 L87 174 M156 144 L216 106 L210 175 L172 205 L153 174" fill="${accentColor}" fill-opacity=".75" stroke="${LINE}" stroke-width="3"/>` : '';
-  const longHair = ['long', 'ponytail', 'twin-tail', 'braided'].includes(hairStyle);
+  const cape = accessory === 'cape' || visual.secondaryAccessory === 'cape';
+  const wings = accessory === 'wings' || visual.secondaryAccessory === 'wings';
+  const rear = animal ? `<path data-avatar-detail="animal-tail" d="M154 220 Q204 252 202 205 Q196 180 216 178" stroke="${skinColor}" stroke-width="11" fill="none"/>` : cape ? `<path data-avatar-detail="cape" d="M83 128 L54 149 L34 263 L106 248 L120 154 L138 253 L213 267 L186 148 L156 128 Z" fill="${visual.secondaryAccessory === 'cape' ? secondaryAccessoryColor : visual.accessoryColor || outfitColor}" stroke="${avatar.id === 'yudias' ? '#eec35d' : LINE}" stroke-width="3"/>` : wings ? `<path d="M85 144 L24 106 L30 175 L68 205 L87 174 M156 144 L216 106 L210 175 L172 205 L153 174" fill="${accentColor}" fill-opacity=".75" stroke="${LINE}" stroke-width="3"/>` : '';
+  const longHair = !animal && ['long', 'ponytail', 'twin-tail', 'braided'].includes(hairStyle);
   const hair = hairShape(hairStyle, variant);
-  const face = `<path d="M84 78 Q81 72 78 81 L78 100 Q78 110 88 111 Q96 129 119 134 Q143 129 152 111 Q162 110 163 100 L163 82 Q160 73 155 79 L151 61 Q120 43 89 61 Z" fill="${skinColor}" stroke="${LINE}" stroke-width="3"/><path d="M86 96 L106 91 L110 96 M132 96 L137 91 L154 96" stroke="${LINE}" stroke-width="2" fill="none"/><path d="M89 98 L108 98 L103 104 L94 104 Z M134 98 L153 98 L148 104 L139 104 Z" fill="#f7f7ff"/><path d="M99 98 L99 104 M142 98 L142 104" stroke="${accentColor}" stroke-width="4"/><path d="M118 102 L116 112 L121 113 M112 122 Q120 125 128 121" stroke="${LINE}" stroke-width="1.5" fill="none"/>`;
-  const hairLayer = hair ? `<path d="${hair}" fill="${hairColor}" stroke="${LINE}" stroke-width="3" stroke-linejoin="round"/><path d="${hairStyle === 'star' ? 'M86 53 L111 68 L103 96 L118 83 L122 42 L135 72 L136 96 L150 76 L161 56' : hairStyle === 'bald' ? '' : 'M87 67 L105 58 L122 69 L146 48 L139 70 L158 61'}" fill="none" stroke="${hairAccent}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>` : '';
+  const face = animal ? animalFace(species, skinColor, hairColor, accentColor) : `<path d="M84 78 Q81 72 78 81 L78 100 Q78 110 88 111 Q96 129 119 134 Q143 129 152 111 Q162 110 163 100 L163 82 Q160 73 155 79 L151 61 Q120 43 89 61 Z" fill="${skinColor}" stroke="${LINE}" stroke-width="3"/><path d="M86 96 L106 91 L110 96 M132 96 L137 91 L154 96" stroke="${LINE}" stroke-width="2" fill="none"/><path d="M89 98 L108 98 L103 104 L94 104 Z M134 98 L153 98 L148 104 L139 104 Z" fill="#f7f7ff"/><path d="M99 98 L99 104 M142 98 L142 104" stroke="${accentColor}" stroke-width="4"/><path d="M118 102 L116 112 L121 113 M112 122 Q120 125 128 121" stroke="${LINE}" stroke-width="1.5" fill="none"/>`;
+  const outline = visual.hairOutlineColor || (avatar.id === 'yugi' || avatar.id === 'atem' ? '#a53471' : LINE);
+  const hairLayer = hair && !animal ? `<path d="${hair}" fill="${hairColor}" stroke="${outline}" stroke-width="3" stroke-linejoin="round"/>${avatar.id === 'zwijo' ? `<path data-avatar-detail="zwijo-purple-hair-tips" d="M56 179 L82 168 L85 181 L85 197 L69 192 L54 199 Z M158 172 L187 181 L190 199 L174 192 L157 190 Z" fill="${hairAccent}"/>` : `<path d="${hairStyle === 'star' ? 'M86 53 L111 68 L103 96 L118 83 L122 42 L135 72 L136 96 L150 76 L161 56' : hairStyle === 'bald' ? '' : 'M87 67 L105 58 L122 69 L146 48 L139 70 L158 61'}" fill="none" stroke="${hairAccent}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>`}` : '';
   const mechanicalMarks = outfitStyle === 'mechanical' ? `<path d="M119 65 L119 83 L112 91 M131 109 L144 115 M97 115 L108 119" stroke="${accentColor}" stroke-width="2" fill="none"/><circle cx="120" cy="81" r="3" fill="${accentColor}"/>` : '';
-  const frontHair = longHair ? `<path d="M78 79 Q75 39 120 35 Q163 39 163 79 L151 83 L136 91 L120 65 L104 90 L87 83 Z" fill="${hairColor}" stroke="${LINE}" stroke-width="3"/><path d="M89 67 L111 56 L122 71 L145 56" stroke="${hairAccent}" stroke-width="4" fill="none"/>` : '';
+  const frontHair = longHair ? `<path d="M78 79 Q75 39 120 35 Q163 39 163 79 L151 83 L136 91 L120 65 L104 90 L87 83 Z" fill="${hairColor}" stroke="${LINE}" stroke-width="3"/>${avatar.id === 'zwijo' ? '' : `<path d="M89 67 L111 56 L122 71 L145 56" stroke="${hairAccent}" stroke-width="4" fill="none"/>`}` : '';
   const stature = Math.max(.8, Math.min(1, .8 + ((Number(height) || 1) - .85) * .5));
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 288" class="duelist-avatar-portrait ${escapeHtml(className)}" ${decorative ? 'aria-hidden="true" focusable="false"' : `role="img" aria-label="${escapeHtml(label || `Silhouette de ${avatar.name}`)}"`} data-avatar-portrait="${escapeHtml(avatar.id)}">
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 288" class="duelist-avatar-portrait ${escapeHtml(className)}" ${decorative ? 'aria-hidden="true" focusable="false"' : `role="img" aria-label="${escapeHtml(label || `Silhouette de ${avatar.name}`)}"`} data-avatar-portrait="${escapeHtml(avatar.id)}" data-avatar-species="${species}">
     ${decorative ? '' : `<title>${escapeHtml(label || avatar.name)}</title>`}
     <ellipse cx="120" cy="266" rx="69" ry="12" fill="${accentColor}" opacity=".15"/>
     <path d="M35 91 L120 16 L206 91 L192 218 L120 270 L48 218 Z" fill="${accentColor}" opacity=".055"/>
     <path d="M30 80 L30 57 L53 57 M186 57 L209 57 L209 80 M30 214 L30 238 L54 238 M186 238 L209 238 L209 214" stroke="${accentColor}" stroke-width="1.5" fill="none" opacity=".45"/>
     <g stroke-linejoin="round" stroke-linecap="round" transform="translate(120 266) scale(1 ${stature.toFixed(3)}) translate(-120 -266)">
       ${rear}${longHair ? hairLayer : ''}
-      <path d="M93 192 L119 192 L118 247 L108 264 L78 264 L83 251 L96 245 Z M121 192 L147 192 L144 245 L157 251 L162 264 L132 264 L122 247 Z" fill="${outfitColor}" stroke="${LINE}" stroke-width="3"/>
-      <path d="M79 258 L108 258 L109 268 L75 268 Z M132 258 L161 258 L165 268 L132 268 Z" fill="${LINE}"/><path d="M90 250 L105 250 M135 250 L148 250" stroke="${accentColor}" stroke-width="3"/>
+      <path d="M93 192 L119 192 L118 247 L108 264 L78 264 L83 251 L96 245 Z M121 192 L147 192 L144 245 L157 251 L162 264 L132 264 L122 247 Z" fill="${legColor}" stroke="${LINE}" stroke-width="3"/>
+      <path data-avatar-detail="boots" d="M79 250 L108 250 L109 268 L75 268 Z M132 250 L156 250 L165 268 L132 268 Z" fill="${bootColor}" stroke="${LINE}" stroke-width="2"/><path d="M90 250 L105 250 M135 250 L148 250" stroke="${accentColor}" stroke-width="3"/>
       <path d="M106 118 L105 142 L135 142 L134 118 Z" fill="${skinColor}" stroke="${LINE}" stroke-width="2"/>
-      <path d="${leftHand}" fill="${outfitColor}" stroke="${LINE}" stroke-width="3"/><path d="${rightHand}" fill="${outfitColor}" stroke="${LINE}" stroke-width="3"/>
-      <path d="${raised ? 'M33 130 L32 120 L38 115 L44 119 L48 130 L43 138 Z' : 'M54 204 L50 215 L54 225 L63 223 L68 211 Z'}" fill="${skinColor}" stroke="${LINE}" stroke-width="2"/>
-      <path d="${pose === 'ready' ? 'M193 142 L196 131 L203 129 L211 136 L210 145 L201 153 Z' : 'M171 207 L175 221 L184 226 L188 218 L185 206 Z'}" fill="${skinColor}" stroke="${LINE}" stroke-width="2"/>
-      <path d="${outfitShape(outfitStyle, broad)}" fill="${outfitColor}" stroke="${LINE}" stroke-width="3"/>
-      ${outfitDetails(outfitStyle, accentColor)}
-      <path d="M88 195 L150 195 L150 204 L90 204 Z" fill="${LINE}"/><path d="M113 195 L128 195 L128 204 L113 204 Z" fill="${accentColor}"/>
-      ${face}${longHair ? frontHair : hairLayer}${mechanicalMarks}${accessoryShape(accessory, accentColor, variant)}${signatureDetails(avatar.id, hairColor, accentColor)}
+      <path d="${leftHand}" fill="${animal ? skinColor : outfitColor}" stroke="${LINE}" stroke-width="3"/><path d="${rightHand}" fill="${animal ? skinColor : outfitColor}" stroke="${LINE}" stroke-width="3"/>
+      <path data-avatar-detail="left-glove" d="${raised ? 'M33 130 L32 120 L38 115 L44 119 L48 130 L43 138 Z' : 'M54 204 L50 215 L54 225 L63 223 L68 211 Z'}" fill="${gloveColor}" stroke="${LINE}" stroke-width="2"/>
+      <path data-avatar-detail="right-glove" d="${pose === 'ready' ? 'M193 142 L196 131 L203 129 L211 136 L210 145 L201 153 Z' : 'M171 207 L175 221 L184 226 L188 218 L185 206 Z'}" fill="${gloveColor}" stroke="${LINE}" stroke-width="2"/>
+      ${animal ? `<ellipse data-avatar-detail="animal-body" cx="120" cy="180" rx="43" ry="59" fill="${skinColor}" stroke="${LINE}" stroke-width="3"/><ellipse cx="120" cy="184" rx="31" ry="43" fill="#e7ecef"/>` : `<path d="${outfitShape(outfitStyle, broad)}" fill="${outfitColor}" stroke="${LINE}" stroke-width="3"/>${outfitDetails(outfitStyle, accentColor)}`}
+      ${shorts ? `<path data-avatar-detail="shorts" d="M89 195 L151 195 L152 223 L125 223 L120 211 L115 223 L88 223 Z" fill="${bottomColor}" stroke="${LINE}" stroke-width="3"/>` : skirt && outfitStyle !== 'robe' ? `<path data-avatar-detail="skirt" d="${outfitStyle === 'dress' ? 'M89 195 L151 195 L180 256 L60 256 Z' : 'M91 196 L149 196 L167 240 L73 240 Z'}" fill="${bottomColor}" stroke="${LINE}" stroke-width="3"/>` : ''}
+      ${animal ? '' : `<path d="M88 195 L150 195 L150 204 L90 204 Z" fill="${LINE}"/><path d="M113 195 L128 195 L128 204 L113 204 Z" fill="${accentColor}"/>`}
+      ${face}${longHair ? frontHair : hairLayer}${mechanicalMarks}${headdressShape(visual.headdress, accessoryColor)}${animal && avatar.id === 'bochi' ? '' : accessoryShape(accessory, accessoryColor, variant)}${visual.secondaryAccessory && visual.secondaryAccessory !== accessory ? accessoryShape(visual.secondaryAccessory, visual.secondaryAccessoryColor || accessoryColor, variant) : ''}${avatar.id === 'atem' && accessory !== 'puzzle' && visual.secondaryAccessory !== 'puzzle' ? accessoryShape('puzzle', '#eec35d', variant) : ''}${signatureDetails(avatar.id, hairColor, accentColor)}
       <path d="M55 173 L74 183 L72 201 L47 190 Z" fill="#d4dce7" stroke="${LINE}" stroke-width="2"/><path d="M48 173 L65 162 L80 172 L65 181 Z" fill="${accentColor}" stroke="${LINE}" stroke-width="2"/><path d="M56 174 L59 172 M62 177 L65 175 M68 180 L71 178" stroke="${LINE}" stroke-width="2"/>
     </g>
   </svg>`;

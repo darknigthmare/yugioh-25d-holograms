@@ -1,0 +1,130 @@
+{
+  "createdAt": "2026-10-11T13:52:17.715364+00:00",
+  "originDirectory": "/workspace/yugioh-avatar-motion-2026-10-11",
+  "repositoryDirectory": "docs/audits/artifacts/duelist-avatar-models-2026-10-11",
+  "scope": "Delivery of already executed/recorded source CPU and isolated WebGL proofs; no captures were rerun and no application or test sources changed for delivery. The intermediate directory is excluded.",
+  "originalManifestSha256": "0e8eb5a607dff9433381d2b595247bea0503bc64d72394e5e621554b9771bdac",
+  "sourcePinsCheckedAgainstRepository": true,
+  "scriptPortability": "Scripts are exact executed originals. They contain absolute /workspace paths and expect the original managed environment with Vite source at5198, Chromium, Playwright and SwiftShader. Copies were not rerun and no portable variants are claimed.",
+  "copies": [
+    {
+      "file": "targeted-tests.txt",
+      "executedOrRecordedOriginal": "/workspace/yugioh-avatar-motion-2026-10-11/targeted-tests.txt",
+      "repositoryCopy": "docs/audits/artifacts/duelist-avatar-models-2026-10-11/targeted-tests.txt",
+      "sha256": "bb00dd5adfd547872abbe98d642aa776dba9f64bd9633e0148683c58021700d0",
+      "identicalBytes": true
+    },
+    {
+      "file": "cpu-audit.mjs",
+      "executedOrRecordedOriginal": "/workspace/yugioh-avatar-motion-2026-10-11/cpu-audit.mjs",
+      "repositoryCopy": "docs/audits/artifacts/duelist-avatar-models-2026-10-11/cpu-audit.mjs",
+      "sha256": "148e368a1ac6e7af2f6881cd634e4d8210af03739cb408db5c69add86e9d0590",
+      "identicalBytes": true
+    },
+    {
+      "file": "cpu-audit.json",
+      "executedOrRecordedOriginal": "/workspace/yugioh-avatar-motion-2026-10-11/cpu-audit.json",
+      "repositoryCopy": "docs/audits/artifacts/duelist-avatar-models-2026-10-11/cpu-audit.json",
+      "sha256": "626e0671013cbee094c69f50365c6bd45881c993ceb441219406a3ff728944dd",
+      "identicalBytes": true
+    },
+    {
+      "file": "gesture-gallery.png",
+      "executedOrRecordedOriginal": "/workspace/yugioh-avatar-motion-2026-10-11/gesture-gallery.png",
+      "repositoryCopy": "docs/audits/artifacts/duelist-avatar-models-2026-10-11/gesture-gallery.png",
+      "sha256": "ed84e142dbb0c298e55f5eaac80b141f3019ab5897d9a8acbfcc4ff6999bc8e8",
+      "identicalBytes": true
+    },
+    {
+      "file": "gesture-gallery.json",
+      "executedOrRecordedOriginal": "/workspace/yugioh-avatar-motion-2026-10-11/gesture-gallery.json",
+      "repositoryCopy": "docs/audits/artifacts/duelist-avatar-models-2026-10-11/gesture-gallery.json",
+      "sha256": "7d26e14bbe9624f347139f6a34b1c43ab53ada2d19a1b4364dae7bba8c0a880e",
+      "identicalBytes": true
+    },
+    {
+      "file": "gesture-gallery-pins.json",
+      "executedOrRecordedOriginal": "/workspace/yugioh-avatar-motion-2026-10-11/gesture-gallery-pins.json",
+      "repositoryCopy": "docs/audits/artifacts/duelist-avatar-models-2026-10-11/gesture-gallery-pins.json",
+      "sha256": "ca8d5082abae1d82cd7e49ee6bac4b95e308b0e2033e444fcaa22156d205d6a6",
+      "identicalBytes": true
+    },
+    {
+      "file": "gesture-gallery.py",
+      "executedOrRecordedOriginal": "/workspace/yugioh-avatar-motion-2026-10-11/gesture-gallery.py",
+      "repositoryCopy": "docs/audits/artifacts/duelist-avatar-models-2026-10-11/gesture-gallery.py",
+      "sha256": "e24228c3364e04bd74d588649ddc494491f3459d549fe69ae59e1866c3e68789",
+      "identicalBytes": true
+    },
+    {
+      "file": "factual-gallery.png",
+      "executedOrRecordedOriginal": "/workspace/yugioh-avatar-motion-2026-10-11/factual-gallery.png",
+      "repositoryCopy": "docs/audits/artifacts/duelist-avatar-models-2026-10-11/factual-gallery.png",
+      "sha256": "80627e6f257b73a75d0c16ce2181e3e18b1a8f96d92a5a8504b783a3af6f0b42",
+      "identicalBytes": true
+    },
+    {
+      "file": "factual-gallery.json",
+      "executedOrRecordedOriginal": "/workspace/yugioh-avatar-motion-2026-10-11/factual-gallery.json",
+      "repositoryCopy": "docs/audits/artifacts/duelist-avatar-models-2026-10-11/factual-gallery.json",
+      "sha256": "f9c6754dac049b68358dca48d54e5004087a20fb078fa263d15758c2050de01e",
+      "identicalBytes": true
+    },
+    {
+      "file": "factual-gallery-pins.json",
+      "executedOrRecordedOriginal": "/workspace/yugioh-avatar-motion-2026-10-11/factual-gallery-pins.json",
+      "repositoryCopy": "docs/audits/artifacts/duelist-avatar-models-2026-10-11/factual-gallery-pins.json",
+      "sha256": "ca8d5082abae1d82cd7e49ee6bac4b95e308b0e2033e444fcaa22156d205d6a6",
+      "identicalBytes": true
+    },
+    {
+      "file": "factual-gallery.py",
+      "executedOrRecordedOriginal": "/workspace/yugioh-avatar-motion-2026-10-11/factual-gallery.py",
+      "repositoryCopy": "docs/audits/artifacts/duelist-avatar-models-2026-10-11/factual-gallery.py",
+      "sha256": "fd09baf9dd7ecf825e80b4745229ab8ec5d3931722fa0ce3bd2eb55cd7c8c6a3",
+      "identicalBytes": true
+    },
+    {
+      "file": "details-gallery.png",
+      "executedOrRecordedOriginal": "/workspace/yugioh-avatar-motion-2026-10-11/details-gallery.png",
+      "repositoryCopy": "docs/audits/artifacts/duelist-avatar-models-2026-10-11/details-gallery.png",
+      "sha256": "e7b312dbae47f82be800c0c850ce0d056121432c70dd17c8655330aef2930e49",
+      "identicalBytes": true
+    },
+    {
+      "file": "details-gallery.json",
+      "executedOrRecordedOriginal": "/workspace/yugioh-avatar-motion-2026-10-11/details-gallery.json",
+      "repositoryCopy": "docs/audits/artifacts/duelist-avatar-models-2026-10-11/details-gallery.json",
+      "sha256": "9971dc294fbd08044273080d02c70f10f3a6bb207fec5651da91e5f8ed236b58",
+      "identicalBytes": true
+    },
+    {
+      "file": "details-gallery-pins.json",
+      "executedOrRecordedOriginal": "/workspace/yugioh-avatar-motion-2026-10-11/details-gallery-pins.json",
+      "repositoryCopy": "docs/audits/artifacts/duelist-avatar-models-2026-10-11/details-gallery-pins.json",
+      "sha256": "ca8d5082abae1d82cd7e49ee6bac4b95e308b0e2033e444fcaa22156d205d6a6",
+      "identicalBytes": true
+    },
+    {
+      "file": "details-gallery.py",
+      "executedOrRecordedOriginal": "/workspace/yugioh-avatar-motion-2026-10-11/details-gallery.py",
+      "repositoryCopy": "docs/audits/artifacts/duelist-avatar-models-2026-10-11/details-gallery.py",
+      "sha256": "9b0dbe808c4802e580440be9271ad88640d1459226b3db83b73aae5c5ef1d44d",
+      "identicalBytes": true
+    },
+    {
+      "file": "README.md",
+      "executedOrRecordedOriginal": "/workspace/yugioh-avatar-motion-2026-10-11/README.md",
+      "repositoryCopy": "docs/audits/artifacts/duelist-avatar-models-2026-10-11/README.md",
+      "sha256": "5672eec3c4e8efc48be6d82827459b3a8df32e7ed16eaf025a16a8201f3aa41c",
+      "identicalBytes": true
+    },
+    {
+      "file": "manifest.json",
+      "executedOrRecordedOriginal": "/workspace/yugioh-avatar-motion-2026-10-11/manifest.json",
+      "repositoryCopy": "docs/audits/artifacts/duelist-avatar-models-2026-10-11/manifest.json",
+      "sha256": "0e8eb5a607dff9433381d2b595247bea0503bc64d72394e5e621554b9771bdac",
+      "identicalBytes": true
+    }
+  ]
+}

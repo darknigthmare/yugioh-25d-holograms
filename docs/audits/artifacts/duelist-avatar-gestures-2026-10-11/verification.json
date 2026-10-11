@@ -1,0 +1,68 @@
+{
+  "asOf": "2026-10-11",
+  "observedAtUtc": "2026-10-11T13:28:58.494Z",
+  "scope": "Real scene duelist gestures from the existing public native protocol projection, applied LP damage, and separately supplied public outcomes",
+  "verificationKind": "Unit/integration tests with actual avatar geometry and the native message translator; protocol messages in these tests are supplied fixtures, not a running duel",
+  "actualDuelBrowserCapture": false,
+  "buildPerformed": false,
+  "publicationPerformed": false,
+  "sourceHashes": {
+    "src/ui/RealDuelScene3D.js": "3cab3186bd228b02b901c6aa85fef9d08c6ed9eac3d64e0909cbc28dc6e0e0a7",
+    "src/ui/RealDuelView.js": "1117678a515f968e2aab4a3a4fcd820ba3fcf166e86e82a69d2af959ef6d7100",
+    "src/ui/DuelistAvatarModels.js": "f93606fe199a8a9d6f66bfcbdc0b5d93028159cf1977a70f9384d9d831b5bab5",
+    "src/ui/DuelistAvatarGestures.js": "805dbb0519642366a61e306517297951afa35d979738238d0ab3cc05175ee352",
+    "src/ui/PublicDuelVisuals.js": "1c19b3aafecf843427f96f15ec6b6234c4ab7a18336af68a870a47f2ada9d982",
+    "src/core/native/NativeDuelVisualEvents.js": "2a776f53d0d15eb91eb2c736d95fbdc809d85cdef9491adf9b6c448ef61580ab",
+    "test/real-duel-avatar-gestures.test.js": "faddc355b7ec7ebaf389df6c9fe02aa1626cb35f31b7126992cfaa6e2900b3de"
+  },
+  "commands": [
+    {
+      "command": "node test/real-duel-avatar-gestures.test.js",
+      "passed": 10,
+      "failed": 0
+    },
+    {
+      "command": "node --test --test-isolation=none --test-reporter=spec test/real-duel-avatar-gestures.test.js test/real-duel-attack-negation.test.js test/real-duel-scene-privacy.test.js test/real-duel-scene-render-loop.test.js test/real-duel-pose-routing.test.js test/real-duel-ui.test.js test/duelist-avatar-integration.test.js test/duelist-avatar-models.test.js test/duelist-avatar-gestures.test.js test/native-duel-visual-events.test.js test/native-field-visuals.test.js test/native-summon-visuals.test.js",
+      "passed": 103,
+      "failed": 0
+    },
+    {
+      "command": "git diff --check",
+      "passed": true
+    }
+  ],
+  "verified": [
+    "Success callbacks from SUMMONED and public CHAINING drive the correct owner and anatomical arm joints",
+    "Applied lp-loss requires cost:false and damage matching previousLP-lp; cost, recovery and LPUPDATE do not drive damage",
+    "Zero, missing or explicitly failed attribute results cannot drive a reaction",
+    "Avatar APIs receive only allowlisted gesture names and primitive strength/hold/immediate options; private identity getter guards remain unread",
+    "Native summon IDs, attack ID/replay count, and per-Chain link identifiers deduplicate callbacks without merging later genuine commands",
+    "Replay replaces the old projectile; matching native negation/stop removes its owned gesture while effect-parent and model gestureId guards preserve newer reactions",
+    "A stale native attack ID cannot cancel a newer attack at the same zone",
+    "Visibility pauses gesture time; hidden cancellation renders no frame; reduced motion skips transient gestures",
+    "Public player/opponent/draw results hold terminal poses synchronously with zero RAF, also when summary update precedes victory callback",
+    "LP zero alone does not derive a winner; public surrender winner reaches an inactive view without cloning GameState",
+    "Outcome before summary makes a later camera choice immediate instead of freezing an interpolation",
+    "Cosmetic replacement keeps the held outcome; owned GPU resources dispose exactly once"
+  ],
+  "publicDatasets": [
+    "playerDuelistGesture",
+    "opponentDuelistGesture",
+    "duelistOutcome"
+  ],
+  "publicSummaryKeysUnchanged": [
+    "currentPhase",
+    "currentTurn",
+    "duelEnded",
+    "opponentHandCount",
+    "opponentLP",
+    "playerHandCount",
+    "playerLP",
+    "turnCount"
+  ],
+  "limitations": [
+    "No actual browser duel or visual screenshot is claimed by this report; the separate Oct11 browser audit supplies that evidence",
+    "Only existing public face-up combat events can produce transient gestures; concealed/explicitly private events do not",
+    "If the duel ends in the same native batch as LP damage, the held terminal outcome takes precedence over transient damage"
+  ]
+}

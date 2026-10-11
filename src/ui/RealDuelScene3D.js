@@ -348,16 +348,26 @@ export class RealDuelScene3D {
     this._duelistAvatarIds = Object.freeze({ playerAvatarId: 'yugi', opponentAvatarId: 'kaiba' });
     this._duelistAnimationElapsed = 0;
     this._duelistAnimationLastNow = null;
+    this._duelistGestures = new Map();
+    this._duelistGestureEvents = new WeakSet();
+    this._duelistOutcome = null;
     this._motionPreference = this.windowRef?.matchMedia?.('(prefers-reduced-motion: reduce)') || null;
     this._reducedMotion = this._motionPreference?.matches === true;
     this._boundMotionPreference = event => {
       this._reducedMotion = event.matches === true;
       this._duelistAnimationLastNow = null;
       if (this._reducedMotion) {
-        this._duelistAvatars.forEach(avatar => avatar.resetPose());
-        this.render();
+        this._clearDuelistGestures();
+        this._duelistAvatars.forEach((avatar, owner) => {
+          if (this._duelistOutcome) this._applyDuelistOutcome(owner);
+          else avatar.resetPose();
+        });
+        if (this.active && this.documentRef?.hidden !== true) this.render();
         if (!this._requiresAnimationFrame()) this._stopFrameLoop();
-      } else if (this.active) this.start();
+      } else {
+        if (this._duelistOutcome) this._duelistAvatars.forEach((avatar, owner) => this._applyDuelistOutcome(owner));
+        if (this.active) this.start();
+      }
     };
     this._fieldHolograms = new Map();
     this._combatEffects = [];
@@ -397,7 +407,8 @@ export class RealDuelScene3D {
     const immediate = options.immediate === true
       || reducedMotion
       || !this.camera
-      || this.publicSummary?.duelEnded === true;
+      || this.publicSummary?.duelEnded === true
+      || this._duelistOutcome !== null;
     this.cameraPreset = nextPreset;
     if (this.root?.dataset) this.root.dataset.cameraPreset = nextPreset;
 
@@ -438,6 +449,7 @@ export class RealDuelScene3D {
   }
 
   _requiresAnimationFrame() {
+    if (this.publicSummary?.duelEnded || this._duelistOutcome) return false;
     return Boolean(this._cameraTransition || this._animatedVisualsActive || this._combatEffects.length || this._monsterPoses.size
       || (this._duelistAvatars.size && !this._reducedMotion));
   }
@@ -458,6 +470,7 @@ export class RealDuelScene3D {
     for (const owner of ['player', 'opponent']) {
       const avatarId = ids[`${owner}AvatarId`];
       if (this._duelistAvatars.get(owner)?.avatarId === avatarId) continue;
+      this._duelistGestures.delete(owner);
       this._duelistAvatars.get(owner)?.dispose();
       const avatar = createDuelistAvatarModel(avatarId, { owner, reducedMotion: this._reducedMotion });
       if (owner === 'player') {
@@ -468,16 +481,102 @@ export class RealDuelScene3D {
         avatar.group.position.set(0, 0, -15.1);
       }
       this._duelistAvatars.set(owner, avatar);
+      avatar.update(this._duelistAnimationElapsed, { reducedMotion: this._reducedMotion });
+      if (this._duelistOutcome) this._applyDuelistOutcome(owner);
       this.scene.add(avatar.group);
     }
     this._positionPlayerAvatar();
-    this.render();
+    this._syncDuelistGestureDataset();
+    if (this.active && this.documentRef?.hidden !== true) this.render();
     if (this.active) this.start();
     return true;
   }
 
   getDuelistAvatars() {
     return this._duelistAvatarIds;
+  }
+
+  /** Only the public result crosses this API; an LP total cannot imply a winner. */
+  setDuelistOutcome(winner) {
+    if (this.disposed || (winner !== null && !['player', 'opponent', 'draw'].includes(winner))) return false;
+    if (winner === this._duelistOutcome) return true;
+    this._clearDuelistGestures();
+    this._duelistOutcome = winner;
+    this._duelistAnimationLastNow = null;
+    if (winner) {
+      this.clearCombatEffects();
+      this._duelistAvatars.forEach((avatar, owner) => this._applyDuelistOutcome(owner));
+      this.pause();
+    } else {
+      this._duelistAvatars.forEach(avatar => avatar.clearGesture());
+    }
+    this._syncDuelistGestureDataset();
+    if (this.active && this.documentRef?.hidden !== true) {
+      this.render();
+      if (!winner) this.start();
+    }
+    return true;
+  }
+
+  _applyDuelistOutcome(owner) {
+    const avatar = this._duelistAvatars.get(owner);
+    if (!avatar || !this._duelistOutcome) return false;
+    const kind = this._duelistOutcome === 'draw' ? 'draw'
+      : this._duelistOutcome === owner ? 'victory' : 'defeat';
+    avatar.playGesture(kind, { strength: 1, hold: true, immediate: true });
+    avatar.update(this._duelistAnimationElapsed, { reducedMotion: this._reducedMotion });
+    this._syncDuelistGestureDataset();
+    return true;
+  }
+
+  _syncDuelistGestureDataset() {
+    if (!this.root?.dataset) return;
+    for (const owner of ['player', 'opponent']) {
+      const kind = this._duelistAvatars.get(owner)?.getGestureState()?.kind;
+      const next = ['summon', 'casting', 'attack', 'damage', 'victory', 'defeat', 'draw'].includes(kind) ? kind : 'idle';
+      const key = `${owner}DuelistGesture`;
+      if (this.root.dataset[key] !== next) this.root.dataset[key] = next;
+    }
+    const outcome = this._duelistOutcome || 'pending';
+    if (this.root.dataset.duelistOutcome !== outcome) this.root.dataset.duelistOutcome = outcome;
+  }
+
+  _playDuelistGesture(owner, kind, { strength = 1, combatEffect = null } = {}) {
+    if (this.disposed || !this.active || this.documentRef?.hidden === true
+      || this._reducedMotion || this.windowRef?.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches === true
+      || this.publicSummary?.duelEnded || this._duelistOutcome
+      || !['player', 'opponent'].includes(owner)
+      || !['summon', 'casting', 'attack', 'damage'].includes(kind)) return false;
+    const avatar = this._duelistAvatars.get(owner);
+    if (!avatar) return false;
+    avatar.update(this._duelistAnimationElapsed, { reducedMotion: false });
+    if (!avatar.playGesture(kind, { strength })) return false;
+    const gestureId = avatar.getGestureState()?.gestureId;
+    this._duelistGestures.set(owner, { kind, gestureId, combatEffect });
+    this._syncDuelistGestureDataset();
+    this.start();
+    return true;
+  }
+
+  /** Applied DAMAGE only: callers remove costs and generic LP updates first. */
+  playDuelistDamage({ owner, amount } = {}) {
+    if (!Number.isInteger(amount) || amount < 1 || amount > 1000000) return false;
+    return this._playDuelistGesture(owner, 'damage', { strength: Math.min(1, Math.max(0.3, amount / 3000)) });
+  }
+
+  _clearDuelistGestures(combatEffect = null) {
+    let cleared = false;
+    for (const [owner, gesture] of this._duelistGestures) {
+      if (combatEffect && gesture.combatEffect !== combatEffect) continue;
+      const avatar = this._duelistAvatars.get(owner);
+      if (avatar?.getGestureState()?.gestureId === gesture.gestureId) {
+        avatar.clearGesture();
+        cleared = true;
+      }
+      this._duelistGestures.delete(owner);
+    }
+    this._syncDuelistGestureDataset();
+    return cleared;
   }
 
   _positionPlayerAvatar() {
@@ -495,12 +594,17 @@ export class RealDuelScene3D {
   }
 
   _updateDuelistAvatars(now) {
-    if (!this._duelistAvatars.size || this._reducedMotion) return false;
+    if (!this._duelistAvatars.size || this._reducedMotion || this._duelistOutcome || this.publicSummary?.duelEnded) return false;
     if (this._duelistAnimationLastNow !== null) {
       this._duelistAnimationElapsed += Math.min(0.1, Math.max(0, (now - this._duelistAnimationLastNow) / 1000));
     }
     this._duelistAnimationLastNow = now;
     this._duelistAvatars.forEach(avatar => avatar.update(this._duelistAnimationElapsed, { reducedMotion: this._reducedMotion }));
+    for (const [owner, gesture] of this._duelistGestures) {
+      const avatar = this._duelistAvatars.get(owner);
+      if (!avatar?.hasActiveGesture || avatar.getGestureState()?.gestureId !== gesture.gestureId) this._duelistGestures.delete(owner);
+    }
+    this._syncDuelistGestureDataset();
     return true;
   }
 
@@ -1234,13 +1338,13 @@ export class RealDuelScene3D {
     return [(zoneIndex - (zoneType === 'extra' ? 0.5 : 2)) * (zoneType === 'extra' ? 4.5 : 2.25), 2.2, zoneType === 'extra' ? 0 : owner === 'player' ? 3.4 : -3.4];
   }
 
-  playCombatEffect(event = {}) {
+  playCombatEffect(event = {}, duelistReaction = null) {
     if (this.disposed || !this.active || !this.scene?.add || !this.webglAvailable
       || this.publicSummary?.duelEnded || event.hidden === true) return false;
     // Chain negation and attack negation share a visual profile. Only the
     // confirmed public attack result may retire that attack's travel/impact.
     const cancelledAttack = event.kind === 'negate' && event.nativeAttackNegated === true
-      && this._cancelAttackEffects(event.sourceRef || event.source);
+      && this._cancelAttackEffects(event.sourceRef || event.source, duelistReaction?.attackId);
     // The accessible DOM already shows action feedback with reduced motion.
     // Avoid flashes, camera motion and a hidden animation loop in this mode.
     if (this.documentRef?.hidden === true
@@ -1253,9 +1357,14 @@ export class RealDuelScene3D {
     const source = this._resolveCombatEndpoint(event.source, owner, aimAtMonster);
     const target = event.target ? this._resolveCombatEndpoint(event.target, owner, aimAtMonster) : source;
     this._resumeCombatEffectClock();
-    if (this._combatEffects.length >= 6) this._combatEffects.shift().dispose();
+    if (this._combatEffects.length >= 6) {
+      const retired = this._combatEffects.shift();
+      this._clearDuelistGestures(retired);
+      retired.dispose();
+    }
     const effect = createCombatVisualEffect({ ...event, source, target });
     if (event.kind === 'attack') effect.attackSourceRef = this._combatSourceReference(event.sourceRef || event.source);
+    if (event.kind === 'attack' && this._isPublicAttackId(duelistReaction?.attackId)) effect.publicAttackId = duelistReaction.attackId;
     effect.startedAt = this._now();
     this._combatEffects.push(effect);
     this.scene.add(effect.group);
@@ -1271,6 +1380,14 @@ export class RealDuelScene3D {
     if (event.kind === 'attack') {
       this._startMonsterPose(targetRef, 'recoil', effect.startedAt + effect.duration * 0.55, 360, effect);
     }
+    if (duelistReaction && typeof event === 'object' && !this._duelistGestureEvents.has(event)) {
+      const expected = event.kind === 'attack' ? 'attack' : event.kind === 'summon' ? 'summon'
+        : ['activate', 'shield'].includes(event.kind) ? 'casting' : null;
+      if (duelistReaction.kind === expected && expected) {
+        this._duelistGestureEvents.add(event);
+        this._playDuelistGesture(duelistReaction.owner, expected, { combatEffect: effect });
+      }
+    }
     this.start();
     return true;
   }
@@ -1285,19 +1402,33 @@ export class RealDuelScene3D {
     return Object.freeze({ owner: reference.owner, zoneType, zoneIndex });
   }
 
-  _cancelAttackEffects(reference) {
+  _isPublicAttackId(value) {
+    return typeof value === 'string' && /^native-public-attack-[1-9]\d{0,9}$/.test(value);
+  }
+
+  /** A native replay/stop can identify its public declaration without a card. */
+  cancelPublicAttack(attackId) {
+    if (this.disposed || !this._isPublicAttackId(attackId)) return false;
+    const cancelled = this._cancelAttackEffects(null, attackId);
+    if (cancelled && this.active && this.documentRef?.hidden !== true) this.render();
+    return cancelled;
+  }
+
+  _cancelAttackEffects(reference, attackId) {
     const source = this._combatSourceReference(reference);
-    if (!source) return false;
+    const hasPublicId = this._isPublicAttackId(attackId);
+    if (!source && !hasPublicId) return false;
     let cancelled = false;
     this._combatEffects = this._combatEffects.filter(effect => {
       const attack = effect.attackSourceRef;
-      if (!attack || attack.owner !== source.owner || attack.zoneType !== source.zoneType
-        || attack.zoneIndex !== source.zoneIndex) return true;
+      if (!attack || (source && (attack.owner !== source.owner || attack.zoneType !== source.zoneType
+        || attack.zoneIndex !== source.zoneIndex)) || (hasPublicId && effect.publicAttackId !== attackId)) return true;
       // A later effect may already own a pose on the same monster. Restore
       // only this attack's poses, including a recoil that has not begun yet.
       for (const [object, pose] of this._monsterPoses) {
         if (pose.combatEffect === effect) this._cancelMonsterPose(object);
       }
+      this._clearDuelistGestures(effect);
       effect.dispose();
       cancelled = true;
       return false;
@@ -1360,13 +1491,14 @@ export class RealDuelScene3D {
 
   clearCombatEffects() {
     const hadEffects = this._combatEffects.length > 0 || this._monsterPoses.size > 0;
+    const clearedGestures = this._clearDuelistGestures();
     this._combatEffects.forEach(effect => effect.dispose());
     this._combatEffects = [];
     this._monsterPoses.forEach(pose => pose.animation.dispose());
     this._monsterPoses.clear();
     this._effectsPausedAt = null;
     if (!this._requiresAnimationFrame()) this._stopFrameLoop();
-    if (hadEffects) this.render();
+    if ((hadEffects || clearedGestures) && this.active && this.documentRef?.hidden !== true) this.render();
     return true;
   }
 
@@ -1404,9 +1536,13 @@ export class RealDuelScene3D {
       this.disposed
       || !this.active
       || !this.webglAvailable
-      || this.publicSummary?.duelEnded
       || this.documentRef?.hidden === true
     ) return false;
+    if (this.publicSummary?.duelEnded || this._duelistOutcome) {
+      this.pause();
+      this.render();
+      return false;
+    }
     if (this.running) return true;
     this._resumeCameraTransitionClock();
     this._resumeCombatEffectClock();
@@ -1460,6 +1596,10 @@ export class RealDuelScene3D {
   _onFrame(timestamp) {
     this._frameHandle = null;
     if (!this.running) return;
+    if (!this.active || this.documentRef?.hidden === true || this.publicSummary?.duelEnded || this._duelistOutcome) {
+      this.pause();
+      return;
+    }
     const now = Number.isFinite(timestamp) ? timestamp : this._now();
     const cameraChanged = this._updateCameraTransition(now);
     const combatChanged = this._updateCombatEffects(now);
@@ -1487,6 +1627,8 @@ export class RealDuelScene3D {
     this.clearCombatEffects();
     this._duelistAvatars.forEach(avatar => avatar.dispose());
     this._duelistAvatars.clear();
+    this._duelistGestures.clear();
+    this._duelistGestureEvents = new WeakSet();
     disposeFieldEnvironmentGeometry(this._fieldEnvironmentGeometry);
     disposeObject3D(this.scene);
     this.scene?.clear?.();

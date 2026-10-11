@@ -1,0 +1,310 @@
+{
+  "generatedAt": "2026-10-11T13:40:28.741670+00:00",
+  "baselineRevision": "ac18389cc3e78fc84f05419024d63be311453013",
+  "sourceFreeze": {
+    "src/content/DuelistAvatarCatalog.js": "9c665ed069cfcd0829f1f4a85a6b3c635f1ebab9c96c1f892b78823f8ce4e68c",
+    "src/content/DuelistAvatarProgress.js": "76ad78ff8dd61cb4539daac3d1a3cc6995622b8bfee9bb629382e477d2022560"
+  },
+  "rosterCount": 192,
+  "seriesCounts": {
+    "dm": 28,
+    "gx": 28,
+    "5ds": 24,
+    "zexal": 24,
+    "arc-v": 28,
+    "vrains": 20,
+    "sevens": 20,
+    "go-rush": 20
+  },
+  "explicitProfilesChanged": 57,
+  "changedNamedTuples": 49,
+  "profilesWithExplicitVisualDetails": 44,
+  "profilesWithRetainedPrimaryReferenceForAppliedChanges": 55,
+  "metadataOnlyIds": [
+    "ai",
+    "sebastian"
+  ],
+  "neutralSchemaDefaults": {
+    "species": "human",
+    "secondaryAccessory": "none",
+    "headdress": "none"
+  },
+  "bottomDefaults": "No bottomStyle or bottomColor is imposed by makeAvatar. Existing robe/skirt/sport/trouser rendering fallbacks remain active for appearances without explicit verified detail.",
+  "idsSeriesAndUnlockRulesUnchangedFromBaseline": true,
+  "unlockCounts": {
+    "starter": 11,
+    "wins": 69,
+    "duels": 65,
+    "medals": 31,
+    "mission": 16
+  },
+  "maximumThresholds": {
+    "wins": 30,
+    "duels": 30,
+    "medals": 36
+  },
+  "starterIds": [
+    "yugi",
+    "kaiba",
+    "joey",
+    "tea",
+    "jaden",
+    "yusei",
+    "yuma",
+    "yuya",
+    "playmaker",
+    "yuga",
+    "yudias"
+  ],
+  "tests": {
+    "command": "node --test test/duelist-avatar-catalogue.test.js test/duelist-avatar-catalogue-2026-10-11.test.js test/duelist-avatar-progress.test.js test/duelist-avatar-progress-2026-10-11.test.js",
+    "tests": 42,
+    "pass": 42,
+    "fail": 0,
+    "skip": 0,
+    "log": "content-tests.txt"
+  },
+  "limits": [
+    "Roster is a curated 192-appearance selection, not every extra or transformation.",
+    "This wave checks specific corrected traits, not every detail of all 192 appearances.",
+    "Silhouettes, proportions and palettes remain stylised; exact anime mesh/clothing topology and pixel matching are not claimed.",
+    "Nyandestar and Bochi retain animal morphology but are adapted to the biped Duel rig.",
+    "Atem reference verifies tricolour hair only; his preserved ancient costume has not been newly verified by the modern Yami Yugi artwork.",
+    "Ai and Sebastian species labels are metadata for the already selected AI/robot appearances; no new primary artwork was retained for them.",
+    "The contact sheets include adjacent appearances and transformations as visual context; their presence does not establish an audit of all those roster entries.",
+    "Local cosmetic saves are editable; validation and backup merge are not account security or anti-cheat.",
+    "No full check, build, deployment or publication was run by this subagent."
+  ],
+  "pendingAppearanceVerificationIds": [
+    "abidos",
+    "adrian",
+    "ai",
+    "akiza",
+    "alexis",
+    "alice",
+    "andre",
+    "anna",
+    "aporia",
+    "aqua",
+    "arthur-hawkins",
+    "asaka",
+    "aster",
+    "atticus",
+    "bakura",
+    "bandit-keith",
+    "banner",
+    "bastion",
+    "blue-angel",
+    "camula",
+    "caswell",
+    "cathy",
+    "celina",
+    "chazz",
+    "chojiro",
+    "chumley",
+    "crowler",
+    "dartz",
+    "devack",
+    "dextra",
+    "dimitri",
+    "don-zaloog",
+    "dr-faker",
+    "duke",
+    "earth",
+    "epoch",
+    "flame",
+    "flip",
+    "gloria",
+    "grace",
+    "greiger",
+    "heartland",
+    "ishizu",
+    "jack",
+    "jakob",
+    "jean",
+    "jesse",
+    "jim",
+    "jin",
+    "joey",
+    "kagemaru",
+    "kalin",
+    "kite",
+    "kiyoshi",
+    "kuadul",
+    "leo",
+    "leo-akaba",
+    "lester",
+    "lightning",
+    "london",
+    "luna",
+    "mai",
+    "mako",
+    "marik",
+    "mina",
+    "misty",
+    "mitsuko",
+    "mizar",
+    "mokuba",
+    "moon-shadow",
+    "naoki",
+    "nistro",
+    "odion",
+    "otes",
+    "pegasus",
+    "phaser",
+    "placido",
+    "quattro",
+    "queen",
+    "quinton",
+    "rafael",
+    "ranran",
+    "ranze",
+    "ray",
+    "rebecca",
+    "rex-goodwin",
+    "riley",
+    "rin",
+    "rinnosuke",
+    "rio",
+    "roboppi",
+    "roget",
+    "roman",
+    "rovian",
+    "sartorius",
+    "sebastian",
+    "serenity",
+    "sergey",
+    "shark",
+    "sheppard",
+    "shinji",
+    "shoichi",
+    "skip",
+    "solomon",
+    "sora",
+    "soulburner",
+    "spectre",
+    "syrus",
+    "tania",
+    "tea",
+    "the-gore",
+    "the-luge",
+    "titan",
+    "tremolo",
+    "tristan",
+    "trudge",
+    "trueman",
+    "varis",
+    "vector",
+    "vetrix",
+    "windy",
+    "yami-bakura",
+    "yami-marik",
+    "yoko",
+    "yoshio",
+    "yuga-goha",
+    "yugo",
+    "yujin",
+    "yuna",
+    "yuran",
+    "yuri",
+    "yusho",
+    "yuto",
+    "z-one",
+    "zane",
+    "zarc",
+    "zuzu"
+  ],
+  "knownFollowups": [
+    {
+      "ids": [
+        "yujin",
+        "yuran"
+      ],
+      "note": "Secondary references suggest different hair and Goha masks; deferred pending retained primary image verification."
+    },
+    {
+      "ids": [
+        "odion",
+        "tristan",
+        "marik",
+        "yami-marik",
+        "the-gore"
+      ],
+      "note": "Additional factual discrepancies seen in exploratory inspection are outside this bounded frozen correction set and require a separate reviewed update."
+    }
+  ],
+  "artifacts": {
+    "5ds-official-contact.jpg": {
+      "bytes": 205664,
+      "sha256": "61f22300a94209d1d16780b3b86c94c3342ad433abf04f38d301a8d917b7e342"
+    },
+    "README.md": {
+      "bytes": 1697,
+      "sha256": "13f7ce5e9a9e9c933cc898771cc61e062f9c604588c281cfa159d499dd978063"
+    },
+    "arcv-official-contact.jpg": {
+      "bytes": 170351,
+      "sha256": "0360e9ecfaa266b635bb546be318b6fcfabac2b5d2fc2cd6849dd776c5c039bc"
+    },
+    "bochi-tvtokyo.png": {
+      "bytes": 34361,
+      "sha256": "97a866194baab5d484f23b0a84b6ac0adcc673092ca5761c195c27d0a709ccfc"
+    },
+    "changes.json": {
+      "bytes": 61125,
+      "sha256": "17086c7650b84fa8215adc7d99eb2635cf46fd742a3376ff7beac939f1cb4bf2"
+    },
+    "chupataro-tvtokyo.png": {
+      "bytes": 47580,
+      "sha256": "13147f2248f26e30f5a7a37592197ffc343d586986aaf7f2aabadc94156ef339"
+    },
+    "content-tests.txt": {
+      "bytes": 4198,
+      "sha256": "7a5ee789fbe82606ccf247d8e71e3b6b646132d079f19bab16e63388f4bf306d"
+    },
+    "dm-official-contact.jpg": {
+      "bytes": 343325,
+      "sha256": "d2148a5d5a1c783387eb399e707710cfb0498199dcddf6dedb5949542c6c87a4"
+    },
+    "gorush-official-contact.jpg": {
+      "bytes": 65433,
+      "sha256": "94934f9ede88b5994c98a1e5400e23e631610f8c730dcb8b5af772d14b6edeea"
+    },
+    "gx-official-contact.jpg": {
+      "bytes": 210223,
+      "sha256": "c34442bd93dd3a28d6ba6d73920706e85d0544b31cfdd3a67488d06af874fd3d"
+    },
+    "official-reference-contact.jpg": {
+      "bytes": 121153,
+      "sha256": "85a45104fec7625b00b3578e8cf879e4d501e92ee8e4ceaa0d97d1cfdc728308"
+    },
+    "progress-before-after.json": {
+      "bytes": 3133,
+      "sha256": "345fbdadb2fa264d3acce82ba3a656a6eeefbc0b8c73fdd33dc9bb88401a5fa1"
+    },
+    "references-used.json": {
+      "bytes": 34729,
+      "sha256": "ff9625f5046285142980752a3e9f85196031d9a4a70352a485a0b1bbdcd5a12e"
+    },
+    "sevens-official-contact.jpg": {
+      "bytes": 151634,
+      "sha256": "bf3efdc15ec67259e6fb245193c373b0d653cbf971670e8bd05a091e0f536366"
+    },
+    "vrains-official-contact.jpg": {
+      "bytes": 104073,
+      "sha256": "3622d927511201c26edf8e2cf720e436790a0c6744eb6354ed91491d730c2d39"
+    },
+    "yudias-tvtokyo.png": {
+      "bytes": 107461,
+      "sha256": "1f1c56e0e128872ecf66184785aec8a20e2afcd3c949b3a22e1b66fe1a5b185e"
+    },
+    "yuga-tvtokyo.png": {
+      "bytes": 68841,
+      "sha256": "6a3c2ead82100b4a36dd4d4ae3b907a8d123b5cff40dfbb631171f32fe5abd34"
+    },
+    "zexal-official-contact.jpg": {
+      "bytes": 198100,
+      "sha256": "7a791166571e439d3bff083831e2a2e257996a956f76adaa236d32d0cfb7535b"
+    }
+  }
+}

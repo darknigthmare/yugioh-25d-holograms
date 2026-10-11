@@ -1,13 +1,15 @@
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { getDuelistAvatar, DEFAULT_DUELIST_AVATAR_ID } from '../content/DuelistAvatarCatalog.js';
+import { createDuelistGestureController } from './DuelistAvatarGestures.js';
 
 const UP = new THREE.Vector3(0, 1, 0);
 
 /**
  * Builds a public, texture-free duelist likeness from the character catalogue.
  *
- * The returned { group, update(elapsedSeconds), resetPose(), dispose() } owns
+ * The returned { group, update(elapsedSeconds), playGesture(), clearGesture(),
+ * getGestureState(), resetPose(), dispose() } owns
  * its geometry and materials. Only catalogue IDs are accepted: supplied object
  * metadata cannot replace the trusted character design. Nothing here receives
  * a duel, a hand, a card identity, or an engine callback.
@@ -18,6 +20,8 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
   const avatar = getDuelistAvatar(requestedId) || getDuelistAvatar(DEFAULT_DUELIST_AVATAR_ID);
   const visual = avatar.visual;
   const id = avatar.id;
+  const animal = visual.species === 'cat' || visual.species === 'dog';
+  const feline = visual.species === 'cat';
   const palette = {
     skin: visual.skinColor,
     cloth: visual.outfitColor,
@@ -60,6 +64,19 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
     eye: new THREE.MeshBasicMaterial({ color: '#ffffff', vertexColors: true })
   };
   let disposed = false;
+  let lastModelElapsed = 0;
+  let lastMotionReduced = reducedMotion === true;
+
+  function jointForPart(name) {
+    if (name.startsWith('duel-disk-') || name.startsWith('empty-duel-disk-slot-')) return 4;
+    if (name === 'ceremonial-staff' || name === 'staff-crown') return 7;
+    const side = /^(?:shoulder|sleeve|elbow|forearm|hand|finger|thumb|pauldron|jacket-cuff|kaiba-shoulder-panel|kaiba-shoulder-stud)-(-1|1)(?:-|$)/.exec(name);
+    if (!side) return 0;
+    const right = side[1] === '1';
+    if (/^(?:hand|finger|thumb)-/.test(name)) return right ? 7 : 3;
+    if (/^(?:forearm|elbow|jacket-cuff)-/.test(name)) return right ? 6 : 2;
+    return right ? 5 : 1;
+  }
 
   function add(name, geometry, tint, position = [0, 0, 0], scale = [1, 1, 1], rotation = [0, 0, 0], stage = 'body', material = 'matte') {
     const origin = origins[stage];
@@ -80,6 +97,16 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
     const values = new Float32Array(geometry.attributes.position.count * 3);
     for (let i = 0; i < values.length; i += 3) { values[i] = color.r; values[i + 1] = color.g; values[i + 2] = color.b; }
     geometry.setAttribute('color', new THREE.BufferAttribute(values, 3));
+    if (stage === 'body') {
+      // Rigid weights preserve the original mesh outline, while real nested
+      // bone pivots articulate sleeves, forearms, hands and the attached disk.
+      const joint = jointForPart(name);
+      const indices = new Uint16Array(geometry.attributes.position.count * 4);
+      const weights = new Float32Array(indices.length);
+      for (let i = 0; i < indices.length; i += 4) { indices[i] = joint; weights[i] = 1; }
+      geometry.setAttribute('skinIndex', new THREE.BufferAttribute(indices, 4));
+      geometry.setAttribute('skinWeight', new THREE.BufferAttribute(weights, 4));
+    }
     const key = `${stage}:${material}`;
     if (!batches.has(key)) batches.set(key, []);
     batches.get(key).push(geometry);
@@ -108,20 +135,55 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
     geometry.computeVertexNormals();
     add(name, geometry, tint, undefined, undefined, undefined, stage, material);
   }
-  function panel(name, tint, points, thickness = 0.08, stage = 'cloth', material = 'matte') {
+  function panel(name, tint, points, thickness = 0.08, stage = 'cloth', material = 'matte', z = -0.28) {
     const shape = new THREE.Shape();
     points.forEach(([x, y], index) => index ? shape.lineTo(x, y) : shape.moveTo(x, y));
     shape.closePath();
     const geometry = new THREE.ExtrudeGeometry(shape, { depth: thickness, bevelEnabled: false, curveSegments: 1 });
-    add(name, geometry, tint, [0, 0, -0.28], undefined, undefined, stage, material);
+    add(name, geometry, tint, [0, 0, z], undefined, undefined, stage, material);
   }
   const broad = visual.build === 'broad' ? 1.2 : visual.build === 'slim' ? 0.88 : 1;
-  const skirt = visual.outfitStyle === 'dress' || visual.outfitStyle === 'robe' || id === 'mai';
+  const skirt = !animal && (visual.outfitStyle === 'robe' || visual.bottomStyle === 'skirt'
+    || (!visual.bottomStyle && (visual.outfitStyle === 'dress' || visual.outfitStyle === 'robe' || id === 'mai')));
+  const shorts = !animal && (visual.bottomStyle === 'shorts'
+    || (!visual.bottomStyle && visual.outfitStyle === 'sport'));
   const robot = visual.outfitStyle === 'mechanical';
   const armor = visual.outfitStyle === 'armor' || robot;
-  const legColor = skirt ? palette.skin : visual.outfitStyle === 'sport' ? palette.skin : palette.dark;
-  const shoeColor = visual.outfitStyle === 'sport' ? palette.white : palette.dark;
+  const legColor = visual.legwearColor || (animal || skirt || shorts ? palette.skin : visual.bottomColor || palette.dark);
+  const shoeColor = visual.bootColor || (animal ? palette.skin : visual.outfitStyle === 'sport' ? palette.white : palette.dark);
+  const handColor = visual.gloveColor || palette.skin;
   const variant = visual.variant;
+
+  const skeletonRoot = new THREE.Bone();
+  skeletonRoot.name = 'duelist-skeleton-root';
+  body.add(skeletonRoot);
+  const bones = [skeletonRoot];
+  function bone(name, parent, pivot, parentPivot) {
+    const joint = new THREE.Bone();
+    joint.name = name;
+    joint.position.set(pivot[0] - parentPivot[0], pivot[1] - parentPivot[1], pivot[2] - parentPivot[2]);
+    parent.add(joint);
+    bones.push(joint);
+    return joint;
+  }
+  const origin = [0, 0, 0];
+  const leftShoulderPivot = [-0.64 * broad, 4.05, 0];
+  const leftElbowPivot = [-0.89 * broad, 3.35, 0.26];
+  const leftWristPivot = [-0.88 * broad, 3.12, 0.72];
+  const leftShoulder = bone('duelist-left-shoulder', skeletonRoot, leftShoulderPivot, origin);
+  const leftElbow = bone('duelist-left-elbow', leftShoulder, leftElbowPivot, leftShoulderPivot);
+  const leftWrist = bone('duelist-left-wrist', leftElbow, leftWristPivot, leftElbowPivot);
+  const duelDisk = bone('duelist-duel-disk-pivot', leftWrist, [-0.8 * broad, 3.3, 0.67], leftWristPivot);
+  const rightShoulderPivot = [0.64 * broad, 4.05, 0];
+  const rightElbowPivot = [0.89 * broad, 3.35, 0.03];
+  const rightWristPivot = [0.88 * broad, 2.96, 0.22];
+  const rightShoulder = bone('duelist-right-shoulder', skeletonRoot, rightShoulderPivot, origin);
+  const rightElbow = bone('duelist-right-elbow', rightShoulder, rightElbowPivot, rightShoulderPivot);
+  const rightWrist = bone('duelist-right-wrist', rightElbow, rightWristPivot, rightElbowPivot);
+  root.updateMatrixWorld(true);
+  const skeleton = new THREE.Skeleton(bones);
+  const rig = Object.freeze({ leftShoulder, leftElbow, leftWrist, duelDisk, rightShoulder, rightElbow, rightWrist });
+  const gestures = createDuelistGestureController({ body, head, hair, cloth, ...rig }, { reducedMotion });
 
   // Complete anatomy, including separate feet, articulated elbows and fingers.
   for (const side of [-1, 1]) {
@@ -130,38 +192,44 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
     sphere(`knee-${side}`, legColor, [legX * 1.08, 1.43, 0.07], [0.16, 0.18, 0.15]);
     rod(`calf-${side}`, legColor, [legX * 1.08, 1.4, 0.02], [legX * 1.2, 0.4, 0.09], 0.14, 0.18);
     rod(`boot-shaft-${side}`, shoeColor, [legX * 1.2, 0.23, 0.08], [legX * 1.15, skirt ? 0.95 : 0.63, 0.08], 0.2, 0.18);
-    sphere(`boot-toe-${side}`, shoeColor, [legX * 1.2, 0.2, 0.29], [0.23, 0.17, 0.39]);
-    box(`boot-sole-${side}`, '#303746', [legX * 1.2, 0.085, 0.22], [0.46, 0.08, 0.75]);
+    sphere(`boot-toe-${side}`, shoeColor, [legX * 1.2, 0.2, 0.29], [animal ? 0.29 : 0.23, 0.17, 0.39]);
+    box(`boot-sole-${side}`, animal ? palette.skin : '#303746', [legX * 1.2, 0.085, 0.22], [0.46, 0.08, 0.75]);
     if (armor) {
       box(`shin-armor-${side}`, palette.trim, [legX * 1.13, 0.86, 0.23], [0.3, 0.76, 0.15], undefined, 'body', 'metal');
       sphere(`armored-knee-${side}`, palette.cloth, [legX * 1.08, 1.46, 0.21], [0.23, 0.23, 0.12], 'body', 'metal');
     }
   }
-  sphere('pelvis', palette.dark, [0, 2.62, 0], [0.47 * broad, 0.38, 0.3]);
-  sphere('tailored-torso', palette.cloth, [0, 3.43, 0], [0.62 * broad, 0.81, 0.32]);
-  box('belt', palette.dark, [0, 2.78, 0], [0.89 * broad, 0.13, 0.63]);
-  box('belt-clasp', palette.trim, [0, 2.79, 0.33], [0.19, 0.14, 0.07], undefined, 'body', 'metal');
+  sphere('pelvis', animal ? palette.skin : palette.dark, [0, 2.62, 0], [0.47 * broad, 0.38, 0.3]);
+  sphere('tailored-torso', animal ? palette.skin : palette.cloth, [0, 3.43, 0], [0.62 * broad, 0.81, animal ? 0.47 : 0.32]);
+  if (!animal) {
+    box('belt', palette.dark, [0, 2.78, 0], [0.89 * broad, 0.13, 0.63]);
+    box('belt-clasp', palette.trim, [0, 2.79, 0.33], [0.19, 0.14, 0.07], undefined, 'body', 'metal');
+  }
   rod('neck', palette.skin, [0, 4.07, 0], [0, 4.47, 0], 0.19);
 
   for (const side of [-1, 1]) {
     const shoulderX = side * 0.64 * broad;
     const elbow = [side * (0.89 * broad), 3.35, side < 0 ? 0.26 : 0.03];
     const wrist = [side * (0.88 * broad), side < 0 ? 3.12 : 2.96, side < 0 ? 0.72 : 0.22];
-    sphere(`shoulder-${side}`, palette.cloth, [shoulderX, 4.04, 0], [0.3, 0.3, 0.3]);
-    rod(`sleeve-${side}`, palette.cloth, [shoulderX, 4.05, 0], elbow, 0.23, 0.21);
-    sphere(`elbow-${side}`, palette.cloth, elbow, [0.2, 0.2, 0.2]);
-    rod(`forearm-${side}`, visual.outfitStyle === 'sport' || skirt ? palette.skin : palette.cloth, elbow, wrist, 0.16, 0.18);
-    sphere(`hand-${side}`, palette.skin, wrist, [0.18, 0.21, 0.13]);
+    sphere(`shoulder-${side}`, animal ? palette.skin : palette.cloth, [shoulderX, 4.04, 0], [0.3, 0.3, 0.3]);
+    rod(`sleeve-${side}`, animal ? palette.skin : palette.cloth, [shoulderX, 4.05, 0], elbow, 0.23, 0.21);
+    sphere(`elbow-${side}`, animal ? palette.skin : palette.cloth, elbow, [0.2, 0.2, 0.2]);
+    rod(`forearm-${side}`, animal || visual.outfitStyle === 'sport' || skirt ? palette.skin : palette.cloth, elbow, wrist, 0.16, 0.18);
+    sphere(`hand-${side}`, handColor, wrist, [animal ? 0.24 : 0.18, 0.21, 0.13]);
     for (let finger = 0; finger < 4; finger += 1) {
       const x = wrist[0] + (finger - 1.5) * 0.052;
-      rod(`finger-${side}-${finger}`, palette.skin, [x, wrist[1] - 0.09, wrist[2] + 0.065], [x, wrist[1] - 0.26, wrist[2] + 0.045], 0.025, 0.02);
+      rod(`finger-${side}-${finger}`, handColor, [x, wrist[1] - 0.09, wrist[2] + 0.065], [x, wrist[1] - 0.26, wrist[2] + 0.045], 0.025, 0.02);
     }
-    sphere(`thumb-${side}`, palette.skin, [wrist[0] + side * 0.15, wrist[1] - 0.06, wrist[2] + 0.015], [0.075, 0.11, 0.065]);
+    sphere(`thumb-${side}`, handColor, [wrist[0] + side * 0.15, wrist[1] - 0.06, wrist[2] + 0.015], [0.075, 0.11, 0.065]);
     if (armor) sphere(`pauldron-${side}`, palette.trim, [shoulderX, 4.12, 0], [0.44, 0.28, 0.43], 'body', 'metal');
   }
 
   // Garment cuts change the outline rather than recolouring a mannequin.
-  if (visual.outfitStyle === 'long-coat') {
+  if (animal) {
+    sphere('animal-belly', '#e7ecef', [0, 3.23, 0.36], [0.5 * broad, 0.69, 0.18]);
+    const curve = new THREE.CatmullRomCurve3([new THREE.Vector3(0, 2.61, -0.28), new THREE.Vector3(0.55, 2.56, -0.84), new THREE.Vector3(0.9, feline ? 3.65 : 3.09, -0.81), new THREE.Vector3(0.72, feline ? 4.02 : 3.2, -0.56)]);
+    add('animal-tail', new THREE.TubeGeometry(curve, 16, feline ? 0.11 : 0.14, 7, false), palette.skin);
+  } else if (visual.outfitStyle === 'long-coat') {
     for (const side of [-1, 1]) {
       panel(`long-coat-tail-${side}`, palette.cloth, [[side * 0.11, 3.6], [side * 0.65, 3.72], [side * 1.04, 1.13], [side * 0.4, 1.02]], 0.09);
       wedge(`raised-coat-collar-${side}`, palette.cloth, [side * 0.43, 4.12, 0.08], [side * 0.51, 4.71, -0.08], 0.39, 0.2, 'body');
@@ -171,7 +239,7 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
     box('coat-inner-vest', palette.dark, [0, 3.56, 0.29], [0.5, 0.98, 0.075]);
   } else if (skirt) {
     const long = visual.outfitStyle === 'robe';
-    add(long ? 'flowing-robe' : 'pleated-skirt', new THREE.CylinderGeometry(0.4 * broad, (long ? 0.91 : 0.77) * broad, long ? 2.18 : 1.03, 12, 1), palette.cloth,
+    add(long ? 'flowing-robe' : 'pleated-skirt', new THREE.CylinderGeometry(0.4 * broad, (long ? 0.91 : 0.77) * broad, long ? 2.18 : 1.03, 12, 1), long ? palette.cloth : visual.bottomColor || palette.cloth,
       [0, long ? 1.59 : 2.27, 0], [1, 1, 0.8], undefined, 'cloth');
     for (let fold = 0; fold < 8; fold += 1) {
       const angle = fold * Math.PI / 4;
@@ -203,15 +271,21 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
       box('tie-knot', palette.trim, [0, 4.03, 0.36], [0.15, 0.15, 0.07], [0, 0, Math.PI / 4]);
     }
     if (sport) {
-      for (const side of [-1, 1]) box(`sport-shorts-${side}`, palette.cloth, [side * 0.25, 2.32, 0], [0.48, 0.67, 0.56]);
       box('sport-chest-stripe', palette.trim, [0, 3.67, 0.37], [1.08 * broad, 0.15, 0.05]);
     }
   }
+  if (shorts) for (const side of [-1, 1]) box(`sport-shorts-${side}`, visual.bottomColor || palette.cloth, [side * 0.25, 2.32, 0], [0.48, 0.67, 0.56]);
+  if (id === 'girag') {
+    // Girag's wide, open white shirt exposes his chest, unlike Shoichi's
+    // closed undershirt and Dr. Faker's full-length robe.
+    panel('girag-open-shirt-chest', palette.skin, [[-0.3, 4.12], [0.3, 4.12], [0.19, 3.34], [-0.19, 3.34]], 0.035, 'body', 'matte', 0.38);
+    for (const side of [-1, 1]) box(`girag-open-shirt-lapel-${side}`, palette.cloth, [side * 0.33, 3.84, 0.39], [0.2, 0.76, 0.1], [0, 0, side * -0.2]);
+  }
 
   // Anime face: rounded jaw, visible ears, sclera, iris, pupils and eyebrows.
-  sphere('face', palette.skin, [0, 4.85, 0.035], [0.48, 0.59, 0.41], 'head');
-  sphere('chin', palette.skin, [0, 4.49, 0.16], [0.3, 0.21, 0.27], 'head');
-  sphere('nose', palette.skin, [0, 4.81, 0.443], [0.055, 0.1, 0.09], 'head');
+  sphere('face', palette.skin, [0, 4.85, 0.035], [animal ? 0.61 : 0.48, 0.59, 0.41], 'head');
+  sphere('chin', palette.skin, [0, 4.49, 0.16], [animal ? 0.41 : 0.3, 0.21, 0.27], 'head');
+  sphere('nose', animal ? '#30313b' : palette.skin, [0, 4.81, animal ? 0.65 : 0.443], [animal ? 0.08 : 0.055, animal ? 0.045 : 0.1, animal ? 0.04 : 0.09], 'head');
   box('mouth', '#9d665f', [0, 4.59, 0.398], [0.15, 0.021, 0.018], undefined, 'head');
   for (const side of [-1, 1]) {
     sphere(`ear-${side}`, palette.skin, [side * 0.465, 4.87, 0.035], [0.09, 0.16, 0.105], 'head');
@@ -222,7 +296,7 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
     box(`eyebrow-${side}`, palette.hair, [side * 0.21, 5.092, 0.395], [0.24, 0.035, 0.025], [0, 0, side * -0.12], 'head');
   }
 
-  const hairStyle = id === 'yusei' ? 'swept' : visual.hairStyle;
+  const hairStyle = animal ? 'bald' : id === 'yusei' ? 'swept' : visual.hairStyle;
   if (hairStyle !== 'bald') {
     add('hair-cap', new THREE.SphereGeometry(1, 14, 8, 0, Math.PI * 2, 0, Math.PI * 0.57), palette.hair,
       [0, 4.97, -0.02], [0.52, 0.62, 0.46], undefined, 'hair');
@@ -236,12 +310,12 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
       const reach = isYugi ? (spike % 2 ? 1.08 : 1.3) : 0.93 + (spike % 2) * 0.21;
       const tip = [Math.sin(angle) * reach, 5.07 + Math.cos(angle) * reach, -0.14];
       const base = [Math.sin(angle) * 0.29, 5.13 + Math.cos(angle) * 0.2, -0.14];
-      wedge(`star-outline-${spike}`, isYugi ? '#a53471' : palette.hairAccent, base, tip, 0.62, 0.43);
+      wedge(`star-outline-${spike}`, visual.hairOutlineColor || (isYugi ? '#a53471' : palette.hairAccent), base, tip, 0.62, 0.43);
       wedge(`star-inner-${spike}`, palette.hair, [base[0], base[1] + 0.015, base[2] + 0.13], [tip[0] * 0.93, tip[1] - 0.06, tip[2] + 0.2], 0.48, 0.19);
     }
     for (let fringe = 0; fringe < 5; fringe += 1) {
       const x = (fringe - 2) * 0.17;
-      wedge(`star-fringe-${fringe}`, isYugi ? palette.gold : isYuma ? palette.hairAccent : palette.hair,
+      wedge(`star-fringe-${fringe}`, isYugi ? palette.gold : isYuma || id === 'yudias' || id === 'playmaker' ? palette.hairAccent : palette.hair,
         [x * 0.8, 5.48 + (fringe % 2) * 0.11, 0.3], [x * 1.36, 5.05 - (fringe % 2) * 0.12, 0.43], 0.24, 0.13);
     }
   } else if (hairStyle === 'swept' || hairStyle === 'mohawk' || hairStyle === 'short') {
@@ -275,7 +349,7 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
     sphere('helmet-shell', palette.hair, [0, 5.06, -0.06], [0.62, 0.68, 0.55], 'hair', 'metal');
     for (const side of [-1, 1]) wedge(`helmet-fin-${side}`, palette.hairAccent, [side * 0.41, 5.1, -0.01], [side * 0.74, 5.84, -0.11], 0.25, 0.18, 'hair', 'metal');
     box('helmet-visor', palette.trim, [0, 4.98, 0.472], [0.85, 0.24, 0.045], undefined, 'head', 'eye');
-  } else {
+  } else if (hairStyle !== 'bald') {
     const bob = hairStyle === 'bob';
     const long = hairStyle === 'long' || hairStyle === 'braided';
     for (const side of [-1, 1]) {
@@ -286,7 +360,8 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
       [(fringe - 2) * 0.15, 5.45, 0.28], [(fringe - 2) * 0.2, 5.04 - fringe % 2 * 0.13, 0.35], 0.2, 0.11);
     if (long) for (let lock = 0; lock < 7; lock += 1) {
       const x = (lock - 3) * 0.17;
-      sphere(`long-hair-lock-${lock}`, lock % 3 === 0 ? palette.hairAccent : palette.hair, [x, 4.18 - (lock % 2) * 0.06, -0.28], [0.15, 1.03 + Math.abs(x) * 0.16 + variant * 0.008, 0.23], 'hair');
+      sphere(`long-hair-lock-${lock}`, id !== 'zwijo' && lock % 3 === 0 ? palette.hairAccent : palette.hair, [x, 4.18 - (lock % 2) * 0.06, -0.28], [0.15, 1.03 + Math.abs(x) * 0.16 + variant * 0.008, 0.23], 'hair');
+      if (id === 'zwijo') sphere(`zwijo-purple-hair-tip-${lock}`, palette.hairAccent, [x, 3.23 - (lock % 2) * 0.06, -0.28], [0.151, 0.26, 0.233], 'hair');
     }
     if (hairStyle === 'ponytail' || hairStyle === 'twin-tail' || hairStyle === 'braided') {
       const sides = hairStyle === 'twin-tail' ? [-1, 1] : [0];
@@ -300,51 +375,63 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
     }
   }
 
-  function cape() {
-    panel('cape-mantle', palette.cloth, [[-0.72 * broad, 4.12], [0.72 * broad, 4.12], [1.13 * broad, 1.39], [0.48, 1.12], [0, 1.44], [-0.48, 1.12], [-1.13 * broad, 1.39]], 0.07);
-    for (const side of [-1, 1]) rod(`cape-fold-${side}`, palette.trim, [side * 0.36, 4.05, -0.23], [side * 0.69, 1.5, -0.24], 0.025, 0.012, 'cloth');
+  function cape(tint = palette.cloth) {
+    // The cape sits behind both torso and coat tails. Separate depth avoids
+    // coplanar surfaces flickering through each other when viewed from behind.
+    panel('cape-mantle', tint, [[-0.72 * broad, 4.12], [0.72 * broad, 4.12], [1.13 * broad, 1.39], [0.48, 1.12], [0, 1.44], [-0.48, 1.12], [-1.13 * broad, 1.39]], 0.07, 'cloth', 'matte', -0.48);
+    for (const side of [-1, 1]) rod(`cape-fold-${side}`, id === 'yudias' ? palette.gold : palette.trim, [side * 0.36, 4.05, -0.5], [side * 0.69, 1.5, -0.5], 0.025, 0.012, 'cloth');
   }
-  const accessory = visual.accessory;
-  if (accessory === 'puzzle' || id === 'atem') {
-    ring('millennium-chain', palette.gold, [0, 3.93, 0.23], 0.3, 0.025, [0.2, 0, 0]);
-    add('millennium-puzzle', new THREE.ConeGeometry(0.26, 0.43, 3), palette.gold, [0, 3.41, 0.43], [1, 1, 0.66], [Math.PI, 0, 0], 'body', 'metal');
-    box('puzzle-eye-mark', '#704820', [0, 3.43, 0.555], [0.13, 0.035, 0.018], undefined, 'body');
-    if (id === 'atem' && accessory === 'cape') cape();
-  } else if (accessory === 'cape' || accessory === 'wings') {
-    if (accessory === 'cape') cape();
-    else for (const side of [-1, 1]) {
-      panel(`wing-${side}`, palette.trim, [[side * 0.35, 3.77], [side * 1.72, 4.49], [side * 1.56, 3.57], [side * 1.12, 2.8], [side * 0.44, 3.19]], 0.09);
-      for (let feather = 0; feather < 4; feather += 1) wedge(`wing-feather-${side}-${feather}`, palette.white, [side * (0.63 + feather * 0.23), 3.58, -0.3], [side * (0.84 + feather * 0.26), 2.97 - feather * 0.05, -0.32], 0.25, 0.12, 'cloth');
+  function addAccessory(accessory, accessoryTint = visual.accessoryColor) {
+    if (accessory === 'puzzle') {
+      ring('millennium-chain', palette.gold, [0, 3.93, 0.23], 0.3, 0.025, [0.2, 0, 0]);
+      add('millennium-puzzle', new THREE.ConeGeometry(0.26, 0.43, 3), palette.gold, [0, 3.41, 0.43], [1, 1, 0.66], [Math.PI, 0, 0], 'body', 'metal');
+      box('puzzle-eye-mark', '#704820', [0, 3.43, 0.555], [0.13, 0.035, 0.018], undefined, 'body');
+    } else if (accessory === 'cape' || accessory === 'wings') {
+      if (accessory === 'cape') cape(accessoryTint || palette.cloth);
+      else for (const side of [-1, 1]) {
+        panel(`wing-${side}`, palette.trim, [[side * 0.35, 3.77], [side * 1.72, 4.49], [side * 1.56, 3.57], [side * 1.12, 2.8], [side * 0.44, 3.19]], 0.09);
+        for (let feather = 0; feather < 4; feather += 1) wedge(`wing-feather-${side}-${feather}`, palette.white, [side * (0.63 + feather * 0.23), 3.58, -0.3], [side * (0.84 + feather * 0.26), 2.97 - feather * 0.05, -0.32], 0.25, 0.12, 'cloth');
+      }
+    } else if (accessory === 'goggles' || accessory === 'glasses') {
+      const goggles = accessory === 'goggles';
+      for (const side of [-1, 1]) {
+        ring(`eyewear-frame-${side}`, goggles ? palette.dark : palette.metal, [side * 0.2, goggles ? 5.48 : 4.99, goggles ? 0.3 : 0.447], goggles ? 0.16 : 0.14, 0.023, [0, 0, 0], 'head');
+        if (goggles) sphere(`goggle-lens-${side}`, '#77d1cf', [side * 0.2, 5.48, 0.305], [0.135, 0.135, 0.03], 'head', 'eye');
+      }
+      box('eyewear-bridge', palette.dark, [0, goggles ? 5.48 : 4.99, goggles ? 0.32 : 0.461], [0.15, 0.032, 0.031], undefined, 'head');
+    } else if (accessory === 'hat') {
+      add('hat-crown', new THREE.CylinderGeometry(0.36, 0.49, 0.48, 12), accessoryTint || palette.cloth, [0, 5.62, -0.04], undefined, undefined, 'head');
+      add('hat-brim', new THREE.CylinderGeometry(0.72, 0.72, 0.065, 16), accessoryTint || palette.trim, [0, 5.36, -0.02], undefined, undefined, 'head');
+    } else if (accessory === 'headband') {
+      box('headband-front', accessoryTint || palette.trim, [0, 5.27, 0.383], [0.87, 0.16, 0.058], undefined, 'head');
+      for (const side of [-1, 1]) wedge(`headband-tail-${side}`, accessoryTint || palette.trim, [side * 0.47, 5.18, -0.36], [side * 0.62, 4.56, -0.42], 0.13, 0.035, 'hair');
+    } else if (accessory === 'mask') {
+      box('cyber-mask-brow', palette.trim, [0, 5.15, 0.43], [0.81, 0.12, 0.075], undefined, 'head', 'metal');
+      for (const side of [-1, 1]) wedge(`cyber-mask-cheek-${side}`, palette.trim, [side * 0.31, 4.83, 0.42], [side * 0.52, 5.17, 0.38], 0.19, 0.075, 'head', 'metal');
+    } else if (accessory === 'scarf') {
+      ring('scarf-collar', accessoryTint || palette.trim, [0, 4.22, 0], 0.28, 0.09, [Math.PI / 2, 0, 0], 'body', 'matte');
+      panel('scarf-tail', accessoryTint || palette.trim, [[-0.24, 4.12], [0.05, 4.15], [-0.18, 2.99], [-0.48, 3.13]], 0.055);
+    } else if (accessory === 'necklace') {
+      ring('necklace-chain', palette.gold, [0, 3.98, 0.21], 0.28, 0.019, [0.16, 0, 0]);
+      sphere('necklace-jewel', palette.trim, [0, 3.63, 0.35], [0.12, 0.18, 0.055], 'body', 'metal');
+    } else if (accessory === 'earpiece') {
+      box('duelist-earpiece', accessoryTint || palette.metal, [0.51, 4.92, 0], [0.12, 0.23, 0.18], undefined, 'head', 'metal');
+      rod('earpiece-microphone', palette.dark, [0.5, 4.84, 0.04], [0.32, 4.65, 0.44], 0.024, 0.024, 'head');
+    } else if (accessory === 'staff') {
+      rod('ceremonial-staff', palette.gold, [0.9, 1.2, 0.27], [0.9, 5.8, 0.27], 0.055, 0.055, 'body', 'metal');
+      add('staff-crown', new THREE.OctahedronGeometry(0.25), palette.trim, [0.9, 5.99, 0.27], undefined, undefined, 'body', 'metal');
     }
-  } else if (accessory === 'goggles' || accessory === 'glasses') {
-    const goggles = accessory === 'goggles';
-    for (const side of [-1, 1]) {
-      ring(`eyewear-frame-${side}`, goggles ? palette.dark : palette.metal, [side * 0.2, goggles ? 5.48 : 4.99, goggles ? 0.3 : 0.447], goggles ? 0.16 : 0.14, 0.023, [0, 0, 0], 'head');
-      if (goggles) sphere(`goggle-lens-${side}`, '#77d1cf', [side * 0.2, 5.48, 0.305], [0.135, 0.135, 0.03], 'head', 'eye');
-    }
-    box('eyewear-bridge', palette.dark, [0, goggles ? 5.48 : 4.99, goggles ? 0.32 : 0.461], [0.15, 0.032, 0.031], undefined, 'head');
-  } else if (accessory === 'hat') {
-    add('hat-crown', new THREE.CylinderGeometry(0.36, 0.49, 0.48, 12), palette.cloth, [0, 5.62, -0.04], undefined, undefined, 'head');
-    add('hat-brim', new THREE.CylinderGeometry(0.72, 0.72, 0.065, 16), palette.trim, [0, 5.36, -0.02], undefined, undefined, 'head');
-  } else if (accessory === 'headband') {
-    box('headband-front', palette.trim, [0, 5.27, 0.383], [0.87, 0.16, 0.058], undefined, 'head');
-    for (const side of [-1, 1]) wedge(`headband-tail-${side}`, palette.trim, [side * 0.47, 5.18, -0.36], [side * 0.62, 4.56, -0.42], 0.13, 0.035, 'hair');
-  } else if (accessory === 'mask') {
-    box('cyber-mask-brow', palette.trim, [0, 5.15, 0.43], [0.81, 0.12, 0.075], undefined, 'head', 'metal');
-    for (const side of [-1, 1]) wedge(`cyber-mask-cheek-${side}`, palette.trim, [side * 0.31, 4.83, 0.42], [side * 0.52, 5.17, 0.38], 0.19, 0.075, 'head', 'metal');
-  } else if (accessory === 'scarf') {
-    ring('scarf-collar', palette.trim, [0, 4.22, 0], 0.28, 0.09, [Math.PI / 2, 0, 0], 'body', 'matte');
-    panel('scarf-tail', palette.trim, [[-0.24, 4.12], [0.05, 4.15], [-0.18, 2.99], [-0.48, 3.13]], 0.055);
-  } else if (accessory === 'necklace') {
-    ring('necklace-chain', palette.gold, [0, 3.98, 0.21], 0.28, 0.019, [0.16, 0, 0]);
-    sphere('necklace-jewel', palette.trim, [0, 3.63, 0.35], [0.12, 0.18, 0.055], 'body', 'metal');
-  } else if (accessory === 'earpiece') {
-    box('duelist-earpiece', palette.metal, [0.51, 4.92, 0], [0.12, 0.23, 0.18], undefined, 'head', 'metal');
-    rod('earpiece-microphone', palette.dark, [0.5, 4.84, 0.04], [0.32, 4.65, 0.44], 0.024, 0.024, 'head');
-  } else if (accessory === 'staff') {
-    rod('ceremonial-staff', palette.gold, [0.9, 1.2, 0.27], [0.9, 5.8, 0.27], 0.055, 0.055, 'body', 'metal');
-    add('staff-crown', new THREE.OctahedronGeometry(0.25), palette.trim, [0.9, 5.99, 0.27], undefined, undefined, 'body', 'metal');
   }
+  if (!(animal && id === 'bochi' && visual.accessory === 'necklace')) addAccessory(visual.accessory);
+  if (visual.secondaryAccessory && visual.secondaryAccessory !== visual.accessory) addAccessory(visual.secondaryAccessory, visual.secondaryAccessoryColor);
+  if (id === 'atem' && visual.accessory !== 'puzzle' && visual.secondaryAccessory !== 'puzzle') addAccessory('puzzle');
+  if (visual.headdress === 'helmet' && hairStyle !== 'helmet') {
+    const helmetColor = visual.accessoryColor || palette.dark;
+    sphere('headgear-helmet', helmetColor, [0, 5.27, -0.04], [0.55, 0.26, 0.47], 'head', 'metal');
+    box('headgear-forehead-band', helmetColor, [0, 5.24, 0.377], [0.96, 0.14, 0.1], undefined, 'head', 'metal');
+    for (const side of [-1, 1]) box(`headgear-temple-${side}`, helmetColor, [side * 0.5, 5.04, 0.09], [0.16, 0.43, 0.19], undefined, 'head', 'metal');
+  } else if (visual.headdress === 'hat' && visual.accessory !== 'hat' && visual.secondaryAccessory !== 'hat') addAccessory('hat');
+  else if (visual.headdress === 'headband' && visual.accessory !== 'headband' && visual.secondaryAccessory !== 'headband') addAccessory('headband');
   // Pegasus's brushed silver curtain and Kaiba's studded shoulder silhouette.
   if (id === 'pegasus') {
     sphere('pegasus-hidden-eye-lock', palette.hair, [-0.25, 4.79, 0.33], [0.27, 0.54, 0.12], 'hair');
@@ -354,12 +441,42 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
     box(`kaiba-shoulder-panel-${side}`, palette.cloth, [side * 0.77, 4.18, 0.04], [0.47, 0.2, 0.54], [0, 0, side * -0.13]);
     for (let stud = 0; stud < 3; stud += 1) sphere(`kaiba-shoulder-stud-${side}-${stud}`, palette.metal, [side * 0.78, 4.28, -0.12 + stud * 0.15], [0.047, 0.05, 0.047], 'body', 'metal');
   }
-  if (id === 'bochi') {
+  if (animal) {
+    sphere('animal-muzzle', '#f0f2ed', [0, 4.65, 0.45], [0.3, 0.19, 0.21], 'head');
+    if (feline) {
+      for (const side of [-1, 1]) {
+        wedge(`animal-cat-ear-${side}`, palette.skin, [side * 0.4, 5.25, -0.04], [side * 0.57, 5.95, -0.045], 0.47, 0.32, 'head');
+        wedge(`animal-cat-inner-ear-${side}`, '#bd9da6', [side * 0.41, 5.3, 0.16], [side * 0.55, 5.86, 0.135], 0.27, 0.05, 'head');
+        for (let whisker = 0; whisker < 3; whisker += 1) rod(`animal-whisker-${side}-${whisker}`, '#e1e6e9', [side * 0.2, 4.7, 0.54], [side * 0.78, 4.75 + (whisker - 1) * 0.13, 0.43], 0.01, 0.005, 'head');
+      }
+      const star = new THREE.Shape();
+      for (let point = 0; point < 10; point += 1) {
+        const angle = Math.PI / 2 + point * Math.PI / 5;
+        const radius = point % 2 ? 0.076 : 0.18;
+        const x = Math.cos(angle) * radius, y = Math.sin(angle) * radius;
+        if (point === 0) star.moveTo(x, y); else star.lineTo(x, y);
+      }
+      star.closePath();
+      add('nyandestar-forehead-star', new THREE.ExtrudeGeometry(star, { depth: 0.025, bevelEnabled: false }), palette.trim, [0, 5.21, 0.414], undefined, undefined, 'head');
+    } else {
+      for (const side of [-1, 1]) {
+        wedge(`animal-dog-ear-${side}`, palette.hair, [side * 0.42, 5.2, -0.02], [side * 0.75, 5.88, -0.04], 0.57, 0.3, 'head');
+        wedge(`animal-dog-inner-ear-${side}`, '#d9a6bd', [side * 0.43, 5.27, 0.16], [side * 0.71, 5.78, 0.13], 0.33, 0.045, 'head');
+        sphere(`bochi-white-brow-${side}`, palette.white, [side * 0.27, 5.11, 0.374], [0.1, 0.12, 0.045], 'head');
+      }
+      wedge('bochi-white-forehead-stripe', palette.white, [0, 4.91, 0.416], [0, 5.51, 0.335], 0.17, 0.045, 'head');
+      ring('bochi-spiked-collar', visual.accessoryColor || palette.metal, [0, 4.22, 0], 0.27, 0.09, [Math.PI / 2, 0, 0], 'body', 'matte');
+      for (let spike = 0; spike < 8; spike += 1) {
+        const angle = spike * Math.PI / 4;
+        add(`bochi-collar-spike-${spike}`, new THREE.ConeGeometry(0.075, 0.34, 6), palette.metal, [Math.sin(angle) * 0.41, 4.22, Math.cos(angle) * 0.41], undefined, [Math.PI / 2, 0, -angle], 'body', 'metal');
+      }
+    }
+  } else if (id === 'bochi') {
     sphere('bochi-muzzle', palette.skin, [0, 4.74, 0.43], [0.25, 0.18, 0.19], 'head');
     sphere('bochi-nose', '#333038', [0, 4.81, 0.607], [0.09, 0.065, 0.035], 'head');
     for (const side of [-1, 1]) sphere(`bochi-floppy-ear-${side}`, palette.hair, [side * 0.52, 4.78, -0.015], [0.19, 0.37, 0.14], 'hair');
   }
-  if (id === 'nyandestar') for (const side of [-1, 1]) {
+  if (id === 'nyandestar' && !animal) for (const side of [-1, 1]) {
     wedge(`nyandestar-cat-ear-${side}`, palette.hair, [side * 0.42, 5.43, -0.08], [side * 0.5, 5.91, -0.06], 0.29, 0.22);
     wedge(`nyandestar-inner-ear-${side}`, palette.trim, [side * 0.42, 5.47, 0.05], [side * 0.5, 5.86, 0.057], 0.18, 0.075);
   }
@@ -379,11 +496,20 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
     if (!geometry) throw new Error(`Cannot merge duelist geometry: ${key}`);
     geometry.computeBoundingBox();
     geometry.computeBoundingSphere();
-    const mesh = new THREE.Mesh(geometry, materials[material]);
+    const mesh = stage === 'body'
+      ? new THREE.SkinnedMesh(geometry, materials[material])
+      : new THREE.Mesh(geometry, materials[material]);
     mesh.name = `duelist-${key.replace(':', '-')}`;
     mesh.castShadow = material !== 'eye';
     mesh.receiveShadow = true;
     stages[stage].add(mesh);
+    if (mesh.isSkinnedMesh) {
+      mesh.bind(skeleton);
+      // A cached bind-pose bounding sphere would clip an extended hand. These
+      // two bounded avatar batches bypass frustum culling, without frame-time
+      // geometry or bounding-volume allocations.
+      mesh.frustumCulled = false;
+    }
     triangles += geometry.attributes.position.count / 3;
   }
   root.userData.drawCalls = batches.size;
@@ -391,39 +517,69 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
   root.userData.partNames = Object.freeze(root.userData.partNames);
   root.updateMatrixWorld(true);
 
-  function resetPose() {
+  function resetTransforms() {
     body.position.y = 0;
     body.scale.y = 1;
+    body.rotation.set(0, 0, 0);
     head.rotation.set(0, 0, 0);
     hair.rotation.set(0, 0, 0);
     cloth.rotation.set(0, 0, 0);
+    for (const joint of bones) joint.rotation.set(0, 0, 0);
+  }
+  function resetPose() {
+    gestures.clear();
+    resetTransforms();
+  }
+  function clearGesture() {
+    const cleared = gestures.clear();
+    if (cleared) resetTransforms();
+    return cleared;
+  }
+  function playGesture(kind, options = {}) {
+    if (disposed || !gestures.play(kind, options)) return false;
+    resetTransforms();
+    if (options.hold === true && options.immediate === true) {
+      gestures.update(lastModelElapsed, { reducedMotion: lastMotionReduced });
+    }
+    return true;
   }
   function update(elapsedSeconds, { reducedMotion: motionPreference = reducedMotion } = {}) {
     if (disposed) return false;
     const elapsed = Number(elapsedSeconds);
-    if (motionPreference || !Number.isFinite(elapsed)) { resetPose(); return false; }
+    resetTransforms();
+    if (!Number.isFinite(elapsed)) return false;
+    lastModelElapsed = elapsed;
+    lastMotionReduced = motionPreference === true;
     const phase = elapsed + variant * 0.23;
     const energetic = visual.pose === 'energetic' ? 1.35 : visual.pose === 'calm' ? 0.7 : 1;
-    const breath = Math.sin(phase * 1.55) * energetic;
-    body.position.y = breath * 0.013;
-    body.scale.y = 1 + breath * 0.0028;
-    head.rotation.y = Math.sin(phase * 0.36) * 0.038;
-    head.rotation.z = Math.sin(phase * 0.57) * 0.012;
-    hair.rotation.z = Math.sin(phase * 0.73 + 0.3) * 0.008;
-    cloth.rotation.x = Math.sin(phase * 0.85) * 0.012;
-    cloth.rotation.z = Math.sin(phase * 0.67) * 0.007;
-    return true;
+    if (!lastMotionReduced) {
+      const breath = Math.sin(phase * 1.55) * energetic;
+      body.position.y = breath * 0.013;
+      body.scale.y = 1 + breath * 0.0028;
+      head.rotation.y = Math.sin(phase * 0.36) * 0.038;
+      head.rotation.z = Math.sin(phase * 0.57) * 0.012;
+      hair.rotation.z = Math.sin(phase * 0.73 + 0.3) * 0.008;
+      cloth.rotation.x = Math.sin(phase * 0.85) * 0.012;
+      cloth.rotation.z = Math.sin(phase * 0.67) * 0.007;
+    }
+    const gestureChanged = gestures.update(elapsed, { reducedMotion: lastMotionReduced });
+    return !lastMotionReduced || gestureChanged;
   }
   function dispose() {
     if (disposed) return false;
     root.removeFromParent();
     root.traverse(object => object.geometry?.dispose());
     Object.values(materials).forEach(material => material.dispose());
+    gestures.dispose();
+    skeleton.dispose();
     root.clear();
     disposed = true;
     return true;
   }
-  return { group: root, avatarId: id, update, resetPose, dispose, get disposed() { return disposed; } };
+  return { group: root, avatarId: id, rig, update, resetPose, playGesture, clearGesture,
+    getGestureState: () => gestures.getState(), dispose,
+    get hasActiveGesture() { return gestures.hasActiveGesture; },
+    get disposed() { return disposed; } };
 }
 
 export default createDuelistAvatarModel;

@@ -36,20 +36,20 @@ function harness({ reducedMotion = false, game = {} } = {}) {
   const pending = new Map();
   let frame = 0;
   const documentRef = { hidden: false };
-  const scene = new RealDuelScene3D({ documentRef, windowRef: {
+  const windowRef = {
     performance: { now: () => 0 }, matchMedia: () => ({ matches: reducedMotion }),
     requestAnimationFrame(callback) { pending.set(++frame, callback); return frame; },
     cancelAnimationFrame(handle) { pending.delete(handle); }
-  } });
+  };
+  const scene = new RealDuelScene3D({ documentRef, windowRef });
   scene.scene = new Scene();
   scene.camera = new PerspectiveCamera();
   scene.renderer = { render() {} };
   scene.active = true;
-  const view = {
+  const view = Object.assign(new RealDuelView({ enable3D: false, documentRef, windowRef }), {
     active: true, disposed: false, documentRef, gameState: game, scene3D: scene,
-    _publicZonePosition: position,
-    _syncFieldHolograms() { RealDuelView.prototype._syncFieldHolograms.call(this); }
-  };
+    _publicZonePosition: position
+  });
   return { scene, view, pending };
 }
 
@@ -101,7 +101,10 @@ test('RealDuelView sends the reconstructed Field event into the actual scene and
         opponentMonsters: [{ id: '20721928', position: 'attack' }] };
       const { scene, view, pending } = harness({ game });
       const event = payload(entry, sourceSide);
-      assert.equal(RealDuelView.prototype.playAnimation.call(view, event), true);
+      assert.equal(view.playAnimation(event), true);
+      const effect = scene._combatEffects[0];
+      assert.equal(view.playAnimation(event), false, 'the real view rejects the exact same public callback');
+      assert.equal(scene._combatEffects[0], effect, 'deduplication preserves the original scene effect');
       assert.equal(scene._combatEffects.length, 1);
       assert.equal(scene._combatEffects[0].profile.id, entry.profile);
       assert.equal(scene._combatEffects[0].duration, entry.duration);
@@ -130,7 +133,8 @@ test('Ancient Forest binds the vacated zone without ever reading its destroyed t
   // constructing the event, just as a live private CardState can contain it.
   Object.defineProperty(event, 'targetCard', { get() { targetReads += 1; throw new Error('target read'); } });
   const { scene, view } = harness();
-  assert.equal(RealDuelView.prototype.playAnimation.call(view, event), true);
+  assert.equal(view.playAnimation(event), true);
+  assert.equal(view.playAnimation(event), false, 'a repeated opaque callback is deduplicated before inspecting its target');
   assert.equal(targetReads, 0);
   assert.equal(scene._fieldHolograms.size, 0);
   assert.equal(scene._monsterPoses.size, 0);
@@ -154,7 +158,7 @@ test('unrevealed Field sources and invalid references are rejected; reduced moti
     assert.ok(visual);
     assert.equal('targetCard' in visual, false);
     const { scene, view, pending } = harness({ reducedMotion: true });
-    assert.equal(RealDuelView.prototype.playAnimation.call(view, payload(entry)), false);
+    assert.equal(view.playAnimation(payload(entry)), false);
     assert.equal(scene._combatEffects.length, 0);
     assert.equal(pending.size, 0);
   }

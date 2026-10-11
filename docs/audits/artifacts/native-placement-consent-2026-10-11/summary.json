@@ -1,0 +1,178 @@
+{
+  "asOf": "2026-10-11",
+  "baseline": "ac18389",
+  "finding": "A command placement intent was reused for a later effect placement, bypassing its independent player choice.",
+  "correction": "Consume intent.place on the first relevant single SELECT_PLACE, even when validation rejects the initial requested place.",
+  "beforeFacadeSha256": "04a3219a0b59bec1aab199efc72fc25069c68acb17233190a898c530add0813f",
+  "afterHashes": {
+    "src/core/native/NativeDuelGame.js": "8c61bad0482d49babd7d20187b12251a2af11f967b83fc58cd5b4aeb1c4d6c01",
+    "src/core/native/NativeDuelDecisions.js": "4ec35dd4cc12ae7efcb1dd45a39e3cc7a83e359d9af41a84d51f3ffa5bbff724",
+    "src/core/native/NativeDuelRuntime.js": "07136f4301391bd62e4f29fe611067b15734f53c92354cb6a3cc3b33ff52e6b5",
+    "tests/native-command-placement-consent.test.mjs": "7cdcd0bffe8e83ff7ca6bd32d851d3d66ec7c4b7451af63171eb5bd14a25694d",
+    "public/native/ocgcore.sync.wasm": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+    "public/native/card-data.json": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d",
+    "public/native/scripts.json": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f",
+    "public/native/manifest.json": "9ee4d4f4930b0e561f472eb60e75df8cbdedde918d66fa001f0de69e263d8a05"
+  },
+  "reproduce": "node docs/audits/artifacts/native-placement-consent-2026-10-11/reproduce.mjs",
+  "regressionCommand": "node --test tests/native-command-placement-consent.test.mjs tests/native-duel-game.test.mjs tests/native-duel-continuation-gameplay.test.mjs tests/native-duel-summoning.test.mjs",
+  "regressions": {
+    "files": 4,
+    "newRealCoreCases": 2,
+    "failedFiles": 0
+  },
+  "cases": [
+    {
+      "name": "valid-intent",
+      "before": {
+        "requestedDecisionKinds": [
+          "SELECT_EFFECTYN",
+          "SELECT_CARD",
+          "SELECT_CHAIN",
+          "SELECT_CARD"
+        ],
+        "humanPlaceRequests": 0,
+        "changedPositions": [
+          {
+            "type": 53,
+            "code": 94192409,
+            "controller": 1,
+            "location": 8,
+            "sequence": 4,
+            "prev_position": 8,
+            "position": 5
+          }
+        ],
+        "playerFinal": [
+          {
+            "code": 31560081,
+            "zoneIndex": 0,
+            "faceDown": false
+          }
+        ],
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "nativeError": null,
+        "retryMessages": 0,
+        "luaErrors": [],
+        "outcomes": []
+      },
+      "after": {
+        "requestedDecisionKinds": [
+          "SELECT_EFFECTYN",
+          "SELECT_CARD",
+          "SELECT_CHAIN",
+          "SELECT_CARD",
+          "SELECT_PLACE"
+        ],
+        "humanPlaceRequests": 1,
+        "nativePlacePrompts": 2,
+        "playerFinal": [
+          {
+            "code": 31560081,
+            "zoneIndex": 4,
+            "faceDown": false
+          }
+        ],
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "nativeError": null,
+        "retryMessages": 0,
+        "luaErrors": [],
+        "outcomes": []
+      },
+      "files": {
+        "before": "valid-intent-before.json",
+        "after": "valid-intent-after.json"
+      }
+    },
+    {
+      "name": "rejected-intent",
+      "before": {
+        "requestedDecisionKinds": [
+          "SELECT_CHAIN",
+          "SELECT_CHAIN",
+          "SELECT_CHAIN",
+          "SELECT_CHAIN",
+          "SELECT_CHAIN",
+          "SELECT_CHAIN",
+          "SELECT_PLACE",
+          "SELECT_EFFECTYN",
+          "SELECT_CARD",
+          "SELECT_CHAIN",
+          "SELECT_CARD"
+        ],
+        "humanPlaceRequests": 1,
+        "changedPositions": [
+          {
+            "type": 53,
+            "code": 94192409,
+            "controller": 1,
+            "location": 8,
+            "sequence": 4,
+            "prev_position": 8,
+            "position": 5
+          }
+        ],
+        "playerFinal": [
+          {
+            "code": 31560081,
+            "zoneIndex": 0,
+            "faceDown": false
+          },
+          {
+            "code": 63977008,
+            "zoneIndex": 1,
+            "faceDown": false
+          }
+        ],
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "nativeError": null,
+        "retryMessages": 0,
+        "luaErrors": [],
+        "outcomes": []
+      },
+      "after": {
+        "requestedDecisionKinds": [
+          "SELECT_CHAIN",
+          "SELECT_CHAIN",
+          "SELECT_CHAIN",
+          "SELECT_CHAIN",
+          "SELECT_CHAIN",
+          "SELECT_CHAIN",
+          "SELECT_PLACE",
+          "SELECT_EFFECTYN",
+          "SELECT_CARD",
+          "SELECT_CHAIN",
+          "SELECT_CARD",
+          "SELECT_PLACE"
+        ],
+        "humanPlaceRequests": 2,
+        "nativePlacePrompts": 2,
+        "playerFinal": [
+          {
+            "code": 63977008,
+            "zoneIndex": 1,
+            "faceDown": false
+          },
+          {
+            "code": 31560081,
+            "zoneIndex": 4,
+            "faceDown": false
+          }
+        ],
+        "playerLP": 8000,
+        "opponentLP": 8000,
+        "nativeError": null,
+        "retryMessages": 0,
+        "luaErrors": [],
+        "outcomes": []
+      },
+      "files": {
+        "before": "rejected-intent-before.json",
+        "after": "rejected-intent-after.json"
+      }
+    }
+  ]
+}

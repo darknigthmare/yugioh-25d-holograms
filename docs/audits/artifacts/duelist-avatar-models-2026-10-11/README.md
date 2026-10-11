@@ -1,0 +1,13 @@
+# Avatar rig and canonical detail proofs — 2026-10-11
+
+The source was frozen after correcting Yudias’s cape depth; the rear capture has no coplanar striping. Exact source and artifact SHA256 pins are recorded in manifest.json. The four gallery source pins agree with the current repository.
+
+- targeted-tests.txt: 28 targeted tests passed. Includes all 192 neutral silhouettes, anatomy pivots, gesture replacement/cancellation/clock origins, both reduced-motion directions, immediate held outcomes, buffer reuse, skeleton texture disposal, and corrected canonical details. No full build was run by this agent.
+- cpu-audit.json: every neutral vertex for 192 avatars; 192 distinct position-buffer/scale signatures, maximum 9 material batches and 9,764 triangles. Every vertex is also transformed with actual skinning for 56 peak gestures across eight avatars at strength 1.25; all bounds are finite. CPU signatures do not establish browser performance or official 1:1 fidelity.
+- gesture-gallery.png/json: 24 actual WebGL renders, three duelists with idle plus all seven gesture kinds. GPU bone textures exist for all 24 and dispose exactly once. Renderer memory after disposal is zero geometries and zero textures.
+- factual-gallery.png/json: 12 corrected canonical silhouettes rendered in WebGL with matching SVG portraits, including Playmaker, Yudias, Yuga, Romin, Luke, Gakuto, Zuwijo, Nyandestar, Bochi, Chupataro, Girag and Dr. Faker.
+- details-gallery.png/json: 12 additional rear/profile/front views expose Yudias’s separate blue cape and black helmet, Zuwijo’s purple hair tips, animal ears/markings/collar/tails, and Playmaker’s corrected hair/headdress. Both galleries dispose all GPU geometry/textures.
+
+These are isolated model proofs using Vite source at port5198 with headless Chromium and SwiftShader. They are separate from the team’s compiled-duel browser QA. These remain stylized silhouettes; Nyandestar and Bochi are explicitly biped duelist adaptations.
+
+Model API is backward compatible: createDuelistAvatarModel(canonicalIdOrProfile, {owner, reducedMotion}) returns group, avatarId, rig, update(elapsedSeconds,{reducedMotion}), dispose(), resetPose(), playGesture(kind,{strength=1,hold=false,immediate=false}), clearGesture(), getGestureState(), and hasActiveGesture/disposed getters. Allowed kinds are summon/casting/attack/damage/victory/defeat/draw. Only victory/defeat/draw may hold; hold+immediate applies the final pose synchronously without RAF. Reduced motion skips transient gestures and keeps gentle static outcome poses. getGestureState().gestureId is a monotonic cancellation identity; geometry buffers and eight bones remain stable until disposal. No game state or private card data is accepted.

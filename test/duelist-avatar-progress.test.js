@@ -66,8 +66,8 @@ for (const type of ['wins', 'duels']) {
   test(`${type} unlocks occur at the actual threshold without incrementing counters`, () => {
     for (const avatar of DUELIST_AVATARS.filter(item => item.unlock.type === type)) {
       const target = avatar.unlock.target;
-      const before = context({ [type]: target - 1 });
-      const at = context({ [type]: target });
+      const before = context({ duels: target - 1, [type]: target - 1 });
+      const at = context({ duels: target, [type]: target });
       assert.equal(getDuelistAvatarUnlockState(avatar.id, before).unlocked, false, avatar.id);
       const unlocked = getDuelistAvatarUnlockState(avatar.id, at);
       assert.equal(unlocked.unlocked, true, avatar.id);
