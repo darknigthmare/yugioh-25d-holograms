@@ -1,0 +1,378 @@
+{
+  "metrics": [
+    {
+      "code": "71645243",
+      "anatomy": "flower",
+      "variant": "rose",
+      "triangles": 5052,
+      "batches": 3,
+      "actualDrawCalls": 3,
+      "bounds": {
+        "min": [
+          -0.9258129000663757,
+          0.05135759711265564,
+          -0.3499999940395355
+        ],
+        "max": [
+          0.9258129000663757,
+          2.7319846153259277,
+          0.5618675351142883
+        ]
+      },
+      "parts": 77
+    },
+    {
+      "code": "31986289",
+      "anatomy": "flower",
+      "variant": "regenerating-rose",
+      "triangles": 5234,
+      "batches": 3,
+      "actualDrawCalls": 3,
+      "bounds": {
+        "min": [
+          -0.9345589876174927,
+          0.05135759711265564,
+          -0.3499999940395355
+        ],
+        "max": [
+          0.7994922995567322,
+          2.7319846153259277,
+          0.5618675351142883
+        ]
+      },
+      "parts": 78
+    },
+    {
+      "code": "15341822",
+      "anatomy": "flower",
+      "variant": "fluff-angry",
+      "triangles": 1624,
+      "batches": 4,
+      "actualDrawCalls": 4,
+      "bounds": {
+        "min": [
+          -0.7388783693313599,
+          0.17382241785526276,
+          -0.63932865858078
+        ],
+        "max": [
+          0.7430918216705322,
+          2.7614285945892334,
+          0.657611608505249
+        ]
+      },
+      "parts": 63
+    },
+    {
+      "code": "15341823",
+      "anatomy": "flower",
+      "variant": "fluff-smile",
+      "triangles": 1560,
+      "batches": 4,
+      "actualDrawCalls": 4,
+      "bounds": {
+        "min": [
+          -0.7388783693313599,
+          0.17382241785526276,
+          -0.63932865858078
+        ],
+        "max": [
+          0.7430918216705322,
+          2.7614285945892334,
+          0.657611608505249
+        ]
+      },
+      "parts": 61
+    },
+    {
+      "code": "28062326",
+      "anatomy": "flower",
+      "variant": "plant",
+      "triangles": 2766,
+      "batches": 4,
+      "actualDrawCalls": 4,
+      "bounds": {
+        "min": [
+          -0.9807419180870056,
+          0.09000000357627869,
+          -0.7088788747787476
+        ],
+        "max": [
+          0.8904480934143066,
+          2.8324124813079834,
+          0.49000000953674316
+        ]
+      },
+      "parts": 38
+    },
+    {
+      "code": "62543394",
+      "anatomy": "flower",
+      "variant": "lekunga",
+      "triangles": 2956,
+      "batches": 4,
+      "actualDrawCalls": 4,
+      "bounds": {
+        "min": [
+          -1.193375825881958,
+          0.559208333492279,
+          -0.42115581035614014
+        ],
+        "max": [
+          1.1244319677352905,
+          2.859999895095825,
+          0.5260000228881836
+        ]
+      },
+      "parts": 53
+    },
+    {
+      "code": "82994510",
+      "anatomy": "flower",
+      "variant": "horseytail",
+      "triangles": 2076,
+      "batches": 4,
+      "actualDrawCalls": 4,
+      "bounds": {
+        "min": [
+          -1.3961564302444458,
+          0.17237579822540283,
+          -0.25999999046325684
+        ],
+        "max": [
+          1.3961564302444458,
+          2.950744390487671,
+          0.29099541902542114
+        ]
+      },
+      "parts": 32
+    },
+    {
+      "code": "12965762",
+      "anatomy": "ivy",
+      "variant": "wicked-plant",
+      "triangles": 2544,
+      "batches": 2,
+      "actualDrawCalls": 2,
+      "bounds": {
+        "min": [
+          -0.9540901780128479,
+          0.037906963378190994,
+          -0.03999999910593033
+        ],
+        "max": [
+          0.9540901780128479,
+          2.9519450664520264,
+          0.11462867259979248
+        ]
+      },
+      "parts": 21
+    },
+    {
+      "code": "30069399",
+      "anatomy": "ivy",
+      "variant": "ivy",
+      "triangles": 1344,
+      "batches": 3,
+      "actualDrawCalls": 3,
+      "bounds": {
+        "min": [
+          -0.7591426372528076,
+          0.05135759711265564,
+          -0.06126588210463524
+        ],
+        "max": [
+          0.7129039764404297,
+          2.4798340797424316,
+          0.1367548704147339
+        ]
+      },
+      "parts": 29
+    },
+    {
+      "code": "74983882",
+      "anatomy": "maize",
+      "variant": "maize",
+      "triangles": 4308,
+      "batches": 3,
+      "actualDrawCalls": 3,
+      "bounds": {
+        "min": [
+          -1.3221428394317627,
+          0.15000000596046448,
+          -0.39180031418800354
+        ],
+        "max": [
+          1.3221428394317627,
+          3.0466372966766357,
+          0.46000000834465027
+        ]
+      },
+      "parts": 123
+    },
+    {
+      "code": "60406592",
+      "anatomy": "seed",
+      "variant": "sinister-seed",
+      "triangles": 2264,
+      "batches": 2,
+      "actualDrawCalls": 2,
+      "bounds": {
+        "min": [
+          -1.0231679677963257,
+          0.05135759711265564,
+          -0.06126588210463524
+        ],
+        "max": [
+          1.0231679677963257,
+          2.839184045791626,
+          0.23000000417232513
+        ]
+      },
+      "parts": 63
+    },
+    {
+      "code": "74440056",
+      "anatomy": "seed",
+      "variant": "needle",
+      "triangles": 396,
+      "batches": 2,
+      "actualDrawCalls": 2,
+      "bounds": {
+        "min": [
+          -0.40292325615882874,
+          0.15000000596046448,
+          -0.07800000160932541
+        ],
+        "max": [
+          0.5680000185966492,
+          2.619999885559082,
+          0.06599999964237213
+        ]
+      },
+      "parts": 9
+    },
+    {
+      "code": "22493812",
+      "anatomy": "ant",
+      "variant": "army-ant",
+      "triangles": 1640,
+      "batches": 4,
+      "actualDrawCalls": 4,
+      "bounds": {
+        "min": [
+          -1.37448251247406,
+          0.15121541917324066,
+          -0.9701274037361145
+        ],
+        "max": [
+          1.37448251247406,
+          2.1530001163482666,
+          0.8928012251853943
+        ]
+      },
+      "parts": 29
+    },
+    {
+      "code": "56051649",
+      "anatomy": "spider",
+      "variant": "spider",
+      "triangles": 3420,
+      "batches": 4,
+      "actualDrawCalls": 4,
+      "bounds": {
+        "min": [
+          -1.5357307195663452,
+          0.11000002920627594,
+          -0.9079999923706055
+        ],
+        "max": [
+          1.5357307195663452,
+          2.7300000190734863,
+          0.8309999704360962
+        ]
+      },
+      "parts": 52
+    },
+    {
+      "code": "91512836",
+      "anatomy": "beetle",
+      "variant": "insect-monster",
+      "triangles": 3124,
+      "batches": 4,
+      "actualDrawCalls": 4,
+      "bounds": {
+        "min": [
+          -1.0595084428787231,
+          0.1599999964237213,
+          -0.699999988079071
+        ],
+        "max": [
+          1.0595084428787231,
+          2.714975118637085,
+          0.699999988079071
+        ]
+      },
+      "parts": 48
+    },
+    {
+      "code": "43140792",
+      "anatomy": "worm",
+      "variant": "skull-grub",
+      "triangles": 3392,
+      "batches": 3,
+      "actualDrawCalls": 3,
+      "bounds": {
+        "min": [
+          -0.760926365852356,
+          0.5099999904632568,
+          -0.3100000023841858
+        ],
+        "max": [
+          0.760926365852356,
+          2.8187074661254883,
+          0.3709999918937683
+        ]
+      },
+      "parts": 40
+    }
+  ],
+  "renderer": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+  "errors": [],
+  "pageErrors": [],
+  "scope": "Isolated constructor rendered with shared material batches; not full-duel integration.",
+  "createdAt": "2026-10-11T17:01:00.251993+00:00",
+  "before": {
+    "src/ui/HologramTokenBotanicalModels.js": "550b8ae6973ff405c3abaf2898f74c281a942a3c939c30197d5d1326d0beb2b9",
+    "src/ui/HologramTokenGeometry.js": "fdae5fa328bfb60e633d2f70ef32964f39e8f9198130be322baa0039977af4d1",
+    "src/ui/TokenMonsterModelProfiles.js": "d4ed40be0ff5922ba854bbef5c906c358ef144d677f1ee04130d69308f4097ac",
+    "src/ui/CombatVisualProfiles.js": "6bcb6e829ba5018762b6ae39cfef3d8b65286c4a4f915f71623f4cb5358cd846",
+    "test/hologram-token-botanical-models.test.js": "8be1baf39bb40b151b48573bd9ce04852889891d83a2b8cc7e0c33cbac94055c"
+  },
+  "after": {
+    "src/ui/HologramTokenBotanicalModels.js": "550b8ae6973ff405c3abaf2898f74c281a942a3c939c30197d5d1326d0beb2b9",
+    "src/ui/HologramTokenGeometry.js": "fdae5fa328bfb60e633d2f70ef32964f39e8f9198130be322baa0039977af4d1",
+    "src/ui/TokenMonsterModelProfiles.js": "d4ed40be0ff5922ba854bbef5c906c358ef144d677f1ee04130d69308f4097ac",
+    "src/ui/CombatVisualProfiles.js": "6bcb6e829ba5018762b6ae39cfef3d8b65286c4a4f915f71623f4cb5358cd846",
+    "test/hologram-token-botanical-models.test.js": "8be1baf39bb40b151b48573bd9ce04852889891d83a2b8cc7e0c33cbac94055c"
+  },
+  "unchanged": true,
+  "referenceSha256": {
+    "71645243": "4461dc5424d1ffa93be4a85c22cbc42b94fe0b60b83638615fbe4c9909ffb0e7",
+    "31986289": "21c4d251382b68d38252929a16d89b3b53e7f16d5864240a079fce3ce26e1a16",
+    "15341822": "aecf9bf5f43e9e18f1f069dbea640c0365ae903b6759aa233a06cfb370ceedba",
+    "15341823": "0386f428e856e732c0704a26f1d9c26fda95b9566f0268471061dd0d45f8993c",
+    "28062326": "43f44e0cef0319b50eb1c63542de87250fe3f242c944d305e623214dc03e8474",
+    "62543394": "979fc72f31424eb6bb08d0df430081a817059bc8a06a6ac1357e60b510013bf8",
+    "82994510": "509537f4f6371778cf474c0cfeb7d4f430d00ca4970476c3b9951412e4a9876b",
+    "12965762": "4def7de9b759925ca6da50236075d1c7d03cac6bcd7a2ef6a86fd633acbfef3a",
+    "30069399": "d4693ea56b76ebe35aebaa387f00687b2c8ac8cc86d3d8ae0164f46c547b47e8",
+    "74983882": "ea10d8ec2e48b2974668b225403056b3f8bf3c1d8cbc5438a91a6ade52e58ee2",
+    "60406592": "73d74ea6a977ecb9129a667a6f0fe7b01ad4ec54e6f7e4365a79e9d9305dec7b",
+    "74440056": "8efdfed8043325cb9d43748721b0b7f5271ccbc2b488e36b4ceaaff32752547e",
+    "22493812": "317e03d002f66b0793378fc06ee8d118d5f095a9f17903c2648f35f399b54dcf",
+    "56051649": "f1a0a8cc2f99c5947957df8e2614ba366c06fd19eee906569fa1d3d7a2fd68b0",
+    "91512836": "28fc806345453e719512b730a760c283e6867ce861026127ce45a316f6cad020",
+    "43140792": "e5a0a6c5e4e9946397efd3dbda17a69a330240c90366fbef4e3f937221225e3a"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "asOf": "2026-10-11",
+  "verifiedImageIds": 120,
+  "nativeAliasProfiles": 9,
+  "supportedNativeTokenCodes": 129,
+  "aliases": {
+    "18027139": 11050416,
+    "18027140": 11050416,
+    "18027141": 11050416,
+    "53855411": 53855410,
+    "64382841": 64382840,
+    "67284109": 67284108,
+    "67284110": 67284108,
+    "67284111": 67284108,
+    "79387393": 21770261
+  },
+  "fullFrameAssets": 120,
+  "smallFrameAssets": 120,
+  "newAssetsBytes": 18571629,
+  "modulePath": "src/core/native/TokenCardReferenceArt.js",
+  "moduleBytes": 32724,
+  "moduleSha256": "b661b5d6a0f5f1a183c7b089ebeaf792a2a05e84739e2e02c2e1faa5e9ed3ff5",
+  "sourceSnapshotSha256": "8aa5f6b003b26a9e822875a7870f26f1f21f9bacfdeb52ed35fdc43156bbf6ea",
+  "presentationCatalogueUnchanged": true,
+  "integration": {
+    "path": "src/core/native/NativeCardReferenceArt.js",
+    "sha256": "b9b4afa74f99d44e9b61b107f81ba6f886365ce89309bf280039994856706961",
+    "existingNonTokenReferences": 10,
+    "totalReferences": 139
+  },
+  "testProof": {
+    "command": "node --test tests/native-token-reference-art.test.mjs tests/native-card-catalogue.test.js",
+    "networkPermissionEnabled": true,
+    "passed": 15,
+    "failed": 0,
+    "stdoutPath": "token-card-frame-tests.txt",
+    "stdoutSha256": "1b9eb299b421d3386f42fb4e58dcd4bb530dd5f461671f3b9b54fdb24e3b77c2"
+  },
+  "unchangedPresentationModules": [
+    {
+      "path": "src/ui/TokenMonsterModelProfiles.js",
+      "sha256": "51aa0358a560efbee72a924a7dc335fef58bd7b55019d414350600e966c38db9"
+    },
+    {
+      "path": "src/ui/TokenMonsterProfiles.js",
+      "sha256": "1b6a05e72b7a51bd5853efea38da157008da989d95196404ed908c89de7e7b31"
+    }
+  ],
+  "assetBytesByVariant": {
+    "full": 15758461,
+    "small": 2813168
+  },
+  "allWaveOriginalImageAssets": 460
+}

@@ -1,0 +1,1810 @@
+{
+  "asOf": "2026-10-11",
+  "fetchedAtUtc": "2026-10-11T16:37:30.462793+00:00",
+  "sourceUrl": "https://db.ygoprodeck.com/api/v7/cardinfo.php?type=Token",
+  "sourceSha256": "8aa5f6b003b26a9e822875a7870f26f1f21f9bacfdeb52ed35fdc43156bbf6ea",
+  "apiCardCount": 106,
+  "imageCount": 120,
+  "images": [
+    {
+      "cardCode": 176393,
+      "name": "Koa'ki Meiru Token",
+      "imageId": 176393,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/176393.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 143887,
+      "sha256": "8005d89ff0ff16fb1e0d87690d5ec9095eb3f7caaa5c10eef742645e51492fbc",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/176393.jpg"
+    },
+    {
+      "cardCode": 904186,
+      "name": "Mecha Phantom Beast Token",
+      "imageId": 904186,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/904186.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 79922,
+      "sha256": "718ab3c238981807d5b2afef4470914c28936e84efebb992633cad2f363dc10c",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/904186.jpg"
+    },
+    {
+      "cardCode": 1426715,
+      "name": "Phantom Token",
+      "imageId": 1426715,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/1426715.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 135115,
+      "sha256": "2a1a6c89e85a394868a737d2da90596af5dc41dada0cf760e35ae300ea7a5637",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/1426715.jpg"
+    },
+    {
+      "cardCode": 2819436,
+      "name": "Phantasm Spiral Token",
+      "imageId": 2819436,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/2819436.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 152477,
+      "sha256": "ee868217cf6117db832f4c9f875a3a043c1388303dcd0edad1c1a8488570faac",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/2819436.jpg"
+    },
+    {
+      "cardCode": 7392746,
+      "name": "Chewbone Jr. Token",
+      "imageId": 7392746,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/7392746.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 102847,
+      "sha256": "5e546f392e4cd7485f009450f25a9331c07754fc662c36433e18c73c82f32b97",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/7392746.jpg"
+    },
+    {
+      "cardCode": 8198621,
+      "name": "Dark Soul Token",
+      "imageId": 8198621,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/8198621.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 109428,
+      "sha256": "91f8f8e372d99f7738df505acf5b26523fe05f1c059b0a077ecb88b48261e0fb",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/8198621.jpg"
+    },
+    {
+      "cardCode": 9047461,
+      "name": "Steam Token",
+      "imageId": 9047461,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/9047461.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 68557,
+      "sha256": "d5da3c50649add8ee8a53a101e1c0cacc646d025e084d80bde02a1b3c90c9435",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/9047461.jpg"
+    },
+    {
+      "cardCode": 9925983,
+      "name": "Blackwing - Black Crest Token",
+      "imageId": 9925983,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/9925983.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 83381,
+      "sha256": "e63b12a7652466729c144be1237d097d317b7a29be65579a6aa27f24b5e3ac51",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/9925983.jpg"
+    },
+    {
+      "cardCode": 9929399,
+      "name": "Vague Shadow Token",
+      "imageId": 9929399,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/9929399.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 84419,
+      "sha256": "82ff09b821ffb0a4de6b0b837463024b007b8994902dd537dfc25da24847388a",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/9929399.jpg"
+    },
+    {
+      "cardCode": 10389143,
+      "name": "Battle Eagle Token",
+      "imageId": 10389143,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/10389143.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 124338,
+      "sha256": "299b16f56e265e26251cd61ed1174b29ec3a2edbbefa3804e2572abcd7f35157",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/10389143.jpg"
+    },
+    {
+      "cardCode": 11050416,
+      "name": "Hippo Token",
+      "imageId": 11050416,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/11050416.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 100607,
+      "sha256": "b0c94d8b93826c19b0113d02240e9e504ac5a313e1a733dc714fa965a45e23e1",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/11050416.jpg"
+    },
+    {
+      "cardCode": 11050416,
+      "name": "Hippo Token",
+      "imageId": 11050417,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/11050417.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 134901,
+      "sha256": "32c9b5f3ee3b493982ab70802252dcc9c7e7c7a89cf731df1961c8dda81b0656",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/11050417.jpg"
+    },
+    {
+      "cardCode": 11050416,
+      "name": "Hippo Token",
+      "imageId": 11050418,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/11050418.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 186122,
+      "sha256": "ad3dc5dcc0311dcdfcbaae68ce65e7fbbd6435988e737c88eb3aed35c829786c",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/11050418.jpg"
+    },
+    {
+      "cardCode": 11050416,
+      "name": "Hippo Token",
+      "imageId": 11050419,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/11050419.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 202362,
+      "sha256": "58fede454db8b0bc9de48069c2e3a8b365a8294745a03040310f30d4d53ebca1",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/11050419.jpg"
+    },
+    {
+      "cardCode": 12958920,
+      "name": "Skyblaster Token",
+      "imageId": 12958920,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/12958920.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 106166,
+      "sha256": "43c0a5f0e4af02ac4f9133a01dcb2e87fea47be3a8eed460f4e5bc4970e91f5d",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/12958920.jpg"
+    },
+    {
+      "cardCode": 12965762,
+      "name": "Wicked Plant Token",
+      "imageId": 12965762,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/12965762.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 149028,
+      "sha256": "4def7de9b759925ca6da50236075d1c7d03cac6bcd7a2ef6a86fd633acbfef3a",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/12965762.jpg"
+    },
+    {
+      "cardCode": 13536607,
+      "name": "V-LAN Token",
+      "imageId": 13536607,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/13536607.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 156148,
+      "sha256": "bca576029ceee6a80ba7fd5170244152f8bfeca44956daf7d4e1705952d0139d",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/13536607.jpg"
+    },
+    {
+      "cardCode": 14089429,
+      "name": "Thunder Option Token",
+      "imageId": 14089429,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/14089429.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 89113,
+      "sha256": "53e1f37287b187ed89e71b6e8b19a9e2885ab5c2e986df7cef102c248b533af2",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/14089429.jpg"
+    },
+    {
+      "cardCode": 14470846,
+      "name": "Ojama Token",
+      "imageId": 14470846,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/14470846.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 141096,
+      "sha256": "d49c966afb7af442fe5876a48b9ad99ad34b5f980eec02049357bc2c22eefee9",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/14470846.jpg"
+    },
+    {
+      "cardCode": 14470846,
+      "name": "Ojama Token",
+      "imageId": 14470847,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/14470847.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 144150,
+      "sha256": "49e7043b54c33a7d5077ff7b1f1c3a230d087806ddb05a3364c68e974692e03c",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/14470847.jpg"
+    },
+    {
+      "cardCode": 15341822,
+      "name": "Fluff Token",
+      "imageId": 15341822,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/15341822.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 72988,
+      "sha256": "aecf9bf5f43e9e18f1f069dbea640c0365ae903b6759aa233a06cfb370ceedba",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/15341822.jpg"
+    },
+    {
+      "cardCode": 15341822,
+      "name": "Fluff Token",
+      "imageId": 15341823,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/15341823.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 68900,
+      "sha256": "0386f428e856e732c0704a26f1d9c26fda95b9566f0268471061dd0d45f8993c",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/15341823.jpg"
+    },
+    {
+      "cardCode": 15394084,
+      "name": "Nordic Beast Token",
+      "imageId": 15394084,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/15394084.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 81807,
+      "sha256": "a9f6b6b8079d77a8ee768771fdec1e924a80370ebd1459258276bb31d72d6754",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/15394084.jpg"
+    },
+    {
+      "cardCode": 15629802,
+      "name": "Waltz Token",
+      "imageId": 15629802,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/15629802.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 144233,
+      "sha256": "00fdc10a6ec93f12cd58bc4706180b9058cc323a784ffb8ef97ee9a80aae989d",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/15629802.jpg"
+    },
+    {
+      "cardCode": 16946850,
+      "name": "Synthetic Seraphim Token",
+      "imageId": 16946850,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/16946850.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 91340,
+      "sha256": "6318e0b695bd4a4c2567db0c9befcbe51d6606c04328d2975626930c266d0373",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/16946850.jpg"
+    },
+    {
+      "cardCode": 17418745,
+      "name": "Photon Token",
+      "imageId": 17418745,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/17418745.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 76906,
+      "sha256": "71392baaf024d6d963379c56f8026261fde2fc35b91017269e912f91ed3ecf50",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/17418745.jpg"
+    },
+    {
+      "cardCode": 21179144,
+      "name": "Reptilianne Token",
+      "imageId": 21179144,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/21179144.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 96415,
+      "sha256": "337dce48575b46e01f5b0b7b5d306f3a65192c6c339c7941b2af2fe2eb84e1cf",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/21179144.jpg"
+    },
+    {
+      "cardCode": 21770261,
+      "name": "Slime Token",
+      "imageId": 21770261,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/21770261.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 91058,
+      "sha256": "892118deb21e2a2460d7a7e181b8e968a14bf42b01c31b51bd3ca6d741fa9ef3",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/21770261.jpg"
+    },
+    {
+      "cardCode": 22404676,
+      "name": "Vassal Token",
+      "imageId": 22404676,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/22404676.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 122365,
+      "sha256": "6f13ed53713287da53e1a42c82da0fe218ed7a20bc849270780a97f75863797a",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/22404676.jpg"
+    },
+    {
+      "cardCode": 22493812,
+      "name": "Army Ant Token",
+      "imageId": 22493812,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/22493812.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 165651,
+      "sha256": "317e03d002f66b0793378fc06ee8d118d5f095a9f17903c2648f35f399b54dcf",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/22493812.jpg"
+    },
+    {
+      "cardCode": 23331401,
+      "name": "Data Token",
+      "imageId": 23331401,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/23331401.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 129662,
+      "sha256": "ca161ce941a361ff9b4ff5ad7ae8294ae9a15988e4f03f1a3da0fbcf41cb97c4",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/23331401.jpg"
+    },
+    {
+      "cardCode": 24874631,
+      "name": "Metal Fiend Token",
+      "imageId": 24874631,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/24874631.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 87507,
+      "sha256": "5d5f4fa178166da0c4c81e6a5ca9442c96a2a0869f50044eb05676204f90c1ee",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/24874631.jpg"
+    },
+    {
+      "cardCode": 25415053,
+      "name": "Shinobird Token",
+      "imageId": 25415053,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/25415053.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 136385,
+      "sha256": "a7a01ef9736074883f9bde03ac0a6f98cfa486a407dfa185cf3f20a2a3a2a363",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/25415053.jpg"
+    },
+    {
+      "cardCode": 27198002,
+      "name": "Fox Token",
+      "imageId": 27198002,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/27198002.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 116403,
+      "sha256": "126e22121fe43f48044c2a94dc7705cd13e6fa4734da0465a507b6f6ac0c29d6",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/27198002.jpg"
+    },
+    {
+      "cardCode": 27450401,
+      "name": "Compass Token",
+      "imageId": 27450401,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/27450401.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 92823,
+      "sha256": "0f37cdbe2007b85920598bb761157e4ceda293faa5b5e9eeb8f7f9b963306321",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/27450401.jpg"
+    },
+    {
+      "cardCode": 28053764,
+      "name": "Dragonoid Token",
+      "imageId": 28053764,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/28053764.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 100360,
+      "sha256": "ded96131e77e3fcd46b496813d13395b572f7f14f1f722b31aca625fa892800e",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/28053764.jpg"
+    },
+    {
+      "cardCode": 28062326,
+      "name": "Plant Token",
+      "imageId": 28062326,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/28062326.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 134067,
+      "sha256": "43f44e0cef0319b50eb1c63542de87250fe3f242c944d305e623214dc03e8474",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/28062326.jpg"
+    },
+    {
+      "cardCode": 28355719,
+      "name": "Double Dude Token",
+      "imageId": 28355719,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/28355719.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 66073,
+      "sha256": "257bb8a5f3f828e027210f5a2730c86f39761e258a8ca8de249e2ea8cb6a0e83",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/28355719.jpg"
+    },
+    {
+      "cardCode": 28674153,
+      "name": "Radian Token",
+      "imageId": 28674153,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/28674153.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 115038,
+      "sha256": "1437e7090a9e114060283ffe9cde3e719cf1c3d0f58ea5d20f86f298b10e4840",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/28674153.jpg"
+    },
+    {
+      "cardCode": 29491335,
+      "name": "DOG Fighter Token",
+      "imageId": 29491335,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/29491335.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 114008,
+      "sha256": "0c0ffda1a5b64f011eae53c81f136a205630d0a7fe4ce3f960b0b5a380f781da",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/29491335.jpg"
+    },
+    {
+      "cardCode": 14470846,
+      "name": "Ojama Token",
+      "imageId": 29843092,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/29843092.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 112422,
+      "sha256": "c08ca6cc3ef526fe0448f73d608cc845c74efc991b651aff8f6ebfe7aad10c8b",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/29843092.jpg"
+    },
+    {
+      "cardCode": 14470846,
+      "name": "Ojama Token",
+      "imageId": 29843093,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/29843093.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 124511,
+      "sha256": "c5540bfa45778f9212d032485f7ec878b37f52be293791d52586d754282be3f8",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/29843093.jpg"
+    },
+    {
+      "cardCode": 14470846,
+      "name": "Ojama Token",
+      "imageId": 29843094,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/29843094.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 114585,
+      "sha256": "df52b3129fa8ace7870ed51cd47fb0aa954bfe3c41b0f79ccd619b4c03f62195",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/29843094.jpg"
+    },
+    {
+      "cardCode": 30069399,
+      "name": "Ivy Token",
+      "imageId": 30069399,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/30069399.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 118916,
+      "sha256": "d4693ea56b76ebe35aebaa387f00687b2c8ac8cc86d3d8ae0164f46c547b47e8",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/30069399.jpg"
+    },
+    {
+      "cardCode": 31986289,
+      "name": "Regenerating Rose Token",
+      "imageId": 31986289,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/31986289.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 97991,
+      "sha256": "21c4d251382b68d38252929a16d89b3b53e7f16d5864240a079fce3ce26e1a16",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/31986289.jpg"
+    },
+    {
+      "cardCode": 34822851,
+      "name": "Infernoid Token",
+      "imageId": 34822851,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/34822851.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 81240,
+      "sha256": "ea6e75ac541b2c631b4e128095018dc74a04b014c2fb7399a7ede2ebc9bfe9f7",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/34822851.jpg"
+    },
+    {
+      "cardCode": 35268888,
+      "name": "Ghost Token",
+      "imageId": 35268888,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/35268888.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 77888,
+      "sha256": "2689a24a836a6544050bd0f468fa85771b7d49e3fd509dbe401d971cc2a2ac1d",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/35268888.jpg"
+    },
+    {
+      "cardCode": 35514097,
+      "name": "Multi Token",
+      "imageId": 35514097,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/35514097.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 110754,
+      "sha256": "1820ad82137d96a0a74094ede4f129558ed63f3334563b681368d3d787222ae2",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/35514097.jpg"
+    },
+    {
+      "cardCode": 38041941,
+      "name": "Seed Token",
+      "imageId": 38041941,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/38041941.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 93299,
+      "sha256": "cca489d97d1b94263e2a3a341f5f72f52135025d0a743887a74824917ef67e1b",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/38041941.jpg"
+    },
+    {
+      "cardCode": 39972130,
+      "name": "Kagemusha Raccoon Token",
+      "imageId": 39972130,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/39972130.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 106052,
+      "sha256": "b27ad9d974b2725e073535982f3a4ac5b0c8e0c6a0ccf88f4b5f39fdcac74d96",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/39972130.jpg"
+    },
+    {
+      "cardCode": 40703223,
+      "name": "Kuriboh Token",
+      "imageId": 40703223,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/40703223.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 137922,
+      "sha256": "cb0f680865f536331f08ab31034c6653a2b18fbc720905f3f5a6fa3b90f1a87a",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/40703223.jpg"
+    },
+    {
+      "cardCode": 40844553,
+      "name": "Einherjar Token",
+      "imageId": 40844553,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/40844553.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 96583,
+      "sha256": "8519d40a3b1db23093591bcee98a06f1a9ccf2e55ac8915e43cb9d271eee4163",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/40844553.jpg"
+    },
+    {
+      "cardCode": 42671152,
+      "name": "Malus Token",
+      "imageId": 42671152,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/42671152.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 74233,
+      "sha256": "e7d9425592ea68d84f7cee7d71729491833ecc271daffb11562b74e342a42120",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/42671152.jpg"
+    },
+    {
+      "cardCode": 42956964,
+      "name": "Nightmare Archfiend Token",
+      "imageId": 42956964,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/42956964.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 75096,
+      "sha256": "7af39c211c9efeb20eca6a2e94a4e5ae365ee3a4f7921fc365a07e33743f2055",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/42956964.jpg"
+    },
+    {
+      "cardCode": 43140792,
+      "name": "Worm Token",
+      "imageId": 43140792,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/43140792.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 92515,
+      "sha256": "e5a0a6c5e4e9946397efd3dbda17a69a330240c90366fbef4e3f937221225e3a",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/43140792.jpg"
+    },
+    {
+      "cardCode": 44052075,
+      "name": "Ancient Gear Token",
+      "imageId": 44052075,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/44052075.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 83256,
+      "sha256": "975d8d0c4699b441f7de7687b61b27fda465111344609067329f9b8ff17a1ab2",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/44052075.jpg"
+    },
+    {
+      "cardCode": 44330099,
+      "name": "Emissary of Darkness Token",
+      "imageId": 44330099,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/44330099.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 92019,
+      "sha256": "ac3c2036b1256b316fc78854dc390ef5cbadbc677fa7c7865a659c9e9e2a27d2",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/44330099.jpg"
+    },
+    {
+      "cardCode": 44586427,
+      "name": "Batteryman Token",
+      "imageId": 44586427,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/44586427.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 143306,
+      "sha256": "3491a07b5a89b45dc1c5b9b0b18a90386bdf31bd9008aa4c01b32df88835b362",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/44586427.jpg"
+    },
+    {
+      "cardCode": 44689689,
+      "name": "Spinos Token",
+      "imageId": 44689689,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/44689689.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 115541,
+      "sha256": "70a66f06b703fbb68f1bed5454435404a804a7b18d290477fb3580f0e0aa2862",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/44689689.jpg"
+    },
+    {
+      "cardCode": 46173680,
+      "name": "Doomsday Token",
+      "imageId": 46173680,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/46173680.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 105087,
+      "sha256": "039bc78d528f28ff26a47c536fff5a23fdbae1eadcfb4efa46ccb2b2f77ef93b",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/46173680.jpg"
+    },
+    {
+      "cardCode": 46173680,
+      "name": "Doomsday Token",
+      "imageId": 46173681,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/46173681.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 97697,
+      "sha256": "b302ea019d3224223ff493398312597dd42bac139b4781e566eb82c19ce7fbf8",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/46173681.jpg"
+    },
+    {
+      "cardCode": 46647145,
+      "name": "World Legacy Token",
+      "imageId": 46647145,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/46647145.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 76650,
+      "sha256": "7f4494eb8502d941660d24e0a7f6f7275af60d3b4cf10c868be771b39428b57f",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/46647145.jpg"
+    },
+    {
+      "cardCode": 47658965,
+      "name": "Laval Token",
+      "imageId": 47658965,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/47658965.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 86707,
+      "sha256": "f43e1db98a1263cbfba74ff148093655a7370cd0dce0ddf9b8db1fc9921ec562",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/47658965.jpg"
+    },
+    {
+      "cardCode": 48115278,
+      "name": "Block Token",
+      "imageId": 48115278,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/48115278.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 110514,
+      "sha256": "f08e71b5a3e1bd810ce34bc0730e46d7afeec686254bb7a59ded73087c39425b",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/48115278.jpg"
+    },
+    {
+      "cardCode": 48411997,
+      "name": "Jurrac Token",
+      "imageId": 48411997,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/48411997.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 85262,
+      "sha256": "21e77118fa9fdbe4f40bbf8f4fedd21c9c001d264241fd9f6a6727b0975c6eac",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/48411997.jpg"
+    },
+    {
+      "cardCode": 49808197,
+      "name": "Metabo Token",
+      "imageId": 49808197,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/49808197.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 123627,
+      "sha256": "ff9f20a2b691b0c658d5a229a740b1e393cbea3abbdba39ed0e01caa26a30a22",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/49808197.jpg"
+    },
+    {
+      "cardCode": 51987572,
+      "name": "Rockstone Token",
+      "imageId": 51987572,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/51987572.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 125495,
+      "sha256": "b9fcd1178e2c608c3a734f6db4b141f4fedf20bc6ed7e30820c553f276a18205",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/51987572.jpg"
+    },
+    {
+      "cardCode": 52340445,
+      "name": "Sky Striker Ace Token",
+      "imageId": 52340445,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/52340445.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 86846,
+      "sha256": "ddfce14cbaa9a3a6bfb515f8f7d33812915c39b1a0b2f03517deee83374b8db8",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/52340445.jpg"
+    },
+    {
+      "cardCode": 25415053,
+      "name": "Shinobird Token",
+      "imageId": 52900001,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/52900001.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 134224,
+      "sha256": "f6461bd5a7bc5e2ee5cfdfeb10a536d4c1e142cd7c7d58cadbd5bd09d602b0ac",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/52900001.jpg"
+    },
+    {
+      "cardCode": 53855410,
+      "name": "Doppel Token",
+      "imageId": 53855410,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/53855410.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 125785,
+      "sha256": "5d13fa2c9328af555f76a03a6c8b9c574aba2ebedf30b8f189b5d612bb12da16",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/53855410.jpg"
+    },
+    {
+      "cardCode": 54537490,
+      "name": "Mini Mare Mare Token",
+      "imageId": 54537490,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/54537490.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 168017,
+      "sha256": "957814491b02effb9c119ab1bf7f3b00863f90a34de3ec4fc74acf26773daab8",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/54537490.jpg"
+    },
+    {
+      "cardCode": 55326323,
+      "name": "Crystron Token",
+      "imageId": 55326323,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/55326323.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 107574,
+      "sha256": "4e7b1487cf369aaf4e44d112651e4b808a01c17a2dcec5162b550e9ac6c13894",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/55326323.jpg"
+    },
+    {
+      "cardCode": 56051649,
+      "name": "Spider Token",
+      "imageId": 56051649,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/56051649.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 117774,
+      "sha256": "f1a0a8cc2f99c5947957df8e2614ba366c06fd19eee906569fa1d3d7a2fd68b0",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/56051649.jpg"
+    },
+    {
+      "cardCode": 56597273,
+      "name": "Cloudian Token",
+      "imageId": 56597273,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/56597273.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 34617,
+      "sha256": "3c88a7a859a7a7ca04417db5f9a63522f983ff07b3cc260535cbf6bb078e7be8",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/56597273.jpg"
+    },
+    {
+      "cardCode": 59160189,
+      "name": "Torment Token",
+      "imageId": 59160189,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/59160189.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 85155,
+      "sha256": "0311f3e9cec708d89348adf32df8c8c3616e51eb85a42133f297ae4630f5370d",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/59160189.jpg"
+    },
+    {
+      "cardCode": 60406592,
+      "name": "Sinister Seed Token",
+      "imageId": 60406592,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/60406592.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 81853,
+      "sha256": "73d74ea6a977ecb9129a667a6f0fe7b01ad4ec54e6f7e4365a79e9d9305dec7b",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/60406592.jpg"
+    },
+    {
+      "cardCode": 60764582,
+      "name": "Lamb Token",
+      "imageId": 60764582,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/60764582.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 69523,
+      "sha256": "bb33e1eab048d9497b8c7a6f321b38fc82c65c3dabcb0115d3ca3e1966b104e0",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/60764582.jpg"
+    },
+    {
+      "cardCode": 60764582,
+      "name": "Lamb Token",
+      "imageId": 60764583,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/60764583.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 66823,
+      "sha256": "d292e301db522245bcfbef1336d68113d01b9f0b9b19a30027591b95ff342c20",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/60764583.jpg"
+    },
+    {
+      "cardCode": 62125439,
+      "name": "Synchron Token",
+      "imageId": 62125439,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/62125439.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 128475,
+      "sha256": "939512b5fad55ea03dd9b24347ba890fe404b32c9e69b854e29c918dd7881925",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/62125439.jpg"
+    },
+    {
+      "cardCode": 62543394,
+      "name": "Lekunga Token",
+      "imageId": 62543394,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/62543394.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 107085,
+      "sha256": "979fc72f31424eb6bb08d0df430081a817059bc8a06a6ac1357e60b510013bf8",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/62543394.jpg"
+    },
+    {
+      "cardCode": 63442605,
+      "name": "Mirage Token",
+      "imageId": 63442605,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/63442605.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 79672,
+      "sha256": "a0cd5039cc26e973232dec82df920c4baa6f135c78cfb501556d6e8d60e2bd43",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/63442605.jpg"
+    },
+    {
+      "cardCode": 64382840,
+      "name": "Eva Token",
+      "imageId": 64382840,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/64382840.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 153905,
+      "sha256": "eb06ec59c7a1fc4b4dd7b39adc9ad6af333102fc8d57ac99bb1a15c3b60fbcfb",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/64382840.jpg"
+    },
+    {
+      "cardCode": 65810490,
+      "name": "Wicked Token",
+      "imageId": 65810490,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/65810490.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 98815,
+      "sha256": "e43ed2c0f9f9230d85a97cc467ce521db4159659fefac69a92ee50576f4f7098",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/65810490.jpg"
+    },
+    {
+      "cardCode": 66661679,
+      "name": "Ice Coffin Token",
+      "imageId": 66661679,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/66661679.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 97470,
+      "sha256": "d1a738d688a78c622b8a450a977377af3352344aa6e2dca7c27f421126c3d2d5",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/66661679.jpg"
+    },
+    {
+      "cardCode": 67284108,
+      "name": "Black Sheep Token",
+      "imageId": 67284108,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/67284108.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 77008,
+      "sha256": "fdabd9dd181182e60081701b308121a824fc96221840e816d21a08ac23fdee74",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/67284108.jpg"
+    },
+    {
+      "cardCode": 67949764,
+      "name": "Umbral Horror Mirage Token",
+      "imageId": 67949764,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/67949764.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 86495,
+      "sha256": "29c3afda2e7b8903562462eaccdee31616d89a41f18c0fc4bbbc4bc31b2eaf73",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/67949764.jpg"
+    },
+    {
+      "cardCode": 68815402,
+      "name": "Wild Fire Token",
+      "imageId": 68815402,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/68815402.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 130947,
+      "sha256": "0ef80cb58399def48bbb88120e478f181254a5aa848fe3f8cfbe7b7815363a73",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/68815402.jpg"
+    },
+    {
+      "cardCode": 69868556,
+      "name": "Dragon Lord Token",
+      "imageId": 69868556,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/69868556.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 90643,
+      "sha256": "5b50f27dc40e6c8367f22f2a3324f04bad4bd00339af44c855098a81a24c6476",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/69868556.jpg"
+    },
+    {
+      "cardCode": 69890968,
+      "name": "Phantasm Token",
+      "imageId": 69890968,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/69890968.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 135876,
+      "sha256": "dfd0267a92b1698daad5e7d8758f9c4d9be8beb848e5d3083c03ea586102f4d3",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/69890968.jpg"
+    },
+    {
+      "cardCode": 70391589,
+      "name": "Siphon Token",
+      "imageId": 70391589,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/70391589.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 113885,
+      "sha256": "76dee98616b337d84b80e8a6f21be28497e5f817420cd36d6c65db9cd04d4367",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/70391589.jpg"
+    },
+    {
+      "cardCode": 71645243,
+      "name": "Rose Token",
+      "imageId": 71645243,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/71645243.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 99487,
+      "sha256": "4461dc5424d1ffa93be4a85c22cbc42b94fe0b60b83638615fbe4c9909ffb0e7",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/71645243.jpg"
+    },
+    {
+      "cardCode": 73915052,
+      "name": "Sheep Token",
+      "imageId": 73915052,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/73915052.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 62312,
+      "sha256": "4febd556b4eac205eeaca6a67bf46739e3d5d73dcaebf70666c8a5ad74f06671",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/73915052.jpg"
+    },
+    {
+      "cardCode": 73915052,
+      "name": "Sheep Token",
+      "imageId": 73915053,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/73915053.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 65549,
+      "sha256": "88d70ec8c2f0444f6e6753a4d6e9d089025c61723d52a57b88e8031069ad7be6",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/73915053.jpg"
+    },
+    {
+      "cardCode": 73915052,
+      "name": "Sheep Token",
+      "imageId": 73915054,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/73915054.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 68337,
+      "sha256": "e4ba07d78d60daecbaf62f71a6bb345c46e3c3927bfb3618fefd500494d7b933",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/73915054.jpg"
+    },
+    {
+      "cardCode": 73915052,
+      "name": "Sheep Token",
+      "imageId": 73915055,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/73915055.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 60606,
+      "sha256": "35d5355db6d921bbb135a5e1ca450bb36138ae2182bb5b8eb5eac8622b0f94b4",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/73915055.jpg"
+    },
+    {
+      "cardCode": 74440056,
+      "name": "Needle Token",
+      "imageId": 74440056,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/74440056.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 81413,
+      "sha256": "8efdfed8043325cb9d43748721b0b7f5271ccbc2b488e36b4ceaaff32752547e",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/74440056.jpg"
+    },
+    {
+      "cardCode": 74983882,
+      "name": "Maize Token",
+      "imageId": 74983882,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/74983882.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 113357,
+      "sha256": "ea10d8ec2e48b2974668b225403056b3f8bf3c1d8cbc5438a91a6ade52e58ee2",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/74983882.jpg"
+    },
+    {
+      "cardCode": 75119041,
+      "name": "Tindangle Token",
+      "imageId": 75119041,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/75119041.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 144168,
+      "sha256": "8d79cbce6141d0a78b14ce6ece3ea50c3e66cb47bc3bf3d0b8d365c98f0302d6",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/75119041.jpg"
+    },
+    {
+      "cardCode": 75524093,
+      "name": "Evil Token",
+      "imageId": 75524093,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/75524093.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 117901,
+      "sha256": "27cf4a953585dffc273202f1df368e46b0338d92044fdf0ca80d9739f1c2d277",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/75524093.jpg"
+    },
+    {
+      "cardCode": 75622825,
+      "name": "Tricky Token",
+      "imageId": 75622825,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/75622825.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 121969,
+      "sha256": "83bab53dca2df8c595e0f2a353941ec8878e51948a399fc751341e00ab442b1c",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/75622825.jpg"
+    },
+    {
+      "cardCode": 75732623,
+      "name": "Grinder Token",
+      "imageId": 75732623,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/75732623.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 103742,
+      "sha256": "0863ea0b98052bfa1521691303b1ba19035cab595d42ffc22c05a9e11f75c87e",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/75732623.jpg"
+    },
+    {
+      "cardCode": 82324106,
+      "name": "Soul Token",
+      "imageId": 82324106,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/82324106.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 80344,
+      "sha256": "6b91eddee756423286f1e4f2966f46aebcfda84c3d1576722ff77774f0e3fe23",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/82324106.jpg"
+    },
+    {
+      "cardCode": 82340057,
+      "name": "Ceremonial Token",
+      "imageId": 82340057,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/82340057.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 72940,
+      "sha256": "e03abf58ec17d2c3b26ac505d3369741d423a4c012bca825a7982ec43468a30c",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/82340057.jpg"
+    },
+    {
+      "cardCode": 82556059,
+      "name": "Engine Token",
+      "imageId": 82556059,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/82556059.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 121656,
+      "sha256": "0862007509a75b0b6b1d89a0a97ae40b13c826dacc35f9173775f37d70d1edb0",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/82556059.jpg"
+    },
+    {
+      "cardCode": 82994510,
+      "name": "Horseytail Token",
+      "imageId": 82994510,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/82994510.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 82056,
+      "sha256": "509537f4f6371778cf474c0cfeb7d4f430d00ca4970476c3b9951412e4a9876b",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/82994510.jpg"
+    },
+    {
+      "cardCode": 83239740,
+      "name": "Oyster Token",
+      "imageId": 83239740,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/83239740.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 89531,
+      "sha256": "ff03414423514b0eaac7d9e7209a3633c3179cf6efc595071ea0d4c8d25e0a30",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/83239740.jpg"
+    },
+    {
+      "cardCode": 84816245,
+      "name": "Data Acorn Token",
+      "imageId": 84816245,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/84816245.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 147797,
+      "sha256": "9f0e763a8a94230d2cb83195a49c642ccc92b75dcc7fcbb7e37e115e6401836a",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/84816245.jpg"
+    },
+    {
+      "cardCode": 85771020,
+      "name": "Asmo Token",
+      "imageId": 85771020,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/85771020.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 135594,
+      "sha256": "5760a7a24608e68f30ac4a8e021f9bc7ec9107be70cdb669c49c5fb6350d4aed",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/85771020.jpg"
+    },
+    {
+      "cardCode": 85771021,
+      "name": "Deus Token",
+      "imageId": 85771021,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/85771021.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 150596,
+      "sha256": "d42eff41afe56d44a68e1a986e8dba36872065ea48b79f7e3703f9e4892058db",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/85771021.jpg"
+    },
+    {
+      "cardCode": 86801872,
+      "name": "Poisonous Snake Token",
+      "imageId": 86801872,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/86801872.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 149103,
+      "sha256": "2b080bfd95bf32165d7e04b4079e04f06f7111998c928acb7867feb16f432126",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/86801872.jpg"
+    },
+    {
+      "cardCode": 86871615,
+      "name": "Clone Token",
+      "imageId": 86871615,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/86871615.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 141289,
+      "sha256": "dfc7a60e384bdb682b19ab6bf34adca48fb43549f36f837b659c59ca7d24bfb3",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/86871615.jpg"
+    },
+    {
+      "cardCode": 89907228,
+      "name": "Divine Dragon Token",
+      "imageId": 89907228,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/89907228.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 113630,
+      "sha256": "fbeb5d97c86e7c8e297a0636f70b5209df4cfeeb5c6564360234a1d053f86d67",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/89907228.jpg"
+    },
+    {
+      "cardCode": 90884404,
+      "name": "Utchatzimime Token",
+      "imageId": 90884404,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/90884404.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 110496,
+      "sha256": "55d6635f50c3f03ddd163cf4a80b7acfcac65e8852916ba91b54e96b3651cd23",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/90884404.jpg"
+    },
+    {
+      "cardCode": 91512836,
+      "name": "Insect Monster Token",
+      "imageId": 91512836,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/91512836.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 78583,
+      "sha256": "28fc806345453e719512b730a760c283e6867ce861026127ce45a316f6cad020",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/91512836.jpg"
+    },
+    {
+      "cardCode": 93104633,
+      "name": "Security Token",
+      "imageId": 93104633,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/93104633.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 230209,
+      "sha256": "cf72ed6fe93d1c4707ce3766b2fd5d66803648cb306f7f28e1517dd7b09a3e12",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/93104633.jpg"
+    },
+    {
+      "cardCode": 93130022,
+      "name": "Option Token",
+      "imageId": 93130022,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/93130022.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 127000,
+      "sha256": "6fc1ad1a8e2c6a16a0e1b9fbbc40b8a736688dbfabea6affb4bd76b665e8aa4a",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/93130022.jpg"
+    },
+    {
+      "cardCode": 93224849,
+      "name": "Phantasmal Martyr Token",
+      "imageId": 93224849,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/93224849.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 134518,
+      "sha256": "20d18052dd8df481756963e4b8daa200b39789173d1475b79c0576539249b290",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/93224849.jpg"
+    },
+    {
+      "cardCode": 93912846,
+      "name": "Gift Fiend Token",
+      "imageId": 93912846,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/93912846.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 90744,
+      "sha256": "71125a922e64a03806b0f210f1f745e1a52e4256a260a6054afae12cdacc5400",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/93912846.jpg"
+    },
+    {
+      "cardCode": 97452818,
+      "name": "Moon Token",
+      "imageId": 97452818,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/97452818.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 127582,
+      "sha256": "6c8ccf2543fbab872748c083276d0c2c939ff6c33b81682c23b7ac463ada8590",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/97452818.jpg"
+    },
+    {
+      "cardCode": 98596597,
+      "name": "Fireball Token",
+      "imageId": 98596597,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/98596597.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 77631,
+      "sha256": "83aaacf9b3cb8bfeec7a4367e118f43da4731f4e00a97541a0a09fff210d51d9",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/reference/98596597.jpg"
+    }
+  ]
+}

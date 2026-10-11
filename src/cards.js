@@ -1,4 +1,6 @@
 import { FIELD_SPELL_ENVIRONMENT_CATALOG } from './ui/FieldSpellEnvironmentCatalog.js';
+import { getNativeCardReferenceArt } from './core/native/NativeCardReferenceArt.js';
+import { getLocalCardImagePath } from './LocalCardImagePaths.js';
 const nativeFieldImageIds = new Set(FIELD_SPELL_ENVIRONMENT_CATALOG.map(card => String(card.cardId)));
 import {
   ADDITIONAL_FIELD_SPELLS, CLASSIC_FIELD_SPELLS, SCRIPTED_FIELD_SPELLS, WETLANDS_FIELD_SPELL,
@@ -642,18 +644,23 @@ export function normalizeCardImageId(id) {
 }
 
 export function getCardImageUrl(id) {
-  const terrain = CLASSIC_FIELD_SPELLS.find(card => card.id === normalizeCardImageId(id));
+  const normalized = normalizeCardImageId(id);
+  const terrain = CLASSIC_FIELD_SPELLS.find(card => card.id === normalized);
   if (terrain) {
     return `/environments/field-spells/${terrain.id}-${terrain.name_en.toLowerCase()}-original.webp`;
   }
-  return `/cards/small/${normalizeCardImageId(id)}.jpg`;
+  return getNativeCardReferenceArt(normalized)?.small.assetPath
+    || getLocalCardImagePath(normalized, 'small')
+    || '/custom-card-back.png';
 }
 
 export function getCardCroppedImageUrl(id) {
   if (CLASSIC_FIELD_SPELLS.some(card => card.id === normalizeCardImageId(id))) return getCardImageUrl(id);
   const normalized = normalizeCardImageId(id);
+  const reference = getNativeCardReferenceArt(normalized);
+  if (reference) return reference.cropped.assetPath;
   if (nativeFieldImageIds.has(normalized) && !STARTER_CARDS.some(card => normalizeCardImageId(card.id) === normalized)) return `/environments/field-art/${normalized}.jpg`;
-  return `/cards/cropped/${normalized}.jpg`;
+  return getLocalCardImagePath(normalized, 'cropped') || '/custom-card-back.png';
 }
 
 export const EXTRA_DECK_CARDS = [

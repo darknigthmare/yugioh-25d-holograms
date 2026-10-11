@@ -1,0 +1,51 @@
+✔ real WASM draw, field activation, normal summon and opponent Set drive public visuals (616.248859ms)
+✔ public native aliases change the visible name without changing the physical Field source (20.097954ms)
+✔ typed OCG draws, sets and concealed moves never read or publish a hidden passcode (0.729336ms)
+✔ native references preserve main zones, mirror shared Extra zones, and normalize Terrain/Pendulum (0.438028ms)
+✔ summon success exposes a copied public card with exact native stats and no JS calculation (0.564599ms)
+✔ failed summons have no success animation and token summons use public native type (0.62606ms)
+✔ public reveals are explicit and do not turn a confirmed face-down card into a hologram (0.496597ms)
+✔ attacks retain both public zone references while the defending Set stays anonymous (0.525319ms)
+✔ typed Battle values do not create an inferred field bonus or leak a concealed defender (0.519501ms)
+✔ LP damage, costs, recovery and correction use the native amounts (0.899201ms)
+✔ field chains announce only declared source, and publish active status after resolution (0.684388ms)
+✔ a field leaving during its chain is not shown as a newly active source (0.278318ms)
+✔ native reason flags distinguish destruction from a tribute/cost sent to the graveyard (0.313101ms)
+✔ counter messages contain public counts and use native stats without private overlay identities (0.284237ms)
+✔ later native query identities cannot reveal cards before their own public message (0.172669ms)
+✔ all 339 field sources have activation/destruction/negation profiles from their archived source palettes (1.475788ms)
+✔ proper Special Summon types require native material reasons, while revivals and tokens stay special (1.617311ms)
+✔ public Xyz material reasons survive an Extra overlay move even when individual overlay queries are unavailable (0.845661ms)
+✔ public success identifiers preserve repeat summons and private Set actions for the campaign tracker (0.420512ms)
+✔ native Tribute reasons and declared Pendulum procedure are counted only after summon success (0.324558ms)
+✔ recorded genuine Fusion Gate messages and native query reasons count three Fusions, never a later revival (28.268883ms)
+✔ successful native procedure controls its visual, including revived Fusion and face-down suppression (0.318468ms)
+✔ seven summon procedures animate distinct bounded motifs and release every resource once (26.967407ms)
+▶ representative Token families follow actual WASM rules and public presentation
+  ✔ mpb-tetherwolf-native-token-link-material (0.179941ms)
+  ✔ mpb-native-creature-swap-control (0.066711ms)
+  ✔ scapegoat-distinct-public-instances-dark-hole-disappearance (0.116596ms)
+  ✔ scapegoat-native-attack-replay-new-token-target (0.051828ms)
+  ✔ dandylion-native-face-down-xyz-and-tribute-restrictions (0.041293ms)
+  ✔ dandylion-native-same-turn-link-material (0.038037ms)
+  ✔ dandylion-native-same-turn-synchro-material (0.038919ms)
+  ✔ fires-of-doomsday-dark-only-tribute-and-banish (0.043665ms)
+  ✔ ojama-native-no-tribute-link-and-destruction-damage (0.038558ms)
+  ✔ black-garden-native-token-control-and-live-stats (0.04006ms)
+  ✔ gorz-native-battle-damage-token-dynamic-stats (0.056905ms)
+✔ representative Token families follow actual WASM rules and public presentation (1222.167321ms)
+✔ a Token destruction reuses only its announced identity, without reading the removed passcode or querying location 0 (0.649105ms)
+✔ unknown, concealed, non-monster or nonzero removals cannot introduce Token material reasons or identities (0.549136ms)
+✔ model descriptors reveal only public monsters, never hidden identities or instance state (0.544168ms)
+✔ attack routing locates both camps and shared Extra zones without forwarding live cards (0.286962ms)
+✔ trigger cinematics use revealed source and public zones without reading a hidden target identity (0.230125ms)
+✔ hidden cards and unrelated events cannot trigger identity-based visuals (0.159239ms)
+✔ a rendered model hides only the matching camp sprite and restores the fallback when removed (0.31241ms)
+ℹ tests 42
+ℹ suites 0
+ℹ pass 42
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2115.19061

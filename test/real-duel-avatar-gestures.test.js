@@ -339,8 +339,13 @@ test('native victory and public surrender winners synchronously hold final poses
 test('public gesture datasets write only distinct transitions, not repeated sync calls or idle animation frames', () => {
   const f = fixture();
   let writes = 0;
+  let fieldModelWrites = 0;
   f.scene.root.dataset = new Proxy({ ...f.scene.root.dataset }, {
-    set(target, key, value) { writes += 1; target[key] = value; return true; }
+    set(target, key, value) {
+      if (key === 'fieldHologramProfiles') fieldModelWrites += 1;
+      else writes += 1;
+      target[key] = value; return true;
+    }
   });
   try {
     for (let i = 0; i < 100; i += 1) f.scene._syncDuelistGestureDataset();
@@ -348,6 +353,7 @@ test('public gesture datasets write only distinct transitions, not repeated sync
     assert.equal(writes, 0, 'unchanged idle/outcome values cause no DOM attribute writes');
     f.view.playAnimation(f.summon());
     assert.equal(writes, 1, 'only the player summon transition is written');
+    assert.equal(fieldModelWrites, 1, 'the public field model inventory is initialized independently');
     for (let i = 0; i < 100; i += 1) f.scene._syncDuelistGestureDataset();
     assert.equal(writes, 1, 'repeated sync cannot repeat the same transition');
     for (let i = 0; i < 20; i += 1) f.tick();
@@ -357,6 +363,7 @@ test('public gesture datasets write only distinct transitions, not repeated sync
     for (let i = 0; i < 100; i += 1) f.scene._syncDuelistGestureDataset();
     f.view.setDuelistOutcome('player');
     assert.equal(writes, 5, 'held results and repeated winner callbacks add no writes');
+    assert.equal(fieldModelWrites, 1, 'unchanged gestures and outcomes do not rewrite the field inventory');
     assert.equal(f.pending.size, 0);
   } finally { f.dispose(); }
 });

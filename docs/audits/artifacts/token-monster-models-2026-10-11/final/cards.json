@@ -1,0 +1,1442 @@
+[
+  {
+    "id": "176393",
+    "name": "Koa'ki Meiru Token",
+    "anatomy": "rock",
+    "reference": "176393"
+  },
+  {
+    "id": "645088",
+    "name": "Gadget Token",
+    "anatomy": "gadget",
+    "reference": null
+  },
+  {
+    "id": "904186",
+    "name": "Mecha Phantom Beast Token",
+    "anatomy": "aircraft",
+    "reference": "904186"
+  },
+  {
+    "id": "1426715",
+    "name": "Phantom Token",
+    "anatomy": "spirit",
+    "reference": "1426715"
+  },
+  {
+    "id": "1799465",
+    "name": "Moult Token",
+    "anatomy": "beetle",
+    "reference": null
+  },
+  {
+    "id": "2625940",
+    "name": "Spool Token",
+    "anatomy": "network",
+    "reference": null
+  },
+  {
+    "id": "2819436",
+    "name": "Phantasm Spiral Token",
+    "anatomy": "dragon",
+    "reference": "2819436"
+  },
+  {
+    "id": "3129134",
+    "name": "Delta Token",
+    "anatomy": "zombie",
+    "reference": null
+  },
+  {
+    "id": "3129528",
+    "name": "Scapegoat Token",
+    "anatomy": "sheep",
+    "reference": null
+  },
+  {
+    "id": "3285552",
+    "name": "Adventurer Token",
+    "anatomy": "warrior",
+    "reference": null
+  },
+  {
+    "id": "4417408",
+    "name": "Mecha Phantom Beast Token",
+    "anatomy": "aircraft",
+    "reference": null
+  },
+  {
+    "id": "7392746",
+    "name": "Chewbone Jr. Token",
+    "anatomy": "zombie",
+    "reference": "7392746"
+  },
+  {
+    "id": "7610395",
+    "name": "Familiar of the Evil Eye Token",
+    "anatomy": "fiend",
+    "reference": null
+  },
+  {
+    "id": "8025951",
+    "name": "Gadget Box Token",
+    "anatomy": "gadget",
+    "reference": null
+  },
+  {
+    "id": "8198621",
+    "name": "Dark Soul Token",
+    "anatomy": "zombie",
+    "reference": "8198621"
+  },
+  {
+    "id": "9047461",
+    "name": "Steam Token",
+    "anatomy": "cloud",
+    "reference": "9047461"
+  },
+  {
+    "id": "9925983",
+    "name": "Blackwing - Black Crest Token",
+    "anatomy": "avian",
+    "reference": "9925983"
+  },
+  {
+    "id": "9929399",
+    "name": "Vague Shadow Token",
+    "anatomy": "avian",
+    "reference": "9929399"
+  },
+  {
+    "id": "10389143",
+    "name": "Battle Eagle Token",
+    "anatomy": "aircraft",
+    "reference": "10389143"
+  },
+  {
+    "id": "11050416",
+    "name": "Hippo Token",
+    "anatomy": "hippo",
+    "reference": "11050416"
+  },
+  {
+    "id": "11050417",
+    "name": "Hippo Token",
+    "anatomy": "hippo",
+    "reference": "11050417"
+  },
+  {
+    "id": "11050418",
+    "name": "Hippo Token",
+    "anatomy": "hippo",
+    "reference": "11050418"
+  },
+  {
+    "id": "11050419",
+    "name": "Hippo Token",
+    "anatomy": "hippo",
+    "reference": "11050419"
+  },
+  {
+    "id": "11738490",
+    "name": "@Ignister Token",
+    "anatomy": "cyber-polyhedron",
+    "reference": null
+  },
+  {
+    "id": "12958920",
+    "name": "Skyblaster Token",
+    "anatomy": "fiend",
+    "reference": "12958920"
+  },
+  {
+    "id": "12965762",
+    "name": "Wicked Plant Token",
+    "anatomy": "ivy",
+    "reference": "12965762"
+  },
+  {
+    "id": "13536607",
+    "name": "V-LAN Token",
+    "anatomy": "cyber-polyhedron",
+    "reference": "13536607"
+  },
+  {
+    "id": "13935002",
+    "name": "Lunalight Token",
+    "anatomy": "beast",
+    "reference": null
+  },
+  {
+    "id": "14089429",
+    "name": "Thunder Option Token",
+    "anatomy": "aircraft",
+    "reference": "14089429"
+  },
+  {
+    "id": "14470846",
+    "name": "Ojama Token",
+    "anatomy": "ojama",
+    "reference": "14470846"
+  },
+  {
+    "id": "14470847",
+    "name": "Ojama Token",
+    "anatomy": "ojama",
+    "reference": "14470847"
+  },
+  {
+    "id": "14957441",
+    "name": "Otoshidamashi Token",
+    "anatomy": "beast",
+    "reference": null
+  },
+  {
+    "id": "15341822",
+    "name": "Fluff Token",
+    "anatomy": "flower",
+    "reference": "15341822"
+  },
+  {
+    "id": "15341823",
+    "name": "Fluff Token",
+    "anatomy": "flower",
+    "reference": "15341823"
+  },
+  {
+    "id": "15394084",
+    "name": "Nordic Beast Token",
+    "anatomy": "beast",
+    "reference": "15394084"
+  },
+  {
+    "id": "15590356",
+    "name": "Fire Token",
+    "anatomy": "flame",
+    "reference": null
+  },
+  {
+    "id": "15629802",
+    "name": "Waltz Token",
+    "anatomy": "fairy",
+    "reference": "15629802"
+  },
+  {
+    "id": "16943771",
+    "name": "Mecha Phantom Beast Token",
+    "anatomy": "aircraft",
+    "reference": null
+  },
+  {
+    "id": "16946850",
+    "name": "Synthetic Seraphim Token",
+    "anatomy": "cyber-orb",
+    "reference": "16946850"
+  },
+  {
+    "id": "17228909",
+    "name": "Jurraegg Token",
+    "anatomy": "egg",
+    "reference": null
+  },
+  {
+    "id": "17418745",
+    "name": "Photon Token",
+    "anatomy": "cyber-orb",
+    "reference": "17418745"
+  },
+  {
+    "id": "18027139",
+    "name": "Hippo Token",
+    "anatomy": "hippo",
+    "reference": "11050416"
+  },
+  {
+    "id": "18027140",
+    "name": "Hippo Token",
+    "anatomy": "hippo",
+    "reference": "11050416"
+  },
+  {
+    "id": "18027141",
+    "name": "Hippo Token",
+    "anatomy": "hippo",
+    "reference": "11050416"
+  },
+  {
+    "id": "18494512",
+    "name": "Icejade Token",
+    "anatomy": "ice",
+    "reference": null
+  },
+  {
+    "id": "18905770",
+    "name": "Wyvern Token",
+    "anatomy": "dragon",
+    "reference": null
+  },
+  {
+    "id": "19280590",
+    "name": "Tellus Wing Token",
+    "anatomy": "fairy",
+    "reference": null
+  },
+  {
+    "id": "20001444",
+    "name": "Swordsoul Token",
+    "anatomy": "dragon",
+    "reference": null
+  },
+  {
+    "id": "20368764",
+    "name": "Mecha Phantom Beast Token",
+    "anatomy": "aircraft",
+    "reference": null
+  },
+  {
+    "id": "21179144",
+    "name": "Reptilianne Token",
+    "anatomy": "serpent",
+    "reference": "21179144"
+  },
+  {
+    "id": "21770261",
+    "name": "Slime Token",
+    "anatomy": "slime",
+    "reference": "21770261"
+  },
+  {
+    "id": "21830680",
+    "name": "Clock Token",
+    "anatomy": "clock",
+    "reference": null
+  },
+  {
+    "id": "22110648",
+    "name": "Mecha Phantom Beast Token",
+    "anatomy": "aircraft",
+    "reference": null
+  },
+  {
+    "id": "22404676",
+    "name": "Vassal Token",
+    "anatomy": "warrior",
+    "reference": "22404676"
+  },
+  {
+    "id": "22411610",
+    "name": "Bomb Token",
+    "anatomy": "flame",
+    "reference": null
+  },
+  {
+    "id": "22493812",
+    "name": "Army Ant Token",
+    "anatomy": "ant",
+    "reference": "22493812"
+  },
+  {
+    "id": "22712878",
+    "name": "Paralyzing Token",
+    "anatomy": "spirit",
+    "reference": null
+  },
+  {
+    "id": "22953212",
+    "name": "Bellcat Token",
+    "anatomy": "gadget",
+    "reference": null
+  },
+  {
+    "id": "23116809",
+    "name": "Fireball Token",
+    "anatomy": "flame",
+    "reference": null
+  },
+  {
+    "id": "23331401",
+    "name": "Data Token",
+    "anatomy": "gadget",
+    "reference": "23331401"
+  },
+  {
+    "id": "23837055",
+    "name": "Ogdoadic Token",
+    "anatomy": "serpent",
+    "reference": null
+  },
+  {
+    "id": "24874631",
+    "name": "Metal Fiend Token",
+    "anatomy": "fiend",
+    "reference": "24874631"
+  },
+  {
+    "id": "25415053",
+    "name": "Shinobird Token",
+    "anatomy": "avian",
+    "reference": "25415053"
+  },
+  {
+    "id": "25419324",
+    "name": "Dinomorphia Token",
+    "anatomy": "serpent",
+    "reference": null
+  },
+  {
+    "id": "26326542",
+    "name": "Shiranui Token",
+    "anatomy": "zombie",
+    "reference": null
+  },
+  {
+    "id": "26364382",
+    "name": "Homunculus Token",
+    "anatomy": "fairy",
+    "reference": null
+  },
+  {
+    "id": "27198002",
+    "name": "Fox Token",
+    "anatomy": "beast",
+    "reference": "27198002"
+  },
+  {
+    "id": "27204312",
+    "name": "Primal Being Token",
+    "anatomy": "primal-being",
+    "reference": null
+  },
+  {
+    "id": "27450401",
+    "name": "Compass Token",
+    "anatomy": "gadget",
+    "reference": "27450401"
+  },
+  {
+    "id": "27882994",
+    "name": "Vilepawn Salmon Token",
+    "anatomy": "fish",
+    "reference": null
+  },
+  {
+    "id": "28053764",
+    "name": "Dragonoid Token",
+    "anatomy": "gadget",
+    "reference": "28053764"
+  },
+  {
+    "id": "28062326",
+    "name": "Plant Token",
+    "anatomy": "flower",
+    "reference": "28062326"
+  },
+  {
+    "id": "28355719",
+    "name": "Double Dude Token",
+    "anatomy": "warrior",
+    "reference": "28355719"
+  },
+  {
+    "id": "28674153",
+    "name": "Radian Token",
+    "anatomy": "fiend",
+    "reference": "28674153"
+  },
+  {
+    "id": "29491335",
+    "name": "DOG Fighter Token",
+    "anatomy": "aircraft",
+    "reference": "29491335"
+  },
+  {
+    "id": "29843092",
+    "name": "Ojama Token",
+    "anatomy": "ojama",
+    "reference": "29843092"
+  },
+  {
+    "id": "29843093",
+    "name": "Ojama Token",
+    "anatomy": "ojama",
+    "reference": "29843093"
+  },
+  {
+    "id": "29843094",
+    "name": "Ojama Token",
+    "anatomy": "ojama",
+    "reference": "29843094"
+  },
+  {
+    "id": "30069399",
+    "name": "Ivy Token",
+    "anatomy": "ivy",
+    "reference": "30069399"
+  },
+  {
+    "id": "30327675",
+    "name": "Dark Beast Token",
+    "anatomy": "fiend",
+    "reference": null
+  },
+  {
+    "id": "30327676",
+    "name": "Light Beast Token",
+    "anatomy": "fairy",
+    "reference": null
+  },
+  {
+    "id": "30650148",
+    "name": "Vendread Token",
+    "anatomy": "zombie",
+    "reference": null
+  },
+  {
+    "id": "30765616",
+    "name": "Hundred Apples Token",
+    "anatomy": "dragon",
+    "reference": null
+  },
+  {
+    "id": "30811117",
+    "name": "Mecha Phantom Beast Token",
+    "anatomy": "aircraft",
+    "reference": null
+  },
+  {
+    "id": "31480216",
+    "name": "Mecha Phantom Beast Token",
+    "anatomy": "aircraft",
+    "reference": null
+  },
+  {
+    "id": "31533705",
+    "name": "Mecha Phantom Beast Token",
+    "anatomy": "aircraft",
+    "reference": null
+  },
+  {
+    "id": "31600514",
+    "name": "Baby Mantis Token",
+    "anatomy": "mantis",
+    "reference": null
+  },
+  {
+    "id": "31986289",
+    "name": "Regenerating Rose Token",
+    "anatomy": "flower",
+    "reference": "31986289"
+  },
+  {
+    "id": "32335698",
+    "name": "Haunted Token",
+    "anatomy": "zombie",
+    "reference": null
+  },
+  {
+    "id": "32446631",
+    "name": "Manipulator Token",
+    "anatomy": "fiend",
+    "reference": null
+  },
+  {
+    "id": "33676147",
+    "name": "Escapegoat Token",
+    "anatomy": "sheep",
+    "reference": null
+  },
+  {
+    "id": "34479659",
+    "name": "Alligator Token",
+    "anatomy": "serpent",
+    "reference": null
+  },
+  {
+    "id": "34767866",
+    "name": "Cynet Token",
+    "anatomy": "network",
+    "reference": null
+  },
+  {
+    "id": "34822851",
+    "name": "Infernoid Token",
+    "anatomy": "fiend",
+    "reference": "34822851"
+  },
+  {
+    "id": "35167376",
+    "name": "Surprise Token",
+    "anatomy": "spirit",
+    "reference": null
+  },
+  {
+    "id": "35263181",
+    "name": "Snack Token",
+    "anatomy": "seed",
+    "reference": null
+  },
+  {
+    "id": "35268888",
+    "name": "Ghost Token",
+    "anatomy": "spirit",
+    "reference": "35268888"
+  },
+  {
+    "id": "35514097",
+    "name": "Multi Token",
+    "anatomy": "gadget",
+    "reference": "35514097"
+  },
+  {
+    "id": "35552986",
+    "name": "Fiendsmith Token",
+    "anatomy": "fiend",
+    "reference": null
+  },
+  {
+    "id": "35834120",
+    "name": "Lamp Token",
+    "anatomy": "fish",
+    "reference": null
+  },
+  {
+    "id": "36629636",
+    "name": "White Fluff Token",
+    "anatomy": "flower",
+    "reference": null
+  },
+  {
+    "id": "37654624",
+    "name": "Mech Beast Token",
+    "anatomy": "gadget",
+    "reference": null
+  },
+  {
+    "id": "38030233",
+    "name": "Tenyi Spirit Token",
+    "anatomy": "dragon",
+    "reference": null
+  },
+  {
+    "id": "38041941",
+    "name": "Seed Token",
+    "anatomy": "seed",
+    "reference": "38041941"
+  },
+  {
+    "id": "38053382",
+    "name": "Generaider Token",
+    "anatomy": "fairy",
+    "reference": null
+  },
+  {
+    "id": "39972130",
+    "name": "Kagemusha Raccoon Token",
+    "anatomy": "raccoon",
+    "reference": "39972130"
+  },
+  {
+    "id": "40551411",
+    "name": "Nouvelles Token",
+    "anatomy": "fiend",
+    "reference": null
+  },
+  {
+    "id": "40703223",
+    "name": "Kuriboh Token",
+    "anatomy": "kuriboh",
+    "reference": "40703223"
+  },
+  {
+    "id": "40844553",
+    "name": "Einherjar Token",
+    "anatomy": "warrior",
+    "reference": "40844553"
+  },
+  {
+    "id": "41329459",
+    "name": "Mecha Phantom Beast Token",
+    "anatomy": "aircraft",
+    "reference": null
+  },
+  {
+    "id": "41458362",
+    "name": "Glimmer Token",
+    "anatomy": "rock",
+    "reference": null
+  },
+  {
+    "id": "42427231",
+    "name": "Machine Token",
+    "anatomy": "gadget",
+    "reference": null
+  },
+  {
+    "id": "42671152",
+    "name": "Malus Token",
+    "anatomy": "fiend",
+    "reference": "42671152"
+  },
+  {
+    "id": "42956964",
+    "name": "Nightmare Archfiend Token",
+    "anatomy": "fiend",
+    "reference": "42956964"
+  },
+  {
+    "id": "43140792",
+    "name": "Worm Token",
+    "anatomy": "worm",
+    "reference": "43140792"
+  },
+  {
+    "id": "43664495",
+    "name": "Prank-Kids Token",
+    "anatomy": "flame",
+    "reference": null
+  },
+  {
+    "id": "44026394",
+    "name": "Mecha Phantom Beast Token",
+    "anatomy": "aircraft",
+    "reference": null
+  },
+  {
+    "id": "44052075",
+    "name": "Ancient Gear Token",
+    "anatomy": "gear",
+    "reference": "44052075"
+  },
+  {
+    "id": "44092305",
+    "name": "Parasomnia Token",
+    "anatomy": "unknown-echo",
+    "reference": null
+  },
+  {
+    "id": "44097051",
+    "name": "Mecha Phantom Beast Token",
+    "anatomy": "aircraft",
+    "reference": null
+  },
+  {
+    "id": "44308318",
+    "name": "Ice Barrier Token",
+    "anatomy": "ice",
+    "reference": null
+  },
+  {
+    "id": "44330099",
+    "name": "Emissary of Darkness Token",
+    "anatomy": "fairy",
+    "reference": "44330099"
+  },
+  {
+    "id": "44586427",
+    "name": "Batteryman Token",
+    "anatomy": "gadget",
+    "reference": "44586427"
+  },
+  {
+    "id": "44689689",
+    "name": "Spinos Token",
+    "anatomy": "serpent",
+    "reference": "44689689"
+  },
+  {
+    "id": "46173680",
+    "name": "Doomsday Token",
+    "anatomy": "fiend",
+    "reference": "46173680"
+  },
+  {
+    "id": "46173681",
+    "name": "Doomsday Token",
+    "anatomy": "fiend",
+    "reference": "46173681"
+  },
+  {
+    "id": "46647145",
+    "name": "World Legacy Token",
+    "anatomy": "fairy",
+    "reference": "46647145"
+  },
+  {
+    "id": "47658965",
+    "name": "Laval Token",
+    "anatomy": "flame",
+    "reference": "47658965"
+  },
+  {
+    "id": "48068379",
+    "name": "Link Token",
+    "anatomy": "network",
+    "reference": null
+  },
+  {
+    "id": "48115278",
+    "name": "Block Token",
+    "anatomy": "block",
+    "reference": "48115278"
+  },
+  {
+    "id": "48228391",
+    "name": "Pyrite Token",
+    "anatomy": "warrior",
+    "reference": null
+  },
+  {
+    "id": "48411997",
+    "name": "Jurrac Token",
+    "anatomy": "flame",
+    "reference": "48411997"
+  },
+  {
+    "id": "49808197",
+    "name": "Metabo Token",
+    "anatomy": "fiend",
+    "reference": "49808197"
+  },
+  {
+    "id": "51208047",
+    "name": "Trickstar Token",
+    "anatomy": "fairy",
+    "reference": null
+  },
+  {
+    "id": "51611042",
+    "name": "Epigonos Token",
+    "anatomy": "unknown-echo",
+    "reference": null
+  },
+  {
+    "id": "51987572",
+    "name": "Rockstone Token",
+    "anatomy": "rock",
+    "reference": "51987572"
+  },
+  {
+    "id": "52340445",
+    "name": "Sky Striker Ace Token",
+    "anatomy": "warrior",
+    "reference": "52340445"
+  },
+  {
+    "id": "52768391",
+    "name": "Dark Creator Token",
+    "anatomy": "fiend",
+    "reference": null
+  },
+  {
+    "id": "52782440",
+    "name": "Diagram Token",
+    "anatomy": "gadget",
+    "reference": null
+  },
+  {
+    "id": "52900001",
+    "name": "Shinobird Token",
+    "anatomy": "avian",
+    "reference": "52900001"
+  },
+  {
+    "id": "53545927",
+    "name": "Support Token",
+    "anatomy": "beast",
+    "reference": null
+  },
+  {
+    "id": "53770667",
+    "name": "Armament Reincarnation Token",
+    "anatomy": "warrior",
+    "reference": null
+  },
+  {
+    "id": "53855410",
+    "name": "Doppel Token",
+    "anatomy": "warrior",
+    "reference": "53855410"
+  },
+  {
+    "id": "53855411",
+    "name": "Doppel Token",
+    "anatomy": "warrior",
+    "reference": "53855410"
+  },
+  {
+    "id": "54537490",
+    "name": "Mini Mare Mare Token",
+    "anatomy": "dragon",
+    "reference": "54537490"
+  },
+  {
+    "id": "54577950",
+    "name": "Arc Token",
+    "anatomy": "tank",
+    "reference": null
+  },
+  {
+    "id": "55326323",
+    "name": "Crystron Token",
+    "anatomy": "ice",
+    "reference": "55326323"
+  },
+  {
+    "id": "56051649",
+    "name": "Spider Token",
+    "anatomy": "spider",
+    "reference": "56051649"
+  },
+  {
+    "id": "56597273",
+    "name": "Cloudian Token",
+    "anatomy": "cloud",
+    "reference": "56597273"
+  },
+  {
+    "id": "58371672",
+    "name": "Crystal Beast Token",
+    "anatomy": "beast",
+    "reference": null
+  },
+  {
+    "id": "58809686",
+    "name": "Elfnote Seraphim Token",
+    "anatomy": "flower",
+    "reference": null
+  },
+  {
+    "id": "59160189",
+    "name": "Torment Token",
+    "anatomy": "spirit",
+    "reference": "59160189"
+  },
+  {
+    "id": "59900656",
+    "name": "Nytro Token",
+    "anatomy": "flame",
+    "reference": null
+  },
+  {
+    "id": "60025884",
+    "name": "Duel Dragon Token",
+    "anatomy": "dragon",
+    "reference": null
+  },
+  {
+    "id": "60203671",
+    "name": "Gold Pride Token",
+    "anatomy": "gadget",
+    "reference": null
+  },
+  {
+    "id": "60406592",
+    "name": "Sinister Seed Token",
+    "anatomy": "seed",
+    "reference": "60406592"
+  },
+  {
+    "id": "60514626",
+    "name": "Mask Token",
+    "anatomy": "spirit",
+    "reference": null
+  },
+  {
+    "id": "60764582",
+    "name": "Lamb Token",
+    "anatomy": "lamb",
+    "reference": "60764582"
+  },
+  {
+    "id": "60764583",
+    "name": "Lamb Token",
+    "anatomy": "lamb",
+    "reference": "60764583"
+  },
+  {
+    "id": "62125439",
+    "name": "Synchron Token",
+    "anatomy": "gear",
+    "reference": "62125439"
+  },
+  {
+    "id": "62543394",
+    "name": "Lekunga Token",
+    "anatomy": "flower",
+    "reference": "62543394"
+  },
+  {
+    "id": "63184228",
+    "name": "Stardust Token",
+    "anatomy": "dragon",
+    "reference": null
+  },
+  {
+    "id": "63442605",
+    "name": "Mirage Token",
+    "anatomy": "warrior",
+    "reference": "63442605"
+  },
+  {
+    "id": "64213018",
+    "name": "Beetrooper Token",
+    "anatomy": "beetle",
+    "reference": null
+  },
+  {
+    "id": "64382840",
+    "name": "Eva Token",
+    "anatomy": "fiend",
+    "reference": "64382840"
+  },
+  {
+    "id": "64382841",
+    "name": "Eva Token",
+    "anatomy": "fiend",
+    "reference": "64382840"
+  },
+  {
+    "id": "64583601",
+    "name": "Dragon Token",
+    "anatomy": "dragon",
+    "reference": null
+  },
+  {
+    "id": "65500516",
+    "name": "Squid Ink Token",
+    "anatomy": "slime",
+    "reference": null
+  },
+  {
+    "id": "65810490",
+    "name": "Wicked Token",
+    "anatomy": "fiend",
+    "reference": "65810490"
+  },
+  {
+    "id": "66200211",
+    "name": "Mecha Phantom Beast Token",
+    "anatomy": "aircraft",
+    "reference": null
+  },
+  {
+    "id": "66661679",
+    "name": "Ice Coffin Token",
+    "anatomy": "ice",
+    "reference": "66661679"
+  },
+  {
+    "id": "67284108",
+    "name": "Black Sheep Token",
+    "anatomy": "sheep",
+    "reference": "67284108"
+  },
+  {
+    "id": "67284109",
+    "name": "Black Sheep Token",
+    "anatomy": "sheep",
+    "reference": "67284108"
+  },
+  {
+    "id": "67284110",
+    "name": "Black Sheep Token",
+    "anatomy": "sheep",
+    "reference": "67284108"
+  },
+  {
+    "id": "67284111",
+    "name": "Black Sheep Token",
+    "anatomy": "sheep",
+    "reference": "67284108"
+  },
+  {
+    "id": "67489920",
+    "name": "Mecha Phantom Beast Token",
+    "anatomy": "aircraft",
+    "reference": null
+  },
+  {
+    "id": "67922703",
+    "name": "Mecha Phantom Beast Token",
+    "anatomy": "aircraft",
+    "reference": null
+  },
+  {
+    "id": "67949764",
+    "name": "Umbral Horror Mirage Token",
+    "anatomy": "cyber-polyhedron",
+    "reference": "67949764"
+  },
+  {
+    "id": "68815402",
+    "name": "Wild Fire Token",
+    "anatomy": "flame",
+    "reference": "68815402"
+  },
+  {
+    "id": "69550260",
+    "name": "Speedroid Token",
+    "anatomy": "gadget",
+    "reference": null
+  },
+  {
+    "id": "69811711",
+    "name": "World Legacy Token",
+    "anatomy": "gadget",
+    "reference": null
+  },
+  {
+    "id": "69868556",
+    "name": "Dragon Lord Token",
+    "anatomy": "dragon",
+    "reference": "69868556"
+  },
+  {
+    "id": "69890968",
+    "name": "Phantasm Token",
+    "anatomy": "fiend",
+    "reference": "69890968"
+  },
+  {
+    "id": "70391589",
+    "name": "Siphon Token",
+    "anatomy": "spirit",
+    "reference": "70391589"
+  },
+  {
+    "id": "70465811",
+    "name": "Phantom Glimmer Token",
+    "anatomy": "avian",
+    "reference": null
+  },
+  {
+    "id": "70875956",
+    "name": "Mecha Phantom Beast Token",
+    "anatomy": "aircraft",
+    "reference": null
+  },
+  {
+    "id": "70950699",
+    "name": "Stag Token",
+    "anatomy": "cyber-polyhedron",
+    "reference": null
+  },
+  {
+    "id": "71645243",
+    "name": "Rose Token",
+    "anatomy": "flower",
+    "reference": "71645243"
+  },
+  {
+    "id": "71771005",
+    "name": "Sacrificial Offering Token",
+    "anatomy": "fiend",
+    "reference": null
+  },
+  {
+    "id": "71939276",
+    "name": "Doppelganger Token",
+    "anatomy": "warrior",
+    "reference": null
+  },
+  {
+    "id": "72291079",
+    "name": "Mecha Phantom Beast Token",
+    "anatomy": "aircraft",
+    "reference": null
+  },
+  {
+    "id": "73915052",
+    "name": "Sheep Token",
+    "anatomy": "sheep",
+    "reference": "73915052"
+  },
+  {
+    "id": "73915053",
+    "name": "Sheep Token",
+    "anatomy": "sheep",
+    "reference": "73915053"
+  },
+  {
+    "id": "73915054",
+    "name": "Sheep Token",
+    "anatomy": "sheep",
+    "reference": "73915054"
+  },
+  {
+    "id": "73915055",
+    "name": "Sheep Token",
+    "anatomy": "sheep",
+    "reference": "73915055"
+  },
+  {
+    "id": "74440056",
+    "name": "Needle Token",
+    "anatomy": "seed",
+    "reference": "74440056"
+  },
+  {
+    "id": "74627017",
+    "name": "T.G. Token",
+    "anatomy": "gadget",
+    "reference": null
+  },
+  {
+    "id": "74659583",
+    "name": "Runick Token",
+    "anatomy": "fairy",
+    "reference": null
+  },
+  {
+    "id": "74983882",
+    "name": "Maize Token",
+    "anatomy": "maize",
+    "reference": "74983882"
+  },
+  {
+    "id": "75119041",
+    "name": "Tindangle Token",
+    "anatomy": "cyber-polyhedron",
+    "reference": "75119041"
+  },
+  {
+    "id": "75524093",
+    "name": "Evil Token",
+    "anatomy": "fiend",
+    "reference": "75524093"
+  },
+  {
+    "id": "75622825",
+    "name": "Tricky Token",
+    "anatomy": "spirit",
+    "reference": "75622825"
+  },
+  {
+    "id": "75732623",
+    "name": "Grinder Token",
+    "anatomy": "fiend",
+    "reference": "75732623"
+  },
+  {
+    "id": "76589547",
+    "name": "Overflow Token",
+    "anatomy": "dragon",
+    "reference": null
+  },
+  {
+    "id": "77435269",
+    "name": "Iron Rubble Token",
+    "anatomy": "gadget",
+    "reference": null
+  },
+  {
+    "id": "79387393",
+    "name": "Slime Token",
+    "anatomy": "slime",
+    "reference": "21770261"
+  },
+  {
+    "id": "81767889",
+    "name": "Iceblade Token",
+    "anatomy": "dragon",
+    "reference": null
+  },
+  {
+    "id": "82255873",
+    "name": "Ancient Warriors Token",
+    "anatomy": "warrior",
+    "reference": null
+  },
+  {
+    "id": "82324106",
+    "name": "Soul Token",
+    "anatomy": "spirit",
+    "reference": "82324106"
+  },
+  {
+    "id": "82340057",
+    "name": "Ceremonial Token",
+    "anatomy": "rock",
+    "reference": "82340057"
+  },
+  {
+    "id": "82556059",
+    "name": "Engine Token",
+    "anatomy": "gear",
+    "reference": "82556059"
+  },
+  {
+    "id": "82994510",
+    "name": "Horseytail Token",
+    "anatomy": "flower",
+    "reference": "82994510"
+  },
+  {
+    "id": "83239740",
+    "name": "Oyster Token",
+    "anatomy": "fish",
+    "reference": "83239740"
+  },
+  {
+    "id": "84031360",
+    "name": "Darklord Token",
+    "anatomy": "fairy",
+    "reference": null
+  },
+  {
+    "id": "84816245",
+    "name": "Data Acorn Token",
+    "anatomy": "gadget",
+    "reference": "84816245"
+  },
+  {
+    "id": "85243785",
+    "name": "Link Token",
+    "anatomy": "network",
+    "reference": null
+  },
+  {
+    "id": "85771020",
+    "name": "Asmo Token",
+    "anatomy": "fairy",
+    "reference": "85771020"
+  },
+  {
+    "id": "85771021",
+    "name": "Deus Token",
+    "anatomy": "fairy",
+    "reference": "85771021"
+  },
+  {
+    "id": "85969518",
+    "name": "Plunder Patroll Token",
+    "anatomy": "fiend",
+    "reference": null
+  },
+  {
+    "id": "86801872",
+    "name": "Poisonous Snake Token",
+    "anatomy": "serpent",
+    "reference": "86801872"
+  },
+  {
+    "id": "86871615",
+    "name": "Clone Token",
+    "anatomy": "dragon",
+    "reference": "86871615"
+  },
+  {
+    "id": "87669905",
+    "name": "Dual Avatar Spirit Token",
+    "anatomy": "warrior",
+    "reference": null
+  },
+  {
+    "id": "88477150",
+    "name": "Ice Pillar Token",
+    "anatomy": "ice",
+    "reference": null
+  },
+  {
+    "id": "88923964",
+    "name": "Noble Knight Token",
+    "anatomy": "warrior",
+    "reference": null
+  },
+  {
+    "id": "89027419",
+    "name": "Imposter Token",
+    "anatomy": "spirit",
+    "reference": null
+  },
+  {
+    "id": "89907228",
+    "name": "Divine Dragon Token",
+    "anatomy": "dragon",
+    "reference": "89907228"
+  },
+  {
+    "id": "90884404",
+    "name": "Utchatzimime Token",
+    "anatomy": "cyber-orb",
+    "reference": "90884404"
+  },
+  {
+    "id": "91512836",
+    "name": "Insect Monster Token",
+    "anatomy": "beetle",
+    "reference": "91512836"
+  },
+  {
+    "id": "92907249",
+    "name": "Centur-Ion Token",
+    "anatomy": "flame",
+    "reference": null
+  },
+  {
+    "id": "93104633",
+    "name": "Security Token",
+    "anatomy": "gadget",
+    "reference": "93104633"
+  },
+  {
+    "id": "93130022",
+    "name": "Option Token",
+    "anatomy": "cyber-orb",
+    "reference": "93130022"
+  },
+  {
+    "id": "93224849",
+    "name": "Phantasmal Martyr Token",
+    "anatomy": "fiend",
+    "reference": "93224849"
+  },
+  {
+    "id": "93912846",
+    "name": "Gift Fiend Token",
+    "anatomy": "fiend",
+    "reference": "93912846"
+  },
+  {
+    "id": "94384775",
+    "name": "Shinsen Token",
+    "anatomy": "slime",
+    "reference": null
+  },
+  {
+    "id": "94384776",
+    "name": "Ebisu Token",
+    "anatomy": "fairy",
+    "reference": null
+  },
+  {
+    "id": "94703022",
+    "name": "Congester Token",
+    "anatomy": "network",
+    "reference": null
+  },
+  {
+    "id": "94973029",
+    "name": "Mecha Phantom Beast Token",
+    "anatomy": "aircraft",
+    "reference": null
+  },
+  {
+    "id": "97452818",
+    "name": "Moon Token",
+    "anatomy": "fairy",
+    "reference": "97452818"
+  },
+  {
+    "id": "98596597",
+    "name": "Fireball Token",
+    "anatomy": "flame",
+    "reference": "98596597"
+  },
+  {
+    "id": "98875864",
+    "name": "G Golem Token",
+    "anatomy": "cyber-polyhedron",
+    "reference": null
+  }
+]

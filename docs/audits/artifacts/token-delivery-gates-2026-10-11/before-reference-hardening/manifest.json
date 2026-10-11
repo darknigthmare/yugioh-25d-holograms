@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-11",
+  "description": "Final full-check and source/build freeze after correction of actual missing transient card image paths. Before-image-fix is historical only. Dependency files unchanged; the prior executed security audit remains valid.",
+  "files": {
+    "build-freeze.json": {
+      "bytes": 179638,
+      "sha256": "23c404bfd9fd6ede7bdf885208a5cb479972b002111f2a1360620cb20486e973",
+      "originalPath": "/workspace/yugioh-token-build-freeze-2026-10-11.json"
+    },
+    "check-final.txt": {
+      "bytes": 273009,
+      "sha256": "5cd5b89d5ac68fb74ea140970f30452e6df11e42e4206c88d627a7c054d53b09",
+      "originalPath": "/workspace/yugioh-token-check-final-2026-10-11.txt"
+    },
+    "security-final.txt": {
+      "bytes": 521,
+      "sha256": "ce10d89592b5b2d55cb4bdaf4b098f6da78eb23609d6da2dde83e6ade53be768",
+      "originalPath": "/workspace/yugioh-token-security-final-2026-10-11.txt"
+    },
+    "historical-before.json": {
+      "bytes": 373286,
+      "sha256": "4aa2ccd2a21202aae2803a486933b52856d493b2e245d9cbbf674f58e5cc12a2",
+      "originalPath": "/workspace/yugioh-token-history-before-2026-10-11.json"
+    },
+    "historical-after.json": {
+      "bytes": 551,
+      "sha256": "3e54ce985bc15c21a855fdc1d67a4bdcfe86c6824cc052b68ebb462b98279b8c",
+      "originalPath": "/workspace/yugioh-token-history-after-2026-10-11.json"
+    },
+    "image-fix-targeted.txt": {
+      "bytes": 4156,
+      "sha256": "241e8e847b2003d70075f6a295ba1895c4635ef4cf61d50cdc6cde8aea2f43a8",
+      "originalPath": "/workspace/yugioh-token-image-fix-targeted-2026-10-11.txt"
+    }
+  }
+}

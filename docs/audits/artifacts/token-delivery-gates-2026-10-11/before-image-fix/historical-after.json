@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-11",
+  "historicalFiles": 1847,
+  "identical": true,
+  "baseline": "82d8ef5bffb6eef01d197ea00a8cb2694e2e2870",
+  "snapshot": {
+    "path": "/workspace/yugioh-token-history-before-2026-10-11.json",
+    "sha256": "4aa2ccd2a21202aae2803a486933b52856d493b2e245d9cbbf674f58e5cc12a2"
+  },
+  "expectedRegeneratedHistoricalFilesRestored": [
+    "docs/audits/artifacts/native-battle-timing-2026-10-08.json",
+    "docs/audits/artifacts/native-chain-interactions-2026-10-08.json"
+  ]
+}

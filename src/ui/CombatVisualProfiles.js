@@ -2,6 +2,7 @@ import { FIELD_SPELL_REFERENCE_ART_PALETTES } from './FieldSpellReferenceArtPale
 import { getFieldSpellEnvironmentCatalogEntry } from './FieldSpellEnvironmentCatalog.js';
 import { POPULAR_GOD_MODEL_PROFILES } from './HologramPopularGodModels.js';
 import { POPULAR_STAPLE_PROFILES } from './HologramPopularStapleModels.js';
+import { getTokenMonsterModelProfile, TOKEN_MONSTER_MODEL_PROFILES } from './TokenMonsterModelProfiles.js';
 
 const ATTRIBUTE_COLORS = Object.freeze({
   LIGHT: '#87eaff', DARK: '#ae75ff', FIRE: '#ff7944', WATER: '#38d8ee',
@@ -41,7 +42,9 @@ const CARD_PROFILES = Object.freeze({
   ...POPULAR_STAPLE_PROFILES
 });
 
-export const SUPPORTED_HOLOGRAM_MODEL_IDS = Object.freeze(Object.keys(CARD_PROFILES));
+export const SUPPORTED_HOLOGRAM_MODEL_IDS = Object.freeze([
+  ...Object.keys(CARD_PROFILES), ...Object.keys(TOKEN_MONSTER_MODEL_PROFILES)
+]);
 export const SUPPORTED_PROCEDURAL_MODEL_FAMILIES = Object.freeze([
   'dragon', 'magician', 'faith', 'warrior', 'machine', 'rock', 'kuriboh',
   'sangan', 'fiend', 'clock', 'insect', 'aquatic', 'avian', 'beast', 'token', 'spirit', 'orb'
@@ -50,6 +53,25 @@ export const SUPPORTED_PROCEDURAL_MODEL_FAMILIES = Object.freeze([
 export function resolveHologramMonsterProfile(card = {}) {
   const exact = CARD_PROFILES[String(card.id || '').replace(/^0+(?=\d)/, '')];
   if (exact) return Object.freeze({ ...exact });
+  const token = getTokenMonsterModelProfile(card.id);
+  if (token) {
+    const mechanical = ['aircraft', 'gadget', 'gear', 'tank', 'network', 'cyber-orb', 'cyber-polyhedron', 'clock'].includes(token.tokenAnatomy);
+    const glossy = ['slime', 'ice'].includes(token.tokenAnatomy);
+    const attack = ['aircraft', 'gadget', 'gear', 'tank', 'network', 'cyber-orb', 'cyber-polyhedron'].includes(token.tokenAnatomy)
+      ? 'cyber-beam' : token.tokenAnatomy === 'warrior' ? 'blade'
+        : token.tokenAnatomy === 'flame' ? 'dragon-flame'
+          : ['fish', 'slime'].includes(token.tokenAnatomy) ? 'water' : 'impact';
+    return Object.freeze({
+      id: `token-${token.tokenCode}`, family: 'token', attack,
+      body: '#bbcdd9', accent: '#88bacc', hair: '#273845', eye: '#edfbff',
+      bodyMetalness: mechanical ? 0.55 : 0.04, bodyRoughness: mechanical ? 0.32 : glossy ? 0.3 : 0.78,
+      accentMetalness: mechanical ? 0.65 : 0.08, accentRoughness: mechanical ? 0.25 : glossy ? 0.3 : 0.7,
+      darkMetalness: mechanical ? 0.45 : 0.03,
+      ...token,
+      ...(/^\d{1,12}$/.test(token.tokenVisual?.referenceImageId || '')
+        ? { referenceArt: `/tokens/reference/${token.tokenVisual.referenceImageId}.jpg` } : {})
+    });
+  }
   const race = String(card.race || '').toLowerCase();
   const attribute = String(card.attribute || '').toUpperCase();
   const accent = ATTRIBUTE_COLORS[attribute] || '#87d8ed';
@@ -65,6 +87,11 @@ export function resolveHologramMonsterProfile(card = {}) {
                 : /winged beast/.test(race) ? 'avian'
                   : /insect/.test(race) ? 'insect'
                     : /beast|plant/.test(race) ? 'beast' : 'spirit';
+  if (family === 'token') return Object.freeze({
+    id: 'generic-token-unknown', family: 'token', tokenAnatomy: 'unknown-echo',
+    tokenVisual: Object.freeze({ variant: 'unresolved', referenceImageId: null, visualBasis: 'unavailable' }),
+    body: '#bbcdd9', accent: '#88bacc', hair: '#273845', eye: '#edfbff', attack: 'impact'
+  });
   const attack = digital ? 'cyber-beam'
     : family === 'dragon' ? (attribute === 'FIRE' ? 'dragon-flame' : 'dragon-burst')
     : family === 'magician' ? 'dark-magic'

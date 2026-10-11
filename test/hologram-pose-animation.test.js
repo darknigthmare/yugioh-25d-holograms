@@ -37,7 +37,9 @@ test('new card identities have distinctive anatomy, declared support and bounded
   assert.equal(resolveHologramMonsterProfile({ id: '054652250' }).id, 'man-eater-bug');
   const token = createHologramMonsterModel({ type: 'Token', race: 'Beast', attribute: 'EARTH' });
   const linkCaster = createHologramMonsterModel({ type: 'Link Effect Monster', race: 'Spellcaster', attribute: 'DARK' });
-  assert.ok(token.userData.partNames.includes('token-goat-face'));
+  assert.equal(token.userData.profile.tokenAnatomy, 'unknown-echo');
+  assert.ok(token.userData.partNames.includes('token-unknown-neutral-echo'));
+  assert.ok(!token.userData.partNames.some(part => /goat|fleece|horn/.test(part)));
   assert.ok(linkCaster.userData.partNames.includes('staff-digital-core'));
   assert.ok(linkCaster.userData.partNames.includes('projection-link-arrow-1'));
   assert.equal(linkCaster.userData.profile.attack, 'cyber-beam');

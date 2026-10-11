@@ -1,0 +1,271 @@
+{
+  "asOf": "2026-10-11",
+  "scope": "Four verified physical print identities, not an exhaustive worldwide commemorative Token inventory. No native passcode or gameplay stats are invented. Existing stylised duellist avatars are reused; companion monsters in the printed artwork are not reconstructed by this avatar view.",
+  "sources": [
+    {
+      "path": "sources/konami-yugis-legendary-decks.html",
+      "url": "https://www.yugioh-card.com/en/products/past_products/yugis_legendary_decks/",
+      "status": 200,
+      "bytes": 28615,
+      "sha256": "6e2460b26298c0eb92107670aa76f3f9c5390c6ac2c5c1bff6619f0a4a3fbada",
+      "kind": "primary-Konami-product"
+    },
+    {
+      "path": "sources/konami-legendary-decks-ii.html",
+      "url": "https://www.yugioh-card.com/en/products/past_products/legendary_decks_2/",
+      "status": 200,
+      "bytes": 28777,
+      "sha256": "65243475e3dc16b2a9f2dee058f138054eabdd4677506969fe79154fddfb7476",
+      "kind": "primary-Konami-product"
+    },
+    {
+      "path": "sources/konami-albaz-strike.html",
+      "url": "https://www.yugioh-card.com/en/products/sdaz/",
+      "status": 200,
+      "bytes": 32353,
+      "sha256": "8a02b71de33587adf32351ad98e46833e1820658974aaab4e95fb9fad1274482",
+      "kind": "primary-Konami-product"
+    },
+    {
+      "path": "sources/konami-spirit-charmers.html",
+      "url": "https://www.yugioh-card.com/en/products/sdsc/",
+      "status": 200,
+      "bytes": 31620,
+      "sha256": "83257f1309d61ec8373b06915b581e44990d8f0c781bb3a95e43f6461aabb6e5",
+      "kind": "primary-Konami-product"
+    },
+    {
+      "path": "sources/yugipedia-generic-token-gallery.html",
+      "url": "https://yugipedia.com/index.php?title=Card_Gallery:Token_(card)&oldid=5987593",
+      "status": 200,
+      "bytes": 496655,
+      "sha256": "9776f629c935d00020916a48995a2f5407b88d89f970b389df81d18c2c5074e9",
+      "kind": "secondary-card-scan-gallery"
+    },
+    {
+      "path": "sources/yugipedia-joey-token-gallery.html",
+      "url": "https://yugipedia.com/wiki/Card_Gallery:Token_(Joey_and_Red-Eyes_Black_Dragon)",
+      "status": 200,
+      "bytes": 62236,
+      "sha256": "460d3635b50ba5433886afe3de327bf9f005e7af2f836d96de22f6dd7c0ae14b",
+      "kind": "secondary-card-scan-gallery"
+    }
+  ],
+  "presentations": [
+    {
+      "presentationId": "commemorative:YGLD-ENTKN",
+      "cardId": null,
+      "code": null,
+      "nativeCode": null,
+      "tokenCode": null,
+      "name": "Token — Yami Yugi",
+      "kind": "decorative",
+      "tokenKind": "decorative",
+      "type": "Printed Token Marker",
+      "nativeTypeCode": null,
+      "nativeAliasCode": null,
+      "race": null,
+      "nativeRaceCode": null,
+      "attribute": null,
+      "nativeAttributeCode": null,
+      "level": null,
+      "atk": null,
+      "def": null,
+      "ot": null,
+      "sourceDatabase": null,
+      "description": "This card can be used as any Token. This card cannot be in a Deck.",
+      "generatorCodes": [],
+      "generatorNames": [],
+      "modelAvailable": true,
+      "modelKind": "duelist-avatar",
+      "modelScope": "duelist",
+      "modelDescription": "Silhouette stylisée du duelliste imprimé.",
+      "avatarId": "atem",
+      "tokenAnatomy": null,
+      "tokenVisual": null,
+      "imageId": null,
+      "physicalSetCode": "YGLD-ENTKN",
+      "printedSourceCardCode": null,
+      "printedSets": [
+        {
+          "name": "Yugi’s Legendary Decks",
+          "code": "YGLD-ENTKN"
+        }
+      ],
+      "illustratedCharacters": [
+        "Yami Yugi"
+      ],
+      "referenceArtPath": "/tokens/commemorative/YGLD-ENTKN.png",
+      "referenceArtUrl": "https://ms.yugipedia.com/4/47/Token-YGLD-EN-UR-LE-YamiYugi.png",
+      "referenceKind": "printed-token",
+      "referenceAliasSourceCode": null,
+      "sourceUrl": "https://www.yugioh-card.com/en/products/past_products/yugis_legendary_decks/"
+    },
+    {
+      "presentationId": "commemorative:LDK2-ENT01",
+      "cardId": null,
+      "code": null,
+      "nativeCode": null,
+      "tokenCode": null,
+      "name": "Token — Yami Yugi & Dark Magician",
+      "kind": "decorative",
+      "tokenKind": "decorative",
+      "type": "Printed Token Marker",
+      "nativeTypeCode": null,
+      "nativeAliasCode": null,
+      "race": null,
+      "nativeRaceCode": null,
+      "attribute": null,
+      "nativeAttributeCode": null,
+      "level": null,
+      "atk": null,
+      "def": null,
+      "ot": null,
+      "sourceDatabase": null,
+      "description": "This card can be used as any Token. This card cannot be in a Deck.",
+      "generatorCodes": [],
+      "generatorNames": [],
+      "modelAvailable": true,
+      "modelKind": "duelist-avatar",
+      "modelScope": "duelist",
+      "modelDescription": "Silhouette stylisée du duelliste imprimé.",
+      "avatarId": "atem",
+      "tokenAnatomy": null,
+      "tokenVisual": null,
+      "imageId": null,
+      "physicalSetCode": "LDK2-ENT01",
+      "printedSourceCardCode": null,
+      "printedSets": [
+        {
+          "name": "Legendary Decks II",
+          "code": "LDK2-ENT01"
+        }
+      ],
+      "illustratedCharacters": [
+        "Yami Yugi",
+        "Dark Magician"
+      ],
+      "referenceArtPath": "/tokens/commemorative/LDK2-ENT01.png",
+      "referenceArtUrl": "https://ms.yugipedia.com/2/22/Token-LDK2-EN-UR-LE-YugiDarkMagician.png",
+      "referenceKind": "printed-token",
+      "referenceAliasSourceCode": null,
+      "sourceUrl": "https://www.yugioh-card.com/en/products/past_products/legendary_decks_2/"
+    },
+    {
+      "presentationId": "commemorative:LDK2-ENT02",
+      "cardId": null,
+      "code": null,
+      "nativeCode": null,
+      "tokenCode": null,
+      "name": "Token — Kaiba & Blue-Eyes White Dragon",
+      "kind": "decorative",
+      "tokenKind": "decorative",
+      "type": "Printed Token Marker",
+      "nativeTypeCode": null,
+      "nativeAliasCode": null,
+      "race": null,
+      "nativeRaceCode": null,
+      "attribute": null,
+      "nativeAttributeCode": null,
+      "level": null,
+      "atk": null,
+      "def": null,
+      "ot": null,
+      "sourceDatabase": null,
+      "description": "This card can be used as any Token. This card cannot be in a Deck.",
+      "generatorCodes": [],
+      "generatorNames": [],
+      "modelAvailable": true,
+      "modelKind": "duelist-avatar",
+      "modelScope": "duelist",
+      "modelDescription": "Silhouette stylisée du duelliste imprimé.",
+      "avatarId": "kaiba",
+      "tokenAnatomy": null,
+      "tokenVisual": null,
+      "imageId": null,
+      "physicalSetCode": "LDK2-ENT02",
+      "printedSourceCardCode": null,
+      "printedSets": [
+        {
+          "name": "Legendary Decks II",
+          "code": "LDK2-ENT02"
+        }
+      ],
+      "illustratedCharacters": [
+        "Seto Kaiba",
+        "Blue-Eyes White Dragon"
+      ],
+      "referenceArtPath": "/tokens/commemorative/LDK2-ENT02.png",
+      "referenceArtUrl": "https://ms.yugipedia.com/7/72/Token-LDK2-EN-UR-LE-KaibaBlueEyesWhiteDragon.png",
+      "referenceKind": "printed-token",
+      "referenceAliasSourceCode": null,
+      "sourceUrl": "https://www.yugioh-card.com/en/products/past_products/legendary_decks_2/"
+    },
+    {
+      "presentationId": "commemorative:LDK2-ENT03",
+      "cardId": null,
+      "code": null,
+      "nativeCode": null,
+      "tokenCode": null,
+      "name": "Token — Joey & Red-Eyes Black Dragon",
+      "kind": "decorative",
+      "tokenKind": "decorative",
+      "type": "Printed Token Marker",
+      "nativeTypeCode": null,
+      "nativeAliasCode": null,
+      "race": null,
+      "nativeRaceCode": null,
+      "attribute": null,
+      "nativeAttributeCode": null,
+      "level": null,
+      "atk": null,
+      "def": null,
+      "ot": null,
+      "sourceDatabase": null,
+      "description": "This card can be used as any Token. This card cannot be in a Deck.",
+      "generatorCodes": [],
+      "generatorNames": [],
+      "modelAvailable": true,
+      "modelKind": "duelist-avatar",
+      "modelScope": "duelist",
+      "modelDescription": "Silhouette stylisée du duelliste imprimé.",
+      "avatarId": "joey",
+      "tokenAnatomy": null,
+      "tokenVisual": null,
+      "imageId": null,
+      "physicalSetCode": "LDK2-ENT03",
+      "printedSourceCardCode": null,
+      "printedSets": [
+        {
+          "name": "Legendary Decks II",
+          "code": "LDK2-ENT03"
+        }
+      ],
+      "illustratedCharacters": [
+        "Joey Wheeler",
+        "Red-Eyes Black Dragon"
+      ],
+      "referenceArtPath": "/tokens/commemorative/LDK2-ENT03.png",
+      "referenceArtUrl": "https://ms.yugipedia.com/2/22/Token-LDK2-EN-UR-LE-JoeyandRedEyesBlackDragon.png",
+      "referenceKind": "printed-token",
+      "referenceAliasSourceCode": null,
+      "sourceUrl": "https://www.yugioh-card.com/en/products/past_products/legendary_decks_2/"
+    }
+  ],
+  "otherOfficiallyConfirmedPhysicalTokens": [
+    {
+      "product": "Structure Deck: Albaz Strike",
+      "variants": 5,
+      "sourceUrl": "https://www.yugioh-card.com/en/products/sdaz/",
+      "integrated": false,
+      "note": "Named Token cards and artwork presentation remain outside this four-print catalogue extension."
+    },
+    {
+      "product": "Structure Deck: Spirit Charmers",
+      "variants": 5,
+      "sourceUrl": "https://www.yugioh-card.com/en/products/sdsc/",
+      "integrated": false,
+      "note": "Five distinct print artworks confirmed by Konami; not registered as native duel monsters."
+    }
+  ]
+}

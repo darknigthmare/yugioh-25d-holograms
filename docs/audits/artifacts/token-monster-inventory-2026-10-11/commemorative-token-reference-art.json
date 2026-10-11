@@ -1,0 +1,75 @@
+{
+  "asOf": "2026-10-11",
+  "sourceKind": "secondary-card-scan",
+  "imageCount": 4,
+  "images": [
+    {
+      "setCode": "YGLD-ENTKN",
+      "caption": "YGLD-ENTKN ( UR ) ( Limited Edition ) Yugi's Legendary Decks ( Yami Yugi )",
+      "url": "https://ms.yugipedia.com/4/47/Token-YGLD-EN-UR-LE-YamiYugi.png",
+      "galleryThumbnailUrl": "https://ms.yugipedia.com//thumb/4/47/Token-YGLD-EN-UR-LE-YamiYugi.png/83px-Token-YGLD-EN-UR-LE-YamiYugi.png",
+      "path": "public/tokens/commemorative/YGLD-ENTKN.png",
+      "bytes": 3346931,
+      "sha256": "de2d93b4f9fb1bc4f2da75204fd539d871d8778aa101030f37e27f076d744743",
+      "dimensions": [
+        1000,
+        1451
+      ],
+      "status": 200,
+      "contentType": "image/png",
+      "gallerySourceUrl": "https://yugipedia.com/index.php?title=Card_Gallery:Token_(card)&oldid=5987593",
+      "gallerySourceSha256": "9776f629c935d00020916a48995a2f5407b88d89f970b389df81d18c2c5074e9"
+    },
+    {
+      "setCode": "LDK2-ENT01",
+      "caption": "LDK2-ENT01 ( UR ) ( Limited Edition ) Legendary Decks II ( Yami Yugi and Dark Magician )",
+      "url": "https://ms.yugipedia.com/2/22/Token-LDK2-EN-UR-LE-YugiDarkMagician.png",
+      "galleryThumbnailUrl": "https://ms.yugipedia.com//thumb/2/22/Token-LDK2-EN-UR-LE-YugiDarkMagician.png/82px-Token-LDK2-EN-UR-LE-YugiDarkMagician.png",
+      "path": "public/tokens/commemorative/LDK2-ENT01.png",
+      "bytes": 835221,
+      "sha256": "ec48b7462ba36801436740575d050acf2c983c0fede82ccab43f55647fb6e7a1",
+      "dimensions": [
+        477,
+        695
+      ],
+      "status": 200,
+      "contentType": "image/png",
+      "gallerySourceUrl": "https://yugipedia.com/index.php?title=Card_Gallery:Token_(card)&oldid=5987593",
+      "gallerySourceSha256": "9776f629c935d00020916a48995a2f5407b88d89f970b389df81d18c2c5074e9"
+    },
+    {
+      "setCode": "LDK2-ENT02",
+      "caption": "LDK2-ENT02 ( UR ) ( Limited Edition ) Legendary Decks II ( Kaiba and Blue-Eyes White Dragon )",
+      "url": "https://ms.yugipedia.com/7/72/Token-LDK2-EN-UR-LE-KaibaBlueEyesWhiteDragon.png",
+      "galleryThumbnailUrl": "https://ms.yugipedia.com//thumb/7/72/Token-LDK2-EN-UR-LE-KaibaBlueEyesWhiteDragon.png/82px-Token-LDK2-EN-UR-LE-KaibaBlueEyesWhiteDragon.png",
+      "path": "public/tokens/commemorative/LDK2-ENT02.png",
+      "bytes": 844534,
+      "sha256": "48afa4dccb8a5a61001e179585748d0666fc6f8c99779bee32461e2b6d9e8a28",
+      "dimensions": [
+        477,
+        695
+      ],
+      "status": 200,
+      "contentType": "image/png",
+      "gallerySourceUrl": "https://yugipedia.com/index.php?title=Card_Gallery:Token_(card)&oldid=5987593",
+      "gallerySourceSha256": "9776f629c935d00020916a48995a2f5407b88d89f970b389df81d18c2c5074e9"
+    },
+    {
+      "setCode": "LDK2-ENT03",
+      "caption": "LDK2-ENT03 ( UR ) Limited Edition Legendary Decks II",
+      "url": "https://ms.yugipedia.com/2/22/Token-LDK2-EN-UR-LE-JoeyandRedEyesBlackDragon.png",
+      "galleryThumbnailUrl": "https://ms.yugipedia.com//thumb/2/22/Token-LDK2-EN-UR-LE-JoeyandRedEyesBlackDragon.png/120px-Token-LDK2-EN-UR-LE-JoeyandRedEyesBlackDragon.png",
+      "path": "public/tokens/commemorative/LDK2-ENT03.png",
+      "bytes": 840074,
+      "sha256": "e1c658f9b192a202b940e391ae9339e182b56d77326cb1813e3eb27d183a15ef",
+      "dimensions": [
+        479,
+        695
+      ],
+      "status": 200,
+      "contentType": "image/png",
+      "gallerySourceUrl": "https://yugipedia.com/wiki/Card_Gallery:Token_(Joey_and_Red-Eyes_Black_Dragon)",
+      "gallerySourceSha256": "460d3635b50ba5433886afe3de327bf9f005e7af2f836d96de22f6dd7c0ae14b"
+    }
+  ]
+}

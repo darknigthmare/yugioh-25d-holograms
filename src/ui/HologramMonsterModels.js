@@ -5,6 +5,7 @@ import { HOLOGRAM_JOINTS, installHologramPoseRig, resolveHologramPartJoint } fro
 import { buildReferenceMonsterAnatomy } from './HologramReferenceAnatomy.js';
 import { buildPopularGodMonsterAnatomy } from './HologramPopularGodModels.js';
 import { buildPopularStapleAnatomy } from './HologramPopularStapleModels.js';
+import { buildTokenMonsterAnatomy } from './HologramTokenModels.js';
 
 /** Texture-free articulated silhouettes, merged by material to bound draw calls. */
 export function createHologramMonsterModel(card = {}, { defense = false } = {}) {
@@ -129,7 +130,8 @@ export function createHologramMonsterModel(card = {}, { defense = false } = {}) 
   }
 
   const helpers = { part, sphere, box, cone, ring, rod, membrane };
-  const refined = buildPopularGodMonsterAnatomy(profile, helpers)
+  const refined = buildTokenMonsterAnatomy(profile, helpers)
+    || buildPopularGodMonsterAnatomy(profile, helpers)
     || buildPopularStapleAnatomy(profile, helpers)
     || buildReferenceMonsterAnatomy(profile, helpers);
   if (refined) {
@@ -251,22 +253,6 @@ export function createHologramMonsterModel(card = {}, { defense = false } = {}) 
         const y = 0.94 + leg * 0.24;
         rod(`insect-leg-upper-${side}-${leg}`, 'body', [side * 0.39, y, 0.02], [side * (0.79 + leg * 0.09), y - 0.16, 0.05 - leg * 0.1], 0.057);
         rod(`insect-leg-lower-${side}-${leg}`, 'accent', [side * (0.79 + leg * 0.09), y - 0.16, 0.05 - leg * 0.1], [side * (1.05 + leg * 0.07), 0.23, 0.36 - leg * 0.28], 0.04, 0.018);
-      }
-    }
-  } else if (profile.family === 'token') {
-    sphere('token-fleece-core', 'body', [0, 1.04, 0], [0.64, 0.56, 0.49]);
-    for (let i = 0; i < 12; i += 1) {
-      const angle = i * Math.PI / 6;
-      sphere(`token-fleece-curl-${i}`, i % 3 ? 'body' : 'accent', [Math.cos(angle) * 0.53, 1.06 + (i % 2) * 0.16, Math.sin(angle) * 0.39], [0.23, 0.23, 0.23]);
-    }
-    sphere('token-goat-face', 'dark', [0, 1.4, 0.49], [0.28, 0.31, 0.3]);
-    eyePair(1.49, 0.75, 0.145, 0.045);
-    for (const side of [-1, 1]) {
-      cone(`token-horn-${side}`, 'accent', [side * 0.22, 1.77, 0.41], [0.075, 0.36, 0.075], [0, 0, side * -0.3]);
-      sphere(`token-ear-${side}`, 'body', [side * 0.4, 1.48, 0.47], [0.2, 0.07, 0.11]);
-      for (const z of [-0.24, 0.29]) {
-        rod(`token-leg-${side}-${z}`, 'dark', [side * 0.39, 0.83, z], [side * 0.42, 0.28, z], 0.055);
-        box(`token-hoof-${side}-${z}`, 'accent', [side * 0.42, 0.21, z + 0.03], [0.18, 0.16, 0.2]);
       }
     }
   } else if (profile.family === 'fiend') {

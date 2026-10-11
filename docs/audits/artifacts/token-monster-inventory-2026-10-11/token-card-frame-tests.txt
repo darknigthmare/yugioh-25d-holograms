@@ -1,0 +1,23 @@
+✔ full CDB search preserves the local 390 catalogue and existing original templates (402.611927ms)
+✔ ordinary Normal monsters need no Lua; effect and procedure cards require genuine bundled scripts (0.42596ms)
+✔ native CDB templates preserve Xyz ranks, Link markers and both Pendulum scales (36.552738ms)
+✔ bound prerelease passcodes and duplicate beta versions produce a single canonical search result (16.403546ms)
+✔ unknown artwork uses a local PNG accepted by CardState; native-created Tokens stay out of decks (20.013527ms)
+✔ two Trap Monster illustrations are exact local source JPEGs with pinned bytes, dimensions and metadata (18.775945ms)
+✔ copied runtime names and monster traits preserve physical artwork and permanent native copy identity (0.73137ms)
+✔ unreferenced cards and Tokens without verified artwork retain the neutral local artwork after known references are cached (0.474323ms)
+✔ verified Token frames appear in native presentations without admitting Tokens to the Deck (0.723548ms)
+✔ trusted CDB aliases enforce the three-copy rule across Harpie variants and Umi (0.77151ms)
+✔ expanded CDB cards are accepted only by the free native predicate and cannot spoof deck sections (5.624732ms)
+✔ Skill, Rush, illegal, Token and effect cards with missing scripts are excluded from free search (1.343692ms)
+✔ full, small and cropped Token frames match all 120 exact API images and original JPEG hashes (91.45793ms)
+✔ only nine genuine native Token aliases reuse verified frames and keep their own identity (0.580503ms)
+✔ ordinary cards, unillustrated Tokens and internal placeholders gain no unrelated Token frame (0.430989ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1522.498006

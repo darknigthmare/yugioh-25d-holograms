@@ -1294,6 +1294,8 @@ export class RealDuelScene3D {
       entry.owner = owner;
       entry.zoneType = zoneType;
       entry.zoneIndex = zoneIndex;
+      entry.publicCardId = /^\d{1,12}$/.test(publicCard.id) ? publicCard.id : '';
+      entry.position = defense ? 'defense' : 'attack';
       entry.object.position.set(...position);
       entry.object.rotation.y = owner === 'player' ? Math.PI : 0;
       retained.add(key);
@@ -1305,8 +1307,26 @@ export class RealDuelScene3D {
       disposeObject3D(entry.object);
       this._fieldHolograms.delete(key);
     }
+    this._publishFieldHologramProfiles();
     this.render();
     return { renderedKeys: [...retained] };
+  }
+
+  /** Bounded public identities of the models actually constructed, without UIDs or live card state. */
+  _publishFieldHologramProfiles() {
+    if (!this.root?.dataset) return;
+    const profiles = [...this._fieldHolograms.values()].slice(0, 12).map(entry => {
+      const profile = entry.object?.userData?.profile;
+      const publicLabel = value => typeof value === 'string' && /^[a-z0-9:-]{1,96}$/.test(value) ? value : '';
+      return {
+        owner: entry.owner, zoneType: entry.zoneType, zoneIndex: entry.zoneIndex,
+        cardId: entry.publicCardId, profileId: publicLabel(profile?.id),
+        anatomy: publicLabel(profile?.tokenAnatomy || profile?.anatomy || profile?.family),
+        position: entry.position
+      };
+    });
+    const next = JSON.stringify(profiles);
+    if (this.root.dataset.fieldHologramProfiles !== next) this.root.dataset.fieldHologramProfiles = next;
   }
 
   _validatedWorldPosition(value) {
@@ -1643,6 +1663,7 @@ export class RealDuelScene3D {
     this._cameraTransition = null;
     this._animatedVisualsActive = false;
     this._fieldHolograms.clear();
+    this._publishFieldHologramProfiles();
     this._fieldEnvironmentGeometry = null;
     this._fieldEnvironmentGeometrySignature = null;
     this._cameraUpdateCallback = null;

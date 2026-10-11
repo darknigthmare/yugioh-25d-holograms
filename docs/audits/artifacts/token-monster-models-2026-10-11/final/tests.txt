@@ -1,0 +1,25 @@
+✔ all registered botanical and insect Tokens have finite bounded geometry within five batches and 6000 triangles (367.996346ms)
+✔ flowers are separate wool, rose, leafy, cyclopean and long-stem silhouettes (66.153999ms)
+✔ reference ant and spider have six and eight legs; mantis has folding forelegs and four walking legs (14.225285ms)
+✔ insect-monster emerges from an open spotted shell while pure eggs remain delegated (7.072112ms)
+✔ maize, needle, sinister seed and skull-grub retain their reference details (17.000357ms)
+✔ unknown anatomy produces no parts and construction is deterministic without reading duel state (15.800713ms)
+✔ all 240 native monster Tokens resolve their exact public identity and bounded dedicated anatomy (2469.87907ms)
+✔ documented shared illustrations retain the same anatomy and palette while preserving each native code (115.512683ms)
+✔ illustrated species keep their defining anatomy instead of receiving the former goat mannequin (201.165971ms)
+✔ unknown Tokens use a neutral echo independent of private identity and unsupported builders do nothing (21.081141ms)
+✔ wing, weapon and both Metal Fiend hooks have their shared shader joints and stable buffers during actions (48.972911ms)
+✔ all Token geometry, visible materials and owned depth/distance materials are released once (25.384069ms)
+✔ reference-based construct refinements remain finite, batched and within the Token geometry budget (116.993406ms)
+✔ laser module, perched one-eye dragon, spacecraft orb and crowned crystal keep their distinct source silhouettes (18.147351ms)
+✔ Small Fire and Wild Fire remain faceless while their flame geometries differ (71.205423ms)
+✔ Engine uses a compact crankcase and wire loops while Synchron uses two green V cylinders (24.604468ms)
+✔ solar-panel grid bars sit on the tilted panel surface rather than the world XY plane (0.953794ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3203.215864

@@ -379,8 +379,15 @@ export function translateNativeVisualEvents(message, context = {}) {
       const publicOverlayMaterial = to?.zoneType === 'overlay'
         && ['main', 'extra'].includes(from?.zoneType)
         && faceUp(msg.from?.position);
+      // A Token ceases to exist instead of entering a destination zone. Its
+      // already public face-up identity and native MOVE reason still prove
+      // destruction or material use; never query location 0 or reveal a raw
+      // passcode to reconstruct that former identity.
+      const publicTokenRemoval = !to && msg.to?.location === 0
+        && ['main', 'extra'].includes(from?.zoneType)
+        && faceUp(msg.from?.position) && previous?.isToken === true;
       const info = card || publicOverlayMaterial ? queryPublic(msg.to, context, msg.card) : null;
-      const publicReason = card || publicOverlayMaterial
+      const publicReason = card || publicOverlayMaterial || publicTokenRemoval
         ? Number.isInteger(msg.reason) ? msg.reason : info?.reason : null;
       recordMaterialEvidence({ reason: publicReason }, context);
       forgetMovedLocation(msg.from, context);

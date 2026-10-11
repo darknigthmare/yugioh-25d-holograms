@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-11",
+  "description": "Final executed full-check/source/build freeze after local-image correction and own-property reference lookup hardening. Before-image-fix and before-reference-hardening are historical only. Dependency files unchanged; the executed security audit is reused. The image-fix-targeted log precedes own-property hardening, which is exercised by the final full-check.",
+  "files": {
+    "build-freeze.json": {
+      "bytes": 179638,
+      "sha256": "1ee6840a88bdab54193f4edf6db3b09ff18524cb42ed5cf5c584fce320c3069d",
+      "originalPath": "/workspace/yugioh-token-build-freeze-2026-10-11.json"
+    },
+    "check-final.txt": {
+      "bytes": 273021,
+      "sha256": "5f34940fd331f57aa21e8a85d1ecfc176ab66e5c91252165764c9d8e0d47029e",
+      "originalPath": "/workspace/yugioh-token-check-final-2026-10-11.txt"
+    },
+    "security-final.txt": {
+      "bytes": 521,
+      "sha256": "ce10d89592b5b2d55cb4bdaf4b098f6da78eb23609d6da2dde83e6ade53be768",
+      "originalPath": "/workspace/yugioh-token-security-final-2026-10-11.txt"
+    },
+    "historical-before.json": {
+      "bytes": 373286,
+      "sha256": "4aa2ccd2a21202aae2803a486933b52856d493b2e245d9cbbf674f58e5cc12a2",
+      "originalPath": "/workspace/yugioh-token-history-before-2026-10-11.json"
+    },
+    "historical-after.json": {
+      "bytes": 551,
+      "sha256": "eebf6851c1593e45a386edbb49f4a63034ba75ae4a629052e410b04fcd30e6f8",
+      "originalPath": "/workspace/yugioh-token-history-after-2026-10-11.json"
+    },
+    "image-fix-targeted.txt": {
+      "bytes": 4156,
+      "sha256": "241e8e847b2003d70075f6a295ba1895c4635ef4cf61d50cdc6cde8aea2f43a8",
+      "originalPath": "/workspace/yugioh-token-image-fix-targeted-2026-10-11.txt"
+    }
+  }
+}

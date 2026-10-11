@@ -705,6 +705,7 @@ body.modal-open {
   padding: 10px 15%;
   align-items: center;
   transform-style: preserve-3d;
+  pointer-events: none;
 }
 
 .zones-row {
@@ -714,6 +715,7 @@ body.modal-open {
   align-items: center;
   justify-items: center;
   transform-style: preserve-3d;
+  pointer-events: auto;
 }
 
 /* Central Expandable Arena Gap */

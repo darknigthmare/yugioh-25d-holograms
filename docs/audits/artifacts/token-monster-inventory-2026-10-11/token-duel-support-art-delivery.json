@@ -1,0 +1,72 @@
+{
+  "asOf": "2026-10-11",
+  "supportCardCodes": [
+    3285551,
+    31036355,
+    53129443,
+    67922702,
+    73915051,
+    98978921
+  ],
+  "newOriginalImages": 16,
+  "reusedOriginalCrops": 2,
+  "newOriginalBytes": 1454661,
+  "waveOriginalImageAssets": 476,
+  "referenceCount": 145,
+  "existingNonTokenReferences": 10,
+  "verifiedTokenReferences": 129,
+  "supportCardReferences": 6,
+  "modules": [
+    {
+      "path": "src/core/native/TokenDuelCardReferenceArt.js",
+      "bytes": 6274,
+      "sha256": "c3712b532a518be54e605b3f9dc3e9c163deb4af2f8bbc6241629d11252cb6f4"
+    },
+    {
+      "path": "src/core/native/NativeCardReferenceArt.js",
+      "bytes": 2886,
+      "sha256": "4ad42e025de988369991228023c761189d0a96c78fb2e43788b1d5dcedf932f6"
+    }
+  ],
+  "manifestSha256": "e1b39207e338d804382cfd94135d19f6759949f6cfdcd77e0152702d1e66b698",
+  "testProof": {
+    "command": "node --test tests/native-token-reference-art.test.mjs tests/native-card-catalogue.test.js",
+    "networkPermissionEnabled": true,
+    "passed": 16,
+    "failed": 0,
+    "stdoutPath": "token-duel-support-art-tests.txt",
+    "stdoutSha256": "d30db76fba72750c966bbcefe7ab5fff8363c4ecb701aea094acda0a5e0728e0"
+  },
+  "unchangedPinnedFiles": [
+    {
+      "path": "src/core/native/TokenCardReferenceArt.js",
+      "sha256": "b661b5d6a0f5f1a183c7b089ebeaf792a2a05e84739e2e02c2e1faa5e9ed3ff5",
+      "unchanged": true
+    },
+    {
+      "path": "src/ui/TokenMonsterModelProfiles.js",
+      "sha256": "51aa0358a560efbee72a924a7dc335fef58bd7b55019d414350600e966c38db9",
+      "unchanged": true
+    },
+    {
+      "path": "src/ui/TokenMonsterProfiles.js",
+      "sha256": "1b6a05e72b7a51bd5853efea38da157008da989d95196404ed908c89de7e7b31",
+      "unchanged": true
+    },
+    {
+      "path": "public/native/card-data.json",
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d",
+      "unchanged": true
+    },
+    {
+      "path": "public/native/scripts.json",
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f",
+      "unchanged": true
+    },
+    {
+      "path": "public/native/ocgcore.sync.wasm",
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+      "unchanged": true
+    }
+  ]
+}

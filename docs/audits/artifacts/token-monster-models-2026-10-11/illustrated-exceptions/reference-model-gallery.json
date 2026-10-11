@@ -1,0 +1,114 @@
+{
+  "metrics": [
+    {
+      "code": "93912846",
+      "anatomy": "fiend",
+      "variant": "gift-fiend",
+      "triangles": 3652,
+      "batches": 4,
+      "actualDrawCalls": 4,
+      "bounds": {
+        "min": [
+          -0.6749317646026611,
+          0.07400000095367432,
+          -0.3719785213470459
+        ],
+        "max": [
+          0.6674384474754333,
+          2.5193047523498535,
+          0.6000000238418579
+        ]
+      },
+      "parts": 30
+    },
+    {
+      "code": "49808197",
+      "anatomy": "fiend",
+      "variant": "metabo",
+      "triangles": 3758,
+      "batches": 5,
+      "actualDrawCalls": 5,
+      "bounds": {
+        "min": [
+          -1.3563100099563599,
+          0.13686473667621613,
+          -0.7536067962646484
+        ],
+        "max": [
+          1.3563100099563599,
+          3.2699999809265137,
+          0.7123463153839111
+        ]
+      },
+      "parts": 57
+    },
+    {
+      "code": "75732623",
+      "anatomy": "fiend",
+      "variant": "grinder",
+      "triangles": 4472,
+      "batches": 3,
+      "actualDrawCalls": 3,
+      "bounds": {
+        "min": [
+          -1.2450590133666992,
+          0.125,
+          -0.3050000071525574
+        ],
+        "max": [
+          1.1050000190734863,
+          3.180000066757202,
+          0.6649999618530273
+        ]
+      },
+      "parts": 66
+    },
+    {
+      "code": "8198621",
+      "anatomy": "zombie",
+      "variant": "dark-soul",
+      "triangles": 3044,
+      "batches": 4,
+      "actualDrawCalls": 4,
+      "bounds": {
+        "min": [
+          -1.087914228439331,
+          0.1282656490802765,
+          -0.38197851181030273
+        ],
+        "max": [
+          1.087914228439331,
+          2.973212480545044,
+          0.49399998784065247
+        ]
+      },
+      "parts": 43
+    }
+  ],
+  "renderer": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+  "errors": [],
+  "pageErrors": [],
+  "scope": "Isolated constructor rendered with shared material batches; not full-duel integration.",
+  "createdAt": "2026-10-11T17:18:05.111692+00:00",
+  "before": {
+    "src/ui/HologramTokenIllustratedExceptions.js": "29ada3f0825d726b4c12664c73ced64beab227eb13fd3d8af10c58ab92b50c3d",
+    "src/ui/HologramTokenGeometry.js": "fdae5fa328bfb60e633d2f70ef32964f39e8f9198130be322baa0039977af4d1",
+    "src/ui/TokenMonsterModelProfiles.js": "51aa0358a560efbee72a924a7dc335fef58bd7b55019d414350600e966c38db9",
+    "src/ui/CombatVisualProfiles.js": "2006387828a0219e4799f9c43c8432caa383e457dd748c0e0f61ad2373843f4a",
+    "src/ui/HologramPoseAnimation.js": "0fd60c0f319ee7a413049ac05199d44e06ab356a94174bc2dc35958b22b8729c"
+  },
+  "after": {
+    "src/ui/HologramTokenIllustratedExceptions.js": "29ada3f0825d726b4c12664c73ced64beab227eb13fd3d8af10c58ab92b50c3d",
+    "src/ui/HologramTokenGeometry.js": "fdae5fa328bfb60e633d2f70ef32964f39e8f9198130be322baa0039977af4d1",
+    "src/ui/TokenMonsterModelProfiles.js": "51aa0358a560efbee72a924a7dc335fef58bd7b55019d414350600e966c38db9",
+    "src/ui/CombatVisualProfiles.js": "2006387828a0219e4799f9c43c8432caa383e457dd748c0e0f61ad2373843f4a",
+    "src/ui/HologramPoseAnimation.js": "0fd60c0f319ee7a413049ac05199d44e06ab356a94174bc2dc35958b22b8729c"
+  },
+  "unchanged": true,
+  "referenceSha256": {
+    "93912846": "71125a922e64a03806b0f210f1f745e1a52e4256a260a6054afae12cdacc5400",
+    "49808197": "ff9f20a2b691b0c658d5a229a740b1e393cbea3abbdba39ed0e01caa26a30a22",
+    "75732623": "0863ea0b98052bfa1521691303b1ba19035cab595d42ffc22c05a9e11f75c87e",
+    "8198621": "91f8f8e372d99f7738df505acf5b26523fe05f1c059b0a077ecb88b48261e0fb"
+  }
+}

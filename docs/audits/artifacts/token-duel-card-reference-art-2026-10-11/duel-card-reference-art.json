@@ -1,0 +1,215 @@
+{
+  "asOf": "2026-10-11",
+  "fetchedAtUtc": "2026-10-11T17:52:58.495720+00:00",
+  "source": {
+    "asOf": "2026-10-11",
+    "sourceUrl": "https://db.ygoprodeck.com/api/v7/cardinfo.php?id=73915051,53129443,67922702,31036355,3285551,98978921",
+    "status": 200,
+    "bytes": 20910,
+    "sha256": "d6c68d43ccbb6d1af9a44331262ae79bee8b2f9912eeb6656dbd85441a897326",
+    "codes": [
+      73915051,
+      53129443,
+      67922702,
+      31036355,
+      3285551,
+      98978921
+    ]
+  },
+  "assets": [
+    {
+      "cardCode": 3285551,
+      "name": "Rite of Aramesir",
+      "variant": "cropped",
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/3285551.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "path": "public/tokens/generators/3285551.jpg",
+      "bytes": 192506,
+      "sha256": "6c1e26d167acf09b9ec804cf4e1f1294c439deb9175d0304cb97cefc579988a1",
+      "dimensions": [
+        624,
+        624
+      ],
+      "mode": "existing-local-original"
+    },
+    {
+      "cardCode": 3285551,
+      "name": "Rite of Aramesir",
+      "variant": "small",
+      "url": "https://images.ygoprodeck.com/images/cards_small/3285551.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "path": "public/tokens/duel-small/3285551.jpg",
+      "bytes": 28261,
+      "sha256": "963420ff9c93925db0499c34b5efbe3fe55fa003955b2b38f971fb131318ccc8",
+      "dimensions": [
+        268,
+        391
+      ],
+      "mode": "downloaded-original"
+    },
+    {
+      "cardCode": 31036355,
+      "name": "Creature Swap",
+      "variant": "cropped",
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/31036355.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "path": "public/tokens/duel-cropped/31036355.jpg",
+      "bytes": 102391,
+      "sha256": "b81f462148b1e6f521de3f5096636c7a00ed9c5b99c6a7bd6d5bf0a8c202fa63",
+      "dimensions": [
+        624,
+        624
+      ],
+      "mode": "downloaded-original"
+    },
+    {
+      "cardCode": 31036355,
+      "name": "Creature Swap",
+      "variant": "small",
+      "url": "https://images.ygoprodeck.com/images/cards_small/31036355.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "path": "public/tokens/duel-small/31036355.jpg",
+      "bytes": 24189,
+      "sha256": "3f3b5489f296a14fd9d4b66e9edf45b2ddd99d23139233208e7e76606bf76bc1",
+      "dimensions": [
+        268,
+        391
+      ],
+      "mode": "downloaded-original"
+    },
+    {
+      "cardCode": 53129443,
+      "name": "Dark Hole",
+      "variant": "cropped",
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/53129443.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "path": "public/tokens/duel-cropped/53129443.jpg",
+      "bytes": 94351,
+      "sha256": "41ea257e26b9a0264a80848235a9cf03a392c1789ea1feeeee0ddbf362a6eea5",
+      "dimensions": [
+        624,
+        624
+      ],
+      "mode": "downloaded-original"
+    },
+    {
+      "cardCode": 53129443,
+      "name": "Dark Hole",
+      "variant": "small",
+      "url": "https://images.ygoprodeck.com/images/cards_small/53129443.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "path": "public/tokens/duel-small/53129443.jpg",
+      "bytes": 19144,
+      "sha256": "f9141cf481a490b11a66f42018d700ebbaff13e94b1378787219f3b6cfb3e497",
+      "dimensions": [
+        268,
+        391
+      ],
+      "mode": "downloaded-original"
+    },
+    {
+      "cardCode": 67922702,
+      "name": "Mecha Phantom Beast Tetherwolf",
+      "variant": "cropped",
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/67922702.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "path": "public/tokens/generators/67922702.jpg",
+      "bytes": 93745,
+      "sha256": "29babdb6b2f88ae6e7b1d2cc652543819fa2e0fd73bb1d35e96635e7c0456446",
+      "dimensions": [
+        624,
+        624
+      ],
+      "mode": "existing-local-original"
+    },
+    {
+      "cardCode": 67922702,
+      "name": "Mecha Phantom Beast Tetherwolf",
+      "variant": "small",
+      "url": "https://images.ygoprodeck.com/images/cards_small/67922702.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "path": "public/tokens/duel-small/67922702.jpg",
+      "bytes": 26337,
+      "sha256": "8b55d053f2853ec027c0e7b9a485f57a20cc15096c30d25c80bfc4afafd1dbed",
+      "dimensions": [
+        268,
+        391
+      ],
+      "mode": "downloaded-original"
+    },
+    {
+      "cardCode": 73915051,
+      "name": "Scapegoat",
+      "variant": "cropped",
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/73915051.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "path": "public/tokens/duel-cropped/73915051.jpg",
+      "bytes": 83656,
+      "sha256": "f8a01e3d3ead0921e6b0d53fbd51fd8ae700f719e078db7a2bf1a5ecb99b206d",
+      "dimensions": [
+        624,
+        624
+      ],
+      "mode": "downloaded-original"
+    },
+    {
+      "cardCode": 73915051,
+      "name": "Scapegoat",
+      "variant": "small",
+      "url": "https://images.ygoprodeck.com/images/cards_small/73915051.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "path": "public/tokens/duel-small/73915051.jpg",
+      "bytes": 23521,
+      "sha256": "aba0fb3ef15a7690e072d9a051e5a8e8f3ad8783bf9f2e3f28286ecc5e24a4a6",
+      "dimensions": [
+        268,
+        391
+      ],
+      "mode": "downloaded-original"
+    },
+    {
+      "cardCode": 98978921,
+      "name": "Link Spider",
+      "variant": "cropped",
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/98978921.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "path": "public/tokens/duel-cropped/98978921.jpg",
+      "bytes": 146745,
+      "sha256": "054b1dc5b80b2131641181f4da4d57a645dde022253270fecee697f8f519d8c7",
+      "dimensions": [
+        624,
+        624
+      ],
+      "mode": "downloaded-original"
+    },
+    {
+      "cardCode": 98978921,
+      "name": "Link Spider",
+      "variant": "small",
+      "url": "https://images.ygoprodeck.com/images/cards_small/98978921.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "path": "public/tokens/duel-small/98978921.jpg",
+      "bytes": 29173,
+      "sha256": "54b2e8c67045c48a0f31b39102411c5eb33c9ca11409c8d206b334f7ac6d31cb",
+      "dimensions": [
+        268,
+        391
+      ],
+      "mode": "downloaded-original"
+    }
+  ],
+  "scope": "Six verified non-Token cards used in authentic Token Duel QA. Source images only; no gameplay, card registry, mapping or native archive changes.",
+  "finalManifestPath": "docs/audits/artifacts/token-monster-inventory-2026-10-11/token-duel-support-art.json"
+}

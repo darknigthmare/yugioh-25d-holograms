@@ -81,7 +81,7 @@ test('unknown artwork uses a local PNG accepted by CardState; native-created Tok
   assert.ok(searchNativeCardCatalogue(resources, 'Rose Token').every(card => !card.isToken && card.id !== '71645243'));
   const token = createNativeCardPresentationTemplate(resources, 71645243);
   assert.equal(token.isToken, true); assert.equal(token.nativeDeckEligible, false);
-  assert.equal(token.image_url, NATIVE_UNKNOWN_CARD_IMAGE);
+  assert.equal(token.image_url, getNativeCardReferenceArt(71645243).full.assetPath);
   assert.equal(isSupportedNativeCatalogueCard(resources, token), false);
 });
 
@@ -104,7 +104,7 @@ function jpegDimensions(bytes) {
 }
 
 test('two Trap Monster illustrations are exact local source JPEGs with pinned bytes, dimensions and metadata', async () => {
-  assert.equal(Object.keys(NATIVE_CARD_REFERENCE_ART).length, 10);
+  assert.equal(Object.keys(NATIVE_CARD_REFERENCE_ART).length, 145);
   assert.ok(['26905245', '28649820'].every(code => NATIVE_CARD_REFERENCE_ART[code]));
   assert.ok(Object.isFrozen(NATIVE_CARD_REFERENCE_ART));
   const hashes = {
@@ -162,9 +162,9 @@ test('copied runtime names and monster traits preserve physical artwork and perm
   }
 });
 
-test('unreferenced cards and native-created Tokens retain the neutral local artwork after known references are cached', () => {
+test('unreferenced cards and Tokens without verified artwork retain the neutral local artwork after known references are cached', () => {
   for (const code of [26905245, 28649820]) createNativeCardPresentationTemplate(resources, code);
-  for (const code of [59755122, 71645243]) {
+  for (const code of [59755122, 3285552]) {
     assert.equal(getNativeCardReferenceArt(code), null);
     const template = createNativeCardPresentationTemplate(resources, code);
     assert.equal(template.image_url, NATIVE_UNKNOWN_CARD_IMAGE);
@@ -173,6 +173,26 @@ test('unreferenced cards and native-created Tokens retain the neutral local artw
   }
   assert.equal(createNativeCardTemplate(resources, 71645243), null);
   assert.equal(createNativeCardPresentationTemplate(resources, 71645243).nativeDeckEligible, false);
+});
+
+test('verified Token frames appear in native presentations without admitting Tokens to the Deck', () => {
+  const codes = [73915052, 73915053, 73915054, 73915055, 71645243];
+  for (const code of codes) {
+    const reference = getNativeCardReferenceArt(code);
+    const template = createNativeCardPresentationTemplate(resources, code);
+    assert.ok(reference);
+    assert.equal(template.nativeCode, code);
+    assert.equal(template.image_url, reference.full.assetPath);
+    assert.equal(template.image_url_cropped, reference.cropped.assetPath);
+    assert.equal(template.isToken, true);
+    assert.equal(template.nativeDeckEligible, false);
+    assert.equal(createNativeCardTemplate(resources, code), null);
+    const data = resources.cards.get(code);
+    assert.deepEqual([template.atk, template.def, template.level], [data.attack, data.defense, data.level]);
+    assert.equal(new CardState(template).image_url, reference.full.assetPath);
+  }
+  assert.equal(new Set(codes.slice(0, 4).map(code => getNativeCardReferenceArt(code).full.assetPath)).size, 4, 'colour variants keep their own physical frames');
+  assert.equal(getNativeCardReferenceArt(59755122), null, 'ordinary cards gain no unrelated illustration');
 });
 
 test('trusted CDB aliases enforce the three-copy rule across Harpie variants and Umi', () => {

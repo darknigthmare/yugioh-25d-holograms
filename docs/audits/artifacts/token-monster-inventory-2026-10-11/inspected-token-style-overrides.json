@@ -1,0 +1,678 @@
+{
+  "asOf": "2026-10-11",
+  "basis": "120 original Token images inspected visually. Hex colours are chosen approximations, not sampled pixels. Only profiles with the same verified referenceImageId inherit a style.",
+  "profiles": {
+    "73915052": {
+      "variant": "sleeping-sheep",
+      "body": "#a7a4df",
+      "accent": "#c9b287",
+      "eye": "#62556b"
+    },
+    "73915053": {
+      "variant": "sleeping-sheep",
+      "body": "#ef9772",
+      "accent": "#c9b287",
+      "eye": "#62556b"
+    },
+    "73915054": {
+      "variant": "sleeping-sheep",
+      "body": "#e4b540",
+      "accent": "#c9b287",
+      "eye": "#62556b"
+    },
+    "73915055": {
+      "variant": "sleeping-sheep",
+      "body": "#ce7287",
+      "accent": "#c9b287",
+      "eye": "#62556b"
+    },
+    "60764582": {
+      "variant": "sleeping-lamb",
+      "body": "#e9adb4",
+      "accent": "#bdb099",
+      "eye": "#62556b"
+    },
+    "60764583": {
+      "variant": "sleeping-lamb",
+      "body": "#e9e8df",
+      "accent": "#bdb099",
+      "eye": "#62556b"
+    },
+    "67284108": {
+      "variant": "black-sheep",
+      "body": "#671e31",
+      "accent": "#bdb099",
+      "eye": "#9be2ec"
+    },
+    "40703223": {
+      "variant": "brown-kuriboh",
+      "body": "#a48c60",
+      "accent": "#6b9871",
+      "eye": "#927abc"
+    },
+    "11050416": {
+      "variant": "party-hippo",
+      "body": "#d288b1",
+      "accent": "#ad62b4",
+      "eye": "#5693bd"
+    },
+    "11050417": {
+      "variant": "orange-dancer",
+      "body": "#d48b55",
+      "accent": "#8fbd57",
+      "eye": "#5693bd"
+    },
+    "11050418": {
+      "variant": "yellow-dancer",
+      "body": "#dfc371",
+      "accent": "#cc6caf",
+      "eye": "#5693bd"
+    },
+    "11050419": {
+      "variant": "blue-dancer",
+      "body": "#5ab6c1",
+      "accent": "#edc653",
+      "eye": "#5693bd"
+    },
+    "14470846": {
+      "variant": "red-ojama",
+      "body": "#b74759",
+      "accent": "#e6db8c",
+      "eye": "#d9d6ac"
+    },
+    "14470847": {
+      "variant": "blue-ojama",
+      "body": "#4795b4",
+      "accent": "#d4d39c",
+      "eye": "#d9d6ac"
+    },
+    "29843092": {
+      "variant": "green-tongue-ojama",
+      "body": "#339b73",
+      "accent": "#ba3553",
+      "eye": "#e8d766"
+    },
+    "29843093": {
+      "variant": "yellow-eyestalk-ojama",
+      "body": "#d7c26d",
+      "accent": "#ba3553",
+      "eye": "#e8d766"
+    },
+    "29843094": {
+      "variant": "grey-ojama",
+      "body": "#758da3",
+      "accent": "#ba3553",
+      "eye": "#dde5dc"
+    },
+    "39972130": {
+      "variant": "raccoon",
+      "body": "#c3a24d",
+      "accent": "#ecdca4",
+      "eye": "#a69657"
+    },
+    "15394084": {
+      "variant": "wolf",
+      "body": "#9aaeb8",
+      "accent": "#cad8d6",
+      "eye": "#e8cf72"
+    },
+    "27198002": {
+      "variant": "spectral-fox",
+      "body": "#e0b1ca",
+      "accent": "#f4e3e9",
+      "eye": "#87b5ba",
+      "tokenAnatomy": "beast"
+    },
+    "9047461": {
+      "variant": "steam-cloud",
+      "body": "#b8d4e2",
+      "accent": "#e4eff1",
+      "eye": "#efae63"
+    },
+    "56597273": {
+      "tokenAnatomy": "cloud",
+      "variant": "sleeping-cloud",
+      "body": "#e0e8e9",
+      "accent": "#fafcfb",
+      "eye": "#6a7480"
+    },
+    "21770261": {
+      "variant": "spirit-slime",
+      "body": "#c7b9e5",
+      "accent": "#d96848",
+      "eye": "#bd3d34"
+    },
+    "98596597": {
+      "variant": "blue-flame",
+      "body": "#36c9d8",
+      "accent": "#80e0f0",
+      "eye": "#be95e5"
+    },
+    "47658965": {
+      "variant": "face-flame",
+      "body": "#eea532",
+      "accent": "#ffdd61",
+      "eye": "#ca3136"
+    },
+    "48411997": {
+      "tokenAnatomy": "flame",
+      "variant": "small-fire",
+      "body": "#f09d28",
+      "accent": "#ffd659",
+      "eye": "#6d2924"
+    },
+    "68815402": {
+      "variant": "wild-fire",
+      "body": "#db6336",
+      "accent": "#f8c444",
+      "eye": "#ffa858"
+    },
+    "84816245": {
+      "tokenAnatomy": "gadget",
+      "variant": "usb-acorn",
+      "body": "#b95437",
+      "accent": "#d8be83",
+      "eye": "#cc9554"
+    },
+    "23331401": {
+      "tokenAnatomy": "gadget",
+      "variant": "solar-drone",
+      "body": "#c9a05e",
+      "accent": "#746796",
+      "eye": "#76bbdf"
+    },
+    "44586427": {
+      "tokenAnatomy": "gadget",
+      "variant": "solar-battery",
+      "body": "#d2d1c7",
+      "accent": "#617ca9",
+      "eye": "#dbbb43"
+    },
+    "93104633": {
+      "tokenAnatomy": "gadget",
+      "variant": "security-drone",
+      "body": "#b0c8d3",
+      "accent": "#a65955",
+      "eye": "#7cd2dc"
+    },
+    "27450401": {
+      "tokenAnatomy": "gadget",
+      "variant": "compass",
+      "body": "#d7ba70",
+      "accent": "#e9d897",
+      "eye": "#7b91bb"
+    },
+    "14089429": {
+      "tokenAnatomy": "aircraft",
+      "variant": "option-beam",
+      "body": "#dddccc",
+      "accent": "#a5b0b3",
+      "eye": "#f8d153"
+    },
+    "93130022": {
+      "tokenAnatomy": "cyber-orb",
+      "variant": "option-orb",
+      "body": "#d6cfb2",
+      "accent": "#4e5d65",
+      "eye": "#daeff7"
+    },
+    "904186": {
+      "variant": "phantom-jet",
+      "body": "#b8c0df",
+      "accent": "#dbaccf",
+      "eye": "#e9d388"
+    },
+    "29491335": {
+      "variant": "dog-fighter",
+      "body": "#a4a8b9",
+      "accent": "#ba5363",
+      "eye": "#e3d973"
+    },
+    "10389143": {
+      "variant": "battle-eagle",
+      "body": "#45405b",
+      "accent": "#a13655",
+      "eye": "#de74a3"
+    },
+    "44052075": {
+      "variant": "ancient-gear",
+      "body": "#b7babc",
+      "accent": "#717981",
+      "eye": "#d9d7bc"
+    },
+    "82556059": {
+      "tokenAnatomy": "gear",
+      "variant": "engine",
+      "body": "#8a969d",
+      "accent": "#ba697a",
+      "eye": "#dbcc6b"
+    },
+    "62125439": {
+      "tokenAnatomy": "gear",
+      "variant": "synchron-engine",
+      "body": "#9ca3a3",
+      "accent": "#458f78",
+      "eye": "#cfdd7a"
+    },
+    "48115278": {
+      "tokenAnatomy": "block",
+      "variant": "colored-block-robot",
+      "body": "#edca50",
+      "accent": "#bd4e43",
+      "eye": "#312f34"
+    },
+    "66661679": {
+      "variant": "gold-ice-coffin",
+      "body": "#a9d4e2",
+      "accent": "#c6ad70",
+      "eye": "#e5f9ff"
+    },
+    "55326323": {
+      "tokenAnatomy": "ice",
+      "variant": "crystron-crystal",
+      "body": "#8fb1cc",
+      "accent": "#c2e0e8",
+      "eye": "#92d5e9"
+    },
+    "51987572": {
+      "variant": "rockstone-golem",
+      "body": "#7c7766",
+      "accent": "#89453d",
+      "eye": "#bfc38c"
+    },
+    "82340057": {
+      "variant": "ceremonial-pillar",
+      "body": "#858f9f",
+      "accent": "#594d72",
+      "eye": "#b97393"
+    },
+    "53855410": {
+      "variant": "doppel",
+      "body": "#777a83",
+      "accent": "#3f3b4a",
+      "eye": "#c15470"
+    },
+    "28355719": {
+      "variant": "double-dude",
+      "body": "#37353d",
+      "accent": "#dad8cf",
+      "eye": "#81526d"
+    },
+    "44330099": {
+      "variant": "gorz-emissary",
+      "body": "#333344",
+      "accent": "#b79972",
+      "eye": "#aa8998"
+    },
+    "52340445": {
+      "variant": "sky-striker",
+      "body": "#303a4e",
+      "accent": "#b6b26c",
+      "hair": "#d8cbb0",
+      "eye": "#86aaa8"
+    },
+    "40844553": {
+      "variant": "einherjar",
+      "body": "#7390c4",
+      "accent": "#dfdeca",
+      "eye": "#ba8ddd"
+    },
+    "85771020": {
+      "variant": "asmo-angel",
+      "body": "#3d507d",
+      "accent": "#b8bec9",
+      "eye": "#bf96db"
+    },
+    "85771021": {
+      "variant": "deus-angel",
+      "body": "#832638",
+      "accent": "#b8bec9",
+      "eye": "#bf96db"
+    },
+    "64382840": {
+      "variant": "eva-angel",
+      "body": "#d1c6df",
+      "accent": "#e7d79e",
+      "eye": "#ceb5ed"
+    },
+    "97452818": {
+      "variant": "moon-spirit",
+      "body": "#d9dde2",
+      "accent": "#525665",
+      "eye": "#abbeda"
+    },
+    "16946850": {
+      "variant": "synthetic-seraph",
+      "body": "#e7eff4",
+      "accent": "#a9c3d7",
+      "eye": "#d2efff"
+    },
+    "9925983": {
+      "tokenAnatomy": "avian",
+      "variant": "blackwing",
+      "body": "#413943",
+      "accent": "#ae7ec8",
+      "eye": "#ba9bcf"
+    },
+    "25415053": {
+      "tokenAnatomy": "avian",
+      "variant": "shinobird",
+      "body": "#d7e7e5",
+      "accent": "#76b8b4",
+      "eye": "#b8d6cf"
+    },
+    "52900001": {
+      "tokenAnatomy": "avian",
+      "variant": "shinobird",
+      "body": "#d7e7e5",
+      "accent": "#76b8b4",
+      "eye": "#b8d6cf"
+    },
+    "83239740": {
+      "variant": "oyster",
+      "body": "#92b6ad",
+      "accent": "#c5b899",
+      "eye": "#e4e5cc"
+    },
+    "54537490": {
+      "variant": "seahorse",
+      "body": "#c69951",
+      "accent": "#71a581",
+      "eye": "#d8c762"
+    },
+    "2819436": {
+      "variant": "phantasm-spiral",
+      "body": "#9abcca",
+      "accent": "#b897ae",
+      "eye": "#c4e5e8"
+    },
+    "89907228": {
+      "variant": "divine-dragon",
+      "body": "#c2d9e1",
+      "accent": "#91c6cd",
+      "eye": "#bc68a8"
+    },
+    "69868556": {
+      "variant": "dragon-lord",
+      "body": "#becaa8",
+      "accent": "#e0e4cb",
+      "eye": "#cfdda2"
+    },
+    "86801872": {
+      "variant": "snake-in-urn",
+      "body": "#478749",
+      "accent": "#4489a8",
+      "eye": "#d4c285"
+    },
+    "21179144": {
+      "variant": "reptilianne",
+      "body": "#748858",
+      "accent": "#adb491",
+      "hair": "#292b40",
+      "eye": "#daba6f"
+    },
+    "44689689": {
+      "variant": "spinosaurus",
+      "body": "#4d8895",
+      "accent": "#d77e42",
+      "eye": "#ddc857"
+    },
+    "1426715": {
+      "variant": "skull-spirit",
+      "body": "#eadacb",
+      "accent": "#6c2431",
+      "eye": "#cb757f"
+    },
+    "46173680": {
+      "variant": "doomsday-wisp",
+      "body": "#3a2948",
+      "accent": "#436476",
+      "eye": "#7fbea2"
+    },
+    "46173681": {
+      "variant": "doomsday-wisp",
+      "body": "#3a2948",
+      "accent": "#436476",
+      "eye": "#7fbea2"
+    },
+    "35268888": {
+      "variant": "ghost",
+      "body": "#bdb2cd",
+      "accent": "#a34a84",
+      "eye": "#7e2060"
+    },
+    "93912846": {
+      "variant": "gift-fiend",
+      "body": "#45424b",
+      "accent": "#996d41",
+      "eye": "#88b1b6"
+    },
+    "42671152": {
+      "variant": "malus-fire-eye",
+      "body": "#4f2963",
+      "accent": "#dda644",
+      "eye": "#d36f9d"
+    },
+    "75524093": {
+      "variant": "armored-fiend",
+      "body": "#343d4d",
+      "accent": "#897851",
+      "eye": "#ba664c"
+    },
+    "75732623": {
+      "variant": "grinder",
+      "body": "#82979b",
+      "accent": "#b49c72",
+      "eye": "#da5842"
+    },
+    "24874631": {
+      "variant": "metal-coil-fiend",
+      "body": "#bccacd",
+      "accent": "#5a6b77",
+      "eye": "#c6e0de"
+    },
+    "12958920": {
+      "variant": "skyblaster",
+      "body": "#363844",
+      "accent": "#9c6244",
+      "eye": "#a0c6ab"
+    },
+    "42956964": {
+      "variant": "nightmare-ghost",
+      "body": "#70aa94",
+      "accent": "#b3c0a5",
+      "eye": "#c7dec8"
+    },
+    "69890968": {
+      "variant": "armored-phantasm",
+      "body": "#545365",
+      "accent": "#a5a598",
+      "eye": "#bc4b67"
+    },
+    "93224849": {
+      "variant": "phantasmal-winged",
+      "body": "#344352",
+      "accent": "#6673a2",
+      "eye": "#c27ca8"
+    },
+    "28674153": {
+      "variant": "radian",
+      "body": "#363a43",
+      "accent": "#556574",
+      "eye": "#97c4ce"
+    },
+    "75119041": {
+      "variant": "triangle-fiend",
+      "body": "#384772",
+      "accent": "#b46165",
+      "eye": "#d390a8"
+    },
+    "67949764": {
+      "tokenAnatomy": "cyber-polyhedron",
+      "variant": "umbral-crystal",
+      "body": "#5e77c4",
+      "accent": "#add3df",
+      "eye": "#e5df8e"
+    },
+    "90884404": {
+      "variant": "golden-eye",
+      "body": "#d6be77",
+      "accent": "#e9ddb1",
+      "eye": "#ad453a"
+    },
+    "82324106": {
+      "variant": "soul-ring",
+      "body": "#bee0e0",
+      "accent": "#82abc6",
+      "eye": "#cf9c65"
+    },
+    "17418745": {
+      "tokenAnatomy": "cyber-orb",
+      "variant": "photon-orb",
+      "body": "#8ccbd3",
+      "accent": "#c7e7e9",
+      "eye": "#e8f5f5"
+    },
+    "9929399": {
+      "tokenAnatomy": "avian",
+      "variant": "vague-shadow",
+      "body": "#ccdedf",
+      "accent": "#7daea7",
+      "eye": "#dceeee"
+    },
+    "8198621": {
+      "variant": "dark-soul",
+      "body": "#384342",
+      "accent": "#75696b",
+      "eye": "#b14d43"
+    },
+    "63442605": {
+      "variant": "mirage-statue",
+      "body": "#484747",
+      "accent": "#959995",
+      "eye": "#a18c73"
+    },
+    "75622825": {
+      "variant": "tricky-magician",
+      "body": "#dde1d8",
+      "accent": "#8063ac",
+      "eye": "#dba442"
+    },
+    "22404676": {
+      "variant": "vassal",
+      "body": "#3b3e69",
+      "accent": "#d2bb57",
+      "eye": "#d4a660"
+    },
+    "15629802": {
+      "variant": "waltz-seraph",
+      "body": "#728bc8",
+      "accent": "#d9b859",
+      "eye": "#c58faf"
+    },
+    "65810490": {
+      "variant": "wicked-egyptian",
+      "body": "#d8be4c",
+      "accent": "#313343",
+      "eye": "#c65b6e"
+    },
+    "46647145": {
+      "variant": "world-legacy-spirit",
+      "body": "#d6d6e9",
+      "accent": "#a8c7dc",
+      "eye": "#cb91bd",
+      "tokenAnatomy": "fairy"
+    },
+    "22493812": {
+      "body": "#238d46",
+      "accent": "#76d04f",
+      "eye": "#e4d565"
+    },
+    "56051649": {
+      "body": "#5d356d",
+      "accent": "#9d66b8",
+      "hair": "#211923",
+      "eye": "#e4d565"
+    },
+    "91512836": {
+      "body": "#367549",
+      "accent": "#ece7cd",
+      "hair": "#7d2a23",
+      "eye": "#e4d565"
+    },
+    "71645243": {
+      "body": "#356f45",
+      "accent": "#a62b40"
+    },
+    "31986289": {
+      "body": "#356f45",
+      "accent": "#a62b40"
+    },
+    "15341822": {
+      "body": "#f1dd86",
+      "accent": "#fff0b4",
+      "hair": "#7c8553",
+      "eye": "#91422b"
+    },
+    "15341823": {
+      "body": "#f1dd86",
+      "accent": "#fff0b4",
+      "hair": "#7c8553",
+      "eye": "#91422b"
+    },
+    "28062326": {
+      "body": "#449535",
+      "accent": "#3561ba",
+      "eye": "#efd666"
+    },
+    "74983882": {
+      "body": "#e7be52",
+      "accent": "#469147",
+      "hair": "#8d5d30"
+    },
+    "62543394": {
+      "body": "#237b52",
+      "accent": "#b44523",
+      "eye": "#101010"
+    },
+    "60406592": {
+      "body": "#367b43",
+      "accent": "#b92e34"
+    },
+    "12965762": {
+      "body": "#76c1a0",
+      "accent": "#805298",
+      "hair": "#245239"
+    },
+    "82994510": {
+      "body": "#e6ce89",
+      "accent": "#426441",
+      "eye": "#101010",
+      "tokenVisual": {
+        "cloth": "#b62554"
+      }
+    },
+    "74440056": {
+      "body": "#9b9a90"
+    },
+    "43140792": {
+      "variant": "skull-grub",
+      "body": "#535749",
+      "accent": "#c5bb97",
+      "hair": "#1d1b1c",
+      "tokenVisual": {
+        "markings": "#983a32"
+      }
+    },
+    "30069399": {
+      "body": "#367645",
+      "accent": "#94af68",
+      "hair": "#3e5735"
+    },
+    "38041941": {
+      "body": "#777b31",
+      "accent": "#b3a44e",
+      "hair": "#493b27"
+    }
+  }
+}

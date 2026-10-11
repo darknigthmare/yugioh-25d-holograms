@@ -60,6 +60,7 @@ import {
   getDuelistAvatarUnlockState, selectDuelistAvatar, mergeDuelistAvatarProfiles
 } from './src/content/DuelistAvatarProgress.js';
 import { DuelistAvatarPicker } from './src/ui/DuelistAvatarPicker.js';
+import './src/ui/TokenModelAtlas.css';
 
 let game = null;
 let matchController = null;
@@ -201,6 +202,7 @@ function announceStatus(message) {
 }
 
 let activeDialog = null;
+let dialogNavigationRevision = 0;
 let dialogReturnFocus = null;
 const focusableSelector = [
   'button:not([disabled])',
@@ -231,6 +233,7 @@ function getDialogFocusableElements(dialog) {
 
 function openDialog(dialog, preferredFocus = null) {
   if (!dialog) return;
+  if (activeDialog !== dialog) dialogNavigationRevision += 1;
 
   if (activeDialog && activeDialog !== dialog) {
     activeDialog.classList.add('hidden');
@@ -264,6 +267,7 @@ function closeDialog(dialog, { restoreFocus = true } = {}) {
   dialog.classList.add('hidden');
 
   if (activeDialog === dialog) {
+    dialogNavigationRevision += 1;
     activeDialog = null;
     document.body.classList.remove('modal-open');
     document.querySelector('.app-container')?.removeAttribute('inert');
@@ -290,6 +294,11 @@ function dismissActiveDialog() {
 
   if (activeDialog.id === 'field-atlas-modal') {
     closeFieldAtlas();
+    return;
+  }
+
+  if (activeDialog.id === 'token-atlas-modal') {
+    tokenModelAtlas?.close();
     return;
   }
 
@@ -432,6 +441,59 @@ document.getElementById('btn-open-field-atlas').addEventListener('click', async 
     document.getElementById('field-atlas-summary').textContent = 'Le catalogue n’a pas pu se charger. Réessayez en le rouvrant.';
   }
 });
+let tokenModelAtlas = null;
+let tokenModelAtlasLoader = null;
+let tokenModelAtlasRequest = 0;
+const tokenModelAtlasButtonRequests = new WeakMap();
+let tokenModelAtlasReturnDialog = null;
+let tokenModelAtlasReturnButton = null;
+async function openTokenModelAtlas(button) {
+  const sourceDialog = activeDialog;
+  if (!sourceDialog || !['start-modal', 'settings-modal'].includes(sourceDialog.id)) return;
+  const sourceNavigationRevision = dialogNavigationRevision;
+  const request = ++tokenModelAtlasRequest;
+  tokenModelAtlasButtonRequests.set(button, request);
+  button.disabled = true;
+  button.setAttribute('aria-busy', 'true');
+  try {
+    tokenModelAtlasLoader ||= import('./src/ui/TokenModelAtlas.js');
+    const { TokenModelAtlas } = await tokenModelAtlasLoader;
+    if (request !== tokenModelAtlasRequest || activeDialog !== sourceDialog
+      || dialogNavigationRevision !== sourceNavigationRevision) return;
+    tokenModelAtlas ||= new TokenModelAtlas({
+      dialogElement: document.getElementById('token-atlas-modal'),
+      openDialog,
+      closeDialog: dialog => {
+        const returnDialog = tokenModelAtlasReturnDialog;
+        const returnButton = tokenModelAtlasReturnButton;
+        tokenModelAtlasReturnDialog = null;
+        tokenModelAtlasReturnButton = null;
+        closeDialog(dialog, { restoreFocus: false });
+        if (returnDialog?.isConnected) openDialog(returnDialog, returnButton);
+      }
+    });
+    tokenModelAtlasReturnDialog = sourceDialog;
+    tokenModelAtlasReturnButton = button;
+    tokenModelAtlas.open();
+  } catch {
+    if (request === tokenModelAtlasRequest) {
+      tokenModelAtlasLoader = null;
+      if (activeDialog === sourceDialog && dialogNavigationRevision === sourceNavigationRevision) {
+        announceStatus('L’Atlas des Jetons n’a pas pu se charger. Réessayez en le rouvrant.');
+      }
+    }
+  } finally {
+    if (tokenModelAtlasButtonRequests.get(button) === request) {
+      tokenModelAtlasButtonRequests.delete(button);
+      button.disabled = false;
+      button.removeAttribute('aria-busy');
+    }
+  }
+}
+for (const id of ['btn-open-token-atlas', 'btn-settings-token-atlas']) {
+  const button = document.getElementById(id);
+  button?.addEventListener('click', () => openTokenModelAtlas(button));
+}
 document.getElementById('simulator-card-coverage').textContent = 'Projet fan non officiel. Le mode TCG Advanced applique la liste complète du 21/09/2026 au catalogue natif, avec les règles modernes d’Invocation, de Chaîne et de combat. Le Duel libre accueille aussi les cartes OCG et annoncées. Le catalogue indique séparément la précision des décors 3D.';
 const startBtn = document.getElementById('btn-start-duel');
 const campaignController = new SoloCampaignController({

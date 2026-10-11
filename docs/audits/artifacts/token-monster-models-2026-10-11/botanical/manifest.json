@@ -1,0 +1,16 @@
+{
+  "createdAt": "2026-10-11T17:02:03.387003+00:00",
+  "proofs": {
+    "README.md": "79a30fc325bb9d490055803cb37c6ec86cdca897266c6fb79e118f442a4f6d3d",
+    "construction-audit.json": "bacd31d18cae50c88f4b698a08273e1f12129d417d49c00b9a0aa5d22b41193a",
+    "construction-audit.mjs": "b67793f1ce28524f45c23d6df1bb63d7bb231d10c5c3dcd0708802fcb6a03cc0",
+    "reference-model-gallery.png": "7ac49818d7995a96f1c07dbe97ace62369d6cd97a722ee5d5bead835da4a9b68",
+    "reference-model-gallery.json": "95a99ca89cca2bb0710e406fa5e2649b05b61fa9c05bec4701c23722a1f26f9f",
+    "render-gallery.py": "456aedd40318bafaaf133d934b349ac979fbd54a13405e750a5f46fa2c27e22a",
+    "test-output.txt": "fe7e85122c3043eb80660f2aa56fdd8669a929749180ae4383508c3cde8fc722"
+  },
+  "ownedSources": {
+    "src/ui/HologramTokenBotanicalModels.js": "550b8ae6973ff405c3abaf2898f74c281a942a3c939c30197d5d1326d0beb2b9",
+    "test/hologram-token-botanical-models.test.js": "8be1baf39bb40b151b48573bd9ce04852889891d83a2b8cc7e0c33cbac94055c"
+  }
+}
