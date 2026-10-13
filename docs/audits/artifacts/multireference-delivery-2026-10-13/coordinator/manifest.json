@@ -1,0 +1,70 @@
+{
+  "scope": "Exact coordinator logs, source freezes and publication recipes. Earlier check attempts are retained separately. Remote delivery will be measured independently on its resulting SHA.",
+  "files": {
+    "docs/audits/artifacts/multireference-delivery-2026-10-13/coordinator/yugioh-multireference-full-check-2026-10-13.txt": {
+      "bytes": 281841,
+      "sha256": "86923a08df51e654610c34f532792d73a4d1788b33959eb6dd8f51691adbf14f"
+    },
+    "docs/audits/artifacts/multireference-delivery-2026-10-13/coordinator/yugioh-multireference-full-check-attempt1-2026-10-13.txt": {
+      "bytes": 300849,
+      "sha256": "709460c857c8a1f36eb01e9b36ef0286761350a4bc93d25ea26af500d2f0d865"
+    },
+    "docs/audits/artifacts/multireference-delivery-2026-10-13/coordinator/yugioh-multireference-full-check-attempt2-before-bomb-fix-2026-10-13.txt": {
+      "bytes": 281515,
+      "sha256": "7ddb8593ef6c18f5b6ecc3468435ae168c620215429904b56cddf112a27bd7dc"
+    },
+    "docs/audits/artifacts/multireference-delivery-2026-10-13/coordinator/yugioh-multireference-before-check-2026-10-13.json": {
+      "bytes": 171523,
+      "sha256": "8575c362e7420404fc6b0d4a2fa701a484b194da9a6b9d1ff5bc149678896e93"
+    },
+    "docs/audits/artifacts/multireference-delivery-2026-10-13/coordinator/yugioh-multireference-before-check-attempt1-2026-10-13.json": {
+      "bytes": 171523,
+      "sha256": "c3e8221d743d09af513bcf5b80226c48a1de3d0636325b24a77b400fe20854c8"
+    },
+    "docs/audits/artifacts/multireference-delivery-2026-10-13/coordinator/yugioh-multireference-before-check-attempt2-before-bomb-fix-2026-10-13.json": {
+      "bytes": 171523,
+      "sha256": "4a668929404537c04f8a8b414562291ee48b851c3ec01885fbc29e3ba188637b"
+    },
+    "docs/audits/artifacts/multireference-delivery-2026-10-13/coordinator/yugioh-multireference-build-freeze-2026-10-13.json": {
+      "bytes": 262420,
+      "sha256": "a6b09fd0912636c84243b3b3136fac5f5db217020c148adeb8bd316f73ac735a"
+    },
+    "docs/audits/artifacts/multireference-delivery-2026-10-13/coordinator/yugioh-multiref-protected-baseline-2026-10-13.json": {
+      "bytes": 1311263,
+      "sha256": "d0990366dcc94101768748c3edb8044867e6261a94ef7d7f4c1b04a0b4badeaf"
+    },
+    "docs/audits/artifacts/multireference-delivery-2026-10-13/coordinator/yugioh-multireference-protected-final-2026-10-13.json": {
+      "bytes": 303,
+      "sha256": "01262ccd4e01c7faaebef8da45df69c2c728e5ea6c2feebccaef9be536e3f33a"
+    },
+    "docs/audits/artifacts/multireference-delivery-2026-10-13/coordinator/yugioh-multireference-integration-correction-2026-10-13.txt": {
+      "bytes": 1964,
+      "sha256": "f211e2f8736d89fc0fdcd5f1cae6fd766e6dcfb51cd9b99dd992d13e49746921"
+    },
+    "docs/audits/artifacts/multireference-delivery-2026-10-13/coordinator/yugioh-multireference-pose-landmarks-correction-2026-10-13.txt": {
+      "bytes": 741,
+      "sha256": "23f221641af309cd4e604d7355d975b3cffcd80d90e68ba5ee7d4930390f156f"
+    },
+    "docs/audits/artifacts/multireference-delivery-2026-10-13/coordinator/yugioh-multireference-coordinator-2026-10-13.py.txt": {
+      "bytes": 6971,
+      "sha256": "1d6351b522831cc32acce8e86d5caff3a010a709c8a31cf7931c95e5443e28e3"
+    },
+    "docs/audits/artifacts/multireference-delivery-2026-10-13/coordinator/yugioh-multireference-publication-helper-2026-10-13.py.txt": {
+      "bytes": 17404,
+      "sha256": "057d6e2898ca09a6312e0f583c41c50b6095e45f0fa37234b402dac27a18e968"
+    },
+    "docs/audits/artifacts/multireference-delivery-2026-10-13/coordinator/yugioh-multireference-ci-helper-2026-10-13.py.txt": {
+      "bytes": 11683,
+      "sha256": "20c76c227a7ea4032eed95b0d188311d12f10b0e6190a5d5316aaf5f283da255"
+    },
+    "docs/audits/artifacts/multireference-delivery-2026-10-13/coordinator/yugioh-multireference-browser-summary-2026-10-13.json": {
+      "bytes": 2429,
+      "sha256": "dd52bb2e88dfbfeb857d501d295a2bba247ec9ccda84033d8ba51c46be992343"
+    },
+    "docs/audits/artifacts/multireference-delivery-2026-10-13/coordinator/yugioh-multireference-publication-helper-before-candidate-binding-2026-10-13.py.txt": {
+      "bytes": 15495,
+      "sha256": "a0f0d25aae3622e7d975d4ff665a762fcff5f3f6319e61f80803afd98b6d70fc"
+    }
+  },
+  "fileCount": 16
+}

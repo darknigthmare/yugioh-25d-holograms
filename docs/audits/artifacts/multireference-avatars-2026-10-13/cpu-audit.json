@@ -1,0 +1,4263 @@
+{
+  "executedAt": "2026-10-13T11:21:09.774Z",
+  "method": "Actual Three.js factories, every catalogue model; previous delivered source independently copied before edits; ceiling from original Oct 11 fixture, not the last wave.",
+  "count": 192,
+  "changedGeometryOrColorCount": 8,
+  "maxTriangles": 21932,
+  "minTriangles": 12348,
+  "maxRatioToOriginal": 3.434840425531915,
+  "maxDrawCalls": 9,
+  "maxBufferBytes": 3830160,
+  "sources": {
+    "src/ui/DuelistAvatarModels.js": {
+      "bytes": 74654,
+      "sha256": "6691f802933a2d285a44abe664ea514e07c00b679f9536d15a700625b7aaa3ac"
+    },
+    "src/content/DuelistAvatarCatalog.js": {
+      "bytes": 49379,
+      "sha256": "1c9cfbd86ba8895d80601a8a36015809149dd147f5bc188ebd986734d068f08c"
+    },
+    "src/ui/DuelistAvatarGestures.js": {
+      "bytes": 5950,
+      "sha256": "805dbb0519642366a61e306517297951afa35d979738238d0ab3cc05175ee352"
+    },
+    "test/fixtures/duelist-avatar-triangle-baseline-2026-10-11.json": {
+      "bytes": 4162,
+      "sha256": "ae0123439e8ac8db18508496f5f995e80cc29850bfbcdb190279c577b9aba333"
+    },
+    "test/duelist-avatar-multireference-2026-10-13.test.js": {
+      "bytes": 4679,
+      "sha256": "8e8eaeff4f7f9cc9b0fda379d8002bba506af3ddee82a026b1389bab83e103e9"
+    }
+  },
+  "results": [
+    {
+      "id": "yugi",
+      "before": {
+        "triangles": 15780,
+        "drawCalls": 6,
+        "bufferBytes": 2799216,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "59cf6fd9e1036e80fd9d3a96af07c088e4e09fd3bfb867e92ce223977872f8ec",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 17860,
+        "drawCalls": 7,
+        "bufferBytes": 3148080,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "a70d4110c8d4491f1bfdfe3d819d217246e3b6e58edbefe1771d12e51ec4bdf3",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 6276,
+      "ratioToOriginal": 2.845761631612492,
+      "changedGeometryOrColor": true
+    },
+    {
+      "id": "atem",
+      "before": {
+        "triangles": 17156,
+        "drawCalls": 8,
+        "bufferBytes": 2987184,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "fc9967078d79c6fa63a2fc2a9418b6105d0e7f139ac550a3e30a9646d50a8d4f",
+        "disposalResources": 11
+      },
+      "after": {
+        "triangles": 21932,
+        "drawCalls": 8,
+        "bufferBytes": 3830160,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "57c96cbb13b78022ec9b77a823ba0590a338531cfe6658b1f766dfcd6a726892",
+        "disposalResources": 11
+      },
+      "originalOct11Triangles": 6694,
+      "ratioToOriginal": 3.2763668957275174,
+      "changedGeometryOrColor": true
+    },
+    {
+      "id": "kaiba",
+      "before": {
+        "triangles": 18224,
+        "drawCalls": 7,
+        "bufferBytes": 3194112,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "a2dbc96599b992b21391e5905442a9e1c9cca25a46c9731737a3be2e0b8a93f2",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 20776,
+        "drawCalls": 7,
+        "bufferBytes": 3630624,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "4a5b9d97a5e2a1ef1344edc1262f004ff0d6ae7ec9b836d073fad8d3e0527319",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 9166,
+      "ratioToOriginal": 2.2666375736417192,
+      "changedGeometryOrColor": true
+    },
+    {
+      "id": "joey",
+      "before": {
+        "triangles": 14628,
+        "drawCalls": 6,
+        "bufferBytes": 2541168,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "690a254cb91b66c16bbdb18979a053120727e71d1e7403fb7e506d396ec10589",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 15188,
+        "drawCalls": 6,
+        "bufferBytes": 2615088,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "6a884cf6592c770b20f65e681d4a22fc967e55877bb3f0eb192b896b68b5d8d3",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 7144,
+      "ratioToOriginal": 2.125979843225084,
+      "changedGeometryOrColor": true
+    },
+    {
+      "id": "tea",
+      "before": {
+        "triangles": 14660,
+        "drawCalls": 7,
+        "bufferBytes": 2510832,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "37ca371a5577b54e291ed6751c12144e25f098d5a9aff0226addd07178821740",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 14660,
+        "drawCalls": 7,
+        "bufferBytes": 2510832,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "37ca371a5577b54e291ed6751c12144e25f098d5a9aff0226addd07178821740",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 6636,
+      "ratioToOriginal": 2.2091621458710065,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "tristan",
+      "before": {
+        "triangles": 14266,
+        "drawCalls": 6,
+        "bufferBytes": 2483448,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "ea5e395ab65082fe27a0e1fc82deb6f66a1eb5b4a35391f44335019fa67c92ce",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 14266,
+        "drawCalls": 6,
+        "bufferBytes": 2483448,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "ea5e395ab65082fe27a0e1fc82deb6f66a1eb5b4a35391f44335019fa67c92ce",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6010,
+      "ratioToOriginal": 2.373710482529118,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "serenity",
+      "before": {
+        "triangles": 15444,
+        "drawCalls": 7,
+        "bufferBytes": 2614320,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "a5feca728c027ec6d5e93c479922d1e57ef7731fff7b26d013bedc7bf80db5ef",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 15444,
+        "drawCalls": 7,
+        "bufferBytes": 2614320,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "a5feca728c027ec6d5e93c479922d1e57ef7731fff7b26d013bedc7bf80db5ef",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7812,
+      "ratioToOriginal": 1.976958525345622,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "mokuba",
+      "before": {
+        "triangles": 16100,
+        "drawCalls": 6,
+        "bufferBytes": 2770032,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "2d5cc31383eb57f29209b307f7b05df8a7aa86f49085afac2dbb4093c2305933",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 16100,
+        "drawCalls": 6,
+        "bufferBytes": 2770032,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "2d5cc31383eb57f29209b307f7b05df8a7aa86f49085afac2dbb4093c2305933",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 7884,
+      "ratioToOriginal": 2.0421106037544394,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "mai",
+      "before": {
+        "triangles": 15904,
+        "drawCalls": 7,
+        "bufferBytes": 2675904,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "b856942095f41869fbcaa84de6898489b353b58337ee0143d0605deed6a5dc5d",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 15904,
+        "drawCalls": 7,
+        "bufferBytes": 2675904,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "b856942095f41869fbcaa84de6898489b353b58337ee0143d0605deed6a5dc5d",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7824,
+      "ratioToOriginal": 2.032719836400818,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "pegasus",
+      "before": {
+        "triangles": 16822,
+        "drawCalls": 6,
+        "bufferBytes": 2885640,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "f6f499009f2658577c58c99fb8bd8fae8159cf9345774cb1db08dacb84466904",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 16822,
+        "drawCalls": 6,
+        "bufferBytes": 2885640,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "f6f499009f2658577c58c99fb8bd8fae8159cf9345774cb1db08dacb84466904",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 8046,
+      "ratioToOriginal": 2.0907283122048224,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "bakura",
+      "before": {
+        "triangles": 15242,
+        "drawCalls": 6,
+        "bufferBytes": 2682552,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "56945a2d90d57a80b535fa4ddf23f538e47fba737a4df0adb44376ceb38314a6",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 15242,
+        "drawCalls": 6,
+        "bufferBytes": 2682552,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "56945a2d90d57a80b535fa4ddf23f538e47fba737a4df0adb44376ceb38314a6",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6378,
+      "ratioToOriginal": 2.389777359673879,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "yami-bakura",
+      "before": {
+        "triangles": 15962,
+        "drawCalls": 7,
+        "bufferBytes": 2848440,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "7b603f6ff36bb74c9cd4d7db0f8484626291f4ef8023425f475dd747569a30f4",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 15962,
+        "drawCalls": 7,
+        "bufferBytes": 2848440,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "7b603f6ff36bb74c9cd4d7db0f8484626291f4ef8023425f475dd747569a30f4",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7428,
+      "ratioToOriginal": 2.148896068928379,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "marik",
+      "before": {
+        "triangles": 15084,
+        "drawCalls": 8,
+        "bufferBytes": 2600784,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "825ae01860cd70609ea62fae6bf2c8dd41600993a55455c75136d6993bc3387a",
+        "disposalResources": 11
+      },
+      "after": {
+        "triangles": 15084,
+        "drawCalls": 8,
+        "bufferBytes": 2600784,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "825ae01860cd70609ea62fae6bf2c8dd41600993a55455c75136d6993bc3387a",
+        "disposalResources": 11
+      },
+      "originalOct11Triangles": 6464,
+      "ratioToOriginal": 2.333539603960396,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "yami-marik",
+      "before": {
+        "triangles": 15916,
+        "drawCalls": 7,
+        "bufferBytes": 2797872,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "ce4219354bbe70576898eb9a7c4b25103ea4e3acb8eafc18e27baba1392574f0",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 15916,
+        "drawCalls": 7,
+        "bufferBytes": 2797872,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "ce4219354bbe70576898eb9a7c4b25103ea4e3acb8eafc18e27baba1392574f0",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 6408,
+      "ratioToOriginal": 2.483770287141074,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "ishizu",
+      "before": {
+        "triangles": 17700,
+        "drawCalls": 8,
+        "bufferBytes": 3010032,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "71cce783fca70286021f63a1f90b99fed511c7864b6a1e234b7783ae6870c1c6",
+        "disposalResources": 11
+      },
+      "after": {
+        "triangles": 17700,
+        "drawCalls": 8,
+        "bufferBytes": 3010032,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "71cce783fca70286021f63a1f90b99fed511c7864b6a1e234b7783ae6870c1c6",
+        "disposalResources": 11
+      },
+      "originalOct11Triangles": 8180,
+      "ratioToOriginal": 2.163814180929095,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "odion",
+      "before": {
+        "triangles": 12348,
+        "drawCalls": 6,
+        "bufferBytes": 2205648,
+        "maxNormalError": 3.8068252994349905e-8,
+        "signature": "bb9926991f3754a99c000af92c5f245a2861d7da40a4eedd0a0867d8291cbbc7",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 12348,
+        "drawCalls": 6,
+        "bufferBytes": 2205648,
+        "maxNormalError": 3.8068252994349905e-8,
+        "signature": "bb9926991f3754a99c000af92c5f245a2861d7da40a4eedd0a0867d8291cbbc7",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6048,
+      "ratioToOriginal": 2.0416666666666665,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "weevil",
+      "before": {
+        "triangles": 16884,
+        "drawCalls": 8,
+        "bufferBytes": 2898576,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "1cb831f4729768a8399b2a3961a73e833ef69759a2d2d373308f728f8acd65f6",
+        "disposalResources": 11
+      },
+      "after": {
+        "triangles": 16884,
+        "drawCalls": 8,
+        "bufferBytes": 2898576,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "1cb831f4729768a8399b2a3961a73e833ef69759a2d2d373308f728f8acd65f6",
+        "disposalResources": 11
+      },
+      "originalOct11Triangles": 7724,
+      "ratioToOriginal": 2.1859140341791816,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "rex",
+      "before": {
+        "triangles": 15576,
+        "drawCalls": 6,
+        "bufferBytes": 2655072,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "28dd56f6e00d4a50cd5b0b687d7cc3327941c037219301ded00239cc67d0a983",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 15576,
+        "drawCalls": 6,
+        "bufferBytes": 2655072,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "28dd56f6e00d4a50cd5b0b687d7cc3327941c037219301ded00239cc67d0a983",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 7592,
+      "ratioToOriginal": 2.0516332982086407,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "bandit-keith",
+      "before": {
+        "triangles": 16568,
+        "drawCalls": 6,
+        "bufferBytes": 2786016,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "c6597f16ead08006e892215fd982d71b7dd9664692476f65035007b3be8618f9",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 16568,
+        "drawCalls": 6,
+        "bufferBytes": 2786016,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "c6597f16ead08006e892215fd982d71b7dd9664692476f65035007b3be8618f9",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 7150,
+      "ratioToOriginal": 2.317202797202797,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "bonz",
+      "before": {
+        "triangles": 13648,
+        "drawCalls": 6,
+        "bufferBytes": 2400576,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "9c9630afe063b3edf9d8868030c423c3d24be27231b082fed1c4c2719add39aa",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 13648,
+        "drawCalls": 6,
+        "bufferBytes": 2400576,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "9c9630afe063b3edf9d8868030c423c3d24be27231b082fed1c4c2719add39aa",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6028,
+      "ratioToOriginal": 2.2641008626410084,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "mako",
+      "before": {
+        "triangles": 13432,
+        "drawCalls": 6,
+        "bufferBytes": 2353920,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "7be6f6e32a705c421adb813028a5708ac7003989499dc808722f29f7018e8dcf",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 13432,
+        "drawCalls": 6,
+        "bufferBytes": 2353920,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "7be6f6e32a705c421adb813028a5708ac7003989499dc808722f29f7018e8dcf",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6100,
+      "ratioToOriginal": 2.201967213114754,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "espa-roba",
+      "before": {
+        "triangles": 14310,
+        "drawCalls": 7,
+        "bufferBytes": 2489256,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "f396b748c105cbb80aefdc90fa0c415b4a53d58a02c3f4dc2d51f53ba94ca8dd",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 14310,
+        "drawCalls": 7,
+        "bufferBytes": 2489256,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "f396b748c105cbb80aefdc90fa0c415b4a53d58a02c3f4dc2d51f53ba94ca8dd",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 6062,
+      "ratioToOriginal": 2.3606070603761133,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "duke",
+      "before": {
+        "triangles": 15312,
+        "drawCalls": 6,
+        "bufferBytes": 2620224,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "ae28689c7de0c5511d106cb73db5471e9f4cfefa75daced7e30dc28a59fb762c",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 15312,
+        "drawCalls": 6,
+        "bufferBytes": 2620224,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "ae28689c7de0c5511d106cb73db5471e9f4cfefa75daced7e30dc28a59fb762c",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6664,
+      "ratioToOriginal": 2.297719087635054,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "rebecca",
+      "before": {
+        "triangles": 16784,
+        "drawCalls": 8,
+        "bufferBytes": 2791200,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "566aa4e877182ac4cf101b0ac8e59a407d4827cf27427cf8d6d8cf81c77838b7",
+        "disposalResources": 11
+      },
+      "after": {
+        "triangles": 16784,
+        "drawCalls": 8,
+        "bufferBytes": 2791200,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "566aa4e877182ac4cf101b0ac8e59a407d4827cf27427cf8d6d8cf81c77838b7",
+        "disposalResources": 11
+      },
+      "originalOct11Triangles": 7720,
+      "ratioToOriginal": 2.1740932642487047,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "arthur-hawkins",
+      "before": {
+        "triangles": 17470,
+        "drawCalls": 7,
+        "bufferBytes": 2906376,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "c4adf596c333242071336b43647eaf09d1c72ff2a29b47ac6b469dce92ae24f4",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 17470,
+        "drawCalls": 7,
+        "bufferBytes": 2906376,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "c4adf596c333242071336b43647eaf09d1c72ff2a29b47ac6b469dce92ae24f4",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7556,
+      "ratioToOriginal": 2.3120698782424562,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "dartz",
+      "before": {
+        "triangles": 15468,
+        "drawCalls": 7,
+        "bufferBytes": 2617488,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "06f8d7e1ead8e69be6950d0e35cbff06841e5ddcebd44b5b0d5d0f46e99e5fb4",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 15468,
+        "drawCalls": 7,
+        "bufferBytes": 2617488,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "06f8d7e1ead8e69be6950d0e35cbff06841e5ddcebd44b5b0d5d0f46e99e5fb4",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7836,
+      "ratioToOriginal": 1.9739663093415007,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "rafael",
+      "before": {
+        "triangles": 15544,
+        "drawCalls": 7,
+        "bufferBytes": 2721696,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "1253555b07729c5105be9d9fbe0479f8be367fa57e255c0df292f63feb7959d3",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 15544,
+        "drawCalls": 7,
+        "bufferBytes": 2721696,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "1253555b07729c5105be9d9fbe0479f8be367fa57e255c0df292f63feb7959d3",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7000,
+      "ratioToOriginal": 2.2205714285714286,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "solomon",
+      "before": {
+        "triangles": 16404,
+        "drawCalls": 6,
+        "bufferBytes": 2746224,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "ef1ca20dae19a7595ed99ed122c149f718077ebccaab0f09135b9b3c6b950faa",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 16404,
+        "drawCalls": 6,
+        "bufferBytes": 2746224,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "ef1ca20dae19a7595ed99ed122c149f718077ebccaab0f09135b9b3c6b950faa",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 7274,
+      "ratioToOriginal": 2.2551553478141324,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "jaden",
+      "before": {
+        "triangles": 18424,
+        "drawCalls": 6,
+        "bufferBytes": 3077664,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "3b3c26d3b1d03e44b66d7ed33e9bb57af41ebb68fa5866c657eee02b1c125fc5",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 20112,
+        "drawCalls": 7,
+        "bufferBytes": 3335616,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "107d78c6b2169456e42199423ec4d730f87df507c95bdeeed9920416cdc9abcd",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7168,
+      "ratioToOriginal": 2.8058035714285716,
+      "changedGeometryOrColor": true
+    },
+    {
+      "id": "syrus",
+      "before": {
+        "triangles": 15606,
+        "drawCalls": 7,
+        "bufferBytes": 2660328,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "dd249e3050a9b4a1001843dd36b3174956141528967b478d44dd63283e354c8b",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 15606,
+        "drawCalls": 7,
+        "bufferBytes": 2660328,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "dd249e3050a9b4a1001843dd36b3174956141528967b478d44dd63283e354c8b",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 6734,
+      "ratioToOriginal": 2.3174933174933177,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "zane",
+      "before": {
+        "triangles": 16760,
+        "drawCalls": 7,
+        "bufferBytes": 2882208,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "0cb79bdbb2c485ce7f9ed307108424cbb16072f8be66f8f8a7392e11d0045713",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 16760,
+        "drawCalls": 7,
+        "bufferBytes": 2882208,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "0cb79bdbb2c485ce7f9ed307108424cbb16072f8be66f8f8a7392e11d0045713",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 8488,
+      "ratioToOriginal": 1.9745523091423185,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "alexis",
+      "before": {
+        "triangles": 15444,
+        "drawCalls": 7,
+        "bufferBytes": 2614320,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "406291386eda2ac7f25385212ed947579f30cbe93b848a05d58bb62f16458d73",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 15444,
+        "drawCalls": 7,
+        "bufferBytes": 2614320,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "406291386eda2ac7f25385212ed947579f30cbe93b848a05d58bb62f16458d73",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7812,
+      "ratioToOriginal": 1.976958525345622,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "chazz",
+      "before": {
+        "triangles": 14956,
+        "drawCalls": 7,
+        "bufferBytes": 2644080,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "dacebe1c043ce4e84ec4c571830c35c0a042253b54e57cab6e1863c9a7a12082",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 14956,
+        "drawCalls": 7,
+        "bufferBytes": 2644080,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "dacebe1c043ce4e84ec4c571830c35c0a042253b54e57cab6e1863c9a7a12082",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7048,
+      "ratioToOriginal": 2.1220204313280364,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "bastion",
+      "before": {
+        "triangles": 16562,
+        "drawCalls": 6,
+        "bufferBytes": 2786520,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "75208e405eefbcbbaa2d0adfe23327c29449f7657cc112e05a62dcfc9412cad9",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 16562,
+        "drawCalls": 6,
+        "bufferBytes": 2786520,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "75208e405eefbcbbaa2d0adfe23327c29449f7657cc112e05a62dcfc9412cad9",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 7144,
+      "ratioToOriginal": 2.3183090705487124,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "chumley",
+      "before": {
+        "triangles": 16544,
+        "drawCalls": 6,
+        "bufferBytes": 2782848,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "f4dca19cafaefea8f5598a851542dc5d1fbd8227dbad9ec25c0cc0542b0c81de",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 16544,
+        "drawCalls": 6,
+        "bufferBytes": 2782848,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "f4dca19cafaefea8f5598a851542dc5d1fbd8227dbad9ec25c0cc0542b0c81de",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 7126,
+      "ratioToOriginal": 2.3216390682009544,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "atticus",
+      "before": {
+        "triangles": 14266,
+        "drawCalls": 6,
+        "bufferBytes": 2483448,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "e6a8c6656779b0950cd4352297ce60551801c3cca3e84cea1d4d9d0f805a512e",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 14266,
+        "drawCalls": 6,
+        "bufferBytes": 2483448,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "e6a8c6656779b0950cd4352297ce60551801c3cca3e84cea1d4d9d0f805a512e",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6010,
+      "ratioToOriginal": 2.373710482529118,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "blair",
+      "before": {
+        "triangles": 15200,
+        "drawCalls": 6,
+        "bufferBytes": 2586432,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "9abf8b5619b5f014c5f2b312137e834259a31fd2681f8aad1ee716ea00de5b8d",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 15200,
+        "drawCalls": 6,
+        "bufferBytes": 2586432,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "9abf8b5619b5f014c5f2b312137e834259a31fd2681f8aad1ee716ea00de5b8d",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 7504,
+      "ratioToOriginal": 2.025586353944563,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "aster",
+      "before": {
+        "triangles": 14266,
+        "drawCalls": 6,
+        "bufferBytes": 2483448,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "44f6a0099e6a53b95ac4682bba3a7af77fd337ad10c545135830dfe6d8d9eed8",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 14266,
+        "drawCalls": 6,
+        "bufferBytes": 2483448,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "44f6a0099e6a53b95ac4682bba3a7af77fd337ad10c545135830dfe6d8d9eed8",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6010,
+      "ratioToOriginal": 2.373710482529118,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "jesse",
+      "before": {
+        "triangles": 14248,
+        "drawCalls": 6,
+        "bufferBytes": 2479776,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "efeec8d37a61385b5010339dab1801373b2c61b08293bda29f90bc4ecc969665",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 14248,
+        "drawCalls": 6,
+        "bufferBytes": 2479776,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "efeec8d37a61385b5010339dab1801373b2c61b08293bda29f90bc4ecc969665",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 5992,
+      "ratioToOriginal": 2.3778371161548733,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "jim",
+      "before": {
+        "triangles": 15576,
+        "drawCalls": 6,
+        "bufferBytes": 2655072,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "f247829dc2f88645adaacf834b30b4a2a452c9f75f951fea4519b45cdbb8fb3d",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 15576,
+        "drawCalls": 6,
+        "bufferBytes": 2655072,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "f247829dc2f88645adaacf834b30b4a2a452c9f75f951fea4519b45cdbb8fb3d",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 7592,
+      "ratioToOriginal": 2.0516332982086407,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "axel",
+      "before": {
+        "triangles": 20964,
+        "drawCalls": 7,
+        "bufferBytes": 3366288,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "acf7c0db39af79f4188a228aa66e8f2fa4fb88192dc130318f64eba0c6a68538",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 20964,
+        "drawCalls": 7,
+        "bufferBytes": 3366288,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "acf7c0db39af79f4188a228aa66e8f2fa4fb88192dc130318f64eba0c6a68538",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 9764,
+      "ratioToOriginal": 2.1470708725931993,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "adrian",
+      "before": {
+        "triangles": 14266,
+        "drawCalls": 6,
+        "bufferBytes": 2483448,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "3cf426b0261b8efd67a7640c94f2a2993ef984a0f4acffad229eb93fc4f5323c",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 14266,
+        "drawCalls": 6,
+        "bufferBytes": 2483448,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "3cf426b0261b8efd67a7640c94f2a2993ef984a0f4acffad229eb93fc4f5323c",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6010,
+      "ratioToOriginal": 2.373710482529118,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "crowler",
+      "before": {
+        "triangles": 15482,
+        "drawCalls": 6,
+        "bufferBytes": 2643960,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "30df5154a019fae0cc78a8a77131e1fde657c84f15160f4497cdb094af694c98",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 15482,
+        "drawCalls": 6,
+        "bufferBytes": 2643960,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "30df5154a019fae0cc78a8a77131e1fde657c84f15160f4497cdb094af694c98",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 7498,
+      "ratioToOriginal": 2.064817284609229,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "banner",
+      "before": {
+        "triangles": 16176,
+        "drawCalls": 8,
+        "bufferBytes": 2710944,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "eb0dd8a6de858b4a801ccac218a77cd0d4a67416a225d7592a454bcb99fe29d7",
+        "disposalResources": 11
+      },
+      "after": {
+        "triangles": 16176,
+        "drawCalls": 8,
+        "bufferBytes": 2710944,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "eb0dd8a6de858b4a801ccac218a77cd0d4a67416a225d7592a454bcb99fe29d7",
+        "disposalResources": 11
+      },
+      "originalOct11Triangles": 7384,
+      "ratioToOriginal": 2.19068255687974,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "sheppard",
+      "before": {
+        "triangles": 12386,
+        "drawCalls": 5,
+        "bufferBytes": 2235288,
+        "maxNormalError": 3.8068252994349905e-8,
+        "signature": "56b101fa2dd94d1a3c47f60bf355b1148a8aaa93f0f254b868c815c80f230afa",
+        "disposalResources": 8
+      },
+      "after": {
+        "triangles": 12386,
+        "drawCalls": 5,
+        "bufferBytes": 2235288,
+        "maxNormalError": 3.8068252994349905e-8,
+        "signature": "56b101fa2dd94d1a3c47f60bf355b1148a8aaa93f0f254b868c815c80f230afa",
+        "disposalResources": 8
+      },
+      "originalOct11Triangles": 5734,
+      "ratioToOriginal": 2.1600976630624347,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "sartorius",
+      "before": {
+        "triangles": 17648,
+        "drawCalls": 7,
+        "bufferBytes": 3063360,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "754cb63e859cff665e7e19964b8461c09a53b4c906a95d0e730d38e21b214fd9",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 17648,
+        "drawCalls": 7,
+        "bufferBytes": 3063360,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "754cb63e859cff665e7e19964b8461c09a53b4c906a95d0e730d38e21b214fd9",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 8856,
+      "ratioToOriginal": 1.992773261065944,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "yubel",
+      "before": {
+        "triangles": 16728,
+        "drawCalls": 7,
+        "bufferBytes": 2892384,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "4189351dc6d4d4f297e0e1074e4772dae1ec5cc0195cf69484efd0a30468e59c",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 16728,
+        "drawCalls": 7,
+        "bufferBytes": 2892384,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "4189351dc6d4d4f297e0e1074e4772dae1ec5cc0195cf69484efd0a30468e59c",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 8232,
+      "ratioToOriginal": 2.0320699708454812,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "camula",
+      "before": {
+        "triangles": 16332,
+        "drawCalls": 7,
+        "bufferBytes": 2795472,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "dfc83f44f7e319627cf9ae874f23597499c79d07815f461d401cee581276b12b",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 16332,
+        "drawCalls": 7,
+        "bufferBytes": 2795472,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "dfc83f44f7e319627cf9ae874f23597499c79d07815f461d401cee581276b12b",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 8180,
+      "ratioToOriginal": 1.9965770171149144,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "titan",
+      "before": {
+        "triangles": 14888,
+        "drawCalls": 8,
+        "bufferBytes": 2635104,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "ab3a361e6bad5979445f2055f4d9b7d52eded36bd8c28189c0de4080ebfbf505",
+        "disposalResources": 11
+      },
+      "after": {
+        "triangles": 14888,
+        "drawCalls": 8,
+        "bufferBytes": 2635104,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "ab3a361e6bad5979445f2055f4d9b7d52eded36bd8c28189c0de4080ebfbf505",
+        "disposalResources": 11
+      },
+      "originalOct11Triangles": 7238,
+      "ratioToOriginal": 2.0569218016026527,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "tania",
+      "before": {
+        "triangles": 20360,
+        "drawCalls": 6,
+        "bufferBytes": 3371808,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "a6f8cd54faeb86db77042bcf449e2e41ec920cb0d8fa80a9e5c7d4dba2d5fcc5",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 20360,
+        "drawCalls": 6,
+        "bufferBytes": 3371808,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "a6f8cd54faeb86db77042bcf449e2e41ec920cb0d8fa80a9e5c7d4dba2d5fcc5",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 9688,
+      "ratioToOriginal": 2.101568951279934,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "kagemaru",
+      "before": {
+        "triangles": 14266,
+        "drawCalls": 6,
+        "bufferBytes": 2483448,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "aaec17f061ac2c6d769922143264872c7c1fe205555edb3a819a2a1bd62156f7",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 14266,
+        "drawCalls": 6,
+        "bufferBytes": 2483448,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "aaec17f061ac2c6d769922143264872c7c1fe205555edb3a819a2a1bd62156f7",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6010,
+      "ratioToOriginal": 2.373710482529118,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "dimitri",
+      "before": {
+        "triangles": 14266,
+        "drawCalls": 6,
+        "bufferBytes": 2483448,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "b6164703e7a5d3bfcfa9cd2ac1047d5c5df53230aa9c6ebbece2872af3868673",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 14266,
+        "drawCalls": 6,
+        "bufferBytes": 2483448,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "b6164703e7a5d3bfcfa9cd2ac1047d5c5df53230aa9c6ebbece2872af3868673",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6010,
+      "ratioToOriginal": 2.373710482529118,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "trueman",
+      "before": {
+        "triangles": 17470,
+        "drawCalls": 7,
+        "bufferBytes": 2906376,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "da8afb8a310d07964d5ebb64bd05d4dc8fbd9bddf21daa356ac769d3342634e2",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 17470,
+        "drawCalls": 7,
+        "bufferBytes": 2906376,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "da8afb8a310d07964d5ebb64bd05d4dc8fbd9bddf21daa356ac769d3342634e2",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7556,
+      "ratioToOriginal": 2.3120698782424562,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "abidos",
+      "before": {
+        "triangles": 14348,
+        "drawCalls": 8,
+        "bufferBytes": 2533584,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "53d777b8fc37ef52a65f415090f81374bbd81e5413c266dc115b8c8eb9b8bb4b",
+        "disposalResources": 11
+      },
+      "after": {
+        "triangles": 14348,
+        "drawCalls": 8,
+        "bufferBytes": 2533584,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "53d777b8fc37ef52a65f415090f81374bbd81e5413c266dc115b8c8eb9b8bb4b",
+        "disposalResources": 11
+      },
+      "originalOct11Triangles": 6818,
+      "ratioToOriginal": 2.1044294514520385,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "don-zaloog",
+      "before": {
+        "triangles": 16784,
+        "drawCalls": 7,
+        "bufferBytes": 2885376,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "82cf73f6a937e2f9ac8b6eebb1ee9a3fc0c782543a1022a583878501e09a2b1c",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 16784,
+        "drawCalls": 7,
+        "bufferBytes": 2885376,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "82cf73f6a937e2f9ac8b6eebb1ee9a3fc0c782543a1022a583878501e09a2b1c",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 8512,
+      "ratioToOriginal": 1.9718045112781954,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "alice",
+      "before": {
+        "triangles": 15468,
+        "drawCalls": 7,
+        "bufferBytes": 2617488,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "9c382faf1d6bca551cf27c250f1412549857dccf0d2a6c9363fe99e4218c3cc1",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 15468,
+        "drawCalls": 7,
+        "bufferBytes": 2617488,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "9c382faf1d6bca551cf27c250f1412549857dccf0d2a6c9363fe99e4218c3cc1",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7836,
+      "ratioToOriginal": 1.9739663093415007,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "yusei",
+      "before": {
+        "triangles": 16656,
+        "drawCalls": 6,
+        "bufferBytes": 2928384,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "a9f6502131561397eacdc8ead489b3b25cb9b1e906021e96e3d415ccf835c2df",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 20664,
+        "drawCalls": 6,
+        "bufferBytes": 3689568,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "ee0fb3d9213e85b07cd14dd39a1f7a305ceda014e2ed231176758e675630cc2f",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6016,
+      "ratioToOriginal": 3.434840425531915,
+      "changedGeometryOrColor": true
+    },
+    {
+      "id": "jack",
+      "before": {
+        "triangles": 15544,
+        "drawCalls": 7,
+        "bufferBytes": 2721696,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "a3501073e5d758685b460cd662985c3e82707ce52a23b1003f2c38c6ee355b8e",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 15544,
+        "drawCalls": 7,
+        "bufferBytes": 2721696,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "a3501073e5d758685b460cd662985c3e82707ce52a23b1003f2c38c6ee355b8e",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7000,
+      "ratioToOriginal": 2.2205714285714286,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "crow",
+      "before": {
+        "triangles": 14048,
+        "drawCalls": 6,
+        "bufferBytes": 2453376,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "b021a556a6221030538f3a01f793ee528a160ef824ea3b9740196fc476c950e4",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 14048,
+        "drawCalls": 6,
+        "bufferBytes": 2453376,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "b021a556a6221030538f3a01f793ee528a160ef824ea3b9740196fc476c950e4",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6004,
+      "ratioToOriginal": 2.339773484343771,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "akiza",
+      "before": {
+        "triangles": 15548,
+        "drawCalls": 7,
+        "bufferBytes": 2691984,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "299b792569e67d7a8209200f5ab0a854b1c22512d334da5fe285bfd44e297674",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 15548,
+        "drawCalls": 7,
+        "bufferBytes": 2691984,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "299b792569e67d7a8209200f5ab0a854b1c22512d334da5fe285bfd44e297674",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7004,
+      "ratioToOriginal": 2.2198743575099944,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "leo",
+      "before": {
+        "triangles": 15036,
+        "drawCalls": 6,
+        "bufferBytes": 2565648,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "6fdbf8d3dcd8bc49b0f30aad5eee4568c878c6b7f73aaf9e00ffb6d6bf5372fb",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 15036,
+        "drawCalls": 6,
+        "bufferBytes": 2565648,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "6fdbf8d3dcd8bc49b0f30aad5eee4568c878c6b7f73aaf9e00ffb6d6bf5372fb",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6676,
+      "ratioToOriginal": 2.2522468544038348,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "luna",
+      "before": {
+        "triangles": 15876,
+        "drawCalls": 7,
+        "bufferBytes": 2671344,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "52a4c0f6c71834521c2348b29213587810b2cf61c5b5ae1158ecb529216501a6",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 15876,
+        "drawCalls": 7,
+        "bufferBytes": 2671344,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "52a4c0f6c71834521c2348b29213587810b2cf61c5b5ae1158ecb529216501a6",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7308,
+      "ratioToOriginal": 2.1724137931034484,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "kalin",
+      "before": {
+        "triangles": 16760,
+        "drawCalls": 7,
+        "bufferBytes": 2882208,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "e5d1dd28264a95408c9b830b1e033ad207f22671e6fb019d9d9073e413a0f790",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 16760,
+        "drawCalls": 7,
+        "bufferBytes": 2882208,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "e5d1dd28264a95408c9b830b1e033ad207f22671e6fb019d9d9073e413a0f790",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 8488,
+      "ratioToOriginal": 1.9745523091423185,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "carly",
+      "before": {
+        "triangles": 16372,
+        "drawCalls": 7,
+        "bufferBytes": 2760144,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "3be5963984aeeff13276324d0d15187b5e1a66904b3fb065321f1628c0b7cc7e",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 16372,
+        "drawCalls": 7,
+        "bufferBytes": 2760144,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "3be5963984aeeff13276324d0d15187b5e1a66904b3fb065321f1628c0b7cc7e",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7892,
+      "ratioToOriginal": 2.074505828687278,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "mina",
+      "before": {
+        "triangles": 15306,
+        "drawCalls": 6,
+        "bufferBytes": 2620728,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "eb5ff17ec36630a7cf3e92b5de47af6e8a1a277562198e1989764714fcdb1fbf",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 15306,
+        "drawCalls": 6,
+        "bufferBytes": 2620728,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "eb5ff17ec36630a7cf3e92b5de47af6e8a1a277562198e1989764714fcdb1fbf",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6658,
+      "ratioToOriginal": 2.2988885551216582,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "trudge",
+      "before": {
+        "triangles": 16562,
+        "drawCalls": 6,
+        "bufferBytes": 2786520,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "296f0710d5458c2cf41a653719d0d5b68c265a7bcc2d89513d8e721119d1b614",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 16562,
+        "drawCalls": 6,
+        "bufferBytes": 2786520,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "296f0710d5458c2cf41a653719d0d5b68c265a7bcc2d89513d8e721119d1b614",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 7144,
+      "ratioToOriginal": 2.3183090705487124,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "greiger",
+      "before": {
+        "triangles": 17840,
+        "drawCalls": 7,
+        "bufferBytes": 3024768,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "d740446b57414e9e9b00b51993a28825d859a51ae53a5164cb283144b3074d8c",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 17840,
+        "drawCalls": 7,
+        "bufferBytes": 3024768,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "d740446b57414e9e9b00b51993a28825d859a51ae53a5164cb283144b3074d8c",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 8134,
+      "ratioToOriginal": 2.1932628473075977,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "devack",
+      "before": {
+        "triangles": 15856,
+        "drawCalls": 7,
+        "bufferBytes": 2826816,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "8d5aae10d126c024b2f381cb44786df8dc8d282a10b797a9e6763716abebd37f",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 15856,
+        "drawCalls": 7,
+        "bufferBytes": 2826816,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "8d5aae10d126c024b2f381cb44786df8dc8d282a10b797a9e6763716abebd37f",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7428,
+      "ratioToOriginal": 2.1346257404415723,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "misty",
+      "before": {
+        "triangles": 16332,
+        "drawCalls": 7,
+        "bufferBytes": 2795472,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "c83e42ef8c734ecb06f65a35866e8b166d7946f48257a661c1eac926e28562f9",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 16332,
+        "drawCalls": 7,
+        "bufferBytes": 2795472,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "c83e42ef8c734ecb06f65a35866e8b166d7946f48257a661c1eac926e28562f9",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 8180,
+      "ratioToOriginal": 1.9965770171149144,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "roman",
+      "before": {
+        "triangles": 16760,
+        "drawCalls": 7,
+        "bufferBytes": 2882208,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "fd834712d47eed13887a69aa9afc7a13567e7aff88b67e831fcd390689c79c0d",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 16760,
+        "drawCalls": 7,
+        "bufferBytes": 2882208,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "fd834712d47eed13887a69aa9afc7a13567e7aff88b67e831fcd390689c79c0d",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 8488,
+      "ratioToOriginal": 1.9745523091423185,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "rex-goodwin",
+      "before": {
+        "triangles": 14266,
+        "drawCalls": 6,
+        "bufferBytes": 2483448,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "4c6f70605f1c7393337ccf06c29d66a0e5e64a376260d2fb45a9293806f851a1",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 14266,
+        "drawCalls": 6,
+        "bufferBytes": 2483448,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "4c6f70605f1c7393337ccf06c29d66a0e5e64a376260d2fb45a9293806f851a1",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6010,
+      "ratioToOriginal": 2.373710482529118,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "antinomy",
+      "before": {
+        "triangles": 17220,
+        "drawCalls": 7,
+        "bufferBytes": 2957328,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "968fa5aabfa2d9ae52eaa40a0b51807c9721b3c7a5fb224ee14d2bb3bb842cc3",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 17220,
+        "drawCalls": 7,
+        "bufferBytes": 2957328,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "968fa5aabfa2d9ae52eaa40a0b51807c9721b3c7a5fb224ee14d2bb3bb842cc3",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7412,
+      "ratioToOriginal": 2.323259579060982,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "aporia",
+      "before": {
+        "triangles": 15128,
+        "drawCalls": 8,
+        "bufferBytes": 2712864,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "26f3ddce13fdd7789876cb0cae1eaab5281991f188b3d1fe832cdf47d29b3f7d",
+        "disposalResources": 11
+      },
+      "after": {
+        "triangles": 15128,
+        "drawCalls": 8,
+        "bufferBytes": 2712864,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "26f3ddce13fdd7789876cb0cae1eaab5281991f188b3d1fe832cdf47d29b3f7d",
+        "disposalResources": 11
+      },
+      "originalOct11Triangles": 6982,
+      "ratioToOriginal": 2.166714408478946,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "z-one",
+      "before": {
+        "triangles": 15152,
+        "drawCalls": 9,
+        "bufferBytes": 2716032,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "420af9838622f48246525a878a39429d2f6c3febe402e0e68a9c7038285c563b",
+        "disposalResources": 12
+      },
+      "after": {
+        "triangles": 15152,
+        "drawCalls": 9,
+        "bufferBytes": 2716032,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "420af9838622f48246525a878a39429d2f6c3febe402e0e68a9c7038285c563b",
+        "disposalResources": 12
+      },
+      "originalOct11Triangles": 7006,
+      "ratioToOriginal": 2.1627176705680844,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "placido",
+      "before": {
+        "triangles": 16760,
+        "drawCalls": 7,
+        "bufferBytes": 2882208,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "714ae19317e07d9b7fa6ba255cd7f46a2411d30485e84cc1b504a778af6e0e92",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 16760,
+        "drawCalls": 7,
+        "bufferBytes": 2882208,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "714ae19317e07d9b7fa6ba255cd7f46a2411d30485e84cc1b504a778af6e0e92",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 8488,
+      "ratioToOriginal": 1.9745523091423185,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "lester",
+      "before": {
+        "triangles": 16584,
+        "drawCalls": 7,
+        "bufferBytes": 2858976,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "7c6a0fa34f35c01dd0392b5fdcade58b7461583f7fdb6dbc973d6aff0b28f595",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 16584,
+        "drawCalls": 7,
+        "bufferBytes": 2858976,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "7c6a0fa34f35c01dd0392b5fdcade58b7461583f7fdb6dbc973d6aff0b28f595",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7648,
+      "ratioToOriginal": 2.168410041841004,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "jakob",
+      "before": {
+        "triangles": 17840,
+        "drawCalls": 7,
+        "bufferBytes": 3024768,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "6aba3c42838639b2ec0234fd42f60a61f032d5e91e960fb7844c564c0554566a",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 17840,
+        "drawCalls": 7,
+        "bufferBytes": 3024768,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "6aba3c42838639b2ec0234fd42f60a61f032d5e91e960fb7844c564c0554566a",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 8134,
+      "ratioToOriginal": 2.1932628473075977,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "sherry",
+      "before": {
+        "triangles": 16648,
+        "drawCalls": 6,
+        "bufferBytes": 2881824,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "d96e12fa69a2aa53c73b2f35da2e9914a3e91c9fd6d02f4930fb2ced0610584d",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 16648,
+        "drawCalls": 6,
+        "bufferBytes": 2881824,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "d96e12fa69a2aa53c73b2f35da2e9914a3e91c9fd6d02f4930fb2ced0610584d",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 8152,
+      "ratioToOriginal": 2.042198233562316,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "andre",
+      "before": {
+        "triangles": 16292,
+        "drawCalls": 6,
+        "bufferBytes": 2731440,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "6b7e1e9b5f8e870896169d86d28533710b13a03c04ab891a5b9c436d52685a78",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 16292,
+        "drawCalls": 6,
+        "bufferBytes": 2731440,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "6b7e1e9b5f8e870896169d86d28533710b13a03c04ab891a5b9c436d52685a78",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 7162,
+      "ratioToOriginal": 2.274783580005585,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "jean",
+      "before": {
+        "triangles": 15212,
+        "drawCalls": 6,
+        "bufferBytes": 2588880,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "dcb49d6e0920a9e12c1a22fdf2aefc77a13cac56e0fb3cbee33499999cc44f2c",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 15212,
+        "drawCalls": 6,
+        "bufferBytes": 2588880,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "dcb49d6e0920a9e12c1a22fdf2aefc77a13cac56e0fb3cbee33499999cc44f2c",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 7516,
+      "ratioToOriginal": 2.023948908994146,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "yuma",
+      "before": {
+        "triangles": 14788,
+        "drawCalls": 7,
+        "bufferBytes": 2568336,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "f1d3cc6539fbfbd75dd42159bc971ed71f883b7b54d9f7ef32980bc073f53572",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 14788,
+        "drawCalls": 7,
+        "bufferBytes": 2568336,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "f1d3cc6539fbfbd75dd42159bc971ed71f883b7b54d9f7ef32980bc073f53572",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7156,
+      "ratioToOriginal": 2.0665176076020124,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "astral",
+      "before": {
+        "triangles": 14016,
+        "drawCalls": 6,
+        "bufferBytes": 2566080,
+        "maxNormalError": 4.094554384437288e-8,
+        "signature": "2364394831c023bb3f25d18815f310103d58adae6909ad1c8095b3bd9f523a89",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 14016,
+        "drawCalls": 6,
+        "bufferBytes": 2566080,
+        "maxNormalError": 4.094554384437288e-8,
+        "signature": "2364394831c023bb3f25d18815f310103d58adae6909ad1c8095b3bd9f523a89",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6580,
+      "ratioToOriginal": 2.1300911854103344,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "tori",
+      "before": {
+        "triangles": 14684,
+        "drawCalls": 7,
+        "bufferBytes": 2514000,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "ea97be109fd6e12f4ee8192798bd6f8cb6a01355efa9bc30299d7ee4f3b75885",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 14684,
+        "drawCalls": 7,
+        "bufferBytes": 2514000,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "ea97be109fd6e12f4ee8192798bd6f8cb6a01355efa9bc30299d7ee4f3b75885",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 6660,
+      "ratioToOriginal": 2.204804804804805,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "bronk",
+      "before": {
+        "triangles": 16668,
+        "drawCalls": 6,
+        "bufferBytes": 2800080,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "606e1aaa648ed3982a2b16e905d6a3bafcc20f24ad4b9c35780a431083261e2e",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 16668,
+        "drawCalls": 6,
+        "bufferBytes": 2800080,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "606e1aaa648ed3982a2b16e905d6a3bafcc20f24ad4b9c35780a431083261e2e",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 7250,
+      "ratioToOriginal": 2.299034482758621,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "kite",
+      "before": {
+        "triangles": 14956,
+        "drawCalls": 7,
+        "bufferBytes": 2644080,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "839c4ff4b417b41d59f92160b299a964f936e4d04622b5b7f672bcc932682144",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 14956,
+        "drawCalls": 7,
+        "bufferBytes": 2644080,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "839c4ff4b417b41d59f92160b299a964f936e4d04622b5b7f672bcc932682144",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7048,
+      "ratioToOriginal": 2.1220204313280364,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "shark",
+      "before": {
+        "triangles": 15136,
+        "drawCalls": 6,
+        "bufferBytes": 2660928,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "12f3e4a7ac1ecd40fffc475b7a7444891d05a873a70913a4fde53ca5ca4004e4",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 15136,
+        "drawCalls": 6,
+        "bufferBytes": 2660928,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "12f3e4a7ac1ecd40fffc475b7a7444891d05a873a70913a4fde53ca5ca4004e4",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6360,
+      "ratioToOriginal": 2.379874213836478,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "rio",
+      "before": {
+        "triangles": 15482,
+        "drawCalls": 6,
+        "bufferBytes": 2643960,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "c880c9c59b03b51521d30d846e3258151dd5e9ab207f3878fbf5daf93b809d0c",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 15482,
+        "drawCalls": 6,
+        "bufferBytes": 2643960,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "c880c9c59b03b51521d30d846e3258151dd5e9ab207f3878fbf5daf93b809d0c",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 7498,
+      "ratioToOriginal": 2.064817284609229,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "anna",
+      "before": {
+        "triangles": 15644,
+        "drawCalls": 6,
+        "bufferBytes": 2645904,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "1c93342e4a0831de64ef90eab8c3182bf2af017bd3a677c1a023a8256b7405cd",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 15644,
+        "drawCalls": 6,
+        "bufferBytes": 2645904,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "1c93342e4a0831de64ef90eab8c3182bf2af017bd3a677c1a023a8256b7405cd",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 7012,
+      "ratioToOriginal": 2.231032515687393,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "cathy",
+      "before": {
+        "triangles": 15900,
+        "drawCalls": 7,
+        "bufferBytes": 2674512,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "833f5dc6504318bd041ca4a4fadfe723df3bc6b41497ecb385e5934bf1958dc7",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 15900,
+        "drawCalls": 7,
+        "bufferBytes": 2674512,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "833f5dc6504318bd041ca4a4fadfe723df3bc6b41497ecb385e5934bf1958dc7",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7332,
+      "ratioToOriginal": 2.1685761047463177,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "flip",
+      "before": {
+        "triangles": 14698,
+        "drawCalls": 6,
+        "bufferBytes": 2540472,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "5c20fe27a48bff0a75e4680674f5e30240f9e680fd40408d4d140f9c336c419a",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 14698,
+        "drawCalls": 6,
+        "bufferBytes": 2540472,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "5c20fe27a48bff0a75e4680674f5e30240f9e680fd40408d4d140f9c336c419a",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6322,
+      "ratioToOriginal": 2.3248971844353052,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "caswell",
+      "before": {
+        "triangles": 17470,
+        "drawCalls": 7,
+        "bufferBytes": 2906376,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "da293fa2f5a0a0a980fefafc3835d527de3c91ae9e43d350db7a18528a9daecb",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 17470,
+        "drawCalls": 7,
+        "bufferBytes": 2906376,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "da293fa2f5a0a0a980fefafc3835d527de3c91ae9e43d350db7a18528a9daecb",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7556,
+      "ratioToOriginal": 2.3120698782424562,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "quinton",
+      "before": {
+        "triangles": 16760,
+        "drawCalls": 7,
+        "bufferBytes": 2882208,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "8c6df47e812587743066a6c8434e83bfca497cc031365f1d349674bf86638a2d",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 16760,
+        "drawCalls": 7,
+        "bufferBytes": 2882208,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "8c6df47e812587743066a6c8434e83bfca497cc031365f1d349674bf86638a2d",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 8488,
+      "ratioToOriginal": 1.9745523091423185,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "quattro",
+      "before": {
+        "triangles": 15544,
+        "drawCalls": 7,
+        "bufferBytes": 2721696,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "8de9397829ef50ba4b7429c04bba718a37033ec640ee2842579aa4ddf69ea1d5",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 15544,
+        "drawCalls": 7,
+        "bufferBytes": 2721696,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "8de9397829ef50ba4b7429c04bba718a37033ec640ee2842579aa4ddf69ea1d5",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7000,
+      "ratioToOriginal": 2.2205714285714286,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "trey",
+      "before": {
+        "triangles": 14660,
+        "drawCalls": 7,
+        "bufferBytes": 2510832,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "57828ec43ec29851649bcca4cddf61b07cdecb36f594840e7b42e1aa9f532ff1",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 14660,
+        "drawCalls": 7,
+        "bufferBytes": 2510832,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "57828ec43ec29851649bcca4cddf61b07cdecb36f594840e7b42e1aa9f532ff1",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 6636,
+      "ratioToOriginal": 2.2091621458710065,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "vetrix",
+      "before": {
+        "triangles": 14684,
+        "drawCalls": 8,
+        "bufferBytes": 2514000,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "282266e755652d24cd6414fe132033c150ea674297094083976c9a0e2b8a0502",
+        "disposalResources": 11
+      },
+      "after": {
+        "triangles": 14684,
+        "drawCalls": 8,
+        "bufferBytes": 2514000,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "282266e755652d24cd6414fe132033c150ea674297094083976c9a0e2b8a0502",
+        "disposalResources": 11
+      },
+      "originalOct11Triangles": 6660,
+      "ratioToOriginal": 2.204804804804805,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "dr-faker",
+      "before": {
+        "triangles": 13628,
+        "drawCalls": 7,
+        "bufferBytes": 2374608,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "64bf6705762c2c7ce3935646f8987d7c5f8036da27e8cb74161ba83a1bba1fd5",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 13628,
+        "drawCalls": 7,
+        "bufferBytes": 2374608,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "64bf6705762c2c7ce3935646f8987d7c5f8036da27e8cb74161ba83a1bba1fd5",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 6360,
+      "ratioToOriginal": 2.1427672955974844,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "heartland",
+      "before": {
+        "triangles": 15174,
+        "drawCalls": 7,
+        "bufferBytes": 2603304,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "786f7ff5efecdc851c514f57fbed9a80fb7bd2c6ef163e1f35149f8b9ecfaa4b",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 15174,
+        "drawCalls": 7,
+        "bufferBytes": 2603304,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "786f7ff5efecdc851c514f57fbed9a80fb7bd2c6ef163e1f35149f8b9ecfaa4b",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 6422,
+      "ratioToOriginal": 2.3628153223294923,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "nistro",
+      "before": {
+        "triangles": 14956,
+        "drawCalls": 7,
+        "bufferBytes": 2644080,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "acdd3dac9b2516bac663ace3f987b8fec8e23fb8d0fb985dbe6d8194eaa0fc64",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 14956,
+        "drawCalls": 7,
+        "bufferBytes": 2644080,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "acdd3dac9b2516bac663ace3f987b8fec8e23fb8d0fb985dbe6d8194eaa0fc64",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7048,
+      "ratioToOriginal": 2.1220204313280364,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "dextra",
+      "before": {
+        "triangles": 14680,
+        "drawCalls": 6,
+        "bufferBytes": 2536800,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "dd623f093c4f5508c899864078f0f1c4b28b985c6dca5f2ec2a08929185ec225",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 14680,
+        "drawCalls": 6,
+        "bufferBytes": 2536800,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "dd623f093c4f5508c899864078f0f1c4b28b985c6dca5f2ec2a08929185ec225",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6304,
+      "ratioToOriginal": 2.3286802030456855,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "girag",
+      "before": {
+        "triangles": 13684,
+        "drawCalls": 6,
+        "bufferBytes": 2407920,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "c552cb7f5da0168b3d62d9588ba385e9a61b41b04ffc122f6dc67c1501dcf2d6",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 13684,
+        "drawCalls": 6,
+        "bufferBytes": 2407920,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "c552cb7f5da0168b3d62d9588ba385e9a61b41b04ffc122f6dc67c1501dcf2d6",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6064,
+      "ratioToOriginal": 2.2565963060686016,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "alito",
+      "before": {
+        "triangles": 13996,
+        "drawCalls": 6,
+        "bufferBytes": 2428368,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "48b0c9f1fda0ff5e44fee3f422f9018c3ddad352170659ee74b9e47bb89964f1",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 13996,
+        "drawCalls": 6,
+        "bufferBytes": 2428368,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "48b0c9f1fda0ff5e44fee3f422f9018c3ddad352170659ee74b9e47bb89964f1",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6028,
+      "ratioToOriginal": 2.3218314532183144,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "dumon",
+      "before": {
+        "triangles": 16436,
+        "drawCalls": 7,
+        "bufferBytes": 2871696,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "e9ec7fd9ccd02a01dfce99c91f6bf877f7c15facbf7aa84ff1654b94bab5bc5d",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 16436,
+        "drawCalls": 7,
+        "bufferBytes": 2871696,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "e9ec7fd9ccd02a01dfce99c91f6bf877f7c15facbf7aa84ff1654b94bab5bc5d",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7524,
+      "ratioToOriginal": 2.184476342371079,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "vector",
+      "before": {
+        "triangles": 14944,
+        "drawCalls": 7,
+        "bufferBytes": 2642496,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "9212fdca1d05ff930a2999bad0aba2d42396fa488351db4ffa52478ab62960b8",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 14944,
+        "drawCalls": 7,
+        "bufferBytes": 2642496,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "9212fdca1d05ff930a2999bad0aba2d42396fa488351db4ffa52478ab62960b8",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7036,
+      "ratioToOriginal": 2.1239340534394544,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "mizar",
+      "before": {
+        "triangles": 16760,
+        "drawCalls": 7,
+        "bufferBytes": 2882208,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "7f19d9066a278d52c02e93e57a1bb1fa476c6a7df467aa4bfd905ed3a6c5a1b6",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 16760,
+        "drawCalls": 7,
+        "bufferBytes": 2882208,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "7f19d9066a278d52c02e93e57a1bb1fa476c6a7df467aa4bfd905ed3a6c5a1b6",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 8488,
+      "ratioToOriginal": 1.9745523091423185,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "yuya",
+      "before": {
+        "triangles": 16508,
+        "drawCalls": 8,
+        "bufferBytes": 2781552,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "862e681a67b99a87aceadb7ccda07e214226fa33c41233320cd835fda9279e5f",
+        "disposalResources": 11
+      },
+      "after": {
+        "triangles": 17612,
+        "drawCalls": 8,
+        "bufferBytes": 2986032,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "e9d673d706b4dd958a4ca7ee9dbdfc5680bffc897df6d17ed207c55238b1fd0e",
+        "disposalResources": 11
+      },
+      "originalOct11Triangles": 6740,
+      "ratioToOriginal": 2.6130563798219586,
+      "changedGeometryOrColor": true
+    },
+    {
+      "id": "zuzu",
+      "before": {
+        "triangles": 16764,
+        "drawCalls": 7,
+        "bufferBytes": 2852496,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "1425c2ac9094fbcb2d80530f7d96092820273806809744f88c8d3595fa97a841",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 16764,
+        "drawCalls": 7,
+        "bufferBytes": 2852496,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "1425c2ac9094fbcb2d80530f7d96092820273806809744f88c8d3595fa97a841",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7676,
+      "ratioToOriginal": 2.1839499739447628,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "yuto",
+      "before": {
+        "triangles": 14968,
+        "drawCalls": 7,
+        "bufferBytes": 2645664,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "ab675f5a969358aebf322ffe242240c0f1d8f3097859e327df1790d0f22d552c",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 14968,
+        "drawCalls": 7,
+        "bufferBytes": 2645664,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "ab675f5a969358aebf322ffe242240c0f1d8f3097859e327df1790d0f22d552c",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7060,
+      "ratioToOriginal": 2.120113314447592,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "yugo",
+      "before": {
+        "triangles": 13996,
+        "drawCalls": 6,
+        "bufferBytes": 2428368,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "b84010788bc38211b6355deaf373a4cdf0b20123c8b367875770bc68321a54f4",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 13996,
+        "drawCalls": 6,
+        "bufferBytes": 2428368,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "b84010788bc38211b6355deaf373a4cdf0b20123c8b367875770bc68321a54f4",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6028,
+      "ratioToOriginal": 2.3218314532183144,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "yuri",
+      "before": {
+        "triangles": 14266,
+        "drawCalls": 6,
+        "bufferBytes": 2483448,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "01c552e8e3868d3abdcebd7a3efaa982b703b53c60b3f69bbad57368dd2f86fb",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 14266,
+        "drawCalls": 6,
+        "bufferBytes": 2483448,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "01c552e8e3868d3abdcebd7a3efaa982b703b53c60b3f69bbad57368dd2f86fb",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6010,
+      "ratioToOriginal": 2.373710482529118,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "celina",
+      "before": {
+        "triangles": 15306,
+        "drawCalls": 6,
+        "bufferBytes": 2620728,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "f2c4a06dc0a57cc50ab2381ecf1b4b270ee19d1e2d16f67fa0449820a74889c5",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 15306,
+        "drawCalls": 6,
+        "bufferBytes": 2620728,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "f2c4a06dc0a57cc50ab2381ecf1b4b270ee19d1e2d16f67fa0449820a74889c5",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6658,
+      "ratioToOriginal": 2.2988885551216582,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "rin",
+      "before": {
+        "triangles": 14428,
+        "drawCalls": 6,
+        "bufferBytes": 2485392,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "f5c43ee6897fa9a5e0e1fb3e66c6cbfefeeabbf7e6c7522530a94c5cc4bef9e7",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 14428,
+        "drawCalls": 6,
+        "bufferBytes": 2485392,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "f5c43ee6897fa9a5e0e1fb3e66c6cbfefeeabbf7e6c7522530a94c5cc4bef9e7",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6340,
+      "ratioToOriginal": 2.275709779179811,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "lulu",
+      "before": {
+        "triangles": 15268,
+        "drawCalls": 7,
+        "bufferBytes": 2591088,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "ecd212daf771bca577670a5fc016ecdb608372dac7b05c801592868b964d35da",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 15268,
+        "drawCalls": 7,
+        "bufferBytes": 2591088,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "ecd212daf771bca577670a5fc016ecdb608372dac7b05c801592868b964d35da",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 6972,
+      "ratioToOriginal": 2.1899024670109006,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "declan",
+      "before": {
+        "triangles": 16912,
+        "drawCalls": 8,
+        "bufferBytes": 2934528,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "2321dd2a4902ee1c883271f9e868a2a6bdacee10a1725be4ffa309fed22b4fe2",
+        "disposalResources": 11
+      },
+      "after": {
+        "triangles": 16912,
+        "drawCalls": 8,
+        "bufferBytes": 2934528,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "2321dd2a4902ee1c883271f9e868a2a6bdacee10a1725be4ffa309fed22b4fe2",
+        "disposalResources": 11
+      },
+      "originalOct11Triangles": 7624,
+      "ratioToOriginal": 2.2182581322140607,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "riley",
+      "before": {
+        "triangles": 16088,
+        "drawCalls": 7,
+        "bufferBytes": 2793504,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "de66b6d08f54a568b9522addc9c573ed66827ab8ad338229b38b7ad6ed0d4516",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 16088,
+        "drawCalls": 7,
+        "bufferBytes": 2793504,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "de66b6d08f54a568b9522addc9c573ed66827ab8ad338229b38b7ad6ed0d4516",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7424,
+      "ratioToOriginal": 2.1670258620689653,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "shay",
+      "before": {
+        "triangles": 14956,
+        "drawCalls": 7,
+        "bufferBytes": 2644080,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "c146f60f4acb6cb42a66867f5d96776458fb6a4574aa49fd82a81f4b0f942b2a",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 14956,
+        "drawCalls": 7,
+        "bufferBytes": 2644080,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "c146f60f4acb6cb42a66867f5d96776458fb6a4574aa49fd82a81f4b0f942b2a",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7048,
+      "ratioToOriginal": 2.1220204313280364,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "sora",
+      "before": {
+        "triangles": 14248,
+        "drawCalls": 6,
+        "bufferBytes": 2479776,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "706dd5abb5621dc691fd68eb9786213a94f79c47221298a94509cafd79879f68",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 14248,
+        "drawCalls": 6,
+        "bufferBytes": 2479776,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "706dd5abb5621dc691fd68eb9786213a94f79c47221298a94509cafd79879f68",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 5992,
+      "ratioToOriginal": 2.3778371161548733,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "gong",
+      "before": {
+        "triangles": 14228,
+        "drawCalls": 7,
+        "bufferBytes": 2453808,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "e31b105a636053f8b1f5d613f37e9599302a043c0bb3937d0e6bd8f461096d8a",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 14228,
+        "drawCalls": 7,
+        "bufferBytes": 2453808,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "e31b105a636053f8b1f5d613f37e9599302a043c0bb3937d0e6bd8f461096d8a",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 6324,
+      "ratioToOriginal": 2.249841872232764,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "silvio",
+      "before": {
+        "triangles": 15544,
+        "drawCalls": 7,
+        "bufferBytes": 2721696,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "2adae537e31a274a3099a03ed2831639492fa16cf1ec199bb214d7a31445dccf",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 15544,
+        "drawCalls": 7,
+        "bufferBytes": 2721696,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "2adae537e31a274a3099a03ed2831639492fa16cf1ec199bb214d7a31445dccf",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7000,
+      "ratioToOriginal": 2.2205714285714286,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "yusho",
+      "before": {
+        "triangles": 15656,
+        "drawCalls": 7,
+        "bufferBytes": 2736480,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "19ad4ca2ea1756234c7ccd8ef619e70f629f2145b54d9fd8487b0ffc22ee56f1",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 15656,
+        "drawCalls": 7,
+        "bufferBytes": 2736480,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "19ad4ca2ea1756234c7ccd8ef619e70f629f2145b54d9fd8487b0ffc22ee56f1",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7112,
+      "ratioToOriginal": 2.201349831271091,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "yoko",
+      "before": {
+        "triangles": 15288,
+        "drawCalls": 6,
+        "bufferBytes": 2617056,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "ca77f4f1f7657d2434a00a7fc98d0a390ee9a333547ec966647f0e9446f8b8c4",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 15288,
+        "drawCalls": 6,
+        "bufferBytes": 2617056,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "ca77f4f1f7657d2434a00a7fc98d0a390ee9a333547ec966647f0e9446f8b8c4",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6640,
+      "ratioToOriginal": 2.302409638554217,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "leo-akaba",
+      "before": {
+        "triangles": 16352,
+        "drawCalls": 8,
+        "bufferBytes": 2734176,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "103f99b3572e85f655e81c4db6385a4c697dbcace2c78926ecf11376865b4b2e",
+        "disposalResources": 11
+      },
+      "after": {
+        "triangles": 16352,
+        "drawCalls": 8,
+        "bufferBytes": 2734176,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "103f99b3572e85f655e81c4db6385a4c697dbcace2c78926ecf11376865b4b2e",
+        "disposalResources": 11
+      },
+      "originalOct11Triangles": 8224,
+      "ratioToOriginal": 1.9883268482490273,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "dennis",
+      "before": {
+        "triangles": 13678,
+        "drawCalls": 6,
+        "bufferBytes": 2405832,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "b15a8e78c7f65ea5c0d8eb2ce392bd593f40164534bb5b15c39e769eddcce7da",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 13678,
+        "drawCalls": 6,
+        "bufferBytes": 2405832,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "b15a8e78c7f65ea5c0d8eb2ce392bd593f40164534bb5b15c39e769eddcce7da",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6058,
+      "ratioToOriginal": 2.257840871574777,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "moon-shadow",
+      "before": {
+        "triangles": 16586,
+        "drawCalls": 7,
+        "bufferBytes": 2789688,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "577e14dc94922c6d8c507c4bb440f032c768d83e815d35657c168c0ec0fdcb1b",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 16586,
+        "drawCalls": 7,
+        "bufferBytes": 2789688,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "577e14dc94922c6d8c507c4bb440f032c768d83e815d35657c168c0ec0fdcb1b",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7168,
+      "ratioToOriginal": 2.3138950892857144,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "shinji",
+      "before": {
+        "triangles": 13996,
+        "drawCalls": 6,
+        "bufferBytes": 2428368,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "4d3913db57bfe54b6030a6ae6ecd9c74b74bb91bc1663e6b72c6251de3aae1b9",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 13996,
+        "drawCalls": 6,
+        "bufferBytes": 2428368,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "4d3913db57bfe54b6030a6ae6ecd9c74b74bb91bc1663e6b72c6251de3aae1b9",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6028,
+      "ratioToOriginal": 2.3218314532183144,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "sergey",
+      "before": {
+        "triangles": 14016,
+        "drawCalls": 6,
+        "bufferBytes": 2566080,
+        "maxNormalError": 3.827864858418906e-8,
+        "signature": "8f3b5620582c02b07cdc5076781c12102c5b3c541d541f155c8375d58dcc978c",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 14016,
+        "drawCalls": 6,
+        "bufferBytes": 2566080,
+        "maxNormalError": 3.827864858418906e-8,
+        "signature": "8f3b5620582c02b07cdc5076781c12102c5b3c541d541f155c8375d58dcc978c",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6580,
+      "ratioToOriginal": 2.1300911854103344,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "roget",
+      "before": {
+        "triangles": 14266,
+        "drawCalls": 6,
+        "bufferBytes": 2483448,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "3ad9ac673a343fb2a1b4b24801e6dc2f175c1798c22e92bf9ec255f6330f296c",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 14266,
+        "drawCalls": 6,
+        "bufferBytes": 2483448,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "3ad9ac673a343fb2a1b4b24801e6dc2f175c1798c22e92bf9ec255f6330f296c",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6010,
+      "ratioToOriginal": 2.373710482529118,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "chojiro",
+      "before": {
+        "triangles": 14228,
+        "drawCalls": 7,
+        "bufferBytes": 2453808,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "c754300e2a5ca3fa91882e7747cba10467726069f198836b6dad6cbfe824907b",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 14228,
+        "drawCalls": 7,
+        "bufferBytes": 2453808,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "c754300e2a5ca3fa91882e7747cba10467726069f198836b6dad6cbfe824907b",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 6324,
+      "ratioToOriginal": 2.249841872232764,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "skip",
+      "before": {
+        "triangles": 13420,
+        "drawCalls": 6,
+        "bufferBytes": 2352336,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "2d5183a0f4f0adc83a0b22f785de7ce5ef8a5f54bd07fd24f2b95aa9f821ac04",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 13420,
+        "drawCalls": 6,
+        "bufferBytes": 2352336,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "2d5183a0f4f0adc83a0b22f785de7ce5ef8a5f54bd07fd24f2b95aa9f821ac04",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6088,
+      "ratioToOriginal": 2.204336399474376,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "gloria",
+      "before": {
+        "triangles": 15482,
+        "drawCalls": 6,
+        "bufferBytes": 2643960,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "6a37174d475cf0592203e1e733cf5fcad6d93af6d402fc8d78c8ed476dd0894a",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 15482,
+        "drawCalls": 6,
+        "bufferBytes": 2643960,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "6a37174d475cf0592203e1e733cf5fcad6d93af6d402fc8d78c8ed476dd0894a",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 7498,
+      "ratioToOriginal": 2.064817284609229,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "grace",
+      "before": {
+        "triangles": 14698,
+        "drawCalls": 6,
+        "bufferBytes": 2540472,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "dcfc453e021a173319c0466b29660afe26d1f2f8ed1cd892d2c55f404a39d396",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 14698,
+        "drawCalls": 6,
+        "bufferBytes": 2540472,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "dcfc453e021a173319c0466b29660afe26d1f2f8ed1cd892d2c55f404a39d396",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6322,
+      "ratioToOriginal": 2.3248971844353052,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "zarc",
+      "before": {
+        "triangles": 14936,
+        "drawCalls": 7,
+        "bufferBytes": 2655840,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "281b0c50172c7b7b72e4ee57d2236b668dd002dc3310513ff0d165f42431a1f2",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 14936,
+        "drawCalls": 7,
+        "bufferBytes": 2655840,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "281b0c50172c7b7b72e4ee57d2236b668dd002dc3310513ff0d165f42431a1f2",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 6804,
+      "ratioToOriginal": 2.1951793062904175,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "ray",
+      "before": {
+        "triangles": 16332,
+        "drawCalls": 7,
+        "bufferBytes": 2795472,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "79acaf8f804a980cef22a7ce882999ea4343bd8740afbaac976adaeae2111f6d",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 16332,
+        "drawCalls": 7,
+        "bufferBytes": 2795472,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "79acaf8f804a980cef22a7ce882999ea4343bd8740afbaac976adaeae2111f6d",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 8180,
+      "ratioToOriginal": 1.9965770171149144,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "playmaker",
+      "before": {
+        "triangles": 15720,
+        "drawCalls": 7,
+        "bufferBytes": 2781792,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "cf8d255caf994cbdd69901537727dd2e45ca5b0c4ac871d37b6792dff49815f8",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 15932,
+        "drawCalls": 7,
+        "bufferBytes": 2854992,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "6b2de439163cebc731ed4018aca7e5345da29270d3bbc4125b83abc304fcfcf9",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 6956,
+      "ratioToOriginal": 2.290396779758482,
+      "changedGeometryOrColor": true
+    },
+    {
+      "id": "soulburner",
+      "before": {
+        "triangles": 16632,
+        "drawCalls": 7,
+        "bufferBytes": 2879712,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "966607dbce2c4b903f6174231e91b6b6abf6b817d789564343fb6163950f056d",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 16632,
+        "drawCalls": 7,
+        "bufferBytes": 2879712,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "966607dbce2c4b903f6174231e91b6b6abf6b817d789564343fb6163950f056d",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7460,
+      "ratioToOriginal": 2.229490616621984,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "varis",
+      "before": {
+        "triangles": 14688,
+        "drawCalls": 8,
+        "bufferBytes": 2623104,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "54ba18e43e5e2d72d22dd72050c8671e6af47c4900407c564bb2d3aec98eedf0",
+        "disposalResources": 11
+      },
+      "after": {
+        "triangles": 14688,
+        "drawCalls": 8,
+        "bufferBytes": 2623104,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "54ba18e43e5e2d72d22dd72050c8671e6af47c4900407c564bb2d3aec98eedf0",
+        "disposalResources": 11
+      },
+      "originalOct11Triangles": 6814,
+      "ratioToOriginal": 2.1555620780745524,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "blue-angel",
+      "before": {
+        "triangles": 15956,
+        "drawCalls": 7,
+        "bufferBytes": 2681904,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "25c5405afa457041142c93742ccae9260d47fa0cbed04d7cd88a358ebc20c308",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 15956,
+        "drawCalls": 7,
+        "bufferBytes": 2681904,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "25c5405afa457041142c93742ccae9260d47fa0cbed04d7cd88a358ebc20c308",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7388,
+      "ratioToOriginal": 2.159718462371413,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "ghost-gal",
+      "before": {
+        "triangles": 16628,
+        "drawCalls": 8,
+        "bufferBytes": 2864784,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "c4fe62df7b04f71e64d5cf68b76293cf67fc0f24c2bb9f53c9bb9cb3e47d63a2",
+        "disposalResources": 11
+      },
+      "after": {
+        "triangles": 16628,
+        "drawCalls": 8,
+        "bufferBytes": 2864784,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "c4fe62df7b04f71e64d5cf68b76293cf67fc0f24c2bb9f53c9bb9cb3e47d63a2",
+        "disposalResources": 11
+      },
+      "originalOct11Triangles": 7700,
+      "ratioToOriginal": 2.1594805194805193,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "the-gore",
+      "before": {
+        "triangles": 15232,
+        "drawCalls": 6,
+        "bufferBytes": 2694912,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "8fa2cab0993bda04688b0c2ebb8f5a1fc77501355e04c6a6003e488ee62a1f12",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 15232,
+        "drawCalls": 6,
+        "bufferBytes": 2694912,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "8fa2cab0993bda04688b0c2ebb8f5a1fc77501355e04c6a6003e488ee62a1f12",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6676,
+      "ratioToOriginal": 2.2816057519472737,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "ai",
+      "before": {
+        "triangles": 14266,
+        "drawCalls": 6,
+        "bufferBytes": 2483448,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "f7ef04dd63cdfc4e0f4fc7e4c0602ffa5e70e6e5e484ceff81d555daf4fc8ca5",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 14266,
+        "drawCalls": 6,
+        "bufferBytes": 2483448,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "f7ef04dd63cdfc4e0f4fc7e4c0602ffa5e70e6e5e484ceff81d555daf4fc8ca5",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6010,
+      "ratioToOriginal": 2.373710482529118,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "roboppi",
+      "before": {
+        "triangles": 16372,
+        "drawCalls": 8,
+        "bufferBytes": 2877072,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "bbb6ef649bc85221d522ecd0d508b4be2c2c964dd16f6406c30d91f2dc42493c",
+        "disposalResources": 11
+      },
+      "after": {
+        "triangles": 16372,
+        "drawCalls": 8,
+        "bufferBytes": 2877072,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "bbb6ef649bc85221d522ecd0d508b4be2c2c964dd16f6406c30d91f2dc42493c",
+        "disposalResources": 11
+      },
+      "originalOct11Triangles": 7220,
+      "ratioToOriginal": 2.267590027700831,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "akira",
+      "before": {
+        "triangles": 16562,
+        "drawCalls": 6,
+        "bufferBytes": 2786520,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "88c4f258174a64bbfce6c1cca0ea5cfdf1ea23c2ee302cbf01b348c0545f3537",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 16562,
+        "drawCalls": 6,
+        "bufferBytes": 2786520,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "88c4f258174a64bbfce6c1cca0ea5cfdf1ea23c2ee302cbf01b348c0545f3537",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 7144,
+      "ratioToOriginal": 2.3183090705487124,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "shoichi",
+      "before": {
+        "triangles": 13648,
+        "drawCalls": 6,
+        "bufferBytes": 2400576,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "d4d9b20672f3fcd68509b40b6f74942951e1ef42477f30565a40f03641229586",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 13648,
+        "drawCalls": 6,
+        "bufferBytes": 2400576,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "d4d9b20672f3fcd68509b40b6f74942951e1ef42477f30565a40f03641229586",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6028,
+      "ratioToOriginal": 2.2641008626410084,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "jin",
+      "before": {
+        "triangles": 14248,
+        "drawCalls": 6,
+        "bufferBytes": 2479776,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "5f0fdc0f552f4c1288d7b8ac03ade22ef0e8996ba4bf0082418edd3d5426464d",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 14248,
+        "drawCalls": 6,
+        "bufferBytes": 2479776,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "5f0fdc0f552f4c1288d7b8ac03ade22ef0e8996ba4bf0082418edd3d5426464d",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 5992,
+      "ratioToOriginal": 2.3778371161548733,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "naoki",
+      "before": {
+        "triangles": 13690,
+        "drawCalls": 6,
+        "bufferBytes": 2407416,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "3a7aeb9240d9cd010f7c48ca79027c3b721524ba9ac295538f7e2323d9fd528c",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 13690,
+        "drawCalls": 6,
+        "bufferBytes": 2407416,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "3a7aeb9240d9cd010f7c48ca79027c3b721524ba9ac295538f7e2323d9fd528c",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6070,
+      "ratioToOriginal": 2.2553542009884677,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "spectre",
+      "before": {
+        "triangles": 15544,
+        "drawCalls": 7,
+        "bufferBytes": 2721696,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "fbbb4a73db82de03565754bca6d4d87fd365d6458defaaaf8fbf23a5ddf82115",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 15544,
+        "drawCalls": 7,
+        "bufferBytes": 2721696,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "fbbb4a73db82de03565754bca6d4d87fd365d6458defaaaf8fbf23a5ddf82115",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7000,
+      "ratioToOriginal": 2.2205714285714286,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "windy",
+      "before": {
+        "triangles": 15172,
+        "drawCalls": 9,
+        "bufferBytes": 2718672,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "fd89ea7b1f6f1dacbbaf75e8a10f04f78ea1349c663e2e5ed1e90a33e261249a",
+        "disposalResources": 12
+      },
+      "after": {
+        "triangles": 15172,
+        "drawCalls": 9,
+        "bufferBytes": 2718672,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "fd89ea7b1f6f1dacbbaf75e8a10f04f78ea1349c663e2e5ed1e90a33e261249a",
+        "disposalResources": 12
+      },
+      "originalOct11Triangles": 7034,
+      "ratioToOriginal": 2.156951947682684,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "lightning",
+      "before": {
+        "triangles": 15320,
+        "drawCalls": 7,
+        "bufferBytes": 2738208,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "9bc2a02be9f54c1af000d01225dfe86c7918da679d3e90d1937485d21278ab52",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 15320,
+        "drawCalls": 7,
+        "bufferBytes": 2738208,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "9bc2a02be9f54c1af000d01225dfe86c7918da679d3e90d1937485d21278ab52",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 6916,
+      "ratioToOriginal": 2.2151532677848467,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "flame",
+      "before": {
+        "triangles": 15296,
+        "drawCalls": 7,
+        "bufferBytes": 2735040,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "b2e46e4c83ea2d920c82886436222c23725dbbd91b1525d2c5c93aa07c67d5c8",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 15296,
+        "drawCalls": 7,
+        "bufferBytes": 2735040,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "b2e46e4c83ea2d920c82886436222c23725dbbd91b1525d2c5c93aa07c67d5c8",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 6892,
+      "ratioToOriginal": 2.219384793964016,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "aqua",
+      "before": {
+        "triangles": 17112,
+        "drawCalls": 7,
+        "bufferBytes": 2974752,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "fcd1523445ff5756668efac98cd38ca9b5dcbe28bbaf1dd6339d14c556f4b097",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 17112,
+        "drawCalls": 7,
+        "bufferBytes": 2974752,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "fcd1523445ff5756668efac98cd38ca9b5dcbe28bbaf1dd6339d14c556f4b097",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 8344,
+      "ratioToOriginal": 2.050814956855225,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "earth",
+      "before": {
+        "triangles": 15128,
+        "drawCalls": 8,
+        "bufferBytes": 2712864,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "d538939e5606c86147731cd70b05f431c20a35f38e7690bd5ea88966cb6637b2",
+        "disposalResources": 11
+      },
+      "after": {
+        "triangles": 15128,
+        "drawCalls": 8,
+        "bufferBytes": 2712864,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "d538939e5606c86147731cd70b05f431c20a35f38e7690bd5ea88966cb6637b2",
+        "disposalResources": 11
+      },
+      "originalOct11Triangles": 6982,
+      "ratioToOriginal": 2.166714408478946,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "kiyoshi",
+      "before": {
+        "triangles": 17432,
+        "drawCalls": 8,
+        "bufferBytes": 2876736,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "d50665b0ef3be2ac517a74e9fc4055dd3b26aa07c27eb26758f77d46fcdf38a2",
+        "disposalResources": 11
+      },
+      "after": {
+        "triangles": 17432,
+        "drawCalls": 8,
+        "bufferBytes": 2876736,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "d50665b0ef3be2ac517a74e9fc4055dd3b26aa07c27eb26758f77d46fcdf38a2",
+        "disposalResources": 11
+      },
+      "originalOct11Triangles": 7870,
+      "ratioToOriginal": 2.2149936467598477,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "queen",
+      "before": {
+        "triangles": 14742,
+        "drawCalls": 7,
+        "bufferBytes": 2546280,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "c2a9f62beffdf8c606ca486cc204e81f12e7105e5dfdfbe63ac37d21253ada78",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 14742,
+        "drawCalls": 7,
+        "bufferBytes": 2546280,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "c2a9f62beffdf8c606ca486cc204e81f12e7105e5dfdfbe63ac37d21253ada78",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 6374,
+      "ratioToOriginal": 2.3128333856291183,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "yuga",
+      "before": {
+        "triangles": 13468,
+        "drawCalls": 6,
+        "bufferBytes": 2363856,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "123b0e7f575b5ea45d5f2e19d45725ac627827965039e2378e91aa7db1d4f9c5",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 13468,
+        "drawCalls": 6,
+        "bufferBytes": 2363856,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "123b0e7f575b5ea45d5f2e19d45725ac627827965039e2378e91aa7db1d4f9c5",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6052,
+      "ratioToOriginal": 2.225380039656312,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "luke",
+      "before": {
+        "triangles": 13384,
+        "drawCalls": 6,
+        "bufferBytes": 2345856,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "c265f801f9ecefa6f8188899173933891ab60e8757198e6671ba5c1d815a5152",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 13384,
+        "drawCalls": 6,
+        "bufferBytes": 2345856,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "c265f801f9ecefa6f8188899173933891ab60e8757198e6671ba5c1d815a5152",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6052,
+      "ratioToOriginal": 2.211500330469266,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "romin",
+      "before": {
+        "triangles": 14900,
+        "drawCalls": 6,
+        "bufferBytes": 2525232,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "954da6c79c4c360ee1cff11350380b6e2752fc25596bbdcda22a35646fd23dbd",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 14900,
+        "drawCalls": 6,
+        "bufferBytes": 2525232,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "954da6c79c4c360ee1cff11350380b6e2752fc25596bbdcda22a35646fd23dbd",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 7516,
+      "ratioToOriginal": 1.9824374667376263,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "gakuto",
+      "before": {
+        "triangles": 14698,
+        "drawCalls": 6,
+        "bufferBytes": 2540472,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "86e4180a178d3dfe06930cc6f81ef74868edc3dc2aa07d2802f3ce72f2bb1cf9",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 14698,
+        "drawCalls": 6,
+        "bufferBytes": 2540472,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "86e4180a178d3dfe06930cc6f81ef74868edc3dc2aa07d2802f3ce72f2bb1cf9",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6322,
+      "ratioToOriginal": 2.3248971844353052,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "roa",
+      "before": {
+        "triangles": 14956,
+        "drawCalls": 7,
+        "bufferBytes": 2644080,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "f3aef7465fa3291e214b92322a9606c0990030f43ceb06f59f374d89a05fa5d7",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 14956,
+        "drawCalls": 7,
+        "bufferBytes": 2644080,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "f3aef7465fa3291e214b92322a9606c0990030f43ceb06f59f374d89a05fa5d7",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7048,
+      "ratioToOriginal": 2.1220204313280364,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "nail",
+      "before": {
+        "triangles": 14698,
+        "drawCalls": 6,
+        "bufferBytes": 2540472,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "419c3433f14942494d73b8c570ecd5169b401f2bc81b46f9b5c238ee21b2274e",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 14698,
+        "drawCalls": 6,
+        "bufferBytes": 2540472,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "419c3433f14942494d73b8c570ecd5169b401f2bc81b46f9b5c238ee21b2274e",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6322,
+      "ratioToOriginal": 2.3248971844353052,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "asana",
+      "before": {
+        "triangles": 16760,
+        "drawCalls": 7,
+        "bufferBytes": 2882208,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "e377a7684e0b93a94b63c85a6bc5ca0d09239d0ef72f508a13bb90afd010e820",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 16760,
+        "drawCalls": 7,
+        "bufferBytes": 2882208,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "e377a7684e0b93a94b63c85a6bc5ca0d09239d0ef72f508a13bb90afd010e820",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 8488,
+      "ratioToOriginal": 1.9745523091423185,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "mimi",
+      "before": {
+        "triangles": 14660,
+        "drawCalls": 7,
+        "bufferBytes": 2510832,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "522edbdecfcfcdc6db9ee30685d5b6625e0432fe61852e800868fafb316c66b3",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 14660,
+        "drawCalls": 7,
+        "bufferBytes": 2510832,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "522edbdecfcfcdc6db9ee30685d5b6625e0432fe61852e800868fafb316c66b3",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 6636,
+      "ratioToOriginal": 2.2091621458710065,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "yoshio",
+      "before": {
+        "triangles": 15544,
+        "drawCalls": 7,
+        "bufferBytes": 2721696,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "922fd33014d36e9c7491207fc22ec399dc589c16f34ae2a626fdaea1f8221bc4",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 15544,
+        "drawCalls": 7,
+        "bufferBytes": 2721696,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "922fd33014d36e9c7491207fc22ec399dc589c16f34ae2a626fdaea1f8221bc4",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7000,
+      "ratioToOriginal": 2.2205714285714286,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "tiger",
+      "before": {
+        "triangles": 15476,
+        "drawCalls": 6,
+        "bufferBytes": 2642736,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "9e31a6c7e6b8e226d425b9ccbe10ad505766224dc885fabb7b44a211e166989f",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 15476,
+        "drawCalls": 6,
+        "bufferBytes": 2642736,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "9e31a6c7e6b8e226d425b9ccbe10ad505766224dc885fabb7b44a211e166989f",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 7492,
+      "ratioToOriginal": 2.065670048051255,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "otes",
+      "before": {
+        "triangles": 13484,
+        "drawCalls": 9,
+        "bufferBytes": 2355600,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "37e2aa4c70d7543ff8907b03b4c737c00431b4263818f8d85c35966c18cb8bdb",
+        "disposalResources": 12
+      },
+      "after": {
+        "triangles": 13484,
+        "drawCalls": 9,
+        "bufferBytes": 2355600,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "37e2aa4c70d7543ff8907b03b4c737c00431b4263818f8d85c35966c18cb8bdb",
+        "disposalResources": 12
+      },
+      "originalOct11Triangles": 6474,
+      "ratioToOriginal": 2.0827927092987335,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "yuro",
+      "before": {
+        "triangles": 14402,
+        "drawCalls": 8,
+        "bufferBytes": 2501400,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "e581284486aa28d8c0bfa6410cb4da3bad5d1d991e9500b50464485dbd1049ee",
+        "disposalResources": 11
+      },
+      "after": {
+        "triangles": 14402,
+        "drawCalls": 8,
+        "bufferBytes": 2501400,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "e581284486aa28d8c0bfa6410cb4da3bad5d1d991e9500b50464485dbd1049ee",
+        "disposalResources": 11
+      },
+      "originalOct11Triangles": 6162,
+      "ratioToOriginal": 2.3372281726712107,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "yujin",
+      "before": {
+        "triangles": 13996,
+        "drawCalls": 6,
+        "bufferBytes": 2428368,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "ac23e122c4cd6d99a736f3323b3a6a03eade8d025d213506a5da997afcb561d7",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 13996,
+        "drawCalls": 6,
+        "bufferBytes": 2428368,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "ac23e122c4cd6d99a736f3323b3a6a03eade8d025d213506a5da997afcb561d7",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6028,
+      "ratioToOriginal": 2.3218314532183144,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "yuka",
+      "before": {
+        "triangles": 15618,
+        "drawCalls": 8,
+        "bufferBytes": 2661912,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "2c691a570805102361f4930f96430e6ed9221e2ce87e56cd2b8ea9fb36fc1446",
+        "disposalResources": 11
+      },
+      "after": {
+        "triangles": 15618,
+        "drawCalls": 8,
+        "bufferBytes": 2661912,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "2c691a570805102361f4930f96430e6ed9221e2ce87e56cd2b8ea9fb36fc1446",
+        "disposalResources": 11
+      },
+      "originalOct11Triangles": 7650,
+      "ratioToOriginal": 2.0415686274509803,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "yuran",
+      "before": {
+        "triangles": 16586,
+        "drawCalls": 6,
+        "bufferBytes": 2789688,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "9a1314f8ba9fc12f8fc9d6009f900cfa5586f233823951429bb4c2ca9654dc22",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 16586,
+        "drawCalls": 6,
+        "bufferBytes": 2789688,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "9a1314f8ba9fc12f8fc9d6009f900cfa5586f233823951429bb4c2ca9654dc22",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 7168,
+      "ratioToOriginal": 2.3138950892857144,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "yuo",
+      "before": {
+        "triangles": 16564,
+        "drawCalls": 8,
+        "bufferBytes": 2856336,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "b42d37c2e2e04c06ecbf573e2492d54d9736dfa9ad7240d6d89e5a95974c905b",
+        "disposalResources": 11
+      },
+      "after": {
+        "triangles": 16564,
+        "drawCalls": 8,
+        "bufferBytes": 2856336,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "b42d37c2e2e04c06ecbf573e2492d54d9736dfa9ad7240d6d89e5a95974c905b",
+        "disposalResources": 11
+      },
+      "originalOct11Triangles": 7644,
+      "ratioToOriginal": 2.166928309785453,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "yuga-goha",
+      "before": {
+        "triangles": 13666,
+        "drawCalls": 6,
+        "bufferBytes": 2404248,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "3cad3e2a20c0ad1f85d5c101dc1829a9fa70f5c7ffa62c12a9107b1adac73cbd",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 13666,
+        "drawCalls": 6,
+        "bufferBytes": 2404248,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "3cad3e2a20c0ad1f85d5c101dc1829a9fa70f5c7ffa62c12a9107b1adac73cbd",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6046,
+      "ratioToOriginal": 2.2603374131657294,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "ranze",
+      "before": {
+        "triangles": 15306,
+        "drawCalls": 6,
+        "bufferBytes": 2620728,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "0cf7d3017e60087adff81879c27239d97497f102a9c4545f6e6d44a970f8d676",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 15306,
+        "drawCalls": 6,
+        "bufferBytes": 2620728,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "0cf7d3017e60087adff81879c27239d97497f102a9c4545f6e6d44a970f8d676",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6658,
+      "ratioToOriginal": 2.2988885551216582,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "rinnosuke",
+      "before": {
+        "triangles": 16562,
+        "drawCalls": 6,
+        "bufferBytes": 2786520,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "1b1e50fe50cbce69f1e594ced06222607ddf0a3bf8c1d03c0cc2066c0124bfa3",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 16562,
+        "drawCalls": 6,
+        "bufferBytes": 2786520,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "1b1e50fe50cbce69f1e594ced06222607ddf0a3bf8c1d03c0cc2066c0124bfa3",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 7144,
+      "ratioToOriginal": 2.3183090705487124,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "sebastian",
+      "before": {
+        "triangles": 15128,
+        "drawCalls": 8,
+        "bufferBytes": 2712864,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "e0990f954085afdd4161260ec55e7dc95c81df698e0e01ac8474cf3bd61a0916",
+        "disposalResources": 11
+      },
+      "after": {
+        "triangles": 15128,
+        "drawCalls": 8,
+        "bufferBytes": 2712864,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "e0990f954085afdd4161260ec55e7dc95c81df698e0e01ac8474cf3bd61a0916",
+        "disposalResources": 11
+      },
+      "originalOct11Triangles": 6982,
+      "ratioToOriginal": 2.166714408478946,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "yudias",
+      "before": {
+        "triangles": 16068,
+        "drawCalls": 9,
+        "bufferBytes": 2805552,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "f0a83095b6234c8029871ec4eb204afd8cf789ce441ec97942cb4e3f5d912b58",
+        "disposalResources": 12
+      },
+      "after": {
+        "triangles": 16068,
+        "drawCalls": 9,
+        "bufferBytes": 2805552,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "f0a83095b6234c8029871ec4eb204afd8cf789ce441ec97942cb4e3f5d912b58",
+        "disposalResources": 12
+      },
+      "originalOct11Triangles": 7396,
+      "ratioToOriginal": 2.172525689561925,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "yuhi",
+      "before": {
+        "triangles": 15460,
+        "drawCalls": 7,
+        "bufferBytes": 2640624,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "e2232e8144b645c233d77c76d730c864d1d11879db6f985a80ce341acd3e0491",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 15460,
+        "drawCalls": 7,
+        "bufferBytes": 2640624,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "e2232e8144b645c233d77c76d730c864d1d11879db6f985a80ce341acd3e0491",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 6800,
+      "ratioToOriginal": 2.273529411764706,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "yuamu",
+      "before": {
+        "triangles": 16132,
+        "drawCalls": 7,
+        "bufferBytes": 2709456,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "30e600b893e53a5404033c7db0f7858b565a50d9165563730971888f98164bbe",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 16132,
+        "drawCalls": 7,
+        "bufferBytes": 2709456,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "30e600b893e53a5404033c7db0f7858b565a50d9165563730971888f98164bbe",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7940,
+      "ratioToOriginal": 2.0317380352644836,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "zwijo",
+      "before": {
+        "triangles": 19840,
+        "drawCalls": 7,
+        "bufferBytes": 3288768,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "7801f5e60e88ab20311601efa4ed0271d1cd0ef7df1ee070f8f7df8d843c2d49",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 19840,
+        "drawCalls": 7,
+        "bufferBytes": 3288768,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "7801f5e60e88ab20311601efa4ed0271d1cd0ef7df1ee070f8f7df8d843c2d49",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 9664,
+      "ratioToOriginal": 2.052980132450331,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "manabu",
+      "before": {
+        "triangles": 16562,
+        "drawCalls": 6,
+        "bufferBytes": 2786520,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "91fbfede247f2a191c4e428822031c8be5bb9140151f0ab3e9804e534e372ad7",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 16562,
+        "drawCalls": 6,
+        "bufferBytes": 2786520,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "91fbfede247f2a191c4e428822031c8be5bb9140151f0ab3e9804e534e372ad7",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 7144,
+      "ratioToOriginal": 2.3183090705487124,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "mitsuko",
+      "before": {
+        "triangles": 15444,
+        "drawCalls": 7,
+        "bufferBytes": 2614320,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "2f9bcbe5d49f4bf8c4f92991487f5ac060dcd728d89789051a7d8b10df0c985c",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 15444,
+        "drawCalls": 7,
+        "bufferBytes": 2614320,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "2f9bcbe5d49f4bf8c4f92991487f5ac060dcd728d89789051a7d8b10df0c985c",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7812,
+      "ratioToOriginal": 1.976958525345622,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "manya",
+      "before": {
+        "triangles": 14772,
+        "drawCalls": 7,
+        "bufferBytes": 2525616,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "2e3b22356a374c102f048a2fa3511f03a6b92dbe5c27542ad6e29d23e04ce48d",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 14772,
+        "drawCalls": 7,
+        "bufferBytes": 2525616,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "2e3b22356a374c102f048a2fa3511f03a6b92dbe5c27542ad6e29d23e04ce48d",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 6748,
+      "ratioToOriginal": 2.189093064611737,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "nyandestar",
+      "before": {
+        "triangles": 13188,
+        "drawCalls": 5,
+        "bufferBytes": 2320848,
+        "maxNormalError": 3.8068252994349905e-8,
+        "signature": "ed3fc04279489614db2ea9b5b4fb96f6c1f41f5e50984c51c6d206a97f05ac02",
+        "disposalResources": 8
+      },
+      "after": {
+        "triangles": 13188,
+        "drawCalls": 5,
+        "bufferBytes": 2320848,
+        "maxNormalError": 3.8068252994349905e-8,
+        "signature": "ed3fc04279489614db2ea9b5b4fb96f6c1f41f5e50984c51c6d206a97f05ac02",
+        "disposalResources": 8
+      },
+      "originalOct11Triangles": 6480,
+      "ratioToOriginal": 2.035185185185185,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "the-luge",
+      "before": {
+        "triangles": 15532,
+        "drawCalls": 7,
+        "bufferBytes": 2625936,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "f4a6babc960691c0e2193739522465a9ffaa53f5ad17db10d191722dd65c3ce9",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 15532,
+        "drawCalls": 7,
+        "bufferBytes": 2625936,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "f4a6babc960691c0e2193739522465a9ffaa53f5ad17db10d191722dd65c3ce9",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7916,
+      "ratioToOriginal": 1.9621020717534108,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "rovian",
+      "before": {
+        "triangles": 16872,
+        "drawCalls": 7,
+        "bufferBytes": 2896992,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "eebe35204fe9705dc8173a381521926f5ae1a777e2c41fc4e077a03cddbc1ce7",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 16872,
+        "drawCalls": 7,
+        "bufferBytes": 2896992,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "eebe35204fe9705dc8173a381521926f5ae1a777e2c41fc4e077a03cddbc1ce7",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 8600,
+      "ratioToOriginal": 1.961860465116279,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "yuna",
+      "before": {
+        "triangles": 15482,
+        "drawCalls": 6,
+        "bufferBytes": 2643960,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "10302b5c9b361b76e5c864ee00fe880e6e289f245a14d1a86ef61faeb5298d46",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 15482,
+        "drawCalls": 6,
+        "bufferBytes": 2643960,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "10302b5c9b361b76e5c864ee00fe880e6e289f245a14d1a86ef61faeb5298d46",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 7498,
+      "ratioToOriginal": 2.064817284609229,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "asaka",
+      "before": {
+        "triangles": 15482,
+        "drawCalls": 6,
+        "bufferBytes": 2643960,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "c8d9a03c47e51cc728d45ea426dad599e0a43b6200c68b236b93c53ec952ef58",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 15482,
+        "drawCalls": 6,
+        "bufferBytes": 2643960,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "c8d9a03c47e51cc728d45ea426dad599e0a43b6200c68b236b93c53ec952ef58",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 7498,
+      "ratioToOriginal": 2.064817284609229,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "london",
+      "before": {
+        "triangles": 15306,
+        "drawCalls": 6,
+        "bufferBytes": 2620728,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "e9c2900785f05f8c789a1b40196de5cf3210ba45ed853a1a43ba8e2c52138db1",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 15306,
+        "drawCalls": 6,
+        "bufferBytes": 2620728,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "e9c2900785f05f8c789a1b40196de5cf3210ba45ed853a1a43ba8e2c52138db1",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6658,
+      "ratioToOriginal": 2.2988885551216582,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "epoch",
+      "before": {
+        "triangles": 13610,
+        "drawCalls": 7,
+        "bufferBytes": 2396856,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "3e649cfc1dcf15c00a6900a050a88a75e5d184b59b2b1c7e61763acace602317",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 13610,
+        "drawCalls": 7,
+        "bufferBytes": 2396856,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "3e649cfc1dcf15c00a6900a050a88a75e5d184b59b2b1c7e61763acace602317",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 6248,
+      "ratioToOriginal": 2.1782970550576186,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "ranran",
+      "before": {
+        "triangles": 15306,
+        "drawCalls": 6,
+        "bufferBytes": 2620728,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "bb4d96659b1b519d6e9e7fbf3cc48d464d7c7900e5621686b3c2b745fc280606",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 15306,
+        "drawCalls": 6,
+        "bufferBytes": 2620728,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "bb4d96659b1b519d6e9e7fbf3cc48d464d7c7900e5621686b3c2b745fc280606",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 6658,
+      "ratioToOriginal": 2.2988885551216582,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "tremolo",
+      "before": {
+        "triangles": 15482,
+        "drawCalls": 6,
+        "bufferBytes": 2643960,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "549031e2e840bae6a2a65f9134aa94d879ff74bfeba59f8cb12021c19a30e896",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 15482,
+        "drawCalls": 6,
+        "bufferBytes": 2643960,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "549031e2e840bae6a2a65f9134aa94d879ff74bfeba59f8cb12021c19a30e896",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 7498,
+      "ratioToOriginal": 2.064817284609229,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "phaser",
+      "before": {
+        "triangles": 15544,
+        "drawCalls": 7,
+        "bufferBytes": 2721696,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "71b6c3e1c73ed3bf24a453d6eb701b302482d65b4499a4e3729fe2767fa5b1bd",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 15544,
+        "drawCalls": 7,
+        "bufferBytes": 2721696,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "71b6c3e1c73ed3bf24a453d6eb701b302482d65b4499a4e3729fe2767fa5b1bd",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 7000,
+      "ratioToOriginal": 2.2205714285714286,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "bochi",
+      "before": {
+        "triangles": 13846,
+        "drawCalls": 5,
+        "bufferBytes": 2446872,
+        "maxNormalError": 3.8068252994349905e-8,
+        "signature": "5e11ff3aad6ac2e80db0a4bcbc846f90fdc38043587abcb0303c81585e62b71b",
+        "disposalResources": 8
+      },
+      "after": {
+        "triangles": 13846,
+        "drawCalls": 5,
+        "bufferBytes": 2446872,
+        "maxNormalError": 3.8068252994349905e-8,
+        "signature": "5e11ff3aad6ac2e80db0a4bcbc846f90fdc38043587abcb0303c81585e62b71b",
+        "disposalResources": 8
+      },
+      "originalOct11Triangles": 6842,
+      "ratioToOriginal": 2.023677287342882,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "chupataro",
+      "before": {
+        "triangles": 14708,
+        "drawCalls": 7,
+        "bufferBytes": 2572752,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "a5c6080eb66faacc0f5491ba868b5101172a3e81ec743e50f243fd13445a0c9a",
+        "disposalResources": 10
+      },
+      "after": {
+        "triangles": 14708,
+        "drawCalls": 7,
+        "bufferBytes": 2572752,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "a5c6080eb66faacc0f5491ba868b5101172a3e81ec743e50f243fd13445a0c9a",
+        "disposalResources": 10
+      },
+      "originalOct11Triangles": 6204,
+      "ratioToOriginal": 2.370728562217924,
+      "changedGeometryOrColor": false
+    },
+    {
+      "id": "kuadul",
+      "before": {
+        "triangles": 15482,
+        "drawCalls": 6,
+        "bufferBytes": 2643960,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "704d65c4c0841c954aab251875fb998ceda78606d66dc5346f54ce5e784835f1",
+        "disposalResources": 9
+      },
+      "after": {
+        "triangles": 15482,
+        "drawCalls": 6,
+        "bufferBytes": 2643960,
+        "maxNormalError": 4.196493375019372e-8,
+        "signature": "704d65c4c0841c954aab251875fb998ceda78606d66dc5346f54ce5e784835f1",
+        "disposalResources": 9
+      },
+      "originalOct11Triangles": 7498,
+      "ratioToOriginal": 2.064817284609229,
+      "changedGeometryOrColor": false
+    }
+  ],
+  "limits": [
+    "CPU geometry checks do not measure browser frame rate.",
+    "Geometry counts and normal direction cannot certify 1:1 likeness. Independent controlled image comparisons are required."
+  ]
+}

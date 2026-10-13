@@ -1,0 +1,57 @@
+{
+  "scope": "Four printed native Tokens, spirit builder only; final source freeze and executed targeted audits",
+  "source": {
+    "path": "src/ui/HologramTokenSpiritModels.js",
+    "bytes": 40776,
+    "sha256": "7785f5e8edbccaf18e143b9fc799ba0ee7e7ef046987099cb5d3f99ba728c180"
+  },
+  "fixture": {
+    "path": "test/fixtures/token-model-baseline-2026-10-11.json",
+    "bytes": 24037,
+    "sha256": "cee1c62e7aca7d4f33529e009699b8e7be5a6986b56c15b692b351f9d899a51f"
+  },
+  "claims": {
+    "exact1to1Certified": false,
+    "occludedAndRearGeometry": "procedural interpretation",
+    "nativeDataChanged": false,
+    "modelCodes": [
+      "38053382",
+      "51208047",
+      "60514626",
+      "87669905"
+    ],
+    "assertions": 532,
+    "gpuBatchesMax": 5,
+    "budgetBasis": "original per-code baseline \u00d75, not current source \u00d75"
+  },
+  "files": {
+    "docs/audits/artifacts/multireference-tokens-2026-10-13/spirit-models/README.md": {
+      "bytes": 2805,
+      "sha256": "7f7bd46f409cfd4aeedb6f288ec21b81714be4e520890c97c2dc3d130953aa18"
+    },
+    "docs/audits/artifacts/multireference-tokens-2026-10-13/spirit-models/audit-spirit-models.mjs.txt": {
+      "bytes": 8220,
+      "sha256": "646286d06ed01d4a066eaf5c91d8105d7baab00b44a1682551faf86239cdc5b2"
+    },
+    "docs/audits/artifacts/multireference-tokens-2026-10-13/spirit-models/baseline-HologramTokenSpiritModels.js.txt": {
+      "bytes": 26667,
+      "sha256": "1230076e1040dcdef10af9a6d92fa9caa9efb30b74aafef2860fb047650103f3"
+    },
+    "docs/audits/artifacts/multireference-tokens-2026-10-13/spirit-models/geometry-audit-output.txt": {
+      "bytes": 1528,
+      "sha256": "2d5aa7a6e1d967ebb8f7f1f5d29a241fd004a4623336f95cfae39904c02abef4"
+    },
+    "docs/audits/artifacts/multireference-tokens-2026-10-13/spirit-models/geometry-report.json": {
+      "bytes": 26491,
+      "sha256": "75025dd45c76f01015167934a5c5f065c68c1be43d98f1460d4bb49bec866332"
+    },
+    "docs/audits/artifacts/multireference-tokens-2026-10-13/spirit-models/initial-budget-measurements.json": {
+      "bytes": 1814,
+      "sha256": "54c9908252cfc253258729f232e536778b31235f83257f4ffdbf0fb4fdc97508"
+    },
+    "docs/audits/artifacts/multireference-tokens-2026-10-13/spirit-models/targeted-tests.txt": {
+      "bytes": 1165,
+      "sha256": "c99a69276b73be51690d2b19089aff5e5d9cf67c6c66b33042fff1b2ddb9811e"
+    }
+  }
+}

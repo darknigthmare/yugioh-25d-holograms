@@ -1,0 +1,102 @@
+import argparse, datetime, hashlib, json, pathlib, re, subprocess
+
+ROOT = pathlib.Path('/workspace/yugioh-25d-holograms')
+PREFIX = pathlib.Path('/workspace')
+BEFORE = PREFIX / 'yugioh-multireference-before-check-2026-10-13.json'
+CHECK = PREFIX / 'yugioh-multireference-full-check-2026-10-13.txt'
+FREEZE = PREFIX / 'yugioh-multireference-build-freeze-2026-10-13.json'
+PROTECTED = PREFIX / 'yugioh-multiref-protected-baseline-2026-10-13.json'
+PROTECTED_FINAL = PREFIX / 'yugioh-multireference-protected-final-2026-10-13.json'
+BASELINE = 'baabe9f94863159053e4ad37be4c038104da5e23'
+PROTECTED_SHA = 'd0990366dcc94101768748c3edb8044867e6261a94ef7d7f4c1b04a0b4badeaf'
+
+def pin(path):
+    data = path.read_bytes()
+    return {'bytes': len(data), 'sha256': hashlib.sha256(data).hexdigest()}
+
+def write_new(path, value):
+    assert not path.exists(), f'Refusing to replace proof: {path}'
+    path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n')
+
+def git(*args):
+    return subprocess.check_output(['git', *args], cwd=ROOT).decode().strip()
+
+def sources():
+    old = json.loads((PREFIX / 'yugioh-model-fidelity-build-freeze-2026-10-11.json').read_text())
+    names = set(old['source']) | {str(p.relative_to(ROOT)) for p in (ROOT / 'src').rglob('*') if p.is_file()}
+    names |= {str(p.relative_to(ROOT)) for p in (ROOT / 'public/tokens/reviewed').glob('*.png')}
+    return {name: pin(ROOT / name) for name in sorted(names)}
+
+def validation_inputs():
+    names = [str(p.relative_to(ROOT)) for folder in ('test', 'tests', 'scripts') for p in (ROOT / folder).rglob('*') if p.is_file() and '__pycache__' not in p.parts]
+    provenance = 'docs/audits/artifacts/multireference-tokens-2026-10-13/verified-printed-token-references.json'
+    records = json.loads((ROOT / provenance).read_text())['references']
+    additional = 'docs/audits/artifacts/multireference-tokens-2026-10-13/additional-printed-g-golem-reference.json'
+    records += [json.loads((ROOT / additional).read_text())]
+    names += [provenance, additional, *[record['path'] for record in records]]
+    qa = ROOT / 'docs/audits/artifacts/multireference-qa-2026-10-13'
+    names += [str(p.relative_to(ROOT)) for pattern in ('curated-angles*.json', 'comparison-reference-config-final.json', 'source-before/report.json', 'angles*before*/report.json') for p in qa.glob(pattern)]
+    qa_input_path = qa / 'qa-inputs-before-final.json'
+    qa_inputs = json.loads(qa_input_path.read_text())
+    assert len(qa_inputs['files']) == qa_inputs['count'] == 21
+    for name, expected in qa_inputs['files'].items(): assert pin(ROOT / name) == expected, name
+    names += [str(qa_input_path.relative_to(ROOT)), *qa_inputs['files']]
+    return {name: pin(ROOT / name) for name in sorted(set(names))}
+
+def protect():
+    assert pin(PROTECTED)['sha256'] == PROTECTED_SHA
+    baseline = json.loads(PROTECTED.read_text())
+    mismatches = []
+    entries = {name: info for name, info in baseline['files'].items() if info['protected']}
+    for name, info in entries.items():
+        path = ROOT / name
+        if not path.is_file() or path.is_symlink() or pin(path) != {k: info[k] for k in ('bytes', 'sha256')}:
+            mismatches.append(name)
+    result = {'date': '2026-10-13', 'baseline': {'path': str(PROTECTED), **pin(PROTECTED)},
+              'count': len(entries), 'bytes': sum(e['bytes'] for e in entries.values()),
+              'pass': not mismatches, 'mismatches': mismatches}
+    assert result['pass'], result
+    return result
+
+def main():
+    parser = argparse.ArgumentParser(); parser.add_argument('phase', choices=('before', 'freeze', 'verify'))
+    args = parser.parse_args()
+    assert git('rev-parse', 'HEAD') == BASELINE
+    now = datetime.datetime.now(datetime.timezone.utc).isoformat()
+    if args.phase == 'before':
+        write_new(BEFORE, {'executedAtUtc': now, 'localBaseline': BASELINE, 'source': sources(), 'validationInputs': validation_inputs()})
+        print(json.dumps({'phase': 'before', 'sourceFiles': len(sources()), **pin(BEFORE)})); return
+    if args.phase == 'verify':
+        frozen = json.loads(FREEZE.read_text())
+        assert frozen['source'] == sources(), 'Application source changed after freeze'
+        assert frozen['validationInputs'] == validation_inputs(), 'Validation input changed after freeze'
+        for name, expected in frozen['compiled'].items(): assert pin(ROOT / 'dist' / name) == expected, name
+        print(json.dumps({'phase': 'verify', 'pass': True, 'protected': protect()['count'], **pin(FREEZE)})); return
+    before = json.loads(BEFORE.read_text())
+    current = sources(); validations = validation_inputs()
+    assert before['source'] == current, 'Application source changed during full check'
+    assert before['validationInputs'] == validations, 'Validation input changed during full check'
+    log = CHECK.read_text(); assert '__CODEX_CHECK_EXIT__=0' in log
+    counters = {key: int(re.findall(r'^(?:#|ℹ) ' + key + r' (\d+)\s*$', log, re.M)[-1]) for key in ('tests', 'pass', 'fail', 'cancelled', 'skipped', 'todo')}
+    assert counters['tests'] == counters['pass'] and counters['tests'] >= 2783
+    assert all(counters[k] == 0 for k in ('fail', 'cancelled', 'skipped', 'todo'))
+    modules = re.findall(r'(\d+) modules transformed', log); assert modules
+    entry = re.findall(r'<script[^>]+src="([^"]+/index-[^"]+\.js)"', (ROOT / 'dist/index.html').read_text())
+    assert len(entry) == 1
+    compiled = {str(p.relative_to(ROOT / 'dist')): pin(p) for p in sorted((ROOT / 'dist').rglob('*')) if p.is_file() and (p.suffix in ('.js', '.css') or str(p.relative_to(ROOT / 'dist')) == 'index.html')}
+    old = json.loads((PREFIX / 'yugioh-model-fidelity-build-freeze-2026-10-11.json').read_text())
+    static_names = set(old['additionalStaticAssets']) | {str(p.relative_to(ROOT / 'public')) for p in (ROOT / 'public/tokens/reviewed').glob('*.png')}
+    static = {name: pin(ROOT / 'public' / name) for name in sorted(static_names)}
+    for name, expected in static.items(): assert pin(ROOT / 'dist' / name) == expected, name
+    protected = protect(); write_new(PROTECTED_FINAL, protected)
+    value = {'date': '2026-10-13', 'executedAtUtc': now, 'localBaseline': BASELINE,
+             'entry': entry[0], 'source': current, 'validationInputs': validations,
+             'compiled': compiled, 'additionalStaticAssets': static,
+             'sourceBeforeFullCheck': {'path': str(BEFORE), **pin(BEFORE)},
+             'check': {'path': str(CHECK), **pin(CHECK), **counters, 'exitCode': 0, 'transformedModules': int(modules[-1])},
+             'protectedHistory': {'path': str(PROTECTED_FINAL), **pin(PROTECTED_FINAL)},
+             'coordinator': {'path': str(pathlib.Path(__file__)), **pin(pathlib.Path(__file__))}}
+    write_new(FREEZE, value)
+    print(json.dumps({'phase': 'freeze', 'pass': True, 'source': len(current), 'compiled': len(compiled), 'static': len(static), 'check': value['check'], **pin(FREEZE)}))
+
+if __name__ == '__main__': main()

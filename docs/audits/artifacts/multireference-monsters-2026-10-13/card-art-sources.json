@@ -1,0 +1,824 @@
+[
+  {
+    "code": 14558127,
+    "name": "Ash Blossom & Joyous Spring",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Ash%20Blossom%20%26%20Joyous%20Spring",
+    "bytes": 5983,
+    "sha256": "bae7597a30b94c3795b42a2b0bb40c72ae05a13fcb1e0b843d664cd02b339d8a",
+    "images": [
+      {
+        "id": 14558127,
+        "image_url": "https://images.ygoprodeck.com/images/cards/14558127.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/14558127.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/14558127.jpg"
+      },
+      {
+        "id": 14558128,
+        "image_url": "https://images.ygoprodeck.com/images/cards/14558128.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/14558128.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/14558128.jpg"
+      }
+    ]
+  },
+  {
+    "code": 88819587,
+    "name": "Baby Dragon",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Baby%20Dragon",
+    "bytes": 2593,
+    "sha256": "2bbf29d491419d95c06f7de1a3d7a365237676e24102ad630a4940d6b7bc3a31",
+    "images": [
+      {
+        "id": 88819587,
+        "image_url": "https://images.ygoprodeck.com/images/cards/88819587.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/88819587.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/88819587.jpg"
+      }
+    ]
+  },
+  {
+    "code": 5053103,
+    "name": "Battle Ox",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Battle%20Ox",
+    "bytes": 2107,
+    "sha256": "5f7463d96abb2250966503df49e61fe1a6f2f4bc96c087c31b88d990557ceed7",
+    "images": [
+      {
+        "id": 5053103,
+        "image_url": "https://images.ygoprodeck.com/images/cards/5053103.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/5053103.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/5053103.jpg"
+      }
+    ]
+  },
+  {
+    "code": 32452818,
+    "name": "Beaver Warrior",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Beaver%20Warrior",
+    "bytes": 1867,
+    "sha256": "6e4062c774961617d1f7a543da833f12380a5b23cf93c00ed7b84b289b7dcf1b",
+    "images": [
+      {
+        "id": 32452818,
+        "image_url": "https://images.ygoprodeck.com/images/cards/32452818.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/32452818.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/32452818.jpg"
+      }
+    ]
+  },
+  {
+    "code": 72989439,
+    "name": "Black Luster Soldier - Envoy of the Beginning",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Black%20Luster%20Soldier%20-%20Envoy%20of%20the%20Beginning",
+    "bytes": 3613,
+    "sha256": "4de9388bef80c8e8da8d5c148c46ff32c4ec8ad401fdd256690e439242cd1a32",
+    "images": [
+      {
+        "id": 72989439,
+        "image_url": "https://images.ygoprodeck.com/images/cards/72989439.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/72989439.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/72989439.jpg"
+      }
+    ]
+  },
+  {
+    "code": 23995346,
+    "name": "Blue-Eyes Ultimate Dragon",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Blue-Eyes%20Ultimate%20Dragon",
+    "bytes": 3814,
+    "sha256": "18eb66efc5228f738547aa529818334da9a9bb6ba6eae532ba0ae774c23856b3",
+    "images": [
+      {
+        "id": 23995346,
+        "image_url": "https://images.ygoprodeck.com/images/cards/23995346.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/23995346.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/23995346.jpg"
+      },
+      {
+        "id": 23995347,
+        "image_url": "https://images.ygoprodeck.com/images/cards/23995347.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/23995347.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/23995347.jpg"
+      },
+      {
+        "id": 23995348,
+        "image_url": "https://images.ygoprodeck.com/images/cards/23995348.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/23995348.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/23995348.jpg"
+      }
+    ]
+  },
+  {
+    "code": 89631139,
+    "name": "Blue-Eyes White Dragon",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Blue-Eyes%20White%20Dragon",
+    "bytes": 13880,
+    "sha256": "3e897239bf32e141384dc1dbcd63bb1c3da423555921278c332d2bb38b115260",
+    "images": [
+      {
+        "id": 89631139,
+        "image_url": "https://images.ygoprodeck.com/images/cards/89631139.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/89631139.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/89631139.jpg"
+      },
+      {
+        "id": 89631140,
+        "image_url": "https://images.ygoprodeck.com/images/cards/89631140.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/89631140.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/89631140.jpg"
+      },
+      {
+        "id": 89631141,
+        "image_url": "https://images.ygoprodeck.com/images/cards/89631141.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/89631141.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/89631141.jpg"
+      },
+      {
+        "id": 89631142,
+        "image_url": "https://images.ygoprodeck.com/images/cards/89631142.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/89631142.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/89631142.jpg"
+      },
+      {
+        "id": 89631143,
+        "image_url": "https://images.ygoprodeck.com/images/cards/89631143.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/89631143.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/89631143.jpg"
+      },
+      {
+        "id": 89631144,
+        "image_url": "https://images.ygoprodeck.com/images/cards/89631144.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/89631144.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/89631144.jpg"
+      },
+      {
+        "id": 89631145,
+        "image_url": "https://images.ygoprodeck.com/images/cards/89631145.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/89631145.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/89631145.jpg"
+      },
+      {
+        "id": 89631146,
+        "image_url": "https://images.ygoprodeck.com/images/cards/89631146.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/89631146.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/89631146.jpg"
+      }
+    ]
+  },
+  {
+    "code": 91152256,
+    "name": "Celtic Guardian",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Celtic%20Guardian",
+    "bytes": 2942,
+    "sha256": "7e3ab58a43ee013761935e2333b4a6eeac970ad8fb4218e6798d2afa9c952098",
+    "images": [
+      {
+        "id": 91152256,
+        "image_url": "https://images.ygoprodeck.com/images/cards/91152256.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/91152256.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/91152256.jpg"
+      },
+      {
+        "id": 91152257,
+        "image_url": "https://images.ygoprodeck.com/images/cards/91152257.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/91152257.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/91152257.jpg"
+      },
+      {
+        "id": 91152258,
+        "image_url": "https://images.ygoprodeck.com/images/cards/91152258.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/91152258.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/91152258.jpg"
+      }
+    ]
+  },
+  {
+    "code": 28279543,
+    "name": "Curse of Dragon",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Curse%20of%20Dragon",
+    "bytes": 2281,
+    "sha256": "8dcf5ff715ff03365d0a092ae6d2c5521e354ecd42429bfc0f2c81ebfe437720",
+    "images": [
+      {
+        "id": 28279543,
+        "image_url": "https://images.ygoprodeck.com/images/cards/28279543.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/28279543.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/28279543.jpg"
+      }
+    ]
+  },
+  {
+    "code": 70095154,
+    "name": "Cyber Dragon",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Cyber%20Dragon",
+    "bytes": 7712,
+    "sha256": "635c705e2e695e493d62883cba6866c2b3eb2a61aeef3a486b51d67dddbad518",
+    "images": [
+      {
+        "id": 70095154,
+        "image_url": "https://images.ygoprodeck.com/images/cards/70095154.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/70095154.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/70095154.jpg"
+      },
+      {
+        "id": 70095155,
+        "image_url": "https://images.ygoprodeck.com/images/cards/70095155.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/70095155.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/70095155.jpg"
+      }
+    ]
+  },
+  {
+    "code": 46986414,
+    "name": "Dark Magician",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Dark%20Magician",
+    "bytes": 11215,
+    "sha256": "dbb2b87f8a124e7ee10c38308fe44ae1d5d429a59c81f7a8986cc399e8e95d3e",
+    "images": [
+      {
+        "id": 46986414,
+        "image_url": "https://images.ygoprodeck.com/images/cards/46986414.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/46986414.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/46986414.jpg"
+      },
+      {
+        "id": 46986415,
+        "image_url": "https://images.ygoprodeck.com/images/cards/46986415.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/46986415.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/46986415.jpg"
+      },
+      {
+        "id": 46986416,
+        "image_url": "https://images.ygoprodeck.com/images/cards/46986416.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/46986416.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/46986416.jpg"
+      },
+      {
+        "id": 46986417,
+        "image_url": "https://images.ygoprodeck.com/images/cards/46986417.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/46986417.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/46986417.jpg"
+      },
+      {
+        "id": 46986418,
+        "image_url": "https://images.ygoprodeck.com/images/cards/46986418.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/46986418.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/46986418.jpg"
+      },
+      {
+        "id": 46986419,
+        "image_url": "https://images.ygoprodeck.com/images/cards/46986419.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/46986419.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/46986419.jpg"
+      },
+      {
+        "id": 36996508,
+        "image_url": "https://images.ygoprodeck.com/images/cards/36996508.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/36996508.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/36996508.jpg"
+      },
+      {
+        "id": 46986420,
+        "image_url": "https://images.ygoprodeck.com/images/cards/46986420.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/46986420.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/46986420.jpg"
+      },
+      {
+        "id": 46986421,
+        "image_url": "https://images.ygoprodeck.com/images/cards/46986421.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/46986421.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/46986421.jpg"
+      }
+    ]
+  },
+  {
+    "code": 38033121,
+    "name": "Dark Magician Girl",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Dark%20Magician%20Girl",
+    "bytes": 8120,
+    "sha256": "1959b3d0ae94f1e0277926403681a9e926c143d1f6bc28679ded9da9e1064d33",
+    "images": [
+      {
+        "id": 38033121,
+        "image_url": "https://images.ygoprodeck.com/images/cards/38033121.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/38033121.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/38033121.jpg"
+      },
+      {
+        "id": 38033122,
+        "image_url": "https://images.ygoprodeck.com/images/cards/38033122.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/38033122.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/38033122.jpg"
+      },
+      {
+        "id": 38033123,
+        "image_url": "https://images.ygoprodeck.com/images/cards/38033123.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/38033123.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/38033123.jpg"
+      },
+      {
+        "id": 38033124,
+        "image_url": "https://images.ygoprodeck.com/images/cards/38033124.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/38033124.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/38033124.jpg"
+      },
+      {
+        "id": 38033125,
+        "image_url": "https://images.ygoprodeck.com/images/cards/38033125.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/38033125.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/38033125.jpg"
+      },
+      {
+        "id": 38033126,
+        "image_url": "https://images.ygoprodeck.com/images/cards/38033126.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/38033126.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/38033126.jpg"
+      }
+    ]
+  },
+  {
+    "code": 89943723,
+    "name": "Elemental HERO Neos",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Elemental%20HERO%20Neos",
+    "bytes": 3278,
+    "sha256": "06f4893ed6fbfb3c01cfc0c3be95ceccbd82982ffabf20e8e8464cd594ef0c37",
+    "images": [
+      {
+        "id": 89943723,
+        "image_url": "https://images.ygoprodeck.com/images/cards/89943723.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/89943723.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/89943723.jpg"
+      },
+      {
+        "id": 89943724,
+        "image_url": "https://images.ygoprodeck.com/images/cards/89943724.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/89943724.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/89943724.jpg"
+      }
+    ]
+  },
+  {
+    "code": 20721928,
+    "name": "Elemental HERO Sparkman",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Elemental%20HERO%20Sparkman",
+    "bytes": 3635,
+    "sha256": "51288015ac0ba354c76374cfe5cdb8ef68fb65d6afd1c972f7c7da635bf5a1d8",
+    "images": [
+      {
+        "id": 20721928,
+        "image_url": "https://images.ygoprodeck.com/images/cards/20721928.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/20721928.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/20721928.jpg"
+      },
+      {
+        "id": 20721929,
+        "image_url": "https://images.ygoprodeck.com/images/cards/20721929.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/20721929.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/20721929.jpg"
+      }
+    ]
+  },
+  {
+    "code": 28649820,
+    "name": "Embodiment of Apophis",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Embodiment%20of%20Apophis",
+    "bytes": 2293,
+    "sha256": "833a79f24069fc8fe4ec38150a11db819185713515f3a6f953ec562a47ab8f92",
+    "images": [
+      {
+        "id": 28649820,
+        "image_url": "https://images.ygoprodeck.com/images/cards/28649820.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/28649820.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/28649820.jpg"
+      }
+    ]
+  },
+  {
+    "code": 13039848,
+    "name": "Giant Soldier of Stone",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Giant%20Soldier%20of%20Stone",
+    "bytes": 3391,
+    "sha256": "401d35a239afe6e00fc5944bb7e2331bd7566f229e6cb653caaecb6941d82c8b",
+    "images": [
+      {
+        "id": 13039848,
+        "image_url": "https://images.ygoprodeck.com/images/cards/13039848.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/13039848.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/13039848.jpg"
+      }
+    ]
+  },
+  {
+    "code": 63977008,
+    "name": "Junk Synchron",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Junk%20Synchron",
+    "bytes": 3067,
+    "sha256": "89306eac829ea50a2015c286499e43ca8ed4446ca6601b63e166e66f665e3dc2",
+    "images": [
+      {
+        "id": 63977008,
+        "image_url": "https://images.ygoprodeck.com/images/cards/63977008.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/63977008.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/63977008.jpg"
+      }
+    ]
+  },
+  {
+    "code": 40640057,
+    "name": "Kuriboh",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Kuriboh",
+    "bytes": 5288,
+    "sha256": "a0fa7354a5c82790ef1f67642dc2473defbb398b55b7b7502e3ba428c270abf8",
+    "images": [
+      {
+        "id": 40640057,
+        "image_url": "https://images.ygoprodeck.com/images/cards/40640057.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/40640057.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/40640057.jpg"
+      },
+      {
+        "id": 40640058,
+        "image_url": "https://images.ygoprodeck.com/images/cards/40640058.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/40640058.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/40640058.jpg"
+      },
+      {
+        "id": 40640059,
+        "image_url": "https://images.ygoprodeck.com/images/cards/40640059.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/40640059.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/40640059.jpg"
+      }
+    ]
+  },
+  {
+    "code": 97590747,
+    "name": "La Jinn the Mystical Genie of the Lamp",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=La%20Jinn%20the%20Mystical%20Genie%20of%20the%20Lamp",
+    "bytes": 2997,
+    "sha256": "381cc1a912175cf4a6986bc012df64463627083bf004e055700b891302e3fcfc",
+    "images": [
+      {
+        "id": 97590747,
+        "image_url": "https://images.ygoprodeck.com/images/cards/97590747.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/97590747.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/97590747.jpg"
+      },
+      {
+        "id": 97590748,
+        "image_url": "https://images.ygoprodeck.com/images/cards/97590748.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/97590748.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/97590748.jpg"
+      }
+    ]
+  },
+  {
+    "code": 77637979,
+    "name": "LANphorhynchus",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=LANphorhynchus",
+    "bytes": 1053,
+    "sha256": "abe355f0608df5b78e409d4b79e736657435c738ae07c0c56be1d7a8015e1a51",
+    "images": [
+      {
+        "id": 77637979,
+        "image_url": "https://images.ygoprodeck.com/images/cards/77637979.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/77637979.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/77637979.jpg"
+      }
+    ]
+  },
+  {
+    "code": 31560081,
+    "name": "Magician of Faith",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Magician%20of%20Faith",
+    "bytes": 3773,
+    "sha256": "d087a4777a9ce117ab47cbc8d58839837ff6e6424248b0266eb5586fd6455d0a",
+    "images": [
+      {
+        "id": 31560081,
+        "image_url": "https://images.ygoprodeck.com/images/cards/31560081.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/31560081.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/31560081.jpg"
+      }
+    ]
+  },
+  {
+    "code": 54652250,
+    "name": "Man-Eater Bug",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Man-Eater%20Bug",
+    "bytes": 3147,
+    "sha256": "6fed0a3effd49b1c9a9ea4cf94958fb71f3520e19766ac17303f1b425880b940",
+    "images": [
+      {
+        "id": 54652250,
+        "image_url": "https://images.ygoprodeck.com/images/cards/54652250.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/54652250.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/54652250.jpg"
+      }
+    ]
+  },
+  {
+    "code": 26905245,
+    "name": "Metal Reflect Slime",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Metal%20Reflect%20Slime",
+    "bytes": 2723,
+    "sha256": "fa53a50dd1f3270c9ac1c0f88690e923443e136274de7310a05c162eaba1d1a7",
+    "images": [
+      {
+        "id": 26905245,
+        "image_url": "https://images.ygoprodeck.com/images/cards/26905245.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/26905245.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/26905245.jpg"
+      }
+    ]
+  },
+  {
+    "code": 15025844,
+    "name": "Mystical Elf",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Mystical%20Elf",
+    "bytes": 2932,
+    "sha256": "a22790d4ca49381195c532881696cb94e39137e4b4008aa604ac214810a88997",
+    "images": [
+      {
+        "id": 15025844,
+        "image_url": "https://images.ygoprodeck.com/images/cards/15025844.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/15025844.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/15025844.jpg"
+      }
+    ]
+  },
+  {
+    "code": 39552864,
+    "name": "Mystical Shine Ball",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Mystical%20Shine%20Ball",
+    "bytes": 1795,
+    "sha256": "9f873c6e62ac0c46c1d6244dc949f3668dd7ffde5edc591e49654ec4edaddf1e",
+    "images": [
+      {
+        "id": 39552864,
+        "image_url": "https://images.ygoprodeck.com/images/cards/39552864.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/39552864.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/39552864.jpg"
+      }
+    ]
+  },
+  {
+    "code": 84013237,
+    "name": "Number 39: Utopia",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Number%2039%3A%20Utopia",
+    "bytes": 3484,
+    "sha256": "5773f5bf8a874efd83789759696395eeff4bd51efe9b54186701d88bb0b61305",
+    "images": [
+      {
+        "id": 84013237,
+        "image_url": "https://images.ygoprodeck.com/images/cards/84013237.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/84013237.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/84013237.jpg"
+      },
+      {
+        "id": 84013238,
+        "image_url": "https://images.ygoprodeck.com/images/cards/84013238.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/84013238.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/84013238.jpg"
+      }
+    ]
+  },
+  {
+    "code": 10000000,
+    "name": "Obelisk the Tormentor",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Obelisk%20the%20Tormentor",
+    "bytes": 5165,
+    "sha256": "c5d149bc803d884ca3d061f31ecab60683aea0b298e27ad9580ac4c1d133f286",
+    "images": [
+      {
+        "id": 10000000,
+        "image_url": "https://images.ygoprodeck.com/images/cards/10000000.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/10000000.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/10000000.jpg"
+      },
+      {
+        "id": 10000001,
+        "image_url": "https://images.ygoprodeck.com/images/cards/10000001.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/10000001.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/10000001.jpg"
+      },
+      {
+        "id": 10000002,
+        "image_url": "https://images.ygoprodeck.com/images/cards/10000002.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/10000002.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/10000002.jpg"
+      }
+    ]
+  },
+  {
+    "code": 74677422,
+    "name": "Red-Eyes Black Dragon",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Red-Eyes%20Black%20Dragon",
+    "bytes": 7490,
+    "sha256": "d1384020a92501fb5e67ca1bad4dbf0b2a52a82009e8969722077f5de732b1b3",
+    "images": [
+      {
+        "id": 74677422,
+        "image_url": "https://images.ygoprodeck.com/images/cards/74677422.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/74677422.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/74677422.jpg"
+      },
+      {
+        "id": 74677423,
+        "image_url": "https://images.ygoprodeck.com/images/cards/74677423.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/74677423.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/74677423.jpg"
+      },
+      {
+        "id": 74677424,
+        "image_url": "https://images.ygoprodeck.com/images/cards/74677424.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/74677424.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/74677424.jpg"
+      },
+      {
+        "id": 74677425,
+        "image_url": "https://images.ygoprodeck.com/images/cards/74677425.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/74677425.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/74677425.jpg"
+      },
+      {
+        "id": 74677426,
+        "image_url": "https://images.ygoprodeck.com/images/cards/74677426.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/74677426.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/74677426.jpg"
+      },
+      {
+        "id": 74677427,
+        "image_url": "https://images.ygoprodeck.com/images/cards/74677427.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/74677427.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/74677427.jpg"
+      }
+    ]
+  },
+  {
+    "code": 66602787,
+    "name": "Saggi the Dark Clown",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Saggi%20the%20Dark%20Clown",
+    "bytes": 1698,
+    "sha256": "eac8c17bc24ad2f1604f38d57a60b6f22b70e583a11186bd52450bf9ed90e136",
+    "images": [
+      {
+        "id": 66602787,
+        "image_url": "https://images.ygoprodeck.com/images/cards/66602787.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/66602787.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/66602787.jpg"
+      }
+    ]
+  },
+  {
+    "code": 26202165,
+    "name": "Sangan",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Sangan",
+    "bytes": 3723,
+    "sha256": "6d529de78a99b479dc8af1e5089b6233647ad73afc5501d053634f9e194b701f",
+    "images": [
+      {
+        "id": 26202165,
+        "image_url": "https://images.ygoprodeck.com/images/cards/26202165.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/26202165.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/26202165.jpg"
+      }
+    ]
+  },
+  {
+    "code": 10000020,
+    "name": "Slifer the Sky Dragon",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Slifer%20the%20Sky%20Dragon",
+    "bytes": 4967,
+    "sha256": "785f5cc0f0ed8a60141fecc2d123174bacb28376f33eeaea32b73c817699c1e5",
+    "images": [
+      {
+        "id": 10000020,
+        "image_url": "https://images.ygoprodeck.com/images/cards/10000020.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/10000020.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/10000020.jpg"
+      },
+      {
+        "id": 10000021,
+        "image_url": "https://images.ygoprodeck.com/images/cards/10000021.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/10000021.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/10000021.jpg"
+      },
+      {
+        "id": 10000022,
+        "image_url": "https://images.ygoprodeck.com/images/cards/10000022.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/10000022.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/10000022.jpg"
+      }
+    ]
+  },
+  {
+    "code": 68638985,
+    "name": "Slime Toad",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Slime%20Toad",
+    "bytes": 1058,
+    "sha256": "a4cac535416f3cd1027bfbc0a1e1414fdb46058403ad0ce15f952e3cf24ff65d",
+    "images": [
+      {
+        "id": 68638985,
+        "image_url": "https://images.ygoprodeck.com/images/cards/68638985.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/68638985.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/68638985.jpg"
+      }
+    ]
+  },
+  {
+    "code": 44508094,
+    "name": "Stardust Dragon",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Stardust%20Dragon",
+    "bytes": 3724,
+    "sha256": "207af6cf9b48dbd3bcdc5ab55b4e40970f228de27062855099c020bb25813de9",
+    "images": [
+      {
+        "id": 44508094,
+        "image_url": "https://images.ygoprodeck.com/images/cards/44508094.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/44508094.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/44508094.jpg"
+      },
+      {
+        "id": 44508095,
+        "image_url": "https://images.ygoprodeck.com/images/cards/44508095.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/44508095.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/44508095.jpg"
+      }
+    ]
+  },
+  {
+    "code": 70781052,
+    "name": "Summoned Skull",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Summoned%20Skull",
+    "bytes": 5112,
+    "sha256": "49c5efb40a061d88970adc577401bf93c9560c16fd6345eaef1700a6a0f73f33",
+    "images": [
+      {
+        "id": 70781052,
+        "image_url": "https://images.ygoprodeck.com/images/cards/70781052.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/70781052.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/70781052.jpg"
+      },
+      {
+        "id": 70781053,
+        "image_url": "https://images.ygoprodeck.com/images/cards/70781053.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/70781053.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/70781053.jpg"
+      },
+      {
+        "id": 70781054,
+        "image_url": "https://images.ygoprodeck.com/images/cards/70781054.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/70781054.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/70781054.jpg"
+      },
+      {
+        "id": 70781055,
+        "image_url": "https://images.ygoprodeck.com/images/cards/70781055.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/70781055.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/70781055.jpg"
+      }
+    ]
+  },
+  {
+    "code": 10000010,
+    "name": "The Winged Dragon of Ra",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=The%20Winged%20Dragon%20of%20Ra",
+    "bytes": 4199,
+    "sha256": "4424373d529f28069cfc22ea0bbf137bef2bb66ee68f03bd472f7cfe020061b1",
+    "images": [
+      {
+        "id": 10000010,
+        "image_url": "https://images.ygoprodeck.com/images/cards/10000010.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/10000010.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/10000010.jpg"
+      },
+      {
+        "id": 10000011,
+        "image_url": "https://images.ygoprodeck.com/images/cards/10000011.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/10000011.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/10000011.jpg"
+      },
+      {
+        "id": 10000012,
+        "image_url": "https://images.ygoprodeck.com/images/cards/10000012.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/10000012.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/10000012.jpg"
+      }
+    ]
+  },
+  {
+    "code": 71625222,
+    "name": "Time Wizard",
+    "url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Time%20Wizard",
+    "bytes": 3144,
+    "sha256": "548839af7067fbb4030f3de083af7bba164aa6f98e514332d548aa63518fd7d0",
+    "images": [
+      {
+        "id": 71625222,
+        "image_url": "https://images.ygoprodeck.com/images/cards/71625222.jpg",
+        "image_url_small": "https://images.ygoprodeck.com/images/cards_small/71625222.jpg",
+        "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/71625222.jpg"
+      }
+    ]
+  }
+]

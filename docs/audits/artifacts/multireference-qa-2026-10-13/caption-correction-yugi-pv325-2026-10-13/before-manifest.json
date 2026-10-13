@@ -1,0 +1,30 @@
+{
+  "reason": "Yugi manufacturer attribution corrected: PV325 Yugi Muto, not Yami Yugi PV324. Only the comparison caption changes; runtime model/source/build/QA inputs remain immutable.",
+  "files": {
+    "docs/audits/artifacts/multireference-qa-2026-10-13/comparison-reference-config-final.json": {
+      "archivedPath": "docs/audits/artifacts/multireference-qa-2026-10-13/caption-correction-yugi-pv325-2026-10-13/comparison-reference-config-final.json",
+      "bytes": 7011,
+      "sha256": "7768585c2bcf190d3160dfd9188c379065e8491e8f88d0e368197397562d5a96"
+    },
+    "docs/audits/artifacts/multireference-qa-2026-10-13/comparisons-retry2/avatars-primary-before-after-01.png": {
+      "archivedPath": "docs/audits/artifacts/multireference-qa-2026-10-13/caption-correction-yugi-pv325-2026-10-13/avatars-primary-before-after-01.png",
+      "bytes": 967826,
+      "sha256": "6c4103b47e4b3a3f09065565a9103a2cb6b83d86673055a17e92ed87b13be6b1"
+    },
+    "docs/audits/artifacts/multireference-qa-2026-10-13/comparisons-retry2/report.json": {
+      "archivedPath": "docs/audits/artifacts/multireference-qa-2026-10-13/caption-correction-yugi-pv325-2026-10-13/comparisons-report.json",
+      "bytes": 38979,
+      "sha256": "953ee78d16398a06a6ec44889fdae892c9e0901ffba39bdaf090135d23a49ce5"
+    },
+    "docs/audits/artifacts/multireference-qa-2026-10-13/final-proof-manifest.json": {
+      "archivedPath": "docs/audits/artifacts/multireference-qa-2026-10-13/caption-correction-yugi-pv325-2026-10-13/final-proof-manifest.json",
+      "bytes": 62346,
+      "sha256": "1aa348bf0117c56aaca657ab23fd7d330bc68f8dad28960cb35a64abb2413b20"
+    },
+    "docs/audits/multireference-visual-qa-2026-10-13.md": {
+      "archivedPath": "docs/audits/artifacts/multireference-qa-2026-10-13/caption-correction-yugi-pv325-2026-10-13/multireference-visual-qa-2026-10-13.md",
+      "bytes": 10194,
+      "sha256": "ee6f17328940e688af3dab316c628905f7029510e30a587a532d982ba44f03e8"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "scope": "First intermediate geometry measurement before complexity tuning, not the final source.",
+  "initialRows": [
+    {
+      "code": "38053382",
+      "attackTriangles": 6316,
+      "defenseTriangles": 6884,
+      "originalAttackLimit": 13830,
+      "originalDefenseLimit": 16670,
+      "attackPassed": true
+    },
+    {
+      "code": "51208047",
+      "attackTriangles": 6544,
+      "defenseTriangles": 7112,
+      "originalAttackLimit": 13830,
+      "originalDefenseLimit": 16670,
+      "attackPassed": true
+    },
+    {
+      "code": "60514626",
+      "attackTriangles": 9500,
+      "defenseTriangles": 10068,
+      "originalAttackLimit": 8920,
+      "originalDefenseLimit": 11760,
+      "attackPassed": false
+    },
+    {
+      "code": "87669905",
+      "attackTriangles": 11860,
+      "defenseTriangles": 12428,
+      "originalAttackLimit": 11690,
+      "originalDefenseLimit": 14530,
+      "attackPassed": false
+    }
+  ],
+  "recordedFailingRegression": {
+    "command": "node --test test/hologram-token-fidelity.test.js test/hologram-token-models.test.js",
+    "exitCode": 1,
+    "tests": 9,
+    "pass": 8,
+    "fail": 1,
+    "failure": "60514626 ATK: 9500 > 8920"
+  },
+  "correction": "Reduced sampling only on Mask body/fingers and Dual Avatar mane/front legs. Original fixture and test limits were not edited.",
+  "recordedPassingRegression": {
+    "command": "node --test test/hologram-token-fidelity.test.js test/hologram-token-models.test.js",
+    "exitCode": 0,
+    "tests": 9,
+    "pass": 9,
+    "fail": 0,
+    "durationMs": 2285.63306
+  },
+  "baselineSource": {
+    "bytes": 26667,
+    "sha256": "1230076e1040dcdef10af9a6d92fa9caa9efb30b74aafef2860fb047650103f3"
+  },
+  "claims": "Historical initial measurements are retained; the current 532-assertion run is in geometry-report.json."
+}

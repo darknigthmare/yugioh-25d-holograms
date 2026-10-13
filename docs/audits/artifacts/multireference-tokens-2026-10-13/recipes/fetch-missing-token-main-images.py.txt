@@ -1,0 +1,28 @@
+import json,subprocess,hashlib,datetime
+from pathlib import Path
+from concurrent.futures import ThreadPoolExecutor
+from PIL import Image,ImageDraw
+root=Path('/workspace/yugioh-25d-holograms');dest=root/'docs/audits/artifacts/multireference-tokens-2026-10-13';(dest/'references/missing-direct').mkdir(parents=True,exist_ok=True)
+probe=json.loads((dest/'missing-direct-art-page-probes.json').read_text());rows=[]
+for record in probe['records']:
+ if record['status']!=200 or not record['mainImages']:continue
+ image=record['mainImages'][0];src=image['src']
+ if image.get('alt')=='Back-EN.png':continue
+ if '/thumb/' in src:
+  src=src.replace('/thumb/','/').rsplit('/',1)[0]
+ filename=src.rsplit('/',1)[-1]
+ rows.append({'name':record['name'],'nativeCodes':record['nativeCodes'],'sourcePage':record['sourcePage'],'fileName':filename,'url':src,'candidateKind':'printed-scan' if '-VG-' not in filename else ('master-duel-art' if '-MADU-' in filename else 'duel-links-card' if '-DULI-' in filename else 'other-game-art'),'identityStatus':'candidate-name-match-needs-art-and-generator-review','sourcePageSha256':record['pageSha256']})
+def fetch(r):
+ p=dest/'references/missing-direct'/r['fileName'];h=Path('/tmp/yugioh-token-missing-ref-'+r['fileName']+'.headers');result=subprocess.run(['curl','-sS','-L','--max-time','35','-A','Mozilla/5.0','-D',str(h),r['url'],'-o',str(p),'-w','%{http_code}'],capture_output=True);r['status']=int(result.stdout.decode().strip() or '0');r['curlExitCode']=result.returncode;r['statusMeasuredBy']='curl GET --write-out %{http_code}';headers=h.read_text().replace('\r','').split('\n');r['responseContentType']=next((line.split(':',1)[1].strip()for line in reversed(headers)if line.lower().startswith('content-type:')),None)
+ try:
+  b=p.read_bytes();im=Image.open(p);r.update({'path':str(p.relative_to(root)),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest(),'dimensions':list(im.size),'format':im.format,'fetchedAtUtc':datetime.datetime.now(datetime.UTC).isoformat()});print(r['name'],r['status'],r['dimensions'],len(b),flush=True)
+ except Exception as ex:r['error']=str(ex);p.unlink(missing_ok=True);print('FAILED',r['name'],str(ex),flush=True)
+ return r
+rows=list(ThreadPoolExecutor(max_workers=6).map(fetch,rows));(dest/'missing-direct-art-downloads.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2)+'\n')
+for sheet in range((len(rows)+23)//24):
+ canvas=Image.new('RGB',(6*190,4*220),'#dedede');draw=ImageDraw.Draw(canvas)
+ for i,r in enumerate(rows[sheet*24:(sheet+1)*24]):
+  if not r.get('path'):continue
+  im=Image.open(root/r['path']).convert('RGB');im.thumbnail((182,182));x=i%6*190;y=i//6*220;canvas.paste(im,(x+(182-im.width)//2,y));draw.text((x+3,y+185),r['name'][:26],fill='black');draw.text((x+3,y+202),str(r['nativeCodes'][0])+' '+r['candidateKind'][:16],fill='black')
+ canvas.save(dest/f'missing-art-contact-{sheet+1}.jpg')
+print('downloaded',len(rows),'bytes',sum(r.get('bytes',0)for r in rows))

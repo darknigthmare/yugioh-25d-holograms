@@ -255,8 +255,8 @@ const VISUAL_DETAILS = {
     "bootColor": "#252831"
   },
   "jaden": {
-    "bottomColor": "#848a8c",
-    "bootColor": "#f1e9df"
+    "bottomColor": "#344b5d",
+    "bootColor": "#9d333b"
   },
   "yusei": {
     "bottomColor": "#324455",
@@ -271,8 +271,8 @@ const VISUAL_DETAILS = {
     "accessoryColor": "#b7b2bc"
   },
   "yuya": {
-    "bottomColor": "#e9e6dc",
-    "bootColor": "#363541",
+    "bottomColor": "#526b31",
+    "bootColor": "#b9434b",
     "accessoryColor": "#d3a650"
   },
   "playmaker": {

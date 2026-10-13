@@ -1,0 +1,67 @@
+✔ all registered botanical and insect Tokens have finite bounded geometry within five batches and 29450 triangles (300.691718ms)
+✔ flowers are separate wool, rose, leafy, cyclopean and long-stem silhouettes (82.839421ms)
+✔ reference ant and spider have six and eight legs; mantis has folding forelegs and four walking legs (12.316785ms)
+✔ insect-monster emerges from an open spotted shell while pure eggs remain delegated (8.497061ms)
+✔ maize, needle, sinister seed and skull-grub retain their reference details (30.792401ms)
+✔ unknown anatomy produces no parts and construction is deterministic without reading duel state (21.392758ms)
+✖ 240 native Tokens keep the measured fivefold limit in attack and defense without increasing GPU batches (1828.722853ms)
+✔ tapered organic surfaces change their radius and join their smooth normals at the radial seam (0.54511ms)
+✔ leaf and feather surfaces gain curved depth while retaining finite geometry and smooth normals (0.368725ms)
+✔ all 240 native monster Tokens resolve their exact public identity and bounded dedicated anatomy (2277.694818ms)
+✔ documented shared illustrations retain the same anatomy and palette while preserving each native code (81.574017ms)
+✔ illustrated species keep their defining anatomy instead of receiving the former goat mannequin (125.628781ms)
+✔ unknown Tokens use a neutral echo independent of private identity and unsupported builders do nothing (13.422569ms)
+✔ wing, weapon and both Metal Fiend hooks have their shared shader joints and stable buffers during actions (23.284012ms)
+✔ all Token geometry, visible materials and owned depth/distance materials are released once (28.976294ms)
+✖ the printed drone, liquid snake and impact meteor do not regress to the known false humanoid and horned-dragon silhouettes (75.62239ms)
+✔ printed Lamb and Sheep anatomy differs independently of colour, and Kuriboh retains separate visible hand and foot claws (102.682958ms)
+✔ new printed anatomies animate with immutable buffers and release visible and shadow GPU resources once (69.781521ms)
+✔ four exact exceptions build distinct finite bounded anatomy within 29450 triangles and five shared materials (86.10372ms)
+✔ illustrated features remain explicit and DarkSoul has a floating lower silhouette without human legs (41.832221ms)
+✔ Grinder real hook is mapped to left pincer and its opposite drill arm follows the weapon rig (0.524028ms)
+✔ unrelated codes and variant-only impostors delegate without geometry; no duel state is read (18.395599ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 20
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2726.237582
+
+✖ failing tests:
+
+test at test/hologram-token-fidelity.test.js:12:1
+✖ 240 native Tokens keep the measured fivefold limit in attack and defense without increasing GPU batches (1828.722853ms)
+  AssertionError [ERR_ASSERTION]: 60514626 ATK: 9500 > 8920
+      at TestContext.<anonymous> (file:///workspace/yugioh-25d-holograms/test/hologram-token-fidelity.test.js:18:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at test/hologram-token-multireference-2026-10-13.test.js:17:1
+✖ the printed drone, liquid snake and impact meteor do not regress to the known false humanoid and horned-dragon silhouettes (75.62239ms)
+  AssertionError [ERR_ASSERTION]: 23837055
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///workspace/yugioh-25d-holograms/test/hologram-token-multireference-2026-10-13.test.js:25:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

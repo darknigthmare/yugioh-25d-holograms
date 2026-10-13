@@ -1,0 +1,32 @@
+✔ the printed drone, liquid snake and impact meteor do not regress to the known false humanoid and horned-dragon silhouettes (114.837597ms)
+✔ printed Lamb and Sheep anatomy differs independently of colour, and Kuriboh retains separate visible hand and foot claws (54.664635ms)
+✔ new printed anatomies animate with immutable buffers and release visible and shadow GPU resources once (77.227685ms)
+✖ Bomb crust panels and the brighter gaps remain externally visible from front and three-quarter views (93.164084ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 506.809915
+
+✖ failing tests:
+
+test at test/hologram-token-multireference-2026-10-13.test.js:68:1
+✖ Bomb crust panels and the brighter gaps remain externally visible from front and three-quarter views (93.164084ms)
+  AssertionError [ERR_ASSERTION]: front: dark pentagonal crust is occluded (0 visible samples)
+      at TestContext.<anonymous> (file:///workspace/yugioh-25d-holograms/test/hologram-token-multireference-2026-10-13.test.js:105:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

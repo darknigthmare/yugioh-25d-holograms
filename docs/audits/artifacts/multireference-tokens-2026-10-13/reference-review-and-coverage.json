@@ -1,0 +1,1931 @@
+{
+  "asOf": "2026-10-13",
+  "scope": "Bounded search for all111native Token codes whose existing API source provides only generator art or no art. Multiple references are compared by identity and composition, not counted from scan crops or resolutions.",
+  "search": {
+    "nativeCodesWithoutOldOwnTokenArt": 111,
+    "distinctNativeNamesQueried": 95,
+    "initialActualGet200": 88,
+    "initialActualGet429": 7,
+    "boundedLaterRetries": 7,
+    "retryActualGet200": 7,
+    "cardBackNamesRejected": 11,
+    "mainImageCandidateNamesAfterRetries": 84,
+    "retryGameCandidatesNotDownloaded": 4
+  },
+  "downloads": {
+    "records": 92,
+    "uniqueByteHashes": 90,
+    "bytesIncludingDuplicateFiles": 54733306,
+    "identicalByteGroups": [
+      {
+        "sha256": "da3faff513f17ec7748550260010ecb6f7515a1eee0a69edca392ae526d542c9",
+        "files": [
+          "WorldLegacyToken-OP15-EN-SR-UE.png",
+          "WorldLegacyToken-OP15-EN-SR-UE.png"
+        ]
+      },
+      {
+        "sha256": "312a41bf128cf8671253b632f85a94461e1cb796e45b7bf7240a651ab17ad528",
+        "files": [
+          "DarkBeastToken-MADU-EN-VG-artwork.png",
+          "LightBeastToken-MADU-EN-VG-artwork.png"
+        ]
+      }
+    ],
+    "theseAreNotIndependentViewCounts": true
+  },
+  "acceptedPrintedTokenScans": {
+    "count": 14,
+    "nativeCodes": [
+      645088,
+      17228909,
+      22411610,
+      23837055,
+      27204312,
+      38053382,
+      43664495,
+      44308318,
+      51208047,
+      58371672,
+      60025884,
+      60514626,
+      87669905,
+      98875864
+    ],
+    "rawScansUnmodified": true,
+    "officialPasscodeClaim": false,
+    "basis": "printed Token name/type/level/stat definition plus native generator association; printed Token cards may have no printed numeric passcode",
+    "registryPaths": [
+      "verified-printed-token-references.json",
+      "additional-printed-g-golem-reference.json"
+    ]
+  },
+  "remainingMissingOwnAcceptedArtNativeCodes": 97,
+  "threeDimensionalCertification": "None. Rear views, occluded anatomy, interpretation of composition and copy-dependent Tokens remain explicitly limited.",
+  "protectedAmbiguities": {
+    "WorldLegacy69811711": "No appearance association applied; printed modern spirit and old game machine remain distinct references.",
+    "Parasomnia44092305": "Neutral echo preserved; retrieved game display/generator art does not identify the copied monster.",
+    "Epigonos51611042": "Neutral echo preserved; retrieved game display/generator art does not identify the copied monster.",
+    "CrystalBeast58371672": "Printed gems identify a presentation; copied Token type/level/stats/monster appearance remain variable.",
+    "DuelDragon60025884": "Printed art is a presentation, not a fixed copied monster appearance.",
+    "PrankKids43664495": "Printed composition includes several different group members; no invented single canonical member selected."
+  },
+  "references": [
+    {
+      "name": "Black Garden",
+      "nativeCodes": [
+        71645242
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/71645242.jpg",
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/71645242.jpg",
+      "sourcePage": "https://ygoprodeck.com/card/black-garden-6019",
+      "sha256": "ea85398affa4b343e818304dfc4e135d50e6f8c0cf42394675f3faacace5ffbc",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        624,
+        624
+      ],
+      "bytes": 115501,
+      "classification": "related-card-art-corroboration",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Related ordinary card. Compare the depicted subject/version, do not label generator art automatically as Token art. Reused sheep/lamb/OjamaTrio crops are not new angles."
+    },
+    {
+      "name": "Kuriboh",
+      "nativeCodes": [
+        40640057
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/40640057.jpg",
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/40640057.jpg",
+      "sourcePage": "https://ygoprodeck.com/card/kuriboh-3456",
+      "sha256": "9721575e23dd4bd77230457610f34c15dedd3aa3aa422ba7abbf1c795e23d3b9",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        624,
+        624
+      ],
+      "bytes": 106196,
+      "classification": "related-card-art-corroboration",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Related ordinary card. Compare the depicted subject/version, do not label generator art automatically as Token art. Reused sheep/lamb/OjamaTrio crops are not new angles."
+    },
+    {
+      "name": "Multiply",
+      "nativeCodes": [
+        40703222
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/40703222.jpg",
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/40703222.jpg",
+      "sourcePage": "https://ygoprodeck.com/card/multiply-3463",
+      "sha256": "325db67427e8c7504215bf9200172589cad86e9fb68cf4c483e44577fff26500",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        624,
+        624
+      ],
+      "bytes": 77023,
+      "classification": "related-card-art-corroboration",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Related ordinary card. Compare the depicted subject/version, do not label generator art automatically as Token art. Reused sheep/lamb/OjamaTrio crops are not new angles."
+    },
+    {
+      "name": "Ojama Duo",
+      "nativeCodes": [
+        14470845
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/14470845.jpg",
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/14470845.jpg",
+      "sourcePage": "https://ygoprodeck.com/card/ojama-duo-8707",
+      "sha256": "14bcff944313d03bfecfabfe29d4c52aca346459f4aeef842c180e2cbc23c77b",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        624,
+        624
+      ],
+      "bytes": 97344,
+      "classification": "related-card-art-corroboration",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Related ordinary card. Compare the depicted subject/version, do not label generator art automatically as Token art. Reused sheep/lamb/OjamaTrio crops are not new angles."
+    },
+    {
+      "name": "Ojama Trio",
+      "nativeCodes": [
+        29843091
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/29843091.jpg",
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/29843091.jpg",
+      "sourcePage": "https://ygoprodeck.com/card/ojama-trio-2526",
+      "sha256": "610434fd53819be1041d69305422948d5da8a526b49cff55f0925fc9d41fa62b",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        624,
+        624
+      ],
+      "bytes": 122892,
+      "classification": "related-card-art-corroboration",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Related ordinary card. Compare the depicted subject/version, do not label generator art automatically as Token art. Reused sheep/lamb/OjamaTrio crops are not new angles."
+    },
+    {
+      "name": "Scapegoat",
+      "nativeCodes": [
+        73915051
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/73915051.jpg",
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/73915051.jpg",
+      "sourcePage": "https://ygoprodeck.com/card/scapegoat-6212",
+      "sha256": "f8a01e3d3ead0921e6b0d53fbd51fd8ae700f719e078db7a2bf1a5ecb99b206d",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        624,
+        624
+      ],
+      "bytes": 83656,
+      "classification": "related-card-art-corroboration",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Related ordinary card. Compare the depicted subject/version, do not label generator art automatically as Token art. Reused sheep/lamb/OjamaTrio crops are not new angles."
+    },
+    {
+      "name": "Stray Lambs",
+      "nativeCodes": [
+        60764581
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/60764581.jpg",
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/60764581.jpg",
+      "sourcePage": "https://ygoprodeck.com/card/stray-lambs-5157",
+      "sha256": "d93581653d76abd9b647b722ab7f5f9eef334e6108b1a197e1de9bdcff2cec8f",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        624,
+        624
+      ],
+      "bytes": 53599,
+      "classification": "related-card-art-corroboration",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Related ordinary card. Compare the depicted subject/version, do not label generator art automatically as Token art. Reused sheep/lamb/OjamaTrio crops are not new angles."
+    },
+    {
+      "name": "World Legacy Token",
+      "nativeCodes": [
+        null
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/WorldLegacyToken-OP15-EN-SR-UE.png",
+      "url": "https://ms.yugipedia.com/3/38/WorldLegacyToken-OP15-EN-SR-UE.png",
+      "sourcePage": "https://yugipedia.com/wiki/Card_Gallery:World_Legacy_Token",
+      "sha256": "da3faff513f17ec7748550260010ecb6f7515a1eee0a69edca392ae526d542c9",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        823,
+        1200
+      ],
+      "bytes": 2474714,
+      "classification": "world-legacy-art-version-ambiguous",
+      "acceptedForTokenPresentation": false,
+      "limitation": "OP15/20TP/TK03/TK05 repeat the modern Galatea composition; LOD2 depicts the separate World Lance machine. No unique passcode69811711 binding is established."
+    },
+    {
+      "name": "World Legacy Token",
+      "nativeCodes": [
+        null
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/WorldLegacyToken-TK03-JP-R.png",
+      "url": "https://ms.yugipedia.com/c/c3/WorldLegacyToken-TK03-JP-R.png",
+      "sourcePage": "https://yugipedia.com/wiki/Card_Gallery:World_Legacy_Token",
+      "sha256": "41a37b88c8c2bd032c7a17beaa4b4d34d27b94d2c0b7557961a9637800d5e629",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        540,
+        800
+      ],
+      "bytes": 1100326,
+      "classification": "world-legacy-art-version-ambiguous",
+      "acceptedForTokenPresentation": false,
+      "limitation": "OP15/20TP/TK03/TK05 repeat the modern Galatea composition; LOD2 depicts the separate World Lance machine. No unique passcode69811711 binding is established."
+    },
+    {
+      "name": "World Legacy Token",
+      "nativeCodes": [
+        null
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/WorldLegacyToken-TK05-JP-R.png",
+      "url": "https://ms.yugipedia.com/d/df/WorldLegacyToken-TK05-JP-R.png",
+      "sourcePage": "https://yugipedia.com/wiki/Card_Gallery:World_Legacy_Token",
+      "sha256": "6eb59cf25c784c5e8877e9d731b97392f6b128781e6b3a1dded56df463c82aa3",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        701,
+        1024
+      ],
+      "bytes": 1315894,
+      "classification": "world-legacy-art-version-ambiguous",
+      "acceptedForTokenPresentation": false,
+      "limitation": "OP15/20TP/TK03/TK05 repeat the modern Galatea composition; LOD2 depicts the separate World Lance machine. No unique passcode69811711 binding is established."
+    },
+    {
+      "name": "World Legacy Token",
+      "nativeCodes": [
+        null
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/WorldLegacyToken-LOD2-JP-VG-artwork.jpg",
+      "url": "https://ms.yugipedia.com/8/8b/WorldLegacyToken-LOD2-JP-VG-artwork.jpg",
+      "sourcePage": "https://yugipedia.com/wiki/Card_Gallery:World_Legacy_Token",
+      "sha256": "074b09c9c97f0c21a397cc072afd9c521e9244aff68f966483eba023b76edff9",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        304,
+        304
+      ],
+      "bytes": 54084,
+      "classification": "world-legacy-art-version-ambiguous",
+      "acceptedForTokenPresentation": false,
+      "limitation": "OP15/20TP/TK03/TK05 repeat the modern Galatea composition; LOD2 depicts the separate World Lance machine. No unique passcode69811711 binding is established."
+    },
+    {
+      "name": "World Legacy Token",
+      "nativeCodes": [
+        null
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/WorldLegacyToken-20TP-JP-OP.png",
+      "url": "https://ms.yugipedia.com/4/43/WorldLegacyToken-20TP-JP-OP.png",
+      "sourcePage": "https://yugipedia.com/wiki/Card_Gallery:World_Legacy_Token",
+      "sha256": "64ab05cd5fe4c08ca688e5dd31321a463c02e2f3acbed1c0fb1b0dd3f1b72d13",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        242,
+        355
+      ],
+      "bytes": 149456,
+      "classification": "world-legacy-art-version-ambiguous",
+      "acceptedForTokenPresentation": false,
+      "limitation": "OP15/20TP/TK03/TK05 repeat the modern Galatea composition; LOD2 depicts the separate World Lance machine. No unique passcode69811711 binding is established."
+    },
+    {
+      "name": "Gadget Token",
+      "nativeCodes": [
+        645088
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/GadgetToken-TK04-JP-R.png",
+      "url": "https://ms.yugipedia.com//9/9b/GadgetToken-TK04-JP-R.png",
+      "sourcePage": "https://yugipedia.com/wiki/Gadget_Token",
+      "sha256": "85663f647d11f1190416e6e53994d00767e02dff5c850df127d2416f6546b95f",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        934,
+        1354
+      ],
+      "bytes": 3013754,
+      "classification": "direct-printed-token-scan",
+      "acceptedForTokenPresentation": true,
+      "certifiesThreeDimensionalAppearance": false
+    },
+    {
+      "name": "Moult Token",
+      "nativeCodes": [
+        1799465
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/MoultToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//f/fc/MoultToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Moult_Token",
+      "sha256": "1881c652080c25587f8421c419280afcb4d8b5be6a395d7ceebbaf206e4a0d67",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 420851,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Spool Token",
+      "nativeCodes": [
+        2625940
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/SpoolToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//6/63/SpoolToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Spool_Token",
+      "sha256": "46709a99fdcbcc5d3fe1caac6362efdc1ca16831b24200fce6ad06158f0953c0",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 360423,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Delta Token",
+      "nativeCodes": [
+        3129134
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/DeltaToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//f/f5/DeltaToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Delta_Token",
+      "sha256": "d5babc1b8178e070b0a1068dacdf8f9e6c4a41056a851ec9046f774b1a39f16e",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 529402,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Adventurer Token",
+      "nativeCodes": [
+        3285552
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/AdventurerToken-DULI-EN-VG-CA.png",
+      "url": "https://ms.yugipedia.com//4/4d/AdventurerToken-DULI-EN-VG-CA.png",
+      "sourcePage": "https://yugipedia.com/wiki/Adventurer_Token",
+      "sha256": "819a2c9107c3d74785c6a69f19f79ae5e38ad1a64cd9a13e9f0aa82ad429867a",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        384,
+        384
+      ],
+      "bytes": 180857,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Mecha Phantom Beast Token",
+      "nativeCodes": [
+        4417408,
+        16943771,
+        20368764,
+        22110648,
+        30811117,
+        31480216,
+        31533705,
+        41329459,
+        44026394,
+        44097051,
+        66200211,
+        67489920,
+        67922703,
+        70875956,
+        72291079,
+        94973029
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/MechaPhantomBeastToken-OP09-EN-SR-UE-Megaraptor.png",
+      "url": "https://ms.yugipedia.com//3/36/MechaPhantomBeastToken-OP09-EN-SR-UE-Megaraptor.png",
+      "sourcePage": "https://yugipedia.com/wiki/Mecha_Phantom_Beast_Token",
+      "sha256": "f919949ca4a87bf74dd24532c1870db7005f1ac1278aaa37dd90d63adf0fd6f0",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        482,
+        700
+      ],
+      "bytes": 777802,
+      "classification": "shared-name-multiple-native-variants",
+      "acceptedForTokenPresentation": false,
+      "limitation": "One printed Megaraptor art cannot automatically identify every16generator-specific native Mecha Phantom Beast code."
+    },
+    {
+      "name": "Familiar of the Evil Eye Token",
+      "nativeCodes": [
+        7610395
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/FamiliaroftheEvilEyeToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//d/d8/FamiliaroftheEvilEyeToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Familiar_of_the_Evil_Eye_Token",
+      "sha256": "87fc8c73e26d5fbdf51cb09b8d0ed5688ccbeab18f59aa33eb2b7b6a793bc4dd",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 493152,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Gadget Box Token",
+      "nativeCodes": [
+        8025951
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/GadgetBoxToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//f/ff/GadgetBoxToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Gadget_Box_Token",
+      "sha256": "c16c9ef213797540122cf8e5c41daf569735c1e01a866cfeb497238300e37b6a",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 496543,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "@Ignister Token",
+      "nativeCodes": [
+        11738490
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/IgnisterToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//0/04/IgnisterToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/%40Ignister_Token",
+      "sha256": "98912caf12a1cfacbe09bb094f04b59805bf877d433f6c0e7a95045225969a36",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 530124,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Lunalight Token",
+      "nativeCodes": [
+        13935002
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/LunalightToken-DULI-EN-VG-CA.png",
+      "url": "https://ms.yugipedia.com//2/2b/LunalightToken-DULI-EN-VG-CA.png",
+      "sourcePage": "https://yugipedia.com/wiki/Lunalight_Token",
+      "sha256": "c68ab2d68be5bbd149caa1e47fde096e94cebc720047799ea962fcb758339bb5",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        424,
+        424
+      ],
+      "bytes": 237988,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Otoshidamashi Token",
+      "nativeCodes": [
+        14957441
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/OtoshidamashiToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//7/70/OtoshidamashiToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Otoshidamashi_Token",
+      "sha256": "a816317ebd6f767553f2b00fa9ff3e3c929dad1dc1093c78fe4f411a95aeeaf3",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 284934,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Fire Token",
+      "nativeCodes": [
+        15590356
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/FireToken-DULI-EN-VG-CA.png",
+      "url": "https://ms.yugipedia.com//5/55/FireToken-DULI-EN-VG-CA.png",
+      "sourcePage": "https://yugipedia.com/wiki/Fire_Token",
+      "sha256": "d2f17d343275603cf14f062a758a14cfe45797a4fa63097cf38f9573027f4a05",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        384,
+        384
+      ],
+      "bytes": 341380,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Jurraegg Token",
+      "nativeCodes": [
+        17228909
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/JurraeggToken-SR04-EN-C-1E.png",
+      "url": "https://ms.yugipedia.com//6/62/JurraeggToken-SR04-EN-C-1E.png",
+      "sourcePage": "https://yugipedia.com/wiki/Jurraegg_Token",
+      "sha256": "cdf88a31c2cd52cd062e6ca8a11f2df15f7ca7cd548ff1a3bff17b709bd1011c",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        478,
+        695
+      ],
+      "bytes": 771009,
+      "classification": "direct-printed-token-scan",
+      "acceptedForTokenPresentation": true,
+      "certifiesThreeDimensionalAppearance": false
+    },
+    {
+      "name": "Icejade Token",
+      "nativeCodes": [
+        18494512
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/IcejadeToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//1/1f/IcejadeToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Icejade_Token",
+      "sha256": "209432384b5e179f053f75cd6f0eff01b3f8e0dd2768fab34b2368af52970dd3",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 566088,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Tellus Wing Token",
+      "nativeCodes": [
+        19280590
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/TellusWingToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//c/c6/TellusWingToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Tellus_Wing_Token",
+      "sha256": "15b81ad7fc94cc173db4f7c6d16d6cc72bc046e14a9e50b2e699329ea4487fa7",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 347302,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Swordsoul Token",
+      "nativeCodes": [
+        20001444
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/SwordsoulToken-DULI-EN-VG-CA.png",
+      "url": "https://ms.yugipedia.com//0/0e/SwordsoulToken-DULI-EN-VG-CA.png",
+      "sourcePage": "https://yugipedia.com/wiki/Swordsoul_Token",
+      "sha256": "a8c367864cb6e8534b299c73b46d9e760d17b6e5261e71c6e839dc1b0d39480a",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        385,
+        385
+      ],
+      "bytes": 250275,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Clock Token",
+      "nativeCodes": [
+        21830680
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/ClockToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//3/31/ClockToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Clock_Token",
+      "sha256": "22ddaa90ad2ded2f212ae5253568dd408442797e71c06100e29c8c36cc876fe8",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 481938,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Bomb Token",
+      "nativeCodes": [
+        22411610
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/BombToken-OP26-EN-SR-UE.png",
+      "url": "https://ms.yugipedia.com//7/71/BombToken-OP26-EN-SR-UE.png",
+      "sourcePage": "https://yugipedia.com/wiki/Bomb_Token",
+      "sha256": "638743d787d422cf63b8c1489bb4818151945c0a2982e98c68707202c17f9f81",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        754,
+        1099
+      ],
+      "bytes": 1492954,
+      "classification": "direct-printed-token-scan",
+      "acceptedForTokenPresentation": true,
+      "certifiesThreeDimensionalAppearance": false
+    },
+    {
+      "name": "Paralyzing Token",
+      "nativeCodes": [
+        22712878
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/ParalyzingToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//7/7c/ParalyzingToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Paralyzing_Token",
+      "sha256": "03914643a4c58646fdde12a951aa9f8a4c5269906df7bed044308b5809de1f9b",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 567916,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Bellcat Token",
+      "nativeCodes": [
+        22953212
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/BellcatToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//3/3a/BellcatToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Bellcat_Token",
+      "sha256": "0b4a2414901ace80fbbdd58d5e93538590095511c44e7a6cb8aee1f77834721e",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 310042,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Fireball Token",
+      "nativeCodes": [
+        23116809
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/FireballToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//0/06/FireballToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Fireball_Token",
+      "sha256": "7692d4e8ec39de2363af5c4d7d132e106b368d88f268d334bab2fd94e5f05897",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 234517,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Ogdoadic Token",
+      "nativeCodes": [
+        23837055
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/OgdoadicToken-OP18-EN-SR-UE.png",
+      "url": "https://ms.yugipedia.com//8/89/OgdoadicToken-OP18-EN-SR-UE.png",
+      "sourcePage": "https://yugipedia.com/wiki/Ogdoadic_Token",
+      "sha256": "aab0e2dcf14f532722d26f76ce4d66ad0d66778e45ecfd05d68b76e327ea6bf5",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        478,
+        701
+      ],
+      "bytes": 661609,
+      "classification": "direct-printed-token-scan",
+      "acceptedForTokenPresentation": true,
+      "certifiesThreeDimensionalAppearance": false
+    },
+    {
+      "name": "Dinomorphia Token",
+      "nativeCodes": [
+        25419324
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/DinomorphiaToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//a/a3/DinomorphiaToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Dinomorphia_Token",
+      "sha256": "d47fc7f1f0f0322ed4710cb3883ee036cc188aa1d53b0c8677046198d7539bcd",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 482366,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Shiranui Token",
+      "nativeCodes": [
+        26326542
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/ShiranuiToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//4/47/ShiranuiToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Shiranui_Token",
+      "sha256": "23850a36a8e7cf5d6ae47dbe5c88a0491677911f638f10a2c230ee9b2bee7e31",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 481339,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Primal Being Token",
+      "nativeCodes": [
+        27204312
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/PrimalBeingToken-OP12-EN-SR-UE.png",
+      "url": "https://ms.yugipedia.com//5/5e/PrimalBeingToken-OP12-EN-SR-UE.png",
+      "sourcePage": "https://yugipedia.com/wiki/Primal_Being_Token",
+      "sha256": "a5b064b9c6f512bdada2d245028d59d6f4c04585bdd97264af515284b2cafdda",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        680,
+        1000
+      ],
+      "bytes": 1355732,
+      "classification": "direct-printed-token-scan",
+      "acceptedForTokenPresentation": true,
+      "certifiesThreeDimensionalAppearance": false
+    },
+    {
+      "name": "Vilepawn Salmon Token",
+      "nativeCodes": [
+        27882994
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/VilepawnSalmonToken-DULI-EN-VG-CA.png",
+      "url": "https://ms.yugipedia.com//d/d3/VilepawnSalmonToken-DULI-EN-VG-CA.png",
+      "sourcePage": "https://yugipedia.com/wiki/Vilepawn_Salmon_Token",
+      "sha256": "1a52576a2507bc88b421ee86e1234935203a560619108c1fc5336a17595d6c0c",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        384,
+        384
+      ],
+      "bytes": 274574,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Dark Beast Token",
+      "nativeCodes": [
+        30327675
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/DarkBeastToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//9/90/DarkBeastToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Dark_Beast_Token",
+      "sha256": "312a41bf128cf8671253b632f85a94461e1cb796e45b7bf7240a651ab17ad528",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 492812,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Light Beast Token",
+      "nativeCodes": [
+        30327676
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/LightBeastToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//3/3f/LightBeastToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Light_Beast_Token",
+      "sha256": "312a41bf128cf8671253b632f85a94461e1cb796e45b7bf7240a651ab17ad528",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 492812,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Vendread Token",
+      "nativeCodes": [
+        30650148
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/VendreadToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//2/24/VendreadToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Vendread_Token",
+      "sha256": "a2fd59f52d9002ef8279e780b535377c40708f5c3ca4f879d185c7b0ac50e821",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 395058,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Hundred Apples Token",
+      "nativeCodes": [
+        30765616
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/HundredApplesToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//2/22/HundredApplesToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Hundred_Apples_Token",
+      "sha256": "02e31f82de9a32abb41c3daa7025d7f1ad3bf8a37d7f84722ef4e6cb5b346371",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 519205,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Baby Mantis Token",
+      "nativeCodes": [
+        31600514
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/BabyMantisToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//e/ee/BabyMantisToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Baby_Mantis_Token",
+      "sha256": "7488d3cac976ac42e95643168d8395870d997ecab59b716a098c4354eaca4e33",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 529300,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Haunted Token",
+      "nativeCodes": [
+        32335698
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/HauntedToken-DULI-EN-VG-CA.png",
+      "url": "https://ms.yugipedia.com//f/fe/HauntedToken-DULI-EN-VG-CA.png",
+      "sourcePage": "https://yugipedia.com/wiki/Haunted_Token",
+      "sha256": "93c7733ac4d6af3fda9deee261150880994ac025d1e66195b360e946bea5c5ed",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        383,
+        383
+      ],
+      "bytes": 241477,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Manipulator Token",
+      "nativeCodes": [
+        32446631
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/ManipulatorToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//a/a0/ManipulatorToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Manipulator_Token",
+      "sha256": "51a9e7ebdd48a77f65642e3de2c3f9e15d8407fe89993e710c818763e47777e9",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 397365,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Escapegoat Token",
+      "nativeCodes": [
+        33676147
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/EscapegoatToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//f/f2/EscapegoatToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Escapegoat_Token",
+      "sha256": "be6efab3f445f4c6fbbfb5e0629fd5b84cdbb8ec0bbbbe44c020b056d9b7e682",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 401327,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Alligator Token",
+      "nativeCodes": [
+        34479659
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/AlligatorToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//4/4f/AlligatorToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Alligator_Token",
+      "sha256": "11cf109895c64588efdf1370fd52c32226d03858e37947d17a74105249ee4571",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 327201,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Cynet Token",
+      "nativeCodes": [
+        34767866
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/CynetToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//a/a0/CynetToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Cynet_Token",
+      "sha256": "608078752dc11067e1316bb2a2bada35e2283d11b6f9019dc1433efb69ead8e3",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 430953,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Surprise Token",
+      "nativeCodes": [
+        35167376
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/SurpriseToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//c/cd/SurpriseToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Surprise_Token",
+      "sha256": "0a83bf1f95c2639c143b99d10d5e78faa53f827fa7c78f73c2f1450b78455f7a",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 460316,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Snack Token",
+      "nativeCodes": [
+        35263181
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/SnackToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//2/27/SnackToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Snack_Token",
+      "sha256": "3450d612027cfe3b791851a99d3254bf85f190669b2372b58686babbaab8c22c",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 661306,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Fiendsmith Token",
+      "nativeCodes": [
+        35552986
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/FiendsmithToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//1/18/FiendsmithToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Fiendsmith_Token",
+      "sha256": "6f5b5f19dbb990ebdab5d3360d1567d6d16b52e07cddc70cb4ac68fcee9a11fc",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 591807,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Lamp Token",
+      "nativeCodes": [
+        35834120
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/LampToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//7/75/LampToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Lamp_Token",
+      "sha256": "4ebd72f200f258413b06cb13bd4107bcca33ebe19e1b20bf8b6ac9bfb19aafdd",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 574839,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "White Fluff Token",
+      "nativeCodes": [
+        36629636
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/WhiteFluffToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//c/ce/WhiteFluffToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/White_Fluff_Token",
+      "sha256": "e7558586b78cd46b84d6299162dd8468848d9e49d5b735bb82ca8f31e9416ae3",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 578063,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Tenyi Spirit Token",
+      "nativeCodes": [
+        38030233
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/TenyiSpiritToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//6/6d/TenyiSpiritToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Tenyi_Spirit_Token",
+      "sha256": "44d3adbd9d32bad93a23c887aecc1ea2a831f2793bfa44ed38b2205755716a0c",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 453275,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Generaider Token",
+      "nativeCodes": [
+        38053382
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/GeneraiderToken-OP13-EN-SR-UE.png",
+      "url": "https://ms.yugipedia.com//5/53/GeneraiderToken-OP13-EN-SR-UE.png",
+      "sourcePage": "https://yugipedia.com/wiki/Generaider_Token",
+      "sha256": "b32150437c3ecd8fb7cf60628661824304753b839bbcd48561ebc2dee6bfa414",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        479,
+        698
+      ],
+      "bytes": 819970,
+      "classification": "direct-printed-token-scan",
+      "acceptedForTokenPresentation": true,
+      "certifiesThreeDimensionalAppearance": false
+    },
+    {
+      "name": "Nouvelles Token",
+      "nativeCodes": [
+        40551411
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/NouvellesToken-DULI-EN-VG-CA.png",
+      "url": "https://ms.yugipedia.com//5/50/NouvellesToken-DULI-EN-VG-CA.png",
+      "sourcePage": "https://yugipedia.com/wiki/Nouvelles_Token",
+      "sha256": "17211a7c20ba7ebf551f83712c5283781d83be1c060a6da0edf5c40b3b98f80e",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        383,
+        383
+      ],
+      "bytes": 173518,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Machine Token",
+      "nativeCodes": [
+        42427231
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/MachineToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//c/c9/MachineToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Machine_Token",
+      "sha256": "ab91ec78d97dc5adf6b96d37a2164ad8149c09c51dd0773508467ff89c9e0049",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 567916,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Prank-Kids Token",
+      "nativeCodes": [
+        43664495
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/PrankKidsToken-TK05-JP-R.png",
+      "url": "https://ms.yugipedia.com//6/64/PrankKidsToken-TK05-JP-R.png",
+      "sourcePage": "https://yugipedia.com/wiki/Prank-Kids_Token",
+      "sha256": "08bc61dfc92ce0e021b2f4bae9731e49f8fc615029a7abe39f6d1d83342c3178",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        1056,
+        1552
+      ],
+      "bytes": 4150441,
+      "classification": "direct-printed-token-scan",
+      "acceptedForTokenPresentation": true,
+      "certifiesThreeDimensionalAppearance": false
+    },
+    {
+      "name": "Parasomnia Token",
+      "nativeCodes": [
+        44092305
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/ParasomniaToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//2/2c/ParasomniaToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Parasomnia_Token",
+      "sha256": "3b1191421bd34df668223a88a93dc7f957ff94a473fcdd6588e3ee293e2fcf64",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 484045,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Ice Barrier Token",
+      "nativeCodes": [
+        44308318
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/IceBarrierToken-OP17-EN-SR-UE.png",
+      "url": "https://ms.yugipedia.com//6/63/IceBarrierToken-OP17-EN-SR-UE.png",
+      "sourcePage": "https://yugipedia.com/wiki/Ice_Barrier_Token",
+      "sha256": "ee6f546906df320356a86141d93a1e4e46c55d00c45ab0847c34e51feba22a60",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        479,
+        700
+      ],
+      "bytes": 795058,
+      "classification": "direct-printed-token-scan",
+      "acceptedForTokenPresentation": true,
+      "certifiesThreeDimensionalAppearance": false
+    },
+    {
+      "name": "Link Token",
+      "nativeCodes": [
+        48068379,
+        85243785
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/LinkToken-DULI-EN-VG-CA.png",
+      "url": "https://ms.yugipedia.com//6/6d/LinkToken-DULI-EN-VG-CA.png",
+      "sourcePage": "https://yugipedia.com/wiki/Link_Token",
+      "sha256": "df8ba73762ba4a40eb73309f58e56975c9ad5a309434e05232763523fa6f4372",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        385,
+        385
+      ],
+      "bytes": 283030,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Pyrite Token",
+      "nativeCodes": [
+        48228391
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/PyriteToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//3/3d/PyriteToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Pyrite_Token",
+      "sha256": "059a2bcb93f042da56f29312f0a9a9ec23e9a801f00e2249169e0a302339ba61",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 675604,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Trickstar Token",
+      "nativeCodes": [
+        51208047
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/TrickstarToken-OP10-EN-SR-UE.png",
+      "url": "https://ms.yugipedia.com//9/95/TrickstarToken-OP10-EN-SR-UE.png",
+      "sourcePage": "https://yugipedia.com/wiki/Trickstar_Token",
+      "sha256": "25dbb171a7f6accb0b0a289944ae13a353afa2ffbc904b3c7818d73899789941",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        482,
+        700
+      ],
+      "bytes": 761647,
+      "classification": "direct-printed-token-scan",
+      "acceptedForTokenPresentation": true,
+      "certifiesThreeDimensionalAppearance": false
+    },
+    {
+      "name": "Epigonos Token",
+      "nativeCodes": [
+        51611042
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/EpigonosToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//d/d7/EpigonosToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Epigonos_Token",
+      "sha256": "32220c7a78e83ca8f0f690486fc2c7d3f5a3f8ba9381f95240a3ac8fc23fb930",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 425106,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Diagram Token",
+      "nativeCodes": [
+        52782440
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/DiagramToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//4/4e/DiagramToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Diagram_Token",
+      "sha256": "80f3be0af0f7adcaa64511e50a482f40b366f93cec7f19fe61c415b53c59e08f",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 570458,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Support Token",
+      "nativeCodes": [
+        53545927
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/SupportToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//d/db/SupportToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Support_Token",
+      "sha256": "32f3d6feb30c6fa5c40d9074a329d905ad0dd0516acce3c047b4d0fac52c0e66",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 492093,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Armament Reincarnation Token",
+      "nativeCodes": [
+        53770667
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/ArmamentReincarnationToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//b/bb/ArmamentReincarnationToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Armament_Reincarnation_Token",
+      "sha256": "60e0b6879b2ae8cb388cdb555691c0377b52bd8610ac83104cd12c054fa919da",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 562414,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Crystal Beast Token",
+      "nativeCodes": [
+        58371672
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/CrystalBeastToken-SDCB-EN-C-1E.png",
+      "url": "https://ms.yugipedia.com//b/b2/CrystalBeastToken-SDCB-EN-C-1E.png",
+      "sourcePage": "https://yugipedia.com/wiki/Crystal_Beast_Token",
+      "sha256": "de76502ebc93b32ca7569849a8c56e28745930058dcd97179533ec5baa8bd3d7",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        472,
+        693
+      ],
+      "bytes": 459745,
+      "classification": "direct-printed-token-scan",
+      "acceptedForTokenPresentation": true,
+      "certifiesThreeDimensionalAppearance": false
+    },
+    {
+      "name": "Elfnote Seraphim Token",
+      "nativeCodes": [
+        58809686
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/ElfnoteSeraphimToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//c/cd/ElfnoteSeraphimToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Elfnote_Seraphim_Token",
+      "sha256": "189e0016503ca4198e08f631e949bf34bf651931e893f0dacb5ea360b69dedce",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 603863,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Nytro Token",
+      "nativeCodes": [
+        59900656
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/NytroToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//1/1c/NytroToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Nytro_Token",
+      "sha256": "d2bc94a5a684a2dc422a53f02bfa98be3b4a31dd823007239030db389d7c8db6",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 551419,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Duel Dragon Token",
+      "nativeCodes": [
+        60025884
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/DuelDragonToken-OP11-EN-SR-UE.png",
+      "url": "https://ms.yugipedia.com//8/80/DuelDragonToken-OP11-EN-SR-UE.png",
+      "sourcePage": "https://yugipedia.com/wiki/Duel_Dragon_Token",
+      "sha256": "1c840067c66fab6a0d7b2fc3b96202d363cc70141520d27972583073f69709a6",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        479,
+        700
+      ],
+      "bytes": 771791,
+      "classification": "direct-printed-token-scan",
+      "acceptedForTokenPresentation": true,
+      "certifiesThreeDimensionalAppearance": false
+    },
+    {
+      "name": "Gold Pride Token",
+      "nativeCodes": [
+        60203671
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/GoldPrideToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//7/76/GoldPrideToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Gold_Pride_Token",
+      "sha256": "07282e8b29558a95e3cc8fe9496af3f08acfcdb6e177df2b76710856f15ff44a",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 558721,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Mask Token",
+      "nativeCodes": [
+        60514626
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/MaskToken-OP19-EN-SR-UE.png",
+      "url": "https://ms.yugipedia.com//6/6b/MaskToken-OP19-EN-SR-UE.png",
+      "sourcePage": "https://yugipedia.com/wiki/Mask_Token",
+      "sha256": "f374ad3e3cad5e9c4e2abce098f3a022e3842455e7310e7cea760ee66b84433a",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        570,
+        826
+      ],
+      "bytes": 1020284,
+      "classification": "direct-printed-token-scan",
+      "acceptedForTokenPresentation": true,
+      "certifiesThreeDimensionalAppearance": false
+    },
+    {
+      "name": "Stardust Token",
+      "nativeCodes": [
+        63184228
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/StardustToken-DULI-EN-VG-CA.png",
+      "url": "https://ms.yugipedia.com//3/3f/StardustToken-DULI-EN-VG-CA.png",
+      "sourcePage": "https://yugipedia.com/wiki/Stardust_Token",
+      "sha256": "63be04f9f6537dc4afa685fc22dea5834c8477aaf573c1e00099713254acc601",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        384,
+        384
+      ],
+      "bytes": 180093,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Beetrooper Token",
+      "nativeCodes": [
+        64213018
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/BeetrooperToken-DULI-EN-VG-CA.png",
+      "url": "https://ms.yugipedia.com//2/24/BeetrooperToken-DULI-EN-VG-CA.png",
+      "sourcePage": "https://yugipedia.com/wiki/Beetrooper_Token",
+      "sha256": "4957e9bc39e80adb3e7d9aef525bdfa2c98592b6b857509a06cdf938649424b3",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        383,
+        383
+      ],
+      "bytes": 243290,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Dragon Token",
+      "nativeCodes": [
+        64583601
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/DragonToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//1/16/DragonToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Dragon_Token",
+      "sha256": "f2997252d4d9198be2a863c6a7a72a3b10e45563486b7248cd9c3b3d49570a1f",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 472599,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Squid Ink Token",
+      "nativeCodes": [
+        65500516
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/SquidInkToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//f/f0/SquidInkToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Squid_Ink_Token",
+      "sha256": "2cc1a3c0efc56ea7cb7cccdf30e281da1c1caf27042e8f21b0c19a39dfb16f70",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 346410,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Speedroid Token",
+      "nativeCodes": [
+        69550260
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/SpeedroidToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//f/f4/SpeedroidToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Speedroid_Token",
+      "sha256": "6ae95e9abb131331de34a8e63c155df7c932051582c3ff443265cc7f91b88b98",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 380884,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "World Legacy Token",
+      "nativeCodes": [
+        69811711
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/WorldLegacyToken-OP15-EN-SR-UE.png",
+      "url": "https://ms.yugipedia.com//3/38/WorldLegacyToken-OP15-EN-SR-UE.png",
+      "sourcePage": "https://yugipedia.com/wiki/World_Legacy_Token",
+      "sha256": "da3faff513f17ec7748550260010ecb6f7515a1eee0a69edca392ae526d542c9",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        823,
+        1200
+      ],
+      "bytes": 2474714,
+      "classification": "world-legacy-art-version-ambiguous",
+      "acceptedForTokenPresentation": false,
+      "limitation": "OP15/20TP/TK03/TK05 repeat the modern Galatea composition; LOD2 depicts the separate World Lance machine. No unique passcode69811711 binding is established."
+    },
+    {
+      "name": "Phantom Glimmer Token",
+      "nativeCodes": [
+        70465811
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/PhantomGlimmerToken-DULI-EN-VG-CA.png",
+      "url": "https://ms.yugipedia.com//2/27/PhantomGlimmerToken-DULI-EN-VG-CA.png",
+      "sourcePage": "https://yugipedia.com/wiki/Phantom_Glimmer_Token",
+      "sha256": "e106b14150530953be69380b0112e0af792dd1122e36fb140ff29ebebebbce45",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        383,
+        383
+      ],
+      "bytes": 222490,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Stag Token",
+      "nativeCodes": [
+        70950699
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/StagToken-DULI-EN-VG-CA.png",
+      "url": "https://ms.yugipedia.com//0/00/StagToken-DULI-EN-VG-CA.png",
+      "sourcePage": "https://yugipedia.com/wiki/Stag_Token",
+      "sha256": "04c4d5c7eefc892b617176ad8b3360388500b52a056d54eea30a8e1e6d8dbc1a",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        424,
+        424
+      ],
+      "bytes": 216998,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Sacrificial Offering Token",
+      "nativeCodes": [
+        71771005
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/SacrificialOfferingToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//3/31/SacrificialOfferingToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Sacrificial_Offering_Token",
+      "sha256": "324e44997a7b7a66749622f7e9a4561527240b556d54cfba5d975c427d2fd122",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 501972,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Doppelganger Token",
+      "nativeCodes": [
+        71939276
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/DoppelgangerToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//d/dd/DoppelgangerToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Doppelganger_Token",
+      "sha256": "93ede80000754af9838600b83120ebc79f92f01ec9b6c79624654179c3c147d1",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 532147,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "T.G. Token",
+      "nativeCodes": [
+        74627017
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/TGToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//a/a5/TGToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/T.G._Token",
+      "sha256": "f5a3797a59e313b209e16a350730490a01bc6a036361c42a2a73b9e174e0232c",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 455695,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Runick Token",
+      "nativeCodes": [
+        74659583
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/RunickToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//a/ae/RunickToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Runick_Token",
+      "sha256": "4b8888c848f008beaad02af4553fd9b3bb0dde551b3e6415b0231d721096a665",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 575346,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Overflow Token",
+      "nativeCodes": [
+        76589547
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/OverflowToken-DULI-EN-VG-CA.png",
+      "url": "https://ms.yugipedia.com//b/b2/OverflowToken-DULI-EN-VG-CA.png",
+      "sourcePage": "https://yugipedia.com/wiki/Overflow_Token",
+      "sha256": "85335c5d7d6df37b02f183026a31c75073585c20db8921f16a78b2fc4885bd64",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        426,
+        426
+      ],
+      "bytes": 262652,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Iceblade Token",
+      "nativeCodes": [
+        81767889
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/IcebladeToken-DULI-EN-VG-CA.png",
+      "url": "https://ms.yugipedia.com//6/61/IcebladeToken-DULI-EN-VG-CA.png",
+      "sourcePage": "https://yugipedia.com/wiki/Iceblade_Token",
+      "sha256": "69270ab3f537784a6332651a5442cb335e26168706bc74b70822f8b2e10077ff",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        383,
+        383
+      ],
+      "bytes": 206758,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Ancient Warriors Token",
+      "nativeCodes": [
+        82255873
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/AncientWarriorsToken-DULI-EN-VG-CA.png",
+      "url": "https://ms.yugipedia.com//6/6e/AncientWarriorsToken-DULI-EN-VG-CA.png",
+      "sourcePage": "https://yugipedia.com/wiki/Ancient_Warriors_Token",
+      "sha256": "26e015866fb113bc89a5203bb29c936813f2ae6249a32ad8f440b02baeec6e88",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        383,
+        383
+      ],
+      "bytes": 342638,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Darklord Token",
+      "nativeCodes": [
+        84031360
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/DarklordToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//a/af/DarklordToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Darklord_Token",
+      "sha256": "e1e5fad23af78d3bff99554870897144097b2d1fb673578e94913a38e5da67ff",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 584559,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Plunder Patroll Token",
+      "nativeCodes": [
+        85969518
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/PlunderPatrollToken-MADU-EN-VG-artwork.png",
+      "url": "https://ms.yugipedia.com//f/f9/PlunderPatrollToken-MADU-EN-VG-artwork.png",
+      "sourcePage": "https://yugipedia.com/wiki/Plunder_Patroll_Token",
+      "sha256": "c16b6f961a49e0038f83481c6f60d134e5e838495d07f941c85fffd53e5168a1",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 368056,
+      "classification": "konami-game-token-display-or-generator-art",
+      "acceptedForTokenPresentation": false,
+      "limitation": "Game token displays often reuse their generator or equipment illustration. No new canonical Token anatomy is inferred from a main-image URL alone."
+    },
+    {
+      "name": "Dual Avatar Spirit Token",
+      "nativeCodes": [
+        87669905
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/DualAvatarSpiritToken-OP14-EN-SR-UE.png",
+      "url": "https://ms.yugipedia.com//8/89/DualAvatarSpiritToken-OP14-EN-SR-UE.png",
+      "sourcePage": "https://yugipedia.com/wiki/Dual_Avatar_Spirit_Token",
+      "sha256": "628fb1d708211158f3daf664b7719225650c49b5efe17bf32be72fbde11c2c62",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        684,
+        1000
+      ],
+      "bytes": 1782285,
+      "classification": "direct-printed-token-scan",
+      "acceptedForTokenPresentation": true,
+      "certifiesThreeDimensionalAppearance": false
+    },
+    {
+      "name": "G Golem Token",
+      "nativeCodes": [
+        98875864
+      ],
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/GGolemToken-MAMA-EN-UR-1E.png",
+      "url": "https://ms.yugipedia.com//2/25/GGolemToken-MAMA-EN-UR-1E.png",
+      "sourcePage": "https://yugipedia.com/wiki/G_Golem_Token",
+      "sha256": "379edc4b81128d99a3df462692dce9c9efb266070399ec8c43effc9c893c06d0",
+      "status": 200,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "dimensions": [
+        509,
+        746
+      ],
+      "bytes": 613925,
+      "classification": "direct-printed-token-scan",
+      "acceptedForTokenPresentation": true,
+      "certifiesThreeDimensionalAppearance": false
+    }
+  ]
+}

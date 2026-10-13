@@ -1,0 +1,90 @@
+{
+  "scope": "Immutable inputs consumed by the source, angle, casting, stress and compiled wrappers before coordinator full check.",
+  "files": {
+    "scripts/audit-multireference-angles-2026-10-13.py": {
+      "bytes": 8440,
+      "sha256": "395d20cad6cc7e811341f30adec04a5c8b1f7edeef7cd0b885e0d9ab66622238"
+    },
+    "scripts/audit-multireference-browser-2026-10-13.py": {
+      "bytes": 3108,
+      "sha256": "9d71044082fa7b8f58308f41c62e167ace92e86b0726b7724479fa9315d6b24a"
+    },
+    "scripts/audit-multireference-casting-2026-10-13.py": {
+      "bytes": 6776,
+      "sha256": "93a6064309bfda086f0d56a98dcd93295cb92f85567c1159dec6b62cfaa76a6f"
+    },
+    "scripts/audit-multireference-comparisons-2026-10-13.py": {
+      "bytes": 5706,
+      "sha256": "ffb36a1e2f7ce8f82b0002f01be99326908072fa0c9d48d1708b3b84b26834e0"
+    },
+    "scripts/audit-multireference-models-2026-10-13.py": {
+      "bytes": 4207,
+      "sha256": "add325523d719f9f769fe363566dc9e861496a39b4d2bbff225eef432fdea6e8"
+    },
+    "scripts/audit-multireference-stress-2026-10-13.py": {
+      "bytes": 2660,
+      "sha256": "2ddcb36ab070d65aa1560a5924f989970aecf50fab22f0738e9f0482bd11b2b0"
+    },
+    "docs/audits/artifacts/multireference-qa-2026-10-13/curated-angles-final.json": {
+      "bytes": 29292,
+      "sha256": "3867e044083ad43f7ef2e533618ac2dc5421082091573cddda3296ba5e9219bf"
+    },
+    "docs/audits/artifacts/multireference-qa-2026-10-13/curated-angles-spirit-addendum.json": {
+      "bytes": 649,
+      "sha256": "64f9d7895ac01db40efba5bafc16294fdc9822e46f490e85189be9185625a1fd"
+    },
+    "docs/audits/artifacts/multireference-qa-2026-10-13/curated-angles-token-addendum.json": {
+      "bytes": 519,
+      "sha256": "d740f7c87d5eb5c91497d8761f564afa4e6fb909e0792d1aa42f20438acd450f"
+    },
+    "docs/audits/artifacts/multireference-qa-2026-10-13/curated-angles-monster-addendum.json": {
+      "bytes": 639,
+      "sha256": "66d5ac8022ba4ba27be03ddae8752e19d3b1f8a6edc7fc80ebe1dbcc3569d0d2"
+    },
+    "docs/audits/artifacts/multireference-qa-2026-10-13/curated-angles-last-token-addendum.json": {
+      "bytes": 497,
+      "sha256": "aca70d63a71ddebe4bca63a1fcd8835f0b0372470bb11de67374a59890eacdd9"
+    },
+    "docs/audits/artifacts/multireference-qa-2026-10-13/curated-angles-golem-addendum.json": {
+      "bytes": 347,
+      "sha256": "91ae831c44a82326c69631d41306146daeb583ee6945a744205e5f335b857e75"
+    },
+    "docs/audits/artifacts/multireference-qa-2026-10-13/curated-coverage-44.json": {
+      "bytes": 3044,
+      "sha256": "f8e17f2f452bfc7bc58056f2984dced04cbefafbd70fd782eacaaa9ba250fb84"
+    },
+    "docs/audits/artifacts/multireference-qa-2026-10-13/comparison-reference-config-final.json": {
+      "bytes": 7011,
+      "sha256": "7768585c2bcf190d3160dfd9188c379065e8491e8f88d0e368197397562d5a96"
+    },
+    "docs/audits/artifacts/multireference-qa-2026-10-13/source-before/report.json": {
+      "bytes": 2174117,
+      "sha256": "e706031067f6478b305af337381cb6fe24140fbdc50722372b7e0442e7f4ebb2"
+    },
+    "docs/audits/artifacts/multireference-qa-2026-10-13/angles-before-final/report.json": {
+      "bytes": 756406,
+      "sha256": "7688a33ddd420da8996a0bdb92225602491f3f7d0df702b8fea42ca63fbd30dd"
+    },
+    "docs/audits/artifacts/multireference-qa-2026-10-13/angles-spirit-before/report.json": {
+      "bytes": 122438,
+      "sha256": "110b2a61017aa1e79dccd3574cfb7724da0c3e6b2dd227fd1e190289da5d9693"
+    },
+    "docs/audits/artifacts/multireference-qa-2026-10-13/angles-token-before/report.json": {
+      "bytes": 96432,
+      "sha256": "3fa3c348d195f5604bb0543d0ac42b8e40e4ca17fd8ae7213214f20b901956b2"
+    },
+    "docs/audits/artifacts/multireference-qa-2026-10-13/angles-monster-before/report.json": {
+      "bytes": 131198,
+      "sha256": "dcf0126f74bbba54180533762850792a2b2d53c12eab7f87a9bc5e9015f61ae0"
+    },
+    "docs/audits/artifacts/multireference-qa-2026-10-13/angles-last-token-before/report.json": {
+      "bytes": 86812,
+      "sha256": "d4cd9c42d4d831e0dbb4632d032a8558083b8286ccc9473be82d7d2e1dbdb2c1"
+    },
+    "docs/audits/artifacts/multireference-qa-2026-10-13/angles-golem-before/report.json": {
+      "bytes": 64541,
+      "sha256": "71fab8484e0e59280b5f9127144bece8911af88c6e9ec474de71d729ea8f822b"
+    }
+  },
+  "count": 21
+}

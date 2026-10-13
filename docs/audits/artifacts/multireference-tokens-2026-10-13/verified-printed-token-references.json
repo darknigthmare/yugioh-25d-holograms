@@ -1,0 +1,618 @@
+{
+  "asOf": "2026-10-13",
+  "nativeDatabaseUntouched": true,
+  "count": 13,
+  "scope": "Thirteen previously API-missing native Token codes now have a verified printed Token scan; generator and rule metadata remain native. Exact art-to-3D agreement is not certified by these scans.",
+  "references": [
+    {
+      "name": "Gadget Token",
+      "nativeCodes": [
+        645088
+      ],
+      "sourcePage": "https://yugipedia.com/wiki/Gadget_Token",
+      "fileName": "GadgetToken-TK04-JP-R.png",
+      "url": "https://ms.yugipedia.com//9/9b/GadgetToken-TK04-JP-R.png",
+      "candidateKind": "printed-scan",
+      "identityStatus": "printed-token-name-type-level-stats-match-native-definition",
+      "sourcePageSha256": "59de96e611d633cc5027b9103f51b08ce12af1e9d18b75c0d00999d363dcce36",
+      "status": 200,
+      "curlExitCode": 0,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "responseContentType": "image/png",
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/GadgetToken-TK04-JP-R.png",
+      "bytes": 3013754,
+      "sha256": "85663f647d11f1190416e6e53994d00767e02dff5c850df127d2416f6546b95f",
+      "dimensions": [
+        934,
+        1354
+      ],
+      "format": "PNG",
+      "fetchedAtUtc": "2026-10-13T11:09:48.255125+00:00",
+      "classification": "direct-printed-token-scan",
+      "nativeCode": 645088,
+      "nativeName": "Gadget Token",
+      "nativeDefinition": {
+        "race": "Cyberse",
+        "attribute": "LIGHT",
+        "level": 2,
+        "atk": 0,
+        "def": 0
+      },
+      "generatorCodes": [
+        645087
+      ],
+      "generatorNames": [
+        "Cyberse Gadget"
+      ],
+      "generatorEvidence": "docs/audits/artifacts/token-monster-inventory-2026-10-11/lua-token-generators.json",
+      "version": "TK04",
+      "independentAngles": 1,
+      "multiViewStatus": "One printed Token composition only; scan/reprints do not establish rear geometry.",
+      "sourceAttribution": "Original Konami printed Token card, scan hosted by secondary catalogue Yugipedia. The archived scan is unmodified."
+    },
+    {
+      "name": "Jurraegg Token",
+      "nativeCodes": [
+        17228909
+      ],
+      "sourcePage": "https://yugipedia.com/wiki/Jurraegg_Token",
+      "fileName": "JurraeggToken-SR04-EN-C-1E.png",
+      "url": "https://ms.yugipedia.com//6/62/JurraeggToken-SR04-EN-C-1E.png",
+      "candidateKind": "printed-scan",
+      "identityStatus": "printed-token-name-type-level-stats-match-native-definition",
+      "sourcePageSha256": "9603e4d7db639f14e82cb46e734b3da42fdb1c644d1269018253cfb91675a44c",
+      "status": 200,
+      "curlExitCode": 0,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "responseContentType": "image/png",
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/JurraeggToken-SR04-EN-C-1E.png",
+      "bytes": 771009,
+      "sha256": "cdf88a31c2cd52cd062e6ca8a11f2df15f7ca7cd548ff1a3bff17b709bd1011c",
+      "dimensions": [
+        478,
+        695
+      ],
+      "format": "PNG",
+      "fetchedAtUtc": "2026-10-13T11:09:48.383371+00:00",
+      "classification": "direct-printed-token-scan",
+      "nativeCode": 17228909,
+      "nativeName": "Jurraegg Token",
+      "nativeDefinition": {
+        "race": "Dinosaur",
+        "attribute": "EARTH",
+        "level": 1,
+        "atk": 0,
+        "def": 0
+      },
+      "generatorCodes": [
+        17228908
+      ],
+      "generatorNames": [
+        "Lost World"
+      ],
+      "generatorEvidence": "docs/audits/artifacts/token-monster-inventory-2026-10-11/lua-token-generators.json",
+      "version": "SR04",
+      "independentAngles": 1,
+      "multiViewStatus": "One printed Token composition only; scan/reprints do not establish rear geometry.",
+      "sourceAttribution": "Original Konami printed Token card, scan hosted by secondary catalogue Yugipedia. The archived scan is unmodified."
+    },
+    {
+      "name": "Bomb Token",
+      "nativeCodes": [
+        22411610
+      ],
+      "sourcePage": "https://yugipedia.com/wiki/Bomb_Token",
+      "fileName": "BombToken-OP26-EN-SR-UE.png",
+      "url": "https://ms.yugipedia.com//7/71/BombToken-OP26-EN-SR-UE.png",
+      "candidateKind": "printed-scan",
+      "identityStatus": "printed-token-name-type-level-stats-match-native-definition",
+      "sourcePageSha256": "c3036a1ad4b00552309082f92d8e4186e190e0878e5e895a89e926d4f5ea2fa8",
+      "status": 200,
+      "curlExitCode": 0,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "responseContentType": "image/png",
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/BombToken-OP26-EN-SR-UE.png",
+      "bytes": 1492954,
+      "sha256": "638743d787d422cf63b8c1489bb4818151945c0a2982e98c68707202c17f9f81",
+      "dimensions": [
+        754,
+        1099
+      ],
+      "format": "PNG",
+      "fetchedAtUtc": "2026-10-13T11:09:48.530396+00:00",
+      "classification": "direct-printed-token-scan",
+      "nativeCode": 22411610,
+      "nativeName": "Bomb Token",
+      "nativeDefinition": {
+        "race": "Pyro",
+        "attribute": "FIRE",
+        "level": 1,
+        "atk": 1000,
+        "def": 1000
+      },
+      "generatorCodes": [
+        11654067,
+        22411609
+      ],
+      "generatorNames": [
+        "Fire Ejection",
+        "Volcanic Trooper"
+      ],
+      "generatorEvidence": "docs/audits/artifacts/token-monster-inventory-2026-10-11/lua-token-generators.json",
+      "version": "OP26",
+      "independentAngles": 1,
+      "multiViewStatus": "One printed Token composition only; scan/reprints do not establish rear geometry.",
+      "sourceAttribution": "Original Konami printed Token card, scan hosted by secondary catalogue Yugipedia. The archived scan is unmodified."
+    },
+    {
+      "name": "Ogdoadic Token",
+      "nativeCodes": [
+        23837055
+      ],
+      "sourcePage": "https://yugipedia.com/wiki/Ogdoadic_Token",
+      "fileName": "OgdoadicToken-OP18-EN-SR-UE.png",
+      "url": "https://ms.yugipedia.com//8/89/OgdoadicToken-OP18-EN-SR-UE.png",
+      "candidateKind": "printed-scan",
+      "identityStatus": "printed-token-name-type-level-stats-match-native-definition",
+      "sourcePageSha256": "8be07fbadc9fae9edbab0fc170647bb42706bfa4b254dc60cb2f63cf20d4c0a2",
+      "status": 200,
+      "curlExitCode": 0,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "responseContentType": "image/png",
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/OgdoadicToken-OP18-EN-SR-UE.png",
+      "bytes": 661609,
+      "sha256": "aab0e2dcf14f532722d26f76ce4d66ad0d66778e45ecfd05d68b76e327ea6bf5",
+      "dimensions": [
+        478,
+        701
+      ],
+      "format": "PNG",
+      "fetchedAtUtc": "2026-10-13T11:09:48.486202+00:00",
+      "classification": "direct-printed-token-scan",
+      "nativeCode": 23837055,
+      "nativeName": "Ogdoadic Token",
+      "nativeDefinition": {
+        "race": "Reptile",
+        "attribute": "DARK",
+        "level": 2,
+        "atk": 0,
+        "def": 0
+      },
+      "generatorCodes": [
+        23837054,
+        78789356
+      ],
+      "generatorNames": [
+        "Ogdoadic Calling",
+        "Ogdoadic Daybreak"
+      ],
+      "generatorEvidence": "docs/audits/artifacts/token-monster-inventory-2026-10-11/lua-token-generators.json",
+      "version": "OP18",
+      "independentAngles": 1,
+      "multiViewStatus": "One printed Token composition only; scan/reprints do not establish rear geometry.",
+      "sourceAttribution": "Original Konami printed Token card, scan hosted by secondary catalogue Yugipedia. The archived scan is unmodified."
+    },
+    {
+      "name": "Primal Being Token",
+      "nativeCodes": [
+        27204312
+      ],
+      "sourcePage": "https://yugipedia.com/wiki/Primal_Being_Token",
+      "fileName": "PrimalBeingToken-OP12-EN-SR-UE.png",
+      "url": "https://ms.yugipedia.com//5/5e/PrimalBeingToken-OP12-EN-SR-UE.png",
+      "candidateKind": "printed-scan",
+      "identityStatus": "printed-token-name-type-level-stats-match-native-definition",
+      "sourcePageSha256": "c29d08f4291a1141b20e2ee1330629ea90b594aefdf8ae5978ae1be7a4fb563b",
+      "status": 200,
+      "curlExitCode": 0,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "responseContentType": "image/png",
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/PrimalBeingToken-OP12-EN-SR-UE.png",
+      "bytes": 1355732,
+      "sha256": "a5b064b9c6f512bdada2d245028d59d6f4c04585bdd97264af515284b2cafdda",
+      "dimensions": [
+        680,
+        1000
+      ],
+      "format": "PNG",
+      "fetchedAtUtc": "2026-10-13T11:09:48.635627+00:00",
+      "classification": "direct-printed-token-scan",
+      "nativeCode": 27204312,
+      "nativeName": "Primal Being Token",
+      "nativeDefinition": {
+        "race": "Rock",
+        "attribute": "LIGHT",
+        "level": 11,
+        "atk": -2,
+        "def": -2
+      },
+      "generatorCodes": [
+        27204311
+      ],
+      "generatorNames": [
+        "Nibiru, the Primal Being"
+      ],
+      "generatorEvidence": "docs/audits/artifacts/token-monster-inventory-2026-10-11/lua-token-generators.json",
+      "version": "OP12",
+      "independentAngles": 1,
+      "multiViewStatus": "One printed Token composition only; scan/reprints do not establish rear geometry.",
+      "sourceAttribution": "Original Konami printed Token card, scan hosted by secondary catalogue Yugipedia. The archived scan is unmodified."
+    },
+    {
+      "name": "Generaider Token",
+      "nativeCodes": [
+        38053382
+      ],
+      "sourcePage": "https://yugipedia.com/wiki/Generaider_Token",
+      "fileName": "GeneraiderToken-OP13-EN-SR-UE.png",
+      "url": "https://ms.yugipedia.com//5/53/GeneraiderToken-OP13-EN-SR-UE.png",
+      "candidateKind": "printed-scan",
+      "identityStatus": "printed-token-name-type-level-stats-match-native-definition",
+      "sourcePageSha256": "a4945eab74c5865dfdf3dea7bb55d2480174d31dd497b6d24c0da2cc5c965e26",
+      "status": 200,
+      "curlExitCode": 0,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "responseContentType": "image/png",
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/GeneraiderToken-OP13-EN-SR-UE.png",
+      "bytes": 819970,
+      "sha256": "b32150437c3ecd8fb7cf60628661824304753b839bbcd48561ebc2dee6bfa414",
+      "dimensions": [
+        479,
+        698
+      ],
+      "format": "PNG",
+      "fetchedAtUtc": "2026-10-13T11:09:49.122081+00:00",
+      "classification": "direct-printed-token-scan",
+      "nativeCode": 38053382,
+      "nativeName": "Generaider Token",
+      "nativeDefinition": {
+        "race": "Fairy",
+        "attribute": "LIGHT",
+        "level": 4,
+        "atk": 1500,
+        "def": 1500
+      },
+      "generatorCodes": [
+        38053381
+      ],
+      "generatorNames": [
+        "Generaider Boss Stage"
+      ],
+      "generatorEvidence": "docs/audits/artifacts/token-monster-inventory-2026-10-11/lua-token-generators.json",
+      "version": "OP13",
+      "independentAngles": 1,
+      "multiViewStatus": "One printed Token composition only; scan/reprints do not establish rear geometry.",
+      "sourceAttribution": "Original Konami printed Token card, scan hosted by secondary catalogue Yugipedia. The archived scan is unmodified."
+    },
+    {
+      "name": "Prank-Kids Token",
+      "nativeCodes": [
+        43664495
+      ],
+      "sourcePage": "https://yugipedia.com/wiki/Prank-Kids_Token",
+      "fileName": "PrankKidsToken-TK05-JP-R.png",
+      "url": "https://ms.yugipedia.com//6/64/PrankKidsToken-TK05-JP-R.png",
+      "candidateKind": "printed-scan",
+      "identityStatus": "printed-token-name-type-level-stats-match-native-definition",
+      "sourcePageSha256": "8195c3c26608bcc753860f337a65b670fd33cbebf9473f7a5946dea35c362b60",
+      "status": 200,
+      "curlExitCode": 0,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "responseContentType": "image/png",
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/PrankKidsToken-TK05-JP-R.png",
+      "bytes": 4150441,
+      "sha256": "08bc61dfc92ce0e021b2f4bae9731e49f8fc615029a7abe39f6d1d83342c3178",
+      "dimensions": [
+        1056,
+        1552
+      ],
+      "format": "PNG",
+      "fetchedAtUtc": "2026-10-13T11:09:49.334968+00:00",
+      "classification": "direct-printed-token-scan",
+      "nativeCode": 43664495,
+      "nativeName": "Prank-Kids Token",
+      "nativeDefinition": {
+        "race": "Pyro",
+        "attribute": "FIRE",
+        "level": 1,
+        "atk": 0,
+        "def": 0
+      },
+      "generatorCodes": [
+        43664494
+      ],
+      "generatorNames": [
+        "Prank-Kids Pranks"
+      ],
+      "generatorEvidence": "docs/audits/artifacts/token-monster-inventory-2026-10-11/lua-token-generators.json",
+      "version": "TK05",
+      "independentAngles": 1,
+      "multiViewStatus": "One printed Token composition only; scan/reprints do not establish rear geometry.",
+      "sourceAttribution": "Original Konami printed Token card, scan hosted by secondary catalogue Yugipedia. The archived scan is unmodified."
+    },
+    {
+      "name": "Ice Barrier Token",
+      "nativeCodes": [
+        44308318
+      ],
+      "sourcePage": "https://yugipedia.com/wiki/Ice_Barrier_Token",
+      "fileName": "IceBarrierToken-OP17-EN-SR-UE.png",
+      "url": "https://ms.yugipedia.com//6/63/IceBarrierToken-OP17-EN-SR-UE.png",
+      "candidateKind": "printed-scan",
+      "identityStatus": "printed-token-name-type-level-stats-match-native-definition",
+      "sourcePageSha256": "9c84a64fed2e662c858004c71e21f4f3047292509a250815884f256162371e66",
+      "status": 200,
+      "curlExitCode": 0,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "responseContentType": "image/png",
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/IceBarrierToken-OP17-EN-SR-UE.png",
+      "bytes": 795058,
+      "sha256": "ee6f546906df320356a86141d93a1e4e46c55d00c45ab0847c34e51feba22a60",
+      "dimensions": [
+        479,
+        700
+      ],
+      "format": "PNG",
+      "fetchedAtUtc": "2026-10-13T11:09:49.225044+00:00",
+      "classification": "direct-printed-token-scan",
+      "nativeCode": 44308318,
+      "nativeName": "Ice Barrier Token",
+      "nativeDefinition": {
+        "race": "Aqua",
+        "attribute": "WATER",
+        "level": 1,
+        "atk": 0,
+        "def": 0
+      },
+      "generatorCodes": [
+        9396662,
+        44308317
+      ],
+      "generatorNames": [
+        "Mirror Mage of the Ice Barrier",
+        "Speaker for the Ice Barriers"
+      ],
+      "generatorEvidence": "docs/audits/artifacts/token-monster-inventory-2026-10-11/lua-token-generators.json",
+      "version": "OP17",
+      "independentAngles": 1,
+      "multiViewStatus": "One printed Token composition only; scan/reprints do not establish rear geometry.",
+      "sourceAttribution": "Original Konami printed Token card, scan hosted by secondary catalogue Yugipedia. The archived scan is unmodified."
+    },
+    {
+      "name": "Trickstar Token",
+      "nativeCodes": [
+        51208047
+      ],
+      "sourcePage": "https://yugipedia.com/wiki/Trickstar_Token",
+      "fileName": "TrickstarToken-OP10-EN-SR-UE.png",
+      "url": "https://ms.yugipedia.com//9/95/TrickstarToken-OP10-EN-SR-UE.png",
+      "candidateKind": "printed-scan",
+      "identityStatus": "printed-token-name-type-level-stats-match-native-definition",
+      "sourcePageSha256": "c71bb32c4fabd8cca34a7083bd9ec62050bef5a8eeb7a898c4e5fe88829fec2c",
+      "status": 200,
+      "curlExitCode": 0,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "responseContentType": "image/png",
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/TrickstarToken-OP10-EN-SR-UE.png",
+      "bytes": 761647,
+      "sha256": "25dbb171a7f6accb0b0a289944ae13a353afa2ffbc904b3c7818d73899789941",
+      "dimensions": [
+        482,
+        700
+      ],
+      "format": "PNG",
+      "fetchedAtUtc": "2026-10-13T11:09:49.291432+00:00",
+      "classification": "direct-printed-token-scan",
+      "nativeCode": 51208047,
+      "nativeName": "Trickstar Token",
+      "nativeDefinition": {
+        "race": "Fairy",
+        "attribute": "LIGHT",
+        "level": 1,
+        "atk": 0,
+        "def": 0
+      },
+      "generatorCodes": [
+        51208046,
+        62481203
+      ],
+      "generatorNames": [
+        "Trickstar Live Stage",
+        "Trickstar Festival"
+      ],
+      "generatorEvidence": "docs/audits/artifacts/token-monster-inventory-2026-10-11/lua-token-generators.json",
+      "version": "OP10",
+      "independentAngles": 1,
+      "multiViewStatus": "One printed Token composition only; scan/reprints do not establish rear geometry.",
+      "sourceAttribution": "Original Konami printed Token card, scan hosted by secondary catalogue Yugipedia. The archived scan is unmodified."
+    },
+    {
+      "name": "Crystal Beast Token",
+      "nativeCodes": [
+        58371672
+      ],
+      "sourcePage": "https://yugipedia.com/wiki/Crystal_Beast_Token",
+      "fileName": "CrystalBeastToken-SDCB-EN-C-1E.png",
+      "url": "https://ms.yugipedia.com//b/b2/CrystalBeastToken-SDCB-EN-C-1E.png",
+      "candidateKind": "printed-scan",
+      "identityStatus": "printed-token-name-type-level-stats-match-native-definition",
+      "sourcePageSha256": "ac123377221b876f74b35a322a1c33d695893beed0953eafdc54b36ebca3eac2",
+      "status": 200,
+      "curlExitCode": 0,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "responseContentType": "image/png",
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/CrystalBeastToken-SDCB-EN-C-1E.png",
+      "bytes": 459745,
+      "sha256": "de76502ebc93b32ca7569849a8c56e28745930058dcd97179533ec5baa8bd3d7",
+      "dimensions": [
+        472,
+        693
+      ],
+      "format": "PNG",
+      "fetchedAtUtc": "2026-10-13T11:09:49.411466+00:00",
+      "classification": "direct-printed-token-scan",
+      "nativeCode": 58371672,
+      "nativeName": "Crystal Beast Token",
+      "nativeDefinition": {
+        "race": null,
+        "attribute": null,
+        "level": 0,
+        "atk": -2,
+        "def": -2
+      },
+      "generatorCodes": [
+        58371671
+      ],
+      "generatorNames": [
+        "Crystal Aegis"
+      ],
+      "generatorEvidence": "docs/audits/artifacts/token-monster-inventory-2026-10-11/lua-token-generators.json",
+      "version": "SDCB",
+      "independentAngles": 1,
+      "multiViewStatus": "One printed Token composition only; scan/reprints do not establish rear geometry.",
+      "sourceAttribution": "Original Konami printed Token card, scan hosted by secondary catalogue Yugipedia. The archived scan is unmodified."
+    },
+    {
+      "name": "Duel Dragon Token",
+      "nativeCodes": [
+        60025884
+      ],
+      "sourcePage": "https://yugipedia.com/wiki/Duel_Dragon_Token",
+      "fileName": "DuelDragonToken-OP11-EN-SR-UE.png",
+      "url": "https://ms.yugipedia.com//8/80/DuelDragonToken-OP11-EN-SR-UE.png",
+      "candidateKind": "printed-scan",
+      "identityStatus": "printed-token-name-type-level-stats-match-native-definition",
+      "sourcePageSha256": "1fb5797953435fa9af506e85f2e10d9c050f80162b83abb54d65a538110c0f77",
+      "status": 200,
+      "curlExitCode": 0,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "responseContentType": "image/png",
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/DuelDragonToken-OP11-EN-SR-UE.png",
+      "bytes": 771791,
+      "sha256": "1c840067c66fab6a0d7b2fc3b96202d363cc70141520d27972583073f69709a6",
+      "dimensions": [
+        479,
+        700
+      ],
+      "format": "PNG",
+      "fetchedAtUtc": "2026-10-13T11:09:49.425281+00:00",
+      "classification": "direct-printed-token-scan",
+      "nativeCode": 60025884,
+      "nativeName": "Duel Dragon Token",
+      "nativeDefinition": {
+        "race": null,
+        "attribute": null,
+        "level": 0,
+        "atk": 0,
+        "def": 0
+      },
+      "generatorCodes": [
+        60025883
+      ],
+      "generatorNames": [
+        "Duel Link Dragon, the Duel Dragon"
+      ],
+      "generatorEvidence": "docs/audits/artifacts/token-monster-inventory-2026-10-11/lua-token-generators.json",
+      "version": "OP11",
+      "independentAngles": 1,
+      "multiViewStatus": "One printed Token composition only; scan/reprints do not establish rear geometry.",
+      "sourceAttribution": "Original Konami printed Token card, scan hosted by secondary catalogue Yugipedia. The archived scan is unmodified."
+    },
+    {
+      "name": "Mask Token",
+      "nativeCodes": [
+        60514626
+      ],
+      "sourcePage": "https://yugipedia.com/wiki/Mask_Token",
+      "fileName": "MaskToken-OP19-EN-SR-UE.png",
+      "url": "https://ms.yugipedia.com//6/6b/MaskToken-OP19-EN-SR-UE.png",
+      "candidateKind": "printed-scan",
+      "identityStatus": "printed-token-name-type-level-stats-match-native-definition",
+      "sourcePageSha256": "710c3f2b51b3572b4f1f4ccd287bd13879b93e4bba3fd57ab744e2c8e52c5bb2",
+      "status": 200,
+      "curlExitCode": 0,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "responseContentType": "image/png",
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/MaskToken-OP19-EN-SR-UE.png",
+      "bytes": 1020284,
+      "sha256": "f374ad3e3cad5e9c4e2abce098f3a022e3842455e7310e7cea760ee66b84433a",
+      "dimensions": [
+        570,
+        826
+      ],
+      "format": "PNG",
+      "fetchedAtUtc": "2026-10-13T11:09:49.474515+00:00",
+      "classification": "direct-printed-token-scan",
+      "nativeCode": 60514626,
+      "nativeName": "Mask Token",
+      "nativeDefinition": {
+        "race": "Spellcaster",
+        "attribute": "DARK",
+        "level": 1,
+        "atk": -2,
+        "def": -2
+      },
+      "generatorCodes": [
+        60514625
+      ],
+      "generatorNames": [
+        "Ecole de Zone"
+      ],
+      "generatorEvidence": "docs/audits/artifacts/token-monster-inventory-2026-10-11/lua-token-generators.json",
+      "version": "OP19",
+      "independentAngles": 1,
+      "multiViewStatus": "One printed Token composition only; scan/reprints do not establish rear geometry.",
+      "sourceAttribution": "Original Konami printed Token card, scan hosted by secondary catalogue Yugipedia. The archived scan is unmodified."
+    },
+    {
+      "name": "Dual Avatar Spirit Token",
+      "nativeCodes": [
+        87669905
+      ],
+      "sourcePage": "https://yugipedia.com/wiki/Dual_Avatar_Spirit_Token",
+      "fileName": "DualAvatarSpiritToken-OP14-EN-SR-UE.png",
+      "url": "https://ms.yugipedia.com//8/89/DualAvatarSpiritToken-OP14-EN-SR-UE.png",
+      "candidateKind": "printed-scan",
+      "identityStatus": "printed-token-name-type-level-stats-match-native-definition",
+      "sourcePageSha256": "642b433abb12a522b93c6329188262ea2ab62dad98c46e6ac839bf3b25fd93d7",
+      "status": 200,
+      "curlExitCode": 0,
+      "statusMeasuredBy": "curl GET --write-out %{http_code}",
+      "responseContentType": "image/png",
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/DualAvatarSpiritToken-OP14-EN-SR-UE.png",
+      "bytes": 1782285,
+      "sha256": "628fb1d708211158f3daf664b7719225650c49b5efe17bf32be72fbde11c2c62",
+      "dimensions": [
+        684,
+        1000
+      ],
+      "format": "PNG",
+      "fetchedAtUtc": "2026-10-13T11:09:49.840466+00:00",
+      "classification": "direct-printed-token-scan",
+      "nativeCode": 87669905,
+      "nativeName": "Dual Avatar Spirit Token",
+      "nativeDefinition": {
+        "race": "Warrior",
+        "attribute": "LIGHT",
+        "level": 2,
+        "atk": 0,
+        "def": 0
+      },
+      "generatorCodes": [
+        13764602,
+        49752795,
+        87669904
+      ],
+      "generatorNames": [
+        "Perfect Sync - A-Un",
+        "Dual Avatar Return",
+        "Dual Avatar Invitation"
+      ],
+      "generatorEvidence": "docs/audits/artifacts/token-monster-inventory-2026-10-11/lua-token-generators.json",
+      "version": "OP14",
+      "independentAngles": 1,
+      "multiViewStatus": "One printed Token composition only; scan/reprints do not establish rear geometry.",
+      "sourceAttribution": "Original Konami printed Token card, scan hosted by secondary catalogue Yugipedia. The archived scan is unmodified."
+    }
+  ]
+}

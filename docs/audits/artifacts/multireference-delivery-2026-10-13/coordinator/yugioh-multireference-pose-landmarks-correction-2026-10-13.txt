@@ -1,0 +1,14 @@
+✔ new card identities have distinctive anatomy, declared support and bounded geometry (78.723734ms)
+✔ merged visible and shadow meshes share pose uniforms and retain complete joint attributes (14.697104ms)
+✔ finite action poses deform wings, staff, recoil and summon without uploads or root drift (49.241304ms)
+✔ new animation supersedes stale handles and reduced motion remains neutral (14.40558ms)
+✔ model material disposal also frees custom GPU shadow materials and invalidates pending poses (13.155897ms)
+✔ flip, recovery and search effects have distinct geometry and release nested book resources (8.77432ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 301.332574

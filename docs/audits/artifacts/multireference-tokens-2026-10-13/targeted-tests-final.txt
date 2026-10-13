@@ -1,0 +1,33 @@
+✔ all registered botanical and insect Tokens have finite bounded geometry within five batches and 29450 triangles (238.098998ms)
+✔ flowers are separate wool, rose, leafy, cyclopean and long-stem silhouettes (80.279429ms)
+✔ reference ant and spider have six and eight legs; mantis has folding forelegs and four walking legs (13.375286ms)
+✔ insect-monster emerges from an open spotted shell while pure eggs remain delegated (7.214655ms)
+✔ maize, needle, sinister seed and skull-grub retain their reference details (31.222435ms)
+✔ unknown anatomy produces no parts and construction is deterministic without reading duel state (27.183903ms)
+✔ 240 native Tokens keep the measured fivefold limit in attack and defense without increasing GPU batches (2142.920973ms)
+✔ tapered organic surfaces change their radius and join their smooth normals at the radial seam (0.431318ms)
+✔ leaf and feather surfaces gain curved depth while retaining finite geometry and smooth normals (0.383327ms)
+✔ all 240 native monster Tokens resolve their exact public identity and bounded dedicated anatomy (1907.564228ms)
+✔ documented shared illustrations retain the same anatomy and palette while preserving each native code (86.763025ms)
+✔ illustrated species keep their defining anatomy instead of receiving the former goat mannequin (121.704651ms)
+✔ unknown Tokens use a neutral echo independent of private identity and unsupported builders do nothing (14.142671ms)
+✔ wing, weapon and both Metal Fiend hooks have their shared shader joints and stable buffers during actions (25.800318ms)
+✔ all Token geometry, visible materials and owned depth/distance materials are released once (30.910971ms)
+✔ the printed drone, liquid snake and impact meteor do not regress to the known false humanoid and horned-dragon silhouettes (95.323163ms)
+✔ printed Lamb and Sheep anatomy differs independently of colour, and Kuriboh retains separate visible hand and foot claws (44.05212ms)
+✔ new printed anatomies animate with immutable buffers and release visible and shadow GPU resources once (47.448957ms)
+✔ Bomb crust panels and the brighter gaps remain externally visible from front and three-quarter views (144.144323ms)
+ℹ {"view":"front","sampledRays":225,"visibleCrust":132,"visibleCrustFacetNormals":6,"visibleGap":82}
+ℹ {"view":"three-quarter","sampledRays":225,"visibleCrust":125,"visibleCrustFacetNormals":8,"visibleGap":75}
+✔ four exact exceptions build distinct finite bounded anatomy within 29450 triangles and five shared materials (86.478949ms)
+✔ illustrated features remain explicit and DarkSoul has a floating lower silhouette without human legs (51.558394ms)
+✔ Grinder real hook is mapped to left pincer and its opposite drill arm follows the weapon rig (0.47268ms)
+✔ unrelated codes and variant-only impostors delegate without geometry; no duel state is read (22.941627ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2344.630031

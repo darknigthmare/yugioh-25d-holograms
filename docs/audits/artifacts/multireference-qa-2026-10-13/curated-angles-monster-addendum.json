@@ -1,0 +1,33 @@
+{
+  "entries": [
+    {
+      "kind": "monster",
+      "id": 13039848
+    },
+    {
+      "kind": "monster",
+      "id": 31560081
+    },
+    {
+      "kind": "monster",
+      "id": 70781052
+    },
+    {
+      "kind": "monster",
+      "id": 71625222
+    },
+    {
+      "kind": "monster",
+      "id": 77637979
+    },
+    {
+      "kind": "monster",
+      "id": 91152256
+    }
+  ],
+  "references": [],
+  "notes": [
+    "Six further exact canonical monster specializations, completing four-angle coverage of all eighteen changed monster codes.",
+    "Source-only views use the immutable delivered baseline and no Duel/Game or private data."
+  ]
+}

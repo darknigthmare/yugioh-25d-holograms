@@ -3,6 +3,7 @@ import { getFieldSpellEnvironmentCatalogEntry } from './FieldSpellEnvironmentCat
 import { POPULAR_GOD_MODEL_PROFILES } from './HologramPopularGodModels.js';
 import { POPULAR_STAPLE_PROFILES } from './HologramPopularStapleModels.js';
 import { getTokenMonsterModelProfile, TOKEN_MONSTER_MODEL_PROFILES } from './TokenMonsterModelProfiles.js';
+import { applyReviewedTokenVisualReference } from './ReviewedTokenVisualReferences.js';
 
 const ATTRIBUTE_COLORS = Object.freeze({
   LIGHT: '#87eaff', DARK: '#ae75ff', FIRE: '#ff7944', WATER: '#38d8ee',
@@ -12,21 +13,21 @@ const ATTRIBUTE_COLORS = Object.freeze({
 const CARD_PROFILES = Object.freeze({
   '89631139': { id: 'blue-eyes', family: 'dragon', body: '#b7d9e7', accent: '#dcebf0', membrane: '#649bb2', eye: '#198bde', attack: 'dragon-burst', anatomy: 'armored-blue-dragon', referenceArt: '/cards/cropped/89631139.jpg' },
   '74677422': { id: 'red-eyes', family: 'dragon', body: '#242b3a', accent: '#655b77', membrane: '#303442', eye: '#ef282f', attack: 'dragon-flame', anatomy: 'spiked-black-dragon', referenceArt: '/cards/cropped/74677422.jpg' },
-  '23995346': { id: 'blue-eyes-ultimate', family: 'dragon', heads: 3, body: '#dbe8ef', accent: '#62dcff', eye: '#19b9ff', attack: 'dragon-burst' },
+  '23995346': { id: 'blue-eyes-ultimate', family: 'dragon', heads: 3, body: '#dbe8ef', accent: '#62dcff', eye: '#19b9ff', attack: 'dragon-burst', anatomy: 'triple-armored-blue-dragon', referenceArt: '/cards/cropped/23995346.jpg' },
   '88819587': { id: 'baby-dragon', family: 'dragon', baby: true, body: '#de9a6d', accent: '#f6c07d', eye: '#55f0a9', attack: 'dragon-flame', referenceArt: '/cards/cropped/88819587.jpg' },
   '46986414': { id: 'dark-magician', family: 'magician', body: '#49356f', accent: '#d78ed0', eye: '#77c8b0', skin: '#d7b896', staffColor: '#178866', attack: 'dark-magic', anatomy: 'armored-dark-magician', referenceArt: '/cards/cropped/46986414.jpg' },
   '38033121': { id: 'dark-magician-girl', family: 'magician', body: '#2389ba', accent: '#e265a9', eye: '#4ebf73', hair: '#e4b748', skin: '#f1c7b1', staffColor: '#c5a45b', attack: 'dark-magic', anatomy: 'dark-magician-girl', referenceArt: '/cards/cropped/38033121.jpg' },
-  '91152256': { id: 'celtic-guardian', family: 'warrior', body: '#448c5a', accent: '#d7cb8b', eye: '#c1f4ff', attack: 'blade' },
+  '91152256': { id: 'celtic-guardian', family: 'warrior', body: '#448c5a', accent: '#d7cb8b', eye: '#c1f4ff', attack: 'blade', anatomy: 'green-armored-celtic-elf', referenceArt: '/cards/cropped/91152256.jpg' },
   '63977008': { id: 'junk-synchron', family: 'machine', body: '#e67b37', accent: '#4d647a', eye: '#91eaff', attack: 'impact', referenceArt: '/cards/cropped/63977008.jpg' },
   '40640057': { id: 'kuriboh', family: 'kuriboh', body: '#886543', accent: '#b89569', eye: '#bd83ec', attack: 'impact', referenceArt: '/cards/cropped/40640057.jpg' },
-  '70781052': { id: 'summoned-skull', family: 'fiend', body: '#d4c7bb', accent: '#b976b5', eye: '#fb7774', attack: 'lightning' },
-  '13039848': { id: 'stone-soldier', family: 'rock', body: '#658181', accent: '#9bbbb4', eye: '#b8f3ff', attack: 'impact' },
-  '71625222': { id: 'time-wizard', family: 'clock', body: '#e87867', accent: '#f2d378', eye: '#82c9ff', attack: 'time-magic' },
-  '44508094': { id: 'stardust-dragon', family: 'dragon', body: '#a8d6d9', accent: '#65f5ea', eye: '#68dbff', attack: 'stardust' },
+  '70781052': { id: 'summoned-skull', family: 'fiend', body: '#d4c7bb', accent: '#b976b5', eye: '#78c59a', attack: 'lightning', anatomy: 'ivory-armored-skeletal-fiend', referenceArt: '/cards/cropped/70781052.jpg', bodyMetalness: 0.08, bodyRoughness: 0.62, darkMetalness: 0.03 },
+  '13039848': { id: 'stone-soldier', family: 'rock', body: '#658181', accent: '#9bbbb4', eye: '#b8f3ff', attack: 'impact', anatomy: 'carved-stone-giant', referenceArt: '/cards/cropped/13039848.jpg' },
+  '71625222': { id: 'time-wizard', family: 'clock', body: '#e87867', accent: '#f2d378', eye: '#82c9ff', attack: 'time-magic', anatomy: 'golden-geared-time-wizard', referenceArt: '/cards/cropped/71625222.jpg' },
+  '44508094': { id: 'stardust-dragon', family: 'dragon', body: '#a8d6d9', accent: '#65f5ea', eye: '#68dbff', attack: 'stardust', anatomy: 'silver-feathered-stardust-dragon', referenceArt: '/cards/cropped/44508094.jpg' },
   '54652250': { id: 'man-eater-bug', family: 'insect', body: '#547b3c', accent: '#a6b758', eye: '#ffcf73', attack: 'pincer' },
-  '31560081': { id: 'magician-of-faith', family: 'faith', body: '#d9a0c4', accent: '#eb92ba', eye: '#74dbef', hair: '#3d956b', attack: 'faith-light' },
+  '31560081': { id: 'magician-of-faith', family: 'faith', body: '#ad343f', accent: '#665791', eye: '#7472bc', hair: '#a54186', skin: '#ebcfb5', attack: 'faith-light', anatomy: 'crimson-robed-faith-mage', referenceArt: '/cards/cropped/31560081.jpg' },
   '26202165': { id: 'sangan', family: 'sangan', body: '#976246', accent: '#c28d60', eye: '#f3d7f0', attack: 'impact', referenceArt: '/cards/cropped/26202165.jpg' },
-  '77637979': { id: 'lanphorhynchus', family: 'dragon', digital: true, body: '#35518e', accent: '#68e7ff', eye: '#edfe6d', attack: 'cyber-beam' },
+  '77637979': { id: 'lanphorhynchus', family: 'dragon', digital: true, body: '#d7dee6', accent: '#8ba4b0', hair: '#353948', eye: '#b92537', attack: 'cyber-beam', anatomy: 'cyber-winged-serpent', referenceArt: '/cards/cropped/77637979.jpg' },
   '20721928': { id: 'elemental-hero-sparkman', family: 'warrior', body: '#293865', accent: '#d7c16f', eye: '#93f5f0', attack: 'spark-bolt', anatomy: 'sparkman', referenceArt: '/cards/cropped/20721928.jpg' },
   '68638985': { id: 'slime-toad', family: 'aquatic', body: '#168955', accent: '#319a68', eye: '#d5c948', attack: 'water', anatomy: 'slime-toad', referenceArt: '/cards/cropped/68638985.jpg' },
   '26905245': { id: 'metal-reflect-slime', family: 'aquatic', body: '#82766d', accent: '#e6ebe8', eye: '#ffffff', attack: 'impact', anatomy: 'metal-reflect-slime', referenceArt: '/cards/cropped/26905245.jpg' },
@@ -53,7 +54,8 @@ export const SUPPORTED_PROCEDURAL_MODEL_FAMILIES = Object.freeze([
 export function resolveHologramMonsterProfile(card = {}) {
   const exact = CARD_PROFILES[String(card.id || '').replace(/^0+(?=\d)/, '')];
   if (exact) return Object.freeze({ ...exact });
-  const token = getTokenMonsterModelProfile(card.id);
+  const baseToken = getTokenMonsterModelProfile(card.id);
+  const token = baseToken && applyReviewedTokenVisualReference(baseToken);
   if (token) {
     const mechanical = ['aircraft', 'gadget', 'gear', 'tank', 'network', 'cyber-orb', 'cyber-polyhedron', 'clock'].includes(token.tokenAnatomy);
     const glossy = ['slime', 'ice'].includes(token.tokenAnatomy);

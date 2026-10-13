@@ -11,6 +11,7 @@ import {
   getTokenMonsterProfile, getTokenPresentationProfile
 } from '../src/ui/TokenMonsterProfiles.js';
 import { getDuelistAvatar } from '../src/content/DuelistAvatarCatalog.js';
+import { REVIEWED_TOKEN_VISUAL_REFERENCES } from '../src/ui/ReviewedTokenVisualReferences.js';
 
 const repo = new URL('../', import.meta.url);
 const proof = 'docs/audits/artifacts/token-monster-inventory-2026-10-11/';
@@ -144,7 +145,10 @@ test('generator illustrations stay explicitly distinct from Token art and refer 
   const manifest = json(`${proof}token-generator-reference-art.json`);
   const assets = new Map(manifest.images.map(image => [image.cardCode, image]));
   const references = TOKEN_MONSTER_PROFILES.filter(entry => entry.referenceKind === 'generator');
-  assert.equal(references.length, 110);
+  const printed = TOKEN_MONSTER_PROFILES.filter(entry => Object.hasOwn(REVIEWED_TOKEN_VISUAL_REFERENCES, entry.cardId));
+  assert.equal(printed.length, 14);
+  assert.equal(references.length + printed.length, 110, 'Fourteen verified printed scans replace generator-only references');
+  assert.ok(printed.every(entry => entry.referenceKind === 'printed-token' && entry.tokenVisual.visualBasis === 'printed-token-art'));
   assert.equal(manifest.sourceSha256, sha256(read(`${proof}ygoprodeck-token-generator-api-2026-10-11.json`)));
   for (const entry of references) {
     assert.ok(entry.generatorCodes.includes(entry.referenceSourceCardCode));

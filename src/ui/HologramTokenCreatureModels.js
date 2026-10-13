@@ -16,6 +16,7 @@ export function buildTokenCreatureAnatomy(profile, helpers) {
     // The reference Tokens are sleeping, floating balls of wool. They do not
     // have the long legs, upright head or pointed horns of a generic goat.
     const shadow = ['67284108', '67284109', '67284110', '67284111'].includes(code) || variant === 'black-sheep';
+    const lamb = anatomy === 'lamb';
     sphere('token-sheep-round-fleece', 'body', [0, 1.35, 0], [.87, .88, .78], 2, shadow ? '#4b1927' : body);
     for (let index = 0; index < 26; index += 1) {
       const angle = index * 2.399963;
@@ -27,12 +28,22 @@ export function buildTokenCreatureAnatomy(profile, helpers) {
       taperedCurve(`token-sheep-wool-tip-${index}`, 'body', [start, [direction[0] * .87, 1.35 + direction[1] * .89, direction[2] * .77], tip], .105, .003, shadow ? '#401c2b' : body, 10, 8, .65);
     }
     for (const side of sides) {
-      const hornPoints = [[side * .7, 1.58, .29], [side * .97, 1.65, .38], [side * 1.1, 1.44, .4], [side * .96, 1.23, .42], [side * .75, 1.27, .48], [side * .71, 1.43, .49], [side * .84, 1.5, .51]];
-      taperedCurve(`token-sheep-curled-horn-${side}`, 'accent', hornPoints, .185, .058, cream, 36, 12);
-      for (let groove = 0; groove < 5; groove += 1) sphere(`token-sheep-horn-ridge-${side}-${groove}`, 'accent', [side * (.72 + groove * .075), 1.59 - groove * .034, .47], [.025, .17, .04], 0, '#c6b483');
+      // Stray Lambs and both printed Lamb Tokens have upward-facing crescent
+      // horns. Sheep Tokens instead have a complete ram's spiral.
+      const hornPoints = lamb
+        ? [[side * .62, 1.58, .25], [side * .94, 1.47, .34], [side * 1.04, 1.62, .38], [side * .98, 1.91, .37], [side * .82, 2.06, .34]]
+        : [[side * .7, 1.58, .29], [side * .97, 1.65, .38], [side * 1.1, 1.44, .4], [side * .96, 1.23, .42], [side * .75, 1.27, .48], [side * .71, 1.43, .49], [side * .84, 1.5, .51]];
+      taperedCurve(`token-sheep-curled-horn-${side}`, 'accent', hornPoints, .185, lamb ? .006 : .058, cream, 36, 12);
+      for (let groove = 0; groove < 5; groove += 1) {
+        if (lamb) {
+          const point = new THREE.CatmullRomCurve3(hornPoints.map(p => new THREE.Vector3(...p))).getPoint(.17 + groove * .13);
+          curve(`token-lamb-crescent-horn-groove-${side}-${groove}`, 'accent', [[point.x - .055, point.y + .035, point.z + .085], [point.x, point.y, point.z + .11], [point.x + .055, point.y - .035, point.z + .085]], .008, '#aa9870', 6);
+        } else sphere(`token-sheep-horn-ridge-${side}-${groove}`, 'accent', [side * (.72 + groove * .075), 1.59 - groove * .034, .47], [.025, .17, .04], 0, '#c6b483');
+      }
       if (shadow) sphere(`token-sheep-shadow-eye-${side}`, 'eye', [side * .27, 1.51, .733], [.115, .11, .037], 1, '#a6e5f1');
       else curve(`token-sheep-closed-eye-${side}`, 'dark', [[side * .39, 1.44, .716], [side * .29, 1.41, .767], [side * .17, 1.45, .78]], .013, '#65574e', 7);
       cone(`token-sheep-tiny-hoof-${side}`, 'accent', [side * .41, .55, .12], [.13, .16, .15], [Math.PI, 0, 0], cream);
+      if (lamb) cone(`token-lamb-rear-hoof-${side}`, 'accent', [side * .24, .57, -.29], [.1, .14, .13], [Math.PI, 0, 0], cream);
     }
     taperedCurve('token-sheep-crown-tuft', 'body', [[-.025, 2.13, -.03], [.03, 2.32, -.035], [.13, 2.4, -.04]], .12, .004, shadow ? '#4b1927' : body, 12, 8, .52);
     curve('token-sheep-sleeping-mouth', 'dark', [[-.09, 1.15, .775], [0, 1.12, .79], [.09, 1.16, .775]], .012, '#7a5e57', 6);
@@ -50,7 +61,14 @@ export function buildTokenCreatureAnatomy(profile, helpers) {
     for (const side of sides) {
       sphere(`token-kuriboh-green-hand-${side}`, 'accent', [side * .7, 1.16, .14], [.26, .27, .2], 1, '#6b9871');
       sphere(`token-kuriboh-green-foot-${side}`, 'accent', [side * .31, .68, .27], [.25, .21, .3], 1, '#6b9871');
-      for (let claw = 0; claw < 3; claw += 1) cone(`token-kuriboh-claw-${side}-${claw}`, 'accent', [side * .7 + (claw - 1) * .11, .93, .27], [.043, .15, .045], [Math.PI, 0, 0], '#ede0b7');
+      for (let claw = 0; claw < 3; claw += 1) {
+        const x = side * .7 + (claw - 1) * .11;
+        taperedCurve(`token-kuriboh-claw-${side}-${claw}`, 'accent', [[x, .99, .24], [x, .91, .3], [x, .87, .35]], .044, .001, '#ede0b7', 8, 6);
+      }
+      for (let claw = 0; claw < 4; claw += 1) {
+        const x = side * .31 + (claw - 1.5) * .095;
+        cone(`token-kuriboh-foot-claw-${side}-${claw}`, 'accent', [x, .6, .53], [.034, .155, .036], [Math.PI * .59, 0, 0], '#ede0b7');
+      }
     }
     return true;
   }
@@ -126,6 +144,71 @@ export function buildTokenCreatureAnatomy(profile, helpers) {
         sphere(`token-ojama-foot-${side}`, 'body', [side*.43,.2,.28], [.25,.135,.3], 1, face);
       }
       ring('token-ojama-red-waistband','accent',[0,.78,0],.38,undefined,.06,metal?'#536274':'#b73654');
+      return true;
+    }
+    if (small) {
+      // Ojama Duo supplies a second pose for the red and blue printed Tokens.
+      // Their heads, hands and faces are different anatomical designs; they
+      // are not recolours of the yellow/green smiling Ojamas.
+      sphere('token-ojama-odd-body', 'body', [0, 1.09, 0], [blue ? .29 : .34, .43, .25], 2, body);
+      if (blue) {
+        const contour = [[0,-.65],[.29,-.65],[.48,-.6],[.52,-.43],[.45,-.2],[.4,.08],[.45,.35],[.57,.53],[.6,.6],[.46,.65],[0,.65]];
+        part('token-ojama-odd-head', new THREE.LatheGeometry(contour.map(p => new THREE.Vector2(...p)), 24), 'body', [0,2.36,.03], [1,1,.66], undefined, body);
+        for (const side of sides) {
+          const x = side * .29;
+          curvedSheet(`token-ojama-blue-slanted-eye-white-${side}`, 'accent', [[-side*.21,-.055],[-side*.23,.04],[side*.24,.14],[side*.21,.006],[0,-.083]], .017, [x,2.78,.327], undefined, '#e7e7c8', {camber:.025,curl:0,subdivisions:1});
+          sphere(`token-ojama-eye-${side}`, 'dark', [side*.24,2.78,.363], [.023,.039,.013], 0, '#343845');
+          curve(`token-ojama-blue-raised-eyelid-${side}`, 'body', [[side*.07,2.825,.345],[side*.29,2.879,.358],[side*.53,2.943,.323]], .023, body, 8);
+        }
+        curve('token-ojama-blue-pursed-purple-lips','accent',[[-.12,2.12,.342],[-.06,2.17,.371],[.04,2.17,.376],[.12,2.12,.35],[.04,2.075,.376],[-.06,2.075,.371],[-.12,2.12,.342]],.036,'#a181b4',12);
+        curve('token-ojama-unhappy-mouth','dark',[[-.076,2.12,.397],[0,2.12,.412],[.076,2.12,.397]],.012,'#634c81',6);
+        // The token pose has a folded hand pressed against the upper arm.
+        taperedCurve('token-ojama-spindly-arm--1','body',[[-.25,1.49,.03],[-.45,1.22,.07],[.04,1.2,.24],[.23,1.42,.23]],.068,.052,body,20,8);
+        taperedCurve('token-ojama-spindly-arm-1','body',[[.25,1.5,.03],[.43,1.24,.09],[-.1,1.13,.24],[-.27,1.37,.24]],.068,.052,body,20,8);
+        for (const side of sides) {
+          sphere(`token-ojama-hand-${side}`,'body',[side*.24,1.4,.255],[.11,.135,.075],1,body);
+          for(let finger=0;finger<3;finger++)taperedCurve(`token-ojama-blue-folded-finger-${side}-${finger}`,'body',[[side*.21+(finger-1)*.045,1.34,.3],[side*.2+(finger-1)*.047,1.43,.332],[side*.17+(finger-1)*.044,1.47,.313]],.018,.009,body,7,6);
+        }
+      } else {
+        const head = new THREE.SphereGeometry(1,20,12), vertex=head.attributes.position;
+        for(let i=0;i<vertex.count;i++){
+          const x=vertex.getX(i), y=vertex.getY(i), z=vertex.getZ(i);
+          vertex.setXYZ(i,x*(y<0?1+y*.18:1-y*.17)-Math.max(0,y)*.09,y,z);
+        }
+        head.computeVertexNormals();
+        part('token-ojama-odd-head',head,'body',[0,2.24,.04],[.56,.61,.38],undefined,body);
+        cone('token-ojama-crown-point','body',[-.075,2.878,.015],[.18,.29,.15],[0,0,.23],body);
+        for(const side of sides){
+          const x=side*.175, y=side===-1?2.115:2.175;
+          sphere(`token-ojama-eye-white-${side}`,'accent',[x,y,.386],[.092,.101,.026],1,'#e5e3c6');
+          sphere(`token-ojama-eye-${side}`,'dark',[x,y-.006,.416],[.027,.033,.013],0,'#382b32');
+          curve(`token-ojama-red-scowling-brow-${side}`,'body',[[side*.28,y+.106,.344],[side*.18,y+.087,.397],[side*.083,y+.048,.412]],.038,body,8);
+        }
+        curve('token-ojama-unhappy-mouth','dark',[[-.25,1.987,.356],[-.14,2.027,.408],[.03,2.026,.421],[.23,1.95,.36]],.027,'#5a2939',10);
+        for(let tooth=0;tooth<5;tooth++)roundedSolid(`token-ojama-red-gritted-tooth-${tooth}`,'accent',[[-.029,0],[.029,0],[.031,-.052],[-.028,-.052]],.014,[-.132+tooth*.061,2.021-tooth*.006,.437],undefined,'#e9e0cd',.002);
+        ring('token-ojama-red-yellow-scarf-collar','accent',[0,1.657,.028],.29,undefined,.061,'#e7dc87');
+        curvedSheet('token-ojama-red-yellow-scarf-bib','accent',[[-.22,.065],[-.14,-.17],[.02,-.225],[.19,-.12],[.22,.055]],.03,[0,1.65,.216],undefined,'#e7dc87',{camber:.044,curl:.035,subdivisions:1});
+        curve('token-ojama-red-scarf-fold','dark',[[-.12,1.628,.267],[-.045,1.514,.294],[.093,1.584,.29]],.009,'#b2a655',7);
+        curvedSheet('token-ojama-red-scarf-flying-end','accent',[[-.04,.055],[-.38,-.06],[-.35,-.22],[-.13,-.16],[.055,-.035]],.026,[-.2,1.66,.003],undefined,'#e7dc87',{camber:.04,curl:-.05,subdivisions:1});
+        for(const side of sides){
+          const points=side===-1?[[-.31,1.49,.01],[-.62,1.71,.04],[-.76,2.02,.13]]:[[.31,1.48,.01],[.65,1.28,.09],[.89,1.66,.18]];
+          taperedCurve(`token-ojama-spindly-arm-${side}`,'body',points,.083,.056,body,20,8);
+          sphere(`token-ojama-hand-${side}`,'body',points[2],[.13,.135,.089],1,body);
+          if(side===-1){
+            taperedCurve('token-ojama-red-pointing-index','body',[[-.805,2.08,.16],[-.82,2.24,.17],[-.84,2.35,.18]],.029,.015,body,10,6);
+            for(let finger=0;finger<3;finger++)taperedCurve(`token-ojama-red-folded-finger-${finger}`,'body',[[-.76+finger*.034,2.075,.2],[-.722+finger*.037,2.11,.217],[-.714+finger*.032,2.039,.236]],.023,.013,body,7,6);
+          }else for(let finger=0;finger<4;finger++)rod(`token-ojama-red-fist-finger-${finger}`,'body',[.83+finger*.035,1.702,.25],[.83+finger*.035,1.633,.267],.022,.021,body);
+        }
+      }
+      // Both illustrations show thong briefs and narrow bent legs ending in
+      // individual toes, instead of the former rounded toy feet.
+      curvedSheet('token-ojama-red-thong-briefs','accent',[[-.29,.08],[-.16,-.045],[0,-.25],[.16,-.045],[.29,.08]],.025,[0,.846,.198],undefined,'#c74e69',{camber:.027,curl:0,subdivisions:1});
+      for(const side of sides){
+        const knee=[side*(blue?.31:.48),.46,blue?-.006:.085], foot=[side*(blue?.34:.64),.15,.165];
+        taperedCurve(`token-ojama-bent-leg-${side}`,'body',[[side*.18,.76,0],knee,foot],.11,.052,body,20,8);
+        sphere(`token-ojama-foot-${side}`,'body',[foot[0],.14,.231],[.126,.076,.19],1,body);
+        for(let toe=0;toe<4;toe++)taperedCurve(`token-ojama-toe-${side}-${toe}`,'body',[[foot[0]+(toe-1.5)*.045,.145,.29],[foot[0]+(toe-1.5)*.048,.137,.373],[foot[0]+(toe-1.5)*.045,.132,.4]],.022,.01,body,7,6);
+      }
       return true;
     }
     sphere('token-ojama-odd-body', 'body', [0, small ? 1.16 : 1.08, 0], [small ? .34 : .58, small ? .43 : .68, .33], 2, body);
@@ -280,6 +363,35 @@ export function buildTokenCreatureAnatomy(profile, helpers) {
   }
 
   if (anatomy === 'egg') {
+    if(code==='17228909'){
+      // SR04-ENTKN depicts six irregularly spotted eggs in a leafy nest.
+      // Spots follow the shell surface instead of floating as large spheres.
+      const shells=[[-.29,1.49,-.31,.32],[.31,1.5,-.28,.31],[-.5,1.19,.04,.34],[0,1.27,.105,.35],[.49,1.22,.026,.33],[0,.83,.442,.36]];
+      for(let egg=0;egg<shells.length;egg++){
+        const [x,y,z,r]=shells[egg],scale=[r*.92,r*1.08,r*.86];
+        sphere(`token-jurraegg-nest-shell-${egg}`,'body',[x,y,z],scale,2,'#ead1a1');
+        for(let spot=0;spot<12;spot++){
+          const angle=spot*2.399963+egg*.61,sy=1-2*(spot+.5)/12,radial=Math.sqrt(1-sy*sy);
+          const direction=new THREE.Vector3(Math.cos(angle)*radial,sy,Math.sin(angle)*radial);
+          const tangent=new THREE.Vector3().crossVectors(direction,new THREE.Vector3(Math.abs(sy)>.9?1:0,Math.abs(sy)>.9?0:1,0)).normalize();
+          const bitangent=new THREE.Vector3().crossVectors(direction,tangent).normalize(),positions=[],uv=[],indices=[];
+          const points=[direction];
+          for(let corner=0;corner<5;corner++){
+            const a=corner*Math.PI*2/5,spread=.2+(corner+spot)%3*.038;
+            points.push(direction.clone().addScaledVector(tangent,Math.cos(a)*spread).addScaledVector(bitangent,Math.sin(a)*spread).normalize());
+          }
+          for(const p of points){positions.push(x+p.x*scale[0]*1.008,y+p.y*scale[1]*1.008,z+p.z*scale[2]*1.008);uv.push(p.x*.5+.5,p.y*.5+.5);}
+          for(let corner=0;corner<5;corner++)indices.push(0,corner+1,(corner+1)%5+1);
+          const patch=new THREE.BufferGeometry();patch.setAttribute('position',new THREE.Float32BufferAttribute(positions,3));patch.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));patch.setIndex(indices);patch.computeVertexNormals();
+          part(`token-jurraegg-irregular-shell-mark-${egg}-${spot}`,patch,'accent',[0,0,0],undefined,undefined,spot%3?'#985836':'#804938');
+        }
+      }
+      for(let leaf=0;leaf<18;leaf++){
+        const a=leaf*Math.PI*2/18,x=Math.sin(a)*.55,z=Math.cos(a)*.42;
+        curvedSheet(`token-jurraegg-leafy-nest-${leaf}`,'body',[[0,0],[-.17,.16],[-.18,.33],[0,.59],[.18,.33],[.17,.16]],.025,[x,.54,z],[-Math.PI/2,0,-a],'#6b9a42',{camber:.048,curl:-.063,subdivisions:1});
+      }
+      return true;
+    }
     sphere('token-egg-speckled-shell','body',[0,1.15,0],[.67,.97,.62],2,body);
     for(let spot=0;spot<9;spot++) sphere(`token-egg-brown-spot-${spot}`,'accent',[(spot%3-1)*.32,.64+Math.floor(spot/3)*.43,.56- Math.abs(spot%3-1)*.09],[.1,.14,.024],1,accent);
     return true;
@@ -433,6 +545,37 @@ export function buildTokenCreatureAnatomy(profile, helpers) {
     for(let plate=0;plate<8;plate++){
       const y=.78+plate*.17;
       curvedSheet(`token-phantasm-spiral-overlapping-flank-scale-${plate}`,'accent',[[-.28,.12],[0,.18],[.25,.07],[.16,-.08],[-.2,-.09]],.035,[-.64+plate*.09,y,-.04],undefined,body,{camber:.07,curl:.024,subdivisions:1});
+    }
+    return true;
+  }
+
+  if (code === '23837055') {
+    // OP18-EN026 is a hornless liquid serpent emerging from a dark vortex.
+    // Its printed silhouette has no dragon muzzle, arms or dorsal spikes.
+    const liquid='#202031', edge='#648399', highlight='#819cad';
+    const neck=[[0,.57,0],[-.18,1.06,-.015],[-.45,1.51,-.04],[-.56,2.09,-.032],[-.31,2.6,.005],[.08,2.79,.031],[.43,2.76,.054],[.59,2.55,.071]];
+    taperedCurve('token-ogdoadic-liquid-swan-neck','body',neck,.36,.055,liquid,48,12,.67);
+    sphere('token-ogdoadic-hornless-serpent-head','body',[.485,2.685,.073],[.23,.15,.127],2,liquid);
+    curvedSheet('token-ogdoadic-pointed-liquid-muzzle','body',[[0,.05],[.24,-.025],[.28,-.15],[.16,-.14],[-.04,-.04]],.08,[.525,2.672,.08],undefined,liquid,{camber:.017,curl:0,subdivisions:1});
+    taperedCurve('token-ogdoadic-cool-neck-rim','accent',[[-.172,1.034,.171],[-.502,1.591,.168],[-.574,2.173,.143],[-.282,2.66,.152],[.085,2.825,.11],[.459,2.779,.12]],.016,.005,edge,32,6);
+    taperedCurve('token-ogdoadic-inner-neck-reflection','accent',[[-.213,1.269,.203],[-.317,1.606,.197],[-.309,2.071,.14],[-.044,2.374,.105],[.232,2.387,.093]],.018,.004,'#3c425a',24,6);
+    for(let flow=0;flow<5;flow++){
+      const shift=(flow-2)*.075;
+      taperedCurve(`token-ogdoadic-lower-liquid-flow-${flow}`,'body',[[shift,.54,.013],[.277+shift,.786,.08],[.456+shift,1.09,.057],[.27+shift,1.296,.046]],.045,.008,flow%2?liquid:'#2c2d43',18,8,.54);
+    }
+    for(let ripple=0;ripple<6;ripple++){
+      const radius=.29+ripple*.133,points=[];
+      for(let point=0;point<=20;point++){
+        const a=point/20*Math.PI*2+ripple*.19;
+        points.push([Math.cos(a)*radius,.34+Math.sin(a*3+ripple)*.021,Math.sin(a)*radius*.72]);
+      }
+      taperedCurve(`token-ogdoadic-dark-liquid-ripple-${ripple}`,'body',points,.016,.011,liquid,28,6,.57);
+      const glint=[];
+      for(let point=0;point<=8;point++){
+        const a=point/8*Math.PI*.68+ripple*.37;
+        glint.push([Math.cos(a)*radius,.354,Math.sin(a)*radius*.72]);
+      }
+      taperedCurve(`token-ogdoadic-vortex-ripple-reflection-${ripple}`,'accent',glint,.007,.001,ripple%2?edge:highlight,12,6,.67);
     }
     return true;
   }

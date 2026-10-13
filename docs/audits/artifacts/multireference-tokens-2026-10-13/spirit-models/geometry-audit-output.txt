@@ -1,0 +1,75 @@
+{
+  "ok": true,
+  "assertions": 532,
+  "source": {
+    "path": "src/ui/HologramTokenSpiritModels.js",
+    "bytes": 40776,
+    "sha256": "7785f5e8edbccaf18e143b9fc799ba0ee7e7ef046987099cb5d3f99ba728c180"
+  },
+  "models": [
+    {
+      "code": "38053382",
+      "defense": false,
+      "triangles": 6316,
+      "ratio": 2.2834417932031816,
+      "limit": 13830,
+      "batches": 5
+    },
+    {
+      "code": "38053382",
+      "defense": true,
+      "triangles": 6884,
+      "ratio": 2.064787042591482,
+      "limit": 16670,
+      "batches": 5
+    },
+    {
+      "code": "51208047",
+      "defense": false,
+      "triangles": 6544,
+      "ratio": 2.36587129428778,
+      "limit": 13830,
+      "batches": 5
+    },
+    {
+      "code": "51208047",
+      "defense": true,
+      "triangles": 7112,
+      "ratio": 2.1331733653269347,
+      "limit": 16670,
+      "batches": 5
+    },
+    {
+      "code": "60514626",
+      "defense": false,
+      "triangles": 8832,
+      "ratio": 4.95067264573991,
+      "limit": 8920,
+      "batches": 4
+    },
+    {
+      "code": "60514626",
+      "defense": true,
+      "triangles": 9400,
+      "ratio": 3.996598639455782,
+      "limit": 11760,
+      "batches": 4
+    },
+    {
+      "code": "87669905",
+      "defense": false,
+      "triangles": 11588,
+      "ratio": 4.956372968349016,
+      "limit": 11690,
+      "batches": 5
+    },
+    {
+      "code": "87669905",
+      "defense": true,
+      "triangles": 12156,
+      "ratio": 4.183069511355815,
+      "limit": 14530,
+      "batches": 5
+    }
+  ]
+}

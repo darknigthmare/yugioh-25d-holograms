@@ -42,6 +42,179 @@ export function buildTokenSpiritAnatomy(profile, helpers) {
     for(const side of sides)taperedCurve(`token-humanoid-face-framing-hair-${side}`,'dark',[[side*.19,3.29,.09],[side*.31,3.03,.27],[side*.29,2.66,.3],[side*.39,2.4,.14]],.052,.006,tint,24,8,.48);
   }
 
+  // These four printed Tokens have their own anatomy. Their names and native
+  // races are not a license to reuse an angel, a ghost or an armored person.
+  // OP13/OP10/OP19/OP14 document one view; the rear remains an interpretation.
+  function smoothPart(name, material, position, scale, tint, width=16, height=10, rotation) {
+    part(name, new THREE.SphereGeometry(1,width,height), material, position, scale, rotation, tint);
+  }
+  function shapedPart(name, material, shape, depth, position, tint, rotation, resolution=12) {
+    const bevel=Math.min(.025,depth*.2);
+    const geometry=new THREE.ExtrudeGeometry(shape,{depth:depth-bevel*2,bevelEnabled:true,bevelSize:bevel,bevelThickness:bevel,bevelSegments:2,steps:1,curveSegments:resolution});
+    geometry.translate(0,0,-depth/2+bevel);
+    part(name,geometry,material,position,[1,1,1],rotation,tint);
+  }
+
+  if(code==='38053382') {
+    const silver='#b8d9df', edge='#7196a8', violet='#9360b9', green='#70c49b';
+    const crescent=new THREE.Shape();
+    crescent.moveTo(-.13,.67);
+    crescent.bezierCurveTo(-.43,.44,-.65,-.07,-.59,-.63);
+    crescent.bezierCurveTo(-.53,-1.11,.07,-1.03,.43,-.59);
+    crescent.bezierCurveTo(.62,-.36,.65,-.12,.59,.12);
+    crescent.bezierCurveTo(.4,-.19,.31,-.64,-.06,-.63);
+    crescent.bezierCurveTo(-.29,-.59,-.34,-.13,-.1,.2);
+    crescent.lineTo(.12,.49);crescent.closePath();
+    shapedPart('token-generaider-crescent-torso','body',crescent,.2,[0,1.99,0],silver);
+    const face=new THREE.Shape();
+    face.moveTo(-.18,-.38);face.bezierCurveTo(-.04,-.42,.06,-.25,.13,-.03);
+    face.bezierCurveTo(.28,.17,.37,.4,.43,.6);face.bezierCurveTo(.02,.66,-.3,.36,-.18,-.38);face.closePath();
+    shapedPart('token-generaider-tapered-silver-mask','body',face,.13,[-.06,2.75,.015],silver);
+    smoothPart('token-generaider-single-cyan-eye','eye',[-.065,2.7,.119],[.047,.071,.025],'#40bde4',12,8);
+    taperedCurve('token-generaider-face-engraving','dark',[[-.22,3.02,.107],[-.095,2.74,.107],[.02,2.48,.107]],.013,.011,edge,14,6);
+    // A shallow, spiked oval crown, rather than a horned humanoid helmet.
+    part('token-generaider-elliptical-crown',new THREE.TorusGeometry(.49,.036,6,40),'accent',[.055,3.17,-.02],[1.12,.36,1],[0,0,-.16],silver);
+    for(let spike=0;spike<11;spike++) {
+      const angle=spike/11*Math.PI*2, x=.055+Math.cos(angle)*.548, y=3.17+Math.sin(angle)*.175;
+      rod(`token-generaider-crown-spike-${spike}`,'accent',[x,y,-.02],[x+Math.cos(angle)*.19,y+Math.sin(angle)*.16,-.02],.029,.003,silver);
+    }
+    for(const side of sides) {
+      const wingShape=new THREE.Shape();
+      wingShape.moveTo(0,0);
+      if(side===-1) {
+        wingShape.bezierCurveTo(-.08,.61,-.64,1.05,-.89,1.61);
+        wingShape.bezierCurveTo(-.91,.68,-.7,.21,-.08,-.02);
+      } else {
+        wingShape.bezierCurveTo(.57,.14,.98,.27,1.07,1.08);
+        wingShape.bezierCurveTo(1.28,.14,.98,-.09,.11,-.07);
+      }
+      wingShape.closePath();
+      const origin=[side*.51,2.36,-.04];
+      shapedPart(`wing-${side}-token-generaider-silver-blade`,'body',wingShape,.105,origin,silver);
+      taperedCurve(`wing-${side}-token-generaider-blade-engraving`,'dark',side===-1
+        ? [[-.62,2.39,.025],[-1.01,2.95,.025],[-1.37,3.73,.025]]
+        : [[.68,2.39,.025],[1.23,2.62,.025],[1.53,3.31,.025]],.015,.009,edge,18,6);
+      const leg=new THREE.Shape();
+      leg.moveTo(0,0);leg.lineTo(side*.34,.05);leg.lineTo(side*.69,-.74);leg.lineTo(side*1.05,-1.22);leg.lineTo(side*.31,-.49);leg.closePath();
+      shapedPart(`token-generaider-floating-spear-leg-${side}`,'body',leg,.095,[side*.27,1.35,-.065],silver);
+      rod(`token-generaider-spear-leg-crease-${side}`,'dark',[side*.53,1.23,-.004],[side*1.18,.28,-.004],.014,.005,edge);
+    }
+    part('token-generaider-crossed-orbit-arms',new THREE.TorusGeometry(.63,.027,6,44),'accent',[0,2.15,.14],[1.35,.28,1],[0,-.08,-.24],silver);
+    taperedCurve('token-generaider-right-curved-arm','accent',[[.21,2.76,-.03],[.72,2.78,.005],[1.04,2.51,.07],[1.16,2.13,.1]],.041,.023,silver,24,8);
+    smoothPart('token-generaider-violet-chest-jewel','eye',[.22,2.31,.2],[.066,.12,.041],violet,12,8);
+    smoothPart('token-generaider-left-green-arm-jewel','eye',[-.72,2.31,.13],[.071,.071,.06],green,12,8);
+    smoothPart('token-generaider-right-violet-arm-jewel','eye',[1.15,2.09,.12],[.071,.071,.06],violet,12,8);
+    part('token-generaider-gold-crescent-inlay',new THREE.TorusGeometry(.15,.045,6,24,Math.PI*1.45),'accent',[.02,1.68,.147],[1,1,1],[0,0,.4],'#cecd84');
+    for(let bead=0;bead<3;bead++)smoothPart(`token-generaider-lower-jewel-${bead}`,'eye',[-.43+bead*.16,1.36-bead*.07,.115],[.041,.05,.024],bead===1?violet:green,10,8);
+    return true;
+  }
+
+  if(code==='51208047') {
+    const pink='#a44683', green='#9abd8d', ivoryWing='#e8e7df', outline='#496575';
+    const heart=new THREE.Shape();
+    heart.moveTo(0,.68);heart.bezierCurveTo(-.61,1.08,-.94,.68,-.77,.15);
+    heart.bezierCurveTo(-.67,-.22,-.34,-.46,-.22,-.47);
+    heart.bezierCurveTo(-.49,-.69,-.38,-.77,-.2,-.65);
+    heart.bezierCurveTo(-.16,-.9,-.04,-.86,.02,-.72);
+    heart.bezierCurveTo(.16,-.91,.27,-.86,.24,-.66);
+    heart.bezierCurveTo(.43,-.77,.48,-.65,.31,-.49);
+    heart.bezierCurveTo(.72,-.3,.98,.49,.67,.82);
+    heart.bezierCurveTo(.48,1.04,.2,.89,0,.68);heart.closePath();
+    shapedPart('token-trickstar-winged-heart-skull','body',heart,.18,[0,2.14,0],pink);
+    const edgePoints=heart.getSpacedPoints(96).map(p=>[p.x,p.y+2.14,.098]);
+    part('token-trickstar-green-heart-outline',new THREE.TubeGeometry(new THREE.CatmullRomCurve3(edgePoints.map(p=>new THREE.Vector3(...p)),true),96,.038,6,true),'accent',[0,0,0],undefined,undefined,green);
+    for(const side of sides) {
+      const wing=new THREE.Shape();wing.moveTo(0,0);
+      wing.bezierCurveTo(side*.42,.21,side*.9,.79,side*1.12,1.1);
+      wing.bezierCurveTo(side*1.39,1.45,side*1.39,.7,side*1.12,.37);
+      wing.bezierCurveTo(side*1.5,.61,side*1.46,.07,side*.95,-.12);
+      wing.bezierCurveTo(side*1.41,.09,side*1.23,-.3,side*.66,-.35);
+      wing.bezierCurveTo(side*1.02,-.39,side*.75,-.61,side*.3,-.52);
+      wing.lineTo(0,-.17);wing.closePath();
+      shapedPart(`wing-${side}-token-trickstar-white-feather-wing`,'accent',wing,.075,[side*.51,2.14,-.15],ivoryWing,[0,0,side*.13],10);
+      taperedCurve(`wing-${side}-token-trickstar-inner-feather-line`,'dark',[[side*.66,2.2,-.086],[side*1.15,2.22,-.067],[side*1.55,2.35,-.038]],.009,.003,'#c4c9c6',16,6);
+      const eyeShape=new THREE.Shape();eyeShape.moveTo(-.22,-.15);eyeShape.bezierCurveTo(-.25,.17,-.05,.29,.19,.21);eyeShape.bezierCurveTo(.24,.06,.12,-.17,-.22,-.15);eyeShape.closePath();
+      shapedPart(`token-trickstar-empty-lavender-eye-${side}`,'eye',eyeShape,.035,[side*.37,2.37,.116],'#c998c3',[0,0,side*.3],8);
+    }
+    smoothPart('token-trickstar-small-open-mouth','eye',[.015,2.035,.116],[.061,.096,.023],'#e7b8d3',14,10);
+    taperedCurve('token-trickstar-curled-green-stem','accent',[[.32,1.68,-.015],[.37,1.22,.018],[.27,.81,.1],[.07,.61,.12]],.052,.042,green,32,8);
+    taperedCurve('token-trickstar-stem-dark-edge','dark',[[.35,1.63,.026],[.408,1.18,.065],[.295,.83,.145],[.097,.65,.16]],.008,.006,outline,24,6);
+    smoothPart('token-trickstar-blue-stem-pearl','eye',[.065,.6,.12],[.115,.115,.098],'#2eaad5',18,12);
+    smoothPart('token-trickstar-pearl-highlight','eye',[.035,.638,.204],[.039,.033,.014],'#dcf6eb',10,8);
+    return true;
+  }
+
+  if(code==='60514626') {
+    const stone='#829d8e', seam='#4a6358', highlight='#9aafa0';
+    smoothPart('token-mask-pear-shaped-body','body',[0,1.42,0],[.74,.76,.45],stone,18,12);
+    smoothPart('token-mask-long-featureless-head','body',[.04,2.26,.005],[.49,.8,.36],stone,18,12);
+    smoothPart('token-mask-long-drooping-face','body',[.2,2.05,.34],[.245,.67,.195],highlight,18,12,[0,0,.07]);
+    smoothPart('token-mask-rounded-nose-tip','body',[.215,1.61,.38],[.18,.26,.18],stone,16,12);
+    const hollow=new THREE.Shape();hollow.moveTo(-.12,-.26);hollow.bezierCurveTo(-.26,-.05,-.14,.25,.045,.3);hollow.bezierCurveTo(.24,.29,.12,.01,.08,-.12);hollow.lineTo(.06,-.34);hollow.closePath();
+    shapedPart('token-mask-asymmetric-dark-face-hollow','dark',hollow,.022,[-.25,2.48,.318],'#223b30',[0,0,-.28],10);
+    taperedCurve('token-mask-left-face-fold','dark',[[-.17,2.37,.34],[-.11,2.1,.419],[-.095,1.79,.404],[.03,1.62,.4]],.017,.009,seam,20,6);
+    for(const side of sides) {
+      smoothPart(`token-mask-rounded-shoulder-${side}`,'body',[side*.61,1.96,.015],[.24,.21,.24],stone,14,10);
+      part(`token-mask-rolled-sleeve-cuff-${side}`,new THREE.TorusGeometry(.196,.053,6,28),'accent',[side*.72,1.91,.08],[1,1,1],[0,Math.PI/2,side*.14],highlight);
+      taperedCurve(`token-mask-bent-arm-${side}`,'body',[[side*.67,1.99,.04],[side*.93,2.03,.105],[side*1.11,1.84,.2],[side*1.2,1.78,.29]],.128,.08,stone,20,8);
+      smoothPart(`token-mask-curled-palm-${side}`,'body',[side*1.22,1.78,.29],[.15,.11,.12],stone,14,8);
+      for(let finger=0;finger<4;finger++)taperedCurve(`token-mask-curled-finger-${side}-${finger}`,'body',[[side*(1.2+finger*.047),1.78,.29],[side*(1.22+finger*.048),1.65,.35],[side*(1.14+finger*.047),1.65,.34]],.036,.026,stone,8,6);
+      smoothPart(`token-mask-short-leg-${side}`,'body',[side*.43,.7,.07],[.245,.28,.28],seam,14,10);
+      smoothPart(`token-mask-wide-foot-${side}`,'body',[side*.44,.49,.235],[.29,.22,.36],stone,16,10);
+      part(`token-mask-folded-ankle-cuff-${side}`,new THREE.TorusGeometry(.243,.058,6,28),'accent',[side*.44,.665,.07],[1,1,.97],[Math.PI/2,0,0],highlight);
+      taperedCurve(`token-mask-foot-top-fold-${side}`,'dark',[[side*.22,.57,.29],[side*.39,.58,.4],[side*.62,.54,.31]],.014,.014,seam,12,6);
+      for(let toe=0;toe<4;toe++)smoothPart(`token-mask-round-toe-${side}-${toe}`,'body',[side*.44+(toe-1.5)*.106,.41,.532],[.065,.087,.101],highlight,10,8);
+    }
+    return true;
+  }
+
+  if(code==='87669905') {
+    const lion='#b1a4c8', mane='#918dbd', light='#c8cee3', darkLion='#625c8b';
+    smoothPart('token-dual-avatar-seated-lion-body','body',[0,1.26,-.21],[.68,.86,.57],lion,18,12);
+    smoothPart('token-dual-avatar-broad-lion-chest','body',[0,1.77,.16],[.58,.65,.46],lion,18,12);
+    smoothPart('token-dual-avatar-rounded-guardian-head','body',[0,2.66,.265],[.61,.56,.46],lion,20,14);
+    smoothPart('token-dual-avatar-open-roaring-mouth','dark',[0,2.28,.702],[.37,.3,.1],'#373c68',16,10);
+    // The shared dragon jaw pivot does not fit this seated lion. Keep its
+    // printed roaring mouth together with the head during body animation.
+    smoothPart('token-dual-avatar-lower-jaw','body',[0,2.045,.56],[.38,.16,.3],lion,16,10);
+    for(const side of sides) {
+      smoothPart(`token-dual-avatar-broad-lion-muzzle-${side}`,'body',[side*.205,2.535,.681],[.275,.2,.255],light,16,10);
+      smoothPart(`token-dual-avatar-white-spirit-eye-${side}`,'eye',[side*.275,2.81,.672],[.105,.094,.028],'#d8eeef',12,8,[0,0,side*.22]);
+      taperedCurve(`token-dual-avatar-swept-eyebrow-${side}`,'body',[[side*.145,2.88,.675],[side*.32,2.98,.655],[side*.54,2.99,.49]],.058,.017,mane,16,8);
+      smoothPart(`token-dual-avatar-round-ear-${side}`,'body',[side*.54,3.005,.18],[.145,.176,.13],mane,14,10);
+      smoothPart(`token-dual-avatar-ear-inner-${side}`,'accent',[side*.548,3.02,.296],[.074,.088,.022],light,10,8);
+      cone(`token-dual-avatar-upper-lion-fang-${side}`,'accent',[side*.24,2.348,.792],[.047,.245,.055],[Math.PI,0,side*.1],light);
+      cone(`token-dual-avatar-lower-lion-fang-${side}`,'accent',[side*.17,2.15,.772],[.035,.13,.034],undefined,light);
+      smoothPart(`token-dual-avatar-seated-hind-haunch-${side}`,'body',[side*.57,.8,-.345],[.35,.6,.44],lion,16,10);
+      taperedCurve(`token-dual-avatar-curved-front-leg-${side}`,'body',[[side*.45,1.75,.16],[side*.48,1.21,.28],[side*.57,.63,.47],[side*.68,.34,.61]],.2,.155,lion,22,10);
+      smoothPart(`token-dual-avatar-large-front-paw-${side}`,'body',[side*.65,.25,.685],[.285,.17,.32],light,16,10);
+      for(let toe=0;toe<3;toe++) {
+        smoothPart(`token-dual-avatar-front-paw-toe-${side}-${toe}`,'body',[side*.65+(toe-1)*.155,.205,.894],[.086,.107,.135],lion,12,8);
+        cone(`token-dual-avatar-curved-claw-${side}-${toe}`,'accent',[side*.65+(toe-1)*.155,.21,.999],[.026,.125,.039],[Math.PI/2+.2,0,0],light);
+      }
+      // Carved cloud curls are the guardian lion's mane, not angel wings.
+      for(let scroll=0;scroll<3;scroll++) {
+        const points=[],cx=side*(.45+scroll*.05),cy=2.58-scroll*.42,cz=.18+scroll*.05;
+        for(let point=0;point<=18;point++) {
+          const a=point/18*Math.PI*1.6,r=.26*(1-point/23);
+          points.push([cx+side*Math.cos(a)*r,cy+Math.sin(a)*r,cz+.11*Math.sin(point/18*Math.PI)]);
+        }
+        taperedCurve(`token-dual-avatar-carved-mane-scroll-${side}-${scroll}`,'body',points,.085,.04,mane,18,8);
+      }
+      for(let flame=0;flame<3;flame++) {
+        const baseY=1.77+flame*.34,baseX=side*(.48+flame*.04);
+        curvedSheet(`token-dual-avatar-swept-mane-flame-${side}-${flame}`,'accent',[[0,0],[side*.33,.25],[side*.43,.61],[side*.23,.72],[side*.4,.98],[side*.06,.63],[-side*.08,.22]],.065,[baseX,baseY,-.14],undefined,light,{camber:.05,curl:.055,subdivisions:1});
+      }
+      taperedCurve(`token-dual-avatar-foreleg-cloud-scroll-${side}`,'accent',[[side*.39,1.17,.485],[side*.58,1.24,.526],[side*.71,1.09,.51],[side*.6,.99,.525]],.033,.02,light,14,6);
+    }
+    smoothPart('token-dual-avatar-broad-lion-nose','body',[0,2.637,.885],[.208,.112,.104],mane,16,10);
+    for(const side of sides)smoothPart(`token-dual-avatar-carved-nostril-${side}`,'dark',[side*.078,2.627,.971],[.036,.025,.013],darkLion,10,6);
+    taperedCurve('token-dual-avatar-nose-center-crease','dark',[[0,2.57,.959],[0,2.48,.942],[0,2.423,.901]],.011,.008,darkLion,12,6);
+    taperedCurve('token-dual-avatar-swept-lion-tail','body',[[0,.92,-.65],[.62,1.01,-.76],[.93,1.37,-.76],[1.01,1.89,-.68],[1.24,2.13,-.59]],.093,.017,mane,28,8);
+    curvedSheet('token-dual-avatar-tail-flame-tip','accent',[[0,0],[.16,.27],[.12,.53],[-.06,.28],[-.18,.17]],.047,[1.22,2.03,-.59],undefined,light,{camber:.05,curl:.04,subdivisions:1});
+    return true;
+  }
+
   if (code === '7392746' || variant === 'chewbone-jr') {
     // The illustrated Token is a small bone hound, not a human zombie.
     sphere('token-bone-hound-bovine-skull','body',[0,1.53,.66],[.38,.43,.33],2,'#ebe0c5');

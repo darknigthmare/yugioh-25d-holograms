@@ -1,0 +1,25 @@
+✔ new card identities have distinctive anatomy, declared support and bounded geometry (114.890657ms)
+✔ merged visible and shadow meshes share pose uniforms and retain complete joint attributes (22.333333ms)
+✔ finite action poses deform wings, staff, recoil and summon without uploads or root drift (53.223476ms)
+✔ new animation supersedes stale handles and reduced motion remains neutral (12.818419ms)
+✔ model material disposal also frees custom GPU shadow materials and invalidates pending poses (13.842679ms)
+✔ flip, recovery and search effects have distinct geometry and release nested book resources (10.43089ms)
+✔ reviewed printed references reach the atlas and combat model while keeping native identities and variable statistics (2.719618ms)
+✔ every reviewed public reference is the original downloaded PNG with its verified dimensions and provenance (39.034203ms)
+✔ ambiguous World Legacy and appearance-copying Tokens acquire no invented reviewed reference (0.261483ms)
+✔ every native Token monster has exactly one model and preserves native identity and statistics (7.745393ms)
+✔ internal Token flags never become gameplay models or printed cards (0.416026ms)
+✔ exact aliases and colour variants remain independently addressable without broad Token fallback (0.310386ms)
+✔ all printed API variants refer to verified native rows and exact locally hosted JPEG bytes (24.073898ms)
+✔ catalogue counts distinguish identities, art presentations and bounded coverage (50.904171ms)
+✔ verified commemorative prints reuse known avatars without inventing native codes or statistics (9.069373ms)
+✔ generator illustrations stay explicitly distinct from Token art and refer to a genuine creator (21.787933ms)
+✔ renderer profile module contains presentation geometry only and no rich catalogue dependency (0.732531ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 426.416452

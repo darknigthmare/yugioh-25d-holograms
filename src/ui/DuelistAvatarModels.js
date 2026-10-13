@@ -31,6 +31,14 @@ const FACE_DETAILS = Object.freeze({
   zwijo: { iris: '#85609e', eyeHeight: 0.079, tilt: 0.16, jaw: 0.56 }
 });
 
+// The retained Oct 13 broadcaster illustrations and licensed figure views
+// clarify these costumes without changing the progression catalogue. A later
+// figure's alternate shirt is never copied onto Joey's green-jacket appearance.
+const MULTIVIEW_COSTUMES = Object.freeze({
+  atem: { skin: '#c78d66', cloth: '#f1e8da', cape: '#302d55', legwear: '#c78d66', shoes: '#dcb657' },
+  yusei: { shoes: '#695546' }
+});
+
 /**
  * Builds a public, texture-free duelist likeness from the character catalogue.
  *
@@ -48,9 +56,10 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
   const id = avatar.id;
   const animal = visual.species === 'cat' || visual.species === 'dog';
   const feline = visual.species === 'cat';
+  const multiviewCostume = MULTIVIEW_COSTUMES[id] || {};
   const palette = {
-    skin: visual.skinColor,
-    cloth: visual.outfitColor,
+    skin: multiviewCostume.skin || visual.skinColor,
+    cloth: multiviewCostume.cloth || visual.outfitColor,
     trim: visual.accentColor,
     hair: visual.hairColor,
     hairAccent: visual.hairAccent,
@@ -231,6 +240,43 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
     const points = contours.map(([radius, y]) => new THREE.Vector2(radius, y));
     add(name, new THREE.LatheGeometry(points, 24), tint, [0, 0, 0], [1, 1, depth], undefined, stage);
   }
+  function drapedSurface(name, tint, rows, thickness = 0.045, stage = 'cloth') {
+    // Rows give y, left/right bounds, depth and fold amplitude. Both surfaces
+    // and their hem are closed: cloth now has a curved back and a visible edge.
+    const positions = [], indices = [], columns = 12, stride = columns + 1;
+    for (const face of [-1, 1]) for (const [y, left, right, z, folds = 0] of rows) {
+      for (let column = 0; column <= columns; column += 1) {
+        const t = column / columns;
+        positions.push(THREE.MathUtils.lerp(left, right, t), y,
+          z + Math.sin(t * Math.PI) * folds + Math.sin(t * Math.PI * 3) * folds * 0.27 + face * thickness * 0.5);
+      }
+    }
+    const faceSize = rows.length * stride;
+    for (let row = 0; row < rows.length - 1; row += 1) for (let column = 0; column < columns; column += 1) {
+      const a = row * stride + column, b = a + stride;
+      indices.push(a, a + 1, b, b, a + 1, b + 1,
+        a + faceSize, b + faceSize, a + 1 + faceSize, b + faceSize, b + 1 + faceSize, a + 1 + faceSize);
+    }
+    const close = (a, b) => indices.push(a, b, a + faceSize, b, b + faceSize, a + faceSize);
+    for (let column = 0; column < columns; column += 1) {
+      close(column + 1, column);
+      close((rows.length - 1) * stride + column, (rows.length - 1) * stride + column + 1);
+    }
+    for (let row = 0; row < rows.length - 1; row += 1) {
+      close(row * stride, (row + 1) * stride);
+      close((row + 1) * stride + columns, row * stride + columns);
+    }
+    // Mirrored garment rows reverse X. Reverse every face, including the hem,
+    // so opaque FrontSide materials remain visible from the exterior.
+    if (rows[0][2] < rows[0][1]) for (let triangle = 0; triangle < indices.length; triangle += 3) {
+      [indices[triangle + 1], indices[triangle + 2]] = [indices[triangle + 2], indices[triangle + 1]];
+    }
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+    geometry.setIndex(indices);
+    geometry.computeVertexNormals();
+    add(name, geometry, tint, undefined, undefined, undefined, stage);
+  }
   const broad = visual.build === 'broad' ? 1.2 : visual.build === 'slim' ? 0.88 : 1;
   const skirt = !animal && (visual.outfitStyle === 'robe' || visual.bottomStyle === 'skirt'
     || (!visual.bottomStyle && (visual.outfitStyle === 'dress' || visual.outfitStyle === 'robe' || id === 'mai')));
@@ -238,11 +284,11 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
     || (!visual.bottomStyle && visual.outfitStyle === 'sport'));
   const robot = visual.outfitStyle === 'mechanical';
   const armor = visual.outfitStyle === 'armor' || robot;
-  const legColor = visual.legwearColor || (animal || skirt || shorts ? palette.skin : visual.bottomColor || palette.dark);
-  const shoeColor = visual.bootColor || (animal ? palette.skin : visual.outfitStyle === 'sport' ? palette.white : palette.dark);
+  const legColor = multiviewCostume.legwear || visual.legwearColor || (animal || skirt || shorts ? palette.skin : visual.bottomColor || palette.dark);
+  const shoeColor = multiviewCostume.shoes || visual.bootColor || (animal ? palette.skin : visual.outfitStyle === 'sport' ? palette.white : palette.dark);
   const handColor = visual.gloveColor || palette.skin;
   const variant = visual.variant;
-  const shortSleeved = ['yuya', 'yuma', 'romin', 'luke'].includes(id);
+  const shortSleeved = ['atem', 'yuya', 'yuma', 'romin', 'luke'].includes(id);
 
   const skeletonRoot = new THREE.Bone();
   skeletonRoot.name = 'duelist-skeleton-root';
@@ -281,11 +327,11 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
     rod(`thigh-${side}`, legColor, [legX, 2.57, 0], [legX * 1.08, 1.42, 0.02], skirt ? 0.16 : 0.22, skirt ? 0.14 : 0.18);
     sphere(`knee-${side}`, legColor, [legX * 1.08, 1.43, 0.07], [0.16, 0.18, 0.15]);
     rod(`calf-${side}`, legColor, [legX * 1.08, 1.4, 0.02], [legX * 1.2, 0.4, 0.09], 0.14, 0.18);
-    rod(`boot-shaft-${side}`, shoeColor, [legX * 1.2, 0.23, 0.08], [legX * 1.15, skirt ? 0.95 : 0.63, 0.08], 0.2, 0.18);
+    rod(`boot-shaft-${side}`, id === 'atem' ? palette.skin : shoeColor, [legX * 1.2, 0.23, 0.08], [legX * 1.15, id === 'kaiba' ? 1.28 : id === 'yusei' ? 1.13 : skirt ? 0.95 : 0.63, 0.08], id === 'atem' ? 0.14 : 0.2, 0.18);
     sphere(`boot-toe-${side}`, shoeColor, [legX * 1.2, 0.2, 0.29], [animal ? 0.29 : 0.23, 0.17, 0.39]);
     box(`boot-sole-${side}`, animal ? palette.skin : '#303746', [legX * 1.2, 0.085, 0.22], [0.46, 0.08, 0.75]);
     if (armor) {
-      box(`shin-armor-${side}`, palette.trim, [legX * 1.13, 0.86, 0.23], [0.3, 0.76, 0.15], undefined, 'body', 'metal');
+      box(`shin-armor-${side}`, id === 'playmaker' ? palette.cloth : palette.trim, [legX * 1.13, 0.86, 0.23], [0.3, 0.76, 0.15], undefined, 'body', 'metal');
       sphere(`armored-knee-${side}`, palette.cloth, [legX * 1.08, 1.46, 0.21], [0.23, 0.23, 0.12], 'body', 'metal');
     }
   }
@@ -316,7 +362,7 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
       rod(`finger-${side}-${finger}-tip`, handColor, [x, wrist[1] - 0.08 - length, wrist[2] + 0.065], [x, wrist[1] - 0.14 - length, wrist[2] + 0.027], 0.022, 0.015);
     }
     sphere(`thumb-${side}`, handColor, [wrist[0] + side * 0.15, wrist[1] - 0.06, wrist[2] + 0.015], [0.075, 0.11, 0.065]);
-    if (armor) sphere(`pauldron-${side}`, palette.trim, [shoulderX, 4.12, 0], [0.44, 0.28, 0.43], 'body', 'metal');
+    if (armor) sphere(`pauldron-${side}`, id === 'playmaker' ? '#252a3b' : palette.trim, [shoulderX, 4.12, 0], id === 'playmaker' ? [0.33, 0.17, 0.32] : [0.44, 0.28, 0.43], 'body', 'metal');
   }
 
   // Garment cuts change the outline rather than recolouring a mannequin.
@@ -326,12 +372,24 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
     add('animal-tail', new THREE.TubeGeometry(curve, 16, feline ? 0.11 : 0.14, 7, false), palette.skin);
   } else if (visual.outfitStyle === 'long-coat') {
     for (const side of [-1, 1]) {
-      panel(`long-coat-tail-${side}`, palette.cloth, [[side * 0.11, 3.6], [side * 0.65, 3.72], [side * 1.04, 1.13], [side * 0.4, 1.02]], 0.09);
+      if (id === 'kaiba') drapedSurface(`long-coat-tail-${side}`, palette.cloth,
+        [[3.62, side * 0.12, side * 0.57, -0.31, -0.03], [2.83, side * 0.24, side * 0.63, -0.38, -0.08],
+          [2.02, side * 0.3, side * 0.88, -0.44, -0.14], [1.1, side * 0.44, side * 1.15, -0.46, -0.16]], 0.065);
+      else panel(`long-coat-tail-${side}`, palette.cloth, [[side * 0.11, 3.6], [side * 0.65, 3.72], [side * 1.04, 1.13], [side * 0.4, 1.02]], 0.09);
       wedge(`raised-coat-collar-${side}`, palette.cloth, [side * 0.43, 4.12, 0.08], [side * 0.51, 4.71, -0.08], 0.39, 0.2, 'body');
       box(`coat-lapel-${side}`, id === 'kaiba' ? palette.cloth : palette.trim, [side * 0.35, 3.81, 0.31], [0.16, 0.66, 0.055], [0, 0, side * -0.28]);
       for (let button = 0; button < 3; button += 1) sphere(`coat-rivet-${side}-${button}`, palette.metal, [side * 0.46, 3.73 - button * 0.25, 0.34], [0.04, 0.04, 0.025], 'body', 'metal');
     }
     box('coat-inner-vest', palette.dark, [0, 3.56, 0.29], [0.5, 0.98, 0.075]);
+  } else if (id === 'atem') {
+    add('atem-short-tunic', new THREE.CylinderGeometry(0.39 * broad, 0.54 * broad, 0.83, 24), palette.cloth,
+      [0, 2.48, 0], [1, 1, 0.78], undefined, 'cloth');
+    panel('atem-blue-front-sash', '#779ab2', [[-0.16, 2.92], [0.15, 2.92], [0.29, 2.02], [-0.1, 1.93]], 0.06, 'cloth', 'matte', 0.31);
+    for (let band = 0; band < 3; band += 1) ring(`atem-waist-gold-band-${band}`, palette.gold, [0, 2.9 + band * 0.085, 0], 0.37, 0.045, [Math.PI / 2, 0, 0]);
+    for (const side of [-1, 1]) {
+      box(`atem-sandal-strap-${side}`, palette.gold, [side * 0.32 * broad, 0.29, 0.31], [0.39, 0.08, 0.26]);
+      ring(`atem-anklet-${side}`, palette.gold, [side * 0.31 * broad, 0.57, 0.07], 0.16, 0.043, [Math.PI / 2, 0, 0]);
+    }
   } else if (skirt) {
     const long = visual.outfitStyle === 'robe';
     add(long ? 'flowing-robe' : 'pleated-skirt', new THREE.CylinderGeometry(0.4 * broad, (long ? 0.91 : 0.77) * broad, long ? 2.18 : 1.03, 12, 1), long ? palette.cloth : visual.bottomColor || palette.cloth,
@@ -345,7 +403,9 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
     if (id === 'mai') box('mai-midriff', palette.skin, [0, 3.13, 0.309], [0.67, 0.31, 0.062]);
     for (const side of [-1, 1]) box(`dress-neckline-${side}`, palette.skin, [side * 0.14, 4.05, 0.29], [0.25, 0.25, 0.07], [0, 0, side * 0.53]);
   } else if (armor) {
-    box('segmented-chest-armor', palette.trim, [0, 3.55, 0.32], [0.95 * broad, 0.73, 0.18], undefined, 'body', 'metal');
+    if (id === 'playmaker') drapedSurface('segmented-chest-armor', '#232b39',
+      [[4.0, -0.39, 0.39, 0.265, 0.09], [3.66, -0.44, 0.44, 0.29, 0.075], [3.3, -0.28, 0.28, 0.27, 0.075]], 0.045, 'body');
+    else box('segmented-chest-armor', palette.trim, [0, 3.55, 0.32], [0.95 * broad, 0.73, 0.18], undefined, 'body', 'metal');
     for (let plate = 0; plate < 3; plate += 1) box(`abdominal-armor-${plate}`, palette.cloth, [0, 3.21 - plate * 0.17, 0.34], [0.65 * broad, 0.12, 0.11], undefined, 'body', 'metal');
     if (robot) {
       for (const side of [-1, 1]) box(`mechanical-back-vane-${side}`, palette.trim, [side * 0.63, 3.77, -0.41], [0.3, 1.11, 0.33], [0.12, 0, side * -0.33], 'cloth', 'metal');
@@ -398,18 +458,38 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
       box(`yugi-uniform-shoulder-edge-${side}`, palette.white, [side * 0.49, 4.08, 0.2], [0.22, 0.042, 0.025], [0, 0, side * -0.23]);
     }
     box('yugi-school-belt', palette.white, [0, 2.86, 0.343], [0.73, 0.066, 0.031]);
+    drapedSurface('yugi-school-jacket-back-hem', palette.cloth,
+      [[3.34, -0.44, 0.44, -0.29, -0.035], [2.81, -0.48, 0.48, -0.33, -0.07], [2.54, -0.65, 0.65, -0.38, -0.13]], 0.06);
+    for (const side of [-1, 1]) {
+      box(`yugi-belt-side-tab-${side}`, palette.dark, [side * 0.39, 2.81, 0.17], [0.17, 0.3, 0.15], [0, 0, side * -0.15]);
+      for (let stud = 0; stud < 3; stud += 1) sphere(`yugi-belt-stud-${side}-${stud}`, palette.metal,
+        [side * (0.16 + stud * 0.1), 2.84, 0.373], [0.024, 0.024, 0.012], 'body', 'metal');
+    }
   }
   if (id === 'joey') {
     box('joey-white-tee', palette.white, [0, 3.63, 0.368], [0.44, 0.75, 0.045]);
     curveStroke('joey-tee-neckline', palette.white, [[-0.21, 4.05, 0.34], [0, 3.98, 0.38], [0.21, 4.05, 0.34]], 0.035);
   }
-  if (id === 'jaden') for (const side of [-1, 1]) {
-    panel(`jaden-slifer-collar-${side}`, palette.white,
-      [[side * 0.04, 4.04], [side * 0.22, 4.3], [side * 0.44, 4.2], [side * 0.35, 3.9]], 0.07, 'body', 'matte', 0.3);
-    sphere(`jaden-collar-button-${side}`, '#9c303b', [side * 0.31, 4.07, 0.382], [0.062, 0.069, 0.021]);
-    curveStroke(`jaden-jacket-piping-${side}`, '#842b31', [[side * 0.31, 3.97, 0.38], [side * 0.22, 3.34, 0.398], [side * 0.27, 2.94, 0.38]], 0.017);
+  if (id === 'jaden') {
+    drapedSurface('jaden-white-back-yoke', palette.white,
+      [[4.13, -0.32, 0.32, -0.23, -0.018], [4.0, -0.55, 0.55, -0.26, -0.042], [3.79, -0.39, 0.39, -0.305, -0.035]], 0.025, 'body');
+    curveStroke('jaden-yoke-dark-edge', '#682b2e', [[-0.49, 3.97, -0.335], [-0.3, 3.79, -0.362], [0, 3.75, -0.372], [0.3, 3.79, -0.362], [0.49, 3.97, -0.335]], 0.018);
+    curveStroke('jaden-back-center-seam', '#892f35', [[0, 3.75, -0.346], [0, 3.26, -0.346], [0, 2.82, -0.408]], 0.01);
+    for (const side of [-1, 1]) {
+      panel(`jaden-slifer-collar-${side}`, palette.white,
+        [[side * 0.04, 4.04], [side * 0.22, 4.3], [side * 0.44, 4.2], [side * 0.35, 3.9]], 0.07, 'body', 'matte', 0.3);
+      sphere(`jaden-collar-button-${side}`, '#9c303b', [side * 0.31, 4.07, 0.382], [0.062, 0.069, 0.021]);
+      curveStroke(`jaden-jacket-piping-${side}`, '#842b31', [[side * 0.31, 3.97, 0.38], [side * 0.22, 3.34, 0.398], [side * 0.27, 2.94, 0.38]], 0.017);
+      drapedSurface(`jaden-flared-jacket-tail-${side}`, palette.cloth,
+        [[3.03, side * 0.02, side * 0.42, -0.32, -0.02], [2.8, side * 0.06, side * 0.57, -0.36, -0.07], [2.42, side * 0.2, side * 0.74, -0.42, -0.13]], 0.055);
+      box(`jaden-shoe-dark-ankle-strap-${side}`, '#2d2f35', [side * 0.324 * broad, 0.39, 0.22], [0.4, 0.14, 0.37]);
+      box(`jaden-shoe-dark-tongue-${side}`, '#2d2f35', [side * 0.324 * broad, 0.29, 0.46], [0.14, 0.04, 0.22], [-0.18, 0, 0]);
+    }
   }
   if (id === 'kaiba') {
+    drapedSurface('kaiba-continuous-coat-back', palette.cloth,
+      [[4.14, -0.47, 0.47, -0.255, -0.028], [3.85, -0.5, 0.5, -0.3, -0.036], [3.4, -0.44, 0.44, -0.33, -0.036], [2.85, -0.38, 0.38, -0.32, -0.035]], 0.05, 'body');
+    curveStroke('kaiba-back-waist-seam', '#c5cbd5', [[-0.34, 2.86, -0.355], [0, 2.82, -0.399], [0.34, 2.86, -0.355]], 0.012);
     for (const side of [-1, 1]) {
       panel(`kaiba-red-coat-lining-${side}`, '#97363b',
         [[side * 0.22, 3.31], [side * 0.52, 3.29], [side * 0.9, 1.26], [side * 0.49, 1.13]], 0.035, 'cloth', 'matte', -0.174);
@@ -422,6 +502,15 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
     ring('kaiba-card-pendant-chain', '#4d423a', [0, 3.95, 0.21], 0.24, 0.013, [0.3, 0, 0], 'body', 'matte');
     box('kaiba-card-pendant', '#78513b', [0, 3.53, 0.414], [0.22, 0.32, 0.04], [0, 0, -0.15]);
     box('kaiba-card-pendant-inset', '#332d35', [0, 3.53, 0.438], [0.13, 0.23, 0.009], [0, 0, -0.15]);
+    for (let stud = 0; stud < 5; stud += 1) sphere(`kaiba-back-collar-rivet-${stud}`, palette.metal,
+      [(stud - 2) * 0.15, 4.49, -0.285], [0.041, 0.041, 0.028], 'body', 'metal');
+    drapedSurface('kaiba-raised-back-collar', palette.cloth,
+      [[4.2, -0.42, 0.42, -0.24, -0.035], [4.51, -0.38, 0.38, -0.235, -0.052]], 0.08, 'body');
+    for (const side of [-1, 1]) for (let strap = 0; strap < 2; strap += 1) {
+      const y = 0.89 + strap * 0.3;
+      box(`kaiba-boot-strap-${side}-${strap}`, '#354366', [side * 0.31 * broad, y, 0.17], [0.41, 0.09, 0.24], [0, 0, side * -0.08]);
+      box(`kaiba-boot-strap-buckle-${side}-${strap}`, palette.metal, [side * 0.47 * broad, y, 0.22], [0.07, 0.08, 0.06], undefined, 'body', 'metal');
+    }
   }
 
   // A tapered jaw and almond-shaped lids replace the stacked round balls. The
@@ -535,6 +624,15 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
       hairLock(`gold-fringe-ridge-${side}`, '#f4d56d', [side * 0.18, 5.52, 0.405], [side * 0.12, 5.0, 0.51], 0.055, 0.033, 0.025);
       hairLock(`gold-temple-lock-${side}`, palette.gold, [side * 0.36, 5.28, 0.27], [side * 0.43, 4.65, 0.31], 0.17, 0.12, 0.055);
     }
+    if (isYugi) {
+      // The licensed rear view shows actual raised, magenta-backed locks, not
+      // a second front fringe pasted onto a flat star silhouette.
+      const rearLocks = [[-0.85, 5.91, -0.33], [-0.35, 5.76, -0.59], [0.055, 6.23, -0.39],
+        [0.43, 5.76, -0.55], [0.9, 5.97, -0.3], [-0.84, 5.07, -0.44], [0.88, 5.17, -0.4]];
+      rearLocks.forEach((tip, lock) => hairLock(`yugi-rear-star-lock-${lock}`, visual.hairOutlineColor || '#a53471',
+        [tip[0] * 0.2, 5.24, -0.32], tip, 0.48, 0.32, -0.12));
+      hairLock('yugi-nape-lock', visual.hairOutlineColor || '#a53471', [0, 5.18, -0.42], [0, 4.82, -0.35], 0.39, 0.22, -0.12);
+    }
   } else if (hairStyle === 'swept' || hairStyle === 'mohawk' || hairStyle === 'short') {
     const yusei = id === 'yusei';
     const joey = id === 'joey';
@@ -545,7 +643,7 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
       const x = hairStyle === 'mohawk' ? 0 : (lock - (count - 1) / 2) * 0.14;
       const direction = lock < count / 2 ? -1 : 1;
       const long = hairStyle === 'short' ? 0.17 + variant * 0.005 : yusei ? 0.82 : jaden ? 0.37 : joey ? 0.2 : 0.54 + variant * 0.006;
-      const tint = yuya && lock % 2 === 0 ? palette.hairAccent : palette.hair;
+      const tint = palette.hair;
       if (id === 'kaiba') {
         hairLock(`swept-hair-${lock}`, tint, [x, 5.51 - Math.abs(x) * 0.22, -0.03],
           [x + direction * 0.1, 5.08 - (1 - Math.abs(x)) * 0.17, 0.4 - Math.abs(x) * 0.1], 0.26, 0.19, 0.15);
@@ -568,7 +666,7 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
       }
     }
     for (let fringe = 0; fringe < 4; fringe += 1) {
-      const tint = yuya && fringe % 2 === 0 ? palette.hairAccent : palette.hair;
+      const tint = yuya ? palette.hairAccent : palette.hair;
       wedge(`swept-fringe-${fringe}`, tint,
         [joey ? 0.22 + (fringe - 1.5) * 0.17 : (fringe - 1.5) * 0.22, 5.42, 0.27],
         [joey ? -0.48 + fringe * 0.23 : (fringe - 1.5) * 0.26, id === 'kaiba' ? 4.96 + Math.abs(fringe - 1.5) * 0.1 : joey ? 4.96 + fringe * 0.065 : 5.01 - fringe % 2 * 0.14 - variant * 0.006, 0.4],
@@ -579,12 +677,31 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
       hairLock(`kaiba-combed-fringe-${lock}`, lock % 2 ? '#704b30' : palette.hair,
         [x - 0.04, 5.42, 0.28], [x + 0.03, 4.94 + Math.abs(x) * 0.3, 0.428], 0.086, 0.025, 0.04);
     }
+    if (id === 'kaiba') for (let lock = 0; lock < 7; lock += 1) {
+      const x = (lock - 3) * 0.105;
+      hairLock(`kaiba-combed-nape-${lock}`, lock % 2 ? '#704b30' : palette.hair,
+        [x, 5.4 - Math.abs(x) * 0.22, -0.25], [x * 0.85, 4.72 + Math.abs(x) * 0.23, -0.23], 0.15, 0.105, -0.16);
+    }
     if (jaden) for (const side of [-1, 1]) {
       hairLock(`jaden-orange-crown-${side}`, palette.hairAccent, [side * 0.05, 5.53, 0.04], [side * 0.31, 5.25, 0.33], 0.33, 0.13, 0.12);
       hairLock(`jaden-cheek-lock-${side}`, palette.hair, [side * 0.43, 5.09, -0.035], [side * 0.47, 4.57, 0.16], 0.25, 0.2, 0.08);
+      for (let lock = 0; lock < 3; lock += 1) hairLock(`jaden-rear-flare-${side}-${lock}`, palette.hair,
+        [side * 0.12, 5.46 - lock * 0.19, -0.24], [side * (0.71 - lock * 0.06), 5.65 - lock * 0.27, -0.27 - lock * 0.04], 0.43 - lock * 0.05, 0.3, -0.12);
+      hairLock(`jaden-nape-tip-${side}`, palette.hair, [side * 0.21, 4.94, -0.35], [side * 0.22, 4.62, -0.24], 0.25, 0.19, -0.1);
     }
     if (joey) for (const side of [-1, 1]) hairLock(`joey-back-lock-${side}`, palette.hair,
       [side * 0.39, 5.24, -0.28], [side * 0.59, 4.8, -0.1], 0.33, 0.21, -0.08);
+    if (joey) for (let lock = 0; lock < 5; lock += 1) {
+      const x = (lock - 2) * 0.16;
+      hairLock(`joey-layered-nape-${lock}`, palette.hair, [x + 0.12, 5.32, -0.23],
+        [x - 0.15, 4.76 + Math.abs(x) * 0.18, -0.21], 0.3, 0.14, -0.13);
+    }
+    if (yusei) {
+      for (const side of [-1, 1]) for (let lock = 0; lock < 2; lock += 1) hairLock(`yusei-rear-spike-${side}-${lock}`, palette.hair,
+        [side * 0.22, 5.32 - lock * 0.15, -0.23], [side * (0.68 + lock * 0.1), 5.6 - lock * 0.38, -0.42], 0.38, 0.28, -0.12);
+      for (let lock = 0; lock < 3; lock += 1) hairLock(`yusei-nape-lock-${lock}`, palette.hair,
+        [(lock - 1) * 0.17, 5.25, -0.31], [(lock - 1) * 0.14 - 0.04, 4.7 + lock % 2 * 0.13, -0.22], 0.24, 0.19, -0.19);
+    }
   } else if (hairStyle === 'helmet') {
     sphere('helmet-shell', palette.hair, [0, 5.06, -0.06], [0.62, 0.68, 0.55], 'hair', 'metal');
     for (const side of [-1, 1]) wedge(`helmet-fin-${side}`, palette.hairAccent, [side * 0.41, 5.1, -0.01], [side * 0.74, 5.84, -0.11], 0.25, 0.18, 'hair', 'metal');
@@ -627,8 +744,16 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
   function cape(tint = palette.cloth) {
     // The cape sits behind both torso and coat tails. Separate depth avoids
     // coplanar surfaces flickering through each other when viewed from behind.
-    panel('cape-mantle', tint, [[-0.72 * broad, 4.12], [0.72 * broad, 4.12], [1.13 * broad, 1.39], [0.48, 1.12], [0, 1.44], [-0.48, 1.12], [-1.13 * broad, 1.39]], 0.07, 'cloth', 'matte', -0.48);
-    for (const side of [-1, 1]) rod(`cape-fold-${side}`, id === 'yudias' ? palette.gold : palette.trim, [side * 0.36, 4.05, -0.5], [side * 0.69, 1.5, -0.5], 0.025, 0.012, 'cloth');
+    if (id === 'atem') {
+      drapedSurface('cape-mantle', multiviewCostume.cape,
+        [[4.22, -0.6, 0.6, -0.32, -0.045], [3.87, -0.71, 0.71, -0.43, -0.11], [3.03, -0.74, 0.74, -0.5, -0.12],
+          [2.11, -0.84, 0.84, -0.57, -0.2], [1.34, -0.93, 0.93, -0.6, -0.19]], 0.06);
+      for (const side of [-1, 1]) curveStroke(`cape-fold-${side}`, '#242544',
+        [[side * 0.28, 4.11, -0.409], [side * 0.38, 3.47, -0.665], [side * 0.62, 1.42, -0.77]], 0.016, 'cloth');
+    } else {
+      panel('cape-mantle', tint, [[-0.72 * broad, 4.12], [0.72 * broad, 4.12], [1.13 * broad, 1.39], [0.48, 1.12], [0, 1.44], [-0.48, 1.12], [-1.13 * broad, 1.39]], 0.07, 'cloth', 'matte', -0.48);
+      for (const side of [-1, 1]) rod(`cape-fold-${side}`, id === 'yudias' ? palette.gold : palette.trim, [side * 0.36, 4.05, -0.5], [side * 0.69, 1.5, -0.5], 0.025, 0.012, 'cloth');
+    }
   }
   function addAccessory(accessory, accessoryTint = visual.accessoryColor) {
     if (accessory === 'puzzle') {
@@ -653,7 +778,7 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
         sphere('yuma-duel-gazer-lens', '#64b894', [0.21, 4.994, 0.458], [0.146, 0.144, 0.018], 'head', 'eye');
         box('yuma-duel-gazer-temple', '#d9b651', [0.42, 5.015, 0.283], [0.16, 0.088, 0.36], undefined, 'head', 'metal');
       } else for (const side of [-1, 1]) {
-        ring(`eyewear-frame-${side}`, goggles ? palette.dark : palette.metal, [side * 0.2, goggles ? 5.48 : 4.99, goggles ? 0.3 : 0.447], goggles ? 0.16 : 0.14, 0.023, [0, 0, 0], 'head');
+        ring(`eyewear-frame-${side}`, id === 'yuya' ? palette.gold : goggles ? palette.dark : palette.metal, [side * 0.2, goggles ? 5.48 : 4.99, goggles ? 0.3 : 0.447], goggles ? 0.16 : 0.14, 0.023, [0, 0, 0], 'head');
         if (goggles) sphere(`goggle-lens-${side}`, '#77d1cf', [side * 0.2, 5.48, 0.305], [0.135, 0.135, 0.03], 'head', 'eye');
       }
       if (id !== 'yuma') box('eyewear-bridge', palette.dark, [0, goggles ? 5.48 : 4.99, goggles ? 0.32 : 0.461], [0.15, 0.032, 0.031], undefined, 'head');
@@ -698,7 +823,9 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
   if (id === 'atem' && visual.accessory !== 'puzzle' && visual.secondaryAccessory !== 'puzzle') addAccessory('puzzle');
   if (visual.headdress === 'helmet' && hairStyle !== 'helmet') {
     const helmetColor = visual.accessoryColor || palette.dark;
-    sphere('headgear-helmet', helmetColor, [0, 5.27, -0.04], [0.55, 0.26, 0.47], 'head', 'metal');
+    if (id === 'playmaker') panel('headgear-helmet', helmetColor,
+      [[-0.44, 5.34], [-0.51, 5.72], [-0.15, 5.59], [0.27, 6.12], [0.19, 5.65], [0.42, 5.35], [0.05, 5.24]], 0.095, 'head', 'metal', 0.17);
+    else sphere('headgear-helmet', helmetColor, [0, 5.27, -0.04], [0.55, 0.26, 0.47], 'head', 'metal');
     box('headgear-forehead-band', helmetColor, [0, 5.24, 0.377], [0.96, 0.14, 0.1], undefined, 'head', 'metal');
     for (const side of [-1, 1]) box(`headgear-temple-${side}`, helmetColor, [side * 0.5, 5.04, 0.09], [0.16, 0.43, 0.19], undefined, 'head', 'metal');
   } else if (visual.headdress === 'hat' && visual.accessory !== 'hat' && visual.secondaryAccessory !== 'hat') addAccessory('hat');
@@ -713,11 +840,20 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
     for (let stud = 0; stud < 3; stud += 1) sphere(`kaiba-shoulder-stud-${side}-${stud}`, palette.metal, [side * 0.78, 4.28, -0.12 + stud * 0.15], [0.047, 0.05, 0.047], 'body', 'metal');
   }
   if (id === 'yusei') {
+    drapedSurface('yusei-riding-jacket-back', palette.cloth,
+      [[3.97, -0.43, 0.43, -0.26, -0.029], [3.64, -0.5, 0.5, -0.3, -0.048], [3.04, -0.38, 0.38, -0.31, -0.058],
+        [2.77, -0.49, 0.49, -0.39, -0.095], [2.48, -0.66, 0.66, -0.43, -0.11]], 0.065, 'body');
+    curveStroke('yusei-back-yoke-edging', '#9a855b', [[-0.45, 3.91, -0.32], [-0.34, 3.64, -0.353], [-0.1, 3.57, -0.396], [0, 3.63, -0.409], [0.1, 3.57, -0.396], [0.34, 3.64, -0.353], [0.45, 3.91, -0.32]], 0.017);
+    curveStroke('yusei-back-center-seam', '#27394a', [[0, 4.06, -0.29], [0, 3.44, -0.391], [0, 2.61, -0.55]], 0.012);
     curveStroke('yusei-cheek-marker', '#d1a54d', [[0.33, 4.84, 0.32], [0.36, 4.71, 0.3], [0.27, 4.69, 0.346], [0.3, 4.58, 0.29]], 0.014, 'head');
     for (const side of [-1, 1]) {
       sphere(`shoulder-${side}-yusei-orange-pad`, '#bd6537', [side * 0.59, 4.13, 0.095], [0.29, 0.16, 0.29]);
       ring(`shoulder-${side}-yusei-pad-rim`, palette.dark, [side * 0.59, 4.21, 0.095], 0.22, 0.02, [Math.PI / 2, 0, 0], 'body', 'matte');
       box(`yusei-jacket-metal-toggle-${side}`, palette.metal, [side * 0.26, 3.87, 0.39], [0.095, 0.18, 0.045], [0, 0, side * -0.2], 'body', 'metal');
+      sphere(`elbow-${side}-yusei-orange-protector`, '#bd6537', [side * 0.89 * broad, 3.35, side < 0 ? 0.44 : 0.21], [0.11, 0.15, 0.047]);
+      sphere(`yusei-orange-knee-pad-${side}`, '#bd6537', [side * 0.291 * broad, 1.43, 0.24], [0.11, 0.145, 0.059]);
+      ring(`yusei-boot-top-band-${side}`, '#2c2f36', [side * 0.31 * broad, 1.09, 0.08], 0.178, 0.034, [Math.PI / 2, 0, 0], 'body', 'matte');
+      box(`yusei-boot-side-buckle-${side}`, palette.metal, [side * 0.48 * broad, 1.035, 0.1], [0.055, 0.08, 0.072], undefined, 'body', 'metal');
     }
     panel('yusei-riding-shirt-stripe', '#aa3e4b', [[-0.12, 4.05], [0.06, 4.01], [0.25, 3.44], [0.18, 3.08], [0.06, 3.35]], 0.035, 'body', 'matte', 0.36);
   }
@@ -728,6 +864,17 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
     }
     ring('ceremonial-neck-collar', palette.gold, [0, 4.24, 0], 0.25, 0.055, [Math.PI / 2, 0, 0]);
   }
+  if (id === 'atem') {
+    panel('atem-pharaoh-eye-diadem', palette.gold, [[-0.45, 5.18], [-0.32, 5.36], [0, 5.48], [0.32, 5.36], [0.45, 5.18], [0.25, 5.15], [0, 5.3], [-0.25, 5.15]], 0.055, 'head', 'metal', 0.27);
+    ring('atem-diadem-eye', '#74442c', [0, 5.34, 0.339], 0.052, 0.011, [0, 0, 0], 'head', 'matte');
+    sphere('atem-diadem-pupil', '#74442c', [0, 5.34, 0.351], [0.018, 0.02, 0.006], 'head');
+    for (const side of [-1, 1]) {
+      panel(`atem-diadem-wing-${side}`, palette.gold, [[side * 0.28, 5.38], [side * 0.62, 5.49], [side * 0.56, 5.22], [side * 0.34, 5.16]], 0.055, 'head', 'metal', 0.08);
+      ring(`shoulder-${side}-atem-upper-arm-band`, palette.gold, [side * 0.76 * broad, 3.85, 0.069], 0.216, 0.045, [0.14, 0, side * -0.31]);
+    }
+    panel('atem-gold-pectoral', palette.gold, [[-0.34, 4.1], [-0.22, 3.84], [0, 3.76], [0.22, 3.84], [0.34, 4.1]], 0.045, 'body', 'metal', 0.31);
+    drapedSurface('atem-purple-neck-mantle', multiviewCostume.cape, [[4.18, -0.37, 0.37, 0.14, 0.02], [4.03, -0.42, 0.42, 0.25, 0.042]], 0.075, 'body');
+  }
   if (id === 'playmaker') {
     for (const side of [-1, 1]) {
       panel(`playmaker-gold-headcrest-${side}`, '#ebc44e',
@@ -736,7 +883,12 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
         [[side * 0.06, 5.33], [side * 0.3, 5.5], [side * 0.43, 5.9], [side * 0.28, 5.59]], 0.028, 'head', 'matte', 0.303);
       curveStroke(`playmaker-chest-circuit-${side}`, '#ec9b42', [[side * 0.43, 4.03, 0.45], [side * 0.35, 3.7, 0.47], [side * 0.22, 3.51, 0.47], [side * 0.25, 3.3, 0.44]], 0.026, 'body', 'eye');
       box(`finger-${side}-playmaker-knuckle-signal`, '#eeae47', [side * 0.88 * broad, side < 0 ? 3.14 : 3.0, side < 0 ? 0.858 : 0.35], [0.055, 0.075, 0.012], undefined, 'body', 'eye');
+      panel(`playmaker-green-flank-panel-${side}`, palette.cloth,
+        [[side * 0.29, 3.95], [side * 0.46, 3.79], [side * 0.38, 3.46], [side * 0.25, 3.35], [side * 0.15, 3.58]], 0.06, 'body', 'matte', 0.35);
+      curveStroke(`playmaker-calf-circuit-${side}`, '#ec9b42', [[side * 0.29 * broad, 1.03, 0.322], [side * 0.24 * broad, 0.94, 0.327], [side * 0.25 * broad, 0.67, 0.328]], 0.019, 'body', 'eye');
+      panel(`playmaker-high-neck-collar-${side}`, '#29313f', [[side * 0.03, 4.1], [side * 0.2, 4.33], [side * 0.38, 4.2], [side * 0.2, 3.95]], 0.075, 'body', 'matte', 0.24);
     }
+    curveStroke('playmaker-asymmetric-bright-seam', '#ffb548', [[0.41, 4.13, 0.379], [0.32, 3.95, 0.447], [0.19, 3.72, 0.463], [0.04, 3.62, 0.441], [0.12, 3.44, 0.4], [0.09, 3.11, 0.395]], 0.031, 'body', 'eye');
   }
   if (id === 'yuya') {
     hairLock('yuya-forehead-cowlick', palette.hair, [-0.17, 5.5, -0.02], [0.47, 5.88, -0.1], 0.16, 0.11, 0.18);
@@ -745,7 +897,14 @@ export function createDuelistAvatarModel(avatarIdOrProfile, { owner = 'player', 
         [[side * 0.17, 4.18], [side * 0.56, 4.34], [side * 0.91, 3.24], [side * 0.49, 3.3]], 0.065, 'cloth', 'matte', -0.22);
       curveStroke(`yuya-cape-gold-edge-${side}`, '#d5b151', [[side * 0.23, 4.18, -0.14], [side * 0.55, 4.27, -0.14], [side * 0.87, 3.25, -0.14]], 0.025, 'cloth');
       sphere(`yuya-jacket-gold-button-${side}`, '#dab44b', [side * 0.2, 3.93, 0.41], [0.059, 0.068, 0.016], 'body', 'metal');
+      box(`yuya-cargo-pocket-${side}`, '#3d542b', [side * 0.4, 2.22, 0.16], [0.22, 0.44, 0.15], [0, 0, side * -0.09]);
+      box(`yuya-cargo-pocket-gold-tab-${side}`, palette.gold, [side * 0.405, 2.42, 0.25], [0.15, 0.07, 0.035], [0, 0, side * -0.09]);
+      box(`yuya-shoe-dark-toe-${side}`, '#30333d', [side * 0.324 * broad, 0.15, 0.625], [0.27, 0.09, 0.09]);
+      curveStroke(`yuya-shoe-gold-trim-${side}`, '#e1bc49', [[side * 0.324 * broad - 0.19, 0.112, 0.26], [side * 0.324 * broad - 0.16, 0.115, 0.54], [side * 0.324 * broad, 0.115, 0.643], [side * 0.324 * broad + 0.16, 0.115, 0.54]], 0.012);
+      curveStroke(`yuya-goggle-side-strap-${side}`, '#4c3130', [[side * 0.33, 5.48, 0.22], [side * 0.5, 5.38, 0.03], [side * 0.48, 5.33, -0.25]], 0.03, 'head');
     }
+    ring('yuya-pendant-chain', '#59392c', [0, 3.93, 0.19], 0.235, 0.012, [0.1, 0, 0], 'body', 'matte');
+    add('yuya-pendulum-pendant', new THREE.OctahedronGeometry(0.105), '#89c7ac', [0, 3.66, 0.388], [0.75, 1.25, 0.32], undefined, 'body', 'eye');
   }
   if (id === 'yuga') {
     for (const side of [-1, 1]) {

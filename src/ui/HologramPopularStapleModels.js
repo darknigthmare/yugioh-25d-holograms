@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-/** Exact illustrated identities; geometry remains an adaptation of a single JPEG. */
+/** Exact illustrated identities; alternate art corroborates structure, not palette. */
 export const POPULAR_STAPLE_PROFILES = Object.freeze(Object.fromEntries(Object.entries({
   '70095154': { id: 'cyber-dragon', family: 'machine', body: '#bdc9d5', accent: '#e4eaf0', eye: '#e8cf62', hair: '#263440', bodyMetalness: .72, bodyRoughness: .3, attack: 'cyber-beam', anatomy: 'segmented-cyber-serpent', referenceArt: '/cards/cropped/70095154.jpg' },
   '89943723': { id: 'elemental-hero-neos', family: 'warrior', body: '#c8d4df', accent: '#c42648', eye: '#51b7bc', hair: '#243049', bodyMetalness: .3, bodyRoughness: .42, accentMetalness: .25, attack: 'impact', anatomy: 'silver-neos-hero', referenceArt: '/cards/cropped/89943723.jpg' },
@@ -95,6 +95,13 @@ export function buildPopularStapleAnatomy(profile, helpers) {
       rod(`cyber-jaw-side-hydraulic-${side}`,'dark',[-.2+side*.21,3.32,.46],[-.2+side*.19,3.05,.62],.021,.025,'#607684');
       rod(`cyber-angular-eye-brow-${side}`,'accent',[-.2+side*.243,3.508,.62],[-.2+side*.249,3.477,.802],.025,.015,'#edf3f6');
       for(let tooth=0;tooth<4;tooth++) cone(`cyber-small-upper-tooth-${side}-${tooth}`,'accent',[-.2+side*.151,3.292,.54+tooth*.092],[.018,.086,.021],[Math.PI-.12,0,0],'#e3edf2');
+      solid(`cyber-long-rear-swept-crown-spike-${side}`,'body',[[0,0],[side*.015,.2],[side*.093,.57],[side*.135,.66],[side*.12,.09]],.055,[-.2+side*.16,3.39,.14],[0,side*.22,-side*.045],'#d9e4ea');
+      solid(`cyber-long-angular-lateral-skull-fin-${side}`,'body',[[0,.045],[side*.21,.17],[side*.45,.12],[side*.18,-.066],[side*.01,-.078]],.057,[-.2+side*.18,3.409,.335],[0,side*Math.PI/2,0],'#bdcbd6');
+      for(let panel=1;panel<path.length-2;panel+=2) {
+        const t=(panel+.53)/(path.length-1),center=bodyCurve.getPoint(t),tangent=bodyCurve.getTangent(t);
+        const orientation=new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0,1,0),tangent),rotation=new THREE.Euler().setFromQuaternion(orientation).toArray().slice(0,3);
+        solid(`cyber-flared-side-overlapping-armor-${side}-${panel}`,'body',[[side*.15,.075],[side*.38,.13],[side*.32,-.1],[side*.18,-.15]],.11,center.toArray(),rotation,panel%4===1?'#c4d2dd':'#b1c1cd');
+      }
     }
     return true;
   }
@@ -143,7 +150,15 @@ export function buildPopularStapleAnatomy(profile, helpers) {
       rod(`neos-helmet-red-cheek-contour-${side}`,'accent',[side*.214,3.09,.182],[side*.125,2.865,.238],.018,.025,red);
       sphere(`neos-sculpted-quadriceps-${side}`,'body',[side*.282,1.072,.098],[.205,.322,.17],2,silver);
       solid(`neos-pointed-pelvic-red-inlay-${side}`,'accent',[[0,.19],[side*.11,-.23],[side*.035,-.43],[side*-.04,-.035]],.018,[side*.11,1.51,.257],undefined,red);
+      solid(`neos-deep-blue-knee-joint-inlay-${side}`,'dark',[[side*-.115,.07],[side*.08,.12],[side*.16,-.08],[side*.005,-.19],[side*-.14,-.07]],.037,[side*.337,.759,.157],undefined,'#1b3986');
+      solid(`neos-blue-pointed-ankle-cuff-${side}`,'dark',[[side*-.135,.07],[side*-.08,.19],[side*.11,.13],[side*.15,-.045],[side*.07,-.12],[side*-.11,-.12]],.08,[side*.398,.294,.131],undefined,'#173683');
+      rod(`neos-ankle-red-border-${side}`,'accent',[side*.285,.26,.193],[side*.514,.283,.197],.019,.021,red);
+      rod(`neos-rear-long-red-waist-line-${side}`,'accent',[side*.16,2.3,-.264],[side*.128,1.58,-.253],.023,.019,red);
+      solid(`neos-rear-deep-blue-collar-${side}`,'dark',[[side*-.03,-.04],[side*.11,.33],[side*.23,.23],[side*.18,-.12]],.04,[side*.13,2.72,-.162],undefined,'#263d84');
+      rod(`neos-neck-red-collar-edge-${side}`,'accent',[side*.181,2.929,-.204],[side*.279,2.644,-.201],.021,.017,red);
     }
+    solid('neos-long-angular-silver-nose-plate','body',[[-.037,.14],[.037,.14],[.05,-.05],[0,-.14],[-.05,-.05]],.073,[0,3.058,.239],undefined,'#e0e9ef');
+    solid('neos-pointed-silver-chin-plate','body',[[-.113,.045],[.113,.045],[.049,-.094],[0,-.146],[-.049,-.094]],.048,[0,2.874,.172],undefined,silver);
     return true;
   }
   if (profile.anatomy === 'gold-armored-utopia') {
@@ -184,9 +199,11 @@ export function buildPopularStapleAnatomy(profile, helpers) {
     solid('utopia-left-sword-gold-guard','accent',[[-.38,0],[-.23,.22],[0,.1],[.23,.22],[.38,0],[0,-.14]],.1,[-.93,1.77,.48],undefined,gold);
     solid('utopia-left-sword-white-blade','body',[[-.12,0],[-.14,1.4],[0,1.86],[.14,1.4],[.12,0]],.08,[-.93,1.86,.48],[0,0,.2],pale);
     // Source's pink number 39 is built from short rounded strokes on the rear shell.
-    sphere('utopia-rear-number-plate','body',[0,2.92,-.38],[.43,.51,.065],1,pale);
+    // Original and alternative art both place the number on the raised white
+    // shoulder shell. It is not an extra disc on the back of the helmet.
+    solid('utopia-raised-right-number-shoulder-shell','body',[[-.22,-.31],[-.255,.15],[-.13,.74],[.08,.88],[.24,.7],[.24,.06],[.12,-.31]],.095,[.69,2.99,-.035],[0,0,-.08],pale);
     const strokes=[[-.19,3.19,-.12,3.26],[-.12,3.26,-.05,3.18],[-.05,3.18,-.12,3.1],[-.12,3.1,-.03,3.02],[-.03,3.02,-.13,2.96],[.13,3.19,.21,3.25],[.21,3.25,.27,3.14],[.27,3.14,.16,3.09],[.16,3.09,.13,3.19],[.27,3.14,.2,2.95]];
-    strokes.forEach(([x1,y1,x2,y2],i)=>rod(`utopia-pink-39-stroke-${i}`,'accent',[x1,y1,-.46],[x2,y2,-.46],.027,.027,'#d44b83'));
+    strokes.forEach(([x1,y1,x2,y2],i)=>rod(`utopia-pink-39-stroke-${i}`,'accent',[.69+x1*.82,y1+.28,.042],[.69+x2*.82,y2+.28,.042],.027,.027,'#d44b83'));
     for(const side of sides) {
       part(`utopia-shoulder-circular-recess-ring-${side}`,new THREE.TorusGeometry(.14,.027,6,24),'accent',[side*.623,2.525,.251],undefined,[0,0,0],gold);
       solid(`utopia-white-curved-cheek-guard-${side}`,'body',[[side*-.075,.19],[side*.16,.06],[side*.1,-.17],[side*-.02,-.24]],.06,[side*.17,3.027,.184],undefined,pale);
@@ -282,14 +299,14 @@ export function buildPopularStapleAnatomy(profile, helpers) {
     solid('ash-orange-hair-bow-left','accent',[[0,0],[-.17,.096],[-.213,.025],[-.148,-.092],[-.032,-.045]],.037,[-.024,3.035,.12],undefined,'#df8753');
     solid('ash-orange-hair-bow-right','accent',[[0,0],[.167,.104],[.206,.019],[.158,-.091],[.029,-.046]],.037,[-.016,3.041,.12],undefined,'#eea861');
     sphere('ash-orange-hair-bow-knot','accent',[-.025,3.015,.125],[.085,.07,.075],1,'#efac65');
-    sphere('ash-dark-kimono-bodice','dark',[0,1.95,0],[.29,.43,.2],1,dark);
+    sphere('ash-dark-kimono-bodice','dark',[0,1.95,0],[.29,.43,.2],1,'#9b91a6');
     solid('ash-crossed-kimono-collar','body',[[-.25,.15],[.09,-.22],[.22,-.13],[-.09,.23]],.03,[0,2.24,.175],undefined,pale);
     solid('ash-soft-pink-neck-scarf','accent',[[-.26,.14],[.26,.14],[.2,-.13],[.05,-.27],[-.23,-.05]],.06,[0,2.28,.235],undefined,'#e993ad');
     rod('ash-scarf-light-fold','body',[-.18,2.33,.28],[.17,2.27,.29],.022,.022,'#f4c6d6');
     rod('ash-orange-obi-belt','accent',[-.26,1.79,.11],[.26,1.79,.11],.083,.083,'#dd8b50');
-    solid('ash-charcoal-obi-bow-left','dark',[[0,0],[-.35,.12],[-.3,-.21],[0,-.12]],.08,[-.03,1.75,.245],undefined,dark);
-    solid('ash-charcoal-obi-bow-right','dark',[[0,0],[.35,.12],[.3,-.21],[0,-.12]],.08,[.03,1.75,.245],undefined,dark);
-    sphere('ash-obi-front-knot','dark',[0,1.73,.32],[.095,.075,.055],1,dark);
+    solid('ash-charcoal-obi-bow-left','dark',[[0,0],[-.35,.12],[-.3,-.21],[0,-.12]],.08,[-.03,1.75,.245],undefined,'#a39bb6');
+    solid('ash-charcoal-obi-bow-right','dark',[[0,0],[.35,.12],[.3,-.21],[0,-.12]],.08,[.03,1.75,.245],undefined,'#a39bb6');
+    sphere('ash-obi-front-knot','dark',[0,1.73,.32],[.095,.075,.055],1,'#a39bb6');
     // Closed bell skirt and bell sleeves preserve the conspicuously loose kimono.
     part('ash-flared-white-kimono-skirt',foldedBell(.25,.48,.64),'body',[0,1.35,0],[1,1,.68],undefined,pale);
     for(let fold=0;fold<6;fold++) {
@@ -305,9 +322,10 @@ export function buildPopularStapleAnatomy(profile, helpers) {
       part(side===1?'mage-glove-1-ash-large-sleeve':'ash-left-large-sleeve',foldedBell(.15,.33,direction.length(),6),'body',start.clone().add(end).multiplyScalar(.5).toArray(),[1,1,.67],rotation.toArray().slice(0,3),pale);
       sphere(side===1?'mage-hand-1-ash-small-hand':'ash-left-small-hand','body',[side*.96,1.84,.12],[.12,.085,.1],1,cream);
       rod(`ash-bare-child-leg-${side}`,'body',[side*.15,1.08,0],[side*.19,.64,.03],.105,.083,cream);
-      rod(`ash-white-sock-${side}`,'body',[side*.19,.64,.03],[side*.21,.24,.08],.087,.066,'#f0e7e8');
-      sphere(`ash-little-sandal-${side}`,'dark',[side*.21,.2,.17],[.11,.08,.19],1,'#bc8f7f');
-      rod(`ash-pink-sandal-strap-${side}`,'accent',[side*.21-.06,.27,.15],[side*.21+.06,.27,.15],.026,.026,'#dc9c9b');
+      // Both original artworks and the licensed close-ups show bare feet.
+      rod(`ash-bare-tapered-shin-${side}`,'body',[side*.19,.64,.03],[side*.21,.24,.08],.087,.066,cream);
+      sphere(`ash-small-bare-foot-${side}`,'body',[side*.21,.196,.174],[.09,.065,.183],1,cream);
+      for(let toe=0;toe<4;toe++)sphere(`ash-bare-rounded-toe-${side}-${toe}`,'body',[side*.21+(toe-1.5)*.034,.183,.329-toe*.006],[.019,.024,.03],0,cream);
     }
     for(const side of sides) {
       sphere(`ash-warm-cheek-blush-${side}`,'accent',[side*.18,2.542,.369],[.046,.015,.009],1,'#e8b1a9');
@@ -319,7 +337,11 @@ export function buildPopularStapleAnatomy(profile, helpers) {
       const sleeve=side===1?'mage-glove-1':'ash-left';
       rod(`${sleeve}-ash-sleeve-fold-ridge`,'body',[side*.51,2.008,.184],[side*.884,1.834,.273],.023,.034,'#f7f5ff');
       rod(`${sleeve}-ash-sleeve-lavender-seam`,'body',[side*.5,2.009,-.052],[side*.913,1.849,-.044],.015,.022,'#d8d2eb');
+      solid(`ash-pointed-animal-ear-${side}`,'dark',[[side*-.055,-.09],[side*.1,.165],[side*.18,-.072]],.087,[side*.177,3.007,-.051],undefined,'#d6c2ad');
+      solid(`ash-soft-pink-inner-ear-${side}`,'accent',[[side*-.018,-.052],[side*.093,.108],[side*.128,-.048]],.02,[side*.177,3.007,.005],undefined,'#e4b8bb');
+      solid(`ash-upward-orange-bow-leaf-${side}`,'accent',[[side*-.025,-.031],[side*.03,.125],[side*.144,.225],[side*.122,.071],[side*.041,-.028]],.035,[side*.075,3.07,-.065],undefined,'#e59b5b');
     }
+    closedTube('ash-long-soft-rear-hair-tail','dark',[[.07,2.73,-.113],[.18,2.4,-.289],[.15,2.09,-.353],[.053,1.87,-.269]],.071,16,'#d2bfaa');
     sphere('ash-small-sculpted-nose','body',[0,2.56,.392],[.018,.02,.015],1,cream);
     for(const side of sides) rod(`ash-almond-upper-eyelid-${side}`,'dark',[side*.059,2.666,.402],[side*.171,2.659,.378],.009,.006,'#927661');
     return true;

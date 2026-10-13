@@ -1,0 +1,65 @@
+{
+  "wave": "multireference-2026-10-13",
+  "pass": true,
+  "phase": "compiled",
+  "freeze": {
+    "path": "/workspace/yugioh-multireference-build-freeze-2026-10-13.json",
+    "bytes": 262420,
+    "sha256": "a6b09fd0912636c84243b3b3136fac5f5db217020c148adeb8bd316f73ac735a"
+  },
+  "entry": {
+    "path": "/assets/index-CoVIKYEb.js",
+    "bytes": 974601,
+    "sha256": "7921ecd5d82732d65f780fc7f43bf2ecd0544c15f7552228ce9135618ccd8e34"
+  },
+  "paths": 17,
+  "captures": 102,
+  "reports": {
+    "tokens": {
+      "paths": 9,
+      "captures": 50,
+      "sourceFiles": 751,
+      "observedHTTPFiles": 602,
+      "sourceBeforeAfterExact": true,
+      "compiledBeforeAfterHTTPExact": true,
+      "originalRecipesUnchanged": true,
+      "files": {
+        "docs/audits/artifacts/multireference-qa-2026-10-13/browser-compiled-tokens/report.json": {
+          "bytes": 1454663,
+          "sha256": "3e4113071eecd7428306735c3a02c24c1f26c010aaec6a30f8c96a1a49cd4fc0"
+        },
+        "docs/audits/artifacts/multireference-qa-2026-10-13/browser-compiled-tokens/fidelity-wrapper.json": {
+          "bytes": 20417,
+          "sha256": "1acb7d150b5c61b192bfc3639c913bf83fff7ef9c405d46a765fd6ef201a3a30"
+        },
+        "docs/audits/artifacts/multireference-qa-2026-10-13/browser-compiled-tokens/multireference-wrapper.json": {
+          "bytes": 1287,
+          "sha256": "85583a68ef824080eb02817c9b0ec6adf427f3b6a9c6a70f9531e4e90d23b4f2"
+        }
+      }
+    },
+    "avatars": {
+      "paths": 8,
+      "captures": 52,
+      "sourceFiles": 751,
+      "observedHTTPFiles": 602,
+      "sourceBeforeAfterExact": true,
+      "compiledBeforeAfterHTTPExact": true,
+      "originalRecipesUnchanged": true,
+      "files": {
+        "docs/audits/artifacts/multireference-qa-2026-10-13/browser-compiled-avatars/report.json": {
+          "bytes": 1174773,
+          "sha256": "d701aa43806fc3e2c178a78404c31d234da4e76332b0cc340b4819ece93c8741"
+        },
+        "docs/audits/artifacts/multireference-qa-2026-10-13/browser-compiled-avatars/fidelity-wrapper.json": {
+          "bytes": 44736,
+          "sha256": "240e6cd311f853cd213f782ca2e5fc2ea8d0ee698f07cefed3f4992e597bb81d"
+        },
+        "docs/audits/artifacts/multireference-qa-2026-10-13/browser-compiled-avatars/multireference-wrapper.json": {
+          "bytes": 1288,
+          "sha256": "c127a9991db059068f1010b6848b5f564bf532889e3faf38cf7c822e928849e2"
+        }
+      }
+    }
+  }
+}

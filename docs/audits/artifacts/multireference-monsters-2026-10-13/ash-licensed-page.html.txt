@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="ja" prefix="og: http://ogp.me/ns#">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>PRODUCT -AMAKUNI-</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="robots" content="follow,index" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="viewport" content="width=device-width">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<!-- Google Tag Manager -->
+ <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+ new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+ 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+ })(window,document,'script','dataLayer','GTM-PFRMNLN');</script>
+ <!-- End Google Tag Manager -->
+<!--
+<meta property="og:title" content="灰流うらら／遊戯王カードゲーム モンスターフィギュアコレクション">
+<meta property="og:site_name" content="AMAKUNI">
+<meta property="og:description" content="">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://">
+<meta property="og:image" content="http://xxxxxxxxxxxxxx/core_sys/images/others/ogp.jpg">
+<meta name="twitter:card" content="summary_large_image">
+-->
+<!-- Web App Manifest -->
+<link rel="manifest" href="../core_sys/images/sys/manifest.json">
+<!-- Favicon -->
+<link rel="icon" href="../core_sys/images/others/favicon/favicon.ico">
+<!-- Touch Icon -->
+<link rel="apple-touch-icon" sizes="180x180" href="../core_sys/images/others/favicon/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../core_sys/images/others/favicon/android-chrome-192x192.png">
+<!-- Microsoft Tile -->
+<meta name="msapplication-square70x70logo" content="../core_sys/images/others/favicon/site-tile-70x70.png">
+<meta name="msapplication-square150x150logo" content="../core_sys/images/others/favicon/site-tile-150x150.png">
+<meta name="msapplication-wide310x150logo" content="../core_sys/images/others/favicon/site-tile-310x150.png">
+<meta name="msapplication-square310x310logo" content="../core_sys/images/others/favicon/site-tile-310x310.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<!-- ==========================================
+Web Font
+========================================== -->
+<!-- YakuHanJPs（約物半角専用のWebフォント　ライセンス：SIL OFL 1.1） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yakuhanjp@3.4.1/dist/css/yakuhanjp.min.css">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;500;700&family=Noto+Sans+JP:wght@300;500;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;500;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400&display=swap" rel="stylesheet">
+
+<!-- ==========================================
+Style
+========================================== -->
+<link href="https://unpkg.com/sanitize.css" rel="stylesheet">
+<link href="../core_sys/images/others/css/magnific-popup-edited.css" rel="stylesheet">
+
+<!-- Swiper.js -->
+<link rel="stylesheet" href="../core_sys/images/others/js/swiper/swiper-bundle.min.css"/>
+<!--<link rel="stylesheet" href="../core_sys/images/others/js/swiper/swiper.min.css"/>-->
+<link rel="stylesheet" href="../core_sys/css/import/contents/002/set.css?1704703496" type="text/css" />
+<link rel="stylesheet" href="../core_sys/css/import/contents/002/dez_pt.css?1704703496" type="text/css" />
+<link rel="stylesheet" href="../core_sys/css/import/contents/002/unit.css?1705482281" type="text/css" />
+<link rel="stylesheet" href="../core_sys/css/fsc/fss.css" type="text/css" />
+<link rel="alternate stylesheet" href="../core_sys/css/fsc/fsm.css" type="text/css" title="fsm" />
+<link rel="alternate stylesheet" href="../core_sys/css/fsc/fsl.css" type="text/css" title="fsl" />
+<script type="text/javascript" src="../core_sys/js/common.js"></script>
+<script type="text/javascript" src="../core_sys/js/user.js"></script>
+<!-- CMS挿入 -->
+<link href="../core_sys/images/others/css/coreblo_reset.css" rel="stylesheet">
+<link href="../core_sys/images/others/css/utility.css" rel="stylesheet">
+
+<!-- ========================================
+Script
+========================================= -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+<script src="../core_sys/images/others/js/mav.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+<!-- Swiper.js -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script></head>
+
+<body id="layout8" class="c-no3 color-no3 listset-no3 contents-no294">
+<!-- Google Tag Manager (noscript) -->
+ <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PFRMNLN"
+ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+ <!-- End Google Tag Manager (noscript) -->
+
+<!-- ＜wrapper＞01start -->
+<div id="wrapper">
+<div id="wrapper_inner">
+
+<!-- ＜container＞start -->
+<div id="container">
+<div id="container_inner">
+
+<!-- ＜header＞start -->
+<div id="header">
+<div id="header_inner">
+<div class="header_sa01">
+<div class="header_sa01_c">
+<!-- global link start -->
+	<div id="g_navi">
+<button class="menuButton">
+  <div class="menuIcon">
+    <span class="menuIcon__line"></span>
+    <span class="menuIcon__line"></span>
+    <span class="menuIcon__line"></span>
+  </div>
+</button>
+
+<header class="header">
+  <div class="header__inner">
+
+    <div class="header__logo">
+      <a href="../index.html">
+        <h1><img src="../core_sys/images/main/common/amakuni_logo.png" alt="AMAKUNI"></h1>
+      </a>
+    </div>
+
+    <nav class="globalNavi">	<ul>
+<li class="gh_item1 gh_lino34"><a href="../index.html" title="TOP"><span class="gh_sno34">TOP</span></a></li><li class="gh_item2 gh_lino2"><a href="../aboutamakuni/index.html" title="ABOUT AMAKUNI"><span class="gh_sno2">ABOUT AMAKUNI</span></a></li><li class="gh_item3 gh_lino3"><a href="../product/list00000000.html" class="crt" title="PRODUCT"><span class="gh_sno3">PRODUCT</span></a></li><li class="gh_item4 gh_lino4"><a href="../information/hp0001/list00010000.html" title="INFORMATION"><span class="gh_sno4">INFORMATION</span></a></li></ul>
+<div class="snsWrap">
+  <ul class="socialList -share">
+    <li>
+      <a class="js-share--twitter" href="https://twitter.com/intent/tweet?text=" title="Twitterでシェアする"
+        rel="nofollow noopener noreferrer" target="_blank">
+        <img src="../core_sys/images/main/common/share_x.svg" alt="X">
+      </a>
+    </li>
+  </ul>
+  
+  <ul class="socialList -sns">
+    <li>
+      <a class="" href="https://www.facebook.com/hjshohin/" title="Facebook"
+        rel="nofollow noopener noreferrer" target="_blank">
+        <img src="../core_sys/images/main/common/share_facebook.svg" alt="Facebook">
+      </a>
+    </li>
+    <li>
+      <a class="js-share--instagram" href="https://www.instagram.com/hj_shohin/?hl=ja" title="Instagram"
+        rel="nofollow noopener noreferrer" target="_blank">
+        <img src="../core_sys/images/main/common/share_instagram.svg" alt="Instagram">
+      </a>
+    </li>
+  </ul>
+</div>
+</nav>
+</div><!-- header__inner -->
+</header>
+
+<div class="navOverlay"></div>
+
+<script>
+/* ==========================================
+*  グローバルナビ
+* 2019/04/15 - 10:42
+========================================== */
+(function () {
+
+  GNAV_SCREENTYPE = null;
+  GNAV_STATE = "close";
+
+  var $menubutton = $(".menuButton"); // トリガーにするボタン
+  $gNavUnit = $("#g_navi"), // classを付け替える要素
+    $gNavLink = $gNavUnit.find("a"), // グローバルナビリンク
+    switchSize = 900, // SP / PC切り替えサイズ
+    locationHref = location.href; // 現在のURL
+  urlHash = location.hash, // 現在のURLハッシュ
+    scrollTime = 1000, // スクロール時間
+    scrollEasing = "swing", // スクロールイージング
+    scrollOffsetYWide = -50; // PCサイズ時のスクロールオフセット値(px)
+  scrollOffsetYNarrow = -100; // SPサイズ時スクロールオフセット値(px)
+
+  // スムーススクロール
+  function scrollToAnker(hash) {
+    var target = $(hash),
+      position = target.offset().top,
+      offset = scrollOffsetYNarrow;
+    if (GNAV_SCREENTYPE === "wide") {
+      var offset = scrollOffsetYWide;
+    }
+    $("html,body").stop().animate({
+      scrollTop: position + offset
+    }, scrollTime, scrollEasing);
+  }
+
+  // Open グローバルナビ
+  function openNav() {
+    GNAV_STATE = "open";
+    $gNavUnit.addClass("is-open");
+  }
+
+  // Close グローバルナビ
+  function closeNav() {
+    GNAV_STATE = "close";
+    $gNavUnit.removeClass("is-open");
+  }
+
+  // URLハッシュ判定
+  if (urlHash) {
+    if ($(urlHash).length) {
+      $(function () {
+        $("html,body").stop().animate({
+          scrollTop: 0
+        }, 0);
+      });
+      $(window).on("load", function () {
+        setTimeout(function () {
+          scrollToAnker(urlHash);
+        }, 10);
+      });
+    }
+  }
+
+
+  // スクリーンサイズチェック
+  $(window).on("load resize", function () {
+    var wW = $(window).innerWidth;
+    if (wW > switchSize) {
+      if (GNAV_SCREENTYPE === "wide") {
+        return;
+      }
+      GNAV_SCREENTYPE = "wide";
+      openNav();
+    } else {
+      if (GNAV_SCREENTYPE === "narrow") {
+        return;
+      }
+      GNAV_SCREENTYPE = "narrow";
+      closeNav();
+    }
+  });
+
+  $menubutton.on("click", function () {
+    if (GNAV_STATE === "close") {
+      openNav();
+    } else {
+      closeNav();
+    }
+    return false;
+  });
+
+  $gNavLink.on("click", function () {
+    var thisHash = this.hash,
+      $target = $(thisHash),
+      thisFilename = locationHref.replace(/#.*$/, ""),
+      targetHref = $(this).get(0).href.replace(/#.*$/, "");
+    if ($(this).attr("target")) {
+      return;
+    }
+    if (!$target.length) {
+      return;
+    };
+    if (targetHref.indexOf(thisFilename) < 0) {
+      return;
+    }
+    if (GNAV_SCREENTYPE === "narrow") {
+      closeNav();
+    }
+    scrollToAnker(thisHash);
+    window.history.pushState(null, null, thisHash);
+    return false;
+  });
+
+})();
+
+$(function () {
+  $(window).on("load resize", function () {
+    let gNavHeight = $("#g_navi").outerHeight();
+    $("#container").css("padding-top",gNavHeight);
+  });
+});
+</script>	</div>
+<!-- global link end -->
+</div>
+</div>
+</div>
+</div>
+<!-- ＜header＞end -->
+
+<!-- ＜ext_area_01＞start -->
+<div id="ext_area_01">
+<div id="ext_area_01_inner">
+<div class="ext_area_01_sa01">
+<div class="ext_area_01_sa01_c">
+	<!-- topic path start -->
+	<div id="pan">
+	<ul>
+	<li class="home"><a href="../index.html">TOP</a></li><li>PRODUCT</li>	</ul>
+	</div>
+	<!-- topic path end --></div>
+</div>
+</div>
+</div>
+<!-- ＜ext_area_01＞end -->
+
+<!-- ＜contents＞start -->
+<div id="contents">
+<div id="contents_inner">
+
+<!-- ＜contents_main＞start -->
+<div id="contents_main">
+<div id="contents_main_inner">
+
+<!-- ＜main＞start -->
+<div id="main">
+<div id="main_inner">
+<div class="main_sa01">
+<div class="main_sa01_c">
+<h1 class="categoryHead"><span class="en">PRODUCT</span></h1></div>
+</div>
+<div class="main_sa02">
+<div class="main_sa02_c">
+<div id="sub_ct">
+
+
+  <div class="typeSelect">
+    <ul>
+      <li><button type="button" class="choiceType" data-type="0">ALL ITEM</button></li>
+      <li><button type="button" class="choiceType" data-type="1">AMAKUNI</button></li>
+      <li><button type="button" class="choiceType" data-type="2">AMAKUNI機神</button></li>
+      <li><button type="button" class="choiceType" data-type="3">AMAKUNI真打</button></li>
+      <li><button type="button" class="choiceType" data-type="4">AMAKUNI TECH</button></li>
+      <li><button type="button" class="choiceType" data-type="5">GALHolic</button></li>
+    </ul>
+  </div>
+  <div class="termSelect">
+    <div class="termSelect__year">
+  
+      <div class="sub_ct--currentNo" id="yearLabel">
+      </div>
+  
+      <ul>
+        <li><button type="button" class="choiceYear" data-year="0">年選択</button></li>
+        <li><button type="button" class="choiceYear" data-year="2025">2025</button></li>
+        <li><button type="button" class="choiceYear" data-year="2024">2024</button></li>
+        <li><button type="button" class="choiceYear" data-year="2023">2023</button></li>
+        <li><button type="button" class="choiceYear" data-year="2022">2022</button></li>
+        <li><button type="button" class="choiceYear" data-year="2021">2021</button></li>
+        <li><button type="button" class="choiceYear" data-year="2020">2020</button></li>
+        <li><button type="button" class="choiceYear" data-year="2019">2019</button></li>
+        <li><button type="button" class="choiceYear" data-year="2018">2018</button></li>
+        <li><button type="button" class="choiceYear" data-year="2017">2017</button></li>
+        <li><button type="button" class="choiceYear" data-year="2016">2016</button></li>
+        <li><button type="button" class="choiceYear" data-year="2015">2015</button></li>
+        <li><button type="button" class="choiceYear" data-year="2014">2014</button></li>
+        <li><button type="button" class="choiceYear" data-year="2013">2013</button></li>
+        <li><button type="button" class="choiceYear" data-year="2012">2012</button></li>
+        <li><button type="button" class="choiceYear" data-year="2011">2011</button></li>
+      </ul>
+    </div>
+    <div class="termSelect__month">
+      <ul>
+        <li><button type="button" class="choiceMonth" data-month="0">ALL</button></li>
+        <li><button type="button" class="choiceMonth" data-month="1">1月</button></li>
+        <li><button type="button" class="choiceMonth" data-month="2">2月</button></li>
+        <li><button type="button" class="choiceMonth" data-month="3">3月</button></li>
+        <li><button type="button" class="choiceMonth" data-month="4">4月</button></li>
+        <li><button type="button" class="choiceMonth" data-month="5">5月</button></li>
+        <li><button type="button" class="choiceMonth" data-month="6">6月</button></li>
+        <li><button type="button" class="choiceMonth" data-month="7">7月</button></li>
+        <li><button type="button" class="choiceMonth" data-month="8">8月</button></li>
+        <li><button type="button" class="choiceMonth" data-month="9">9月</button></li>
+        <li><button type="button" class="choiceMonth" data-month="10">10月</button></li>
+        <li><button type="button" class="choiceMonth" data-month="11">11月</button></li>
+        <li><button type="button" class="choiceMonth" data-month="12">12月</button></li>
+      </ul>
+    </div>
+  </div>
+
+
+<script>
+const monthnames = {
+  1:['1月','January'],
+  2:['2月','February'],
+  3:['3月','March'],
+  4:['4月','April'],
+  5:['5月','May'],
+  6:['6月','June'],
+  7:['7月','July'],
+  8:['8月','August'],
+  9:['9月','September'],
+  10:['10月','October'],
+  11:['11月','November'],
+  12:['12月','December'],
+}
+let setting = function() {}
+function hankaku2Zenkaku(str) {
+  return str.replace(/[Ａ-Ｚａ-ｚ０-９]/g, function(s) {
+    return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
+  });
+}
+
+function getArticleSetting(){
+  const articleList = document.getElementById('list_06');
+  const articleBoxs = articleList.getElementsByClassName('nwu_box');
+  const prd = [];
+  for(let i=0;i<articleBoxs.length;i++){
+    const articleSetting = articleBoxs[i].getElementsByClassName('prdsetting');
+    if(articleSetting.length){
+      prd[i] = {};
+      prd[i]['num'] = i;
+      prd[i]['type'] = hankaku2Zenkaku(articleSetting[0].getAttribute('data-type'));
+      const salesStart = hankaku2Zenkaku(articleSetting[0].getAttribute('data-order-start'));
+      const salesStarts = salesStart.split('/');
+      prd[i]['salesStartYear'] = salesStarts[0];
+      prd[i]['salesStartMonth'] = salesStarts[1]
+      prd[i]['salesStartDay'] = salesStarts[2]
+      prd[i]['orderStart'] = hankaku2Zenkaku(articleSetting[0].getAttribute('data-order-start'));
+      prd[i]['orderEnd'] = hankaku2Zenkaku(articleSetting[0].getAttribute('data-order-end'));
+      prd[i]['link'] = articleBoxs[i].getElementsByTagName("a")[0].href;
+      prd[i]['img'] = articleBoxs[i].getElementsByTagName("img")[0];
+      const articleTitle = articleBoxs[i].getElementsByClassName("title")[0];
+      prd[i]['title'] = articleTitle.getElementsByTagName("a")[0].textContent;
+      prd[i]['original'] = articleSetting[0].getAttribute('original_title');
+      prd[i]['resale'] = articleSetting[0].getAttribute('resale');
+    }else{
+      console.log(articleBoxs[i].getElementsByTagName("a")[0].href+'の公開情報が設定されていません');
+    }
+  }
+  prd.sort((a, b) => b.salesStartDay - a.salesStartDay);
+  prd.sort((a, b) => b.salesStartMonth - a.salesStartMonth);
+  prd.sort((a, b) => b.salesStartYear - a.salesStartYear);
+  setting.prototype.prdAll = prd;
+}
+function setProduct(){
+  const cms_block = document.getElementById('cms_block');
+  cms_block.innerHTML = '';
+  const select = _getFilter();
+  const prds = _prdFilter();
+  const addHash = _serchHash();
+  location.hash = addHash;
+  if(select.year == 0){
+    _printPrdAll()
+  }else{
+    _printPrdLayout(select.year)
+  }
+  function _printPrdBox(prdData){
+    const productBox = document.createElement('li');
+    productBox.classList.add('productBox');
+
+    const productBoxLink = document.createElement('a');
+    productBoxLink.href=prdData.link+addHash;
+
+    const productBoxImg = document.createElement('div');
+    productBoxImg.classList.add('productBox__img');
+    const productBoxImgImg = prdData.img;
+    productBoxImg.appendChild(productBoxImgImg);
+    productBoxLink.appendChild(productBoxImg);
+
+    const productBoxBody = document.createElement('div');
+    productBoxBody.classList.add('productBox__body');
+    const nowDate = new Date();
+    if (prdData.orderStart != undefined && prdData.orderStart != "") {
+        prdData.orderStart = new Date(prdData.orderStart);
+    } else {
+        prdData.orderStart = nowDate;
+    }
+    if (prdData.orderEnd != undefined && prdData.orderEnd != "") {
+      prdData.orderEnd = new Date(prdData.orderEnd);
+    }else{
+      prdData.orderEnd = -1
+    }
+
+    if (prdData.orderStart <= nowDate && (prdData.orderEnd === -1 || nowDate <= prdData.orderEnd)) {
+      const productBoxLabel = document.createElement('span');
+      productBoxLabel.classList.add('productBox__label')
+      productBoxLabel.append('受注中');
+      productBoxImg.appendChild(productBoxLabel)
+    }
+    if(prdData.resale != 0){
+      const productBoxLabel = document.createElement('span');
+      productBoxLabel.classList.add('productBox__label')
+      productBoxLabel.classList.add('-resale')
+      productBoxLabel.append('再販');
+      productBoxImg.appendChild(productBoxLabel)
+    }
+    const productBoxH3 = document.createElement('h3');
+    productBoxH3.append(prdData.title);
+    productBoxBody.appendChild(productBoxH3)
+    const productBoxP = document.createElement('p');
+    productBoxP.append(prdData.original);
+    productBoxBody.appendChild(productBoxP)
+    
+
+    productBoxLink.appendChild(productBoxBody);
+    productBox.appendChild(productBoxLink);
+
+    return productBox;
+  }
+  function _serchHash(){
+    let result = "";
+    if(select.type != 0 || select.year != 0 || select.month != 0){
+      result = '#';
+      if(select.type != 0){
+        result += 't'+select.type;
+      }
+      if(select.year != 0){
+        if(result != '#'){ result += ','; }
+        result += 'y'+select.year;
+      }
+      if(select.month != 0){
+        if(result != '#'){ result += ','; }
+        result += 'm'+select.month;
+      }
+    }
+    return result;
+  }
+  function _printPrdList(monthData){
+    const productList = document.createElement('ul');
+    productList.classList.add('productList');
+    for(let i=0;i<monthData.length;i++){
+      productList.appendChild(_printPrdBox(monthData[i]));
+    }
+
+    return productList;
+  }
+  function _printPrdBlock(year,month){
+    let monthData = prds.filter(prd => prd["salesStartYear"] == year && prd["salesStartMonth"] == month);
+    if(select.type != 0){
+      monthData = monthData.filter(monthData => monthData["type"] == select.type);
+    }
+    let productBlock = "";
+    if(monthData.length || select.month != 0){
+      productBlock = document.createElement('div');
+      productBlock.classList.add('productBlock');
+      const productBlockHead = document.createElement('div');
+      productBlockHead.classList.add('productBlock__head');
+      const productBlockHeadJA = document.createElement('span');
+      productBlockHeadJA.classList.add('productBlock__head-ja');
+      productBlockHeadJA.append(monthnames[month][0]);
+      const productBlockHeadEN = document.createElement('span');
+      productBlockHeadEN.classList.add('productBlock__head-en');
+      productBlockHeadEN.append(monthnames[month][1]);
+      productBlockHead.append(productBlockHeadJA,productBlockHeadEN);
+      productBlock.appendChild(productBlockHead)
+      if(monthData.length){
+          const productBlockBody = document.createElement('div');
+          productBlockBody.classList.add('productBlock__body');
+
+          productBlockBody.appendChild(_printPrdList(monthData));
+          productBlock.appendChild(productBlockBody)
+      }
+    }else{
+      productBlock = document.createTextNode("");
+    }
+    return productBlock;
+  }
+  function _printPrdAll(){
+    let prdYears = [];
+    const prds = _prdFilter();
+    for(let i=0;i<prds.length;i++){
+      if(prdYears.indexOf(prds[i].salesStartYear)==-1){
+        prdYears.push(prds[i].salesStartYear);
+      }
+    }
+    _prdYearBtnFilter(prdYears)
+    for(let i=0;i<prdYears.length;i++){
+      _printPrdLayout(prdYears[i])
+    }
+  }
+  function _printPrdLayout(year){
+    const product = document.createElement('div');
+    product.classList.add('product','product_fadein');
+
+    const productHead = document.createElement('div');
+    productHead.classList.add('product__head');
+    productHead.append(year)
+
+    const productBody = document.createElement('div');
+    productBody.classList.add('product__body');
+    if(select.month == 0){
+      for(let i=12;i>0;i--){
+        productBody.appendChild(_printPrdBlock(year,i))
+      }
+    }else{
+      productBody.appendChild(_printPrdBlock(year,select.month))
+    }
+
+    product.appendChild(productHead)
+    product.appendChild(productBody)
+    cms_block.appendChild(product)
+  }
+  function _prdYearBtnFilter(years){
+    const choiceYears = document.getElementsByClassName('choiceYear');
+    for(let i=0;i<choiceYears.length;i++){
+      const choiceYear = choiceYears[i];
+      if(choiceYear.getAttribute('data-year') == 0 || years.includes(choiceYear.getAttribute('data-year'))){
+        choiceYear.classList.remove('-disable')
+      }else{
+        choiceYear.classList.add('-disable')
+      }
+    }
+  }
+  function _prdYearFilter(year) {
+    const result = setting.prototype.prdAll.filter(function (p) {
+      return (select.type == 0 || p.type == select.type) && (year == 0 || p.salesStartYear == year);
+    });
+    return result;
+  }
+  function _prdFilter() {
+    const result = setting.prototype.prdAll.filter(function (p) {
+      return (select.type == 0 || p.type == select.type) && (select.year == 0 || p.salesStartYear == select.year) && (select.month == 0 || p.salesStartMonth == select.month);
+    });
+    return result;
+  }
+  function _getFilter(){
+    const result = [];
+    const crtType = document.getElementsByClassName('choiceType is-crt')[0];
+    const crtYear = document.getElementsByClassName('choiceYear is-crt')[0];
+    const crtMonth = document.getElementsByClassName('choiceMonth is-crt')[0];
+    if(crtType){
+      result.type = crtType.getAttribute('data-type');
+    }else{
+      result.type = 0;
+    }
+    if(crtYear){
+      result.year = crtYear.getAttribute('data-year');
+    }else{
+      result.year = 0;
+    }
+    if(result.year != 0 && crtMonth){
+      result.month = crtMonth.getAttribute('data-month');
+    }else{
+      result.month = 0;
+    }
+    return result;
+  }
+}
+function setFilter(){
+  const changeBtn = document.querySelectorAll('.choiceType, .choiceYear, .choiceMonth');
+  _setBtn();
+  function _setBtn(){
+    for(let i=0;i<changeBtn.length;i++){
+      changeBtn[i].addEventListener('click', function(e){
+        _filterClick(e)
+      }, false);
+    }
+    _firstFilter();
+  }
+  function _firstFilter(){
+    const hash = location.hash;
+    const hashTxt = hash.replace("#","")
+    let target = [0,0,0];
+    if(hashTxt.length){
+      const hashs = hashTxt.split(",");
+      for(let i=0;i<hashs.length;i++){
+        switch(hashs[i].charAt(0)){
+          case 't':
+            target[0] = hashs[i].substring(1, hashs[i].length)
+            break
+          case 'y':
+            target[1] = hashs[i].substring(1, hashs[i].length)
+            break
+          case 'm':
+            target[2] = hashs[i].substring(1, hashs[i].length)
+            break
+        }
+      }
+    }
+    _changeMonth(target[2],false)
+    _changeYear(target[1],false)
+    _changeType(target[0],false)
+  }
+  function _filterClick(e){
+    const _this = e.target;
+    if(_this.classList.contains("choiceMonth")){
+      _changeMonth(_this.getAttribute('data-month'))
+    }else{
+      _changeMonth(0)
+      if(_this.classList.contains("choiceYear")){
+        _changeYear(_this.getAttribute('data-year'))
+      }else{
+        _changeYear(0)
+        if(_this.classList.contains("choiceType")){
+          _changeType(_this.getAttribute('data-type'))
+          if(_this.getAttribute('data-year') != null){
+            _changeYear(_this.getAttribute('data-year'))
+          }
+        }
+      }
+    }
+  }
+  function _yearLabel(){
+    const yearLabel = document.getElementById('yearLabel');
+    const crtYear = document.getElementsByClassName('choiceYear is-crt')[0];
+    yearLabel.textContent = crtYear.textContent;
+  }
+  function _monthDisable(crt){
+    const monthBtns = document.getElementsByClassName('choiceMonth');
+    if(crt == 0){
+      for(let i=0;i<monthBtns.length;i++){
+        monthBtns[i].classList.add('disable')
+      }
+    }else{
+      for(let i=0;i<monthBtns.length;i++){
+        monthBtns[i].classList.remove('disable')
+      }
+    }
+  }
+  function _changeType(crt,set=true){
+    _buttonCrt('choiceType',crt,'data-type',set)
+  }
+  function _changeYear(crt,set=true){
+    _buttonCrt('choiceYear',crt,'data-year',set);
+    _monthDisable(crt);
+    _yearLabel();
+
+  }
+  function _changeMonth(crt,set=true){
+    _buttonCrt('choiceMonth',crt,'data-month',set)
+  }
+  
+  function _buttonCrt(className,crt,attrName,set=true){
+    const btns = document.getElementsByClassName(className);
+    for(let i=0;i<btns.length;i++){
+      if(btns[i].getAttribute(attrName) == crt){
+        btns[i].classList.add('is-crt');
+      }else{
+        btns[i].classList.remove('is-crt');
+      }
+    }
+    if(set){
+      setProduct()
+    }
+  }
+}
+document.addEventListener("DOMContentLoaded", function(){
+  if(document.getElementById('list_06') != null){
+    getArticleSetting();
+    setFilter();
+    setProduct();
+  }else{
+    const prdTypes = {1:'AMAKUNI',2:'AMAKUNI機神',3:'AMAKUNI真打',4:'AMAKUNI TECH'};
+    const prdsetting = document.getElementsByClassName('prdsetting');
+    if(prdsetting.length){
+      const prdsettingType = hankaku2Zenkaku(prdsetting[0].getAttribute('data-type'));
+      const panLi = document.createElement('li');
+      panLi.append(prdTypes[prdsettingType]);
+      
+      document.getElementById('pan').children[0].appendChild(panLi)
+    }
+  }
+});
+
+$(function() {
+  $(".termSelect__year").click(
+  function() {
+    $(this).toggleClass("open");
+  });
+  $("#cms_block").addClass("show");
+});
+
+// Title書換
+ function changeTitle() {
+    const productName = $('.product--name').text();
+    const pageTitle = productName;
+    document.title = productName + ' - AMAKUNI';
+    $('#pan ul li:last').text(productName);
+  }
+$(function () {
+  changeTitle();
+});
+</script>
+
+</div>
+</div>
+</div>
+<div class="main_sa04">
+<div class="main_sa04_c">
+<!-- contents start -->
+	<div id="cms_block">
+	<div class="page_294">
+	<div class="block line_00">
+	<div class="block_inner">
+	<div class="original--title"></div><h2 class="articleHead product--name">灰流うらら／遊戯王カードゲーム モンスターフィギュアコレクション</h2>	<div class="atl_inner">
+	<!-- main strings block start -->
+	<div class="read"><!--商品設定
+  data-type=1//AMAKUNI:1,AMAKUNI機神:2,AMAKUNI真打:3,AMAKUNI TECH:4
+  data-sales-start="YYYY/MM/DD"//発送時期
+  data-order-start="YYYY/MM/DD"//受注開始日
+  data-order-end="YYYY/MM/DD"//受注終了日
+  original_title="●●●●"//作品タイトル
+  resale=0//再販ラベル 0:なし,1:あり
+  colabo=0//コラボラベル 0:なし,1:amiami
+-->
+<span class="prdsetting"
+  data-type=1
+  data-sales-start="2025/6/1"
+  data-order-start="2024/9/25"
+  data-order-end="2024/12/17"
+  original_title="遊戯王カードゲームモンスターフィギュアコレクション"
+  resale=0
+  colabo=0
+></span></div>
+	<!-- main strings block end -->
+	</div>
+	</div>
+	</div>
+	<div class="block line_01">
+	<div class="block_inner">
+	<div class="atl_inner">
+	<!-- images block start -->
+	<ul class="tp5">
+<li><div class="ph"><img src="../core_sys/images/contents/00000294/block/00001778/00002807.jpg?1790301603" alt="" title="" /></div><div class="cap_no"></div></li><li><div class="ph"><img src="../core_sys/images/contents/00000294/block/00001778/00002808.jpg?1790301603" alt="" title="" /></div><div class="cap_no"></div></li><li><div class="ph"><img src="../core_sys/images/contents/00000294/block/00001778/00002809.jpg?1790301603" alt="" title="" /></div><div class="cap_no"></div></li><li><div class="ph"><img src="../core_sys/images/contents/00000294/block/00001778/00002810.jpg?1790301603" alt="" title="" /></div><div class="cap_no"></div></li><li><div class="ph"><img src="../core_sys/images/contents/00000294/block/00001778/00002811.jpg?1790301603" alt="" title="" /></div><div class="cap_no"></div></li><li><div class="ph"><img src="../core_sys/images/contents/00000294/block/00001778/00002812.jpg?1790301603" alt="" title="" /></div><div class="cap_no"></div></li><li><div class="ph"><img src="../core_sys/images/contents/00000294/block/00001778/00002813.jpg?1790301603" alt="" title="" /></div><div class="cap_no"></div></li><li><div class="ph"><img src="../core_sys/images/contents/00000294/block/00001778/00002814.jpg?1790301603" alt="" title="" /></div><div class="cap_no"></div></li><li><div class="ph"><img src="../core_sys/images/contents/00000294/block/00001778/00002815.jpg?1790301603" alt="" title="" /></div><div class="cap_no"></div></li><li><div class="ph"><img src="../core_sys/images/contents/00000294/block/00001778/00002816.jpg?1790301603" alt="" title="" /></div><div class="cap_no"></div></li><li><div class="ph"><img src="../core_sys/images/contents/00000294/block/00001778/00002817.jpg?1790301603" alt="" title="" /></div><div class="cap_no"></div></li><li><div class="ph"><img src="../core_sys/images/contents/00000294/block/00001778/00002818.jpg?1790301603" alt="" title="" /></div><div class="cap_no"></div></li><li><div class="ph"><img src="../core_sys/images/contents/00000294/block/00001778/00002819.jpg?1790301603" alt="" title="" /></div><div class="cap_no"></div></li><li><div class="ph"><img src="../core_sys/images/contents/00000294/block/00001778/00002820.jpg?1790301603" alt="" title="" /></div><div class="cap_no"></div></li><li><div class="ph"><img src="../core_sys/images/contents/00000294/block/00001778/00002821.jpg?1790301603" alt="" title="" /></div><div class="cap_no"></div></li><li><div class="ph"><img src="../core_sys/images/contents/00000294/block/00001778/00002822.jpg?1790301603" alt="" title="" /></div><div class="cap_no"></div></li>	</ul>
+	<!-- images block end -->
+	</div>
+	</div>
+	</div>
+	<div class="block line_02">
+	<div class="block_inner">
+	<span class="product--catch block_forming"><i>キャッチコピー等</i></span>	<div class="atl_inner">
+	<!-- main strings block start -->
+	<div class="read"><div class="u-c-purple400 u-fz-25rem u-fw-9 pcatch--text">
+多くのデュエルの場で活躍する超有名モンスターがフィギュアとなって登場！
+</div>
+
+<!--
+<div class="色 大きさ 太さ">
+-->
+</div>
+	<!-- main strings block end -->
+	</div>
+	</div>
+	</div>
+	<div class="block line_03">
+	<div class="block_inner">
+	<span class="product--intro block_forming"><i>-</i></span>	<div class="atl_inner">
+	<!-- main strings block start -->
+	<div class="read">遊戯王カードゲームの25周年を記念して、カードオリジナルのモンスターを立体化していくシリーズ企画「遊戯王カードゲームモンスターフィギュアコレクション」より灰流うららが登場！<br /><br />カードイラストをイメージした、颯爽と手札から現れ身軽に効果を無効にするようなポージングにて立体化。<br /><br />桜を背に舞うような軽やかな着物や、カードでは見えなかった袖から覗く可愛らしい手。<br />華奢で綺麗な足に特徴的な耳と尻尾。<br />そしてうららと言えば、の舌をペロッと出すいたずらっ子の様な無邪気な表情も徹底再現。<br /><br />彼女に助けられ、また追い詰められとデュエル中に手札から無邪気に舞う灰流うらら。<br />手札から捨てられない可愛さたっぷりのこのフィギュアで、ぜひ彼女の魅力をご堪能ください。</div>
+	<!-- main strings block end -->
+	</div>
+	</div>
+	</div>
+	<div class="block line_04">
+	<div class="block_inner">
+		<div class="atl_inner">
+	<!-- main strings block start -->
+	<div class="read"><!--
+<div class="c-youtubeWrap">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/lJ_SJqjeHww" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+--></div>
+	<!-- main strings block end -->
+	</div>
+	</div>
+	</div>
+	<div class="block line_05">
+	<div class="block_inner">
+	<span class="product--detail block_forming"><i>-</i></span>	<div class="atl_inner">
+	<!-- main strings block start -->
+	<div class="read"><ul class="product--product_detail_wrap">
+  <!--左カラム-->
+  <li class="product--product_detail leftAlign">
+    <table>
+      <tr>
+        <th>作品タイトル</th>
+        <td>遊戯王カードゲームモンスターフィギュアコレクション</td>
+      </tr>
+      <tr>
+        <th>価格</th>
+        <td>19,800円（税込）</td>
+      </tr>
+      <tr>
+        <th>発送</th>
+        <td>2025年6月～7月発送予定</td>
+      </tr>
+      <tr>
+        <th>仕様</th>
+        <td>彩色済みPVCモデル 1/7スケール 全高約23cm（頭頂部まで約21cm）</td>
+      </tr>
+      <tr>
+        <th>原型製作</th>
+        <td>i-con（藍色空色）</td>
+      </tr>
+      <tr>
+        <th>彩色見本製作</th>
+        <td>五日市歩</td>
+      </tr>
+      <tr>
+        <th>発売元</th>
+        <td>ホビージャパン</td>
+      </tr>
+      <tr>
+        <th>販売</th>
+        <td>ホビージャパン限定受注アイテム</td>
+      </tr>
+    </table>
+  </li>
+
+</ul></div>
+	<!-- main strings block end -->
+	</div>
+	</div>
+	</div>
+	<div class="block line_06">
+	<div class="block_inner">
+	<span class="product--attent block_forming"><i>注意事項／コピーライト</i></span>	<div class="atl_inner">
+	<!-- main strings block start -->
+	<div class="read"><p class="attention">
+※画像はサンプルとなります。実際の商品とは異なる場合がございます。
+</p>
+<p class="copyright">
+©スタジオ・ダイス／集英社・テレビ東京・KONAMI
+</p></div>
+	<!-- main strings block end -->
+	</div>
+	</div>
+	</div>
+	</div>
+    <p class="backToList"><a id="backlink" href="../product/list00000000.html">Back to List</a></p>
+<script>
+const hash = location.hash;
+const backlink = document.getElementById('backlink');
+backlink.href = backlink.href+hash;
+</script>
+	</div>
+<!-- contents end -->
+</div>
+</div>
+</div>
+</div>
+<!-- ＜main＞end -->
+
+</div>
+</div>
+<!-- ＜contents_main＞end -->
+
+</div>
+</div>
+<!-- ＜contents＞end -->
+
+<!-- ＜ext_area_02＞start -->
+<!-- ＜ext_area_02＞end -->
+
+<!-- ＜footer＞start -->
+<div id="footer">
+<div id="footer_inner">
+<div class="footer_sa02">
+<div class="footer_sa02_c">
+<button class="scrollButton js-scrollToTop" type="button">
+  <div class="inner">
+    <img src="" alt="Scroll to Top">
+  </div>
+</button>
+
+<ul class="socialList -share">
+  <li>
+    <a class="js-share--twitter" href="https://twitter.com/intent/tweet?text=" title="Twitterでシェアする"
+      rel="nofollow noopener noreferrer" target="_blank">
+      <img src="../core_sys/images/main/common/share_x.svg" alt="X">
+    </a>
+  </li>
+</ul>
+
+<ul class="socialList -sns">
+  <li>
+    <a class="" href="https://www.facebook.com/hjshohin/" title="Facebook"
+      rel="nofollow noopener noreferrer" target="_blank">
+      <img src="../core_sys/images/main/common/share_facebook.svg" alt="Facebook">
+    </a>
+  </li>
+  <li>
+    <a class="js-share--instagram" href="https://www.instagram.com/hj_shohin/?hl=ja" title="Instagram"
+      rel="nofollow noopener noreferrer" target="_blank">
+      <img src="../core_sys/images/main/common/share_instagram.svg" alt="Instagram">
+    </a>
+  </li>
+</ul>
+
+<div class="footer_logo"><img src="../core_sys/images/main/common/amakuni_logo.png" alt="AMAKUNI">
+</div>
+<p class="copyrights"><small>&copy; AMAKUNI</small></p></div>
+</div>
+<div class="footer_sa03">
+<div class="footer_sa03_l">
+<script>
+
+MAVJS.addUserAgent();
+
+$(function(){
+
+  // 相対リンクのindex.html削除
+  MAVJS.removeIndexHtml();
+
+  // rel="noopener noreferrer"追加
+  MAVJS.addRelNoopener();
+
+  // カスタムマーカーリスト
+  MAVJS.customMarkerList();
+
+  // スムーススクロール(offsetY, time, easing);
+  MAVJS.smoothScroll( -50, 1000, "easeInOutQuint" );
+
+  // NEWマーク移動（classを付与したいtrまたは、.nwu_boxを指定）
+  MAVJS.addNewMark("#news_block #list_01 tr, #nwu_001_t tr");
+
+  // リストのリンク全体化（リンクにしたいtrまたは、.nwu_boxを指定）
+  MAVJS.anchorParentClickable("#nwu_001_t table tr");  
+
+
+  /* ==========================================
+  ソーシャルシェア設定
+  #@なし、カンマ区切り、なしの場合空白 ""
+  ========================================== */
+  MAVJS.socialShare(
+    // ツイートハッシュタグ
+    "",
+
+    // ツイートおすすめユーザー  
+    ""
+  );
+
+  /* ==========================================
+  モーダル汎用class
+  ========================================== */
+  $('.js-modalImgLink').magnificPopup({
+    disableOn: 0,
+    removalDelay: 500,
+    type: 'image',
+    fixedContentPos: false
+  });
+
+  $('.js-modalMovieLink').magnificPopup({
+    iframe: {
+      patterns: {
+        youtube: {
+          src: '//www.youtube.com/embed/%id%?autoplay=1&rel=0'
+        }
+      }
+    },
+    disableOn: 0,
+    type: "iframe",
+    mainClass: 'mfp-fade',
+    removalDelay: 500,
+    preloader: false,
+    fixedContentPos: false
+  });
+
+
+    $(window).on("scroll" ,function () {
+        if ($(this).scrollTop() > 500) {
+            $("body").addClass("scrolled");
+        } else {
+            $("body").removeClass("scrolled");
+        }
+    });
+});
+
+
+
+</script></div>
+<div class="footer_sa03_r">
+<script>
+$(function(){
+  // 「前のページへ」「次のページへ」テキスト差し替え
+  MAVJS.replaceTextNextPrev("〈 Prev", "Next 〉");  
+
+  // ページネーション テキスト整形
+  MAVJS.replaceTextPagenation();
+
+  // 「画像 Type_1～3」 レスポンシブ対応用 class変更
+  MAVJS.addClassImgType();
+
+  // 「画像 Type_4」 レスポンシブ対応用 ulに置き換え
+  MAVJS.replaceType4();
+
+  // URL自動aタグ化
+  //MAVJS.createAnchorTag("#news_block .read");
+  MAVJS.createAnchorTag(".block .read");
+
+  // ストーリー用スライダー
+//  MAVJS.slideImg('#js-screen', '.c-no3 .img_link', 0);
+
+  // リストユニット用カレント表示、前・次のページ
+/*
+  MAVJS.listUnitAddCrt(
+    "#c_list_block_0001",    // unitID
+    true,    // 「前・次のページ」リンク有効化
+    false,    // 「前・次のページ」ループするか
+    ".naviArrow__prev",    // 「前のページ」class（aの親）
+    ".naviArrow__next",    // 「次のページ」class（aの親）
+    ".title a",    // nwu_box、tr内のタイトルの取得場所
+    "text"    // タイトルの取得の際の形式 "text" or "html" or "alt"
+  );
+*/
+
+});
+
+/* ==========================================
+*
+*  Swiper.js
+*
+========================================== */
+
+$(function(){
+  $.when(
+    $(".tp5 > li").attr("class", "swiper-slide"),
+    $(".tp5").wrapInner('<div class="swiper-wrapper">'),
+    $(".tp5 .swiper-wrapper").after('  <div class="swiper-button-prev"></div><div class="swiper-button-next"></div>'),
+    $(".tp5").after('<div class="swiper-thumb_wrapper"><div class="swiper-thumb"></div><div class="swiper-button-prev thumb"></div><div class="swiper-button-next thumb"></div></div>'),
+    $(".tp5 .swiper-wrapper").clone().appendTo(".swiper-thumb")
+  ).done(function(){
+    var sliderSelector = '.swiper-thumb'; // サムネコンテナ
+    var slidesPerView = 8;
+    var $slide = $(sliderSelector + ' .swiper-slide');
+    var slidable = $slide.length > slidesPerView;
+    var containerModifierClass =  slidable ? 'is-active-' : 'swiper-';
+    var swiper = new Swiper(".swiper-thumb", {
+      containerModifierClass: containerModifierClass,
+      loopAdditionalSlides: false,
+      spaceBetween: 5,
+      slidesPerView: 5.5,
+      freeMode: false,
+      watchSlidesProgress: true,
+      navigation: {
+        nextEl: '.swiper-button-next.thumb',
+        prevEl: '.swiper-button-prev.thumb',
+      },
+      breakpoints: {
+        601: {
+          slidesPerView: slidesPerView,
+      },
+    }
+    });
+    var swiper2 = new Swiper(".tp5", {
+      loop: true,
+      spaceBetween: 0,
+      autoHeight: true,
+//      initialSlide: 1,
+      thumbs: {
+        swiper: swiper,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      zoom: {
+        maxRatio: 3,
+      },
+    });
+  });
+
+});
+
+/*受注表記移動*/
+$(function() {
+  $(".nwu_box .order_timer").each(function(index, element) {
+    $(this).parent().siblings(".sm").append(this);
+    return true;
+  });
+});
+
+/*作品タイトル処理*/
+$(function() {
+  const originalTtl = $('.prdsetting').attr('original_title');
+  $(".original--title").text(originalTtl);
+  console.log(originalTtl);
+});
+
+/*該当製品有無処理*/
+  $(function () {
+    $(".productBlock__body").each(function () {
+      $(this).parents(".productBlock").addClass("productExist");
+    });
+  });
+
+/*子要素取得*/
+$(function() {
+  const prdsetting = $('.prdsetting');
+  $(".block").has(".block_forming").each(function(){
+    $(this).addClass("productBlock_forming");
+  });
+  $(".block").has("ul.product--product_detail_wrap").each(function(){
+    $(this).find("ul.product--product_detail_wrap").after(orderPeriod(prdsetting));
+  });
+  $(".block").has(".smoothSkin").each(function(){
+    $(this).addClass("smoothSkin").find("ul.product--product_detail_wrap").after('<div class="specialProcess"></div>');
+  });
+  $(".block").has(".amiami_collab").each(function(){
+    $(".attention").before('<div class="collaboMark"></div>');
+  });
+  $(".block").has(".product--catch").each(function(){
+    $(this).addClass("productBlock--catch");
+  });
+  $(".block").has(".product--intro").each(function(){
+    $(this).addClass("productBlock--intro");
+  });
+  $(".block").has(".product--detail").each(function(){
+    $(this).addClass("productBlock--detail");
+  }); 
+  $(".block").has(".product--attent").each(function(){
+    $(this).addClass("productBlock--attent");
+  }); 
+  $(".block").has(".product--store").each(function(){
+    $(this).addClass("productBlock--store");
+  });
+  $(".productBlock--store .read a").text("ご予約はこちら");
+});
+function dateKanji(date){
+  const dates = date.split('/');
+  const result = dates [0]+"年"+dates [1]+"月"+dates [2]+"日";
+  const undefined = result;
+  console.log(dates);
+  return result;
+}
+function orderPeriod(setting){
+  const result = $('<div>').addClass('orderPeriod');
+  const prdsettingOrderStart = dateKanji(setting.data('order-start'));
+  const prdsettingOrderEnd = dateKanji(setting.data('order-end'));
+  console.log(prdsettingOrderStart);
+  if(prdsettingOrderEnd.indexOf('undefined') >= 0){
+    $('#cms_block').addClass('orderEndNull');
+  } else if(prdsettingOrderStart.indexOf('undefined') >= 0){
+    $('#cms_block').addClass('orderPeriodNull');
+  }
+  const inner = $('<p>').append('<b>受注期間</b>'+'<u>'+prdsettingOrderStart+'～</u><u class="orderEnd">'+prdsettingOrderEnd+'</u>');
+  result.append(inner)
+  return result;
+}
+
+</script></div>
+</div>
+</div>
+</div>
+<!-- ＜footer＞end -->
+
+</div>
+</div>
+<!-- ＜container＞end -->
+
+</div>
+</div>
+<!-- ＜wrapper＞01end -->
+
+</body>
+</html>
+<!-- InstanceEnd -->

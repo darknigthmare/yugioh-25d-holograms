@@ -1,0 +1,1672 @@
+[
+  {
+    "code": 14558127,
+    "name": "Ash Blossom & Joyous Spring",
+    "artId": 14558127,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/14558127.jpg",
+    "local": "public/cards/cropped/14558127.jpg",
+    "bytes": 112173,
+    "sha256": "4559bb6409b939a0640ce0b080ee7131851000a51448bb79af616d1bc44e1b3a",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 88819587,
+    "name": "Baby Dragon",
+    "artId": 88819587,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/88819587.jpg",
+    "local": "public/cards/cropped/88819587.jpg",
+    "bytes": 112079,
+    "sha256": "e91b4ba817ea30168d0d0ea4e379f76927e5a37dc82aaf2b7e8c9b1a7b217d3b",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 5053103,
+    "name": "Battle Ox",
+    "artId": 5053103,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/5053103.jpg",
+    "local": "public/cards/cropped/5053103.jpg",
+    "bytes": 117361,
+    "sha256": "2daec0e8128152d65a5f998e0d9f1ce2b158fc108afc9e653cc20bf36c30b48b",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 32452818,
+    "name": "Beaver Warrior",
+    "artId": 32452818,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/32452818.jpg",
+    "local": "public/cards/cropped/32452818.jpg",
+    "bytes": 98870,
+    "sha256": "26e5dfde049976291121af687690e9691255bafd1042a94b5d148508ae6daa71",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 72989439,
+    "name": "Black Luster Soldier - Envoy of the Beginning",
+    "artId": 72989439,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/72989439.jpg",
+    "local": "public/cards/cropped/72989439.jpg",
+    "bytes": 135032,
+    "sha256": "529c33c70e929d3f46753cd7345862f2ec698a6a429995cbef8395de77723a5c",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 23995346,
+    "name": "Blue-Eyes Ultimate Dragon",
+    "artId": 23995346,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/23995346.jpg",
+    "local": "public/cards/cropped/23995346.jpg",
+    "bytes": 125110,
+    "sha256": "d4814852ce92bcd3ff7fd09785f72b40e9a6103f7a37516d90e196e42f3637c5",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 89631139,
+    "name": "Blue-Eyes White Dragon",
+    "artId": 89631139,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/89631139.jpg",
+    "local": "public/cards/cropped/89631139.jpg",
+    "bytes": 168069,
+    "sha256": "09f5b2399875b2e6523f6825d5d19375c81e398ba2487d1bd5e7d8254a691671",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 91152256,
+    "name": "Celtic Guardian",
+    "artId": 91152256,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/91152256.jpg",
+    "local": "public/cards/cropped/91152256.jpg",
+    "bytes": 118462,
+    "sha256": "344d22059ce3dd807bd20bf5ee28f201516f2f60ca31be944fe987ca7157e983",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 28279543,
+    "name": "Curse of Dragon",
+    "artId": 28279543,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/28279543.jpg",
+    "local": "public/cards/cropped/28279543.jpg",
+    "bytes": 94250,
+    "sha256": "c14d8db8e1812a0de5becc128b0685142dd1f2f61e9673f6951722acab1447c0",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 70095154,
+    "name": "Cyber Dragon",
+    "artId": 70095154,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/70095154.jpg",
+    "local": "public/cards/cropped/70095154.jpg",
+    "bytes": 95722,
+    "sha256": "439dae7945b62411c55ccf59f82d8f56049387f49db4c9f2e4420b1482de784c",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 46986414,
+    "name": "Dark Magician",
+    "artId": 46986414,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/46986414.jpg",
+    "local": "public/cards/cropped/46986414.jpg",
+    "bytes": 133569,
+    "sha256": "cffad3a9a824b3d9538dacc23a447a9ba5047079ab84533e9ec8328544df245c",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 38033121,
+    "name": "Dark Magician Girl",
+    "artId": 38033121,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/38033121.jpg",
+    "local": "public/cards/cropped/38033121.jpg",
+    "bytes": 129569,
+    "sha256": "174be1399df0bbfa292edee5975f6b4ef0b99855af8572b16b3400a84b809051",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 89943723,
+    "name": "Elemental HERO Neos",
+    "artId": 89943723,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/89943723.jpg",
+    "local": "public/cards/cropped/89943723.jpg",
+    "bytes": 116679,
+    "sha256": "da3174234a14dd5716d57f7966048146d64e1eb85be7f0960a02f0f687f341b1",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 20721928,
+    "name": "Elemental HERO Sparkman",
+    "artId": 20721928,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/20721928.jpg",
+    "local": "public/cards/cropped/20721928.jpg",
+    "bytes": 132364,
+    "sha256": "3c44daf550b8a0573b6f06570544c4b3c04f6083b3a630571b12960900576fae",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 28649820,
+    "name": "Embodiment of Apophis",
+    "artId": 28649820,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/28649820.jpg",
+    "local": "public/cards/cropped/28649820.jpg",
+    "bytes": 141263,
+    "sha256": "eaaeb38bcd2dfa389d96e5769fb978e8ebf04b9ce2d79b5a6dd67ce094797895",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 13039848,
+    "name": "Giant Soldier of Stone",
+    "artId": 13039848,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/13039848.jpg",
+    "local": "public/cards/cropped/13039848.jpg",
+    "bytes": 111288,
+    "sha256": "4f1378e1c7a189de7a93219b5edcfb36206c38f229af9060bfe46c388a7d7dc9",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 63977008,
+    "name": "Junk Synchron",
+    "artId": 63977008,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/63977008.jpg",
+    "local": "public/cards/cropped/63977008.jpg",
+    "bytes": 137838,
+    "sha256": "94f62ef709b079e192579aab0422b6ec52c1273e5343483950bccb4c5157a8d0",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 40640057,
+    "name": "Kuriboh",
+    "artId": 40640057,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/40640057.jpg",
+    "local": "public/cards/cropped/40640057.jpg",
+    "bytes": 106196,
+    "sha256": "9721575e23dd4bd77230457610f34c15dedd3aa3aa422ba7abbf1c795e23d3b9",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 97590747,
+    "name": "La Jinn the Mystical Genie of the Lamp",
+    "artId": 97590747,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/97590747.jpg",
+    "local": "public/cards/cropped/97590747.jpg",
+    "bytes": 98527,
+    "sha256": "64185c1dcbb5446ddfdfe2b5e6e23f98109f91f6889a369ad78f68380f717374",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 77637979,
+    "name": "LANphorhynchus",
+    "artId": 77637979,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/77637979.jpg",
+    "local": "public/cards/cropped/77637979.jpg",
+    "bytes": 132348,
+    "sha256": "b1ff9cd23453dd052332108bbf5102088abab1776a952abd7d8f88a45e5aee0f",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 31560081,
+    "name": "Magician of Faith",
+    "artId": 31560081,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/31560081.jpg",
+    "local": "public/cards/cropped/31560081.jpg",
+    "bytes": 96381,
+    "sha256": "b488bad35be7d09fbf4e1f41d39823038c88acf72fb38539f58206db3790d4de",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 54652250,
+    "name": "Man-Eater Bug",
+    "artId": 54652250,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/54652250.jpg",
+    "local": "public/cards/cropped/54652250.jpg",
+    "bytes": 76836,
+    "sha256": "cd2953d41b9c0d560de86a51e54c06d0138a079d56c6ae81e4ee8bcf5aa6aba0",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 26905245,
+    "name": "Metal Reflect Slime",
+    "artId": 26905245,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/26905245.jpg",
+    "local": "public/cards/cropped/26905245.jpg",
+    "bytes": 165498,
+    "sha256": "da4105f998aea65251d2c1f0e3c92ae1802012ddfdb482b997fdbda59846aa60",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 15025844,
+    "name": "Mystical Elf",
+    "artId": 15025844,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/15025844.jpg",
+    "local": "public/cards/cropped/15025844.jpg",
+    "bytes": 63708,
+    "sha256": "8c8af1fe5a9442fa57115e5ac4b8244c71242c00974e171d4c630b2034d586c2",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 39552864,
+    "name": "Mystical Shine Ball",
+    "artId": 39552864,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/39552864.jpg",
+    "local": "public/cards/cropped/39552864.jpg",
+    "bytes": 83296,
+    "sha256": "f9436246d49bdc6108dd7ae8a8be8ed51ad60bb49e660b85876d93fddef74d46",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 84013237,
+    "name": "Number 39: Utopia",
+    "artId": 84013237,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/84013237.jpg",
+    "local": "public/cards/cropped/84013237.jpg",
+    "bytes": 109541,
+    "sha256": "424dae117660f7ec264d3abc2b5083623085857f23ae4f63c5a827f57228c456",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 10000000,
+    "name": "Obelisk the Tormentor",
+    "artId": 10000000,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/10000000.jpg",
+    "local": "public/cards/cropped/10000000.jpg",
+    "bytes": 134634,
+    "sha256": "8982f5f5d38bae8e743f015286247d68f03ea8140ffe9d1589cfe9f947a50efc",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 74677422,
+    "name": "Red-Eyes Black Dragon",
+    "artId": 74677422,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/74677422.jpg",
+    "local": "public/cards/cropped/74677422.jpg",
+    "bytes": 92578,
+    "sha256": "c4b7c037546f337bdc90d75972b9443dde0877caf7d1fa2a97e928782c2ccfd2",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 66602787,
+    "name": "Saggi the Dark Clown",
+    "artId": 66602787,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/66602787.jpg",
+    "local": "public/cards/cropped/66602787.jpg",
+    "bytes": 113039,
+    "sha256": "c87e6d421f62ebe46c30e887dc1b37066f84b561a5a79ccb38e7c73e431650a5",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 26202165,
+    "name": "Sangan",
+    "artId": 26202165,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/26202165.jpg",
+    "local": "public/cards/cropped/26202165.jpg",
+    "bytes": 118355,
+    "sha256": "7183c9a0ca47c609bbb0a6abb9a4d84f29f83036b412863a0c9524f54e8be6c5",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 10000020,
+    "name": "Slifer the Sky Dragon",
+    "artId": 10000020,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/10000020.jpg",
+    "local": "public/cards/cropped/10000020.jpg",
+    "bytes": 152008,
+    "sha256": "b5fa4c8979ee56b94fa7ae4e1052ee20af3917e665dd0dfaf4b25d8320060cf6",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 68638985,
+    "name": "Slime Toad",
+    "artId": 68638985,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/68638985.jpg",
+    "local": "public/cards/cropped/68638985.jpg",
+    "bytes": 73889,
+    "sha256": "745aa27440868152ec7b6c8c3fddbaa3c353c12710d8a6137df0f6e20feb62ac",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 44508094,
+    "name": "Stardust Dragon",
+    "artId": 44508094,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/44508094.jpg",
+    "local": "public/cards/cropped/44508094.jpg",
+    "bytes": 264358,
+    "sha256": "a1824b6379bbcd3d385090c4ecf9ec6bd50862c7b816220c0b4103ecc4a74260",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 70781052,
+    "name": "Summoned Skull",
+    "artId": 70781052,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/70781052.jpg",
+    "local": "public/cards/cropped/70781052.jpg",
+    "bytes": 93947,
+    "sha256": "161faa58ed999149be77a32d652c45939fef14cdedd9fd2e1a69a134b98c709f",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 10000010,
+    "name": "The Winged Dragon of Ra",
+    "artId": 10000010,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/10000010.jpg",
+    "local": "public/cards/cropped/10000010.jpg",
+    "bytes": 145377,
+    "sha256": "fc7e54ffd8d56d493f039e93e8e9d2a94d09f0f3154340fac42110c274e1a64e",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 71625222,
+    "name": "Time Wizard",
+    "artId": 71625222,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/71625222.jpg",
+    "local": "public/cards/cropped/71625222.jpg",
+    "bytes": 112587,
+    "sha256": "aeb7b73333ac3690cf6093259af71c2517eecce8d291dfdc68816315a9a4389e",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": true,
+    "existing": true,
+    "version": "Primary original artwork",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 14558127,
+    "name": "Ash Blossom & Joyous Spring",
+    "artId": 14558128,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/14558128.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/14558128.jpg",
+    "bytes": 166404,
+    "sha256": "aecf25861cc60c1fd065d1977a085e87b1b22766058e689e9794bbb58bf6bd90",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 23995346,
+    "name": "Blue-Eyes Ultimate Dragon",
+    "artId": 23995347,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/23995347.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/23995347.jpg",
+    "bytes": 137961,
+    "sha256": "bfa4b98d5331f37e7dab69cf6330b94eab738708701844bf3e0822b6bf441e49",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 23995346,
+    "name": "Blue-Eyes Ultimate Dragon",
+    "artId": 23995348,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/23995348.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/23995348.jpg",
+    "bytes": 160712,
+    "sha256": "26e613039b02e63da80e0a88a0381df8dd8a2b3f703d5a0a5cb934b5be62c888",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 89631139,
+    "name": "Blue-Eyes White Dragon",
+    "artId": 89631140,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/89631140.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/89631140.jpg",
+    "bytes": 130486,
+    "sha256": "83b7facf6f5bd92998aef64e046d8deab9e9e7c1692aec5b7769a33d12d28352",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 89631139,
+    "name": "Blue-Eyes White Dragon",
+    "artId": 89631141,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/89631141.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/89631141.jpg",
+    "bytes": 162800,
+    "sha256": "16a731fa4307c3bf5eee6985e9198570ef3d5e920676447debdf47bc9f3d88b6",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 89631139,
+    "name": "Blue-Eyes White Dragon",
+    "artId": 89631142,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/89631142.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/89631142.jpg",
+    "bytes": 154669,
+    "sha256": "2aa5ecbedffced6acfcab7ad0de40e5b3ea1a65728f64692ff69ac2b8d136571",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged.",
+    "samePoseAs": 89631141,
+    "anglePolicy": "Distinct asset with attack/lighting variation; not counted as a new anatomical angle."
+  },
+  {
+    "code": 89631139,
+    "name": "Blue-Eyes White Dragon",
+    "artId": 89631143,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/89631143.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/89631143.jpg",
+    "bytes": 82257,
+    "sha256": "fbdfba03a483dde792754739b08b94cedf746588f5d8761fb6f7759f4107225c",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 89631139,
+    "name": "Blue-Eyes White Dragon",
+    "artId": 89631144,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/89631144.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/89631144.jpg",
+    "bytes": 96583,
+    "sha256": "d30cb0e3687cfbb1dd38a27a3341995860d8e5df52657f622e213efa5e5452b8",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 89631139,
+    "name": "Blue-Eyes White Dragon",
+    "artId": 89631145,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/89631145.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/89631145.jpg",
+    "bytes": 122488,
+    "sha256": "e8a665267d4400a08f5a6f95ce525d55832725a3f9c55bebe259ca3b365be660",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 89631139,
+    "name": "Blue-Eyes White Dragon",
+    "artId": 89631146,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/89631146.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/89631146.jpg",
+    "bytes": 135045,
+    "sha256": "476d40b79a2da80e4c562eabff80523231480650600799c1c29cdeb22aeebd2f",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 91152256,
+    "name": "Celtic Guardian",
+    "artId": 91152257,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/91152257.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/91152257.jpg",
+    "bytes": 130533,
+    "sha256": "214c61769103cf6cfb73250e3331411a1a97aba006327753183dcf12c37a9d29",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 91152256,
+    "name": "Celtic Guardian",
+    "artId": 91152258,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/91152258.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/91152258.jpg",
+    "bytes": 163919,
+    "sha256": "1912d97476c0b765ba80a95281c45d5df081e42ff397b234acb6c257b7ad67d7",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged.",
+    "excludedReason": "Distinct costume/color treatment; availability documented, not used to replace canonical appearance."
+  },
+  {
+    "code": 70095154,
+    "name": "Cyber Dragon",
+    "artId": 70095155,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/70095155.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/70095155.jpg",
+    "bytes": 115245,
+    "sha256": "2a7915a8a79e49feefe74cf0b1842c4b46f3f5d19664756c9fe70d9992535332",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 46986414,
+    "name": "Dark Magician",
+    "artId": 46986415,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/46986415.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/46986415.jpg",
+    "bytes": 549357,
+    "sha256": "34bb03e5071a0c6b6a7402b74df6a402ae11d530cab5a8ac9bf6f57ade71c94e",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 46986414,
+    "name": "Dark Magician",
+    "artId": 46986416,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/46986416.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/46986416.jpg",
+    "bytes": 601103,
+    "sha256": "0da606b197768081bfeb2ad9dc85ee6fe93a3669629d8079b375579592ec4eaa",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 46986414,
+    "name": "Dark Magician",
+    "artId": 46986417,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/46986417.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/46986417.jpg",
+    "bytes": 78527,
+    "sha256": "877375be2af4f006b2432dd6aa684a60815aa8521e85eaa6216f699d41b8fe3f",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged.",
+    "excludedReason": "Distinct costume/color treatment; availability documented, not used to replace canonical appearance."
+  },
+  {
+    "code": 46986414,
+    "name": "Dark Magician",
+    "artId": 46986418,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/46986418.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/46986418.jpg",
+    "bytes": 577274,
+    "sha256": "de9c7743ef681cbc94771560d620cb099a3c93086d68eb2aee8275633a2ccb9c",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 46986414,
+    "name": "Dark Magician",
+    "artId": 46986419,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/46986419.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/46986419.jpg",
+    "bytes": 627954,
+    "sha256": "89f6a381ab44c44c603a0e7c10229cbf43579900cc010c1b0594f713cb0d5415",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged.",
+    "excludedReason": "Distinct costume/color treatment; availability documented, not used to replace canonical appearance."
+  },
+  {
+    "code": 46986414,
+    "name": "Dark Magician",
+    "artId": 36996508,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/36996508.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/36996508.jpg",
+    "bytes": 492511,
+    "sha256": "fa9376efb92c163b78baebadb1978e9619fb0b60fc1c8d85d1acaaa14d213fdd",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged.",
+    "excludedReason": "Distinct costume/color treatment; availability documented, not used to replace canonical appearance."
+  },
+  {
+    "code": 46986414,
+    "name": "Dark Magician",
+    "artId": 46986420,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/46986420.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/46986420.jpg",
+    "bytes": 148413,
+    "sha256": "154759cd374ea496bc6ca07bf4b3c3ee723acb36710220d66518cdf7b7101bfa",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 46986414,
+    "name": "Dark Magician",
+    "artId": 46986421,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/46986421.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/46986421.jpg",
+    "bytes": 624854,
+    "sha256": "0db0452b1ce594911dc44b79d6c5f454fd274de685d31b8729cfcc6b019379de",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 38033121,
+    "name": "Dark Magician Girl",
+    "artId": 38033122,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/38033122.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/38033122.jpg",
+    "bytes": 155592,
+    "sha256": "721908e3526b0b20e37550af7934c7c96e6f9b618ba9ced88ad34f640bf4ac2f",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 38033121,
+    "name": "Dark Magician Girl",
+    "artId": 38033123,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/38033123.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/38033123.jpg",
+    "bytes": 146713,
+    "sha256": "df3469ed4c18e45bd7cb206f74b3e7a7e7d2904b8431f8e62a924fe3c37e9dfb",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 38033121,
+    "name": "Dark Magician Girl",
+    "artId": 38033124,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/38033124.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/38033124.jpg",
+    "bytes": 109017,
+    "sha256": "511a19c9f9076d6b6c9067cdf3cf70f857c4bcc415b9b346c5430c6eef746153",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 38033121,
+    "name": "Dark Magician Girl",
+    "artId": 38033125,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/38033125.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/38033125.jpg",
+    "bytes": 115280,
+    "sha256": "f6bf7c58c493ecc0fb073de36798c5bee2d1809e3f350455a0d5ad642b26b81f",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 38033121,
+    "name": "Dark Magician Girl",
+    "artId": 38033126,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/38033126.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/38033126.jpg",
+    "bytes": 143806,
+    "sha256": "d02d5ce8daaac78e0cd40a38989445fac8c61d3ec61ff381a3b156b7a1effe00",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 89943723,
+    "name": "Elemental HERO Neos",
+    "artId": 89943724,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/89943724.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/89943724.jpg",
+    "bytes": 227593,
+    "sha256": "1ae78ffc98a0075aeca81e96cb099ccf0c8df11f168a70dc8eacd4ce146f87ae",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 20721928,
+    "name": "Elemental HERO Sparkman",
+    "artId": 20721929,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/20721929.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/20721929.jpg",
+    "bytes": 129599,
+    "sha256": "95e19fde04c64140752105321ab5793f3900fc1ed59bdde86531e44957226e3e",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 40640057,
+    "name": "Kuriboh",
+    "artId": 40640058,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/40640058.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/40640058.jpg",
+    "bytes": 102345,
+    "sha256": "04ed52e6f9b0fcbb417a7b76857aadfd7bed3f6f50e84ceab5c92021e9d90646",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 40640057,
+    "name": "Kuriboh",
+    "artId": 40640059,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/40640059.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/40640059.jpg",
+    "bytes": 77398,
+    "sha256": "d0dddae76273d682be6e09e523bd5561d9ba56a63d8e7de92d6495fd6cace67f",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged.",
+    "excludedReason": "Distinct costume/color treatment; availability documented, not used to replace canonical appearance."
+  },
+  {
+    "code": 97590747,
+    "name": "La Jinn the Mystical Genie of the Lamp",
+    "artId": 97590748,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/97590748.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/97590748.jpg",
+    "bytes": 101823,
+    "sha256": "3c178aebe0d4ffb9296a0b3c90c742f7d55fe875c53dc2a1750abfe31de4ae59",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 84013237,
+    "name": "Number 39: Utopia",
+    "artId": 84013238,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/84013238.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/84013238.jpg",
+    "bytes": 193326,
+    "sha256": "1093dd2bc877657750983ed6b49a8c5b3948a56c1e241843a2d8a9b7cea6c36b",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 10000000,
+    "name": "Obelisk the Tormentor",
+    "artId": 10000001,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/10000001.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/10000001.jpg",
+    "bytes": 163403,
+    "sha256": "4ab5a208818ec32872a9da9404f04bdec3be058b304dc1e7630d4b1d477acb87",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 10000000,
+    "name": "Obelisk the Tormentor",
+    "artId": 10000002,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/10000002.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/10000002.jpg",
+    "bytes": 158679,
+    "sha256": "b35720138c431d429dcc239c72618271e3aa1ad058d866183ee5f2016cd35b88",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 74677422,
+    "name": "Red-Eyes Black Dragon",
+    "artId": 74677423,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/74677423.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/74677423.jpg",
+    "bytes": 153442,
+    "sha256": "74236619f0963e51aaf77530d350794e3cbb7cf27c3f89a9d8ed0cafcc0961fb",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 74677422,
+    "name": "Red-Eyes Black Dragon",
+    "artId": 74677424,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/74677424.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/74677424.jpg",
+    "bytes": 120289,
+    "sha256": "9a745fea10f6ed4f6614a40e00502b982fa14e757cc6432265deeb08238c77e3",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 74677422,
+    "name": "Red-Eyes Black Dragon",
+    "artId": 74677425,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/74677425.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/74677425.jpg",
+    "bytes": 110019,
+    "sha256": "4556e8ed66a64f4b630b716e95dc5bd47116adeab4b2560d8735371948781beb",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 74677422,
+    "name": "Red-Eyes Black Dragon",
+    "artId": 74677426,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/74677426.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/74677426.jpg",
+    "bytes": 96762,
+    "sha256": "c0bc315f0c4e4fccf24565604446b8692061a70eebd0104b94518fe700dd105b",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged.",
+    "samePoseAs": 74677425,
+    "anglePolicy": "Distinct asset with attack/lighting variation; not counted as a new anatomical angle."
+  },
+  {
+    "code": 74677422,
+    "name": "Red-Eyes Black Dragon",
+    "artId": 74677427,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/74677427.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/74677427.jpg",
+    "bytes": 145963,
+    "sha256": "c670871ee8686e6f1b0d240d1fe341a7007d35cbd24098bb4dcf19048a48e2e1",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 10000020,
+    "name": "Slifer the Sky Dragon",
+    "artId": 10000021,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/10000021.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/10000021.jpg",
+    "bytes": 151314,
+    "sha256": "eaf2a7f1add119ddb54cf7881a6e399133ec42eb4724052cbcdc737a35c99d31",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 10000020,
+    "name": "Slifer the Sky Dragon",
+    "artId": 10000022,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/10000022.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/10000022.jpg",
+    "bytes": 194534,
+    "sha256": "2c4b21190b2632582c9ac4c43255c48e667e896b57de52efb24cf5ff80f1d7db",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 44508094,
+    "name": "Stardust Dragon",
+    "artId": 44508095,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/44508095.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/44508095.jpg",
+    "bytes": 212830,
+    "sha256": "720a668caed4f9835b3ffad91f797ed2045015402f75c898f9c10a8d663dc6c0",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 70781052,
+    "name": "Summoned Skull",
+    "artId": 70781053,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/70781053.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/70781053.jpg",
+    "bytes": 117584,
+    "sha256": "326e13b790a99f779030d71b07c0d81e046409edfec67c19f64821333cb88406",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 70781052,
+    "name": "Summoned Skull",
+    "artId": 70781054,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/70781054.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/70781054.jpg",
+    "bytes": 117320,
+    "sha256": "a21f3045b73bc93ffeee8ae557b6a679a3be87bfbc0475abe31b37858db083d2",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 70781052,
+    "name": "Summoned Skull",
+    "artId": 70781055,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/70781055.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/70781055.jpg",
+    "bytes": 99088,
+    "sha256": "01fc1a056c8a68d0577c36c9571a2d419ea41f6e27151f3edce3c6c32a5d3b56",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": false,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged.",
+    "excludedReason": "Distinct costume/color treatment; availability documented, not used to replace canonical appearance."
+  },
+  {
+    "code": 10000010,
+    "name": "The Winged Dragon of Ra",
+    "artId": 10000011,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/10000011.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/10000011.jpg",
+    "bytes": 117249,
+    "sha256": "d8be799b9b70bf582b9928f10ec7aa9d1ef6745b08df679d2cf165bf285e044b",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  },
+  {
+    "code": 10000010,
+    "name": "The Winged Dragon of Ra",
+    "artId": 10000012,
+    "url": "https://images.ygoprodeck.com/images/cards_cropped/10000012.jpg",
+    "local": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/10000012.jpg",
+    "bytes": 234834,
+    "sha256": "8fbc3e353bdcca6e0c79daed5c1f183750d4f2c1570323955461ed412f22cf45",
+    "size": [
+      624,
+      624
+    ],
+    "kind": "card-art",
+    "canonical": false,
+    "existing": false,
+    "version": "Alternate artwork listed for this exact card by YGOPRODeck; exact print edition is not established by image metadata",
+    "view": "Original printed composition; cropped silhouette, not an orthographic turnaround",
+    "usedForGeometry": true,
+    "palettePolicy": "Retain primary original palette and costume. Alternate lighting, costume and color are not merged."
+  }
+]

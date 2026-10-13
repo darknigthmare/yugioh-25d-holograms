@@ -1,0 +1,782 @@
+{
+  "executedAtUtc": "2026-10-13T11:28:49.106Z",
+  "source": {
+    "path": "src/ui/HologramTokenSpiritModels.js",
+    "bytes": 40776,
+    "sha256": "7785f5e8edbccaf18e143b9fc799ba0ee7e7ef046987099cb5d3f99ba728c180"
+  },
+  "fixture": {
+    "path": "test/fixtures/token-model-baseline-2026-10-11.json",
+    "bytes": 24037,
+    "sha256": "cee1c62e7aca7d4f33529e009699b8e7be5a6986b56c15b692b351f9d899a51f"
+  },
+  "nativeDataNotWritten": true,
+  "claimedFidelity": "Printed-facing silhouette reconstruction; rear views remain procedural interpretations.",
+  "scope": "Four exact native Token codes, four printed Token scans. Existing 240-code geometry regression run separately.",
+  "references": [
+    {
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/GeneraiderToken-OP13-EN-SR-UE.png",
+      "bytes": 819970,
+      "sha256": "b32150437c3ecd8fb7cf60628661824304753b839bbcd48561ebc2dee6bfa414",
+      "sourcePage": "https://yugipedia.com/wiki/Generaider_Token",
+      "url": "https://ms.yugipedia.com//5/53/GeneraiderToken-OP13-EN-SR-UE.png",
+      "version": "OP13",
+      "dimensions": [
+        479,
+        698
+      ],
+      "independentAngles": 1
+    },
+    {
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/TrickstarToken-OP10-EN-SR-UE.png",
+      "bytes": 761647,
+      "sha256": "25dbb171a7f6accb0b0a289944ae13a353afa2ffbc904b3c7818d73899789941",
+      "sourcePage": "https://yugipedia.com/wiki/Trickstar_Token",
+      "url": "https://ms.yugipedia.com//9/95/TrickstarToken-OP10-EN-SR-UE.png",
+      "version": "OP10",
+      "dimensions": [
+        482,
+        700
+      ],
+      "independentAngles": 1
+    },
+    {
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/MaskToken-OP19-EN-SR-UE.png",
+      "bytes": 1020284,
+      "sha256": "f374ad3e3cad5e9c4e2abce098f3a022e3842455e7310e7cea760ee66b84433a",
+      "sourcePage": "https://yugipedia.com/wiki/Mask_Token",
+      "url": "https://ms.yugipedia.com//6/6b/MaskToken-OP19-EN-SR-UE.png",
+      "version": "OP19",
+      "dimensions": [
+        570,
+        826
+      ],
+      "independentAngles": 1
+    },
+    {
+      "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/DualAvatarSpiritToken-OP14-EN-SR-UE.png",
+      "bytes": 1782285,
+      "sha256": "628fb1d708211158f3daf664b7719225650c49b5efe17bf32be72fbde11c2c62",
+      "sourcePage": "https://yugipedia.com/wiki/Dual_Avatar_Spirit_Token",
+      "url": "https://ms.yugipedia.com//8/89/DualAvatarSpiritToken-OP14-EN-SR-UE.png",
+      "version": "OP14",
+      "dimensions": [
+        684,
+        1000
+      ],
+      "independentAngles": 1
+    }
+  ],
+  "models": [
+    {
+      "code": "38053382",
+      "defense": false,
+      "triangles": 6316,
+      "originalTriangles": 2766,
+      "ratio": 2.2834417932031816,
+      "limit": 13830,
+      "batches": 5,
+      "partCount": 43,
+      "requiredParts": [
+        "token-generaider-crescent-torso",
+        "token-generaider-elliptical-crown",
+        "wing--1-token-generaider-silver-blade",
+        "wing-1-token-generaider-silver-blade",
+        "token-generaider-floating-spear-leg--1"
+      ],
+      "partNames": [
+        "token-generaider-crescent-torso",
+        "token-generaider-tapered-silver-mask",
+        "token-generaider-single-cyan-eye",
+        "token-generaider-face-engraving",
+        "token-generaider-elliptical-crown",
+        "token-generaider-crown-spike-0",
+        "token-generaider-crown-spike-1",
+        "token-generaider-crown-spike-2",
+        "token-generaider-crown-spike-3",
+        "token-generaider-crown-spike-4",
+        "token-generaider-crown-spike-5",
+        "token-generaider-crown-spike-6",
+        "token-generaider-crown-spike-7",
+        "token-generaider-crown-spike-8",
+        "token-generaider-crown-spike-9",
+        "token-generaider-crown-spike-10",
+        "wing--1-token-generaider-silver-blade",
+        "wing--1-token-generaider-blade-engraving",
+        "token-generaider-floating-spear-leg--1",
+        "token-generaider-spear-leg-crease--1",
+        "wing-1-token-generaider-silver-blade",
+        "wing-1-token-generaider-blade-engraving",
+        "token-generaider-floating-spear-leg-1",
+        "token-generaider-spear-leg-crease-1",
+        "token-generaider-crossed-orbit-arms",
+        "token-generaider-right-curved-arm",
+        "token-generaider-violet-chest-jewel",
+        "token-generaider-left-green-arm-jewel",
+        "token-generaider-right-violet-arm-jewel",
+        "token-generaider-gold-crescent-inlay",
+        "token-generaider-lower-jewel-0",
+        "token-generaider-lower-jewel-1",
+        "token-generaider-lower-jewel-2",
+        "projection-circle",
+        "projection-inner-circle",
+        "projection-glyph-0",
+        "projection-glyph-1",
+        "projection-glyph-2",
+        "projection-glyph-3",
+        "projection-glyph-4",
+        "projection-glyph-5",
+        "projection-glyph-6",
+        "projection-glyph-7"
+      ],
+      "joints": [
+        0,
+        1,
+        2,
+        6
+      ],
+      "bounds": {
+        "min": [
+          -0.9947731018066406,
+          0.03735929131507873,
+          -0.6636000096797943
+        ],
+        "max": [
+          1.1642615437507629,
+          2.7992384672164916,
+          0.6636000096797943
+        ]
+      },
+      "geometrySignature": "933bffd74e789f58e2f8c3a08e38b1395c0979e084238b7901bab5fe3832cc41",
+      "disposed": {
+        "geometry": 5,
+        "visibleMaterials": 5,
+        "shadowMaterials": 2
+      }
+    },
+    {
+      "code": "38053382",
+      "defense": true,
+      "triangles": 6884,
+      "originalTriangles": 3334,
+      "ratio": 2.064787042591482,
+      "limit": 16670,
+      "batches": 5,
+      "partCount": 45,
+      "requiredParts": [
+        "token-generaider-crescent-torso",
+        "token-generaider-elliptical-crown",
+        "wing--1-token-generaider-silver-blade",
+        "wing-1-token-generaider-silver-blade",
+        "token-generaider-floating-spear-leg--1"
+      ],
+      "partNames": [
+        "token-generaider-crescent-torso",
+        "token-generaider-tapered-silver-mask",
+        "token-generaider-single-cyan-eye",
+        "token-generaider-face-engraving",
+        "token-generaider-elliptical-crown",
+        "token-generaider-crown-spike-0",
+        "token-generaider-crown-spike-1",
+        "token-generaider-crown-spike-2",
+        "token-generaider-crown-spike-3",
+        "token-generaider-crown-spike-4",
+        "token-generaider-crown-spike-5",
+        "token-generaider-crown-spike-6",
+        "token-generaider-crown-spike-7",
+        "token-generaider-crown-spike-8",
+        "token-generaider-crown-spike-9",
+        "token-generaider-crown-spike-10",
+        "wing--1-token-generaider-silver-blade",
+        "wing--1-token-generaider-blade-engraving",
+        "token-generaider-floating-spear-leg--1",
+        "token-generaider-spear-leg-crease--1",
+        "wing-1-token-generaider-silver-blade",
+        "wing-1-token-generaider-blade-engraving",
+        "token-generaider-floating-spear-leg-1",
+        "token-generaider-spear-leg-crease-1",
+        "token-generaider-crossed-orbit-arms",
+        "token-generaider-right-curved-arm",
+        "token-generaider-violet-chest-jewel",
+        "token-generaider-left-green-arm-jewel",
+        "token-generaider-right-violet-arm-jewel",
+        "token-generaider-gold-crescent-inlay",
+        "token-generaider-lower-jewel-0",
+        "token-generaider-lower-jewel-1",
+        "token-generaider-lower-jewel-2",
+        "projection-circle",
+        "projection-inner-circle",
+        "projection-glyph-0",
+        "projection-glyph-1",
+        "projection-glyph-2",
+        "projection-glyph-3",
+        "projection-glyph-4",
+        "projection-glyph-5",
+        "projection-glyph-6",
+        "projection-glyph-7",
+        "defense-barrier",
+        "defense-barrier-rim"
+      ],
+      "joints": [
+        0,
+        1,
+        2,
+        6
+      ],
+      "bounds": {
+        "min": [
+          -0.9947731018066406,
+          -0.02799999937415123,
+          -0.6636000096797943
+        ],
+        "max": [
+          1.1642615437507629,
+          2.7992384672164916,
+          0.7560000300407409
+        ]
+      },
+      "geometrySignature": "0885c6df566962985b3756a894452478091dd3661448370bfcceed8c27866eb8",
+      "disposed": {
+        "geometry": 5,
+        "visibleMaterials": 5,
+        "shadowMaterials": 2
+      }
+    },
+    {
+      "code": "51208047",
+      "defense": false,
+      "triangles": 6544,
+      "originalTriangles": 2766,
+      "ratio": 2.36587129428778,
+      "limit": 13830,
+      "batches": 5,
+      "partCount": 23,
+      "requiredParts": [
+        "token-trickstar-winged-heart-skull",
+        "wing--1-token-trickstar-white-feather-wing",
+        "wing-1-token-trickstar-white-feather-wing",
+        "token-trickstar-curled-green-stem",
+        "token-trickstar-blue-stem-pearl"
+      ],
+      "partNames": [
+        "token-trickstar-winged-heart-skull",
+        "token-trickstar-green-heart-outline",
+        "wing--1-token-trickstar-white-feather-wing",
+        "wing--1-token-trickstar-inner-feather-line",
+        "token-trickstar-empty-lavender-eye--1",
+        "wing-1-token-trickstar-white-feather-wing",
+        "wing-1-token-trickstar-inner-feather-line",
+        "token-trickstar-empty-lavender-eye-1",
+        "token-trickstar-small-open-mouth",
+        "token-trickstar-curled-green-stem",
+        "token-trickstar-stem-dark-edge",
+        "token-trickstar-blue-stem-pearl",
+        "token-trickstar-pearl-highlight",
+        "projection-circle",
+        "projection-inner-circle",
+        "projection-glyph-0",
+        "projection-glyph-1",
+        "projection-glyph-2",
+        "projection-glyph-3",
+        "projection-glyph-4",
+        "projection-glyph-5",
+        "projection-glyph-6",
+        "projection-glyph-7"
+      ],
+      "joints": [
+        0,
+        1,
+        2,
+        6
+      ],
+      "bounds": {
+        "min": [
+          -1.2916700839996338,
+          0.03735929131507873,
+          -0.6636000096797943
+        ],
+        "max": [
+          1.2916700839996338,
+          2.449236798286438,
+          0.6636000096797943
+        ]
+      },
+      "geometrySignature": "f384980e4440dbbd13614b65547ca43b4ad83a3f28d1c160bc26a49459393a3d",
+      "disposed": {
+        "geometry": 5,
+        "visibleMaterials": 5,
+        "shadowMaterials": 2
+      }
+    },
+    {
+      "code": "51208047",
+      "defense": true,
+      "triangles": 7112,
+      "originalTriangles": 3334,
+      "ratio": 2.1331733653269347,
+      "limit": 16670,
+      "batches": 5,
+      "partCount": 25,
+      "requiredParts": [
+        "token-trickstar-winged-heart-skull",
+        "wing--1-token-trickstar-white-feather-wing",
+        "wing-1-token-trickstar-white-feather-wing",
+        "token-trickstar-curled-green-stem",
+        "token-trickstar-blue-stem-pearl"
+      ],
+      "partNames": [
+        "token-trickstar-winged-heart-skull",
+        "token-trickstar-green-heart-outline",
+        "wing--1-token-trickstar-white-feather-wing",
+        "wing--1-token-trickstar-inner-feather-line",
+        "token-trickstar-empty-lavender-eye--1",
+        "wing-1-token-trickstar-white-feather-wing",
+        "wing-1-token-trickstar-inner-feather-line",
+        "token-trickstar-empty-lavender-eye-1",
+        "token-trickstar-small-open-mouth",
+        "token-trickstar-curled-green-stem",
+        "token-trickstar-stem-dark-edge",
+        "token-trickstar-blue-stem-pearl",
+        "token-trickstar-pearl-highlight",
+        "projection-circle",
+        "projection-inner-circle",
+        "projection-glyph-0",
+        "projection-glyph-1",
+        "projection-glyph-2",
+        "projection-glyph-3",
+        "projection-glyph-4",
+        "projection-glyph-5",
+        "projection-glyph-6",
+        "projection-glyph-7",
+        "defense-barrier",
+        "defense-barrier-rim"
+      ],
+      "joints": [
+        0,
+        1,
+        2,
+        6
+      ],
+      "bounds": {
+        "min": [
+          -1.2916700839996338,
+          -0.02799999937415123,
+          -0.6636000096797943
+        ],
+        "max": [
+          1.2916700839996338,
+          2.449236798286438,
+          0.7560000300407409
+        ]
+      },
+      "geometrySignature": "073e99355f52a9e9a98e54d1d269049ce9f090fe65f91a9e9e18040803428295",
+      "disposed": {
+        "geometry": 5,
+        "visibleMaterials": 5,
+        "shadowMaterials": 2
+      }
+    },
+    {
+      "code": "60514626",
+      "defense": false,
+      "triangles": 8832,
+      "originalTriangles": 1784,
+      "ratio": 4.95067264573991,
+      "limit": 8920,
+      "batches": 4,
+      "partCount": 48,
+      "requiredParts": [
+        "token-mask-pear-shaped-body",
+        "token-mask-long-featureless-head",
+        "token-mask-long-drooping-face",
+        "token-mask-asymmetric-dark-face-hollow",
+        "token-mask-wide-foot--1"
+      ],
+      "partNames": [
+        "token-mask-pear-shaped-body",
+        "token-mask-long-featureless-head",
+        "token-mask-long-drooping-face",
+        "token-mask-rounded-nose-tip",
+        "token-mask-asymmetric-dark-face-hollow",
+        "token-mask-left-face-fold",
+        "token-mask-rounded-shoulder--1",
+        "token-mask-rolled-sleeve-cuff--1",
+        "token-mask-bent-arm--1",
+        "token-mask-curled-palm--1",
+        "token-mask-curled-finger--1-0",
+        "token-mask-curled-finger--1-1",
+        "token-mask-curled-finger--1-2",
+        "token-mask-curled-finger--1-3",
+        "token-mask-short-leg--1",
+        "token-mask-wide-foot--1",
+        "token-mask-folded-ankle-cuff--1",
+        "token-mask-foot-top-fold--1",
+        "token-mask-round-toe--1-0",
+        "token-mask-round-toe--1-1",
+        "token-mask-round-toe--1-2",
+        "token-mask-round-toe--1-3",
+        "token-mask-rounded-shoulder-1",
+        "token-mask-rolled-sleeve-cuff-1",
+        "token-mask-bent-arm-1",
+        "token-mask-curled-palm-1",
+        "token-mask-curled-finger-1-0",
+        "token-mask-curled-finger-1-1",
+        "token-mask-curled-finger-1-2",
+        "token-mask-curled-finger-1-3",
+        "token-mask-short-leg-1",
+        "token-mask-wide-foot-1",
+        "token-mask-folded-ankle-cuff-1",
+        "token-mask-foot-top-fold-1",
+        "token-mask-round-toe-1-0",
+        "token-mask-round-toe-1-1",
+        "token-mask-round-toe-1-2",
+        "token-mask-round-toe-1-3",
+        "projection-circle",
+        "projection-inner-circle",
+        "projection-glyph-0",
+        "projection-glyph-1",
+        "projection-glyph-2",
+        "projection-glyph-3",
+        "projection-glyph-4",
+        "projection-glyph-5",
+        "projection-glyph-6",
+        "projection-glyph-7"
+      ],
+      "joints": [
+        0,
+        6
+      ],
+      "bounds": {
+        "min": [
+          -0.9793161392211913,
+          0.03735929131507873,
+          -0.6636000096797943
+        ],
+        "max": [
+          0.9793161392211913,
+          2.1419999599456787,
+          0.6636000096797943
+        ]
+      },
+      "geometrySignature": "385b515ba0d5f900d2bf9da702f47d8880cc1a9dc00dbc65a1bded09368e01f6",
+      "disposed": {
+        "geometry": 4,
+        "visibleMaterials": 4,
+        "shadowMaterials": 2
+      }
+    },
+    {
+      "code": "60514626",
+      "defense": true,
+      "triangles": 9400,
+      "originalTriangles": 2352,
+      "ratio": 3.996598639455782,
+      "limit": 11760,
+      "batches": 4,
+      "partCount": 50,
+      "requiredParts": [
+        "token-mask-pear-shaped-body",
+        "token-mask-long-featureless-head",
+        "token-mask-long-drooping-face",
+        "token-mask-asymmetric-dark-face-hollow",
+        "token-mask-wide-foot--1"
+      ],
+      "partNames": [
+        "token-mask-pear-shaped-body",
+        "token-mask-long-featureless-head",
+        "token-mask-long-drooping-face",
+        "token-mask-rounded-nose-tip",
+        "token-mask-asymmetric-dark-face-hollow",
+        "token-mask-left-face-fold",
+        "token-mask-rounded-shoulder--1",
+        "token-mask-rolled-sleeve-cuff--1",
+        "token-mask-bent-arm--1",
+        "token-mask-curled-palm--1",
+        "token-mask-curled-finger--1-0",
+        "token-mask-curled-finger--1-1",
+        "token-mask-curled-finger--1-2",
+        "token-mask-curled-finger--1-3",
+        "token-mask-short-leg--1",
+        "token-mask-wide-foot--1",
+        "token-mask-folded-ankle-cuff--1",
+        "token-mask-foot-top-fold--1",
+        "token-mask-round-toe--1-0",
+        "token-mask-round-toe--1-1",
+        "token-mask-round-toe--1-2",
+        "token-mask-round-toe--1-3",
+        "token-mask-rounded-shoulder-1",
+        "token-mask-rolled-sleeve-cuff-1",
+        "token-mask-bent-arm-1",
+        "token-mask-curled-palm-1",
+        "token-mask-curled-finger-1-0",
+        "token-mask-curled-finger-1-1",
+        "token-mask-curled-finger-1-2",
+        "token-mask-curled-finger-1-3",
+        "token-mask-short-leg-1",
+        "token-mask-wide-foot-1",
+        "token-mask-folded-ankle-cuff-1",
+        "token-mask-foot-top-fold-1",
+        "token-mask-round-toe-1-0",
+        "token-mask-round-toe-1-1",
+        "token-mask-round-toe-1-2",
+        "token-mask-round-toe-1-3",
+        "projection-circle",
+        "projection-inner-circle",
+        "projection-glyph-0",
+        "projection-glyph-1",
+        "projection-glyph-2",
+        "projection-glyph-3",
+        "projection-glyph-4",
+        "projection-glyph-5",
+        "projection-glyph-6",
+        "projection-glyph-7",
+        "defense-barrier",
+        "defense-barrier-rim"
+      ],
+      "joints": [
+        0,
+        6
+      ],
+      "bounds": {
+        "min": [
+          -0.9793161392211913,
+          -0.02799999937415123,
+          -0.6636000096797943
+        ],
+        "max": [
+          0.9793161392211913,
+          2.26800000667572,
+          0.7560000300407409
+        ]
+      },
+      "geometrySignature": "0f1958d92db88493e5653d4fe8fb9f05a0e0e7f35f900f4e9da9458ed4a57f7c",
+      "disposed": {
+        "geometry": 4,
+        "visibleMaterials": 4,
+        "shadowMaterials": 2
+      }
+    },
+    {
+      "code": "87669905",
+      "defense": false,
+      "triangles": 11588,
+      "originalTriangles": 2338,
+      "ratio": 4.956372968349016,
+      "limit": 11690,
+      "batches": 5,
+      "partCount": 67,
+      "requiredParts": [
+        "token-dual-avatar-seated-lion-body",
+        "token-dual-avatar-rounded-guardian-head",
+        "token-dual-avatar-open-roaring-mouth",
+        "token-dual-avatar-lower-jaw",
+        "token-dual-avatar-swept-lion-tail",
+        "token-dual-avatar-carved-mane-scroll--1-0"
+      ],
+      "partNames": [
+        "token-dual-avatar-seated-lion-body",
+        "token-dual-avatar-broad-lion-chest",
+        "token-dual-avatar-rounded-guardian-head",
+        "token-dual-avatar-open-roaring-mouth",
+        "token-dual-avatar-lower-jaw",
+        "token-dual-avatar-broad-lion-muzzle--1",
+        "token-dual-avatar-white-spirit-eye--1",
+        "token-dual-avatar-swept-eyebrow--1",
+        "token-dual-avatar-round-ear--1",
+        "token-dual-avatar-ear-inner--1",
+        "token-dual-avatar-upper-lion-fang--1",
+        "token-dual-avatar-lower-lion-fang--1",
+        "token-dual-avatar-seated-hind-haunch--1",
+        "token-dual-avatar-curved-front-leg--1",
+        "token-dual-avatar-large-front-paw--1",
+        "token-dual-avatar-front-paw-toe--1-0",
+        "token-dual-avatar-curved-claw--1-0",
+        "token-dual-avatar-front-paw-toe--1-1",
+        "token-dual-avatar-curved-claw--1-1",
+        "token-dual-avatar-front-paw-toe--1-2",
+        "token-dual-avatar-curved-claw--1-2",
+        "token-dual-avatar-carved-mane-scroll--1-0",
+        "token-dual-avatar-carved-mane-scroll--1-1",
+        "token-dual-avatar-carved-mane-scroll--1-2",
+        "token-dual-avatar-swept-mane-flame--1-0",
+        "token-dual-avatar-swept-mane-flame--1-1",
+        "token-dual-avatar-swept-mane-flame--1-2",
+        "token-dual-avatar-foreleg-cloud-scroll--1",
+        "token-dual-avatar-broad-lion-muzzle-1",
+        "token-dual-avatar-white-spirit-eye-1",
+        "token-dual-avatar-swept-eyebrow-1",
+        "token-dual-avatar-round-ear-1",
+        "token-dual-avatar-ear-inner-1",
+        "token-dual-avatar-upper-lion-fang-1",
+        "token-dual-avatar-lower-lion-fang-1",
+        "token-dual-avatar-seated-hind-haunch-1",
+        "token-dual-avatar-curved-front-leg-1",
+        "token-dual-avatar-large-front-paw-1",
+        "token-dual-avatar-front-paw-toe-1-0",
+        "token-dual-avatar-curved-claw-1-0",
+        "token-dual-avatar-front-paw-toe-1-1",
+        "token-dual-avatar-curved-claw-1-1",
+        "token-dual-avatar-front-paw-toe-1-2",
+        "token-dual-avatar-curved-claw-1-2",
+        "token-dual-avatar-carved-mane-scroll-1-0",
+        "token-dual-avatar-carved-mane-scroll-1-1",
+        "token-dual-avatar-carved-mane-scroll-1-2",
+        "token-dual-avatar-swept-mane-flame-1-0",
+        "token-dual-avatar-swept-mane-flame-1-1",
+        "token-dual-avatar-swept-mane-flame-1-2",
+        "token-dual-avatar-foreleg-cloud-scroll-1",
+        "token-dual-avatar-broad-lion-nose",
+        "token-dual-avatar-carved-nostril--1",
+        "token-dual-avatar-carved-nostril-1",
+        "token-dual-avatar-nose-center-crease",
+        "token-dual-avatar-swept-lion-tail",
+        "token-dual-avatar-tail-flame-tip",
+        "projection-circle",
+        "projection-inner-circle",
+        "projection-glyph-0",
+        "projection-glyph-1",
+        "projection-glyph-2",
+        "projection-glyph-3",
+        "projection-glyph-4",
+        "projection-glyph-5",
+        "projection-glyph-6",
+        "projection-glyph-7"
+      ],
+      "joints": [
+        0,
+        6
+      ],
+      "bounds": {
+        "min": [
+          -0.6930000066757201,
+          0.03735929131507873,
+          -0.6636000096797943
+        ],
+        "max": [
+          0.9659999966621399,
+          2.4010000467300414,
+          0.7421779513359069
+        ]
+      },
+      "geometrySignature": "a7e6e225186b534abf38233d060f6c107c6a048d60d68c244b17acf57e2c6c75",
+      "disposed": {
+        "geometry": 5,
+        "visibleMaterials": 5,
+        "shadowMaterials": 2
+      }
+    },
+    {
+      "code": "87669905",
+      "defense": true,
+      "triangles": 12156,
+      "originalTriangles": 2906,
+      "ratio": 4.183069511355815,
+      "limit": 14530,
+      "batches": 5,
+      "partCount": 69,
+      "requiredParts": [
+        "token-dual-avatar-seated-lion-body",
+        "token-dual-avatar-rounded-guardian-head",
+        "token-dual-avatar-open-roaring-mouth",
+        "token-dual-avatar-lower-jaw",
+        "token-dual-avatar-swept-lion-tail",
+        "token-dual-avatar-carved-mane-scroll--1-0"
+      ],
+      "partNames": [
+        "token-dual-avatar-seated-lion-body",
+        "token-dual-avatar-broad-lion-chest",
+        "token-dual-avatar-rounded-guardian-head",
+        "token-dual-avatar-open-roaring-mouth",
+        "token-dual-avatar-lower-jaw",
+        "token-dual-avatar-broad-lion-muzzle--1",
+        "token-dual-avatar-white-spirit-eye--1",
+        "token-dual-avatar-swept-eyebrow--1",
+        "token-dual-avatar-round-ear--1",
+        "token-dual-avatar-ear-inner--1",
+        "token-dual-avatar-upper-lion-fang--1",
+        "token-dual-avatar-lower-lion-fang--1",
+        "token-dual-avatar-seated-hind-haunch--1",
+        "token-dual-avatar-curved-front-leg--1",
+        "token-dual-avatar-large-front-paw--1",
+        "token-dual-avatar-front-paw-toe--1-0",
+        "token-dual-avatar-curved-claw--1-0",
+        "token-dual-avatar-front-paw-toe--1-1",
+        "token-dual-avatar-curved-claw--1-1",
+        "token-dual-avatar-front-paw-toe--1-2",
+        "token-dual-avatar-curved-claw--1-2",
+        "token-dual-avatar-carved-mane-scroll--1-0",
+        "token-dual-avatar-carved-mane-scroll--1-1",
+        "token-dual-avatar-carved-mane-scroll--1-2",
+        "token-dual-avatar-swept-mane-flame--1-0",
+        "token-dual-avatar-swept-mane-flame--1-1",
+        "token-dual-avatar-swept-mane-flame--1-2",
+        "token-dual-avatar-foreleg-cloud-scroll--1",
+        "token-dual-avatar-broad-lion-muzzle-1",
+        "token-dual-avatar-white-spirit-eye-1",
+        "token-dual-avatar-swept-eyebrow-1",
+        "token-dual-avatar-round-ear-1",
+        "token-dual-avatar-ear-inner-1",
+        "token-dual-avatar-upper-lion-fang-1",
+        "token-dual-avatar-lower-lion-fang-1",
+        "token-dual-avatar-seated-hind-haunch-1",
+        "token-dual-avatar-curved-front-leg-1",
+        "token-dual-avatar-large-front-paw-1",
+        "token-dual-avatar-front-paw-toe-1-0",
+        "token-dual-avatar-curved-claw-1-0",
+        "token-dual-avatar-front-paw-toe-1-1",
+        "token-dual-avatar-curved-claw-1-1",
+        "token-dual-avatar-front-paw-toe-1-2",
+        "token-dual-avatar-curved-claw-1-2",
+        "token-dual-avatar-carved-mane-scroll-1-0",
+        "token-dual-avatar-carved-mane-scroll-1-1",
+        "token-dual-avatar-carved-mane-scroll-1-2",
+        "token-dual-avatar-swept-mane-flame-1-0",
+        "token-dual-avatar-swept-mane-flame-1-1",
+        "token-dual-avatar-swept-mane-flame-1-2",
+        "token-dual-avatar-foreleg-cloud-scroll-1",
+        "token-dual-avatar-broad-lion-nose",
+        "token-dual-avatar-carved-nostril--1",
+        "token-dual-avatar-carved-nostril-1",
+        "token-dual-avatar-nose-center-crease",
+        "token-dual-avatar-swept-lion-tail",
+        "token-dual-avatar-tail-flame-tip",
+        "projection-circle",
+        "projection-inner-circle",
+        "projection-glyph-0",
+        "projection-glyph-1",
+        "projection-glyph-2",
+        "projection-glyph-3",
+        "projection-glyph-4",
+        "projection-glyph-5",
+        "projection-glyph-6",
+        "projection-glyph-7",
+        "defense-barrier",
+        "defense-barrier-rim"
+      ],
+      "joints": [
+        0,
+        6
+      ],
+      "bounds": {
+        "min": [
+          -0.78400000333786,
+          -0.02799999937415123,
+          -0.6636000096797943
+        ],
+        "max": [
+          0.9659999966621399,
+          2.4010000467300414,
+          0.7560000300407409
+        ]
+      },
+      "geometrySignature": "ca3c93f4e544489b509a82ae0f462acdaa620f1146af7dbf74f9c742fbdf93ba",
+      "disposed": {
+        "geometry": 5,
+        "visibleMaterials": 5,
+        "shadowMaterials": 2
+      }
+    }
+  ],
+  "assertions": 532,
+  "ok": true
+}

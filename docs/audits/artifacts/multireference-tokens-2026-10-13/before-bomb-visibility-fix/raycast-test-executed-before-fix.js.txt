@@ -1,0 +1,110 @@
+import assert from 'node:assert/strict';
+import test from 'node:test';
+import { createHash } from 'node:crypto';
+import { Color, Raycaster, Vector3 } from 'three';
+import { createHologramMonsterModel } from '../src/ui/HologramMonsterModels.js';
+import { createHologramPoseAnimation } from '../src/ui/HologramPoseAnimation.js';
+
+const create = id => createHologramMonsterModel({ id: String(id), type: 'Token Monster', isToken: true });
+const release = model => model.traverse(mesh => { mesh.geometry?.dispose(); mesh.material?.dispose(); });
+function signature(model) {
+  const hash = createHash('sha256');
+  for (const mesh of model.children) for (const attribute of ['position', 'normal', 'color', 'hologramJoint']) {
+    hash.update(Buffer.from(mesh.geometry.attributes[attribute].array.buffer));
+  }
+  return hash.digest('hex');
+}
+
+test('the printed drone, liquid snake and impact meteor do not regress to the known false humanoid and horned-dragon silhouettes', () => {
+  for (const [id, forbidden] of [
+    ['645088', /piston-leg|token-gadget-foot|hand-|antenna|humanoid|thigh|shin/],
+    ['23837055', /-horn-|wing-|dorsal|claw|forearm|humanoid|thigh|shin/],
+    ['27204312', /head|eye|shoulder|hand-|fist|pillar-leg|humanoid|thigh|shin/],
+    ['98875864', /digital-|polyhedron|angular-wing|eye|hand-|humanoid/],
+  ]) {
+    const model = create(id);
+    assert.ok(model.children.length > 0 && model.children.length <= 5);
+    assert.equal(model.userData.partNames.some(part => forbidden.test(part)), false, id);
+    assert.equal(model.userData.fidelity, 'procedural-interpretation');
+    for (const mesh of model.children) {
+      assert.equal(mesh.geometry.attributes.normal.count, mesh.geometry.attributes.position.count);
+      assert.equal(mesh.geometry.attributes.hologramJoint.count, mesh.geometry.attributes.position.count);
+      assert.ok(mesh.geometry.attributes.position.array.every(Number.isFinite));
+    }
+    release(model);
+  }
+});
+
+test('printed Lamb and Sheep anatomy differs independently of colour, and Kuriboh retains separate visible hand and foot claws', () => {
+  const lamb = create('60764582'), sheep = create('73915052'), kuriboh = create('40703223');
+  assert.notEqual(signature(lamb), signature(sheep));
+  assert.ok(lamb.userData.partNames.some(name => name.includes('crescent-horn')));
+  assert.equal(sheep.userData.partNames.some(name => name.includes('crescent-horn')), false);
+  assert.equal(kuriboh.userData.partNames.filter(name => /^token-kuriboh-foot-claw-/.test(name)).length, 8);
+  assert.equal(kuriboh.userData.partNames.filter(name => /^token-kuriboh-claw-/.test(name)).length, 6);
+  release(lamb); release(sheep); release(kuriboh);
+});
+
+test('new printed anatomies animate with immutable buffers and release visible and shadow GPU resources once', () => {
+  for (const id of ['645088', '23837055', '27204312', '14470846', '14470847']) {
+    const model = create(id), before = signature(model);
+    const buffers = model.children.map(mesh => ({ geometry: mesh.geometry, attributes: { ...mesh.geometry.attributes } }));
+    const animation = createHologramPoseAnimation(model, { kind: 'attack' });
+    for (const progress of [.01, .2, .4, .7, .99]) assert.equal(animation.update(progress), true);
+    assert.equal(signature(model), before);
+    model.children.forEach((mesh, index) => {
+      assert.equal(mesh.geometry, buffers[index].geometry);
+      for (const [name, attribute] of Object.entries(buffers[index].attributes)) assert.equal(mesh.geometry.attributes[name], attribute);
+    });
+    const resources = new Set(model.children.flatMap(mesh => [mesh.geometry, mesh.material, mesh.customDepthMaterial, mesh.customDistanceMaterial].filter(Boolean)));
+    const disposed = new Map();
+    for (const resource of resources) resource.addEventListener('dispose', () => disposed.set(resource, (disposed.get(resource) || 0) + 1));
+    release(model); animation.dispose();
+    for (const resource of resources) assert.equal(disposed.get(resource), 1, `${id} resource ${resource.type || 'geometry'}`);
+    assert.equal(model.userData.poseRig.disposed, true);
+  }
+});
+
+test('Bomb crust panels and the brighter gaps remain externally visible from front and three-quarter views', () => {
+  const model = create('22411610');
+  model.updateMatrixWorld(true);
+  const coreColor = new Color('#d7a46a');
+  const crustColors = [new Color('#864224'), new Color('#ad6633')];
+  function matches(color, index, expected) {
+    return Math.abs(color.getX(index) - expected.r) < 1e-6
+      && Math.abs(color.getY(index) - expected.g) < 1e-6
+      && Math.abs(color.getZ(index) - expected.b) < 1e-6;
+  }
+  const minimum = new Vector3(Infinity, Infinity, Infinity);
+  const maximum = new Vector3(-Infinity, -Infinity, -Infinity);
+  for (const mesh of model.children) {
+    const { color, position } = mesh.geometry.attributes;
+    for (let vertex = 0; vertex < position.count; vertex++) if (matches(color, vertex, coreColor)) {
+      const point = mesh.localToWorld(new Vector3().fromBufferAttribute(position, vertex));
+      minimum.min(point); maximum.max(point);
+    }
+  }
+  assert.ok(minimum.toArray().every(Number.isFinite), 'core vertices must exist');
+  const center = minimum.clone().add(maximum).multiplyScalar(.5);
+  for (const [view, direction] of [['front', new Vector3(0, .025, 1)], ['three-quarter', new Vector3(.68, .025, 1)]]) {
+    direction.normalize();
+    const right = new Vector3().crossVectors(new Vector3(0, 1, 0), direction).normalize();
+    const raycaster = new Raycaster(), normals = new Set();
+    let visibleCrust = 0, visibleGap = 0;
+    for (let row = -7; row <= 7; row++) for (let column = -7; column <= 7; column++) {
+      const target = center.clone().addScaledVector(right, column * .039).add(new Vector3(0, row * .039, 0));
+      raycaster.set(target.clone().addScaledVector(direction, 3), direction.clone().negate());
+      const hit = raycaster.intersectObjects(model.children, false)[0];
+      if (!hit) continue;
+      const color = hit.object.geometry.attributes.color;
+      if (crustColors.some(expected => matches(color, hit.face.a, expected))) {
+        visibleCrust++;
+        normals.add(hit.face.normal.toArray().map(value => value.toFixed(2)).join(','));
+      } else if (matches(color, hit.face.a, coreColor)) visibleGap++;
+    }
+    assert.ok(visibleCrust >= 8, `${view}: dark pentagonal crust is occluded (${visibleCrust} visible samples)`);
+    assert.ok(normals.size >= 2, `${view}: at least two externally visible crust facets are required`);
+    assert.ok(visibleGap >= 4, `${view}: exposed brighter gaps between crust plates must remain visible (${visibleGap} samples)`);
+  }
+  release(model);
+});

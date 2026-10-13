@@ -96,7 +96,55 @@ export function buildTokenConstructAnatomy(profile, helpers) {
     return true;
   }
 
+  if(code==='98875864'){
+    // MAMA-EN103 shows a floating, tapered mass of dark stone. Cyberse is
+    // its native race, not evidence for the former humanoid machine body.
+    const rock='#2c4548',facet='#3a5759',shape=new THREE.IcosahedronGeometry(1,1),position=shape.attributes.position;
+    for(let vertex=0;vertex<position.count;vertex++){
+      const x=position.getX(vertex),y=position.getY(vertex),z=position.getZ(vertex);
+      const width=1-.25*Math.abs(y),rough=1+.06*Math.sin(x*9-y*11+z*13);
+      position.setXYZ(vertex,x*width*rough,y,z*width*rough);
+    }
+    shape.computeVertexNormals();
+    part('token-g-golem-floating-jagged-rock',shape,'body',[0,1.89,0],[.65,.94,.5],undefined,rock);
+    const crags=[[-.38,2.2,.1,.34],[.16,2.47,.015,.32],[.4,2.02,.09,.25],[-.13,1.62,.26,.28],[.18,1.27,.02,.25]];
+    for(let crag=0;crag<crags.length;crag++){
+      const [x,y,z,r]=crags[crag];
+      part(`token-g-golem-angular-stone-crag-${crag}`,new THREE.IcosahedronGeometry(r,0),'body',[x,y,z],[.86,1.35,.83],[0,crag*.45,crag*.27],crag%2?facet:rock);
+    }
+    for(let crack=0;crack<5;crack++)taperedCurve(`token-g-golem-dark-stone-fissure-${crack}`,'dark',[[Math.sin(crack)*.2,2.16-crack*.11,.443],[Math.sin(crack+.4)*.22,1.94-crack*.1,.477],[Math.sin(crack-.3)*.2,1.74-crack*.1,.399]],.008,.002,'#20393d',9,6);
+    return true;
+  }
+
   if (anatomy === 'gadget') {
+    if (code === '645088') {
+      // TK04-JP029 shows a flying two-pronged drone, not the source monster
+      // Cyberse Gadget or a humanoid robot. Only visible mechanical parts
+      // are reconstructed; the reverse of the printed shell is inferred.
+      const shell='#d4ddd8', trim='#73b0b1', red='#9a3548', steel='#656c75', cable='#2b303d';
+      sphere('token-gadget-white-domed-drone-shell','body',[0,1.99,.02],[.62,.31,.52],2,shell);
+      sphere('token-gadget-dark-underbody','dark',[0,1.78,.03],[.46,.2,.36],1,'#343948');
+      curve('token-gadget-cyan-shell-center-seam','accent',[[0,2.293,-.25],[0,2.309,.03],[0,2.221,.35]],.018,trim,12);
+      const hex=[];
+      for(let edge=0;edge<=6;edge++){const a=edge*Math.PI/3;hex.push([Math.sin(a)*.102,2.014+Math.cos(a)*.094,.527]);}
+      curve('token-gadget-cyan-hexagon-insignia','accent',hex,.015,trim,12);
+      plate('token-gadget-red-chevron-insignia','accent',[[-.054,.035],[0,-.03],[.054,.035],[.032,-.048],[0,-.082],[-.032,-.048]],.016,[0,1.839,.496],undefined,red,.002);
+      sphere('token-gadget-blue-underbody-lens','eye',[0,1.74,.384],[.114,.095,.049],1,'#5c6da9');
+      ring('token-gadget-black-lens-rim','dark',[0,1.748,.356],.121,[0,0,0],.024,cable);
+      sphere('token-gadget-lens-reflection','eye',[-.038,1.775,.426],[.02,.023,.01],1,'#d7eaff');
+      for(const side of sides){
+        sphere(`token-gadget-white-side-hinge-${side}`,'body',[side*.535,2.015,-.046],[.245,.245,.284],1,shell);
+        ring(`token-gadget-cyan-hinge-seam-${side}`,'accent',[side*.536,2.013,.071],.218,[0,0,0],.014,trim);
+        sphere(`token-gadget-red-pincher-housing-${side}`,'accent',[side*.644,1.828,.092],[.287,.276,.243],1,red);
+        sphere(`token-gadget-black-pincher-bearing-${side}`,'dark',[side*.647,1.824,.302],[.217,.21,.022],1,cable);
+        plate(`token-gadget-pincher-light-hexagon-${side}`,'eye',[[-.13,-.042],[-.077,.079],[.08,.075],[.14,-.036],[.049,-.117],[-.056,-.116]],.027,[side*.667,1.861,.331],undefined,'#e5ba6f',.006);
+        curve(`token-gadget-pincher-cyan-light-rim-${side}`,'accent',[[side*.532,1.819,.353],[side*.59,1.944,.353],[side*.748,1.941,.353],[side*.806,1.824,.353],[side*.716,1.744,.353],[side*.611,1.744,.353],[side*.532,1.819,.353]],.012,'#8acac9',12);
+        plate(`token-gadget-long-forked-pincher-${side}`,'body',[[-.133,.075],[.139,.075],[.145,-.74],[.067,-.98],[.026,-.98],[.026,-.28],[-.03,-.28],[-.03,-1.06],[-.086,-1.06],[-.137,-.73]],.093,[side*.63,1.742,.101],[-Math.PI/2,side*.12,0],steel,.013);
+        taperedCurve(`token-gadget-looped-rear-cable-${side}`,'dark',[[side*.37,2.104,-.328],[side*.55,2.404,-.452],[side*.91,2.338,-.473],[side*.986,1.957,-.342],[side*.798,1.829,-.107]],.047,.042,cable,24,8);
+        for(let retainer=0;retainer<2;retainer++)rod(`token-gadget-cable-metal-retainer-${side}-${retainer}`,'body',[side*(.408+retainer*.394),2.123-retainer*.218,-.309+retainer*.155],[side*(.421+retainer*.394),2.17-retainer*.218,-.355+retainer*.155],.064,.064,steel);
+      }
+      return true;
+    }
     const acorn=code==='84816245'||variant==='usb-acorn';
     const compass=code==='27450401'||variant==='compass';
     const solar=code==='23331401'||variant==='solar-drone';
@@ -478,6 +526,30 @@ export function buildTokenConstructAnatomy(profile, helpers) {
   }
 
   if(anatomy==='ice'){
+    if(code==='44308318'){
+      // OP17-EN026 has two open hexagonal seals. It is not a cluster of
+      // octahedral spikes. The empty center is genuine model geometry.
+      for(const [seal,center,radius,angle]of[[0,[-.16,2.14,-.06],.84,-.17],[1,[.59,1.17,.37],.39,.15]]){
+        const transform=new THREE.Matrix4().makeRotationZ(angle),gold='#c2cba1';
+        const point=(r,a,z=0)=>new THREE.Vector3(Math.cos(a)*r,Math.sin(a)*r,z).applyMatrix4(transform).add(new THREE.Vector3(...center)).toArray();
+        for(let edge=0;edge<6;edge++){
+          const a=edge*Math.PI/3,b=(edge+1)*Math.PI/3;
+          rod(`token-ice-barrier-hexagonal-outer-frame-${seal}-${edge}`,'body',point(radius,a),point(radius,b),.028,.028,gold);
+          rod(`token-ice-barrier-hexagonal-inner-frame-${seal}-${edge}`,'accent',point(radius*.79,a,.021),point(radius*.79,b,.021),.013,.013,'#ece2b4');
+          rod(`token-ice-barrier-corner-strut-${seal}-${edge}`,'body',point(radius*.79,a,.021),point(radius,a),.02,.02,gold);
+          const tip=point(radius*1.18,a),base=point(radius*.94,a);
+          const direction=new THREE.Vector3(...tip).sub(new THREE.Vector3(...base));
+          const shard=new THREE.ConeGeometry(1,1,4);shard.scale(.069,direction.length(),.028);shard.applyQuaternion(new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0,1,0),direction.clone().normalize()));
+          part(`token-ice-barrier-pointed-frame-corner-${seal}-${edge}`,shard,'body',new THREE.Vector3(...base).add(new THREE.Vector3(...tip)).multiplyScalar(.5).toArray(),undefined,undefined,gold);
+        }
+        // Thin ice facets surround the open seal; no opaque face covers its hole.
+        const shape=new THREE.Shape();for(let corner=0;corner<6;corner++){const a=corner*Math.PI/3,x=Math.cos(a)*radius*1.11,y=Math.sin(a)*radius*1.11;corner?shape.lineTo(x,y):shape.moveTo(x,y);}shape.closePath();
+        const hole=new THREE.Path();for(let corner=5;corner>=0;corner--){const a=corner*Math.PI/3,x=Math.cos(a)*radius*.73,y=Math.sin(a)*radius*.73;corner===5?hole.moveTo(x,y):hole.lineTo(x,y);}hole.closePath();shape.holes.push(hole);
+        const ice=new THREE.ExtrudeGeometry(shape,{depth:.065,bevelEnabled:false,steps:1});ice.translate(0,0,-.052);
+        part(`token-ice-barrier-translucent-hollow-seal-${seal}`,ice,'glow',center,[1,1,1],[0,0,angle],'#8edbea');
+      }
+      return true;
+    }
     const coffin=code==='66661679'||variant==='gold-ice-coffin';
     part('token-ice-central-crystal',new THREE.OctahedronGeometry(1),'body',[0,1.72,0],[coffin?.39:.61,1.18,.36],undefined,body);
     for(const side of sides){
@@ -492,6 +564,35 @@ export function buildTokenConstructAnatomy(profile, helpers) {
   }
 
   if(anatomy==='rock'||anatomy==='primal-being'){
+    if(code==='27204312'){
+      // OP12-EN026 depicts falling meteors and an incandescent impact. Its
+      // background victims are not a documented humanoid Token anatomy.
+      const rock='#29262b', ember='#e08435', lava='#f0bd53';
+      const meteor=new THREE.IcosahedronGeometry(1,1), vertices=meteor.attributes.position;
+      for(let vertex=0;vertex<vertices.count;vertex++){
+        const x=vertices.getX(vertex),y=vertices.getY(vertex),z=vertices.getZ(vertex);
+        const crag=1+.085*Math.sin(x*11+y*7+z*13)+.06*Math.cos(z*8-y*9);
+        vertices.setXYZ(vertex,x*crag,y*crag,z*crag);
+      }
+      meteor.computeVertexNormals();
+      part('token-primal-jagged-impact-meteor',meteor,'body',[0,1.84,.06],[.57,.71,.52],[0,0,-.38],rock);
+      for(let crag=0;crag<5;crag++)part(`token-primal-black-fractured-crag-${crag}`,new THREE.TetrahedronGeometry(.25),'body',[Math.sin(crag*2.4)*.35,1.5+crag*.128,.24+Math.cos(crag*2.4)*.18],[.75,1.13,.8],[0,crag*.47,crag*.2],rock);
+      for(let fissure=0;fissure<6;fissure++){
+        const x=(fissure-2.5)*.16,y=1.93-Math.abs(fissure-2.5)*.08;
+        taperedCurve(`token-primal-molten-rock-fissure-${fissure}`,'eye',[[x,y+.3,.413],[x+.06,y,.551],[x-.025,y-.21,.452]],.014,.005,ember,9,6);
+      }
+      for(let flame=0;flame<7;flame++){
+        const a=flame*Math.PI*2/7, x=Math.sin(a)*.39,z=Math.cos(a)*.32;
+        taperedCurve(`token-primal-rising-impact-flame-${flame}`,'accent',[[x,1.418,z],[x*1.15,1.905,z*1.2],[x*.92,2.574+(flame%3)*.14,z*1.13],[x*1.02,2.984+(flame%2)*.12,z]],.13,.002,ember,18,8,.42);
+        taperedCurve(`token-primal-bright-impact-flame-core-${flame}`,'eye',[[x*.95,1.42,z*1.08],[x*1.03,1.908,z*1.24],[x*.87,2.506+(flame%2)*.14,z*1.16]],.053,.001,lava,12,6,.45);
+      }
+      ring('token-primal-incandescent-impact-ring','eye',[0,1.2,0],.81,undefined,.027,lava);
+      for(let ray=0;ray<8;ray++){
+        const a=ray*Math.PI/4;
+        taperedCurve(`token-primal-radial-impact-crack-${ray}`,'eye',[[Math.sin(a)*.49,1.177,Math.cos(a)*.49],[Math.sin(a+.14)*.79,1.191,Math.cos(a+.14)*.79],[Math.sin(a-.06)*1.02,1.211,Math.cos(a-.06)*1.02]],.02,.003,ember,9,6);
+      }
+      return true;
+    }
     const pillar=code==='82340057'||variant==='ceremonial-pillar';
     const coreMachine=code==='176393'||variant==='koa-ki-meiru';
     if(pillar){
@@ -546,6 +647,37 @@ export function buildTokenConstructAnatomy(profile, helpers) {
   }
 
   if(anatomy==='flame'){
+    if(code==='22411610'){
+      // OP26-EN030 depicts a pitted, fractured burning stone, without eyes
+      // or a smiling face. Its flame cage remains a solid 3D construction.
+      const center=[0,1.41,.015],scale=[.67,.65,.62],shell=new THREE.DodecahedronGeometry(1,0);
+      // Match the planar crust's face planes: a rounded subdivided core would
+      // protrude through and hide all twelve externally visible crust plates.
+      part('token-bomb-incandescent-stone-core',new THREE.DodecahedronGeometry(1,0),'accent',center,scale,undefined,'#d7a46a');
+      const positions=shell.attributes.position;
+      for(let panel=0;panel<12;panel++){
+        const unique=new Map();
+        for(let vertex=panel*9;vertex<panel*9+9;vertex++){
+          const point=new THREE.Vector3().fromBufferAttribute(positions,vertex);unique.set(point.toArray().map(v=>v.toFixed(5)).join(','),point);
+        }
+        const centroid=[...unique.values()].reduce((sum,p)=>sum.add(p),new THREE.Vector3()).multiplyScalar(1/unique.size);
+        const coords=[],uv=[];
+        for(let vertex=panel*9;vertex<panel*9+9;vertex++){
+          const point=new THREE.Vector3().fromBufferAttribute(positions,vertex).sub(centroid).multiplyScalar(.79).add(centroid).multiplyScalar(1.012);
+          coords.push(point.x,point.y,point.z);uv.push(point.x*.5+.5,point.y*.5+.5);
+        }
+        const crust=new THREE.BufferGeometry();crust.setAttribute('position',new THREE.Float32BufferAttribute(coords,3));crust.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));crust.computeVertexNormals();
+        part(`token-bomb-dark-pentagonal-crust-${panel}`,crust,'body',center,scale,undefined,panel%3?'#864224':'#ad6633');
+      }
+      shell.dispose();
+      for(let flame=0;flame<8;flame++){
+        const a=flame*Math.PI/4,x=Math.sin(a)*.56,z=Math.cos(a)*.47;
+        taperedCurve(`token-bomb-rising-flame-${flame}`,'accent',[[x*.61,.93,z*.6],[x,1.44,z],[x*.8,2.08+(flame%3)*.15,z*.8],[x*.99,2.79+(flame%2)*.23,z*.9]],.13,.002,'#e8b46c',24,8,.48);
+        taperedCurve(`token-bomb-bright-flame-rim-${flame}`,'eye',[[x*.57,.935,z*.66],[x*.98,1.437,z*1.04],[x*.79,2.03+(flame%3)*.15,z*.86]],.035,.001,'#f2d48a',16,6,.48);
+      }
+      for(const side of sides)taperedCurve(`token-bomb-curled-side-spark-${side}`,'accent',[[side*.71,1.32,.06],[side*.99,1.61,.04],[side*.93,2.16,.02],[side*1.09,2.37,.025]],.019,.001,'#e5a56e',24,6);
+      return true;
+    }
     const blue=code==='98596597'||variant==='blue-flame';
     const faceless=blue||['48411997','68815402'].includes(code)||['small-fire','wild-fire'].includes(variant);
     if(code==='68815402'||variant==='wild-fire'){

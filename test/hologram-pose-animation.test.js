@@ -19,9 +19,9 @@ function release(model) {
 test('new card identities have distinctive anatomy, declared support and bounded geometry', () => {
   const expected = [
     ['54652250', 'insect', 'pincer', ['insect-compound-eye-1', 'pincer-tooth--1-3', 'insect-leg-lower-1-2']],
-    ['31560081', 'faith', 'faith-light', ['faith-halo', 'faith-hair-lock--1', 'faith-heart-gem']],
+    ['31560081', 'faith', 'faith-light', ['faith-closed-long-red-robe', 'faith-magenta-ponytail-streamer--1', 'staff-crown']],
     ['26202165', 'sangan', 'search', ['sangan-third-eye', 'sangan-third-pupil', 'sangan-fang-1']],
-    ['77637979', 'dragon', 'cyber-beam', ['cyber-beak', 'wing-1-circuit-3', 'projection-link-arrow-1']]
+    ['77637979', 'dragon', 'cyber-beam', ['lan-long-angular-pterosaur-skull', 'wing-1-lan-dark-cyber-membrane', 'projection-link-arrow-1']]
   ];
   for (const [id, family, activation, parts] of expected) {
     assert.ok(SUPPORTED_HOLOGRAM_MODEL_IDS.includes(id));

@@ -45,6 +45,15 @@ export function buildPopularGodMonsterAnatomy(profile, build) {
       const normal=new THREE.Vector3().fromBufferAttribute(normals,a).add(new THREE.Vector3().fromBufferAttribute(normals,b)).normalize();
       normals.setXYZ(a,normal.x,normal.y,normal.z);normals.setXYZ(b,normal.x,normal.y,normal.z);
     }
+    if(name==='slifer-continuous-looped-serpentine-body') {
+      const colors=new Float32Array(position.count*3),red=new THREE.Color(tint),ventral=new THREE.Color('#171a21'),rib=new THREE.Color('#868b9a');
+      for(let row=0;row<=segments;row++)for(let column=0;column<=radialSegments;column++) {
+        const index=row*stride+column,front=normals.getZ(index)>.42;
+        const color=front?((row*18/segments)%1<.18?rib:ventral):red;
+        colors.set(color.toArray(),index*3);
+      }
+      geometry.setAttribute('color',new THREE.BufferAttribute(colors,3));
+    }
     // Reuse the exact TubeGeometry boundary vertices to close both ends.
     // A sphere cap of the same radius can leave gaps between polygon facets.
     for (const [end, row, direction] of [['start',0,-1],['end',segments,1]]) {
@@ -71,8 +80,13 @@ export function buildPopularGodMonsterAnatomy(profile, build) {
 
   if (profile.anatomy === 'crimson-double-jawed-god') {
     const red = profile.body, pale = '#ece6dc', blue = '#3b99bc';
-    const spine = [[1.23,.53,-.37],[1.41,1.04,-.48],[1.03,1.39,-.54],[.36,1.33,-.61],[-.43,1.5,-.65],[-.73,1.92,-.55],[-.47,2.26,-.23],[-.19,2.47,.04],[0,2.82,.08]];
-    tube('slifer-continuous-looped-serpentine-body', 'body', spine, .24, 56, red);
+    const spine = [[1.24,.23,-.19],[1.36,.65,-.24],[1.12,1.19,-.45],[.51,1.48,-.63],[-.23,1.49,-.7],[-.77,1.08,-.65],[-.66,.65,-.45],[.02,.68,-.4],[.42,1.11,-.29],[.25,1.59,-.15],[0,1.97,-.07],[0,2.82,.08]];
+    tube('slifer-continuous-looped-serpentine-body', 'body', spine, .24, 72, red);
+    const bodyCurve=new THREE.CatmullRomCurve3(spine.map(point=>new THREE.Vector3(...point)));
+    for(let scale=0;scale<13;scale++) {
+      const t=.16+scale*.055,center=bodyCurve.getPointAt(t),back=center.clone().add(new THREE.Vector3(0,.035,-.2));
+      rod(`slifer-serpentine-dorsal-armor-spike-${scale}`,'body',back.toArray(),back.clone().add(new THREE.Vector3(.045,.22,-.12)).toArray(),.05,.002,red);
+    }
     // The reference shows an ebony ventral neck with narrow silver-grey ribs.
     sphere('slifer-ebony-raised-ventral-neck', 'dark', [0, 2.28, .26], [.3, .65, .14], 1, '#171a21');
     for (let i = 0; i < 7; i++) {
@@ -178,7 +192,15 @@ export function buildPopularGodMonsterAnatomy(profile, build) {
       }
       sphere(`hand-${side}-obelisk-clasped-thumb`,'body',[side*.846,.994,.419],[.089,.135,.12],1,blue);
       for(let groove=0;groove<3;groove++) rod(`hand-${side}-obelisk-gauntlet-ridge-${groove}`,'body',[side*(.971+groove*.092),1.24,.546],[side*(.94+groove*.08),1.73,.549],.012,.018,'#386b88');
+      // The licensed side and rear photographs reveal the full-length dorsal
+      // shields and plated legs that the original waist crop cannot show.
+      plate(`obelisk-large-closed-dorsal-shield-${side}`,'body',[[side*.38,2.95],[side*1.33,3.58],[side*1.35,2.61],[side*1.28,1.72],[side*.98,.56],[side*.84,1.28],[side*.6,2.03]],.13,-.61,blue);
+      for(let rib=0;rib<3;rib++) rod(`obelisk-long-dorsal-shield-ridge-${side}-${rib}`,'accent',[side*(.62+rib*.22),2.93+rib*.12,-.447],[side*(.82+rib*.16),1.01+rib*.1,-.447],.023,.035,'#6f9db2');
+      plate(`obelisk-layered-thigh-armor-${side}`,'body',[[side*.1,1.43],[side*.42,1.51],[side*.54,1.23],[side*.43,.98],[side*.15,1.05]],.13,.14,blue);
+      plate(`obelisk-flared-pointed-shin-shell-${side}`,'body',[[side*.13,.99],[side*.45,.96],[side*.56,.53],[side*.49,.28],[side*.24,.34],[side*.1,.57]],.14,.14,blue);
+      for(let claw=0;claw<3;claw++) rod(`obelisk-three-long-foot-talons-${side}-${claw}`,'body',[side*.36+(claw-1)*.13,.21,.37],[side*.38+(claw-1)*.17,.08,.68],.065,.003,pale);
     }
+    sphere('obelisk-round-azure-forehead-gem','eye',[0,3.232,.398],[.052,.063,.026],1,'#75bbd5');
     return true;
   }
 
@@ -193,6 +215,7 @@ export function buildPopularGodMonsterAnatomy(profile, build) {
     sphere('ra-ebony-beak-opening', 'dark', [0,3.023,.569], [.108,.1,.086],0,dark);
     plate('jaw-ra-pointed-lower-golden-beak', 'body', [[-.12,3.02],[0,2.84],[.12,3.02],[0,2.96]], .14,.56,gold);
     sphere('ra-spherical-gold-crown-jewel', 'accent', [0,3.36,.44], [.085,.085,.07],1,bright);
+    part('ra-large-golden-rear-crown-ring',new THREE.TorusGeometry(.545,.046,8,32),'body',[0,3.189,-.185],undefined,undefined,gold);
     for(const side of [-1,1]) {
       sphere(`ra-narrow-pale-green-eye-${side}`, 'eye', [side*.17,3.18,.46], [.044,.036,.023],0);
       plate(`ra-swept-golden-crown-horn-${side}`, 'accent', [[side*.1,3.24],[side*.43,3.69],[side*.39,3.38],[side*.58,3.53],[side*.38,3.12]], .1,.05,bright);
@@ -213,6 +236,13 @@ export function buildPopularGodMonsterAnatomy(profile, build) {
       rod(`${wing}-golden-outer-rim`, 'accent', [side*1.18,3.9,-.23],[side*1.6,3.8,-.23],.048,.03,bright);
       sphere(`${wing}-engraved-round-pivot`, 'accent', [side*.52,2.62,.18], [.2,.2,.1],1,bright);
       sphere(`${wing}-recessed-pivot-center`, 'dark', [side*.52,2.62,.273], [.11,.11,.034],1,gold);
+      // Both alternative printed poses and the licensed rear view show a fan
+      // of solid overlapping gold vanes, rather than exposed bare spokes.
+      for(let feather=0;feather<9;feather++) {
+        const t=feather/8,x=.82+t*.98,y=3.32+t*.13,drop=.66+t*1.22,width=.1;
+        plate(`${wing}-overlapping-golden-feather-${feather}`,'body',[[side*(x-width),y],[side*(x+width),y+.055],[side*(x+.13),y-drop*.61],[side*(x+.04),y-drop],[side*(x-.07),y-drop*.83]],.055,-.19,feather%2?gold:bright);
+        rod(`${wing}-gold-feather-raised-spine-${feather}`,'accent',[side*x,y-.045,-.116],[side*(x+.033),y-drop*.84,-.116],.012,.006,bright);
+      }
       rod(`ra-short-golden-upper-arm-${side}`, 'body', [side*.4,2.23,.07],[side*.63,1.94,.25],.125,.14);
       rod(`hand-${side}-ra-golden-forearm`, 'body',[side*.63,1.94,.25],[side*.4,1.8,.53],.09,.12,bright);
       sphere(`hand-${side}-ra-three-clawed-palm`, 'body',[side*.4,1.78,.56],[.14,.12,.12],0);
@@ -224,6 +254,7 @@ export function buildPopularGodMonsterAnatomy(profile, build) {
     }
     tube('ra-long-swept-golden-tail', 'body', [[0,1.05,-.25],[.13,.75,-.63],[.69,.68,-.67],[1.17,.91,-.41]],.12,24,gold);
     plate('ra-tail-pointed-gold-terminal', 'accent', [[.99,.9],[1.37,1.24],[1.19,.76],[1.07,.76]],.08,-.49,bright);
+    sphere('ra-round-turquoise-central-forehead-jewel','eye',[0,3.328,.599],[.049,.056,.025],1,'#2aa5bd');
     for(const side of [-1,1]) {
       // Golden sun-god plates form a nested fan across the long neck. Visible
       // seams are bronze recesses, with fine raised gold rims on their borders.

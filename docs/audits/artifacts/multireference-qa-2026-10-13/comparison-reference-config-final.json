@@ -1,0 +1,173 @@
+{
+  "groups": [
+    {
+      "id": "avatars-primary-before-after-01",
+      "title": "Références réelles et comparaison contrôlée — personnages 1 à 4",
+      "entries": [
+        {
+          "key": "avatar:yugi",
+          "label": "Yugi Muto",
+          "note": "Konami : dessin primaire. Figurine Yami Yugi : volumes de coiffure seulement ; âge/visage distincts.",
+          "references": [
+            {
+              "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yugi-konami.png",
+              "label": "Konami · Yugi"
+            },
+            {
+              "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yugi-kotobukiya-7.jpg",
+              "label": "Kotobukiya · coiffure/dos"
+            }
+          ]
+        },
+        {
+          "key": "avatar:atem",
+          "label": "Atem, Pharaon antique",
+          "note": "Tenue courte antique/cape bleue retenue, distincte de Yami Yugi moderne. Sources F4F licenciées, pas turnaround animé.",
+          "references": [
+            {
+              "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/atem-f4f-11.jpg",
+              "label": "F4F · Pharaon, portrait"
+            },
+            {
+              "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/atem-f4f-13.jpg",
+              "label": "F4F · Pharaon, silhouette"
+            }
+          ]
+        },
+        {
+          "key": "avatar:kaiba",
+          "label": "Seto Kaiba",
+          "note": "Konami et photos licenciées confirment cheveux et manteau blanc. Pose neutre reconstruite.",
+          "references": [
+            {
+              "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/kaiba-konami.png",
+              "label": "Konami · Kaiba"
+            },
+            {
+              "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/kaiba-kotobukiya-5.jpg",
+              "label": "Kotobukiya · manteau/dos"
+            }
+          ]
+        },
+        {
+          "key": "avatar:joey",
+          "label": "Joey Wheeler",
+          "note": "Veste verte, tee blanc et pantalon bleu corroborés par un épisode officiel (240×180). Figurine T-shirt : coiffure/profil seulement, pas dos du costume vert.",
+          "references": [
+            {
+              "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/joey-kingdom-journey.jpg",
+              "label": "Épisode officiel · veste verte"
+            },
+            {
+              "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/joey-kotobukiya-6.jpg",
+              "label": "Kotobukiya · cheveux/dos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "avatars-primary-before-after-02",
+      "title": "Références réelles et comparaison contrôlée — personnages 5 à 8",
+      "entries": [
+        {
+          "key": "avatar:jaden",
+          "label": "Jaden Yuki",
+          "note": "Veste Slifer rouge ; Konami et sculpture AMAKUNI corroborent coiffure, dos, vêtement.",
+          "references": [
+            {
+              "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/jaden-konami.png",
+              "label": "Konami · Jaden"
+            },
+            {
+              "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/jaden-amakuni-2.jpg",
+              "label": "AMAKUNI · coiffure/dos"
+            }
+          ]
+        },
+        {
+          "key": "avatar:yusei",
+          "label": "Yusei Fudo",
+          "note": "Veste de pilote standard. Photos AMAKUNI montrent réellement profil, dos et bottes.",
+          "references": [
+            {
+              "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yusei-konami.png",
+              "label": "Konami · Yusei"
+            },
+            {
+              "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yusei-amakuni-2.jpg",
+              "label": "AMAKUNI · coiffure/dos"
+            }
+          ]
+        },
+        {
+          "key": "avatar:yuya",
+          "label": "Yuya Sakaki",
+          "note": "Tenue originale de performer. Vue arrière non directement couverte : reconstruction ; vert pantalon confirmé TV Tokyo.",
+          "references": [
+            {
+              "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yuya-konami.png",
+              "label": "Konami · Yuya"
+            },
+            {
+              "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yuya-tvtokyo.png",
+              "label": "TV Tokyo · tenue complète"
+            }
+          ]
+        },
+        {
+          "key": "avatar:playmaker",
+          "label": "Playmaker",
+          "note": "Apparence LINK VRAINS, distincte de Yusaku humain. Dos non directement couvert, donc reconstruit.",
+          "references": [
+            {
+              "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/playmaker-konami.png",
+              "label": "Konami · LINK VRAINS"
+            },
+            {
+              "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/vrains-tvtokyo-1.png",
+              "label": "TV Tokyo · Playmaker"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dedicated-dragons-primary-before-after",
+      "title": "Deux dragons spécialisés — arts canoniques et variantes corroborantes",
+      "entries": [
+        {
+          "key": "monster:23995346",
+          "label": "Blue-Eyes Ultimate Dragon, 23995346",
+          "note": "Art canonique 23995346 retenu ; autres arts corroborent trois cous/têtes et armure, sans fusionner les versions.",
+          "references": [
+            {
+              "file": "public/cards/cropped/23995346.jpg",
+              "label": "Art canonique · 23995346"
+            },
+            {
+              "file": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/23995347.jpg",
+              "label": "Art alternatif · structure"
+            }
+          ]
+        },
+        {
+          "key": "monster:44508094",
+          "label": "Stardust Dragon, 44508094",
+          "note": "Art canonique 44508094 retenu ; angle alternatif corrobore crête et plaques. Dos absent reconstruit.",
+          "references": [
+            {
+              "file": "public/cards/cropped/44508094.jpg",
+              "label": "Art canonique · 44508094"
+            },
+            {
+              "file": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/44508095.jpg",
+              "label": "Art alternatif · structure"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "scope": "Reference images are real retained illustrations or licensed sculptures. Catalogue portraits are distinguished. Neither alternative outfits nor inferred backs establish exact 1:1 fidelity."
+}

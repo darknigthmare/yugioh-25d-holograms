@@ -1,0 +1,203 @@
+{
+  "sourceInputs": [
+    "curated-angles-final.json",
+    "curated-angles-spirit-addendum.json",
+    "curated-angles-token-addendum.json",
+    "curated-angles-monster-addendum.json",
+    "curated-angles-last-token-addendum.json",
+    "curated-angles-golem-addendum.json"
+  ],
+  "entries": [
+    {
+      "kind": "avatar",
+      "id": "yugi"
+    },
+    {
+      "kind": "avatar",
+      "id": "atem"
+    },
+    {
+      "kind": "avatar",
+      "id": "kaiba"
+    },
+    {
+      "kind": "avatar",
+      "id": "joey"
+    },
+    {
+      "kind": "avatar",
+      "id": "jaden"
+    },
+    {
+      "kind": "avatar",
+      "id": "yusei"
+    },
+    {
+      "kind": "avatar",
+      "id": "yuya"
+    },
+    {
+      "kind": "avatar",
+      "id": "playmaker"
+    },
+    {
+      "kind": "monster",
+      "id": 89631139
+    },
+    {
+      "kind": "monster",
+      "id": 74677422
+    },
+    {
+      "kind": "monster",
+      "id": 46986414
+    },
+    {
+      "kind": "monster",
+      "id": 10000020
+    },
+    {
+      "kind": "monster",
+      "id": 10000000
+    },
+    {
+      "kind": "monster",
+      "id": 10000010
+    },
+    {
+      "kind": "monster",
+      "id": 70095154
+    },
+    {
+      "kind": "monster",
+      "id": 89943723
+    },
+    {
+      "kind": "monster",
+      "id": 84013237
+    },
+    {
+      "kind": "monster",
+      "id": 14558127
+    },
+    {
+      "kind": "token",
+      "id": 60764582
+    },
+    {
+      "kind": "token",
+      "id": 60764583
+    },
+    {
+      "kind": "token",
+      "id": 40703223
+    },
+    {
+      "kind": "token",
+      "id": 14470846
+    },
+    {
+      "kind": "token",
+      "id": 14470847
+    },
+    {
+      "kind": "token",
+      "id": 73915052
+    },
+    {
+      "kind": "token",
+      "id": 69811711
+    },
+    {
+      "kind": "monster",
+      "id": 23995346
+    },
+    {
+      "kind": "monster",
+      "id": 44508094
+    },
+    {
+      "kind": "token",
+      "id": 38053382
+    },
+    {
+      "kind": "token",
+      "id": 51208047
+    },
+    {
+      "kind": "token",
+      "id": 60514626
+    },
+    {
+      "kind": "token",
+      "id": 87669905
+    },
+    {
+      "kind": "token",
+      "id": 645088
+    },
+    {
+      "kind": "token",
+      "id": 23837055
+    },
+    {
+      "kind": "token",
+      "id": 27204312
+    },
+    {
+      "kind": "monster",
+      "id": 13039848
+    },
+    {
+      "kind": "monster",
+      "id": 31560081
+    },
+    {
+      "kind": "monster",
+      "id": 70781052
+    },
+    {
+      "kind": "monster",
+      "id": 71625222
+    },
+    {
+      "kind": "monster",
+      "id": 77637979
+    },
+    {
+      "kind": "monster",
+      "id": 91152256
+    },
+    {
+      "kind": "token",
+      "id": 17228909
+    },
+    {
+      "kind": "token",
+      "id": 22411610
+    },
+    {
+      "kind": "token",
+      "id": 44308318
+    },
+    {
+      "kind": "token",
+      "id": 98875864
+    }
+  ],
+  "counts": {
+    "avatar": 8,
+    "monster": 18,
+    "token": 18
+  },
+  "controls": [
+    {
+      "kind": "token",
+      "id": 73915052
+    },
+    {
+      "kind": "token",
+      "id": 69811711
+    }
+  ]
+}
