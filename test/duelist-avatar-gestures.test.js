@@ -1,8 +1,10 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import { readFileSync } from 'node:fs';
 import * as THREE from 'three';
 import { createDuelistAvatarModel } from '../src/ui/DuelistAvatarModels.js';
 import { DUELIST_GESTURE_DURATIONS, DUELIST_GESTURE_KINDS } from '../src/ui/DuelistAvatarGestures.js';
+const TRIANGLE_BASELINE = JSON.parse(readFileSync(new URL('./fixtures/duelist-avatar-triangle-baseline-2026-10-11.json', import.meta.url))).triangles;
 
 function skinnedMeshes(model) {
   const meshes = [];
@@ -41,7 +43,7 @@ test('neutral skinning preserves the actual original coordinates and shared geom
     const meshes = skinnedMeshes(model);
     assert.ok(meshes.length >= 2 && meshes.length <= 3);
     assert.ok(model.group.userData.drawCalls <= 10);
-    assert.ok(model.group.userData.triangles <= 14000);
+    assert.ok(model.group.userData.triangles <= TRIANGLE_BASELINE[id] * 5);
     for (const mesh of meshes) {
       assert.equal(mesh.frustumCulled, false, 'animated hands cannot be clipped by a cached neutral sphere');
       const position = mesh.geometry.attributes.position;

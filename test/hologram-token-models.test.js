@@ -30,7 +30,7 @@ test('all 240 native monster Tokens resolve their exact public identity and boun
     assert.equal(model.userData.profile.tokenAnatomy,profile.tokenAnatomy);
     assert.equal(model.userData.fidelity,'procedural-interpretation');
     assert.ok(model.children.length>0&&model.children.length<=5,profile.tokenCode);
-    assert.ok(model.userData.triangleCount<=6000,`${profile.tokenCode}: ${model.userData.triangleCount}`);
+    assert.ok(model.userData.triangleCount<=29450,`${profile.tokenCode}: ${model.userData.triangleCount}`);
     assert.ok(bounds.min.y>=0&&bounds.max.y<=3.3,`${profile.tokenCode}: Y bounds`);
     assert.ok(Math.max(Math.abs(bounds.min.x),Math.abs(bounds.max.x),Math.abs(bounds.min.z),Math.abs(bounds.max.z))<=2.5,`${profile.tokenCode}: field footprint`);
     assert.ok(!model.userData.partNames.some(name=>name.includes('token-goat')),profile.tokenCode);
@@ -72,8 +72,8 @@ test('illustrated species keep their defining anatomy instead of receiving the f
     93104633:['token-security-triangular-drone','token-security-blue-lens'],
     34822851:['token-infernoid-glass-capsule','token-infernoid-curved-metal-cage--1'],
     75119041:['token-tindangle-triangular-demon','token-tindangle-central-eye'],
-    90884404:['token-soul-wide-eyeball','token-soul-pointed-appendage-8'],
-    46647145:['token-humanoid-flowing-hair-0','token-humanoid-floating-robe-tail'],
+    90884404:['token-soul-wide-eyeball','token-soul-pointed-appendage-7'],
+    46647145:['token-humanoid-flowing-hair-0','token-world-legacy-checkered-skirt--1'],
     93912846:['token-gift-fiend-crossed-left-arm','token-gift-fiend-brown-belly'],
     49808197:['token-metabo-fine-long-proboscis','token-metabo-long-brown-mane-0'],
     75732623:['token-grinder-stooped-metal-torso','sword-token-grinder-triangular-drill-outer'],

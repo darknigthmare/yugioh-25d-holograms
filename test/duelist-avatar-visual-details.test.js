@@ -1,9 +1,11 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import { readFileSync } from 'node:fs';
 import * as THREE from 'three';
 import { createDuelistAvatarModel } from '../src/ui/DuelistAvatarModels.js';
 import { renderDuelistAvatarPortrait } from '../src/ui/DuelistAvatarPortrait.js';
 import { getDuelistAvatar } from '../src/content/DuelistAvatarCatalog.js';
+const TRIANGLE_BASELINE = JSON.parse(readFileSync(new URL('./fixtures/duelist-avatar-triangle-baseline-2026-10-11.json', import.meta.url))).triangles;
 
 function coloredVertices(model, tint, joint = null) {
   const color = new THREE.Color(tint);
@@ -27,7 +29,7 @@ function hasParts(id, expected, absent = []) {
   for (const part of expected) assert.ok(model.group.userData.partNames.includes(part), `${id}: ${part}`);
   for (const part of absent) assert.equal(model.group.userData.partNames.includes(part), false, `${id} omits ${part}`);
   assert.ok(model.group.userData.drawCalls <= 10);
-  assert.ok(model.group.userData.triangles <= 12000);
+  assert.ok(model.group.userData.triangles <= TRIANGLE_BASELINE[id] * 5);
   return model;
 }
 

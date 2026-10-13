@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
+import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import * as THREE from 'three';
 import { createDuelistAvatarModel } from '../src/ui/DuelistAvatarModels.js';
@@ -7,6 +8,7 @@ import { RealDuelScene3D } from '../src/ui/RealDuelScene3D.js';
 import { DUELIST_AVATARS } from '../src/content/DuelistAvatarCatalog.js';
 
 const ICONIC_IDS = ['yugi', 'atem', 'kaiba', 'joey', 'tea', 'mai', 'pegasus', 'jaden', 'yusei', 'yuma', 'yuya', 'playmaker', 'yuga', 'yudias'];
+const TRIANGLE_BASELINE = JSON.parse(readFileSync(new URL('./fixtures/duelist-avatar-triangle-baseline-2026-10-11.json', import.meta.url))).triangles;
 
 function resources(model) {
   const geometries = new Set();
@@ -33,7 +35,8 @@ test('the entire curated roster renders within the geometry budget without colou
     const model = createDuelistAvatarModel(avatar.id);
     assert.equal(model.avatarId, avatar.id);
     assert.ok(model.group.userData.drawCalls <= 10);
-    assert.ok(model.group.userData.triangles <= 12000);
+    assert.ok(model.group.userData.triangles <= TRIANGLE_BASELINE[avatar.id] * 5,
+      `${avatar.id}: fidelity geometry respects the measured fivefold ceiling`);
     for (const geometry of resources(model).geometries) {
       assert.equal(geometry.attributes.position.array.every(Number.isFinite), true, avatar.id);
       assert.equal(geometry.attributes.normal.array.every(Number.isFinite), true, avatar.id);

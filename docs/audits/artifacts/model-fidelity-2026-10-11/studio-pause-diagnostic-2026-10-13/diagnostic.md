@@ -1,0 +1,11 @@
+# Diagnostic de la pause du studio, 13 octobre 2026
+
+Le diagnostic sur le build compilé passe sur les largeurs 1280 et 390 px : aucun appel WebGL `clear` durant une fenêtre fixe de 350 ms après la capture initiale stabilisée, deux PNG strictement identiques, reprise en animation et arrêt hors écran effectifs. Aucun objet de l’application ni état d’un Duel démarré n’est consulté ou modifié.
+
+L’ancien échec `(1256, 1258)` du 11 octobre reste inchangé : 576706 octets, SHA-256 `c8ce9590ea536c30ddbf5d8be335e29ade024e581d09f7f88e34353c8682f17d`. Il comptait les dessins avant la capture initiale de l’élément. L’écart n’est pas reproduit par le parcours court du diagnostic : les deux fenêtres donnent une différence de zéro, même avec l’ordre historique. Son origine exacte ne peut donc pas être affirmée.
+
+Les piles enregistrées avant le démarrage de l’application, en conservant `this`, les arguments et la valeur de retour de la méthode WebGL originale, montrent que chaque rendu observé appelle `clear` deux fois, pour l’ombre puis pour l’image. Les piles relevées sur ordinateur proviennent d’un événement de préférence de mouvement ; celles du téléphone d’un événement d’intersection. Une paire d’appels ne démontre donc pas à elle seule qu’une boucle d’animation continue tourne.
+
+La nouvelle recette du wrapper capture l’élément, attend une période fixe de 350 ms, fixe le compteur, puis exige exactement zéro appel pendant les 350 ms suivants. Elle exige aussi zéro appel après la seconde capture et l’égalité exacte des PNG. Les assertions originales de reprise, arrêt hors écran et retour à l’écran sont conservées. Aucun seuil de tolérance ni suppression d’observer n’est ajouté. Si l’application continue de dessiner pendant la fenêtre de pause, le contrôle échoue.
+
+Le diagnostic : 346831 octets, SHA-256 `921ba65caf407fa7a2492e7d3e379c3f46e64be4eb027e67ddad87dc76fd7c79`. Le wrapper précédemment exécuté est conservé sous `wrapper-executed-2026-10-11.py.txt` : 3889 octets, SHA-256 `7860d0ffe559c06b55f97b7deaa5bffb66d87f78da815e4d3ecd9e9febde10f8`. L’ancien driver, tous les fichiers de l’ancien échec, les sources et le build compilé sont contrôlés identiques avant et après le diagnostic. Le nouveau contrôle complet est livré séparément sous `browser-compiled-avatars-retry-2026-10-13` ; cette note ne prétend pas encore à son succès.

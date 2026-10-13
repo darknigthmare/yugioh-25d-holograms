@@ -1,0 +1,21 @@
+{"phase": "before", "gallery": "tokens-01", "models": 25, "remaining": {"geometries": 0, "textures": 0, "programs": 0}}
+{"phase": "before", "gallery": "tokens-02", "models": 25, "remaining": {"geometries": 0, "textures": 0, "programs": 0}}
+{"phase": "before", "gallery": "tokens-03", "models": 25, "remaining": {"geometries": 0, "textures": 0, "programs": 0}}
+{"phase": "before", "gallery": "tokens-04", "models": 25, "remaining": {"geometries": 0, "textures": 0, "programs": 0}}
+{"phase": "before", "gallery": "tokens-05", "models": 25, "remaining": {"geometries": 0, "textures": 0, "programs": 0}}
+{"phase": "before", "gallery": "tokens-06", "models": 25, "remaining": {"geometries": 0, "textures": 0, "programs": 0}}
+{"phase": "before", "gallery": "tokens-07", "models": 25, "remaining": {"geometries": 0, "textures": 0, "programs": 0}}
+{"phase": "before", "gallery": "tokens-08", "models": 25, "remaining": {"geometries": 0, "textures": 0, "programs": 0}}
+{"phase": "before", "gallery": "tokens-09", "models": 25, "remaining": {"geometries": 0, "textures": 0, "programs": 0}}
+{"phase": "before", "gallery": "tokens-10", "models": 15, "remaining": {"geometries": 0, "textures": 0, "programs": 0}}
+{"phase": "before", "gallery": "avatars-01", "models": 25, "remaining": {"geometries": 0, "textures": 0, "programs": 0}}
+{"phase": "before", "gallery": "avatars-02", "models": 25, "remaining": {"geometries": 0, "textures": 0, "programs": 0}}
+{"phase": "before", "gallery": "avatars-03", "models": 25, "remaining": {"geometries": 0, "textures": 0, "programs": 0}}
+{"phase": "before", "gallery": "avatars-04", "models": 25, "remaining": {"geometries": 0, "textures": 0, "programs": 0}}
+{"phase": "before", "gallery": "avatars-05", "models": 25, "remaining": {"geometries": 0, "textures": 0, "programs": 0}}
+{"phase": "before", "gallery": "avatars-06", "models": 25, "remaining": {"geometries": 0, "textures": 0, "programs": 0}}
+{"phase": "before", "gallery": "avatars-07", "models": 25, "remaining": {"geometries": 0, "textures": 0, "programs": 0}}
+{"phase": "before", "gallery": "avatars-08", "models": 17, "remaining": {"geometries": 0, "textures": 0, "programs": 0}}
+{"phase": "before", "gallery": "monsters-01", "models": 25, "remaining": {"geometries": 0, "textures": 0, "programs": 0}}
+{"phase": "before", "gallery": "monsters-02", "models": 11, "remaining": {"geometries": 0, "textures": 0, "programs": 0}}
+{"ok": true, "counts": {"token": 240, "avatar": 192, "monster": 36}, "sourceStable": true, "errors": [], "reportSha256": "5d120f17a238ce7b423b2957587b3287d8a43f3b88046493357adae24f046698"}

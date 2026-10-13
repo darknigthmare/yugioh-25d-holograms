@@ -1,0 +1,9 @@
+{
+  "pass": true,
+  "baselineCommit": "1371c5ba679d336f5df478720e6f9c4265d08e9d",
+  "baselineTree": "f3d7fb5c348d6cf32cacca225f7c759dd5f04ab4",
+  "source": "/workspace/yugioh-fidelity-visual-baseline-2026-10-11",
+  "fixture": "test/fixtures/hologram-triangle-budgets-2026-10-11.js",
+  "verifiedPoses": 72,
+  "allowedMultiplier": 5
+}

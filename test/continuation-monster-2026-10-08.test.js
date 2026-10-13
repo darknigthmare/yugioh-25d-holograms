@@ -1,3 +1,4 @@
+import { getHologramTriangleBudget } from './fixtures/hologram-triangle-budgets-2026-10-11.js';
 import assert from 'node:assert/strict';
 import { access } from 'node:fs/promises';
 import test from 'node:test';
@@ -40,13 +41,13 @@ test('three new silhouettes belong to playable starter cards and actual campaign
   }
 });
 
-test('source motifs have real volume and stable palettes within five batches and 6000 triangles in attack and defense', () => {
+test('source motifs have real volume and stable palettes within five batches and measured triangle budgets in attack and defense', () => {
   for (const p of PARTICIPANTS) for (const defense of [false, true]) {
     const model = createHologramMonsterModel({ id: p.printed }, { defense });
     assert.ok(p.landmarks.every(name => model.userData.partNames.includes(name)), p.id);
     assert.equal(model.userData.partNames.some(name => p.absent.test(name)), false);
     for (const hex of p.colors) assert.ok(containsColor(model, hex), `${p.id}: ${hex}`);
-    assert.ok(model.userData.meshCount <= 5 && model.userData.triangleCount <= 6000);
+    assert.ok(model.userData.meshCount <= 5 && model.userData.triangleCount <= getHologramTriangleBudget(p.printed, { defense }));
     const size = new Box3().setFromObject(model).getSize(new Vector3());
     assert.ok(size.x > 1 && size.y > 1 && size.z > .6, `${p.id}: real depth`);
     for (const mesh of model.children) {

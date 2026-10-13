@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-13",
+  "pass": true,
+  "entry": "/assets/index-C2yg8uvD.js",
+  "entryPin": {
+    "bytes": 974597,
+    "sha256": "babab1743ff62c83971d835b94a3b169faf94f1f8108158ed2694ca3737a9a16"
+  },
+  "scopes": {
+    "tokens": {
+      "pass": true,
+      "report": {
+        "path": "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-tokens/report.json",
+        "bytes": 1444484,
+        "sha256": "6e95ca705669f0572dd74a895e3fdb43cc369b8421816b115b498378c352c674"
+      },
+      "wrapperReport": {
+        "path": "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-tokens/fidelity-wrapper.json",
+        "bytes": 2699,
+        "sha256": "10727a3af7acfb59ba2573209d7967372fd4fd86cfc76a9939bf68be86b62188"
+      },
+      "paths": 9,
+      "captures": 50,
+      "exactHttpBodiesBeforeAfter": 588,
+      "sourcePins": 736
+    },
+    "avatars": {
+      "pass": true,
+      "report": {
+        "path": "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-final-2026-10-13/report.json",
+        "bytes": 1160996,
+        "sha256": "74d94311edf55ec82bac46d2466d49c26538c214c1693aa0780a11fabde51ec4"
+      },
+      "wrapperReport": {
+        "path": "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-final-2026-10-13/fidelity-wrapper.json",
+        "bytes": 44206,
+        "sha256": "8b5d90b53a097b3c99dac938acbc9b88597c04c07aee0a5361f451432506d043"
+      },
+      "paths": 8,
+      "captures": 52,
+      "exactHttpBodiesBeforeAfter": 588,
+      "sourcePins": 736
+    }
+  },
+  "paths": 17,
+  "captures": 102,
+  "applicationChangedForQaRetry": false,
+  "historicalDriversUnchanged": true,
+  "historicalAvatarFailuresPreserved": true
+}

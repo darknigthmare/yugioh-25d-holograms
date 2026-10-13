@@ -4,7 +4,7 @@ import { createTokenGeometryTools } from './HologramTokenGeometry.js';
 /** Construction-only, stylized Token anatomy. The caller owns all five batches. */
 export function buildTokenBotanicalAnatomy(profile, helpers) {
   const { part, sphere, box, cone, ring, rod } = helpers;
-  const { solid, curve, taperedPath, eyes, spokes } = createTokenGeometryTools(helpers);
+  const { solid, curvedSheet, curve, taperedCurve, taperedPath, eyes, spokes } = createTokenGeometryTools(helpers);
   const anatomy = profile.tokenAnatomy;
   const code = String(profile.tokenCode || '');
   const variant = profile.tokenVisual?.variant || '';
@@ -18,14 +18,17 @@ export function buildTokenBotanicalAnatomy(profile, helpers) {
     const outline = serrated
       ? [[0, 0], [-.19, .17], [-.11, .23], [-.29, .39], [-.19, .45], [-.31, .6], [-.2, .66], [-.18, .78], [0, 1], [.18, .78], [.2, .66], [.31, .6], [.19, .45], [.29, .39], [.11, .23], [.19, .17]]
       : leafOutline;
-    solid(name, material, outline.map(([x, y]) => [x * size, y * size]), .045, position, [0, 0, rotation], tint);
-    const end = [position[0] - Math.sin(rotation) * size * .87, position[1] + Math.cos(rotation) * size * .87, position[2] + .031];
-    rod(`${name}-midrib`, 'accent', [position[0], position[1], position[2] + .031], end, .014, .008, '#93b877');
+    curvedSheet(name, material, outline.map(([x, y]) => [x * size, y * size]), .035, position, [0, 0, rotation], tint, { camber: .075 * size, curl: -.09 * size });
+    function onLeaf(x, y, lift = .009) {
+      const u = (x / size + (serrated ? .31 : .29)) / (serrated ? .62 : .58), v = y / size;
+      const z = .0175 + Math.sin(Math.PI * u) * Math.sin(Math.PI * v) * .075 * size - v * v * v * .09 * size + lift;
+      return [position[0] + Math.cos(rotation) * x - Math.sin(rotation) * y, position[1] + Math.sin(rotation) * x + Math.cos(rotation) * y, position[2] + z];
+    }
+    const midrib = Array.from({ length: 6 }, (_, step) => onLeaf(0, size * step / 6));
+    taperedCurve(`${name}-midrib`, 'accent', midrib, .014, .006, '#93b877', 12, 6);
     for (let vein = 1; vein < 4; vein += 1) for (const side of sides) {
       const y = size * (.15 + vein * .16), x = side * size * .16;
-      const mid = [position[0] - Math.sin(rotation) * y, position[1] + Math.cos(rotation) * y, position[2] + .033];
-      const tip = [position[0] + Math.cos(rotation) * x - Math.sin(rotation) * (y + .12 * size), position[1] + Math.sin(rotation) * x + Math.cos(rotation) * (y + .12 * size), position[2] + .033];
-      rod(`${name}-vein-${side}-${vein}`, 'accent', mid, tip, .007, .005, '#73945a');
+      taperedCurve(`${name}-vein-${side}-${vein}`, 'accent', [onLeaf(0, y), onLeaf(x * .55, y + .06 * size), onLeaf(x, y + .12 * size)], .007, .003, '#73945a', 8, 6);
     }
   }
 
@@ -48,10 +51,10 @@ export function buildTokenBotanicalAnatomy(profile, helpers) {
       for (let tuft = 0; tuft < 42; tuft += 1) {
         const angle = tuft * 2.399963, y = 1 - 2 * (tuft + .5) / 42, radial = Math.sqrt(1 - y * y);
         const direction = new THREE.Vector3(Math.cos(angle) * radial, y, Math.sin(angle) * radial);
-        const geometry = new THREE.ConeGeometry(1, 1, 5);
-        geometry.scale(.055, .24, .05);
-        geometry.applyQuaternion(new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), direction));
-        part(`token-fluff-fine-down-${tuft}`, geometry, 'accent', [direction.x * .63, 2 + direction.y * .66, direction.z * .54], undefined, undefined, white ? '#fffdf0' : accent);
+        const start = [direction.x * .6, 2 + direction.y * .63, direction.z * .51];
+        const middle = [direction.x * .69, 2 + direction.y * .71, direction.z * .59];
+        const tip = [direction.x * .75 + direction.y * .012, 2 + direction.y * .78, direction.z * .65];
+        taperedCurve(`token-fluff-fine-down-${tuft}`, 'accent', [start, middle, tip], .009, .001, white ? '#fffdf0' : accent, 10, 6);
       }
       eyes('token-fluff', { y: 2.19, z: .473, spread: .22, size: .105, white: true, tint: '#92442d' });
       const angry = variant === 'fluff-angry' || code === '15341822';
@@ -79,7 +82,7 @@ export function buildTokenBotanicalAnatomy(profile, helpers) {
         for (let petal = 0; petal < count; petal += 1) {
           const center = petal / count * Math.PI * 2 + layer * .43;
           const positions = [], uvs = [], indices = [], edge = [];
-          const angularSteps = 8, radialSteps = 4;
+          const angularSteps = 14, radialSteps = 8;
           for (let radial = 0; radial <= radialSteps; radial += 1) {
             const v = radial / radialSteps;
             for (let angular = 0; angular <= angularSteps; angular += 1) {
@@ -113,7 +116,7 @@ export function buildTokenBotanicalAnatomy(profile, helpers) {
         const angle = lock / 11 * Math.PI * 2, side = Math.sin(angle);
         const outline = [[0,0],[-.22,-.23],[-.3,-.61],[-.2,-1.02],[0,-1.22],[.07,-.79],[.2,-.39]];
         const front = Math.cos(angle) >= 0, x = side*.39, z = Math.cos(angle)*.34;
-        solid(`token-plant-long-leaf-hair-${lock}`, 'body', outline, .095, [x, 2.38, z], [0, front ? side*.2 : angle, side*.5], lock%3===0?'#62a833':body);
+        curvedSheet(`token-plant-long-leaf-hair-${lock}`, 'body', outline, .095, [x, 2.38, z], [0, front ? side*.2 : angle, side*.5], lock%3===0?'#62a833':body);
         curve(`token-plant-leaf-hair-rib-${lock}`, 'accent', [[x,2.35,z+.06],[x+side*.19,1.95,z+.09],[x+side*.35,1.57,z+.09]], .012, '#87be43', 7);
       }
       for(const side of sides)taperedPath(`token-plant-upswept-leaf-${side}`,'body',[[side*.29,2.19,.27],[side*.45,2.52,.3],[side*.4,2.83,.26]],.13,.012,body);
@@ -180,7 +183,7 @@ export function buildTokenBotanicalAnatomy(profile, helpers) {
         const x = (shoot-1)*.6, height = shoot === 1 ? 2.6 : 1.93;
         curve(`token-wicked-plant-ghost-stem-${shoot}`,'accent',[[x,.16,0],[x-.12,.79,0],[x+.08,1.32,0],[x,height-.27,0]],.041,accent,13);
         for (const side of sides) curve(`token-wicked-plant-skeletal-branch-${shoot}-${side}`,'accent',[[x,.67,0],[x+side*.27,1.02,.01],[x+side*.33,1.39,.01]],.025,accent,9);
-        solid(`token-wicked-plant-ghost-leaf-face-${shoot}`,'body',[[-.21,0],[-.31,.23],[-.26,.44],[-.12,.52],[0,.36],[.12,.52],[.27,.45],[.31,.24],[.2,0],[0,-.12]],.12,[x,height-.27,.02],undefined,body);
+        curvedSheet(`token-wicked-plant-ghost-leaf-face-${shoot}`,'body',[[-.21,0],[-.31,.23],[-.26,.44],[-.12,.52],[0,.36],[.12,.52],[.27,.45],[.31,.24],[.2,0],[0,-.12]],.12,[x,height-.27,.02],undefined,body);
         curve(`token-wicked-plant-curled-crown-${shoot}`,'body',[[x-.22,height+.1,.02],[x-.3,height+.26,.02],[x-.08,height+.32,.02],[x,height+.14,.02],[x+.14,height+.28,.02],[x+.31,height+.22,.02],[x+.24,height+.05,.02]],.026,body,13);
         for (const side of sides) curve(`token-wicked-plant-exposed-root-${shoot}-${side}`,'accent',[[x,.18,0],[x+side*.14,.065,.06],[x+side*.29,.11,.09]],.026,accent,7);
       }
@@ -234,7 +237,7 @@ export function buildTokenBotanicalAnatomy(profile, helpers) {
       for (let bloom = 0; bloom < 5; bloom += 1) {
         const x = (bloom-2)*.22, y = 1.72-Math.abs(bloom-2)*.13;
         sphere(`token-sinister-seed-red-bloom-${bloom}`,'accent',[x,y,.11],[.19,.15,.12],1,accent);
-        for (let petal = 0; petal < 3; petal += 1) solid(`token-sinister-seed-drooping-petal-${bloom}-${petal}`,'accent',[[0,0],[-.1,-.2],[-.04,-.33],[.05,-.32],[.1,-.19]],.055,[x+(petal-1)*.065,y,.18],[0,0,(petal-1)*.3],accent);
+        for (let petal = 0; petal < 3; petal += 1) curvedSheet(`token-sinister-seed-drooping-petal-${bloom}-${petal}`,'accent',[[0,0],[-.1,-.2],[-.04,-.33],[.05,-.32],[.1,-.19]],.055,[x+(petal-1)*.065,y,.18],[0,0,(petal-1)*.3],accent);
       }
       return true;
     }
@@ -268,6 +271,10 @@ export function buildTokenBotanicalAnatomy(profile, helpers) {
         rod(`token-ant-leg-${side}-${leg}-tibia`,'body',knee,foot,.035,.014,body);
         rod(`token-ant-leg-${side}-${leg}-tarsus`,'dark',foot,[foot[0]+side*.13,.16,foot[2]+.05],.016,.01,dark);
       }
+    }
+    for (let segment = 0; segment < 3; segment += 1) {
+      const z = -.76 + segment * .19;
+      curve(`token-ant-abdomen-cuticle-seam-${segment}`, 'dark', [[-.27,.81,z],[0,1.29,z-.016],[.27,.81,z]], .01, dark, 10);
     }
     return true;
   }
@@ -310,6 +317,9 @@ export function buildTokenBotanicalAnatomy(profile, helpers) {
       for(let spine=0;spine<4;spine++)cone(`token-mantis-foreleg-spine-${side}-${spine}`,'accent',[side*(.49-spine*.034),1.97+spine*.062,.42],[.018,.09,.018],[0,0,side*.72],accent);
       for(let leg=0;leg<2;leg++)taperedPath(`token-mantis-walking-leg-${side}-${leg}`,'body',[[side*.13,1.18+leg*.34,-.08],[side*(.72+leg*.12),.93+leg*.18,-.14],[side*(.57+leg*.28),.17,.13-leg*.35]],.034,.012,body);
     }
+    for (let segment = 0; segment < 5; segment += 1) {
+      curve(`token-mantis-abdomen-cuticle-${segment}`, 'accent', [[-.16,.75+segment*.19,-.08],[0,.8+segment*.19,.052],[.16,.75+segment*.19,-.08]], .01, accent, 8);
+    }
     return true;
   }
 
@@ -345,7 +355,7 @@ export function buildTokenBotanicalAnatomy(profile, helpers) {
       curve('token-beetle-central-elytra-seam','dark',[[0,.77,.314],[0,1.43,.35],[0,1.93,.21]],.015,dark,10);
       if(!moult) taperedPath('token-beetle-forked-horn','accent',[[0,1.53,.58],[0,1.82,.69],[0,2.13,.61]],.072,.025,accent);
       for(const side of sides)curve(`token-beetle-jointed-antenna-${side}`,'body',[[side*.15,1.57,.47],[side*.28,1.92,.5],[side*.44,2.06,.47]],.02,body,10);
-      if(moult) for(const side of sides)solid(`token-beetle-open-moult-elytron-${side}`,'accent',[[0,0],[side*.47,.1],[side*.65,.89],[side*.17,1.11]],.07,[side*.1,.88,-.27],[0,side*.3,0],accent);
+      if(moult) for(const side of sides)curvedSheet(`token-beetle-open-moult-elytron-${side}`,'accent',[[0,0],[side*.47,.1],[side*.65,.89],[side*.17,1.11]],.07,[side*.1,.88,-.27],[0,side*.3,0],accent);
     }
     return true;
   }

@@ -42,9 +42,9 @@ function construct(profile) {
 
 
 const codes=['93912846','49808197','75732623','8198621'];
-test('four exact exceptions build distinct finite bounded anatomy within 5200 triangles and five shared materials',()=>{
+test('four exact exceptions build distinct finite bounded anatomy within 29450 triangles and five shared materials',()=>{
  const signatures=new Set();
- for(const code of codes){const model=construct(resolveHologramMonsterProfile({id:code}));assert.equal(model.built,true);assert.ok(model.triangles<=5200);assert.ok(new Set(model.records.map(x=>x.material)).size<=5);assert.ok(model.bounds.min.y>=0);assert.ok(model.bounds.max.y<=3.6);assert.ok(Math.max(Math.abs(model.bounds.min.x),Math.abs(model.bounds.max.x),Math.abs(model.bounds.min.z),Math.abs(model.bounds.max.z))<=2);assert.equal(signatures.has(model.signature),false);signatures.add(model.signature);for(const r of model.records){assert.ok(r.geometry.attributes.position.array.every(Number.isFinite));assert.ok(r.geometry.attributes.normal.array.every(Number.isFinite));}model.dispose();}
+ for(const code of codes){const model=construct(resolveHologramMonsterProfile({id:code}));assert.equal(model.built,true);assert.ok(model.triangles<=29450);assert.ok(new Set(model.records.map(x=>x.material)).size<=5);assert.ok(model.bounds.min.y>=0);assert.ok(model.bounds.max.y<=3.6);assert.ok(Math.max(Math.abs(model.bounds.min.x),Math.abs(model.bounds.max.x),Math.abs(model.bounds.min.z),Math.abs(model.bounds.max.z))<=2);assert.equal(signatures.has(model.signature),false);signatures.add(model.signature);for(const r of model.records){assert.ok(r.geometry.attributes.position.array.every(Number.isFinite));assert.ok(r.geometry.attributes.normal.array.every(Number.isFinite));}model.dispose();}
 });
 test('illustrated features remain explicit and DarkSoul has a floating lower silhouette without human legs',()=>{
  const expected={

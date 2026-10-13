@@ -1,0 +1,183 @@
+{
+  "scope": "240 native Tokens,42 families, measured in both attack/defense against immutable source baseline. Exact artwork129 native profiles;111 definitions without exact Token artwork remain interpretations. Source freeze after final Option rail/panel coordinate corrections. Compiled browser validation owned by central QA is separate.",
+  "ok": true,
+  "counts": {
+    "models": 240,
+    "families": 42,
+    "poses": 480,
+    "tests": 28,
+    "tokenArtCodes": 129,
+    "nativeDefinitionCodes": 111
+  },
+  "limits": {
+    "trianglesGlobal": 29450,
+    "trianglesPerCodePerPose": 5,
+    "materialBatches": 5,
+    "actualMaximumTriangles": 20260,
+    "actualMaximumRatio": 4.935483870967742
+  },
+  "sourcePins": [
+    {
+      "path": "src/ui/HologramTokenGeometry.js",
+      "bytes": 8455,
+      "sha256": "c3c19d9cacd29631d1b47387bb115844fa9d80dbd3866dc8b2e70789a008f35d"
+    },
+    {
+      "path": "src/ui/HologramTokenBotanicalModels.js",
+      "bytes": 28142,
+      "sha256": "daec475175cf719e8be30e7034c3a1118147f0ec2f16909765b50e582c78858b"
+    },
+    {
+      "path": "src/ui/HologramTokenCreatureModels.js",
+      "bytes": 40519,
+      "sha256": "0a69acdb58bc23f68627c1b96c7d0f1cd4150fd7f692025f7f961c9f7482392b"
+    },
+    {
+      "path": "src/ui/HologramTokenConstructModels.js",
+      "bytes": 54343,
+      "sha256": "cdf06be38bdcfd3fca22cf88eb575dd0cc08a366d0e9d5875607ec2fbc6783b9"
+    },
+    {
+      "path": "src/ui/HologramTokenSpiritModels.js",
+      "bytes": 26667,
+      "sha256": "1230076e1040dcdef10af9a6d92fa9caa9efb30b74aafef2860fb047650103f3"
+    },
+    {
+      "path": "src/ui/HologramTokenIllustratedExceptions.js",
+      "bytes": 13201,
+      "sha256": "21541e2b5081860e8894af57669515b3be35948429009908b18195a7a8053694"
+    },
+    {
+      "path": "test/hologram-token-models.test.js",
+      "bytes": 11170,
+      "sha256": "e395231f23cdbb8f517439642e64324dfc9912b58c27e99c14f92e0805a2d10d"
+    },
+    {
+      "path": "test/hologram-token-botanical-models.test.js",
+      "bytes": 8339,
+      "sha256": "7ca8f31312fd658a8e5d87ac245adeee9b31e984ef60d300f7b474d795717d84"
+    },
+    {
+      "path": "tests/token-construct-refinement.test.mjs",
+      "bytes": 11815,
+      "sha256": "744d441ca998e47ff6aafd4eb0aaeba923e90bdb86b45e0703c33cd94b4c9ba8"
+    },
+    {
+      "path": "tests/token-illustrated-exceptions.test.mjs",
+      "bytes": 6059,
+      "sha256": "3fc370fec931ae562dbe7cd9e6c23223ae5e9f84ea76a6fee4bf75909545e0de"
+    },
+    {
+      "path": "test/hologram-token-fidelity.test.js",
+      "bytes": 3753,
+      "sha256": "bee5f16b216fff3f31827176652038b6e37845161abca47a220ee086f5dae3c1"
+    },
+    {
+      "path": "test/fixtures/token-model-baseline-2026-10-11.json",
+      "bytes": 24037,
+      "sha256": "cee1c62e7aca7d4f33529e009699b8e7be5a6986b56c15b692b351f9d899a51f"
+    }
+  ],
+  "artifactPins": [
+    {
+      "path": "after/construct-measures.json",
+      "bytes": 27792,
+      "sha256": "f86e1d4638701043e647baa1a9e4da5d89482a95d99b76e8b515b563451b7723"
+    },
+    {
+      "path": "after/construct-tests.txt",
+      "bytes": 1100,
+      "sha256": "cb7be5a7376fc654e4ffb81b148c176bbbfb23d7d6200e7eb3d32095bf0a4860"
+    },
+    {
+      "path": "after/geometry-two-poses.json",
+      "bytes": 248190,
+      "sha256": "000287ee3a0270745686fa5bcbf47b5a2d91fa48079b1a99dcb3052fa96ac653"
+    },
+    {
+      "path": "after/sources/HologramTokenBotanicalModels.js",
+      "bytes": 28142,
+      "sha256": "daec475175cf719e8be30e7034c3a1118147f0ec2f16909765b50e582c78858b"
+    },
+    {
+      "path": "after/sources/HologramTokenConstructModels.js",
+      "bytes": 54343,
+      "sha256": "cdf06be38bdcfd3fca22cf88eb575dd0cc08a366d0e9d5875607ec2fbc6783b9"
+    },
+    {
+      "path": "after/sources/HologramTokenCreatureModels.js",
+      "bytes": 40519,
+      "sha256": "0a69acdb58bc23f68627c1b96c7d0f1cd4150fd7f692025f7f961c9f7482392b"
+    },
+    {
+      "path": "after/sources/HologramTokenGeometry.js",
+      "bytes": 8455,
+      "sha256": "c3c19d9cacd29631d1b47387bb115844fa9d80dbd3866dc8b2e70789a008f35d"
+    },
+    {
+      "path": "after/sources/HologramTokenIllustratedExceptions.js",
+      "bytes": 13201,
+      "sha256": "21541e2b5081860e8894af57669515b3be35948429009908b18195a7a8053694"
+    },
+    {
+      "path": "after/sources/HologramTokenSpiritModels.js",
+      "bytes": 26667,
+      "sha256": "1230076e1040dcdef10af9a6d92fa9caa9efb30b74aafef2860fb047650103f3"
+    },
+    {
+      "path": "after/tests.txt",
+      "bytes": 3265,
+      "sha256": "8c3fc6149845ce668e8056587dc042f99dfd16ae944b8ccbff5846757f1be3c8"
+    },
+    {
+      "path": "before/geometry-two-poses.json",
+      "bytes": 93301,
+      "sha256": "a67d6e0a1914650661c2289bc05b0721e38969829a5d97fbe5181dd6b802e833"
+    },
+    {
+      "path": "before/source-manifest.json",
+      "bytes": 1644,
+      "sha256": "53d54088bd602fcccdde35a9cd2fdebc73e590907981edf5d5c3fb6eb9f421b4"
+    },
+    {
+      "path": "before/sources/HologramTokenBotanicalModels.js",
+      "bytes": 27468,
+      "sha256": "550b8ae6973ff405c3abaf2898f74c281a942a3c939c30197d5d1326d0beb2b9"
+    },
+    {
+      "path": "before/sources/HologramTokenConstructModels.js",
+      "bytes": 28156,
+      "sha256": "245bb6a7b47f67ca9ec2b2520d6d3d0550a8f5ad1eb1699e506ba9037b99ff76"
+    },
+    {
+      "path": "before/sources/HologramTokenCreatureModels.js",
+      "bytes": 33644,
+      "sha256": "336280a63698eb3937be7683922064f7243811b83f76f3e2c024e7901aa7b771"
+    },
+    {
+      "path": "before/sources/HologramTokenGeometry.js",
+      "bytes": 2701,
+      "sha256": "fdae5fa328bfb60e633d2f70ef32964f39e8f9198130be322baa0039977af4d1"
+    },
+    {
+      "path": "before/sources/HologramTokenIllustratedExceptions.js",
+      "bytes": 12030,
+      "sha256": "29ada3f0825d726b4c12664c73ced64beab227eb13fd3d8af10c58ab92b50c3d"
+    },
+    {
+      "path": "before/sources/HologramTokenSpiritModels.js",
+      "bytes": 21508,
+      "sha256": "00160819cf744008c820864fda3d29128fc7f180b76526c8ac65cf9fa0c55365"
+    },
+    {
+      "path": "references/generators-1.jpg",
+      "bytes": 625877,
+      "sha256": "2dc9fc2f9fe6460025a8c766e74e3c8d9ebbab197fe9d487677238ab42faa1c1"
+    },
+    {
+      "path": "references/generators-2.jpg",
+      "bytes": 629580,
+      "sha256": "530fd7743c9cb6f2b38788fe4a359f5f6abfa2647a68ba6c99d738d5c6e11318"
+    }
+  ]
+}

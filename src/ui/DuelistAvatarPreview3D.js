@@ -30,7 +30,7 @@ export class DuelistAvatarPreview3D {
       this.renderer.setPixelRatio(Math.min(this.window.devicePixelRatio || 1, 1.5));
       this.renderer.outputColorSpace = THREE.SRGBColorSpace;
       this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
-      this.renderer.toneMappingExposure = 1.1;
+      this.renderer.toneMappingExposure = 1;
       this.renderer.shadowMap.enabled = true;
       this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
       this.renderer.domElement.setAttribute('role', 'img');
@@ -40,8 +40,10 @@ export class DuelistAvatarPreview3D {
       this.scene = new THREE.Scene();
       this.scene.background = new THREE.Color('#121a2b');
       this.camera = new THREE.PerspectiveCamera(34, 1, .1, 80);
-      this.scene.add(new THREE.HemisphereLight('#dceaff', '#32313c', 2.05));
-      const key = new THREE.DirectionalLight('#fff2db', 3.1);
+      // A neutral key preserves the illustrated skin and costume colours;
+      // a softer rim reveals curved hair and cloth without turning them cyan.
+      this.scene.add(new THREE.HemisphereLight('#eef2ff', '#262c38', 1.45));
+      const key = new THREE.DirectionalLight('#ffffff', 2.9);
       key.position.set(-4, 8, 8);
       key.castShadow = true;
       key.shadow.mapSize.set(512, 512);
@@ -51,7 +53,7 @@ export class DuelistAvatarPreview3D {
       key.shadow.camera.bottom = -4;
       key.shadow.normalBias = .045;
       this.scene.add(key);
-      const rim = new THREE.DirectionalLight('#83d6ff', 2.4);
+      const rim = new THREE.DirectionalLight('#b9d2ed', 1.2);
       rim.position.set(5, 6, -5);
       this.scene.add(rim);
       this.floor = new THREE.Mesh(new THREE.CylinderGeometry(3.05, 3.2, .14, 48),

@@ -1,0 +1,1301 @@
+{
+  "scope": "Actual model construction for all 79 Token identities routed by the 13 construct anatomy families, both poses. Golden Eye and Triangle Fiend use an earlier exact Spirit interceptor. No gameplay state, native archive or reference metadata is changed.",
+  "baselineSourceHead": "1371c5ba679d336f5df478720e6f9c4265d08e9d",
+  "sourcePins": [
+    {
+      "path": "src/ui/HologramTokenConstructModels.js",
+      "bytes": 54343,
+      "sha256": "cdf06be38bdcfd3fca22cf88eb575dd0cc08a366d0e9d5875607ec2fbc6783b9"
+    },
+    {
+      "path": "tests/token-construct-refinement.test.mjs",
+      "bytes": 11815,
+      "sha256": "744d441ca998e47ff6aafd4eb0aaeba923e90bdb86b45e0703c33cd94b4c9ba8"
+    },
+    {
+      "path": "/workspace/yugioh-fidelity-construct-tests-final-2026-10-11.txt",
+      "bytes": 1100,
+      "sha256": "cb7be5a7376fc654e4ffb81b148c176bbbfb23d7d6200e7eb3d32095bf0a4860"
+    },
+    {
+      "path": "/workspace/yugioh-fidelity-visual-qa-2026-10-11/baseline-cpu-two-poses.json",
+      "bytes": 93301,
+      "sha256": "a67d6e0a1914650661c2289bc05b0721e38969829a5d97fbe5181dd6b802e833"
+    }
+  ],
+  "tests": {
+    "count": 9,
+    "passed": 9,
+    "failed": 0
+  },
+  "measuredRows": 158,
+  "maxRatio": 4.935483870967742,
+  "overBudget": [],
+  "rows": [
+    {
+      "id": "176393",
+      "defense": false,
+      "triangles": 9164,
+      "baselineTriangles": 1926,
+      "ratio": 4.7580477673935615,
+      "meshes": 5
+    },
+    {
+      "id": "176393",
+      "defense": true,
+      "triangles": 9732,
+      "baselineTriangles": 2494,
+      "ratio": 3.9021651964715316,
+      "meshes": 5
+    },
+    {
+      "id": "645088",
+      "defense": false,
+      "triangles": 5388,
+      "baselineTriangles": 1632,
+      "ratio": 3.301470588235294,
+      "meshes": 5
+    },
+    {
+      "id": "645088",
+      "defense": true,
+      "triangles": 5956,
+      "baselineTriangles": 2200,
+      "ratio": 2.707272727272727,
+      "meshes": 5
+    },
+    {
+      "id": "904186",
+      "defense": false,
+      "triangles": 2556,
+      "baselineTriangles": 1160,
+      "ratio": 2.203448275862069,
+      "meshes": 5
+    },
+    {
+      "id": "904186",
+      "defense": true,
+      "triangles": 3124,
+      "baselineTriangles": 1728,
+      "ratio": 1.8078703703703705,
+      "meshes": 5
+    },
+    {
+      "id": "2625940",
+      "defense": false,
+      "triangles": 904,
+      "baselineTriangles": 904,
+      "ratio": 1,
+      "meshes": 4
+    },
+    {
+      "id": "2625940",
+      "defense": true,
+      "triangles": 1472,
+      "baselineTriangles": 1472,
+      "ratio": 1,
+      "meshes": 4
+    },
+    {
+      "id": "4417408",
+      "defense": false,
+      "triangles": 2556,
+      "baselineTriangles": 1160,
+      "ratio": 2.203448275862069,
+      "meshes": 5
+    },
+    {
+      "id": "4417408",
+      "defense": true,
+      "triangles": 3124,
+      "baselineTriangles": 1728,
+      "ratio": 1.8078703703703705,
+      "meshes": 5
+    },
+    {
+      "id": "8025951",
+      "defense": false,
+      "triangles": 5388,
+      "baselineTriangles": 1632,
+      "ratio": 3.301470588235294,
+      "meshes": 5
+    },
+    {
+      "id": "8025951",
+      "defense": true,
+      "triangles": 5956,
+      "baselineTriangles": 2200,
+      "ratio": 2.707272727272727,
+      "meshes": 5
+    },
+    {
+      "id": "10389143",
+      "defense": false,
+      "triangles": 3444,
+      "baselineTriangles": 1160,
+      "ratio": 2.9689655172413794,
+      "meshes": 5
+    },
+    {
+      "id": "10389143",
+      "defense": true,
+      "triangles": 4012,
+      "baselineTriangles": 1728,
+      "ratio": 2.321759259259259,
+      "meshes": 5
+    },
+    {
+      "id": "11738490",
+      "defense": false,
+      "triangles": 960,
+      "baselineTriangles": 960,
+      "ratio": 1,
+      "meshes": 3
+    },
+    {
+      "id": "11738490",
+      "defense": true,
+      "triangles": 1528,
+      "baselineTriangles": 1528,
+      "ratio": 1,
+      "meshes": 3
+    },
+    {
+      "id": "13536607",
+      "defense": false,
+      "triangles": 7956,
+      "baselineTriangles": 1612,
+      "ratio": 4.935483870967742,
+      "meshes": 5
+    },
+    {
+      "id": "13536607",
+      "defense": true,
+      "triangles": 8524,
+      "baselineTriangles": 2180,
+      "ratio": 3.910091743119266,
+      "meshes": 5
+    },
+    {
+      "id": "14089429",
+      "defense": false,
+      "triangles": 3544,
+      "baselineTriangles": 1364,
+      "ratio": 2.598240469208211,
+      "meshes": 5
+    },
+    {
+      "id": "14089429",
+      "defense": true,
+      "triangles": 4112,
+      "baselineTriangles": 1932,
+      "ratio": 2.1283643892339543,
+      "meshes": 5
+    },
+    {
+      "id": "15590356",
+      "defense": false,
+      "triangles": 5644,
+      "baselineTriangles": 2196,
+      "ratio": 2.570127504553734,
+      "meshes": 5
+    },
+    {
+      "id": "15590356",
+      "defense": true,
+      "triangles": 6212,
+      "baselineTriangles": 2764,
+      "ratio": 2.247467438494935,
+      "meshes": 5
+    },
+    {
+      "id": "16943771",
+      "defense": false,
+      "triangles": 2556,
+      "baselineTriangles": 1160,
+      "ratio": 2.203448275862069,
+      "meshes": 5
+    },
+    {
+      "id": "16943771",
+      "defense": true,
+      "triangles": 3124,
+      "baselineTriangles": 1728,
+      "ratio": 1.8078703703703705,
+      "meshes": 5
+    },
+    {
+      "id": "16946850",
+      "defense": false,
+      "triangles": 1784,
+      "baselineTriangles": 1048,
+      "ratio": 1.702290076335878,
+      "meshes": 3
+    },
+    {
+      "id": "16946850",
+      "defense": true,
+      "triangles": 2352,
+      "baselineTriangles": 1616,
+      "ratio": 1.4554455445544554,
+      "meshes": 3
+    },
+    {
+      "id": "17418745",
+      "defense": false,
+      "triangles": 1432,
+      "baselineTriangles": 1172,
+      "ratio": 1.2218430034129693,
+      "meshes": 3
+    },
+    {
+      "id": "17418745",
+      "defense": true,
+      "triangles": 2000,
+      "baselineTriangles": 1740,
+      "ratio": 1.1494252873563218,
+      "meshes": 3
+    },
+    {
+      "id": "18494512",
+      "defense": false,
+      "triangles": 712,
+      "baselineTriangles": 712,
+      "ratio": 1,
+      "meshes": 3
+    },
+    {
+      "id": "18494512",
+      "defense": true,
+      "triangles": 1280,
+      "baselineTriangles": 1280,
+      "ratio": 1,
+      "meshes": 3
+    },
+    {
+      "id": "20368764",
+      "defense": false,
+      "triangles": 2556,
+      "baselineTriangles": 1160,
+      "ratio": 2.203448275862069,
+      "meshes": 5
+    },
+    {
+      "id": "20368764",
+      "defense": true,
+      "triangles": 3124,
+      "baselineTriangles": 1728,
+      "ratio": 1.8078703703703705,
+      "meshes": 5
+    },
+    {
+      "id": "21830680",
+      "defense": false,
+      "triangles": 1196,
+      "baselineTriangles": 1196,
+      "ratio": 1,
+      "meshes": 4
+    },
+    {
+      "id": "21830680",
+      "defense": true,
+      "triangles": 1764,
+      "baselineTriangles": 1764,
+      "ratio": 1,
+      "meshes": 4
+    },
+    {
+      "id": "22110648",
+      "defense": false,
+      "triangles": 2556,
+      "baselineTriangles": 1160,
+      "ratio": 2.203448275862069,
+      "meshes": 5
+    },
+    {
+      "id": "22110648",
+      "defense": true,
+      "triangles": 3124,
+      "baselineTriangles": 1728,
+      "ratio": 1.8078703703703705,
+      "meshes": 5
+    },
+    {
+      "id": "22411610",
+      "defense": false,
+      "triangles": 5644,
+      "baselineTriangles": 2196,
+      "ratio": 2.570127504553734,
+      "meshes": 5
+    },
+    {
+      "id": "22411610",
+      "defense": true,
+      "triangles": 6212,
+      "baselineTriangles": 2764,
+      "ratio": 2.247467438494935,
+      "meshes": 5
+    },
+    {
+      "id": "22953212",
+      "defense": false,
+      "triangles": 5388,
+      "baselineTriangles": 1632,
+      "ratio": 3.301470588235294,
+      "meshes": 5
+    },
+    {
+      "id": "22953212",
+      "defense": true,
+      "triangles": 5956,
+      "baselineTriangles": 2200,
+      "ratio": 2.707272727272727,
+      "meshes": 5
+    },
+    {
+      "id": "23116809",
+      "defense": false,
+      "triangles": 5644,
+      "baselineTriangles": 2196,
+      "ratio": 2.570127504553734,
+      "meshes": 5
+    },
+    {
+      "id": "23116809",
+      "defense": true,
+      "triangles": 6212,
+      "baselineTriangles": 2764,
+      "ratio": 2.247467438494935,
+      "meshes": 5
+    },
+    {
+      "id": "23331401",
+      "defense": false,
+      "triangles": 5092,
+      "baselineTriangles": 1040,
+      "ratio": 4.8961538461538465,
+      "meshes": 5
+    },
+    {
+      "id": "23331401",
+      "defense": true,
+      "triangles": 5660,
+      "baselineTriangles": 1608,
+      "ratio": 3.5199004975124377,
+      "meshes": 5
+    },
+    {
+      "id": "27204312",
+      "defense": false,
+      "triangles": 2324,
+      "baselineTriangles": 1244,
+      "ratio": 1.8681672025723473,
+      "meshes": 4
+    },
+    {
+      "id": "27204312",
+      "defense": true,
+      "triangles": 2892,
+      "baselineTriangles": 1812,
+      "ratio": 1.596026490066225,
+      "meshes": 4
+    },
+    {
+      "id": "27450401",
+      "defense": false,
+      "triangles": 3556,
+      "baselineTriangles": 1116,
+      "ratio": 3.186379928315412,
+      "meshes": 5
+    },
+    {
+      "id": "27450401",
+      "defense": true,
+      "triangles": 4124,
+      "baselineTriangles": 1684,
+      "ratio": 2.4489311163895486,
+      "meshes": 5
+    },
+    {
+      "id": "28053764",
+      "defense": false,
+      "triangles": 9728,
+      "baselineTriangles": 2956,
+      "ratio": 3.290933694181326,
+      "meshes": 5
+    },
+    {
+      "id": "28053764",
+      "defense": true,
+      "triangles": 10296,
+      "baselineTriangles": 3524,
+      "ratio": 2.9216799091940975,
+      "meshes": 5
+    },
+    {
+      "id": "29491335",
+      "defense": false,
+      "triangles": 4456,
+      "baselineTriangles": 1160,
+      "ratio": 3.8413793103448275,
+      "meshes": 5
+    },
+    {
+      "id": "29491335",
+      "defense": true,
+      "triangles": 5024,
+      "baselineTriangles": 1728,
+      "ratio": 2.9074074074074074,
+      "meshes": 5
+    },
+    {
+      "id": "30811117",
+      "defense": false,
+      "triangles": 2556,
+      "baselineTriangles": 1160,
+      "ratio": 2.203448275862069,
+      "meshes": 5
+    },
+    {
+      "id": "30811117",
+      "defense": true,
+      "triangles": 3124,
+      "baselineTriangles": 1728,
+      "ratio": 1.8078703703703705,
+      "meshes": 5
+    },
+    {
+      "id": "31480216",
+      "defense": false,
+      "triangles": 2556,
+      "baselineTriangles": 1160,
+      "ratio": 2.203448275862069,
+      "meshes": 5
+    },
+    {
+      "id": "31480216",
+      "defense": true,
+      "triangles": 3124,
+      "baselineTriangles": 1728,
+      "ratio": 1.8078703703703705,
+      "meshes": 5
+    },
+    {
+      "id": "31533705",
+      "defense": false,
+      "triangles": 2556,
+      "baselineTriangles": 1160,
+      "ratio": 2.203448275862069,
+      "meshes": 5
+    },
+    {
+      "id": "31533705",
+      "defense": true,
+      "triangles": 3124,
+      "baselineTriangles": 1728,
+      "ratio": 1.8078703703703705,
+      "meshes": 5
+    },
+    {
+      "id": "34767866",
+      "defense": false,
+      "triangles": 904,
+      "baselineTriangles": 904,
+      "ratio": 1,
+      "meshes": 4
+    },
+    {
+      "id": "34767866",
+      "defense": true,
+      "triangles": 1472,
+      "baselineTriangles": 1472,
+      "ratio": 1,
+      "meshes": 4
+    },
+    {
+      "id": "35514097",
+      "defense": false,
+      "triangles": 3324,
+      "baselineTriangles": 1232,
+      "ratio": 2.698051948051948,
+      "meshes": 5
+    },
+    {
+      "id": "35514097",
+      "defense": true,
+      "triangles": 3892,
+      "baselineTriangles": 1800,
+      "ratio": 2.1622222222222223,
+      "meshes": 5
+    },
+    {
+      "id": "37654624",
+      "defense": false,
+      "triangles": 5388,
+      "baselineTriangles": 1632,
+      "ratio": 3.301470588235294,
+      "meshes": 5
+    },
+    {
+      "id": "37654624",
+      "defense": true,
+      "triangles": 5956,
+      "baselineTriangles": 2200,
+      "ratio": 2.707272727272727,
+      "meshes": 5
+    },
+    {
+      "id": "41329459",
+      "defense": false,
+      "triangles": 2556,
+      "baselineTriangles": 1160,
+      "ratio": 2.203448275862069,
+      "meshes": 5
+    },
+    {
+      "id": "41329459",
+      "defense": true,
+      "triangles": 3124,
+      "baselineTriangles": 1728,
+      "ratio": 1.8078703703703705,
+      "meshes": 5
+    },
+    {
+      "id": "41458362",
+      "defense": false,
+      "triangles": 2316,
+      "baselineTriangles": 1236,
+      "ratio": 1.8737864077669903,
+      "meshes": 4
+    },
+    {
+      "id": "41458362",
+      "defense": true,
+      "triangles": 2884,
+      "baselineTriangles": 1804,
+      "ratio": 1.598669623059867,
+      "meshes": 4
+    },
+    {
+      "id": "42427231",
+      "defense": false,
+      "triangles": 5388,
+      "baselineTriangles": 1632,
+      "ratio": 3.301470588235294,
+      "meshes": 5
+    },
+    {
+      "id": "42427231",
+      "defense": true,
+      "triangles": 5956,
+      "baselineTriangles": 2200,
+      "ratio": 2.707272727272727,
+      "meshes": 5
+    },
+    {
+      "id": "43664495",
+      "defense": false,
+      "triangles": 5644,
+      "baselineTriangles": 2196,
+      "ratio": 2.570127504553734,
+      "meshes": 5
+    },
+    {
+      "id": "43664495",
+      "defense": true,
+      "triangles": 6212,
+      "baselineTriangles": 2764,
+      "ratio": 2.247467438494935,
+      "meshes": 5
+    },
+    {
+      "id": "44026394",
+      "defense": false,
+      "triangles": 2556,
+      "baselineTriangles": 1160,
+      "ratio": 2.203448275862069,
+      "meshes": 5
+    },
+    {
+      "id": "44026394",
+      "defense": true,
+      "triangles": 3124,
+      "baselineTriangles": 1728,
+      "ratio": 1.8078703703703705,
+      "meshes": 5
+    },
+    {
+      "id": "44052075",
+      "defense": false,
+      "triangles": 2552,
+      "baselineTriangles": 1328,
+      "ratio": 1.9216867469879517,
+      "meshes": 4
+    },
+    {
+      "id": "44052075",
+      "defense": true,
+      "triangles": 3120,
+      "baselineTriangles": 1896,
+      "ratio": 1.6455696202531647,
+      "meshes": 4
+    },
+    {
+      "id": "44097051",
+      "defense": false,
+      "triangles": 2556,
+      "baselineTriangles": 1160,
+      "ratio": 2.203448275862069,
+      "meshes": 5
+    },
+    {
+      "id": "44097051",
+      "defense": true,
+      "triangles": 3124,
+      "baselineTriangles": 1728,
+      "ratio": 1.8078703703703705,
+      "meshes": 5
+    },
+    {
+      "id": "44308318",
+      "defense": false,
+      "triangles": 712,
+      "baselineTriangles": 712,
+      "ratio": 1,
+      "meshes": 3
+    },
+    {
+      "id": "44308318",
+      "defense": true,
+      "triangles": 1280,
+      "baselineTriangles": 1280,
+      "ratio": 1,
+      "meshes": 3
+    },
+    {
+      "id": "44586427",
+      "defense": false,
+      "triangles": 6404,
+      "baselineTriangles": 1508,
+      "ratio": 4.246684350132626,
+      "meshes": 5
+    },
+    {
+      "id": "44586427",
+      "defense": true,
+      "triangles": 6972,
+      "baselineTriangles": 2076,
+      "ratio": 3.3583815028901736,
+      "meshes": 5
+    },
+    {
+      "id": "47658965",
+      "defense": false,
+      "triangles": 5644,
+      "baselineTriangles": 2196,
+      "ratio": 2.570127504553734,
+      "meshes": 5
+    },
+    {
+      "id": "47658965",
+      "defense": true,
+      "triangles": 6212,
+      "baselineTriangles": 2764,
+      "ratio": 2.247467438494935,
+      "meshes": 5
+    },
+    {
+      "id": "48068379",
+      "defense": false,
+      "triangles": 904,
+      "baselineTriangles": 904,
+      "ratio": 1,
+      "meshes": 4
+    },
+    {
+      "id": "48068379",
+      "defense": true,
+      "triangles": 1472,
+      "baselineTriangles": 1472,
+      "ratio": 1,
+      "meshes": 4
+    },
+    {
+      "id": "48115278",
+      "defense": false,
+      "triangles": 3080,
+      "baselineTriangles": 1664,
+      "ratio": 1.8509615384615385,
+      "meshes": 5
+    },
+    {
+      "id": "48115278",
+      "defense": true,
+      "triangles": 3648,
+      "baselineTriangles": 2232,
+      "ratio": 1.6344086021505377,
+      "meshes": 5
+    },
+    {
+      "id": "48411997",
+      "defense": false,
+      "triangles": 4596,
+      "baselineTriangles": 1956,
+      "ratio": 2.3496932515337425,
+      "meshes": 3
+    },
+    {
+      "id": "48411997",
+      "defense": true,
+      "triangles": 5164,
+      "baselineTriangles": 2524,
+      "ratio": 2.045958795562599,
+      "meshes": 3
+    },
+    {
+      "id": "51987572",
+      "defense": false,
+      "triangles": 2316,
+      "baselineTriangles": 1236,
+      "ratio": 1.8737864077669903,
+      "meshes": 4
+    },
+    {
+      "id": "51987572",
+      "defense": true,
+      "triangles": 2884,
+      "baselineTriangles": 1804,
+      "ratio": 1.598669623059867,
+      "meshes": 4
+    },
+    {
+      "id": "52782440",
+      "defense": false,
+      "triangles": 5388,
+      "baselineTriangles": 1632,
+      "ratio": 3.301470588235294,
+      "meshes": 5
+    },
+    {
+      "id": "52782440",
+      "defense": true,
+      "triangles": 5956,
+      "baselineTriangles": 2200,
+      "ratio": 2.707272727272727,
+      "meshes": 5
+    },
+    {
+      "id": "54577950",
+      "defense": false,
+      "triangles": 3964,
+      "baselineTriangles": 2036,
+      "ratio": 1.9469548133595285,
+      "meshes": 4
+    },
+    {
+      "id": "54577950",
+      "defense": true,
+      "triangles": 4532,
+      "baselineTriangles": 2604,
+      "ratio": 1.7403993855606759,
+      "meshes": 4
+    },
+    {
+      "id": "55326323",
+      "defense": false,
+      "triangles": 1480,
+      "baselineTriangles": 936,
+      "ratio": 1.5811965811965811,
+      "meshes": 3
+    },
+    {
+      "id": "55326323",
+      "defense": true,
+      "triangles": 2048,
+      "baselineTriangles": 1504,
+      "ratio": 1.3617021276595744,
+      "meshes": 3
+    },
+    {
+      "id": "59900656",
+      "defense": false,
+      "triangles": 5644,
+      "baselineTriangles": 2196,
+      "ratio": 2.570127504553734,
+      "meshes": 5
+    },
+    {
+      "id": "59900656",
+      "defense": true,
+      "triangles": 6212,
+      "baselineTriangles": 2764,
+      "ratio": 2.247467438494935,
+      "meshes": 5
+    },
+    {
+      "id": "60203671",
+      "defense": false,
+      "triangles": 5388,
+      "baselineTriangles": 1632,
+      "ratio": 3.301470588235294,
+      "meshes": 5
+    },
+    {
+      "id": "60203671",
+      "defense": true,
+      "triangles": 5956,
+      "baselineTriangles": 2200,
+      "ratio": 2.707272727272727,
+      "meshes": 5
+    },
+    {
+      "id": "62125439",
+      "defense": false,
+      "triangles": 4748,
+      "baselineTriangles": 1828,
+      "ratio": 2.597374179431072,
+      "meshes": 4
+    },
+    {
+      "id": "62125439",
+      "defense": true,
+      "triangles": 5316,
+      "baselineTriangles": 2396,
+      "ratio": 2.2186978297161937,
+      "meshes": 4
+    },
+    {
+      "id": "66200211",
+      "defense": false,
+      "triangles": 2556,
+      "baselineTriangles": 1160,
+      "ratio": 2.203448275862069,
+      "meshes": 5
+    },
+    {
+      "id": "66200211",
+      "defense": true,
+      "triangles": 3124,
+      "baselineTriangles": 1728,
+      "ratio": 1.8078703703703705,
+      "meshes": 5
+    },
+    {
+      "id": "66661679",
+      "defense": false,
+      "triangles": 856,
+      "baselineTriangles": 856,
+      "ratio": 1,
+      "meshes": 3
+    },
+    {
+      "id": "66661679",
+      "defense": true,
+      "triangles": 1424,
+      "baselineTriangles": 1424,
+      "ratio": 1,
+      "meshes": 3
+    },
+    {
+      "id": "67489920",
+      "defense": false,
+      "triangles": 2556,
+      "baselineTriangles": 1160,
+      "ratio": 2.203448275862069,
+      "meshes": 5
+    },
+    {
+      "id": "67489920",
+      "defense": true,
+      "triangles": 3124,
+      "baselineTriangles": 1728,
+      "ratio": 1.8078703703703705,
+      "meshes": 5
+    },
+    {
+      "id": "67922703",
+      "defense": false,
+      "triangles": 2556,
+      "baselineTriangles": 1160,
+      "ratio": 2.203448275862069,
+      "meshes": 5
+    },
+    {
+      "id": "67922703",
+      "defense": true,
+      "triangles": 3124,
+      "baselineTriangles": 1728,
+      "ratio": 1.8078703703703705,
+      "meshes": 5
+    },
+    {
+      "id": "67949764",
+      "defense": false,
+      "triangles": 1040,
+      "baselineTriangles": 1008,
+      "ratio": 1.0317460317460319,
+      "meshes": 4
+    },
+    {
+      "id": "67949764",
+      "defense": true,
+      "triangles": 1608,
+      "baselineTriangles": 1576,
+      "ratio": 1.0203045685279188,
+      "meshes": 4
+    },
+    {
+      "id": "68815402",
+      "defense": false,
+      "triangles": 6168,
+      "baselineTriangles": 2292,
+      "ratio": 2.6910994764397906,
+      "meshes": 3
+    },
+    {
+      "id": "68815402",
+      "defense": true,
+      "triangles": 6736,
+      "baselineTriangles": 2860,
+      "ratio": 2.355244755244755,
+      "meshes": 3
+    },
+    {
+      "id": "69550260",
+      "defense": false,
+      "triangles": 5388,
+      "baselineTriangles": 1632,
+      "ratio": 3.301470588235294,
+      "meshes": 5
+    },
+    {
+      "id": "69550260",
+      "defense": true,
+      "triangles": 5956,
+      "baselineTriangles": 2200,
+      "ratio": 2.707272727272727,
+      "meshes": 5
+    },
+    {
+      "id": "69811711",
+      "defense": false,
+      "triangles": 5388,
+      "baselineTriangles": 1632,
+      "ratio": 3.301470588235294,
+      "meshes": 5
+    },
+    {
+      "id": "69811711",
+      "defense": true,
+      "triangles": 5956,
+      "baselineTriangles": 2200,
+      "ratio": 2.707272727272727,
+      "meshes": 5
+    },
+    {
+      "id": "70875956",
+      "defense": false,
+      "triangles": 2556,
+      "baselineTriangles": 1160,
+      "ratio": 2.203448275862069,
+      "meshes": 5
+    },
+    {
+      "id": "70875956",
+      "defense": true,
+      "triangles": 3124,
+      "baselineTriangles": 1728,
+      "ratio": 1.8078703703703705,
+      "meshes": 5
+    },
+    {
+      "id": "70950699",
+      "defense": false,
+      "triangles": 960,
+      "baselineTriangles": 960,
+      "ratio": 1,
+      "meshes": 3
+    },
+    {
+      "id": "70950699",
+      "defense": true,
+      "triangles": 1528,
+      "baselineTriangles": 1528,
+      "ratio": 1,
+      "meshes": 3
+    },
+    {
+      "id": "72291079",
+      "defense": false,
+      "triangles": 2556,
+      "baselineTriangles": 1160,
+      "ratio": 2.203448275862069,
+      "meshes": 5
+    },
+    {
+      "id": "72291079",
+      "defense": true,
+      "triangles": 3124,
+      "baselineTriangles": 1728,
+      "ratio": 1.8078703703703705,
+      "meshes": 5
+    },
+    {
+      "id": "74627017",
+      "defense": false,
+      "triangles": 5388,
+      "baselineTriangles": 1632,
+      "ratio": 3.301470588235294,
+      "meshes": 5
+    },
+    {
+      "id": "74627017",
+      "defense": true,
+      "triangles": 5956,
+      "baselineTriangles": 2200,
+      "ratio": 2.707272727272727,
+      "meshes": 5
+    },
+    {
+      "id": "75119041",
+      "defense": false,
+      "triangles": 1780,
+      "baselineTriangles": 1160,
+      "ratio": 1.5344827586206897,
+      "meshes": 5
+    },
+    {
+      "id": "75119041",
+      "defense": true,
+      "triangles": 2348,
+      "baselineTriangles": 1728,
+      "ratio": 1.3587962962962963,
+      "meshes": 5
+    },
+    {
+      "id": "77435269",
+      "defense": false,
+      "triangles": 5388,
+      "baselineTriangles": 1632,
+      "ratio": 3.301470588235294,
+      "meshes": 5
+    },
+    {
+      "id": "77435269",
+      "defense": true,
+      "triangles": 5956,
+      "baselineTriangles": 2200,
+      "ratio": 2.707272727272727,
+      "meshes": 5
+    },
+    {
+      "id": "82340057",
+      "defense": false,
+      "triangles": 836,
+      "baselineTriangles": 836,
+      "ratio": 1,
+      "meshes": 4
+    },
+    {
+      "id": "82340057",
+      "defense": true,
+      "triangles": 1404,
+      "baselineTriangles": 1404,
+      "ratio": 1,
+      "meshes": 4
+    },
+    {
+      "id": "82556059",
+      "defense": false,
+      "triangles": 7124,
+      "baselineTriangles": 2164,
+      "ratio": 3.292051756007394,
+      "meshes": 4
+    },
+    {
+      "id": "82556059",
+      "defense": true,
+      "triangles": 7692,
+      "baselineTriangles": 2732,
+      "ratio": 2.815519765739385,
+      "meshes": 4
+    },
+    {
+      "id": "84816245",
+      "defense": false,
+      "triangles": 8040,
+      "baselineTriangles": 2052,
+      "ratio": 3.91812865497076,
+      "meshes": 5
+    },
+    {
+      "id": "84816245",
+      "defense": true,
+      "triangles": 8608,
+      "baselineTriangles": 2620,
+      "ratio": 3.285496183206107,
+      "meshes": 5
+    },
+    {
+      "id": "85243785",
+      "defense": false,
+      "triangles": 904,
+      "baselineTriangles": 904,
+      "ratio": 1,
+      "meshes": 4
+    },
+    {
+      "id": "85243785",
+      "defense": true,
+      "triangles": 1472,
+      "baselineTriangles": 1472,
+      "ratio": 1,
+      "meshes": 4
+    },
+    {
+      "id": "88477150",
+      "defense": false,
+      "triangles": 712,
+      "baselineTriangles": 712,
+      "ratio": 1,
+      "meshes": 3
+    },
+    {
+      "id": "88477150",
+      "defense": true,
+      "triangles": 1280,
+      "baselineTriangles": 1280,
+      "ratio": 1,
+      "meshes": 3
+    },
+    {
+      "id": "90884404",
+      "defense": false,
+      "triangles": 9412,
+      "baselineTriangles": 2456,
+      "ratio": 3.8322475570032575,
+      "meshes": 5
+    },
+    {
+      "id": "90884404",
+      "defense": true,
+      "triangles": 9980,
+      "baselineTriangles": 3024,
+      "ratio": 3.3002645502645502,
+      "meshes": 5
+    },
+    {
+      "id": "92907249",
+      "defense": false,
+      "triangles": 5644,
+      "baselineTriangles": 2196,
+      "ratio": 2.570127504553734,
+      "meshes": 5
+    },
+    {
+      "id": "92907249",
+      "defense": true,
+      "triangles": 6212,
+      "baselineTriangles": 2764,
+      "ratio": 2.247467438494935,
+      "meshes": 5
+    },
+    {
+      "id": "93104633",
+      "defense": false,
+      "triangles": 2612,
+      "baselineTriangles": 1060,
+      "ratio": 2.4641509433962265,
+      "meshes": 5
+    },
+    {
+      "id": "93104633",
+      "defense": true,
+      "triangles": 3180,
+      "baselineTriangles": 1628,
+      "ratio": 1.9533169533169532,
+      "meshes": 5
+    },
+    {
+      "id": "93130022",
+      "defense": false,
+      "triangles": 2552,
+      "baselineTriangles": 2564,
+      "ratio": 0.9953198127925117,
+      "meshes": 5
+    },
+    {
+      "id": "93130022",
+      "defense": true,
+      "triangles": 3120,
+      "baselineTriangles": 3132,
+      "ratio": 0.9961685823754789,
+      "meshes": 5
+    },
+    {
+      "id": "94703022",
+      "defense": false,
+      "triangles": 904,
+      "baselineTriangles": 904,
+      "ratio": 1,
+      "meshes": 4
+    },
+    {
+      "id": "94703022",
+      "defense": true,
+      "triangles": 1472,
+      "baselineTriangles": 1472,
+      "ratio": 1,
+      "meshes": 4
+    },
+    {
+      "id": "94973029",
+      "defense": false,
+      "triangles": 2556,
+      "baselineTriangles": 1160,
+      "ratio": 2.203448275862069,
+      "meshes": 5
+    },
+    {
+      "id": "94973029",
+      "defense": true,
+      "triangles": 3124,
+      "baselineTriangles": 1728,
+      "ratio": 1.8078703703703705,
+      "meshes": 5
+    },
+    {
+      "id": "98596597",
+      "defense": false,
+      "triangles": 5556,
+      "baselineTriangles": 2236,
+      "ratio": 2.48479427549195,
+      "meshes": 3
+    },
+    {
+      "id": "98596597",
+      "defense": true,
+      "triangles": 6124,
+      "baselineTriangles": 2804,
+      "ratio": 2.1840228245363766,
+      "meshes": 3
+    },
+    {
+      "id": "98875864",
+      "defense": false,
+      "triangles": 960,
+      "baselineTriangles": 960,
+      "ratio": 1,
+      "meshes": 3
+    },
+    {
+      "id": "98875864",
+      "defense": true,
+      "triangles": 1528,
+      "baselineTriangles": 1528,
+      "ratio": 1,
+      "meshes": 3
+    }
+  ],
+  "ok": true
+}

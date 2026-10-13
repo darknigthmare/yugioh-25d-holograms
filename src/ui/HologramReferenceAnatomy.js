@@ -4,10 +4,55 @@ import * as THREE from 'three';
 export function buildReferenceMonsterAnatomy(profile, build) {
   const { part, sphere, box, cone, ring, rod, membrane } = build;
   const compactRing = (name, material, position, radius, rotation = [Math.PI / 2, 0, 0], tint, scale = [1, 1, 1]) =>
-    part(name, new THREE.TorusGeometry(radius, 0.024, 4, 16), material, position, scale, rotation, tint);
+    part(name, new THREE.TorusGeometry(radius, 0.024, 6, 24), material, position, scale, rotation, tint);
   const ribbon = (name, material, points, width, tint) => {
     const curve = new THREE.CatmullRomCurve3(points.map(point => new THREE.Vector3(...point)));
-    part(name, new THREE.TubeGeometry(curve, 12, width, 5, false), material, [0, 0, 0], undefined, undefined, tint);
+    const segments=Math.max(16,Math.min(32,points.length*2)),radial=8,stride=radial+1;
+    const geometry=new THREE.TubeGeometry(curve,segments,width,radial,false);
+    for(const [label,row,sign] of [['start',0,-1],['end',segments,1]]) {
+      const t=row/segments,center=curve.getPointAt(t),normal=curve.getTangentAt(t).multiplyScalar(sign);
+      const positions=center.toArray(),normals=normal.toArray(),uv=[.5,.5],indices=[];
+      for(let i=0;i<=radial;i++) {
+        const offset=(row*stride+i)*3;positions.push(...geometry.attributes.position.array.slice(offset,offset+3));
+        normals.push(...normal.toArray());uv.push(.5+.5*Math.cos(i*Math.PI*2/radial),.5+.5*Math.sin(i*Math.PI*2/radial));
+        if(i<radial) indices.push(...(sign<0?[0,i+1,i+2]:[0,i+2,i+1]));
+      }
+      const cap=new THREE.BufferGeometry();cap.setAttribute('position',new THREE.Float32BufferAttribute(positions,3));cap.setAttribute('normal',new THREE.Float32BufferAttribute(normals,3));cap.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));cap.setIndex(indices);
+      part(`${name}-${label}-closed-cap`,cap,material,[0,0,0],undefined,undefined,tint);
+    }
+    part(name, geometry, material, [0, 0, 0], undefined, undefined, tint);
+  };
+
+  // Closed varying cross-sections narrow the long illustrated snout in both
+  // width and height, rather than extruding a constant-width sagittal outline.
+  const skullLoft=(sections,radial=12)=> {
+    const positions=[],uv=[],indices=[],stride=radial+1;
+    for(let row=0;row<sections.length;row++) {
+      const [z,y,width,height]=sections[row];
+      for(let col=0;col<=radial;col++) {
+        const a=col*Math.PI*2/radial;positions.push(Math.cos(a)*width,y+Math.sin(a)*height,z);uv.push(col/radial,row/(sections.length-1));
+        if(row<sections.length-1&&col<radial) {
+          const a=row*stride+col,b=a+stride;indices.push(a,a+1,b,a+1,b+1,b);
+        }
+      }
+    }
+    for(const [row,sign] of [[0,-1],[sections.length-1,1]]) {
+      const [z,y]=sections[row],center=positions.length/3;positions.push(0,y,z);uv.push(.5,.5);
+      for(let col=0;col<radial;col++) {
+        const a=row*stride+col,b=a+1;indices.push(...(sign<0?[center,b,a]:[center,a,b]));
+      }
+    }
+    const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(positions,3));geometry.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));geometry.setIndex(indices);geometry.computeVertexNormals();
+    const normals=geometry.attributes.normal;
+    for(let row=0;row<sections.length;row++) {
+      const a=row*stride,b=a+radial,n=new THREE.Vector3().fromBufferAttribute(normals,a).add(new THREE.Vector3().fromBufferAttribute(normals,b)).normalize();normals.setXYZ(a,n.x,n.y,n.z);normals.setXYZ(b,n.x,n.y,n.z);
+    }
+    return geometry;
+  };
+  const sculptedPlate=(name,material,vertices,position,depth=.045,tint,rotation)=> {
+    const shape=new THREE.Shape();vertices.forEach(([x,y],i)=>i?shape.lineTo(x,y):shape.moveTo(x,y));shape.closePath();
+    const geometry=new THREE.ExtrudeGeometry(shape,{depth,bevelEnabled:true,bevelSize:.012,bevelThickness:.009,bevelSegments:2,steps:1});
+    geometry.translate(0,0,-depth/2);part(name,geometry,material,position,undefined,rotation,tint);
   };
 
   if (profile.anatomy === 'armored-blue-dragon' || profile.anatomy === 'spiked-black-dragon') {
@@ -17,26 +62,24 @@ export function buildReferenceMonsterAnatomy(profile, build) {
     sphere('dragon-breast', 'body', [0, 1.55, -0.09], [0.48, 0.76, 0.43]);
     sphere('dragon-pelvic-armor', 'body', [0, 0.99, -0.17], [0.49, 0.43, 0.43]);
     sphere('dragon-belly', 'accent', [0, 1.54, 0.31], [0.31, 0.63, 0.12]);
-    for (let i = 0; i < 5; i += 1) box(`belly-scale-${i}`, 'accent', [0, 1.14 + i * 0.2, 0.39], [0.46 - Math.abs(2 - i) * 0.04, 0.115, 0.08], [0.05, 0, 0], plate);
+    for (let i = 0; i < 5; i += 1) {
+      const half=(.46-Math.abs(2-i)*.04)/2;
+      sculptedPlate(`belly-scale-${i}`,'accent',[[-half,.052],[-half*.8,-.04],[0,-.071],[half*.8,-.04],[half,.052],[0,.028]],[0,1.14+i*.2,.393],.045,plate,[.05,0,0]);
+    }
     const neck = [[0, 1.91, -0.04], [0, 2.25, -0.03], [0, 2.6, 0.02], [0, 2.9, 0.16], [0, 3.11, 0.3]];
     for (let i = 1; i < neck.length; i += 1) {
       rod(`neck-${i - 1}`, 'body', neck[i - 1], neck[i], 0.21 - i * 0.013, 0.2 - i * 0.013);
       compactRing(`neck-collar-${i}`, 'accent', [0, neck[i][1] - 0.08, neck[i][2]], 0.19 - i * 0.008, [Math.PI / 2 + i * 0.055, 0, 0], plate);
     }
-    const outline = new THREE.Shape();
-    const points = black
-      ? [[-0.29, 0.07], [-0.05, 0.3], [0.43, 0.16], [0.9, -0.07], [1.06, -0.29], [0.58, -0.12], [0.02, -0.18]]
-      : [[-0.27, 0.04], [-0.1, 0.3], [0.39, 0.24], [0.79, 0.02], [0.79, -0.16], [0.16, -0.12]];
-    points.forEach(([x, y], index) => index ? outline.lineTo(x, y) : outline.moveTo(x, y));
-    outline.closePath();
-    part('dragon-head-0', new THREE.ExtrudeGeometry(outline, { depth: 0.44, bevelEnabled: true, bevelThickness: 0.025, bevelSize: 0.025, bevelSegments: 1, steps: 1 }), 'body', [0.22, 3.1, 0.23], undefined, [0, -Math.PI / 2, 0]);
-    sphere('dragon-muzzle-0', 'body', [0, 3.03, black ? 0.98 : 0.82], [0.21, 0.12, 0.24]);
-    box('jaw-0', 'dark', [0, 2.86, 0.77], [0.34, 0.1, black ? 0.72 : 0.48], [-0.1, 0, 0], black ? '#392738' : '#457084');
+    const end=black?1.24:1.13;
+    part('dragon-head-0',skullLoft([[.135,3.117,.226,.19],[.39,3.171,.267,.191],[.7,3.155,.22,.139],[end-.12,3.063,.145,.082],[end,3.014,.103,.061]]),'body',[0,0,0]);
+    sphere('dragon-muzzle-0', 'body', [0, 3.035, end-.036], [.112,.061,.092]);
+    part('jaw-0',skullLoft([[.375,2.945,.135,.094],[.59,2.941,.183,.13],[.91,2.904,.149,.118],[end-.03,2.934,.075,.074]]),'dark',[0,0,0],undefined,undefined,black?'#231b2b':'#244857');
     for (const side of [-1, 1]) {
-      sphere(`dragon-eye-0-${side}`, 'eye', [side * 0.235, 3.23, 0.54], [0.038, black ? 0.024 : 0.055, 0.075]);
+      sphere(`dragon-eye-0-${side}`, 'eye', [side * 0.236, 3.235, 0.55], [0.025, black ? 0.023 : 0.037, 0.085]);
       sphere(`dragon-eye-pupil-${side}`, 'dark', [side * 0.264, 3.232, 0.555], [0.015, 0.04, 0.025], 0, '#071b2b');
       for (let toothIndex = 0; toothIndex < 5; toothIndex += 1) {
-        cone(`fang-0-${side}-${toothIndex}`, 'accent', [side * 0.16, 2.88, 0.5 + toothIndex * 0.103], [0.025, 0.105, 0.026], [Math.PI, 0, 0], tooth);
+        cone(`fang-0-${side}-${toothIndex}`, 'accent', [side * 0.15, 3.015, 0.56 + toothIndex * 0.105], [0.025, 0.105, 0.026], [Math.PI, 0, 0], tooth);
       }
       rod(`dragon-horn-0-${side}`, 'accent', [side * 0.14, 3.31, 0.15], [side * 0.31, black ? 3.89 : 3.72, -0.38], 0.1, 0.015, plate);
       for (let fin = 0; fin < (black ? 3 : 2); fin += 1) rod(`dragon-cheek-fin-${side}-${fin}`, 'body', [side * 0.2, 3.06 + fin * 0.13, 0.19], [side * (0.51 + fin * 0.08), 3.12 + fin * 0.18, -0.42], 0.07, 0.006);
@@ -61,6 +104,21 @@ export function buildReferenceMonsterAnatomy(profile, build) {
     const tail = [[0, 1, -0.39], [0.22, 0.6, -0.93], [0.63, 0.34, -1.44], [1.09, 0.43, -1.74], [1.37, black ? 0.94 : 0.69, -1.82]];
     for (let i = 1; i < tail.length; i += 1) rod(`tail-${i}`, 'body', tail[i - 1], tail[i], 0.2 / i, 0.14 / i);
     for (let i = 0; i < (black ? 8 : 5); i += 1) rod(`spine-${i}`, 'accent', [0, 2.77 - i * 0.2, -0.17 - i * 0.04], [0, 2.93 - i * 0.2, -0.5 - i * 0.07], 0.08, 0.006, plate);
+    for(const side of [-1,1]) {
+      // The source skull has a recessed almond eye, a swept brow and narrow
+      // nasal armor, unlike the round-faced generic dragon silhouette.
+      rod(`dragon-swept-eye-brow-${side}`,'body',[side*.221,3.297,.421],[side*.243,3.291,.679],.04,.029);
+      sculptedPlate(`dragon-tapered-cheek-armor-${side}`,'body',[[0,.14],[side*.17,.08],[side*.13,-.13],[side*-.04,-.19]],[side*.19,3.051,.415],.058,black?'#3c4354':'#d4e8ef',[0,side*.43,0]);
+      rod(`jaw-dragon-long-lower-mandible-${side}`,'body',[side*.184,2.837,.433],[side*.185,2.865,black?.99:.895],.038,.065);
+      for(let i=0;i<4;i++) {
+        const y=1.177+i*.205;
+        sculptedPlate(`dragon-lateral-overlapping-armor-${side}-${i}`,'body',[[side*-.08,.1],[side*.115,.055],[side*.09,-.095],[side*-.08,-.05]],[side*.426,y,.247],.055,black?'#41495c':'#cde5ee',[0,side*.44,side*-.06]);
+      }
+      ribbon(`wing-${side}-curved-lower-border`,'body',[[side*.34,1.55,-.087],[side*.65,1.75,-.087],[side*1.08,1.84,-.087],[side*1.35,2.47,-.087],[side*1.75,2.41,-.087]],.024,plate);
+      sphere(`dragon-sculpted-nostril-${side}`,'dark',[side*.084,3.065,black?1.227:1.106],[.023,.018,.009],0,'#203849');
+      rod(`dragon-rounded-claw-knuckle-${side}`,'body',[side*.496,1.156,.889],[side*.715,1.156,.889],.027,.027);
+    }
+    sculptedPlate('dragon-long-ridged-nasal-armor','accent',[[-.055,.025],[0,.09],[.055,.025],[.035,-.065],[-.035,-.065]],[0,3.292,.647],black?.54:.44,plate,[-.08,0,0]);
     return true;
   }
 
@@ -68,8 +126,17 @@ export function buildReferenceMonsterAnatomy(profile, build) {
     const girl = profile.anatomy === 'dark-magician-girl';
     const skin = profile.skin;
     sphere('mage-torso', 'body', [0, 2.13, 0], [0.39, 0.5, 0.27]);
-    sphere('mage-face', 'body', [0, 2.91, 0.07], [0.235, 0.29, 0.225], 1, skin);
-    sphere('mage-nose', 'body', [0, 2.86, 0.295], [0.037, 0.057, 0.05], 0, skin);
+    const face=new THREE.SphereGeometry(1,16,12);
+    if(!girl) {
+      const a=face.attributes.position;for(let i=0;i<a.count;i++)if(a.getY(i)<0)a.setX(i,a.getX(i)*(.76+.24*(1+a.getY(i))));
+      face.computeVertexNormals();
+      const n=face.attributes.normal;for(let row=0;row<=12;row++) {
+        const first=row*17,last=first+16,v=new THREE.Vector3().fromBufferAttribute(n,first).add(new THREE.Vector3().fromBufferAttribute(n,last)).normalize();
+        n.setXYZ(first,v.x,v.y,v.z);n.setXYZ(last,v.x,v.y,v.z);
+      }
+    }
+    part('mage-face',face,'body',[0,2.91,.07],[girl?.235:.214,.29,girl?.225:.197],undefined,skin);
+    sphere('mage-nose', 'body', [0, 2.86, 0.295], [girl?.03:.026,.049,.036], 0, skin);
     box('mage-mouth', 'dark', [0, 2.76, 0.279], [0.076, 0.019, 0.017], undefined, '#764851');
     for (const side of [-1, 1]) {
       sphere(`eye-${side}`, 'eye', [side * 0.096, 2.95, 0.277], [girl ? 0.061 : 0.036, girl ? 0.072 : 0.027, 0.024]);
@@ -133,6 +200,24 @@ export function buildReferenceMonsterAnatomy(profile, build) {
       sphere('staff-crown', 'body', [0.91, 3.36, 0.49], [0.18, 0.35, 0.105], 1, profile.staffColor);
       compactRing('staff-crown-border', 'accent', [0.91, 3.36, 0.58], 0.21, [0, 0, 0], '#b1e7b6', [0.74, 1.38, 1]);
       sphere('staff-crystal', 'eye', [0.91, 3.35, 0.595], [0.085, 0.095, 0.045], 1, '#c5e767');
+    }
+    for(const side of [-1,1]) {
+      sphere(`mage-sculpted-cheek-${side}`,'body',[side*.14,2.816,.243],[.052,.046,.029],1,skin);
+      rod(`mage-curved-upper-eyelid-${side}`,'dark',[side*.053,2.982,.302],[side*.126,2.99,.282],.009,.006,girl?'#8c674d':'#54364b');
+      rod(`mage-lower-lip-${side}`,'body',[side*.026,2.744,.289],[side*.008,2.736,.293],.005,.006,'#cf968c');
+      for(let finger=0;finger<3;finger++) rod(`mage-hand-${side}-sculpted-finger-${finger}`,'body',[side*.89+(finger-1)*.034,1.663,.562],[side*.89+(finger-1)*.041,1.6,.533],.013,.01,skin);
+      if(girl) {
+        ribbon(`hair-swept-gold-outer-lock-${side}`,'dark',[[side*.17,3.15,.11],[side*.33,2.91,.075],[side*.62,2.748,-.18],[side*.91,2.75,-.39]],.047,profile.hair);
+        ribbon(`hair-narrow-gold-face-strand-${side}`,'dark',[[side*.151,3.17,.238],[side*.214,2.99,.268],[side*.238,2.684,.189]],.027,'#f3d079');
+        sculptedPlate(`mage-pink-folded-neckline-${side}`,'accent',[[side*-.015,.085],[side*.32,.23],[side*.25,.05],[side*.018,-.02]],[0,2.322,.237],.03,profile.accent);
+      } else {
+        // Curled chest/pauldron embossing and flared armor skirt are visible
+        // features of the original purple armor, independent of the wand.
+        ribbon(`pauldron-${side}-engraved-spiral`,'accent',[[side*.52,2.497,.256],[side*.59,2.487,.265],[side*.63,2.414,.269],[side*.576,2.367,.282],[side*.524,2.41,.284]],.014);
+        sculptedPlate(`mage-angular-breastplate-${side}`,'body',[[side*-.018,.15],[side*.215,.06],[side*.2,-.27],[side*.035,-.41]],[0,2.306,.262],.048,'#5c4085');
+        rod(`mage-breastplate-curved-trim-${side}`,'accent',[side*.052,2.424,.307],[side*.249,2.315,.325],.018,.021);
+        ribbon(`mage-glove-${side}-spiral-trim`,'accent',[[side*.773,1.962,.386],[side*.848,1.912,.46],[side*.903,1.807,.477]],.016);
+      }
     }
     return true;
   }

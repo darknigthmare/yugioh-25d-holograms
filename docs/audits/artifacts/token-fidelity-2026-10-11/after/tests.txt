@@ -1,0 +1,36 @@
+✔ all registered botanical and insect Tokens have finite bounded geometry within five batches and 29450 triangles (260.733477ms)
+✔ flowers are separate wool, rose, leafy, cyclopean and long-stem silhouettes (44.732746ms)
+✔ reference ant and spider have six and eight legs; mantis has folding forelegs and four walking legs (7.942342ms)
+✔ insect-monster emerges from an open spotted shell while pure eggs remain delegated (6.262425ms)
+✔ maize, needle, sinister seed and skull-grub retain their reference details (25.587952ms)
+✔ unknown anatomy produces no parts and construction is deterministic without reading duel state (29.601525ms)
+✔ 240 native Tokens keep the measured fivefold limit in attack and defense without increasing GPU batches (2242.264199ms)
+✔ tapered organic surfaces change their radius and join their smooth normals at the radial seam (0.437348ms)
+✔ leaf and feather surfaces gain curved depth while retaining finite geometry and smooth normals (0.429686ms)
+✔ all 240 native monster Tokens resolve their exact public identity and bounded dedicated anatomy (1874.87694ms)
+✔ documented shared illustrations retain the same anatomy and palette while preserving each native code (90.562ms)
+✔ illustrated species keep their defining anatomy instead of receiving the former goat mannequin (148.922837ms)
+✔ unknown Tokens use a neutral echo independent of private identity and unsupported builders do nothing (15.294215ms)
+✔ wing, weapon and both Metal Fiend hooks have their shared shader joints and stable buffers during actions (26.81063ms)
+✔ all Token geometry, visible materials and owned depth/distance materials are released once (40.684449ms)
+✔ reference-based construct refinements remain finite, batched and within the Token geometry budget (358.052714ms)
+✔ fork, double-pod fighter, flattened delta and conventional jet remain different geometries (10.411684ms)
+✔ V-LAN has three independent armoured serpent heads, luminous necks and a coiled lower body (7.093235ms)
+✔ source-specific mechanisms preserve visible batteries, lenses, brick studs and four Koa’ki Meiru arms (42.291325ms)
+✔ added fingers and gauntlet details share their existing hand’s deformation joint (0.296335ms)
+✔ laser module, perched one-eye dragon, spacecraft orb and crowned crystal keep their distinct source silhouettes (13.313197ms)
+✔ Small Fire and Wild Fire remain faceless while their flame geometries differ (6.969268ms)
+✔ Engine uses a compact crankcase and wire loops while Synchron uses two green V cylinders (11.092238ms)
+✔ solar-panel grid bars sit on the tilted panel surface rather than the world XY plane (3.38609ms)
+✔ four exact exceptions build distinct finite bounded anatomy within 29450 triangles and five shared materials (70.443432ms)
+✔ illustrated features remain explicit and DarkSoul has a floating lower silhouette without human legs (33.253867ms)
+✔ Grinder real hook is mapped to left pincer and its opposite drill arm follows the weapon rig (0.353081ms)
+✔ unrelated codes and variant-only impostors delegate without geometry; no duel state is read (32.888713ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2399.838527

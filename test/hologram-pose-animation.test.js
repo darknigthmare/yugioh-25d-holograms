@@ -1,3 +1,4 @@
+import { getHologramTriangleBudget } from './fixtures/hologram-triangle-budgets-2026-10-11.js';
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { ShaderLib } from 'three';
@@ -31,7 +32,7 @@ test('new card identities have distinctive anatomy, declared support and bounded
     assert.ok(parts.every(part => model.userData.partNames.includes(part)));
     assert.equal(model.userData.fidelity, 'procedural-interpretation');
     assert.ok(model.children.length <= 5);
-    assert.ok(model.userData.triangleCount < 6000);
+    assert.ok(model.userData.triangleCount <= getHologramTriangleBudget(id));
     release(model);
   }
   assert.equal(resolveHologramMonsterProfile({ id: '054652250' }).id, 'man-eater-bug');

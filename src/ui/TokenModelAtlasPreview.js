@@ -70,17 +70,18 @@ export class TokenModelAtlasPreview {
       this.renderer.setPixelRatio(Math.min(this.window.devicePixelRatio || 1, 1.5));
       this.renderer.outputColorSpace = THREE.SRGBColorSpace;
       this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
-      this.renderer.toneMappingExposure = 1.12;
+      this.renderer.toneMappingExposure = 1;
       this.renderer.domElement.setAttribute('role', 'img');
       this.renderer.domElement.setAttribute('data-token-atlas-canvas', '');
       host.append(this.renderer.domElement);
       this.scene = new THREE.Scene();
       this.scene.background = new THREE.Color('#0d1826');
       this.camera = new THREE.PerspectiveCamera(37, 1, .1, 80);
-      this.scene.add(new THREE.HemisphereLight('#deefff', '#302837', 2.15));
-      const key = new THREE.DirectionalLight('#fff1d7', 3.4);
+      // Match the character studio: coloured rims must not recolour the art.
+      this.scene.add(new THREE.HemisphereLight('#eef2ff', '#262c38', 1.45));
+      const key = new THREE.DirectionalLight('#ffffff', 2.9);
       key.position.set(-5, 7, 8);
-      const rim = new THREE.DirectionalLight('#74d5ed', 2.5);
+      const rim = new THREE.DirectionalLight('#b9d2ed', 1.2);
       rim.position.set(5, 4, -5);
       this.scene.add(key, rim);
       this.floor = new THREE.Mesh(new THREE.CircleGeometry(2.65, 48), new THREE.MeshStandardMaterial({ color: '#273b4e', roughness: .9, metalness: .12 }));

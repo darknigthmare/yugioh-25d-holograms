@@ -1,0 +1,3 @@
+{"width": 1280, "historicalFirstCaptureClearDelta": 0, "settledStrictZeroDraws": true, "pixelsEqual": true, "resumedAndOffscreenChecks": true}
+{"width": 390, "historicalFirstCaptureClearDelta": 0, "settledStrictZeroDraws": true, "pixelsEqual": true, "resumedAndOffscreenChecks": true}
+{"ok": true, "paths": 2, "historicalFailureUnchanged": true, "historicalDriverUnchanged": true}

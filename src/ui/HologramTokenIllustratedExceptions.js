@@ -6,7 +6,7 @@ export function buildTokenIllustratedExceptions(profile, helpers) {
   const code = String(profile?.tokenCode || '');
   if (!['93912846', '49808197', '75732623', '8198621'].includes(code)) return false;
   const { part, sphere, box, cone, ring, rod } = helpers;
-  const { solid, curve, taperedPath } = createTokenGeometryTools(helpers);
+  const { solid, roundedSolid, curvedSheet, curve, taperedCurve, taperedPath } = createTokenGeometryTools(helpers);
   const body = profile.body, accent = profile.accent, eye = profile.eye;
   const sides = [-1, 1];
 
@@ -38,7 +38,7 @@ export function buildTokenIllustratedExceptions(profile, helpers) {
     sphere('token-metabo-furry-parasite-body', 'body', [0, 1.76, -.12], [.56, .6, .4], 2, fur);
     for (let lock = 0; lock < 13; lock += 1) {
       const angle = lock / 13 * Math.PI * 2, side = Math.sin(angle), z = Math.cos(angle) * .3 - .09;
-      solid(`token-metabo-long-brown-mane-${lock}`, 'body', [[0,0],[-.16,-.19],[-.22,-.57],[-.17,-.93],[-.12,-1.24],[.05,-1.03],[.18,-.45],[.13,-.13]], .11, [side*.34,2.17,z], [0,Math.cos(angle)>=0?side*.19:angle,side*.41], lock%3===0?maneHighlight:fur);
+      curvedSheet(`token-metabo-long-brown-mane-${lock}`, 'body', [[0,0],[-.16,-.19],[-.22,-.57],[-.17,-.93],[-.12,-1.24],[.05,-1.03],[.18,-.45],[.13,-.13]], .11, [side*.34,2.17,z], [0,Math.cos(angle)>=0?side*.19:angle,side*.41], lock%3===0?maneHighlight:fur);
       curve(`token-metabo-mane-strand-${lock}`, 'accent', [[side*.34,2.15,z+.062],[side*.53,1.8,z+.064],[side*.65,1.41,z+.058]], .011, maneHighlight, 7);
     }
     for (const side of sides) {
@@ -53,7 +53,7 @@ export function buildTokenIllustratedExceptions(profile, helpers) {
       curve(`token-metabo-under-eye-fold-${side}`, 'accent', [[side*.44,2.23,.316],[side*.28,2.18,.389],[side*.11,2.225,.391]], .029, '#65596f', 9);
       taperedPath(`token-metabo-mouth-feeler-${side}`, 'accent', [[side*.12,2.04,.34],[side*.23,1.7,.44],[side*.17,1.42,.48]], .043, .006, '#918198');
     }
-    solid('token-metabo-purple-crested-head', 'accent', [[-.12,-.07],[-.16,.26],[-.23,.48],[-.04,.36],[.1,.39],[.24,.29],[.17,0]], .21, [0,2.35,.14], undefined, purple);
+    curvedSheet('token-metabo-purple-crested-head', 'accent', [[-.12,-.07],[-.16,.26],[-.23,.48],[-.04,.36],[.1,.39],[.24,.29],[.17,0]], .21, [0,2.35,.14], undefined, purple);
     sphere('token-metabo-small-mouth', 'body', [0,2.01,.36], [.13,.14,.11], 1, '#be9762');
     rod('token-metabo-fine-long-proboscis', 'dark', [0,1.99,.48], [0,.19,.57], .018, .006, '#453823');
     solid('token-metabo-small-candle-flame', 'glow', [[-.07,0],[-.11,.17],[-.04,.35],[.01,.43],[.04,.25],[.11,.15],[.08,0]], .035, [-.2,2.84,.12], undefined, '#f4b54b');
@@ -69,7 +69,7 @@ export function buildTokenIllustratedExceptions(profile, helpers) {
     }
     solid('token-grinder-back-saw-crest', 'dark', teeth, .19, [0,2.33,-.19], undefined, blackMetal);
     sphere('token-grinder-stooped-metal-torso', 'body', [0,1.88,.095], [.49,.64,.4], 2, body);
-    box('token-grinder-forward-chest-plate', 'body', [0,2.12,.42], [.76,.92,.15], [.23,0,0], body);
+    roundedSolid('token-grinder-forward-chest-plate', 'body', [[-.36,-.42],[-.43,.15],[-.24,.5],[.24,.5],[.43,.15],[.36,-.42],[0,-.49]], .16, [0,2.12,.42], [.23,0,0], body, .022);
     curve('token-grinder-left-head-harness', 'body', [[-.35,1.8,.45],[-.46,2.34,.4],[-.32,2.78,.26],[0,2.9,.16]], .07, shadedSteel, 13);
     curve('token-grinder-right-head-harness', 'body', [[.35,1.8,.45],[.46,2.34,.4],[.32,2.78,.26],[0,2.9,.16]], .07, shadedSteel, 13);
     // No exposed face or paired glowing eyes: the reference hides its head.
@@ -104,9 +104,12 @@ export function buildTokenIllustratedExceptions(profile, helpers) {
   // Dark Soul is the armoured, green-marked apparition in the local artwork.
   const black = '#1e2825', green = '#3d6b3d';
   sphere('token-dark-soul-heavy-armored-torso','body',[0,1.96,0],[.57,.66,.39],2,body);
-  box('token-dark-soul-angular-front-armor','dark',[0,1.92,.35],[.69,.85,.12],[.08,0,-.07],black);
+  roundedSolid('token-dark-soul-angular-front-armor','dark',[[-.34,.42],[-.16,.5],[.12,.43],[.35,.23],[.31,-.28],[.05,-.43],[-.21,-.36]],.12,[0,1.92,.35],[.08,0,-.07],black,.018);
+  for(let layer=0;layer<3;layer++){
+    curvedSheet(`token-dark-soul-twisted-chest-lamella-${layer}`,'body',[[-.33,.1],[-.06,.17],[.31,.04],[.28,-.1],[-.13,-.15],[-.35,-.04]],.055,[0,2.08-layer*.16,.43],[0,0,-.08-layer*.035],body,{camber:.063,curl:-.018});
+  }
   sphere('token-dark-soul-crooked-helmet','body',[-.09,2.65,.035],[.31,.33,.29],2,body);
-  solid('token-dark-soul-twisted-face-mask','dark',[[-.28,.19],[-.08,.28],[.22,.1],[.24,-.13],[.02,-.32],[-.18,-.2]],.115,[-.09,2.59,.32],[0,0,-.14],black);
+  curvedSheet('token-dark-soul-twisted-face-mask','dark',[[-.28,.19],[-.08,.28],[.22,.1],[.24,-.13],[.02,-.32],[-.18,-.2]],.115,[-.09,2.59,.32],[0,0,-.14],black);
   for(const side of sides){
     sphere(`token-dark-soul-red-eye-slit-${side}`,'eye',[side*.093-.09,2.655,.393],[.053,.018,.013],1,eye);
     sphere(`token-dark-soul-large-armored-shoulder-${side}`,'body',[side*.64,2.32,-.02],[.35,.32,.33],2,body);
@@ -120,9 +123,14 @@ export function buildTokenIllustratedExceptions(profile, helpers) {
     for(let marking=0;marking<3;marking++)curve(`token-dark-soul-green-armor-mark-${side}-${marking}`,'accent',[[side*(.25+marking*.18),2.43-marking*.12,.27],[side*(.37+marking*.17),2.54-marking*.14,.22],[side*(.48+marking*.14),2.42-marking*.17,.19]],.017,green,8);
   }
   for(let plate=0;plate<4;plate++)box(`token-dark-soul-belly-buckle-${plate}`,'body',[0,1.62+plate*.13,.422],[.23,.075,.04],[0,0,-.1],body);
-  solid('token-dark-soul-floating-torn-left-haunch','body',[[-.48,.29],[-.02,.26],[.08,-.15],[-.15,-.35],[-.29,-.7],[-.43,-.51],[-.59,-.48],[-.65,-.12]],.28,[-.04,1.28,-.02],undefined,body);
-  solid('token-dark-soul-floating-torn-right-haunch','body',[[-.09,.27],[.43,.23],[.53,-.18],[.29,-.53],[.23,-.79],[.04,-.67],[-.07,-.37]],.26,[.05,1.28,-.01],undefined,body);
+  curvedSheet('token-dark-soul-floating-torn-left-haunch','body',[[-.48,.29],[-.02,.26],[.08,-.15],[-.15,-.35],[-.29,-.7],[-.43,-.51],[-.59,-.48],[-.65,-.12]],.28,[-.04,1.28,-.02],undefined,body);
+  curvedSheet('token-dark-soul-floating-torn-right-haunch','body',[[-.09,.27],[.43,.23],[.53,-.18],[.29,-.53],[.23,-.79],[.04,-.67],[-.07,-.37]],.26,[.05,1.28,-.01],undefined,body);
   taperedPath('token-dark-soul-ragged-floating-tail','dark',[[.18,1.09,0],[.35,.67,.01],[.12,.33,.015],[.13,.13,.04]],.19,.014,black);
-  for(const side of sides)solid(`token-dark-soul-tattered-tail-edge-${side}`,'body',[[0,0],[side*.24,-.22],[side*.06,-.68],[-side*.075,-.3]],.07,[.18,.9,.04],[0,0,side*.1],body);
+  for(const side of sides){
+    curvedSheet(`token-dark-soul-curved-shoulder-sheath-${side}`,'body',[[0,.28],[side*.31,.17],[side*.37,-.18],[side*.2,-.34],[-side*.1,-.22]],.07,[side*.59,2.39,.12],[0,0,side*.16],body,{camber:.075,curl:.065});
+    for(let ridge=0;ridge<3;ridge++)curve(`token-dark-soul-shoulder-shell-ridge-${side}-${ridge}`,'dark',[[side*(.48+ridge*.05),2.58-ridge*.055,.28],[side*(.68+ridge*.05),2.47-ridge*.09,.33],[side*(.78+ridge*.04),2.24-ridge*.045,.24]],.013,black,10);
+    taperedCurve(`token-dark-soul-floating-coattail-${side}`,'body',[[side*.31,1.14,-.05],[side*.42,.85,-.025],[side*.29,.55,.04],[side*.46,.4,.12]],.08,.003,body,24,10,.53);
+  }
+  for(const side of sides)curvedSheet(`token-dark-soul-tattered-tail-edge-${side}`,'body',[[0,0],[side*.24,-.22],[side*.06,-.68],[-side*.075,-.3]],.07,[.18,.9,.04],[0,0,side*.1],body);
   return true;
 }

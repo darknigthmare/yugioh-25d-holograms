@@ -1,0 +1,124 @@
+#!/usr/bin/env python3
+"""Run preserved public-browser recipes on the coordinator's new frozen build.
+
+The original drivers are imported unchanged. The historical avatar driver's
+static asset list comes from this build's freeze. Its studio pause recipe
+captures once and settles before starting the strict zero-draw observation
+window. All original source/HTTP/CSP/native checks remain active. No build,
+application object, QA hook or post-bootstrap Game mutation is introduced.
+"""
+import argparse
+import hashlib
+import importlib.util
+import inspect
+import json
+from pathlib import Path
+import sys
+from datetime import datetime, timezone
+
+ROOT=Path(__file__).resolve().parents[1]
+DEPENDENCIES=[
+ 'scripts/audit-token-models-browser.py',
+ 'scripts/audit-duelist-avatar-motion-browser.py',
+ 'scripts/audit-native-duel-ui.py',
+ 'scripts/audit-continuation-models-ui.py',
+ 'scripts/audit-native-duel-views.py']
+
+def pin(path):
+ return {'bytes':path.stat().st_size,'sha256':hashlib.sha256(path.read_bytes()).hexdigest()}
+
+def fingerprints():
+ return {name:pin(ROOT/name)for name in DEPENDENCIES}
+
+def failed_avatar_fingerprints():
+ directory=ROOT/'docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars'
+ return {str(path.relative_to(ROOT)):pin(path)for path in sorted(directory.rglob('*'))if path.is_file()}
+
+def install_avatar_pause_recipe(driver):
+ historical=driver.studio_motion_checks
+ def studio_motion_checks(page,item,output):
+  stage=page.locator('#duelist-avatar-preview-stage')
+  stage.scroll_into_view_if_needed()
+  page.emulate_media(reduced_motion='reduce');page.wait_for_timeout(350)
+  before_capture=len(item['studioDrawCalls'])
+  stage.screenshot(path=str(output/f'avatar-studio-reduced-static-a-{item["width"]}.png'))
+  # The capture may bring the element into view and dispatch observer work.
+  # Let that input settle before observing a fixed period without an input.
+  page.wait_for_timeout(350)
+  paused=len(item['studioDrawCalls']);page.wait_for_timeout(350)
+  assert len(item['studioDrawCalls'])==paused,(paused,len(item['studioDrawCalls']))
+  stage.screenshot(path=str(output/f'avatar-studio-reduced-static-b-{item["width"]}.png'))
+  page.wait_for_timeout(350)
+  assert len(item['studioDrawCalls'])==paused,(paused,len(item['studioDrawCalls']))
+  a=output/f'avatar-studio-reduced-static-a-{item["width"]}.png';b=output/f'avatar-studio-reduced-static-b-{item["width"]}.png'
+  assert a.read_bytes()==b.read_bytes(),'Reduced-motion studio pixels changed without an input.'
+  page.emulate_media(reduced_motion='no-preference');page.wait_for_timeout(400)
+  resumed=len(item['studioDrawCalls']);assert resumed>paused,(paused,resumed)
+  page.set_viewport_size({'width':item['width'],'height':220})
+  page.locator('.duelist-avatar-dialog').evaluate('e=>e.scrollTo(0,0)')
+  page.wait_for_timeout(300)
+  box=stage.bounding_box();assert box and box['y']>=220,box
+  offscreen=len(item['studioDrawCalls']);page.wait_for_timeout(350)
+  assert len(item['studioDrawCalls'])==offscreen,(offscreen,len(item['studioDrawCalls']))
+  page.set_viewport_size({'width':item['width'],'height':item['height']})
+  stage.scroll_into_view_if_needed();page.wait_for_timeout(350)
+  returned=len(item['studioDrawCalls']);assert returned>offscreen,(offscreen,returned)
+  page.emulate_media(reduced_motion=item['reducedMotion']);page.wait_for_timeout(100)
+  item['studioPauseResume']={'preBootstrapInstrumentation':'Original WebGL clear methods wrapped with the same this/args/return; observes only the public studio canvas. No Game or application object accessed.',
+   'recipe':'Initial stage capture, fixed 350 ms settlement, then a fixed 350 ms strict zero-clear window; second capture and an additional 350 ms strict zero-clear check; exact PNG byte comparison. No redraw tolerance.',
+   'firstCaptureDrawCountBefore':before_capture,'firstCaptureSettledDrawCount':paused,'firstCaptureSettledClearDelta':paused-before_capture,
+   'strictObservationWindowMs':350,'strictObservationClearDelta':0,'strictSecondCaptureClearDelta':0,
+   'reducedMotionDrawCount':paused,'unchangedReducedMotionPixels':True,'resumedDrawCount':resumed,'offscreenDrawCount':offscreen,'offscreenPaused':True,'visibleAgainDrawCount':returned,'originalPreferenceRestored':item['reducedMotion']}
+ driver.studio_motion_checks=studio_motion_checks
+ return {'name':'studio_motion_checks','historicalSourceSha256':hashlib.sha256(inspect.getsource(historical).encode()).hexdigest(),
+  'currentSourceSha256':hashlib.sha256(inspect.getsource(studio_motion_checks).encode()).hexdigest(),
+  'purpose':'Observe an idle pause after the screenshot input has settled. The old failure is preserved; the short diagnostic did not reproduce its extra redraw, so no exact observer cause is claimed.',
+  'changes':['Take the initial stage capture before fixing the idle draw count.','Allow a fixed 350 ms for initial capture observer work.','Require exactly zero clear calls over the next fixed 350 ms.','Keep exact PNG bytes equal and the original resume/offscreen/visible-again assertions.','Add a strict zero-clear assertion following the second capture; no numerical tolerance.'],
+  'diagnostic':{'path':'docs/audits/artifacts/model-fidelity-2026-10-11/studio-pause-diagnostic-2026-10-13/report.json',**pin(ROOT/'docs/audits/artifacts/model-fidelity-2026-10-11/studio-pause-diagnostic-2026-10-13/report.json')}}
+
+def main():
+ parser=argparse.ArgumentParser(description=__doc__)
+ parser.add_argument('--scope',choices=['tokens','avatars'],required=True)
+ parser.add_argument('--dist',type=Path,default=ROOT/'dist')
+ parser.add_argument('--freeze',type=Path,required=True)
+ parser.add_argument('--expected-entry-sha256',required=True)
+ parser.add_argument('--output',type=Path,required=True)
+ args=parser.parse_args()
+ freeze=json.loads(args.freeze.read_text());assert freeze['source'] and freeze['compiled']
+ args.output.mkdir(parents=True,exist_ok=True)
+ before=fingerprints()
+ failed_before=failed_avatar_fingerprints()
+ recipe='scripts/audit-token-models-browser.py' if args.scope=='tokens' else 'scripts/audit-duelist-avatar-motion-browser.py'
+ spec=importlib.util.spec_from_file_location('fidelity_'+args.scope,ROOT/recipe)
+ driver=importlib.util.module_from_spec(spec);spec.loader.exec_module(driver)
+ adaptation=None
+ if args.scope=='avatars':
+  adaptation={'name':'ADDITIONAL_STATIC_ASSETS','historical':driver.ADDITIONAL_STATIC_ASSETS,'current':sorted(freeze.get('additionalStaticAssets',{})),
+   'purpose':'Include this build\'s entire frozen static pool in the unchanged strict before/after local and HTTP fingerprint checks.'}
+  driver.ADDITIONAL_STATIC_ASSETS=adaptation['current']
+  adaptation['studioMotionCheck']=install_avatar_pause_recipe(driver)
+ report={'scope':args.scope,'executedAtUtc':datetime.now(timezone.utc).isoformat(),
+  'wrapper':{'path':str(Path(__file__)),**pin(Path(__file__))},'originalDriver':{'path':recipe,**before[recipe]},
+  'freeze':{'path':str(args.freeze),**pin(args.freeze)},'expectedEntrySha256':args.expected_entry_sha256,
+  'driverDependenciesBefore':before,'historicalAvatarFailureBefore':failed_before,'declaredRecipeAdaptation':adaptation,'ok':False}
+ saved_argv=sys.argv
+ sys.argv=[str(ROOT/recipe),'--phase','compiled','--stage','full','--dist',str(args.dist),'--freeze',str(args.freeze),'--expected-entry-sha256',args.expected_entry_sha256,'--output',str(args.output)]
+ failure=None
+ try:
+  driver.main()
+  actual=json.loads((args.output/'report.json').read_text());assert actual['ok'],actual.get('error')
+  report.update(ok=True,originalReport=pin(args.output/'report.json'),browserPathCount=len(actual['paths']),captureCount=len(list(args.output.glob('*.png'))))
+ except BaseException as error:
+  failure=error;report['failure']={'type':type(error).__name__,'message':str(error)[:1200]}
+ finally:
+  sys.argv=saved_argv;report['driverDependenciesAfter']=fingerprints()
+  report['preservedHistoricalDrivers']=before==report['driverDependenciesAfter']
+  report['historicalAvatarFailureAfter']=failed_avatar_fingerprints()
+  report['preservedHistoricalAvatarFailure']=failed_before==report['historicalAvatarFailureAfter']
+  report['ok']=report['ok'] and report['preservedHistoricalDrivers'] and report['preservedHistoricalAvatarFailure']
+  (args.output/'fidelity-wrapper.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+ if failure:raise failure
+ assert report['ok']
+ print(json.dumps({'scope':args.scope,'ok':report['ok'],'paths':report['browserPathCount'],'captures':report['captureCount'],'historicalDriversUnchanged':report['preservedHistoricalDrivers']}),flush=True)
+
+if __name__=='__main__':main()

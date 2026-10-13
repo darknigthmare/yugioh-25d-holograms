@@ -4,7 +4,7 @@ import { createTokenGeometryTools } from './HologramTokenGeometry.js';
 /** Ghosts, angels and humanoids, with explicit illustrated exceptions. */
 export function buildTokenSpiritAnatomy(profile, helpers) {
   const { part, sphere, box, cone, ring, rod } = helpers;
-  const { solid, curve, taperedPath, eyes } = createTokenGeometryTools(helpers);
+  const { solid, roundedSolid, curvedSheet, curve, taperedCurve, taperedPath, eyes } = createTokenGeometryTools(helpers);
   const anatomy = profile.tokenAnatomy, code = String(profile.tokenCode || '');
   const variant = profile.tokenVisual?.variant || '';
   const body = profile.body, accent = profile.accent, eye = profile.eye;
@@ -25,16 +25,21 @@ export function buildTokenSpiritAnatomy(profile, helpers) {
     const prefix=`wing-${side}-token-spirit-${row}`;
     const x=side*.28, y=2.25-row*.36, z=-.2-row*.035;
     if (feathered) {
-      for (let feather=0;feather<6;feather++) solid(`${prefix}-feather-${feather}`, 'accent', [[0,0],[side*(.85+feather*.1)*size,(.69-feather*.16)*size],[side*(1.12+feather*.1)*size,(.56-feather*.18)*size],[side*.53*size,-.33*size]], .055, [x,y,z], undefined, tint);
+      for (let feather=0;feather<8;feather++) {
+        const tipX = side * (1.12 + feather * .067) * size, tipY = (.66 - feather * .146) * size;
+        curvedSheet(`${prefix}-feather-${feather}`, 'accent', [[0,0],[side*(.77+feather*.06)*size,(.8-feather*.135)*size],[tipX,tipY],[side*.5*size,-.31*size]], .035, [x,y,z], undefined, tint, {camber:.095*size,curl:-.07*size});
+        taperedCurve(`${prefix}-feather-shaft-${feather}`, 'body', [[x,y,z+.025],[x+tipX*.58,y+tipY*.63,z+.073],[x+tipX*.94,y+tipY*.95,z-.021]], .013, .004, tint, 12, 6);
+      }
       rod(`${prefix}-leading-bone`,'body',[x,y,z],[side*(1.41*size+.28),y+.67*size,z],.064,.025,tint);
     } else {
-      solid(`${prefix}-bat-membrane`, 'accent', [[0,0],[side*.53*size,.6*size],[side*1.44*size,.48*size],[side*1.25*size,-.03*size],[side*.83*size,-.2*size],[side*.6*size,-.53*size]], .045, [x,y,z], undefined, tint);
+      curvedSheet(`${prefix}-bat-membrane`, 'accent', [[0,0],[side*.53*size,.6*size],[side*1.44*size,.48*size],[side*1.25*size,-.03*size],[side*.83*size,-.2*size],[side*.6*size,-.53*size]], .045, [x,y,z], undefined, tint);
       for(let vein=0;vein<3;vein++)rod(`${prefix}-vein-${vein}`,'body',[x,y,z],[x+side*(.61+vein*.3)*size,y+(.3-vein*.29)*size,z+.031],.039,.018,body);
     }
   }
   function longHair(tint, length=1.25) {
     sphere('token-humanoid-hair-crown','dark',[0,3.13,-.06],[.36,.32,.32],1,tint);
-    for(let lock=0;lock<7;lock++)curve(`token-humanoid-flowing-hair-${lock}`,'dark',[[ (lock-3)*.09,3.24,-.1],[(lock-3)*.13,2.95,-.21],[(lock-3)*.145,3.05-length,-.22],[(lock-3)*.17,2.9-length,-.02]],.063,tint,10);
+    for(let lock=0;lock<11;lock++)taperedCurve(`token-humanoid-flowing-hair-${lock}`,'dark',[[ (lock-5)*.052,3.24,-.1],[(lock-5)*.085,2.95,-.24],[(lock-5)*.115,3.05-length,-.28],[(lock-5)*.15,2.9-length,-.02]],.067,.009,tint,24,8,.65);
+    for(const side of sides)taperedCurve(`token-humanoid-face-framing-hair-${side}`,'dark',[[side*.19,3.29,.09],[side*.31,3.03,.27],[side*.29,2.66,.3],[side*.39,2.4,.14]],.052,.006,tint,24,8,.48);
   }
 
   if (code === '7392746' || variant === 'chewbone-jr') {
@@ -139,6 +144,21 @@ export function buildTokenSpiritAnatomy(profile, helpers) {
   const ghost = anatomy==='spirit' && !['tricky-magician','world-legacy-spirit'].includes(variant);
   const spectralFiend = ['nightmare-ghost','malus-fire-eye'].includes(variant)||code==='90884404';
   if(ghost||spectralFiend||doomsday){
+    if (code === '90884404') {
+      sphere('token-soul-wide-eyeball','body',[0,1.92,0],[.64,.64,.29],2,body);
+      sphere('token-soul-ivory-sclera','accent',[0,1.92,.265],[.48,.48,.083],2,'#eee4ce');
+      sphere('token-soul-red-round-iris','eye',[0,1.92,.35],[.31,.31,.033],2,'#a34734');
+      sphere('token-soul-round-black-pupil','dark',[0,1.92,.382],[.15,.15,.018],1,'#251b18');
+      sphere('token-soul-iris-reflection','eye',[-.12,2.08,.405],[.077,.09,.013],0,'#fff3d7');
+      for (let ray=0;ray<8;ray++) {
+        const a = ray/8*Math.PI*2+.2, x=Math.sin(a), y=Math.cos(a);
+        const joint=[x*.96,1.92+y*.96,0];
+        taperedCurve(`token-soul-arm-shaft-${ray}`,'body',[[x*.58,1.92+y*.58,0],[x*.8,1.92+y*.79,-.03],joint],.052,.042,body,16,8);
+        sphere(`token-soul-round-knife-joint-${ray}`,'dark',joint,[.088,.088,.084],1,'#826039');
+        curvedSheet(`token-soul-pointed-appendage-${ray}`,'accent',[[-.058,0],[-.13,.16],[-.08,.36],[.09,.59],[.057,.25],[.053,.03]],.038,joint,[0,0,-a], '#dddcd0', {camber:.024,curl:.035});
+      }
+      return true;
+    }
     if(variant==='soul-ring'||variant==='utchatzimime'||code==='90884404'){
       sphere('token-soul-wide-eyeball','body',[0,2.02,0],[.66,.58,.27],2,body);
       ring('token-soul-iris-ring','accent',[0,2.02,.29],.31,[0,0,0],.06,accent);
@@ -201,9 +221,9 @@ export function buildTokenSpiritAnatomy(profile, helpers) {
     sphere('token-soldier-fedora-brim','dark',[0,y(3.28),0],[.43,y(.063),.35],1,dark);
     box('token-soldier-black-face-mask','dark',[0,y(2.98),.25],[.39,y(.31),.041],undefined,dark);
   }
-  if(floating){
+  if(floating && code !== '46647145'){
     curve('token-humanoid-floating-robe-tail','body',[[0,y(1.49),0],[.1,y(1.02),-.08],[-.25,y(.48),-.02],[.28,y(.3),.13]],.17,body,16);
-    for(const side of sides)solid(`token-floating-robe-panel-${side}`,'body',[[0,0],[side*.27,-.49],[side*.51,-1.13],[side*.22,-1.32],[-side*.13,-.17]],.04,[side*.12,y(1.48),-.07],undefined,body);
+    for(const side of sides)curvedSheet(`token-floating-robe-panel-${side}`,'body',[[0,0],[side*.27,-.49],[side*.51,-1.13],[side*.22,-1.32],[-side*.13,-.17]],.04,[side*.12,y(1.48),-.07],undefined,body);
   }else for(const side of sides){
     rod(`token-humanoid-thigh-${side}`,'body',[side*waist*.72,y(1.31),0],[side*.3,y(.8),.05],broad?.23:.15,broad?.19:.12,body);
     sphere(`token-humanoid-knee-${side}`,'accent',[side*.3,y(.78),.07],[.16,y(.17),.15],1,accent);
@@ -223,6 +243,25 @@ export function buildTokenSpiritAnatomy(profile, helpers) {
   }
   if(angel||bat){for(const side of sides){wing(side,angel,angel&&variant!=='eva-angel'?'#343039':accent,variant==='eva-angel'?.8:1);if(variant==='eva-angel')wing(side,true,accent,.73,1);}}
   if(angel||['waltz-seraph','world-legacy-spirit'].includes(variant))ring('token-spirit-halo','accent',[0,y(3.62),-.05],.35,undefined,.03,accent);
+  if (['asmo-angel','deus-angel'].includes(variant)) {
+    roundedSolid('token-angel-black-silver-breastplate','dark',[[-.43,.36],[-.2,.46],[0,.35],[.2,.46],[.43,.36],[.38,-.16],[.18,-.38],[0,-.46],[-.18,-.38],[-.38,-.16]],.105,[0,y(2.03),.271],undefined,'#202930',.019);
+    for (const side of sides) {
+      curve(`token-angel-silver-chest-scroll-${side}`,'accent',[[side*.12,y(2.41),.34],[side*.29,y(2.28),.36],[side*.2,y(2.11),.372],[side*.1,y(2.22),.38]],.022,accent,14);
+      curvedSheet(`token-angel-raised-shoulder-rim-${side}`,'accent',[[0,0],[side*.33,.22],[side*.48,.09],[side*.44,-.19],[side*.14,-.31],[-side*.09,-.09]],.05,[side*.47,y(2.46),-.05],undefined,accent,{camber:.06,curl:.035});
+      for(let feather=0;feather<3;feather++)curvedSheet(`token-angel-cheek-feather-${side}-${feather}`,'body',[[0,0],[side*.16,.06],[side*(.34+feather*.08),.34+feather*.1],[side*.08,.15]],.03,[side*.2,y(3.08+feather*.03),0],undefined,body,{camber:.025,curl:.035});
+    }
+    for(let fold=0;fold<8;fold++) {
+      const a=fold/8*Math.PI*2;
+      curvedSheet(`token-angel-robed-skirt-fold-${fold}`,'body',[[-.09,0],[-.2,-.67],[-.27,-1.04],[.27,-1.04],[.2,-.67],[.09,0]],.04,[Math.sin(a)*.22,y(1.46),Math.cos(a)*.22],[0,a,0],body,{camber:.045,curl:.14,wave:.018,subdivisions:1});
+    }
+  }
+  if (code === '46647145') {
+    for(const side of sides){
+      curvedSheet(`token-world-legacy-checkered-skirt-${side}`,'accent',[[0,0],[side*.3,-.04],[side*.48,-.4],[side*.12,-.47],[-side*.16,-.25]],.04,[side*.08,y(1.6),.17],undefined,accent,{camber:.06,curl:.06,wave:.035});
+      curvedSheet(`token-world-legacy-waist-sash-${side}`,'dark',[[0,0],[side*.19,-.06],[side*.24,-.25],[side*.02,-.3]],.025,[side*.12,y(1.51),.22],undefined,'#79768f',{camber:.028,curl:.035});
+      taperedCurve(`token-world-legacy-floating-hair-ribbon-${side}`,'accent',[[side*.18,3.16,-.12],[side*.58,3.01,-.19],[side*.97,2.72,-.17],[side*1.13,3.04,-.12]],.026,.013,'#caa3a9',30,8,.4);
+    }
+  }
   if(variant==='eva-angel')for(const side of sides)sphere(`token-eva-purple-orb-${side}`,'eye',[side*.77,2.7,.15],[.21,.21,.21],2,'#b493d2');
   if(variant==='radian')for(const side of sides)sphere(`hand-${side}-token-radian-blue-energy`,'eye',[side*.93,1.52,.31],[.24,.26,.1],2,'#84bdda');
   if(broad||['armored-phantasm','vassal'].includes(variant)){
@@ -235,22 +274,33 @@ export function buildTokenSpiritAnatomy(profile, helpers) {
   }
   if(zombie){
     for(let rib=0;rib<4;rib++)for(const side of sides)curve(`token-zombie-visible-rib-${side}-${rib}`,'accent',[[side*.05,y(2.17-rib*.15),.3],[side*.29,y(2.2-rib*.15),.33],[side*.42,y(2.04-rib*.15),.29]],.025,accent,7);
-    for(const side of sides)solid(`token-zombie-tattered-cloth-${side}`,'dark',[[0,0],[side*.34,-.47],[side*.12,-.39],[side*.18,-.65],[-side*.15,-.38]],.028,[side*.12,y(1.48),.18],undefined,dark);
+    for(const side of sides)curvedSheet(`token-zombie-tattered-cloth-${side}`,'dark',[[0,0],[side*.34,-.47],[side*.12,-.39],[side*.18,-.65],[-side*.15,-.38]],.028,[side*.12,y(1.48),.18],undefined,dark);
+  }
+  if (variant === 'gorz-emissary') {
+    curvedSheet('token-gorz-tall-pointed-helmet','body',[[-.25,-.2],[-.29,.27],[-.16,.86],[.15,1.03],[.13,.47],[.27,.18],[.25,-.2]],.09,[0,y(3.08),-.025],undefined,body,{camber:.06,curl:.08});
+    for(const side of sides){
+      curvedSheet(`token-gorz-curved-breast-armor-${side}`,'body',[[0,0],[side*.31,.11],[side*.39,-.08],[side*.21,-.25],[-side*.04,-.16]],.06,[side*.06,y(2.29),.26],undefined,body,{camber:.09,curl:.025});
+      curve(`token-gorz-gold-armor-outline-${side}`,'accent',[[side*.06,y(2.25),.31],[side*.31,y(2.4),.32],[side*.44,y(2.16),.34],[side*.18,y(1.96),.35]],.016,accent,16);
+      curvedSheet(`token-gorz-long-split-skirt-${side}`,'body',[[0,0],[side*.26,-.13],[side*.36,-.94],[side*.1,-1.26],[-side*.13,-.83]],.045,[side*.2,y(1.43),.2],undefined,body,{camber:.06,curl:.085,wave:.028});
+      curvedSheet(`token-gorz-red-lined-cape-${side}`,'accent',[[0,0],[side*.31,-.61],[side*.73,-2.39],[-side*.03,-2.28],[-side*.12,-.22]],.04,[side*.2,y(2.66),-.26],undefined,'#893541',{camber:.075,curl:-.14,wave:.04});
+    }
   }
   if(variant==='doppel'){
     box('token-doppel-backpack','dark',[0,y(2.04),-.37],[.78,y(.89),.23],undefined,dark);
     box('sword-token-doppel-gun-stock','dark',[.82,y(1.6),.26],[.22,y(.36),.16],undefined,dark);
     rod('sword-token-doppel-gun-barrel','body',[.81,y(1.81),.31],[.81,y(1.82),.86],.057,.044,body);
   }else if(variant==='double-dude'){
-    for(const side of sides){box(`sword-token-double-dude-crossed-weapon-${side}`,'accent',[side*.13,2.07,.33],[.13,1.2,.12],[0,0,side*.85],accent);solid(`token-double-dude-coat-tail-${side}`,'dark',[[0,0],[side*.35,-1.01],[side*.53,-1.17],[-side*.19,-1.04]],.033,[side*.21,1.56,-.17],undefined,dark);}
+    for(const side of sides){box(`sword-token-double-dude-crossed-weapon-${side}`,'accent',[side*.13,2.07,.33],[.13,1.2,.12],[0,0,side*.85],accent);curvedSheet(`token-double-dude-coat-tail-${side}`,'dark',[[0,0],[side*.35,-1.01],[side*.53,-1.17],[-side*.19,-1.04]],.033,[side*.21,1.56,-.17],undefined,dark);}
   }else if(!floating&&!angel&&!bat&&!broad&&!zombie){
     if(variant==='sky-striker'){
-      box('sword-token-sky-striker-blaster','dark',[.84,1.63,.27],[.2,.31,.63],[-.16,0,0],dark);
+      roundedSolid('sword-token-sky-striker-blaster','dark',[[-.1,0],[-.17,.22],[-.12,.68],[.06,.77],[.12,.61],[.11,.12]],.14,[.84,1.43,.25],[-.12,0,.1],dark,.015);
+      curvedSheet('sword-token-sky-striker-long-blade','body',[[-.105,0],[-.16,.56],[-.08,1.09],[.14,1.48],[.1,.75],[.08,.12]],.035,[.86,2.05,.25],[0,0,-.3],'#d3d9d8',{camber:.025,curl:.018});
+      for(const side of sides)curve(`token-sky-striker-waist-armor-seam-${side}`,'accent',[[side*.26,2.2,.243],[side*.16,1.72,.28],[side*.31,1.51,.222]],.012,'#d2d7d2',12);
       for(const side of sides)box(`token-sky-striker-tech-backpack-${side}`,'accent',[side*.29,2.16,-.4],[.19,.7,.24],[0,0,side*.14],accent);
     }else if(variant==='tricky-magician'){
       rod('staff-token-tricky','accent',[.82,.24,.28],[.82,2.71,.28],.045,.045,accent);
       sphere('staff-token-tricky-orb','eye',[.82,2.85,.28],[.18,.19,.18],1,eye);
-      for(const side of sides)solid(`token-tricky-purple-cape-${side}`,'accent',[[0,0],[side*.51,-.43],[side*.6,-1.92],[-side*.21,-1.51]],.04,[side*.17,2.68,-.29],undefined,accent);
+      for(const side of sides)curvedSheet(`token-tricky-purple-cape-${side}`,'accent',[[0,0],[side*.51,-.43],[side*.6,-1.92],[-side*.21,-1.51]],.04,[side*.17,2.68,-.29],undefined,accent);
       cone('token-tricky-pointed-hat','body',[0,3.57,-.05],[.3,.53,.27],[0,0,-.23],body);
       curve('token-tricky-gold-question-mark','accent',[[-.08,3.09,.288],[0,3.2,.298],[.09,3.12,.288],[0,3.01,.29]],.013,eye,9);
     }else{

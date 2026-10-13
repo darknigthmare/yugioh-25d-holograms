@@ -1,0 +1,46 @@
+import argparse, hashlib, json, re, subprocess
+from datetime import datetime, timezone
+from pathlib import Path
+ROOT=Path('/workspace/yugioh-25d-holograms')
+OLD=Path('/workspace/yugioh-token-build-freeze-2026-10-11.json')
+PRE=Path('/workspace/yugioh-model-fidelity-before-check-2026-10-11.json')
+CHECK=Path('/workspace/yugioh-model-fidelity-full-check-2026-10-11.txt')
+FREEZE=Path('/workspace/yugioh-model-fidelity-build-freeze-2026-10-11.json')
+PROTECTED=Path('/workspace/yugioh-model-fidelity-review-protected-baseline-2026-10-11.json')
+HISTORY=Path('/workspace/yugioh-model-fidelity-protected-final-2026-10-11.json')
+BASE='1371c5ba679d336f5df478720e6f9c4265d08e9d'
+def pin(p):
+ b=p.read_bytes();return {'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}
+def names():
+ old=json.loads(OLD.read_text())
+ selected=set(old['source'])
+ selected.update(p.relative_to(ROOT).as_posix() for p in (ROOT/'src').rglob('*') if p.is_file())
+ # Curated original monster/character crops join the previously frozen Token assets.
+ selected.update(p.relative_to(ROOT).as_posix() for p in (ROOT/'public/cards/cropped').glob('*.jpg'))
+ return sorted(selected)
+def source():return {n:pin(ROOT/n) for n in names()}
+def main():
+ ap=argparse.ArgumentParser();ap.add_argument('phase',choices=['prepare','seal']);args=ap.parse_args()
+ head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip();assert head==BASE
+ if args.phase=='prepare':
+  assert not PRE.exists(),'An existing before-check snapshot must not be silently replaced'
+  d={'date':'2026-10-11','baselineCommit':BASE,'source':source()};PRE.write_text(json.dumps(d,indent=2)+'\n');print(json.dumps({'prepared':True,'sourcePins':len(d['source']),'path':str(PRE)}));return
+ before=json.loads(PRE.read_text());now=source();assert before['source']==now,'Application changed during final check'
+ text=CHECK.read_text();assert text.rstrip().endswith('__CODEX_CHECK_EXIT__=0'),'Actual check exit zero marker missing'
+ counters={}
+ for key in ('tests','pass','fail','cancelled','skipped','todo'):
+  match=re.search(r'^(?:#|ℹ) '+key+r' (\d+)\s*$',text,re.M);assert match,key;counters[key]=int(match.group(1))
+ assert counters['tests']==counters['pass'] and all(counters[k]==0 for k in ('fail','cancelled','skipped','todo'))
+ assert re.search(r'✓ \d+ modules transformed\.',text) and 'built in' in text
+ old=json.loads(OLD.read_text());compiled={p.relative_to(ROOT/'dist').as_posix():pin(p) for p in sorted((ROOT/'dist').rglob('*')) if p.is_file() and (p.suffix in {'.js','.css'} and 'assets' in p.parts or p.relative_to(ROOT/'dist').as_posix()=='index.html')}
+ static={n:pin(ROOT/'dist'/n) for n in old['additionalStaticAssets']}
+ static.update({n.removeprefix('public/'):pin(ROOT/'dist'/n.removeprefix('public/')) for n in now if n.startswith('public/cards/cropped/')})
+ entry=re.search(r'src="([^\"]+/index-[^\"]+\.js)"',(ROOT/'dist/index.html').read_text()).group(1)
+ assert entry.lstrip('/') in compiled
+ protected=json.loads(PROTECTED.read_text());oldfiles={v['path']:{'bytes':v['bytes'],'sha256':v['sha256']} for v in protected['pins']};assert len(oldfiles)==protected['count']
+ different=[n for n,v in oldfiles.items() if not (ROOT/n).is_file() or pin(ROOT/n)!=v]
+ assert not different,{'protectedDifferences':different}
+ history={'pass':True,'baselineCommit':BASE,'baselineSnapshot':{'path':str(PROTECTED),**pin(PROTECTED)},'files':len(oldfiles),'bytes':sum(v['bytes'] for v in oldfiles.values()),'differences':[]};HISTORY.write_text(json.dumps(history,indent=2)+'\n')
+ d={'date':'2026-10-11','executedAtUtc':datetime.now(timezone.utc).isoformat(),'localBaseline':BASE,'entry':entry,'source':now,'compiled':compiled,'additionalStaticAssets':static,'sourceBeforeFullCheck':{'path':str(PRE),**pin(PRE)},'check':{'path':str(CHECK),**pin(CHECK),**counters,'exitCode':0},'protectedHistory':{'path':str(HISTORY),**pin(HISTORY)},'protectedNativeArchives':{n:now[n] for n in ('public/native/ocgcore.sync.wasm','public/native/card-data.json','public/native/scripts.json')},'protectedNativeFacade':{'path':'src/core/native/NativeDuelGame.js',**now['src/core/native/NativeDuelGame.js']}}
+ FREEZE.write_text(json.dumps(d,indent=2)+'\n');print(json.dumps({'freeze':str(FREEZE),**pin(FREEZE),'sourcePins':len(now),'compiled':len(compiled),'static':len(static),'entry':entry,'tests':counters,'protectedFiles':len(oldfiles)}))
+if __name__=='__main__':main()

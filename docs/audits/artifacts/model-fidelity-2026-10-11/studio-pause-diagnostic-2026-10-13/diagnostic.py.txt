@@ -1,0 +1,89 @@
+#!/usr/bin/env python3
+"""Public compiled studio pause diagnosis; no application object or Game hook."""
+from pathlib import Path
+import functools, hashlib, importlib.util, json, threading, time
+from http.server import ThreadingHTTPServer
+from datetime import datetime, timezone
+from playwright.sync_api import sync_playwright
+ROOT=Path('/workspace/yugioh-25d-holograms')
+OUT=ROOT/'docs/audits/artifacts/model-fidelity-2026-10-11/studio-pause-diagnostic-2026-10-13'
+FREEZE=Path('/workspace/yugioh-model-fidelity-build-freeze-2026-10-11.json')
+DRIVER='scripts/audit-duelist-avatar-motion-browser.py'
+FAIL=ROOT/'docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars'
+def pin(p):return {'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
+def fail_pins():return {str(p.relative_to(ROOT)):pin(p)for p in sorted(FAIL.rglob('*'))if p.is_file()}
+spec=importlib.util.spec_from_file_location('historical_studio',ROOT/DRIVER)
+d=importlib.util.module_from_spec(spec);spec.loader.exec_module(d)
+# The original clear method wrapper keeps identical this/args/return. For this
+# diagnosis only, record its JavaScript stack as additional public draw evidence.
+needle="canvasLabel:this.canvas.getAttribute('aria-label')"
+assert needle in d.RNG
+d.RNG=d.RNG.replace(needle,needle+",stack:new Error('Public WebGL clear observation').stack")
+f=json.loads(FREEZE.read_text());assert d.fingerprints(list(f['source']))==f['source']
+d.ADDITIONAL_STATIC_ASSETS=sorted(f['additionalStaticAssets'])
+local=d.dist_fingerprints(ROOT/'dist')
+assert all(local.get(k)==v for k,v in f['compiled'].items())
+assert all(local.get(k)==v for k,v in f['additionalStaticAssets'].items())
+report={'ok':False,'executedAtUtc':datetime.now(timezone.utc).isoformat(),'driverBefore':pin(ROOT/DRIVER),'historicalFailureBefore':fail_pins(),'freeze':pin(FREEZE),'scope':'Pre-bootstrap WebGL clear wrapper records an additional stack; only public DOM controls, canvas and media preference are used. No application object or started Game mutation.','recipeAdaptation':'Add stack to the historical clear-method observation payload in memory for diagnosis only. Driver bytes unchanged.','paths':[]}
+d.ui.AuditServer.headers_to_add=d.ui.production_headers()
+server=ThreadingHTTPServer(('127.0.0.1',0),functools.partial(d.ui.AuditServer,directory=str(ROOT/'dist')))
+threading.Thread(target=server.serve_forever,daemon=True).start();base=f'http://127.0.0.1:{server.server_port}'
+def snapshot(page,item,label):
+ v={'label':label,'observedClearCount':len(item['studioDrawCalls']),'publicState':page.evaluate('''() => {const e=document.querySelector('#duelist-avatar-preview-stage'),r=e.getBoundingClientRect();return {time:performance.now(),reducedMotion:matchMedia('(prefers-reduced-motion: reduce)').matches,scrollY:scrollY,stage:{x:r.x,y:r.y,width:r.width,height:r.height},dialogScrollTop:document.querySelector('.duelist-avatar-dialog').scrollTop}}''')}
+ item['checkpoints'].append(v);return v
+try:
+ with sync_playwright() as p:
+  b=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader'])
+  for width,height in [(1280,900),(390,844)]:
+   c=b.new_context(viewport={'width':width,'height':height},reduced_motion='no-preference',has_touch=width<600);page=c.new_page()
+   item={'width':width,'height':height,'checkpoints':[]};report['paths'].append(item)
+   d.start_page(page,base,item,True)
+   page.locator('#duelist-avatar-open').click();d.reset_filters(page)
+   page.locator('[data-duelist-avatar-mode="3d"]').click();d.preview_ready(page)
+   for i in range(7):page.locator('#duelist-avatar-next').click()
+   page.locator('[data-duelist-avatar-preview="kuadul"]').click()
+   stage=page.locator('#duelist-avatar-preview-stage');stage.scroll_into_view_if_needed();d.preview_ready(page)
+   page.emulate_media(reduced_motion='reduce');page.wait_for_timeout(350)
+   before=snapshot(page,item,'historical-counter-before-first-stage-screenshot')
+   a=OUT/f'pause-a-{width}.png';stage.screenshot(path=str(a))
+   snapshot(page,item,'immediately-after-first-stage-screenshot');page.wait_for_timeout(350)
+   after=snapshot(page,item,'350ms-after-first-stage-screenshot')
+   item['historicalRecipeWouldPass']=before['observedClearCount']==after['observedClearCount']
+   item['firstCaptureClearDelta']=after['observedClearCount']-before['observedClearCount']
+   # Freeze the strict counter only once the initial capture's observer work
+   # has settled. Neither an app observer nor any app render is suppressed.
+   settled=snapshot(page,item,'settled-stability-window-start');page.wait_for_timeout(350)
+   stable=snapshot(page,item,'settled-stability-window-end')
+   assert stable['observedClearCount']==settled['observedClearCount'],(settled,stable)
+   second=OUT/f'pause-b-{width}.png';stage.screenshot(path=str(second))
+   snapshot(page,item,'immediately-after-second-stage-screenshot');page.wait_for_timeout(350)
+   final=snapshot(page,item,'350ms-after-second-stage-screenshot')
+   assert final['observedClearCount']==settled['observedClearCount'],(settled,final)
+   assert a.read_bytes()==second.read_bytes(),'Paused pixels changed without an input.'
+   item['settledStrictZeroDraws']=True;item['strictPixelsEqual']=True
+   item['clearStacksNearFirstCapture']=item['studioDrawCalls'][max(0,before['observedClearCount']-2):after['observedClearCount']]
+   page.emulate_media(reduced_motion='no-preference');page.wait_for_timeout(400)
+   resumed=snapshot(page,item,'resumed-after-no-preference');assert resumed['observedClearCount']>settled['observedClearCount']
+   page.set_viewport_size({'width':width,'height':220});page.locator('.duelist-avatar-dialog').evaluate('e=>e.scrollTo(0,0)');page.wait_for_timeout(300)
+   box=stage.bounding_box();assert box and box['y']>=220,box
+   off=snapshot(page,item,'offscreen-start');page.wait_for_timeout(350);off_after=snapshot(page,item,'offscreen-end')
+   assert off['observedClearCount']==off_after['observedClearCount']
+   page.set_viewport_size({'width':width,'height':height});stage.scroll_into_view_if_needed();page.wait_for_timeout(350)
+   returned=snapshot(page,item,'visible-again');assert returned['observedClearCount']>off['observedClearCount']
+   item['resumedAndOffscreenChecksUnchanged']=True
+   assert not item['pageErrors'] and not item['cspViolations'] and not item['browserConsoleErrors'] and not item['httpErrors']
+   item['loaded']=sorted(item['loaded']);item['ok']=True;c.close()
+   print(json.dumps({'width':width,'historicalFirstCaptureClearDelta':item['firstCaptureClearDelta'],'settledStrictZeroDraws':True,'pixelsEqual':True,'resumedAndOffscreenChecks':True}),flush=True)
+  b.close()
+ report['sourceAfter']=d.fingerprints(list(f['source']));assert report['sourceAfter']==f['source']
+ report['compiledAfter']=d.dist_fingerprints(ROOT/'dist');assert report['compiledAfter']==local
+ report['historicalFailureAfter']=fail_pins();assert report['historicalFailureAfter']==report['historicalFailureBefore']
+ report['driverAfter']=pin(ROOT/DRIVER);assert report['driverAfter']==report['driverBefore']
+ report['captures']={p.name:pin(p)for p in OUT.glob('*.png')};report['ok']=all(i['ok']for i in report['paths'])
+except BaseException as e:
+ report['failure']={'type':type(e).__name__,'message':str(e)[:1500]};raise
+finally:
+ for i in report['paths']:
+  if isinstance(i.get('loaded'),set):i['loaded']=sorted(i['loaded'])
+ (OUT/'report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');server.shutdown()
+print(json.dumps({'ok':report['ok'],'paths':len(report['paths']),'historicalFailureUnchanged':True,'historicalDriverUnchanged':True}),flush=True)

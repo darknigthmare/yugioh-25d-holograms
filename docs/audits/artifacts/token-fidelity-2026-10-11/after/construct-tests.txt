@@ -1,0 +1,17 @@
+✔ reference-based construct refinements remain finite, batched and within the Token geometry budget (344.266412ms)
+✔ fork, double-pod fighter, flattened delta and conventional jet remain different geometries (10.80718ms)
+✔ V-LAN has three independent armoured serpent heads, luminous necks and a coiled lower body (7.36498ms)
+✔ source-specific mechanisms preserve visible batteries, lenses, brick studs and four Koa’ki Meiru arms (31.242433ms)
+✔ added fingers and gauntlet details share their existing hand’s deformation joint (0.3923ms)
+✔ laser module, perched one-eye dragon, spacecraft orb and crowned crystal keep their distinct source silhouettes (22.986873ms)
+✔ Small Fire and Wild Fire remain faceless while their flame geometries differ (6.348671ms)
+✔ Engine uses a compact crankcase and wire loops while Synchron uses two green V cylinders (10.721059ms)
+✔ solar-panel grid bars sit on the tilted panel surface rather than the world XY plane (2.967966ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 540.928815

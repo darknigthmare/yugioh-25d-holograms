@@ -1,0 +1,27 @@
+{"stage": "studio-all-192", "completed": 0, "total": 192}
+{"stage": "studio-all-192", "completed": 24, "total": 192, "lastAvatarId": "rebecca", "elapsedSeconds": 13.6, "estimatedRemainingSeconds": 95.5}
+{"stage": "studio-all-192", "completed": 48, "total": 192, "lastAvatarId": "camula", "elapsedSeconds": 26.5, "estimatedRemainingSeconds": 79.6}
+{"stage": "studio-all-192", "completed": 72, "total": 192, "lastAvatarId": "antinomy", "elapsedSeconds": 38.9, "estimatedRemainingSeconds": 64.9}
+{"stage": "studio-all-192", "completed": 96, "total": 192, "lastAvatarId": "dr-faker", "elapsedSeconds": 51.6, "estimatedRemainingSeconds": 51.6}
+{"stage": "studio-all-192", "completed": 120, "total": 192, "lastAvatarId": "yoko", "elapsedSeconds": 64.0, "estimatedRemainingSeconds": 38.4}
+{"stage": "studio-all-192", "completed": 144, "total": 192, "lastAvatarId": "naoki", "elapsedSeconds": 76.6, "estimatedRemainingSeconds": 25.5}
+{"stage": "studio-all-192", "completed": 168, "total": 192, "lastAvatarId": "yuo", "elapsedSeconds": 89.9, "estimatedRemainingSeconds": 12.8}
+{"stage": "studio-all-192", "completed": 192, "total": 192, "lastAvatarId": "kuadul", "elapsedSeconds": 103.2, "estimatedRemainingSeconds": 0.0}
+Traceback (most recent call last):
+  File "/workspace/yugioh-25d-holograms/scripts/audit-model-fidelity-browser-2026-10-11.py", line 124, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/yugioh-25d-holograms/scripts/audit-model-fidelity-browser-2026-10-11.py", line 120, in main
+    if failure:raise failure
+               ^^^^^^^^^^^^^
+  File "/workspace/yugioh-25d-holograms/scripts/audit-model-fidelity-browser-2026-10-11.py", line 108, in main
+    driver.main()
+  File "/workspace/yugioh-25d-holograms/scripts/audit-duelist-avatar-motion-browser.py", line 832, in main
+    if args.stage!='gestures':studio_checks(page,item,args.output,all_roster=width==1280)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/yugioh-25d-holograms/scripts/audit-duelist-avatar-motion-browser.py", line 587, in studio_checks
+    studio_motion_checks(page,item,output)
+  File "/workspace/yugioh-25d-holograms/scripts/audit-model-fidelity-browser-2026-10-11.py", line 62, in studio_motion_checks
+    assert len(item['studioDrawCalls'])==offscreen,(offscreen,len(item['studioDrawCalls']))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (1244, 1246)

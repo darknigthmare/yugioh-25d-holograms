@@ -1,0 +1,12 @@
+{
+  "pass": true,
+  "baselineCommit": "1371c5ba679d336f5df478720e6f9c4265d08e9d",
+  "baselineSnapshot": {
+    "path": "/workspace/yugioh-model-fidelity-review-protected-baseline-2026-10-11.json",
+    "bytes": 955519,
+    "sha256": "6d8b97b3072385431e52af9795af938a7e9dee822ed6f04f433d42cd42e2e3b0"
+  },
+  "files": 3652,
+  "bytes": 742180159,
+  "differences": []
+}

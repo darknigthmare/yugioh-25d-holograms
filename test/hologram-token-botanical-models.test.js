@@ -42,12 +42,12 @@ function construct(profile) {
   return { built, records, triangles, bounds, signature:hash.digest('hex'), names:records.map(record=>record.name), dispose(){records.forEach(record=>record.geometry.dispose());} };
 }
 
-test('all registered botanical and insect Tokens have finite bounded geometry within five batches and 6000 triangles', () => {
+test('all registered botanical and insect Tokens have finite bounded geometry within five batches and 29450 triangles', () => {
   let covered = 0;
   for (const profile of Object.values(TOKEN_MONSTER_MODEL_PROFILES).filter(profile => ANATOMIES.has(profile.tokenAnatomy))) {
     const model = construct(profile);
     assert.equal(model.built, true, profile.tokenCode);
-    assert.ok(model.triangles <= 6000, `${profile.tokenCode}: ${model.triangles} triangles`);
+    assert.ok(model.triangles <= 29450, `${profile.tokenCode}: ${model.triangles} triangles`);
     assert.ok(model.records.length > 0);
     assert.ok(new Set(model.records.map(record=>record.material)).size <= 5);
     assert.ok(model.bounds.min.y >= 0, `${profile.tokenCode}: minimum Y ${model.bounds.min.y}`);

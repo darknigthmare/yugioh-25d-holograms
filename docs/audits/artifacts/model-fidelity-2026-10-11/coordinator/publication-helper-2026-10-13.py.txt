@@ -1,0 +1,130 @@
+import argparse,base64,concurrent.futures,hashlib,json,os,pathlib,subprocess,tempfile,urllib.request,urllib.error
+ROOT=pathlib.Path('/workspace/yugioh-25d-holograms')
+REPO='darknigthmare/yugioh-25d-holograms'
+BRANCH='codex/duel-fidelity-2026-10-01'
+EXPECTED_HEAD='4a87e1333d6c8267f29984fa173a71cd4a3103b2'
+EXPECTED_LOCAL_HEAD='1371c5ba679d336f5df478720e6f9c4265d08e9d'
+EXPECTED_MASTER='025f8ebd928cd8881c0e5e0d626dda63c933bf31'
+BASE_TREE='f3d7fb5c348d6cf32cacca225f7c759dd5f04ab4'
+EXPECTED_MASTER_TREE='19cb3d9a194f911d0042b0d88c737b45ad7d6650'
+MANIFEST=pathlib.Path('/tmp/yugioh-model-fidelity-publication-manifest-2026-10-13.json')
+CACHE=pathlib.Path('/tmp/yugioh-token-upload-cache-2026-10-11.json')
+OUT=pathlib.Path('/workspace/yugioh-model-fidelity-source-delivery-2026-10-13.json')
+
+
+def git(*args):return subprocess.check_output(['git',*args],cwd=ROOT).strip().decode()
+def api(path,payload=None,method=None):
+ data=None if payload is None else json.dumps(payload).encode()
+ req=urllib.request.Request('https://api.github.com/repos/'+REPO+path,data=data,method=method,headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','User-Agent':'codex-yugioh-completion','Content-Type':'application/json','X-GitHub-Api-Version':'2022-11-28'})
+ try:
+  with urllib.request.urlopen(req,timeout=60) as r:return json.load(r)
+ except urllib.error.HTTPError as e:
+  body=json.loads(e.read());raise RuntimeError(f'GitHub HTTP {e.code}: {body.get("message","request failed")}') from None
+def validate(manifest):
+ assert manifest['safeToPublish'] is True
+ gates=manifest['gates']
+ for name in ('fullCheck','protectedHistory','geometryComparison','compiledBrowser','sourceFreeze'):
+  gate=gates[name];assert gate['pass'] is True, name
+  proof=pathlib.Path(gate['path']);assert proof.is_file() and not proof.is_symlink(), name
+  blob=proof.read_bytes();assert len(blob)==gate['bytes'] and hashlib.sha256(blob).hexdigest()==gate['sha256'],name
+ for entry in manifest['files']:
+  name=pathlib.PurePosixPath(entry['path'])
+  assert not name.is_absolute() and '..' not in name.parts and '.git' not in name.parts
+  assert entry.get('operation')=='upsert', 'No deletion is authorized in this modeling delivery'
+ assert manifest['publicationHelperSha256']==hashlib.sha256(pathlib.Path(__file__).read_bytes()).hexdigest()
+ assert manifest['expectedRemoteParent']==EXPECTED_HEAD
+ assert manifest['reviewedLocalHead']==EXPECTED_LOCAL_HEAD
+ assert manifest['reviewedLocalHead']==git('rev-parse','HEAD')
+ review=manifest['independentReview']
+ assert review['path']=='docs/audits/model-fidelity-review-2026-10-11.md'
+ assert hashlib.sha256((ROOT/review['path']).read_bytes()).hexdigest()==review['sha256']
+ assert manifest['baseTree']==BASE_TREE
+ assert manifest['expectedMaster']==EXPECTED_MASTER and manifest['expectedMasterTree']==EXPECTED_MASTER_TREE
+ assert sorted(set(filter(None,git('ls-files','--modified','--others','--exclude-standard','-z').split('\0'))))==sorted(e['path'] for e in manifest['files']),'Changed file list differs from reviewed manifest'
+ for entry in manifest['files']:
+  p=ROOT/entry['path']
+  assert entry.get('operation')=='upsert'
+  assert p.is_file() and not p.is_symlink()
+  b=p.read_bytes();assert len(b)==entry['bytes'] and hashlib.sha256(b).hexdigest()==entry['sha256']
+  assert hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest()==entry['gitBlobSha']
+ assert api('/git/ref/heads/'+BRANCH)['object']['sha']==EXPECTED_HEAD,'Remote delivery head changed'
+ master=api('/git/ref/heads/master')['object']['sha'];assert master==EXPECTED_MASTER,'Master changed since review'
+ assert api('/git/commits/'+master)['tree']['sha']==EXPECTED_MASTER_TREE
+ assert api('/git/commits/'+EXPECTED_HEAD)['tree']['sha']==BASE_TREE
+ assert git('rev-parse','HEAD^{tree}')==BASE_TREE
+ return manifest['files']
+def tree_entries(tree,recursive=False,include_trees=False):
+ args=['git','ls-tree','-z']
+ if recursive:args.append('-r')
+ if include_trees:args.append('-t')
+ raw=subprocess.check_output([*args,tree],cwd=ROOT)
+ entries=[]
+ for row in raw.split(b'\0'):
+  if not row:continue
+  info,path=row.split(b'\t',1);mode,kind,sha=info.decode().split()
+  entries.append({'path':path.decode(),'mode':mode,'type':kind,'sha':sha})
+ return entries
+
+def build_exact_tree(files):
+ # A temporary index starts at the reviewed baseline and never touches the normal index.
+ with tempfile.TemporaryDirectory(prefix='yugioh-model-fidelity-index-',dir='/tmp') as folder:
+  env=dict(os.environ);env['GIT_INDEX_FILE']=str(pathlib.Path(folder)/'publication.index')
+  def isolated(*args):return subprocess.check_output(['git',*args],cwd=ROOT,env=env).decode().strip()
+  isolated('read-tree',BASE_TREE)
+  isolated('add','--',*[e['path'] for e in files])
+  expected=isolated('write-tree')
+ baseline={e['path']:e for e in tree_entries(BASE_TREE,recursive=True)}
+ candidate={e['path']:e for e in tree_entries(expected,recursive=True)}
+ reviewed={e['path']:e for e in files if e['operation']=='upsert'}
+ deleted={e['path'] for e in files if e['operation']=='delete'}
+ assert not deleted, 'This delivery authorizes no deletions'
+ assert set(candidate)==(set(baseline)-deleted)|set(reviewed),'Unexpected tree path change'
+ for path in deleted:assert baseline[path]['sha']==next(e['previousGitBlobSha'] for e in files if e['path']==path)
+ for path,entry in candidate.items():
+  if path in reviewed:
+   assert entry['type']=='blob' and entry['mode']=='100644' and entry['sha']==reviewed[path]['gitBlobSha'],path
+  else:assert entry==baseline[path],path
+ known={BASE_TREE}|{e['sha'] for e in tree_entries(BASE_TREE,recursive=True,include_trees=True) if e['type']=='tree'}
+ uploaded=[]
+ def ensure_tree(sha):
+  if sha in known:return
+  entries=tree_entries(sha)
+  for entry in entries:
+   if entry['type']=='tree':ensure_tree(entry['sha'])
+  # Immediate children only: the API does not need to expand hundreds of nested changes.
+  result=api('/git/trees',{'tree':entries})
+  assert result['sha']==sha,'Remote subtree differs from the exact local tree'
+  known.add(sha);uploaded.append({'sha':sha,'entries':len(entries)})
+ ensure_tree(expected)
+ print(json.dumps({'exactTree':expected,'newTreesUploaded':len(uploaded),'largestImmediateTree':max(e['entries'] for e in uploaded)}),flush=True)
+ return expected
+
+def main():
+ parser=argparse.ArgumentParser();parser.add_argument('--warm',action='store_true');args=parser.parse_args()
+ m=json.loads(MANIFEST.read_text());files=validate(m);cache=json.loads(CACHE.read_text()) if CACHE.exists() else {}
+ def upload(e):
+  sha=e['gitBlobSha']
+  if sha in cache:return sha
+  d=api('/git/blobs',{'content':base64.b64encode((ROOT/e['path']).read_bytes()).decode(),'encoding':'base64'})
+  assert d['sha']==sha;return sha
+ with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool:
+  for i,sha in enumerate(pool.map(upload,files),1):
+   if sha is not None:cache[sha]=True;CACHE.write_text(json.dumps(cache)+'\n')
+   if i%20==0:print(json.dumps({'uploadedOrCached':i,'total':len(files)}),flush=True)
+ if args.warm:print(json.dumps({'warmComplete':True,'blobs':len(files)}));return
+ # Recheck the reviewed bytes and both remote refs after all immutable uploads.
+ validate(m)
+ tree=build_exact_tree(files)
+ validate(m)  # Recheck all bytes and refs after the incremental immutable trees as well.
+ # The local commit is retained independently; its tree must equal the exact remote tree.
+ subprocess.run(['git','add','--',*[e['path'] for e in files]],cwd=ROOT,check=True)
+ subprocess.run(['git','commit','-m','Improve curved anatomy, distinctive details and studio rendering across 468 models'],cwd=ROOT,check=True,stdout=subprocess.DEVNULL)
+ local=git('rev-parse','HEAD');assert git('rev-parse','HEAD^{tree}')==tree
+ commit=api('/git/commits',{'message':'Improve curved anatomy, distinctive details and studio rendering across 468 models','tree':tree,'parents':[EXPECTED_HEAD]})['sha']
+ assert api('/git/ref/heads/'+BRANCH)['object']['sha']==EXPECTED_HEAD,'Remote head changed before update'
+ api('/git/refs/heads/'+BRANCH,{'sha':commit,'force':False},method='PATCH')
+ assert api('/git/ref/heads/'+BRANCH)['object']['sha']==commit
+ assert api('/git/ref/heads/master')['object']['sha']==EXPECTED_MASTER
+ proof={'date':'2026-10-13','localCommit':local,'remoteCommit':commit,'sourceTree':tree,'branch':BRANCH,'repository':REPO,'previousRemoteHead':EXPECTED_HEAD,'remoteParent':EXPECTED_HEAD,'masterUnchangedDuringPublication':True,'reviewedFiles':len(files),'deletions':0,'fastForward':True,'force':False,'treeConstruction':'Incremental immediate-child trees from an isolated local index; every remote tree SHA verified','publicationHelperSha256':hashlib.sha256(pathlib.Path(__file__).read_bytes()).hexdigest()}
+ OUT.write_text(json.dumps(proof,indent=2)+'\n');print(json.dumps(proof),flush=True)
+if __name__=='__main__':main()

@@ -1,0 +1,4974 @@
+{
+  "scope": "Actual baseline procedural construction, both native attack/defense geometry; no renderer or Game state",
+  "sourceHead": "1371c5ba679d336f5df478720e6f9c4265d08e9d",
+  "rows": [
+    {
+      "id": "5053103",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 5088,
+      "bytes": 732672,
+      "meshes": 5,
+      "parts": 94
+    },
+    {
+      "id": "5053103",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 5656,
+      "bytes": 814464,
+      "meshes": 5,
+      "parts": 96
+    },
+    {
+      "id": "10000000",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 2672,
+      "bytes": 384768,
+      "meshes": 5,
+      "parts": 67
+    },
+    {
+      "id": "10000000",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 3240,
+      "bytes": 466560,
+      "meshes": 5,
+      "parts": 69
+    },
+    {
+      "id": "10000010",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 3764,
+      "bytes": 542016,
+      "meshes": 5,
+      "parts": 82
+    },
+    {
+      "id": "10000010",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 4332,
+      "bytes": 623808,
+      "meshes": 5,
+      "parts": 84
+    },
+    {
+      "id": "10000020",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 2992,
+      "bytes": 430848,
+      "meshes": 5,
+      "parts": 80
+    },
+    {
+      "id": "10000020",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 3560,
+      "bytes": 512640,
+      "meshes": 5,
+      "parts": 82
+    },
+    {
+      "id": "13039848",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 1820,
+      "bytes": 262080,
+      "meshes": 5,
+      "parts": 37
+    },
+    {
+      "id": "13039848",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 2388,
+      "bytes": 343872,
+      "meshes": 5,
+      "parts": 39
+    },
+    {
+      "id": "14558127",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 3000,
+      "bytes": 432000,
+      "meshes": 5,
+      "parts": 62
+    },
+    {
+      "id": "14558127",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 3568,
+      "bytes": 513792,
+      "meshes": 5,
+      "parts": 64
+    },
+    {
+      "id": "15025844",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 4752,
+      "bytes": 684288,
+      "meshes": 4,
+      "parts": 58
+    },
+    {
+      "id": "15025844",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 5320,
+      "bytes": 766080,
+      "meshes": 4,
+      "parts": 60
+    },
+    {
+      "id": "20721928",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 3868,
+      "bytes": 556992,
+      "meshes": 5,
+      "parts": 64
+    },
+    {
+      "id": "20721928",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 4436,
+      "bytes": 638784,
+      "meshes": 5,
+      "parts": 66
+    },
+    {
+      "id": "23995346",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 4882,
+      "bytes": 703008,
+      "meshes": 5,
+      "parts": 93
+    },
+    {
+      "id": "23995346",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 5450,
+      "bytes": 784800,
+      "meshes": 5,
+      "parts": 95
+    },
+    {
+      "id": "26202165",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 1988,
+      "bytes": 286272,
+      "meshes": 5,
+      "parts": 62
+    },
+    {
+      "id": "26202165",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 2556,
+      "bytes": 368064,
+      "meshes": 5,
+      "parts": 64
+    },
+    {
+      "id": "26905245",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 4700,
+      "bytes": 676800,
+      "meshes": 4,
+      "parts": 60
+    },
+    {
+      "id": "26905245",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 5268,
+      "bytes": 758592,
+      "meshes": 4,
+      "parts": 62
+    },
+    {
+      "id": "28279543",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 4820,
+      "bytes": 694080,
+      "meshes": 5,
+      "parts": 103
+    },
+    {
+      "id": "28279543",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 5388,
+      "bytes": 775872,
+      "meshes": 5,
+      "parts": 105
+    },
+    {
+      "id": "28649820",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 5980,
+      "bytes": 861120,
+      "meshes": 5,
+      "parts": 99
+    },
+    {
+      "id": "28649820",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 6548,
+      "bytes": 942912,
+      "meshes": 5,
+      "parts": 101
+    },
+    {
+      "id": "31560081",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 4044,
+      "bytes": 582336,
+      "meshes": 5,
+      "parts": 39
+    },
+    {
+      "id": "31560081",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 4612,
+      "bytes": 664128,
+      "meshes": 5,
+      "parts": 41
+    },
+    {
+      "id": "32452818",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 4052,
+      "bytes": 583488,
+      "meshes": 5,
+      "parts": 86
+    },
+    {
+      "id": "32452818",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 4620,
+      "bytes": 665280,
+      "meshes": 5,
+      "parts": 88
+    },
+    {
+      "id": "38033121",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 4692,
+      "bytes": 675648,
+      "meshes": 5,
+      "parts": 63
+    },
+    {
+      "id": "38033121",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 5260,
+      "bytes": 757440,
+      "meshes": 5,
+      "parts": 65
+    },
+    {
+      "id": "39552864",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 1940,
+      "bytes": 279360,
+      "meshes": 3,
+      "parts": 15
+    },
+    {
+      "id": "39552864",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 2508,
+      "bytes": 361152,
+      "meshes": 3,
+      "parts": 17
+    },
+    {
+      "id": "40640057",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 1776,
+      "bytes": 255744,
+      "meshes": 5,
+      "parts": 57
+    },
+    {
+      "id": "40640057",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 2344,
+      "bytes": 337536,
+      "meshes": 5,
+      "parts": 59
+    },
+    {
+      "id": "44508094",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 3834,
+      "bytes": 552096,
+      "meshes": 5,
+      "parts": 65
+    },
+    {
+      "id": "44508094",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 4402,
+      "bytes": 633888,
+      "meshes": 5,
+      "parts": 67
+    },
+    {
+      "id": "46986414",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 4544,
+      "bytes": 654336,
+      "meshes": 5,
+      "parts": 61
+    },
+    {
+      "id": "46986414",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 5112,
+      "bytes": 736128,
+      "meshes": 5,
+      "parts": 63
+    },
+    {
+      "id": "54652250",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 3136,
+      "bytes": 451584,
+      "meshes": 5,
+      "parts": 49
+    },
+    {
+      "id": "54652250",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 3704,
+      "bytes": 533376,
+      "meshes": 5,
+      "parts": 51
+    },
+    {
+      "id": "63977008",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 2356,
+      "bytes": 339264,
+      "meshes": 5,
+      "parts": 37
+    },
+    {
+      "id": "63977008",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 2924,
+      "bytes": 421056,
+      "meshes": 5,
+      "parts": 39
+    },
+    {
+      "id": "66602787",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 5288,
+      "bytes": 761472,
+      "meshes": 5,
+      "parts": 86
+    },
+    {
+      "id": "66602787",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 5856,
+      "bytes": 843264,
+      "meshes": 5,
+      "parts": 88
+    },
+    {
+      "id": "68638985",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 2748,
+      "bytes": 395712,
+      "meshes": 5,
+      "parts": 33
+    },
+    {
+      "id": "68638985",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 3316,
+      "bytes": 477504,
+      "meshes": 5,
+      "parts": 35
+    },
+    {
+      "id": "70095154",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 2596,
+      "bytes": 373824,
+      "meshes": 5,
+      "parts": 84
+    },
+    {
+      "id": "70095154",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 3164,
+      "bytes": 455616,
+      "meshes": 5,
+      "parts": 86
+    },
+    {
+      "id": "70781052",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 3270,
+      "bytes": 470880,
+      "meshes": 4,
+      "parts": 47
+    },
+    {
+      "id": "70781052",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 3838,
+      "bytes": 552672,
+      "meshes": 4,
+      "parts": 49
+    },
+    {
+      "id": "71625222",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 1500,
+      "bytes": 216000,
+      "meshes": 4,
+      "parts": 32
+    },
+    {
+      "id": "71625222",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 2068,
+      "bytes": 297792,
+      "meshes": 4,
+      "parts": 34
+    },
+    {
+      "id": "72989439",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 3396,
+      "bytes": 489024,
+      "meshes": 5,
+      "parts": 80
+    },
+    {
+      "id": "72989439",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 3964,
+      "bytes": 570816,
+      "meshes": 5,
+      "parts": 82
+    },
+    {
+      "id": "74677422",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 4520,
+      "bytes": 650880,
+      "meshes": 5,
+      "parts": 107
+    },
+    {
+      "id": "74677422",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 5088,
+      "bytes": 732672,
+      "meshes": 5,
+      "parts": 109
+    },
+    {
+      "id": "77637979",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 4278,
+      "bytes": 616032,
+      "meshes": 5,
+      "parts": 81
+    },
+    {
+      "id": "77637979",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 4846,
+      "bytes": 697824,
+      "meshes": 5,
+      "parts": 83
+    },
+    {
+      "id": "84013237",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 3176,
+      "bytes": 457344,
+      "meshes": 5,
+      "parts": 74
+    },
+    {
+      "id": "84013237",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 3744,
+      "bytes": 539136,
+      "meshes": 5,
+      "parts": 76
+    },
+    {
+      "id": "88819587",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 3834,
+      "bytes": 552096,
+      "meshes": 5,
+      "parts": 65
+    },
+    {
+      "id": "88819587",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 4402,
+      "bytes": 633888,
+      "meshes": 5,
+      "parts": 67
+    },
+    {
+      "id": "89631139",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 4160,
+      "bytes": 599040,
+      "meshes": 5,
+      "parts": 96
+    },
+    {
+      "id": "89631139",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 4728,
+      "bytes": 680832,
+      "meshes": 5,
+      "parts": 98
+    },
+    {
+      "id": "89943723",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 2760,
+      "bytes": 397440,
+      "meshes": 5,
+      "parts": 66
+    },
+    {
+      "id": "89943723",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 3328,
+      "bytes": 479232,
+      "meshes": 5,
+      "parts": 68
+    },
+    {
+      "id": "91152256",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 2016,
+      "bytes": 290304,
+      "meshes": 5,
+      "parts": 39
+    },
+    {
+      "id": "91152256",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 2584,
+      "bytes": 372096,
+      "meshes": 5,
+      "parts": 41
+    },
+    {
+      "id": "97590747",
+      "kind": "monster",
+      "defense": false,
+      "triangles": 4744,
+      "bytes": 683136,
+      "meshes": 4,
+      "parts": 68
+    },
+    {
+      "id": "97590747",
+      "kind": "monster",
+      "defense": true,
+      "triangles": 5312,
+      "bytes": 764928,
+      "meshes": 4,
+      "parts": 70
+    },
+    {
+      "id": "176393",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1926,
+      "bytes": 277344,
+      "meshes": 5,
+      "parts": 24
+    },
+    {
+      "id": "176393",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2494,
+      "bytes": 359136,
+      "meshes": 5,
+      "parts": 26
+    },
+    {
+      "id": "645088",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1632,
+      "bytes": 235008,
+      "meshes": 5,
+      "parts": 31
+    },
+    {
+      "id": "645088",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2200,
+      "bytes": 316800,
+      "meshes": 5,
+      "parts": 33
+    },
+    {
+      "id": "904186",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1160,
+      "bytes": 167040,
+      "meshes": 5,
+      "parts": 23
+    },
+    {
+      "id": "904186",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1728,
+      "bytes": 248832,
+      "meshes": 5,
+      "parts": 25
+    },
+    {
+      "id": "1426715",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1684,
+      "bytes": 242496,
+      "meshes": 4,
+      "parts": 35
+    },
+    {
+      "id": "1426715",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2252,
+      "bytes": 324288,
+      "meshes": 4,
+      "parts": 37
+    },
+    {
+      "id": "1799465",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2724,
+      "bytes": 392256,
+      "meshes": 5,
+      "parts": 43
+    },
+    {
+      "id": "1799465",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3292,
+      "bytes": 474048,
+      "meshes": 5,
+      "parts": 45
+    },
+    {
+      "id": "2625940",
+      "kind": "token",
+      "defense": false,
+      "triangles": 904,
+      "bytes": 130176,
+      "meshes": 4,
+      "parts": 23
+    },
+    {
+      "id": "2625940",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1472,
+      "bytes": 211968,
+      "meshes": 4,
+      "parts": 25
+    },
+    {
+      "id": "2819436",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2032,
+      "bytes": 292608,
+      "meshes": 5,
+      "parts": 51
+    },
+    {
+      "id": "2819436",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2600,
+      "bytes": 374400,
+      "meshes": 5,
+      "parts": 53
+    },
+    {
+      "id": "3129134",
+      "kind": "token",
+      "defense": false,
+      "triangles": 3094,
+      "bytes": 445536,
+      "meshes": 5,
+      "parts": 54
+    },
+    {
+      "id": "3129134",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3662,
+      "bytes": 527328,
+      "meshes": 5,
+      "parts": 56
+    },
+    {
+      "id": "3129528",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2400,
+      "bytes": 345600,
+      "meshes": 4,
+      "parts": 55
+    },
+    {
+      "id": "3129528",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2968,
+      "bytes": 427392,
+      "meshes": 4,
+      "parts": 57
+    },
+    {
+      "id": "3285552",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2338,
+      "bytes": 336672,
+      "meshes": 5,
+      "parts": 47
+    },
+    {
+      "id": "3285552",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2906,
+      "bytes": 418464,
+      "meshes": 5,
+      "parts": 49
+    },
+    {
+      "id": "4417408",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1160,
+      "bytes": 167040,
+      "meshes": 5,
+      "parts": 23
+    },
+    {
+      "id": "4417408",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1728,
+      "bytes": 248832,
+      "meshes": 5,
+      "parts": 25
+    },
+    {
+      "id": "7392746",
+      "kind": "token",
+      "defense": false,
+      "triangles": 4064,
+      "bytes": 585216,
+      "meshes": 5,
+      "parts": 60
+    },
+    {
+      "id": "7392746",
+      "kind": "token",
+      "defense": true,
+      "triangles": 4632,
+      "bytes": 667008,
+      "meshes": 5,
+      "parts": 62
+    },
+    {
+      "id": "7610395",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2338,
+      "bytes": 336672,
+      "meshes": 5,
+      "parts": 47
+    },
+    {
+      "id": "7610395",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2906,
+      "bytes": 418464,
+      "meshes": 5,
+      "parts": 49
+    },
+    {
+      "id": "8025951",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1632,
+      "bytes": 235008,
+      "meshes": 5,
+      "parts": 31
+    },
+    {
+      "id": "8025951",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2200,
+      "bytes": 316800,
+      "meshes": 5,
+      "parts": 33
+    },
+    {
+      "id": "8198621",
+      "kind": "token",
+      "defense": false,
+      "triangles": 3700,
+      "bytes": 532800,
+      "meshes": 5,
+      "parts": 53
+    },
+    {
+      "id": "8198621",
+      "kind": "token",
+      "defense": true,
+      "triangles": 4268,
+      "bytes": 614592,
+      "meshes": 5,
+      "parts": 55
+    },
+    {
+      "id": "9047461",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1844,
+      "bytes": 265536,
+      "meshes": 4,
+      "parts": 21
+    },
+    {
+      "id": "9047461",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2412,
+      "bytes": 347328,
+      "meshes": 4,
+      "parts": 23
+    },
+    {
+      "id": "9925983",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2392,
+      "bytes": 344448,
+      "meshes": 5,
+      "parts": 60
+    },
+    {
+      "id": "9925983",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2960,
+      "bytes": 426240,
+      "meshes": 5,
+      "parts": 62
+    },
+    {
+      "id": "9929399",
+      "kind": "token",
+      "defense": false,
+      "triangles": 916,
+      "bytes": 131904,
+      "meshes": 3,
+      "parts": 12
+    },
+    {
+      "id": "9929399",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1484,
+      "bytes": 213696,
+      "meshes": 3,
+      "parts": 14
+    },
+    {
+      "id": "10389143",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1160,
+      "bytes": 167040,
+      "meshes": 5,
+      "parts": 23
+    },
+    {
+      "id": "10389143",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1728,
+      "bytes": 248832,
+      "meshes": 5,
+      "parts": 25
+    },
+    {
+      "id": "11050416",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2432,
+      "bytes": 350208,
+      "meshes": 5,
+      "parts": 41
+    },
+    {
+      "id": "11050416",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3000,
+      "bytes": 432000,
+      "meshes": 5,
+      "parts": 43
+    },
+    {
+      "id": "11050417",
+      "kind": "token",
+      "defense": false,
+      "triangles": 4812,
+      "bytes": 692928,
+      "meshes": 5,
+      "parts": 62
+    },
+    {
+      "id": "11050417",
+      "kind": "token",
+      "defense": true,
+      "triangles": 5380,
+      "bytes": 774720,
+      "meshes": 5,
+      "parts": 64
+    },
+    {
+      "id": "11050418",
+      "kind": "token",
+      "defense": false,
+      "triangles": 4656,
+      "bytes": 670464,
+      "meshes": 5,
+      "parts": 57
+    },
+    {
+      "id": "11050418",
+      "kind": "token",
+      "defense": true,
+      "triangles": 5224,
+      "bytes": 752256,
+      "meshes": 5,
+      "parts": 59
+    },
+    {
+      "id": "11050419",
+      "kind": "token",
+      "defense": false,
+      "triangles": 5692,
+      "bytes": 819648,
+      "meshes": 5,
+      "parts": 73
+    },
+    {
+      "id": "11050419",
+      "kind": "token",
+      "defense": true,
+      "triangles": 6260,
+      "bytes": 901440,
+      "meshes": 5,
+      "parts": 75
+    },
+    {
+      "id": "11738490",
+      "kind": "token",
+      "defense": false,
+      "triangles": 960,
+      "bytes": 138240,
+      "meshes": 3,
+      "parts": 14
+    },
+    {
+      "id": "11738490",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1528,
+      "bytes": 220032,
+      "meshes": 3,
+      "parts": 16
+    },
+    {
+      "id": "12958920",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2510,
+      "bytes": 361440,
+      "meshes": 5,
+      "parts": 52
+    },
+    {
+      "id": "12958920",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3078,
+      "bytes": 443232,
+      "meshes": 5,
+      "parts": 54
+    },
+    {
+      "id": "12965762",
+      "kind": "token",
+      "defense": false,
+      "triangles": 3200,
+      "bytes": 460800,
+      "meshes": 3,
+      "parts": 31
+    },
+    {
+      "id": "12965762",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3768,
+      "bytes": 542592,
+      "meshes": 3,
+      "parts": 33
+    },
+    {
+      "id": "13536607",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1612,
+      "bytes": 232128,
+      "meshes": 4,
+      "parts": 23
+    },
+    {
+      "id": "13536607",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2180,
+      "bytes": 313920,
+      "meshes": 4,
+      "parts": 25
+    },
+    {
+      "id": "13935002",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2128,
+      "bytes": 306432,
+      "meshes": 5,
+      "parts": 31
+    },
+    {
+      "id": "13935002",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2696,
+      "bytes": 388224,
+      "meshes": 5,
+      "parts": 33
+    },
+    {
+      "id": "14089429",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1364,
+      "bytes": 196416,
+      "meshes": 5,
+      "parts": 26
+    },
+    {
+      "id": "14089429",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1932,
+      "bytes": 278208,
+      "meshes": 5,
+      "parts": 28
+    },
+    {
+      "id": "14470846",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1996,
+      "bytes": 287424,
+      "meshes": 5,
+      "parts": 30
+    },
+    {
+      "id": "14470846",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2564,
+      "bytes": 369216,
+      "meshes": 5,
+      "parts": 32
+    },
+    {
+      "id": "14470847",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1976,
+      "bytes": 284544,
+      "meshes": 5,
+      "parts": 29
+    },
+    {
+      "id": "14470847",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2544,
+      "bytes": 366336,
+      "meshes": 5,
+      "parts": 31
+    },
+    {
+      "id": "14957441",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2128,
+      "bytes": 306432,
+      "meshes": 5,
+      "parts": 31
+    },
+    {
+      "id": "14957441",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2696,
+      "bytes": 388224,
+      "meshes": 5,
+      "parts": 33
+    },
+    {
+      "id": "15341822",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2280,
+      "bytes": 328320,
+      "meshes": 5,
+      "parts": 73
+    },
+    {
+      "id": "15341822",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2848,
+      "bytes": 410112,
+      "meshes": 5,
+      "parts": 75
+    },
+    {
+      "id": "15341823",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2216,
+      "bytes": 319104,
+      "meshes": 5,
+      "parts": 71
+    },
+    {
+      "id": "15341823",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2784,
+      "bytes": 400896,
+      "meshes": 5,
+      "parts": 73
+    },
+    {
+      "id": "15394084",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2168,
+      "bytes": 312192,
+      "meshes": 5,
+      "parts": 33
+    },
+    {
+      "id": "15394084",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2736,
+      "bytes": 393984,
+      "meshes": 5,
+      "parts": 35
+    },
+    {
+      "id": "15590356",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2196,
+      "bytes": 316224,
+      "meshes": 5,
+      "parts": 28
+    },
+    {
+      "id": "15590356",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2764,
+      "bytes": 398016,
+      "meshes": 5,
+      "parts": 30
+    },
+    {
+      "id": "15629802",
+      "kind": "token",
+      "defense": false,
+      "triangles": 4134,
+      "bytes": 595296,
+      "meshes": 5,
+      "parts": 70
+    },
+    {
+      "id": "15629802",
+      "kind": "token",
+      "defense": true,
+      "triangles": 4702,
+      "bytes": 677088,
+      "meshes": 5,
+      "parts": 72
+    },
+    {
+      "id": "16943771",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1160,
+      "bytes": 167040,
+      "meshes": 5,
+      "parts": 23
+    },
+    {
+      "id": "16943771",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1728,
+      "bytes": 248832,
+      "meshes": 5,
+      "parts": 25
+    },
+    {
+      "id": "16946850",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1048,
+      "bytes": 150912,
+      "meshes": 3,
+      "parts": 14
+    },
+    {
+      "id": "16946850",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1616,
+      "bytes": 232704,
+      "meshes": 3,
+      "parts": 16
+    },
+    {
+      "id": "17228909",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1556,
+      "bytes": 224064,
+      "meshes": 3,
+      "parts": 20
+    },
+    {
+      "id": "17228909",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2124,
+      "bytes": 305856,
+      "meshes": 3,
+      "parts": 22
+    },
+    {
+      "id": "17418745",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1172,
+      "bytes": 168768,
+      "meshes": 3,
+      "parts": 19
+    },
+    {
+      "id": "17418745",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1740,
+      "bytes": 250560,
+      "meshes": 3,
+      "parts": 21
+    },
+    {
+      "id": "18027139",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2432,
+      "bytes": 350208,
+      "meshes": 5,
+      "parts": 41
+    },
+    {
+      "id": "18027139",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3000,
+      "bytes": 432000,
+      "meshes": 5,
+      "parts": 43
+    },
+    {
+      "id": "18027140",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2432,
+      "bytes": 350208,
+      "meshes": 5,
+      "parts": 41
+    },
+    {
+      "id": "18027140",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3000,
+      "bytes": 432000,
+      "meshes": 5,
+      "parts": 43
+    },
+    {
+      "id": "18027141",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2432,
+      "bytes": 350208,
+      "meshes": 5,
+      "parts": 41
+    },
+    {
+      "id": "18027141",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3000,
+      "bytes": 432000,
+      "meshes": 5,
+      "parts": 43
+    },
+    {
+      "id": "18494512",
+      "kind": "token",
+      "defense": false,
+      "triangles": 712,
+      "bytes": 102528,
+      "meshes": 3,
+      "parts": 17
+    },
+    {
+      "id": "18494512",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1280,
+      "bytes": 184320,
+      "meshes": 3,
+      "parts": 19
+    },
+    {
+      "id": "18905770",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2032,
+      "bytes": 292608,
+      "meshes": 5,
+      "parts": 51
+    },
+    {
+      "id": "18905770",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2600,
+      "bytes": 374400,
+      "meshes": 5,
+      "parts": 53
+    },
+    {
+      "id": "19280590",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2766,
+      "bytes": 398304,
+      "meshes": 5,
+      "parts": 59
+    },
+    {
+      "id": "19280590",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3334,
+      "bytes": 480096,
+      "meshes": 5,
+      "parts": 61
+    },
+    {
+      "id": "20001444",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2032,
+      "bytes": 292608,
+      "meshes": 5,
+      "parts": 51
+    },
+    {
+      "id": "20001444",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2600,
+      "bytes": 374400,
+      "meshes": 5,
+      "parts": 53
+    },
+    {
+      "id": "20368764",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1160,
+      "bytes": 167040,
+      "meshes": 5,
+      "parts": 23
+    },
+    {
+      "id": "20368764",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1728,
+      "bytes": 248832,
+      "meshes": 5,
+      "parts": 25
+    },
+    {
+      "id": "21179144",
+      "kind": "token",
+      "defense": false,
+      "triangles": 3710,
+      "bytes": 534240,
+      "meshes": 5,
+      "parts": 44
+    },
+    {
+      "id": "21179144",
+      "kind": "token",
+      "defense": true,
+      "triangles": 4278,
+      "bytes": 616032,
+      "meshes": 5,
+      "parts": 46
+    },
+    {
+      "id": "21770261",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1124,
+      "bytes": 161856,
+      "meshes": 4,
+      "parts": 17
+    },
+    {
+      "id": "21770261",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1692,
+      "bytes": 243648,
+      "meshes": 4,
+      "parts": 19
+    },
+    {
+      "id": "21830680",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1196,
+      "bytes": 172224,
+      "meshes": 4,
+      "parts": 27
+    },
+    {
+      "id": "21830680",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1764,
+      "bytes": 254016,
+      "meshes": 4,
+      "parts": 29
+    },
+    {
+      "id": "22110648",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1160,
+      "bytes": 167040,
+      "meshes": 5,
+      "parts": 23
+    },
+    {
+      "id": "22110648",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1728,
+      "bytes": 248832,
+      "meshes": 5,
+      "parts": 25
+    },
+    {
+      "id": "22404676",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2478,
+      "bytes": 356832,
+      "meshes": 5,
+      "parts": 54
+    },
+    {
+      "id": "22404676",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3046,
+      "bytes": 438624,
+      "meshes": 5,
+      "parts": 56
+    },
+    {
+      "id": "22411610",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2196,
+      "bytes": 316224,
+      "meshes": 5,
+      "parts": 28
+    },
+    {
+      "id": "22411610",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2764,
+      "bytes": 398016,
+      "meshes": 5,
+      "parts": 30
+    },
+    {
+      "id": "22493812",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2296,
+      "bytes": 330624,
+      "meshes": 5,
+      "parts": 39
+    },
+    {
+      "id": "22493812",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2864,
+      "bytes": 412416,
+      "meshes": 5,
+      "parts": 41
+    },
+    {
+      "id": "22712878",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1784,
+      "bytes": 256896,
+      "meshes": 5,
+      "parts": 20
+    },
+    {
+      "id": "22712878",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2352,
+      "bytes": 338688,
+      "meshes": 5,
+      "parts": 22
+    },
+    {
+      "id": "22953212",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1632,
+      "bytes": 235008,
+      "meshes": 5,
+      "parts": 31
+    },
+    {
+      "id": "22953212",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2200,
+      "bytes": 316800,
+      "meshes": 5,
+      "parts": 33
+    },
+    {
+      "id": "23116809",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2196,
+      "bytes": 316224,
+      "meshes": 5,
+      "parts": 28
+    },
+    {
+      "id": "23116809",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2764,
+      "bytes": 398016,
+      "meshes": 5,
+      "parts": 30
+    },
+    {
+      "id": "23331401",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1040,
+      "bytes": 149760,
+      "meshes": 4,
+      "parts": 33
+    },
+    {
+      "id": "23331401",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1608,
+      "bytes": 231552,
+      "meshes": 4,
+      "parts": 35
+    },
+    {
+      "id": "23837055",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1552,
+      "bytes": 223488,
+      "meshes": 5,
+      "parts": 33
+    },
+    {
+      "id": "23837055",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2120,
+      "bytes": 305280,
+      "meshes": 5,
+      "parts": 35
+    },
+    {
+      "id": "24874631",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2324,
+      "bytes": 334656,
+      "meshes": 5,
+      "parts": 25
+    },
+    {
+      "id": "24874631",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2892,
+      "bytes": 416448,
+      "meshes": 5,
+      "parts": 27
+    },
+    {
+      "id": "25415053",
+      "kind": "token",
+      "defense": false,
+      "triangles": 3660,
+      "bytes": 527040,
+      "meshes": 3,
+      "parts": 54
+    },
+    {
+      "id": "25415053",
+      "kind": "token",
+      "defense": true,
+      "triangles": 4228,
+      "bytes": 608832,
+      "meshes": 3,
+      "parts": 56
+    },
+    {
+      "id": "25419324",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1552,
+      "bytes": 223488,
+      "meshes": 5,
+      "parts": 33
+    },
+    {
+      "id": "25419324",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2120,
+      "bytes": 305280,
+      "meshes": 5,
+      "parts": 35
+    },
+    {
+      "id": "26326542",
+      "kind": "token",
+      "defense": false,
+      "triangles": 3094,
+      "bytes": 445536,
+      "meshes": 5,
+      "parts": 54
+    },
+    {
+      "id": "26326542",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3662,
+      "bytes": 527328,
+      "meshes": 5,
+      "parts": 56
+    },
+    {
+      "id": "26364382",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2766,
+      "bytes": 398304,
+      "meshes": 5,
+      "parts": 59
+    },
+    {
+      "id": "26364382",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3334,
+      "bytes": 480096,
+      "meshes": 5,
+      "parts": 61
+    },
+    {
+      "id": "27198002",
+      "kind": "token",
+      "defense": false,
+      "triangles": 5584,
+      "bytes": 804096,
+      "meshes": 5,
+      "parts": 59
+    },
+    {
+      "id": "27198002",
+      "kind": "token",
+      "defense": true,
+      "triangles": 6152,
+      "bytes": 885888,
+      "meshes": 5,
+      "parts": 61
+    },
+    {
+      "id": "27204312",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1244,
+      "bytes": 179136,
+      "meshes": 4,
+      "parts": 34
+    },
+    {
+      "id": "27204312",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1812,
+      "bytes": 260928,
+      "meshes": 4,
+      "parts": 36
+    },
+    {
+      "id": "27450401",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1116,
+      "bytes": 160704,
+      "meshes": 4,
+      "parts": 19
+    },
+    {
+      "id": "27450401",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1684,
+      "bytes": 242496,
+      "meshes": 4,
+      "parts": 21
+    },
+    {
+      "id": "27882994",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1196,
+      "bytes": 172224,
+      "meshes": 5,
+      "parts": 19
+    },
+    {
+      "id": "27882994",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1764,
+      "bytes": 254016,
+      "meshes": 5,
+      "parts": 21
+    },
+    {
+      "id": "28053764",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2956,
+      "bytes": 425664,
+      "meshes": 5,
+      "parts": 39
+    },
+    {
+      "id": "28053764",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3524,
+      "bytes": 507456,
+      "meshes": 5,
+      "parts": 41
+    },
+    {
+      "id": "28062326",
+      "kind": "token",
+      "defense": false,
+      "triangles": 3422,
+      "bytes": 492768,
+      "meshes": 5,
+      "parts": 48
+    },
+    {
+      "id": "28062326",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3990,
+      "bytes": 574560,
+      "meshes": 5,
+      "parts": 50
+    },
+    {
+      "id": "28355719",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2394,
+      "bytes": 344736,
+      "meshes": 5,
+      "parts": 48
+    },
+    {
+      "id": "28355719",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2962,
+      "bytes": 426528,
+      "meshes": 5,
+      "parts": 50
+    },
+    {
+      "id": "28674153",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2898,
+      "bytes": 417312,
+      "meshes": 5,
+      "parts": 59
+    },
+    {
+      "id": "28674153",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3466,
+      "bytes": 499104,
+      "meshes": 5,
+      "parts": 61
+    },
+    {
+      "id": "29491335",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1160,
+      "bytes": 167040,
+      "meshes": 5,
+      "parts": 23
+    },
+    {
+      "id": "29491335",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1728,
+      "bytes": 248832,
+      "meshes": 5,
+      "parts": 25
+    },
+    {
+      "id": "29843092",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2500,
+      "bytes": 360000,
+      "meshes": 5,
+      "parts": 39
+    },
+    {
+      "id": "29843092",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3068,
+      "bytes": 441792,
+      "meshes": 5,
+      "parts": 41
+    },
+    {
+      "id": "29843093",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2712,
+      "bytes": 390528,
+      "meshes": 5,
+      "parts": 40
+    },
+    {
+      "id": "29843093",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3280,
+      "bytes": 472320,
+      "meshes": 5,
+      "parts": 42
+    },
+    {
+      "id": "29843094",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2320,
+      "bytes": 334080,
+      "meshes": 5,
+      "parts": 38
+    },
+    {
+      "id": "29843094",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2888,
+      "bytes": 415872,
+      "meshes": 5,
+      "parts": 40
+    },
+    {
+      "id": "30069399",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2000,
+      "bytes": 288000,
+      "meshes": 4,
+      "parts": 39
+    },
+    {
+      "id": "30069399",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2568,
+      "bytes": 369792,
+      "meshes": 4,
+      "parts": 41
+    },
+    {
+      "id": "30327675",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2338,
+      "bytes": 336672,
+      "meshes": 5,
+      "parts": 47
+    },
+    {
+      "id": "30327675",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2906,
+      "bytes": 418464,
+      "meshes": 5,
+      "parts": 49
+    },
+    {
+      "id": "30327676",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2766,
+      "bytes": 398304,
+      "meshes": 5,
+      "parts": 59
+    },
+    {
+      "id": "30327676",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3334,
+      "bytes": 480096,
+      "meshes": 5,
+      "parts": 61
+    },
+    {
+      "id": "30650148",
+      "kind": "token",
+      "defense": false,
+      "triangles": 3094,
+      "bytes": 445536,
+      "meshes": 5,
+      "parts": 54
+    },
+    {
+      "id": "30650148",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3662,
+      "bytes": 527328,
+      "meshes": 5,
+      "parts": 56
+    },
+    {
+      "id": "30765616",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2032,
+      "bytes": 292608,
+      "meshes": 5,
+      "parts": 51
+    },
+    {
+      "id": "30765616",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2600,
+      "bytes": 374400,
+      "meshes": 5,
+      "parts": 53
+    },
+    {
+      "id": "30811117",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1160,
+      "bytes": 167040,
+      "meshes": 5,
+      "parts": 23
+    },
+    {
+      "id": "30811117",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1728,
+      "bytes": 248832,
+      "meshes": 5,
+      "parts": 25
+    },
+    {
+      "id": "31480216",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1160,
+      "bytes": 167040,
+      "meshes": 5,
+      "parts": 23
+    },
+    {
+      "id": "31480216",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1728,
+      "bytes": 248832,
+      "meshes": 5,
+      "parts": 25
+    },
+    {
+      "id": "31533705",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1160,
+      "bytes": 167040,
+      "meshes": 5,
+      "parts": 23
+    },
+    {
+      "id": "31533705",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1728,
+      "bytes": 248832,
+      "meshes": 5,
+      "parts": 25
+    },
+    {
+      "id": "31600514",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1880,
+      "bytes": 270720,
+      "meshes": 5,
+      "parts": 39
+    },
+    {
+      "id": "31600514",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2448,
+      "bytes": 352512,
+      "meshes": 5,
+      "parts": 41
+    },
+    {
+      "id": "31986289",
+      "kind": "token",
+      "defense": false,
+      "triangles": 5890,
+      "bytes": 848160,
+      "meshes": 4,
+      "parts": 88
+    },
+    {
+      "id": "31986289",
+      "kind": "token",
+      "defense": true,
+      "triangles": 6458,
+      "bytes": 929952,
+      "meshes": 4,
+      "parts": 90
+    },
+    {
+      "id": "32335698",
+      "kind": "token",
+      "defense": false,
+      "triangles": 3094,
+      "bytes": 445536,
+      "meshes": 5,
+      "parts": 54
+    },
+    {
+      "id": "32335698",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3662,
+      "bytes": 527328,
+      "meshes": 5,
+      "parts": 56
+    },
+    {
+      "id": "32446631",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2338,
+      "bytes": 336672,
+      "meshes": 5,
+      "parts": 47
+    },
+    {
+      "id": "32446631",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2906,
+      "bytes": 418464,
+      "meshes": 5,
+      "parts": 49
+    },
+    {
+      "id": "33676147",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2400,
+      "bytes": 345600,
+      "meshes": 4,
+      "parts": 55
+    },
+    {
+      "id": "33676147",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2968,
+      "bytes": 427392,
+      "meshes": 4,
+      "parts": 57
+    },
+    {
+      "id": "34479659",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1552,
+      "bytes": 223488,
+      "meshes": 5,
+      "parts": 33
+    },
+    {
+      "id": "34479659",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2120,
+      "bytes": 305280,
+      "meshes": 5,
+      "parts": 35
+    },
+    {
+      "id": "34767866",
+      "kind": "token",
+      "defense": false,
+      "triangles": 904,
+      "bytes": 130176,
+      "meshes": 4,
+      "parts": 23
+    },
+    {
+      "id": "34767866",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1472,
+      "bytes": 211968,
+      "meshes": 4,
+      "parts": 25
+    },
+    {
+      "id": "34822851",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2588,
+      "bytes": 372672,
+      "meshes": 4,
+      "parts": 21
+    },
+    {
+      "id": "34822851",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3156,
+      "bytes": 454464,
+      "meshes": 4,
+      "parts": 23
+    },
+    {
+      "id": "35167376",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1784,
+      "bytes": 256896,
+      "meshes": 5,
+      "parts": 20
+    },
+    {
+      "id": "35167376",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2352,
+      "bytes": 338688,
+      "meshes": 5,
+      "parts": 22
+    },
+    {
+      "id": "35263181",
+      "kind": "token",
+      "defense": false,
+      "triangles": 3166,
+      "bytes": 455904,
+      "meshes": 3,
+      "parts": 56
+    },
+    {
+      "id": "35263181",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3734,
+      "bytes": 537696,
+      "meshes": 3,
+      "parts": 58
+    },
+    {
+      "id": "35268888",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1784,
+      "bytes": 256896,
+      "meshes": 5,
+      "parts": 20
+    },
+    {
+      "id": "35268888",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2352,
+      "bytes": 338688,
+      "meshes": 5,
+      "parts": 22
+    },
+    {
+      "id": "35514097",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1232,
+      "bytes": 177408,
+      "meshes": 5,
+      "parts": 20
+    },
+    {
+      "id": "35514097",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1800,
+      "bytes": 259200,
+      "meshes": 5,
+      "parts": 22
+    },
+    {
+      "id": "35552986",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2338,
+      "bytes": 336672,
+      "meshes": 5,
+      "parts": 47
+    },
+    {
+      "id": "35552986",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2906,
+      "bytes": 418464,
+      "meshes": 5,
+      "parts": 49
+    },
+    {
+      "id": "35834120",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1196,
+      "bytes": 172224,
+      "meshes": 5,
+      "parts": 19
+    },
+    {
+      "id": "35834120",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1764,
+      "bytes": 254016,
+      "meshes": 5,
+      "parts": 21
+    },
+    {
+      "id": "36629636",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2216,
+      "bytes": 319104,
+      "meshes": 5,
+      "parts": 71
+    },
+    {
+      "id": "36629636",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2784,
+      "bytes": 400896,
+      "meshes": 5,
+      "parts": 73
+    },
+    {
+      "id": "37654624",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1632,
+      "bytes": 235008,
+      "meshes": 5,
+      "parts": 31
+    },
+    {
+      "id": "37654624",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2200,
+      "bytes": 316800,
+      "meshes": 5,
+      "parts": 33
+    },
+    {
+      "id": "38030233",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2032,
+      "bytes": 292608,
+      "meshes": 5,
+      "parts": 51
+    },
+    {
+      "id": "38030233",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2600,
+      "bytes": 374400,
+      "meshes": 5,
+      "parts": 53
+    },
+    {
+      "id": "38041941",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2962,
+      "bytes": 426528,
+      "meshes": 3,
+      "parts": 50
+    },
+    {
+      "id": "38041941",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3530,
+      "bytes": 508320,
+      "meshes": 3,
+      "parts": 52
+    },
+    {
+      "id": "38053382",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2766,
+      "bytes": 398304,
+      "meshes": 5,
+      "parts": 59
+    },
+    {
+      "id": "38053382",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3334,
+      "bytes": 480096,
+      "meshes": 5,
+      "parts": 61
+    },
+    {
+      "id": "39972130",
+      "kind": "token",
+      "defense": false,
+      "triangles": 3820,
+      "bytes": 550080,
+      "meshes": 5,
+      "parts": 49
+    },
+    {
+      "id": "39972130",
+      "kind": "token",
+      "defense": true,
+      "triangles": 4388,
+      "bytes": 631872,
+      "meshes": 5,
+      "parts": 51
+    },
+    {
+      "id": "40551411",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2338,
+      "bytes": 336672,
+      "meshes": 5,
+      "parts": 47
+    },
+    {
+      "id": "40551411",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2906,
+      "bytes": 418464,
+      "meshes": 5,
+      "parts": 49
+    },
+    {
+      "id": "40703223",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2236,
+      "bytes": 321984,
+      "meshes": 5,
+      "parts": 57
+    },
+    {
+      "id": "40703223",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2804,
+      "bytes": 403776,
+      "meshes": 5,
+      "parts": 59
+    },
+    {
+      "id": "40844553",
+      "kind": "token",
+      "defense": false,
+      "triangles": 3374,
+      "bytes": 485856,
+      "meshes": 5,
+      "parts": 63
+    },
+    {
+      "id": "40844553",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3942,
+      "bytes": 567648,
+      "meshes": 5,
+      "parts": 65
+    },
+    {
+      "id": "41329459",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1160,
+      "bytes": 167040,
+      "meshes": 5,
+      "parts": 23
+    },
+    {
+      "id": "41329459",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1728,
+      "bytes": 248832,
+      "meshes": 5,
+      "parts": 25
+    },
+    {
+      "id": "41458362",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1236,
+      "bytes": 177984,
+      "meshes": 4,
+      "parts": 30
+    },
+    {
+      "id": "41458362",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1804,
+      "bytes": 259776,
+      "meshes": 4,
+      "parts": 32
+    },
+    {
+      "id": "42427231",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1632,
+      "bytes": 235008,
+      "meshes": 5,
+      "parts": 31
+    },
+    {
+      "id": "42427231",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2200,
+      "bytes": 316800,
+      "meshes": 5,
+      "parts": 33
+    },
+    {
+      "id": "42671152",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2084,
+      "bytes": 300096,
+      "meshes": 5,
+      "parts": 20
+    },
+    {
+      "id": "42671152",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2652,
+      "bytes": 381888,
+      "meshes": 5,
+      "parts": 22
+    },
+    {
+      "id": "42956964",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1784,
+      "bytes": 256896,
+      "meshes": 5,
+      "parts": 20
+    },
+    {
+      "id": "42956964",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2352,
+      "bytes": 338688,
+      "meshes": 5,
+      "parts": 22
+    },
+    {
+      "id": "43140792",
+      "kind": "token",
+      "defense": false,
+      "triangles": 4048,
+      "bytes": 582912,
+      "meshes": 4,
+      "parts": 50
+    },
+    {
+      "id": "43140792",
+      "kind": "token",
+      "defense": true,
+      "triangles": 4616,
+      "bytes": 664704,
+      "meshes": 4,
+      "parts": 52
+    },
+    {
+      "id": "43664495",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2196,
+      "bytes": 316224,
+      "meshes": 5,
+      "parts": 28
+    },
+    {
+      "id": "43664495",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2764,
+      "bytes": 398016,
+      "meshes": 5,
+      "parts": 30
+    },
+    {
+      "id": "44026394",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1160,
+      "bytes": 167040,
+      "meshes": 5,
+      "parts": 23
+    },
+    {
+      "id": "44026394",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1728,
+      "bytes": 248832,
+      "meshes": 5,
+      "parts": 25
+    },
+    {
+      "id": "44052075",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1328,
+      "bytes": 191232,
+      "meshes": 4,
+      "parts": 32
+    },
+    {
+      "id": "44052075",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1896,
+      "bytes": 273024,
+      "meshes": 4,
+      "parts": 34
+    },
+    {
+      "id": "44092305",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1168,
+      "bytes": 168192,
+      "meshes": 4,
+      "parts": 16
+    },
+    {
+      "id": "44092305",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1736,
+      "bytes": 249984,
+      "meshes": 4,
+      "parts": 18
+    },
+    {
+      "id": "44097051",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1160,
+      "bytes": 167040,
+      "meshes": 5,
+      "parts": 23
+    },
+    {
+      "id": "44097051",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1728,
+      "bytes": 248832,
+      "meshes": 5,
+      "parts": 25
+    },
+    {
+      "id": "44308318",
+      "kind": "token",
+      "defense": false,
+      "triangles": 712,
+      "bytes": 102528,
+      "meshes": 3,
+      "parts": 17
+    },
+    {
+      "id": "44308318",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1280,
+      "bytes": 184320,
+      "meshes": 3,
+      "parts": 19
+    },
+    {
+      "id": "44330099",
+      "kind": "token",
+      "defense": false,
+      "triangles": 3334,
+      "bytes": 480096,
+      "meshes": 5,
+      "parts": 52
+    },
+    {
+      "id": "44330099",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3902,
+      "bytes": 561888,
+      "meshes": 5,
+      "parts": 54
+    },
+    {
+      "id": "44586427",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1508,
+      "bytes": 217152,
+      "meshes": 5,
+      "parts": 36
+    },
+    {
+      "id": "44586427",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2076,
+      "bytes": 298944,
+      "meshes": 5,
+      "parts": 38
+    },
+    {
+      "id": "44689689",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2080,
+      "bytes": 299520,
+      "meshes": 5,
+      "parts": 45
+    },
+    {
+      "id": "44689689",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2648,
+      "bytes": 381312,
+      "meshes": 5,
+      "parts": 47
+    },
+    {
+      "id": "46173680",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1804,
+      "bytes": 259776,
+      "meshes": 5,
+      "parts": 19
+    },
+    {
+      "id": "46173680",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2372,
+      "bytes": 341568,
+      "meshes": 5,
+      "parts": 21
+    },
+    {
+      "id": "46173681",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1804,
+      "bytes": 259776,
+      "meshes": 5,
+      "parts": 19
+    },
+    {
+      "id": "46173681",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2372,
+      "bytes": 341568,
+      "meshes": 5,
+      "parts": 21
+    },
+    {
+      "id": "46647145",
+      "kind": "token",
+      "defense": false,
+      "triangles": 3498,
+      "bytes": 503712,
+      "meshes": 5,
+      "parts": 45
+    },
+    {
+      "id": "46647145",
+      "kind": "token",
+      "defense": true,
+      "triangles": 4066,
+      "bytes": 585504,
+      "meshes": 5,
+      "parts": 47
+    },
+    {
+      "id": "47658965",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2196,
+      "bytes": 316224,
+      "meshes": 5,
+      "parts": 28
+    },
+    {
+      "id": "47658965",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2764,
+      "bytes": 398016,
+      "meshes": 5,
+      "parts": 30
+    },
+    {
+      "id": "48068379",
+      "kind": "token",
+      "defense": false,
+      "triangles": 904,
+      "bytes": 130176,
+      "meshes": 4,
+      "parts": 23
+    },
+    {
+      "id": "48068379",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1472,
+      "bytes": 211968,
+      "meshes": 4,
+      "parts": 25
+    },
+    {
+      "id": "48115278",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1664,
+      "bytes": 239616,
+      "meshes": 4,
+      "parts": 34
+    },
+    {
+      "id": "48115278",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2232,
+      "bytes": 321408,
+      "meshes": 4,
+      "parts": 36
+    },
+    {
+      "id": "48228391",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2338,
+      "bytes": 336672,
+      "meshes": 5,
+      "parts": 47
+    },
+    {
+      "id": "48228391",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2906,
+      "bytes": 418464,
+      "meshes": 5,
+      "parts": 49
+    },
+    {
+      "id": "48411997",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1956,
+      "bytes": 281664,
+      "meshes": 3,
+      "parts": 25
+    },
+    {
+      "id": "48411997",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2524,
+      "bytes": 363456,
+      "meshes": 3,
+      "parts": 27
+    },
+    {
+      "id": "49808197",
+      "kind": "token",
+      "defense": false,
+      "triangles": 4414,
+      "bytes": 635616,
+      "meshes": 5,
+      "parts": 67
+    },
+    {
+      "id": "49808197",
+      "kind": "token",
+      "defense": true,
+      "triangles": 4982,
+      "bytes": 717408,
+      "meshes": 5,
+      "parts": 69
+    },
+    {
+      "id": "51208047",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2766,
+      "bytes": 398304,
+      "meshes": 5,
+      "parts": 59
+    },
+    {
+      "id": "51208047",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3334,
+      "bytes": 480096,
+      "meshes": 5,
+      "parts": 61
+    },
+    {
+      "id": "51611042",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1168,
+      "bytes": 168192,
+      "meshes": 4,
+      "parts": 16
+    },
+    {
+      "id": "51611042",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1736,
+      "bytes": 249984,
+      "meshes": 4,
+      "parts": 18
+    },
+    {
+      "id": "51987572",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1236,
+      "bytes": 177984,
+      "meshes": 4,
+      "parts": 30
+    },
+    {
+      "id": "51987572",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1804,
+      "bytes": 259776,
+      "meshes": 4,
+      "parts": 32
+    },
+    {
+      "id": "52340445",
+      "kind": "token",
+      "defense": false,
+      "triangles": 3310,
+      "bytes": 476640,
+      "meshes": 5,
+      "parts": 52
+    },
+    {
+      "id": "52340445",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3878,
+      "bytes": 558432,
+      "meshes": 5,
+      "parts": 54
+    },
+    {
+      "id": "52768391",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2338,
+      "bytes": 336672,
+      "meshes": 5,
+      "parts": 47
+    },
+    {
+      "id": "52768391",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2906,
+      "bytes": 418464,
+      "meshes": 5,
+      "parts": 49
+    },
+    {
+      "id": "52782440",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1632,
+      "bytes": 235008,
+      "meshes": 5,
+      "parts": 31
+    },
+    {
+      "id": "52782440",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2200,
+      "bytes": 316800,
+      "meshes": 5,
+      "parts": 33
+    },
+    {
+      "id": "52900001",
+      "kind": "token",
+      "defense": false,
+      "triangles": 3660,
+      "bytes": 527040,
+      "meshes": 3,
+      "parts": 54
+    },
+    {
+      "id": "52900001",
+      "kind": "token",
+      "defense": true,
+      "triangles": 4228,
+      "bytes": 608832,
+      "meshes": 3,
+      "parts": 56
+    },
+    {
+      "id": "53545927",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2128,
+      "bytes": 306432,
+      "meshes": 5,
+      "parts": 31
+    },
+    {
+      "id": "53545927",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2696,
+      "bytes": 388224,
+      "meshes": 5,
+      "parts": 33
+    },
+    {
+      "id": "53770667",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2338,
+      "bytes": 336672,
+      "meshes": 5,
+      "parts": 47
+    },
+    {
+      "id": "53770667",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2906,
+      "bytes": 418464,
+      "meshes": 5,
+      "parts": 49
+    },
+    {
+      "id": "53855410",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2402,
+      "bytes": 345888,
+      "meshes": 5,
+      "parts": 47
+    },
+    {
+      "id": "53855410",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2970,
+      "bytes": 427680,
+      "meshes": 5,
+      "parts": 49
+    },
+    {
+      "id": "53855411",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2402,
+      "bytes": 345888,
+      "meshes": 5,
+      "parts": 47
+    },
+    {
+      "id": "53855411",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2970,
+      "bytes": 427680,
+      "meshes": 5,
+      "parts": 49
+    },
+    {
+      "id": "54537490",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1928,
+      "bytes": 277632,
+      "meshes": 5,
+      "parts": 33
+    },
+    {
+      "id": "54537490",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2496,
+      "bytes": 359424,
+      "meshes": 5,
+      "parts": 35
+    },
+    {
+      "id": "54577950",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2036,
+      "bytes": 293184,
+      "meshes": 4,
+      "parts": 44
+    },
+    {
+      "id": "54577950",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2604,
+      "bytes": 374976,
+      "meshes": 4,
+      "parts": 46
+    },
+    {
+      "id": "55326323",
+      "kind": "token",
+      "defense": false,
+      "triangles": 936,
+      "bytes": 134784,
+      "meshes": 3,
+      "parts": 19
+    },
+    {
+      "id": "55326323",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1504,
+      "bytes": 216576,
+      "meshes": 3,
+      "parts": 21
+    },
+    {
+      "id": "56051649",
+      "kind": "token",
+      "defense": false,
+      "triangles": 4076,
+      "bytes": 586944,
+      "meshes": 5,
+      "parts": 62
+    },
+    {
+      "id": "56051649",
+      "kind": "token",
+      "defense": true,
+      "triangles": 4644,
+      "bytes": 668736,
+      "meshes": 5,
+      "parts": 64
+    },
+    {
+      "id": "56597273",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1780,
+      "bytes": 256320,
+      "meshes": 4,
+      "parts": 17
+    },
+    {
+      "id": "56597273",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2348,
+      "bytes": 338112,
+      "meshes": 4,
+      "parts": 19
+    },
+    {
+      "id": "58371672",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2128,
+      "bytes": 306432,
+      "meshes": 5,
+      "parts": 31
+    },
+    {
+      "id": "58371672",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2696,
+      "bytes": 388224,
+      "meshes": 5,
+      "parts": 33
+    },
+    {
+      "id": "58809686",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2400,
+      "bytes": 345600,
+      "meshes": 3,
+      "parts": 54
+    },
+    {
+      "id": "58809686",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2968,
+      "bytes": 427392,
+      "meshes": 3,
+      "parts": 56
+    },
+    {
+      "id": "59160189",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1784,
+      "bytes": 256896,
+      "meshes": 5,
+      "parts": 20
+    },
+    {
+      "id": "59160189",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2352,
+      "bytes": 338688,
+      "meshes": 5,
+      "parts": 22
+    },
+    {
+      "id": "59900656",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2196,
+      "bytes": 316224,
+      "meshes": 5,
+      "parts": 28
+    },
+    {
+      "id": "59900656",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2764,
+      "bytes": 398016,
+      "meshes": 5,
+      "parts": 30
+    },
+    {
+      "id": "60025884",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2032,
+      "bytes": 292608,
+      "meshes": 5,
+      "parts": 51
+    },
+    {
+      "id": "60025884",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2600,
+      "bytes": 374400,
+      "meshes": 5,
+      "parts": 53
+    },
+    {
+      "id": "60203671",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1632,
+      "bytes": 235008,
+      "meshes": 5,
+      "parts": 31
+    },
+    {
+      "id": "60203671",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2200,
+      "bytes": 316800,
+      "meshes": 5,
+      "parts": 33
+    },
+    {
+      "id": "60406592",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2920,
+      "bytes": 420480,
+      "meshes": 3,
+      "parts": 73
+    },
+    {
+      "id": "60406592",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3488,
+      "bytes": 502272,
+      "meshes": 3,
+      "parts": 75
+    },
+    {
+      "id": "60514626",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1784,
+      "bytes": 256896,
+      "meshes": 5,
+      "parts": 20
+    },
+    {
+      "id": "60514626",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2352,
+      "bytes": 338688,
+      "meshes": 5,
+      "parts": 22
+    },
+    {
+      "id": "60764582",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2400,
+      "bytes": 345600,
+      "meshes": 4,
+      "parts": 55
+    },
+    {
+      "id": "60764582",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2968,
+      "bytes": 427392,
+      "meshes": 4,
+      "parts": 57
+    },
+    {
+      "id": "60764583",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2400,
+      "bytes": 345600,
+      "meshes": 4,
+      "parts": 55
+    },
+    {
+      "id": "60764583",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2968,
+      "bytes": 427392,
+      "meshes": 4,
+      "parts": 57
+    },
+    {
+      "id": "62125439",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1828,
+      "bytes": 263232,
+      "meshes": 3,
+      "parts": 34
+    },
+    {
+      "id": "62125439",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2396,
+      "bytes": 345024,
+      "meshes": 3,
+      "parts": 36
+    },
+    {
+      "id": "62543394",
+      "kind": "token",
+      "defense": false,
+      "triangles": 3612,
+      "bytes": 520128,
+      "meshes": 5,
+      "parts": 63
+    },
+    {
+      "id": "62543394",
+      "kind": "token",
+      "defense": true,
+      "triangles": 4180,
+      "bytes": 601920,
+      "meshes": 5,
+      "parts": 65
+    },
+    {
+      "id": "63184228",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2032,
+      "bytes": 292608,
+      "meshes": 5,
+      "parts": 51
+    },
+    {
+      "id": "63184228",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2600,
+      "bytes": 374400,
+      "meshes": 5,
+      "parts": 53
+    },
+    {
+      "id": "63442605",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2338,
+      "bytes": 336672,
+      "meshes": 5,
+      "parts": 47
+    },
+    {
+      "id": "63442605",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2906,
+      "bytes": 418464,
+      "meshes": 5,
+      "parts": 49
+    },
+    {
+      "id": "64213018",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2764,
+      "bytes": 398016,
+      "meshes": 5,
+      "parts": 43
+    },
+    {
+      "id": "64213018",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3332,
+      "bytes": 479808,
+      "meshes": 5,
+      "parts": 45
+    },
+    {
+      "id": "64382840",
+      "kind": "token",
+      "defense": false,
+      "triangles": 3334,
+      "bytes": 480096,
+      "meshes": 5,
+      "parts": 75
+    },
+    {
+      "id": "64382840",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3902,
+      "bytes": 561888,
+      "meshes": 5,
+      "parts": 77
+    },
+    {
+      "id": "64382841",
+      "kind": "token",
+      "defense": false,
+      "triangles": 3334,
+      "bytes": 480096,
+      "meshes": 5,
+      "parts": 75
+    },
+    {
+      "id": "64382841",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3902,
+      "bytes": 561888,
+      "meshes": 5,
+      "parts": 77
+    },
+    {
+      "id": "64583601",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2032,
+      "bytes": 292608,
+      "meshes": 5,
+      "parts": 51
+    },
+    {
+      "id": "64583601",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2600,
+      "bytes": 374400,
+      "meshes": 5,
+      "parts": 53
+    },
+    {
+      "id": "65500516",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2804,
+      "bytes": 403776,
+      "meshes": 5,
+      "parts": 27
+    },
+    {
+      "id": "65500516",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3372,
+      "bytes": 485568,
+      "meshes": 5,
+      "parts": 29
+    },
+    {
+      "id": "65810490",
+      "kind": "token",
+      "defense": false,
+      "triangles": 3248,
+      "bytes": 467712,
+      "meshes": 5,
+      "parts": 58
+    },
+    {
+      "id": "65810490",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3816,
+      "bytes": 549504,
+      "meshes": 5,
+      "parts": 60
+    },
+    {
+      "id": "66200211",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1160,
+      "bytes": 167040,
+      "meshes": 5,
+      "parts": 23
+    },
+    {
+      "id": "66200211",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1728,
+      "bytes": 248832,
+      "meshes": 5,
+      "parts": 25
+    },
+    {
+      "id": "66661679",
+      "kind": "token",
+      "defense": false,
+      "triangles": 856,
+      "bytes": 123264,
+      "meshes": 3,
+      "parts": 17
+    },
+    {
+      "id": "66661679",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1424,
+      "bytes": 205056,
+      "meshes": 3,
+      "parts": 19
+    },
+    {
+      "id": "67284108",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2364,
+      "bytes": 340416,
+      "meshes": 5,
+      "parts": 55
+    },
+    {
+      "id": "67284108",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2932,
+      "bytes": 422208,
+      "meshes": 5,
+      "parts": 57
+    },
+    {
+      "id": "67284109",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2364,
+      "bytes": 340416,
+      "meshes": 5,
+      "parts": 55
+    },
+    {
+      "id": "67284109",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2932,
+      "bytes": 422208,
+      "meshes": 5,
+      "parts": 57
+    },
+    {
+      "id": "67284110",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2364,
+      "bytes": 340416,
+      "meshes": 5,
+      "parts": 55
+    },
+    {
+      "id": "67284110",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2932,
+      "bytes": 422208,
+      "meshes": 5,
+      "parts": 57
+    },
+    {
+      "id": "67284111",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2364,
+      "bytes": 340416,
+      "meshes": 5,
+      "parts": 55
+    },
+    {
+      "id": "67284111",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2932,
+      "bytes": 422208,
+      "meshes": 5,
+      "parts": 57
+    },
+    {
+      "id": "67489920",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1160,
+      "bytes": 167040,
+      "meshes": 5,
+      "parts": 23
+    },
+    {
+      "id": "67489920",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1728,
+      "bytes": 248832,
+      "meshes": 5,
+      "parts": 25
+    },
+    {
+      "id": "67922703",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1160,
+      "bytes": 167040,
+      "meshes": 5,
+      "parts": 23
+    },
+    {
+      "id": "67922703",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1728,
+      "bytes": 248832,
+      "meshes": 5,
+      "parts": 25
+    },
+    {
+      "id": "67949764",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1008,
+      "bytes": 145152,
+      "meshes": 4,
+      "parts": 19
+    },
+    {
+      "id": "67949764",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1576,
+      "bytes": 226944,
+      "meshes": 4,
+      "parts": 21
+    },
+    {
+      "id": "68815402",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2292,
+      "bytes": 330048,
+      "meshes": 3,
+      "parts": 18
+    },
+    {
+      "id": "68815402",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2860,
+      "bytes": 411840,
+      "meshes": 3,
+      "parts": 20
+    },
+    {
+      "id": "69550260",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1632,
+      "bytes": 235008,
+      "meshes": 5,
+      "parts": 31
+    },
+    {
+      "id": "69550260",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2200,
+      "bytes": 316800,
+      "meshes": 5,
+      "parts": 33
+    },
+    {
+      "id": "69811711",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1632,
+      "bytes": 235008,
+      "meshes": 5,
+      "parts": 31
+    },
+    {
+      "id": "69811711",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2200,
+      "bytes": 316800,
+      "meshes": 5,
+      "parts": 33
+    },
+    {
+      "id": "69868556",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2512,
+      "bytes": 361728,
+      "meshes": 5,
+      "parts": 46
+    },
+    {
+      "id": "69868556",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3080,
+      "bytes": 443520,
+      "meshes": 5,
+      "parts": 48
+    },
+    {
+      "id": "69890968",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2478,
+      "bytes": 356832,
+      "meshes": 5,
+      "parts": 54
+    },
+    {
+      "id": "69890968",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3046,
+      "bytes": 438624,
+      "meshes": 5,
+      "parts": 56
+    },
+    {
+      "id": "70391589",
+      "kind": "token",
+      "defense": false,
+      "triangles": 4674,
+      "bytes": 673056,
+      "meshes": 4,
+      "parts": 36
+    },
+    {
+      "id": "70391589",
+      "kind": "token",
+      "defense": true,
+      "triangles": 5242,
+      "bytes": 754848,
+      "meshes": 4,
+      "parts": 38
+    },
+    {
+      "id": "70465811",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1720,
+      "bytes": 247680,
+      "meshes": 5,
+      "parts": 45
+    },
+    {
+      "id": "70465811",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2288,
+      "bytes": 329472,
+      "meshes": 5,
+      "parts": 47
+    },
+    {
+      "id": "70875956",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1160,
+      "bytes": 167040,
+      "meshes": 5,
+      "parts": 23
+    },
+    {
+      "id": "70875956",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1728,
+      "bytes": 248832,
+      "meshes": 5,
+      "parts": 25
+    },
+    {
+      "id": "70950699",
+      "kind": "token",
+      "defense": false,
+      "triangles": 960,
+      "bytes": 138240,
+      "meshes": 3,
+      "parts": 14
+    },
+    {
+      "id": "70950699",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1528,
+      "bytes": 220032,
+      "meshes": 3,
+      "parts": 16
+    },
+    {
+      "id": "71645243",
+      "kind": "token",
+      "defense": false,
+      "triangles": 5708,
+      "bytes": 821952,
+      "meshes": 4,
+      "parts": 87
+    },
+    {
+      "id": "71645243",
+      "kind": "token",
+      "defense": true,
+      "triangles": 6276,
+      "bytes": 903744,
+      "meshes": 4,
+      "parts": 89
+    },
+    {
+      "id": "71771005",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2338,
+      "bytes": 336672,
+      "meshes": 5,
+      "parts": 47
+    },
+    {
+      "id": "71771005",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2906,
+      "bytes": 418464,
+      "meshes": 5,
+      "parts": 49
+    },
+    {
+      "id": "71939276",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2338,
+      "bytes": 336672,
+      "meshes": 5,
+      "parts": 47
+    },
+    {
+      "id": "71939276",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2906,
+      "bytes": 418464,
+      "meshes": 5,
+      "parts": 49
+    },
+    {
+      "id": "72291079",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1160,
+      "bytes": 167040,
+      "meshes": 5,
+      "parts": 23
+    },
+    {
+      "id": "72291079",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1728,
+      "bytes": 248832,
+      "meshes": 5,
+      "parts": 25
+    },
+    {
+      "id": "73915052",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2400,
+      "bytes": 345600,
+      "meshes": 4,
+      "parts": 55
+    },
+    {
+      "id": "73915052",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2968,
+      "bytes": 427392,
+      "meshes": 4,
+      "parts": 57
+    },
+    {
+      "id": "73915053",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2400,
+      "bytes": 345600,
+      "meshes": 4,
+      "parts": 55
+    },
+    {
+      "id": "73915053",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2968,
+      "bytes": 427392,
+      "meshes": 4,
+      "parts": 57
+    },
+    {
+      "id": "73915054",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2400,
+      "bytes": 345600,
+      "meshes": 4,
+      "parts": 55
+    },
+    {
+      "id": "73915054",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2968,
+      "bytes": 427392,
+      "meshes": 4,
+      "parts": 57
+    },
+    {
+      "id": "73915055",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2400,
+      "bytes": 345600,
+      "meshes": 4,
+      "parts": 55
+    },
+    {
+      "id": "73915055",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2968,
+      "bytes": 427392,
+      "meshes": 4,
+      "parts": 57
+    },
+    {
+      "id": "74440056",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1052,
+      "bytes": 151488,
+      "meshes": 3,
+      "parts": 19
+    },
+    {
+      "id": "74440056",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1620,
+      "bytes": 233280,
+      "meshes": 3,
+      "parts": 21
+    },
+    {
+      "id": "74627017",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1632,
+      "bytes": 235008,
+      "meshes": 5,
+      "parts": 31
+    },
+    {
+      "id": "74627017",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2200,
+      "bytes": 316800,
+      "meshes": 5,
+      "parts": 33
+    },
+    {
+      "id": "74659583",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2766,
+      "bytes": 398304,
+      "meshes": 5,
+      "parts": 59
+    },
+    {
+      "id": "74659583",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3334,
+      "bytes": 480096,
+      "meshes": 5,
+      "parts": 61
+    },
+    {
+      "id": "74983882",
+      "kind": "token",
+      "defense": false,
+      "triangles": 4964,
+      "bytes": 714816,
+      "meshes": 4,
+      "parts": 133
+    },
+    {
+      "id": "74983882",
+      "kind": "token",
+      "defense": true,
+      "triangles": 5532,
+      "bytes": 796608,
+      "meshes": 4,
+      "parts": 135
+    },
+    {
+      "id": "75119041",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1160,
+      "bytes": 167040,
+      "meshes": 5,
+      "parts": 23
+    },
+    {
+      "id": "75119041",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1728,
+      "bytes": 248832,
+      "meshes": 5,
+      "parts": 25
+    },
+    {
+      "id": "75524093",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2538,
+      "bytes": 365472,
+      "meshes": 5,
+      "parts": 57
+    },
+    {
+      "id": "75524093",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3106,
+      "bytes": 447264,
+      "meshes": 5,
+      "parts": 59
+    },
+    {
+      "id": "75622825",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2560,
+      "bytes": 368640,
+      "meshes": 5,
+      "parts": 50
+    },
+    {
+      "id": "75622825",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3128,
+      "bytes": 450432,
+      "meshes": 5,
+      "parts": 52
+    },
+    {
+      "id": "75732623",
+      "kind": "token",
+      "defense": false,
+      "triangles": 5128,
+      "bytes": 738432,
+      "meshes": 4,
+      "parts": 76
+    },
+    {
+      "id": "75732623",
+      "kind": "token",
+      "defense": true,
+      "triangles": 5696,
+      "bytes": 820224,
+      "meshes": 4,
+      "parts": 78
+    },
+    {
+      "id": "76589547",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2032,
+      "bytes": 292608,
+      "meshes": 5,
+      "parts": 51
+    },
+    {
+      "id": "76589547",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2600,
+      "bytes": 374400,
+      "meshes": 5,
+      "parts": 53
+    },
+    {
+      "id": "77435269",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1632,
+      "bytes": 235008,
+      "meshes": 5,
+      "parts": 31
+    },
+    {
+      "id": "77435269",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2200,
+      "bytes": 316800,
+      "meshes": 5,
+      "parts": 33
+    },
+    {
+      "id": "79387393",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1124,
+      "bytes": 161856,
+      "meshes": 4,
+      "parts": 17
+    },
+    {
+      "id": "79387393",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1692,
+      "bytes": 243648,
+      "meshes": 4,
+      "parts": 19
+    },
+    {
+      "id": "81767889",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2032,
+      "bytes": 292608,
+      "meshes": 5,
+      "parts": 51
+    },
+    {
+      "id": "81767889",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2600,
+      "bytes": 374400,
+      "meshes": 5,
+      "parts": 53
+    },
+    {
+      "id": "82255873",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2338,
+      "bytes": 336672,
+      "meshes": 5,
+      "parts": 47
+    },
+    {
+      "id": "82255873",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2906,
+      "bytes": 418464,
+      "meshes": 5,
+      "parts": 49
+    },
+    {
+      "id": "82324106",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1896,
+      "bytes": 273024,
+      "meshes": 4,
+      "parts": 18
+    },
+    {
+      "id": "82324106",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2464,
+      "bytes": 354816,
+      "meshes": 4,
+      "parts": 20
+    },
+    {
+      "id": "82340057",
+      "kind": "token",
+      "defense": false,
+      "triangles": 836,
+      "bytes": 120384,
+      "meshes": 4,
+      "parts": 19
+    },
+    {
+      "id": "82340057",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1404,
+      "bytes": 202176,
+      "meshes": 4,
+      "parts": 21
+    },
+    {
+      "id": "82556059",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2164,
+      "bytes": 311616,
+      "meshes": 4,
+      "parts": 31
+    },
+    {
+      "id": "82556059",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2732,
+      "bytes": 393408,
+      "meshes": 4,
+      "parts": 33
+    },
+    {
+      "id": "82994510",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2732,
+      "bytes": 393408,
+      "meshes": 5,
+      "parts": 42
+    },
+    {
+      "id": "82994510",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3300,
+      "bytes": 475200,
+      "meshes": 5,
+      "parts": 44
+    },
+    {
+      "id": "83239740",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1844,
+      "bytes": 265536,
+      "meshes": 3,
+      "parts": 19
+    },
+    {
+      "id": "83239740",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2412,
+      "bytes": 347328,
+      "meshes": 3,
+      "parts": 21
+    },
+    {
+      "id": "84031360",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2766,
+      "bytes": 398304,
+      "meshes": 5,
+      "parts": 59
+    },
+    {
+      "id": "84031360",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3334,
+      "bytes": 480096,
+      "meshes": 5,
+      "parts": 61
+    },
+    {
+      "id": "84816245",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2052,
+      "bytes": 295488,
+      "meshes": 5,
+      "parts": 28
+    },
+    {
+      "id": "84816245",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2620,
+      "bytes": 377280,
+      "meshes": 5,
+      "parts": 30
+    },
+    {
+      "id": "85243785",
+      "kind": "token",
+      "defense": false,
+      "triangles": 904,
+      "bytes": 130176,
+      "meshes": 4,
+      "parts": 23
+    },
+    {
+      "id": "85243785",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1472,
+      "bytes": 211968,
+      "meshes": 4,
+      "parts": 25
+    },
+    {
+      "id": "85771020",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2766,
+      "bytes": 398304,
+      "meshes": 5,
+      "parts": 59
+    },
+    {
+      "id": "85771020",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3334,
+      "bytes": 480096,
+      "meshes": 5,
+      "parts": 61
+    },
+    {
+      "id": "85771021",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2766,
+      "bytes": 398304,
+      "meshes": 5,
+      "parts": 59
+    },
+    {
+      "id": "85771021",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3334,
+      "bytes": 480096,
+      "meshes": 5,
+      "parts": 61
+    },
+    {
+      "id": "85969518",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2338,
+      "bytes": 336672,
+      "meshes": 5,
+      "parts": 47
+    },
+    {
+      "id": "85969518",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2906,
+      "bytes": 418464,
+      "meshes": 5,
+      "parts": 49
+    },
+    {
+      "id": "86801872",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2554,
+      "bytes": 367776,
+      "meshes": 5,
+      "parts": 38
+    },
+    {
+      "id": "86801872",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3122,
+      "bytes": 449568,
+      "meshes": 5,
+      "parts": 40
+    },
+    {
+      "id": "86871615",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2032,
+      "bytes": 292608,
+      "meshes": 5,
+      "parts": 51
+    },
+    {
+      "id": "86871615",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2600,
+      "bytes": 374400,
+      "meshes": 5,
+      "parts": 53
+    },
+    {
+      "id": "87669905",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2338,
+      "bytes": 336672,
+      "meshes": 5,
+      "parts": 47
+    },
+    {
+      "id": "87669905",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2906,
+      "bytes": 418464,
+      "meshes": 5,
+      "parts": 49
+    },
+    {
+      "id": "88477150",
+      "kind": "token",
+      "defense": false,
+      "triangles": 712,
+      "bytes": 102528,
+      "meshes": 3,
+      "parts": 17
+    },
+    {
+      "id": "88477150",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1280,
+      "bytes": 184320,
+      "meshes": 3,
+      "parts": 19
+    },
+    {
+      "id": "88923964",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2338,
+      "bytes": 336672,
+      "meshes": 5,
+      "parts": 47
+    },
+    {
+      "id": "88923964",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2906,
+      "bytes": 418464,
+      "meshes": 5,
+      "parts": 49
+    },
+    {
+      "id": "89027419",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1784,
+      "bytes": 256896,
+      "meshes": 5,
+      "parts": 20
+    },
+    {
+      "id": "89027419",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2352,
+      "bytes": 338688,
+      "meshes": 5,
+      "parts": 22
+    },
+    {
+      "id": "89907228",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2796,
+      "bytes": 402624,
+      "meshes": 5,
+      "parts": 48
+    },
+    {
+      "id": "89907228",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3364,
+      "bytes": 484416,
+      "meshes": 5,
+      "parts": 50
+    },
+    {
+      "id": "90884404",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2456,
+      "bytes": 353664,
+      "meshes": 4,
+      "parts": 22
+    },
+    {
+      "id": "90884404",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3024,
+      "bytes": 435456,
+      "meshes": 4,
+      "parts": 24
+    },
+    {
+      "id": "91512836",
+      "kind": "token",
+      "defense": false,
+      "triangles": 3780,
+      "bytes": 544320,
+      "meshes": 5,
+      "parts": 58
+    },
+    {
+      "id": "91512836",
+      "kind": "token",
+      "defense": true,
+      "triangles": 4348,
+      "bytes": 626112,
+      "meshes": 5,
+      "parts": 60
+    },
+    {
+      "id": "92907249",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2196,
+      "bytes": 316224,
+      "meshes": 5,
+      "parts": 28
+    },
+    {
+      "id": "92907249",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2764,
+      "bytes": 398016,
+      "meshes": 5,
+      "parts": 30
+    },
+    {
+      "id": "93104633",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1060,
+      "bytes": 152640,
+      "meshes": 4,
+      "parts": 16
+    },
+    {
+      "id": "93104633",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1628,
+      "bytes": 234432,
+      "meshes": 4,
+      "parts": 18
+    },
+    {
+      "id": "93130022",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2564,
+      "bytes": 369216,
+      "meshes": 5,
+      "parts": 25
+    },
+    {
+      "id": "93130022",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3132,
+      "bytes": 451008,
+      "meshes": 5,
+      "parts": 27
+    },
+    {
+      "id": "93224849",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2510,
+      "bytes": 361440,
+      "meshes": 5,
+      "parts": 52
+    },
+    {
+      "id": "93224849",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3078,
+      "bytes": 443232,
+      "meshes": 5,
+      "parts": 54
+    },
+    {
+      "id": "93912846",
+      "kind": "token",
+      "defense": false,
+      "triangles": 4308,
+      "bytes": 620352,
+      "meshes": 5,
+      "parts": 40
+    },
+    {
+      "id": "93912846",
+      "kind": "token",
+      "defense": true,
+      "triangles": 4876,
+      "bytes": 702144,
+      "meshes": 5,
+      "parts": 42
+    },
+    {
+      "id": "94384775",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1300,
+      "bytes": 187200,
+      "meshes": 4,
+      "parts": 18
+    },
+    {
+      "id": "94384775",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1868,
+      "bytes": 268992,
+      "meshes": 4,
+      "parts": 20
+    },
+    {
+      "id": "94384776",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2766,
+      "bytes": 398304,
+      "meshes": 5,
+      "parts": 59
+    },
+    {
+      "id": "94384776",
+      "kind": "token",
+      "defense": true,
+      "triangles": 3334,
+      "bytes": 480096,
+      "meshes": 5,
+      "parts": 61
+    },
+    {
+      "id": "94703022",
+      "kind": "token",
+      "defense": false,
+      "triangles": 904,
+      "bytes": 130176,
+      "meshes": 4,
+      "parts": 23
+    },
+    {
+      "id": "94703022",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1472,
+      "bytes": 211968,
+      "meshes": 4,
+      "parts": 25
+    },
+    {
+      "id": "94973029",
+      "kind": "token",
+      "defense": false,
+      "triangles": 1160,
+      "bytes": 167040,
+      "meshes": 5,
+      "parts": 23
+    },
+    {
+      "id": "94973029",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1728,
+      "bytes": 248832,
+      "meshes": 5,
+      "parts": 25
+    },
+    {
+      "id": "97452818",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2304,
+      "bytes": 331776,
+      "meshes": 4,
+      "parts": 41
+    },
+    {
+      "id": "97452818",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2872,
+      "bytes": 413568,
+      "meshes": 4,
+      "parts": 43
+    },
+    {
+      "id": "98596597",
+      "kind": "token",
+      "defense": false,
+      "triangles": 2236,
+      "bytes": 321984,
+      "meshes": 3,
+      "parts": 27
+    },
+    {
+      "id": "98596597",
+      "kind": "token",
+      "defense": true,
+      "triangles": 2804,
+      "bytes": 403776,
+      "meshes": 3,
+      "parts": 29
+    },
+    {
+      "id": "98875864",
+      "kind": "token",
+      "defense": false,
+      "triangles": 960,
+      "bytes": 138240,
+      "meshes": 3,
+      "parts": 14
+    },
+    {
+      "id": "98875864",
+      "kind": "token",
+      "defense": true,
+      "triangles": 1528,
+      "bytes": 220032,
+      "meshes": 3,
+      "parts": 16
+    }
+  ]
+}
