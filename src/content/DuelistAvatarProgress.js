@@ -10,8 +10,15 @@ const PROFILE_KEYS = new Set(['version', 'selectedAvatarId', 'earnedAvatarIds'])
 const missionById = new Map(SOLO_MISSIONS.map(mission => [mission.id, mission]));
 
 function plainObject(value) {
-  if (value === null || typeof value !== 'object' || Array.isArray(value)) return false;
-  try { return [Object.prototype, null].includes(Object.getPrototypeOf(value)); }
+  if (value === null || typeof value !== 'object') return false;
+  try {
+    return !Array.isArray(value) && [Object.prototype, null].includes(Object.getPrototypeOf(value));
+  }
+  catch { return false; }
+}
+
+function safeArray(value) {
+  try { return Array.isArray(value); }
   catch { return false; }
 }
 
@@ -31,7 +38,7 @@ function boundedInteger(value, maximum = MAX_STATISTIC) {
 
 function safeIds(value, issues = null) {
   const ids = [];
-  if (!Array.isArray(value)) {
+  if (!safeArray(value)) {
     if (issues) issues.push('invalid-earned-avatar-list');
     return ids;
   }
@@ -88,7 +95,7 @@ export function validateDuelistAvatarProfile(raw) {
     return { valid: false, profile, issues: ['unsupported-profile-version'] };
   }
   let keys;
-  try { keys = Object.getOwnPropertyNames(raw); }
+  try { keys = Reflect.ownKeys(raw); }
   catch { return { valid: false, profile, issues: ['invalid-profile-shape'] }; }
   if (keys.some(key => !PROFILE_KEYS.has(key))) issues.push('unknown-profile-field');
   try {
@@ -106,11 +113,23 @@ export function validateDuelistAvatarProfile(raw) {
   return { valid: issues.length === 0, profile, issues: [...new Set(issues)] };
 }
 
-function statisticsOf(context) {
-  const value = ownData(context, 'statistics');
+/**
+ * Conservative normalization of the existing completed-Duel counters. A broken
+ * local save cannot grant more victories than played Duels. Preserve recorded
+ * non-winning results first; never manufacture a win to fill a missing result.
+ * The original statistics object is neither changed nor recounted.
+ */
+export function normalizeDuelistAvatarStatistics(value) {
   if (!plainObject(value)) return { duels: 0, wins: 0, losses: 0, draws: 0 };
-  return Object.fromEntries(['duels', 'wins', 'losses', 'draws'].map(key =>
-    [key, boundedInteger(ownData(value, key))]));
+  const duels = boundedInteger(ownData(value, 'duels'));
+  const draws = Math.min(boundedInteger(ownData(value, 'draws')), duels);
+  const losses = Math.min(boundedInteger(ownData(value, 'losses')), duels - draws);
+  const wins = Math.min(boundedInteger(ownData(value, 'wins')), duels - draws - losses);
+  return { duels, wins, losses, draws };
+}
+
+function statisticsOf(context) {
+  return normalizeDuelistAvatarStatistics(ownData(context, 'statistics'));
 }
 
 function campaignOf(context) {
@@ -214,4 +233,26 @@ export function selectDuelistAvatar(rawProfile, id, context = {}) {
     return { accepted: false, profile, reason: 'avatar-locked' };
   }
   return { accepted: true, profile: { ...profile, selectedAvatarId: id }, reason: null };
+}
+
+/**
+ * Restore a validated cosmetic backup without discarding avatars earned on this
+ * device since it was exported. Bad incoming data is refused atomically. The
+ * incoming selection is respected only after strict validation and collection;
+ * no imported statistics, campaign results or arbitrary extra fields are used.
+ */
+export function mergeDuelistAvatarProfiles(currentRaw, incomingRaw, context = {}) {
+  const current = validateDuelistAvatarProfile(currentRaw).profile;
+  if (incomingRaw === null || incomingRaw === undefined) {
+    return { accepted: false, profile: current, issues: ['invalid-profile-shape'] };
+  }
+  const incoming = validateDuelistAvatarProfile(incomingRaw);
+  if (!incoming.valid) return { accepted: false, profile: current, issues: incoming.issues };
+  const merged = {
+    version: DUELIST_AVATAR_PROFILE_VERSION,
+    selectedAvatarId: incoming.profile.selectedAvatarId,
+    earnedAvatarIds: [...new Set([...current.earnedAvatarIds, ...incoming.profile.earnedAvatarIds])]
+  };
+  const collected = collectDuelistAvatarUnlocks(merged, context).profile;
+  return { accepted: true, profile: collected, issues: [] };
 }

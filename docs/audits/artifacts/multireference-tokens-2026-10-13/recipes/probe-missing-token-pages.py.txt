@@ -1,0 +1,27 @@
+import json,subprocess,urllib.parse,hashlib
+from pathlib import Path
+from concurrent.futures import ThreadPoolExecutor
+from html.parser import HTMLParser
+root=Path('/workspace/yugioh-25d-holograms');dest=root/'docs/audits/artifacts/multireference-tokens-2026-10-13'
+rows=json.loads((root/'docs/audits/artifacts/token-monster-inventory-2026-10-11/token-profile-inventory.json').read_text())['nativeProfiles'];groups={}
+for row in rows:
+ if row['referenceKind'] in ['generator','unavailable']:groups.setdefault(row['name'],[]).append(row['code'])
+class P(HTMLParser):
+ def __init__(self):super().__init__();self.images=[];self.title='';self.inTitle=False
+ def handle_starttag(self,t,a):
+  a=dict(a)
+  if t=='title':self.inTitle=True
+  if t=='img' and 'yugipedia' in a.get('src','') and a.get('width','').isdigit() and int(a['width'])>=250:self.images.append({k:a[k] for k in ['alt','src','width','height','data-file-width','data-file-height'] if k in a})
+ def handle_endtag(self,t):
+  if t=='title':self.inTitle=False
+ def handle_data(self,d):
+  if self.inTitle:self.title+=d
+
+def probe(pair):
+ name,codes=pair;url='https://yugipedia.com/wiki/'+urllib.parse.quote(name.replace(' ','_'),safe='');temp=Path('/tmp/yugioh-token-probe-'+hashlib.sha256(name.encode()).hexdigest()[:10]+'.html')
+ r=subprocess.run(['curl','-sS','-L','--max-time','20','-A','Mozilla/5.0',url,'-o',str(temp),'-w','%{http_code}'],capture_output=True);status=int(r.stdout.decode().strip() or '0');p=P()
+ if temp.exists():p.feed(temp.read_text(errors='replace'))
+ record={'name':name,'nativeCodes':codes,'sourcePage':url,'status':status,'title':p.title,'mainImages':p.images,'pageBytes':temp.stat().st_size if temp.exists() else 0,'pageSha256':hashlib.sha256(temp.read_bytes()).hexdigest() if temp.exists() else None}
+ if p.images:print(name,codes,p.images[0].get('alt'),flush=True)
+ return record
+records=list(ThreadPoolExecutor(max_workers=6).map(probe,groups.items()));(dest/'missing-direct-art-page-probes.json').write_text(json.dumps({'scope':'One actual GET for each distinct native Token name whose API profile has only a generator illustration or no illustration. Candidate main image URLs are unverified identity leads, not automatically accepted Token art or distinct views.','nameCount':len(records),'nativeCodes':sum(len(r['nativeCodes'])for r in records),'records':records},ensure_ascii=False,indent=2)+'\n');print('names',len(records),'candidates',sum(bool(r['mainImages'])for r in records))

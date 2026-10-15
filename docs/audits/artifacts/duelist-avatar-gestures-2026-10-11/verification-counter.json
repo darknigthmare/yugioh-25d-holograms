@@ -1,0 +1,75 @@
+{
+  "asOf": "2026-10-11",
+  "recordedAtUtc": "2026-10-11T13:44:32.592Z",
+  "scope": "Current 11-case gesture integration run, including the counter that verifies public datasets do not repeat unchanged DOM writes",
+  "sourceHashes": {
+    "src/ui/RealDuelScene3D.js": "3cab3186bd228b02b901c6aa85fef9d08c6ed9eac3d64e0909cbc28dc6e0e0a7",
+    "src/ui/RealDuelView.js": "1117678a515f968e2aab4a3a4fcd820ba3fcf166e86e82a69d2af959ef6d7100",
+    "test/real-duel-avatar-gestures.test.js": "ccf9b076118ed65a1d1235872f15c7c7541fde4ffe4aedb01b90eafbadbdbbe6"
+  },
+  "run": {
+    "command": "node test/real-duel-avatar-gestures.test.js",
+    "exitCode": 0,
+    "tests": 11,
+    "passed": 11,
+    "failed": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "durationMs": 558.36752,
+    "stdout": "✔ successful native summons and Chain declarations animate the correct real avatar and articulated arm (82.882917ms)\n✔ native attacks react on their source, while only an applied DAMAGE result reacts on the victim (39.911289ms)\n✔ attribute effect reactions require a nonzero applied public result, not a stat declaration or failed callback (28.806494ms)\n✔ models receive only gesture names and primitive options, and concealed identities are never inspected (26.228018ms)\n✔ duplicate public callbacks do not restart a gesture, while a genuine attack replay replaces its old trail (42.515312ms)\n✔ confirmed attack negation cancels its own gesture but preserves later casting and a newer same-slot attack (30.250923ms)\n✔ hidden native stops and negations retire the right attack without rendering or allocating another effect (83.555137ms)\n✔ visibility freezes gesture time, reduced motion clears transients, and held results remain static (24.086982ms)\n✔ native victory and public surrender winners synchronously hold final poses with zero RAF, without deriving a winner from LP (94.078458ms)\n✔ public gesture datasets write only distinct transitions, not repeated sync calls or idle animation frames (53.120907ms)\n✔ avatar replacement preserves held outcomes, and repeated stop/dispose releases each owned resource exactly once (32.215526ms)\nℹ tests 11\nℹ suites 0\nℹ pass 11\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 558.36752\n"
+  },
+  "counterCase": {
+    "name": "public gesture datasets write only distinct transitions, not repeated sync calls or idle animation frames",
+    "passed": true,
+    "method": "The real scene root dataset uses a Proxy set trap that counts assignments; actual gesture updates and RAF callbacks execute through the production manager",
+    "observations": [
+      {
+        "operation": "100 sync calls and 20 idle RAF frames",
+        "totalWrites": 0,
+        "additionalWrites": 0
+      },
+      {
+        "operation": "Successful native summon callback",
+        "totalWrites": 1,
+        "additionalWrites": 1
+      },
+      {
+        "operation": "100 sync calls while summon stays current",
+        "totalWrites": 1,
+        "additionalWrites": 0
+      },
+      {
+        "operation": "20 RAF frames finish summon and return to idle",
+        "totalWrites": 2,
+        "additionalWrites": 1
+      },
+      {
+        "operation": "Public player outcome applies victory, defeat and result",
+        "totalWrites": 5,
+        "additionalWrites": 3
+      },
+      {
+        "operation": "100 sync calls and the same public winner callback",
+        "totalWrites": 5,
+        "additionalWrites": 0
+      }
+    ],
+    "pendingAnimationFramesAfterResult": 0
+  },
+  "priorExecution": {
+    "file": "verification.json",
+    "observedAtUtc": "2026-10-11T13:28:58.494Z",
+    "testSha256": "faddc355b7ec7ebaf389df6c9fe02aa1626cb35f31b7126992cfaa6e2900b3de",
+    "note": "verification.json is retained unchanged as the earlier dated 10-case/103-case execution. Its older test hash is historical and is not the current 11-case test hash; current source/test provenance is recorded in verification-counter.json."
+  },
+  "diffCheck": {
+    "command": "git diff --check",
+    "exitCode": 0
+  },
+  "actualDuelBrowserCapture": false,
+  "sourceChangedForThisReport": false,
+  "testsChangedForThisReport": false,
+  "buildPerformed": false,
+  "publicationPerformed": false
+}

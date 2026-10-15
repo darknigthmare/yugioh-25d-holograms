@@ -1,0 +1,17 @@
+{"progress": "atlas-real-draws", "presentations": 24, "total": 367, "elapsedSeconds": 15.0, "estimatedRemainingSeconds": 214.9}
+{"progress": "atlas-real-draws", "presentations": 48, "total": 367, "elapsedSeconds": 29.5, "estimatedRemainingSeconds": 196.2}
+{"progress": "atlas-real-draws", "presentations": 72, "total": 367, "elapsedSeconds": 43.2, "estimatedRemainingSeconds": 177.1}
+{"progress": "atlas-real-draws", "presentations": 96, "total": 367, "elapsedSeconds": 57.2, "estimatedRemainingSeconds": 161.4}
+{"progress": "atlas-real-draws", "presentations": 120, "total": 367, "elapsedSeconds": 72.1, "estimatedRemainingSeconds": 148.5}
+{"progress": "atlas-real-draws", "presentations": 144, "total": 367, "elapsedSeconds": 86.1, "estimatedRemainingSeconds": 133.3}
+{"progress": "atlas-real-draws", "presentations": 168, "total": 367, "elapsedSeconds": 100.2, "estimatedRemainingSeconds": 118.6}
+{"progress": "atlas-real-draws", "presentations": 192, "total": 367, "elapsedSeconds": 114.9, "estimatedRemainingSeconds": 104.8}
+{"progress": "atlas-real-draws", "presentations": 216, "total": 367, "elapsedSeconds": 129.1, "estimatedRemainingSeconds": 90.3}
+{"progress": "atlas-real-draws", "presentations": 240, "total": 367, "elapsedSeconds": 143.3, "estimatedRemainingSeconds": 75.9}
+{"progress": "atlas-real-draws", "presentations": 264, "total": 367, "elapsedSeconds": 157.3, "estimatedRemainingSeconds": 61.4}
+{"progress": "atlas-real-draws", "presentations": 288, "total": 367, "elapsedSeconds": 171.5, "estimatedRemainingSeconds": 47.1}
+{"progress": "atlas-real-draws", "presentations": 312, "total": 367, "elapsedSeconds": 185.8, "estimatedRemainingSeconds": 32.7}
+{"progress": "atlas-real-draws", "presentations": 336, "total": 367, "elapsedSeconds": 199.1, "estimatedRemainingSeconds": 18.4}
+{"progress": "atlas-real-draws", "presentations": 360, "total": 367, "elapsedSeconds": 212.8, "estimatedRemainingSeconds": 4.1}
+{"progress": "atlas-real-draws", "presentations": 367, "total": 367, "elapsedSeconds": 216.8, "estimatedRemainingSeconds": 0.0}
+{"ok": true, "paths": 9, "captures": 50}

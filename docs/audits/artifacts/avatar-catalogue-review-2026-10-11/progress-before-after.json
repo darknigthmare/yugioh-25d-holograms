@@ -1,0 +1,134 @@
+{
+  "generatedAt": "2026-10-11T13:38:33.424Z",
+  "baselineRevision": "ac18389cc3e78fc84f05419024d63be311453013",
+  "baselineSourceSha256": "ab23b1e01d5b90999ca5574ea4e1e42721b1ce9ae0b27c1d5b11c25f09ca8603",
+  "currentSourceSha256": "76ad78ff8dd61cb4539daac3d1a3cc6995622b8bfee9bb629382e477d2022560",
+  "baselineInstrumentation": "Baseline sources are unchanged; only the two import specifiers are resolved to absolute file/data URLs to run historical code alongside current code. No progress logic was rewritten.",
+  "before": {
+    "corruptWins": {
+      "unlocked": true,
+      "earned": false,
+      "conditionLabel": "3 victoires",
+      "progressLabel": "3 / 3 victoires",
+      "current": 30,
+      "target": 3,
+      "progressRatio": 1
+    },
+    "impossibleResults": {
+      "unlocked": true,
+      "earned": false,
+      "conditionLabel": "3 victoires",
+      "progressLabel": "3 / 3 victoires",
+      "current": 30,
+      "target": 3,
+      "progressRatio": 1
+    },
+    "revokedProxy": {
+      "threw": true,
+      "name": "TypeError",
+      "message": "Cannot perform 'IsArray' on a proxy that has been revoked"
+    },
+    "unknownSymbol": {
+      "valid": true,
+      "profile": {
+        "version": 1,
+        "selectedAvatarId": "yugi",
+        "earnedAvatarIds": []
+      },
+      "issues": []
+    }
+  },
+  "after": {
+    "corruptWins": {
+      "unlocked": false,
+      "earned": false,
+      "conditionLabel": "3 victoires",
+      "progressLabel": "0 / 3 victoires",
+      "current": 0,
+      "target": 3,
+      "progressRatio": 0
+    },
+    "impossibleResults": {
+      "unlocked": false,
+      "earned": false,
+      "conditionLabel": "3 victoires",
+      "progressLabel": "0 / 3 victoires",
+      "current": 0,
+      "target": 3,
+      "progressRatio": 0
+    },
+    "revokedProxy": {
+      "threw": false,
+      "result": {
+        "valid": false,
+        "profile": {
+          "version": 1,
+          "selectedAvatarId": "yugi",
+          "earnedAvatarIds": []
+        },
+        "issues": [
+          "invalid-profile-shape"
+        ]
+      }
+    },
+    "unknownSymbol": {
+      "valid": false,
+      "profile": {
+        "version": 1,
+        "selectedAvatarId": "yugi",
+        "earnedAvatarIds": []
+      },
+      "issues": [
+        "unknown-profile-field"
+      ]
+    }
+  },
+  "acquiredAfterReset": {
+    "profile": {
+      "version": 1,
+      "selectedAvatarId": "yugi",
+      "earnedAvatarIds": [
+        "tristan",
+        "mokuba",
+        "mai",
+        "syrus",
+        "alexis",
+        "akiza",
+        "leo",
+        "tori",
+        "zuzu",
+        "naoki",
+        "luke",
+        "romin",
+        "yuhi",
+        "manabu"
+      ]
+    },
+    "newlyUnlocked": []
+  },
+  "restored": {
+    "accepted": true,
+    "profile": {
+      "version": 1,
+      "selectedAvatarId": "kaiba",
+      "earnedAvatarIds": [
+        "tristan",
+        "mokuba",
+        "mai",
+        "pegasus",
+        "syrus",
+        "alexis",
+        "akiza",
+        "leo",
+        "tori",
+        "zuzu",
+        "naoki",
+        "luke",
+        "romin",
+        "yuhi",
+        "manabu"
+      ]
+    },
+    "issues": []
+  }
+}

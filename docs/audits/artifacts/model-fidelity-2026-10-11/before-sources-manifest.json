@@ -1,0 +1,78 @@
+{
+  "scope": "Byte-exact baseline geometry module copies; .txt suffix prevents proof files being executable test discoveries",
+  "sourceHead": "1371c5ba679d336f5df478720e6f9c4265d08e9d",
+  "files": {
+    "before-sources/src__ui__HologramMonsterModels.js.txt": {
+      "bytes": 23749,
+      "sha256": "cab0dc32b2323af3dee14f861b83925ab46f27092b7e5c8ba0ded0afb7e5f41a"
+    },
+    "before-sources/src__ui__CombatVisualProfiles.js.txt": {
+      "bytes": 17146,
+      "sha256": "2006387828a0219e4799f9c43c8432caa383e457dd748c0e0f61ad2373843f4a"
+    },
+    "before-sources/src__ui__HologramPoseAnimation.js.txt": {
+      "bytes": 7540,
+      "sha256": "0fd60c0f319ee7a413049ac05199d44e06ab356a94174bc2dc35958b22b8729c"
+    },
+    "before-sources/src__ui__HologramReferenceAnatomy.js.txt": {
+      "bytes": 63114,
+      "sha256": "e10d0ad431c4c3f00f12c259e76bb83e68ae320315a768ce2e606544fec778d5"
+    },
+    "before-sources/src__ui__HologramPopularGodModels.js.txt": {
+      "bytes": 16210,
+      "sha256": "7e095ad4bab594756d846b6794add8afb540f962494b7168589d0bc80851f121"
+    },
+    "before-sources/src__ui__HologramPopularStapleModels.js.txt": {
+      "bytes": 23103,
+      "sha256": "66784a7c5903a5005064833dead704a9d2a7bad4152a71d8d7cc024ccd610c35"
+    },
+    "before-sources/src__ui__HologramTokenModels.js.txt": {
+      "bytes": 2407,
+      "sha256": "023a53e4b9eda35af1407f827f10a5caa0737e4ae64add6560f212354a66d269"
+    },
+    "before-sources/src__ui__HologramTokenGeometry.js.txt": {
+      "bytes": 2701,
+      "sha256": "fdae5fa328bfb60e633d2f70ef32964f39e8f9198130be322baa0039977af4d1"
+    },
+    "before-sources/src__ui__HologramTokenCreatureModels.js.txt": {
+      "bytes": 33644,
+      "sha256": "336280a63698eb3937be7683922064f7243811b83f76f3e2c024e7901aa7b771"
+    },
+    "before-sources/src__ui__HologramTokenConstructModels.js.txt": {
+      "bytes": 28156,
+      "sha256": "245bb6a7b47f67ca9ec2b2520d6d3d0550a8f5ad1eb1699e506ba9037b99ff76"
+    },
+    "before-sources/src__ui__HologramTokenBotanicalModels.js.txt": {
+      "bytes": 27468,
+      "sha256": "550b8ae6973ff405c3abaf2898f74c281a942a3c939c30197d5d1326d0beb2b9"
+    },
+    "before-sources/src__ui__HologramTokenSpiritModels.js.txt": {
+      "bytes": 21508,
+      "sha256": "00160819cf744008c820864fda3d29128fc7f180b76526c8ac65cf9fa0c55365"
+    },
+    "before-sources/src__ui__HologramTokenIllustratedExceptions.js.txt": {
+      "bytes": 12030,
+      "sha256": "29ada3f0825d726b4c12664c73ced64beab227eb13fd3d8af10c58ab92b50c3d"
+    },
+    "before-sources/src__ui__TokenMonsterModelProfiles.js.txt": {
+      "bytes": 45751,
+      "sha256": "51aa0358a560efbee72a924a7dc335fef58bd7b55019d414350600e966c38db9"
+    },
+    "before-sources/src__ui__DuelistAvatarModels.js.txt": {
+      "bytes": 38201,
+      "sha256": "cd7ff30ab0da574185932f6062a101d14f90de3fe239449ff3ad55efd527376d"
+    },
+    "before-sources/src__ui__DuelistAvatarGestures.js.txt": {
+      "bytes": 5950,
+      "sha256": "805dbb0519642366a61e306517297951afa35d979738238d0ab3cc05175ee352"
+    },
+    "before-sources/src__ui__DuelistAvatarPortrait.js.txt": {
+      "bytes": 21195,
+      "sha256": "104cb24f8e7100bf9d8e9dc0377cf6d426b2137b25a0c468902b9a596631604f"
+    },
+    "before-sources/src__content__DuelistAvatarCatalog.js.txt": {
+      "bytes": 49379,
+      "sha256": "9c665ed069cfcd0829f1f4a85a6b3c635f1ebab9c96c1f892b78823f8ce4e68c"
+    }
+  }
+}

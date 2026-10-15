@@ -1,0 +1,30 @@
+{
+  "scope": "Exterior CPU raycasts against the actual batched Token factory meshes at rest, front and three-quarter view. Hit classification uses actual per-vertex colours, not declared part names. Independent WebGL pictures are separate QA evidence.",
+  "nativeCode": "22411610",
+  "raysPerView": 225,
+  "beforeVisibilityFailure": "before-bomb-visibility-fix/raycast-test-before-fix.txt",
+  "beforeVisibleCrustFront": 0,
+  "correction": "Planar Dodecahedron detail0 core in the same position and scale as the detail0 crust geometry. The former rounded detail1 core occluded the twelve plates.",
+  "measurements": [
+    {
+      "view": "front",
+      "sampledRays": 225,
+      "visibleCrust": 132,
+      "visibleCrustFacetNormals": 6,
+      "visibleGap": 82
+    },
+    {
+      "view": "three-quarter",
+      "sampledRays": 225,
+      "visibleCrust": 125,
+      "visibleCrustFacetNormals": 8,
+      "visibleGap": 75
+    }
+  ],
+  "sourceSha256": "4dc5b4092c5314f6b66d42c3ac22ebc487a6562eeab3d90c42550ee4cdd2005d",
+  "testSha256": "a8d29a9d71d7ec1d68dd91d2c8a0d7a2273f0a86e30296f405f5749d15e8d9ea",
+  "targetedTests": 23,
+  "targetedPass": 23,
+  "currentAttackTriangles": 5912,
+  "originalFivefoldLimit": 10980
+}

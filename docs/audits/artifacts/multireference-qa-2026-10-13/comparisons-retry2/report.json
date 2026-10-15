@@ -1,0 +1,1448 @@
+{
+  "scope": "Assemble labelled reference/before/after evidence from retained screenshots.\n\nModel regions are lossless 300 x 300 pixel crops pasted without resizing or\nretouching. Reference photographs/illustrations are letterboxed proportionally;\ntheir complete original bytes and provenance remain separately retained.\nCatalogue SVG portraits inside the original captures are explicitly distinct\nfrom the two external source columns and never treated as official references.\n",
+  "driver": {
+    "path": "scripts/audit-multireference-comparisons-2026-10-13.py",
+    "bytes": 5706,
+    "sha256": "ffb36a1e2f7ce8f82b0002f01be99326908072fa0c9d48d1708b3b84b26834e0"
+  },
+  "referenceConfig": {
+    "path": "docs/audits/artifacts/multireference-qa-2026-10-13/comparison-reference-config-yugi-pv325-corrected.json",
+    "bytes": 7065,
+    "sha256": "91a9b0c04221d40bfa1491ec7f2f7a0cc43f946bb14a411cf11b43541658d524"
+  },
+  "inputReports": {
+    "before": {
+      "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-before-final/report.json",
+      "bytes": 756406,
+      "sha256": "7688a33ddd420da8996a0bdb92225602491f3f7d0df702b8fea42ca63fbd30dd"
+    },
+    "after": {
+      "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-retry2/report.json",
+      "bytes": 1456763,
+      "sha256": "91e87a25ac66c75f409a2767689b5c4767ac77c963b5f88dbabf164cc64625c7"
+    }
+  },
+  "groups": [
+    {
+      "id": "avatars-primary-before-after-01",
+      "modelCount": 4,
+      "artifact": {
+        "path": "/workspace/yugioh-25d-holograms/docs/audits/artifacts/multireference-qa-2026-10-13/comparisons-retry2/avatars-primary-before-after-01.png",
+        "bytes": 969803,
+        "sha256": "298d97ad3ec30573f36c87e547dcc2b9fc1392f23241187f38b6b6e2d6140ab5"
+      }
+    },
+    {
+      "id": "avatars-primary-before-after-02",
+      "modelCount": 4,
+      "artifact": {
+        "path": "/workspace/yugioh-25d-holograms/docs/audits/artifacts/multireference-qa-2026-10-13/comparisons-retry2/avatars-primary-before-after-02.png",
+        "bytes": 809034,
+        "sha256": "fb2b243dae7314f7df63f2db6a47127f3151eeb2f14941fc0ea6a42421d6b8ad"
+      }
+    },
+    {
+      "id": "dedicated-dragons-primary-before-after",
+      "modelCount": 2,
+      "artifact": {
+        "path": "/workspace/yugioh-25d-holograms/docs/audits/artifacts/multireference-qa-2026-10-13/comparisons-retry2/dedicated-dragons-primary-before-after.png",
+        "bytes": 1143934,
+        "sha256": "9143d73bd7721ccec278c916762a0cb862f6be2cae849bfa7d04ddc75af5e25a"
+      }
+    }
+  ],
+  "modelCrops": [
+    {
+      "key": "avatar:yugi",
+      "phase": "before",
+      "angle": "front",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-before-final/before-front-01.png",
+        "bytes": 1046088,
+        "sha256": "de4cf2080eae322638d1be3501b116ca5e04f417fef6f057c9001b006dba4bb1"
+      },
+      "cropBounds": [
+        1200,
+        982,
+        1500,
+        1282
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.2562500327825551,
+          4.433748883388045,
+          12.481800629442574
+        ],
+        "target": [
+          -0.2562500327825551,
+          2.9666999486904597,
+          0.25639284029603016
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "avatar:yugi",
+      "phase": "after",
+      "angle": "front",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-retry2/after-front-01.png",
+        "bytes": 1107698,
+        "sha256": "bb50ac533275ef3538bc4966853c3b64c290990366d2c8daf8992a827140cb75"
+      },
+      "cropBounds": [
+        1200,
+        982,
+        1500,
+        1282
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.2562500327825551,
+          4.433748883388045,
+          12.481800629442574
+        ],
+        "target": [
+          -0.2562500327825551,
+          2.9666999486904597,
+          0.25639284029603016
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "avatar:yugi",
+      "phase": "before",
+      "angle": "back",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-before-final/before-back-01.png",
+        "bytes": 899214,
+        "sha256": "3493d2ca958d31505ba7c02caf88f7ea0fb13eb8ead21abdb0ea1aafe6aa3f68"
+      },
+      "cropBounds": [
+        1200,
+        982,
+        1500,
+        1282
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.2562500327825536,
+          4.433748883388045,
+          -11.969014948850514
+        ],
+        "target": [
+          -0.2562500327825551,
+          2.9666999486904597,
+          0.25639284029603016
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "avatar:yugi",
+      "phase": "after",
+      "angle": "back",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-retry2/after-back-01.png",
+        "bytes": 961270,
+        "sha256": "02cab0fd2764078bfe91bad2741d57b52a83b812edd3136d1d90c0337f7b4847"
+      },
+      "cropBounds": [
+        1200,
+        982,
+        1500,
+        1282
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.2562500327825536,
+          4.433748883388045,
+          -11.969014948850514
+        ],
+        "target": [
+          -0.2562500327825551,
+          2.9666999486904597,
+          0.25639284029603016
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "avatar:atem",
+      "phase": "before",
+      "angle": "front",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-before-final/before-front-01.png",
+        "bytes": 1046088,
+        "sha256": "de4cf2080eae322638d1be3501b116ca5e04f417fef6f057c9001b006dba4bb1"
+      },
+      "cropBounds": [
+        0,
+        1282,
+        300,
+        1582
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.28931455314159393,
+          5.005845513502631,
+          13.982024583941104
+        ],
+        "target": [
+          -0.28931455314159393,
+          3.3494999420698734,
+          0.17914482200145726
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "avatar:atem",
+      "phase": "after",
+      "angle": "front",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-retry2/after-front-01.png",
+        "bytes": 1107698,
+        "sha256": "bb50ac533275ef3538bc4966853c3b64c290990366d2c8daf8992a827140cb75"
+      },
+      "cropBounds": [
+        0,
+        1282,
+        300,
+        1582
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.28931455314159393,
+          5.005845513502631,
+          13.982024583941104
+        ],
+        "target": [
+          -0.28931455314159393,
+          3.3494999420698734,
+          0.17914482200145726
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "avatar:atem",
+      "phase": "before",
+      "angle": "back",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-before-final/before-back-01.png",
+        "bytes": 899214,
+        "sha256": "3493d2ca958d31505ba7c02caf88f7ea0fb13eb8ead21abdb0ea1aafe6aa3f68"
+      },
+      "cropBounds": [
+        0,
+        1282,
+        300,
+        1582
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.28931455314159227,
+          5.005845513502631,
+          -13.623734939938188
+        ],
+        "target": [
+          -0.28931455314159393,
+          3.3494999420698734,
+          0.17914482200145726
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "avatar:atem",
+      "phase": "after",
+      "angle": "back",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-retry2/after-back-01.png",
+        "bytes": 961270,
+        "sha256": "02cab0fd2764078bfe91bad2741d57b52a83b812edd3136d1d90c0337f7b4847"
+      },
+      "cropBounds": [
+        0,
+        1282,
+        300,
+        1582
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.28931455314159227,
+          5.005845513502631,
+          -13.623734939938188
+        ],
+        "target": [
+          -0.28931455314159393,
+          3.3494999420698734,
+          0.17914482200145726
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "avatar:kaiba",
+      "phase": "before",
+      "angle": "front",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-before-final/before-front-01.png",
+        "bytes": 1046088,
+        "sha256": "de4cf2080eae322638d1be3501b116ca5e04f417fef6f057c9001b006dba4bb1"
+      },
+      "cropBounds": [
+        300,
+        1282,
+        600,
+        1582
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.4230898779630661,
+          4.9953534568141995,
+          14.090184607958914
+        ],
+        "target": [
+          -0.4230898779630661,
+          3.343900010949746,
+          0.32807255908846855
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "avatar:kaiba",
+      "phase": "after",
+      "angle": "front",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-retry2/after-front-01.png",
+        "bytes": 1107698,
+        "sha256": "bb50ac533275ef3538bc4966853c3b64c290990366d2c8daf8992a827140cb75"
+      },
+      "cropBounds": [
+        300,
+        1282,
+        600,
+        1582
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.4230898779630661,
+          4.9953534568141995,
+          14.090184607958914
+        ],
+        "target": [
+          -0.4230898779630661,
+          3.343900010949746,
+          0.32807255908846855
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "avatar:kaiba",
+      "phase": "before",
+      "angle": "back",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-before-final/before-back-01.png",
+        "bytes": 899214,
+        "sha256": "3493d2ca958d31505ba7c02caf88f7ea0fb13eb8ead21abdb0ea1aafe6aa3f68"
+      },
+      "cropBounds": [
+        300,
+        1282,
+        600,
+        1582
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.4230898779630644,
+          4.9953534568141995,
+          -13.434039489781977
+        ],
+        "target": [
+          -0.4230898779630661,
+          3.343900010949746,
+          0.32807255908846855
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "avatar:kaiba",
+      "phase": "after",
+      "angle": "back",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-retry2/after-back-01.png",
+        "bytes": 961270,
+        "sha256": "02cab0fd2764078bfe91bad2741d57b52a83b812edd3136d1d90c0337f7b4847"
+      },
+      "cropBounds": [
+        300,
+        1282,
+        600,
+        1582
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.4230898779630644,
+          4.9953534568141995,
+          -13.434039489781977
+        ],
+        "target": [
+          -0.4230898779630661,
+          3.343900010949746,
+          0.32807255908846855
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "avatar:joey",
+      "phase": "before",
+      "angle": "front",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-before-final/before-front-01.png",
+        "bytes": 1046088,
+        "sha256": "de4cf2080eae322638d1be3501b116ca5e04f417fef6f057c9001b006dba4bb1"
+      },
+      "cropBounds": [
+        600,
+        1282,
+        900,
+        1582
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.41746795177459717,
+          4.449642574977354,
+          12.550920743223907
+        ],
+        "target": [
+          -0.41746795177459717,
+          2.978600009753555,
+          0.2922326996922494
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "avatar:joey",
+      "phase": "after",
+      "angle": "front",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-retry2/after-front-01.png",
+        "bytes": 1107698,
+        "sha256": "bb50ac533275ef3538bc4966853c3b64c290990366d2c8daf8992a827140cb75"
+      },
+      "cropBounds": [
+        600,
+        1282,
+        900,
+        1582
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.41746795177459717,
+          4.449642574977354,
+          12.550920743223907
+        ],
+        "target": [
+          -0.41746795177459717,
+          2.978600009753555,
+          0.2922326996922494
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "avatar:joey",
+      "phase": "before",
+      "angle": "back",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-before-final/before-back-01.png",
+        "bytes": 899214,
+        "sha256": "3493d2ca958d31505ba7c02caf88f7ea0fb13eb8ead21abdb0ea1aafe6aa3f68"
+      },
+      "cropBounds": [
+        600,
+        1282,
+        900,
+        1582
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.41746795177459567,
+          4.449642574977354,
+          -11.966455343839408
+        ],
+        "target": [
+          -0.41746795177459717,
+          2.978600009753555,
+          0.2922326996922494
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "avatar:joey",
+      "phase": "after",
+      "angle": "back",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-retry2/after-back-01.png",
+        "bytes": 961270,
+        "sha256": "02cab0fd2764078bfe91bad2741d57b52a83b812edd3136d1d90c0337f7b4847"
+      },
+      "cropBounds": [
+        600,
+        1282,
+        900,
+        1582
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.41746795177459567,
+          4.449642574977354,
+          -11.966455343839408
+        ],
+        "target": [
+          -0.41746795177459717,
+          2.978600009753555,
+          0.2922326996922494
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "avatar:jaden",
+      "phase": "before",
+      "angle": "front",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-before-final/before-front-01.png",
+        "bytes": 1046088,
+        "sha256": "de4cf2080eae322638d1be3501b116ca5e04f417fef6f057c9001b006dba4bb1"
+      },
+      "cropBounds": [
+        900,
+        1282,
+        1200,
+        1582
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.40171444416046154,
+          4.434821235086228,
+          12.502096419913531
+        ],
+        "target": [
+          -0.40171444416046154,
+          2.9683142707742753,
+          0.28120505064725876
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "avatar:jaden",
+      "phase": "after",
+      "angle": "front",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-retry2/after-front-01.png",
+        "bytes": 1107698,
+        "sha256": "bb50ac533275ef3538bc4966853c3b64c290990366d2c8daf8992a827140cb75"
+      },
+      "cropBounds": [
+        900,
+        1282,
+        1200,
+        1582
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.40171444416046154,
+          4.434821235086228,
+          12.502096419913531
+        ],
+        "target": [
+          -0.40171444416046154,
+          2.9683142707742753,
+          0.28120505064725876
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "avatar:jaden",
+      "phase": "before",
+      "angle": "back",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-before-final/before-back-01.png",
+        "bytes": 899214,
+        "sha256": "3493d2ca958d31505ba7c02caf88f7ea0fb13eb8ead21abdb0ea1aafe6aa3f68"
+      },
+      "cropBounds": [
+        900,
+        1282,
+        1200,
+        1582
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.40171444416046004,
+          4.434821235086228,
+          -11.939686318619014
+        ],
+        "target": [
+          -0.40171444416046154,
+          2.9683142707742753,
+          0.28120505064725876
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "avatar:jaden",
+      "phase": "after",
+      "angle": "back",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-retry2/after-back-01.png",
+        "bytes": 961270,
+        "sha256": "02cab0fd2764078bfe91bad2741d57b52a83b812edd3136d1d90c0337f7b4847"
+      },
+      "cropBounds": [
+        900,
+        1282,
+        1200,
+        1582
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.40171444416046004,
+          4.434821235086228,
+          -11.939686318619014
+        ],
+        "target": [
+          -0.40171444416046154,
+          2.9683142707742753,
+          0.28120505064725876
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "avatar:yusei",
+      "phase": "before",
+      "angle": "front",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-before-final/before-front-01.png",
+        "bytes": 1046088,
+        "sha256": "de4cf2080eae322638d1be3501b116ca5e04f417fef6f057c9001b006dba4bb1"
+      },
+      "cropBounds": [
+        1200,
+        1282,
+        1500,
+        1582
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.41672761738300335,
+          4.951018805294085,
+          13.951768483730438
+        ],
+        "target": [
+          -0.41672761738300335,
+          3.3135286585662516,
+          0.30601726099848764
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "avatar:yusei",
+      "phase": "after",
+      "angle": "front",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-retry2/after-front-01.png",
+        "bytes": 1107698,
+        "sha256": "bb50ac533275ef3538bc4966853c3b64c290990366d2c8daf8992a827140cb75"
+      },
+      "cropBounds": [
+        1200,
+        1282,
+        1500,
+        1582
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.41672761738300335,
+          4.951018805294085,
+          13.951768483730438
+        ],
+        "target": [
+          -0.41672761738300335,
+          3.3135286585662516,
+          0.30601726099848764
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "avatar:yusei",
+      "phase": "before",
+      "angle": "back",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-before-final/before-back-01.png",
+        "bytes": 899214,
+        "sha256": "3493d2ca958d31505ba7c02caf88f7ea0fb13eb8ead21abdb0ea1aafe6aa3f68"
+      },
+      "cropBounds": [
+        1200,
+        1282,
+        1500,
+        1582
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.4167276173830017,
+          4.951018805294085,
+          -13.339733961733463
+        ],
+        "target": [
+          -0.41672761738300335,
+          3.3135286585662516,
+          0.30601726099848764
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "avatar:yusei",
+      "phase": "after",
+      "angle": "back",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-retry2/after-back-01.png",
+        "bytes": 961270,
+        "sha256": "02cab0fd2764078bfe91bad2741d57b52a83b812edd3136d1d90c0337f7b4847"
+      },
+      "cropBounds": [
+        1200,
+        1282,
+        1500,
+        1582
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.4167276173830017,
+          4.951018805294085,
+          -13.339733961733463
+        ],
+        "target": [
+          -0.41672761738300335,
+          3.3135286585662516,
+          0.30601726099848764
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "avatar:yuya",
+      "phase": "before",
+      "angle": "front",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-before-final/before-front-02.png",
+        "bytes": 72091,
+        "sha256": "53ddc8a2e9096f362c57892b80180b3df5d9345a8802cd0ec524d873a8ffc6b1"
+      },
+      "cropBounds": [
+        0,
+        82,
+        300,
+        382
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.37583768367767334,
+          4.57270692547983,
+          12.880854521739485
+        ],
+        "target": [
+          -0.37583768367767334,
+          3.060087330006063,
+          0.2756912261247635
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "avatar:yuya",
+      "phase": "after",
+      "angle": "front",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-retry2/after-front-02.png",
+        "bytes": 72288,
+        "sha256": "451e1a804dc5e05af40aeffc7352c426cd692bfbfa98de0aff481c4946686491"
+      },
+      "cropBounds": [
+        0,
+        82,
+        300,
+        382
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.37583768367767334,
+          4.57270692547983,
+          12.880854521739485
+        ],
+        "target": [
+          -0.37583768367767334,
+          3.060087330006063,
+          0.2756912261247635
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "avatar:yuya",
+      "phase": "before",
+      "angle": "back",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-before-final/before-back-02.png",
+        "bytes": 66981,
+        "sha256": "47faa2445cdf47ac13a408d9ebee6fea0485b881a9ba60dc3f42bd861c560861"
+      },
+      "cropBounds": [
+        0,
+        82,
+        300,
+        382
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.3758376836776718,
+          4.57270692547983,
+          -12.329472069489958
+        ],
+        "target": [
+          -0.37583768367767334,
+          3.060087330006063,
+          0.2756912261247635
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "avatar:yuya",
+      "phase": "after",
+      "angle": "back",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-retry2/after-back-02.png",
+        "bytes": 65233,
+        "sha256": "00e96b0d2a2f312ff02f3cc4fcf6dbd7e362bb25c7edf62e8d8b132a58b09afe"
+      },
+      "cropBounds": [
+        0,
+        82,
+        300,
+        382
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.3758376836776718,
+          4.57270692547983,
+          -12.329472069489958
+        ],
+        "target": [
+          -0.37583768367767334,
+          3.060087330006063,
+          0.2756912261247635
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "avatar:playmaker",
+      "phase": "before",
+      "angle": "front",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-before-final/before-front-02.png",
+        "bytes": 72091,
+        "sha256": "53ddc8a2e9096f362c57892b80180b3df5d9345a8802cd0ec524d873a8ffc6b1"
+      },
+      "cropBounds": [
+        300,
+        82,
+        600,
+        382
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.34309713840484646,
+          4.956264506164906,
+          13.942417836726072
+        ],
+        "target": [
+          -0.34309713840484646,
+          3.316628085516766,
+          0.27878099799156203
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "avatar:playmaker",
+      "phase": "after",
+      "angle": "front",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-retry2/after-front-02.png",
+        "bytes": 72288,
+        "sha256": "451e1a804dc5e05af40aeffc7352c426cd692bfbfa98de0aff481c4946686491"
+      },
+      "cropBounds": [
+        300,
+        82,
+        600,
+        382
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.34309713840484646,
+          4.956264506164906,
+          13.942417836726072
+        ],
+        "target": [
+          -0.34309713840484646,
+          3.316628085516766,
+          0.27878099799156203
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "avatar:playmaker",
+      "phase": "before",
+      "angle": "back",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-before-final/before-back-02.png",
+        "bytes": 66981,
+        "sha256": "47faa2445cdf47ac13a408d9ebee6fea0485b881a9ba60dc3f42bd861c560861"
+      },
+      "cropBounds": [
+        300,
+        82,
+        600,
+        382
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.3430971384048448,
+          4.956264506164906,
+          -13.384855840742947
+        ],
+        "target": [
+          -0.34309713840484646,
+          3.316628085516766,
+          0.27878099799156203
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "avatar:playmaker",
+      "phase": "after",
+      "angle": "back",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-retry2/after-back-02.png",
+        "bytes": 65233,
+        "sha256": "00e96b0d2a2f312ff02f3cc4fcf6dbd7e362bb25c7edf62e8d8b132a58b09afe"
+      },
+      "cropBounds": [
+        300,
+        82,
+        600,
+        382
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          -0.3430971384048448,
+          4.956264506164906,
+          -13.384855840742947
+        ],
+        "target": [
+          -0.34309713840484646,
+          3.316628085516766,
+          0.27878099799156203
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "monster:23995346",
+      "phase": "before",
+      "angle": "front",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-before-final/before-front-01.png",
+        "bytes": 1046088,
+        "sha256": "de4cf2080eae322638d1be3501b116ca5e04f417fef6f057c9001b006dba4bb1"
+      },
+      "cropBounds": [
+        1200,
+        82,
+        1500,
+        382
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          0,
+          2.0379763706445693,
+          5.867155555486679
+        ],
+        "target": [
+          0,
+          1.3027438312768935,
+          -0.25978227257728576
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "monster:23995346",
+      "phase": "after",
+      "angle": "front",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-retry2/after-front-01.png",
+        "bytes": 1107698,
+        "sha256": "bb50ac533275ef3538bc4966853c3b64c290990366d2c8daf8992a827140cb75"
+      },
+      "cropBounds": [
+        1200,
+        82,
+        1500,
+        382
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          0,
+          2.0379763706445693,
+          5.867155555486679
+        ],
+        "target": [
+          0,
+          1.3027438312768935,
+          -0.25978227257728576
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "monster:23995346",
+      "phase": "before",
+      "angle": "back",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-before-final/before-back-01.png",
+        "bytes": 899214,
+        "sha256": "3493d2ca958d31505ba7c02caf88f7ea0fb13eb8ead21abdb0ea1aafe6aa3f68"
+      },
+      "cropBounds": [
+        1200,
+        82,
+        1500,
+        382
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          7.503334799713371e-16,
+          2.0379763706445693,
+          -6.38672010064125
+        ],
+        "target": [
+          0,
+          1.3027438312768935,
+          -0.25978227257728576
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "monster:23995346",
+      "phase": "after",
+      "angle": "back",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-retry2/after-back-01.png",
+        "bytes": 961270,
+        "sha256": "02cab0fd2764078bfe91bad2741d57b52a83b812edd3136d1d90c0337f7b4847"
+      },
+      "cropBounds": [
+        1200,
+        82,
+        1500,
+        382
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          7.503334799713371e-16,
+          2.0379763706445693,
+          -6.38672010064125
+        ],
+        "target": [
+          0,
+          1.3027438312768935,
+          -0.25978227257728576
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "monster:44508094",
+      "phase": "before",
+      "angle": "front",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-before-final/before-front-01.png",
+        "bytes": 1046088,
+        "sha256": "de4cf2080eae322638d1be3501b116ca5e04f417fef6f057c9001b006dba4bb1"
+      },
+      "cropBounds": [
+        0,
+        382,
+        300,
+        682
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          0,
+          2.0379763706445693,
+          5.867155555486679
+        ],
+        "target": [
+          0,
+          1.3027438312768935,
+          -0.25978227257728576
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "monster:44508094",
+      "phase": "after",
+      "angle": "front",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-retry2/after-front-01.png",
+        "bytes": 1107698,
+        "sha256": "bb50ac533275ef3538bc4966853c3b64c290990366d2c8daf8992a827140cb75"
+      },
+      "cropBounds": [
+        0,
+        382,
+        300,
+        682
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          0,
+          2.0379763706445693,
+          5.867155555486679
+        ],
+        "target": [
+          0,
+          1.3027438312768935,
+          -0.25978227257728576
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "monster:44508094",
+      "phase": "before",
+      "angle": "back",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-before-final/before-back-01.png",
+        "bytes": 899214,
+        "sha256": "3493d2ca958d31505ba7c02caf88f7ea0fb13eb8ead21abdb0ea1aafe6aa3f68"
+      },
+      "cropBounds": [
+        0,
+        382,
+        300,
+        682
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          7.503334799713371e-16,
+          2.0379763706445693,
+          -6.38672010064125
+        ],
+        "target": [
+          0,
+          1.3027438312768935,
+          -0.25978227257728576
+        ],
+        "fov": 34
+      }
+    },
+    {
+      "key": "monster:44508094",
+      "phase": "after",
+      "angle": "back",
+      "screenshot": {
+        "path": "docs/audits/artifacts/multireference-qa-2026-10-13/angles-retry2/after-back-01.png",
+        "bytes": 961270,
+        "sha256": "02cab0fd2764078bfe91bad2741d57b52a83b812edd3136d1d90c0337f7b4847"
+      },
+      "cropBounds": [
+        0,
+        382,
+        300,
+        682
+      ],
+      "resize": false,
+      "retouch": false,
+      "camera": {
+        "position": [
+          7.503334799713371e-16,
+          2.0379763706445693,
+          -6.38672010064125
+        ],
+        "target": [
+          0,
+          1.3027438312768935,
+          -0.25978227257728576
+        ],
+        "fov": 34
+      }
+    }
+  ],
+  "references": [
+    {
+      "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yugi-konami.png",
+      "label": "Konami · Yugi",
+      "bytes": 109196,
+      "sha256": "6f7ad9a858cc85ebc00e9c1610e731e0e503e6b12bbdf77db3aae40e72eaf88a",
+      "display": "complete image proportionally letterboxed"
+    },
+    {
+      "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yugi-kotobukiya-7.jpg",
+      "label": "Kotobukiya · Yugi Muto PV325",
+      "bytes": 123066,
+      "sha256": "e067c73a15ac5821f48ca606e93f069c93102039fa8e97d0ef305ecde6a51153",
+      "display": "complete image proportionally letterboxed"
+    },
+    {
+      "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/atem-f4f-11.jpg",
+      "label": "F4F · Pharaon, portrait",
+      "bytes": 81604,
+      "sha256": "84659237337f966e091ed61675e737bacfe7de19048d6337699ad5ee2f471060",
+      "display": "complete image proportionally letterboxed"
+    },
+    {
+      "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/atem-f4f-13.jpg",
+      "label": "F4F · Pharaon, silhouette",
+      "bytes": 105281,
+      "sha256": "915578e4e5b85da29e721c20c823a016dc3687037a2cfef351a779911ff0aae9",
+      "display": "complete image proportionally letterboxed"
+    },
+    {
+      "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/kaiba-konami.png",
+      "label": "Konami · Kaiba",
+      "bytes": 133633,
+      "sha256": "cf0a78381947da176c46d7aeb6bf788690db9f03d279f9fd6b0338af20932144",
+      "display": "complete image proportionally letterboxed"
+    },
+    {
+      "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/kaiba-kotobukiya-5.jpg",
+      "label": "Kotobukiya · manteau/dos",
+      "bytes": 86681,
+      "sha256": "71a1fa15f0eefc3c33e25fbb22950cadf6b22e94831bc84bc26e3086d2c44e70",
+      "display": "complete image proportionally letterboxed"
+    },
+    {
+      "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/joey-kingdom-journey.jpg",
+      "label": "Épisode officiel · veste verte",
+      "bytes": 14622,
+      "sha256": "6949dde9b3f6fdf61ff5aed52220e2f592b6661362a26a4eddbee5c88da2fe1b",
+      "display": "complete image proportionally letterboxed"
+    },
+    {
+      "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/joey-kotobukiya-6.jpg",
+      "label": "Kotobukiya · cheveux/dos",
+      "bytes": 107262,
+      "sha256": "7b22df273448b84a6581328bfbc83d28bc5555112612acbd815780e569b8150a",
+      "display": "complete image proportionally letterboxed"
+    },
+    {
+      "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/jaden-konami.png",
+      "label": "Konami · Jaden",
+      "bytes": 116736,
+      "sha256": "a64d110b06c95a17fc0fa565cee023f95cc6893e99b33eb02c63f891baba59a7",
+      "display": "complete image proportionally letterboxed"
+    },
+    {
+      "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/jaden-amakuni-2.jpg",
+      "label": "AMAKUNI · coiffure/dos",
+      "bytes": 154275,
+      "sha256": "b84525ad2750ebf6b3bd80aebda367b768856e2de1412c539d11d6dabf5e9b3a",
+      "display": "complete image proportionally letterboxed"
+    },
+    {
+      "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yusei-konami.png",
+      "label": "Konami · Yusei",
+      "bytes": 109430,
+      "sha256": "1f5ceeadc8455a303a9cf618d3a98eac2a94569323e87ca23da9c6894b447e1c",
+      "display": "complete image proportionally letterboxed"
+    },
+    {
+      "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yusei-amakuni-2.jpg",
+      "label": "AMAKUNI · coiffure/dos",
+      "bytes": 323786,
+      "sha256": "6aaa11e8c58be2a7e2fa9200980353b3c95029f788ab3210f0f60146ab21871e",
+      "display": "complete image proportionally letterboxed"
+    },
+    {
+      "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yuya-konami.png",
+      "label": "Konami · Yuya",
+      "bytes": 155790,
+      "sha256": "e8cac0a70cc640d376d7b33ac6682bff6ca6f07b41a146c1026a0b027d94dfa2",
+      "display": "complete image proportionally letterboxed"
+    },
+    {
+      "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yuya-tvtokyo.png",
+      "label": "TV Tokyo · tenue complète",
+      "bytes": 140449,
+      "sha256": "faa99693b5c887ffc44a7918e623f3dba4aa57ea8d39eab6a5d8ad9a0545b25b",
+      "display": "complete image proportionally letterboxed"
+    },
+    {
+      "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/playmaker-konami.png",
+      "label": "Konami · LINK VRAINS",
+      "bytes": 109894,
+      "sha256": "58dec7d46169366ca96f4c02f6e4ed6b40d0c3c9bfe2c7203f9c99334cd4742d",
+      "display": "complete image proportionally letterboxed"
+    },
+    {
+      "file": "docs/audits/artifacts/multireference-avatars-2026-10-13/references/vrains-tvtokyo-1.png",
+      "label": "TV Tokyo · Playmaker",
+      "bytes": 99640,
+      "sha256": "822901e447b75ac7fc2f725d00474a604f14039bfbc154dfb3366db382d9fb5d",
+      "display": "complete image proportionally letterboxed"
+    },
+    {
+      "file": "public/cards/cropped/23995346.jpg",
+      "label": "Art canonique · 23995346",
+      "bytes": 125110,
+      "sha256": "d4814852ce92bcd3ff7fd09785f72b40e9a6103f7a37516d90e196e42f3637c5",
+      "display": "complete image proportionally letterboxed"
+    },
+    {
+      "file": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/23995347.jpg",
+      "label": "Art alternatif · structure",
+      "bytes": 137961,
+      "sha256": "bfa4b98d5331f37e7dab69cf6330b94eab738708701844bf3e0822b6bf441e49",
+      "display": "complete image proportionally letterboxed"
+    },
+    {
+      "file": "public/cards/cropped/44508094.jpg",
+      "label": "Art canonique · 44508094",
+      "bytes": 264358,
+      "sha256": "a1824b6379bbcd3d385090c4ecf9ec6bd50862c7b816220c0b4103ecc4a74260",
+      "display": "complete image proportionally letterboxed"
+    },
+    {
+      "file": "docs/audits/artifacts/multireference-monsters-2026-10-13/references/44508095.jpg",
+      "label": "Art alternatif · structure",
+      "bytes": 212830,
+      "sha256": "720a668caed4f9835b3ffad91f797ed2045015402f75c898f9c10a8d663dc6c0",
+      "display": "complete image proportionally letterboxed"
+    }
+  ],
+  "ok": true,
+  "captionCorrection": {
+    "reason": "Manufacturer record confirms ARTFX J Yugi Muto PV325, product190526065888; previous caption incorrectly called this Yami Yugi PV324.",
+    "onlyChangedImage": "avatars-primary-before-after-01.png",
+    "unchangedOtherImageBytes": true,
+    "noNewModelRenders": true,
+    "noBuildOrTestsOrApplicationExecuted": true,
+    "previousProofsArchive": "docs/audits/artifacts/multireference-qa-2026-10-13/caption-correction-yugi-pv325-2026-10-13",
+    "frozenRuntimeAndOriginal21QaInputsUnchanged": true
+  }
+}

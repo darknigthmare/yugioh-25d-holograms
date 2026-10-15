@@ -1,0 +1,2812 @@
+{
+  "startedAtUtc": "2026-10-11T13:48:01.093620+00:00",
+  "finishedAtUtc": "2026-10-11T13:48:10.050982+00:00",
+  "url": "http://127.0.0.1:5211/",
+  "scope": "Fresh Chromium development app; compiled browser QA is a separate report. No app source, test or duel state was modified. Only the stated compatibility context deletes Element.prototype.checkVisibility before bootstrap.",
+  "browserExecutable": "/usr/bin/chromium",
+  "beforeEvidence": {
+    "path": "before-repro.json",
+    "sha256": "cc78c660c61c87b9d53ee283bcb79285138592fbde17667f6a4759ba8e6f6e00",
+    "sourceHashCaptured": false,
+    "note": "Exact bytes copied from the earlier real-browser failing reproduction; that run did not capture main.js SHA."
+  },
+  "sourceHashesBefore": {
+    "main.js": "7189b1fd1403374bf3f7e679f72fb31953bab0a54575fab38c6031a7077c57dd",
+    "src/ui/DuelistAvatarPicker.js": "9f5bdf7cf3b53dbc2c3c705792aa57772645f8bc157d302fe3b4bff6867c621b",
+    "src/ui/DuelistAvatarPreviewLifecycle.js": "028b34b9b44ef90adb6186a039562ab38a2aeaf4751c1ec3aae87248cff1bb6d",
+    "src/ui/DuelistAvatarPreview3D.js": "296633357601291e6488bba62dd08372b08a4d6fe7de2f8c92b78462d23f4262",
+    "style.css": "3bdb08df1c6433c3e3abe25d7e53ffc13f157d48638027cfe044115df77fd1d0"
+  },
+  "sourceHashesAfter": {
+    "main.js": "7189b1fd1403374bf3f7e679f72fb31953bab0a54575fab38c6031a7077c57dd",
+    "src/ui/DuelistAvatarPicker.js": "9f5bdf7cf3b53dbc2c3c705792aa57772645f8bc157d302fe3b4bff6867c621b",
+    "src/ui/DuelistAvatarPreviewLifecycle.js": "028b34b9b44ef90adb6186a039562ab38a2aeaf4751c1ec3aae87248cff1bb6d",
+    "src/ui/DuelistAvatarPreview3D.js": "296633357601291e6488bba62dd08372b08a4d6fe7de2f8c92b78462d23f4262",
+    "style.css": "3bdb08df1c6433c3e3abe25d7e53ffc13f157d48638027cfe044115df77fd1d0"
+  },
+  "helperSha256": "f31171b043bb1ad8eb0d2cbae9f0652259033950889d8a16fc626b409e5be4bc",
+  "cases": [
+    {
+      "width": 1280,
+      "withoutCheckVisibility": false,
+      "checkVisibilityType": "function",
+      "assertions": {
+        "closedHiddenBackupExcluded": true,
+        "closedSummaryTabWrapsToClose": true,
+        "closedCloseShiftTabWrapsToSummary": true,
+        "closedSummaryShiftTabReachesPreviewToggle": true,
+        "openSummaryTabReachesExport": true,
+        "openExportTabReachesImport": true,
+        "openImportTabWrapsToClose": true,
+        "openCloseShiftTabWrapsToImport": true,
+        "openSummaryShiftTabReachesPreviewToggle": true
+      },
+      "pageErrors": [],
+      "closedRetained": [
+        {
+          "id": "duelist-avatar-close",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Fermer ×"
+        },
+        {
+          "id": "duelist-avatar-search",
+          "tag": "INPUT",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": ""
+        },
+        {
+          "id": "duelist-avatar-series",
+          "tag": "SELECT",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Toutes les sériesDuel MonstersGX5D’sZEXALARC-VVRAI"
+        },
+        {
+          "id": "duelist-avatar-availability",
+          "tag": "SELECT",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Tous les personnagesDisponiblesÀ débloquer"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "yugi",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "atem",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "kaiba",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "joey",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "tea",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "tristan",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "serenity",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "mokuba",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "mai",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "pegasus",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "bakura",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "yami-bakura",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "marik",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "yami-marik",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "ishizu",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "odion",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "weevil",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "rex",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "bandit-keith",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "bonz",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "mako",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "espa-roba",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "duke",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "rebecca",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "duelist-avatar-next",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Suivant →"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Portrait"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Vue 3D"
+        },
+        {
+          "id": "",
+          "tag": "SUMMARY",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": {
+            "open": false,
+            "isFirstSummary": true
+          },
+          "disabled": false,
+          "avatar": null,
+          "text": "Collection et sauvegarde"
+        }
+      ],
+      "openRetained": [
+        {
+          "id": "duelist-avatar-close",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Fermer ×"
+        },
+        {
+          "id": "duelist-avatar-search",
+          "tag": "INPUT",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": ""
+        },
+        {
+          "id": "duelist-avatar-series",
+          "tag": "SELECT",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Toutes les sériesDuel MonstersGX5D’sZEXALARC-VVRAI"
+        },
+        {
+          "id": "duelist-avatar-availability",
+          "tag": "SELECT",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Tous les personnagesDisponiblesÀ débloquer"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "yugi",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "atem",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "kaiba",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "joey",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "tea",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "tristan",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "serenity",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "mokuba",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "mai",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "pegasus",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "bakura",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "yami-bakura",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "marik",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "yami-marik",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "ishizu",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "odion",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "weevil",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "rex",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "bandit-keith",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "bonz",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "mako",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "espa-roba",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "duke",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "rebecca",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "duelist-avatar-next",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Suivant →"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Portrait"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Vue 3D"
+        },
+        {
+          "id": "",
+          "tag": "SUMMARY",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": {
+            "open": true,
+            "isFirstSummary": true
+          },
+          "disabled": false,
+          "avatar": null,
+          "text": "Collection et sauvegarde"
+        },
+        {
+          "id": "duelist-avatar-export",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": {
+            "open": true,
+            "isFirstSummary": false
+          },
+          "disabled": false,
+          "avatar": null,
+          "text": "Exporter ma collection"
+        },
+        {
+          "id": "duelist-avatar-import",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": {
+            "open": true,
+            "isFirstSummary": false
+          },
+          "disabled": false,
+          "avatar": null,
+          "text": "Importer ma collection"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "width": 1280,
+      "withoutCheckVisibility": true,
+      "checkVisibilityType": "undefined",
+      "assertions": {
+        "closedHiddenBackupExcluded": true,
+        "closedSummaryTabWrapsToClose": true,
+        "closedCloseShiftTabWrapsToSummary": true,
+        "closedSummaryShiftTabReachesPreviewToggle": true,
+        "openSummaryTabReachesExport": true,
+        "openExportTabReachesImport": true,
+        "openImportTabWrapsToClose": true,
+        "openCloseShiftTabWrapsToImport": true,
+        "openSummaryShiftTabReachesPreviewToggle": true
+      },
+      "pageErrors": [],
+      "closedRetained": [
+        {
+          "id": "duelist-avatar-close",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Fermer ×"
+        },
+        {
+          "id": "duelist-avatar-search",
+          "tag": "INPUT",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": ""
+        },
+        {
+          "id": "duelist-avatar-series",
+          "tag": "SELECT",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Toutes les sériesDuel MonstersGX5D’sZEXALARC-VVRAI"
+        },
+        {
+          "id": "duelist-avatar-availability",
+          "tag": "SELECT",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Tous les personnagesDisponiblesÀ débloquer"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "yugi",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "atem",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "kaiba",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "joey",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "tea",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "tristan",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "serenity",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "mokuba",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "mai",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "pegasus",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "bakura",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "yami-bakura",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "marik",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "yami-marik",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "ishizu",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "odion",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "weevil",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "rex",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "bandit-keith",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "bonz",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "mako",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "espa-roba",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "duke",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "rebecca",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "duelist-avatar-next",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Suivant →"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Portrait"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Vue 3D"
+        },
+        {
+          "id": "",
+          "tag": "SUMMARY",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": {
+            "open": false,
+            "isFirstSummary": true
+          },
+          "disabled": false,
+          "avatar": null,
+          "text": "Collection et sauvegarde"
+        }
+      ],
+      "openRetained": [
+        {
+          "id": "duelist-avatar-close",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Fermer ×"
+        },
+        {
+          "id": "duelist-avatar-search",
+          "tag": "INPUT",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": ""
+        },
+        {
+          "id": "duelist-avatar-series",
+          "tag": "SELECT",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Toutes les sériesDuel MonstersGX5D’sZEXALARC-VVRAI"
+        },
+        {
+          "id": "duelist-avatar-availability",
+          "tag": "SELECT",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Tous les personnagesDisponiblesÀ débloquer"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "yugi",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "atem",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "kaiba",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "joey",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "tea",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "tristan",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "serenity",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "mokuba",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "mai",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "pegasus",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "bakura",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "yami-bakura",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "marik",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "yami-marik",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "ishizu",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "odion",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "weevil",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "rex",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "bandit-keith",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "bonz",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "mako",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "espa-roba",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "duke",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "rebecca",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "duelist-avatar-next",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Suivant →"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Portrait"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Vue 3D"
+        },
+        {
+          "id": "",
+          "tag": "SUMMARY",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": {
+            "open": true,
+            "isFirstSummary": true
+          },
+          "disabled": false,
+          "avatar": null,
+          "text": "Collection et sauvegarde"
+        },
+        {
+          "id": "duelist-avatar-export",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": {
+            "open": true,
+            "isFirstSummary": false
+          },
+          "disabled": false,
+          "avatar": null,
+          "text": "Exporter ma collection"
+        },
+        {
+          "id": "duelist-avatar-import",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": {
+            "open": true,
+            "isFirstSummary": false
+          },
+          "disabled": false,
+          "avatar": null,
+          "text": "Importer ma collection"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "width": 390,
+      "withoutCheckVisibility": false,
+      "checkVisibilityType": "function",
+      "assertions": {
+        "closedHiddenBackupExcluded": true,
+        "closedSummaryTabWrapsToClose": true,
+        "closedCloseShiftTabWrapsToSummary": true,
+        "closedSummaryShiftTabReachesPreviewToggle": true,
+        "openSummaryTabReachesExport": true,
+        "openExportTabReachesImport": true,
+        "openImportTabWrapsToClose": true,
+        "openCloseShiftTabWrapsToImport": true,
+        "openSummaryShiftTabReachesPreviewToggle": true
+      },
+      "pageErrors": [],
+      "closedRetained": [
+        {
+          "id": "duelist-avatar-close",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Fermer ×"
+        },
+        {
+          "id": "duelist-avatar-search",
+          "tag": "INPUT",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": ""
+        },
+        {
+          "id": "duelist-avatar-series",
+          "tag": "SELECT",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Toutes les sériesDuel MonstersGX5D’sZEXALARC-VVRAI"
+        },
+        {
+          "id": "duelist-avatar-availability",
+          "tag": "SELECT",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Tous les personnagesDisponiblesÀ débloquer"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "yugi",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "atem",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "kaiba",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "joey",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "tea",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "tristan",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "serenity",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "mokuba",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "mai",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "pegasus",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "bakura",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "yami-bakura",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "marik",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "yami-marik",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "ishizu",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "odion",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "weevil",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "rex",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "bandit-keith",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "bonz",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "mako",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "espa-roba",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "duke",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "rebecca",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "duelist-avatar-next",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Suivant →"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Portrait"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Vue 3D"
+        },
+        {
+          "id": "",
+          "tag": "SUMMARY",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": {
+            "open": false,
+            "isFirstSummary": true
+          },
+          "disabled": false,
+          "avatar": null,
+          "text": "Collection et sauvegarde"
+        }
+      ],
+      "openRetained": [
+        {
+          "id": "duelist-avatar-close",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Fermer ×"
+        },
+        {
+          "id": "duelist-avatar-search",
+          "tag": "INPUT",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": ""
+        },
+        {
+          "id": "duelist-avatar-series",
+          "tag": "SELECT",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Toutes les sériesDuel MonstersGX5D’sZEXALARC-VVRAI"
+        },
+        {
+          "id": "duelist-avatar-availability",
+          "tag": "SELECT",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Tous les personnagesDisponiblesÀ débloquer"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "yugi",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "atem",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "kaiba",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "joey",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "tea",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "tristan",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "serenity",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "mokuba",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "mai",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "pegasus",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "bakura",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "yami-bakura",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "marik",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "yami-marik",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "ishizu",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "odion",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "weevil",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "rex",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "bandit-keith",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "bonz",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "mako",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "espa-roba",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "duke",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "rebecca",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "duelist-avatar-next",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Suivant →"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Portrait"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Vue 3D"
+        },
+        {
+          "id": "",
+          "tag": "SUMMARY",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": {
+            "open": true,
+            "isFirstSummary": true
+          },
+          "disabled": false,
+          "avatar": null,
+          "text": "Collection et sauvegarde"
+        },
+        {
+          "id": "duelist-avatar-export",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": {
+            "open": true,
+            "isFirstSummary": false
+          },
+          "disabled": false,
+          "avatar": null,
+          "text": "Exporter ma collection"
+        },
+        {
+          "id": "duelist-avatar-import",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": {
+            "open": true,
+            "isFirstSummary": false
+          },
+          "disabled": false,
+          "avatar": null,
+          "text": "Importer ma collection"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "width": 390,
+      "withoutCheckVisibility": true,
+      "checkVisibilityType": "undefined",
+      "assertions": {
+        "closedHiddenBackupExcluded": true,
+        "closedSummaryTabWrapsToClose": true,
+        "closedCloseShiftTabWrapsToSummary": true,
+        "closedSummaryShiftTabReachesPreviewToggle": true,
+        "openSummaryTabReachesExport": true,
+        "openExportTabReachesImport": true,
+        "openImportTabWrapsToClose": true,
+        "openCloseShiftTabWrapsToImport": true,
+        "openSummaryShiftTabReachesPreviewToggle": true
+      },
+      "pageErrors": [],
+      "closedRetained": [
+        {
+          "id": "duelist-avatar-close",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Fermer ×"
+        },
+        {
+          "id": "duelist-avatar-search",
+          "tag": "INPUT",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": ""
+        },
+        {
+          "id": "duelist-avatar-series",
+          "tag": "SELECT",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Toutes les sériesDuel MonstersGX5D’sZEXALARC-VVRAI"
+        },
+        {
+          "id": "duelist-avatar-availability",
+          "tag": "SELECT",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Tous les personnagesDisponiblesÀ débloquer"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "yugi",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "atem",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "kaiba",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "joey",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "tea",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "tristan",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "serenity",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "mokuba",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "mai",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "pegasus",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "bakura",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "yami-bakura",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "marik",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "yami-marik",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "ishizu",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "odion",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "weevil",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "rex",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "bandit-keith",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "bonz",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "mako",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "espa-roba",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "duke",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "rebecca",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "duelist-avatar-next",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Suivant →"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Portrait"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Vue 3D"
+        },
+        {
+          "id": "",
+          "tag": "SUMMARY",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": {
+            "open": false,
+            "isFirstSummary": true
+          },
+          "disabled": false,
+          "avatar": null,
+          "text": "Collection et sauvegarde"
+        }
+      ],
+      "openRetained": [
+        {
+          "id": "duelist-avatar-close",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Fermer ×"
+        },
+        {
+          "id": "duelist-avatar-search",
+          "tag": "INPUT",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": ""
+        },
+        {
+          "id": "duelist-avatar-series",
+          "tag": "SELECT",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Toutes les sériesDuel MonstersGX5D’sZEXALARC-VVRAI"
+        },
+        {
+          "id": "duelist-avatar-availability",
+          "tag": "SELECT",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Tous les personnagesDisponiblesÀ débloquer"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "yugi",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "atem",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "kaiba",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "joey",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "tea",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "tristan",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "serenity",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "mokuba",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "mai",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "pegasus",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "bakura",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "yami-bakura",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "marik",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "yami-marik",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "ishizu",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "odion",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "weevil",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "rex",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "bandit-keith",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "bonz",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "mako",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "espa-roba",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "duke",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": "rebecca",
+          "text": "\n    \n    \n    \n    \n    \n      \n      \n      \n   "
+        },
+        {
+          "id": "duelist-avatar-next",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Suivant →"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Portrait"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": null,
+          "disabled": false,
+          "avatar": null,
+          "text": "Vue 3D"
+        },
+        {
+          "id": "",
+          "tag": "SUMMARY",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": {
+            "open": true,
+            "isFirstSummary": true
+          },
+          "disabled": false,
+          "avatar": null,
+          "text": "Collection et sauvegarde"
+        },
+        {
+          "id": "duelist-avatar-export",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": {
+            "open": true,
+            "isFirstSummary": false
+          },
+          "disabled": false,
+          "avatar": null,
+          "text": "Exporter ma collection"
+        },
+        {
+          "id": "duelist-avatar-import",
+          "tag": "BUTTON",
+          "tabIndex": 0,
+          "rects": 1,
+          "closedDetails": {
+            "open": true,
+            "isFirstSummary": false
+          },
+          "disabled": false,
+          "avatar": null,
+          "text": "Importer ma collection"
+        }
+      ],
+      "pass": true
+    }
+  ],
+  "totals": {
+    "cases": 4,
+    "passed": 4,
+    "focusAssertions": 36,
+    "pageErrors": 0
+  }
+}

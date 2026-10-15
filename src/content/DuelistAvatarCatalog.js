@@ -45,12 +45,12 @@ const ROSTER = {
     ['yami-marik', 'Marik des ténèbres', 'Yami Marik|Yami Malik', 'Grandes pointes blondes, torse sombre et collier doré.', 'star', 'jacket', 'necklace', '#dac477', '#3d3147', '#d5aa39', 1.1, 'average', 'confident', 13, 'wins:20', '#c38c67'],
     ['ishizu', 'Ishizu Ishtar', 'Isis Ishtar', 'Long voile blanc, chevelure noire et Collier du Millénium.', 'long', 'robe', 'necklace', '#26212b', '#f3efe4', '#d4ad40', 1.08, 'slim', 'calm', 14, 'medals:9', '#c6936b'],
     ['odion', 'Odion', 'Rishid Ishtar|Rishid', 'Crâne rasé, forte carrure et robe brune.', 'bald', 'robe', 'none', '#4c352d', '#78624b', '#d2ae51', 1.24, 'broad', 'calm', 15, 'wins:8', '#987052'],
-    ['weevil', 'Weevil Underwood', 'Insector Haga|Haga', 'Petite taille, coupe verte arrondie et lunettes rondes.', 'bob', 'school', 'glasses', '#48815c', '#b9955d', '#e9d276', 0.9, 'slim', 'confident', 0, 'duels:6'],
-    ['rex', 'Rex Raptor', 'Dinosaur Ryuzaki|Ryûzaki', 'Longue chevelure brune sous une casquette rouge.', 'long', 'jacket', 'hat', '#80664a', '#a44642', '#ebe1c4', 1.01, 'average', 'ready', 1, 'duels:7'],
+    ['weevil', 'Weevil Underwood', 'Insector Haga|Haga', 'Petite taille, coupe bleu-vert arrondie, lunettes rondes et manteau vert.', 'bob', 'long-coat', 'glasses', '#75b6a9', '#3d7b58', '#e9d276', 0.9, 'slim', 'confident', 0, 'duels:6'],
+    ['rex', 'Rex Raptor', 'Dinosaur Ryuzaki|Ryûzaki', 'Chevelure brune à mèche lavande, casquette rouge et veste verte.', 'long', 'jacket', 'hat', '#80664a', '#427558', '#ebe1c4', 1.01, 'average', 'ready', 1, 'duels:7', '#f3c4a5', '#a494b6'],
     ['bandit-keith', 'Bandit Keith', 'Keith Howard', 'Carrure massive, lunettes noires et bandana étoilé.', 'short', 'jacket', 'headband', '#b99a65', '#232938', '#d74145', 1.2, 'broad', 'confident', 2, 'wins:6'],
-    ['bonz', 'Bonz', 'Ghost Kotsuzuka|Kotsuzuka', 'Petit corps voûté, cheveux violets et teint gris.', 'swept', 'jacket', 'none', '#795c82', '#443347', '#ac8391', 0.87, 'slim', 'calm', 3, 'duels:12', '#b4b0ad'],
+    ['bonz', 'Bonz', 'Ghost Kotsuzuka|Kotsuzuka', 'Petit corps voûté, cheveux bleu nuit hérissés, veste jaune et teint gris.', 'star', 'jacket', 'none', '#34384f', '#b5b674', '#777b53', 0.87, 'slim', 'calm', 3, 'duels:12', '#b4b0ad'],
     ['mako', 'Mako Tsunami', 'Ryota Kajiki|Ryôta', 'Cheveux noirs pointus, bandeau blanc et tenue de pêcheur.', 'star', 'sport', 'headband', '#252831', '#4374a3', '#f0e5cf', 1.06, 'average', 'energetic', 4, 'mission:terrain-reading', '#cd9b76'],
-    ['espa-roba', 'Espa Roba', 'Esper Roba|Esparoba', 'Frange turquoise symétrique et combinaison violette.', 'swept', 'uniform', 'earpiece', '#4da5ae', '#756188', '#b9d2be', 1.01, 'slim', 'ready', 5, 'duels:15'],
+    ['espa-roba', 'Espa Roba', 'Esper Roba|Esparoba', 'Frange vert menthe symétrique et combinaison rose à col haut.', 'swept', 'uniform', 'earpiece', '#99c2ad', '#b67892', '#e1dbbb', 1.01, 'slim', 'ready', 5, 'duels:15'],
     ['duke', 'Duke Devlin', 'Ryuji Otogi|Ryûji Otogi', 'Queue-de-cheval noire et bandeau rouge.', 'ponytail', 'jacket', 'headband', '#292633', '#303746', '#b83843', 1.09, 'slim', 'confident', 6, 'wins:5'],
     ['rebecca', 'Rebecca Hawkins', 'Rebecca Hopkins', 'Couettes blondes, lunettes et petite silhouette.', 'twin-tail', 'dress', 'glasses', '#e4bf61', '#b9659a', '#f2e5d9', 0.86, 'slim', 'energetic', 7, 'medals:3'],
     ['arthur-hawkins', 'Arthur Hawkins', 'Arthur Hopkins', 'Cheveux blancs courts, lunettes et costume de chercheur.', 'short', 'suit', 'glasses', '#e5e0d5', '#8c816e', '#e8d8bc', 1.08, 'average', 'calm', 8, 'duels:25'],
@@ -59,7 +59,7 @@ const ROSTER = {
     ['solomon', 'Solomon Muto', 'Sugoroku Mutô|Grand-père de Yugi', 'Moustache, cheveux gris et petit chapeau vert.', 'short', 'sport', 'hat', '#b7b7ae', '#718652', '#d3b060', 0.96, 'average', 'calm', 11, 'mission:first-formation']
   ],
   gx: [
-    ['jaden', 'Jaden Yuki', 'Judai Yuki|Jûdai Yûki', 'Cheveux bruns ébouriffés et veste rouge de Slifer.', 'swept', 'jacket', 'none', '#77472f', '#a63435', '#eee5d8', 1.02, 'average', 'energetic', 0, 'starter'],
+    ['jaden', 'Jaden Yuki', 'Judai Yuki|Jûdai Yûki', 'Cheveux bruns à mèches orangées, veste rouge de Slifer et pantalon gris.', 'swept', 'jacket', 'none', '#77472f', '#a63435', '#eee5d8', 1.02, 'average', 'energetic', 0, 'starter', '#f3c4a5', '#b97942'],
     ['syrus', 'Syrus Truesdale', 'Sho Marufuji|Shô', 'Petit gabarit, cheveux bleu clair et lunettes rondes.', 'bob', 'school', 'glasses', '#82b9d0', '#b14a47', '#f0dfce', 0.87, 'slim', 'calm', 1, 'duels:3'],
     ['zane', 'Zane Truesdale', 'Ryo Marufuji|Ryô Marufuji|Hell Kaiser', 'Longue frange bleu sombre et manteau noir ajusté.', 'long', 'long-coat', 'none', '#314251', '#262833', '#888796', 1.13, 'slim', 'confident', 2, 'wins:8'],
     ['alexis', 'Alexis Rhodes', 'Asuka Tenjoin|Asuka Tenjôin', 'Longs cheveux blonds et uniforme blanc d’Obelisk à jupe.', 'long', 'dress', 'none', '#d4b576', '#e9eef3', '#4b79aa', 1.06, 'slim', 'ready', 3, 'wins:3'],
@@ -67,11 +67,11 @@ const ROSTER = {
     ['bastion', 'Bastion Misawa', 'Daichi Misawa', 'Coupe brune sobre et veste jaune de Ra.', 'short', 'school', 'none', '#4b3a2e', '#d3b552', '#eee3c8', 1.07, 'average', 'calm', 5, 'mission:hold-the-line'],
     ['chumley', 'Chumley Huffington', 'Hayato Maeda', 'Carrure ronde, cheveux bruns courts et veste rouge.', 'short', 'jacket', 'none', '#71553b', '#b14b45', '#efddc4', 1.04, 'broad', 'calm', 6, 'duels:5'],
     ['atticus', 'Atticus Rhodes', 'Fubuki Tenjoin|Fubuki Tenjôin', 'Longue frange châtaine et veste blanche à col haut.', 'swept', 'uniform', 'none', '#945a3f', '#eceef0', '#5782b1', 1.12, 'slim', 'energetic', 7, 'duels:12'],
-    ['blair', 'Blair Flannigan', 'Rei Saotome', 'Petite silhouette et cheveux bleu-vert au carré.', 'bob', 'school', 'hat', '#487c75', '#bf6755', '#f0e8d9', 0.9, 'slim', 'energetic', 8, 'duels:8'],
+    ['blair', 'Blair Flannigan', 'Rei Saotome', 'Longue chevelure bleu sombre, veste rouge de Slifer et tenue kaki.', 'long', 'jacket', 'none', '#344263', '#ad4745', '#b9ad79', 0.9, 'slim', 'energetic', 8, 'duels:8'],
     ['aster', 'Aster Phoenix', 'Edo Phoenix|Ed Phoenix', 'Chevelure gris lavande et costume blanc.', 'swept', 'suit', 'none', '#b9b3c8', '#e9e9ed', '#45657c', 1.1, 'slim', 'confident', 9, 'wins:12'],
     ['jesse', 'Jesse Anderson', 'Johan Andersen|Johan', 'Cheveux turquoise et veste bleue ouverte.', 'swept', 'jacket', 'none', '#328f97', '#365f98', '#eff0e3', 1.05, 'slim', 'energetic', 10, 'mission:three-dragons'],
     ['jim', 'Jim Crocodile Cook', 'Jim Cook', 'Chapeau de brousse, chevelure brune et foulard rouge.', 'long', 'jacket', 'hat', '#927650', '#a99562', '#a84935', 1.16, 'average', 'calm', 11, 'duels:20', '#c99870'],
-    ['axel', 'Axel Brodie', 'Austin O’Brien|Austin OBrien', 'Cheveux sombres hérissés et tenue tactique blanche.', 'star', 'uniform', 'none', '#393b3a', '#e6e0d1', '#69785d', 1.13, 'broad', 'ready', 12, 'wins:10', '#9f7551'],
+    ['axel', 'Axel Brodie', 'Austin O’Brien|Austin OBrien', 'Dreadlocks sombres, bandeau avec lunettes, gilet tactique brun et haut rouge.', 'braided', 'jacket', 'goggles', '#393b3a', '#786a4f', '#ab4844', 1.13, 'broad', 'ready', 12, 'wins:10', '#9f7551'],
     ['adrian', 'Adrian Gecko', 'Amon Garam', 'Cheveux roux anguleux et veste blanche.', 'swept', 'uniform', 'none', '#b55c35', '#edf0ea', '#538ba5', 1.15, 'average', 'confident', 13, 'medals:15'],
     ['crowler', 'Vellian Crowler', 'Chronos de Medici|Dr. Crowler', 'Longs cheveux blonds bouclés et uniforme bleu à col large.', 'long', 'uniform', 'none', '#d1b16c', '#477cb2', '#e9dcc5', 1.12, 'average', 'confident', 14, 'medals:3'],
     ['banner', 'Lyman Banner', 'Daitokuji|Professeur Banner', 'Cheveux noirs attachés, lunettes et blouse claire.', 'ponytail', 'robe', 'glasses', '#333036', '#d9d7c7', '#52646e', 1.11, 'slim', 'calm', 15, 'duels:15'],
@@ -91,12 +91,12 @@ const ROSTER = {
   '5ds': [
     ['yusei', 'Yusei Fudo', 'Yûsei Fudô', 'Pointes noires à mèches jaunes et veste de pilote bleue.', 'star', 'jacket', 'none', '#202633', '#32586e', '#e5b54f', 1.11, 'slim', 'ready', 0, 'starter', '#efbc99', '#d9ad49'],
     ['jack', 'Jack Atlas', 'Jack', 'Mèches blondes hautes et long manteau blanc.', 'swept', 'long-coat', 'none', '#d9ba65', '#e9e8ee', '#7f629d', 1.23, 'average', 'confident', 1, 'wins:5'],
-    ['crow', 'Crow Hogan', 'Crow', 'Cheveux orange en crête et bandana brun.', 'mohawk', 'jacket', 'headband', '#d67c36', '#574c46', '#bd9c71', 1.0, 'average', 'energetic', 2, 'duels:5'],
+    ['crow', 'Crow Hogan', 'Crow', 'Cheveux orange en crête, bandeau bleu et veste brune.', 'mohawk', 'jacket', 'headband', '#d67c36', '#574c46', '#bd9c71', 1.0, 'average', 'energetic', 2, 'duels:5'],
     ['akiza', 'Akiza Izinski', 'Aki Izayoi|Aki', 'Chevelure bordeaux au carré et robe corsetée.', 'bob', 'dress', 'necklace', '#84344d', '#95445a', '#eadfc8', 1.07, 'slim', 'calm', 3, 'wins:3'],
     ['leo', 'Leo', 'Rua|Lua', 'Petit gabarit, cheveux verts en queue-de-cheval et veste jaune.', 'ponytail', 'sport', 'none', '#6e9e68', '#c5b461', '#e9e4ce', 0.87, 'slim', 'energetic', 4, 'duels:3'],
     ['luna', 'Luna', 'Ruka|Luca', 'Deux petites couettes vertes et robe claire.', 'twin-tail', 'dress', 'none', '#6c9d69', '#d3dbc9', '#d796a0', 0.86, 'slim', 'calm', 5, 'medals:3'],
     ['kalin', 'Kalin Kessler', 'Kiryu Kyosuke|Kiryû Kyôsuke', 'Longues mèches grises et manteau sombre sans manches.', 'long', 'long-coat', 'none', '#b1afbd', '#3e354a', '#838398', 1.16, 'slim', 'confident', 6, 'wins:12'],
-    ['carly', 'Carly Carmine', 'Carly Nagisa|Carly', 'Cheveux noirs à deux pointes et grosses lunettes rondes.', 'swept', 'jacket', 'glasses', '#2a2837', '#ae6658', '#e7d5be', 1.01, 'slim', 'energetic', 7, 'duels:8'],
+    ['carly', 'Carly Carmine', 'Carly Nagisa|Carly', 'Longs cheveux noirs, grosses lunettes rondes et gilet orange de journaliste.', 'long', 'jacket', 'glasses', '#2a2837', '#b87a4a', '#b4c8dd', 1.01, 'slim', 'energetic', 7, 'duels:8'],
     ['mina', 'Mina Simington', 'Mikage Sagiri', 'Cheveux bleus attachés et uniforme d’assistante.', 'ponytail', 'suit', 'none', '#5275a1', '#6b7390', '#eee9e0', 1.09, 'slim', 'calm', 8, 'duels:10'],
     ['trudge', 'Trudge', 'Tetsu Ushio|Tetsu Trudge|Ushio', 'Carrure massive, cheveux bruns relevés et uniforme de sécurité.', 'short', 'uniform', 'none', '#493b30', '#344954', '#e5be52', 1.24, 'broad', 'ready', 9, 'wins:6'],
     ['greiger', 'Greiger', 'Bommer', 'Très large silhouette, cheveux noirs et manteau rouge.', 'short', 'long-coat', 'none', '#34302d', '#8b4141', '#caa877', 1.25, 'broad', 'calm', 10, 'medals:6', '#a77654'],
@@ -104,21 +104,21 @@ const ROSTER = {
     ['misty', 'Misty Tredwell', 'Misty Lola', 'Longue chevelure noire et robe sombre ajustée.', 'long', 'dress', 'necklace', '#292f37', '#44535b', '#9a6f91', 1.13, 'slim', 'calm', 12, 'wins:10'],
     ['roman', 'Roman Goodwin', 'Rudger Goodwin', 'Longs cheveux gris, large manteau et bras mécanique.', 'long', 'long-coat', 'none', '#b5b3b1', '#645950', '#ab9e85', 1.2, 'broad', 'confident', 13, 'medals:15', '#bba185'],
     ['rex-goodwin', 'Rex Goodwin', 'Rex Godwin', 'Cheveux argentés lissés et costume administratif.', 'swept', 'suit', 'none', '#c2c2bb', '#8c7263', '#d4bd87', 1.2, 'broad', 'calm', 14, 'medals:18'],
-    ['antinomy', 'Antinomy', 'Bruno|Dark Glass', 'Cheveux bleus et combinaison de pilote rouge.', 'swept', 'armor', 'goggles', '#3d638a', '#ae474a', '#e9e5db', 1.17, 'average', 'ready', 15, 'mission:synchronization'],
+    ['antinomy', 'Antinomy', 'Bruno|Dark Glass', 'Cheveux bleus, visière rouge et combinaison de pilote bleu nuit.', 'swept', 'armor', 'goggles', '#3d638a', '#334a68', '#b13c45', 1.17, 'average', 'ready', 15, 'mission:synchronization'],
     ['aporia', 'Aporia', 'Aporie', 'Silhouette mécanique imposante et coiffe blanche à pointes rouges.', 'helmet', 'mechanical', 'none', '#e0d8cc', '#e6e0d2', '#b64c3f', 1.25, 'broad', 'confident', 0, 'wins:30', '#b9afa2', '#bd473c'],
     ['z-one', 'Z-one', 'Zone|Z-ONE', 'Masque et haute enveloppe mécanique blanche.', 'helmet', 'mechanical', 'mask', '#d6d4c5', '#dfdacd', '#967b52', 1.25, 'broad', 'calm', 1, 'medals:30', '#b1a38e'],
     ['placido', 'Placido', 'Primo|Placide', 'Chevelure argentée asymétrique et long manteau noir.', 'long', 'long-coat', 'none', '#c4c7c4', '#353d40', '#8b6875', 1.18, 'slim', 'confident', 2, 'wins:15'],
     ['lester', 'Lester', 'Luciano', 'Petite stature, queue-de-cheval rousse et manteau sombre.', 'ponytail', 'long-coat', 'none', '#c1724b', '#3e343c', '#a36267', 0.87, 'slim', 'energetic', 3, 'duels:20'],
     ['jakob', 'Jakob', 'Jose|José', 'Grand corps massif, barbe blanche et manteau sombre.', 'short', 'long-coat', 'none', '#e0dccd', '#4f4644', '#ba9980', 1.25, 'broad', 'calm', 4, 'wins:18'],
-    ['sherry', 'Sherry LeBlanc', 'Sherry Leblanc', 'Longue chevelure blonde et combinaison verte de pilote.', 'long', 'sport', 'none', '#d6bb74', '#456859', '#ebe6cc', 1.12, 'slim', 'confident', 5, 'wins:8'],
+    ['sherry', 'Sherry LeBlanc', 'Sherry Leblanc', 'Longue chevelure blonde, combinaison blanche et plastron vert de pilote.', 'long', 'armor', 'none', '#d6bb74', '#e3e8de', '#416255', 1.12, 'slim', 'confident', 5, 'wins:8'],
     ['andre', 'Andre', 'André|Team Unicorn', 'Cheveux bruns courts et combinaison bordeaux.', 'short', 'sport', 'none', '#754f37', '#795454', '#c9bc9c', 1.19, 'average', 'ready', 6, 'duels:25'],
     ['jean', 'Jean', 'Jean de Team Unicorn', 'Cheveux bleu-gris longs et tenue blanche de pilote.', 'long', 'sport', 'none', '#7f9ba1', '#e2e5dc', '#517ca0', 1.14, 'slim', 'calm', 7, 'duels:30']
   ],
   zexal: [
-    ['yuma', 'Yuma Tsukumo', 'Yûma Tsukumo', 'Pointes noires et rouges, lunettes et veste sans manches.', 'star', 'sport', 'goggles', '#283347', '#ad333e', '#d7ad3c', 0.95, 'slim', 'energetic', 0, 'starter', '#f1bf9d', '#ac3a54'],
+    ['yuma', 'Yuma Tsukumo', 'Yûma Tsukumo', 'Pointes noires et rouges, Duel Gazer à un œil et Clé de l’Empereur au cou.', 'star', 'sport', 'goggles', '#283347', '#ad333e', '#d7ad3c', 0.95, 'slim', 'energetic', 0, 'starter', '#f1bf9d', '#ac3a54'],
     ['astral', 'Astral', 'Esprit Astral', 'Corps bleu luminescent sans cheveux et marques dorées.', 'bald', 'mechanical', 'none', '#84dce4', '#80d4e5', '#e8d15a', 1.09, 'slim', 'calm', 1, 'medals:6', '#89d3e5'],
-    ['tori', 'Tori Meadows', 'Kotori Mizuki|Kotori', 'Cheveux verts attachés et uniforme rose à jupe.', 'ponytail', 'dress', 'none', '#70996d', '#ce6e85', '#f0e7d8', 0.97, 'slim', 'calm', 2, 'duels:3'],
-    ['bronk', 'Bronk Stone', 'Tetsuo Takeda', 'Cheveux bruns courts, bandeau et large silhouette.', 'short', 'school', 'headband', '#755534', '#638b59', '#e3ba5d', 1.02, 'broad', 'ready', 3, 'duels:5'],
+    ['tori', 'Tori Meadows', 'Kotori Mizuki|Kotori', 'Carré vert asymétrique, ruban rouge, haut menthe et jupe rose.', 'bob', 'dress', 'none', '#70996d', '#c5dec6', '#c45665', 0.97, 'slim', 'calm', 2, 'duels:3'],
+    ['bronk', 'Bronk Stone', 'Tetsuo Takeda', 'Grande carrure, cheveux noirs sous une casquette rouge et gilet orange.', 'short', 'sport', 'hat', '#242833', '#c78b56', '#ba3c3c', 1.02, 'broad', 'ready', 3, 'duels:5'],
     ['kite', 'Kite Tenjo', 'Kaito Tenjo|Kaito Tenjô', 'Chevelure blonde aux pointes bleues et manteau blanc.', 'star', 'long-coat', 'none', '#e2cf81', '#edf1ec', '#526f99', 1.12, 'slim', 'confident', 4, 'wins:8', '#f3c6ad', '#6684a4'],
     ['shark', 'Shark', 'Reginald Kastle|Ryoga Kamishiro|Ryôga|Nash', 'Mèches violettes incurvées et veste noire à col rouge.', 'swept', 'jacket', 'necklace', '#696083', '#343543', '#a3394e', 1.05, 'slim', 'ready', 5, 'wins:5'],
     ['rio', 'Rio Kastle', 'Rio Kamishiro|Merag', 'Longue chevelure bleu clair et uniforme blanc.', 'long', 'school', 'none', '#7da1bd', '#e3e8ec', '#9774a5', 1.02, 'slim', 'confident', 6, 'wins:6'],
@@ -128,37 +128,37 @@ const ROSTER = {
     ['caswell', 'Caswell Francis', 'Takashi Todoroki', 'Cheveux bleus pointus et lunettes carrées.', 'short', 'school', 'glasses', '#487795', '#7589a3', '#e7e1c9', 0.98, 'slim', 'calm', 10, 'duels:15'],
     ['quinton', 'Quinton', 'Christopher Arclight|V', 'Très longs cheveux blancs et veste de noble bleue.', 'long', 'long-coat', 'none', '#d3d3dc', '#526b84', '#c4ac64', 1.18, 'slim', 'calm', 11, 'wins:15'],
     ['quattro', 'Quattro', 'Thomas Arclight|IV', 'Cheveux rouges et blonds et longue veste bordeaux.', 'swept', 'long-coat', 'none', '#a4443c', '#763c48', '#c59d4c', 1.14, 'slim', 'confident', 12, 'wins:10', '#efbaa0', '#d4b267'],
-    ['trey', 'Trey', 'Michael Arclight|III', 'Longs cheveux corail attachés et veste crème.', 'ponytail', 'jacket', 'none', '#c77f68', '#e6dbc1', '#8f6583', 0.98, 'slim', 'calm', 13, 'medals:9'],
+    ['trey', 'Trey', 'Michael Arclight|III', 'Carré rose corail et longue tenue bordeaux à col blanc.', 'bob', 'robe', 'none', '#d39998', '#6d3d4b', '#e2dbca', 0.98, 'slim', 'calm', 13, 'medals:9'],
     ['vetrix', 'Vetrix', 'Byron Arclight|Tron', 'Petite silhouette masquée et manteau rose orné.', 'bob', 'robe', 'mask', '#ded5c1', '#a977a5', '#d5b667', 0.88, 'slim', 'confident', 14, 'medals:18'],
     ['dr-faker', 'Dr. Faker', 'Doctor Faker', 'Très grand scientifique aux cheveux verts hérissés.', 'star', 'robe', 'none', '#94ae64', '#b8c9a6', '#7897a0', 1.24, 'broad', 'confident', 15, 'wins:25', '#b5b29b'],
     ['heartland', 'Mr. Heartland', 'Monsieur Heartland', 'Cheveux gris lissés, lunettes et costume rouge.', 'swept', 'suit', 'glasses', '#b8b9b6', '#9d4450', '#e3bb60', 1.14, 'average', 'confident', 0, 'duels:25'],
     ['nistro', 'Nistro', 'Gauche', 'Grande carrure, cheveux bruns dressés et manteau rouge.', 'star', 'long-coat', 'none', '#654438', '#9d4043', '#dfb851', 1.23, 'broad', 'ready', 1, 'wins:7', '#bc8b67'],
     ['dextra', 'Dextra', 'Droite', 'Coupe verte asymétrique et veste violette ajustée.', 'bob', 'jacket', 'none', '#6d937c', '#68628d', '#decaa7', 1.09, 'slim', 'calm', 2, 'wins:9'],
-    ['girag', 'Girag', 'Gilag', 'Carrure massive, cheveux orange courts et veste verte.', 'short', 'jacket', 'none', '#a85d36', '#6f8154', '#ccb777', 1.24, 'broad', 'energetic', 3, 'duels:30', '#c89570'],
-    ['alito', 'Alito', 'Alit', 'Petite silhouette de boxeur et cheveux roux hérissés.', 'star', 'sport', 'none', '#a84730', '#d69c48', '#6c4145', 1.0, 'average', 'energetic', 4, 'wins:12', '#c6926a'],
-    ['dumon', 'Dumon', 'Durbe', 'Cheveux gris courts, lunettes et manteau de voyage.', 'short', 'long-coat', 'glasses', '#adb3b8', '#7c8c91', '#c5b8a6', 1.12, 'slim', 'calm', 5, 'medals:15'],
+    ['girag', 'Girag', 'Gilag', 'Carrure massive, cheveux verts hérissés et chemise blanche ouverte.', 'star', 'jacket', 'none', '#657f55', '#ece8dc', '#a67c4e', 1.24, 'broad', 'energetic', 3, 'duels:30', '#c89570'],
+    ['alito', 'Alito', 'Alit', 'Petite silhouette de boxeur, chevelure noire ondulée et haut rouge.', 'swept', 'sport', 'none', '#292a2e', '#b24848', '#e1d9c5', 1.0, 'average', 'energetic', 4, 'wins:12', '#c6926a'],
+    ['dumon', 'Dumon', 'Durbe', 'Carré gris mauve, longue écharpe verte et manteau de voyage.', 'bob', 'long-coat', 'scarf', '#b0a7ba', '#8f919d', '#709477', 1.12, 'slim', 'calm', 5, 'medals:15'],
     ['vector', 'Vector', 'Ray Shadows|Rei Shingetsu', 'Cheveux orange à grandes pointes et manteau sombre.', 'star', 'long-coat', 'none', '#c78a45', '#423d5a', '#9d6492', 1.07, 'slim', 'confident', 6, 'wins:20'],
     ['mizar', 'Mizar', 'Mizael', 'Longue chevelure blonde et manteau bleu à col haut.', 'long', 'long-coat', 'none', '#dac780', '#425f86', '#d4b979', 1.17, 'slim', 'confident', 7, 'mission:rank-four']
   ],
   'arc-v': [
-    ['yuya', 'Yuya Sakaki', 'Yûya Sakaki', 'Cheveux rouges et verts, lunettes et veste de spectacle.', 'swept', 'jacket', 'goggles', '#8c3947', '#99434c', '#d3a650', 1.0, 'slim', 'energetic', 0, 'starter', '#f2c4a6', '#59906c'],
+    ['yuya', 'Yuya Sakaki', 'Yûya Sakaki', 'Chevelure verte à frange rouge, lunettes dorées et veste rouge de spectacle.', 'swept', 'jacket', 'goggles', '#49946a', '#bc4247', '#d3a650', 1.0, 'slim', 'energetic', 0, 'starter', '#f2c4a6', '#b4474b'],
     ['zuzu', 'Zuzu Boyle', 'Yuzu Hiragi|Yuzu Hiiragi', 'Deux couettes roses et tenue scolaire à jupe rose.', 'twin-tail', 'dress', 'necklace', '#bd7192', '#d18ba0', '#f3e9d4', 0.99, 'slim', 'ready', 1, 'duels:3'],
     ['yuto', 'Yuto', 'Yûto', 'Mèches noires et violettes et manteau noir à col haut.', 'star', 'long-coat', 'none', '#31303d', '#35363f', '#806b94', 1.04, 'slim', 'calm', 2, 'wins:5', '#e8bba3', '#7a6591'],
     ['yugo', 'Yugo', 'Yûgo', 'Chevelure bleue et blonde et combinaison blanche de pilote.', 'swept', 'sport', 'none', '#4c8598', '#e4e6df', '#dfa847', 1.02, 'average', 'energetic', 3, 'mission:synchronization', '#eebc9a', '#d6b35a'],
     ['yuri', 'Yuri', 'Yûri', 'Cheveux violets bicolores et uniforme long de l’Académie.', 'swept', 'uniform', 'none', '#815183', '#705081', '#d1bc74', 1.04, 'slim', 'confident', 4, 'wins:15', '#edc0aa', '#b26c99'],
     ['celina', 'Celina', 'Serena', 'Queue-de-cheval bleu sombre et uniforme rouge.', 'ponytail', 'uniform', 'none', '#454a71', '#a75262', '#eadcc9', 1.03, 'slim', 'confident', 5, 'wins:6'],
     ['rin', 'Rin', 'Rin des Synchros', 'Cheveux verts courts et combinaison de pilote.', 'bob', 'sport', 'none', '#82a575', '#d1d7c4', '#968cad', 1.02, 'slim', 'ready', 6, 'medals:9'],
-    ['lulu', 'Lulu Obsidian', 'Ruri Kurosaki', 'Longue chevelure mauve et uniforme blanc à jupe.', 'long', 'dress', 'none', '#9b8aae', '#e5e0e8', '#a65a85', 1.03, 'slim', 'calm', 7, 'mission:rank-four'],
-    ['declan', 'Declan Akaba', 'Reiji Akaba|Reiji', 'Cheveux gris asymétriques, lunettes et longue écharpe.', 'swept', 'long-coat', 'scarf', '#9b9faa', '#4c485b', '#a42e4c', 1.16, 'slim', 'confident', 8, 'wins:10'],
+    ['lulu', 'Lulu Obsidian', 'Ruri Kurosaki', 'Haute queue-de-cheval mauve et uniforme blanc à jupe.', 'ponytail', 'dress', 'none', '#9b8aae', '#e5e0e8', '#a65a85', 1.03, 'slim', 'calm', 7, 'mission:rank-four'],
+    ['declan', 'Declan Akaba', 'Reiji Akaba|Reiji', 'Cheveux gris asymétriques, lunettes et longue écharpe rouge.', 'swept', 'long-coat', 'scarf', '#9b9faa', '#4c485b', '#a42e4c', 1.16, 'slim', 'confident', 8, 'wins:10'],
     ['riley', 'Riley Akaba', 'Reira Akaba|Reira', 'Très petite silhouette, cheveux bleus et manteau violet.', 'bob', 'long-coat', 'hat', '#7f93b3', '#83618e', '#b27b8f', 0.85, 'slim', 'calm', 9, 'duels:10'],
-    ['shay', 'Shay Obsidian', 'Shun Kurosaki', 'Cheveux noirs et verts hérissés, long manteau vert.', 'star', 'long-coat', 'none', '#2c3b39', '#5a7867', '#9a9855', 1.16, 'slim', 'ready', 10, 'wins:8', '#e9bca2', '#54755c'],
+    ['shay', 'Shay Obsidian', 'Shun Kurosaki', 'Chevelure bleu sombre à mèches turquoise et long manteau bleu.', 'star', 'long-coat', 'none', '#354d64', '#46627e', '#9a9855', 1.16, 'slim', 'ready', 10, 'wins:8', '#e9bca2', '#59a9a3'],
     ['sora', 'Sora Perse', 'Sora Shiunin', 'Cheveux bleu clair ébouriffés et petite veste blanche.', 'swept', 'jacket', 'none', '#84b8c0', '#e7eadb', '#87649e', 0.9, 'slim', 'energetic', 11, 'duels:8'],
-    ['gong', 'Gong Strong', 'Gongenzaka Noboru|Noboru Gongenzaka', 'Carrure massive, haute banane noire et kimono rouge.', 'swept', 'robe', 'none', '#252b31', '#9f4450', '#d9b461', 1.25, 'broad', 'calm', 12, 'mission:hold-the-line'],
-    ['silvio', 'Silvio Sawatari', 'Shingo Sawatari', 'Chevelure blonde ondulée et veste jaune ouverte.', 'swept', 'jacket', 'none', '#d7b558', '#b8a057', '#ece2c7', 1.07, 'slim', 'confident', 13, 'duels:6'],
+    ['gong', 'Gong Strong', 'Gongenzaka Noboru|Noboru Gongenzaka', 'Carrure massive, haute banane noire et kimono blanc aux bordures rouges.', 'swept', 'robe', 'none', '#252b31', '#eee8dc', '#bd4847', 1.25, 'broad', 'calm', 12, 'mission:hold-the-line'],
+    ['silvio', 'Sylvio Sawatari', 'Shingo Sawatari|Silvio Sawatari', 'Chevelure blonde ondulée et long manteau blanc bordé d’or.', 'swept', 'long-coat', 'none', '#d7b558', '#eee9dc', '#c6a25a', 1.07, 'slim', 'confident', 13, 'duels:6'],
     ['yusho', 'Yusho Sakaki', 'Yûshô Sakaki', 'Cheveux bicolores sous un chapeau et cape de scène.', 'swept', 'long-coat', 'hat', '#8d424b', '#a14150', '#dbac54', 1.18, 'slim', 'energetic', 14, 'medals:24', '#ecc1a5', '#729b70'],
     ['yoko', 'Yoko Sakaki', 'Yôko Sakaki', 'Cheveux roux attachés et tenue de motarde.', 'ponytail', 'jacket', 'none', '#b7674d', '#dca552', '#efe2c7', 1.1, 'average', 'confident', 15, 'duels:20'],
     ['leo-akaba', 'Leo Akaba', 'Reo Akaba|Leo', 'Chevelure grise ample, lunettes et manteau de chercheur.', 'long', 'robe', 'glasses', '#b7bdc3', '#b2b7c1', '#7284a2', 1.18, 'slim', 'calm', 0, 'wins:25'],
-    ['dennis', 'Dennis Macfield', 'Dennis MacField', 'Cheveux orange relevés et costume de scène blanc.', 'swept', 'suit', 'none', '#c88449', '#e9e5d8', '#5a826f', 1.08, 'slim', 'energetic', 1, 'wins:7'],
+    ['dennis', 'Dennis McField', 'Dennis MacField|Dennis Macfield', 'Pointes rousses, costume orange et manches bleues de spectacle.', 'star', 'suit', 'none', '#c88449', '#c8793e', '#567ba0', 1.08, 'slim', 'energetic', 1, 'wins:7'],
     ['moon-shadow', 'Moon Shadow', 'Tsukikage|Moonshadow', 'Ninja masqué en tenue bleu sombre.', 'short', 'uniform', 'mask', '#292934', '#43465f', '#a3a1be', 1.1, 'slim', 'calm', 2, 'mission:link-exchange'],
     ['shinji', 'Shinji Weber', 'Shinji', 'Mèches blondes dressées et tenue de pilote verte.', 'swept', 'sport', 'none', '#d1b465', '#5f7161', '#c1b6a4', 1.15, 'average', 'ready', 4, 'wins:9'],
     ['sergey', 'Sergey Volkov', 'Sergei Volkov', 'Cyborg massif au crâne rasé et tenue grise.', 'bald', 'mechanical', 'none', '#5a5350', '#75736f', '#b89d78', 1.25, 'broad', 'confident', 5, 'wins:20', '#a49b88'],
@@ -171,15 +171,15 @@ const ROSTER = {
     ['ray', 'Ray Akaba', 'Ray', 'Longue chevelure rouge et verte et tenue claire.', 'long', 'dress', 'necklace', '#b7656b', '#ece8df', '#8bb18c', 1.11, 'slim', 'calm', 12, 'mission:adaptive-finale', '#f0c6ae', '#86a77b']
   ],
   vrains: [
-    ['playmaker', 'Playmaker', 'Yusaku Fujiki|Yûsaku Fujiki', 'Cheveux bleus et rouges étoilés et armure numérique.', 'star', 'armor', 'earpiece', '#285e7e', '#2b416b', '#c34063', 1.07, 'slim', 'ready', 0, 'starter', '#edc0ab', '#b8436a'],
+    ['playmaker', 'Playmaker', 'Yusaku Fujiki|Yûsaku Fujiki', 'Avatar de LINK VRAINS : pointes rouges et mauves, coiffe dorée et armure verte.', 'star', 'armor', 'earpiece', '#b94a3d', '#28594f', '#edbc4c', 1.07, 'slim', 'ready', 0, 'starter', '#edc0ab', '#9d4a98'],
     ['soulburner', 'Soulburner', 'Takeru Homura|Takeru', 'Chevelure rouge et blonde en flammes et tenue de pilote.', 'star', 'armor', 'goggles', '#b94935', '#6f3e3e', '#dfa83d', 1.08, 'average', 'energetic', 1, 'wins:5', '#eebaa0', '#e4b04a'],
     ['varis', 'Varis', 'Revolver|Ryoken Kogami|Ryôken', 'Coiffe noire et rouge rigide et armure blanche de chevalier.', 'helmet', 'armor', 'mask', '#4a3342', '#e9e8e0', '#a9494a', 1.18, 'slim', 'confident', 2, 'wins:10'],
     ['blue-angel', 'Blue Angel', 'Aoi Zaizen|Skye Zaizen|Ange Bleu', 'Couettes bleues, robe numérique claire et ailes.', 'twin-tail', 'dress', 'wings', '#74a9ca', '#dbeef0', '#6ca4c8', 1.02, 'slim', 'energetic', 3, 'duels:5'],
-    ['ghost-gal', 'Ghost Gal', 'Emma Bessho|Ghost Girl', 'Cheveux blancs courts, longues manches et tenue numérique violette.', 'bob', 'long-coat', 'earpiece', '#e3dce2', '#645a89', '#d28a9d', 1.13, 'slim', 'confident', 4, 'wins:6'],
+    ['ghost-gal', 'Ghost Gal', 'Emma Bessho|Ghost Girl', 'Queue-de-cheval blanche à mèche rose et tenue numérique violette.', 'ponytail', 'long-coat', 'earpiece', '#e3dce2', '#645a89', '#d28a9d', 1.13, 'slim', 'confident', 4, 'wins:6', '#f3c4a5', '#c78ca4'],
     ['the-gore', 'The Gore', 'Go Onizuka|Gô Onizuka', 'Cheveux blonds en crête et large carrure de lutteur.', 'mohawk', 'armor', 'headband', '#bfa365', '#7c5446', '#a3806b', 1.25, 'broad', 'ready', 5, 'wins:8', '#a27552'],
     ['ai', 'Ai', 'Ignis Ai|Aï', 'Apparence humanoïde, mèches noires et lilas et costume sombre.', 'swept', 'suit', 'none', '#373443', '#383146', '#a773bd', 1.11, 'slim', 'confident', 6, 'medals:18', '#ecbeab', '#9b6cb3'],
     ['roboppi', 'Roboppi', 'Roboppy|Roboppi humanoïde', 'Petite silhouette, cheveux roses ronds et tenue mécanique.', 'bob', 'mechanical', 'earpiece', '#d493ac', '#ece3de', '#b8839c', 0.85, 'slim', 'energetic', 7, 'duels:12'],
-    ['akira', 'Akira Zaizen', 'Akira', 'Cheveux bruns lissés et costume gris d’administrateur.', 'short', 'suit', 'none', '#63514a', '#596270', '#a5b6c3', 1.19, 'slim', 'calm', 8, 'duels:20'],
+    ['akira', 'Akira Zaizen', 'Akira', 'Cheveux bleu sombre lissés et costume bleu d’administrateur.', 'short', 'suit', 'none', '#334454', '#41516d', '#a5b6c3', 1.19, 'slim', 'calm', 8, 'duels:20'],
     ['shoichi', 'Shoichi Kusanagi', 'Shôichi Kusanagi|Kolter', 'Cheveux noirs hérissés et veste brune de restaurateur.', 'star', 'jacket', 'none', '#2d3439', '#8f6c54', '#d4c3a2', 1.24, 'broad', 'calm', 9, 'duels:15', '#c5916c'],
     ['jin', 'Jin Kusanagi', 'Jin', 'Petite coupe bleue et manteau clair.', 'swept', 'jacket', 'none', '#6e91a6', '#dee4e3', '#91afbb', 1.0, 'slim', 'calm', 10, 'medals:6'],
     ['naoki', 'Naoki Shima', 'Brave Max|Lonely Brave', 'Cheveux orange à grandes pointes et tenue scolaire.', 'star', 'school', 'none', '#c28b53', '#8c9498', '#dbb579', 1.02, 'average', 'energetic', 11, 'duels:3'],
@@ -193,36 +193,36 @@ const ROSTER = {
     ['queen', 'Queen', 'SOL Technologies Queen', 'Carré violet anguleux et costume de direction blanc.', 'bob', 'suit', 'earpiece', '#805c84', '#e2dfdf', '#a16a8e', 1.14, 'slim', 'confident', 3, 'wins:25']
   ],
   sevens: [
-    ['yuga', 'Yuga Ohdo', 'Yûga Ôdô|Yuga', 'Petite silhouette, pointes rouges et veste sportive bleue.', 'swept', 'sport', 'none', '#a94143', '#415f98', '#e0c66b', 0.89, 'slim', 'energetic', 0, 'starter', '#f1c3a4', '#e2c05f'],
-    ['luke', 'Luke', 'Tatsuhisa Kamijo|Tatsuhisa Kamijô|Lucidien', 'Chevelure bleue hérissée et long manteau de collégien.', 'star', 'long-coat', 'none', '#49769a', '#477dae', '#e4cb83', 0.99, 'slim', 'confident', 1, 'wins:3'],
-    ['romin', 'Romin Kirishima', 'Romin', 'Cheveux violets longs et tenue scolaire à jupe.', 'long', 'dress', 'none', '#82609d', '#ca829a', '#ead4ce', 0.95, 'slim', 'ready', 2, 'duels:3'],
-    ['gakuto', 'Gakuto Sogetsu', 'Gakuto Sôgetsu|Gavin Sogetsu', 'Cheveux noirs lissés et uniforme bleu du conseil.', 'short', 'uniform', 'none', '#303c46', '#496887', '#a0c6d8', 1.0, 'slim', 'calm', 3, 'duels:5'],
-    ['roa', 'Roa Kirishima', 'Roa', 'Pointes rouges et longues manches noires de musicien.', 'star', 'long-coat', 'none', '#b75061', '#42333c', '#d17387', 1.05, 'slim', 'confident', 4, 'wins:5'],
-    ['nail', 'Nail Saionji', 'Neil Saionji|Nail', 'Carré vert asymétrique et uniforme blanc.', 'bob', 'uniform', 'none', '#7a9667', '#e3e5dc', '#9dbe9b', 0.98, 'slim', 'calm', 5, 'medals:6'],
-    ['asana', 'Asana Mutsuba', 'Asana', 'Longue chevelure rose et tenue de chantier.', 'long', 'uniform', 'none', '#c0879b', '#b88763', '#dcc37a', 1.04, 'slim', 'confident', 6, 'wins:8'],
-    ['mimi', 'Mimi Atachi', 'Mimi', 'Petite apparence, carré violet et tenue scolaire.', 'bob', 'school', 'none', '#a683af', '#c987a8', '#ecd5e0', 0.85, 'slim', 'energetic', 7, 'duels:8'],
+    ['yuga', 'Yuga Ohdo', 'Yûga Ôdô|Yuga', 'Pointes auburn à frange jaune, veste rouge et blanche, short noir et gants bleus.', 'star', 'jacket', 'none', '#9d4838', '#c94945', '#f1e8d8', 0.89, 'slim', 'energetic', 0, 'starter', '#f1c3a4', '#e8c859'],
+    ['luke', 'Luke', 'Tatsuhisa Kamijo|Tatsuhisa Kamijô|Lucidien|Lucidien Kallister', 'Chevelure bleue hérissée, tee-shirt noir au dragon rouge et pantalon olive.', 'star', 'sport', 'none', '#49769a', '#292d36', '#b3424a', 0.99, 'slim', 'confident', 1, 'wins:3'],
+    ['romin', 'Romin Kirishima', 'Romin|Romin Kassidy', 'Longs cheveux roses, haut noir, short rouge et leggings lavande.', 'long', 'sport', 'none', '#d75b94', '#252832', '#c44f59', 0.95, 'slim', 'ready', 2, 'duels:3'],
+    ['gakuto', 'Gakuto Sogetsu', 'Gakuto Sôgetsu|Gavin Sogetsu', 'Carré violet asymétrique et uniforme bleu clair du conseil.', 'bob', 'uniform', 'none', '#745891', '#b3cbe2', '#eef0e4', 1.0, 'slim', 'calm', 3, 'duels:5'],
+    ['roa', 'Roa Kirishima', 'Roa|Roa Kassidy', 'Cheveux vert clair hérissés et long gilet rouge sans manches de musicien.', 'star', 'long-coat', 'none', '#bdd8bc', '#b7444a', '#2b2e36', 1.05, 'slim', 'confident', 4, 'wins:5'],
+    ['nail', 'Nail Saionji', 'Neil Saionji|Nail', 'Carré blond pâle et uniforme bleu clair et blanc.', 'bob', 'uniform', 'none', '#d8c8a8', '#c7dce3', '#f0eee3', 0.98, 'slim', 'calm', 5, 'medals:6'],
+    ['asana', 'Asana Mutsuba', 'Asana', 'Longue chevelure bleu-gris, manteau rouge et pantalon blanc.', 'long', 'long-coat', 'none', '#899db8', '#a94348', '#e8e3df', 1.04, 'slim', 'confident', 6, 'wins:8'],
+    ['mimi', 'Mimi Atachi', 'Mimi|Mimi Imimi', 'Petite apparence, carré auburn et robe rose à col blanc.', 'bob', 'dress', 'none', '#a06f50', '#cb789d', '#eee5d8', 0.85, 'slim', 'energetic', 7, 'duels:8'],
     ['yoshio', 'Yoshio Atachi', 'Yoshio|Yosh', 'Petite silhouette à banane bleue et grand manteau sombre.', 'swept', 'long-coat', 'none', '#526485', '#3e4150', '#b5a593', 0.87, 'average', 'confident', 8, 'duels:10'],
-    ['tiger', 'Tiger', 'Haruka Kamijo|Haruka Kamijô|Tiger Kamijo', 'Haute queue-de-cheval bicolore et tenue martiale violette.', 'ponytail', 'uniform', 'none', '#593b5f', '#75547d', '#ddc9a6', 1.11, 'average', 'ready', 9, 'wins:10', '#edc2a4', '#ded1c1'],
+    ['tiger', 'Tiger', 'Haruka Kamijo|Haruka Kamijô|Tiger Kamijo|Tiadosia Kallister|Tiadosia Tiger Kallister', 'Très longue chevelure bleue, haut doré et pantalon vert ample.', 'long', 'sport', 'none', '#496b99', '#d3bc83', '#4d7760', 1.11, 'average', 'ready', 9, 'wins:10', '#edc2a4', '#496b99'],
     ['otes', 'Otes', 'Otis|Otes masqué', 'Grande robe noire et masque métallique.', 'helmet', 'robe', 'mask', '#8f9292', '#34343c', '#b29b63', 1.22, 'slim', 'calm', 10, 'medals:24'],
-    ['yuro', 'Yuro Goha', 'Yûrô Goha', 'Mèches blondes latérales et veste de pilote bleue.', 'swept', 'sport', 'goggles', '#d6bd70', '#466b8b', '#e4d4a1', 1.06, 'slim', 'confident', 11, 'duels:15'],
+    ['yuro', 'Yuro Goha', 'Yûrô Goha', 'Mèches blondes ondulées, masque, uniforme blanc et cape gris foncé.', 'swept', 'uniform', 'mask', '#d6bd70', '#e8e4d9', '#78945a', 1.06, 'slim', 'confident', 11, 'duels:15'],
     ['yujin', 'Yujin Goha', 'Yûjin Goha', 'Chevelure bleue relevée et tenue de surfeur.', 'swept', 'sport', 'none', '#53788d', '#70a2b2', '#e9d68b', 1.14, 'average', 'energetic', 12, 'duels:18'],
-    ['yuka', 'Yuka Goha', 'Yûka Goha', 'Queue-de-cheval brune, casquette et uniforme de baseball.', 'ponytail', 'sport', 'hat', '#8d684b', '#e7e4d6', '#b35f5f', 1.03, 'average', 'energetic', 13, 'wins:6'],
+    ['yuka', 'Yuka Goha', 'Yûka Goha', 'Longue chevelure brune, masque et uniforme blanc à bordures rouges.', 'long', 'uniform', 'mask', '#8d684b', '#e7e4d6', '#b65b5b', 1.03, 'average', 'energetic', 13, 'wins:6'],
     ['yuran', 'Yuran Goha', 'Yûran Goha', 'Cheveux pâles courts et uniforme cérémoniel.', 'short', 'uniform', 'headband', '#b9c9c4', '#8eacc0', '#e6dcc9', 1.05, 'slim', 'calm', 14, 'medals:12'],
-    ['yuo', 'Yuo Goha', 'Yûô Goha', 'Petite taille, cheveux verts et costume de marionnettiste.', 'bob', 'suit', 'hat', '#7d9574', '#3e5b64', '#b66c98', 0.87, 'slim', 'confident', 15, 'wins:15'],
+    ['yuo', 'Yuo Goha', 'Yûô Goha', 'Petite taille, carré châtain, masque et manteau gris bordé d’or.', 'bob', 'long-coat', 'mask', '#a07b57', '#535158', '#bfac6e', 0.87, 'slim', 'confident', 15, 'wins:15'],
     ['yuga-goha', 'Yuga Goha', 'Yûga Goha', 'Chevelure rouge et noire acérée et tenue sombre.', 'star', 'uniform', 'none', '#982e3c', '#42343f', '#b26686', 0.96, 'slim', 'confident', 0, 'wins:20', '#edbca4', '#31343a'],
     ['ranze', 'Ranze Nanahoshi', 'Ranze', 'Longue queue-de-cheval bleu sombre et uniforme clair.', 'ponytail', 'uniform', 'none', '#465b72', '#dce2e5', '#78a5bb', 1.01, 'slim', 'calm', 1, 'duels:12'],
     ['rinnosuke', 'Rinnosuke Nanahoshi', 'Rinnosuke', 'Cheveux bleus courts et tenue traditionnelle claire.', 'short', 'uniform', 'none', '#4c6780', '#dce0e1', '#8fb5bc', 0.98, 'slim', 'ready', 2, 'duels:14'],
     ['sebastian', 'Sebastian', 'Sebastian le robot', 'Majordome mécanique, tête lisse et costume noir.', 'helmet', 'mechanical', 'none', '#c6c8bb', '#43484d', '#cfcebd', 1.18, 'slim', 'calm', 3, 'mission:adaptive-finale', '#c4c6b9']
   ],
   'go-rush': [
-    ['yudias', 'Yudias Velgear', 'Yûdias Velgear|Yudias', 'Longue chevelure blanche et uniforme extraterrestre bleu.', 'long', 'uniform', 'none', '#e1e4dc', '#4a6a91', '#bd87ad', 1.13, 'slim', 'ready', 0, 'starter'],
-    ['yuhi', 'Yuhi Ohdo', 'Yûhi Ôdô|Yuhi', 'Cheveux rouges hérissés et tenue orange d’UTS.', 'star', 'sport', 'none', '#b14943', '#ca8555', '#e5c768', 0.93, 'slim', 'energetic', 1, 'duels:3'],
-    ['yuamu', 'Yuamu Ohdo', 'Yûamu Ôdô|Yuamu', 'Couettes roses, lunettes et uniforme clair d’UTS.', 'twin-tail', 'uniform', 'glasses', '#ba7993', '#e3ddd4', '#8b83b4', 0.93, 'slim', 'confident', 2, 'duels:5'],
-    ['zwijo', 'Zwijo Zir Velgear', 'Zwijo|Zuwijo|Zir Velgear', 'Longs cheveux violets et manteau militaire sombre.', 'long', 'long-coat', 'none', '#79678e', '#454252', '#a095b2', 1.23, 'broad', 'confident', 3, 'wins:10'],
-    ['manabu', 'Manabu Sogetsu', 'Manabu Sôgetsu', 'Cheveux bleus raides et uniforme d’enquêteur.', 'short', 'uniform', 'none', '#466c86', '#607890', '#c0cfce', 1.06, 'slim', 'calm', 4, 'wins:3'],
+    ['yudias', 'Yudias Velgear', 'Yûdias Velgear|Yudias', 'Pointes argentées à mèches bleues, casque noir et long manteau blanc doublé de rouge.', 'star', 'long-coat', 'earpiece', '#dceaf0', '#eef2f3', '#c64145', 1.13, 'slim', 'ready', 0, 'starter', '#f3c4a5', '#64b8d9'],
+    ['yuhi', 'Yuhi Ohdo', 'Yûhi Ôdô|Yuhi', 'Cheveux rouges à mèches blanches, lunettes frontales et tenue orange d’UTS.', 'star', 'sport', 'goggles', '#b14943', '#ca8555', '#e5c768', 0.93, 'slim', 'energetic', 1, 'duels:3', '#f3c4a5', '#eee6dd'],
+    ['yuamu', 'Yuamu Ohdo', 'Yûamu Ôdô|Yuamu', 'Chevelure blonde à pointes vertes, grand ruban rose, lunettes et short orange.', 'long', 'jacket', 'glasses', '#d9ca84', '#efe7dc', '#cb6491', 0.93, 'slim', 'confident', 2, 'duels:5', '#f3c4a5', '#86be80'],
+    ['zwijo', 'Zuwijo Zwil Velgear', 'Zwijo|Zuwijo|Zir Velgear|Zwijo Zir Velgear', 'Longs cheveux blonds à pointes mauves et manteau noir-violet bordé d’or.', 'long', 'long-coat', 'none', '#d3c4a7', '#373240', '#b8985f', 1.23, 'broad', 'confident', 3, 'wins:10', '#f3c4a5', '#9b7aab'],
+    ['manabu', 'Manabu Sogetsu', 'Manabu Sôgetsu|Maddox Sogetsu', 'Cheveux noirs raides et uniforme noir d’enquêteur.', 'short', 'uniform', 'none', '#262833', '#303441', '#9998a5', 1.06, 'slim', 'calm', 4, 'wins:3'],
     ['mitsuko', 'Mitsuko Hiramori', 'Mitsuko', 'Très longue chevelure turquoise et robe sombre.', 'long', 'dress', 'none', '#78a8a5', '#514c62', '#a2b8a8', 1.25, 'slim', 'calm', 5, 'duels:8'],
-    ['manya', 'Manya Atachi', 'Manya', 'Cheveux violets au carré et tenue rose de vedette.', 'bob', 'dress', 'necklace', '#9b78ad', '#c982a6', '#e7d4da', 0.91, 'slim', 'energetic', 6, 'duels:10'],
-    ['nyandestar', 'Nyandestar', 'Nyandestar forme humanoïde', 'Forme humanoïde aux cheveux bleus et grand chapeau.', 'long', 'long-coat', 'hat', '#83adbf', '#56718c', '#d1c0d8', 1.08, 'slim', 'confident', 7, 'wins:5'],
+    ['manya', 'Manya Atachi', 'Manya|Immi Imimi', 'Carré châtain ondulé, chapeau blanc et robe rose de vedette.', 'bob', 'dress', 'hat', '#98764e', '#db98b5', '#f0e9df', 0.91, 'slim', 'energetic', 6, 'duels:10'],
+    ['nyandestar', 'Nyandestar', 'Nyandestar|Nyandestar forme féline', 'Chat gris à étoile verte, poitrine blanche et queue rayée ; adaptation de duelliste bipède.', 'short', 'sport', 'none', '#aab1af', '#aab1af', '#78b494', 1.08, 'slim', 'confident', 7, 'wins:5', '#aab1af'],
     ['the-luge', 'The Luge', 'Za Lugh|The☆Luge|Grand Roi de la Terreur', 'Chevelure blanche volumineuse et grande robe royale.', 'long', 'robe', 'cape', '#d4d5d0', '#83779a', '#bfadc8', 1.24, 'broad', 'confident', 8, 'medals:24'],
     ['rovian', 'Rovian Kirishima', 'Rovian', 'Longue chevelure violette et chapeau de musicienne.', 'long', 'long-coat', 'hat', '#8e6b9c', '#71526a', '#d5ad79', 1.06, 'slim', 'calm', 9, 'wins:8'],
     ['yuna', 'Yuna Goha', 'Yûna Goha', 'Longs cheveux bleu sombre et uniforme blanc.', 'long', 'uniform', 'none', '#536381', '#e0e3e8', '#a897b5', 1.0, 'slim', 'confident', 10, 'medals:9'],
@@ -232,10 +232,228 @@ const ROSTER = {
     ['ranran', 'Ranran Nanahoshi', 'Ranran', 'Cheveux bleus attachés et tenue d’enquêtrice blanche.', 'ponytail', 'uniform', 'none', '#5e829d', '#e0e6e5', '#7396b1', 1.09, 'slim', 'ready', 14, 'duels:12'],
     ['tremolo', 'Tremolo Ryugu', 'Tremolo Ryûgû', 'Cheveux bleus longs et uniforme bleu à col haut.', 'long', 'uniform', 'none', '#648aa5', '#476484', '#bcbdd7', 1.14, 'slim', 'confident', 15, 'wins:15'],
     ['phaser', 'Phaser Ryugu', 'Phaser Ryûgû', 'Haute chevelure bleu clair et long uniforme sombre.', 'swept', 'long-coat', 'none', '#91afb9', '#414c66', '#96a1b6', 1.24, 'broad', 'confident', 0, 'wins:20'],
-    ['bochi', 'Bochi', 'Bochi forme humanoïde', 'Allure humanoïde massive, cheveux bruns et costume de bureau.', 'short', 'suit', 'none', '#735640', '#9d846b', '#d9c5a4', 1.11, 'broad', 'ready', 1, 'duels:18', '#bd9771'],
-    ['chupataro', 'Chupataro', 'Chupatarô', 'Petite silhouette extraterrestre et large coiffe.', 'helmet', 'jacket', 'hat', '#ac8e9e', '#957587', '#cab3bd', 0.86, 'average', 'energetic', 2, 'duels:20', '#c7a4b4'],
+    ['bochi', 'Bochi', 'Bochi|Bochi chien', 'Chien brun et blanc aux grandes oreilles et collier gris à pointes ; adaptation bipède.', 'short', 'sport', 'necklace', '#80562c', '#80562c', '#e9e9dc', 1.11, 'broad', 'ready', 1, 'duels:18', '#80562c'],
+    ['chupataro', 'Chupataro', 'Chupatarô', 'Apparence humaine : cheveux bruns à frange orange, veste rose et foulard vert.', 'swept', 'jacket', 'scarf', '#795336', '#d5a3c7', '#6f9a82', 0.86, 'average', 'energetic', 2, 'duels:20', '#f0c1a1', '#d67b3b'],
     ['kuadul', 'Kuaidul Velgear', 'Kuadul Velgear|Kuaidul', 'Longue chevelure claire et tenue militaire sombre.', 'long', 'uniform', 'none', '#d9d7d4', '#4d4b63', '#aba0ba', 1.2, 'slim', 'confident', 3, 'mission:adaptive-finale']
   ]
+};
+
+// Verified structural details are optional and use the same bounded visual vocabulary.
+// Animals retain their canonical species; the duel rig adapts them to a stylised biped.
+const VISUAL_DETAILS = {
+  "yugi": {
+    "hairOutlineColor": "#b33e79",
+    "bottomColor": "#273b66",
+    "bootColor": "#252631"
+  },
+  "atem": {
+    "hairOutlineColor": "#b33e79"
+  },
+  "kaiba": {
+    "bottomColor": "#252831",
+    "gloveColor": "#252831",
+    "bootColor": "#252831"
+  },
+  "jaden": {
+    "bottomColor": "#344b5d",
+    "bootColor": "#9d333b"
+  },
+  "yusei": {
+    "bottomColor": "#324455",
+    "gloveColor": "#7a5841",
+    "bootColor": "#292d34"
+  },
+  "yuma": {
+    "secondaryAccessory": "necklace",
+    "bottomStyle": "trousers",
+    "bottomColor": "#343a51",
+    "bootColor": "#607ca2",
+    "accessoryColor": "#b7b2bc"
+  },
+  "yuya": {
+    "bottomColor": "#526b31",
+    "bootColor": "#b9434b",
+    "accessoryColor": "#d3a650"
+  },
+  "playmaker": {
+    "headdress": "helmet",
+    "accessoryColor": "#edbc4c",
+    "bottomColor": "#273936",
+    "gloveColor": "#202d29",
+    "bootColor": "#293930"
+  },
+  "yuga": {
+    "bottomStyle": "shorts",
+    "bottomColor": "#34323b",
+    "gloveColor": "#5087b9",
+    "bootColor": "#4378a9"
+  },
+  "yudias": {
+    "species": "alien",
+    "headdress": "helmet",
+    "secondaryAccessory": "cape",
+    "secondaryAccessoryColor": "#466b97",
+    "accessoryColor": "#252a33",
+    "bottomColor": "#252a33",
+    "gloveColor": "#c53d43",
+    "bootColor": "#456796"
+  },
+  "rex": {
+    "headdress": "hat",
+    "accessoryColor": "#b8464b"
+  },
+  "bonz": {
+    "bottomColor": "#4f5167"
+  },
+  "axel": {
+    "secondaryAccessory": "headband",
+    "accessoryColor": "#bdac8a",
+    "bottomColor": "#777357"
+  },
+  "blair": {
+    "bottomStyle": "shorts",
+    "bottomColor": "#b7ac79"
+  },
+  "crow": {
+    "accessoryColor": "#54738d",
+    "bottomColor": "#465363"
+  },
+  "antinomy": {
+    "accessoryColor": "#b13c45",
+    "bottomColor": "#334a68"
+  },
+  "sherry": {
+    "bottomColor": "#e3e8de",
+    "gloveColor": "#e3e8de",
+    "bootColor": "#365849"
+  },
+  "tori": {
+    "headdress": "headband",
+    "accessoryColor": "#c45665",
+    "bottomColor": "#d080a7"
+  },
+  "bronk": {
+    "headdress": "hat",
+    "bottomStyle": "trousers",
+    "accessoryColor": "#ba3c3c",
+    "bottomColor": "#77714b"
+  },
+  "dumon": {
+    "accessoryColor": "#709477"
+  },
+  "declan": {
+    "secondaryAccessory": "glasses",
+    "accessoryColor": "#a42e4c"
+  },
+  "gong": {
+    "bottomColor": "#eee8dc"
+  },
+  "dennis": {
+    "bottomColor": "#c8793e",
+    "bootColor": "#a17848"
+  },
+  "luke": {
+    "bottomStyle": "trousers",
+    "bottomColor": "#666951",
+    "bootColor": "#547ba4"
+  },
+  "romin": {
+    "bottomStyle": "shorts",
+    "bottomColor": "#c44f59",
+    "legwearColor": "#afa8d1",
+    "bootColor": "#ba515d"
+  },
+  "gakuto": {
+    "bottomColor": "#b3cbe2",
+    "bootColor": "#dce4ea"
+  },
+  "roa": {
+    "bottomColor": "#30323c",
+    "bootColor": "#30323c"
+  },
+  "asana": {
+    "bottomColor": "#e8e3df",
+    "bootColor": "#2c343c"
+  },
+  "mimi": {
+    "bottomStyle": "skirt",
+    "bottomColor": "#cb789d"
+  },
+  "tiger": {
+    "bottomStyle": "trousers",
+    "bottomColor": "#4d7760",
+    "bootColor": "#4d7760"
+  },
+  "yuro": {
+    "headdress": "headband",
+    "secondaryAccessory": "cape",
+    "accessoryColor": "#535158",
+    "bottomColor": "#e8e4d9"
+  },
+  "yuo": {
+    "headdress": "helmet",
+    "secondaryAccessory": "cape",
+    "accessoryColor": "#535158",
+    "bottomColor": "#535158"
+  },
+  "yuka": {
+    "headdress": "headband",
+    "secondaryAccessory": "cape",
+    "accessoryColor": "#535158",
+    "bottomColor": "#e7e4d6"
+  },
+  "yuhi": {
+    "bottomStyle": "trousers",
+    "bottomColor": "#ca8555",
+    "accessoryColor": "#b68650",
+    "gloveColor": "#e9e6da",
+    "bootColor": "#6d4c37"
+  },
+  "yuamu": {
+    "headdress": "headband",
+    "accessoryColor": "#da6d9b",
+    "bottomStyle": "shorts",
+    "bottomColor": "#d6a15c",
+    "bootColor": "#866955"
+  },
+  "zwijo": {
+    "species": "alien",
+    "bottomColor": "#554c5f",
+    "bootColor": "#e5ded6"
+  },
+  "manya": {
+    "headdress": "hat",
+    "accessoryColor": "#f0e9df"
+  },
+  "nyandestar": {
+    "species": "cat",
+    "bottomColor": "#aab1af",
+    "bootColor": "#eaeae1",
+    "accessoryColor": "#78b494"
+  },
+  "bochi": {
+    "species": "dog",
+    "accessoryColor": "#a8b1bb",
+    "bottomColor": "#80562c",
+    "bootColor": "#e9e9dc"
+  },
+  "chupataro": {
+    "bottomColor": "#a8c3d8",
+    "accessoryColor": "#6f9a82",
+    "bootColor": "#c65155"
+  },
+  "astral": {
+    "species": "spirit"
+  },
+  "yubel": {
+    "species": "spirit"
+  },
+  "ai": {
+    "species": "robot"
+  },
+  "sebastian": {
+    "species": "robot"
+  }
 };
 
 function makeAvatar(seriesId, row) {
@@ -250,7 +468,9 @@ function makeAvatar(seriesId, row) {
     aliases: aliases ? aliases.split('|') : [],
     description,
     visual: { hairStyle, hairColor, hairAccent, skinColor, outfitStyle,
-      outfitColor, accentColor, accessory, height, build, pose, variant },
+      outfitColor, accentColor, accessory, height, build, pose, variant,
+      species: 'human', secondaryAccessory: 'none', headdress: 'none',
+      ...VISUAL_DETAILS[id] },
     unlock
   };
 }

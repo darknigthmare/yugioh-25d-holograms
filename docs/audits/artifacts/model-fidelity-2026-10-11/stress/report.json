@@ -1,0 +1,1243 @@
+{
+  "scope": "Compare a fixed 12-hologram / 2-duellist scene before and after refinement.\n\nThe heaviest candidate IDs are selected once from the frozen gallery report,\nthen reused for both sources, both viewports and the same lighting/camera.\nThis synthetic public-model fixture does not start a Game or claim a legal\nboard combination. SwiftShader measurements are controlled software rendering\ncomparisons, not a hardware mobile FPS guarantee.\n",
+  "driver": {
+    "path": "/workspace/yugioh-25d-holograms/scripts/audit-model-fidelity-stress-2026-10-11.py",
+    "bytes": 9834,
+    "sha256": "3e29f7074c4d6bbea9d2ce0c531fbcd730d32267c32f1e563d64574b5529252b"
+  },
+  "galleryReport": {
+    "path": "/workspace/yugioh-fidelity-visual-qa-2026-10-11/after/report.json",
+    "bytes": 2101508,
+    "sha256": "c023b16e065421b5a92e29e705b070d9705ca8dcd6302e1290bb36b534aaca53"
+  },
+  "selectedMonsterIds": [
+    "11050419",
+    "27198002",
+    "64382840",
+    "64382841",
+    "11050417",
+    "93912846",
+    "11050418",
+    "31986289",
+    "46647145",
+    "71645243",
+    "44330099",
+    "15629802"
+  ],
+  "selectedAvatarIds": [
+    "axel",
+    "tania"
+  ],
+  "paths": [
+    {
+      "phase": "before",
+      "width": 1280,
+      "modelMeasures": [
+        {
+          "id": "11050419",
+          "kind": "hologram",
+          "triangles": 5692,
+          "materialBatches": 5
+        },
+        {
+          "id": "27198002",
+          "kind": "hologram",
+          "triangles": 5584,
+          "materialBatches": 5
+        },
+        {
+          "id": "64382840",
+          "kind": "hologram",
+          "triangles": 3334,
+          "materialBatches": 5
+        },
+        {
+          "id": "64382841",
+          "kind": "hologram",
+          "triangles": 3334,
+          "materialBatches": 5
+        },
+        {
+          "id": "11050417",
+          "kind": "hologram",
+          "triangles": 4812,
+          "materialBatches": 5
+        },
+        {
+          "id": "93912846",
+          "kind": "hologram",
+          "triangles": 4308,
+          "materialBatches": 5
+        },
+        {
+          "id": "11050418",
+          "kind": "hologram",
+          "triangles": 4656,
+          "materialBatches": 5
+        },
+        {
+          "id": "31986289",
+          "kind": "hologram",
+          "triangles": 5890,
+          "materialBatches": 4
+        },
+        {
+          "id": "46647145",
+          "kind": "hologram",
+          "triangles": 3498,
+          "materialBatches": 5
+        },
+        {
+          "id": "71645243",
+          "kind": "hologram",
+          "triangles": 5708,
+          "materialBatches": 4
+        },
+        {
+          "id": "44330099",
+          "kind": "hologram",
+          "triangles": 3334,
+          "materialBatches": 5
+        },
+        {
+          "id": "15629802",
+          "kind": "hologram",
+          "triangles": 4134,
+          "materialBatches": 5
+        },
+        {
+          "id": "axel",
+          "kind": "avatar",
+          "triangles": 9764,
+          "materialBatches": 7
+        },
+        {
+          "id": "tania",
+          "kind": "avatar",
+          "triangles": 9688,
+          "materialBatches": 6
+        }
+      ],
+      "modelCount": 14,
+      "modelTriangles": 73736,
+      "geometryBytes": 10936368,
+      "buildMs": 154.80000000074506,
+      "frames": [
+        {
+          "milliseconds": 1.300000000745058,
+          "calls": 72,
+          "triangles": 73738
+        },
+        {
+          "milliseconds": 1.199999999254942,
+          "calls": 72,
+          "triangles": 73738
+        },
+        {
+          "milliseconds": 1,
+          "calls": 72,
+          "triangles": 73738
+        },
+        {
+          "milliseconds": 1.3999999985098839,
+          "calls": 72,
+          "triangles": 73738
+        },
+        {
+          "milliseconds": 1.300000000745058,
+          "calls": 72,
+          "triangles": 73738
+        },
+        {
+          "milliseconds": 2,
+          "calls": 72,
+          "triangles": 73738
+        },
+        {
+          "milliseconds": 0.8999999985098839,
+          "calls": 72,
+          "triangles": 73738
+        },
+        {
+          "milliseconds": 0.8000000007450581,
+          "calls": 72,
+          "triangles": 73738
+        },
+        {
+          "milliseconds": 0.8000000007450581,
+          "calls": 72,
+          "triangles": 73738
+        },
+        {
+          "milliseconds": 1,
+          "calls": 72,
+          "triangles": 73738
+        },
+        {
+          "milliseconds": 0.6999999992549419,
+          "calls": 72,
+          "triangles": 73738
+        },
+        {
+          "milliseconds": 0.6999999992549419,
+          "calls": 72,
+          "triangles": 73738
+        },
+        {
+          "milliseconds": 0.6000000014901161,
+          "calls": 72,
+          "triangles": 73738
+        },
+        {
+          "milliseconds": 13.300000000745058,
+          "calls": 72,
+          "triangles": 73738
+        },
+        {
+          "milliseconds": 0.8000000007450581,
+          "calls": 72,
+          "triangles": 73738
+        },
+        {
+          "milliseconds": 0.8999999985098839,
+          "calls": 72,
+          "triangles": 73738
+        },
+        {
+          "milliseconds": 0.8999999985098839,
+          "calls": 72,
+          "triangles": 73738
+        },
+        {
+          "milliseconds": 0.6000000014901161,
+          "calls": 72,
+          "triangles": 73738
+        },
+        {
+          "milliseconds": 0.8999999985098839,
+          "calls": 72,
+          "triangles": 73738
+        },
+        {
+          "milliseconds": 0.8000000007450581,
+          "calls": 72,
+          "triangles": 73738
+        }
+      ],
+      "stableAttributes": true,
+      "allocated": {
+        "geometries": 72,
+        "textures": 3,
+        "programs": 13
+      },
+      "afterDispose": {
+        "geometries": 0,
+        "textures": 0,
+        "programs": 4
+      },
+      "camera": {
+        "position": [
+          18,
+          22,
+          32
+        ],
+        "target": [
+          0,
+          1,
+          0
+        ],
+        "fov": 38
+      },
+      "webglVersion": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "timing": {
+        "medianMs": 0.8999999985098839,
+        "p95Ms": 2,
+        "samples": 20,
+        "method": "25 actual renders with gl.finish(), first5excluded; CPU submission plus synchronized SwiftShader completion"
+      }
+    },
+    {
+      "phase": "before",
+      "width": 390,
+      "modelMeasures": [
+        {
+          "id": "11050419",
+          "kind": "hologram",
+          "triangles": 5692,
+          "materialBatches": 5
+        },
+        {
+          "id": "27198002",
+          "kind": "hologram",
+          "triangles": 5584,
+          "materialBatches": 5
+        },
+        {
+          "id": "64382840",
+          "kind": "hologram",
+          "triangles": 3334,
+          "materialBatches": 5
+        },
+        {
+          "id": "64382841",
+          "kind": "hologram",
+          "triangles": 3334,
+          "materialBatches": 5
+        },
+        {
+          "id": "11050417",
+          "kind": "hologram",
+          "triangles": 4812,
+          "materialBatches": 5
+        },
+        {
+          "id": "93912846",
+          "kind": "hologram",
+          "triangles": 4308,
+          "materialBatches": 5
+        },
+        {
+          "id": "11050418",
+          "kind": "hologram",
+          "triangles": 4656,
+          "materialBatches": 5
+        },
+        {
+          "id": "31986289",
+          "kind": "hologram",
+          "triangles": 5890,
+          "materialBatches": 4
+        },
+        {
+          "id": "46647145",
+          "kind": "hologram",
+          "triangles": 3498,
+          "materialBatches": 5
+        },
+        {
+          "id": "71645243",
+          "kind": "hologram",
+          "triangles": 5708,
+          "materialBatches": 4
+        },
+        {
+          "id": "44330099",
+          "kind": "hologram",
+          "triangles": 3334,
+          "materialBatches": 5
+        },
+        {
+          "id": "15629802",
+          "kind": "hologram",
+          "triangles": 4134,
+          "materialBatches": 5
+        },
+        {
+          "id": "axel",
+          "kind": "avatar",
+          "triangles": 9764,
+          "materialBatches": 7
+        },
+        {
+          "id": "tania",
+          "kind": "avatar",
+          "triangles": 9688,
+          "materialBatches": 6
+        }
+      ],
+      "modelCount": 14,
+      "modelTriangles": 73736,
+      "geometryBytes": 10936368,
+      "buildMs": 177.19999999925494,
+      "frames": [
+        {
+          "milliseconds": 3.899999998509884,
+          "calls": 68,
+          "triangles": 67470
+        },
+        {
+          "milliseconds": 2.800000000745058,
+          "calls": 68,
+          "triangles": 67470
+        },
+        {
+          "milliseconds": 1.5,
+          "calls": 68,
+          "triangles": 67470
+        },
+        {
+          "milliseconds": 1.5999999977648258,
+          "calls": 68,
+          "triangles": 67470
+        },
+        {
+          "milliseconds": 1.2000000029802322,
+          "calls": 68,
+          "triangles": 67470
+        },
+        {
+          "milliseconds": 1.5,
+          "calls": 68,
+          "triangles": 67470
+        },
+        {
+          "milliseconds": 1,
+          "calls": 68,
+          "triangles": 67470
+        },
+        {
+          "milliseconds": 1.199999999254942,
+          "calls": 68,
+          "triangles": 67470
+        },
+        {
+          "milliseconds": 1,
+          "calls": 68,
+          "triangles": 67470
+        },
+        {
+          "milliseconds": 0.6999999992549419,
+          "calls": 68,
+          "triangles": 67470
+        },
+        {
+          "milliseconds": 0.8000000007450581,
+          "calls": 68,
+          "triangles": 67470
+        },
+        {
+          "milliseconds": 0.8999999985098839,
+          "calls": 68,
+          "triangles": 67470
+        },
+        {
+          "milliseconds": 1.199999999254942,
+          "calls": 68,
+          "triangles": 67470
+        },
+        {
+          "milliseconds": 0.8000000007450581,
+          "calls": 68,
+          "triangles": 67470
+        },
+        {
+          "milliseconds": 0.8000000007450581,
+          "calls": 68,
+          "triangles": 67470
+        },
+        {
+          "milliseconds": 0.8999999985098839,
+          "calls": 68,
+          "triangles": 67470
+        },
+        {
+          "milliseconds": 0.7000000029802322,
+          "calls": 68,
+          "triangles": 67470
+        },
+        {
+          "milliseconds": 0.8000000007450581,
+          "calls": 68,
+          "triangles": 67470
+        },
+        {
+          "milliseconds": 0.6999999992549419,
+          "calls": 68,
+          "triangles": 67470
+        },
+        {
+          "milliseconds": 0.6000000014901161,
+          "calls": 68,
+          "triangles": 67470
+        }
+      ],
+      "stableAttributes": true,
+      "allocated": {
+        "geometries": 71,
+        "textures": 3,
+        "programs": 13
+      },
+      "afterDispose": {
+        "geometries": 0,
+        "textures": 0,
+        "programs": 4
+      },
+      "camera": {
+        "position": [
+          18,
+          22,
+          32
+        ],
+        "target": [
+          0,
+          1,
+          0
+        ],
+        "fov": 38
+      },
+      "webglVersion": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "timing": {
+        "medianMs": 0.9499999992549419,
+        "p95Ms": 2.800000000745058,
+        "samples": 20,
+        "method": "25 actual renders with gl.finish(), first5excluded; CPU submission plus synchronized SwiftShader completion"
+      }
+    },
+    {
+      "phase": "after",
+      "width": 1280,
+      "modelMeasures": [
+        {
+          "id": "11050419",
+          "kind": "hologram",
+          "triangles": 19692,
+          "materialBatches": 5
+        },
+        {
+          "id": "27198002",
+          "kind": "hologram",
+          "triangles": 16972,
+          "materialBatches": 5
+        },
+        {
+          "id": "64382840",
+          "kind": "hologram",
+          "triangles": 15164,
+          "materialBatches": 5
+        },
+        {
+          "id": "64382841",
+          "kind": "hologram",
+          "triangles": 15164,
+          "materialBatches": 5
+        },
+        {
+          "id": "11050417",
+          "kind": "hologram",
+          "triangles": 14852,
+          "materialBatches": 5
+        },
+        {
+          "id": "93912846",
+          "kind": "hologram",
+          "triangles": 14344,
+          "materialBatches": 5
+        },
+        {
+          "id": "11050418",
+          "kind": "hologram",
+          "triangles": 14336,
+          "materialBatches": 5
+        },
+        {
+          "id": "31986289",
+          "kind": "hologram",
+          "triangles": 13880,
+          "materialBatches": 4
+        },
+        {
+          "id": "46647145",
+          "kind": "hologram",
+          "triangles": 13268,
+          "materialBatches": 5
+        },
+        {
+          "id": "71645243",
+          "kind": "hologram",
+          "triangles": 13256,
+          "materialBatches": 4
+        },
+        {
+          "id": "44330099",
+          "kind": "hologram",
+          "triangles": 13168,
+          "materialBatches": 5
+        },
+        {
+          "id": "15629802",
+          "kind": "hologram",
+          "triangles": 13156,
+          "materialBatches": 5
+        },
+        {
+          "id": "axel",
+          "kind": "avatar",
+          "triangles": 20964,
+          "materialBatches": 7
+        },
+        {
+          "id": "tania",
+          "kind": "avatar",
+          "triangles": 20360,
+          "materialBatches": 6
+        }
+      ],
+      "modelCount": 14,
+      "modelTriangles": 218576,
+      "geometryBytes": 32262384,
+      "buildMs": 382.6000000014901,
+      "frames": [
+        {
+          "milliseconds": 2.7000000029802322,
+          "calls": 72,
+          "triangles": 218578
+        },
+        {
+          "milliseconds": 1.300000000745058,
+          "calls": 72,
+          "triangles": 218578
+        },
+        {
+          "milliseconds": 1.1000000014901161,
+          "calls": 72,
+          "triangles": 218578
+        },
+        {
+          "milliseconds": 2.5,
+          "calls": 72,
+          "triangles": 218578
+        },
+        {
+          "milliseconds": 0.8999999985098839,
+          "calls": 72,
+          "triangles": 218578
+        },
+        {
+          "milliseconds": 1,
+          "calls": 72,
+          "triangles": 218578
+        },
+        {
+          "milliseconds": 0.8999999985098839,
+          "calls": 72,
+          "triangles": 218578
+        },
+        {
+          "milliseconds": 1,
+          "calls": 72,
+          "triangles": 218578
+        },
+        {
+          "milliseconds": 1.1000000014901161,
+          "calls": 72,
+          "triangles": 218578
+        },
+        {
+          "milliseconds": 0.8999999985098839,
+          "calls": 72,
+          "triangles": 218578
+        },
+        {
+          "milliseconds": 0.7000000029802322,
+          "calls": 72,
+          "triangles": 218578
+        },
+        {
+          "milliseconds": 0.6000000014901161,
+          "calls": 72,
+          "triangles": 218578
+        },
+        {
+          "milliseconds": 0.8999999985098839,
+          "calls": 72,
+          "triangles": 218578
+        },
+        {
+          "milliseconds": 0.9000000022351742,
+          "calls": 72,
+          "triangles": 218578
+        },
+        {
+          "milliseconds": 0.6999999992549419,
+          "calls": 72,
+          "triangles": 218578
+        },
+        {
+          "milliseconds": 0.8000000007450581,
+          "calls": 72,
+          "triangles": 218578
+        },
+        {
+          "milliseconds": 0.7999999970197678,
+          "calls": 72,
+          "triangles": 218578
+        },
+        {
+          "milliseconds": 0.6000000014901161,
+          "calls": 72,
+          "triangles": 218578
+        },
+        {
+          "milliseconds": 0.6999999992549419,
+          "calls": 72,
+          "triangles": 218578
+        },
+        {
+          "milliseconds": 1,
+          "calls": 72,
+          "triangles": 218578
+        }
+      ],
+      "stableAttributes": true,
+      "allocated": {
+        "geometries": 72,
+        "textures": 3,
+        "programs": 13
+      },
+      "afterDispose": {
+        "geometries": 0,
+        "textures": 0,
+        "programs": 4
+      },
+      "camera": {
+        "position": [
+          18,
+          22,
+          32
+        ],
+        "target": [
+          0,
+          1,
+          0
+        ],
+        "fov": 38
+      },
+      "webglVersion": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "timing": {
+        "medianMs": 0.8999999985098839,
+        "p95Ms": 2.5,
+        "samples": 20,
+        "method": "25 actual renders with gl.finish(), first5excluded; CPU submission plus synchronized SwiftShader completion"
+      }
+    },
+    {
+      "phase": "after",
+      "width": 390,
+      "modelMeasures": [
+        {
+          "id": "11050419",
+          "kind": "hologram",
+          "triangles": 19692,
+          "materialBatches": 5
+        },
+        {
+          "id": "27198002",
+          "kind": "hologram",
+          "triangles": 16972,
+          "materialBatches": 5
+        },
+        {
+          "id": "64382840",
+          "kind": "hologram",
+          "triangles": 15164,
+          "materialBatches": 5
+        },
+        {
+          "id": "64382841",
+          "kind": "hologram",
+          "triangles": 15164,
+          "materialBatches": 5
+        },
+        {
+          "id": "11050417",
+          "kind": "hologram",
+          "triangles": 14852,
+          "materialBatches": 5
+        },
+        {
+          "id": "93912846",
+          "kind": "hologram",
+          "triangles": 14344,
+          "materialBatches": 5
+        },
+        {
+          "id": "11050418",
+          "kind": "hologram",
+          "triangles": 14336,
+          "materialBatches": 5
+        },
+        {
+          "id": "31986289",
+          "kind": "hologram",
+          "triangles": 13880,
+          "materialBatches": 4
+        },
+        {
+          "id": "46647145",
+          "kind": "hologram",
+          "triangles": 13268,
+          "materialBatches": 5
+        },
+        {
+          "id": "71645243",
+          "kind": "hologram",
+          "triangles": 13256,
+          "materialBatches": 4
+        },
+        {
+          "id": "44330099",
+          "kind": "hologram",
+          "triangles": 13168,
+          "materialBatches": 5
+        },
+        {
+          "id": "15629802",
+          "kind": "hologram",
+          "triangles": 13156,
+          "materialBatches": 5
+        },
+        {
+          "id": "axel",
+          "kind": "avatar",
+          "triangles": 20964,
+          "materialBatches": 7
+        },
+        {
+          "id": "tania",
+          "kind": "avatar",
+          "triangles": 20360,
+          "materialBatches": 6
+        }
+      ],
+      "modelCount": 14,
+      "modelTriangles": 218576,
+      "geometryBytes": 32262384,
+      "buildMs": 317.8999999985099,
+      "frames": [
+        {
+          "milliseconds": 1.300000000745058,
+          "calls": 68,
+          "triangles": 205934
+        },
+        {
+          "milliseconds": 1.4000000022351742,
+          "calls": 68,
+          "triangles": 205934
+        },
+        {
+          "milliseconds": 3.5,
+          "calls": 68,
+          "triangles": 205934
+        },
+        {
+          "milliseconds": 1.3999999985098839,
+          "calls": 68,
+          "triangles": 205934
+        },
+        {
+          "milliseconds": 1.300000000745058,
+          "calls": 68,
+          "triangles": 205934
+        },
+        {
+          "milliseconds": 1,
+          "calls": 68,
+          "triangles": 205934
+        },
+        {
+          "milliseconds": 0.8999999985098839,
+          "calls": 68,
+          "triangles": 205934
+        },
+        {
+          "milliseconds": 0.6999999992549419,
+          "calls": 68,
+          "triangles": 205934
+        },
+        {
+          "milliseconds": 0.8000000007450581,
+          "calls": 68,
+          "triangles": 205934
+        },
+        {
+          "milliseconds": 0.6999999992549419,
+          "calls": 68,
+          "triangles": 205934
+        },
+        {
+          "milliseconds": 0.6000000014901161,
+          "calls": 68,
+          "triangles": 205934
+        },
+        {
+          "milliseconds": 0.6999999992549419,
+          "calls": 68,
+          "triangles": 205934
+        },
+        {
+          "milliseconds": 0.6999999992549419,
+          "calls": 68,
+          "triangles": 205934
+        },
+        {
+          "milliseconds": 0.6000000014901161,
+          "calls": 68,
+          "triangles": 205934
+        },
+        {
+          "milliseconds": 0.6000000014901161,
+          "calls": 68,
+          "triangles": 205934
+        },
+        {
+          "milliseconds": 0.7999999970197678,
+          "calls": 68,
+          "triangles": 205934
+        },
+        {
+          "milliseconds": 0.7000000029802322,
+          "calls": 68,
+          "triangles": 205934
+        },
+        {
+          "milliseconds": 0.5999999977648258,
+          "calls": 68,
+          "triangles": 205934
+        },
+        {
+          "milliseconds": 0.6999999992549419,
+          "calls": 68,
+          "triangles": 205934
+        },
+        {
+          "milliseconds": 0.5,
+          "calls": 68,
+          "triangles": 205934
+        }
+      ],
+      "stableAttributes": true,
+      "allocated": {
+        "geometries": 71,
+        "textures": 3,
+        "programs": 13
+      },
+      "afterDispose": {
+        "geometries": 0,
+        "textures": 0,
+        "programs": 4
+      },
+      "camera": {
+        "position": [
+          18,
+          22,
+          32
+        ],
+        "target": [
+          0,
+          1,
+          0
+        ],
+        "fov": 38
+      },
+      "webglVersion": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "timing": {
+        "medianMs": 0.7000000011175871,
+        "p95Ms": 1.4000000022351742,
+        "samples": 20,
+        "method": "25 actual renders with gl.finish(), first5excluded; CPU submission plus synchronized SwiftShader completion"
+      }
+    }
+  ],
+  "errors": [],
+  "beforeSourcePinsBefore": {
+    "src/ui/HologramMonsterModels.js": {
+      "bytes": 23749,
+      "sha256": "cab0dc32b2323af3dee14f861b83925ab46f27092b7e5c8ba0ded0afb7e5f41a"
+    },
+    "src/ui/CombatVisualProfiles.js": {
+      "bytes": 17146,
+      "sha256": "2006387828a0219e4799f9c43c8432caa383e457dd748c0e0f61ad2373843f4a"
+    },
+    "src/ui/HologramPoseAnimation.js": {
+      "bytes": 7540,
+      "sha256": "0fd60c0f319ee7a413049ac05199d44e06ab356a94174bc2dc35958b22b8729c"
+    },
+    "src/ui/HologramReferenceAnatomy.js": {
+      "bytes": 63114,
+      "sha256": "e10d0ad431c4c3f00f12c259e76bb83e68ae320315a768ce2e606544fec778d5"
+    },
+    "src/ui/HologramPopularGodModels.js": {
+      "bytes": 16210,
+      "sha256": "7e095ad4bab594756d846b6794add8afb540f962494b7168589d0bc80851f121"
+    },
+    "src/ui/HologramPopularStapleModels.js": {
+      "bytes": 23103,
+      "sha256": "66784a7c5903a5005064833dead704a9d2a7bad4152a71d8d7cc024ccd610c35"
+    },
+    "src/ui/HologramTokenModels.js": {
+      "bytes": 2407,
+      "sha256": "023a53e4b9eda35af1407f827f10a5caa0737e4ae64add6560f212354a66d269"
+    },
+    "src/ui/HologramTokenGeometry.js": {
+      "bytes": 2701,
+      "sha256": "fdae5fa328bfb60e633d2f70ef32964f39e8f9198130be322baa0039977af4d1"
+    },
+    "src/ui/HologramTokenCreatureModels.js": {
+      "bytes": 33644,
+      "sha256": "336280a63698eb3937be7683922064f7243811b83f76f3e2c024e7901aa7b771"
+    },
+    "src/ui/HologramTokenConstructModels.js": {
+      "bytes": 28156,
+      "sha256": "245bb6a7b47f67ca9ec2b2520d6d3d0550a8f5ad1eb1699e506ba9037b99ff76"
+    },
+    "src/ui/HologramTokenBotanicalModels.js": {
+      "bytes": 27468,
+      "sha256": "550b8ae6973ff405c3abaf2898f74c281a942a3c939c30197d5d1326d0beb2b9"
+    },
+    "src/ui/HologramTokenSpiritModels.js": {
+      "bytes": 21508,
+      "sha256": "00160819cf744008c820864fda3d29128fc7f180b76526c8ac65cf9fa0c55365"
+    },
+    "src/ui/HologramTokenIllustratedExceptions.js": {
+      "bytes": 12030,
+      "sha256": "29ada3f0825d726b4c12664c73ced64beab227eb13fd3d8af10c58ab92b50c3d"
+    },
+    "src/ui/TokenMonsterModelProfiles.js": {
+      "bytes": 45751,
+      "sha256": "51aa0358a560efbee72a924a7dc335fef58bd7b55019d414350600e966c38db9"
+    },
+    "src/ui/DuelistAvatarModels.js": {
+      "bytes": 38201,
+      "sha256": "cd7ff30ab0da574185932f6062a101d14f90de3fe239449ff3ad55efd527376d"
+    },
+    "src/ui/DuelistAvatarGestures.js": {
+      "bytes": 5950,
+      "sha256": "805dbb0519642366a61e306517297951afa35d979738238d0ab3cc05175ee352"
+    },
+    "src/ui/DuelistAvatarPortrait.js": {
+      "bytes": 21195,
+      "sha256": "104cb24f8e7100bf9d8e9dc0377cf6d426b2137b25a0c468902b9a596631604f"
+    },
+    "src/content/DuelistAvatarCatalog.js": {
+      "bytes": 49379,
+      "sha256": "9c665ed069cfcd0829f1f4a85a6b3c635f1ebab9c96c1f892b78823f8ce4e68c"
+    }
+  },
+  "beforeSourcePinsAfter": {
+    "src/ui/HologramMonsterModels.js": {
+      "bytes": 23749,
+      "sha256": "cab0dc32b2323af3dee14f861b83925ab46f27092b7e5c8ba0ded0afb7e5f41a"
+    },
+    "src/ui/CombatVisualProfiles.js": {
+      "bytes": 17146,
+      "sha256": "2006387828a0219e4799f9c43c8432caa383e457dd748c0e0f61ad2373843f4a"
+    },
+    "src/ui/HologramPoseAnimation.js": {
+      "bytes": 7540,
+      "sha256": "0fd60c0f319ee7a413049ac05199d44e06ab356a94174bc2dc35958b22b8729c"
+    },
+    "src/ui/HologramReferenceAnatomy.js": {
+      "bytes": 63114,
+      "sha256": "e10d0ad431c4c3f00f12c259e76bb83e68ae320315a768ce2e606544fec778d5"
+    },
+    "src/ui/HologramPopularGodModels.js": {
+      "bytes": 16210,
+      "sha256": "7e095ad4bab594756d846b6794add8afb540f962494b7168589d0bc80851f121"
+    },
+    "src/ui/HologramPopularStapleModels.js": {
+      "bytes": 23103,
+      "sha256": "66784a7c5903a5005064833dead704a9d2a7bad4152a71d8d7cc024ccd610c35"
+    },
+    "src/ui/HologramTokenModels.js": {
+      "bytes": 2407,
+      "sha256": "023a53e4b9eda35af1407f827f10a5caa0737e4ae64add6560f212354a66d269"
+    },
+    "src/ui/HologramTokenGeometry.js": {
+      "bytes": 2701,
+      "sha256": "fdae5fa328bfb60e633d2f70ef32964f39e8f9198130be322baa0039977af4d1"
+    },
+    "src/ui/HologramTokenCreatureModels.js": {
+      "bytes": 33644,
+      "sha256": "336280a63698eb3937be7683922064f7243811b83f76f3e2c024e7901aa7b771"
+    },
+    "src/ui/HologramTokenConstructModels.js": {
+      "bytes": 28156,
+      "sha256": "245bb6a7b47f67ca9ec2b2520d6d3d0550a8f5ad1eb1699e506ba9037b99ff76"
+    },
+    "src/ui/HologramTokenBotanicalModels.js": {
+      "bytes": 27468,
+      "sha256": "550b8ae6973ff405c3abaf2898f74c281a942a3c939c30197d5d1326d0beb2b9"
+    },
+    "src/ui/HologramTokenSpiritModels.js": {
+      "bytes": 21508,
+      "sha256": "00160819cf744008c820864fda3d29128fc7f180b76526c8ac65cf9fa0c55365"
+    },
+    "src/ui/HologramTokenIllustratedExceptions.js": {
+      "bytes": 12030,
+      "sha256": "29ada3f0825d726b4c12664c73ced64beab227eb13fd3d8af10c58ab92b50c3d"
+    },
+    "src/ui/TokenMonsterModelProfiles.js": {
+      "bytes": 45751,
+      "sha256": "51aa0358a560efbee72a924a7dc335fef58bd7b55019d414350600e966c38db9"
+    },
+    "src/ui/DuelistAvatarModels.js": {
+      "bytes": 38201,
+      "sha256": "cd7ff30ab0da574185932f6062a101d14f90de3fe239449ff3ad55efd527376d"
+    },
+    "src/ui/DuelistAvatarGestures.js": {
+      "bytes": 5950,
+      "sha256": "805dbb0519642366a61e306517297951afa35d979738238d0ab3cc05175ee352"
+    },
+    "src/ui/DuelistAvatarPortrait.js": {
+      "bytes": 21195,
+      "sha256": "104cb24f8e7100bf9d8e9dc0377cf6d426b2137b25a0c468902b9a596631604f"
+    },
+    "src/content/DuelistAvatarCatalog.js": {
+      "bytes": 49379,
+      "sha256": "9c665ed069cfcd0829f1f4a85a6b3c635f1ebab9c96c1f892b78823f8ce4e68c"
+    }
+  },
+  "afterSourcePinsBefore": {
+    "src/ui/HologramMonsterModels.js": {
+      "bytes": 30218,
+      "sha256": "435a75e5959957f86b1080406257c9735a6e1c082e82a587813ce58fad0d7fb1"
+    },
+    "src/ui/CombatVisualProfiles.js": {
+      "bytes": 17326,
+      "sha256": "674750ffd50656bd87b4142ba344d6cdda3d48dcd0f68c01da13b08f84d64c52"
+    },
+    "src/ui/HologramPoseAnimation.js": {
+      "bytes": 7540,
+      "sha256": "0fd60c0f319ee7a413049ac05199d44e06ab356a94174bc2dc35958b22b8729c"
+    },
+    "src/ui/HologramReferenceAnatomy.js": {
+      "bytes": 69851,
+      "sha256": "0f5d19540ac428cbb7975c7a55158fd19f2c52591ed117e13666ed97b5babaff"
+    },
+    "src/ui/HologramPopularGodModels.js": {
+      "bytes": 21108,
+      "sha256": "82c3a292f17ed79efcd932f6055e05f6ce18599945fe6566a2fae3244f247d71"
+    },
+    "src/ui/HologramPopularStapleModels.js": {
+      "bytes": 30693,
+      "sha256": "3154d090e8688479b597db285027188773bf03251e9802cde4df6c551071330d"
+    },
+    "src/ui/HologramTokenModels.js": {
+      "bytes": 2407,
+      "sha256": "023a53e4b9eda35af1407f827f10a5caa0737e4ae64add6560f212354a66d269"
+    },
+    "src/ui/HologramTokenGeometry.js": {
+      "bytes": 8455,
+      "sha256": "c3c19d9cacd29631d1b47387bb115844fa9d80dbd3866dc8b2e70789a008f35d"
+    },
+    "src/ui/HologramTokenCreatureModels.js": {
+      "bytes": 40519,
+      "sha256": "0a69acdb58bc23f68627c1b96c7d0f1cd4150fd7f692025f7f961c9f7482392b"
+    },
+    "src/ui/HologramTokenConstructModels.js": {
+      "bytes": 54343,
+      "sha256": "cdf06be38bdcfd3fca22cf88eb575dd0cc08a366d0e9d5875607ec2fbc6783b9"
+    },
+    "src/ui/HologramTokenBotanicalModels.js": {
+      "bytes": 28142,
+      "sha256": "daec475175cf719e8be30e7034c3a1118147f0ec2f16909765b50e582c78858b"
+    },
+    "src/ui/HologramTokenSpiritModels.js": {
+      "bytes": 26667,
+      "sha256": "1230076e1040dcdef10af9a6d92fa9caa9efb30b74aafef2860fb047650103f3"
+    },
+    "src/ui/HologramTokenIllustratedExceptions.js": {
+      "bytes": 13201,
+      "sha256": "21541e2b5081860e8894af57669515b3be35948429009908b18195a7a8053694"
+    },
+    "src/ui/TokenMonsterModelProfiles.js": {
+      "bytes": 45751,
+      "sha256": "51aa0358a560efbee72a924a7dc335fef58bd7b55019d414350600e966c38db9"
+    },
+    "src/ui/DuelistAvatarModels.js": {
+      "bytes": 61047,
+      "sha256": "993b8d3b0d3da294b3752edd3d7b3487a1f59ed82ce07065ffba7500d880507e"
+    },
+    "src/ui/DuelistAvatarGestures.js": {
+      "bytes": 5950,
+      "sha256": "805dbb0519642366a61e306517297951afa35d979738238d0ab3cc05175ee352"
+    },
+    "src/ui/DuelistAvatarPortrait.js": {
+      "bytes": 21195,
+      "sha256": "104cb24f8e7100bf9d8e9dc0377cf6d426b2137b25a0c468902b9a596631604f"
+    },
+    "src/content/DuelistAvatarCatalog.js": {
+      "bytes": 49379,
+      "sha256": "9c665ed069cfcd0829f1f4a85a6b3c635f1ebab9c96c1f892b78823f8ce4e68c"
+    }
+  },
+  "afterSourcePinsAfter": {
+    "src/ui/HologramMonsterModels.js": {
+      "bytes": 30218,
+      "sha256": "435a75e5959957f86b1080406257c9735a6e1c082e82a587813ce58fad0d7fb1"
+    },
+    "src/ui/CombatVisualProfiles.js": {
+      "bytes": 17326,
+      "sha256": "674750ffd50656bd87b4142ba344d6cdda3d48dcd0f68c01da13b08f84d64c52"
+    },
+    "src/ui/HologramPoseAnimation.js": {
+      "bytes": 7540,
+      "sha256": "0fd60c0f319ee7a413049ac05199d44e06ab356a94174bc2dc35958b22b8729c"
+    },
+    "src/ui/HologramReferenceAnatomy.js": {
+      "bytes": 69851,
+      "sha256": "0f5d19540ac428cbb7975c7a55158fd19f2c52591ed117e13666ed97b5babaff"
+    },
+    "src/ui/HologramPopularGodModels.js": {
+      "bytes": 21108,
+      "sha256": "82c3a292f17ed79efcd932f6055e05f6ce18599945fe6566a2fae3244f247d71"
+    },
+    "src/ui/HologramPopularStapleModels.js": {
+      "bytes": 30693,
+      "sha256": "3154d090e8688479b597db285027188773bf03251e9802cde4df6c551071330d"
+    },
+    "src/ui/HologramTokenModels.js": {
+      "bytes": 2407,
+      "sha256": "023a53e4b9eda35af1407f827f10a5caa0737e4ae64add6560f212354a66d269"
+    },
+    "src/ui/HologramTokenGeometry.js": {
+      "bytes": 8455,
+      "sha256": "c3c19d9cacd29631d1b47387bb115844fa9d80dbd3866dc8b2e70789a008f35d"
+    },
+    "src/ui/HologramTokenCreatureModels.js": {
+      "bytes": 40519,
+      "sha256": "0a69acdb58bc23f68627c1b96c7d0f1cd4150fd7f692025f7f961c9f7482392b"
+    },
+    "src/ui/HologramTokenConstructModels.js": {
+      "bytes": 54343,
+      "sha256": "cdf06be38bdcfd3fca22cf88eb575dd0cc08a366d0e9d5875607ec2fbc6783b9"
+    },
+    "src/ui/HologramTokenBotanicalModels.js": {
+      "bytes": 28142,
+      "sha256": "daec475175cf719e8be30e7034c3a1118147f0ec2f16909765b50e582c78858b"
+    },
+    "src/ui/HologramTokenSpiritModels.js": {
+      "bytes": 26667,
+      "sha256": "1230076e1040dcdef10af9a6d92fa9caa9efb30b74aafef2860fb047650103f3"
+    },
+    "src/ui/HologramTokenIllustratedExceptions.js": {
+      "bytes": 13201,
+      "sha256": "21541e2b5081860e8894af57669515b3be35948429009908b18195a7a8053694"
+    },
+    "src/ui/TokenMonsterModelProfiles.js": {
+      "bytes": 45751,
+      "sha256": "51aa0358a560efbee72a924a7dc335fef58bd7b55019d414350600e966c38db9"
+    },
+    "src/ui/DuelistAvatarModels.js": {
+      "bytes": 61047,
+      "sha256": "993b8d3b0d3da294b3752edd3d7b3487a1f59ed82ce07065ffba7500d880507e"
+    },
+    "src/ui/DuelistAvatarGestures.js": {
+      "bytes": 5950,
+      "sha256": "805dbb0519642366a61e306517297951afa35d979738238d0ab3cc05175ee352"
+    },
+    "src/ui/DuelistAvatarPortrait.js": {
+      "bytes": 21195,
+      "sha256": "104cb24f8e7100bf9d8e9dc0377cf6d426b2137b25a0c468902b9a596631604f"
+    },
+    "src/content/DuelistAvatarCatalog.js": {
+      "bytes": 49379,
+      "sha256": "9c665ed069cfcd0829f1f4a85a6b3c635f1ebab9c96c1f892b78823f8ce4e68c"
+    }
+  },
+  "ok": true,
+  "ratios": {
+    "1280": 2.9643050884235653,
+    "390": 2.9643050884235653
+  }
+}

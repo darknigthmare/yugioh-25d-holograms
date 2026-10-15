@@ -1,0 +1,62 @@
+{
+  "asOf": "2026-10-11",
+  "catalogEntries": 367,
+  "nativeModels": 240,
+  "nativeTokenNames": 198,
+  "anatomies": 42,
+  "apiArtworkPresentations": 120,
+  "verifiedCommemorativePrints": 4,
+  "internalPlaceholders": 3,
+  "nativeReferenceKinds": {
+    "token": 129,
+    "generator": 110,
+    "unavailable": 1
+  },
+  "originalSourceImageAssets": 220,
+  "nativeIntegrity": [
+    {
+      "path": "public/native/card-data.json",
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d",
+      "matchesBaseline": true
+    },
+    {
+      "path": "public/native/scripts.json",
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f",
+      "matchesBaseline": true
+    },
+    {
+      "path": "public/native/ocgcore.sync.wasm",
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026",
+      "matchesBaseline": true
+    }
+  ],
+  "modules": [
+    {
+      "path": "src/ui/TokenMonsterModelProfiles.js",
+      "bytes": 45751,
+      "sha256": "51aa0358a560efbee72a924a7dc335fef58bd7b55019d414350600e966c38db9"
+    },
+    {
+      "path": "src/ui/TokenMonsterProfiles.js",
+      "bytes": 366510,
+      "sha256": "1b6a05e72b7a51bd5853efea38da157008da989d95196404ed908c89de7e7b31"
+    }
+  ],
+  "testProof": {
+    "command": "node --test tests/token-monster-profiles.test.mjs",
+    "networkPermissionEnabled": true,
+    "passed": 8,
+    "failed": 0,
+    "stdoutPath": "token-profile-tests.txt",
+    "stdoutSha256": "c29ec77260feac08d900b391e4e6c88dcccb1db471582e75c8068b8703c9dbe3"
+  },
+  "reproduction": {
+    "command": "python docs/audits/artifacts/token-monster-inventory-2026-10-11/build-token-catalog.py",
+    "verifiedInTemporaryMirror": true,
+    "matchingOutputs": [
+      "src/ui/TokenMonsterModelProfiles.js",
+      "src/ui/TokenMonsterProfiles.js"
+    ],
+    "builderSha256": "a7407db770c506bbd7e11e8a37c0d6a324eed73c178a25829090201fe5c8a627"
+  }
+}

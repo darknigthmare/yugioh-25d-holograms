@@ -1,0 +1,1789 @@
+{
+  "executedAtUtc": "2026-10-15T08:15:28.048555+00:00",
+  "scope": "Independent source WebGL, printed-scan comparisons, exact frozen compiled public UI and native Duel paths. Not a 1:1 art certificate.",
+  "freeze": {
+    "path": "/workspace/yugioh-illustration-build-freeze-2026-10-15.json",
+    "bytes": 450829,
+    "sha256": "4f8afb0b592df16365c41b5e68b6b0730b1a603550a4dd15aa79554185ad2dca"
+  },
+  "entry": "/assets/index-BdSgQu77.js",
+  "sourceScenes": {
+    "beforeReport": {
+      "bytes": 455330,
+      "sha256": "e7a27f872bd2e20d6c5e661af5e099acec1e8ea9dc001f1208efe05204d6ff14"
+    },
+    "afterReport": {
+      "bytes": 729167,
+      "sha256": "25c7ea9416bd34119c04042893c9767e2cdd2d664d10ce26fe1b7e877104f5d9"
+    },
+    "scenes": 6,
+    "viewsPerPhase": 24,
+    "subjectAndEffectIsolations": 11,
+    "geometryChanged": 6,
+    "sourceFilesExactFreeze": 171,
+    "untexturedBodyAndEffectMeshes": true,
+    "allMeshBuffersStable": true,
+    "allResourcesDisposed": true
+  },
+  "fullModels": {
+    "count": 468,
+    "counts": {
+      "token": 240,
+      "avatar": 192,
+      "monster": 36
+    },
+    "changed": [
+      "token:43664495",
+      "token:58371672"
+    ],
+    "unitNormals": {
+      "tolerance": 0.0002,
+      "normalCount": 14393712,
+      "nonUnitNormals": 0,
+      "maximumLengthError": 4.783670459751477e-08
+    },
+    "maximumOriginalBudgetRatio": 4.992714025500911,
+    "report": {
+      "bytes": 2322833,
+      "sha256": "beea2bc8f7ce0beee47d1b932558bcb18837e196a5c2b249f4003061fe14d7f7"
+    }
+  },
+  "compiled": {
+    "tokens": {
+      "report": {
+        "bytes": 2211466,
+        "sha256": "4819eca423e4c9a3a20aa0ed16e2787082f360fc9d8125e5980d2e050338c75c"
+      },
+      "wrapper": {
+        "bytes": 23616,
+        "sha256": "7aadc5d40d459f04aa4ec90a3f2a16b0267aaa7f77afde5747e0e44fb7556e0e"
+      },
+      "pathCount": 9,
+      "captureCount": 98,
+      "expectedEntrySha256": "784f6b5967c04d18d8ea01239741004a3594bc16ebed7c0fc598808d1fabeed1"
+    },
+    "avatars": {
+      "report": {
+        "bytes": 1558871,
+        "sha256": "4e0965b5812ffc1b3cc28224dbd7406bdca1a87163ad17e85833a9ccd47fc058"
+      },
+      "wrapper": {
+        "bytes": 23168,
+        "sha256": "f93ca09ba191998825505cb6f54d83c76e36b01389d98b9b0218043595c9724a"
+      },
+      "pathCount": 8,
+      "captureCount": 52,
+      "expectedEntrySha256": "784f6b5967c04d18d8ea01239741004a3594bc16ebed7c0fc598808d1fabeed1"
+    }
+  },
+  "limitations": [
+    "The before and after views show the public Atlas camera; the new scenes intentionally adopt a printed-illustration crop and orthographic framing. They are not pixel comparisons under an identical old camera.",
+    "Faces, hair, anatomy, cloth and tiny crowd figures remain procedural and stylized.",
+    "Normalized reference points are independently inspected approximations, not a photogrammetric measurement or an image-similarity certification.",
+    "Profiles, backs and hidden surfaces of a single printed view remain inferred.",
+    "Prank-Kids background inventory is an interpretation of partially occluded tiny subjects, not a canonical count.",
+    "The source driver was expanded after the initial before capture to resolve exact per-server Vite dependency URLs and add subject isolations/compiled audits. Both recipe versions and raw reports are retained.",
+    "SwiftShader timings are not physical desktop or phone frame-rate guarantees."
+  ],
+  "ok": true,
+  "retainedExternalFiles": {
+    "after/commemorative-LDK2-ENT01-back.png": {
+      "bytes": 1000414,
+      "sha256": "b65d14ef2152fa195f00030f0a7329bdbf0172d3a1396fa8b16eee976690bc5b"
+    },
+    "after/commemorative-LDK2-ENT01-front.png": {
+      "bytes": 1015290,
+      "sha256": "b726b06c308ea6e10d0bec29716dfbda7eece8f7ced97a7cc4b817b0ba74e86c"
+    },
+    "after/commemorative-LDK2-ENT01-isolated-Dark-Magician.png": {
+      "bytes": 859587,
+      "sha256": "a67be2ad8f08216b41aeaefa26076005facb745eff5b8fd37c1f85e05103a69c"
+    },
+    "after/commemorative-LDK2-ENT01-isolated-Yami-Yugi.png": {
+      "bytes": 864000,
+      "sha256": "be766779a864efc8a28b906d5eb576de7b9a81aa095422c167c90567fb48fab2"
+    },
+    "after/commemorative-LDK2-ENT01-isolated-token-illustration-effects-LDK2-ENT01.png": {
+      "bytes": 822353,
+      "sha256": "58d0626298f6448dd4df0732a6ac6a4fbc7c744b5f32f08780e26cf866825497"
+    },
+    "after/commemorative-LDK2-ENT01-profile.png": {
+      "bytes": 891060,
+      "sha256": "6c3205c164143faafef527eee1f42d3c9cbf9e6fc8c8df70719094b2e83bd9fa"
+    },
+    "after/commemorative-LDK2-ENT01-public-detail.png": {
+      "bytes": 176100,
+      "sha256": "20fb4c8cb3ef523417306a8f3526d72c75cc7412bf53e95869805d8d77b91e43"
+    },
+    "after/commemorative-LDK2-ENT01-three-quarter.png": {
+      "bytes": 978732,
+      "sha256": "64ce5335ddced62310f1bf0458dabb55b5a87c8c99a0de3549f317f45332ff09"
+    },
+    "after/commemorative-LDK2-ENT02-back.png": {
+      "bytes": 966279,
+      "sha256": "0db7787bec5733b9bc1848ff2f30895494779a1978574c12bc2fd0ae0395c2f3"
+    },
+    "after/commemorative-LDK2-ENT02-front.png": {
+      "bytes": 1027479,
+      "sha256": "8e0cba22cb1c8f008017443f5704dd7507dd8f506af6f312d3da65de8a52333d"
+    },
+    "after/commemorative-LDK2-ENT02-isolated-Blue-Eyes-White-Dragon.png": {
+      "bytes": 974045,
+      "sha256": "626a56e5ab33edcc177eb276fefa94d509fe324c1175645f524c6bd6270f14fb"
+    },
+    "after/commemorative-LDK2-ENT02-isolated-Seto-Kaiba.png": {
+      "bytes": 851438,
+      "sha256": "8f6c868c09c33bf6f38ecac1a172d9f1cbe8edbd3ef29276986a4168ae51bea6"
+    },
+    "after/commemorative-LDK2-ENT02-isolated-token-illustration-effects-LDK2-ENT02.png": {
+      "bytes": 824219,
+      "sha256": "084111d4d94e0802b50380ab6f1d98e7cfc7f003abb5721ad87a746580fdd3f2"
+    },
+    "after/commemorative-LDK2-ENT02-profile.png": {
+      "bytes": 994915,
+      "sha256": "a3c36f9357e1279f2059b6e0d0dc1d884afc5b87252001d639ab23d743aa6b58"
+    },
+    "after/commemorative-LDK2-ENT02-public-detail.png": {
+      "bytes": 182422,
+      "sha256": "569f9d28f923667b2e48262c71663f3c5c1ad47792dcf253bc3afd49b8f196d3"
+    },
+    "after/commemorative-LDK2-ENT02-three-quarter.png": {
+      "bytes": 1032709,
+      "sha256": "bd7eea80a9c4e725dfb455ac0cef63b96d49f5ba5604f9ceb0abb6e7a9dc7f78"
+    },
+    "after/commemorative-LDK2-ENT03-back.png": {
+      "bytes": 1003590,
+      "sha256": "4ba376f851d1430993f77ec08fa5fe5cdf84d57e9287157df6f25cda5192c9d2"
+    },
+    "after/commemorative-LDK2-ENT03-front.png": {
+      "bytes": 1060504,
+      "sha256": "ba0980143f7cbbb24c7451b69a1a8d1f1202d59cc1370af97568fbb208ea59e5"
+    },
+    "after/commemorative-LDK2-ENT03-isolated-Joey-Wheeler.png": {
+      "bytes": 847344,
+      "sha256": "5808afcf1b3f6752589e7c3f5d5e496b3c833605c85c0e625e7e53e576971297"
+    },
+    "after/commemorative-LDK2-ENT03-isolated-Red-Eyes-Black-Dragon.png": {
+      "bytes": 929355,
+      "sha256": "bb47e9b3fbbcada9c4d83f625a2863add9c7c723b1a3fe54a885bdd45db16f4e"
+    },
+    "after/commemorative-LDK2-ENT03-isolated-token-illustration-effects-LDK2-ENT03.png": {
+      "bytes": 843620,
+      "sha256": "248968059efdeabba3fedb637d9d4b6a5dc6a852aba298e45678d69ef7d9a8d0"
+    },
+    "after/commemorative-LDK2-ENT03-profile.png": {
+      "bytes": 930487,
+      "sha256": "0b8e52e87633d55247c268900d98193b617a3b35bf40e8584c16f10178943e74"
+    },
+    "after/commemorative-LDK2-ENT03-public-detail.png": {
+      "bytes": 193588,
+      "sha256": "48f82ae399d18d566651b6034076b24e13979b748206f410f4d2745d93869671"
+    },
+    "after/commemorative-LDK2-ENT03-three-quarter.png": {
+      "bytes": 1028551,
+      "sha256": "5bb49fc84964903db8a031a696258cf22399327c394a95def6ac3a1e2e1bcdb1"
+    },
+    "after/commemorative-YGLD-ENTKN-back.png": {
+      "bytes": 1100868,
+      "sha256": "1ea87da34ca30b18241134bc46e0f744b0ff4ceb6515ebdaf2d1c72f7aab2ce7"
+    },
+    "after/commemorative-YGLD-ENTKN-front.png": {
+      "bytes": 1084623,
+      "sha256": "9e57baca0f6f47cddece6f704ef338a39431b8393cc4185392de94c93d3232b0"
+    },
+    "after/commemorative-YGLD-ENTKN-isolated-Yami-Yugi.png": {
+      "bytes": 1011136,
+      "sha256": "3086a77c9ec876ddf4bfdd695a9fa27d55006e84ad812610869a6892c9ab916c"
+    },
+    "after/commemorative-YGLD-ENTKN-isolated-token-illustration-effects-YGLD-ENTKN.png": {
+      "bytes": 1012858,
+      "sha256": "3825f253c3eda55efbeb71c2e9529caf5bdc7531e9503c43b5be89fe51e1ae71"
+    },
+    "after/commemorative-YGLD-ENTKN-profile.png": {
+      "bytes": 975399,
+      "sha256": "18c1228ac6489dc5b89f3f932745185e99cb40a68b195fe224f6df9ba81bb9cf"
+    },
+    "after/commemorative-YGLD-ENTKN-public-detail.png": {
+      "bytes": 136194,
+      "sha256": "81b2dd6d0e7e99efeb91e5d527886389247da5326a412a6db4d63a11ef90d249"
+    },
+    "after/commemorative-YGLD-ENTKN-three-quarter.png": {
+      "bytes": 1055162,
+      "sha256": "e0a5404d51b31823600edf4a363f3589b8167b4becc0996ed16ab88209042e50"
+    },
+    "after/duel-43664495-back.png": {
+      "bytes": 915268,
+      "sha256": "0d5d6b9e13ab7acf833eb97542f9783420d79085ac01780b20571e3906a01b86"
+    },
+    "after/duel-43664495-front.png": {
+      "bytes": 980884,
+      "sha256": "72d191e9077145b7701e3e77c26ed1892aeb60f574779b8a7ba13c73aadeec01"
+    },
+    "after/duel-43664495-profile.png": {
+      "bytes": 890224,
+      "sha256": "9d525510435c7a29387ac39acb5b2b30d17784bed6dcf1a4fe8ec69e9b3dfac3"
+    },
+    "after/duel-43664495-public-detail.png": {
+      "bytes": 139825,
+      "sha256": "3890f575ca4acf7f6d61b94d783cc5e0ff14d9842497e87dacde3b8f5264a4ee"
+    },
+    "after/duel-43664495-three-quarter.png": {
+      "bytes": 975567,
+      "sha256": "e6651a2121f88ff5161aeae9a8486db83b6e1a68406b48c19e013bdfab9ef1c8"
+    },
+    "after/duel-58371672-back.png": {
+      "bytes": 569852,
+      "sha256": "74250023607a335f06cb75cec726013d837c6b0abcde31ebb64d47897eabf1be"
+    },
+    "after/duel-58371672-front.png": {
+      "bytes": 572817,
+      "sha256": "cc0a7158b590e5350488d3c0a013f90a269d1377b1ba632de8c256445c477a63"
+    },
+    "after/duel-58371672-profile.png": {
+      "bytes": 544294,
+      "sha256": "fba2f853b8874b172e85eb670368fca3e7debec06f2f9d102d88e289a7765ad5"
+    },
+    "after/duel-58371672-public-detail.png": {
+      "bytes": 101491,
+      "sha256": "67fe81cf1b76af900585e0b6d18bb42c1fa611fff0beabea0864f87fb69673cf"
+    },
+    "after/duel-58371672-three-quarter.png": {
+      "bytes": 574070,
+      "sha256": "aedd25568afd030eeb25b8671a375d5742ca6d49f1f378f25d074cdb5aa8dc87"
+    },
+    "after/report.json": {
+      "bytes": 729167,
+      "sha256": "25c7ea9416bd34119c04042893c9767e2cdd2d664d10ce26fe1b7e877104f5d9"
+    },
+    "after-diagnostic-final/commemorative-LDK2-ENT01-back.png": {
+      "bytes": 1000383,
+      "sha256": "371dd94cf3ffec62116e93f36931c4bcd54bc24ae1d2a864a6f35ca4d07d802a"
+    },
+    "after-diagnostic-final/commemorative-LDK2-ENT01-front.png": {
+      "bytes": 1002857,
+      "sha256": "4f18fcfa5d8a2b3054b71f58de876ffccd27b97859c7c69dd5e2fcf27e0866ae"
+    },
+    "after-diagnostic-final/commemorative-LDK2-ENT01-isolated-Dark-Magician.png": {
+      "bytes": 861922,
+      "sha256": "5cccdfeb57b45d7fad76b30ab632f1a3e320577bf924112d0ab7d53f0a5391bf"
+    },
+    "after-diagnostic-final/commemorative-LDK2-ENT01-isolated-Yami-Yugi.png": {
+      "bytes": 854073,
+      "sha256": "e17f4e89e9bcc3e7a6fad3ebf220c25cbda32b209f4d5067580d8f9ce8200e3f"
+    },
+    "after-diagnostic-final/commemorative-LDK2-ENT01-isolated-token-illustration-effects-LDK2-ENT01.png": {
+      "bytes": 822353,
+      "sha256": "58d0626298f6448dd4df0732a6ac6a4fbc7c744b5f32f08780e26cf866825497"
+    },
+    "after-diagnostic-final/commemorative-LDK2-ENT01-profile.png": {
+      "bytes": 884767,
+      "sha256": "7726c4b12b2ec2fa562bb0fe978301bffaf86f8e290cef47c222dc2913940131"
+    },
+    "after-diagnostic-final/commemorative-LDK2-ENT01-public-detail.png": {
+      "bytes": 171519,
+      "sha256": "95ff497ca597cd052afb144caa8eeb2311d0c8375266bcee1cca61965be508a6"
+    },
+    "after-diagnostic-final/commemorative-LDK2-ENT01-three-quarter.png": {
+      "bytes": 974200,
+      "sha256": "6541b1f473d268bdab9948db85d7519c19291cded13d353a71e243e90e41a512"
+    },
+    "after-diagnostic-final/commemorative-LDK2-ENT02-back.png": {
+      "bytes": 966279,
+      "sha256": "0db7787bec5733b9bc1848ff2f30895494779a1978574c12bc2fd0ae0395c2f3"
+    },
+    "after-diagnostic-final/commemorative-LDK2-ENT02-front.png": {
+      "bytes": 1027479,
+      "sha256": "8e0cba22cb1c8f008017443f5704dd7507dd8f506af6f312d3da65de8a52333d"
+    },
+    "after-diagnostic-final/commemorative-LDK2-ENT02-isolated-Blue-Eyes-White-Dragon.png": {
+      "bytes": 974045,
+      "sha256": "626a56e5ab33edcc177eb276fefa94d509fe324c1175645f524c6bd6270f14fb"
+    },
+    "after-diagnostic-final/commemorative-LDK2-ENT02-isolated-Seto-Kaiba.png": {
+      "bytes": 851438,
+      "sha256": "8f6c868c09c33bf6f38ecac1a172d9f1cbe8edbd3ef29276986a4168ae51bea6"
+    },
+    "after-diagnostic-final/commemorative-LDK2-ENT02-isolated-token-illustration-effects-LDK2-ENT02.png": {
+      "bytes": 824219,
+      "sha256": "084111d4d94e0802b50380ab6f1d98e7cfc7f003abb5721ad87a746580fdd3f2"
+    },
+    "after-diagnostic-final/commemorative-LDK2-ENT02-profile.png": {
+      "bytes": 994915,
+      "sha256": "a3c36f9357e1279f2059b6e0d0dc1d884afc5b87252001d639ab23d743aa6b58"
+    },
+    "after-diagnostic-final/commemorative-LDK2-ENT02-public-detail.png": {
+      "bytes": 182422,
+      "sha256": "569f9d28f923667b2e48262c71663f3c5c1ad47792dcf253bc3afd49b8f196d3"
+    },
+    "after-diagnostic-final/commemorative-LDK2-ENT02-three-quarter.png": {
+      "bytes": 1032709,
+      "sha256": "bd7eea80a9c4e725dfb455ac0cef63b96d49f5ba5604f9ceb0abb6e7a9dc7f78"
+    },
+    "after-diagnostic-final/commemorative-LDK2-ENT03-back.png": {
+      "bytes": 1003590,
+      "sha256": "4ba376f851d1430993f77ec08fa5fe5cdf84d57e9287157df6f25cda5192c9d2"
+    },
+    "after-diagnostic-final/commemorative-LDK2-ENT03-front.png": {
+      "bytes": 1060504,
+      "sha256": "ba0980143f7cbbb24c7451b69a1a8d1f1202d59cc1370af97568fbb208ea59e5"
+    },
+    "after-diagnostic-final/commemorative-LDK2-ENT03-isolated-Joey-Wheeler.png": {
+      "bytes": 847344,
+      "sha256": "5808afcf1b3f6752589e7c3f5d5e496b3c833605c85c0e625e7e53e576971297"
+    },
+    "after-diagnostic-final/commemorative-LDK2-ENT03-isolated-Red-Eyes-Black-Dragon.png": {
+      "bytes": 929355,
+      "sha256": "bb47e9b3fbbcada9c4d83f625a2863add9c7c723b1a3fe54a885bdd45db16f4e"
+    },
+    "after-diagnostic-final/commemorative-LDK2-ENT03-isolated-token-illustration-effects-LDK2-ENT03.png": {
+      "bytes": 843620,
+      "sha256": "248968059efdeabba3fedb637d9d4b6a5dc6a852aba298e45678d69ef7d9a8d0"
+    },
+    "after-diagnostic-final/commemorative-LDK2-ENT03-profile.png": {
+      "bytes": 930487,
+      "sha256": "0b8e52e87633d55247c268900d98193b617a3b35bf40e8584c16f10178943e74"
+    },
+    "after-diagnostic-final/commemorative-LDK2-ENT03-public-detail.png": {
+      "bytes": 193588,
+      "sha256": "48f82ae399d18d566651b6034076b24e13979b748206f410f4d2745d93869671"
+    },
+    "after-diagnostic-final/commemorative-LDK2-ENT03-three-quarter.png": {
+      "bytes": 1028551,
+      "sha256": "5bb49fc84964903db8a031a696258cf22399327c394a95def6ac3a1e2e1bcdb1"
+    },
+    "after-diagnostic-final/commemorative-YGLD-ENTKN-back.png": {
+      "bytes": 1100868,
+      "sha256": "1ea87da34ca30b18241134bc46e0f744b0ff4ceb6515ebdaf2d1c72f7aab2ce7"
+    },
+    "after-diagnostic-final/commemorative-YGLD-ENTKN-front.png": {
+      "bytes": 1084623,
+      "sha256": "9e57baca0f6f47cddece6f704ef338a39431b8393cc4185392de94c93d3232b0"
+    },
+    "after-diagnostic-final/commemorative-YGLD-ENTKN-isolated-Yami-Yugi.png": {
+      "bytes": 1011136,
+      "sha256": "3086a77c9ec876ddf4bfdd695a9fa27d55006e84ad812610869a6892c9ab916c"
+    },
+    "after-diagnostic-final/commemorative-YGLD-ENTKN-isolated-token-illustration-effects-YGLD-ENTKN.png": {
+      "bytes": 1012858,
+      "sha256": "3825f253c3eda55efbeb71c2e9529caf5bdc7531e9503c43b5be89fe51e1ae71"
+    },
+    "after-diagnostic-final/commemorative-YGLD-ENTKN-profile.png": {
+      "bytes": 975399,
+      "sha256": "18c1228ac6489dc5b89f3f932745185e99cb40a68b195fe224f6df9ba81bb9cf"
+    },
+    "after-diagnostic-final/commemorative-YGLD-ENTKN-public-detail.png": {
+      "bytes": 136194,
+      "sha256": "81b2dd6d0e7e99efeb91e5d527886389247da5326a412a6db4d63a11ef90d249"
+    },
+    "after-diagnostic-final/commemorative-YGLD-ENTKN-three-quarter.png": {
+      "bytes": 1055162,
+      "sha256": "e0a5404d51b31823600edf4a363f3589b8167b4becc0996ed16ab88209042e50"
+    },
+    "after-diagnostic-final/duel-43664495-back.png": {
+      "bytes": 915268,
+      "sha256": "0d5d6b9e13ab7acf833eb97542f9783420d79085ac01780b20571e3906a01b86"
+    },
+    "after-diagnostic-final/duel-43664495-front.png": {
+      "bytes": 980884,
+      "sha256": "72d191e9077145b7701e3e77c26ed1892aeb60f574779b8a7ba13c73aadeec01"
+    },
+    "after-diagnostic-final/duel-43664495-profile.png": {
+      "bytes": 890224,
+      "sha256": "9d525510435c7a29387ac39acb5b2b30d17784bed6dcf1a4fe8ec69e9b3dfac3"
+    },
+    "after-diagnostic-final/duel-43664495-public-detail.png": {
+      "bytes": 139825,
+      "sha256": "3890f575ca4acf7f6d61b94d783cc5e0ff14d9842497e87dacde3b8f5264a4ee"
+    },
+    "after-diagnostic-final/duel-43664495-three-quarter.png": {
+      "bytes": 975567,
+      "sha256": "e6651a2121f88ff5161aeae9a8486db83b6e1a68406b48c19e013bdfab9ef1c8"
+    },
+    "after-diagnostic-final/duel-58371672-back.png": {
+      "bytes": 569852,
+      "sha256": "74250023607a335f06cb75cec726013d837c6b0abcde31ebb64d47897eabf1be"
+    },
+    "after-diagnostic-final/duel-58371672-front.png": {
+      "bytes": 572817,
+      "sha256": "cc0a7158b590e5350488d3c0a013f90a269d1377b1ba632de8c256445c477a63"
+    },
+    "after-diagnostic-final/duel-58371672-profile.png": {
+      "bytes": 544294,
+      "sha256": "fba2f853b8874b172e85eb670368fca3e7debec06f2f9d102d88e289a7765ad5"
+    },
+    "after-diagnostic-final/duel-58371672-public-detail.png": {
+      "bytes": 101491,
+      "sha256": "67fe81cf1b76af900585e0b6d18bb42c1fa611fff0beabea0864f87fb69673cf"
+    },
+    "after-diagnostic-final/duel-58371672-three-quarter.png": {
+      "bytes": 574070,
+      "sha256": "aedd25568afd030eeb25b8671a375d5742ca6d49f1f378f25d074cdb5aa8dc87"
+    },
+    "after-diagnostic-final/report.json": {
+      "bytes": 725781,
+      "sha256": "c2a118eb508233cc32b7ab66bb397f5d54ff51715a2576fd684920d90881cb4b"
+    },
+    "before/commemorative-LDK2-ENT01-back.png": {
+      "bytes": 797813,
+      "sha256": "8658b2fc9d30c35f43d60367277907b94c257203172bf28de6f256a40eb6942c"
+    },
+    "before/commemorative-LDK2-ENT01-front.png": {
+      "bytes": 806026,
+      "sha256": "2766c607fdeef59cbbf1b9920e22e17acd23c1549585bbf37b2a608b26e908d6"
+    },
+    "before/commemorative-LDK2-ENT01-profile.png": {
+      "bytes": 788012,
+      "sha256": "7b6402c7b68d174d7190af43a025139ba6a71a09416eac2c8aaef5cb51c2df6a"
+    },
+    "before/commemorative-LDK2-ENT01-public-detail.png": {
+      "bytes": 97289,
+      "sha256": "1274893910afbd7cc9854ff1ea6b7b117a850f9a5276298fa00cc47dc6aeff43"
+    },
+    "before/commemorative-LDK2-ENT01-three-quarter.png": {
+      "bytes": 800552,
+      "sha256": "5bf8b3caf80d13fe69a2d9d01f7337df423ccff21e34308484d7e450e9b19429"
+    },
+    "before/commemorative-LDK2-ENT02-back.png": {
+      "bytes": 788828,
+      "sha256": "fcada303ae58264faca2fbeef1a8e8fa15fa5f97642eff852fbdc5fda84b6b51"
+    },
+    "before/commemorative-LDK2-ENT02-front.png": {
+      "bytes": 791028,
+      "sha256": "a2443aa1465bce6736c21eaf3a28915e491b1224bc112cf85ceba33b29010493"
+    },
+    "before/commemorative-LDK2-ENT02-profile.png": {
+      "bytes": 770616,
+      "sha256": "05fa31e92f8b877fcedc067b4c0739b7042c33ede939612e6e77bdb07434e4a5"
+    },
+    "before/commemorative-LDK2-ENT02-public-detail.png": {
+      "bytes": 96921,
+      "sha256": "358dbef2248e064350dddd9af07a17372a9f40c88d99fda0d46d55241f75b42e"
+    },
+    "before/commemorative-LDK2-ENT02-three-quarter.png": {
+      "bytes": 785589,
+      "sha256": "e39d06248c9bb55527d9d345a6f1f16634b3c87a9e0b5c97c4ff32226f8ef4e3"
+    },
+    "before/commemorative-LDK2-ENT03-back.png": {
+      "bytes": 778355,
+      "sha256": "6cb75058a1a193d1d3f8ec56b45a29427c531e1c5757ae64a5f5702b1b0faa1e"
+    },
+    "before/commemorative-LDK2-ENT03-front.png": {
+      "bytes": 780952,
+      "sha256": "e4327d2751e51816aa2b5a9884f8d45f2a72f43ee7dd105b3ef2063417e12c6e"
+    },
+    "before/commemorative-LDK2-ENT03-profile.png": {
+      "bytes": 768326,
+      "sha256": "b52f61efbb76ed9eb995d3d1bd67f91b7edf9fbbad1014469988f921e33ddd1b"
+    },
+    "before/commemorative-LDK2-ENT03-public-detail.png": {
+      "bytes": 93621,
+      "sha256": "7701898189afb54b4b7bd49747ba82118bb26aea7f0e49bea8a3d5bd6835d861"
+    },
+    "before/commemorative-LDK2-ENT03-three-quarter.png": {
+      "bytes": 777149,
+      "sha256": "31e2b4a5b8f19f2e5cafe4e35e1fb0e0c3789559b9aef91cfd1d20008d4e035f"
+    },
+    "before/commemorative-YGLD-ENTKN-back.png": {
+      "bytes": 956565,
+      "sha256": "d489f273f0728fe82488a76f2c8e4c7eb2f608800f9f36d286a3eded9042ed2f"
+    },
+    "before/commemorative-YGLD-ENTKN-front.png": {
+      "bytes": 964462,
+      "sha256": "60a714572bfdc6261e017a70dd1e0593329c32baefbf5817ab6cc88e1b67bad5"
+    },
+    "before/commemorative-YGLD-ENTKN-profile.png": {
+      "bytes": 947541,
+      "sha256": "09992bb10f8d57636fd8d325d500364dd8d3f0a12be32a77676da4f018ac635f"
+    },
+    "before/commemorative-YGLD-ENTKN-public-detail.png": {
+      "bytes": 91717,
+      "sha256": "67415c18f50899e116670126969f12eac8e2978845cbd277863cbd62d511c090"
+    },
+    "before/commemorative-YGLD-ENTKN-three-quarter.png": {
+      "bytes": 959412,
+      "sha256": "1737b501cd736b6ac7977c70b7a9df87fdd0125b4e46e28330d4fcb2c5618771"
+    },
+    "before/duel-43664495-back.png": {
+      "bytes": 889643,
+      "sha256": "d2cb9b5924b4068048ff92e50f4b666369a586464c083993038292374f6a10c7"
+    },
+    "before/duel-43664495-front.png": {
+      "bytes": 891150,
+      "sha256": "21431ce2df7ba59dac6c34d482f562080aacc1658127f12a45166923449b6e37"
+    },
+    "before/duel-43664495-profile.png": {
+      "bytes": 872458,
+      "sha256": "3b23fc74656e3ec304e2478ad4e89c426cee57161bb5448f28070aa43943fa99"
+    },
+    "before/duel-43664495-public-detail.png": {
+      "bytes": 96108,
+      "sha256": "5770875794b11d9a85f1b155bec2892cac81b7dbffaa43d88abafdc478789263"
+    },
+    "before/duel-43664495-three-quarter.png": {
+      "bytes": 887673,
+      "sha256": "ffc592e47a81d6004c184333da18f36f1aec18dc2769c277c5181efb952d3dfe"
+    },
+    "before/duel-58371672-back.png": {
+      "bytes": 572683,
+      "sha256": "5bb4b0b1023cf242139a3975beb989a93f1d987b0db50cacf80c41a1bab46575"
+    },
+    "before/duel-58371672-front.png": {
+      "bytes": 572887,
+      "sha256": "88f888b223b3ad0b4e20ab39435b4a443c2fe8704024566855542f4ddc989592"
+    },
+    "before/duel-58371672-profile.png": {
+      "bytes": 578922,
+      "sha256": "9eb9e1ba6984059ca50f604feb3f86dba38d4ca23bebd356ccd4918e08e95741"
+    },
+    "before/duel-58371672-public-detail.png": {
+      "bytes": 89905,
+      "sha256": "be2f163ecc004691d399592ef072fd37f6db14a9640766b282a344f2957f44fd"
+    },
+    "before/duel-58371672-three-quarter.png": {
+      "bytes": 575954,
+      "sha256": "8d0f7bb2ff3963f9f0b85664a03cc764175ee979f4e4177e619df3dd8025ab0d"
+    },
+    "before/report.json": {
+      "bytes": 455330,
+      "sha256": "e7a27f872bd2e20d6c5e661af5e099acec1e8ea9dc001f1208efe05204d6ff14"
+    },
+    "before-attempt1-public-dom-argument-error/commemorative-LDK2-ENT01-back.png": {
+      "bytes": 797813,
+      "sha256": "8658b2fc9d30c35f43d60367277907b94c257203172bf28de6f256a40eb6942c"
+    },
+    "before-attempt1-public-dom-argument-error/commemorative-LDK2-ENT01-front.png": {
+      "bytes": 806026,
+      "sha256": "2766c607fdeef59cbbf1b9920e22e17acd23c1549585bbf37b2a608b26e908d6"
+    },
+    "before-attempt1-public-dom-argument-error/commemorative-LDK2-ENT01-profile.png": {
+      "bytes": 788012,
+      "sha256": "7b6402c7b68d174d7190af43a025139ba6a71a09416eac2c8aaef5cb51c2df6a"
+    },
+    "before-attempt1-public-dom-argument-error/commemorative-LDK2-ENT01-three-quarter.png": {
+      "bytes": 800552,
+      "sha256": "5bf8b3caf80d13fe69a2d9d01f7337df423ccff21e34308484d7e450e9b19429"
+    },
+    "before-attempt1-public-dom-argument-error/commemorative-LDK2-ENT02-back.png": {
+      "bytes": 788828,
+      "sha256": "fcada303ae58264faca2fbeef1a8e8fa15fa5f97642eff852fbdc5fda84b6b51"
+    },
+    "before-attempt1-public-dom-argument-error/commemorative-LDK2-ENT02-front.png": {
+      "bytes": 791028,
+      "sha256": "a2443aa1465bce6736c21eaf3a28915e491b1224bc112cf85ceba33b29010493"
+    },
+    "before-attempt1-public-dom-argument-error/commemorative-LDK2-ENT02-profile.png": {
+      "bytes": 770616,
+      "sha256": "05fa31e92f8b877fcedc067b4c0739b7042c33ede939612e6e77bdb07434e4a5"
+    },
+    "before-attempt1-public-dom-argument-error/commemorative-LDK2-ENT02-three-quarter.png": {
+      "bytes": 785589,
+      "sha256": "e39d06248c9bb55527d9d345a6f1f16634b3c87a9e0b5c97c4ff32226f8ef4e3"
+    },
+    "before-attempt1-public-dom-argument-error/commemorative-LDK2-ENT03-back.png": {
+      "bytes": 778355,
+      "sha256": "6cb75058a1a193d1d3f8ec56b45a29427c531e1c5757ae64a5f5702b1b0faa1e"
+    },
+    "before-attempt1-public-dom-argument-error/commemorative-LDK2-ENT03-front.png": {
+      "bytes": 780952,
+      "sha256": "e4327d2751e51816aa2b5a9884f8d45f2a72f43ee7dd105b3ef2063417e12c6e"
+    },
+    "before-attempt1-public-dom-argument-error/commemorative-LDK2-ENT03-profile.png": {
+      "bytes": 768326,
+      "sha256": "b52f61efbb76ed9eb995d3d1bd67f91b7edf9fbbad1014469988f921e33ddd1b"
+    },
+    "before-attempt1-public-dom-argument-error/commemorative-LDK2-ENT03-three-quarter.png": {
+      "bytes": 777149,
+      "sha256": "31e2b4a5b8f19f2e5cafe4e35e1fb0e0c3789559b9aef91cfd1d20008d4e035f"
+    },
+    "before-attempt1-public-dom-argument-error/commemorative-YGLD-ENTKN-back.png": {
+      "bytes": 956565,
+      "sha256": "d489f273f0728fe82488a76f2c8e4c7eb2f608800f9f36d286a3eded9042ed2f"
+    },
+    "before-attempt1-public-dom-argument-error/commemorative-YGLD-ENTKN-front.png": {
+      "bytes": 964462,
+      "sha256": "60a714572bfdc6261e017a70dd1e0593329c32baefbf5817ab6cc88e1b67bad5"
+    },
+    "before-attempt1-public-dom-argument-error/commemorative-YGLD-ENTKN-profile.png": {
+      "bytes": 947541,
+      "sha256": "09992bb10f8d57636fd8d325d500364dd8d3f0a12be32a77676da4f018ac635f"
+    },
+    "before-attempt1-public-dom-argument-error/commemorative-YGLD-ENTKN-three-quarter.png": {
+      "bytes": 959412,
+      "sha256": "1737b501cd736b6ac7977c70b7a9df87fdd0125b4e46e28330d4fcb2c5618771"
+    },
+    "before-attempt1-public-dom-argument-error/duel-43664495-back.png": {
+      "bytes": 889643,
+      "sha256": "d2cb9b5924b4068048ff92e50f4b666369a586464c083993038292374f6a10c7"
+    },
+    "before-attempt1-public-dom-argument-error/duel-43664495-front.png": {
+      "bytes": 891150,
+      "sha256": "21431ce2df7ba59dac6c34d482f562080aacc1658127f12a45166923449b6e37"
+    },
+    "before-attempt1-public-dom-argument-error/duel-43664495-profile.png": {
+      "bytes": 872458,
+      "sha256": "3b23fc74656e3ec304e2478ad4e89c426cee57161bb5448f28070aa43943fa99"
+    },
+    "before-attempt1-public-dom-argument-error/duel-43664495-three-quarter.png": {
+      "bytes": 887673,
+      "sha256": "ffc592e47a81d6004c184333da18f36f1aec18dc2769c277c5181efb952d3dfe"
+    },
+    "before-attempt1-public-dom-argument-error/duel-58371672-back.png": {
+      "bytes": 572683,
+      "sha256": "5bb4b0b1023cf242139a3975beb989a93f1d987b0db50cacf80c41a1bab46575"
+    },
+    "before-attempt1-public-dom-argument-error/duel-58371672-front.png": {
+      "bytes": 572887,
+      "sha256": "88f888b223b3ad0b4e20ab39435b4a443c2fe8704024566855542f4ddc989592"
+    },
+    "before-attempt1-public-dom-argument-error/duel-58371672-profile.png": {
+      "bytes": 578922,
+      "sha256": "9eb9e1ba6984059ca50f604feb3f86dba38d4ca23bebd356ccd4918e08e95741"
+    },
+    "before-attempt1-public-dom-argument-error/duel-58371672-three-quarter.png": {
+      "bytes": 575954,
+      "sha256": "8d0f7bb2ff3963f9f0b85664a03cc764175ee979f4e4177e619df3dd8025ab0d"
+    },
+    "before-attempt1-public-dom-argument-error.txt": {
+      "bytes": 1936,
+      "sha256": "b99837d74490dfc976237e604a496b65c39e5512884442950cbf7c7ba7578dca"
+    },
+    "browser-compiled-avatars/avatar-earned-after-genuine-concession.png": {
+      "bytes": 117920,
+      "sha256": "4e6628b80982edefe313db18aef26335675a756c09c35399a7e9b890795eef58"
+    },
+    "browser-compiled-avatars/avatar-earned-after-genuine-native-exodia-win.png": {
+      "bytes": 124686,
+      "sha256": "126bb526c625a2e34df1432b1b4ba5dcfd00da55d8eded9802b0e729e3533dab"
+    },
+    "browser-compiled-avatars/avatar-jaden-selected-1280.png": {
+      "bytes": 295648,
+      "sha256": "4c7c857ab55788302d9a28ce794bd5db626d365cc2bf685e8ee785a638313421"
+    },
+    "browser-compiled-avatars/avatar-jaden-selected-390.png": {
+      "bytes": 128672,
+      "sha256": "564f4728c28efdf8a52c7a0c19a651747a46abef5abdd1e02113809d3f5f025b"
+    },
+    "browser-compiled-avatars/avatar-locked-atem-1280.png": {
+      "bytes": 288974,
+      "sha256": "229acaf49803a8a39d6a356be0a4483ba0c1971055442ff22505f5ef1a1b53b0"
+    },
+    "browser-compiled-avatars/avatar-locked-atem-390.png": {
+      "bytes": 127188,
+      "sha256": "53e1ce9407a2eb2ebc214c514f70c826258754802a6aa93d722ce61c216f4592"
+    },
+    "browser-compiled-avatars/avatar-mokuba-earned-selected.png": {
+      "bytes": 297847,
+      "sha256": "8676d144a62c97d58afe57c048b52e020cab8b0ecf8dd8e544b9245f793dc015"
+    },
+    "browser-compiled-avatars/avatar-motion-concession-collection-download.json": {
+      "bytes": 179,
+      "sha256": "eb5aca4bd9c45bb65e2370fc00155969d0822d79c3b281d0f99f78ca05b02fff"
+    },
+    "browser-compiled-avatars/avatar-motion-exodia-collection-download.json": {
+      "bytes": 91,
+      "sha256": "cf75f7f274f46db4c96693ba7e60e6b2835b05e982107b320bb91699de12dc3a"
+    },
+    "browser-compiled-avatars/avatar-motion-exodia-four-parts-before-turn.png": {
+      "bytes": 806334,
+      "sha256": "ade6ac9bf8208073dfeb6ac0485cf2a22abea861f62f4591d34766ab0774e12e"
+    },
+    "browser-compiled-avatars/avatar-motion-focus-without-dom-checkvisibility-390.png": {
+      "bytes": 162092,
+      "sha256": "168d9958d43a036505cc91d8485ad9da84359e4db4b41070ddbe0546ec56bf60"
+    },
+    "browser-compiled-avatars/avatar-motion-import-refused-preserves-collection.png": {
+      "bytes": 352797,
+      "sha256": "46a32de57e3632676d7c452fabfb358ec09ef58117d8dfcccf2e97ae84609c29"
+    },
+    "browser-compiled-avatars/avatar-motion-invalid-malformed.json": {
+      "bytes": 1,
+      "sha256": "021fb596db81e6d02bf3d2586ee3981fe519f275c0ac9ca76bbcf2ebb4097d96"
+    },
+    "browser-compiled-avatars/avatar-motion-invalid-null.json": {
+      "bytes": 4,
+      "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+    },
+    "browser-compiled-avatars/avatar-motion-invalid-oversized.json": {
+      "bytes": 64001,
+      "sha256": "7dc49b384b2e2177eb2a1e9b720144b3dc69681b08f49d679abdd93374466c9b"
+    },
+    "browser-compiled-avatars/avatar-motion-invalid-unknown.json": {
+      "bytes": 63,
+      "sha256": "3f2e39c6d9abb84ef4bf40a03eb4aa6a794af0e9629d96f19f8c3568e6e06779"
+    },
+    "browser-compiled-avatars/avatar-motion-merged-collection-download.json": {
+      "bytes": 192,
+      "sha256": "e7af12c5d596a9d7560fbc1ed735e1a08fb20571853eed0d2f841dc01c459bc3"
+    },
+    "browser-compiled-avatars/avatar-motion-native-attack-damage-1280.png": {
+      "bytes": 960140,
+      "sha256": "6032e5aa53a5d70b858d0f135649b31af8e037a054d9401e48a11b552050be91"
+    },
+    "browser-compiled-avatars/avatar-motion-session-collection-download.json": {
+      "bytes": 91,
+      "sha256": "cf75f7f274f46db4c96693ba7e60e6b2835b05e982107b320bb91699de12dc3a"
+    },
+    "browser-compiled-avatars/avatar-motion-storage-refused-session-preserved.png": {
+      "bytes": 350859,
+      "sha256": "86ab3e820fe1a6b407981a08f4d2103ff4e41b73a0e2f8e8145c198e0c997241"
+    },
+    "browser-compiled-avatars/avatar-motion-summon-casting-1280.png": {
+      "bytes": 914816,
+      "sha256": "1a2157975fff896d896de057346bcdc7a78578972d72d0b6be47aa1595b3a32f"
+    },
+    "browser-compiled-avatars/avatar-motion-summon-casting-390.png": {
+      "bytes": 258803,
+      "sha256": "31bf08a1fa17da2dcbdb1c8888e9120c852c75e3067f5401e69c246bd26602a0"
+    },
+    "browser-compiled-avatars/avatar-motion-webgl-unavailable-portrait-fallback.png": {
+      "bytes": 135930,
+      "sha256": "9a9b705e9b2e982657fd6ec10ff4ad8fd4c4b0164604840c1327af1af83b17c5"
+    },
+    "browser-compiled-avatars/avatar-native-jaden-overview-1280.png": {
+      "bytes": 878231,
+      "sha256": "9d60766586080e50e54b27e174b75bb07b00eb9a6a3c22e809e2309ee3ae5018"
+    },
+    "browser-compiled-avatars/avatar-native-jaden-overview-390.png": {
+      "bytes": 279228,
+      "sha256": "d5cde0ccb04af40770c43a5922a923166863d901aacaf7f51b16b7941874f251"
+    },
+    "browser-compiled-avatars/avatar-native-jaden-player-camera-1280.png": {
+      "bytes": 841071,
+      "sha256": "47f8b2a3692cd3678ac57eca19620c941c904dba1ae0e2f2a4f2fe54563d373f"
+    },
+    "browser-compiled-avatars/avatar-native-jaden-player-camera-390.png": {
+      "bytes": 259097,
+      "sha256": "fbf1d2460a566206ef180f827b0c91c8539540e27e21f14749b1d7e8ca32d370"
+    },
+    "browser-compiled-avatars/avatar-native-kaiba-after-summon-1280.png": {
+      "bytes": 908585,
+      "sha256": "7fb12e3cf9422b3befc0b185da736e752d301471081146624b254d888c878344"
+    },
+    "browser-compiled-avatars/avatar-native-kaiba-after-summon-390.png": {
+      "bytes": 259738,
+      "sha256": "98af464d7d7683a111c754c89ef65ead8e65019ca2ecb1f07b50682bd7e74774"
+    },
+    "browser-compiled-avatars/avatar-native-kaiba-player-camera-1280.png": {
+      "bytes": 839117,
+      "sha256": "526ec53592ddd88603dc198bf0297fe4e2a9b5f55b68b24d9a4e6fdef763b60d"
+    },
+    "browser-compiled-avatars/avatar-native-kaiba-player-camera-390.png": {
+      "bytes": 257932,
+      "sha256": "fa931523707f44a630d009e9f1397a264a0ddba5160855e83d127e901eeec976"
+    },
+    "browser-compiled-avatars/avatar-roster-desktop-mobile-1280.png": {
+      "bytes": 410152,
+      "sha256": "16db95fb689a1420cc6576dbd7927673947528d0fda9cedfc7111291262acc56"
+    },
+    "browser-compiled-avatars/avatar-roster-desktop-mobile-390.png": {
+      "bytes": 148809,
+      "sha256": "4b50d6a118acb3866fb38c547b0394113b62602bef369de33a9b3761c05810f9"
+    },
+    "browser-compiled-avatars/avatar-studio-atem-1280.png": {
+      "bytes": 279655,
+      "sha256": "03de27670c44f436f01ffcd59cf686f291925da9010ebebb95c4d4d5ff91018b"
+    },
+    "browser-compiled-avatars/avatar-studio-atem-390.png": {
+      "bytes": 84500,
+      "sha256": "cacd0b1cd185d69c93439dfd0ff7efa88a0faea66666032d206fe8bc10267d80"
+    },
+    "browser-compiled-avatars/avatar-studio-context-loss-fallback-1280.png": {
+      "bytes": 421870,
+      "sha256": "1e6ceba73ea30ca0f6a28d0cbadb67d8488db1376311e74efc1c259efddd3dfd"
+    },
+    "browser-compiled-avatars/avatar-studio-context-loss-fallback-390.png": {
+      "bytes": 132394,
+      "sha256": "82c6cc4667db1751821c19dfdeb5035d6637583d744d1d22e2a6a21b368ac61b"
+    },
+    "browser-compiled-avatars/avatar-studio-jaden-1280.png": {
+      "bytes": 273824,
+      "sha256": "75e6314268031c43e64dd02bb16fe5e6d8cf519e3022b4eaeaab67c43bad802b"
+    },
+    "browser-compiled-avatars/avatar-studio-jaden-390.png": {
+      "bytes": 78592,
+      "sha256": "61c04e34bf11d901bc090aa7060084cc4d87a5cc623e61a6215b0bacb28f0dcb"
+    },
+    "browser-compiled-avatars/avatar-studio-kaiba-1280.png": {
+      "bytes": 275692,
+      "sha256": "0d43bf58f8be703264c75818755b08933f7dcac20e591858b7520dfb1721db68"
+    },
+    "browser-compiled-avatars/avatar-studio-kaiba-390.png": {
+      "bytes": 79588,
+      "sha256": "507d7a37602d55da75b59dcdf5f61b47f1f85e1fd76f517a7bd63da011c35d32"
+    },
+    "browser-compiled-avatars/avatar-studio-playmaker-1280.png": {
+      "bytes": 275928,
+      "sha256": "c388f876ac1a74c072059747fe7b1e8737d76ff49a2d28c0832c22e4c2b96a03"
+    },
+    "browser-compiled-avatars/avatar-studio-playmaker-390.png": {
+      "bytes": 79038,
+      "sha256": "073940b1123894b123bae28559ae03b97a0983bc15812713bb819571dc86ada9"
+    },
+    "browser-compiled-avatars/avatar-studio-reduced-static-a-1280.png": {
+      "bytes": 19306,
+      "sha256": "4f197b68da7a23b2de06c18b4d86554e342197f39cc95ba72fe7bdedda79f87b"
+    },
+    "browser-compiled-avatars/avatar-studio-reduced-static-a-390.png": {
+      "bytes": 26637,
+      "sha256": "05d5dfae3e7adcad77a33f98f13484e4e05780ccc476a533fb1ec9fd6d206b15"
+    },
+    "browser-compiled-avatars/avatar-studio-reduced-static-b-1280.png": {
+      "bytes": 19306,
+      "sha256": "4f197b68da7a23b2de06c18b4d86554e342197f39cc95ba72fe7bdedda79f87b"
+    },
+    "browser-compiled-avatars/avatar-studio-reduced-static-b-390.png": {
+      "bytes": 26637,
+      "sha256": "05d5dfae3e7adcad77a33f98f13484e4e05780ccc476a533fb1ec9fd6d206b15"
+    },
+    "browser-compiled-avatars/avatar-studio-yudias-1280.png": {
+      "bytes": 278586,
+      "sha256": "75c945d3bd478654f49f81cfa80353af5a08e4cce5002a57949aaf6f1ed16df9"
+    },
+    "browser-compiled-avatars/avatar-studio-yudias-390.png": {
+      "bytes": 81641,
+      "sha256": "4a9ea73d2eaed19783dd133166aeced1840a1e25f92e71faa92dc9fd7771a5e4"
+    },
+    "browser-compiled-avatars/avatar-studio-yuga-1280.png": {
+      "bytes": 275646,
+      "sha256": "a5ee47e907c44f4a27dc52385fbe0f969646bc7497c8acd806eede9ab2a48290"
+    },
+    "browser-compiled-avatars/avatar-studio-yuga-390.png": {
+      "bytes": 78459,
+      "sha256": "950fe5946b14800d673f1b257f157a9a8881cb8f53c2cd3afe5b282b455e0da9"
+    },
+    "browser-compiled-avatars/avatar-studio-yugi-1280.png": {
+      "bytes": 297530,
+      "sha256": "a83f6024ea752c11cbdf2e831a8ffec560ad84017cb436fe965e6e2be79beec5"
+    },
+    "browser-compiled-avatars/avatar-studio-yugi-390.png": {
+      "bytes": 92891,
+      "sha256": "cd4ae1d35a767b569ee0c28bde7a582083286df96e3905985790f41916f2b46a"
+    },
+    "browser-compiled-avatars/avatar-studio-yuma-1280.png": {
+      "bytes": 274519,
+      "sha256": "a31877b4980569578a0679e57c2e2fceda3f3ae89417ee839cdd0f9b21aedfb8"
+    },
+    "browser-compiled-avatars/avatar-studio-yuma-390.png": {
+      "bytes": 77959,
+      "sha256": "744c0f193d57efd0ea75198e571c36bb46131dbe9cd35de803b09223a31e5396"
+    },
+    "browser-compiled-avatars/avatar-studio-yusei-1280.png": {
+      "bytes": 272022,
+      "sha256": "aad7d91301bf52538677693af06d0a3251ece6026930102cb4f1f072610e42b4"
+    },
+    "browser-compiled-avatars/avatar-studio-yusei-390.png": {
+      "bytes": 79442,
+      "sha256": "5bb9e25c7ea50bb9bf6e4bbc8d41cf809540ee52979c08469b8de4c97b824574"
+    },
+    "browser-compiled-avatars/avatar-studio-yuya-1280.png": {
+      "bytes": 274851,
+      "sha256": "86bc4b50502e888e9201eb84ad02cdeafb606ddb55a98aa9807a28953505082d"
+    },
+    "browser-compiled-avatars/avatar-studio-yuya-390.png": {
+      "bytes": 78816,
+      "sha256": "ec8f252b7b1636815f9561236bd029a9194cf9d79077d33425b83c8b88275fb8"
+    },
+    "browser-compiled-avatars/avatar-tristan-earned-selected.png": {
+      "bytes": 296811,
+      "sha256": "ae3eba829736a4aff5dce1dbcaf0fe3fb82f8d196cf8aaba48b2510a223a5787"
+    },
+    "browser-compiled-avatars/illustration-wrapper.json": {
+      "bytes": 23168,
+      "sha256": "f93ca09ba191998825505cb6f54d83c76e36b01389d98b9b0218043595c9724a"
+    },
+    "browser-compiled-avatars/progress.json": {
+      "bytes": 145,
+      "sha256": "e1cca5de16a80ff2edc6f3cca00dce0b44593fa4dc4ec698295ca36882a344c4"
+    },
+    "browser-compiled-avatars/report.json": {
+      "bytes": 1558871,
+      "sha256": "4e0965b5812ffc1b3cc28224dbd7406bdca1a87163ad17e85833a9ccd47fc058"
+    },
+    "browser-compiled-tokens/illustration-commemorative-LDK2-ENT01-front-1280.png": {
+      "bytes": 96046,
+      "sha256": "c8ba99c5d6ff8ff809280dab17c5896ec4449af092535fbabb053c47ccdc09c7"
+    },
+    "browser-compiled-tokens/illustration-commemorative-LDK2-ENT01-front-390.png": {
+      "bytes": 71276,
+      "sha256": "dab745cfc2f9a098f99e538baa1f773b99118736fa2890036807c0600c09f60d"
+    },
+    "browser-compiled-tokens/illustration-commemorative-LDK2-ENT01-paused-1280.png": {
+      "bytes": 96046,
+      "sha256": "c8ba99c5d6ff8ff809280dab17c5896ec4449af092535fbabb053c47ccdc09c7"
+    },
+    "browser-compiled-tokens/illustration-commemorative-LDK2-ENT01-paused-390.png": {
+      "bytes": 71276,
+      "sha256": "dab745cfc2f9a098f99e538baa1f773b99118736fa2890036807c0600c09f60d"
+    },
+    "browser-compiled-tokens/illustration-commemorative-LDK2-ENT01-restored-1280.png": {
+      "bytes": 96046,
+      "sha256": "c8ba99c5d6ff8ff809280dab17c5896ec4449af092535fbabb053c47ccdc09c7"
+    },
+    "browser-compiled-tokens/illustration-commemorative-LDK2-ENT01-restored-390.png": {
+      "bytes": 71276,
+      "sha256": "dab745cfc2f9a098f99e538baa1f773b99118736fa2890036807c0600c09f60d"
+    },
+    "browser-compiled-tokens/illustration-commemorative-LDK2-ENT01-rotated-1280.png": {
+      "bytes": 88710,
+      "sha256": "78e4d85ae9882ccc2912bcb38a952e2f839ca556d65ccc9d3daa06b0d82d5509"
+    },
+    "browser-compiled-tokens/illustration-commemorative-LDK2-ENT01-rotated-390.png": {
+      "bytes": 65996,
+      "sha256": "7841f50ffb9b4bf470a4279e3fd3ba509ee31bc6b65de08ce91f89b76c7bb741"
+    },
+    "browser-compiled-tokens/illustration-commemorative-LDK2-ENT02-front-1280.png": {
+      "bytes": 102236,
+      "sha256": "e67b611446fc732962887ff06729e9225d002e4a5a4a83ef18d3cafacce320fe"
+    },
+    "browser-compiled-tokens/illustration-commemorative-LDK2-ENT02-front-390.png": {
+      "bytes": 75346,
+      "sha256": "d77747f697cade3521a6da4116ec2ff93727794b321a7d6a05b812e117fb25aa"
+    },
+    "browser-compiled-tokens/illustration-commemorative-LDK2-ENT02-paused-1280.png": {
+      "bytes": 102236,
+      "sha256": "e67b611446fc732962887ff06729e9225d002e4a5a4a83ef18d3cafacce320fe"
+    },
+    "browser-compiled-tokens/illustration-commemorative-LDK2-ENT02-paused-390.png": {
+      "bytes": 75346,
+      "sha256": "d77747f697cade3521a6da4116ec2ff93727794b321a7d6a05b812e117fb25aa"
+    },
+    "browser-compiled-tokens/illustration-commemorative-LDK2-ENT02-restored-1280.png": {
+      "bytes": 102236,
+      "sha256": "e67b611446fc732962887ff06729e9225d002e4a5a4a83ef18d3cafacce320fe"
+    },
+    "browser-compiled-tokens/illustration-commemorative-LDK2-ENT02-restored-390.png": {
+      "bytes": 75346,
+      "sha256": "d77747f697cade3521a6da4116ec2ff93727794b321a7d6a05b812e117fb25aa"
+    },
+    "browser-compiled-tokens/illustration-commemorative-LDK2-ENT02-rotated-1280.png": {
+      "bytes": 108168,
+      "sha256": "22d648f8bb1233d408f588271bc369863b46b09aefc95174aea9bf131f851be2"
+    },
+    "browser-compiled-tokens/illustration-commemorative-LDK2-ENT02-rotated-390.png": {
+      "bytes": 79711,
+      "sha256": "dfb23f1329851ef73df5ef95b4cbcf1ae4ccc473f3e0e537e67667dda300d6fd"
+    },
+    "browser-compiled-tokens/illustration-commemorative-LDK2-ENT03-front-1280.png": {
+      "bytes": 113261,
+      "sha256": "96379f683d1689b8388e9c7d6d8d9d63582c389eaeda922bc2bbbaeb3f6f18dd"
+    },
+    "browser-compiled-tokens/illustration-commemorative-LDK2-ENT03-front-390.png": {
+      "bytes": 83255,
+      "sha256": "140fdf638376b75bf91753c9b3f61f07e49018f4885cad2d954489349689aff6"
+    },
+    "browser-compiled-tokens/illustration-commemorative-LDK2-ENT03-paused-1280.png": {
+      "bytes": 113261,
+      "sha256": "96379f683d1689b8388e9c7d6d8d9d63582c389eaeda922bc2bbbaeb3f6f18dd"
+    },
+    "browser-compiled-tokens/illustration-commemorative-LDK2-ENT03-paused-390.png": {
+      "bytes": 83255,
+      "sha256": "140fdf638376b75bf91753c9b3f61f07e49018f4885cad2d954489349689aff6"
+    },
+    "browser-compiled-tokens/illustration-commemorative-LDK2-ENT03-restored-1280.png": {
+      "bytes": 113261,
+      "sha256": "96379f683d1689b8388e9c7d6d8d9d63582c389eaeda922bc2bbbaeb3f6f18dd"
+    },
+    "browser-compiled-tokens/illustration-commemorative-LDK2-ENT03-restored-390.png": {
+      "bytes": 83255,
+      "sha256": "140fdf638376b75bf91753c9b3f61f07e49018f4885cad2d954489349689aff6"
+    },
+    "browser-compiled-tokens/illustration-commemorative-LDK2-ENT03-rotated-1280.png": {
+      "bytes": 108693,
+      "sha256": "49b77353b83cef68584608d1d803132b4387b94ac8284eba2c792dbde44441dc"
+    },
+    "browser-compiled-tokens/illustration-commemorative-LDK2-ENT03-rotated-390.png": {
+      "bytes": 80503,
+      "sha256": "b03cea9eabcf2a35ac679d0df4431b26c40ca631b78e5bccc54ef345af939a66"
+    },
+    "browser-compiled-tokens/illustration-commemorative-YGLD-ENTKN-front-1280.png": {
+      "bytes": 64857,
+      "sha256": "aebca9ca007394228fd85cff525d66812892e128cf1c5a10f34ccd769876ef01"
+    },
+    "browser-compiled-tokens/illustration-commemorative-YGLD-ENTKN-front-390.png": {
+      "bytes": 48928,
+      "sha256": "88bcb910733e43eefff8e5b067b5263f04016066c738a48f68d17afc6950fc7a"
+    },
+    "browser-compiled-tokens/illustration-commemorative-YGLD-ENTKN-paused-1280.png": {
+      "bytes": 64857,
+      "sha256": "aebca9ca007394228fd85cff525d66812892e128cf1c5a10f34ccd769876ef01"
+    },
+    "browser-compiled-tokens/illustration-commemorative-YGLD-ENTKN-paused-390.png": {
+      "bytes": 48928,
+      "sha256": "88bcb910733e43eefff8e5b067b5263f04016066c738a48f68d17afc6950fc7a"
+    },
+    "browser-compiled-tokens/illustration-commemorative-YGLD-ENTKN-restored-1280.png": {
+      "bytes": 64857,
+      "sha256": "aebca9ca007394228fd85cff525d66812892e128cf1c5a10f34ccd769876ef01"
+    },
+    "browser-compiled-tokens/illustration-commemorative-YGLD-ENTKN-restored-390.png": {
+      "bytes": 48928,
+      "sha256": "88bcb910733e43eefff8e5b067b5263f04016066c738a48f68d17afc6950fc7a"
+    },
+    "browser-compiled-tokens/illustration-commemorative-YGLD-ENTKN-rotated-1280.png": {
+      "bytes": 62407,
+      "sha256": "b05e99771d8e466df6c8f3e3ae7c54aa6b45c87a0a7b5016ec7b08ad54f206b7"
+    },
+    "browser-compiled-tokens/illustration-commemorative-YGLD-ENTKN-rotated-390.png": {
+      "bytes": 46888,
+      "sha256": "4a30ca1c3fda3e9fe5d664119ef5de4805b2cc126effa0c0115c0f6dbd019f9d"
+    },
+    "browser-compiled-tokens/illustration-duel-43664495-front-1280.png": {
+      "bytes": 60887,
+      "sha256": "c731dbd7592862209150936cf1eca64e1d8e32012146b3aea7b51db56461a285"
+    },
+    "browser-compiled-tokens/illustration-duel-43664495-front-390.png": {
+      "bytes": 46719,
+      "sha256": "9899b025195057ac19d475f4cd9069b5762ee7c52d1852833862413998e824e4"
+    },
+    "browser-compiled-tokens/illustration-duel-43664495-paused-1280.png": {
+      "bytes": 60887,
+      "sha256": "c731dbd7592862209150936cf1eca64e1d8e32012146b3aea7b51db56461a285"
+    },
+    "browser-compiled-tokens/illustration-duel-43664495-paused-390.png": {
+      "bytes": 46719,
+      "sha256": "9899b025195057ac19d475f4cd9069b5762ee7c52d1852833862413998e824e4"
+    },
+    "browser-compiled-tokens/illustration-duel-43664495-restored-1280.png": {
+      "bytes": 60887,
+      "sha256": "c731dbd7592862209150936cf1eca64e1d8e32012146b3aea7b51db56461a285"
+    },
+    "browser-compiled-tokens/illustration-duel-43664495-restored-390.png": {
+      "bytes": 46719,
+      "sha256": "9899b025195057ac19d475f4cd9069b5762ee7c52d1852833862413998e824e4"
+    },
+    "browser-compiled-tokens/illustration-duel-43664495-rotated-1280.png": {
+      "bytes": 65241,
+      "sha256": "f76a39452dad4cd6b29ef70bc1544f0b64a2076692c7faf387cdd20cac759881"
+    },
+    "browser-compiled-tokens/illustration-duel-43664495-rotated-390.png": {
+      "bytes": 50148,
+      "sha256": "e1b4874b4f84035a5a1e9146647d18244076f1e42e6d1f83ad5de473a7a6503f"
+    },
+    "browser-compiled-tokens/illustration-duel-58371672-front-1280.png": {
+      "bytes": 27183,
+      "sha256": "4e01c63232a8302781fff25984823573c43b13b78335dc8686d3f38b24a2ff82"
+    },
+    "browser-compiled-tokens/illustration-duel-58371672-front-390.png": {
+      "bytes": 21876,
+      "sha256": "ed1edb2859d5cfb1a1c4cd5fb7b770467429f8810b376dd924bcf6b56c64c773"
+    },
+    "browser-compiled-tokens/illustration-duel-58371672-paused-1280.png": {
+      "bytes": 27183,
+      "sha256": "4e01c63232a8302781fff25984823573c43b13b78335dc8686d3f38b24a2ff82"
+    },
+    "browser-compiled-tokens/illustration-duel-58371672-paused-390.png": {
+      "bytes": 21876,
+      "sha256": "ed1edb2859d5cfb1a1c4cd5fb7b770467429f8810b376dd924bcf6b56c64c773"
+    },
+    "browser-compiled-tokens/illustration-duel-58371672-restored-1280.png": {
+      "bytes": 27183,
+      "sha256": "4e01c63232a8302781fff25984823573c43b13b78335dc8686d3f38b24a2ff82"
+    },
+    "browser-compiled-tokens/illustration-duel-58371672-restored-390.png": {
+      "bytes": 21876,
+      "sha256": "ed1edb2859d5cfb1a1c4cd5fb7b770467429f8810b376dd924bcf6b56c64c773"
+    },
+    "browser-compiled-tokens/illustration-duel-58371672-rotated-1280.png": {
+      "bytes": 26153,
+      "sha256": "adc2d9597f218a8c635cacefd05e5b936d4f8c8147110f8d4c6441cb44e24460"
+    },
+    "browser-compiled-tokens/illustration-duel-58371672-rotated-390.png": {
+      "bytes": 21150,
+      "sha256": "48f024d65543ccf24b88f7508c7f457da0dd467a06b38fce91f170be24811fb0"
+    },
+    "browser-compiled-tokens/illustration-wrapper.json": {
+      "bytes": 23616,
+      "sha256": "7aadc5d40d459f04aa4ec90a3f2a16b0267aaa7f77afde5747e0e44fb7556e0e"
+    },
+    "browser-compiled-tokens/report.json": {
+      "bytes": 2211466,
+      "sha256": "4819eca423e4c9a3a20aa0ed16e2787082f360fc9d8125e5980d2e050338c75c"
+    },
+    "browser-compiled-tokens/tokens-atlas-commemorative-LDK2-ENT01-1280.png": {
+      "bytes": 332797,
+      "sha256": "37e612308fdfaa0a3f2d2fc94939da30aab03af4c415437606ecde429b39b902"
+    },
+    "browser-compiled-tokens/tokens-atlas-commemorative-LDK2-ENT01-390.png": {
+      "bytes": 146445,
+      "sha256": "84eee6e93e3d2e59e7b1a2a8569a644f42f4fcf80e7a18357b3b2631b4a4feb0"
+    },
+    "browser-compiled-tokens/tokens-atlas-commemorative-LDK2-ENT02-1280.png": {
+      "bytes": 341698,
+      "sha256": "e3e8f7c32104ee1a4ddc923e9ab9895f044babf04e1aac1230d2ee2e8dded03c"
+    },
+    "browser-compiled-tokens/tokens-atlas-commemorative-LDK2-ENT02-390.png": {
+      "bytes": 152111,
+      "sha256": "82ebbee8145d1ad67dbd49a2fb0ce96765aebdca5bd29e10a53312f128417e14"
+    },
+    "browser-compiled-tokens/tokens-atlas-commemorative-LDK2-ENT03-1280.png": {
+      "bytes": 354061,
+      "sha256": "cdbe97a1447bdc5b33f3f5a0e26b75b5e7ee5bdf3fa173c7821a1341b400bc42"
+    },
+    "browser-compiled-tokens/tokens-atlas-commemorative-LDK2-ENT03-390.png": {
+      "bytes": 160091,
+      "sha256": "d0c6f39a411a564f422a3b14b787adeaf8323997c761a5f4b55a0d5c3d0b76cd"
+    },
+    "browser-compiled-tokens/tokens-atlas-commemorative-YGLD-ENTKN-1280.png": {
+      "bytes": 290917,
+      "sha256": "94e000dd4f028360332f1348b5e9a8e278b4f01d4af2dfe1d1e850aaad49605c"
+    },
+    "browser-compiled-tokens/tokens-atlas-commemorative-YGLD-ENTKN-390.png": {
+      "bytes": 123173,
+      "sha256": "479becd94165b43ff87d2b44bb7e9594e64899125c0a285b3fa4118a1522c672"
+    },
+    "browser-compiled-tokens/tokens-atlas-delayed-import-navigation-safe.png": {
+      "bytes": 163028,
+      "sha256": "6e2949c0aecc6e56f84bf2f7627e518b218386e6aec7828cc54a2f9ba3613d60"
+    },
+    "browser-compiled-tokens/tokens-atlas-duel-2819436-1280.png": {
+      "bytes": 244729,
+      "sha256": "de0e2d7b15afbf8eeee8f522bf8bda3f3b47d5e6f05c48f2b47136a5d54238f0"
+    },
+    "browser-compiled-tokens/tokens-atlas-duel-2819436-390.png": {
+      "bytes": 97283,
+      "sha256": "3a22f4797a18f2ff1ab7802fd7b9c561fc94d778b6650722104255048ea7bf4b"
+    },
+    "browser-compiled-tokens/tokens-atlas-duel-29843092-1280.png": {
+      "bytes": 244212,
+      "sha256": "7750ff575d658e72f0c48a941b6996d7cf7a7b1390005dbc0313c135a4e8be2f"
+    },
+    "browser-compiled-tokens/tokens-atlas-duel-29843092-390.png": {
+      "bytes": 98218,
+      "sha256": "8515ad93f8b1dd7318f2049782f1d9809298350f1c6c6ef591b7518b2d96cb9c"
+    },
+    "browser-compiled-tokens/tokens-atlas-duel-3285552-1280.png": {
+      "bytes": 232865,
+      "sha256": "70add40440f0a617e5f15fcf662a40e62c7fa6e76960fdea4f96c493009f09e0"
+    },
+    "browser-compiled-tokens/tokens-atlas-duel-3285552-390.png": {
+      "bytes": 90588,
+      "sha256": "c250ca630e4c5b14ac0b71bf50093e7e16501a00184d159aebe397bd37e2bc4f"
+    },
+    "browser-compiled-tokens/tokens-atlas-duel-44330099-1280.png": {
+      "bytes": 240842,
+      "sha256": "9dea76d9aaa02805f53a8be847ca8cbfe700e0eef81019edb0e4ea9cde4ac74f"
+    },
+    "browser-compiled-tokens/tokens-atlas-duel-44330099-390.png": {
+      "bytes": 95715,
+      "sha256": "4adfb926071f1079bf802596e0a3c4adf28cd46763589655b4141d2a67101f38"
+    },
+    "browser-compiled-tokens/tokens-atlas-duel-67922703-1280.png": {
+      "bytes": 219659,
+      "sha256": "b88f90aa37fbb0637821e4fe7e67e03cdeed7fd3c951e9d6ec2368258ffecbad"
+    },
+    "browser-compiled-tokens/tokens-atlas-duel-67922703-390.png": {
+      "bytes": 82925,
+      "sha256": "503ae75547743e19dc778ca3d54ba90fef9b25ed12426e2e8377f0ed68a07e39"
+    },
+    "browser-compiled-tokens/tokens-atlas-duel-73915052-1280.png": {
+      "bytes": 230378,
+      "sha256": "03b94828ebef681fe51f47b38647817ef855cdec7255e84563e568404311cf5e"
+    },
+    "browser-compiled-tokens/tokens-atlas-duel-73915052-390.png": {
+      "bytes": 94062,
+      "sha256": "962ea3e9c8f522578a1e1f07a08ffe026483e68d064b6fdb9c32d8f434ae2ad7"
+    },
+    "browser-compiled-tokens/tokens-atlas-duel-73915053-1280.png": {
+      "bytes": 232060,
+      "sha256": "c95c0b805753b8df4a0e8b2c4023ec4092c9ee0a1cfc451445d7d67ae7a322e1"
+    },
+    "browser-compiled-tokens/tokens-atlas-duel-73915053-390.png": {
+      "bytes": 94273,
+      "sha256": "e5ba02778f25200e71bbf344d5935f5c2ade08d2c641be46f8508aab64de34cd"
+    },
+    "browser-compiled-tokens/tokens-atlas-duel-73915054-1280.png": {
+      "bytes": 233484,
+      "sha256": "8118ab07977a0c5310ad95ea5060db2177f43c942c2ca3cdef14e2edb339aa0a"
+    },
+    "browser-compiled-tokens/tokens-atlas-duel-73915054-390.png": {
+      "bytes": 94297,
+      "sha256": "9839aa9c56bb68917ec5e7a457184ac336d020492976b3eebc6fddb5f9a3bcba"
+    },
+    "browser-compiled-tokens/tokens-atlas-duel-73915055-1280.png": {
+      "bytes": 231892,
+      "sha256": "e01a54a69385559429bd2bf133bb5983baccd1fa6e24219584caf2ad4c953ce5"
+    },
+    "browser-compiled-tokens/tokens-atlas-duel-73915055-390.png": {
+      "bytes": 94144,
+      "sha256": "151ed6a0ad513378b54f114092f22a6cb30517fce650c939911e799e9c488cc9"
+    },
+    "browser-compiled-tokens/tokens-atlas-printed-176393-1280.png": {
+      "bytes": 242969,
+      "sha256": "43999ff2003c2d93ecf6d5d008ea1923c870b1acde8d169fea59825c82c561a4"
+    },
+    "browser-compiled-tokens/tokens-atlas-printed-176393-390.png": {
+      "bytes": 96205,
+      "sha256": "02e3d8ce0590a03528abd328a265345dcbd7ee3b5630767201fcb899c2b346d6"
+    },
+    "browser-compiled-tokens/tokens-atlas-printed-904186-1280.png": {
+      "bytes": 221514,
+      "sha256": "6c72722a6dcf42ab9904487911b4fb8e85c44f261e6b33dea378a38bae2b30cf"
+    },
+    "browser-compiled-tokens/tokens-atlas-printed-904186-390.png": {
+      "bytes": 84823,
+      "sha256": "dc4de6ccbd19f3efac1f5c4b4d0f2b9a7cb44a81de010a8ff13679469fe3315b"
+    },
+    "browser-compiled-tokens/tokens-atlas-real-context-loss-1280.png": {
+      "bytes": 250831,
+      "sha256": "0bfb0c9e8e46c0f77cd0c2770d374f235202ddca4c7c72e3224aab7168d60a1b"
+    },
+    "browser-compiled-tokens/tokens-atlas-real-context-loss-390.png": {
+      "bytes": 93591,
+      "sha256": "49c4f20e24c241c055d62f10755707aa6552424fce5693a3220c4dd8bdf7a757"
+    },
+    "browser-compiled-tokens/tokens-atlas-settings-during-native-duel-1280.png": {
+      "bytes": 239389,
+      "sha256": "b03aeb7c1651dec2012950e7f001ff0d8a163b6092c3b497a0d6e00948d16703"
+    },
+    "browser-compiled-tokens/tokens-atlas-settings-during-native-duel-390.png": {
+      "bytes": 96365,
+      "sha256": "ef3f11ac9446ab995af244596483a1dbe92c51fef64f6845f7c551b562255007"
+    },
+    "browser-compiled-tokens/tokens-atlas-sheep-attack-1280.png": {
+      "bytes": 224369,
+      "sha256": "c6c138390d2d7221969bbe6b70df31c70cb8ef0df852c91f3b57538e60e37452"
+    },
+    "browser-compiled-tokens/tokens-atlas-sheep-attack-390.png": {
+      "bytes": 93989,
+      "sha256": "f1a8ba90b4891a94e4fcdb3abe70e11531e5ac095f7cd04138e46602a49cde29"
+    },
+    "browser-compiled-tokens/tokens-atlas-sheep-defense-1280.png": {
+      "bytes": 220389,
+      "sha256": "cb7a7f1784d1c739696331bd0904de2df12d8cee5371b74590952d1c8172ccd3"
+    },
+    "browser-compiled-tokens/tokens-atlas-sheep-defense-390.png": {
+      "bytes": 91237,
+      "sha256": "51c2c3ca2c9d9210fd8d20ff99b76fa2b4705288f6612bfcc145ce0d61da636d"
+    },
+    "browser-compiled-tokens/tokens-atlas-webgl-unavailable-reference.png": {
+      "bytes": 263439,
+      "sha256": "8c6a01d600ec6826427cccb5bc33beeda1057dabe588ff57287c4ed5598be3f7"
+    },
+    "browser-compiled-tokens/tokens-native-adventurer-created.png": {
+      "bytes": 876778,
+      "sha256": "1fa2a19fdf7473931f163fe2b48bc81f2c37b9a9f6ef735e7ee4078d7c2b3f39"
+    },
+    "browser-compiled-tokens/tokens-native-adventurer-destroyed.png": {
+      "bytes": 909886,
+      "sha256": "a537fca8d8c809346e18843b7fdfb8d2317773997ddb9e649c6e99c76265d509"
+    },
+    "browser-compiled-tokens/tokens-native-creature-swap-opponent-token.png": {
+      "bytes": 991164,
+      "sha256": "6c9e2bd82c3357e46f343481cfbfcaeba55d0dd26680e603cd0ea109ead18b12"
+    },
+    "browser-compiled-tokens/tokens-native-four-sheep-1280.png": {
+      "bytes": 978081,
+      "sha256": "ca38754330aa40d4033d81aa79be644ef24cd6392dd3a7fd3c512dd4a08ea9e8"
+    },
+    "browser-compiled-tokens/tokens-native-four-sheep-390.png": {
+      "bytes": 276953,
+      "sha256": "617fd0be3c85effcdbab8ae363c49b21dbf15d2dff600fe1e2926644594ee125"
+    },
+    "browser-compiled-tokens/tokens-native-link-spider-token-material.png": {
+      "bytes": 959393,
+      "sha256": "3827d3deb1f1b5a9aa75b5290a56b52f055b787c0dc97ed4e41f14cccd4c188d"
+    },
+    "browser-compiled-tokens/tokens-native-sheep-destroyed-1280.png": {
+      "bytes": 913313,
+      "sha256": "e8495cb2bfb413aa4d3a4a0146c432b9c4608503b5e705bb8970c1f372780453"
+    },
+    "browser-compiled-tokens/tokens-native-sheep-destroyed-390.png": {
+      "bytes": 253805,
+      "sha256": "8aa042ac23fee342c4bdc5f8861e39cbefad66b699a3cef50148dbd9caeebd61"
+    },
+    "browser-compiled-tokens/tokens-native-tetherwolf-and-token.png": {
+      "bytes": 960243,
+      "sha256": "c98230108d7c806f9d68284693a2db1b5862db39805e95134a5cfeaaa85bc13c"
+    },
+    "browser-compiled-tokens/tokens-native-transferred-token-destroyed.png": {
+      "bytes": 931196,
+      "sha256": "40031961c3e478c4e7854427ee10cc5d88e5bcb580967b7ae2f4a8af7e9dba19"
+    },
+    "driver-before-public-dom-argument-fix.py.txt": {
+      "bytes": 14850,
+      "sha256": "12772b341dc78cbeac8b646ae343056f99ccd8df89dbc65ee65d980a00e43a91"
+    },
+    "driver-before-vite-import-resolution.py.txt": {
+      "bytes": 14854,
+      "sha256": "bfee46726a64b54c943f7e63263180465df628e8f59a2e5dd1a0b2ca576d1379"
+    },
+    "full-models-after/avatars-01.png": {
+      "bytes": 580945,
+      "sha256": "e5a4344edf0ed2334b3777b4ee97b2ff661e7901f36ab3ce840359d6651c0d0e"
+    },
+    "full-models-after/avatars-02.png": {
+      "bytes": 577932,
+      "sha256": "a3fa44b7b7e7195386a3154a4c335d858aba3756578a8b47b44d7c5753054627"
+    },
+    "full-models-after/avatars-03.png": {
+      "bytes": 574370,
+      "sha256": "3214b0c7d752157c6287b8cb835bd07b026b4c2722d8635d83b33e56a7569282"
+    },
+    "full-models-after/avatars-04.png": {
+      "bytes": 570063,
+      "sha256": "59404a5f84714cc3ebc5a34b54a269c94798faa28cdd36589d8dea16ab7efdb9"
+    },
+    "full-models-after/avatars-05.png": {
+      "bytes": 569132,
+      "sha256": "20a41ef9926175967a2964f775e418783e26c4866420bae7fff541112a1007e0"
+    },
+    "full-models-after/avatars-06.png": {
+      "bytes": 572336,
+      "sha256": "bb595d99355afa083f1a1d33b76ddbe3e7d8cbc3054a7465ec9aca1292ba34e5"
+    },
+    "full-models-after/avatars-07.png": {
+      "bytes": 567803,
+      "sha256": "04c8e6fc581a3383abb9e7741ecb639e9c69a06b4805360b7ada1a028aad105a"
+    },
+    "full-models-after/avatars-08.png": {
+      "bytes": 411349,
+      "sha256": "3d7b3734e5c62ea746ffab5a062507ea0beef4ee165c6b2de6e22377b44ddb49"
+    },
+    "full-models-after/monsters-01.png": {
+      "bytes": 1242864,
+      "sha256": "9ecdeadc12eb36d76f65742d007667a8edb639cb554a94e776a66401cf369cd9"
+    },
+    "full-models-after/monsters-02.png": {
+      "bytes": 571504,
+      "sha256": "bff5e78489410baf80f3b691fc9dd07e7051eac6e2fff078109e5f823c99f15d"
+    },
+    "full-models-after/report.json": {
+      "bytes": 2322833,
+      "sha256": "beea2bc8f7ce0beee47d1b932558bcb18837e196a5c2b249f4003061fe14d7f7"
+    },
+    "full-models-after/tokens-01.png": {
+      "bytes": 896286,
+      "sha256": "d16138f483ffd1704c385fe0668b0b8197cccf53b861e687b18598d769b21437"
+    },
+    "full-models-after/tokens-02.png": {
+      "bytes": 772278,
+      "sha256": "e5dd1bde738d86f52a12c665094ad2f11d759461e8e9693bd935b803d701ca54"
+    },
+    "full-models-after/tokens-03.png": {
+      "bytes": 867083,
+      "sha256": "bd185ffe8bef7ea0d94600a7caae4b4ed2f3d5ba4f66d96677c6dfda0e1bbf56"
+    },
+    "full-models-after/tokens-04.png": {
+      "bytes": 756999,
+      "sha256": "f40eb640b13d23439f0b93b524b7da1d7274b5646b044e574b6c9f8d7ed14bbd"
+    },
+    "full-models-after/tokens-05.png": {
+      "bytes": 889310,
+      "sha256": "a168633d01e9e2145982ba34fe073a7c62fabf54145e0512c85f6e65e9e9ab52"
+    },
+    "full-models-after/tokens-06.png": {
+      "bytes": 838126,
+      "sha256": "143de1423637ff009125e96cecd7ec0cb5be6a90ce7f991e79afed01c991cf22"
+    },
+    "full-models-after/tokens-07.png": {
+      "bytes": 869909,
+      "sha256": "176c4de1426a45b6654b869374dcf19996b57806ff39bf61b6ac841691fad249"
+    },
+    "full-models-after/tokens-08.png": {
+      "bytes": 768593,
+      "sha256": "5b0f69ef04f9ca697faf81068000e0017c30726bb647feff3f4e4a0eb000e06e"
+    },
+    "full-models-after/tokens-09.png": {
+      "bytes": 908766,
+      "sha256": "9e0bcf4bf87d2b85364c2eaacd5ebbb94c8dfbb36edd2163b0a9024e9d6d3a8e"
+    },
+    "full-models-after/tokens-10.png": {
+      "bytes": 556776,
+      "sha256": "eed823e622ff663f31d665cfeae493fc753ebc2b690ec58f8051b1e4f2963237"
+    },
+    "full-models-before/avatars-01.png": {
+      "bytes": 581716,
+      "sha256": "7803f51336702a7722558f91ca67fb31c5030fad8db098e0b56548367fa7ada7"
+    },
+    "full-models-before/avatars-02.png": {
+      "bytes": 578618,
+      "sha256": "af4a0cc5015088b7c22286aa7ee0cd28f278b6333dc5a735195d9b05bac2ffe8"
+    },
+    "full-models-before/avatars-03.png": {
+      "bytes": 575148,
+      "sha256": "2ac874f393d22163f576f90cb8e35e2decf268620f7c3c6128a2e5aedd54ba54"
+    },
+    "full-models-before/avatars-04.png": {
+      "bytes": 570823,
+      "sha256": "93d125c34cf1f0b04102cab15ad33abebc8ac91185ccda1c5e4357c4b8af2dac"
+    },
+    "full-models-before/avatars-05.png": {
+      "bytes": 569885,
+      "sha256": "6fed8238b2fe506f4b326aeb425aba26c079981b4d1b8500f56315ebc363572a"
+    },
+    "full-models-before/avatars-06.png": {
+      "bytes": 573120,
+      "sha256": "c9b78a48a13aa459db1c4fe13026211fe6fb4ad3c9c06d9c880a1036b822645f"
+    },
+    "full-models-before/avatars-07.png": {
+      "bytes": 568566,
+      "sha256": "d7dbf18e0045496da47ffe945878540cac4b91bfe6106171097c3350bdb36282"
+    },
+    "full-models-before/avatars-08.png": {
+      "bytes": 412070,
+      "sha256": "6488dbbc7226d6284010307d22e86e60429a87080b2add089a05904aace6a9b8"
+    },
+    "full-models-before/monsters-01.png": {
+      "bytes": 1243384,
+      "sha256": "9f571e5ec80c708192771d5d58f3a97f88daed9e6fdf0dcba38275cec6c0394f"
+    },
+    "full-models-before/monsters-02.png": {
+      "bytes": 571998,
+      "sha256": "dd2d6e57a9acca6f428f4f773620aad790035adf677de6034cc117cf89c4644c"
+    },
+    "full-models-before/report.json": {
+      "bytes": 2221391,
+      "sha256": "c49bf24622e174b82b42481f6f8260032998bc5cc8b35211864e0d854882df5d"
+    },
+    "full-models-before/tokens-01.png": {
+      "bytes": 896801,
+      "sha256": "1707f0cfdf1c8b7ed32dd71d3b4457b193a3cd70107c4b21d62ec001c527c5b1"
+    },
+    "full-models-before/tokens-02.png": {
+      "bytes": 772977,
+      "sha256": "94209743814455070a978781c153a948e6cfbf0b5adbeb1630630eaa0c536710"
+    },
+    "full-models-before/tokens-03.png": {
+      "bytes": 867610,
+      "sha256": "725942bb4671950a31496f6f439b56015e7a07684c954161f224dc32b797a948"
+    },
+    "full-models-before/tokens-04.png": {
+      "bytes": 757459,
+      "sha256": "e840171bb9a305d24e895c0fa5bc5f54913e074a365e7bd3a3e7ad7306de6e57"
+    },
+    "full-models-before/tokens-05.png": {
+      "bytes": 865393,
+      "sha256": "49ab51c57ec643da174032af7722f65dfe609d3618b1cca82a60d42658bef68b"
+    },
+    "full-models-before/tokens-06.png": {
+      "bytes": 841267,
+      "sha256": "9cf2d3e7a192c7734e249ee40c093a4ae8eb7a0cbef30992dd6b4951b53c82d8"
+    },
+    "full-models-before/tokens-07.png": {
+      "bytes": 870490,
+      "sha256": "ea70a1dbcefa1b5fd45834dcde45d260d68820b3bc6ac79c77a7a82725477b13"
+    },
+    "full-models-before/tokens-08.png": {
+      "bytes": 769062,
+      "sha256": "083038c5d3df88e71d42d5efd1d9e5e0878aea04b5906a6861497fc791b8f6db"
+    },
+    "full-models-before/tokens-09.png": {
+      "bytes": 909241,
+      "sha256": "2c2411a4edb7d001738ef0e947936c10a577ed0bfdeabb36c319f4bd7b856067"
+    },
+    "full-models-before/tokens-10.png": {
+      "bytes": 557424,
+      "sha256": "c3b0e885cd5bfeca05bc8595abdd5db829bead157e8beaab29132a02aa65b3ca"
+    },
+    "group-diagnostic-attempt2/duel-43664495-front.png": {
+      "bytes": 925887,
+      "sha256": "212ec441e14ccc122ff5fee0be78cf44f81937ec9054fecfbdc3c663a124dc10"
+    },
+    "group-diagnostic-attempt2/duel-43664495-three-quarter.png": {
+      "bytes": 916195,
+      "sha256": "659fc268ac14c0c1b0471a9acc10fbb5688d82790a20da3d8f483a8b76fb4bb6"
+    },
+    "group-diagnostic-attempt2/duel-58371672-front.png": {
+      "bytes": 570211,
+      "sha256": "9b8382b3a1ec24aae46d9ce04dd48184e509891e122a840e78eb2ae0e8879f4e"
+    },
+    "group-diagnostic-attempt2/duel-58371672-three-quarter.png": {
+      "bytes": 569010,
+      "sha256": "9e5606b2a0afca696517656707ec871cae0406b387c83ccb9c373abd7f2b741b"
+    },
+    "group-diagnostic-attempt2/report.json": {
+      "bytes": 91013,
+      "sha256": "a64ac266ced384ac1eed0df729331552b0d7d5d73ac8e768a5eb5d9cdb5f03ff"
+    },
+    "group-diagnostic-attempt3/duel-43664495-front.png": {
+      "bytes": 925814,
+      "sha256": "18420e1746226a0ad043c97b68842ded3ef45ded68847fec58b2ab8b997d0259"
+    },
+    "group-diagnostic-attempt3/duel-43664495-three-quarter.png": {
+      "bytes": 916178,
+      "sha256": "24115098155ae3986e4ae2bf59c5e40a508c6d89a2af7c4b68330b7326812a93"
+    },
+    "group-diagnostic-attempt3/duel-58371672-front.png": {
+      "bytes": 572019,
+      "sha256": "dc87fe1fe2ed040998d67e341b4d57870dc283ba60b36f5a84c49e8617d29e59"
+    },
+    "group-diagnostic-attempt3/duel-58371672-three-quarter.png": {
+      "bytes": 570260,
+      "sha256": "b672b3cb7494c9fc1f5559b496113a1cd7fe8abd40e2a3d1889a85f5d7620746"
+    },
+    "group-diagnostic-attempt3/report.json": {
+      "bytes": 91128,
+      "sha256": "406dab7679e54c43fb90e1ddfde4bd2dfe5a43b05444d7cc199085574ed0421e"
+    },
+    "reference-landmarks-commemorative.png": {
+      "bytes": 1191593,
+      "sha256": "82ef9d3ab3c6a5759aa7a2a0e6afac277aab505cde8c3cb13d1fb8fbb92fcc09"
+    },
+    "reference-landmarks.json": {
+      "bytes": 2945,
+      "sha256": "df4b6bced8a7fc00538402cf8d20daa1dd87ee9269006bd27263502078ed7047"
+    },
+    "reference-prank-artwork-enlarged.png": {
+      "bytes": 2419656,
+      "sha256": "52b5f43682b50817de798ee5751417a547d4c4f45099f7508e24b5d75f10f605"
+    }
+  },
+  "archivedFiles": {
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/TokenIllustrationComposition.js.txt": {
+      "bytes": 13684,
+      "sha256": "74a50e479923469f027d380027e3e8aa3b12fd5c05d561c1f39eb89214db10a1"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/TokenIllustrationEffects.js.txt": {
+      "bytes": 12019,
+      "sha256": "5afe84755f0572c2a02794e39917317d5665dbfc89cd6b2e9e010a625b09c559"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/TokenModelAtlasPreview.js.txt": {
+      "bytes": 15545,
+      "sha256": "c59ade6e843196faae5363096644041727f52cf37f8bc710330196c5fec689fd"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/after/commemorative-LDK2-ENT01-front.png": {
+      "bytes": 1015290,
+      "sha256": "b726b06c308ea6e10d0bec29716dfbda7eece8f7ced97a7cc4b817b0ba74e86c"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/after/commemorative-LDK2-ENT02-front.png": {
+      "bytes": 1027479,
+      "sha256": "8e0cba22cb1c8f008017443f5704dd7507dd8f506af6f312d3da65de8a52333d"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/after/commemorative-LDK2-ENT03-front.png": {
+      "bytes": 1060504,
+      "sha256": "ba0980143f7cbbb24c7451b69a1a8d1f1202d59cc1370af97568fbb208ea59e5"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/after/commemorative-YGLD-ENTKN-front.png": {
+      "bytes": 1084623,
+      "sha256": "9e57baca0f6f47cddece6f704ef338a39431b8393cc4185392de94c93d3232b0"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/after/duel-43664495-front.png": {
+      "bytes": 980884,
+      "sha256": "72d191e9077145b7701e3e77c26ed1892aeb60f574779b8a7ba13c73aadeec01"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/after/duel-58371672-front.png": {
+      "bytes": 572817,
+      "sha256": "cc0a7158b590e5350488d3c0a013f90a269d1377b1ba632de8c256445c477a63"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/after/report.json": {
+      "bytes": 729167,
+      "sha256": "25c7ea9416bd34119c04042893c9767e2cdd2d664d10ce26fe1b7e877104f5d9"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/before/commemorative-LDK2-ENT01-front.png": {
+      "bytes": 806026,
+      "sha256": "2766c607fdeef59cbbf1b9920e22e17acd23c1549585bbf37b2a608b26e908d6"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/before/commemorative-LDK2-ENT02-front.png": {
+      "bytes": 791028,
+      "sha256": "a2443aa1465bce6736c21eaf3a28915e491b1224bc112cf85ceba33b29010493"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/before/commemorative-LDK2-ENT03-front.png": {
+      "bytes": 780952,
+      "sha256": "e4327d2751e51816aa2b5a9884f8d45f2a72f43ee7dd105b3ef2063417e12c6e"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/before/commemorative-YGLD-ENTKN-front.png": {
+      "bytes": 964462,
+      "sha256": "60a714572bfdc6261e017a70dd1e0593329c32baefbf5817ab6cc88e1b67bad5"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/before/duel-43664495-front.png": {
+      "bytes": 891150,
+      "sha256": "21431ce2df7ba59dac6c34d482f562080aacc1658127f12a45166923449b6e37"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/before/duel-58371672-front.png": {
+      "bytes": 572887,
+      "sha256": "88f888b223b3ad0b4e20ab39435b4a443c2fe8704024566855542f4ddc989592"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/before/report.json": {
+      "bytes": 455330,
+      "sha256": "e7a27f872bd2e20d6c5e661af5e099acec1e8ea9dc001f1208efe05204d6ff14"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/browser-compiled-avatars/avatar-motion-webgl-unavailable-portrait-fallback.png": {
+      "bytes": 135930,
+      "sha256": "9a9b705e9b2e982657fd6ec10ff4ad8fd4c4b0164604840c1327af1af83b17c5"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/browser-compiled-avatars/avatar-roster-desktop-mobile-1280.png": {
+      "bytes": 410152,
+      "sha256": "16db95fb689a1420cc6576dbd7927673947528d0fda9cedfc7111291262acc56"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/browser-compiled-avatars/avatar-studio-atem-1280.png": {
+      "bytes": 279655,
+      "sha256": "03de27670c44f436f01ffcd59cf686f291925da9010ebebb95c4d4d5ff91018b"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/browser-compiled-avatars/avatar-studio-reduced-static-a-1280.png": {
+      "bytes": 19306,
+      "sha256": "4f197b68da7a23b2de06c18b4d86554e342197f39cc95ba72fe7bdedda79f87b"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/browser-compiled-avatars/avatar-studio-reduced-static-a-390.png": {
+      "bytes": 26637,
+      "sha256": "05d5dfae3e7adcad77a33f98f13484e4e05780ccc476a533fb1ec9fd6d206b15"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/browser-compiled-avatars/avatar-studio-reduced-static-b-1280.png": {
+      "bytes": 19306,
+      "sha256": "4f197b68da7a23b2de06c18b4d86554e342197f39cc95ba72fe7bdedda79f87b"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/browser-compiled-avatars/avatar-studio-reduced-static-b-390.png": {
+      "bytes": 26637,
+      "sha256": "05d5dfae3e7adcad77a33f98f13484e4e05780ccc476a533fb1ec9fd6d206b15"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/browser-compiled-avatars/illustration-wrapper.json": {
+      "bytes": 23168,
+      "sha256": "f93ca09ba191998825505cb6f54d83c76e36b01389d98b9b0218043595c9724a"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/browser-compiled-avatars/report.json": {
+      "bytes": 1558871,
+      "sha256": "4e0965b5812ffc1b3cc28224dbd7406bdca1a87163ad17e85833a9ccd47fc058"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/browser-compiled-tokens/illustration-commemorative-LDK2-ENT01-front-1280.png": {
+      "bytes": 96046,
+      "sha256": "c8ba99c5d6ff8ff809280dab17c5896ec4449af092535fbabb053c47ccdc09c7"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/browser-compiled-tokens/illustration-commemorative-LDK2-ENT01-front-390.png": {
+      "bytes": 71276,
+      "sha256": "dab745cfc2f9a098f99e538baa1f773b99118736fa2890036807c0600c09f60d"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/browser-compiled-tokens/illustration-commemorative-LDK2-ENT02-front-1280.png": {
+      "bytes": 102236,
+      "sha256": "e67b611446fc732962887ff06729e9225d002e4a5a4a83ef18d3cafacce320fe"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/browser-compiled-tokens/illustration-commemorative-LDK2-ENT02-front-390.png": {
+      "bytes": 75346,
+      "sha256": "d77747f697cade3521a6da4116ec2ff93727794b321a7d6a05b812e117fb25aa"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/browser-compiled-tokens/illustration-commemorative-LDK2-ENT03-front-1280.png": {
+      "bytes": 113261,
+      "sha256": "96379f683d1689b8388e9c7d6d8d9d63582c389eaeda922bc2bbbaeb3f6f18dd"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/browser-compiled-tokens/illustration-commemorative-LDK2-ENT03-front-390.png": {
+      "bytes": 83255,
+      "sha256": "140fdf638376b75bf91753c9b3f61f07e49018f4885cad2d954489349689aff6"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/browser-compiled-tokens/illustration-commemorative-YGLD-ENTKN-front-1280.png": {
+      "bytes": 64857,
+      "sha256": "aebca9ca007394228fd85cff525d66812892e128cf1c5a10f34ccd769876ef01"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/browser-compiled-tokens/illustration-commemorative-YGLD-ENTKN-front-390.png": {
+      "bytes": 48928,
+      "sha256": "88bcb910733e43eefff8e5b067b5263f04016066c738a48f68d17afc6950fc7a"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/browser-compiled-tokens/illustration-duel-43664495-front-1280.png": {
+      "bytes": 60887,
+      "sha256": "c731dbd7592862209150936cf1eca64e1d8e32012146b3aea7b51db56461a285"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/browser-compiled-tokens/illustration-duel-43664495-front-390.png": {
+      "bytes": 46719,
+      "sha256": "9899b025195057ac19d475f4cd9069b5762ee7c52d1852833862413998e824e4"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/browser-compiled-tokens/illustration-duel-58371672-front-1280.png": {
+      "bytes": 27183,
+      "sha256": "4e01c63232a8302781fff25984823573c43b13b78335dc8686d3f38b24a2ff82"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/browser-compiled-tokens/illustration-duel-58371672-front-390.png": {
+      "bytes": 21876,
+      "sha256": "ed1edb2859d5cfb1a1c4cd5fb7b770467429f8810b376dd924bcf6b56c64c773"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/browser-compiled-tokens/illustration-wrapper.json": {
+      "bytes": 23616,
+      "sha256": "7aadc5d40d459f04aa4ec90a3f2a16b0267aaa7f77afde5747e0e44fb7556e0e"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/browser-compiled-tokens/report.json": {
+      "bytes": 2211466,
+      "sha256": "4819eca423e4c9a3a20aa0ed16e2787082f360fc9d8125e5980d2e050338c75c"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/browser-compiled-tokens/tokens-atlas-webgl-unavailable-reference.png": {
+      "bytes": 263439,
+      "sha256": "8c6a01d600ec6826427cccb5bc33beeda1057dabe588ff57287c4ed5598be3f7"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/browser-compiled-tokens/tokens-native-adventurer-created.png": {
+      "bytes": 876778,
+      "sha256": "1fa2a19fdf7473931f163fe2b48bc81f2c37b9a9f6ef735e7ee4078d7c2b3f39"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/browser-compiled-tokens/tokens-native-creature-swap-opponent-token.png": {
+      "bytes": 991164,
+      "sha256": "6c9e2bd82c3357e46f343481cfbfcaeba55d0dd26680e603cd0ea109ead18b12"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/browser-compiled-tokens/tokens-native-four-sheep-1280.png": {
+      "bytes": 978081,
+      "sha256": "ca38754330aa40d4033d81aa79be644ef24cd6392dd3a7fd3c512dd4a08ea9e8"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/browser-compiled-tokens/tokens-native-link-spider-token-material.png": {
+      "bytes": 959393,
+      "sha256": "3827d3deb1f1b5a9aa75b5290a56b52f055b787c0dc97ed4e41f14cccd4c188d"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/build-freeze.json": {
+      "bytes": 450829,
+      "sha256": "4f8afb0b592df16365c41b5e68b6b0730b1a603550a4dd15aa79554185ad2dca"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/effects/four-illustrated-effects.png": {
+      "bytes": 204797,
+      "sha256": "d812a9f38093e0929f32d9b8b7b1c445a3652d2c6c011a77cf86736594e9a4f6"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/effects/recipe.py.txt": {
+      "bytes": 7209,
+      "sha256": "8e12e5ae0178638ffd76c1849bd36844b1d3111cad367fc2fc25cb22f931d26d"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/effects/report.json": {
+      "bytes": 2025,
+      "sha256": "f4ca3ebd4225d098a359f49f71ddd674abf19e2e8735762bb66d1079bee31c34"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/full-check.txt": {
+      "bytes": 286391,
+      "sha256": "676011b7b76faf12f525b2e40e73599d815042da1af45e65cedeb18fce6ebe54"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/full-models-after-report.json": {
+      "bytes": 2322833,
+      "sha256": "beea2bc8f7ce0beee47d1b932558bcb18837e196a5c2b249f4003061fe14d7f7"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/full-models-before-report.json": {
+      "bytes": 2221391,
+      "sha256": "c49bf24622e174b82b42481f6f8260032998bc5cc8b35211864e0d854882df5d"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/qa-archive-recipe.py.txt": {
+      "bytes": 5731,
+      "sha256": "dbe013afab4851bcaadfa571027fb0f0c2065b7514e8f981a9912779d1ed08c7"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/qa-before-recipe.py.txt": {
+      "bytes": 14854,
+      "sha256": "bfee46726a64b54c943f7e63263180465df628e8f59a2e5dd1a0b2ca576d1379"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/qa-browser-compiled-avatars-stdout.txt": {
+      "bytes": 1653,
+      "sha256": "02a22ef8fba71d110be0a9d9d7f650230ebcd163829239f1fd923dc887165c21"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/qa-browser-compiled-tokens-stdout.txt": {
+      "bytes": 2199,
+      "sha256": "614f54c2887f6e7c829c41523d011216ef94eddf132435e15ad41b407df467e5"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/qa-full-models-after-stdout.txt": {
+      "bytes": 2673,
+      "sha256": "8f38690e9b6a3bffd39481a60364cdbd2aa378f1a9d0bf8229d2c2dc33723508"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/qa-full-models-before-stdout.txt": {
+      "bytes": 2693,
+      "sha256": "d872e2b97299b6a1d78ea694b2d11996b83a4905135ff3627138ae72407091a8"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/qa-qa-after-stdout.txt": {
+      "bytes": 921,
+      "sha256": "f9247c0d1b899fe989c08efdc601e4efdccc5e4b48feb3b03f476bba658e782f"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/qa-qa-before-stdout.txt": {
+      "bytes": 927,
+      "sha256": "ca7facacb980eee5c28d874973ccf1ba6c0a4ffc31dd9759f010857b32da09bb"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/qa-recipe.py.txt": {
+      "bytes": 32679,
+      "sha256": "049abb282af9cadad266d4b75a673953ff2ec6025aa5856007256674718f0aec"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/qa-reference-landmarks-commemorative.png": {
+      "bytes": 1191593,
+      "sha256": "82ef9d3ab3c6a5759aa7a2a0e6afac277aab505cde8c3cb13d1fb8fbb92fcc09"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/qa-reference-landmarks.json": {
+      "bytes": 2945,
+      "sha256": "df4b6bced8a7fc00538402cf8d20daa1dd87ee9269006bd27263502078ed7047"
+    },
+    "docs/audits/artifacts/illustration-compositions-2026-10-15/source-before-check.json": {
+      "bytes": 359749,
+      "sha256": "028178ce76e8ce05e13a2388208bcf5498056380aa9e647d230fa7bbd4c8d2d9"
+    }
+  }
+}

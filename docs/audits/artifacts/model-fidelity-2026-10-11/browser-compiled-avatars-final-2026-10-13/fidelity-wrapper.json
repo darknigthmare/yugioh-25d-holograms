@@ -1,0 +1,988 @@
+{
+  "scope": "avatars",
+  "executedAtUtc": "2026-10-13T10:17:35.537417+00:00",
+  "wrapper": {
+    "path": "/workspace/yugioh-25d-holograms/scripts/audit-model-fidelity-browser-2026-10-11.py",
+    "bytes": 13710,
+    "sha256": "eacbb58338b5b654f3ea0d396dd175cf4c6c8a8787cb7ac2ffce1083567e42e8"
+  },
+  "originalDriver": {
+    "path": "scripts/audit-duelist-avatar-motion-browser.py",
+    "bytes": 64829,
+    "sha256": "5f9f5dd25cbb51edaadbed3ea965091dadc1ed2073309fde043f4b62a417c49c"
+  },
+  "freeze": {
+    "path": "/workspace/yugioh-model-fidelity-build-freeze-2026-10-11.json",
+    "bytes": 204546,
+    "sha256": "0d0185238360efbf149d1bcd59a8b4b7e9e56484be27f9627adae0367a97ffb7"
+  },
+  "expectedEntrySha256": "babab1743ff62c83971d835b94a3b169faf94f1f8108158ed2694ca3737a9a16",
+  "driverDependenciesBefore": {
+    "scripts/audit-token-models-browser.py": {
+      "bytes": 71910,
+      "sha256": "7941755771e8745ad4ea17f5d8df2cb86d81cc8e5904a860f7b8f9dd258159ca"
+    },
+    "scripts/audit-duelist-avatar-motion-browser.py": {
+      "bytes": 64829,
+      "sha256": "5f9f5dd25cbb51edaadbed3ea965091dadc1ed2073309fde043f4b62a417c49c"
+    },
+    "scripts/audit-native-duel-ui.py": {
+      "bytes": 28175,
+      "sha256": "0dd4443ef82f496fb398587b9be06c99d953f57c4a48e48cd470fdacbb311c18"
+    },
+    "scripts/audit-continuation-models-ui.py": {
+      "bytes": 33677,
+      "sha256": "7f6f4a1d54be8f4bfc6befa4d697a30755c0887c116a60ed124eb8a376951f49"
+    },
+    "scripts/audit-native-duel-views.py": {
+      "bytes": 23978,
+      "sha256": "f3f9b64c03273baba856886c4f67df9f371624bb759435887ba9b7f9e49f826c"
+    }
+  },
+  "historicalAvatarFailureBefore": {
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-jaden-selected-1280.png": {
+      "bytes": 295565,
+      "sha256": "91cf74befe839d8c67fdd06ec9afbf82551f9cf649315a936f9a82ca852ea2c1"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-locked-atem-1280.png": {
+      "bytes": 288974,
+      "sha256": "229acaf49803a8a39d6a356be0a4483ba0c1971055442ff22505f5ef1a1b53b0"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-roster-desktop-mobile-1280.png": {
+      "bytes": 410160,
+      "sha256": "4370649e5b42717ba243f6075e1fd43b8f1f490ea9a30319102a364192269ef6"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-atem-1280.png": {
+      "bytes": 279307,
+      "sha256": "71403ad03c94ec2d57016b78646198568c39fd17c581eea1e24cd06bee509031"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-jaden-1280.png": {
+      "bytes": 273830,
+      "sha256": "4541a24e0059a8ab626d339892dc286718abc59ff4a89f77e410d1f93b06ab0e"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-kaiba-1280.png": {
+      "bytes": 274160,
+      "sha256": "104e376cd8bc18650029a6744df2262378679b6aa947862ab49b6a6ac453f8e2"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-playmaker-1280.png": {
+      "bytes": 275555,
+      "sha256": "9a05efb5b6943bc9cd64bba436f0cb457f8907a300af7519161eb1c2ab0a41d3"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-reduced-static-a-1280.png": {
+      "bytes": 19306,
+      "sha256": "4f197b68da7a23b2de06c18b4d86554e342197f39cc95ba72fe7bdedda79f87b"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-yudias-1280.png": {
+      "bytes": 278586,
+      "sha256": "75c945d3bd478654f49f81cfa80353af5a08e4cce5002a57949aaf6f1ed16df9"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-yuga-1280.png": {
+      "bytes": 275646,
+      "sha256": "a5ee47e907c44f4a27dc52385fbe0f969646bc7497c8acd806eede9ab2a48290"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-yugi-1280.png": {
+      "bytes": 297188,
+      "sha256": "5a3c7373d972acaf470505637369487cacc3489c0b7d2d721a028197770f5d03"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-yuma-1280.png": {
+      "bytes": 274499,
+      "sha256": "cd4a76254fa85190b1a8f90bda3ce6ea843cabdc5e5ed6d6516f19af6b0925ff"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-yusei-1280.png": {
+      "bytes": 271040,
+      "sha256": "f59e3488725430dec840c2f138127fc4d2e3c891a62c1a93bd3b6455d5b8c6b2"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-yuya-1280.png": {
+      "bytes": 274328,
+      "sha256": "11119868e2f9a1211187903f58588b77f0f3187c0829f7e6f494df1402f5bfec"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/failure-public-dom-1280.png": {
+      "bytes": 402961,
+      "sha256": "fcfcd22199112c2f9c7f229a67052b6787a2a1ade33cac57af28bb505a511e98"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/fidelity-wrapper.json": {
+      "bytes": 23613,
+      "sha256": "24a75fcd2bfa6e5ce2479327bbf7264cc6681b9a9daa5874c4104130541292f5"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/progress.json": {
+      "bytes": 145,
+      "sha256": "c75eebd55541a8fed21d95954e10e0c86922e93a4074fb7638476dd8eb7d6a4c"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/report.json": {
+      "bytes": 576706,
+      "sha256": "c8ce9590ea536c30ddbf5d8be335e29ade024e581d09f7f88e34353c8682f17d"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-jaden-selected-1280.png": {
+      "bytes": 295565,
+      "sha256": "91cf74befe839d8c67fdd06ec9afbf82551f9cf649315a936f9a82ca852ea2c1"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-locked-atem-1280.png": {
+      "bytes": 288974,
+      "sha256": "229acaf49803a8a39d6a356be0a4483ba0c1971055442ff22505f5ef1a1b53b0"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-roster-desktop-mobile-1280.png": {
+      "bytes": 410160,
+      "sha256": "bbce28931fb1fb64c15d7e772663815f9093170f039604f5e77f046f058ed136"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-atem-1280.png": {
+      "bytes": 279372,
+      "sha256": "56ed6952bcb4f8bff3e6388fe20510a8cab82881937639326dde564bf7a1d774"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-jaden-1280.png": {
+      "bytes": 273806,
+      "sha256": "63277ba74f690b8d9f913a9ddf987ec8fef1debe3d854b695c2cc99cc832984c"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-kaiba-1280.png": {
+      "bytes": 274182,
+      "sha256": "3660101990af96da7530549c2cc01e016ca6ae7773992646fbb7f360f9f2c96e"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-playmaker-1280.png": {
+      "bytes": 275520,
+      "sha256": "3b790a80ccb0ba50b95f34504dd2fcbecc7e80c48b97aad61a4a3f9dbb7a7d53"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-reduced-static-a-1280.png": {
+      "bytes": 19306,
+      "sha256": "4f197b68da7a23b2de06c18b4d86554e342197f39cc95ba72fe7bdedda79f87b"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-reduced-static-b-1280.png": {
+      "bytes": 19306,
+      "sha256": "4f197b68da7a23b2de06c18b4d86554e342197f39cc95ba72fe7bdedda79f87b"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-yudias-1280.png": {
+      "bytes": 278679,
+      "sha256": "07e64273a2a5d07d636e6803ef672dbb39c2b7249f4ab60cfb2b9403870850cd"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-yuga-1280.png": {
+      "bytes": 275392,
+      "sha256": "5290bf94d89d65c05a2fbe0846930bf47e9b0214cd0da159d3990daedde95972"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-yugi-1280.png": {
+      "bytes": 297194,
+      "sha256": "9500cbe6bfec401095326e9ce6eb842a0f5256525ff7906c2a9374982bc62328"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-yuma-1280.png": {
+      "bytes": 274515,
+      "sha256": "0a9d2c59418b50b22dfe59a223a32691f9b671d4ee0c8785694cb4fe964eafbf"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-yusei-1280.png": {
+      "bytes": 271097,
+      "sha256": "b95dc6cb1038b710f250e13c0db48b2a10b9c505d3bb0e5165712781b5160ea9"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-yuya-1280.png": {
+      "bytes": 274320,
+      "sha256": "32a6ab0f36e787c4f96a1898f9deaf047fd5919e12d0134330e98ab8f89ae4c2"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/execution.txt": {
+      "bytes": 2475,
+      "sha256": "088e4e31f7551cf4ad4998b3410cee952c7c992dd712f47416e9f92b544931d7"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/failure-public-dom-1280.png": {
+      "bytes": 72484,
+      "sha256": "571b5825e26918f47181dd45abaa96b16ead0429427f2fbe123bcd4d8b647e04"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/fidelity-wrapper.json": {
+      "bytes": 32925,
+      "sha256": "67b22501cf2b79073f626bf5edbd64b6966d85fec5f77f7e285bec84159613ef"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/progress.json": {
+      "bytes": 145,
+      "sha256": "c93a1739ae8c81c8d7e61d2613fb3216065d24f9f747587414ab669dc70eaace"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/report.json": {
+      "bytes": 576445,
+      "sha256": "533761250032f38da0919ef22cc9dfc6a476775953e93a0674ab1753f2bafb61"
+    }
+  },
+  "declaredRecipeAdaptation": {
+    "name": "ADDITIONAL_STATIC_ASSETS",
+    "historical": [
+      "cards/small/43422537.jpg"
+    ],
+    "current": [
+      "cards/cropped/10000000.jpg",
+      "cards/cropped/10000010.jpg",
+      "cards/cropped/10000020.jpg",
+      "cards/cropped/10080320.jpg",
+      "cards/cropped/11102908.jpg",
+      "cards/cropped/12580477.jpg",
+      "cards/cropped/13039848.jpg",
+      "cards/cropped/14087893.jpg",
+      "cards/cropped/14558127.jpg",
+      "cards/cropped/14898066.jpg",
+      "cards/cropped/15025844.jpg",
+      "cards/cropped/18161786.jpg",
+      "cards/cropped/19384334.jpg",
+      "cards/cropped/20409757.jpg",
+      "cards/cropped/20721928.jpg",
+      "cards/cropped/2084239.jpg",
+      "cards/cropped/23115241.jpg",
+      "cards/cropped/23995346.jpg",
+      "cards/cropped/24094653.jpg",
+      "cards/cropped/26202165.jpg",
+      "cards/cropped/26905245.jpg",
+      "cards/cropped/28120197.jpg",
+      "cards/cropped/28279543.jpg",
+      "cards/cropped/28649820.jpg",
+      "cards/cropped/295517.jpg",
+      "cards/cropped/31560081.jpg",
+      "cards/cropped/31924889.jpg",
+      "cards/cropped/32452818.jpg",
+      "cards/cropped/35956022.jpg",
+      "cards/cropped/38033121.jpg",
+      "cards/cropped/39552864.jpg",
+      "cards/cropped/40640057.jpg",
+      "cards/cropped/4064256.jpg",
+      "cards/cropped/41392891.jpg",
+      "cards/cropped/4206964.jpg",
+      "cards/cropped/43793530.jpg",
+      "cards/cropped/44095762.jpg",
+      "cards/cropped/44287299.jpg",
+      "cards/cropped/44430454.jpg",
+      "cards/cropped/44508094.jpg",
+      "cards/cropped/45778932.jpg",
+      "cards/cropped/46986414.jpg",
+      "cards/cropped/48305365.jpg",
+      "cards/cropped/49791927.jpg",
+      "cards/cropped/5053103.jpg",
+      "cards/cropped/5318639.jpg",
+      "cards/cropped/53527835.jpg",
+      "cards/cropped/5405694.jpg",
+      "cards/cropped/54652250.jpg",
+      "cards/cropped/55144522.jpg",
+      "cards/cropped/55761792.jpg",
+      "cards/cropped/56433456.jpg",
+      "cards/cropped/56594520.jpg",
+      "cards/cropped/63035430.jpg",
+      "cards/cropped/6368038.jpg",
+      "cards/cropped/63977008.jpg",
+      "cards/cropped/64428736.jpg",
+      "cards/cropped/66602787.jpg",
+      "cards/cropped/68462976.jpg",
+      "cards/cropped/68638985.jpg",
+      "cards/cropped/70095154.jpg",
+      "cards/cropped/70781052.jpg",
+      "cards/cropped/71625222.jpg",
+      "cards/cropped/72989439.jpg",
+      "cards/cropped/73787254.jpg",
+      "cards/cropped/74677422.jpg",
+      "cards/cropped/77637979.jpg",
+      "cards/cropped/78082039.jpg",
+      "cards/cropped/81231742.jpg",
+      "cards/cropped/81380218.jpg",
+      "cards/cropped/81777047.jpg",
+      "cards/cropped/81823360.jpg",
+      "cards/cropped/82999629.jpg",
+      "cards/cropped/83764718.jpg",
+      "cards/cropped/84013237.jpg",
+      "cards/cropped/87624166.jpg",
+      "cards/cropped/88819587.jpg",
+      "cards/cropped/89631139.jpg",
+      "cards/cropped/89943723.jpg",
+      "cards/cropped/91152256.jpg",
+      "cards/cropped/92481084.jpg",
+      "cards/cropped/94415058.jpg",
+      "cards/cropped/97590747.jpg",
+      "cards/small/43422537.jpg",
+      "tokens/README.md",
+      "tokens/cards/10389143.jpg",
+      "tokens/cards/11050416.jpg",
+      "tokens/cards/11050417.jpg",
+      "tokens/cards/11050418.jpg",
+      "tokens/cards/11050419.jpg",
+      "tokens/cards/12958920.jpg",
+      "tokens/cards/12965762.jpg",
+      "tokens/cards/13536607.jpg",
+      "tokens/cards/14089429.jpg",
+      "tokens/cards/1426715.jpg",
+      "tokens/cards/14470846.jpg",
+      "tokens/cards/14470847.jpg",
+      "tokens/cards/15341822.jpg",
+      "tokens/cards/15341823.jpg",
+      "tokens/cards/15394084.jpg",
+      "tokens/cards/15629802.jpg",
+      "tokens/cards/16946850.jpg",
+      "tokens/cards/17418745.jpg",
+      "tokens/cards/176393.jpg",
+      "tokens/cards/21179144.jpg",
+      "tokens/cards/21770261.jpg",
+      "tokens/cards/22404676.jpg",
+      "tokens/cards/22493812.jpg",
+      "tokens/cards/23331401.jpg",
+      "tokens/cards/24874631.jpg",
+      "tokens/cards/25415053.jpg",
+      "tokens/cards/27198002.jpg",
+      "tokens/cards/27450401.jpg",
+      "tokens/cards/28053764.jpg",
+      "tokens/cards/28062326.jpg",
+      "tokens/cards/2819436.jpg",
+      "tokens/cards/28355719.jpg",
+      "tokens/cards/28674153.jpg",
+      "tokens/cards/29491335.jpg",
+      "tokens/cards/29843092.jpg",
+      "tokens/cards/29843093.jpg",
+      "tokens/cards/29843094.jpg",
+      "tokens/cards/30069399.jpg",
+      "tokens/cards/31986289.jpg",
+      "tokens/cards/34822851.jpg",
+      "tokens/cards/35268888.jpg",
+      "tokens/cards/35514097.jpg",
+      "tokens/cards/38041941.jpg",
+      "tokens/cards/39972130.jpg",
+      "tokens/cards/40703223.jpg",
+      "tokens/cards/40844553.jpg",
+      "tokens/cards/42671152.jpg",
+      "tokens/cards/42956964.jpg",
+      "tokens/cards/43140792.jpg",
+      "tokens/cards/44052075.jpg",
+      "tokens/cards/44330099.jpg",
+      "tokens/cards/44586427.jpg",
+      "tokens/cards/44689689.jpg",
+      "tokens/cards/46173680.jpg",
+      "tokens/cards/46173681.jpg",
+      "tokens/cards/46647145.jpg",
+      "tokens/cards/47658965.jpg",
+      "tokens/cards/48115278.jpg",
+      "tokens/cards/48411997.jpg",
+      "tokens/cards/49808197.jpg",
+      "tokens/cards/51987572.jpg",
+      "tokens/cards/52340445.jpg",
+      "tokens/cards/52900001.jpg",
+      "tokens/cards/53855410.jpg",
+      "tokens/cards/54537490.jpg",
+      "tokens/cards/55326323.jpg",
+      "tokens/cards/56051649.jpg",
+      "tokens/cards/56597273.jpg",
+      "tokens/cards/59160189.jpg",
+      "tokens/cards/60406592.jpg",
+      "tokens/cards/60764582.jpg",
+      "tokens/cards/60764583.jpg",
+      "tokens/cards/62125439.jpg",
+      "tokens/cards/62543394.jpg",
+      "tokens/cards/63442605.jpg",
+      "tokens/cards/64382840.jpg",
+      "tokens/cards/65810490.jpg",
+      "tokens/cards/66661679.jpg",
+      "tokens/cards/67284108.jpg",
+      "tokens/cards/67949764.jpg",
+      "tokens/cards/68815402.jpg",
+      "tokens/cards/69868556.jpg",
+      "tokens/cards/69890968.jpg",
+      "tokens/cards/70391589.jpg",
+      "tokens/cards/71645243.jpg",
+      "tokens/cards/73915052.jpg",
+      "tokens/cards/73915053.jpg",
+      "tokens/cards/73915054.jpg",
+      "tokens/cards/73915055.jpg",
+      "tokens/cards/7392746.jpg",
+      "tokens/cards/74440056.jpg",
+      "tokens/cards/74983882.jpg",
+      "tokens/cards/75119041.jpg",
+      "tokens/cards/75524093.jpg",
+      "tokens/cards/75622825.jpg",
+      "tokens/cards/75732623.jpg",
+      "tokens/cards/8198621.jpg",
+      "tokens/cards/82324106.jpg",
+      "tokens/cards/82340057.jpg",
+      "tokens/cards/82556059.jpg",
+      "tokens/cards/82994510.jpg",
+      "tokens/cards/83239740.jpg",
+      "tokens/cards/84816245.jpg",
+      "tokens/cards/85771020.jpg",
+      "tokens/cards/85771021.jpg",
+      "tokens/cards/86801872.jpg",
+      "tokens/cards/86871615.jpg",
+      "tokens/cards/89907228.jpg",
+      "tokens/cards/904186.jpg",
+      "tokens/cards/9047461.jpg",
+      "tokens/cards/90884404.jpg",
+      "tokens/cards/91512836.jpg",
+      "tokens/cards/93104633.jpg",
+      "tokens/cards/93130022.jpg",
+      "tokens/cards/93224849.jpg",
+      "tokens/cards/93912846.jpg",
+      "tokens/cards/97452818.jpg",
+      "tokens/cards/98596597.jpg",
+      "tokens/cards/9925983.jpg",
+      "tokens/cards/9929399.jpg",
+      "tokens/commemorative/LDK2-ENT01.png",
+      "tokens/commemorative/LDK2-ENT02.png",
+      "tokens/commemorative/LDK2-ENT03.png",
+      "tokens/commemorative/YGLD-ENTKN.png",
+      "tokens/duel-cards/31036355.jpg",
+      "tokens/duel-cards/3285551.jpg",
+      "tokens/duel-cards/53129443.jpg",
+      "tokens/duel-cards/67922702.jpg",
+      "tokens/duel-cards/73915051.jpg",
+      "tokens/duel-cards/98978921.jpg",
+      "tokens/duel-cropped/31036355.jpg",
+      "tokens/duel-cropped/53129443.jpg",
+      "tokens/duel-cropped/73915051.jpg",
+      "tokens/duel-cropped/98978921.jpg",
+      "tokens/duel-small/31036355.jpg",
+      "tokens/duel-small/3285551.jpg",
+      "tokens/duel-small/53129443.jpg",
+      "tokens/duel-small/67922702.jpg",
+      "tokens/duel-small/73915051.jpg",
+      "tokens/duel-small/98978921.jpg",
+      "tokens/generators/11654067.jpg",
+      "tokens/generators/11738489.jpg",
+      "tokens/generators/13764602.jpg",
+      "tokens/generators/13935001.jpg",
+      "tokens/generators/14821890.jpg",
+      "tokens/generators/14957440.jpg",
+      "tokens/generators/15590355.jpg",
+      "tokens/generators/17228908.jpg",
+      "tokens/generators/1799464.jpg",
+      "tokens/generators/18494511.jpg",
+      "tokens/generators/18905769.jpg",
+      "tokens/generators/19280589.jpg",
+      "tokens/generators/20368763.jpg",
+      "tokens/generators/21830679.jpg",
+      "tokens/generators/22110647.jpg",
+      "tokens/generators/22712877.jpg",
+      "tokens/generators/22953211.jpg",
+      "tokens/generators/23116808.jpg",
+      "tokens/generators/23837054.jpg",
+      "tokens/generators/25419323.jpg",
+      "tokens/generators/2625939.jpg",
+      "tokens/generators/26326541.jpg",
+      "tokens/generators/26364381.jpg",
+      "tokens/generators/27204311.jpg",
+      "tokens/generators/27882993.jpg",
+      "tokens/generators/30327674.jpg",
+      "tokens/generators/30650147.jpg",
+      "tokens/generators/30765615.jpg",
+      "tokens/generators/3129133.jpg",
+      "tokens/generators/3129527.jpg",
+      "tokens/generators/31600513.jpg",
+      "tokens/generators/32335697.jpg",
+      "tokens/generators/32446630.jpg",
+      "tokens/generators/3285551.jpg",
+      "tokens/generators/33676146.jpg",
+      "tokens/generators/34479658.jpg",
+      "tokens/generators/34767865.jpg",
+      "tokens/generators/35167375.jpg",
+      "tokens/generators/35263180.jpg",
+      "tokens/generators/35552985.jpg",
+      "tokens/generators/35834119.jpg",
+      "tokens/generators/36629635.jpg",
+      "tokens/generators/37654623.jpg",
+      "tokens/generators/38030232.jpg",
+      "tokens/generators/38053381.jpg",
+      "tokens/generators/40551410.jpg",
+      "tokens/generators/40633084.jpg",
+      "tokens/generators/41458361.jpg",
+      "tokens/generators/42427230.jpg",
+      "tokens/generators/43664494.jpg",
+      "tokens/generators/44092304.jpg",
+      "tokens/generators/44097050.jpg",
+      "tokens/generators/48068378.jpg",
+      "tokens/generators/48228390.jpg",
+      "tokens/generators/51208046.jpg",
+      "tokens/generators/51611041.jpg",
+      "tokens/generators/52768390.jpg",
+      "tokens/generators/52782439.jpg",
+      "tokens/generators/53545926.jpg",
+      "tokens/generators/53770666.jpg",
+      "tokens/generators/54577949.jpg",
+      "tokens/generators/58371671.jpg",
+      "tokens/generators/58809685.jpg",
+      "tokens/generators/59900655.jpg",
+      "tokens/generators/60025883.jpg",
+      "tokens/generators/60203670.jpg",
+      "tokens/generators/60514625.jpg",
+      "tokens/generators/63184227.jpg",
+      "tokens/generators/645087.jpg",
+      "tokens/generators/64583600.jpg",
+      "tokens/generators/65500515.jpg",
+      "tokens/generators/67922702.jpg",
+      "tokens/generators/69550259.jpg",
+      "tokens/generators/70465810.jpg",
+      "tokens/generators/70950698.jpg",
+      "tokens/generators/71771004.jpg",
+      "tokens/generators/71939275.jpg",
+      "tokens/generators/74627016.jpg",
+      "tokens/generators/74659582.jpg",
+      "tokens/generators/7610394.jpg",
+      "tokens/generators/76589546.jpg",
+      "tokens/generators/77435268.jpg",
+      "tokens/generators/8025950.jpg",
+      "tokens/generators/81767888.jpg",
+      "tokens/generators/82255872.jpg",
+      "tokens/generators/84031359.jpg",
+      "tokens/generators/85969517.jpg",
+      "tokens/generators/88477149.jpg",
+      "tokens/generators/88923963.jpg",
+      "tokens/generators/89027418.jpg",
+      "tokens/generators/904185.jpg",
+      "tokens/generators/92907248.jpg",
+      "tokens/generators/9396662.jpg",
+      "tokens/generators/94384774.jpg",
+      "tokens/generators/94703021.jpg",
+      "tokens/generators/98875863.jpg",
+      "tokens/reference/10389143.jpg",
+      "tokens/reference/11050416.jpg",
+      "tokens/reference/11050417.jpg",
+      "tokens/reference/11050418.jpg",
+      "tokens/reference/11050419.jpg",
+      "tokens/reference/12958920.jpg",
+      "tokens/reference/12965762.jpg",
+      "tokens/reference/13536607.jpg",
+      "tokens/reference/14089429.jpg",
+      "tokens/reference/1426715.jpg",
+      "tokens/reference/14470846.jpg",
+      "tokens/reference/14470847.jpg",
+      "tokens/reference/15341822.jpg",
+      "tokens/reference/15341823.jpg",
+      "tokens/reference/15394084.jpg",
+      "tokens/reference/15629802.jpg",
+      "tokens/reference/16946850.jpg",
+      "tokens/reference/17418745.jpg",
+      "tokens/reference/176393.jpg",
+      "tokens/reference/21179144.jpg",
+      "tokens/reference/21770261.jpg",
+      "tokens/reference/22404676.jpg",
+      "tokens/reference/22493812.jpg",
+      "tokens/reference/23331401.jpg",
+      "tokens/reference/24874631.jpg",
+      "tokens/reference/25415053.jpg",
+      "tokens/reference/27198002.jpg",
+      "tokens/reference/27450401.jpg",
+      "tokens/reference/28053764.jpg",
+      "tokens/reference/28062326.jpg",
+      "tokens/reference/2819436.jpg",
+      "tokens/reference/28355719.jpg",
+      "tokens/reference/28674153.jpg",
+      "tokens/reference/29491335.jpg",
+      "tokens/reference/29843092.jpg",
+      "tokens/reference/29843093.jpg",
+      "tokens/reference/29843094.jpg",
+      "tokens/reference/30069399.jpg",
+      "tokens/reference/31986289.jpg",
+      "tokens/reference/34822851.jpg",
+      "tokens/reference/35268888.jpg",
+      "tokens/reference/35514097.jpg",
+      "tokens/reference/38041941.jpg",
+      "tokens/reference/39972130.jpg",
+      "tokens/reference/40703223.jpg",
+      "tokens/reference/40844553.jpg",
+      "tokens/reference/42671152.jpg",
+      "tokens/reference/42956964.jpg",
+      "tokens/reference/43140792.jpg",
+      "tokens/reference/44052075.jpg",
+      "tokens/reference/44330099.jpg",
+      "tokens/reference/44586427.jpg",
+      "tokens/reference/44689689.jpg",
+      "tokens/reference/46173680.jpg",
+      "tokens/reference/46173681.jpg",
+      "tokens/reference/46647145.jpg",
+      "tokens/reference/47658965.jpg",
+      "tokens/reference/48115278.jpg",
+      "tokens/reference/48411997.jpg",
+      "tokens/reference/49808197.jpg",
+      "tokens/reference/51987572.jpg",
+      "tokens/reference/52340445.jpg",
+      "tokens/reference/52900001.jpg",
+      "tokens/reference/53855410.jpg",
+      "tokens/reference/54537490.jpg",
+      "tokens/reference/55326323.jpg",
+      "tokens/reference/56051649.jpg",
+      "tokens/reference/56597273.jpg",
+      "tokens/reference/59160189.jpg",
+      "tokens/reference/60406592.jpg",
+      "tokens/reference/60764582.jpg",
+      "tokens/reference/60764583.jpg",
+      "tokens/reference/62125439.jpg",
+      "tokens/reference/62543394.jpg",
+      "tokens/reference/63442605.jpg",
+      "tokens/reference/64382840.jpg",
+      "tokens/reference/65810490.jpg",
+      "tokens/reference/66661679.jpg",
+      "tokens/reference/67284108.jpg",
+      "tokens/reference/67949764.jpg",
+      "tokens/reference/68815402.jpg",
+      "tokens/reference/69868556.jpg",
+      "tokens/reference/69890968.jpg",
+      "tokens/reference/70391589.jpg",
+      "tokens/reference/71645243.jpg",
+      "tokens/reference/73915052.jpg",
+      "tokens/reference/73915053.jpg",
+      "tokens/reference/73915054.jpg",
+      "tokens/reference/73915055.jpg",
+      "tokens/reference/7392746.jpg",
+      "tokens/reference/74440056.jpg",
+      "tokens/reference/74983882.jpg",
+      "tokens/reference/75119041.jpg",
+      "tokens/reference/75524093.jpg",
+      "tokens/reference/75622825.jpg",
+      "tokens/reference/75732623.jpg",
+      "tokens/reference/8198621.jpg",
+      "tokens/reference/82324106.jpg",
+      "tokens/reference/82340057.jpg",
+      "tokens/reference/82556059.jpg",
+      "tokens/reference/82994510.jpg",
+      "tokens/reference/83239740.jpg",
+      "tokens/reference/84816245.jpg",
+      "tokens/reference/85771020.jpg",
+      "tokens/reference/85771021.jpg",
+      "tokens/reference/86801872.jpg",
+      "tokens/reference/86871615.jpg",
+      "tokens/reference/89907228.jpg",
+      "tokens/reference/904186.jpg",
+      "tokens/reference/9047461.jpg",
+      "tokens/reference/90884404.jpg",
+      "tokens/reference/91512836.jpg",
+      "tokens/reference/93104633.jpg",
+      "tokens/reference/93130022.jpg",
+      "tokens/reference/93224849.jpg",
+      "tokens/reference/93912846.jpg",
+      "tokens/reference/97452818.jpg",
+      "tokens/reference/98596597.jpg",
+      "tokens/reference/9925983.jpg",
+      "tokens/reference/9929399.jpg",
+      "tokens/small/10389143.jpg",
+      "tokens/small/11050416.jpg",
+      "tokens/small/11050417.jpg",
+      "tokens/small/11050418.jpg",
+      "tokens/small/11050419.jpg",
+      "tokens/small/12958920.jpg",
+      "tokens/small/12965762.jpg",
+      "tokens/small/13536607.jpg",
+      "tokens/small/14089429.jpg",
+      "tokens/small/1426715.jpg",
+      "tokens/small/14470846.jpg",
+      "tokens/small/14470847.jpg",
+      "tokens/small/15341822.jpg",
+      "tokens/small/15341823.jpg",
+      "tokens/small/15394084.jpg",
+      "tokens/small/15629802.jpg",
+      "tokens/small/16946850.jpg",
+      "tokens/small/17418745.jpg",
+      "tokens/small/176393.jpg",
+      "tokens/small/21179144.jpg",
+      "tokens/small/21770261.jpg",
+      "tokens/small/22404676.jpg",
+      "tokens/small/22493812.jpg",
+      "tokens/small/23331401.jpg",
+      "tokens/small/24874631.jpg",
+      "tokens/small/25415053.jpg",
+      "tokens/small/27198002.jpg",
+      "tokens/small/27450401.jpg",
+      "tokens/small/28053764.jpg",
+      "tokens/small/28062326.jpg",
+      "tokens/small/2819436.jpg",
+      "tokens/small/28355719.jpg",
+      "tokens/small/28674153.jpg",
+      "tokens/small/29491335.jpg",
+      "tokens/small/29843092.jpg",
+      "tokens/small/29843093.jpg",
+      "tokens/small/29843094.jpg",
+      "tokens/small/30069399.jpg",
+      "tokens/small/31986289.jpg",
+      "tokens/small/34822851.jpg",
+      "tokens/small/35268888.jpg",
+      "tokens/small/35514097.jpg",
+      "tokens/small/38041941.jpg",
+      "tokens/small/39972130.jpg",
+      "tokens/small/40703223.jpg",
+      "tokens/small/40844553.jpg",
+      "tokens/small/42671152.jpg",
+      "tokens/small/42956964.jpg",
+      "tokens/small/43140792.jpg",
+      "tokens/small/44052075.jpg",
+      "tokens/small/44330099.jpg",
+      "tokens/small/44586427.jpg",
+      "tokens/small/44689689.jpg",
+      "tokens/small/46173680.jpg",
+      "tokens/small/46173681.jpg",
+      "tokens/small/46647145.jpg",
+      "tokens/small/47658965.jpg",
+      "tokens/small/48115278.jpg",
+      "tokens/small/48411997.jpg",
+      "tokens/small/49808197.jpg",
+      "tokens/small/51987572.jpg",
+      "tokens/small/52340445.jpg",
+      "tokens/small/52900001.jpg",
+      "tokens/small/53855410.jpg",
+      "tokens/small/54537490.jpg",
+      "tokens/small/55326323.jpg",
+      "tokens/small/56051649.jpg",
+      "tokens/small/56597273.jpg",
+      "tokens/small/59160189.jpg",
+      "tokens/small/60406592.jpg",
+      "tokens/small/60764582.jpg",
+      "tokens/small/60764583.jpg",
+      "tokens/small/62125439.jpg",
+      "tokens/small/62543394.jpg",
+      "tokens/small/63442605.jpg",
+      "tokens/small/64382840.jpg",
+      "tokens/small/65810490.jpg",
+      "tokens/small/66661679.jpg",
+      "tokens/small/67284108.jpg",
+      "tokens/small/67949764.jpg",
+      "tokens/small/68815402.jpg",
+      "tokens/small/69868556.jpg",
+      "tokens/small/69890968.jpg",
+      "tokens/small/70391589.jpg",
+      "tokens/small/71645243.jpg",
+      "tokens/small/73915052.jpg",
+      "tokens/small/73915053.jpg",
+      "tokens/small/73915054.jpg",
+      "tokens/small/73915055.jpg",
+      "tokens/small/7392746.jpg",
+      "tokens/small/74440056.jpg",
+      "tokens/small/74983882.jpg",
+      "tokens/small/75119041.jpg",
+      "tokens/small/75524093.jpg",
+      "tokens/small/75622825.jpg",
+      "tokens/small/75732623.jpg",
+      "tokens/small/8198621.jpg",
+      "tokens/small/82324106.jpg",
+      "tokens/small/82340057.jpg",
+      "tokens/small/82556059.jpg",
+      "tokens/small/82994510.jpg",
+      "tokens/small/83239740.jpg",
+      "tokens/small/84816245.jpg",
+      "tokens/small/85771020.jpg",
+      "tokens/small/85771021.jpg",
+      "tokens/small/86801872.jpg",
+      "tokens/small/86871615.jpg",
+      "tokens/small/89907228.jpg",
+      "tokens/small/904186.jpg",
+      "tokens/small/9047461.jpg",
+      "tokens/small/90884404.jpg",
+      "tokens/small/91512836.jpg",
+      "tokens/small/93104633.jpg",
+      "tokens/small/93130022.jpg",
+      "tokens/small/93224849.jpg",
+      "tokens/small/93912846.jpg",
+      "tokens/small/97452818.jpg",
+      "tokens/small/98596597.jpg",
+      "tokens/small/9925983.jpg",
+      "tokens/small/9929399.jpg"
+    ],
+    "purpose": "Include this build's entire frozen static pool in the unchanged strict before/after local and HTTP fingerprint checks.",
+    "publicStudioObservations": {
+      "name": "pre-bootstrap public studio observations",
+      "historicalInitScriptSha256": "1e8610c76c06e09a267ee8223c9be07d1410a4896b81ab0858daca9818d248f8",
+      "currentInitScriptSha256": "37fa7bf777289ce077ab6e379edc2598c93fca27e776d6c092ee1cc288cdcdf0",
+      "scope": "Only the public studio canvas clear calls and public stage intersection/resize entries are recorded. Observer callbacks delegate the original this, complete arguments and return; WebGL clear delegates the original this, arguments and return. No callback or draw is suppressed.",
+      "counterAuthority": "Synchronous browser-side clear array length; transported Python console messages remain evidence, not the idle-window counter."
+    },
+    "studioMotionCheck": {
+      "name": "studio_motion_checks",
+      "historicalSourceSha256": "41653dded5ca43207684e9c39527ef2ca066c1939b233c486918870decc6e9e4",
+      "currentSourceSha256": "1bd8e766169d99ba51a355a4e52e9d61da5c8444960d89d8576bea30cc8e37d4",
+      "purpose": "Observe an idle pause after the screenshot input has settled. The old failure is preserved; the short diagnostic did not reproduce its extra redraw, so no exact observer cause is claimed.",
+      "changes": [
+        "Take the initial stage capture before fixing the idle draw count.",
+        "Allow a fixed 350 ms for initial capture observer work.",
+        "Require exactly zero synchronous browser clear calls over the next fixed 350 ms.",
+        "Keep exact PNG bytes equal and the resume/visible-again assertions.",
+        "Add a strict zero-clear assertion following the second capture; no numerical tolerance.",
+        "Replace the offscreen 300 ms timer with a fresh native IntersectionObserver false entry and a public offscreen bounding box; then observe a strict 350 ms zero-draw window.",
+        "Reject every clear whose browser timestamp follows that false event.",
+        "Preserve the complete original Python console observations as separate evidence."
+      ],
+      "diagnostics": {
+        "docs/audits/artifacts/model-fidelity-2026-10-11/studio-pause-diagnostic-2026-10-13/report.json": {
+          "bytes": 346831,
+          "sha256": "921ba65caf407fa7a2492e7d3e379c3f46e64be4eb027e67ddad87dc76fd7c79"
+        },
+        "docs/audits/artifacts/model-fidelity-2026-10-11/studio-offscreen-diagnostic-retry-2026-10-13/report.json": {
+          "bytes": 559850,
+          "sha256": "e2f4aa35b8115ef57b081d9010236cdbc293da3fb6f16d7d331e235e90cfb3c5"
+        },
+        "docs/audits/artifacts/model-fidelity-2026-10-11/studio-observer-transport-diagnostic-2026-10-13/report.json": {
+          "bytes": 978273,
+          "sha256": "6f70344ffc439b1e5617c751abe4fecd0ad3637f61f3050e6165a5f4fa84ada4"
+        }
+      }
+    }
+  },
+  "ok": true,
+  "originalReport": {
+    "bytes": 1160996,
+    "sha256": "74d94311edf55ec82bac46d2466d49c26538c214c1693aa0780a11fabde51ec4"
+  },
+  "browserPathCount": 8,
+  "captureCount": 52,
+  "driverDependenciesAfter": {
+    "scripts/audit-token-models-browser.py": {
+      "bytes": 71910,
+      "sha256": "7941755771e8745ad4ea17f5d8df2cb86d81cc8e5904a860f7b8f9dd258159ca"
+    },
+    "scripts/audit-duelist-avatar-motion-browser.py": {
+      "bytes": 64829,
+      "sha256": "5f9f5dd25cbb51edaadbed3ea965091dadc1ed2073309fde043f4b62a417c49c"
+    },
+    "scripts/audit-native-duel-ui.py": {
+      "bytes": 28175,
+      "sha256": "0dd4443ef82f496fb398587b9be06c99d953f57c4a48e48cd470fdacbb311c18"
+    },
+    "scripts/audit-continuation-models-ui.py": {
+      "bytes": 33677,
+      "sha256": "7f6f4a1d54be8f4bfc6befa4d697a30755c0887c116a60ed124eb8a376951f49"
+    },
+    "scripts/audit-native-duel-views.py": {
+      "bytes": 23978,
+      "sha256": "f3f9b64c03273baba856886c4f67df9f371624bb759435887ba9b7f9e49f826c"
+    }
+  },
+  "preservedHistoricalDrivers": true,
+  "historicalAvatarFailureAfter": {
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-jaden-selected-1280.png": {
+      "bytes": 295565,
+      "sha256": "91cf74befe839d8c67fdd06ec9afbf82551f9cf649315a936f9a82ca852ea2c1"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-locked-atem-1280.png": {
+      "bytes": 288974,
+      "sha256": "229acaf49803a8a39d6a356be0a4483ba0c1971055442ff22505f5ef1a1b53b0"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-roster-desktop-mobile-1280.png": {
+      "bytes": 410160,
+      "sha256": "4370649e5b42717ba243f6075e1fd43b8f1f490ea9a30319102a364192269ef6"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-atem-1280.png": {
+      "bytes": 279307,
+      "sha256": "71403ad03c94ec2d57016b78646198568c39fd17c581eea1e24cd06bee509031"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-jaden-1280.png": {
+      "bytes": 273830,
+      "sha256": "4541a24e0059a8ab626d339892dc286718abc59ff4a89f77e410d1f93b06ab0e"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-kaiba-1280.png": {
+      "bytes": 274160,
+      "sha256": "104e376cd8bc18650029a6744df2262378679b6aa947862ab49b6a6ac453f8e2"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-playmaker-1280.png": {
+      "bytes": 275555,
+      "sha256": "9a05efb5b6943bc9cd64bba436f0cb457f8907a300af7519161eb1c2ab0a41d3"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-reduced-static-a-1280.png": {
+      "bytes": 19306,
+      "sha256": "4f197b68da7a23b2de06c18b4d86554e342197f39cc95ba72fe7bdedda79f87b"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-yudias-1280.png": {
+      "bytes": 278586,
+      "sha256": "75c945d3bd478654f49f81cfa80353af5a08e4cce5002a57949aaf6f1ed16df9"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-yuga-1280.png": {
+      "bytes": 275646,
+      "sha256": "a5ee47e907c44f4a27dc52385fbe0f969646bc7497c8acd806eede9ab2a48290"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-yugi-1280.png": {
+      "bytes": 297188,
+      "sha256": "5a3c7373d972acaf470505637369487cacc3489c0b7d2d721a028197770f5d03"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-yuma-1280.png": {
+      "bytes": 274499,
+      "sha256": "cd4a76254fa85190b1a8f90bda3ce6ea843cabdc5e5ed6d6516f19af6b0925ff"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-yusei-1280.png": {
+      "bytes": 271040,
+      "sha256": "f59e3488725430dec840c2f138127fc4d2e3c891a62c1a93bd3b6455d5b8c6b2"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-yuya-1280.png": {
+      "bytes": 274328,
+      "sha256": "11119868e2f9a1211187903f58588b77f0f3187c0829f7e6f494df1402f5bfec"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/failure-public-dom-1280.png": {
+      "bytes": 402961,
+      "sha256": "fcfcd22199112c2f9c7f229a67052b6787a2a1ade33cac57af28bb505a511e98"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/fidelity-wrapper.json": {
+      "bytes": 23613,
+      "sha256": "24a75fcd2bfa6e5ce2479327bbf7264cc6681b9a9daa5874c4104130541292f5"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/progress.json": {
+      "bytes": 145,
+      "sha256": "c75eebd55541a8fed21d95954e10e0c86922e93a4074fb7638476dd8eb7d6a4c"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/report.json": {
+      "bytes": 576706,
+      "sha256": "c8ce9590ea536c30ddbf5d8be335e29ade024e581d09f7f88e34353c8682f17d"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-jaden-selected-1280.png": {
+      "bytes": 295565,
+      "sha256": "91cf74befe839d8c67fdd06ec9afbf82551f9cf649315a936f9a82ca852ea2c1"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-locked-atem-1280.png": {
+      "bytes": 288974,
+      "sha256": "229acaf49803a8a39d6a356be0a4483ba0c1971055442ff22505f5ef1a1b53b0"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-roster-desktop-mobile-1280.png": {
+      "bytes": 410160,
+      "sha256": "bbce28931fb1fb64c15d7e772663815f9093170f039604f5e77f046f058ed136"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-atem-1280.png": {
+      "bytes": 279372,
+      "sha256": "56ed6952bcb4f8bff3e6388fe20510a8cab82881937639326dde564bf7a1d774"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-jaden-1280.png": {
+      "bytes": 273806,
+      "sha256": "63277ba74f690b8d9f913a9ddf987ec8fef1debe3d854b695c2cc99cc832984c"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-kaiba-1280.png": {
+      "bytes": 274182,
+      "sha256": "3660101990af96da7530549c2cc01e016ca6ae7773992646fbb7f360f9f2c96e"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-playmaker-1280.png": {
+      "bytes": 275520,
+      "sha256": "3b790a80ccb0ba50b95f34504dd2fcbecc7e80c48b97aad61a4a3f9dbb7a7d53"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-reduced-static-a-1280.png": {
+      "bytes": 19306,
+      "sha256": "4f197b68da7a23b2de06c18b4d86554e342197f39cc95ba72fe7bdedda79f87b"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-reduced-static-b-1280.png": {
+      "bytes": 19306,
+      "sha256": "4f197b68da7a23b2de06c18b4d86554e342197f39cc95ba72fe7bdedda79f87b"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-yudias-1280.png": {
+      "bytes": 278679,
+      "sha256": "07e64273a2a5d07d636e6803ef672dbb39c2b7249f4ab60cfb2b9403870850cd"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-yuga-1280.png": {
+      "bytes": 275392,
+      "sha256": "5290bf94d89d65c05a2fbe0846930bf47e9b0214cd0da159d3990daedde95972"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-yugi-1280.png": {
+      "bytes": 297194,
+      "sha256": "9500cbe6bfec401095326e9ce6eb842a0f5256525ff7906c2a9374982bc62328"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-yuma-1280.png": {
+      "bytes": 274515,
+      "sha256": "0a9d2c59418b50b22dfe59a223a32691f9b671d4ee0c8785694cb4fe964eafbf"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-yusei-1280.png": {
+      "bytes": 271097,
+      "sha256": "b95dc6cb1038b710f250e13c0db48b2a10b9c505d3bb0e5165712781b5160ea9"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-yuya-1280.png": {
+      "bytes": 274320,
+      "sha256": "32a6ab0f36e787c4f96a1898f9deaf047fd5919e12d0134330e98ab8f89ae4c2"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/execution.txt": {
+      "bytes": 2475,
+      "sha256": "088e4e31f7551cf4ad4998b3410cee952c7c992dd712f47416e9f92b544931d7"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/failure-public-dom-1280.png": {
+      "bytes": 72484,
+      "sha256": "571b5825e26918f47181dd45abaa96b16ead0429427f2fbe123bcd4d8b647e04"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/fidelity-wrapper.json": {
+      "bytes": 32925,
+      "sha256": "67b22501cf2b79073f626bf5edbd64b6966d85fec5f77f7e285bec84159613ef"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/progress.json": {
+      "bytes": 145,
+      "sha256": "c93a1739ae8c81c8d7e61d2613fb3216065d24f9f747587414ab669dc70eaace"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/report.json": {
+      "bytes": 576445,
+      "sha256": "533761250032f38da0919ef22cc9dfc6a476775953e93a0674ab1753f2bafb61"
+    }
+  },
+  "preservedHistoricalAvatarFailure": true
+}

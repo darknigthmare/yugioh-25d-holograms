@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-11",
+  "executedAtUtc": "2026-10-11T14:18:16.074067+00:00",
+  "cardId": "43422537",
+  "name": "Double Summon",
+  "assetPath": "public/cards/small/43422537.jpg",
+  "sourceUrl": "https://images.ygoprodeck.com/images/cards_small/43422537.jpg",
+  "status": 200,
+  "mime": "image/jpeg",
+  "format": "JPEG",
+  "width": 268,
+  "height": 391,
+  "bytes": 19651,
+  "sha256": "c238fa23bbc6ebe686e0e44482114cdf8376af364dc1b0b4cfc0795f63434809",
+  "operation": "Unmodified downloaded JPEG; added missing local illustration requested during real native activation. No card rules or scripts changed."
+}

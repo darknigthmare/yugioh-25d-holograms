@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/yugioh-25d-holograms/docs/audits/artifacts/model-fidelity-2026-10-11/studio-offscreen-diagnostic-2026-10-13/diagnostic.py.txt", line 88, in <module>
+    assert len(item['studioDrawCalls'])>count
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

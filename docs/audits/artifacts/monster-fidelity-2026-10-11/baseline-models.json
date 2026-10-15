@@ -1,0 +1,650 @@
+[
+  {
+    "id": "5053103",
+    "defense": false,
+    "profile": "battle-ox",
+    "triangles": 5088,
+    "meshes": 5,
+    "parts": 94,
+    "attributesSha256": "525c8212c4428003edd791c5379d4b5321e2a17659bc02be6b87ef4eecca69ed"
+  },
+  {
+    "id": "5053103",
+    "defense": true,
+    "profile": "battle-ox",
+    "triangles": 5656,
+    "meshes": 5,
+    "parts": 96,
+    "attributesSha256": "3efc55f777070e3663ecd66e2425a1832b1a895c493e338d3a62da7cc8829a9e"
+  },
+  {
+    "id": "10000000",
+    "defense": false,
+    "profile": "obelisk-tormentor",
+    "triangles": 2672,
+    "meshes": 5,
+    "parts": 67,
+    "attributesSha256": "0933e3487cd208437d9307e749f00f10fa8a92f17a7a22bb53f83f1c6c928870"
+  },
+  {
+    "id": "10000000",
+    "defense": true,
+    "profile": "obelisk-tormentor",
+    "triangles": 3240,
+    "meshes": 5,
+    "parts": 69,
+    "attributesSha256": "e4c9e8b257d1e97fc6f02287b817bb47c03ffc910c7445275af474a91d0f5b10"
+  },
+  {
+    "id": "10000010",
+    "defense": false,
+    "profile": "winged-dragon-ra",
+    "triangles": 3764,
+    "meshes": 5,
+    "parts": 82,
+    "attributesSha256": "82a081752fb01418b831e9a98c7bf4da28df411114d14cedf1bd1b3da63730c5"
+  },
+  {
+    "id": "10000010",
+    "defense": true,
+    "profile": "winged-dragon-ra",
+    "triangles": 4332,
+    "meshes": 5,
+    "parts": 84,
+    "attributesSha256": "c1883879e631880140463bc39e74ca914567b44d4cb4421a48546d9a49d96852"
+  },
+  {
+    "id": "10000020",
+    "defense": false,
+    "profile": "slifer-sky-dragon",
+    "triangles": 2992,
+    "meshes": 5,
+    "parts": 80,
+    "attributesSha256": "b79657ead6b513182f8efa0cfc7220f73d1a261093a3a6eec5036bf29056bd6d"
+  },
+  {
+    "id": "10000020",
+    "defense": true,
+    "profile": "slifer-sky-dragon",
+    "triangles": 3560,
+    "meshes": 5,
+    "parts": 82,
+    "attributesSha256": "57427b0ef3c9fb1d9d10727af302a8913b99a129f8e475168107de59e1aa92bc"
+  },
+  {
+    "id": "13039848",
+    "defense": false,
+    "profile": "stone-soldier",
+    "triangles": 1820,
+    "meshes": 5,
+    "parts": 37,
+    "attributesSha256": "84cced13924563bffc53b557169b81b8eb63d4683d4451ac6d113fe0c6f19277"
+  },
+  {
+    "id": "13039848",
+    "defense": true,
+    "profile": "stone-soldier",
+    "triangles": 2388,
+    "meshes": 5,
+    "parts": 39,
+    "attributesSha256": "57f49ada6f0813421374be3a3aabf46c5c2228a0f06c961aa7fa4dd64f449ddf"
+  },
+  {
+    "id": "14558127",
+    "defense": false,
+    "profile": "ash-blossom-joyous-spring",
+    "triangles": 3000,
+    "meshes": 5,
+    "parts": 62,
+    "attributesSha256": "b8cd21d972caa40400f8a729db191eaf05b9ae44a2fb772cdad33518231cda83"
+  },
+  {
+    "id": "14558127",
+    "defense": true,
+    "profile": "ash-blossom-joyous-spring",
+    "triangles": 3568,
+    "meshes": 5,
+    "parts": 64,
+    "attributesSha256": "431dd84f994017412277fc64fc5f0a40dc2b0b51e90aa5394faeba0b1272d882"
+  },
+  {
+    "id": "15025844",
+    "defense": false,
+    "profile": "mystical-elf",
+    "triangles": 4752,
+    "meshes": 4,
+    "parts": 58,
+    "attributesSha256": "6a22e8deeccea2543992cf2f0f9f0dd67fd92a8fe2bacea899f7708f260f7271"
+  },
+  {
+    "id": "15025844",
+    "defense": true,
+    "profile": "mystical-elf",
+    "triangles": 5320,
+    "meshes": 4,
+    "parts": 60,
+    "attributesSha256": "ad2b4caa777337fc0e8c403a34dd25788c7d4fc3389efc8655f96c5e3dfdff9f"
+  },
+  {
+    "id": "20721928",
+    "defense": false,
+    "profile": "elemental-hero-sparkman",
+    "triangles": 3868,
+    "meshes": 5,
+    "parts": 64,
+    "attributesSha256": "9886e2f685729ffb2ca0b518ee0971a97f320070914cf8f0b9b74391a9572ede"
+  },
+  {
+    "id": "20721928",
+    "defense": true,
+    "profile": "elemental-hero-sparkman",
+    "triangles": 4436,
+    "meshes": 5,
+    "parts": 66,
+    "attributesSha256": "f0e2bce427b5d94806e149dab5e13ef9821b163c0ae8dd48bf3d4aca4f7d3950"
+  },
+  {
+    "id": "23995346",
+    "defense": false,
+    "profile": "blue-eyes-ultimate",
+    "triangles": 4882,
+    "meshes": 5,
+    "parts": 93,
+    "attributesSha256": "9a0061d30d443cfa155ef14f8791abc83a14acf0c7adc552fdbf1faa8618a845"
+  },
+  {
+    "id": "23995346",
+    "defense": true,
+    "profile": "blue-eyes-ultimate",
+    "triangles": 5450,
+    "meshes": 5,
+    "parts": 95,
+    "attributesSha256": "a74560125836bf74694062fa1ee80cfd31c324d5dadb1e3fb1027c8bb33e50f7"
+  },
+  {
+    "id": "26202165",
+    "defense": false,
+    "profile": "sangan",
+    "triangles": 1988,
+    "meshes": 5,
+    "parts": 62,
+    "attributesSha256": "55fb8c55809da205d06723f78053666866d60dca0603a99c7638fb10e9ab9810"
+  },
+  {
+    "id": "26202165",
+    "defense": true,
+    "profile": "sangan",
+    "triangles": 2556,
+    "meshes": 5,
+    "parts": 64,
+    "attributesSha256": "fa67d5b78d093590bcc3f6c5110ca8c64b8370f181569a6abed76848602da0cb"
+  },
+  {
+    "id": "26905245",
+    "defense": false,
+    "profile": "metal-reflect-slime",
+    "triangles": 4700,
+    "meshes": 4,
+    "parts": 60,
+    "attributesSha256": "d2dbc30c0da90c491cb4ffea2c96cf233c66cea1bcafda68cb4391ad7b52cbf4"
+  },
+  {
+    "id": "26905245",
+    "defense": true,
+    "profile": "metal-reflect-slime",
+    "triangles": 5268,
+    "meshes": 4,
+    "parts": 62,
+    "attributesSha256": "b68b208157d39cb674411502a88cc0423b805e585f6feda18fccc60898692484"
+  },
+  {
+    "id": "28279543",
+    "defense": false,
+    "profile": "curse-of-dragon",
+    "triangles": 4820,
+    "meshes": 5,
+    "parts": 103,
+    "attributesSha256": "b0c5b52fab7ee1b8a682523c9247ebec2c8a5272b80524a443774b7199cfbd6a"
+  },
+  {
+    "id": "28279543",
+    "defense": true,
+    "profile": "curse-of-dragon",
+    "triangles": 5388,
+    "meshes": 5,
+    "parts": 105,
+    "attributesSha256": "950974ed7e629edc5b835aeea6a62119ecca506fef204ef5694dbe9744105657"
+  },
+  {
+    "id": "28649820",
+    "defense": false,
+    "profile": "embodiment-of-apophis",
+    "triangles": 5980,
+    "meshes": 5,
+    "parts": 99,
+    "attributesSha256": "011bfa3aa85099dd0d0b6607ab14cfcf21faf86c03d5047383a3589a7bb239ab"
+  },
+  {
+    "id": "28649820",
+    "defense": true,
+    "profile": "embodiment-of-apophis",
+    "triangles": 6548,
+    "meshes": 5,
+    "parts": 101,
+    "attributesSha256": "737ff3f83a84c037445f425d155d9650db1fd41e368c9be70bc130427d46dee6"
+  },
+  {
+    "id": "31560081",
+    "defense": false,
+    "profile": "magician-of-faith",
+    "triangles": 4044,
+    "meshes": 5,
+    "parts": 39,
+    "attributesSha256": "73d80906c9aacdcf086cb1e1f1c27ddbd9a25d24bcb7ec9210cab90c18d0cb09"
+  },
+  {
+    "id": "31560081",
+    "defense": true,
+    "profile": "magician-of-faith",
+    "triangles": 4612,
+    "meshes": 5,
+    "parts": 41,
+    "attributesSha256": "f71a3390d266e393bf7398e6f0f74abd043da40f6e458d42599bcf7f8f28f790"
+  },
+  {
+    "id": "32452818",
+    "defense": false,
+    "profile": "beaver-warrior",
+    "triangles": 4052,
+    "meshes": 5,
+    "parts": 86,
+    "attributesSha256": "c4553bd613179c16b80b6205788aff6e6b97b1a44a33b9a99939f583a73aa8d6"
+  },
+  {
+    "id": "32452818",
+    "defense": true,
+    "profile": "beaver-warrior",
+    "triangles": 4620,
+    "meshes": 5,
+    "parts": 88,
+    "attributesSha256": "fe95462eafb3029749d3209744ea72233bb807415879bce402ce38af1e3b93d0"
+  },
+  {
+    "id": "38033121",
+    "defense": false,
+    "profile": "dark-magician-girl",
+    "triangles": 4692,
+    "meshes": 5,
+    "parts": 63,
+    "attributesSha256": "a64d9e13c9549e8cc10805fd3fe12e242af7b19a4492eb76a096c24e258ec169"
+  },
+  {
+    "id": "38033121",
+    "defense": true,
+    "profile": "dark-magician-girl",
+    "triangles": 5260,
+    "meshes": 5,
+    "parts": 65,
+    "attributesSha256": "30a89efe511294649923a60a3a9a204d73b3b8ad9d8d81f73d6611709b86f0e7"
+  },
+  {
+    "id": "39552864",
+    "defense": false,
+    "profile": "mystical-shine-ball",
+    "triangles": 1940,
+    "meshes": 3,
+    "parts": 15,
+    "attributesSha256": "52798b06f3e03b8434a847b70c1473a206c75428e0b51de014e4852c1a4438c7"
+  },
+  {
+    "id": "39552864",
+    "defense": true,
+    "profile": "mystical-shine-ball",
+    "triangles": 2508,
+    "meshes": 3,
+    "parts": 17,
+    "attributesSha256": "dd06f61fc6d5851db5c716092d7930e3e300cd414c4e7b05f083e98d94617dc1"
+  },
+  {
+    "id": "40640057",
+    "defense": false,
+    "profile": "kuriboh",
+    "triangles": 1776,
+    "meshes": 5,
+    "parts": 57,
+    "attributesSha256": "f37ab255859482c89670ba55e0509dfaa9b244bc36991cd6eb8b3dc6a88d2d99"
+  },
+  {
+    "id": "40640057",
+    "defense": true,
+    "profile": "kuriboh",
+    "triangles": 2344,
+    "meshes": 5,
+    "parts": 59,
+    "attributesSha256": "2e6f57991ce3f043e6301295ea3164102cc6ed330aa76595fdf87e06a1406340"
+  },
+  {
+    "id": "44508094",
+    "defense": false,
+    "profile": "stardust-dragon",
+    "triangles": 3834,
+    "meshes": 5,
+    "parts": 65,
+    "attributesSha256": "c56b27168d0732bb41e7e02ad793c7d5e9cc7779f9b054236b59b8ab0112e72f"
+  },
+  {
+    "id": "44508094",
+    "defense": true,
+    "profile": "stardust-dragon",
+    "triangles": 4402,
+    "meshes": 5,
+    "parts": 67,
+    "attributesSha256": "86ea9f54217ec4fd245731e8c4eca631732097ee062b34b9d63a835a8c5f8b97"
+  },
+  {
+    "id": "46986414",
+    "defense": false,
+    "profile": "dark-magician",
+    "triangles": 4544,
+    "meshes": 5,
+    "parts": 61,
+    "attributesSha256": "8d6262fb68a8d7cb85cef0ec5e78d7b8d63aeff1e606afcec7d05d9a08fe8105"
+  },
+  {
+    "id": "46986414",
+    "defense": true,
+    "profile": "dark-magician",
+    "triangles": 5112,
+    "meshes": 5,
+    "parts": 63,
+    "attributesSha256": "f5e339d8dfd0f8583ea882cdabbc58d83a17c81be5b3c5ad506220fadc14c797"
+  },
+  {
+    "id": "54652250",
+    "defense": false,
+    "profile": "man-eater-bug",
+    "triangles": 3136,
+    "meshes": 5,
+    "parts": 49,
+    "attributesSha256": "daf5c2217c9453726a39f5ae0c2ac727669d78710e521e2f91d2d94fa455400e"
+  },
+  {
+    "id": "54652250",
+    "defense": true,
+    "profile": "man-eater-bug",
+    "triangles": 3704,
+    "meshes": 5,
+    "parts": 51,
+    "attributesSha256": "87964daffe536eb927201fad416ca66838c141ce3abae28888c0690b06f3745b"
+  },
+  {
+    "id": "63977008",
+    "defense": false,
+    "profile": "junk-synchron",
+    "triangles": 2356,
+    "meshes": 5,
+    "parts": 37,
+    "attributesSha256": "564d62f57a92a742bc182720ac97c2560b57ff9eda0187bc2754e3fc7ec80764"
+  },
+  {
+    "id": "63977008",
+    "defense": true,
+    "profile": "junk-synchron",
+    "triangles": 2924,
+    "meshes": 5,
+    "parts": 39,
+    "attributesSha256": "36608200d6e0a88c16d2d686ed05ec0557b9e9d0455e3e2a7ced19de0547ddcd"
+  },
+  {
+    "id": "66602787",
+    "defense": false,
+    "profile": "saggi-dark-clown",
+    "triangles": 5288,
+    "meshes": 5,
+    "parts": 86,
+    "attributesSha256": "11cd59fdf0f8ef60f2b229b8cbf88f37b93fd5530efe8468b5fb6889714b68ea"
+  },
+  {
+    "id": "66602787",
+    "defense": true,
+    "profile": "saggi-dark-clown",
+    "triangles": 5856,
+    "meshes": 5,
+    "parts": 88,
+    "attributesSha256": "db8cf8d5c04e36f6d73f594a14c302a0252ce45b7a19698577d49aba6e9cc7e1"
+  },
+  {
+    "id": "68638985",
+    "defense": false,
+    "profile": "slime-toad",
+    "triangles": 2748,
+    "meshes": 5,
+    "parts": 33,
+    "attributesSha256": "1f29d3f6427435f35ccc362ceb0ff104e1ff1689a612341763cef12cb36b484b"
+  },
+  {
+    "id": "68638985",
+    "defense": true,
+    "profile": "slime-toad",
+    "triangles": 3316,
+    "meshes": 5,
+    "parts": 35,
+    "attributesSha256": "81fd393c810f7a3679c890cc7317cb94e1a74298de7e2769cd66f4d40de0f8b1"
+  },
+  {
+    "id": "70095154",
+    "defense": false,
+    "profile": "cyber-dragon",
+    "triangles": 2596,
+    "meshes": 5,
+    "parts": 84,
+    "attributesSha256": "b889400563ebc1b04a432ccadd9efd006972c289fdc3c286f5bc7aa0d90dac84"
+  },
+  {
+    "id": "70095154",
+    "defense": true,
+    "profile": "cyber-dragon",
+    "triangles": 3164,
+    "meshes": 5,
+    "parts": 86,
+    "attributesSha256": "6908d184de8e5c02142f84184bd27d6c28cccac68a4a36e40ae873f79abcff77"
+  },
+  {
+    "id": "70781052",
+    "defense": false,
+    "profile": "summoned-skull",
+    "triangles": 3270,
+    "meshes": 4,
+    "parts": 47,
+    "attributesSha256": "895f45610e1e9fde623d507152bf03dcf467acce76d90761e7efa1cc67d2580f"
+  },
+  {
+    "id": "70781052",
+    "defense": true,
+    "profile": "summoned-skull",
+    "triangles": 3838,
+    "meshes": 4,
+    "parts": 49,
+    "attributesSha256": "e2776d1db415304ca2aea116e84fa3895b1db6cc09b6759c2f3edc54874c2830"
+  },
+  {
+    "id": "71625222",
+    "defense": false,
+    "profile": "time-wizard",
+    "triangles": 1500,
+    "meshes": 4,
+    "parts": 32,
+    "attributesSha256": "6b498fcb821e9c5047303b94a5dcb72c33645072b40a707831ea0ca9059c11d7"
+  },
+  {
+    "id": "71625222",
+    "defense": true,
+    "profile": "time-wizard",
+    "triangles": 2068,
+    "meshes": 4,
+    "parts": 34,
+    "attributesSha256": "a8159791626e586dfcc2096ab82fb210c8400a06821ab446a78db9bd3d5c92ca"
+  },
+  {
+    "id": "72989439",
+    "defense": false,
+    "profile": "black-luster-soldier-envoy",
+    "triangles": 3396,
+    "meshes": 5,
+    "parts": 80,
+    "attributesSha256": "1e5ef17f8dc5ed080c79cffd574d6bbf822870260094e2608f4244f19d1d3042"
+  },
+  {
+    "id": "72989439",
+    "defense": true,
+    "profile": "black-luster-soldier-envoy",
+    "triangles": 3964,
+    "meshes": 5,
+    "parts": 82,
+    "attributesSha256": "3b4afcd99ac00acffd90ebc16b5b7c0d4613d03d7f84c71f626992eb757acb4c"
+  },
+  {
+    "id": "74677422",
+    "defense": false,
+    "profile": "red-eyes",
+    "triangles": 4520,
+    "meshes": 5,
+    "parts": 107,
+    "attributesSha256": "95b9698b755de55b923626fc542cc3119c785d68c9f3fbb6deb5181c0791fbb0"
+  },
+  {
+    "id": "74677422",
+    "defense": true,
+    "profile": "red-eyes",
+    "triangles": 5088,
+    "meshes": 5,
+    "parts": 109,
+    "attributesSha256": "e251974a3ee4afbefe969eb23eecfb4e35e0c57adf001b9f5a451e72ec9cca3f"
+  },
+  {
+    "id": "77637979",
+    "defense": false,
+    "profile": "lanphorhynchus",
+    "triangles": 4278,
+    "meshes": 5,
+    "parts": 81,
+    "attributesSha256": "d3daa858c19ebcf67dc1dbe120e15db24b0f1048b813bb561678b819ac1f507e"
+  },
+  {
+    "id": "77637979",
+    "defense": true,
+    "profile": "lanphorhynchus",
+    "triangles": 4846,
+    "meshes": 5,
+    "parts": 83,
+    "attributesSha256": "bcd1f13e1a5e8eedece23c8b95b2772ac982e03dc1b7c6e02af53d111e689e99"
+  },
+  {
+    "id": "84013237",
+    "defense": false,
+    "profile": "number-39-utopia",
+    "triangles": 3176,
+    "meshes": 5,
+    "parts": 74,
+    "attributesSha256": "4418f83790a31492ffaf67e30a48e325bfc25b53a7d3d195084e49a7e7c08e91"
+  },
+  {
+    "id": "84013237",
+    "defense": true,
+    "profile": "number-39-utopia",
+    "triangles": 3744,
+    "meshes": 5,
+    "parts": 76,
+    "attributesSha256": "e80f04a83cd4b5302be036307920a8eff3a1608033f1ad516b99049052b4e040"
+  },
+  {
+    "id": "88819587",
+    "defense": false,
+    "profile": "baby-dragon",
+    "triangles": 3834,
+    "meshes": 5,
+    "parts": 65,
+    "attributesSha256": "d7ebc586c39178a70588991a5e1ca27646df51319eff1e362e572a21d112dcb6"
+  },
+  {
+    "id": "88819587",
+    "defense": true,
+    "profile": "baby-dragon",
+    "triangles": 4402,
+    "meshes": 5,
+    "parts": 67,
+    "attributesSha256": "46f078174ad561db0e48f7b8ae1e4e34fb875e6db4692630ca2fa98405cb4059"
+  },
+  {
+    "id": "89631139",
+    "defense": false,
+    "profile": "blue-eyes",
+    "triangles": 4160,
+    "meshes": 5,
+    "parts": 96,
+    "attributesSha256": "d54a772f2e58e6373a02603c21ee79cb0c03cbed59de34106d519421d11ab7e9"
+  },
+  {
+    "id": "89631139",
+    "defense": true,
+    "profile": "blue-eyes",
+    "triangles": 4728,
+    "meshes": 5,
+    "parts": 98,
+    "attributesSha256": "2a3b6cb3fa250062f3ed1b2a406baef1deda87e01689c473d8c6b74e0c14b5cb"
+  },
+  {
+    "id": "89943723",
+    "defense": false,
+    "profile": "elemental-hero-neos",
+    "triangles": 2760,
+    "meshes": 5,
+    "parts": 66,
+    "attributesSha256": "5359988494cc542b5301373e124b1f788655bebd6068e2cdb296e9bcab7c87bc"
+  },
+  {
+    "id": "89943723",
+    "defense": true,
+    "profile": "elemental-hero-neos",
+    "triangles": 3328,
+    "meshes": 5,
+    "parts": 68,
+    "attributesSha256": "64811908190ea867fa963b824943460bb0c865a542d00e637e06d96e3bee2680"
+  },
+  {
+    "id": "91152256",
+    "defense": false,
+    "profile": "celtic-guardian",
+    "triangles": 2016,
+    "meshes": 5,
+    "parts": 39,
+    "attributesSha256": "f6aa2ccc3bed2dd797df1fb1aa05b08d3206096bacf5dc543061104618970948"
+  },
+  {
+    "id": "91152256",
+    "defense": true,
+    "profile": "celtic-guardian",
+    "triangles": 2584,
+    "meshes": 5,
+    "parts": 41,
+    "attributesSha256": "219e75d26ade3c53df3fb357c421fed51f614584fdcbfaf522988415f2d1730a"
+  },
+  {
+    "id": "97590747",
+    "defense": false,
+    "profile": "la-jinn",
+    "triangles": 4744,
+    "meshes": 4,
+    "parts": 68,
+    "attributesSha256": "309a8c79e7a11ef7a9b38448464d6bfd8fe44075cff399d124bee76d2bc6a945"
+  },
+  {
+    "id": "97590747",
+    "defense": true,
+    "profile": "la-jinn",
+    "triangles": 5312,
+    "meshes": 4,
+    "parts": 70,
+    "attributesSha256": "603df905f258a96d398bea5fb80c4f40099eef0c957adec2241dd605908f4068"
+  }
+]

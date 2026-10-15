@@ -1,0 +1,153 @@
+{
+  "scope": "One bounded later GET retry only for the seven actual HTTP429 responses in the original95name inventory. Initial429 records are retained in their original artifact.",
+  "initialStatus": 429,
+  "records": [
+    {
+      "name": "Ice Pillar Token",
+      "nativeCodes": [
+        88477150
+      ],
+      "sourcePage": "https://yugipedia.com/wiki/Ice_Pillar_Token",
+      "status": 200,
+      "title": "Ice Pillar Token - Yugipedia",
+      "mainImages": [
+        {
+          "alt": "IcePillarToken-MADU-EN-VG-artwork.png",
+          "src": "https://ms.yugipedia.com//thumb/2/22/IcePillarToken-MADU-EN-VG-artwork.png/300px-IcePillarToken-MADU-EN-VG-artwork.png",
+          "width": "300",
+          "height": "300",
+          "data-file-width": "512",
+          "data-file-height": "512"
+        }
+      ],
+      "pageBytes": 115368,
+      "pageSha256": "ae12e6aad49f07d8f195ba6cf13ae9eebe9ce3ce9d91c6bd0df0513934d198b2"
+    },
+    {
+      "name": "Noble Knight Token",
+      "nativeCodes": [
+        88923964
+      ],
+      "sourcePage": "https://yugipedia.com/wiki/Noble_Knight_Token",
+      "status": 200,
+      "title": "Noble Knight Token - Yugipedia",
+      "mainImages": [
+        {
+          "alt": "NobleKnightToken-MADU-EN-VG-artwork.png",
+          "src": "https://ms.yugipedia.com//thumb/c/cd/NobleKnightToken-MADU-EN-VG-artwork.png/300px-NobleKnightToken-MADU-EN-VG-artwork.png",
+          "width": "300",
+          "height": "300",
+          "data-file-width": "512",
+          "data-file-height": "512"
+        }
+      ],
+      "pageBytes": 125193,
+      "pageSha256": "113de08926191796c0eae8481d16998b271132c5b2ee545fc0765dd874626651"
+    },
+    {
+      "name": "Centur-Ion Token",
+      "nativeCodes": [
+        92907249
+      ],
+      "sourcePage": "https://yugipedia.com/wiki/Centur-Ion_Token",
+      "status": 200,
+      "title": "Centur-Ion Token - Yugipedia",
+      "mainImages": [
+        {
+          "alt": "CenturIonToken-DULI-EN-VG-CA.png",
+          "src": "https://ms.yugipedia.com//thumb/1/1b/CenturIonToken-DULI-EN-VG-CA.png/300px-CenturIonToken-DULI-EN-VG-CA.png",
+          "width": "300",
+          "height": "300",
+          "data-file-width": "385",
+          "data-file-height": "385"
+        }
+      ],
+      "pageBytes": 115794,
+      "pageSha256": "29b6b5a32c7f9d9b88d84efc763ce58e29c30adf7681c579e16c061bc63b4656"
+    },
+    {
+      "name": "Shinsen Token",
+      "nativeCodes": [
+        94384775
+      ],
+      "sourcePage": "https://yugipedia.com/wiki/Shinsen_Token",
+      "status": 200,
+      "title": "Shinsen Token - Yugipedia",
+      "mainImages": [
+        {
+          "alt": "Back-EN.png",
+          "src": "https://ms.yugipedia.com//thumb/e/e5/Back-EN.png/300px-Back-EN.png",
+          "width": "300",
+          "height": "438",
+          "data-file-width": "927",
+          "data-file-height": "1353"
+        }
+      ],
+      "pageBytes": 109712,
+      "pageSha256": "058dbd59b02ef052d369c4cfbceeccd80d7a6a2adfc68f1c9756c4e3309552df"
+    },
+    {
+      "name": "Ebisu Token",
+      "nativeCodes": [
+        94384776
+      ],
+      "sourcePage": "https://yugipedia.com/wiki/Ebisu_Token",
+      "status": 200,
+      "title": "Ebisu Token - Yugipedia",
+      "mainImages": [
+        {
+          "alt": "Back-EN.png",
+          "src": "https://ms.yugipedia.com//thumb/e/e5/Back-EN.png/300px-Back-EN.png",
+          "width": "300",
+          "height": "438",
+          "data-file-width": "927",
+          "data-file-height": "1353"
+        }
+      ],
+      "pageBytes": 110083,
+      "pageSha256": "ae859c38ec0a7611c8fe8d0f629dccf05bb241c513150f106acf39ca41c0027d"
+    },
+    {
+      "name": "Congester Token",
+      "nativeCodes": [
+        94703022
+      ],
+      "sourcePage": "https://yugipedia.com/wiki/Congester_Token",
+      "status": 200,
+      "title": "Congester Token - Yugipedia",
+      "mainImages": [
+        {
+          "alt": "CongesterToken-DULI-EN-VG-CA.png",
+          "src": "https://ms.yugipedia.com//thumb/3/30/CongesterToken-DULI-EN-VG-CA.png/300px-CongesterToken-DULI-EN-VG-CA.png",
+          "width": "300",
+          "height": "300",
+          "data-file-width": "383",
+          "data-file-height": "383"
+        }
+      ],
+      "pageBytes": 111047,
+      "pageSha256": "f842566bfb370d9bcd783258cfd6bf7add12a0beb2904e8393c9606d9c438b03"
+    },
+    {
+      "name": "G Golem Token",
+      "nativeCodes": [
+        98875864
+      ],
+      "sourcePage": "https://yugipedia.com/wiki/G_Golem_Token",
+      "status": 200,
+      "title": "G Golem Token - Yugipedia",
+      "mainImages": [
+        {
+          "alt": "GGolemToken-MAMA-EN-UR-1E.png",
+          "src": "https://ms.yugipedia.com//thumb/2/25/GGolemToken-MAMA-EN-UR-1E.png/300px-GGolemToken-MAMA-EN-UR-1E.png",
+          "width": "300",
+          "height": "440",
+          "data-file-width": "509",
+          "data-file-height": "746"
+        }
+      ],
+      "pageBytes": 130056,
+      "pageSha256": "f19720f536c387975689577592ce3ccbcabdd039ae1170a0945446d073e40a1b"
+    }
+  ]
+}

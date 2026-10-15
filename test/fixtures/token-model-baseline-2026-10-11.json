@@ -1,0 +1,1207 @@
+{
+  "scope": "Measured native Token geometry at immutable baseline source, attack and defense. Fivefold budget applies to each card and pose.",
+  "sourceHead": "1371c5ba679d336f5df478720e6f9c4265d08e9d",
+  "sourceProofSha256": "a67d6e0a1914650661c2289bc05b0721e38969829a5d97fbe5181dd6b802e833",
+  "codes": [
+    {
+      "id": "176393",
+      "attackTriangles": 1926,
+      "defenseTriangles": 2494
+    },
+    {
+      "id": "645088",
+      "attackTriangles": 1632,
+      "defenseTriangles": 2200
+    },
+    {
+      "id": "904186",
+      "attackTriangles": 1160,
+      "defenseTriangles": 1728
+    },
+    {
+      "id": "1426715",
+      "attackTriangles": 1684,
+      "defenseTriangles": 2252
+    },
+    {
+      "id": "1799465",
+      "attackTriangles": 2724,
+      "defenseTriangles": 3292
+    },
+    {
+      "id": "2625940",
+      "attackTriangles": 904,
+      "defenseTriangles": 1472
+    },
+    {
+      "id": "2819436",
+      "attackTriangles": 2032,
+      "defenseTriangles": 2600
+    },
+    {
+      "id": "3129134",
+      "attackTriangles": 3094,
+      "defenseTriangles": 3662
+    },
+    {
+      "id": "3129528",
+      "attackTriangles": 2400,
+      "defenseTriangles": 2968
+    },
+    {
+      "id": "3285552",
+      "attackTriangles": 2338,
+      "defenseTriangles": 2906
+    },
+    {
+      "id": "4417408",
+      "attackTriangles": 1160,
+      "defenseTriangles": 1728
+    },
+    {
+      "id": "7392746",
+      "attackTriangles": 4064,
+      "defenseTriangles": 4632
+    },
+    {
+      "id": "7610395",
+      "attackTriangles": 2338,
+      "defenseTriangles": 2906
+    },
+    {
+      "id": "8025951",
+      "attackTriangles": 1632,
+      "defenseTriangles": 2200
+    },
+    {
+      "id": "8198621",
+      "attackTriangles": 3700,
+      "defenseTriangles": 4268
+    },
+    {
+      "id": "9047461",
+      "attackTriangles": 1844,
+      "defenseTriangles": 2412
+    },
+    {
+      "id": "9925983",
+      "attackTriangles": 2392,
+      "defenseTriangles": 2960
+    },
+    {
+      "id": "9929399",
+      "attackTriangles": 916,
+      "defenseTriangles": 1484
+    },
+    {
+      "id": "10389143",
+      "attackTriangles": 1160,
+      "defenseTriangles": 1728
+    },
+    {
+      "id": "11050416",
+      "attackTriangles": 2432,
+      "defenseTriangles": 3000
+    },
+    {
+      "id": "11050417",
+      "attackTriangles": 4812,
+      "defenseTriangles": 5380
+    },
+    {
+      "id": "11050418",
+      "attackTriangles": 4656,
+      "defenseTriangles": 5224
+    },
+    {
+      "id": "11050419",
+      "attackTriangles": 5692,
+      "defenseTriangles": 6260
+    },
+    {
+      "id": "11738490",
+      "attackTriangles": 960,
+      "defenseTriangles": 1528
+    },
+    {
+      "id": "12958920",
+      "attackTriangles": 2510,
+      "defenseTriangles": 3078
+    },
+    {
+      "id": "12965762",
+      "attackTriangles": 3200,
+      "defenseTriangles": 3768
+    },
+    {
+      "id": "13536607",
+      "attackTriangles": 1612,
+      "defenseTriangles": 2180
+    },
+    {
+      "id": "13935002",
+      "attackTriangles": 2128,
+      "defenseTriangles": 2696
+    },
+    {
+      "id": "14089429",
+      "attackTriangles": 1364,
+      "defenseTriangles": 1932
+    },
+    {
+      "id": "14470846",
+      "attackTriangles": 1996,
+      "defenseTriangles": 2564
+    },
+    {
+      "id": "14470847",
+      "attackTriangles": 1976,
+      "defenseTriangles": 2544
+    },
+    {
+      "id": "14957441",
+      "attackTriangles": 2128,
+      "defenseTriangles": 2696
+    },
+    {
+      "id": "15341822",
+      "attackTriangles": 2280,
+      "defenseTriangles": 2848
+    },
+    {
+      "id": "15341823",
+      "attackTriangles": 2216,
+      "defenseTriangles": 2784
+    },
+    {
+      "id": "15394084",
+      "attackTriangles": 2168,
+      "defenseTriangles": 2736
+    },
+    {
+      "id": "15590356",
+      "attackTriangles": 2196,
+      "defenseTriangles": 2764
+    },
+    {
+      "id": "15629802",
+      "attackTriangles": 4134,
+      "defenseTriangles": 4702
+    },
+    {
+      "id": "16943771",
+      "attackTriangles": 1160,
+      "defenseTriangles": 1728
+    },
+    {
+      "id": "16946850",
+      "attackTriangles": 1048,
+      "defenseTriangles": 1616
+    },
+    {
+      "id": "17228909",
+      "attackTriangles": 1556,
+      "defenseTriangles": 2124
+    },
+    {
+      "id": "17418745",
+      "attackTriangles": 1172,
+      "defenseTriangles": 1740
+    },
+    {
+      "id": "18027139",
+      "attackTriangles": 2432,
+      "defenseTriangles": 3000
+    },
+    {
+      "id": "18027140",
+      "attackTriangles": 2432,
+      "defenseTriangles": 3000
+    },
+    {
+      "id": "18027141",
+      "attackTriangles": 2432,
+      "defenseTriangles": 3000
+    },
+    {
+      "id": "18494512",
+      "attackTriangles": 712,
+      "defenseTriangles": 1280
+    },
+    {
+      "id": "18905770",
+      "attackTriangles": 2032,
+      "defenseTriangles": 2600
+    },
+    {
+      "id": "19280590",
+      "attackTriangles": 2766,
+      "defenseTriangles": 3334
+    },
+    {
+      "id": "20001444",
+      "attackTriangles": 2032,
+      "defenseTriangles": 2600
+    },
+    {
+      "id": "20368764",
+      "attackTriangles": 1160,
+      "defenseTriangles": 1728
+    },
+    {
+      "id": "21179144",
+      "attackTriangles": 3710,
+      "defenseTriangles": 4278
+    },
+    {
+      "id": "21770261",
+      "attackTriangles": 1124,
+      "defenseTriangles": 1692
+    },
+    {
+      "id": "21830680",
+      "attackTriangles": 1196,
+      "defenseTriangles": 1764
+    },
+    {
+      "id": "22110648",
+      "attackTriangles": 1160,
+      "defenseTriangles": 1728
+    },
+    {
+      "id": "22404676",
+      "attackTriangles": 2478,
+      "defenseTriangles": 3046
+    },
+    {
+      "id": "22411610",
+      "attackTriangles": 2196,
+      "defenseTriangles": 2764
+    },
+    {
+      "id": "22493812",
+      "attackTriangles": 2296,
+      "defenseTriangles": 2864
+    },
+    {
+      "id": "22712878",
+      "attackTriangles": 1784,
+      "defenseTriangles": 2352
+    },
+    {
+      "id": "22953212",
+      "attackTriangles": 1632,
+      "defenseTriangles": 2200
+    },
+    {
+      "id": "23116809",
+      "attackTriangles": 2196,
+      "defenseTriangles": 2764
+    },
+    {
+      "id": "23331401",
+      "attackTriangles": 1040,
+      "defenseTriangles": 1608
+    },
+    {
+      "id": "23837055",
+      "attackTriangles": 1552,
+      "defenseTriangles": 2120
+    },
+    {
+      "id": "24874631",
+      "attackTriangles": 2324,
+      "defenseTriangles": 2892
+    },
+    {
+      "id": "25415053",
+      "attackTriangles": 3660,
+      "defenseTriangles": 4228
+    },
+    {
+      "id": "25419324",
+      "attackTriangles": 1552,
+      "defenseTriangles": 2120
+    },
+    {
+      "id": "26326542",
+      "attackTriangles": 3094,
+      "defenseTriangles": 3662
+    },
+    {
+      "id": "26364382",
+      "attackTriangles": 2766,
+      "defenseTriangles": 3334
+    },
+    {
+      "id": "27198002",
+      "attackTriangles": 5584,
+      "defenseTriangles": 6152
+    },
+    {
+      "id": "27204312",
+      "attackTriangles": 1244,
+      "defenseTriangles": 1812
+    },
+    {
+      "id": "27450401",
+      "attackTriangles": 1116,
+      "defenseTriangles": 1684
+    },
+    {
+      "id": "27882994",
+      "attackTriangles": 1196,
+      "defenseTriangles": 1764
+    },
+    {
+      "id": "28053764",
+      "attackTriangles": 2956,
+      "defenseTriangles": 3524
+    },
+    {
+      "id": "28062326",
+      "attackTriangles": 3422,
+      "defenseTriangles": 3990
+    },
+    {
+      "id": "28355719",
+      "attackTriangles": 2394,
+      "defenseTriangles": 2962
+    },
+    {
+      "id": "28674153",
+      "attackTriangles": 2898,
+      "defenseTriangles": 3466
+    },
+    {
+      "id": "29491335",
+      "attackTriangles": 1160,
+      "defenseTriangles": 1728
+    },
+    {
+      "id": "29843092",
+      "attackTriangles": 2500,
+      "defenseTriangles": 3068
+    },
+    {
+      "id": "29843093",
+      "attackTriangles": 2712,
+      "defenseTriangles": 3280
+    },
+    {
+      "id": "29843094",
+      "attackTriangles": 2320,
+      "defenseTriangles": 2888
+    },
+    {
+      "id": "30069399",
+      "attackTriangles": 2000,
+      "defenseTriangles": 2568
+    },
+    {
+      "id": "30327675",
+      "attackTriangles": 2338,
+      "defenseTriangles": 2906
+    },
+    {
+      "id": "30327676",
+      "attackTriangles": 2766,
+      "defenseTriangles": 3334
+    },
+    {
+      "id": "30650148",
+      "attackTriangles": 3094,
+      "defenseTriangles": 3662
+    },
+    {
+      "id": "30765616",
+      "attackTriangles": 2032,
+      "defenseTriangles": 2600
+    },
+    {
+      "id": "30811117",
+      "attackTriangles": 1160,
+      "defenseTriangles": 1728
+    },
+    {
+      "id": "31480216",
+      "attackTriangles": 1160,
+      "defenseTriangles": 1728
+    },
+    {
+      "id": "31533705",
+      "attackTriangles": 1160,
+      "defenseTriangles": 1728
+    },
+    {
+      "id": "31600514",
+      "attackTriangles": 1880,
+      "defenseTriangles": 2448
+    },
+    {
+      "id": "31986289",
+      "attackTriangles": 5890,
+      "defenseTriangles": 6458
+    },
+    {
+      "id": "32335698",
+      "attackTriangles": 3094,
+      "defenseTriangles": 3662
+    },
+    {
+      "id": "32446631",
+      "attackTriangles": 2338,
+      "defenseTriangles": 2906
+    },
+    {
+      "id": "33676147",
+      "attackTriangles": 2400,
+      "defenseTriangles": 2968
+    },
+    {
+      "id": "34479659",
+      "attackTriangles": 1552,
+      "defenseTriangles": 2120
+    },
+    {
+      "id": "34767866",
+      "attackTriangles": 904,
+      "defenseTriangles": 1472
+    },
+    {
+      "id": "34822851",
+      "attackTriangles": 2588,
+      "defenseTriangles": 3156
+    },
+    {
+      "id": "35167376",
+      "attackTriangles": 1784,
+      "defenseTriangles": 2352
+    },
+    {
+      "id": "35263181",
+      "attackTriangles": 3166,
+      "defenseTriangles": 3734
+    },
+    {
+      "id": "35268888",
+      "attackTriangles": 1784,
+      "defenseTriangles": 2352
+    },
+    {
+      "id": "35514097",
+      "attackTriangles": 1232,
+      "defenseTriangles": 1800
+    },
+    {
+      "id": "35552986",
+      "attackTriangles": 2338,
+      "defenseTriangles": 2906
+    },
+    {
+      "id": "35834120",
+      "attackTriangles": 1196,
+      "defenseTriangles": 1764
+    },
+    {
+      "id": "36629636",
+      "attackTriangles": 2216,
+      "defenseTriangles": 2784
+    },
+    {
+      "id": "37654624",
+      "attackTriangles": 1632,
+      "defenseTriangles": 2200
+    },
+    {
+      "id": "38030233",
+      "attackTriangles": 2032,
+      "defenseTriangles": 2600
+    },
+    {
+      "id": "38041941",
+      "attackTriangles": 2962,
+      "defenseTriangles": 3530
+    },
+    {
+      "id": "38053382",
+      "attackTriangles": 2766,
+      "defenseTriangles": 3334
+    },
+    {
+      "id": "39972130",
+      "attackTriangles": 3820,
+      "defenseTriangles": 4388
+    },
+    {
+      "id": "40551411",
+      "attackTriangles": 2338,
+      "defenseTriangles": 2906
+    },
+    {
+      "id": "40703223",
+      "attackTriangles": 2236,
+      "defenseTriangles": 2804
+    },
+    {
+      "id": "40844553",
+      "attackTriangles": 3374,
+      "defenseTriangles": 3942
+    },
+    {
+      "id": "41329459",
+      "attackTriangles": 1160,
+      "defenseTriangles": 1728
+    },
+    {
+      "id": "41458362",
+      "attackTriangles": 1236,
+      "defenseTriangles": 1804
+    },
+    {
+      "id": "42427231",
+      "attackTriangles": 1632,
+      "defenseTriangles": 2200
+    },
+    {
+      "id": "42671152",
+      "attackTriangles": 2084,
+      "defenseTriangles": 2652
+    },
+    {
+      "id": "42956964",
+      "attackTriangles": 1784,
+      "defenseTriangles": 2352
+    },
+    {
+      "id": "43140792",
+      "attackTriangles": 4048,
+      "defenseTriangles": 4616
+    },
+    {
+      "id": "43664495",
+      "attackTriangles": 2196,
+      "defenseTriangles": 2764
+    },
+    {
+      "id": "44026394",
+      "attackTriangles": 1160,
+      "defenseTriangles": 1728
+    },
+    {
+      "id": "44052075",
+      "attackTriangles": 1328,
+      "defenseTriangles": 1896
+    },
+    {
+      "id": "44092305",
+      "attackTriangles": 1168,
+      "defenseTriangles": 1736
+    },
+    {
+      "id": "44097051",
+      "attackTriangles": 1160,
+      "defenseTriangles": 1728
+    },
+    {
+      "id": "44308318",
+      "attackTriangles": 712,
+      "defenseTriangles": 1280
+    },
+    {
+      "id": "44330099",
+      "attackTriangles": 3334,
+      "defenseTriangles": 3902
+    },
+    {
+      "id": "44586427",
+      "attackTriangles": 1508,
+      "defenseTriangles": 2076
+    },
+    {
+      "id": "44689689",
+      "attackTriangles": 2080,
+      "defenseTriangles": 2648
+    },
+    {
+      "id": "46173680",
+      "attackTriangles": 1804,
+      "defenseTriangles": 2372
+    },
+    {
+      "id": "46173681",
+      "attackTriangles": 1804,
+      "defenseTriangles": 2372
+    },
+    {
+      "id": "46647145",
+      "attackTriangles": 3498,
+      "defenseTriangles": 4066
+    },
+    {
+      "id": "47658965",
+      "attackTriangles": 2196,
+      "defenseTriangles": 2764
+    },
+    {
+      "id": "48068379",
+      "attackTriangles": 904,
+      "defenseTriangles": 1472
+    },
+    {
+      "id": "48115278",
+      "attackTriangles": 1664,
+      "defenseTriangles": 2232
+    },
+    {
+      "id": "48228391",
+      "attackTriangles": 2338,
+      "defenseTriangles": 2906
+    },
+    {
+      "id": "48411997",
+      "attackTriangles": 1956,
+      "defenseTriangles": 2524
+    },
+    {
+      "id": "49808197",
+      "attackTriangles": 4414,
+      "defenseTriangles": 4982
+    },
+    {
+      "id": "51208047",
+      "attackTriangles": 2766,
+      "defenseTriangles": 3334
+    },
+    {
+      "id": "51611042",
+      "attackTriangles": 1168,
+      "defenseTriangles": 1736
+    },
+    {
+      "id": "51987572",
+      "attackTriangles": 1236,
+      "defenseTriangles": 1804
+    },
+    {
+      "id": "52340445",
+      "attackTriangles": 3310,
+      "defenseTriangles": 3878
+    },
+    {
+      "id": "52768391",
+      "attackTriangles": 2338,
+      "defenseTriangles": 2906
+    },
+    {
+      "id": "52782440",
+      "attackTriangles": 1632,
+      "defenseTriangles": 2200
+    },
+    {
+      "id": "52900001",
+      "attackTriangles": 3660,
+      "defenseTriangles": 4228
+    },
+    {
+      "id": "53545927",
+      "attackTriangles": 2128,
+      "defenseTriangles": 2696
+    },
+    {
+      "id": "53770667",
+      "attackTriangles": 2338,
+      "defenseTriangles": 2906
+    },
+    {
+      "id": "53855410",
+      "attackTriangles": 2402,
+      "defenseTriangles": 2970
+    },
+    {
+      "id": "53855411",
+      "attackTriangles": 2402,
+      "defenseTriangles": 2970
+    },
+    {
+      "id": "54537490",
+      "attackTriangles": 1928,
+      "defenseTriangles": 2496
+    },
+    {
+      "id": "54577950",
+      "attackTriangles": 2036,
+      "defenseTriangles": 2604
+    },
+    {
+      "id": "55326323",
+      "attackTriangles": 936,
+      "defenseTriangles": 1504
+    },
+    {
+      "id": "56051649",
+      "attackTriangles": 4076,
+      "defenseTriangles": 4644
+    },
+    {
+      "id": "56597273",
+      "attackTriangles": 1780,
+      "defenseTriangles": 2348
+    },
+    {
+      "id": "58371672",
+      "attackTriangles": 2128,
+      "defenseTriangles": 2696
+    },
+    {
+      "id": "58809686",
+      "attackTriangles": 2400,
+      "defenseTriangles": 2968
+    },
+    {
+      "id": "59160189",
+      "attackTriangles": 1784,
+      "defenseTriangles": 2352
+    },
+    {
+      "id": "59900656",
+      "attackTriangles": 2196,
+      "defenseTriangles": 2764
+    },
+    {
+      "id": "60025884",
+      "attackTriangles": 2032,
+      "defenseTriangles": 2600
+    },
+    {
+      "id": "60203671",
+      "attackTriangles": 1632,
+      "defenseTriangles": 2200
+    },
+    {
+      "id": "60406592",
+      "attackTriangles": 2920,
+      "defenseTriangles": 3488
+    },
+    {
+      "id": "60514626",
+      "attackTriangles": 1784,
+      "defenseTriangles": 2352
+    },
+    {
+      "id": "60764582",
+      "attackTriangles": 2400,
+      "defenseTriangles": 2968
+    },
+    {
+      "id": "60764583",
+      "attackTriangles": 2400,
+      "defenseTriangles": 2968
+    },
+    {
+      "id": "62125439",
+      "attackTriangles": 1828,
+      "defenseTriangles": 2396
+    },
+    {
+      "id": "62543394",
+      "attackTriangles": 3612,
+      "defenseTriangles": 4180
+    },
+    {
+      "id": "63184228",
+      "attackTriangles": 2032,
+      "defenseTriangles": 2600
+    },
+    {
+      "id": "63442605",
+      "attackTriangles": 2338,
+      "defenseTriangles": 2906
+    },
+    {
+      "id": "64213018",
+      "attackTriangles": 2764,
+      "defenseTriangles": 3332
+    },
+    {
+      "id": "64382840",
+      "attackTriangles": 3334,
+      "defenseTriangles": 3902
+    },
+    {
+      "id": "64382841",
+      "attackTriangles": 3334,
+      "defenseTriangles": 3902
+    },
+    {
+      "id": "64583601",
+      "attackTriangles": 2032,
+      "defenseTriangles": 2600
+    },
+    {
+      "id": "65500516",
+      "attackTriangles": 2804,
+      "defenseTriangles": 3372
+    },
+    {
+      "id": "65810490",
+      "attackTriangles": 3248,
+      "defenseTriangles": 3816
+    },
+    {
+      "id": "66200211",
+      "attackTriangles": 1160,
+      "defenseTriangles": 1728
+    },
+    {
+      "id": "66661679",
+      "attackTriangles": 856,
+      "defenseTriangles": 1424
+    },
+    {
+      "id": "67284108",
+      "attackTriangles": 2364,
+      "defenseTriangles": 2932
+    },
+    {
+      "id": "67284109",
+      "attackTriangles": 2364,
+      "defenseTriangles": 2932
+    },
+    {
+      "id": "67284110",
+      "attackTriangles": 2364,
+      "defenseTriangles": 2932
+    },
+    {
+      "id": "67284111",
+      "attackTriangles": 2364,
+      "defenseTriangles": 2932
+    },
+    {
+      "id": "67489920",
+      "attackTriangles": 1160,
+      "defenseTriangles": 1728
+    },
+    {
+      "id": "67922703",
+      "attackTriangles": 1160,
+      "defenseTriangles": 1728
+    },
+    {
+      "id": "67949764",
+      "attackTriangles": 1008,
+      "defenseTriangles": 1576
+    },
+    {
+      "id": "68815402",
+      "attackTriangles": 2292,
+      "defenseTriangles": 2860
+    },
+    {
+      "id": "69550260",
+      "attackTriangles": 1632,
+      "defenseTriangles": 2200
+    },
+    {
+      "id": "69811711",
+      "attackTriangles": 1632,
+      "defenseTriangles": 2200
+    },
+    {
+      "id": "69868556",
+      "attackTriangles": 2512,
+      "defenseTriangles": 3080
+    },
+    {
+      "id": "69890968",
+      "attackTriangles": 2478,
+      "defenseTriangles": 3046
+    },
+    {
+      "id": "70391589",
+      "attackTriangles": 4674,
+      "defenseTriangles": 5242
+    },
+    {
+      "id": "70465811",
+      "attackTriangles": 1720,
+      "defenseTriangles": 2288
+    },
+    {
+      "id": "70875956",
+      "attackTriangles": 1160,
+      "defenseTriangles": 1728
+    },
+    {
+      "id": "70950699",
+      "attackTriangles": 960,
+      "defenseTriangles": 1528
+    },
+    {
+      "id": "71645243",
+      "attackTriangles": 5708,
+      "defenseTriangles": 6276
+    },
+    {
+      "id": "71771005",
+      "attackTriangles": 2338,
+      "defenseTriangles": 2906
+    },
+    {
+      "id": "71939276",
+      "attackTriangles": 2338,
+      "defenseTriangles": 2906
+    },
+    {
+      "id": "72291079",
+      "attackTriangles": 1160,
+      "defenseTriangles": 1728
+    },
+    {
+      "id": "73915052",
+      "attackTriangles": 2400,
+      "defenseTriangles": 2968
+    },
+    {
+      "id": "73915053",
+      "attackTriangles": 2400,
+      "defenseTriangles": 2968
+    },
+    {
+      "id": "73915054",
+      "attackTriangles": 2400,
+      "defenseTriangles": 2968
+    },
+    {
+      "id": "73915055",
+      "attackTriangles": 2400,
+      "defenseTriangles": 2968
+    },
+    {
+      "id": "74440056",
+      "attackTriangles": 1052,
+      "defenseTriangles": 1620
+    },
+    {
+      "id": "74627017",
+      "attackTriangles": 1632,
+      "defenseTriangles": 2200
+    },
+    {
+      "id": "74659583",
+      "attackTriangles": 2766,
+      "defenseTriangles": 3334
+    },
+    {
+      "id": "74983882",
+      "attackTriangles": 4964,
+      "defenseTriangles": 5532
+    },
+    {
+      "id": "75119041",
+      "attackTriangles": 1160,
+      "defenseTriangles": 1728
+    },
+    {
+      "id": "75524093",
+      "attackTriangles": 2538,
+      "defenseTriangles": 3106
+    },
+    {
+      "id": "75622825",
+      "attackTriangles": 2560,
+      "defenseTriangles": 3128
+    },
+    {
+      "id": "75732623",
+      "attackTriangles": 5128,
+      "defenseTriangles": 5696
+    },
+    {
+      "id": "76589547",
+      "attackTriangles": 2032,
+      "defenseTriangles": 2600
+    },
+    {
+      "id": "77435269",
+      "attackTriangles": 1632,
+      "defenseTriangles": 2200
+    },
+    {
+      "id": "79387393",
+      "attackTriangles": 1124,
+      "defenseTriangles": 1692
+    },
+    {
+      "id": "81767889",
+      "attackTriangles": 2032,
+      "defenseTriangles": 2600
+    },
+    {
+      "id": "82255873",
+      "attackTriangles": 2338,
+      "defenseTriangles": 2906
+    },
+    {
+      "id": "82324106",
+      "attackTriangles": 1896,
+      "defenseTriangles": 2464
+    },
+    {
+      "id": "82340057",
+      "attackTriangles": 836,
+      "defenseTriangles": 1404
+    },
+    {
+      "id": "82556059",
+      "attackTriangles": 2164,
+      "defenseTriangles": 2732
+    },
+    {
+      "id": "82994510",
+      "attackTriangles": 2732,
+      "defenseTriangles": 3300
+    },
+    {
+      "id": "83239740",
+      "attackTriangles": 1844,
+      "defenseTriangles": 2412
+    },
+    {
+      "id": "84031360",
+      "attackTriangles": 2766,
+      "defenseTriangles": 3334
+    },
+    {
+      "id": "84816245",
+      "attackTriangles": 2052,
+      "defenseTriangles": 2620
+    },
+    {
+      "id": "85243785",
+      "attackTriangles": 904,
+      "defenseTriangles": 1472
+    },
+    {
+      "id": "85771020",
+      "attackTriangles": 2766,
+      "defenseTriangles": 3334
+    },
+    {
+      "id": "85771021",
+      "attackTriangles": 2766,
+      "defenseTriangles": 3334
+    },
+    {
+      "id": "85969518",
+      "attackTriangles": 2338,
+      "defenseTriangles": 2906
+    },
+    {
+      "id": "86801872",
+      "attackTriangles": 2554,
+      "defenseTriangles": 3122
+    },
+    {
+      "id": "86871615",
+      "attackTriangles": 2032,
+      "defenseTriangles": 2600
+    },
+    {
+      "id": "87669905",
+      "attackTriangles": 2338,
+      "defenseTriangles": 2906
+    },
+    {
+      "id": "88477150",
+      "attackTriangles": 712,
+      "defenseTriangles": 1280
+    },
+    {
+      "id": "88923964",
+      "attackTriangles": 2338,
+      "defenseTriangles": 2906
+    },
+    {
+      "id": "89027419",
+      "attackTriangles": 1784,
+      "defenseTriangles": 2352
+    },
+    {
+      "id": "89907228",
+      "attackTriangles": 2796,
+      "defenseTriangles": 3364
+    },
+    {
+      "id": "90884404",
+      "attackTriangles": 2456,
+      "defenseTriangles": 3024
+    },
+    {
+      "id": "91512836",
+      "attackTriangles": 3780,
+      "defenseTriangles": 4348
+    },
+    {
+      "id": "92907249",
+      "attackTriangles": 2196,
+      "defenseTriangles": 2764
+    },
+    {
+      "id": "93104633",
+      "attackTriangles": 1060,
+      "defenseTriangles": 1628
+    },
+    {
+      "id": "93130022",
+      "attackTriangles": 2564,
+      "defenseTriangles": 3132
+    },
+    {
+      "id": "93224849",
+      "attackTriangles": 2510,
+      "defenseTriangles": 3078
+    },
+    {
+      "id": "93912846",
+      "attackTriangles": 4308,
+      "defenseTriangles": 4876
+    },
+    {
+      "id": "94384775",
+      "attackTriangles": 1300,
+      "defenseTriangles": 1868
+    },
+    {
+      "id": "94384776",
+      "attackTriangles": 2766,
+      "defenseTriangles": 3334
+    },
+    {
+      "id": "94703022",
+      "attackTriangles": 904,
+      "defenseTriangles": 1472
+    },
+    {
+      "id": "94973029",
+      "attackTriangles": 1160,
+      "defenseTriangles": 1728
+    },
+    {
+      "id": "97452818",
+      "attackTriangles": 2304,
+      "defenseTriangles": 2872
+    },
+    {
+      "id": "98596597",
+      "attackTriangles": 2236,
+      "defenseTriangles": 2804
+    },
+    {
+      "id": "98875864",
+      "attackTriangles": 960,
+      "defenseTriangles": 1528
+    }
+  ]
+}

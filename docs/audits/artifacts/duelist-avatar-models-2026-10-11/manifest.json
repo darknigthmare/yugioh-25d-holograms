@@ -1,0 +1,65 @@
+{
+  "createdAt": "2026-10-11T13:47:58.729554+00:00",
+  "scope": "Source CPU geometry/animation and WebGL isolated model galleries; this is not evidence of compiled game integration or exhaustive official character fidelity. Models are stylized, including biped cat/dog adaptations.",
+  "sourcePins": {
+    "src/ui/DuelistAvatarModels.js": "cd7ff30ab0da574185932f6062a101d14f90de3fe239449ff3ad55efd527376d",
+    "src/ui/DuelistAvatarGestures.js": "805dbb0519642366a61e306517297951afa35d979738238d0ab3cc05175ee352",
+    "src/ui/DuelistAvatarPortrait.js": "104cb24f8e7100bf9d8e9dc0377cf6d426b2137b25a0c468902b9a596631604f",
+    "src/content/DuelistAvatarCatalog.js": "9c665ed069cfcd0829f1f4a85a6b3c635f1ebab9c96c1f892b78823f8ce4e68c",
+    "test/duelist-avatar-gestures.test.js": "af92cf01ab4e10667be729fe7582002eb008869a9c4a44e7301a9e586273a3fa",
+    "test/duelist-avatar-visual-details.test.js": "9fde0bcf52078df7834a5d1b64459fd71471137f3cd92349a39dd7a877409ef4"
+  },
+  "targetedTests": {
+    "passed": 28,
+    "failed": 0,
+    "log": "targeted-tests.txt"
+  },
+  "cpu": {
+    "avatars": 192,
+    "uniqueGeometryCount": 192,
+    "maxDrawCalls": 9,
+    "maxTriangles": 9764,
+    "maximumStrengthAnimatedPoses": 56,
+    "allBoundsFinite": true
+  },
+  "webgl": {
+    "gesturePoses": 24,
+    "gpuBoneTexturesAllocated": true,
+    "boneTexturesDisposedOnce": true,
+    "gestureMemoryBefore": {
+      "geometries": 152,
+      "textures": 24
+    },
+    "gestureMemoryAfter": {
+      "geometries": 0,
+      "textures": 0
+    },
+    "canonicalFrontViews": 12,
+    "canonicalDetailViews": 12,
+    "factualMemoryAfter": {
+      "geometries": 0,
+      "textures": 0
+    },
+    "detailMemoryAfter": {
+      "geometries": 0,
+      "textures": 0
+    }
+  },
+  "files": {
+    "targeted-tests.txt": "bb00dd5adfd547872abbe98d642aa776dba9f64bd9633e0148683c58021700d0",
+    "cpu-audit.mjs": "148e368a1ac6e7af2f6881cd634e4d8210af03739cb408db5c69add86e9d0590",
+    "cpu-audit.json": "626e0671013cbee094c69f50365c6bd45881c993ceb441219406a3ff728944dd",
+    "gesture-gallery.png": "ed84e142dbb0c298e55f5eaac80b141f3019ab5897d9a8acbfcc4ff6999bc8e8",
+    "gesture-gallery.json": "7d26e14bbe9624f347139f6a34b1c43ab53ada2d19a1b4364dae7bba8c0a880e",
+    "gesture-gallery-pins.json": "ca8d5082abae1d82cd7e49ee6bac4b95e308b0e2033e444fcaa22156d205d6a6",
+    "gesture-gallery.py": "e24228c3364e04bd74d588649ddc494491f3459d549fe69ae59e1866c3e68789",
+    "factual-gallery.png": "80627e6f257b73a75d0c16ce2181e3e18b1a8f96d92a5a8504b783a3af6f0b42",
+    "factual-gallery.json": "f9c6754dac049b68358dca48d54e5004087a20fb078fa263d15758c2050de01e",
+    "factual-gallery-pins.json": "ca8d5082abae1d82cd7e49ee6bac4b95e308b0e2033e444fcaa22156d205d6a6",
+    "factual-gallery.py": "fd09baf9dd7ecf825e80b4745229ab8ec5d3931722fa0ce3bd2eb55cd7c8c6a3",
+    "details-gallery.png": "e7b312dbae47f82be800c0c850ce0d056121432c70dd17c8655330aef2930e49",
+    "details-gallery.json": "9971dc294fbd08044273080d02c70f10f3a6bb207fec5651da91e5f8ed236b58",
+    "details-gallery-pins.json": "ca8d5082abae1d82cd7e49ee6bac4b95e308b0e2033e444fcaa22156d205d6a6",
+    "details-gallery.py": "9b0dbe808c4802e580440be9271ad88640d1459226b3db83b73aae5c5ef1d44d"
+  }
+}

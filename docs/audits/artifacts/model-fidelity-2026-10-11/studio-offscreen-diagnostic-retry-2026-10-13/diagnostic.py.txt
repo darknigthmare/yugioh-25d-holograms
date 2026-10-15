@@ -1,0 +1,105 @@
+#!/usr/bin/env python3
+"""Public observer / WebGL timeline diagnosis, frozen compiled application."""
+from pathlib import Path
+import functools,hashlib,importlib.util,json,threading,time
+from http.server import ThreadingHTTPServer
+from datetime import datetime,timezone
+from playwright.sync_api import sync_playwright
+ROOT=Path('/workspace/yugioh-25d-holograms')
+OUT=ROOT/'docs/audits/artifacts/model-fidelity-2026-10-11/studio-offscreen-diagnostic-retry-2026-10-13'
+FREEZE=Path('/workspace/yugioh-model-fidelity-build-freeze-2026-10-11.json')
+DRIVER='scripts/audit-duelist-avatar-motion-browser.py'
+FAIL_DIRS=['browser-compiled-avatars','browser-compiled-avatars-retry-2026-10-13','studio-offscreen-diagnostic-2026-10-13']
+def pin(p):return {'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
+def fail_pins():
+ return {str(p.relative_to(ROOT)):pin(p)for n in FAIL_DIRS for p in sorted((ROOT/'docs/audits/artifacts/model-fidelity-2026-10-11'/n).rglob('*'))if p.is_file()}
+spec=importlib.util.spec_from_file_location('historical_studio',ROOT/DRIVER)
+d=importlib.util.module_from_spec(spec);spec.loader.exec_module(d)
+OBSERVERS=r'''(() => {
+ const observations={intersections:[],resizes:[],clears:[],lastStudioIntersection:null};
+ globalThis.__MODEL_FIDELITY_PUBLIC_OBSERVATIONS__=observations;
+ for(const [name,kind] of [['IntersectionObserver','intersections'],['ResizeObserver','resizes']]){
+  const Original=globalThis[name];if(!Original)continue;
+  globalThis[name]=class extends Original {
+   constructor(callback,options){
+    super(function(...args){
+     for(const entry of args[0]){
+      if(entry.target.id!=='duelist-avatar-preview-stage')continue;
+      const rect=entry.target.getBoundingClientRect();
+      const value={time:performance.now(),targetId:entry.target.id,kind,
+       isIntersecting:entry.isIntersecting,intersectionRatio:entry.intersectionRatio,
+       box:{x:rect.x,y:rect.y,width:rect.width,height:rect.height},
+       entryTime:entry.time,reducedMotion:matchMedia('(prefers-reduced-motion: reduce)').matches};
+      observations[kind].push(value);
+      if(kind==='intersections')observations.lastStudioIntersection=value;
+      console.debug('MODEL_FIDELITY_PUBLIC_OBSERVER:'+JSON.stringify(value));
+     }
+     return Reflect.apply(callback,this,args);
+    },options);
+   }
+  };
+ }
+})()'''
+needle="canvasLabel:this.canvas.getAttribute('aria-label')"
+assert needle in d.RNG
+# Observer constructors delegate every native callback with original this,
+# arguments and return. The original WebGL wrapper still delegates the clear.
+d.RNG=OBSERVERS+';\n'+d.RNG.replace(needle,needle+",stack:new Error('Public WebGL clear observation').stack,intersection:globalThis.__MODEL_FIDELITY_PUBLIC_OBSERVATIONS__.lastStudioIntersection")
+f=json.loads(FREEZE.read_text());assert d.fingerprints(list(f['source']))==f['source']
+d.ADDITIONAL_STATIC_ASSETS=sorted(f['additionalStaticAssets']);local=d.dist_fingerprints(ROOT/'dist')
+assert all(local.get(k)==v for k,v in f['compiled'].items());assert all(local.get(k)==v for k,v in f['additionalStaticAssets'].items())
+report={'ok':False,'executedAtUtc':datetime.now(timezone.utc).isoformat(),'freeze':pin(FREEZE),'driverBefore':pin(ROOT/DRIVER),'historicalFailuresBefore':fail_pins(),'scope':'Pre-bootstrap native observer callback delegation and WebGL clear observation. Public canvas/DOM/preferences only; no Game object or application hook.','paths':[]}
+d.ui.AuditServer.headers_to_add=d.ui.production_headers()
+server=ThreadingHTTPServer(('127.0.0.1',0),functools.partial(d.ui.AuditServer,directory=str(ROOT/'dist')))
+threading.Thread(target=server.serve_forever,daemon=True).start();base=f'http://127.0.0.1:{server.server_port}'
+def snap(page,item):return {'pythonObservedClearCount':len(item['studioDrawCalls']),'publicObservation':page.evaluate('''() => {const e=document.querySelector('#duelist-avatar-preview-stage'),r=e.getBoundingClientRect();return {time:performance.now(),box:{x:r.x,y:r.y,width:r.width,height:r.height},lastIntersection:globalThis.__MODEL_FIDELITY_PUBLIC_OBSERVATIONS__.lastStudioIntersection}}''')}
+try:
+ with sync_playwright() as p:
+  b=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader'])
+  for width,height in [(1280,900),(390,844)]:
+   c=b.new_context(viewport={'width':width,'height':height},reduced_motion='no-preference',has_touch=width<600);page=c.new_page()
+   item={'width':width,'height':height,'trials':[]};report['paths'].append(item)
+   d.start_page(page,base,item,True);assert not item['pageErrors'],item['pageErrors'];page.locator('#duelist-avatar-open').click();d.reset_filters(page)
+   page.locator('[data-duelist-avatar-mode="3d"]').click();d.preview_ready(page)
+   for i in range(7):page.locator('#duelist-avatar-next').click()
+   page.locator('[data-duelist-avatar-preview="kuadul"]').click()
+   stage=page.locator('#duelist-avatar-preview-stage');stage.scroll_into_view_if_needed();d.preview_ready(page);page.wait_for_timeout(100);assert item['studioDrawCalls'],'Public WebGL instrumentation must observe real clear calls.'
+   for trial in range(4):
+    v={'trial':trial};item['trials'].append(v)
+    stage.scroll_into_view_if_needed();page.emulate_media(reduced_motion='reduce');page.wait_for_timeout(350)
+    stage.screenshot(path=str(OUT/f'initial-static-{width}-{trial}.png'));page.wait_for_timeout(350)
+    count=len(item['studioDrawCalls']);page.wait_for_timeout(350);assert len(item['studioDrawCalls'])==count
+    page.emulate_media(reduced_motion='no-preference');page.wait_for_timeout(400)
+    v['offscreenInputStart']=snap(page,item);since=v['offscreenInputStart']['publicObservation']['time']
+    page.set_viewport_size({'width':width,'height':220});page.locator('.duelist-avatar-dialog').evaluate('e=>e.scrollTo(0,0)');page.wait_for_timeout(300)
+    box=stage.bounding_box();assert box and box['y']>=220,box
+    v['historicalWindowStart']=snap(page,item);page.wait_for_timeout(350);v['historicalWindowEnd']=snap(page,item)
+    v['historicalWindowClearDelta']=v['historicalWindowEnd']['pythonObservedClearCount']-v['historicalWindowStart']['pythonObservedClearCount']
+    page.wait_for_function('''since=>{const o=globalThis.__MODEL_FIDELITY_PUBLIC_OBSERVATIONS__.lastStudioIntersection;return o?.targetId==='duelist-avatar-preview-stage' && o.time>since && o.isIntersecting===false}''',arg=since,timeout=10000)
+    v['confirmedObserverFalseWindowStart']=snap(page,item);count=len(item['studioDrawCalls']);page.wait_for_timeout(350);v['confirmedObserverFalseWindowEnd']=snap(page,item)
+    assert len(item['studioDrawCalls'])==count,(count,len(item['studioDrawCalls']))
+    false=v['confirmedObserverFalseWindowStart']['publicObservation']['lastIntersection']
+    v['clearsAfterCurrentFalse']= [z for z in item['studioDrawCalls']if z['time']>=false['time']]
+    assert not v['clearsAfterCurrentFalse'],v['clearsAfterCurrentFalse']
+    v['strictZeroDrawsAfterConfirmedFalse']=True
+    v['transitionClears']= [z for z in item['studioDrawCalls']if z['time']>=since]
+    v['observerEventsDuringTransition']=page.evaluate('since=>{const o=globalThis.__MODEL_FIDELITY_PUBLIC_OBSERVATIONS__;return {intersections:o.intersections.filter(x=>x.time>=since),resizes:o.resizes.filter(x=>x.time>=since)}}',since)
+    page.set_viewport_size({'width':width,'height':height});stage.scroll_into_view_if_needed();page.wait_for_timeout(350)
+    assert len(item['studioDrawCalls'])>count
+    v['visibleAgain']=True
+    print(json.dumps({'width':width,'trial':trial,'historicalWindowClearDelta':v['historicalWindowClearDelta'],'clearCountAfterObserverFalse':len(v['clearsAfterCurrentFalse']),'strictZeroDraws':True}),flush=True)
+   item['publicObserverTimeline']=page.evaluate('globalThis.__MODEL_FIDELITY_PUBLIC_OBSERVATIONS__')
+   assert not item['pageErrors'] and not item['cspViolations'] and not item['browserConsoleErrors'] and not item['httpErrors']
+   item['loaded']=sorted(item['loaded']);item['ok']=True;c.close()
+  b.close()
+ assert d.fingerprints(list(f['source']))==f['source'];assert d.dist_fingerprints(ROOT/'dist')==local
+ report['historicalFailuresAfter']=fail_pins();assert report['historicalFailuresAfter']==report['historicalFailuresBefore']
+ report['driverAfter']=pin(ROOT/DRIVER);assert report['driverAfter']==report['driverBefore']
+ report.update(sourcesUnchanged=True,compiledUnchanged=True,historicalFailuresUnchanged=True,captures={p.name:pin(p)for p in OUT.glob('*.png')},ok=all(i['ok']for i in report['paths']))
+except BaseException as e:
+ report['failure']={'type':type(e).__name__,'message':str(e)[:2000]};raise
+finally:
+ for i in report['paths']:
+  if isinstance(i.get('loaded'),set):i['loaded']=sorted(i['loaded'])
+ (OUT/'report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');server.shutdown()
+print(json.dumps({'ok':report['ok'],'paths':len(report['paths']),'trials':sum(len(i['trials'])for i in report['paths'])}),flush=True)

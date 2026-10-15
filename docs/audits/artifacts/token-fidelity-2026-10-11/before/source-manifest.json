@@ -1,0 +1,52 @@
+[
+  {
+    "path": "src/ui/HologramTokenGeometry.js",
+    "bytes": 2701,
+    "sha256": "fdae5fa328bfb60e633d2f70ef32964f39e8f9198130be322baa0039977af4d1"
+  },
+  {
+    "path": "src/ui/HologramTokenBotanicalModels.js",
+    "bytes": 27468,
+    "sha256": "550b8ae6973ff405c3abaf2898f74c281a942a3c939c30197d5d1326d0beb2b9"
+  },
+  {
+    "path": "src/ui/HologramTokenCreatureModels.js",
+    "bytes": 33644,
+    "sha256": "336280a63698eb3937be7683922064f7243811b83f76f3e2c024e7901aa7b771"
+  },
+  {
+    "path": "src/ui/HologramTokenConstructModels.js",
+    "bytes": 28156,
+    "sha256": "245bb6a7b47f67ca9ec2b2520d6d3d0550a8f5ad1eb1699e506ba9037b99ff76"
+  },
+  {
+    "path": "src/ui/HologramTokenSpiritModels.js",
+    "bytes": 21508,
+    "sha256": "00160819cf744008c820864fda3d29128fc7f180b76526c8ac65cf9fa0c55365"
+  },
+  {
+    "path": "src/ui/HologramTokenIllustratedExceptions.js",
+    "bytes": 12030,
+    "sha256": "29ada3f0825d726b4c12664c73ced64beab227eb13fd3d8af10c58ab92b50c3d"
+  },
+  {
+    "path": "test/hologram-token-models.test.js",
+    "bytes": 11165,
+    "sha256": "a48efd7cf1392f1bda17dfc32192c759623e92034fe68269a81c61e59068e470"
+  },
+  {
+    "path": "test/hologram-token-botanical-models.test.js",
+    "bytes": 8337,
+    "sha256": "8be1baf39bb40b151b48573bd9ce04852889891d83a2b8cc7e0c33cbac94055c"
+  },
+  {
+    "path": "tests/token-construct-refinement.test.mjs",
+    "bytes": 5493,
+    "sha256": "71b93422b501c385b9de96e73b19f2f5fa97d37a9e294c688346d9af99b406bb"
+  },
+  {
+    "path": "tests/token-illustrated-exceptions.test.mjs",
+    "bytes": 6057,
+    "sha256": "c25ed906fdfce0c350bedc8f1aa6c6caa00eceb289046109834f9508d7d734d8"
+  }
+]

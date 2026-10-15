@@ -29,6 +29,29 @@ function finiteNumber(value, fallback = 0) {
   return Number.isFinite(number) ? number : fallback;
 }
 
+function publicOutcome(value) {
+  return ['player', 'opponent', 'draw'].includes(value) ? value : null;
+}
+
+function publicAttackId(value) {
+  return typeof value === 'string' && /^native-public-attack-[1-9]\d{0,9}$/.test(value) ? value : null;
+}
+
+/** Identity and location have already passed createPublicCombatVisual. */
+function publicDuelistReaction(event, visual) {
+  const attackId = publicAttackId(event.nativeAttackId);
+  if (visual.kind === 'negate') return attackId ? Object.freeze({ attackId }) : null;
+  if (!visual.card) return null;
+  let kind = null;
+  if (visual.kind === 'attack') kind = 'attack';
+  else if (visual.kind === 'summon' && event.nativeSummonConfirmed === true) kind = 'summon';
+  else if (['activate', 'activate-monster-effect'].includes(event.type) && event.nativeChain === true) kind = 'casting';
+  else if (visual.ruleChange && event.negated !== true && event.resolved !== false) kind = 'casting';
+  const owner = visual.sourceRef?.owner || (kind === 'attack' ? event.attackerSide : event.sourceSide || event.target);
+  if (!kind || !['player', 'opponent'].includes(owner)) return null;
+  return Object.freeze({ owner, kind, ...(attackId ? { attackId } : {}) });
+}
+
 function isTypingTarget(target) {
   const tagName = String(target?.tagName || '').toLowerCase();
   return target?.isContentEditable === true
@@ -158,6 +181,10 @@ export class RealDuelView {
     this._cameraControlCleanups = [];
     this._cameraShortcutAttached = false;
     this.gameState = null;
+    this._duelistOutcome = null;
+    this._animationEvents = new WeakSet();
+    this._animationPublicIds = new Map();
+    this._animationChainSequence = 0;
     this.selection = null;
     this.active = false;
     this.disposed = false;
@@ -234,6 +261,23 @@ export class RealDuelView {
     return this.duelistAvatars;
   }
 
+  setDuelistOutcome(winner) {
+    if (this.disposed || (winner !== null && !publicOutcome(winner))) return false;
+    this._duelistOutcome = winner;
+    this.scene3D?.setDuelistOutcome?.(winner);
+    return true;
+  }
+
+  _acceptGameState(gameState) {
+    if (gameState !== this.gameState) {
+      this._animationEvents = new WeakSet();
+      this._animationPublicIds.clear();
+      this._animationChainSequence = 0;
+    }
+    this.gameState = gameState;
+    this.setDuelistOutcome(publicOutcome(gameState?.winner));
+  }
+
   mount() {
     if (this.disposed) {
       throw new Error('A disposed RealDuelView cannot be mounted.');
@@ -294,6 +338,7 @@ export class RealDuelView {
     });
     scene3D.setDuelistAvatars?.(this.duelistAvatars);
     scene3D.mount?.(this.layerElement);
+    scene3D.setDuelistOutcome?.(this._duelistOutcome);
     if (scene3D.webglAvailable === false || !scene3D.getCamera?.()) {
       scene3D.dispose?.();
       throw new Error('WebGL 3D is unavailable; the classic duel remains active.');
@@ -765,7 +810,7 @@ export class RealDuelView {
 
   async activate(gameState = this.gameState) {
     const layer = this.mount();
-    this.gameState = gameState;
+    this._acceptGameState(gameState);
     const selection = this._applyCurrentEnvironment();
     if (!selection?.environment || !selection.environmentId) {
       throw new TypeError('RealDuelView could not resolve a safe environment.');
@@ -803,7 +848,7 @@ export class RealDuelView {
     if (this.disposed) return null;
     // Keep the exact live object. The immersive view must not clone or own duel
     // state, including while it is inactive.
-    this.gameState = gameState;
+    this._acceptGameState(gameState);
     if (!this.active) return this.selection;
     if (!this.isMounted) this.mount();
     const selection = this._applyCurrentEnvironment();
@@ -865,20 +910,74 @@ export class RealDuelView {
   }
 
   playAnimation(event) {
-    if (!this.active || this.disposed || this.documentRef?.hidden === true) return false;
+    if (!this.active || this.disposed || !event || typeof event !== 'object'
+      || event.hidden === true || event.faceDown === true || event.private === true || this._animationEvents.has(event)) return false;
+    let publicId = null;
+    const attackId = publicAttackId(event.nativeAttackId);
+    if (['attack-direct', 'attack-monster'].includes(event.type) && attackId) {
+      const replayCount = Number.isInteger(event.replayCount) && event.replayCount >= 0 && event.replayCount <= 1000000
+        ? event.replayCount : 0;
+      publicId = `${attackId}:${replayCount}`;
+    } else if (['summon', 'flip-summon'].includes(event.type) && event.nativeSummonConfirmed === true
+      && event.card?.isSetFaceDown !== true) {
+      const summonId = event.card?.runtimeInstanceId;
+      if (typeof summonId === 'string' && /^native-public-summon-[1-9]\d{0,9}$/.test(summonId)) publicId = summonId;
+    } else if (['activate', 'activate-monster-effect'].includes(event.type) && event.nativeChain === true
+      && Number.isInteger(event.linkNumber) && event.linkNumber >= 1 && event.linkNumber <= 256) {
+      publicId = `native-public-chain:${this._animationChainSequence}:${event.linkNumber}`;
+    }
+    if (publicId && this._animationPublicIds.has(publicId)) return false;
+    const remember = () => {
+      this._animationEvents.add(event);
+      if (publicId) {
+        this._animationPublicIds.set(publicId, true);
+        if (this._animationPublicIds.size > 256) this._animationPublicIds.delete(this._animationPublicIds.keys().next().value);
+      }
+    };
+    if (event.type === 'chain-end') {
+      remember();
+      this._animationChainSequence += 1;
+      return false;
+    }
+    if (event.type === 'native-victory') {
+      if (event.nativeVictoryConfirmed !== true || !publicOutcome(event.winner)) return false;
+      remember();
+      return this.setDuelistOutcome(event.winner);
+    }
+    if (event.type === 'attack-stopped' && event.reason === 'native-control-returned' && attackId) {
+      remember();
+      return this.scene3D?.cancelPublicAttack?.(attackId) === true;
+    }
+    if (this.documentRef?.hidden === true
+      && !(event.type === 'attack-negated' && event.nativeAttackNegated === true)) {
+      remember();
+      return false;
+    }
+    if (event.type === 'lp-loss') {
+      const { target: owner, damage: amount, lp, previousLP } = event;
+      if (event.cost !== false || !['player', 'opponent'].includes(owner)
+        || ![amount, lp, previousLP].every(value => Number.isInteger(value) && value >= 0 && value <= 1000000)
+        || amount < 1 || previousLP - lp !== amount) return false;
+      remember();
+      return this.scene3D?.playDuelistDamage?.(Object.freeze({ owner, amount })) === true;
+    }
     // A resolving Chain can delay the next state callback. Update revealed
     // models immediately when a card is Set, destroyed or otherwise moved.
-    this._syncFieldHolograms();
+    if (this.documentRef?.hidden !== true) this._syncFieldHolograms();
     const visual = createPublicCombatVisual(
       event, this.gameState, reference => this._publicZonePosition(reference)
     );
     if (!visual) return false;
-    return this.scene3D?.playCombatEffect?.(visual) === true;
+    remember();
+    if (visual.kind === 'attack' && attackId && event.nativeReplayConfirmed === true) this.scene3D?.cancelPublicAttack?.(attackId);
+    return this.scene3D?.playCombatEffect?.(visual, publicDuelistReaction(event, visual)) === true;
   }
 
   deactivate() {
     if (this.disposed) return false;
     this.active = false;
+    // A Chain can finish while another visual mode owns the duel callbacks.
+    this._animationChainSequence += 1;
     for (const zone of this.boardElement?.querySelectorAll?.('.has-real-hologram-model') || []) {
       zone.classList?.remove?.('has-real-hologram-model');
     }
@@ -912,6 +1011,8 @@ export class RealDuelView {
     this._decodedBackdropUrls.clear();
     this.selection = null;
     this.gameState = null;
+    this._animationEvents = new WeakSet();
+    this._animationPublicIds.clear();
     this.disposed = true;
     return true;
   }

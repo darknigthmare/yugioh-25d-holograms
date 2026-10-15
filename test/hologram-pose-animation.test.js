@@ -1,3 +1,4 @@
+import { getHologramTriangleBudget } from './fixtures/hologram-triangle-budgets-2026-10-11.js';
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { ShaderLib } from 'three';
@@ -18,9 +19,9 @@ function release(model) {
 test('new card identities have distinctive anatomy, declared support and bounded geometry', () => {
   const expected = [
     ['54652250', 'insect', 'pincer', ['insect-compound-eye-1', 'pincer-tooth--1-3', 'insect-leg-lower-1-2']],
-    ['31560081', 'faith', 'faith-light', ['faith-halo', 'faith-hair-lock--1', 'faith-heart-gem']],
+    ['31560081', 'faith', 'faith-light', ['faith-closed-long-red-robe', 'faith-magenta-ponytail-streamer--1', 'staff-crown']],
     ['26202165', 'sangan', 'search', ['sangan-third-eye', 'sangan-third-pupil', 'sangan-fang-1']],
-    ['77637979', 'dragon', 'cyber-beam', ['cyber-beak', 'wing-1-circuit-3', 'projection-link-arrow-1']]
+    ['77637979', 'dragon', 'cyber-beam', ['lan-long-angular-pterosaur-skull', 'wing-1-lan-dark-cyber-membrane', 'projection-link-arrow-1']]
   ];
   for (const [id, family, activation, parts] of expected) {
     assert.ok(SUPPORTED_HOLOGRAM_MODEL_IDS.includes(id));
@@ -31,13 +32,15 @@ test('new card identities have distinctive anatomy, declared support and bounded
     assert.ok(parts.every(part => model.userData.partNames.includes(part)));
     assert.equal(model.userData.fidelity, 'procedural-interpretation');
     assert.ok(model.children.length <= 5);
-    assert.ok(model.userData.triangleCount < 6000);
+    assert.ok(model.userData.triangleCount <= getHologramTriangleBudget(id));
     release(model);
   }
   assert.equal(resolveHologramMonsterProfile({ id: '054652250' }).id, 'man-eater-bug');
   const token = createHologramMonsterModel({ type: 'Token', race: 'Beast', attribute: 'EARTH' });
   const linkCaster = createHologramMonsterModel({ type: 'Link Effect Monster', race: 'Spellcaster', attribute: 'DARK' });
-  assert.ok(token.userData.partNames.includes('token-goat-face'));
+  assert.equal(token.userData.profile.tokenAnatomy, 'unknown-echo');
+  assert.ok(token.userData.partNames.includes('token-unknown-neutral-echo'));
+  assert.ok(!token.userData.partNames.some(part => /goat|fleece|horn/.test(part)));
   assert.ok(linkCaster.userData.partNames.includes('staff-digital-core'));
   assert.ok(linkCaster.userData.partNames.includes('projection-link-arrow-1'));
   assert.equal(linkCaster.userData.profile.attack, 'cyber-beam');

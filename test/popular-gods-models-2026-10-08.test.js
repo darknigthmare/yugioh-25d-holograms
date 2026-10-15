@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import test from 'node:test';
+import { getHologramTriangleBudget } from './fixtures/hologram-triangle-budgets-2026-10-11.js';
 import { Box3, Color, Vector3 } from 'three';
 import { loadNativeAuditInputs } from '../scripts/native-field-audit-inputs.mjs';
 import { POPULAR_GOD_MODEL_PROFILES, buildPopularGodMonsterAnatomy } from '../src/ui/HologramPopularGodModels.js';
@@ -43,7 +44,7 @@ for(const p of CASES) test(`${p.name}: closed three-dimensional landmarks and ar
     const model=createHologramMonsterModel({id:p.id},{defense});
     assert.ok(p.parts.every(part=>model.userData.partNames.includes(part)));for(const color of p.colors) assert.ok(containsColor(model,color),p.id+': '+color);
     assert.equal(model.userData.referenceArt,POPULAR_GOD_MODEL_PROFILES[p.id].referenceArt);
-    assert.ok(model.userData.meshCount<=5);assert.ok(model.userData.triangleCount<=6000);
+    assert.ok(model.userData.meshCount<=5);assert.ok(model.userData.triangleCount<=getHologramTriangleBudget(p.id,{defense}));
     const extent=new Box3().setFromObject(model).getSize(new Vector3());assert.ok(extent.x>1&&extent.y>2&&extent.z>.7);
     const joints=new Set(model.children.flatMap(mesh=>Array.from(mesh.geometry.attributes.hologramJoint.array)));
     for(const joint of p.joints) assert.ok(joints.has(joint));

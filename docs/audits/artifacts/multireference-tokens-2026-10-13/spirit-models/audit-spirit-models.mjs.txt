@@ -1,0 +1,74 @@
+// Run from the repository root: node --input-type=module < this-file.mjs.txt
+// Archive extension intentionally prevents automatic discovery as a Node test.
+import assert from 'node:assert/strict';
+import { readFileSync, writeFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { Box3 } from 'three';
+import { createHologramMonsterModel } from './src/ui/HologramMonsterModels.js';
+import { createHologramPoseAnimation, HOLOGRAM_JOINTS } from './src/ui/HologramPoseAnimation.js';
+import { buildTokenSpiritAnatomy } from './src/ui/HologramTokenSpiritModels.js';
+
+const root='docs/audits/artifacts/multireference-tokens-2026-10-13';
+const source='src/ui/HologramTokenSpiritModels.js';
+const fixture='test/fixtures/token-model-baseline-2026-10-11.json';
+const baselines=JSON.parse(readFileSync(fixture)).codes;
+const registry=JSON.parse(readFileSync(`${root}/verified-printed-token-references.json`));
+const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
+const pin=path=>{const bytes=readFileSync(path);return{path,bytes:bytes.length,sha256:sha(bytes)};};
+const expected={
+  '38053382':['token-generaider-crescent-torso','token-generaider-elliptical-crown','wing--1-token-generaider-silver-blade','wing-1-token-generaider-silver-blade','token-generaider-floating-spear-leg--1'],
+  '51208047':['token-trickstar-winged-heart-skull','wing--1-token-trickstar-white-feather-wing','wing-1-token-trickstar-white-feather-wing','token-trickstar-curled-green-stem','token-trickstar-blue-stem-pearl'],
+  '60514626':['token-mask-pear-shaped-body','token-mask-long-featureless-head','token-mask-long-drooping-face','token-mask-asymmetric-dark-face-hollow','token-mask-wide-foot--1'],
+  '87669905':['token-dual-avatar-seated-lion-body','token-dual-avatar-rounded-guardian-head','token-dual-avatar-open-roaring-mouth','token-dual-avatar-lower-jaw','token-dual-avatar-swept-lion-tail','token-dual-avatar-carved-mane-scroll--1-0']
+};
+const report={executedAtUtc:new Date().toISOString(),source:pin(source),fixture:pin(fixture),nativeDataNotWritten:true,claimedFidelity:'Printed-facing silhouette reconstruction; rear views remain procedural interpretations.',scope:'Four exact native Token codes, four printed Token scans. Existing 240-code geometry regression run separately.',references:[],models:[],assertions:0};
+const check=(condition,message)=>{assert.ok(condition,message);report.assertions++;};
+const signature=model=>sha(Buffer.concat(model.children.flatMap(mesh=>['position','normal','color','hologramJoint'].map(key=>Buffer.from(mesh.geometry.attributes[key].array.buffer)))));
+for(const [code,parts]of Object.entries(expected)) {
+ const ref=registry.references.find(r=>String(r.nativeCode)===code);check(Boolean(ref),`Printed reference ${code}`);
+ const reference=pin(ref.path);check(reference.sha256===ref.sha256,`Archived scan SHA ${code}`);
+ report.references.push({...reference,sourcePage:ref.sourcePage,url:ref.url,version:ref.version,dimensions:ref.dimensions,independentAngles:ref.independentAngles});
+ const baseline=baselines.find(r=>r.id===code);check(Boolean(baseline),`Original baseline ${code}`);
+ for(const defense of [false,true]) {
+  const model=createHologramMonsterModel({id:code,type:'Token Monster',isToken:true},{defense});
+  const triangles=model.userData.triangleCount, originalTriangles=defense?baseline.defenseTriangles:baseline.attackTriangles;
+  const limit=Math.min(29450,originalTriangles*5),bounds=new Box3().setFromObject(model);
+  check(triangles<=limit,`${code} ${defense}: original ×5 budget`);check(model.children.length<=5,`${code}: GPU batches`);
+  check(model.userData.profile.tokenCode===code,`${code}: exact public identity`);
+  check(parts.every(part=>model.userData.partNames.includes(part)),`${code}: defining illustrated parts`);
+  check(!model.userData.partNames.some(name=>/token-humanoid-|token-ghost-/.test(name)),`${code}: no former mannequin`);
+  check(new Set(model.userData.partNames).size===model.userData.partNames.length,`${code}: unique parts`);
+  check(bounds.min.y>=-.03&&bounds.max.y<=3.3,`${code}: bounded height`);
+  check(Math.max(...bounds.min.toArray().map(Math.abs),...bounds.max.toArray().map(Math.abs))<=3.3,`${code}: bounded footprint`);
+  const joints=new Set(model.children.flatMap(mesh=>[...mesh.geometry.attributes.hologramJoint.array]));
+  if(['38053382','51208047'].includes(code))for(const joint of [HOLOGRAM_JOINTS.LEFT_WING,HOLOGRAM_JOINTS.RIGHT_WING])check(joints.has(joint),`${code}: wing joint ${joint}`);
+  if(code==='87669905')check(!joints.has(HOLOGRAM_JOINTS.JAW),`${code}: lion mouth remains with BODY, not the unrelated dragon jaw pivot`);
+  const before=signature(model),refs=model.children.map(mesh=>({mesh,geometry:mesh.geometry,attributes:{...mesh.geometry.attributes},versions:Object.fromEntries(Object.entries(mesh.geometry.attributes).map(([key,a])=>[key,a.version]))}));
+  for(const ref of refs) {
+   check(ref.geometry.attributes.uv.count===ref.geometry.attributes.position.count,`${code}: UV count`);
+   for(const [key,attribute]of Object.entries(ref.attributes))check(attribute.array.every(Number.isFinite),`${code}: ${key} finite`);
+  }
+  const animation=createHologramPoseAnimation(model,{kind:'attack'});
+  for(let frame=0;frame<60;frame++)animation.update(frame/61);
+  check(signature(model)===before,`${code}: animation leaves geometry buffers unchanged`);
+  for(const ref of refs)for(const[key,attribute]of Object.entries(ref.attributes))check(ref.mesh.geometry===ref.geometry&&ref.mesh.geometry.attributes[key]===attribute&&attribute.version===ref.versions[key],`${code}: retained ${key}`);
+  animation.dispose();
+  const poisoned={id:code};for(const key of ['name','effect','description','imageUrl','uid','owner','controller','gameState'])Object.defineProperty(poisoned,key,{get(){throw new Error(`Private field ${key}`);}});
+  const safe=createHologramMonsterModel(poisoned,{defense});check(signature(safe)===before,`${code}: private getters never inspected`);safe.traverse(mesh=>{mesh.geometry?.dispose();mesh.material?.dispose();});
+  const geometries=new Set(model.children.map(mesh=>mesh.geometry)),materials=new Set(model.children.map(mesh=>mesh.material)),shadow=new Set(model.children.flatMap(mesh=>[mesh.customDepthMaterial,mesh.customDistanceMaterial]).filter(Boolean));
+  let disposedGeometry=0,disposedMaterials=0,disposedShadow=0;
+  geometries.forEach(g=>g.addEventListener('dispose',()=>disposedGeometry++));materials.forEach(m=>m.addEventListener('dispose',()=>disposedMaterials++));shadow.forEach(m=>m.addEventListener('dispose',()=>disposedShadow++));
+  model.traverse(mesh=>{mesh.geometry?.dispose();mesh.material?.dispose();});
+  check(disposedGeometry===geometries.size&&disposedMaterials===materials.size&&disposedShadow===2&&model.userData.poseRig.disposed,`${code}: complete owned disposal`);
+  report.models.push({code,defense,triangles,originalTriangles,ratio:triangles/originalTriangles,limit,batches:model.children.length,partCount:model.userData.partNames.length,requiredParts:parts,partNames:model.userData.partNames,joints:[...joints].sort(),bounds:{min:bounds.min.toArray(),max:bounds.max.toArray()},geometrySignature:before,disposed:{geometry:disposedGeometry,visibleMaterials:disposedMaterials,shadowMaterials:disposedShadow}});
+ }
+}
+// A variant string with a different code must not acquire a printed identity.
+for(const variant of ['generaider','trickstar','mask','dual-avatar-spirit']) {
+ const names=[],record=name=>names.push(name),helpers={part:record,sphere:record,box:record,cone:record,ring:record,rod:record};
+ buildTokenSpiritAnatomy({tokenAnatomy:variant==='mask'?'spirit':'fairy',tokenCode:'123456789',tokenVisual:{variant},body:'#ffffff',accent:'#cccccc',eye:'#999999'},helpers);
+ check(!names.some(name=>/^token-(generaider|trickstar|mask|dual-avatar)-/.test(name)),`${variant}: exact code only`);
+}
+report.ok=true;
+writeFileSync(`${root}/spirit-models/geometry-report.json`,JSON.stringify(report,null,2)+'\n');
+console.log(JSON.stringify({ok:report.ok,assertions:report.assertions,source:report.source,models:report.models.map(({code,defense,triangles,ratio,limit,batches})=>({code,defense,triangles,ratio,limit,batches}))},null,2));

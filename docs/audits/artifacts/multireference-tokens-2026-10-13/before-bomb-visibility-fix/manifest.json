@@ -1,0 +1,621 @@
+{
+  "format": "multireference-token-source-and-research-proof-v1",
+  "asOf": "2026-10-13",
+  "scope": "Source geometry and bounded reference research only. Final compiled browser, complete test/build and hosted delivery gates are separate root evidence. No1:1certification.",
+  "fileCount": 127,
+  "files": {
+    "additional-printed-g-golem-reference.json": {
+      "bytes": 1942,
+      "sha256": "ec73e50ece1d4e4b2dfa4ca84499df5ce598ab030bf264f9b714e8d01fb500f8"
+    },
+    "after/sources/HologramTokenConstructModels.js.txt": {
+      "bytes": 65547,
+      "sha256": "0191278cbf991a39e4f74a7a770ebedd1fed74c6408630acd41e271a96397771"
+    },
+    "after/sources/HologramTokenCreatureModels.js.txt": {
+      "bytes": 52252,
+      "sha256": "d35bd6fc11875bc624694e52ec19b2c353b116520c4eddca4b543700f4eaf434"
+    },
+    "after/sources/HologramTokenSpiritModels.js.txt": {
+      "bytes": 40776,
+      "sha256": "7785f5e8edbccaf18e143b9fc799ba0ee7e7ef046987099cb5d3f99ba728c180"
+    },
+    "before/sources/HologramTokenConstructModels.js.txt": {
+      "bytes": 54343,
+      "sha256": "cdf06be38bdcfd3fca22cf88eb575dd0cc08a366d0e9d5875607ec2fbc6783b9"
+    },
+    "before/sources/HologramTokenCreatureModels.js.txt": {
+      "bytes": 40519,
+      "sha256": "0a69acdb58bc23f68627c1b96c7d0f1cd4150fd7f692025f7f961c9f7482392b"
+    },
+    "before/sources/HologramTokenSpiritModels.js.txt": {
+      "bytes": 26667,
+      "sha256": "1230076e1040dcdef10af9a6d92fa9caa9efb30b74aafef2860fb047650103f3"
+    },
+    "download-records.json": {
+      "bytes": 10495,
+      "sha256": "dd89d51f73dabf9e2e1b2ecdd6a660e98128cc7995eec929e4d17887d6045c8e"
+    },
+    "geometry-before-after-240-two-poses.json": {
+      "bytes": 866592,
+      "sha256": "21cdb001299bfa12f66b239750ab5d269a8856adb0853e92216173f5806fdcf2"
+    },
+    "geometry-before-ggolem-dispatch-fix.json": {
+      "bytes": 866525,
+      "sha256": "9a43aef989dc0452647eab814419e61db1221d0960bd5624e58b635a6e0a5302"
+    },
+    "geometry-final-summary.txt": {
+      "bytes": 553,
+      "sha256": "38ea21d7a7e4c86a452370c666fdd0443daceb0f79b8b41fe1c624354d5645ca"
+    },
+    "missing-art-contact-1.jpg": {
+      "bytes": 267385,
+      "sha256": "8c7643129a88c97bc0f94578506f3505faeba75ff3d77bdc993f10f09165084a"
+    },
+    "missing-art-contact-2.jpg": {
+      "bytes": 252781,
+      "sha256": "53aa86b9ed43fc1ab86fcb6deadacf227805f40ae032a9555d2b695f07eddf17"
+    },
+    "missing-art-contact-3.jpg": {
+      "bytes": 263642,
+      "sha256": "729633fb80be408e2027491099a0c2237de5a33c937851fb1ee815dbf4a4b060"
+    },
+    "missing-art-contact-4.jpg": {
+      "bytes": 87429,
+      "sha256": "9cec5e5c94a1f582ab93dea5ab916eaea7177365802b760904bb711f6bbe87a0"
+    },
+    "missing-direct-art-downloads.json": {
+      "bytes": 78892,
+      "sha256": "931a1680b035062c507897e573ee6692d879e84487a19eef8114028453cf4149"
+    },
+    "missing-direct-art-page-probes.json": {
+      "bytes": 65008,
+      "sha256": "b381f866c79692c536c98c5b2055a409e00fa15ae7dc30513f3afac71508048d"
+    },
+    "missing-direct-art-page-retries.json": {
+      "bytes": 5019,
+      "sha256": "ffabf63a0d716ebd975ae5e37644ae21dd944c330b5ce99148db92540c87c352"
+    },
+    "recipes/fetch-missing-token-main-images.py.txt": {
+      "bytes": 2954,
+      "sha256": "852da7faee9e7fcbceb21067de1ec0c4690399bbacaeaa373c58bdd2b7079b1a"
+    },
+    "recipes/fetch-related-and-world-legacy.py.txt": {
+      "bytes": 2697,
+      "sha256": "1b99e106cf1b784bbed8338a36fddd300bab96fea0fd7a1ad5de19fe47463f6c"
+    },
+    "recipes/measure-token-geometry.mjs.txt": {
+      "bytes": 4583,
+      "sha256": "c0f543d438131ae501913e88a5f24c7cf6e8b034e33318dbc9e2a989e80fb517"
+    },
+    "recipes/probe-missing-token-pages.py.txt": {
+      "bytes": 2474,
+      "sha256": "54642bc1a2210a1dce8fd0f61f23f06590d1edd814b8b4b7dabbf0eca3fc9cf3"
+    },
+    "reference-review-and-coverage.json": {
+      "bytes": 84761,
+      "sha256": "abccf05bc10569ea791c6c9b3700d501420f7b7ce5f80eb694b22c1371b17046"
+    },
+    "references/14470845.jpg": {
+      "bytes": 97344,
+      "sha256": "14bcff944313d03bfecfabfe29d4c52aca346459f4aeef842c180e2cbc23c77b"
+    },
+    "references/29843091.jpg": {
+      "bytes": 122892,
+      "sha256": "610434fd53819be1041d69305422948d5da8a526b49cff55f0925fc9d41fa62b"
+    },
+    "references/40640057.jpg": {
+      "bytes": 106196,
+      "sha256": "9721575e23dd4bd77230457610f34c15dedd3aa3aa422ba7abbf1c795e23d3b9"
+    },
+    "references/40703222.jpg": {
+      "bytes": 77023,
+      "sha256": "325db67427e8c7504215bf9200172589cad86e9fb68cf4c483e44577fff26500"
+    },
+    "references/60764581.jpg": {
+      "bytes": 53599,
+      "sha256": "d93581653d76abd9b647b722ab7f5f9eef334e6108b1a197e1de9bdcff2cec8f"
+    },
+    "references/71645242.jpg": {
+      "bytes": 115501,
+      "sha256": "ea85398affa4b343e818304dfc4e135d50e6f8c0cf42394675f3faacace5ffbc"
+    },
+    "references/73915051.jpg": {
+      "bytes": 83656,
+      "sha256": "f8a01e3d3ead0921e6b0d53fbd51fd8ae700f719e078db7a2bf1a5ecb99b206d"
+    },
+    "references/WorldLegacyToken-20TP-JP-OP.png": {
+      "bytes": 149456,
+      "sha256": "64ab05cd5fe4c08ca688e5dd31321a463c02e2f3acbed1c0fb1b0dd3f1b72d13"
+    },
+    "references/WorldLegacyToken-LOD2-JP-VG-artwork.jpg": {
+      "bytes": 54084,
+      "sha256": "074b09c9c97f0c21a397cc072afd9c521e9244aff68f966483eba023b76edff9"
+    },
+    "references/WorldLegacyToken-OP15-EN-SR-UE.png": {
+      "bytes": 2474714,
+      "sha256": "da3faff513f17ec7748550260010ecb6f7515a1eee0a69edca392ae526d542c9"
+    },
+    "references/WorldLegacyToken-TK03-JP-R.png": {
+      "bytes": 1100326,
+      "sha256": "41a37b88c8c2bd032c7a17beaa4b4d34d27b94d2c0b7557961a9637800d5e629"
+    },
+    "references/WorldLegacyToken-TK05-JP-R.png": {
+      "bytes": 1315894,
+      "sha256": "6eb59cf25c784c5e8877e9d731b97392f6b128781e6b3a1dded56df463c82aa3"
+    },
+    "references/missing-direct/AdventurerToken-DULI-EN-VG-CA.png": {
+      "bytes": 180857,
+      "sha256": "819a2c9107c3d74785c6a69f19f79ae5e38ad1a64cd9a13e9f0aa82ad429867a"
+    },
+    "references/missing-direct/AlligatorToken-MADU-EN-VG-artwork.png": {
+      "bytes": 327201,
+      "sha256": "11cf109895c64588efdf1370fd52c32226d03858e37947d17a74105249ee4571"
+    },
+    "references/missing-direct/AncientWarriorsToken-DULI-EN-VG-CA.png": {
+      "bytes": 342638,
+      "sha256": "26e015866fb113bc89a5203bb29c936813f2ae6249a32ad8f440b02baeec6e88"
+    },
+    "references/missing-direct/ArmamentReincarnationToken-MADU-EN-VG-artwork.png": {
+      "bytes": 562414,
+      "sha256": "60e0b6879b2ae8cb388cdb555691c0377b52bd8610ac83104cd12c054fa919da"
+    },
+    "references/missing-direct/BabyMantisToken-MADU-EN-VG-artwork.png": {
+      "bytes": 529300,
+      "sha256": "7488d3cac976ac42e95643168d8395870d997ecab59b716a098c4354eaca4e33"
+    },
+    "references/missing-direct/BeetrooperToken-DULI-EN-VG-CA.png": {
+      "bytes": 243290,
+      "sha256": "4957e9bc39e80adb3e7d9aef525bdfa2c98592b6b857509a06cdf938649424b3"
+    },
+    "references/missing-direct/BellcatToken-MADU-EN-VG-artwork.png": {
+      "bytes": 310042,
+      "sha256": "0b4a2414901ace80fbbdd58d5e93538590095511c44e7a6cb8aee1f77834721e"
+    },
+    "references/missing-direct/BombToken-OP26-EN-SR-UE.png": {
+      "bytes": 1492954,
+      "sha256": "638743d787d422cf63b8c1489bb4818151945c0a2982e98c68707202c17f9f81"
+    },
+    "references/missing-direct/ClockToken-MADU-EN-VG-artwork.png": {
+      "bytes": 481938,
+      "sha256": "22ddaa90ad2ded2f212ae5253568dd408442797e71c06100e29c8c36cc876fe8"
+    },
+    "references/missing-direct/CrystalBeastToken-SDCB-EN-C-1E.png": {
+      "bytes": 459745,
+      "sha256": "de76502ebc93b32ca7569849a8c56e28745930058dcd97179533ec5baa8bd3d7"
+    },
+    "references/missing-direct/CynetToken-MADU-EN-VG-artwork.png": {
+      "bytes": 430953,
+      "sha256": "608078752dc11067e1316bb2a2bada35e2283d11b6f9019dc1433efb69ead8e3"
+    },
+    "references/missing-direct/DarkBeastToken-MADU-EN-VG-artwork.png": {
+      "bytes": 492812,
+      "sha256": "312a41bf128cf8671253b632f85a94461e1cb796e45b7bf7240a651ab17ad528"
+    },
+    "references/missing-direct/DarklordToken-MADU-EN-VG-artwork.png": {
+      "bytes": 584559,
+      "sha256": "e1e5fad23af78d3bff99554870897144097b2d1fb673578e94913a38e5da67ff"
+    },
+    "references/missing-direct/DeltaToken-MADU-EN-VG-artwork.png": {
+      "bytes": 529402,
+      "sha256": "d5babc1b8178e070b0a1068dacdf8f9e6c4a41056a851ec9046f774b1a39f16e"
+    },
+    "references/missing-direct/DiagramToken-MADU-EN-VG-artwork.png": {
+      "bytes": 570458,
+      "sha256": "80f3be0af0f7adcaa64511e50a482f40b366f93cec7f19fe61c415b53c59e08f"
+    },
+    "references/missing-direct/DinomorphiaToken-MADU-EN-VG-artwork.png": {
+      "bytes": 482366,
+      "sha256": "d47fc7f1f0f0322ed4710cb3883ee036cc188aa1d53b0c8677046198d7539bcd"
+    },
+    "references/missing-direct/DoppelgangerToken-MADU-EN-VG-artwork.png": {
+      "bytes": 532147,
+      "sha256": "93ede80000754af9838600b83120ebc79f92f01ec9b6c79624654179c3c147d1"
+    },
+    "references/missing-direct/DragonToken-MADU-EN-VG-artwork.png": {
+      "bytes": 472599,
+      "sha256": "f2997252d4d9198be2a863c6a7a72a3b10e45563486b7248cd9c3b3d49570a1f"
+    },
+    "references/missing-direct/DualAvatarSpiritToken-OP14-EN-SR-UE.png": {
+      "bytes": 1782285,
+      "sha256": "628fb1d708211158f3daf664b7719225650c49b5efe17bf32be72fbde11c2c62"
+    },
+    "references/missing-direct/DuelDragonToken-OP11-EN-SR-UE.png": {
+      "bytes": 771791,
+      "sha256": "1c840067c66fab6a0d7b2fc3b96202d363cc70141520d27972583073f69709a6"
+    },
+    "references/missing-direct/ElfnoteSeraphimToken-MADU-EN-VG-artwork.png": {
+      "bytes": 603863,
+      "sha256": "189e0016503ca4198e08f631e949bf34bf651931e893f0dacb5ea360b69dedce"
+    },
+    "references/missing-direct/EpigonosToken-MADU-EN-VG-artwork.png": {
+      "bytes": 425106,
+      "sha256": "32220c7a78e83ca8f0f690486fc2c7d3f5a3f8ba9381f95240a3ac8fc23fb930"
+    },
+    "references/missing-direct/EscapegoatToken-MADU-EN-VG-artwork.png": {
+      "bytes": 401327,
+      "sha256": "be6efab3f445f4c6fbbfb5e0629fd5b84cdbb8ec0bbbbe44c020b056d9b7e682"
+    },
+    "references/missing-direct/FamiliaroftheEvilEyeToken-MADU-EN-VG-artwork.png": {
+      "bytes": 493152,
+      "sha256": "87fc8c73e26d5fbdf51cb09b8d0ed5688ccbeab18f59aa33eb2b7b6a793bc4dd"
+    },
+    "references/missing-direct/FiendsmithToken-MADU-EN-VG-artwork.png": {
+      "bytes": 591807,
+      "sha256": "6f5b5f19dbb990ebdab5d3360d1567d6d16b52e07cddc70cb4ac68fcee9a11fc"
+    },
+    "references/missing-direct/FireToken-DULI-EN-VG-CA.png": {
+      "bytes": 341380,
+      "sha256": "d2f17d343275603cf14f062a758a14cfe45797a4fa63097cf38f9573027f4a05"
+    },
+    "references/missing-direct/FireballToken-MADU-EN-VG-artwork.png": {
+      "bytes": 234517,
+      "sha256": "7692d4e8ec39de2363af5c4d7d132e106b368d88f268d334bab2fd94e5f05897"
+    },
+    "references/missing-direct/GGolemToken-MAMA-EN-UR-1E.png": {
+      "bytes": 613925,
+      "sha256": "379edc4b81128d99a3df462692dce9c9efb266070399ec8c43effc9c893c06d0"
+    },
+    "references/missing-direct/GadgetBoxToken-MADU-EN-VG-artwork.png": {
+      "bytes": 496543,
+      "sha256": "c16c9ef213797540122cf8e5c41daf569735c1e01a866cfeb497238300e37b6a"
+    },
+    "references/missing-direct/GadgetToken-TK04-JP-R.png": {
+      "bytes": 3013754,
+      "sha256": "85663f647d11f1190416e6e53994d00767e02dff5c850df127d2416f6546b95f"
+    },
+    "references/missing-direct/GeneraiderToken-OP13-EN-SR-UE.png": {
+      "bytes": 819970,
+      "sha256": "b32150437c3ecd8fb7cf60628661824304753b839bbcd48561ebc2dee6bfa414"
+    },
+    "references/missing-direct/GoldPrideToken-MADU-EN-VG-artwork.png": {
+      "bytes": 558721,
+      "sha256": "07282e8b29558a95e3cc8fe9496af3f08acfcdb6e177df2b76710856f15ff44a"
+    },
+    "references/missing-direct/HauntedToken-DULI-EN-VG-CA.png": {
+      "bytes": 241477,
+      "sha256": "93c7733ac4d6af3fda9deee261150880994ac025d1e66195b360e946bea5c5ed"
+    },
+    "references/missing-direct/HundredApplesToken-MADU-EN-VG-artwork.png": {
+      "bytes": 519205,
+      "sha256": "02e31f82de9a32abb41c3daa7025d7f1ad3bf8a37d7f84722ef4e6cb5b346371"
+    },
+    "references/missing-direct/IceBarrierToken-OP17-EN-SR-UE.png": {
+      "bytes": 795058,
+      "sha256": "ee6f546906df320356a86141d93a1e4e46c55d00c45ab0847c34e51feba22a60"
+    },
+    "references/missing-direct/IcebladeToken-DULI-EN-VG-CA.png": {
+      "bytes": 206758,
+      "sha256": "69270ab3f537784a6332651a5442cb335e26168706bc74b70822f8b2e10077ff"
+    },
+    "references/missing-direct/IcejadeToken-MADU-EN-VG-artwork.png": {
+      "bytes": 566088,
+      "sha256": "209432384b5e179f053f75cd6f0eff01b3f8e0dd2768fab34b2368af52970dd3"
+    },
+    "references/missing-direct/IgnisterToken-MADU-EN-VG-artwork.png": {
+      "bytes": 530124,
+      "sha256": "98912caf12a1cfacbe09bb094f04b59805bf877d433f6c0e7a95045225969a36"
+    },
+    "references/missing-direct/JurraeggToken-SR04-EN-C-1E.png": {
+      "bytes": 771009,
+      "sha256": "cdf88a31c2cd52cd062e6ca8a11f2df15f7ca7cd548ff1a3bff17b709bd1011c"
+    },
+    "references/missing-direct/LampToken-MADU-EN-VG-artwork.png": {
+      "bytes": 574839,
+      "sha256": "4ebd72f200f258413b06cb13bd4107bcca33ebe19e1b20bf8b6ac9bfb19aafdd"
+    },
+    "references/missing-direct/LightBeastToken-MADU-EN-VG-artwork.png": {
+      "bytes": 492812,
+      "sha256": "312a41bf128cf8671253b632f85a94461e1cb796e45b7bf7240a651ab17ad528"
+    },
+    "references/missing-direct/LinkToken-DULI-EN-VG-CA.png": {
+      "bytes": 283030,
+      "sha256": "df8ba73762ba4a40eb73309f58e56975c9ad5a309434e05232763523fa6f4372"
+    },
+    "references/missing-direct/LunalightToken-DULI-EN-VG-CA.png": {
+      "bytes": 237988,
+      "sha256": "c68ab2d68be5bbd149caa1e47fde096e94cebc720047799ea962fcb758339bb5"
+    },
+    "references/missing-direct/MachineToken-MADU-EN-VG-artwork.png": {
+      "bytes": 567916,
+      "sha256": "ab91ec78d97dc5adf6b96d37a2164ad8149c09c51dd0773508467ff89c9e0049"
+    },
+    "references/missing-direct/ManipulatorToken-MADU-EN-VG-artwork.png": {
+      "bytes": 397365,
+      "sha256": "51a9e7ebdd48a77f65642e3de2c3f9e15d8407fe89993e710c818763e47777e9"
+    },
+    "references/missing-direct/MaskToken-OP19-EN-SR-UE.png": {
+      "bytes": 1020284,
+      "sha256": "f374ad3e3cad5e9c4e2abce098f3a022e3842455e7310e7cea760ee66b84433a"
+    },
+    "references/missing-direct/MechaPhantomBeastToken-OP09-EN-SR-UE-Megaraptor.png": {
+      "bytes": 777802,
+      "sha256": "f919949ca4a87bf74dd24532c1870db7005f1ac1278aaa37dd90d63adf0fd6f0"
+    },
+    "references/missing-direct/MoultToken-MADU-EN-VG-artwork.png": {
+      "bytes": 420851,
+      "sha256": "1881c652080c25587f8421c419280afcb4d8b5be6a395d7ceebbaf206e4a0d67"
+    },
+    "references/missing-direct/NouvellesToken-DULI-EN-VG-CA.png": {
+      "bytes": 173518,
+      "sha256": "17211a7c20ba7ebf551f83712c5283781d83be1c060a6da0edf5c40b3b98f80e"
+    },
+    "references/missing-direct/NytroToken-MADU-EN-VG-artwork.png": {
+      "bytes": 551419,
+      "sha256": "d2bc94a5a684a2dc422a53f02bfa98be3b4a31dd823007239030db389d7c8db6"
+    },
+    "references/missing-direct/OgdoadicToken-OP18-EN-SR-UE.png": {
+      "bytes": 661609,
+      "sha256": "aab0e2dcf14f532722d26f76ce4d66ad0d66778e45ecfd05d68b76e327ea6bf5"
+    },
+    "references/missing-direct/OtoshidamashiToken-MADU-EN-VG-artwork.png": {
+      "bytes": 284934,
+      "sha256": "a816317ebd6f767553f2b00fa9ff3e3c929dad1dc1093c78fe4f411a95aeeaf3"
+    },
+    "references/missing-direct/OverflowToken-DULI-EN-VG-CA.png": {
+      "bytes": 262652,
+      "sha256": "85335c5d7d6df37b02f183026a31c75073585c20db8921f16a78b2fc4885bd64"
+    },
+    "references/missing-direct/ParalyzingToken-MADU-EN-VG-artwork.png": {
+      "bytes": 567916,
+      "sha256": "03914643a4c58646fdde12a951aa9f8a4c5269906df7bed044308b5809de1f9b"
+    },
+    "references/missing-direct/ParasomniaToken-MADU-EN-VG-artwork.png": {
+      "bytes": 484045,
+      "sha256": "3b1191421bd34df668223a88a93dc7f957ff94a473fcdd6588e3ee293e2fcf64"
+    },
+    "references/missing-direct/PhantomGlimmerToken-DULI-EN-VG-CA.png": {
+      "bytes": 222490,
+      "sha256": "e106b14150530953be69380b0112e0af792dd1122e36fb140ff29ebebebbce45"
+    },
+    "references/missing-direct/PlunderPatrollToken-MADU-EN-VG-artwork.png": {
+      "bytes": 368056,
+      "sha256": "c16b6f961a49e0038f83481c6f60d134e5e838495d07f941c85fffd53e5168a1"
+    },
+    "references/missing-direct/PrankKidsToken-TK05-JP-R.png": {
+      "bytes": 4150441,
+      "sha256": "08bc61dfc92ce0e021b2f4bae9731e49f8fc615029a7abe39f6d1d83342c3178"
+    },
+    "references/missing-direct/PrimalBeingToken-OP12-EN-SR-UE.png": {
+      "bytes": 1355732,
+      "sha256": "a5b064b9c6f512bdada2d245028d59d6f4c04585bdd97264af515284b2cafdda"
+    },
+    "references/missing-direct/PyriteToken-MADU-EN-VG-artwork.png": {
+      "bytes": 675604,
+      "sha256": "059a2bcb93f042da56f29312f0a9a9ec23e9a801f00e2249169e0a302339ba61"
+    },
+    "references/missing-direct/RunickToken-MADU-EN-VG-artwork.png": {
+      "bytes": 575346,
+      "sha256": "4b8888c848f008beaad02af4553fd9b3bb0dde551b3e6415b0231d721096a665"
+    },
+    "references/missing-direct/SacrificialOfferingToken-MADU-EN-VG-artwork.png": {
+      "bytes": 501972,
+      "sha256": "324e44997a7b7a66749622f7e9a4561527240b556d54cfba5d975c427d2fd122"
+    },
+    "references/missing-direct/ShiranuiToken-MADU-EN-VG-artwork.png": {
+      "bytes": 481339,
+      "sha256": "23850a36a8e7cf5d6ae47dbe5c88a0491677911f638f10a2c230ee9b2bee7e31"
+    },
+    "references/missing-direct/SnackToken-MADU-EN-VG-artwork.png": {
+      "bytes": 661306,
+      "sha256": "3450d612027cfe3b791851a99d3254bf85f190669b2372b58686babbaab8c22c"
+    },
+    "references/missing-direct/SpeedroidToken-MADU-EN-VG-artwork.png": {
+      "bytes": 380884,
+      "sha256": "6ae95e9abb131331de34a8e63c155df7c932051582c3ff443265cc7f91b88b98"
+    },
+    "references/missing-direct/SpoolToken-MADU-EN-VG-artwork.png": {
+      "bytes": 360423,
+      "sha256": "46709a99fdcbcc5d3fe1caac6362efdc1ca16831b24200fce6ad06158f0953c0"
+    },
+    "references/missing-direct/SquidInkToken-MADU-EN-VG-artwork.png": {
+      "bytes": 346410,
+      "sha256": "2cc1a3c0efc56ea7cb7cccdf30e281da1c1caf27042e8f21b0c19a39dfb16f70"
+    },
+    "references/missing-direct/StagToken-DULI-EN-VG-CA.png": {
+      "bytes": 216998,
+      "sha256": "04c4d5c7eefc892b617176ad8b3360388500b52a056d54eea30a8e1e6d8dbc1a"
+    },
+    "references/missing-direct/StardustToken-DULI-EN-VG-CA.png": {
+      "bytes": 180093,
+      "sha256": "63be04f9f6537dc4afa685fc22dea5834c8477aaf573c1e00099713254acc601"
+    },
+    "references/missing-direct/SupportToken-MADU-EN-VG-artwork.png": {
+      "bytes": 492093,
+      "sha256": "32f3d6feb30c6fa5c40d9074a329d905ad0dd0516acce3c047b4d0fac52c0e66"
+    },
+    "references/missing-direct/SurpriseToken-MADU-EN-VG-artwork.png": {
+      "bytes": 460316,
+      "sha256": "0a83bf1f95c2639c143b99d10d5e78faa53f827fa7c78f73c2f1450b78455f7a"
+    },
+    "references/missing-direct/SwordsoulToken-DULI-EN-VG-CA.png": {
+      "bytes": 250275,
+      "sha256": "a8c367864cb6e8534b299c73b46d9e760d17b6e5261e71c6e839dc1b0d39480a"
+    },
+    "references/missing-direct/TGToken-MADU-EN-VG-artwork.png": {
+      "bytes": 455695,
+      "sha256": "f5a3797a59e313b209e16a350730490a01bc6a036361c42a2a73b9e174e0232c"
+    },
+    "references/missing-direct/TellusWingToken-MADU-EN-VG-artwork.png": {
+      "bytes": 347302,
+      "sha256": "15b81ad7fc94cc173db4f7c6d16d6cc72bc046e14a9e50b2e699329ea4487fa7"
+    },
+    "references/missing-direct/TenyiSpiritToken-MADU-EN-VG-artwork.png": {
+      "bytes": 453275,
+      "sha256": "44d3adbd9d32bad93a23c887aecc1ea2a831f2793bfa44ed38b2205755716a0c"
+    },
+    "references/missing-direct/TrickstarToken-OP10-EN-SR-UE.png": {
+      "bytes": 761647,
+      "sha256": "25dbb171a7f6accb0b0a289944ae13a353afa2ffbc904b3c7818d73899789941"
+    },
+    "references/missing-direct/VendreadToken-MADU-EN-VG-artwork.png": {
+      "bytes": 395058,
+      "sha256": "a2fd59f52d9002ef8279e780b535377c40708f5c3ca4f879d185c7b0ac50e821"
+    },
+    "references/missing-direct/VilepawnSalmonToken-DULI-EN-VG-CA.png": {
+      "bytes": 274574,
+      "sha256": "1a52576a2507bc88b421ee86e1234935203a560619108c1fc5336a17595d6c0c"
+    },
+    "references/missing-direct/WhiteFluffToken-MADU-EN-VG-artwork.png": {
+      "bytes": 578063,
+      "sha256": "e7558586b78cd46b84d6299162dd8468848d9e49d5b735bb82ca8f31e9416ae3"
+    },
+    "references/missing-direct/WorldLegacyToken-OP15-EN-SR-UE.png": {
+      "bytes": 2474714,
+      "sha256": "da3faff513f17ec7748550260010ecb6f7515a1eee0a69edca392ae526d542c9"
+    },
+    "spirit-models/README.md": {
+      "bytes": 2805,
+      "sha256": "7f7bd46f409cfd4aeedb6f288ec21b81714be4e520890c97c2dc3d130953aa18"
+    },
+    "spirit-models/audit-spirit-models.mjs.txt": {
+      "bytes": 8220,
+      "sha256": "646286d06ed01d4a066eaf5c91d8105d7baab00b44a1682551faf86239cdc5b2"
+    },
+    "spirit-models/baseline-HologramTokenSpiritModels.js.txt": {
+      "bytes": 26667,
+      "sha256": "1230076e1040dcdef10af9a6d92fa9caa9efb30b74aafef2860fb047650103f3"
+    },
+    "spirit-models/geometry-audit-output.txt": {
+      "bytes": 1528,
+      "sha256": "2d5aa7a6e1d967ebb8f7f1f5d29a241fd004a4623336f95cfae39904c02abef4"
+    },
+    "spirit-models/geometry-report.json": {
+      "bytes": 26491,
+      "sha256": "75025dd45c76f01015167934a5c5f065c68c1be43d98f1460d4bb49bec866332"
+    },
+    "spirit-models/initial-budget-measurements.json": {
+      "bytes": 1814,
+      "sha256": "54c9908252cfc253258729f232e536778b31235f83257f4ffdbf0fb4fdc97508"
+    },
+    "spirit-models/targeted-tests.txt": {
+      "bytes": 1165,
+      "sha256": "c99a69276b73be51690d2b19089aff5e5d9cf67c6c66b33042fff1b2ddb9811e"
+    },
+    "targeted-tests-before-test-pattern-fix.txt": {
+      "bytes": 4261,
+      "sha256": "065904482b35c8bb1c700902cc71710bc30a39c1109f196e8683c98ec3f07602"
+    },
+    "targeted-tests-final.txt": {
+      "bytes": 2681,
+      "sha256": "d589d92aab5032378764cb233844f89ba5d9f237fa1c237f34b5fb9e33661639"
+    },
+    "verified-printed-token-references.json": {
+      "bytes": 24648,
+      "sha256": "315b9fe9fdb9e6d0e96e49e83ab63a7613bf3e82b6b82c106f29d7000f87af74"
+    },
+    "ygoprodeck-related-api-2026-10-13.json": {
+      "bytes": 37432,
+      "sha256": "81efe33a007c9d6be9e5a41781b6e8d6f886ffe8d3c656ec1a8b53512b4e966c"
+    },
+    "ygoprodeck-token-api-2026-10-13.json": {
+      "bytes": 85295,
+      "sha256": "ec3266e926a9832d0ecf35c8da53d868900c9ebe9eca29a55aca9a84c9ea28e1"
+    }
+  },
+  "sources": {
+    "src/ui/HologramTokenCreatureModels.js": {
+      "bytes": 52252,
+      "sha256": "d35bd6fc11875bc624694e52ec19b2c353b116520c4eddca4b543700f4eaf434"
+    },
+    "src/ui/HologramTokenConstructModels.js": {
+      "bytes": 65547,
+      "sha256": "0191278cbf991a39e4f74a7a770ebedd1fed74c6408630acd41e271a96397771"
+    },
+    "src/ui/HologramTokenSpiritModels.js": {
+      "bytes": 40776,
+      "sha256": "7785f5e8edbccaf18e143b9fc799ba0ee7e7ef046987099cb5d3f99ba728c180"
+    },
+    "test/hologram-token-multireference-2026-10-13.test.js": {
+      "bytes": 4059,
+      "sha256": "d744102bd96eca7fd195b913ff491bcb59358491a9b9969d9ad5c59c9db38657"
+    },
+    "test/fixtures/token-model-baseline-2026-10-11.json": {
+      "bytes": 24037,
+      "sha256": "cee1c62e7aca7d4f33529e009699b8e7be5a6986b56c15b692b351f9d899a51f"
+    },
+    "docs/audits/multireference-tokens-2026-10-13.md": {
+      "bytes": 10129,
+      "sha256": "c7440431bdd9d4b984cf8032ecf95862a88035fc34321663fe6de081c834bf80"
+    }
+  },
+  "protectedNativeAssets": {
+    "public/native/ocgcore.sync.wasm": {
+      "bytes": 935745,
+      "sha256": "0056ce4655dbc0bb949f0a3c32cbb4d9775c488a750fd5a8bb29bc04aca8b026"
+    },
+    "public/native/card-data.json": {
+      "bytes": 7601872,
+      "sha256": "4d663cc458934cff2b944204f641838f03803bffac3d12106082171d9dee5d8d"
+    },
+    "public/native/scripts.json": {
+      "bytes": 35549984,
+      "sha256": "a4f1769decc033e95e7033df8475c6cf7b9efa110fe2a662963c22913566b45f"
+    },
+    "src/core/native/NativeDuelGame.js": {
+      "bytes": 62598,
+      "sha256": "8c61bad0482d49babd7d20187b12251a2af11f967b83fc58cd5b4aeb1c4d6c01"
+    }
+  },
+  "nativeHashesUnchanged": true,
+  "geometrySummary": {
+    "codes": 240,
+    "poseRecords": 480,
+    "geometryChangedCodes": [
+      "645088",
+      "14470846",
+      "14470847",
+      "17228909",
+      "22411610",
+      "23837055",
+      "27204312",
+      "38053382",
+      "40703223",
+      "44308318",
+      "51208047",
+      "60514626",
+      "60764582",
+      "60764583",
+      "87669905",
+      "98875864"
+    ],
+    "paletteOrGeometryChangedCodes": [
+      "645088",
+      "14470846",
+      "14470847",
+      "17228909",
+      "22411610",
+      "23837055",
+      "27204312",
+      "38053382",
+      "40703223",
+      "44308318",
+      "51208047",
+      "60514626",
+      "60764582",
+      "60764583",
+      "87669905",
+      "98875864"
+    ],
+    "allWithinOriginalFivefoldBudget": true,
+    "maxBatches": 5,
+    "maxTriangles": 20260,
+    "maxRatioToOriginal": 4.956372968349016
+  },
+  "targetedTests": {
+    "command": "node --test test/hologram-token-fidelity.test.js test/hologram-token-models.test.js test/hologram-token-botanical-models.test.js test/hologram-token-multireference-2026-10-13.test.js tests/token-illustrated-exceptions.test.mjs",
+    "exitCode": 0,
+    "tests": 22,
+    "pass": 22,
+    "fail": 0,
+    "log": "targeted-tests-final.txt"
+  },
+  "knownIntermediateCorrections": [
+    "A test pattern matched the descriptive word hornless; fixed the horn-part expression, preserving the failed log.",
+    "G Golem exactcode branch originally nested under wrong anatomy family; full240code comparison detected missingdispatch, branch moved and final16changedcodesverified.",
+    "DualAvatar jaw/crocs attached to BODY to avoid wrong globaldragon pivot; shader unchanged."
+  ],
+  "ownApplicationSourcesFrozen": true,
+  "remainingOwnArtMissingNativeCodes": 97,
+  "acceptedPrintedAssociations": 14
+}

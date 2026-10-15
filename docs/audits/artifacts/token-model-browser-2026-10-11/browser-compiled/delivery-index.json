@@ -1,0 +1,504 @@
+{
+  "ok": true,
+  "date": "2026-10-11",
+  "createdAtUtc": "2026-10-11T18:29:45.488422+00:00",
+  "scope": "Final frozen local compiled Token Atlas and genuine native Token gameplay; not a Vercel browser certification.",
+  "browserPaths": 9,
+  "captures": 50,
+  "cataloguePresentations": 367,
+  "actualModelsDrawn": 364,
+  "nativeDuelIdentities": 240,
+  "printedApiVariants": 120,
+  "commemorativeDuelistSilhouettes": 4,
+  "technicalPlaceholdersWithoutCanvas": 3,
+  "frozenSourceFiles": 653,
+  "compiledHtmlJsCssFiles": 24,
+  "nativeArchives": 3,
+  "staticAssets": 478,
+  "httpBodies": 505,
+  "zeroUnexpectedErrors": true,
+  "expectedDisabledWebglDiagnostics": 3,
+  "sourceCompiledDriverHelpersHistoricalPinsUnchangedBeforeAfterAndDelivery": true,
+  "freezeSha256": "1ee6840a88bdab54193f4edf6db3b09ff18524cb42ed5cf5c584fce320c3069d",
+  "entrySha256": "c4033f703dd088c0cb8b77a78678522c904191dad2c23d16a10c1b5df8b03a0f",
+  "reportSha256": "540c5c7c2aa3400f28b7ca751172c6e2e8be2d09fe0d5e2105a88a193e3e7c19",
+  "driverSha256": "7941755771e8745ad4ea17f5d8df2cb86d81cc8e5904a860f7b8f9dd258159ca",
+  "originalFilesPreserved": 53,
+  "originalMirror": "/workspace/yugioh-token-browser-final-2026-10-11",
+  "originals": {
+    "build-freeze.json": {
+      "bytes": 179638,
+      "sha256": "1ee6840a88bdab54193f4edf6db3b09ff18524cb42ed5cf5c584fce320c3069d"
+    },
+    "logs.txt": {
+      "bytes": 2101,
+      "sha256": "f752bebeceaf2d4affa3232981063da1fa8b841423c116097f48f64d925ffa92"
+    },
+    "report.json": {
+      "bytes": 1378948,
+      "sha256": "540c5c7c2aa3400f28b7ca751172c6e2e8be2d09fe0d5e2105a88a193e3e7c19"
+    },
+    "tokens-atlas-commemorative-LDK2-ENT01-1280.png": {
+      "bytes": 263786,
+      "sha256": "1f7ff606d40043cd91c64e6209e693b249a7d4a0c4eb83f8cf9d1808ad061349"
+    },
+    "tokens-atlas-commemorative-LDK2-ENT01-390.png": {
+      "bytes": 89781,
+      "sha256": "2286e873db215dfe32721e61276b764f8bcde1c9e092cba78ad127874f92172d"
+    },
+    "tokens-atlas-commemorative-LDK2-ENT02-1280.png": {
+      "bytes": 261679,
+      "sha256": "c1e46d30319746838c42e66e5d608d8c4941d5057a3c1f25344733274c7109f6"
+    },
+    "tokens-atlas-commemorative-LDK2-ENT02-390.png": {
+      "bytes": 88394,
+      "sha256": "bd1f4827166c6b7e171a33ca7e54ac82f3195b195e52b3d19362df51e99ecdcc"
+    },
+    "tokens-atlas-commemorative-LDK2-ENT03-1280.png": {
+      "bytes": 262537,
+      "sha256": "32d471d5a4333a34543c01d75438e054049e99ade39f3e410c5932c18e9672d8"
+    },
+    "tokens-atlas-commemorative-LDK2-ENT03-390.png": {
+      "bytes": 88334,
+      "sha256": "172326ca59e75bf028ac9e2fb47d81a1d91f5b9f3bb1fa7565c3342730db2da1"
+    },
+    "tokens-atlas-commemorative-YGLD-ENTKN-1280.png": {
+      "bytes": 256780,
+      "sha256": "58e5c343480b373438e531d1287dab5a8ad651d50a80f56a62c08ec171f3dc86"
+    },
+    "tokens-atlas-commemorative-YGLD-ENTKN-390.png": {
+      "bytes": 86085,
+      "sha256": "24ec6c5938161db2ed5895d29e79c987dda2250f539591929c48f2d5a33d9925"
+    },
+    "tokens-atlas-delayed-import-navigation-safe.png": {
+      "bytes": 163028,
+      "sha256": "6e2949c0aecc6e56f84bf2f7627e518b218386e6aec7828cc54a2f9ba3613d60"
+    },
+    "tokens-atlas-duel-2819436-1280.png": {
+      "bytes": 245003,
+      "sha256": "e43606d33dbaad0091f452812d4d97413076db2cb1b23dfdcb4a20423cf22214"
+    },
+    "tokens-atlas-duel-2819436-390.png": {
+      "bytes": 97416,
+      "sha256": "53ff9fd58eab0f9950de39fb67f4600df3ef53e9f26463961db27cbff121dccf"
+    },
+    "tokens-atlas-duel-29843092-1280.png": {
+      "bytes": 243193,
+      "sha256": "01d89fe9035f59fb20abef25538905cb9acd4e2acda21a39cea21efc66939ca6"
+    },
+    "tokens-atlas-duel-29843092-390.png": {
+      "bytes": 97898,
+      "sha256": "061fa0f2dd6e7763a660742a218a5cd0c12ad383b1d5e7899e42211072a94164"
+    },
+    "tokens-atlas-duel-3285552-1280.png": {
+      "bytes": 233504,
+      "sha256": "f55371fb5af12b81c1f71758357fec7472321b00423da9ec528ea7744f7581d7"
+    },
+    "tokens-atlas-duel-3285552-390.png": {
+      "bytes": 91181,
+      "sha256": "ebd09e9b949560e59f7317082568e280e09bb8022fa7c82a8868e141878dd7a3"
+    },
+    "tokens-atlas-duel-44330099-1280.png": {
+      "bytes": 241382,
+      "sha256": "fd3b042e98dad19a480b104324f70b8f66d67d2ae576f1eb5058b1288bb18560"
+    },
+    "tokens-atlas-duel-44330099-390.png": {
+      "bytes": 96136,
+      "sha256": "60b9711147b577937d9c305b88d8390d6f08167ee30ed012c572c20e4483f889"
+    },
+    "tokens-atlas-duel-67922703-1280.png": {
+      "bytes": 221080,
+      "sha256": "a19f8ed0f4f5dcd78d8cb78237166f6687f011638cff762184e988d4805dc7d2"
+    },
+    "tokens-atlas-duel-67922703-390.png": {
+      "bytes": 84040,
+      "sha256": "fb605e11af96b134cfc93e92c3c73e2ad7da271abf02d3fc2cdfeaabfd4b997d"
+    },
+    "tokens-atlas-duel-73915052-1280.png": {
+      "bytes": 235215,
+      "sha256": "e0c654ff16f4e607ebcd7c85ff34b2494539a0602bb2b3f47f8121ba24e2e746"
+    },
+    "tokens-atlas-duel-73915052-390.png": {
+      "bytes": 97370,
+      "sha256": "c8febff25b00b0db727e80c02cdc50e16c3792e587960a34980e0dd559777eab"
+    },
+    "tokens-atlas-duel-73915053-1280.png": {
+      "bytes": 236730,
+      "sha256": "ccec43f8bd9ee9818bd587c1219d4d03d807a37d0a42900bbc86f387faf83b7d"
+    },
+    "tokens-atlas-duel-73915053-390.png": {
+      "bytes": 97800,
+      "sha256": "50dcdda5ba10e894e2ff1649f44fe0cbf56c64dd7d05d040f7ed5462b1311e16"
+    },
+    "tokens-atlas-duel-73915054-1280.png": {
+      "bytes": 238156,
+      "sha256": "7d26498747b211e71dbe3b014d551e4c61b90b57853991b727979e8354aa404c"
+    },
+    "tokens-atlas-duel-73915054-390.png": {
+      "bytes": 97713,
+      "sha256": "34b0338455c8779f9da46ccaaf6c46bf1cf3215ef01a846f74ca585452b05291"
+    },
+    "tokens-atlas-duel-73915055-1280.png": {
+      "bytes": 236931,
+      "sha256": "167b3ca709f45eca59aac3a3e436a04f73dd34df7feba59d8648cec57eddca8d"
+    },
+    "tokens-atlas-duel-73915055-390.png": {
+      "bytes": 97720,
+      "sha256": "dff75d9b7503544fc99f3a616007253537db3d741489fb8c782ea632b8855358"
+    },
+    "tokens-atlas-printed-176393-1280.png": {
+      "bytes": 238606,
+      "sha256": "97a4fcf1b50c52acd540aed7daf397261c08feca9468f83183378ec4fc075f2d"
+    },
+    "tokens-atlas-printed-176393-390.png": {
+      "bytes": 92585,
+      "sha256": "e7522c6b8f91cd278284f208bbb9dc32f51d092696b36e7e648281f42cd0ffa5"
+    },
+    "tokens-atlas-printed-904186-1280.png": {
+      "bytes": 222952,
+      "sha256": "3d77305e533872e6362487da5f23bbd92573c2c2a49f517fe42be370e15fb44a"
+    },
+    "tokens-atlas-printed-904186-390.png": {
+      "bytes": 85966,
+      "sha256": "fd79848717c66271d0990d5ca5f98ec2d7d3f93b500127b2e5e686e804924c03"
+    },
+    "tokens-atlas-real-context-loss-1280.png": {
+      "bytes": 250831,
+      "sha256": "0bfb0c9e8e46c0f77cd0c2770d374f235202ddca4c7c72e3224aab7168d60a1b"
+    },
+    "tokens-atlas-real-context-loss-390.png": {
+      "bytes": 93591,
+      "sha256": "49c4f20e24c241c055d62f10755707aa6552424fce5693a3220c4dd8bdf7a757"
+    },
+    "tokens-atlas-settings-during-native-duel-1280.png": {
+      "bytes": 243922,
+      "sha256": "f561b06e9ace37fc63ec6ef41a13f869675fb0bed89f665b6a31a3b08635bb5c"
+    },
+    "tokens-atlas-settings-during-native-duel-390.png": {
+      "bytes": 99916,
+      "sha256": "b4ce64b05e4106a2037de06b458b199e68c1a605c3828f3c30ddfc0f0a02b59c"
+    },
+    "tokens-atlas-sheep-attack-1280.png": {
+      "bytes": 229248,
+      "sha256": "9d056ff3bcb0dafa4d3bd348ba229167081f7ac912c226b2584dc9f9b16c10cd"
+    },
+    "tokens-atlas-sheep-attack-390.png": {
+      "bytes": 97359,
+      "sha256": "3e2d365cc929caf70c7e08b2924bc007c3d752818ec74194d7d25ce5769838d3"
+    },
+    "tokens-atlas-sheep-defense-1280.png": {
+      "bytes": 221566,
+      "sha256": "b2f7382f30a3e1b6c690334ea71fed92da0dfdc99e9e571e9235858d2a93ae09"
+    },
+    "tokens-atlas-sheep-defense-390.png": {
+      "bytes": 92116,
+      "sha256": "ccfc248db4aeb2ddaabcb7f513dbc529344576a644b17ada9b67bf57d66a9beb"
+    },
+    "tokens-atlas-webgl-unavailable-reference.png": {
+      "bytes": 263439,
+      "sha256": "8c6a01d600ec6826427cccb5bc33beeda1057dabe588ff57287c4ed5598be3f7"
+    },
+    "tokens-native-adventurer-created.png": {
+      "bytes": 875804,
+      "sha256": "4c3c342f3c3af875cf8c4b71d1d177109b465f66747b1668dd05ea42c0ab2d1a"
+    },
+    "tokens-native-adventurer-destroyed.png": {
+      "bytes": 908648,
+      "sha256": "8c1bb9faac2af399934eec14b7491ab94033eb1ada52465074b980285533dd79"
+    },
+    "tokens-native-creature-swap-opponent-token.png": {
+      "bytes": 990140,
+      "sha256": "5dd49332465cd03d9376a2159f2067800f88c1e1156d6294b650a6bacbbc1453"
+    },
+    "tokens-native-four-sheep-1280.png": {
+      "bytes": 977916,
+      "sha256": "5232f96c8f2576b7f6992b3222cb01a91d2eb10ecdf1c473ec2f3c782bc011d4"
+    },
+    "tokens-native-four-sheep-390.png": {
+      "bytes": 276736,
+      "sha256": "a775c54c79f37f3f4c7861f0dbf6b464293bd6f7041cf816bc762b8ff14df8ba"
+    },
+    "tokens-native-link-spider-token-material.png": {
+      "bytes": 958755,
+      "sha256": "2c003ce44b076a74d54d6b164353940f1b5b0e1928595a8438d4de63c86b6a47"
+    },
+    "tokens-native-sheep-destroyed-1280.png": {
+      "bytes": 912902,
+      "sha256": "8cb82d946c037f0e053df7163523f4de3ee87e62c8e165ccef738bfd7db346bc"
+    },
+    "tokens-native-sheep-destroyed-390.png": {
+      "bytes": 253559,
+      "sha256": "6d31c93f14eb8eda199873a3ac6a42249865bb103d0c96cd0c9fd0e1c7790e78"
+    },
+    "tokens-native-tetherwolf-and-token.png": {
+      "bytes": 960145,
+      "sha256": "670042345e49260879e94f1a730e7042717e644f1248d842b6d0264b3c7c66e0"
+    },
+    "tokens-native-transferred-token-destroyed.png": {
+      "bytes": 930305,
+      "sha256": "e5b0aa98128c76fce8ef75851dd7646c7edb3829e4c0058093a62527d352b0e8"
+    }
+  },
+  "indexedFiles": 63,
+  "files": {
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/delivery-index.json": {
+      "bytes": 15992,
+      "sha256": "f1a39cf8d810feb7d918536692aaba0660c3741d06adde0b957bb243c2dfc872"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/browser-compiled/report.json": {
+      "bytes": 419127,
+      "sha256": "ed8bfe7aec40bcfa3caa3abf200be16de2ab092828a23e783c1870dd5e2d4951"
+    },
+    "docs/audits/artifacts/duelist-avatar-motion-2026-10-11/build-freeze.json": {
+      "bytes": 30413,
+      "sha256": "ac66a4463fc67f5590662b835318d0e8f34efc0b8871c539c7a66445b8921e92"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/README.md": {
+      "bytes": 4050,
+      "sha256": "1263386488c71614f873590faa16bbaa4b8ebcafad990d4b2ae982b29742b89d"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/build-freeze.json": {
+      "bytes": 179638,
+      "sha256": "1ee6840a88bdab54193f4edf6db3b09ff18524cb42ed5cf5c584fce320c3069d"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/catalogue-snapshot.json": {
+      "bytes": 559960,
+      "sha256": "d0457b16a73927e29cd1476d7980ba0e0afc47900fb7eb9331869449b910cdf3"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/logs.txt": {
+      "bytes": 2101,
+      "sha256": "f752bebeceaf2d4affa3232981063da1fa8b841423c116097f48f64d925ffa92"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/report.json": {
+      "bytes": 1378948,
+      "sha256": "540c5c7c2aa3400f28b7ca751172c6e2e8be2d09fe0d5e2105a88a193e3e7c19"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-commemorative-LDK2-ENT01-1280.png": {
+      "bytes": 263786,
+      "sha256": "1f7ff606d40043cd91c64e6209e693b249a7d4a0c4eb83f8cf9d1808ad061349"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-commemorative-LDK2-ENT01-390.png": {
+      "bytes": 89781,
+      "sha256": "2286e873db215dfe32721e61276b764f8bcde1c9e092cba78ad127874f92172d"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-commemorative-LDK2-ENT02-1280.png": {
+      "bytes": 261679,
+      "sha256": "c1e46d30319746838c42e66e5d608d8c4941d5057a3c1f25344733274c7109f6"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-commemorative-LDK2-ENT02-390.png": {
+      "bytes": 88394,
+      "sha256": "bd1f4827166c6b7e171a33ca7e54ac82f3195b195e52b3d19362df51e99ecdcc"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-commemorative-LDK2-ENT03-1280.png": {
+      "bytes": 262537,
+      "sha256": "32d471d5a4333a34543c01d75438e054049e99ade39f3e410c5932c18e9672d8"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-commemorative-LDK2-ENT03-390.png": {
+      "bytes": 88334,
+      "sha256": "172326ca59e75bf028ac9e2fb47d81a1d91f5b9f3bb1fa7565c3342730db2da1"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-commemorative-YGLD-ENTKN-1280.png": {
+      "bytes": 256780,
+      "sha256": "58e5c343480b373438e531d1287dab5a8ad651d50a80f56a62c08ec171f3dc86"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-commemorative-YGLD-ENTKN-390.png": {
+      "bytes": 86085,
+      "sha256": "24ec6c5938161db2ed5895d29e79c987dda2250f539591929c48f2d5a33d9925"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-delayed-import-navigation-safe.png": {
+      "bytes": 163028,
+      "sha256": "6e2949c0aecc6e56f84bf2f7627e518b218386e6aec7828cc54a2f9ba3613d60"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-duel-2819436-1280.png": {
+      "bytes": 245003,
+      "sha256": "e43606d33dbaad0091f452812d4d97413076db2cb1b23dfdcb4a20423cf22214"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-duel-2819436-390.png": {
+      "bytes": 97416,
+      "sha256": "53ff9fd58eab0f9950de39fb67f4600df3ef53e9f26463961db27cbff121dccf"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-duel-29843092-1280.png": {
+      "bytes": 243193,
+      "sha256": "01d89fe9035f59fb20abef25538905cb9acd4e2acda21a39cea21efc66939ca6"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-duel-29843092-390.png": {
+      "bytes": 97898,
+      "sha256": "061fa0f2dd6e7763a660742a218a5cd0c12ad383b1d5e7899e42211072a94164"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-duel-3285552-1280.png": {
+      "bytes": 233504,
+      "sha256": "f55371fb5af12b81c1f71758357fec7472321b00423da9ec528ea7744f7581d7"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-duel-3285552-390.png": {
+      "bytes": 91181,
+      "sha256": "ebd09e9b949560e59f7317082568e280e09bb8022fa7c82a8868e141878dd7a3"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-duel-44330099-1280.png": {
+      "bytes": 241382,
+      "sha256": "fd3b042e98dad19a480b104324f70b8f66d67d2ae576f1eb5058b1288bb18560"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-duel-44330099-390.png": {
+      "bytes": 96136,
+      "sha256": "60b9711147b577937d9c305b88d8390d6f08167ee30ed012c572c20e4483f889"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-duel-67922703-1280.png": {
+      "bytes": 221080,
+      "sha256": "a19f8ed0f4f5dcd78d8cb78237166f6687f011638cff762184e988d4805dc7d2"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-duel-67922703-390.png": {
+      "bytes": 84040,
+      "sha256": "fb605e11af96b134cfc93e92c3c73e2ad7da271abf02d3fc2cdfeaabfd4b997d"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-duel-73915052-1280.png": {
+      "bytes": 235215,
+      "sha256": "e0c654ff16f4e607ebcd7c85ff34b2494539a0602bb2b3f47f8121ba24e2e746"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-duel-73915052-390.png": {
+      "bytes": 97370,
+      "sha256": "c8febff25b00b0db727e80c02cdc50e16c3792e587960a34980e0dd559777eab"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-duel-73915053-1280.png": {
+      "bytes": 236730,
+      "sha256": "ccec43f8bd9ee9818bd587c1219d4d03d807a37d0a42900bbc86f387faf83b7d"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-duel-73915053-390.png": {
+      "bytes": 97800,
+      "sha256": "50dcdda5ba10e894e2ff1649f44fe0cbf56c64dd7d05d040f7ed5462b1311e16"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-duel-73915054-1280.png": {
+      "bytes": 238156,
+      "sha256": "7d26498747b211e71dbe3b014d551e4c61b90b57853991b727979e8354aa404c"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-duel-73915054-390.png": {
+      "bytes": 97713,
+      "sha256": "34b0338455c8779f9da46ccaaf6c46bf1cf3215ef01a846f74ca585452b05291"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-duel-73915055-1280.png": {
+      "bytes": 236931,
+      "sha256": "167b3ca709f45eca59aac3a3e436a04f73dd34df7feba59d8648cec57eddca8d"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-duel-73915055-390.png": {
+      "bytes": 97720,
+      "sha256": "dff75d9b7503544fc99f3a616007253537db3d741489fb8c782ea632b8855358"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-printed-176393-1280.png": {
+      "bytes": 238606,
+      "sha256": "97a4fcf1b50c52acd540aed7daf397261c08feca9468f83183378ec4fc075f2d"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-printed-176393-390.png": {
+      "bytes": 92585,
+      "sha256": "e7522c6b8f91cd278284f208bbb9dc32f51d092696b36e7e648281f42cd0ffa5"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-printed-904186-1280.png": {
+      "bytes": 222952,
+      "sha256": "3d77305e533872e6362487da5f23bbd92573c2c2a49f517fe42be370e15fb44a"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-printed-904186-390.png": {
+      "bytes": 85966,
+      "sha256": "fd79848717c66271d0990d5ca5f98ec2d7d3f93b500127b2e5e686e804924c03"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-real-context-loss-1280.png": {
+      "bytes": 250831,
+      "sha256": "0bfb0c9e8e46c0f77cd0c2770d374f235202ddca4c7c72e3224aab7168d60a1b"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-real-context-loss-390.png": {
+      "bytes": 93591,
+      "sha256": "49c4f20e24c241c055d62f10755707aa6552424fce5693a3220c4dd8bdf7a757"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-settings-during-native-duel-1280.png": {
+      "bytes": 243922,
+      "sha256": "f561b06e9ace37fc63ec6ef41a13f869675fb0bed89f665b6a31a3b08635bb5c"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-settings-during-native-duel-390.png": {
+      "bytes": 99916,
+      "sha256": "b4ce64b05e4106a2037de06b458b199e68c1a605c3828f3c30ddfc0f0a02b59c"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-sheep-attack-1280.png": {
+      "bytes": 229248,
+      "sha256": "9d056ff3bcb0dafa4d3bd348ba229167081f7ac912c226b2584dc9f9b16c10cd"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-sheep-attack-390.png": {
+      "bytes": 97359,
+      "sha256": "3e2d365cc929caf70c7e08b2924bc007c3d752818ec74194d7d25ce5769838d3"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-sheep-defense-1280.png": {
+      "bytes": 221566,
+      "sha256": "b2f7382f30a3e1b6c690334ea71fed92da0dfdc99e9e571e9235858d2a93ae09"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-sheep-defense-390.png": {
+      "bytes": 92116,
+      "sha256": "ccfc248db4aeb2ddaabcb7f513dbc529344576a644b17ada9b67bf57d66a9beb"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-atlas-webgl-unavailable-reference.png": {
+      "bytes": 263439,
+      "sha256": "8c6a01d600ec6826427cccb5bc33beeda1057dabe588ff57287c4ed5598be3f7"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-native-adventurer-created.png": {
+      "bytes": 875804,
+      "sha256": "4c3c342f3c3af875cf8c4b71d1d177109b465f66747b1668dd05ea42c0ab2d1a"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-native-adventurer-destroyed.png": {
+      "bytes": 908648,
+      "sha256": "8c1bb9faac2af399934eec14b7491ab94033eb1ada52465074b980285533dd79"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-native-creature-swap-opponent-token.png": {
+      "bytes": 990140,
+      "sha256": "5dd49332465cd03d9376a2159f2067800f88c1e1156d6294b650a6bacbbc1453"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-native-four-sheep-1280.png": {
+      "bytes": 977916,
+      "sha256": "5232f96c8f2576b7f6992b3222cb01a91d2eb10ecdf1c473ec2f3c782bc011d4"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-native-four-sheep-390.png": {
+      "bytes": 276736,
+      "sha256": "a775c54c79f37f3f4c7861f0dbf6b464293bd6f7041cf816bc762b8ff14df8ba"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-native-link-spider-token-material.png": {
+      "bytes": 958755,
+      "sha256": "2c003ce44b076a74d54d6b164353940f1b5b0e1928595a8438d4de63c86b6a47"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-native-sheep-destroyed-1280.png": {
+      "bytes": 912902,
+      "sha256": "8cb82d946c037f0e053df7163523f4de3ee87e62c8e165ccef738bfd7db346bc"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-native-sheep-destroyed-390.png": {
+      "bytes": 253559,
+      "sha256": "6d31c93f14eb8eda199873a3ac6a42249865bb103d0c96cd0c9fd0e1c7790e78"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-native-tetherwolf-and-token.png": {
+      "bytes": 960145,
+      "sha256": "670042345e49260879e94f1a730e7042717e644f1248d842b6d0264b3c7c66e0"
+    },
+    "docs/audits/artifacts/token-model-browser-2026-10-11/browser-compiled/tokens-native-transferred-token-destroyed.png": {
+      "bytes": 930305,
+      "sha256": "e5b0aa98128c76fce8ef75851dd7646c7edb3829e4c0058093a62527d352b0e8"
+    },
+    "docs/audits/duelist-avatar-motion-browser-2026-10-11.md": {
+      "bytes": 9199,
+      "sha256": "a85067df6b32dc6003aa82e59eaf350dfdda4ed8ec2e6708eceb9e46a490caad"
+    },
+    "docs/audits/token-model-browser-2026-10-11.md": {
+      "bytes": 10263,
+      "sha256": "eadffe9b75bb37401cf8b5faec25862af0b097727c33321f02d44875b9093bf7"
+    },
+    "scripts/audit-duelist-avatar-motion-browser.py": {
+      "bytes": 64829,
+      "sha256": "5f9f5dd25cbb51edaadbed3ea965091dadc1ed2073309fde043f4b62a417c49c"
+    },
+    "scripts/audit-native-duel-ui.py": {
+      "bytes": 28175,
+      "sha256": "0dd4443ef82f496fb398587b9be06c99d953f57c4a48e48cd470fdacbb311c18"
+    },
+    "scripts/audit-token-models-browser.py": {
+      "bytes": 71910,
+      "sha256": "7941755771e8745ad4ea17f5d8df2cb86d81cc8e5904a860f7b8f9dd258159ca"
+    }
+  },
+  "fixtureBoundary": "Legal saved Main 40 / Extra 1 / Side 0 and deterministic crypto before bootstrap only; real public controls thereafter, no Token in Deck, no Game/QA global or post-start card injection.",
+  "excludedDiagnostics": [
+    "/workspace/yugioh-token-browser-compiled-driver-diagnostic-v1-2026-10-11/",
+    "/workspace/yugioh-token-browser-compiled-http-diagnostic-v2-2026-10-11/",
+    "/workspace/yugioh-token-browser-http-initiators-2026-10-11/",
+    "/workspace/yugioh-token-browser-prehardening-2026-10-11/"
+  ]
+}

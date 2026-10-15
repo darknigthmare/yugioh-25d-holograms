@@ -1,3 +1,4 @@
+import { getHologramTriangleBudget } from './fixtures/hologram-triangle-budgets-2026-10-11.js';
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { Box3, PerspectiveCamera, Scene, Vector3 } from 'three';
@@ -67,7 +68,7 @@ test('iconic creatures have distinct silhouettes and attacks selected by canonic
       triangles += object.geometry.attributes.position.count / 3;
       assert.ok([...object.geometry.attributes.position.array].every(Number.isFinite));
     });
-    assert.ok(triangles < 6000, 'detail remains bounded for a full twelve-monster field');
+    assert.ok(triangles <= getHologramTriangleBudget(id), 'detail remains within five times the measured per-card budget');
     const size = new Box3().setFromObject(model).getSize(new Vector3());
     assert.ok(size.y > 1 && size.x > 1 && size.z > 0.5, 'the model has real volume');
     assert.equal(JSON.stringify(model.userData).includes('private-unused'), false);

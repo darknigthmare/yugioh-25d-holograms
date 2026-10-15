@@ -46,16 +46,18 @@ function harness({ reducedMotion = false } = {}) {
   const pending = new Map();
   let frame = 0;
   const documentRef = { hidden: false };
-  const scene = new RealDuelScene3D({ documentRef, windowRef: {
+  const windowRef = {
     performance: { now: () => 0 }, matchMedia: () => ({ matches: reducedMotion }),
     requestAnimationFrame(callback) { pending.set(++frame, callback); return frame; },
     cancelAnimationFrame(handle) { pending.delete(handle); }
-  } });
+  };
+  const scene = new RealDuelScene3D({ documentRef, windowRef });
   scene.scene = new Scene(); scene.camera = new PerspectiveCamera(); scene.renderer = { render() {} }; scene.active = true;
-  const view = { active: true, disposed: false, documentRef, scene3D: scene,
+  const view = Object.assign(new RealDuelView({ enable3D: false, documentRef, windowRef }), {
+    active: true, disposed: false, documentRef, scene3D: scene,
     gameState: { playerMonsters: [{ id: '46986414', position: 'attack' }], opponentMonsters: [{ id: '20721928', position: 'attack' }] },
-    _publicZonePosition: position,
-    _syncFieldHolograms() { RealDuelView.prototype._syncFieldHolograms.call(this); } };
+    _publicZonePosition: position
+  });
   return { scene, view, pending };
 }
 
@@ -123,7 +125,11 @@ for (const entry of CASES) {
   test(`${entry.profile} routes through RealDuelView to the actual scene and target pose`, () => {
     const { scene, view, pending } = harness();
     const event = payload(entry, 'opponent');
-    assert.equal(RealDuelView.prototype.playAnimation.call(view, event), true);
+    assert.equal(view.playAnimation(event), true);
+    const effect = scene._combatEffects[0];
+    assert.equal(view.playAnimation(event), false, 'the real view rejects the exact same public callback');
+    assert.equal(scene._combatEffects.length, 1);
+    assert.equal(scene._combatEffects[0], effect, 'deduplication retains the existing effect');
     assert.equal(scene._combatEffects[0].profile.id, entry.profile);
     assert.ok(scene._combatEffects[0].group.getObjectByName(entry.mesh));
     const target = scene._fieldHolograms.get('player:main:0').object;
@@ -149,7 +155,7 @@ for (const entry of CASES) {
     assert.equal(createPublicCombatVisual(payload(entry, 'player', { zoneType: 'spell' }), {}, position), null);
     assert.equal(createPublicCombatVisual(payload(entry, 'player', { zoneType: 'extra', zoneIndex: 2 }), {}, position), null);
     const { scene, view, pending } = harness({ reducedMotion: true });
-    assert.equal(RealDuelView.prototype.playAnimation.call(view, payload(entry)), false);
+    assert.equal(view.playAnimation(payload(entry)), false);
     assert.equal(scene._combatEffects.length, 0);
     assert.equal(pending.size, 0);
   });

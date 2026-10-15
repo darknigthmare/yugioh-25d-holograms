@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-11",
+  "scope": "Coordinator current-wave evidence; previous wave archives remain unchanged",
+  "files": {
+    "build-freeze.json": {
+      "bytes": 204546,
+      "sha256": "0d0185238360efbf149d1bcd59a8b4b7e9e56484be27f9627adae0367a97ffb7"
+    },
+    "source-before-full-check.json": {
+      "bytes": 115294,
+      "sha256": "6058fec80b1cd70181d29bc9a659dcd7426799b79935f41877dbb9cdc3a9eb36"
+    },
+    "full-check.txt": {
+      "bytes": 279883,
+      "sha256": "111d3e9eeae372407466f031862f5e1b11aa70ad1a758a0a7ef28de9675c4424"
+    },
+    "protected-final.json": {
+      "bytes": 364,
+      "sha256": "28ab1319413722ed22b7d00e87c09cf791bf2371971d764f188ed227806f72ec"
+    },
+    "protected-baseline.json": {
+      "bytes": 955519,
+      "sha256": "6d8b97b3072385431e52af9795af938a7e9dee822ed6f04f433d42cd42e2e3b0"
+    },
+    "triangle-baseline-verification.json": {
+      "bytes": 333,
+      "sha256": "c1a996ef7536937dea91acf6859dd7af060c3b6f33e8bc5399081402eb88df8c"
+    },
+    "publication-helper.py.txt": {
+      "bytes": 8872,
+      "sha256": "408544a634dc7b601b80e90370cd2542bdd912b2ef9c17ba2869d85764796a8b"
+    },
+    "freeze-helper.py.txt": {
+      "bytes": 4409,
+      "sha256": "5618a5ade5cde58cadc694ec3024dd7c5d90e797c7ad676ed0f5b45a8b265c03"
+    },
+    "publication-helper-2026-10-13.py.txt": {
+      "bytes": 8872,
+      "sha256": "15e1e51b907fca96841f7d103781f90fa5819b72ce219f7f9c605d95337dc6bf"
+    },
+    "resume-verification-2026-10-13.json": {
+      "bytes": 504,
+      "sha256": "de64e986bd9ab59d4834e78312bc3c10c4e284508439932be081a5671316dfe9"
+    },
+    "browser-delivery-summary-2026-10-13.json": {
+      "bytes": 1708,
+      "sha256": "d4d8b6e5218480d2be6247b348d5cd2fbaaa4fef79c484656adcc734c5a79585"
+    }
+  }
+}

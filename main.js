@@ -57,9 +57,10 @@ import { PublicCardConfirmation } from './src/ui/PublicCardConfirmation.js';
 import { getDuelistAvatar, DEFAULT_DUELIST_AVATAR_ID } from './src/content/DuelistAvatarCatalog.js';
 import {
   validateDuelistAvatarProfile, collectDuelistAvatarUnlocks,
-  getDuelistAvatarUnlockState, selectDuelistAvatar
+  getDuelistAvatarUnlockState, selectDuelistAvatar, mergeDuelistAvatarProfiles
 } from './src/content/DuelistAvatarProgress.js';
 import { DuelistAvatarPicker } from './src/ui/DuelistAvatarPicker.js';
+import './src/ui/TokenModelAtlas.css';
 
 let game = null;
 let matchController = null;
@@ -67,6 +68,8 @@ let duelViewController = null;
 let duelistAvatarProfile = null;
 let duelistAvatarPicker = null;
 let duelistAvatarStorageBlocked = false;
+let duelistAvatarSelectionRevision = 0;
+let duelistAvatarImportGeneration = 0;
 let duelistAvatarReturnDialog = null;
 let currentOpponentAvatarId = 'kaiba';
 const privateCardInspection = new PrivateCardInspection({
@@ -199,6 +202,7 @@ function announceStatus(message) {
 }
 
 let activeDialog = null;
+let dialogNavigationRevision = 0;
 let dialogReturnFocus = null;
 const focusableSelector = [
   'button:not([disabled])',
@@ -210,8 +214,26 @@ const focusableSelector = [
   '[tabindex]:not([tabindex="-1"])'
 ].join(',');
 
+function getDialogFocusableElements(dialog) {
+  return [...dialog.querySelectorAll(focusableSelector)].filter(element => {
+    if (element.tabIndex < 0 || element.matches(':disabled')
+      || element.closest('.hidden, [hidden], [inert]')
+      || element.getClientRects().length === 0
+      || element.checkVisibility?.({ visibilityProperty: true }) === false) return false;
+    // Chromium can retain layout rectangles for controls inside closed details.
+    // Only its first summary and that summary's children remain reachable.
+    for (let ancestor = element.parentElement; ancestor && ancestor !== dialog; ancestor = ancestor.parentElement) {
+      if (ancestor.tagName !== 'DETAILS' || ancestor.open) continue;
+      const summary = ancestor.querySelector(':scope > summary');
+      if (!summary?.contains(element)) return false;
+    }
+    return true;
+  });
+}
+
 function openDialog(dialog, preferredFocus = null) {
   if (!dialog) return;
+  if (activeDialog !== dialog) dialogNavigationRevision += 1;
 
   if (activeDialog && activeDialog !== dialog) {
     activeDialog.classList.add('hidden');
@@ -230,7 +252,7 @@ function openDialog(dialog, preferredFocus = null) {
   requestAnimationFrame(() => {
     const target = preferredFocus
       || dialog.querySelector('[autofocus]')
-      || dialog.querySelector(focusableSelector)
+      || getDialogFocusableElements(dialog)[0]
       || dialog.querySelector('.modal-content')
       || dialog;
     target?.focus({ preventScroll: true });
@@ -245,6 +267,7 @@ function closeDialog(dialog, { restoreFocus = true } = {}) {
   dialog.classList.add('hidden');
 
   if (activeDialog === dialog) {
+    dialogNavigationRevision += 1;
     activeDialog = null;
     document.body.classList.remove('modal-open');
     document.querySelector('.app-container')?.removeAttribute('inert');
@@ -274,6 +297,11 @@ function dismissActiveDialog() {
     return;
   }
 
+  if (activeDialog.id === 'token-atlas-modal') {
+    tokenModelAtlas?.close();
+    return;
+  }
+
   if (activeDialog.id === 'decision-modal') {
     finishDecision(null);
     return;
@@ -294,8 +322,7 @@ document.addEventListener('keydown', event => {
   }
 
   if (event.key !== 'Tab') return;
-  const focusable = [...activeDialog.querySelectorAll(focusableSelector)]
-    .filter(element => !element.closest('.hidden') && element.getClientRects().length > 0);
+  const focusable = getDialogFocusableElements(activeDialog);
   if (focusable.length === 0) {
     event.preventDefault();
     activeDialog.focus();
@@ -414,6 +441,59 @@ document.getElementById('btn-open-field-atlas').addEventListener('click', async 
     document.getElementById('field-atlas-summary').textContent = 'Le catalogue n’a pas pu se charger. Réessayez en le rouvrant.';
   }
 });
+let tokenModelAtlas = null;
+let tokenModelAtlasLoader = null;
+let tokenModelAtlasRequest = 0;
+const tokenModelAtlasButtonRequests = new WeakMap();
+let tokenModelAtlasReturnDialog = null;
+let tokenModelAtlasReturnButton = null;
+async function openTokenModelAtlas(button) {
+  const sourceDialog = activeDialog;
+  if (!sourceDialog || !['start-modal', 'settings-modal'].includes(sourceDialog.id)) return;
+  const sourceNavigationRevision = dialogNavigationRevision;
+  const request = ++tokenModelAtlasRequest;
+  tokenModelAtlasButtonRequests.set(button, request);
+  button.disabled = true;
+  button.setAttribute('aria-busy', 'true');
+  try {
+    tokenModelAtlasLoader ||= import('./src/ui/TokenModelAtlas.js');
+    const { TokenModelAtlas } = await tokenModelAtlasLoader;
+    if (request !== tokenModelAtlasRequest || activeDialog !== sourceDialog
+      || dialogNavigationRevision !== sourceNavigationRevision) return;
+    tokenModelAtlas ||= new TokenModelAtlas({
+      dialogElement: document.getElementById('token-atlas-modal'),
+      openDialog,
+      closeDialog: dialog => {
+        const returnDialog = tokenModelAtlasReturnDialog;
+        const returnButton = tokenModelAtlasReturnButton;
+        tokenModelAtlasReturnDialog = null;
+        tokenModelAtlasReturnButton = null;
+        closeDialog(dialog, { restoreFocus: false });
+        if (returnDialog?.isConnected) openDialog(returnDialog, returnButton);
+      }
+    });
+    tokenModelAtlasReturnDialog = sourceDialog;
+    tokenModelAtlasReturnButton = button;
+    tokenModelAtlas.open();
+  } catch {
+    if (request === tokenModelAtlasRequest) {
+      tokenModelAtlasLoader = null;
+      if (activeDialog === sourceDialog && dialogNavigationRevision === sourceNavigationRevision) {
+        announceStatus('L’Atlas des Jetons n’a pas pu se charger. Réessayez en le rouvrant.');
+      }
+    }
+  } finally {
+    if (tokenModelAtlasButtonRequests.get(button) === request) {
+      tokenModelAtlasButtonRequests.delete(button);
+      button.disabled = false;
+      button.removeAttribute('aria-busy');
+    }
+  }
+}
+for (const id of ['btn-open-token-atlas', 'btn-settings-token-atlas']) {
+  const button = document.getElementById(id);
+  button?.addEventListener('click', () => openTokenModelAtlas(button));
+}
 document.getElementById('simulator-card-coverage').textContent = 'Projet fan non officiel. Le mode TCG Advanced applique la liste complète du 21/09/2026 au catalogue natif, avec les règles modernes d’Invocation, de Chaîne et de combat. Le Duel libre accueille aussi les cartes OCG et annoncées. Le catalogue indique séparément la précision des décors 3D.';
 const startBtn = document.getElementById('btn-start-duel');
 const campaignController = new SoloCampaignController({
@@ -1661,11 +1741,13 @@ function synchronizeDuelistAvatarAppearance(opponentAvatarId = currentOpponentAv
 }
 
 function refreshDuelistAvatarUnlocks({ persist = true } = {}) {
+  const previousSelection = duelistAvatarProfile?.selectedAvatarId;
   const result = collectDuelistAvatarUnlocks(duelistAvatarProfile, getDuelistAvatarContext());
   duelistAvatarProfile = result.profile;
   const state = getDuelistAvatarUnlockState(duelistAvatarProfile.selectedAvatarId, getDuelistAvatarContext());
   const selectionChanged = !state.unlocked;
   if (selectionChanged) duelistAvatarProfile = { ...duelistAvatarProfile, selectedAvatarId: DEFAULT_DUELIST_AVATAR_ID };
+  if (previousSelection !== duelistAvatarProfile.selectedAvatarId) duelistAvatarSelectionRevision += 1;
   if (persist && (result.newlyUnlocked.length || selectionChanged)) persistDuelistAvatarProfile();
   duelistAvatarPicker?.render();
   synchronizeDuelistAvatarAppearance();
@@ -1676,6 +1758,7 @@ function chooseHumanDuelistAvatar(id) {
   const choice = selectDuelistAvatar(duelistAvatarProfile, id, getDuelistAvatarContext());
   if (!choice.accepted) return choice;
   duelistAvatarProfile = choice.profile;
+  duelistAvatarSelectionRevision += 1;
   // Explicitly choosing an avatar replaces only this cosmetic preference.
   duelistAvatarStorageBlocked = false;
   const saved = persistDuelistAvatarProfile();
@@ -1685,6 +1768,58 @@ function chooseHumanDuelistAvatar(id) {
     : 'Avatar sélectionné pour cette session. Le navigateur a refusé la sauvegarde locale.';
   announceStatus(message);
   return { ...choice, saved, message };
+}
+
+async function importDuelistAvatarCollection(file) {
+  const generation = ++duelistAvatarImportGeneration;
+  const selectionRevision = duelistAvatarSelectionRevision;
+  const refused = message => ({ accepted: false, message });
+  let raw;
+  try {
+    if (!file || !Number.isSafeInteger(file.size) || file.size < 1 || file.size > 64000 || typeof file.text !== 'function') {
+      return refused('Import refusé : choisissez une collection JSON de moins de 64 ko.');
+    }
+    raw = await file.text();
+  } catch {
+    return refused('Import refusé : le fichier n’a pas pu être lu.');
+  }
+  if (generation !== duelistAvatarImportGeneration || selectionRevision !== duelistAvatarSelectionRevision) {
+    return refused('Import annulé : un choix plus récent a été conservé.');
+  }
+  const result = mergeDuelistAvatarProfiles(duelistAvatarProfile, raw, getDuelistAvatarContext());
+  if (!result.accepted) return refused('Import refusé : cette collection est invalide ou incompatible.');
+  duelistAvatarProfile = result.profile;
+  duelistAvatarSelectionRevision += 1;
+  duelistAvatarStorageBlocked = false;
+  const saved = persistDuelistAvatarProfile();
+  synchronizeDuelistAvatarAppearance();
+  const message = saved
+    ? `Collection importée et avatar ${getDuelistAvatar(result.profile.selectedAvatarId).name} sélectionné.`
+    : 'Collection importée pour cette session. Le navigateur a refusé la sauvegarde locale.';
+  announceStatus(message);
+  return { ...result, saved, message };
+}
+
+function exportDuelistAvatarCollection() {
+  let downloadUrl;
+  let link;
+  try {
+    const checked = validateDuelistAvatarProfile(duelistAvatarProfile);
+    if (!checked.valid) return { accepted: false, message: 'Export refusé : la collection est invalide.' };
+    const blob = new Blob([JSON.stringify(checked.profile, null, 2)], { type: 'application/json' });
+    downloadUrl = URL.createObjectURL(blob);
+    link = document.createElement('a');
+    link.href = downloadUrl;
+    link.download = `ygo-avatars-${new Date().toISOString().slice(0, 10)}.json`;
+    document.body.appendChild(link);
+    link.click();
+    return { accepted: true, message: 'Collection exportée.' };
+  } catch {
+    return { accepted: false, message: 'Le navigateur n’a pas pu exporter la collection.' };
+  } finally {
+    link?.remove();
+    if (downloadUrl) setTimeout(() => URL.revokeObjectURL(downloadUrl), 1000);
+  }
 }
 
 function initializeDuelistAvatarSelection() {
@@ -1700,6 +1835,8 @@ function initializeDuelistAvatarSelection() {
     getProfile: () => duelistAvatarProfile,
     getContext: getDuelistAvatarContext,
     onSelect: chooseHumanDuelistAvatar,
+    onExport: exportDuelistAvatarCollection,
+    onImport: importDuelistAvatarCollection,
     openDialog: (dialog, focus) => {
       refreshDuelistAvatarUnlocks();
       duelistAvatarReturnDialog = activeDialog;

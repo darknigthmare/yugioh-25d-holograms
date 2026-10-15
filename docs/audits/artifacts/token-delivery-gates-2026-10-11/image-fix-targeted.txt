@@ -1,0 +1,47 @@
+✔ Inter and Orbitron load from licensed same-origin variable WOFF2 files without external font requests (9.93483ms)
+✔ every locally supported card has valid same-origin card and cropped image assets (109.807437ms)
+✔ local image helpers normalize passcodes with leading zeroes (0.374884ms)
+✔ Sandbox API cards never expose a YGOPRODeck image hotlink (0.717749ms)
+✔ legacy or poisoned image caches cannot shadow a local card with a hotlink (0.519181ms)
+✔ every immersive environment uses a valid same-origin WebP backdrop (14.699116ms)
+✔ full CDB search preserves the local 390 catalogue and existing original templates (258.257241ms)
+✔ ordinary Normal monsters need no Lua; effect and procedure cards require genuine bundled scripts (0.324307ms)
+✔ native CDB templates preserve Xyz ranks, Link markers and both Pendulum scales (9.928284ms)
+✔ bound prerelease passcodes and duplicate beta versions produce a single canonical search result (19.077908ms)
+✔ unknown artwork uses a local PNG accepted by CardState; native-created Tokens stay out of decks (16.990159ms)
+✔ two Trap Monster illustrations are exact local source JPEGs with pinned bytes, dimensions and metadata (11.12332ms)
+✔ copied runtime names and monster traits preserve physical artwork and permanent native copy identity (0.414553ms)
+✔ unreferenced cards and Tokens without verified artwork retain the neutral local artwork after known references are cached (0.366921ms)
+✔ verified Token frames appear in native presentations without admitting Tokens to the Deck (1.095938ms)
+✔ trusted CDB aliases enforce the three-copy rule across Harpie variants and Umi (0.622786ms)
+✔ expanded CDB cards are accepted only by the free native predicate and cannot spoof deck sections (0.305469ms)
+✔ Skill, Rush, illegal, Token and effect cards with missing scripts are excluded from free search (0.677899ms)
+✔ native façade resolves Zombie World and exposes immutable native stats in every public zone (580.538111ms)
+✔ native façade never reapplies a card-specific JavaScript counter ATK bonus (36.431048ms)
+✔ native façade sets and activates a field; legal action IDs include its ignition (48.700861ms)
+✔ native normal summon obeys the offered procedure and preserves the requested zone (57.433013ms)
+✔ native phase changes and AI choices come only from current command prompts (48.046843ms)
+✔ a cancelled mandatory native decision stays pending and never auto-selects a player choice (31.280842ms)
+✔ native starting-player mapping, face-down Extra Deck and cleanup retain the same façade (228.86563ms)
+✔ native battle damage and attack limits are projected from the core battle (81.884048ms)
+✔ a native core win notifies the same façade exactly once (117.152032ms)
+✔ Mausoleum native ignition pays the actual LP cost and summons through the core (48.115798ms)
+✔ Pendulum Scale activations and the offered Pendulum procedure use native candidates (52.54792ms)
+✔ native generated tokens use native stats and a bundled presentation image (52.466036ms)
+✔ Metaverse activating a Field from the Deck projects a resolved field without inventing a chain (31.997058ms)
+✔ initial Main Deck shuffle preserves the registered order and rejects biased Uint32 samples (0.636507ms)
+✔ initial native injection uses independently shuffled copies for both Main Decks (54.589579ms)
+✔ native compound races retain official labels and select the matching public model family (29.141185ms)
+✔ full, small and cropped Token frames match all 120 exact API images and original JPEG hashes (58.9221ms)
+✔ only nine genuine native Token aliases reuse verified frames and keep their own identity (0.620473ms)
+✔ ordinary cards, unillustrated Tokens and internal placeholders gain no unrelated Token frame (0.599471ms)
+✔ all native Token fallbacks resolve only existing exact art or the neutral card back (170.212082ms)
+✔ six authentic support cards use their own complete artwork with 16 original files and two reused crops (8.002439ms)
+ℹ tests 39
+ℹ suites 0
+ℹ pass 39
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1746.483532

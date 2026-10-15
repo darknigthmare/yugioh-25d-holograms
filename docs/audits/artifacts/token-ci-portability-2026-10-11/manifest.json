@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-11",
+  "files": {
+    "before-check-source.json": {
+      "bytes": 97057,
+      "sha256": "234dec608070402a1fac3036bc70d9ff1d645e986ac810bc7dbbf8b1a7360db6"
+    },
+    "check-final.txt": {
+      "bytes": 273041,
+      "sha256": "f60e4a9f94ee2d0d1d01c3b09cb677f796cd39d0049e4603ecb9bd4454354913"
+    },
+    "ci-failed-ec8cae1.json": {
+      "bytes": 9656,
+      "sha256": "24b240372725f38e18cf890e445d8ffb55e2dbae2d316c39c4035260d98da438"
+    },
+    "ci-failed-ec8cae1.txt": {
+      "bytes": 373339,
+      "sha256": "0f31e51c81332e7f4f3356130323061ad0175c271ef6dbb0656b9daa20e94edd"
+    },
+    "verification.json": {
+      "bytes": 6616,
+      "sha256": "2193d00e294e4aae11e373e54a439a15849e1117658c0d7ad07bd7b1c5495346"
+    }
+  },
+  "copies": {
+    "check-final.txt": {
+      "original": "/workspace/yugioh-token-portability-check-final-2026-10-11.txt",
+      "bytes": 273041,
+      "sha256": "f60e4a9f94ee2d0d1d01c3b09cb677f796cd39d0049e4603ecb9bd4454354913"
+    },
+    "ci-failed-ec8cae1.json": {
+      "original": "/workspace/yugioh-token-ci-failed-ec8cae1-2026-10-11.json",
+      "bytes": 9656,
+      "sha256": "24b240372725f38e18cf890e445d8ffb55e2dbae2d316c39c4035260d98da438"
+    },
+    "ci-failed-ec8cae1.txt": {
+      "original": "/workspace/yugioh-token-ci-failed-ec8cae1-2026-10-11.txt",
+      "bytes": 373339,
+      "sha256": "0f31e51c81332e7f4f3356130323061ad0175c271ef6dbb0656b9daa20e94edd"
+    },
+    "before-check-source.json": {
+      "original": "/workspace/yugioh-token-portability-before-check-2026-10-11.json",
+      "bytes": 97057,
+      "sha256": "234dec608070402a1fac3036bc70d9ff1d645e986ac810bc7dbbf8b1a7360db6"
+    }
+  }
+}

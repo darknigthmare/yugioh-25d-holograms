@@ -1,0 +1,41 @@
+{
+  "models": 240,
+  "anatomies": 42,
+  "maxTriangles": 5890,
+  "maxMeshes": 5,
+  "nonfinite": [],
+  "negativeY": [],
+  "wide": [],
+  "largest": [
+    {
+      "code": "31986289",
+      "anatomy": "flower",
+      "triangles": 5890
+    },
+    {
+      "code": "71645243",
+      "anatomy": "flower",
+      "triangles": 5708
+    },
+    {
+      "code": "11050419",
+      "anatomy": "hippo",
+      "triangles": 5692
+    },
+    {
+      "code": "27198002",
+      "anatomy": "beast",
+      "triangles": 5584
+    },
+    {
+      "code": "75732623",
+      "anatomy": "fiend",
+      "triangles": 5128
+    },
+    {
+      "code": "74983882",
+      "anatomy": "maize",
+      "triangles": 4964
+    }
+  ]
+}

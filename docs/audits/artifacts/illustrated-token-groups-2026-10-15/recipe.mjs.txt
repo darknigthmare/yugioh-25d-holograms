@@ -1,0 +1,34 @@
+import {readFileSync,writeFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {Box3} from '/workspace/yugioh-25d-holograms/node_modules/three/build/three.module.js';
+import {createHologramMonsterModel} from '/workspace/yugioh-25d-holograms/src/ui/HologramMonsterModels.js';
+import {ILLUSTRATED_TOKEN_GROUPS} from '/workspace/yugioh-25d-holograms/src/ui/HologramTokenIllustratedGroups.js';
+const root='/workspace/yugioh-25d-holograms';
+const original=JSON.parse(readFileSync(`${root}/test/fixtures/token-model-baseline-2026-10-11.json`));
+const pin=path=>{const data=readFileSync(path);return{path,bytes:data.length,sha256:createHash('sha256').update(data).digest('hex')};};
+const proof={date:'2026-10-15',scope:'Two printed native Token group compositions; no native gameplay/data changes',fidelity:'procedural-interpretation',ok:true,inputs:[],models:[],limitations:[
+  'Prank-Kids: five dominant subjects and 25 individual miniature figures are reconstructed. Some distant figures are partly occluded or composite in the scan; 30 is a model inventory, not a certified canonical count of all source characters.',
+  'The group reconstructions use verified front artwork. Unseen rear surfaces, depth and tiny accessories remain inferred; no exact 1:1 certification.',
+  'Illustration VFX are integral static geometry rendered in the existing model batches and animated with the shared whole-model pose. They do not create extra gameplay effects or independent particle simulation.',
+]};
+for(const path of ['src/ui/HologramTokenIllustratedGroups.js','src/ui/HologramTokenModels.js','test/hologram-token-illustrated-groups-2026-10-15.test.js','test/fixtures/token-model-baseline-2026-10-11.json','public/tokens/reviewed/43664495.png','public/tokens/reviewed/58371672.png'])proof.inputs.push(pin(`${root}/${path}`));
+for(const code of ['43664495','58371672']){
+  const group=ILLUSTRATED_TOKEN_GROUPS[code],record=original.codes.find(row=>row.id===code);
+  for(const defense of [false,true]){
+    const model=createHologramMonsterModel({id:code,type:'Token Monster',isToken:true},{defense});
+    const limits=(defense?record.defenseTriangles:record.attackTriangles)*5;
+    let invalid=0,vertices=0;const hash=createHash('sha256');
+    for(const mesh of model.children){
+      const {normal,position}=mesh.geometry.attributes;vertices+=position.count;
+      for(const attribute of Object.values(mesh.geometry.attributes)){if(!attribute.array.every(Number.isFinite))invalid++;hash.update(Buffer.from(attribute.array.buffer));}
+      for(let i=0;i<normal.count;i++)if(Math.abs(Math.hypot(normal.getX(i),normal.getY(i),normal.getZ(i))-1)>1e-5)invalid++;
+    }
+    const row={code,printing:group.printing,defense,source:group.source,sourceSubjectInventory:group.subjects.map(row=>[...row]),subjectCount:group.subjects.length,triangles:model.userData.triangleCount,originalTriangles:defense?record.defenseTriangles:record.attackTriangles,globalFivefoldLimit:limits,ratio:model.userData.triangleCount/(defense?record.defenseTriangles:record.attackTriangles),batches:model.children.length,vertices,attributeSha256:hash.digest('hex'),invalidValuesOrNormals:invalid,bounds:new Box3().setFromObject(model),partNames:[...model.userData.partNames]};
+    proof.models.push(row);if(row.triangles>limits||row.batches>5||invalid)proof.ok=false;
+    model.traverse(mesh=>{mesh.geometry?.dispose();mesh.material?.dispose();});
+  }
+}
+proof.targetedTests={...pin('/workspace/yugioh-illustrated-group-tests-final-attempt2-2026-10-15.txt'),pass:22,fail:0,scope:'9 new composition tests plus existing Token suites, including all 240 native ATK/DEF budgets'};
+if(!proof.ok)throw new Error('Illustrated group proof failed');
+writeFileSync('/workspace/yugioh-illustrated-groups-proof-2026-10-15.json',JSON.stringify(proof,null,2)+'\n');
+console.log(JSON.stringify({ok:proof.ok,models:proof.models.map(({code,defense,triangles,originalTriangles,globalFivefoldLimit,batches,invalidValuesOrNormals})=>({code,defense,triangles,originalTriangles,globalFivefoldLimit,batches,invalidValuesOrNormals})),proof:pin('/workspace/yugioh-illustrated-groups-proof-2026-10-15.json')}));

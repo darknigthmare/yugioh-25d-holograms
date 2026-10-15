@@ -1,0 +1,16 @@
+✔ every native Token monster has exactly one model and preserves native identity and statistics (2.696723ms)
+✔ internal Token flags never become gameplay models or printed cards (0.269354ms)
+✔ exact aliases and colour variants remain independently addressable without broad Token fallback (0.220081ms)
+✔ all printed API variants refer to verified native rows and exact locally hosted JPEG bytes (16.264483ms)
+✔ catalogue counts distinguish identities, art presentations and bounded coverage (43.123509ms)
+✔ verified commemorative prints reuse known avatars without inventing native codes or statistics (7.756177ms)
+✔ generator illustrations stay explicitly distinct from Token art and refer to a genuine creator (19.921319ms)
+✔ renderer profile module contains presentation geometry only and no rich catalogue dependency (0.588234ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 229.957419

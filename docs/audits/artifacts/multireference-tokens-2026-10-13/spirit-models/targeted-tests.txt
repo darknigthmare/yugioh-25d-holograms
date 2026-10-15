@@ -1,0 +1,17 @@
+✔ 240 native Tokens keep the measured fivefold limit in attack and defense without increasing GPU batches (2264.874756ms)
+✔ tapered organic surfaces change their radius and join their smooth normals at the radial seam (1.125762ms)
+✔ leaf and feather surfaces gain curved depth while retaining finite geometry and smooth normals (0.402055ms)
+✔ all 240 native monster Tokens resolve their exact public identity and bounded dedicated anatomy (2109.377086ms)
+✔ documented shared illustrations retain the same anatomy and palette while preserving each native code (78.04014ms)
+✔ illustrated species keep their defining anatomy instead of receiving the former goat mannequin (125.453467ms)
+✔ unknown Tokens use a neutral echo independent of private identity and unsupported builders do nothing (16.152031ms)
+✔ wing, weapon and both Metal Fiend hooks have their shared shader joints and stable buffers during actions (25.754961ms)
+✔ all Token geometry, visible materials and owned depth/distance materials are released once (34.548585ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2527.522215

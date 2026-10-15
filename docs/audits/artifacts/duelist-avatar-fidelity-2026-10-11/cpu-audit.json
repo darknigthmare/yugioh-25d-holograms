@@ -1,0 +1,4860 @@
+{
+  "createdAt": "2026-10-11T21:15:19.559Z",
+  "scope": "All 192 curated duelist avatars; procedural reference-informed shapes, not certified 1:1 reconstructed turnarounds",
+  "ok": true,
+  "baselineSource": {
+    "bytes": 38201,
+    "sha256": "cd7ff30ab0da574185932f6062a101d14f90de3fe239449ff3ad55efd527376d"
+  },
+  "baselineMetrics": {
+    "bytes": 16850,
+    "sha256": "8eb5cbc19240a9aa363afedbdc7be6da980669473a8663a321771cc14d433def"
+  },
+  "sources": {
+    "src/ui/DuelistAvatarModels.js": {
+      "bytes": 61047,
+      "sha256": "993b8d3b0d3da294b3752edd3d7b3487a1f59ed82ce07065ffba7500d880507e"
+    },
+    "src/content/DuelistAvatarCatalog.js": {
+      "bytes": 49379,
+      "sha256": "9c665ed069cfcd0829f1f4a85a6b3c635f1ebab9c96c1f892b78823f8ce4e68c"
+    },
+    "test/duelist-avatar-models.test.js": {
+      "bytes": 10256,
+      "sha256": "708b5d19d6c55e191d398be2c4d6dc9b7679e616c9e1d8d8b1e1c61249958b63"
+    },
+    "test/duelist-avatar-visual-details.test.js": {
+      "bytes": 6770,
+      "sha256": "11696977a296e5d04d1f2c66533c70ea38d59cdffccc2629a0d34ef0c3dcf470"
+    },
+    "test/duelist-avatar-gestures.test.js": {
+      "bytes": 12563,
+      "sha256": "5ec23a5ae0028fb0d1b2fedf8c517b59c39c8076dbb0f2f2ff7fa1a9ea4351ea"
+    },
+    "test/duelist-avatar-fidelity-2026-10-11.test.js": {
+      "bytes": 5945,
+      "sha256": "750a1c17b8217199cf4e56a8e7b94cf0e6dfd36a5f16700f88152e27469848d4"
+    },
+    "test/fixtures/duelist-avatar-triangle-baseline-2026-10-11.json": {
+      "bytes": 4162,
+      "sha256": "ae0123439e8ac8db18508496f5f995e80cc29850bfbcdb190279c577b9aba333"
+    }
+  },
+  "targetedTestLog": {
+    "bytes": 3024,
+    "sha256": "b27a6e5b0dab412b823d0e71dbfc78acde1ed940f59163e5fba4c5ccb60078e1"
+  },
+  "summary": {
+    "count": 192,
+    "minTriangles": 12348,
+    "maxTriangles": 20964,
+    "meanTriangles": 15505.427083333334,
+    "maxTriangleRatio": 2.768617021276596,
+    "meanTriangleRatio": 2.198780073869321,
+    "maxDrawCalls": 9,
+    "maxBufferBytes": 3371808,
+    "elapsedCpuMs": 3422.374437
+  },
+  "rows": [
+    {
+      "id": "yugi",
+      "seriesId": "dm",
+      "beforeTriangles": 6276,
+      "triangles": 15780,
+      "triangleRatio": 2.51434034416826,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2799216,
+      "parts": 115,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.628500109910966,
+          0.027899999376386417,
+          -0.4461242696642876
+        ],
+        "max": [
+          1.1160000443458558,
+          5.905499898004533,
+          0.958909950256348
+        ]
+      }
+    },
+    {
+      "id": "atem",
+      "seriesId": "dm",
+      "beforeTriangles": 6694,
+      "triangles": 17156,
+      "triangleRatio": 2.562892142216911,
+      "beforeDrawCalls": 7,
+      "drawCalls": 8,
+      "bufferBytes": 2987184,
+      "parts": 121,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.8386291563510895,
+          0.031499999295920136,
+          -0.7243506224155426
+        ],
+        "max": [
+          1.2600000500679016,
+          6.667499884843827,
+          1.0826402664184571
+        ]
+      }
+    },
+    {
+      "id": "kaiba",
+      "seriesId": "dm",
+      "beforeTriangles": 9166,
+      "triangles": 18224,
+      "triangleRatio": 1.9882173248963562,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 3194112,
+      "parts": 143,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.0837797105312346,
+          0.035699999202042816,
+          -0.5708471837639808
+        ],
+        "max": [
+          1.2375999546051024,
+          6.652100022697449,
+          1.226992301940918
+        ]
+      }
+    },
+    {
+      "id": "joey",
+      "seriesId": "dm",
+      "beforeTriangles": 7144,
+      "triangles": 14628,
+      "triangleRatio": 2.047592385218365,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2541168,
+      "parts": 105,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.00623592376709,
+          0.03179999928921461,
+          -0.5084857267141343
+        ],
+        "max": [
+          1.1713000202178958,
+          5.925400020217896,
+          1.092951126098633
+        ]
+      }
+    },
+    {
+      "id": "tea",
+      "seriesId": "dm",
+      "beforeTriangles": 6636,
+      "triangles": 14660,
+      "triangleRatio": 2.2091621458710065,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2510832,
+      "parts": 102,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.7860968947410587,
+          0.030599999316036706,
+          -0.5810573264837265
+        ],
+        "max": [
+          1.0193880200386047,
+          5.701800019454956,
+          1.0517076873779296
+        ]
+      }
+    },
+    {
+      "id": "tristan",
+      "seriesId": "dm",
+      "beforeTriangles": 6010,
+      "triangles": 14266,
+      "triangleRatio": 2.373710482529118,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2483448,
+      "parts": 103,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.467650337219238,
+          0.03359999924898147,
+          -0.5372679376602173
+        ],
+        "max": [
+          1.4347200202941894,
+          6.854599059295655,
+          1.1548162841796876
+        ]
+      }
+    },
+    {
+      "id": "serenity",
+      "seriesId": "dm",
+      "beforeTriangles": 7812,
+      "triangles": 15444,
+      "triangleRatio": 1.976958525345622,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2614320,
+      "parts": 109,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.7160538792610167,
+          0.02939999934285879,
+          -0.595327410697937
+        ],
+        "max": [
+          0.9794120192527771,
+          5.478200018692017,
+          1.0104642486572266
+        ]
+      }
+    },
+    {
+      "id": "mokuba",
+      "seriesId": "dm",
+      "beforeTriangles": 7884,
+      "triangles": 16100,
+      "triangleRatio": 2.0421106037544394,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2770032,
+      "parts": 109,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.523435586690903,
+          0.026099999416619547,
+          -0.5285049462318421
+        ],
+        "max": [
+          0.8694780170917514,
+          4.863300016593933,
+          0.8970447921752932
+        ]
+      }
+    },
+    {
+      "id": "mai",
+      "seriesId": "dm",
+      "beforeTriangles": 7824,
+      "triangles": 15904,
+      "triangleRatio": 2.032719836400818,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2675904,
+      "parts": 114,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.8736506640911108,
+          0.0320999992825091,
+          -0.6500003361701966
+        ],
+        "max": [
+          1.0693580210208893,
+          6.151626495313645,
+          1.1032619857788089
+        ]
+      }
+    },
+    {
+      "id": "pegasus",
+      "seriesId": "dm",
+      "beforeTriangles": 8046,
+      "triangles": 16822,
+      "triangleRatio": 2.0907283122048224,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2885640,
+      "parts": 112,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.0137366950511946,
+          0.03449999922886492,
+          -0.6985984921455383
+        ],
+        "max": [
+          1.149310022592545,
+          6.428500021934509,
+          1.1857488632202153
+        ]
+      }
+    },
+    {
+      "id": "bakura",
+      "seriesId": "dm",
+      "beforeTriangles": 6378,
+      "triangles": 15242,
+      "triangleRatio": 2.389777359673879,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2682552,
+      "parts": 110,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.7685861408710484,
+          0.030299999322742233,
+          -0.4845005509257317
+        ],
+        "max": [
+          1.0093940198421483,
+          6.2116826103687295,
+          1.041396827697754
+        ]
+      }
+    },
+    {
+      "id": "yami-bakura",
+      "seriesId": "dm",
+      "beforeTriangles": 7428,
+      "triangles": 15962,
+      "triangleRatio": 2.148896068928379,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2848440,
+      "parts": 128,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.8561399102211,
+          0.03179999928921461,
+          -0.5084857267141343
+        ],
+        "max": [
+          1.1763586640357973,
+          6.560526632404327,
+          1.092951126098633
+        ]
+      }
+    },
+    {
+      "id": "marik",
+      "seriesId": "dm",
+      "beforeTriangles": 6464,
+      "triangles": 15084,
+      "triangleRatio": 2.333539603960396,
+      "beforeDrawCalls": 7,
+      "drawCalls": 8,
+      "bufferBytes": 2600784,
+      "parts": 118,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.8561399102211,
+          0.03179999928921461,
+          -0.7312491997718811
+        ],
+        "max": [
+          1.1763586640357973,
+          6.539463123416901,
+          1.092951126098633
+        ]
+      }
+    },
+    {
+      "id": "yami-marik",
+      "seriesId": "dm",
+      "beforeTriangles": 6408,
+      "triangles": 15916,
+      "triangleRatio": 2.483770287141074,
+      "beforeDrawCalls": 6,
+      "drawCalls": 7,
+      "bufferBytes": 2797872,
+      "parts": 116,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.0819429397583002,
+          0.03299999926239251,
+          -0.5276738673448563
+        ],
+        "max": [
+          1.2155000209808349,
+          6.831000026226045,
+          1.134194564819336
+        ]
+      }
+    },
+    {
+      "id": "ishizu",
+      "seriesId": "dm",
+      "beforeTriangles": 8180,
+      "triangles": 17700,
+      "triangleRatio": 2.163814180929095,
+      "beforeDrawCalls": 7,
+      "drawCalls": 8,
+      "bufferBytes": 3010032,
+      "parts": 116,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.8911614179611207,
+          0.032399999275803566,
+          -0.7450463544845581
+        ],
+        "max": [
+          1.0793520212173462,
+          6.037200020599366,
+          1.1135728454589842
+        ]
+      }
+    },
+    {
+      "id": "odion",
+      "seriesId": "dm",
+      "beforeTriangles": 6048,
+      "triangles": 12348,
+      "triangleRatio": 2.0416666666666665,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2205648,
+      "parts": 92,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.7320414447784422,
+          0.03719999916851521,
+          -1.0832640253067016
+        ],
+        "max": [
+          1.588440022468567,
+          6.844799958610535,
+          1.2785466003417971
+        ]
+      }
+    },
+    {
+      "id": "weevil",
+      "seriesId": "dm",
+      "beforeTriangles": 7724,
+      "triangles": 16884,
+      "triangleRatio": 2.1859140341791816,
+      "beforeDrawCalls": 8,
+      "drawCalls": 8,
+      "bufferBytes": 2898576,
+      "parts": 110,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.5759678483009334,
+          0.026999999396502966,
+          -0.431733164191246
+        ],
+        "max": [
+          0.9359999656677246,
+          5.031000017166138,
+          0.9279773712158201
+        ]
+      }
+    },
+    {
+      "id": "rex",
+      "seriesId": "dm",
+      "beforeTriangles": 7592,
+      "triangles": 15576,
+      "triangleRatio": 2.0516332982086407,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2655072,
+      "parts": 108,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.911602153778077,
+          0.030299999322742233,
+          -0.7474000096321106
+        ],
+        "max": [
+          1.1160500192642213,
+          5.9186000000000005,
+          1.041396827697754
+        ]
+      }
+    },
+    {
+      "id": "bandit-keith",
+      "seriesId": "dm",
+      "beforeTriangles": 7150,
+      "triangles": 16568,
+      "triangleRatio": 2.317202797202797,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2786016,
+      "parts": 104,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.6439110755920416,
+          0.03599999919533729,
+          -0.5756442189216614
+        ],
+        "max": [
+          1.5372000217437745,
+          6.715031058311462,
+          1.2373031616210937
+        ]
+      }
+    },
+    {
+      "id": "bonz",
+      "seriesId": "dm",
+      "beforeTriangles": 6028,
+      "triangles": 13648,
+      "triangleRatio": 2.2641008626410084,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2400576,
+      "parts": 107,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.523435586690903,
+          0.026099999416619547,
+          -0.4173420587182045
+        ],
+        "max": [
+          0.9655019223690033,
+          5.367295205068588,
+          0.8970447921752932
+        ]
+      }
+    },
+    {
+      "id": "mako",
+      "seriesId": "dm",
+      "beforeTriangles": 6100,
+      "triangles": 13432,
+      "triangleRatio": 2.201967213114754,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2353920,
+      "parts": 113,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.00623592376709,
+          0.03179999928921461,
+          -0.5084857267141343
+        ],
+        "max": [
+          1.1713000202178958,
+          6.582600025272369,
+          1.092951126098633
+        ]
+      }
+    },
+    {
+      "id": "espa-roba",
+      "seriesId": "dm",
+      "beforeTriangles": 6062,
+      "triangles": 14310,
+      "triangleRatio": 2.3606070603761133,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2489256,
+      "parts": 105,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.7685861408710484,
+          0.030299999322742233,
+          -0.4845005509257317
+        ],
+        "max": [
+          1.0093940198421483,
+          6.181379508829117,
+          1.041396827697754
+        ]
+      }
+    },
+    {
+      "id": "duke",
+      "seriesId": "dm",
+      "beforeTriangles": 6664,
+      "triangles": 15312,
+      "triangleRatio": 2.297719087635054,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2620224,
+      "parts": 104,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.9086721718311317,
+          0.03269999926909806,
+          -0.7830166304111481
+        ],
+        "max": [
+          1.089346021413803,
+          6.093100020790101,
+          1.1238837051391606
+        ]
+      }
+    },
+    {
+      "id": "rebecca",
+      "seriesId": "dm",
+      "beforeTriangles": 7720,
+      "triangles": 16784,
+      "triangleRatio": 2.1740932642487047,
+      "beforeDrawCalls": 8,
+      "drawCalls": 8,
+      "bufferBytes": 2791200,
+      "parts": 109,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.505924832820892,
+          0.025799999423325063,
+          -0.6058434128761292
+        ],
+        "max": [
+          0.9258965682983399,
+          4.807400016403199,
+          0.8867339324951172
+        ]
+      }
+    },
+    {
+      "id": "arthur-hawkins",
+      "seriesId": "dm",
+      "beforeTriangles": 7556,
+      "triangles": 17470,
+      "triangleRatio": 2.3120698782424562,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2906376,
+      "parts": 106,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.0440894317626954,
+          0.032399999275803566,
+          -0.5180797970294952
+        ],
+        "max": [
+          1.1934000205993653,
+          6.069448005008699,
+          1.1135728454589842
+        ]
+      }
+    },
+    {
+      "id": "dartz",
+      "seriesId": "dm",
+      "beforeTriangles": 7836,
+      "triangles": 15468,
+      "triangleRatio": 1.9739663093415007,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2617488,
+      "parts": 112,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.066268956661225,
+          0.03539999920874834,
+          -0.8140321280479431
+        ],
+        "max": [
+          1.1792920231819155,
+          6.5962000225067134,
+          1.2166814422607424
+        ]
+      }
+    },
+    {
+      "id": "rafael",
+      "seriesId": "dm",
+      "beforeTriangles": 7000,
+      "triangles": 15544,
+      "triangleRatio": 2.2205714285714286,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2721696,
+      "parts": 109,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.710008852481842,
+          0.03689999917522073,
+          -0.5900353243947029
+        ],
+        "max": [
+          1.5756300222873687,
+          7.564722386884689,
+          1.2682357406616214
+        ]
+      }
+    },
+    {
+      "id": "solomon",
+      "seriesId": "dm",
+      "beforeTriangles": 7274,
+      "triangles": 16404,
+      "triangleRatio": 2.2551553478141324,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2746224,
+      "parts": 104,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.8169683837890616,
+          0.028799999356269826,
+          -0.7104000091552735
+        ],
+        "max": [
+          1.0608000183105464,
+          5.6256,
+          0.9898425292968748
+        ]
+      }
+    },
+    {
+      "id": "jaden",
+      "seriesId": "gx",
+      "beforeTriangles": 7168,
+      "triangles": 18424,
+      "triangleRatio": 2.5703125,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 3077664,
+      "parts": 118,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.930528907775879,
+          0.030599999316036706,
+          -0.4892975860834122
+        ],
+        "max": [
+          1.1271000194549559,
+          5.906028542232514,
+          1.0517076873779296
+        ]
+      }
+    },
+    {
+      "id": "syrus",
+      "seriesId": "gx",
+      "beforeTriangles": 6734,
+      "triangles": 15606,
+      "triangleRatio": 2.3174933174933177,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2660328,
+      "parts": 104,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.523435586690903,
+          0.026099999416619547,
+          -0.4173420587182045
+        ],
+        "max": [
+          0.8694780170917514,
+          4.863300016593933,
+          0.8970447921752932
+        ]
+      }
+    },
+    {
+      "id": "zane",
+      "seriesId": "gx",
+      "beforeTriangles": 8488,
+      "triangles": 16760,
+      "triangleRatio": 1.9745523091423185,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2882208,
+      "parts": 114,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.9787151873111724,
+          0.033899999242275956,
+          -0.6864489531517028
+        ],
+        "max": [
+          1.1751999568939209,
+          6.316700021553039,
+          1.1651271438598632
+        ]
+      }
+    },
+    {
+      "id": "alexis",
+      "seriesId": "gx",
+      "beforeTriangles": 7812,
+      "triangles": 15444,
+      "triangleRatio": 1.976958525345622,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2614320,
+      "parts": 109,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.8561399102211,
+          0.03179999928921461,
+          -0.6439255666732788
+        ],
+        "max": [
+          1.0593640208244324,
+          5.925400020217896,
+          1.092951126098633
+        ]
+      }
+    },
+    {
+      "id": "chazz",
+      "seriesId": "gx",
+      "beforeTriangles": 7048,
+      "triangles": 14956,
+      "triangleRatio": 2.1220204313280364,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2644080,
+      "parts": 117,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.8736506640911108,
+          0.0320999992825091,
+          -0.5132827618718148
+        ],
+        "max": [
+          1.1127999591827393,
+          6.644700025510788,
+          1.1032619857788089
+        ]
+      }
+    },
+    {
+      "id": "bastion",
+      "seriesId": "gx",
+      "beforeTriangles": 7144,
+      "triangles": 16562,
+      "triangleRatio": 2.3183090705487124,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2786520,
+      "parts": 103,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.025162677764893,
+          0.0320999992825091,
+          -0.5132827618718148
+        ],
+        "max": [
+          1.1823500204086301,
+          6.000409386348725,
+          1.1032619857788089
+        ]
+      }
+    },
+    {
+      "id": "chumley",
+      "seriesId": "gx",
+      "beforeTriangles": 7126,
+      "triangles": 16544,
+      "triangleRatio": 2.3216390682009544,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2782848,
+      "parts": 101,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.2913895988464366,
+          0.031199999302625667,
+          -0.4988916563987732
+        ],
+        "max": [
+          1.3322400188446049,
+          5.836333617591858,
+          1.0723294067382818
+        ]
+      }
+    },
+    {
+      "id": "atticus",
+      "seriesId": "gx",
+      "beforeTriangles": 6010,
+      "triangles": 14266,
+      "triangleRatio": 2.373710482529118,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2483448,
+      "parts": 103,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.9612044334411618,
+          0.03359999924898147,
+          -0.5372679376602173
+        ],
+        "max": [
+          1.1193280220031734,
+          6.86804022140503,
+          1.1548162841796876
+        ]
+      }
+    },
+    {
+      "id": "blair",
+      "seriesId": "gx",
+      "beforeTriangles": 7504,
+      "triangles": 15200,
+      "triangleRatio": 2.025586353944563,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2586432,
+      "parts": 106,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.5759678483009334,
+          0.026999999396502966,
+          -0.5467292547225953
+        ],
+        "max": [
+          0.8994600176811215,
+          5.031000017166138,
+          0.9279773712158201
+        ]
+      }
+    },
+    {
+      "id": "aster",
+      "seriesId": "gx",
+      "beforeTriangles": 6010,
+      "triangles": 14266,
+      "triangleRatio": 2.373710482529118,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2483448,
+      "parts": 103,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.9261829257011414,
+          0.03299999926239251,
+          -0.5276738673448563
+        ],
+        "max": [
+          1.0993400216102598,
+          6.75859778738022,
+          1.134194564819336
+        ]
+      }
+    },
+    {
+      "id": "jesse",
+      "seriesId": "gx",
+      "beforeTriangles": 5992,
+      "triangles": 14248,
+      "triangleRatio": 2.3778371161548733,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2479776,
+      "parts": 101,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.8386291563510895,
+          0.031499999295920136,
+          -0.5036886915564537
+        ],
+        "max": [
+          1.0493700206279755,
+          6.457689842462541,
+          1.0826402664184571
+        ]
+      }
+    },
+    {
+      "id": "jim",
+      "seriesId": "gx",
+      "beforeTriangles": 7592,
+      "triangles": 15576,
+      "triangleRatio": 2.0516332982086407,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2655072,
+      "parts": 108,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.195503463745117,
+          0.034799999222159386,
+          -0.858400011062622
+        ],
+        "max": [
+          1.2818000221252441,
+          6.7976,
+          1.1960597229003906
+        ]
+      }
+    },
+    {
+      "id": "axel",
+      "seriesId": "gx",
+      "beforeTriangles": 9764,
+      "triangles": 20964,
+      "triangleRatio": 2.1470708725931993,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 3366288,
+      "parts": 123,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.489682929515838,
+          0.033899999242275956,
+          -0.8107429075241088
+        ],
+        "max": [
+          1.4475300204753874,
+          6.399189969825744,
+          1.1651271438598632
+        ]
+      }
+    },
+    {
+      "id": "adrian",
+      "seriesId": "gx",
+      "beforeTriangles": 6010,
+      "triangles": 14266,
+      "triangleRatio": 2.373710482529118,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2483448,
+      "parts": 103,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.176576709747315,
+          0.03449999922886492,
+          -0.5516590431332588
+        ],
+        "max": [
+          1.2707500219345094,
+          7.093409712553024,
+          1.1857488632202153
+        ]
+      }
+    },
+    {
+      "id": "crowler",
+      "seriesId": "gx",
+      "beforeTriangles": 7498,
+      "triangles": 15482,
+      "triangleRatio": 2.064817284609229,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2643960,
+      "parts": 108,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.1197964477539055,
+          0.03359999924898147,
+          -0.6803741836547852
+        ],
+        "max": [
+          1.2376000213623046,
+          6.260800021362305,
+          1.1548162841796876
+        ]
+      }
+    },
+    {
+      "id": "banner",
+      "seriesId": "gx",
+      "beforeTriangles": 7384,
+      "triangles": 16176,
+      "triangleRatio": 2.19068255687974,
+      "beforeDrawCalls": 8,
+      "drawCalls": 8,
+      "bufferBytes": 2710944,
+      "parts": 107,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.9436936795711521,
+          0.033299999255687,
+          -0.7957599824666978
+        ],
+        "max": [
+          1.109334021806717,
+          6.204900021171571,
+          1.144505424499512
+        ]
+      }
+    },
+    {
+      "id": "sheppard",
+      "seriesId": "gx",
+      "beforeTriangles": 5734,
+      "triangles": 12386,
+      "triangleRatio": 2.1600976630624347,
+      "beforeDrawCalls": 5,
+      "drawCalls": 5,
+      "bufferBytes": 2235288,
+      "parts": 91,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.4235851526260372,
+          0.03299999926239251,
+          -0.4276800274848937
+        ],
+        "max": [
+          1.4091000199317931,
+          6.07199996328354,
+          1.134194564819336
+        ]
+      }
+    },
+    {
+      "id": "sartorius",
+      "seriesId": "gx",
+      "beforeTriangles": 8856,
+      "triangles": 17648,
+      "triangleRatio": 1.992773261065944,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 3063360,
+      "parts": 116,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.0837797105312346,
+          0.035699999202042816,
+          -0.7228975701332092
+        ],
+        "max": [
+          1.2375999546051024,
+          6.652100022697449,
+          1.226992301940918
+        ]
+      }
+    },
+    {
+      "id": "yubel",
+      "seriesId": "gx",
+      "beforeTriangles": 8232,
+      "triangles": 16728,
+      "triangleRatio": 2.0320699708454812,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2892384,
+      "parts": 115,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.9612044334411618,
+          0.03359999924898147,
+          -0.6803741836547852
+        ],
+        "max": [
+          1.9264000320434571,
+          6.260800021362305,
+          1.1548162841796876
+        ]
+      }
+    },
+    {
+      "id": "camula",
+      "seriesId": "gx",
+      "beforeTriangles": 8180,
+      "triangles": 16332,
+      "triangleRatio": 1.9965770171149144,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2795472,
+      "parts": 111,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.9612044334411618,
+          0.03359999924898147,
+          -0.6803741836547852
+        ],
+        "max": [
+          1.1193280220031734,
+          6.260800021362305,
+          1.1548162841796876
+        ]
+      }
+    },
+    {
+      "id": "titan",
+      "seriesId": "gx",
+      "beforeTriangles": 7238,
+      "triangles": 14888,
+      "triangleRatio": 2.0569218016026527,
+      "beforeDrawCalls": 8,
+      "drawCalls": 8,
+      "bufferBytes": 2635104,
+      "parts": 104,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.7320414447784422,
+          0.03719999916851521,
+          -0.9176000118255615
+        ],
+        "max": [
+          1.588440022468567,
+          7.266400000000001,
+          1.2785466003417971
+        ]
+      }
+    },
+    {
+      "id": "tania",
+      "seriesId": "gx",
+      "beforeTriangles": 9688,
+      "triangles": 20360,
+      "triangleRatio": 2.101568951279934,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 3371808,
+      "parts": 117,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.710008852481842,
+          0.03689999917522073,
+          -0.8837261366844177
+        ],
+        "max": [
+          1.5756300222873687,
+          6.875700023460388,
+          1.2682357406616214
+        ]
+      }
+    },
+    {
+      "id": "kagemaru",
+      "seriesId": "gx",
+      "beforeTriangles": 6010,
+      "triangles": 14266,
+      "triangleRatio": 2.373710482529118,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2483448,
+      "parts": 103,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.5778132987022393,
+          0.035099999215453856,
+          -0.5612531134486198
+        ],
+        "max": [
+          1.4987700212001798,
+          7.167628552865983,
+          1.2063705825805662
+        ]
+      }
+    },
+    {
+      "id": "dimitri",
+      "seriesId": "gx",
+      "beforeTriangles": 6010,
+      "triangles": 14266,
+      "triangleRatio": 2.373710482529118,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2483448,
+      "parts": 103,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.7335646331310275,
+          0.029699999336153273,
+          -0.4749064806103706
+        ],
+        "max": [
+          0.9894060194492341,
+          6.070856981420517,
+          1.0207751083374024
+        ]
+      }
+    },
+    {
+      "id": "trueman",
+      "seriesId": "gx",
+      "beforeTriangles": 7556,
+      "triangles": 17470,
+      "triangleRatio": 2.3120698782424562,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2906376,
+      "parts": 106,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.195503463745117,
+          0.034799999222159386,
+          -0.5564560782909392
+        ],
+        "max": [
+          1.2818000221252441,
+          6.519036746120452,
+          1.1960597229003906
+        ]
+      }
+    },
+    {
+      "id": "abidos",
+      "seriesId": "gx",
+      "beforeTriangles": 6818,
+      "triangles": 14348,
+      "triangleRatio": 2.1044294514520385,
+      "beforeDrawCalls": 8,
+      "drawCalls": 8,
+      "bufferBytes": 2533584,
+      "parts": 99,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.195503463745117,
+          0.034799999222159386,
+          -0.8444799994468688
+        ],
+        "max": [
+          1.2818000221252441,
+          6.77440016040802,
+          1.1960597229003906
+        ]
+      }
+    },
+    {
+      "id": "don-zaloog",
+      "seriesId": "gx",
+      "beforeTriangles": 8512,
+      "triangles": 16784,
+      "triangleRatio": 1.9718045112781954,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2885376,
+      "parts": 117,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.5778132987022393,
+          0.035099999215453856,
+          -0.7107480311393737
+        ],
+        "max": [
+          1.4987700212001798,
+          6.5403000223159795,
+          1.2063705825805662
+        ]
+      }
+    },
+    {
+      "id": "alice",
+      "seriesId": "gx",
+      "beforeTriangles": 7836,
+      "triangles": 15468,
+      "triangleRatio": 1.9739663093415007,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2617488,
+      "parts": 112,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.6985431253910064,
+          0.029099999349564316,
+          -0.5892526412010193
+        ],
+        "max": [
+          0.9694180190563203,
+          5.422300018501281,
+          1.0001533889770509
+        ]
+      }
+    },
+    {
+      "id": "yusei",
+      "seriesId": "5ds",
+      "beforeTriangles": 6016,
+      "triangles": 16656,
+      "triangleRatio": 2.768617021276596,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2928384,
+      "parts": 113,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.9436936795711521,
+          0.033299999255687,
+          -0.5324709025025368
+        ],
+        "max": [
+          1.1102384448051454,
+          6.5937573178768165,
+          1.144505424499512
+        ]
+      }
+    },
+    {
+      "id": "jack",
+      "seriesId": "5ds",
+      "beforeTriangles": 7000,
+      "triangles": 15544,
+      "triangleRatio": 2.2205714285714286,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2721696,
+      "parts": 109,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.327990741729736,
+          0.03689999917522073,
+          -0.5900353243947029
+        ],
+        "max": [
+          1.3591500234603882,
+          7.498295470762253,
+          1.2682357406616214
+        ]
+      }
+    },
+    {
+      "id": "crow",
+      "seriesId": "5ds",
+      "beforeTriangles": 6004,
+      "triangles": 14048,
+      "triangleRatio": 2.339773484343771,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2453376,
+      "parts": 102,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.8926753997802734,
+          0.029999999329447746,
+          -0.47970351576805115
+        ],
+        "max": [
+          1.1050000190734863,
+          6.102175698280335,
+          1.0310859680175781
+        ]
+      }
+    },
+    {
+      "id": "akiza",
+      "seriesId": "5ds",
+      "beforeTriangles": 7004,
+      "triangles": 15548,
+      "triangleRatio": 2.2198743575099944,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2691984,
+      "parts": 104,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.8736506640911108,
+          0.0320999992825091,
+          -0.6095405287623405
+        ],
+        "max": [
+          1.0693580210208893,
+          5.981300020408631,
+          1.1032619857788089
+        ]
+      }
+    },
+    {
+      "id": "leo",
+      "seriesId": "5ds",
+      "beforeTriangles": 6676,
+      "triangles": 15036,
+      "triangleRatio": 2.2522468544038348,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2565648,
+      "parts": 102,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.523435586690903,
+          0.026099999416619547,
+          -0.625162895321846
+        ],
+        "max": [
+          0.8694780170917514,
+          4.863300016593933,
+          0.8970447921752932
+        ]
+      }
+    },
+    {
+      "id": "luna",
+      "seriesId": "5ds",
+      "beforeTriangles": 7308,
+      "triangles": 15876,
+      "triangleRatio": 2.1724137931034484,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2671344,
+      "parts": 106,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.505924832820892,
+          0.025799999423325063,
+          -0.6058881115913392
+        ],
+        "max": [
+          0.925942702293396,
+          4.807400016403199,
+          0.8867339324951172
+        ]
+      }
+    },
+    {
+      "id": "kalin",
+      "seriesId": "5ds",
+      "beforeTriangles": 8488,
+      "triangles": 16760,
+      "triangleRatio": 1.9745523091423185,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2882208,
+      "parts": 114,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.0312474489212033,
+          0.034799999222159386,
+          -0.704673261642456
+        ],
+        "max": [
+          1.2063999557495115,
+          6.484400022125244,
+          1.1960597229003906
+        ]
+      }
+    },
+    {
+      "id": "carly",
+      "seriesId": "5ds",
+      "beforeTriangles": 7892,
+      "triangles": 16372,
+      "triangleRatio": 2.074505828687278,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2760144,
+      "parts": 109,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.7685861408710484,
+          0.030299999322742233,
+          -0.6135517191886902
+        ],
+        "max": [
+          1.0093940198421483,
+          5.6459000192642215,
+          1.041396827697754
+        ]
+      }
+    },
+    {
+      "id": "mina",
+      "seriesId": "5ds",
+      "beforeTriangles": 6658,
+      "triangles": 15306,
+      "triangleRatio": 2.2988885551216582,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2620728,
+      "parts": 103,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.9086721718311317,
+          0.03269999926909806,
+          -0.782735899090767
+        ],
+        "max": [
+          1.089346021413803,
+          6.093100020790101,
+          1.1238837051391606
+        ]
+      }
+    },
+    {
+      "id": "trudge",
+      "seriesId": "5ds",
+      "beforeTriangles": 7144,
+      "triangles": 16562,
+      "triangleRatio": 2.3183090705487124,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2786520,
+      "parts": 103,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.7320414447784422,
+          0.03719999916851521,
+          -0.5948323595523834
+        ],
+        "max": [
+          1.588440022468567,
+          6.973585497283937,
+          1.2785466003417971
+        ]
+      }
+    },
+    {
+      "id": "greiger",
+      "seriesId": "5ds",
+      "beforeTriangles": 8134,
+      "triangles": 17840,
+      "triangleRatio": 2.1932628473075977,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 3024768,
+      "parts": 109,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.7540740370750427,
+          0.03749999916180968,
+          -0.5996293947100639
+        ],
+        "max": [
+          1.601250022649765,
+          7.034824025630951,
+          1.2888574600219727
+        ]
+      }
+    },
+    {
+      "id": "devack",
+      "seriesId": "5ds",
+      "beforeTriangles": 7428,
+      "triangles": 15856,
+      "triangleRatio": 2.1346257404415723,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2826816,
+      "parts": 121,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.6659436678886417,
+          0.03629999918863177,
+          -0.5804412540793419
+        ],
+        "max": [
+          1.5500100219249724,
+          7.488903042650223,
+          1.2476140213012692
+        ]
+      }
+    },
+    {
+      "id": "misty",
+      "seriesId": "5ds",
+      "beforeTriangles": 8180,
+      "triangles": 16332,
+      "triangleRatio": 1.9965770171149144,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2795472,
+      "parts": 111,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.9787151873111724,
+          0.033899999242275956,
+          -0.6864489531517028
+        ],
+        "max": [
+          1.1293220221996307,
+          6.316700021553039,
+          1.1651271438598632
+        ]
+      }
+    },
+    {
+      "id": "roman",
+      "seriesId": "5ds",
+      "beforeTriangles": 8488,
+      "triangles": 16760,
+      "triangleRatio": 1.9745523091423185,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2882208,
+      "parts": 114,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.6439110755920416,
+          0.03599999919533729,
+          -0.728972339630127
+        ],
+        "max": [
+          1.5372000217437745,
+          6.708000022888183,
+          1.2373031616210937
+        ]
+      }
+    },
+    {
+      "id": "rex-goodwin",
+      "seriesId": "5ds",
+      "beforeTriangles": 6010,
+      "triangles": 14266,
+      "triangleRatio": 2.373710482529118,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2483448,
+      "parts": 103,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.6439110755920416,
+          0.03599999919533729,
+          -0.5756442189216614
+        ],
+        "max": [
+          1.5372000217437745,
+          7.409019453048706,
+          1.2373031616210937
+        ]
+      }
+    },
+    {
+      "id": "antinomy",
+      "seriesId": "5ds",
+      "beforeTriangles": 7412,
+      "triangles": 17220,
+      "triangleRatio": 2.323259579060982,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2957328,
+      "parts": 105,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.214430217742919,
+          0.035099999215453856,
+          -0.5612531134486198
+        ],
+        "max": [
+          1.2928500223159787,
+          7.230814573717118,
+          1.2063705825805662
+        ]
+      }
+    },
+    {
+      "id": "aporia",
+      "seriesId": "5ds",
+      "beforeTriangles": 6982,
+      "triangles": 15128,
+      "triangleRatio": 2.166714408478946,
+      "beforeDrawCalls": 8,
+      "drawCalls": 8,
+      "bufferBytes": 2712864,
+      "parts": 96,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.7540740370750427,
+          0.03749999916180968,
+          -0.8031094253063202
+        ],
+        "max": [
+          1.601250022649765,
+          7.30000017285347,
+          1.2888574600219727
+        ]
+      }
+    },
+    {
+      "id": "z-one",
+      "seriesId": "5ds",
+      "beforeTriangles": 7006,
+      "triangles": 15152,
+      "triangleRatio": 2.1627176705680844,
+      "beforeDrawCalls": 9,
+      "drawCalls": 9,
+      "bufferBytes": 2716032,
+      "parts": 99,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.7540740370750427,
+          0.03749999916180968,
+          -0.8031094253063202
+        ],
+        "max": [
+          1.601250022649765,
+          7.30000017285347,
+          1.2888574600219727
+        ]
+      }
+    },
+    {
+      "id": "placido",
+      "seriesId": "5ds",
+      "beforeTriangles": 8488,
+      "triangles": 16760,
+      "triangleRatio": 1.9745523091423185,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2882208,
+      "parts": 114,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.066268956661225,
+          0.03539999920874834,
+          -0.7168228006362914
+        ],
+        "max": [
+          1.2271999549865722,
+          6.5962000225067134,
+          1.2166814422607424
+        ]
+      }
+    },
+    {
+      "id": "lester",
+      "seriesId": "5ds",
+      "beforeTriangles": 7648,
+      "triangles": 16584,
+      "triangleRatio": 2.168410041841004,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2858976,
+      "parts": 109,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.523435586690903,
+          0.026099999416619547,
+          -0.6252413016557693
+        ],
+        "max": [
+          0.9047999668121338,
+          4.863300016593933,
+          0.8970447921752932
+        ]
+      }
+    },
+    {
+      "id": "jakob",
+      "seriesId": "5ds",
+      "beforeTriangles": 8134,
+      "triangles": 17840,
+      "triangleRatio": 2.1932628473075977,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 3024768,
+      "parts": 109,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.7540740370750427,
+          0.03749999916180968,
+          -0.5996293947100639
+        ],
+        "max": [
+          1.601250022649765,
+          7.004824039340019,
+          1.2888574600219727
+        ]
+      }
+    },
+    {
+      "id": "sherry",
+      "seriesId": "5ds",
+      "beforeTriangles": 8152,
+      "triangles": 16648,
+      "triangleRatio": 2.042198233562316,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2881824,
+      "parts": 105,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.9612044334411618,
+          0.03359999924898147,
+          -0.6803741836547852
+        ],
+        "max": [
+          1.123584060668945,
+          6.260800021362305,
+          1.1548162841796876
+        ]
+      }
+    },
+    {
+      "id": "andre",
+      "seriesId": "5ds",
+      "beforeTriangles": 7162,
+      "triangles": 16292,
+      "triangleRatio": 2.274783580005585,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2731440,
+      "parts": 102,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.252283725738525,
+          0.035699999202042816,
+          -0.5708471837639808
+        ],
+        "max": [
+          1.3149500226974484,
+          6.67811250474453,
+          1.226992301940918
+        ]
+      }
+    },
+    {
+      "id": "jean",
+      "seriesId": "5ds",
+      "beforeTriangles": 7516,
+      "triangles": 15212,
+      "triangleRatio": 2.023948908994146,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2588880,
+      "parts": 107,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.9962259411811833,
+          0.034199999235570426,
+          -0.6925237226486205
+        ],
+        "max": [
+          1.1393160223960876,
+          6.372600021743774,
+          1.175438003540039
+        ]
+      }
+    },
+    {
+      "id": "yuma",
+      "seriesId": "zexal",
+      "beforeTriangles": 7156,
+      "triangles": 14788,
+      "triangleRatio": 2.0665176076020124,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2568336,
+      "parts": 114,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.663521617650986,
+          0.02849999936297536,
+          -0.45571833997964856
+        ],
+        "max": [
+          1.0542837083339691,
+          5.860839591741562,
+          0.9795316696166994
+        ]
+      }
+    },
+    {
+      "id": "astral",
+      "seriesId": "zexal",
+      "beforeTriangles": 6580,
+      "triangles": 14016,
+      "triangleRatio": 2.1300911854103344,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2566080,
+      "parts": 91,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.9086721718311317,
+          0.03269999926909806,
+          -0.7003114188671113
+        ],
+        "max": [
+          1.093488059043885,
+          6.016799963617325,
+          1.1238837051391606
+        ]
+      }
+    },
+    {
+      "id": "tori",
+      "seriesId": "zexal",
+      "beforeTriangles": 6660,
+      "triangles": 14684,
+      "triangleRatio": 2.204804804804805,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2514000,
+      "parts": 105,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.6985431253910064,
+          0.029099999349564316,
+          -0.5525741242051124
+        ],
+        "max": [
+          0.9694180190563203,
+          5.422300018501281,
+          1.0001533889770509
+        ]
+      }
+    },
+    {
+      "id": "bronk",
+      "seriesId": "zexal",
+      "beforeTriangles": 7250,
+      "triangles": 16668,
+      "triangleRatio": 2.299034482758621,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2800080,
+      "parts": 104,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.2473244142532343,
+          0.030599999316036706,
+          -0.7548000097274781
+        ],
+        "max": [
+          1.3066200184822083,
+          5.9772,
+          1.0517076873779296
+        ]
+      }
+    },
+    {
+      "id": "kite",
+      "seriesId": "zexal",
+      "beforeTriangles": 7048,
+      "triangles": 14956,
+      "triangleRatio": 2.1220204313280364,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2644080,
+      "parts": 117,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.9612044334411618,
+          0.03359999924898147,
+          -0.5372679376602173
+        ],
+        "max": [
+          1.1647999572753907,
+          6.955200026702882,
+          1.1548162841796876
+        ]
+      }
+    },
+    {
+      "id": "shark",
+      "seriesId": "zexal",
+      "beforeTriangles": 6360,
+      "triangles": 15136,
+      "triangleRatio": 2.379874213836478,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2660928,
+      "parts": 103,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.8386291563510895,
+          0.031499999295920136,
+          -0.5036886915564537
+        ],
+        "max": [
+          1.0493700206279755,
+          6.426186618089677,
+          1.0826402664184571
+        ]
+      }
+    },
+    {
+      "id": "rio",
+      "seriesId": "zexal",
+      "beforeTriangles": 7498,
+      "triangles": 15482,
+      "triangleRatio": 2.064817284609229,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2643960,
+      "parts": 108,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.7860968947410587,
+          0.030599999316036706,
+          -0.6196264886856079
+        ],
+        "max": [
+          1.0193880200386047,
+          5.701800019454956,
+          1.0517076873779296
+        ]
+      }
+    },
+    {
+      "id": "anna",
+      "seriesId": "zexal",
+      "beforeTriangles": 7012,
+      "triangles": 15644,
+      "triangleRatio": 2.231032515687393,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2645904,
+      "parts": 104,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.8737486457824706,
+          0.029699999336153273,
+          -0.6974243938922882
+        ],
+        "max": [
+          1.0939500188827518,
+          5.534100018882752,
+          1.0207751083374024
+        ]
+      }
+    },
+    {
+      "id": "cathy",
+      "seriesId": "zexal",
+      "beforeTriangles": 7332,
+      "triangles": 15900,
+      "triangleRatio": 2.1685761047463177,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2674512,
+      "parts": 109,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.663521617650986,
+          0.02849999936297536,
+          -0.6692053705453872
+        ],
+        "max": [
+          1.0227679193019867,
+          5.310500018119812,
+          0.9795316696166994
+        ]
+      }
+    },
+    {
+      "id": "flip",
+      "seriesId": "zexal",
+      "beforeTriangles": 6322,
+      "triangles": 14698,
+      "triangleRatio": 2.3248971844353052,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2540472,
+      "parts": 101,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.5584570944309237,
+          0.026699999403208493,
+          -0.42693612903356554
+        ],
+        "max": [
+          0.889466017484665,
+          4.975100016975403,
+          0.9176665115356445
+        ]
+      }
+    },
+    {
+      "id": "caswell",
+      "seriesId": "zexal",
+      "beforeTriangles": 7556,
+      "triangles": 17470,
+      "triangleRatio": 2.3120698782424562,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2906376,
+      "parts": 106,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.7160538792610167,
+          0.02939999934285879,
+          -0.4701094454526901
+        ],
+        "max": [
+          0.9794120192527771,
+          5.515302036094666,
+          1.0104642486572266
+        ]
+      }
+    },
+    {
+      "id": "quinton",
+      "seriesId": "zexal",
+      "beforeTriangles": 8488,
+      "triangles": 16760,
+      "triangleRatio": 1.9745523091423185,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2882208,
+      "parts": 114,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.066268956661225,
+          0.03539999920874834,
+          -0.7168228006362914
+        ],
+        "max": [
+          1.2271999549865722,
+          6.5962000225067134,
+          1.2166814422607424
+        ]
+      }
+    },
+    {
+      "id": "quattro",
+      "seriesId": "zexal",
+      "beforeTriangles": 7000,
+      "triangles": 15544,
+      "triangleRatio": 2.2205714285714286,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2721696,
+      "parts": 109,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.9962259411811833,
+          0.034199999235570426,
+          -0.5468620079755783
+        ],
+        "max": [
+          1.185599956512451,
+          7.024887297534942,
+          1.175438003540039
+        ]
+      }
+    },
+    {
+      "id": "trey",
+      "seriesId": "zexal",
+      "beforeTriangles": 6636,
+      "triangles": 14660,
+      "triangleRatio": 2.2091621458710065,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2510832,
+      "parts": 102,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.7160538792610167,
+          0.02939999934285879,
+          -0.676060580921173
+        ],
+        "max": [
+          0.9794120192527771,
+          5.478200018692017,
+          1.0104642486572266
+        ]
+      }
+    },
+    {
+      "id": "vetrix",
+      "seriesId": "zexal",
+      "beforeTriangles": 6660,
+      "triangles": 14684,
+      "triangleRatio": 2.204804804804805,
+      "beforeDrawCalls": 8,
+      "drawCalls": 8,
+      "bufferBytes": 2514000,
+      "parts": 105,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.5409463405609127,
+          0.02639999940991401,
+          -0.6070748073577881
+        ],
+        "max": [
+          0.8794720172882078,
+          4.919200016784669,
+          0.9073556518554685
+        ]
+      }
+    },
+    {
+      "id": "dr-faker",
+      "seriesId": "zexal",
+      "beforeTriangles": 6360,
+      "triangles": 13628,
+      "triangleRatio": 2.1427672955974844,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2374608,
+      "parts": 110,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.7320414447784422,
+          0.03719999916851521,
+          -1.0832640253067016
+        ],
+        "max": [
+          1.588440022468567,
+          7.649937993431092,
+          1.2785466003417971
+        ]
+      }
+    },
+    {
+      "id": "heartland",
+      "seriesId": "zexal",
+      "beforeTriangles": 6422,
+      "triangles": 15174,
+      "triangleRatio": 2.3628153223294923,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2603304,
+      "parts": 106,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.157649955749512,
+          0.034199999235570426,
+          -0.5468620079755783
+        ],
+        "max": [
+          1.2597000217437746,
+          6.942799113178253,
+          1.175438003540039
+        ]
+      }
+    },
+    {
+      "id": "nistro",
+      "seriesId": "zexal",
+      "beforeTriangles": 7048,
+      "triangles": 14956,
+      "triangleRatio": 2.1220204313280364,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2644080,
+      "parts": 117,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.710008852481842,
+          0.03689999917522073,
+          -0.5900353243947029
+        ],
+        "max": [
+          1.5756300222873687,
+          7.638300029325485,
+          1.2682357406616214
+        ]
+      }
+    },
+    {
+      "id": "dextra",
+      "seriesId": "zexal",
+      "beforeTriangles": 6304,
+      "triangles": 14680,
+      "triangleRatio": 2.3286802030456855,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2536800,
+      "parts": 99,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.9086721718311317,
+          0.03269999926909806,
+          -0.5228768321871758
+        ],
+        "max": [
+          1.089346021413803,
+          6.093100020790101,
+          1.1238837051391606
+        ]
+      }
+    },
+    {
+      "id": "girag",
+      "seriesId": "zexal",
+      "beforeTriangles": 6064,
+      "triangles": 13684,
+      "triangleRatio": 2.2565963060686016,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2407920,
+      "parts": 110,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.7320414447784422,
+          0.03719999916851521,
+          -0.5948323595523834
+        ],
+        "max": [
+          1.588440022468567,
+          7.649937993431092,
+          1.2785466003417971
+        ]
+      }
+    },
+    {
+      "id": "alito",
+      "seriesId": "zexal",
+      "beforeTriangles": 6028,
+      "triangles": 13996,
+      "triangleRatio": 2.3218314532183144,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2428368,
+      "parts": 102,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.8926753997802734,
+          0.029999999329447746,
+          -0.47970351576805115
+        ],
+        "max": [
+          1.1050000190734863,
+          6.114177212715149,
+          1.0310859680175781
+        ]
+      }
+    },
+    {
+      "id": "dumon",
+      "seriesId": "zexal",
+      "beforeTriangles": 7524,
+      "triangles": 16436,
+      "triangleRatio": 2.184476342371079,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2871696,
+      "parts": 109,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.9612044334411618,
+          0.03359999924898147,
+          -0.5372679376602173
+        ],
+        "max": [
+          1.1647999572753907,
+          6.260800021362305,
+          1.1548162841796876
+        ]
+      }
+    },
+    {
+      "id": "vector",
+      "seriesId": "zexal",
+      "beforeTriangles": 7036,
+      "triangles": 14944,
+      "triangleRatio": 2.1239340534394544,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2642496,
+      "parts": 115,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.8736506640911108,
+          0.0320999992825091,
+          -0.5132827618718148
+        ],
+        "max": [
+          1.187456387281418,
+          6.601156171751023,
+          1.1032619857788089
+        ]
+      }
+    },
+    {
+      "id": "mizar",
+      "seriesId": "zexal",
+      "beforeTriangles": 8488,
+      "triangles": 16760,
+      "triangleRatio": 1.9745523091423185,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2882208,
+      "parts": 114,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.0487582027912135,
+          0.035099999215453856,
+          -0.7107480311393737
+        ],
+        "max": [
+          1.216799955368042,
+          6.5403000223159795,
+          1.2063705825805662
+        ]
+      }
+    },
+    {
+      "id": "yuya",
+      "seriesId": "arc-v",
+      "beforeTriangles": 6740,
+      "triangles": 16508,
+      "triangleRatio": 2.4492581602373886,
+      "beforeDrawCalls": 7,
+      "drawCalls": 8,
+      "bufferBytes": 2781552,
+      "parts": 111,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.7510753870010376,
+          0.029999999329447746,
+          -0.47970351576805115
+        ],
+        "max": [
+          0.9994000196456909,
+          6.0901746606826785,
+          1.0310859680175781
+        ]
+      }
+    },
+    {
+      "id": "zuzu",
+      "seriesId": "arc-v",
+      "beforeTriangles": 7676,
+      "triangles": 16764,
+      "triangleRatio": 2.1839499739447628,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2852496,
+      "parts": 108,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.7335646331310275,
+          0.029699999336153273,
+          -0.6974454009532929
+        ],
+        "max": [
+          1.0660220754146577,
+          5.534100018882752,
+          1.0207751083374024
+        ]
+      }
+    },
+    {
+      "id": "yuto",
+      "seriesId": "arc-v",
+      "beforeTriangles": 7060,
+      "triangles": 14968,
+      "triangleRatio": 2.120113314447592,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2645664,
+      "parts": 119,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.8211184024810796,
+          0.031199999302625667,
+          -0.4988916563987732
+        ],
+        "max": [
+          1.1541632175445558,
+          6.436743111038208,
+          1.0723294067382818
+        ]
+      }
+    },
+    {
+      "id": "yugo",
+      "seriesId": "arc-v",
+      "beforeTriangles": 6028,
+      "triangles": 13996,
+      "triangleRatio": 2.3218314532183144,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2428368,
+      "parts": 102,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.930528907775879,
+          0.030599999316036706,
+          -0.4892975860834122
+        ],
+        "max": [
+          1.1271000194549559,
+          6.230339741420746,
+          1.0517076873779296
+        ]
+      }
+    },
+    {
+      "id": "yuri",
+      "seriesId": "arc-v",
+      "beforeTriangles": 6010,
+      "triangles": 14266,
+      "triangleRatio": 2.373710482529118,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2483448,
+      "parts": 103,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.8211184024810796,
+          0.031199999302625667,
+          -0.4988916563987732
+        ],
+        "max": [
+          1.039376020431519,
+          6.358744301223755,
+          1.0723294067382818
+        ]
+      }
+    },
+    {
+      "id": "celina",
+      "seriesId": "arc-v",
+      "beforeTriangles": 6658,
+      "triangles": 15306,
+      "triangleRatio": 2.2988885551216582,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2620728,
+      "parts": 103,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.8036076486110688,
+          0.03089999930933118,
+          -0.7400308299064636
+        ],
+        "max": [
+          1.0293820202350616,
+          5.757700019645692,
+          1.0620185470581054
+        ]
+      }
+    },
+    {
+      "id": "rin",
+      "seriesId": "arc-v",
+      "beforeTriangles": 6340,
+      "triangles": 14428,
+      "triangleRatio": 2.275709779179811,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2485392,
+      "parts": 100,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.7860968947410587,
+          0.030599999316036706,
+          -0.4892975860834122
+        ],
+        "max": [
+          1.0193880200386047,
+          5.701800019454956,
+          1.0517076873779296
+        ]
+      }
+    },
+    {
+      "id": "lulu",
+      "seriesId": "arc-v",
+      "beforeTriangles": 6972,
+      "triangles": 15268,
+      "triangleRatio": 2.1899024670109006,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2591088,
+      "parts": 104,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.8036076486110688,
+          0.03089999930933118,
+          -0.7397875916957856
+        ],
+        "max": [
+          1.0293820202350616,
+          5.757700019645692,
+          1.0620185470581054
+        ]
+      }
+    },
+    {
+      "id": "declan",
+      "seriesId": "arc-v",
+      "beforeTriangles": 7624,
+      "triangles": 16912,
+      "triangleRatio": 2.2182581322140607,
+      "beforeDrawCalls": 8,
+      "drawCalls": 8,
+      "bufferBytes": 2934528,
+      "parts": 114,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.0312474489212033,
+          0.034799999222159386,
+          -0.5564560782909392
+        ],
+        "max": [
+          1.2063999557495115,
+          7.120287973976135,
+          1.1960597229003906
+        ]
+      }
+    },
+    {
+      "id": "riley",
+      "seriesId": "arc-v",
+      "beforeTriangles": 7424,
+      "triangles": 16088,
+      "triangleRatio": 2.1670258620689653,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2793504,
+      "parts": 109,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.488414078950882,
+          0.025499999430030583,
+          -0.6290000081062317
+        ],
+        "max": [
+          0.8839999675750733,
+          4.981,
+          0.8764230728149414
+        ]
+      }
+    },
+    {
+      "id": "shay",
+      "seriesId": "arc-v",
+      "beforeTriangles": 7048,
+      "triangles": 14956,
+      "triangleRatio": 2.1220204313280364,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2644080,
+      "parts": 117,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.0312474489212033,
+          0.034799999222159386,
+          -0.5564560782909392
+        ],
+        "max": [
+          1.2063999557495115,
+          7.203600027656555,
+          1.1960597229003906
+        ]
+      }
+    },
+    {
+      "id": "sora",
+      "seriesId": "arc-v",
+      "beforeTriangles": 5992,
+      "triangles": 14248,
+      "triangleRatio": 2.3778371161548733,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2479776,
+      "parts": 101,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.5759678483009334,
+          0.026999999396502966,
+          -0.431733164191246
+        ],
+        "max": [
+          0.8994600176811215,
+          5.540563189029694,
+          0.9279773712158201
+        ]
+      }
+    },
+    {
+      "id": "gong",
+      "seriesId": "arc-v",
+      "beforeTriangles": 6324,
+      "triangles": 14228,
+      "triangleRatio": 2.249841872232764,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2453808,
+      "parts": 104,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.7540740370750427,
+          0.03749999916180968,
+          -1.092000025510788
+        ],
+        "max": [
+          1.601250022649765,
+          7.702727299928665,
+          1.2888574600219727
+        ]
+      }
+    },
+    {
+      "id": "silvio",
+      "seriesId": "arc-v",
+      "beforeTriangles": 7000,
+      "triangles": 15544,
+      "triangleRatio": 2.2205714285714286,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2721696,
+      "parts": 109,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.8736506640911108,
+          0.0320999992825091,
+          -0.5132827618718148
+        ],
+        "max": [
+          1.1127999591827393,
+          6.599955123853684,
+          1.1032619857788089
+        ]
+      }
+    },
+    {
+      "id": "yusho",
+      "seriesId": "arc-v",
+      "beforeTriangles": 7112,
+      "triangles": 15656,
+      "triangleRatio": 2.201349831271091,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2736480,
+      "parts": 111,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.066268956661225,
+          0.03539999920874834,
+          -0.8732000112533569
+        ],
+        "max": [
+          1.2271999549865722,
+          7.2855357954978945,
+          1.2166814422607424
+        ]
+      }
+    },
+    {
+      "id": "yoko",
+      "seriesId": "arc-v",
+      "beforeTriangles": 6640,
+      "triangles": 15288,
+      "triangleRatio": 2.302409638554217,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2617056,
+      "parts": 101,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.0819429397583002,
+          0.03299999926239251,
+          -0.7885909736156465
+        ],
+        "max": [
+          1.2155000209808349,
+          6.149000020980836,
+          1.134194564819336
+        ]
+      }
+    },
+    {
+      "id": "leo-akaba",
+      "seriesId": "arc-v",
+      "beforeTriangles": 8224,
+      "triangles": 16352,
+      "triangleRatio": 1.9883268482490273,
+      "beforeDrawCalls": 8,
+      "drawCalls": 8,
+      "bufferBytes": 2734176,
+      "parts": 112,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.066268956661225,
+          0.03539999920874834,
+          -0.8140321280479431
+        ],
+        "max": [
+          1.1792920231819155,
+          6.5962000225067134,
+          1.2166814422607424
+        ]
+      }
+    },
+    {
+      "id": "dennis",
+      "seriesId": "arc-v",
+      "beforeTriangles": 6058,
+      "triangles": 13678,
+      "triangleRatio": 2.257840871574777,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2405832,
+      "parts": 111,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.8911614179611207,
+          0.032399999275803566,
+          -0.5180797970294952
+        ],
+        "max": [
+          1.0793520212173462,
+          6.7068000257492075,
+          1.1135728454589842
+        ]
+      }
+    },
+    {
+      "id": "moon-shadow",
+      "seriesId": "arc-v",
+      "beforeTriangles": 7168,
+      "triangles": 16586,
+      "triangleRatio": 2.3138950892857144,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2789688,
+      "parts": 106,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.9261829257011414,
+          0.03299999926239251,
+          -0.5276738673448563
+        ],
+        "max": [
+          1.0993400216102598,
+          6.1554451367855085,
+          1.134194564819336
+        ]
+      }
+    },
+    {
+      "id": "shinji",
+      "seriesId": "arc-v",
+      "beforeTriangles": 6028,
+      "triangles": 13996,
+      "triangleRatio": 2.3218314532183144,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2428368,
+      "parts": 102,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.176576709747315,
+          0.03449999922886492,
+          -0.5516590431332588
+        ],
+        "max": [
+          1.2707500219345094,
+          7.031303794622421,
+          1.1857488632202153
+        ]
+      }
+    },
+    {
+      "id": "sergey",
+      "seriesId": "arc-v",
+      "beforeTriangles": 6580,
+      "triangles": 14016,
+      "triangleRatio": 2.1300911854103344,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2566080,
+      "parts": 91,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.7540740370750427,
+          0.03749999916180968,
+          -0.8031094253063202
+        ],
+        "max": [
+          1.601250022649765,
+          6.899999958276749,
+          1.2888574600219727
+        ]
+      }
+    },
+    {
+      "id": "roget",
+      "seriesId": "arc-v",
+      "beforeTriangles": 6010,
+      "triangles": 14266,
+      "triangleRatio": 2.373710482529118,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2483448,
+      "parts": 103,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.0487582027912135,
+          0.035099999215453856,
+          -0.5612531134486198
+        ],
+        "max": [
+          1.1692980229854584,
+          7.167628552865983,
+          1.2063705825805662
+        ]
+      }
+    },
+    {
+      "id": "chojiro",
+      "seriesId": "arc-v",
+      "beforeTriangles": 6324,
+      "triangles": 14228,
+      "triangleRatio": 2.249841872232764,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2453808,
+      "parts": 104,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.710008852481842,
+          0.03689999917522073,
+          -1.0745280251026155
+        ],
+        "max": [
+          1.5756300222873687,
+          7.542579886007309,
+          1.2682357406616214
+        ]
+      }
+    },
+    {
+      "id": "skip",
+      "seriesId": "arc-v",
+      "beforeTriangles": 6088,
+      "triangles": 13420,
+      "triangleRatio": 2.204336399474376,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2352336,
+      "parts": 112,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.5998458909988407,
+          0.03539999920874834,
+          -0.5660501486063003
+        ],
+        "max": [
+          1.5115800213813784,
+          7.303227760601043,
+          1.2166814422607424
+        ]
+      }
+    },
+    {
+      "id": "gloria",
+      "seriesId": "arc-v",
+      "beforeTriangles": 7498,
+      "triangles": 15482,
+      "triangleRatio": 2.064817284609229,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2643960,
+      "parts": 108,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.9787151873111724,
+          0.033899999242275956,
+          -0.6864489531517028
+        ],
+        "max": [
+          1.1293220221996307,
+          6.316700021553039,
+          1.1651271438598632
+        ]
+      }
+    },
+    {
+      "id": "grace",
+      "seriesId": "arc-v",
+      "beforeTriangles": 6322,
+      "triangles": 14698,
+      "triangleRatio": 2.3248971844353052,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2540472,
+      "parts": 101,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.8911614179611207,
+          0.032399999275803566,
+          -0.5180797970294952
+        ],
+        "max": [
+          1.0793520212173462,
+          6.037200020599366,
+          1.1135728454589842
+        ]
+      }
+    },
+    {
+      "id": "zarc",
+      "seriesId": "arc-v",
+      "beforeTriangles": 6804,
+      "triangles": 14936,
+      "triangleRatio": 2.1951793062904175,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2655840,
+      "parts": 120,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.710008852481842,
+          0.03689999917522073,
+          -0.5900353243947029
+        ],
+        "max": [
+          2.115600035190582,
+          7.612686564016342,
+          1.2682357406616214
+        ]
+      }
+    },
+    {
+      "id": "ray",
+      "seriesId": "arc-v",
+      "beforeTriangles": 8180,
+      "triangles": 16332,
+      "triangleRatio": 1.9965770171149144,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2795472,
+      "parts": 111,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.9436936795711521,
+          0.033299999255687,
+          -0.6742994141578675
+        ],
+        "max": [
+          1.109334021806717,
+          6.204900021171571,
+          1.144505424499512
+        ]
+      }
+    },
+    {
+      "id": "playmaker",
+      "seriesId": "vrains",
+      "beforeTriangles": 6956,
+      "triangles": 15720,
+      "triangleRatio": 2.2599194939620473,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2781792,
+      "parts": 120,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.8736506640911108,
+          0.0320999992825091,
+          -0.5456999897956848
+        ],
+        "max": [
+          1.187456387281418,
+          6.601156171751023,
+          1.1032619857788089
+        ]
+      }
+    },
+    {
+      "id": "soulburner",
+      "seriesId": "vrains",
+      "beforeTriangles": 7460,
+      "triangles": 16632,
+      "triangleRatio": 2.229490616621984,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2879712,
+      "parts": 113,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.0440894317626954,
+          0.032399999275803566,
+          -0.5180797970294952
+        ],
+        "max": [
+          1.1934000205993653,
+          6.7068000257492075,
+          1.1135728454589842
+        ]
+      }
+    },
+    {
+      "id": "varis",
+      "seriesId": "vrains",
+      "beforeTriangles": 6814,
+      "triangles": 14688,
+      "triangleRatio": 2.1555620780745524,
+      "beforeDrawCalls": 8,
+      "drawCalls": 8,
+      "bufferBytes": 2623104,
+      "parts": 96,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.066268956661225,
+          0.03539999920874834,
+          -0.7198000168800354
+        ],
+        "max": [
+          1.1837760639190673,
+          6.891200163173675,
+          1.2166814422607424
+        ]
+      }
+    },
+    {
+      "id": "blue-angel",
+      "seriesId": "vrains",
+      "beforeTriangles": 7388,
+      "triangles": 15956,
+      "triangleRatio": 2.159718462371413,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2681904,
+      "parts": 116,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.7860968947410587,
+          0.030599999316036706,
+          -0.718619019985199
+        ],
+        "max": [
+          1.7544000291824342,
+          5.701800019454956,
+          1.0517076873779296
+        ]
+      }
+    },
+    {
+      "id": "ghost-gal",
+      "seriesId": "vrains",
+      "beforeTriangles": 7700,
+      "triangles": 16628,
+      "triangleRatio": 2.1594805194805193,
+      "beforeDrawCalls": 8,
+      "drawCalls": 8,
+      "bufferBytes": 2864784,
+      "parts": 111,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.9787151873111724,
+          0.033899999242275956,
+          -0.8119931858777999
+        ],
+        "max": [
+          1.1751999568939209,
+          6.316700021553039,
+          1.1651271438598632
+        ]
+      }
+    },
+    {
+      "id": "the-gore",
+      "seriesId": "vrains",
+      "beforeTriangles": 6676,
+      "triangles": 15232,
+      "triangleRatio": 2.2816057519472737,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2694912,
+      "parts": 101,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.7540740370750427,
+          0.03749999916180968,
+          -0.5996293947100639
+        ],
+        "max": [
+          1.601250022649765,
+          7.6502221643924715,
+          1.2888574600219727
+        ]
+      }
+    },
+    {
+      "id": "ai",
+      "seriesId": "vrains",
+      "beforeTriangles": 6010,
+      "triangles": 14266,
+      "triangleRatio": 2.373710482529118,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2483448,
+      "parts": 103,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.9436936795711521,
+          0.033299999255687,
+          -0.5324709025025368
+        ],
+        "max": [
+          1.109334021806717,
+          6.800057857847214,
+          1.144505424499512
+        ]
+      }
+    },
+    {
+      "id": "roboppi",
+      "seriesId": "vrains",
+      "beforeTriangles": 7220,
+      "triangles": 16372,
+      "triangleRatio": 2.267590027700831,
+      "beforeDrawCalls": 8,
+      "drawCalls": 8,
+      "bufferBytes": 2877072,
+      "parts": 103,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.488414078950882,
+          0.025499999430030583,
+          -0.5461144092082978
+        ],
+        "max": [
+          0.852720046043396,
+          4.751500016212463,
+          0.8764230728149414
+        ]
+      }
+    },
+    {
+      "id": "akira",
+      "seriesId": "vrains",
+      "beforeTriangles": 7144,
+      "triangles": 16562,
+      "triangleRatio": 2.3183090705487124,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2786520,
+      "parts": 103,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.0837797105312346,
+          0.035699999202042816,
+          -0.5708471837639808
+        ],
+        "max": [
+          1.1892860233783722,
+          6.687632524037362,
+          1.226992301940918
+        ]
+      }
+    },
+    {
+      "id": "shoichi",
+      "seriesId": "vrains",
+      "beforeTriangles": 6028,
+      "triangles": 13648,
+      "triangleRatio": 2.2641008626410084,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2400576,
+      "parts": 107,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.7320414447784422,
+          0.03719999916851521,
+          -0.5948323595523834
+        ],
+        "max": [
+          1.588440022468567,
+          7.649937993431092,
+          1.2785466003417971
+        ]
+      }
+    },
+    {
+      "id": "jin",
+      "seriesId": "vrains",
+      "beforeTriangles": 5992,
+      "triangles": 14248,
+      "triangleRatio": 2.3778371161548733,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2479776,
+      "parts": 101,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.7510753870010376,
+          0.029999999329447746,
+          -0.47970351576805115
+        ],
+        "max": [
+          0.9994000196456909,
+          6.150180802345276,
+          1.0310859680175781
+        ]
+      }
+    },
+    {
+      "id": "naoki",
+      "seriesId": "vrains",
+      "beforeTriangles": 6070,
+      "triangles": 13690,
+      "triangleRatio": 2.2553542009884677,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2407416,
+      "parts": 113,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.930528907775879,
+          0.030599999316036706,
+          -0.4892975860834122
+        ],
+        "max": [
+          1.1319677710533143,
+          6.312959589672089,
+          1.0517076873779296
+        ]
+      }
+    },
+    {
+      "id": "spectre",
+      "seriesId": "vrains",
+      "beforeTriangles": 7000,
+      "triangles": 15544,
+      "triangleRatio": 2.2205714285714286,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2721696,
+      "parts": 109,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.0487582027912135,
+          0.035099999215453856,
+          -0.5612531134486198
+        ],
+        "max": [
+          1.216799955368042,
+          7.20975275273323,
+          1.2063705825805662
+        ]
+      }
+    },
+    {
+      "id": "windy",
+      "seriesId": "vrains",
+      "beforeTriangles": 7034,
+      "triangles": 15172,
+      "triangleRatio": 2.156951947682684,
+      "beforeDrawCalls": 9,
+      "drawCalls": 9,
+      "bufferBytes": 2718672,
+      "parts": 98,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.488414078950882,
+          0.025499999430030583,
+          -0.5461144092082978
+        ],
+        "max": [
+          0.852720046043396,
+          4.96400011754036,
+          0.8764230728149414
+        ]
+      }
+    },
+    {
+      "id": "lightning",
+      "seriesId": "vrains",
+      "beforeTriangles": 6916,
+      "triangles": 15320,
+      "triangleRatio": 2.2151532677848467,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2738208,
+      "parts": 113,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.523435586690903,
+          0.026099999416619547,
+          -0.5589641600131988
+        ],
+        "max": [
+          0.9655019223690033,
+          5.384583179426193,
+          0.8970447921752932
+        ]
+      }
+    },
+    {
+      "id": "flame",
+      "seriesId": "vrains",
+      "beforeTriangles": 6892,
+      "triangles": 15296,
+      "triangleRatio": 2.219384793964016,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2735040,
+      "parts": 109,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.6277008438110354,
+          0.025799999423325063,
+          -0.5525392846107483
+        ],
+        "max": [
+          0.9544041991233826,
+          5.305602156734468,
+          0.8867339324951172
+        ]
+      }
+    },
+    {
+      "id": "aqua",
+      "seriesId": "vrains",
+      "beforeTriangles": 8344,
+      "triangles": 17112,
+      "triangleRatio": 2.050814956855225,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2974752,
+      "parts": 108,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.505924832820892,
+          0.025799999423325063,
+          -0.5525392846107483
+        ],
+        "max": [
+          0.862752046585083,
+          4.807400016403199,
+          0.8867339324951172
+        ]
+      }
+    },
+    {
+      "id": "earth",
+      "seriesId": "vrains",
+      "beforeTriangles": 6982,
+      "triangles": 15128,
+      "triangleRatio": 2.166714408478946,
+      "beforeDrawCalls": 8,
+      "drawCalls": 8,
+      "bufferBytes": 2712864,
+      "parts": 96,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.9609007143974304,
+          0.026699999403208493,
+          -0.5718139108181
+        ],
+        "max": [
+          1.140090016126633,
+          5.197600123071671,
+          0.9176665115356445
+        ]
+      }
+    },
+    {
+      "id": "kiyoshi",
+      "seriesId": "vrains",
+      "beforeTriangles": 7870,
+      "triangles": 17432,
+      "triangleRatio": 2.2149936467598477,
+      "beforeDrawCalls": 8,
+      "drawCalls": 8,
+      "bufferBytes": 2876736,
+      "parts": 107,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.214430217742919,
+          0.035099999215453856,
+          -0.8517599994421006
+        ],
+        "max": [
+          1.2928500223159787,
+          6.5471552818536765,
+          1.2063705825805662
+        ]
+      }
+    },
+    {
+      "id": "queen",
+      "seriesId": "vrains",
+      "beforeTriangles": 6374,
+      "triangles": 14742,
+      "triangleRatio": 2.3128333856291183,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2546280,
+      "parts": 103,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.9962259411811833,
+          0.034199999235570426,
+          -0.5468620079755783
+        ],
+        "max": [
+          1.1393160223960876,
+          6.372600021743774,
+          1.175438003540039
+        ]
+      }
+    },
+    {
+      "id": "yuga",
+      "seriesId": "sevens",
+      "beforeTriangles": 6052,
+      "triangles": 13468,
+      "triangleRatio": 2.225380039656312,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2363856,
+      "parts": 114,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.5584570944309237,
+          0.026699999403208493,
+          -0.42693612903356554
+        ],
+        "max": [
+          0.9876973688602447,
+          5.490681301736831,
+          0.9176665115356445
+        ]
+      }
+    },
+    {
+      "id": "luke",
+      "seriesId": "sevens",
+      "beforeTriangles": 6052,
+      "triangles": 13384,
+      "triangleRatio": 2.211500330469266,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2345856,
+      "parts": 108,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.7335646331310275,
+          0.029699999336153273,
+          -0.4749064806103706
+        ],
+        "max": [
+          0.9894060194492341,
+          6.147900023603439,
+          1.0207751083374024
+        ]
+      }
+    },
+    {
+      "id": "romin",
+      "seriesId": "sevens",
+      "beforeTriangles": 7516,
+      "triangles": 14900,
+      "triangleRatio": 1.9824374667376263,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2525232,
+      "parts": 103,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.663521617650986,
+          0.02849999936297536,
+          -0.5771031022071839
+        ],
+        "max": [
+          0.9494300186634065,
+          5.310500018119812,
+          0.9795316696166994
+        ]
+      }
+    },
+    {
+      "id": "gakuto",
+      "seriesId": "sevens",
+      "beforeTriangles": 6322,
+      "triangles": 14698,
+      "triangleRatio": 2.3248971844353052,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2540472,
+      "parts": 101,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.7510753870010376,
+          0.029999999329447746,
+          -0.47970351576805115
+        ],
+        "max": [
+          0.9994000196456909,
+          5.590000019073487,
+          1.0310859680175781
+        ]
+      }
+    },
+    {
+      "id": "roa",
+      "seriesId": "sevens",
+      "beforeTriangles": 7048,
+      "triangles": 14956,
+      "triangleRatio": 2.1220204313280364,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2644080,
+      "parts": 117,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.8386291563510895,
+          0.031499999295920136,
+          -0.5036886915564537
+        ],
+        "max": [
+          1.0919999599456787,
+          6.520500025033952,
+          1.0826402664184571
+        ]
+      }
+    },
+    {
+      "id": "nail",
+      "seriesId": "sevens",
+      "beforeTriangles": 6322,
+      "triangles": 14698,
+      "triangleRatio": 2.3248971844353052,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2540472,
+      "parts": 101,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.7160538792610167,
+          0.02939999934285879,
+          -0.4701094454526901
+        ],
+        "max": [
+          0.9794120192527771,
+          5.478200018692017,
+          1.0104642486572266
+        ]
+      }
+    },
+    {
+      "id": "asana",
+      "seriesId": "sevens",
+      "beforeTriangles": 8488,
+      "triangles": 16760,
+      "triangleRatio": 1.9745523091423185,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2882208,
+      "parts": 114,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.8211184024810796,
+          0.031199999302625667,
+          -0.6317760276794434
+        ],
+        "max": [
+          1.0815999603271484,
+          5.813600019836426,
+          1.0723294067382818
+        ]
+      }
+    },
+    {
+      "id": "mimi",
+      "seriesId": "sevens",
+      "beforeTriangles": 6636,
+      "triangles": 14660,
+      "triangleRatio": 2.2091621458710065,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2510832,
+      "parts": 102,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.488414078950882,
+          0.025499999430030583,
+          -0.4842144387364387
+        ],
+        "max": [
+          0.8494900166988374,
+          4.751500016212463,
+          0.8764230728149414
+        ]
+      }
+    },
+    {
+      "id": "yoshio",
+      "seriesId": "sevens",
+      "beforeTriangles": 7000,
+      "triangles": 15544,
+      "triangleRatio": 2.2205714285714286,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2721696,
+      "parts": 109,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.6466275978088383,
+          0.026099999416619547,
+          -0.4173420587182045
+        ],
+        "max": [
+          0.9613500165939333,
+          5.340215980482101,
+          0.8970447921752932
+        ]
+      }
+    },
+    {
+      "id": "tiger",
+      "seriesId": "sevens",
+      "beforeTriangles": 7492,
+      "triangles": 15476,
+      "triangleRatio": 2.065670048051255,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2642736,
+      "parts": 107,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.1008696937561036,
+          0.033299999255687,
+          -0.6742994141578675
+        ],
+        "max": [
+          1.2265500211715699,
+          6.204900021171571,
+          1.144505424499512
+        ]
+      }
+    },
+    {
+      "id": "otes",
+      "seriesId": "sevens",
+      "beforeTriangles": 6474,
+      "triangles": 13484,
+      "triangleRatio": 2.0827927092987335,
+      "beforeDrawCalls": 9,
+      "drawCalls": 9,
+      "bufferBytes": 2355600,
+      "parts": 100,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.136311972141266,
+          0.03659999918192625,
+          -0.8416264374732971
+        ],
+        "max": [
+          1.219268023967743,
+          7.124800168704987,
+          1.2579248809814454
+        ]
+      }
+    },
+    {
+      "id": "yuro",
+      "seriesId": "sevens",
+      "beforeTriangles": 6162,
+      "triangles": 14402,
+      "triangleRatio": 2.3372281726712107,
+      "beforeDrawCalls": 8,
+      "drawCalls": 8,
+      "bufferBytes": 2501400,
+      "parts": 112,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.8561399102211,
+          0.03179999928921461,
+          -0.5564999898910523
+        ],
+        "max": [
+          1.0593640208244324,
+          6.525552200412751,
+          1.092951126098633
+        ]
+      }
+    },
+    {
+      "id": "yujin",
+      "seriesId": "sevens",
+      "beforeTriangles": 6028,
+      "triangles": 13996,
+      "triangleRatio": 2.3218314532183144,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2428368,
+      "parts": 102,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.157649955749512,
+          0.034199999235570426,
+          -0.5468620079755783
+        ],
+        "max": [
+          1.2597000217437746,
+          7.024887297534942,
+          1.175438003540039
+        ]
+      }
+    },
+    {
+      "id": "yuka",
+      "seriesId": "sevens",
+      "beforeTriangles": 7650,
+      "triangles": 15618,
+      "triangleRatio": 2.0415686274509803,
+      "beforeDrawCalls": 8,
+      "drawCalls": 8,
+      "bufferBytes": 2661912,
+      "parts": 117,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.9494556617736818,
+          0.03089999930933118,
+          -0.6257012581825256
+        ],
+        "max": [
+          1.1638999950885773,
+          5.757700019645692,
+          1.0620185470581054
+        ]
+      }
+    },
+    {
+      "id": "yuran",
+      "seriesId": "sevens",
+      "beforeTriangles": 7168,
+      "triangles": 16586,
+      "triangleRatio": 2.3138950892857144,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2789688,
+      "parts": 106,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.8386291563510895,
+          0.031499999295920136,
+          -0.5036886915564537
+        ],
+        "max": [
+          1.0493700206279755,
+          5.926052215576172,
+          1.0826402664184571
+        ]
+      }
+    },
+    {
+      "id": "yuo",
+      "seriesId": "sevens",
+      "beforeTriangles": 7644,
+      "triangles": 16564,
+      "triangleRatio": 2.166928309785453,
+      "beforeDrawCalls": 8,
+      "drawCalls": 8,
+      "bufferBytes": 2856336,
+      "parts": 117,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.523435586690903,
+          0.026099999416619547,
+          -0.4567499917030335
+        ],
+        "max": [
+          0.9047999668121338,
+          4.863300016593933,
+          0.8970447921752932
+        ]
+      }
+    },
+    {
+      "id": "yuga-goha",
+      "seriesId": "sevens",
+      "beforeTriangles": 6046,
+      "triangles": 13666,
+      "triangleRatio": 2.2603374131657294,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2404248,
+      "parts": 109,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.6810323715209956,
+          0.028799999356269826,
+          -0.4605153751373291
+        ],
+        "max": [
+          1.0653814315795898,
+          5.9225326400756835,
+          0.9898425292968748
+        ]
+      }
+    },
+    {
+      "id": "ranze",
+      "seriesId": "sevens",
+      "beforeTriangles": 6658,
+      "triangles": 15306,
+      "triangleRatio": 2.2988885551216582,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2620728,
+      "parts": 103,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.7685861408710484,
+          0.030299999322742233,
+          -0.7260011923313141
+        ],
+        "max": [
+          1.0093940198421483,
+          5.6459000192642215,
+          1.041396827697754
+        ]
+      }
+    },
+    {
+      "id": "rinnosuke",
+      "seriesId": "sevens",
+      "beforeTriangles": 7144,
+      "triangles": 16562,
+      "triangleRatio": 2.3183090705487124,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2786520,
+      "parts": 103,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.7160538792610167,
+          0.02939999934285879,
+          -0.4701094454526901
+        ],
+        "max": [
+          0.9794120192527771,
+          5.483942030954362,
+          1.0104642486572266
+        ]
+      }
+    },
+    {
+      "id": "sebastian",
+      "seriesId": "sevens",
+      "beforeTriangles": 6982,
+      "triangles": 15128,
+      "triangleRatio": 2.166714408478946,
+      "beforeDrawCalls": 8,
+      "drawCalls": 8,
+      "bufferBytes": 2712864,
+      "parts": 96,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.066268956661225,
+          0.03539999920874834,
+          -0.7581352974891662
+        ],
+        "max": [
+          1.1837760639190673,
+          6.891200163173675,
+          1.2166814422607424
+        ]
+      }
+    },
+    {
+      "id": "yudias",
+      "seriesId": "go-rush",
+      "beforeTriangles": 7396,
+      "triangles": 16068,
+      "triangleRatio": 2.172525689561925,
+      "beforeDrawCalls": 8,
+      "drawCalls": 9,
+      "bufferBytes": 2805552,
+      "parts": 132,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.9787151873111724,
+          0.033899999242275956,
+          -0.5932499892234802
+        ],
+        "max": [
+          1.2540427267551422,
+          6.971314461755752,
+          1.1651271438598632
+        ]
+      }
+    },
+    {
+      "id": "yuhi",
+      "seriesId": "go-rush",
+      "beforeTriangles": 6800,
+      "triangles": 15460,
+      "triangleRatio": 2.273529411764706,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2640624,
+      "parts": 115,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.628500109910966,
+          0.027899999376386417,
+          -0.4461242696642876
+        ],
+        "max": [
+          0.9294420182704927,
+          5.775300022172929,
+          0.958909950256348
+        ]
+      }
+    },
+    {
+      "id": "yuamu",
+      "seriesId": "go-rush",
+      "beforeTriangles": 7940,
+      "triangles": 16132,
+      "triangleRatio": 2.0317380352644836,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2709456,
+      "parts": 112,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.628500109910966,
+          0.027899999376386417,
+          -0.5649535632133484
+        ],
+        "max": [
+          0.9294420182704927,
+          5.198700017738343,
+          0.958909950256348
+        ]
+      }
+    },
+    {
+      "id": "zwijo",
+      "seriesId": "go-rush",
+      "beforeTriangles": 9664,
+      "triangles": 19840,
+      "triangleRatio": 2.052980132450331,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 3288768,
+      "parts": 121,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.710008852481842,
+          0.03689999917522073,
+          -0.7471966481208802
+        ],
+        "max": [
+          1.5756300222873687,
+          6.875700023460388,
+          1.2682357406616214
+        ]
+      }
+    },
+    {
+      "id": "manabu",
+      "seriesId": "go-rush",
+      "beforeTriangles": 7144,
+      "triangles": 16562,
+      "triangleRatio": 2.3183090705487124,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2786520,
+      "parts": 103,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.8561399102211,
+          0.03179999928921461,
+          -0.5084857267141343
+        ],
+        "max": [
+          1.0593640208244324,
+          5.940090785360336,
+          1.092951126098633
+        ]
+      }
+    },
+    {
+      "id": "mitsuko",
+      "seriesId": "go-rush",
+      "beforeTriangles": 7812,
+      "triangles": 15444,
+      "triangleRatio": 1.976958525345622,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2614320,
+      "parts": 109,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.188844233751297,
+          0.03749999916180968,
+          -0.7593461871147156
+        ],
+        "max": [
+          1.2492500245571136,
+          6.987500023841858,
+          1.2888574600219727
+        ]
+      }
+    },
+    {
+      "id": "manya",
+      "seriesId": "go-rush",
+      "beforeTriangles": 6748,
+      "triangles": 14772,
+      "triangleRatio": 2.189093064611737,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2525616,
+      "parts": 104,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.593478602170944,
+          0.027299999389797443,
+          -0.6734000086784363
+        ],
+        "max": [
+          0.9094540178775785,
+          5.3326,
+          0.9382882308959959
+        ]
+      }
+    },
+    {
+      "id": "nyandestar",
+      "seriesId": "go-rush",
+      "beforeTriangles": 6480,
+      "triangles": 13188,
+      "triangleRatio": 2.035185185185185,
+      "beforeDrawCalls": 5,
+      "drawCalls": 5,
+      "bufferBytes": 2320848,
+      "parts": 84,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.8911614179611207,
+          0.032399999275803566,
+          -1.0887489366531375
+        ],
+        "max": [
+          1.0955520057678223,
+          6.425999778556825,
+          1.1135728454589842
+        ]
+      }
+    },
+    {
+      "id": "the-luge",
+      "seriesId": "go-rush",
+      "beforeTriangles": 7916,
+      "triangles": 15532,
+      "triangleRatio": 1.9621020717534108,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2625936,
+      "parts": 112,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.7320414447784422,
+          0.03719999916851521,
+          -1.0832640253067016
+        ],
+        "max": [
+          1.6814399337768555,
+          6.931600023651123,
+          1.2785466003417971
+        ]
+      }
+    },
+    {
+      "id": "rovian",
+      "seriesId": "go-rush",
+      "beforeTriangles": 8600,
+      "triangles": 16872,
+      "triangleRatio": 1.961860465116279,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2896992,
+      "parts": 116,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.8561399102211,
+          0.03179999928921461,
+          -0.7844000101089478
+        ],
+        "max": [
+          1.102399959564209,
+          6.211600000000001,
+          1.092951126098633
+        ]
+      }
+    },
+    {
+      "id": "yuna",
+      "seriesId": "go-rush",
+      "beforeTriangles": 7498,
+      "triangles": 15482,
+      "triangleRatio": 2.064817284609229,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2643960,
+      "parts": 108,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.7510753870010376,
+          0.029999999329447746,
+          -0.6074769496917725
+        ],
+        "max": [
+          0.9994000196456909,
+          5.590000019073487,
+          1.0310859680175781
+        ]
+      }
+    },
+    {
+      "id": "asaka",
+      "seriesId": "go-rush",
+      "beforeTriangles": 7498,
+      "triangles": 15482,
+      "triangleRatio": 2.064817284609229,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2643960,
+      "parts": 108,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.9962259411811833,
+          0.034199999235570426,
+          -0.6925237226486205
+        ],
+        "max": [
+          1.1393160223960876,
+          6.372600021743774,
+          1.175438003540039
+        ]
+      }
+    },
+    {
+      "id": "london",
+      "seriesId": "go-rush",
+      "beforeTriangles": 6658,
+      "triangles": 15306,
+      "triangleRatio": 2.2988885551216582,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2620728,
+      "parts": 103,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.9086721718311317,
+          0.03269999926909806,
+          -0.7820440435409547
+        ],
+        "max": [
+          1.089346021413803,
+          6.093100020790101,
+          1.1238837051391606
+        ]
+      }
+    },
+    {
+      "id": "epoch",
+      "seriesId": "go-rush",
+      "beforeTriangles": 6248,
+      "triangles": 13610,
+      "triangleRatio": 2.1782970550576186,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2396856,
+      "parts": 98,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.6087740898132323,
+          0.025499999430030583,
+          -0.6290000081062317
+        ],
+        "max": [
+          0.9392500162124634,
+          4.981,
+          0.8764230728149414
+        ]
+      }
+    },
+    {
+      "id": "ranran",
+      "seriesId": "go-rush",
+      "beforeTriangles": 6658,
+      "triangles": 15306,
+      "triangleRatio": 2.2988885551216582,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2620728,
+      "parts": 103,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.9086721718311317,
+          0.03269999926909806,
+          -0.7816385066509247
+        ],
+        "max": [
+          1.089346021413803,
+          6.093100020790101,
+          1.1238837051391606
+        ]
+      }
+    },
+    {
+      "id": "tremolo",
+      "seriesId": "go-rush",
+      "beforeTriangles": 7498,
+      "triangles": 15482,
+      "triangleRatio": 2.064817284609229,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2643960,
+      "parts": 108,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.9962259411811833,
+          0.034199999235570426,
+          -0.6925237226486205
+        ],
+        "max": [
+          1.1393160223960876,
+          6.372600021743774,
+          1.175438003540039
+        ]
+      }
+    },
+    {
+      "id": "phaser",
+      "seriesId": "go-rush",
+      "beforeTriangles": 7000,
+      "triangles": 15544,
+      "triangleRatio": 2.2205714285714286,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2721696,
+      "parts": 109,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.7320414447784422,
+          0.03719999916851521,
+          -0.5948323595523834
+        ],
+        "max": [
+          1.588440022468567,
+          7.5518165792465215,
+          1.2785466003417971
+        ]
+      }
+    },
+    {
+      "id": "bochi",
+      "seriesId": "go-rush",
+      "beforeTriangles": 6842,
+      "triangles": 13846,
+      "triangleRatio": 2.023677287342882,
+      "beforeDrawCalls": 5,
+      "drawCalls": 5,
+      "bufferBytes": 2446872,
+      "parts": 89,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.4456177449226386,
+          0.033299999255687,
+          -1.1308242237567903
+        ],
+        "max": [
+          1.4385600042343143,
+          6.526800111150742,
+          1.144505424499512
+        ]
+      }
+    },
+    {
+      "id": "chupataro",
+      "seriesId": "go-rush",
+      "beforeTriangles": 6204,
+      "triangles": 14708,
+      "triangleRatio": 2.370728562217924,
+      "beforeDrawCalls": 7,
+      "drawCalls": 7,
+      "bufferBytes": 2572752,
+      "parts": 103,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -1.6277008438110354,
+          0.025799999423325063,
+          -0.41254502356052397
+        ],
+        "max": [
+          0.9503000164031983,
+          5.247871100521088,
+          0.8867339324951172
+        ]
+      }
+    },
+    {
+      "id": "kuadul",
+      "seriesId": "go-rush",
+      "beforeTriangles": 7498,
+      "triangles": 15482,
+      "triangleRatio": 2.064817284609229,
+      "beforeDrawCalls": 6,
+      "drawCalls": 6,
+      "bufferBytes": 2643960,
+      "parts": 108,
+      "finite": true,
+      "unitNormals": true,
+      "bounds": {
+        "min": [
+          -2.101290464401245,
+          0.03599999919533729,
+          -0.728972339630127
+        ],
+        "max": [
+          1.199280023574829,
+          6.708000022888183,
+          1.2373031616210937
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,2367 @@
+[
+  {
+    "id": "ai",
+    "name": "Ai",
+    "seriesId": "vrains",
+    "changes": {
+      "visual": {
+        "species": {
+          "before": null,
+          "after": "robot"
+        }
+      }
+    },
+    "referenceIds": [],
+    "scopeNote": "Species metadata classifies the existing robot/AI appearance; no new primary artwork for this chosen appearance was verified in this wave."
+  },
+  {
+    "id": "akira",
+    "name": "Akira Zaizen",
+    "seriesId": "vrains",
+    "changes": {
+      "description": {
+        "before": "Cheveux bruns lissés et costume gris d’administrateur.",
+        "after": "Cheveux bleu sombre lissés et costume bleu d’administrateur."
+      },
+      "visual": {
+        "hairAccent": {
+          "before": "#63514a",
+          "after": "#334454"
+        },
+        "hairColor": {
+          "before": "#63514a",
+          "after": "#334454"
+        },
+        "outfitColor": {
+          "before": "#596270",
+          "after": "#41516d"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-vrains08"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "alito",
+    "name": "Alito",
+    "seriesId": "zexal",
+    "changes": {
+      "description": {
+        "before": "Petite silhouette de boxeur et cheveux roux hérissés.",
+        "after": "Petite silhouette de boxeur, chevelure noire ondulée et haut rouge."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#6c4145",
+          "after": "#e1d9c5"
+        },
+        "hairAccent": {
+          "before": "#a84730",
+          "after": "#292a2e"
+        },
+        "hairColor": {
+          "before": "#a84730",
+          "after": "#292a2e"
+        },
+        "hairStyle": {
+          "before": "star",
+          "after": "swept"
+        },
+        "outfitColor": {
+          "before": "#d69c48",
+          "after": "#b24848"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-zexal20"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "antinomy",
+    "name": "Antinomy",
+    "seriesId": "5ds",
+    "changes": {
+      "description": {
+        "before": "Cheveux bleus et combinaison de pilote rouge.",
+        "after": "Cheveux bleus, visière rouge et combinaison de pilote bleu nuit."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#e9e5db",
+          "after": "#b13c45"
+        },
+        "accessoryColor": {
+          "before": null,
+          "after": "#b13c45"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#334a68"
+        },
+        "outfitColor": {
+          "before": "#ae474a",
+          "after": "#334a68"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-5ds09"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "asana",
+    "name": "Asana Mutsuba",
+    "seriesId": "sevens",
+    "changes": {
+      "description": {
+        "before": "Longue chevelure rose et tenue de chantier.",
+        "after": "Longue chevelure bleu-gris, manteau rouge et pantalon blanc."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#dcc37a",
+          "after": "#e8e3df"
+        },
+        "bootColor": {
+          "before": null,
+          "after": "#2c343c"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#e8e3df"
+        },
+        "hairAccent": {
+          "before": "#c0879b",
+          "after": "#899db8"
+        },
+        "hairColor": {
+          "before": "#c0879b",
+          "after": "#899db8"
+        },
+        "outfitColor": {
+          "before": "#b88763",
+          "after": "#a94348"
+        },
+        "outfitStyle": {
+          "before": "uniform",
+          "after": "long-coat"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-sevens09"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "astral",
+    "name": "Astral",
+    "seriesId": "zexal",
+    "changes": {
+      "visual": {
+        "species": {
+          "before": null,
+          "after": "spirit"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-zexal01"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "atem",
+    "name": "Atem",
+    "seriesId": "dm",
+    "changes": {
+      "visual": {
+        "hairOutlineColor": {
+          "before": null,
+          "after": "#b33e79"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-dm01"
+    ],
+    "scopeNote": "Hair-outline colour only. Ancient Pharaoh costume is preserved and not newly verified by the modern Yami Yugi reference."
+  },
+  {
+    "id": "axel",
+    "name": "Axel Brodie",
+    "seriesId": "gx",
+    "changes": {
+      "description": {
+        "before": "Cheveux sombres hérissés et tenue tactique blanche.",
+        "after": "Dreadlocks sombres, bandeau avec lunettes, gilet tactique brun et haut rouge."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#69785d",
+          "after": "#ab4844"
+        },
+        "accessory": {
+          "before": "none",
+          "after": "goggles"
+        },
+        "accessoryColor": {
+          "before": null,
+          "after": "#bdac8a"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#777357"
+        },
+        "hairStyle": {
+          "before": "star",
+          "after": "braided"
+        },
+        "outfitColor": {
+          "before": "#e6e0d1",
+          "after": "#786a4f"
+        },
+        "outfitStyle": {
+          "before": "uniform",
+          "after": "jacket"
+        },
+        "secondaryAccessory": {
+          "before": null,
+          "after": "headband"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-gx53"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "blair",
+    "name": "Blair Flannigan",
+    "seriesId": "gx",
+    "changes": {
+      "description": {
+        "before": "Petite silhouette et cheveux bleu-vert au carré.",
+        "after": "Longue chevelure bleu sombre, veste rouge de Slifer et tenue kaki."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#f0e8d9",
+          "after": "#b9ad79"
+        },
+        "accessory": {
+          "before": "hat",
+          "after": "none"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#b7ac79"
+        },
+        "bottomStyle": {
+          "before": null,
+          "after": "shorts"
+        },
+        "hairAccent": {
+          "before": "#487c75",
+          "after": "#344263"
+        },
+        "hairColor": {
+          "before": "#487c75",
+          "after": "#344263"
+        },
+        "hairStyle": {
+          "before": "bob",
+          "after": "long"
+        },
+        "outfitColor": {
+          "before": "#bf6755",
+          "after": "#ad4745"
+        },
+        "outfitStyle": {
+          "before": "school",
+          "after": "jacket"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-gx40"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "bochi",
+    "name": "Bochi",
+    "seriesId": "go-rush",
+    "changes": {
+      "aliases": {
+        "before": [
+          "Bochi forme humanoïde"
+        ],
+        "after": [
+          "Bochi",
+          "Bochi chien"
+        ]
+      },
+      "description": {
+        "before": "Allure humanoïde massive, cheveux bruns et costume de bureau.",
+        "after": "Chien brun et blanc aux grandes oreilles et collier gris à pointes ; adaptation bipède."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#d9c5a4",
+          "after": "#e9e9dc"
+        },
+        "accessory": {
+          "before": "none",
+          "after": "necklace"
+        },
+        "accessoryColor": {
+          "before": null,
+          "after": "#a8b1bb"
+        },
+        "bootColor": {
+          "before": null,
+          "after": "#e9e9dc"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#80562c"
+        },
+        "hairAccent": {
+          "before": "#735640",
+          "after": "#80562c"
+        },
+        "hairColor": {
+          "before": "#735640",
+          "after": "#80562c"
+        },
+        "outfitColor": {
+          "before": "#9d846b",
+          "after": "#80562c"
+        },
+        "outfitStyle": {
+          "before": "suit",
+          "after": "sport"
+        },
+        "skinColor": {
+          "before": "#bd9771",
+          "after": "#80562c"
+        },
+        "species": {
+          "before": null,
+          "after": "dog"
+        }
+      }
+    },
+    "referenceIds": [
+      "bochi"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "bonz",
+    "name": "Bonz",
+    "seriesId": "dm",
+    "changes": {
+      "description": {
+        "before": "Petit corps voûté, cheveux violets et teint gris.",
+        "after": "Petit corps voûté, cheveux bleu nuit hérissés, veste jaune et teint gris."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#ac8391",
+          "after": "#777b53"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#4f5167"
+        },
+        "hairAccent": {
+          "before": "#795c82",
+          "after": "#34384f"
+        },
+        "hairColor": {
+          "before": "#795c82",
+          "after": "#34384f"
+        },
+        "hairStyle": {
+          "before": "swept",
+          "after": "star"
+        },
+        "outfitColor": {
+          "before": "#443347",
+          "after": "#b5b674"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-dm23"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "bronk",
+    "name": "Bronk Stone",
+    "seriesId": "zexal",
+    "changes": {
+      "description": {
+        "before": "Cheveux bruns courts, bandeau et large silhouette.",
+        "after": "Grande carrure, cheveux noirs sous une casquette rouge et gilet orange."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#e3ba5d",
+          "after": "#ba3c3c"
+        },
+        "accessory": {
+          "before": "headband",
+          "after": "hat"
+        },
+        "accessoryColor": {
+          "before": null,
+          "after": "#ba3c3c"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#77714b"
+        },
+        "bottomStyle": {
+          "before": null,
+          "after": "trousers"
+        },
+        "hairAccent": {
+          "before": "#755534",
+          "after": "#242833"
+        },
+        "hairColor": {
+          "before": "#755534",
+          "after": "#242833"
+        },
+        "headdress": {
+          "before": null,
+          "after": "hat"
+        },
+        "outfitColor": {
+          "before": "#638b59",
+          "after": "#c78b56"
+        },
+        "outfitStyle": {
+          "before": "school",
+          "after": "sport"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-zexal05"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "carly",
+    "name": "Carly Carmine",
+    "seriesId": "5ds",
+    "changes": {
+      "description": {
+        "before": "Cheveux noirs à deux pointes et grosses lunettes rondes.",
+        "after": "Longs cheveux noirs, grosses lunettes rondes et gilet orange de journaliste."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#e7d5be",
+          "after": "#b4c8dd"
+        },
+        "hairStyle": {
+          "before": "swept",
+          "after": "long"
+        },
+        "outfitColor": {
+          "before": "#ae6658",
+          "after": "#b87a4a"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-5ds14"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "chupataro",
+    "name": "Chupataro",
+    "seriesId": "go-rush",
+    "changes": {
+      "description": {
+        "before": "Petite silhouette extraterrestre et large coiffe.",
+        "after": "Apparence humaine : cheveux bruns à frange orange, veste rose et foulard vert."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#cab3bd",
+          "after": "#6f9a82"
+        },
+        "accessory": {
+          "before": "hat",
+          "after": "scarf"
+        },
+        "accessoryColor": {
+          "before": null,
+          "after": "#6f9a82"
+        },
+        "bootColor": {
+          "before": null,
+          "after": "#c65155"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#a8c3d8"
+        },
+        "hairAccent": {
+          "before": "#ac8e9e",
+          "after": "#d67b3b"
+        },
+        "hairColor": {
+          "before": "#ac8e9e",
+          "after": "#795336"
+        },
+        "hairStyle": {
+          "before": "helmet",
+          "after": "swept"
+        },
+        "outfitColor": {
+          "before": "#957587",
+          "after": "#d5a3c7"
+        },
+        "skinColor": {
+          "before": "#c7a4b4",
+          "after": "#f0c1a1"
+        }
+      }
+    },
+    "referenceIds": [
+      "chupataro"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "crow",
+    "name": "Crow Hogan",
+    "seriesId": "5ds",
+    "changes": {
+      "description": {
+        "before": "Cheveux orange en crête et bandana brun.",
+        "after": "Cheveux orange en crête, bandeau bleu et veste brune."
+      },
+      "visual": {
+        "accessoryColor": {
+          "before": null,
+          "after": "#54738d"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#465363"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-5ds03"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "declan",
+    "name": "Declan Akaba",
+    "seriesId": "arc-v",
+    "changes": {
+      "description": {
+        "before": "Cheveux gris asymétriques, lunettes et longue écharpe.",
+        "after": "Cheveux gris asymétriques, lunettes et longue écharpe rouge."
+      },
+      "visual": {
+        "accessoryColor": {
+          "before": null,
+          "after": "#a42e4c"
+        },
+        "secondaryAccessory": {
+          "before": null,
+          "after": "glasses"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-arcv05"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "dennis",
+    "name": "Dennis McField",
+    "seriesId": "arc-v",
+    "changes": {
+      "name": {
+        "before": "Dennis Macfield",
+        "after": "Dennis McField"
+      },
+      "aliases": {
+        "before": [
+          "Dennis MacField"
+        ],
+        "after": [
+          "Dennis MacField",
+          "Dennis Macfield"
+        ]
+      },
+      "description": {
+        "before": "Cheveux orange relevés et costume de scène blanc.",
+        "after": "Pointes rousses, costume orange et manches bleues de spectacle."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#5a826f",
+          "after": "#567ba0"
+        },
+        "bootColor": {
+          "before": null,
+          "after": "#a17848"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#c8793e"
+        },
+        "hairStyle": {
+          "before": "swept",
+          "after": "star"
+        },
+        "outfitColor": {
+          "before": "#e9e5d8",
+          "after": "#c8793e"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-arcv13"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "dumon",
+    "name": "Dumon",
+    "seriesId": "zexal",
+    "changes": {
+      "description": {
+        "before": "Cheveux gris courts, lunettes et manteau de voyage.",
+        "after": "Carré gris mauve, longue écharpe verte et manteau de voyage."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#c5b8a6",
+          "after": "#709477"
+        },
+        "accessory": {
+          "before": "glasses",
+          "after": "scarf"
+        },
+        "accessoryColor": {
+          "before": null,
+          "after": "#709477"
+        },
+        "hairAccent": {
+          "before": "#adb3b8",
+          "after": "#b0a7ba"
+        },
+        "hairColor": {
+          "before": "#adb3b8",
+          "after": "#b0a7ba"
+        },
+        "hairStyle": {
+          "before": "short",
+          "after": "bob"
+        },
+        "outfitColor": {
+          "before": "#7c8c91",
+          "after": "#8f919d"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-zexal23"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "espa-roba",
+    "name": "Espa Roba",
+    "seriesId": "dm",
+    "changes": {
+      "description": {
+        "before": "Frange turquoise symétrique et combinaison violette.",
+        "after": "Frange vert menthe symétrique et combinaison rose à col haut."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#b9d2be",
+          "after": "#e1dbbb"
+        },
+        "hairAccent": {
+          "before": "#4da5ae",
+          "after": "#99c2ad"
+        },
+        "hairColor": {
+          "before": "#4da5ae",
+          "after": "#99c2ad"
+        },
+        "outfitColor": {
+          "before": "#756188",
+          "after": "#b67892"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-dm24"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "gakuto",
+    "name": "Gakuto Sogetsu",
+    "seriesId": "sevens",
+    "changes": {
+      "description": {
+        "before": "Cheveux noirs lissés et uniforme bleu du conseil.",
+        "after": "Carré violet asymétrique et uniforme bleu clair du conseil."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#a0c6d8",
+          "after": "#eef0e4"
+        },
+        "bootColor": {
+          "before": null,
+          "after": "#dce4ea"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#b3cbe2"
+        },
+        "hairAccent": {
+          "before": "#303c46",
+          "after": "#745891"
+        },
+        "hairColor": {
+          "before": "#303c46",
+          "after": "#745891"
+        },
+        "hairStyle": {
+          "before": "short",
+          "after": "bob"
+        },
+        "outfitColor": {
+          "before": "#496887",
+          "after": "#b3cbe2"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-sevens03",
+      "gakuto-tvtokyo"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "ghost-gal",
+    "name": "Ghost Gal",
+    "seriesId": "vrains",
+    "changes": {
+      "description": {
+        "before": "Cheveux blancs courts, longues manches et tenue numérique violette.",
+        "after": "Queue-de-cheval blanche à mèche rose et tenue numérique violette."
+      },
+      "visual": {
+        "hairAccent": {
+          "before": "#e3dce2",
+          "after": "#c78ca4"
+        },
+        "hairStyle": {
+          "before": "bob",
+          "after": "ponytail"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-vrains06"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "girag",
+    "name": "Girag",
+    "seriesId": "zexal",
+    "changes": {
+      "description": {
+        "before": "Carrure massive, cheveux orange courts et veste verte.",
+        "after": "Carrure massive, cheveux verts hérissés et chemise blanche ouverte."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#ccb777",
+          "after": "#a67c4e"
+        },
+        "hairAccent": {
+          "before": "#a85d36",
+          "after": "#657f55"
+        },
+        "hairColor": {
+          "before": "#a85d36",
+          "after": "#657f55"
+        },
+        "hairStyle": {
+          "before": "short",
+          "after": "star"
+        },
+        "outfitColor": {
+          "before": "#6f8154",
+          "after": "#ece8dc"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-zexal19"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "gong",
+    "name": "Gong Strong",
+    "seriesId": "arc-v",
+    "changes": {
+      "description": {
+        "before": "Carrure massive, haute banane noire et kimono rouge.",
+        "after": "Carrure massive, haute banane noire et kimono blanc aux bordures rouges."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#d9b461",
+          "after": "#bd4847"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#eee8dc"
+        },
+        "outfitColor": {
+          "before": "#9f4450",
+          "after": "#eee8dc"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-arcv03"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "jaden",
+    "name": "Jaden Yuki",
+    "seriesId": "gx",
+    "changes": {
+      "description": {
+        "before": "Cheveux bruns ébouriffés et veste rouge de Slifer.",
+        "after": "Cheveux bruns à mèches orangées, veste rouge de Slifer et pantalon gris."
+      },
+      "visual": {
+        "bootColor": {
+          "before": null,
+          "after": "#f1e9df"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#848a8c"
+        },
+        "hairAccent": {
+          "before": "#77472f",
+          "after": "#b97942"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-gx01"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "kaiba",
+    "name": "Seto Kaiba",
+    "seriesId": "dm",
+    "changes": {
+      "visual": {
+        "bootColor": {
+          "before": null,
+          "after": "#252831"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#252831"
+        },
+        "gloveColor": {
+          "before": null,
+          "after": "#252831"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-dm02"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "luke",
+    "name": "Luke",
+    "seriesId": "sevens",
+    "changes": {
+      "aliases": {
+        "before": [
+          "Tatsuhisa Kamijo",
+          "Tatsuhisa Kamijô",
+          "Lucidien"
+        ],
+        "after": [
+          "Tatsuhisa Kamijo",
+          "Tatsuhisa Kamijô",
+          "Lucidien",
+          "Lucidien Kallister"
+        ]
+      },
+      "description": {
+        "before": "Chevelure bleue hérissée et long manteau de collégien.",
+        "after": "Chevelure bleue hérissée, tee-shirt noir au dragon rouge et pantalon olive."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#e4cb83",
+          "after": "#b3424a"
+        },
+        "bootColor": {
+          "before": null,
+          "after": "#547ba4"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#666951"
+        },
+        "bottomStyle": {
+          "before": null,
+          "after": "trousers"
+        },
+        "outfitColor": {
+          "before": "#477dae",
+          "after": "#292d36"
+        },
+        "outfitStyle": {
+          "before": "long-coat",
+          "after": "sport"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-sevens02",
+      "luke-tvtokyo"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "lulu",
+    "name": "Lulu Obsidian",
+    "seriesId": "arc-v",
+    "changes": {
+      "description": {
+        "before": "Longue chevelure mauve et uniforme blanc à jupe.",
+        "after": "Haute queue-de-cheval mauve et uniforme blanc à jupe."
+      },
+      "visual": {
+        "hairStyle": {
+          "before": "long",
+          "after": "ponytail"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-arcv09"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "manabu",
+    "name": "Manabu Sogetsu",
+    "seriesId": "go-rush",
+    "changes": {
+      "aliases": {
+        "before": [
+          "Manabu Sôgetsu"
+        ],
+        "after": [
+          "Manabu Sôgetsu",
+          "Maddox Sogetsu"
+        ]
+      },
+      "description": {
+        "before": "Cheveux bleus raides et uniforme d’enquêteur.",
+        "after": "Cheveux noirs raides et uniforme noir d’enquêteur."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#c0cfce",
+          "after": "#9998a5"
+        },
+        "hairAccent": {
+          "before": "#466c86",
+          "after": "#262833"
+        },
+        "hairColor": {
+          "before": "#466c86",
+          "after": "#262833"
+        },
+        "outfitColor": {
+          "before": "#607890",
+          "after": "#303441"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-gorush05"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "manya",
+    "name": "Manya Atachi",
+    "seriesId": "go-rush",
+    "changes": {
+      "aliases": {
+        "before": [
+          "Manya"
+        ],
+        "after": [
+          "Manya",
+          "Immi Imimi"
+        ]
+      },
+      "description": {
+        "before": "Cheveux violets au carré et tenue rose de vedette.",
+        "after": "Carré châtain ondulé, chapeau blanc et robe rose de vedette."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#e7d4da",
+          "after": "#f0e9df"
+        },
+        "accessory": {
+          "before": "necklace",
+          "after": "hat"
+        },
+        "accessoryColor": {
+          "before": null,
+          "after": "#f0e9df"
+        },
+        "hairAccent": {
+          "before": "#9b78ad",
+          "after": "#98764e"
+        },
+        "hairColor": {
+          "before": "#9b78ad",
+          "after": "#98764e"
+        },
+        "headdress": {
+          "before": null,
+          "after": "hat"
+        },
+        "outfitColor": {
+          "before": "#c982a6",
+          "after": "#db98b5"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-gorush06"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "mimi",
+    "name": "Mimi Atachi",
+    "seriesId": "sevens",
+    "changes": {
+      "aliases": {
+        "before": [
+          "Mimi"
+        ],
+        "after": [
+          "Mimi",
+          "Mimi Imimi"
+        ]
+      },
+      "description": {
+        "before": "Petite apparence, carré violet et tenue scolaire.",
+        "after": "Petite apparence, carré auburn et robe rose à col blanc."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#ecd5e0",
+          "after": "#eee5d8"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#cb789d"
+        },
+        "bottomStyle": {
+          "before": null,
+          "after": "skirt"
+        },
+        "hairAccent": {
+          "before": "#a683af",
+          "after": "#a06f50"
+        },
+        "hairColor": {
+          "before": "#a683af",
+          "after": "#a06f50"
+        },
+        "outfitColor": {
+          "before": "#c987a8",
+          "after": "#cb789d"
+        },
+        "outfitStyle": {
+          "before": "school",
+          "after": "dress"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-sevens05"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "nail",
+    "name": "Nail Saionji",
+    "seriesId": "sevens",
+    "changes": {
+      "description": {
+        "before": "Carré vert asymétrique et uniforme blanc.",
+        "after": "Carré blond pâle et uniforme bleu clair et blanc."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#9dbe9b",
+          "after": "#f0eee3"
+        },
+        "hairAccent": {
+          "before": "#7a9667",
+          "after": "#d8c8a8"
+        },
+        "hairColor": {
+          "before": "#7a9667",
+          "after": "#d8c8a8"
+        },
+        "outfitColor": {
+          "before": "#e3e5dc",
+          "after": "#c7dce3"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-sevens08"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "nyandestar",
+    "name": "Nyandestar",
+    "seriesId": "go-rush",
+    "changes": {
+      "aliases": {
+        "before": [
+          "Nyandestar forme humanoïde"
+        ],
+        "after": [
+          "Nyandestar",
+          "Nyandestar forme féline"
+        ]
+      },
+      "description": {
+        "before": "Forme humanoïde aux cheveux bleus et grand chapeau.",
+        "after": "Chat gris à étoile verte, poitrine blanche et queue rayée ; adaptation de duelliste bipède."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#d1c0d8",
+          "after": "#78b494"
+        },
+        "accessory": {
+          "before": "hat",
+          "after": "none"
+        },
+        "accessoryColor": {
+          "before": null,
+          "after": "#78b494"
+        },
+        "bootColor": {
+          "before": null,
+          "after": "#eaeae1"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#aab1af"
+        },
+        "hairAccent": {
+          "before": "#83adbf",
+          "after": "#aab1af"
+        },
+        "hairColor": {
+          "before": "#83adbf",
+          "after": "#aab1af"
+        },
+        "hairStyle": {
+          "before": "long",
+          "after": "short"
+        },
+        "outfitColor": {
+          "before": "#56718c",
+          "after": "#aab1af"
+        },
+        "outfitStyle": {
+          "before": "long-coat",
+          "after": "sport"
+        },
+        "skinColor": {
+          "before": "#f3c4a5",
+          "after": "#aab1af"
+        },
+        "species": {
+          "before": null,
+          "after": "cat"
+        }
+      }
+    },
+    "referenceIds": [
+      "nyandestar-tvtokyo"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "playmaker",
+    "name": "Playmaker",
+    "seriesId": "vrains",
+    "changes": {
+      "description": {
+        "before": "Cheveux bleus et rouges étoilés et armure numérique.",
+        "after": "Avatar de LINK VRAINS : pointes rouges et mauves, coiffe dorée et armure verte."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#c34063",
+          "after": "#edbc4c"
+        },
+        "accessoryColor": {
+          "before": null,
+          "after": "#edbc4c"
+        },
+        "bootColor": {
+          "before": null,
+          "after": "#293930"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#273936"
+        },
+        "gloveColor": {
+          "before": null,
+          "after": "#202d29"
+        },
+        "hairAccent": {
+          "before": "#b8436a",
+          "after": "#9d4a98"
+        },
+        "hairColor": {
+          "before": "#285e7e",
+          "after": "#b94a3d"
+        },
+        "headdress": {
+          "before": null,
+          "after": "helmet"
+        },
+        "outfitColor": {
+          "before": "#2b416b",
+          "after": "#28594f"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-vrains01"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "rex",
+    "name": "Rex Raptor",
+    "seriesId": "dm",
+    "changes": {
+      "description": {
+        "before": "Longue chevelure brune sous une casquette rouge.",
+        "after": "Chevelure brune à mèche lavande, casquette rouge et veste verte."
+      },
+      "visual": {
+        "accessoryColor": {
+          "before": null,
+          "after": "#b8464b"
+        },
+        "hairAccent": {
+          "before": "#80664a",
+          "after": "#a494b6"
+        },
+        "headdress": {
+          "before": null,
+          "after": "hat"
+        },
+        "outfitColor": {
+          "before": "#a44642",
+          "after": "#427558"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-dm08"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "roa",
+    "name": "Roa Kirishima",
+    "seriesId": "sevens",
+    "changes": {
+      "aliases": {
+        "before": [
+          "Roa"
+        ],
+        "after": [
+          "Roa",
+          "Roa Kassidy"
+        ]
+      },
+      "description": {
+        "before": "Pointes rouges et longues manches noires de musicien.",
+        "after": "Cheveux vert clair hérissés et long gilet rouge sans manches de musicien."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#d17387",
+          "after": "#2b2e36"
+        },
+        "bootColor": {
+          "before": null,
+          "after": "#30323c"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#30323c"
+        },
+        "hairAccent": {
+          "before": "#b75061",
+          "after": "#bdd8bc"
+        },
+        "hairColor": {
+          "before": "#b75061",
+          "after": "#bdd8bc"
+        },
+        "outfitColor": {
+          "before": "#42333c",
+          "after": "#b7444a"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-sevens06"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "romin",
+    "name": "Romin Kirishima",
+    "seriesId": "sevens",
+    "changes": {
+      "aliases": {
+        "before": [
+          "Romin"
+        ],
+        "after": [
+          "Romin",
+          "Romin Kassidy"
+        ]
+      },
+      "description": {
+        "before": "Cheveux violets longs et tenue scolaire à jupe.",
+        "after": "Longs cheveux roses, haut noir, short rouge et leggings lavande."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#ead4ce",
+          "after": "#c44f59"
+        },
+        "bootColor": {
+          "before": null,
+          "after": "#ba515d"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#c44f59"
+        },
+        "bottomStyle": {
+          "before": null,
+          "after": "shorts"
+        },
+        "hairAccent": {
+          "before": "#82609d",
+          "after": "#d75b94"
+        },
+        "hairColor": {
+          "before": "#82609d",
+          "after": "#d75b94"
+        },
+        "legwearColor": {
+          "before": null,
+          "after": "#afa8d1"
+        },
+        "outfitColor": {
+          "before": "#ca829a",
+          "after": "#252832"
+        },
+        "outfitStyle": {
+          "before": "dress",
+          "after": "sport"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-sevens04",
+      "romin-tvtokyo"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "sebastian",
+    "name": "Sebastian",
+    "seriesId": "sevens",
+    "changes": {
+      "visual": {
+        "species": {
+          "before": null,
+          "after": "robot"
+        }
+      }
+    },
+    "referenceIds": [],
+    "scopeNote": "Species metadata classifies the existing robot/AI appearance; no new primary artwork for this chosen appearance was verified in this wave."
+  },
+  {
+    "id": "shay",
+    "name": "Shay Obsidian",
+    "seriesId": "arc-v",
+    "changes": {
+      "description": {
+        "before": "Cheveux noirs et verts hérissés, long manteau vert.",
+        "after": "Chevelure bleu sombre à mèches turquoise et long manteau bleu."
+      },
+      "visual": {
+        "hairAccent": {
+          "before": "#54755c",
+          "after": "#59a9a3"
+        },
+        "hairColor": {
+          "before": "#2c3b39",
+          "after": "#354d64"
+        },
+        "outfitColor": {
+          "before": "#5a7867",
+          "after": "#46627e"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-arcv08"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "sherry",
+    "name": "Sherry LeBlanc",
+    "seriesId": "5ds",
+    "changes": {
+      "description": {
+        "before": "Longue chevelure blonde et combinaison verte de pilote.",
+        "after": "Longue chevelure blonde, combinaison blanche et plastron vert de pilote."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#ebe6cc",
+          "after": "#416255"
+        },
+        "bootColor": {
+          "before": null,
+          "after": "#365849"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#e3e8de"
+        },
+        "gloveColor": {
+          "before": null,
+          "after": "#e3e8de"
+        },
+        "outfitColor": {
+          "before": "#456859",
+          "after": "#e3e8de"
+        },
+        "outfitStyle": {
+          "before": "sport",
+          "after": "armor"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-5ds40"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "silvio",
+    "name": "Sylvio Sawatari",
+    "seriesId": "arc-v",
+    "changes": {
+      "name": {
+        "before": "Silvio Sawatari",
+        "after": "Sylvio Sawatari"
+      },
+      "aliases": {
+        "before": [
+          "Shingo Sawatari"
+        ],
+        "after": [
+          "Shingo Sawatari",
+          "Silvio Sawatari"
+        ]
+      },
+      "description": {
+        "before": "Chevelure blonde ondulée et veste jaune ouverte.",
+        "after": "Chevelure blonde ondulée et long manteau blanc bordé d’or."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#ece2c7",
+          "after": "#c6a25a"
+        },
+        "outfitColor": {
+          "before": "#b8a057",
+          "after": "#eee9dc"
+        },
+        "outfitStyle": {
+          "before": "jacket",
+          "after": "long-coat"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-arcv04"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "tiger",
+    "name": "Tiger",
+    "seriesId": "sevens",
+    "changes": {
+      "aliases": {
+        "before": [
+          "Haruka Kamijo",
+          "Haruka Kamijô",
+          "Tiger Kamijo"
+        ],
+        "after": [
+          "Haruka Kamijo",
+          "Haruka Kamijô",
+          "Tiger Kamijo",
+          "Tiadosia Kallister",
+          "Tiadosia Tiger Kallister"
+        ]
+      },
+      "description": {
+        "before": "Haute queue-de-cheval bicolore et tenue martiale violette.",
+        "after": "Très longue chevelure bleue, haut doré et pantalon vert ample."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#ddc9a6",
+          "after": "#4d7760"
+        },
+        "bootColor": {
+          "before": null,
+          "after": "#4d7760"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#4d7760"
+        },
+        "bottomStyle": {
+          "before": null,
+          "after": "trousers"
+        },
+        "hairAccent": {
+          "before": "#ded1c1",
+          "after": "#496b99"
+        },
+        "hairColor": {
+          "before": "#593b5f",
+          "after": "#496b99"
+        },
+        "hairStyle": {
+          "before": "ponytail",
+          "after": "long"
+        },
+        "outfitColor": {
+          "before": "#75547d",
+          "after": "#d3bc83"
+        },
+        "outfitStyle": {
+          "before": "uniform",
+          "after": "sport"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-sevens12"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "tori",
+    "name": "Tori Meadows",
+    "seriesId": "zexal",
+    "changes": {
+      "description": {
+        "before": "Cheveux verts attachés et uniforme rose à jupe.",
+        "after": "Carré vert asymétrique, ruban rouge, haut menthe et jupe rose."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#f0e7d8",
+          "after": "#c45665"
+        },
+        "accessoryColor": {
+          "before": null,
+          "after": "#c45665"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#d080a7"
+        },
+        "hairStyle": {
+          "before": "ponytail",
+          "after": "bob"
+        },
+        "headdress": {
+          "before": null,
+          "after": "headband"
+        },
+        "outfitColor": {
+          "before": "#ce6e85",
+          "after": "#c5dec6"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-zexal06"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "trey",
+    "name": "Trey",
+    "seriesId": "zexal",
+    "changes": {
+      "description": {
+        "before": "Longs cheveux corail attachés et veste crème.",
+        "after": "Carré rose corail et longue tenue bordeaux à col blanc."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#8f6583",
+          "after": "#e2dbca"
+        },
+        "hairAccent": {
+          "before": "#c77f68",
+          "after": "#d39998"
+        },
+        "hairColor": {
+          "before": "#c77f68",
+          "after": "#d39998"
+        },
+        "hairStyle": {
+          "before": "ponytail",
+          "after": "bob"
+        },
+        "outfitColor": {
+          "before": "#e6dbc1",
+          "after": "#6d3d4b"
+        },
+        "outfitStyle": {
+          "before": "jacket",
+          "after": "robe"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-zexal09"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "weevil",
+    "name": "Weevil Underwood",
+    "seriesId": "dm",
+    "changes": {
+      "description": {
+        "before": "Petite taille, coupe verte arrondie et lunettes rondes.",
+        "after": "Petite taille, coupe bleu-vert arrondie, lunettes rondes et manteau vert."
+      },
+      "visual": {
+        "hairAccent": {
+          "before": "#48815c",
+          "after": "#75b6a9"
+        },
+        "hairColor": {
+          "before": "#48815c",
+          "after": "#75b6a9"
+        },
+        "outfitColor": {
+          "before": "#b9955d",
+          "after": "#3d7b58"
+        },
+        "outfitStyle": {
+          "before": "school",
+          "after": "long-coat"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-dm07"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "yuamu",
+    "name": "Yuamu Ohdo",
+    "seriesId": "go-rush",
+    "changes": {
+      "description": {
+        "before": "Couettes roses, lunettes et uniforme clair d’UTS.",
+        "after": "Chevelure blonde à pointes vertes, grand ruban rose, lunettes et short orange."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#8b83b4",
+          "after": "#cb6491"
+        },
+        "accessoryColor": {
+          "before": null,
+          "after": "#da6d9b"
+        },
+        "bootColor": {
+          "before": null,
+          "after": "#866955"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#d6a15c"
+        },
+        "bottomStyle": {
+          "before": null,
+          "after": "shorts"
+        },
+        "hairAccent": {
+          "before": "#ba7993",
+          "after": "#86be80"
+        },
+        "hairColor": {
+          "before": "#ba7993",
+          "after": "#d9ca84"
+        },
+        "hairStyle": {
+          "before": "twin-tail",
+          "after": "long"
+        },
+        "headdress": {
+          "before": null,
+          "after": "headband"
+        },
+        "outfitColor": {
+          "before": "#e3ddd4",
+          "after": "#efe7dc"
+        },
+        "outfitStyle": {
+          "before": "uniform",
+          "after": "jacket"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-gorush03"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "yubel",
+    "name": "Yubel",
+    "seriesId": "gx",
+    "changes": {
+      "visual": {
+        "species": {
+          "before": null,
+          "after": "spirit"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-gx09"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "yudias",
+    "name": "Yudias Velgear",
+    "seriesId": "go-rush",
+    "changes": {
+      "description": {
+        "before": "Longue chevelure blanche et uniforme extraterrestre bleu.",
+        "after": "Pointes argentées à mèches bleues, casque noir et long manteau blanc doublé de rouge."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#bd87ad",
+          "after": "#c64145"
+        },
+        "accessory": {
+          "before": "none",
+          "after": "earpiece"
+        },
+        "accessoryColor": {
+          "before": null,
+          "after": "#252a33"
+        },
+        "bootColor": {
+          "before": null,
+          "after": "#456796"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#252a33"
+        },
+        "gloveColor": {
+          "before": null,
+          "after": "#c53d43"
+        },
+        "hairAccent": {
+          "before": "#e1e4dc",
+          "after": "#64b8d9"
+        },
+        "hairColor": {
+          "before": "#e1e4dc",
+          "after": "#dceaf0"
+        },
+        "hairStyle": {
+          "before": "long",
+          "after": "star"
+        },
+        "headdress": {
+          "before": null,
+          "after": "helmet"
+        },
+        "outfitColor": {
+          "before": "#4a6a91",
+          "after": "#eef2f3"
+        },
+        "outfitStyle": {
+          "before": "uniform",
+          "after": "long-coat"
+        },
+        "secondaryAccessory": {
+          "before": null,
+          "after": "cape"
+        },
+        "secondaryAccessoryColor": {
+          "before": null,
+          "after": "#466b97"
+        },
+        "species": {
+          "before": null,
+          "after": "alien"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-gorush01",
+      "yudias-tvtokyo",
+      "yudias-yugioh"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "yuga",
+    "name": "Yuga Ohdo",
+    "seriesId": "sevens",
+    "changes": {
+      "description": {
+        "before": "Petite silhouette, pointes rouges et veste sportive bleue.",
+        "after": "Pointes auburn à frange jaune, veste rouge et blanche, short noir et gants bleus."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#e0c66b",
+          "after": "#f1e8d8"
+        },
+        "bootColor": {
+          "before": null,
+          "after": "#4378a9"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#34323b"
+        },
+        "bottomStyle": {
+          "before": null,
+          "after": "shorts"
+        },
+        "gloveColor": {
+          "before": null,
+          "after": "#5087b9"
+        },
+        "hairAccent": {
+          "before": "#e2c05f",
+          "after": "#e8c859"
+        },
+        "hairColor": {
+          "before": "#a94143",
+          "after": "#9d4838"
+        },
+        "hairStyle": {
+          "before": "swept",
+          "after": "star"
+        },
+        "outfitColor": {
+          "before": "#415f98",
+          "after": "#c94945"
+        },
+        "outfitStyle": {
+          "before": "sport",
+          "after": "jacket"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-sevens01",
+      "yuga-tvtokyo"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "yugi",
+    "name": "Yugi Muto",
+    "seriesId": "dm",
+    "changes": {
+      "visual": {
+        "bootColor": {
+          "before": null,
+          "after": "#252631"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#273b66"
+        },
+        "hairOutlineColor": {
+          "before": null,
+          "after": "#b33e79"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-dm06"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "yuhi",
+    "name": "Yuhi Ohdo",
+    "seriesId": "go-rush",
+    "changes": {
+      "description": {
+        "before": "Cheveux rouges hérissés et tenue orange d’UTS.",
+        "after": "Cheveux rouges à mèches blanches, lunettes frontales et tenue orange d’UTS."
+      },
+      "visual": {
+        "accessory": {
+          "before": "none",
+          "after": "goggles"
+        },
+        "accessoryColor": {
+          "before": null,
+          "after": "#b68650"
+        },
+        "bootColor": {
+          "before": null,
+          "after": "#6d4c37"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#ca8555"
+        },
+        "bottomStyle": {
+          "before": null,
+          "after": "trousers"
+        },
+        "gloveColor": {
+          "before": null,
+          "after": "#e9e6da"
+        },
+        "hairAccent": {
+          "before": "#b14943",
+          "after": "#eee6dd"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-gorush02"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "yuka",
+    "name": "Yuka Goha",
+    "seriesId": "sevens",
+    "changes": {
+      "description": {
+        "before": "Queue-de-cheval brune, casquette et uniforme de baseball.",
+        "after": "Longue chevelure brune, masque et uniforme blanc à bordures rouges."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#b35f5f",
+          "after": "#b65b5b"
+        },
+        "accessory": {
+          "before": "hat",
+          "after": "mask"
+        },
+        "accessoryColor": {
+          "before": null,
+          "after": "#535158"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#e7e4d6"
+        },
+        "hairStyle": {
+          "before": "ponytail",
+          "after": "long"
+        },
+        "headdress": {
+          "before": null,
+          "after": "headband"
+        },
+        "outfitStyle": {
+          "before": "sport",
+          "after": "uniform"
+        },
+        "secondaryAccessory": {
+          "before": null,
+          "after": "cape"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-sevens15"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "yuma",
+    "name": "Yuma Tsukumo",
+    "seriesId": "zexal",
+    "changes": {
+      "description": {
+        "before": "Pointes noires et rouges, lunettes et veste sans manches.",
+        "after": "Pointes noires et rouges, Duel Gazer à un œil et Clé de l’Empereur au cou."
+      },
+      "visual": {
+        "accessoryColor": {
+          "before": null,
+          "after": "#b7b2bc"
+        },
+        "bootColor": {
+          "before": null,
+          "after": "#607ca2"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#343a51"
+        },
+        "bottomStyle": {
+          "before": null,
+          "after": "trousers"
+        },
+        "secondaryAccessory": {
+          "before": null,
+          "after": "necklace"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-zexal01"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "yuo",
+    "name": "Yuo Goha",
+    "seriesId": "sevens",
+    "changes": {
+      "description": {
+        "before": "Petite taille, cheveux verts et costume de marionnettiste.",
+        "after": "Petite taille, carré châtain, masque et manteau gris bordé d’or."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#b66c98",
+          "after": "#bfac6e"
+        },
+        "accessory": {
+          "before": "hat",
+          "after": "mask"
+        },
+        "accessoryColor": {
+          "before": null,
+          "after": "#535158"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#535158"
+        },
+        "hairAccent": {
+          "before": "#7d9574",
+          "after": "#a07b57"
+        },
+        "hairColor": {
+          "before": "#7d9574",
+          "after": "#a07b57"
+        },
+        "headdress": {
+          "before": null,
+          "after": "helmet"
+        },
+        "outfitColor": {
+          "before": "#3e5b64",
+          "after": "#535158"
+        },
+        "outfitStyle": {
+          "before": "suit",
+          "after": "long-coat"
+        },
+        "secondaryAccessory": {
+          "before": null,
+          "after": "cape"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-sevens17"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "yuro",
+    "name": "Yuro Goha",
+    "seriesId": "sevens",
+    "changes": {
+      "description": {
+        "before": "Mèches blondes latérales et veste de pilote bleue.",
+        "after": "Mèches blondes ondulées, masque, uniforme blanc et cape gris foncé."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#e4d4a1",
+          "after": "#78945a"
+        },
+        "accessory": {
+          "before": "goggles",
+          "after": "mask"
+        },
+        "accessoryColor": {
+          "before": null,
+          "after": "#535158"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#e8e4d9"
+        },
+        "headdress": {
+          "before": null,
+          "after": "headband"
+        },
+        "outfitColor": {
+          "before": "#466b8b",
+          "after": "#e8e4d9"
+        },
+        "outfitStyle": {
+          "before": "sport",
+          "after": "uniform"
+        },
+        "secondaryAccessory": {
+          "before": null,
+          "after": "cape"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-sevens13"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "yusei",
+    "name": "Yusei Fudo",
+    "seriesId": "5ds",
+    "changes": {
+      "visual": {
+        "bootColor": {
+          "before": null,
+          "after": "#292d34"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#324455"
+        },
+        "gloveColor": {
+          "before": null,
+          "after": "#7a5841"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-5ds01"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "yuya",
+    "name": "Yuya Sakaki",
+    "seriesId": "arc-v",
+    "changes": {
+      "description": {
+        "before": "Cheveux rouges et verts, lunettes et veste de spectacle.",
+        "after": "Chevelure verte à frange rouge, lunettes dorées et veste rouge de spectacle."
+      },
+      "visual": {
+        "accessoryColor": {
+          "before": null,
+          "after": "#d3a650"
+        },
+        "bootColor": {
+          "before": null,
+          "after": "#363541"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#e9e6dc"
+        },
+        "hairAccent": {
+          "before": "#59906c",
+          "after": "#b4474b"
+        },
+        "hairColor": {
+          "before": "#8c3947",
+          "after": "#49946a"
+        },
+        "outfitColor": {
+          "before": "#99434c",
+          "after": "#bc4247"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-arcv01"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  },
+  {
+    "id": "zwijo",
+    "name": "Zuwijo Zwil Velgear",
+    "seriesId": "go-rush",
+    "changes": {
+      "name": {
+        "before": "Zwijo Zir Velgear",
+        "after": "Zuwijo Zwil Velgear"
+      },
+      "aliases": {
+        "before": [
+          "Zwijo",
+          "Zuwijo",
+          "Zir Velgear"
+        ],
+        "after": [
+          "Zwijo",
+          "Zuwijo",
+          "Zir Velgear",
+          "Zwijo Zir Velgear"
+        ]
+      },
+      "description": {
+        "before": "Longs cheveux violets et manteau militaire sombre.",
+        "after": "Longs cheveux blonds à pointes mauves et manteau noir-violet bordé d’or."
+      },
+      "visual": {
+        "accentColor": {
+          "before": "#a095b2",
+          "after": "#b8985f"
+        },
+        "bootColor": {
+          "before": null,
+          "after": "#e5ded6"
+        },
+        "bottomColor": {
+          "before": null,
+          "after": "#554c5f"
+        },
+        "hairAccent": {
+          "before": "#79678e",
+          "after": "#9b7aab"
+        },
+        "hairColor": {
+          "before": "#79678e",
+          "after": "#d3c4a7"
+        },
+        "outfitColor": {
+          "before": "#454252",
+          "after": "#373240"
+        },
+        "species": {
+          "before": null,
+          "after": "alien"
+        }
+      }
+    },
+    "referenceIds": [
+      "konami-gorush04",
+      "zwijo-tvtokyo"
+    ],
+    "scopeNote": "Factual structural traits and approximate palette, interpreted as a stylised silhouette. This is not a pixel-identical recreation."
+  }
+]

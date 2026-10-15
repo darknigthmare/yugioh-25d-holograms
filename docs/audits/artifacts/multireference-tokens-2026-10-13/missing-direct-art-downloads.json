@@ -1,0 +1,1993 @@
+[
+  {
+    "name": "Gadget Token",
+    "nativeCodes": [
+      645088
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Gadget_Token",
+    "fileName": "GadgetToken-TK04-JP-R.png",
+    "url": "https://ms.yugipedia.com//9/9b/GadgetToken-TK04-JP-R.png",
+    "candidateKind": "printed-scan",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "59de96e611d633cc5027b9103f51b08ce12af1e9d18b75c0d00999d363dcce36",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/GadgetToken-TK04-JP-R.png",
+    "bytes": 3013754,
+    "sha256": "85663f647d11f1190416e6e53994d00767e02dff5c850df127d2416f6546b95f",
+    "dimensions": [
+      934,
+      1354
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.255125+00:00"
+  },
+  {
+    "name": "Moult Token",
+    "nativeCodes": [
+      1799465
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Moult_Token",
+    "fileName": "MoultToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//f/fc/MoultToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "7352ec0ba980b245beaad49d5777187711ea4483896ad3fe89e91326b9938d2d",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/MoultToken-MADU-EN-VG-artwork.png",
+    "bytes": 420851,
+    "sha256": "1881c652080c25587f8421c419280afcb4d8b5be6a395d7ceebbaf206e4a0d67",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.110456+00:00"
+  },
+  {
+    "name": "Spool Token",
+    "nativeCodes": [
+      2625940
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Spool_Token",
+    "fileName": "SpoolToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//6/63/SpoolToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "a1a045033f4848beb7630b80b8e04337db564aabcd429d147c4bbdba93637c72",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/SpoolToken-MADU-EN-VG-artwork.png",
+    "bytes": 360423,
+    "sha256": "46709a99fdcbcc5d3fe1caac6362efdc1ca16831b24200fce6ad06158f0953c0",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.158341+00:00"
+  },
+  {
+    "name": "Delta Token",
+    "nativeCodes": [
+      3129134
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Delta_Token",
+    "fileName": "DeltaToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//f/f5/DeltaToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "19ce87caf69f139a4d69d407d397cd32f020c25e2614ee98497a2e71f1955f9b",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/DeltaToken-MADU-EN-VG-artwork.png",
+    "bytes": 529402,
+    "sha256": "d5babc1b8178e070b0a1068dacdf8f9e6c4a41056a851ec9046f774b1a39f16e",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.159308+00:00"
+  },
+  {
+    "name": "Adventurer Token",
+    "nativeCodes": [
+      3285552
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Adventurer_Token",
+    "fileName": "AdventurerToken-DULI-EN-VG-CA.png",
+    "url": "https://ms.yugipedia.com//4/4d/AdventurerToken-DULI-EN-VG-CA.png",
+    "candidateKind": "duel-links-card",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "3c913a3c4152ee14dea527842a0ebca10f2e93d71609e7c2804fc4b51af2e435",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/AdventurerToken-DULI-EN-VG-CA.png",
+    "bytes": 180857,
+    "sha256": "819a2c9107c3d74785c6a69f19f79ae5e38ad1a64cd9a13e9f0aa82ad429867a",
+    "dimensions": [
+      384,
+      384
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.092648+00:00"
+  },
+  {
+    "name": "Mecha Phantom Beast Token",
+    "nativeCodes": [
+      4417408,
+      16943771,
+      20368764,
+      22110648,
+      30811117,
+      31480216,
+      31533705,
+      41329459,
+      44026394,
+      44097051,
+      66200211,
+      67489920,
+      67922703,
+      70875956,
+      72291079,
+      94973029
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Mecha_Phantom_Beast_Token",
+    "fileName": "MechaPhantomBeastToken-OP09-EN-SR-UE-Megaraptor.png",
+    "url": "https://ms.yugipedia.com//3/36/MechaPhantomBeastToken-OP09-EN-SR-UE-Megaraptor.png",
+    "candidateKind": "printed-scan",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "a7c5ee49cc58e82021fbcaeb18c43319147a966496a2ed721f0fea0214c6a824",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/MechaPhantomBeastToken-OP09-EN-SR-UE-Megaraptor.png",
+    "bytes": 777802,
+    "sha256": "f919949ca4a87bf74dd24532c1870db7005f1ac1278aaa37dd90d63adf0fd6f0",
+    "dimensions": [
+      482,
+      700
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.109795+00:00"
+  },
+  {
+    "name": "Familiar of the Evil Eye Token",
+    "nativeCodes": [
+      7610395
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Familiar_of_the_Evil_Eye_Token",
+    "fileName": "FamiliaroftheEvilEyeToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//d/d8/FamiliaroftheEvilEyeToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "e48b1c946b3e0511c2adc67fce19b2e804b5478e362103907360ba56858b64c9",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/FamiliaroftheEvilEyeToken-MADU-EN-VG-artwork.png",
+    "bytes": 493152,
+    "sha256": "87fc8c73e26d5fbdf51cb09b8d0ed5688ccbeab18f59aa33eb2b7b6a793bc4dd",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.227838+00:00"
+  },
+  {
+    "name": "Gadget Box Token",
+    "nativeCodes": [
+      8025951
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Gadget_Box_Token",
+    "fileName": "GadgetBoxToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//f/ff/GadgetBoxToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "ff04c61f53e5c3c1866706e43ccafb361cf5c03339b48fcc28e35a87ed3eca58",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/GadgetBoxToken-MADU-EN-VG-artwork.png",
+    "bytes": 496543,
+    "sha256": "c16c9ef213797540122cf8e5c41daf569735c1e01a866cfeb497238300e37b6a",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.224475+00:00"
+  },
+  {
+    "name": "@Ignister Token",
+    "nativeCodes": [
+      11738490
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/%40Ignister_Token",
+    "fileName": "IgnisterToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//0/04/IgnisterToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "d8be1235ef06b74af94334e8a2b5c6245ce630fbd466972664d90068223b9d50",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/IgnisterToken-MADU-EN-VG-artwork.png",
+    "bytes": 530124,
+    "sha256": "98912caf12a1cfacbe09bb094f04b59805bf877d433f6c0e7a95045225969a36",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.238272+00:00"
+  },
+  {
+    "name": "Lunalight Token",
+    "nativeCodes": [
+      13935002
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Lunalight_Token",
+    "fileName": "LunalightToken-DULI-EN-VG-CA.png",
+    "url": "https://ms.yugipedia.com//2/2b/LunalightToken-DULI-EN-VG-CA.png",
+    "candidateKind": "duel-links-card",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "7489df187a7d6602f04527887fd822863bdca8c8d9698b158cfc9534afbaaa16",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/LunalightToken-DULI-EN-VG-CA.png",
+    "bytes": 237988,
+    "sha256": "c68ab2d68be5bbd149caa1e47fde096e94cebc720047799ea962fcb758339bb5",
+    "dimensions": [
+      424,
+      424
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.261757+00:00"
+  },
+  {
+    "name": "Otoshidamashi Token",
+    "nativeCodes": [
+      14957441
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Otoshidamashi_Token",
+    "fileName": "OtoshidamashiToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//7/70/OtoshidamashiToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "62a1d6390c5d218fed16f11f24bb34c9484d15c822ef4c738261b2b3ffcba6de",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/OtoshidamashiToken-MADU-EN-VG-artwork.png",
+    "bytes": 284934,
+    "sha256": "a816317ebd6f767553f2b00fa9ff3e3c929dad1dc1093c78fe4f411a95aeeaf3",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.285255+00:00"
+  },
+  {
+    "name": "Fire Token",
+    "nativeCodes": [
+      15590356
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Fire_Token",
+    "fileName": "FireToken-DULI-EN-VG-CA.png",
+    "url": "https://ms.yugipedia.com//5/55/FireToken-DULI-EN-VG-CA.png",
+    "candidateKind": "duel-links-card",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "2a3a56fe5e291d7ac7eb797b74943a72d625c2516ce345621a85768807f953b4",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/FireToken-DULI-EN-VG-CA.png",
+    "bytes": 341380,
+    "sha256": "d2f17d343275603cf14f062a758a14cfe45797a4fa63097cf38f9573027f4a05",
+    "dimensions": [
+      384,
+      384
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.363130+00:00"
+  },
+  {
+    "name": "Jurraegg Token",
+    "nativeCodes": [
+      17228909
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Jurraegg_Token",
+    "fileName": "JurraeggToken-SR04-EN-C-1E.png",
+    "url": "https://ms.yugipedia.com//6/62/JurraeggToken-SR04-EN-C-1E.png",
+    "candidateKind": "printed-scan",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "9603e4d7db639f14e82cb46e734b3da42fdb1c644d1269018253cfb91675a44c",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/JurraeggToken-SR04-EN-C-1E.png",
+    "bytes": 771009,
+    "sha256": "cdf88a31c2cd52cd062e6ca8a11f2df15f7ca7cd548ff1a3bff17b709bd1011c",
+    "dimensions": [
+      478,
+      695
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.383371+00:00"
+  },
+  {
+    "name": "Icejade Token",
+    "nativeCodes": [
+      18494512
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Icejade_Token",
+    "fileName": "IcejadeToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//1/1f/IcejadeToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "7fc2475247599ecab75712051933e4a5b6df00eaa7f5b165cfd8a2fea3e8e8fc",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/IcejadeToken-MADU-EN-VG-artwork.png",
+    "bytes": 566088,
+    "sha256": "209432384b5e179f053f75cd6f0eff01b3f8e0dd2768fab34b2368af52970dd3",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.316280+00:00"
+  },
+  {
+    "name": "Tellus Wing Token",
+    "nativeCodes": [
+      19280590
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Tellus_Wing_Token",
+    "fileName": "TellusWingToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//c/c6/TellusWingToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "6fd1d1aaa4cffe9a4e799f54efc74f701bd9c32d5aff091339132dd62f0e856d",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/TellusWingToken-MADU-EN-VG-artwork.png",
+    "bytes": 347302,
+    "sha256": "15b81ad7fc94cc173db4f7c6d16d6cc72bc046e14a9e50b2e699329ea4487fa7",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.388106+00:00"
+  },
+  {
+    "name": "Swordsoul Token",
+    "nativeCodes": [
+      20001444
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Swordsoul_Token",
+    "fileName": "SwordsoulToken-DULI-EN-VG-CA.png",
+    "url": "https://ms.yugipedia.com//0/0e/SwordsoulToken-DULI-EN-VG-CA.png",
+    "candidateKind": "duel-links-card",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "375638c71dc8ee9499972094b7f6b83122a99ede806081599c08e77ba6b48bfd",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/SwordsoulToken-DULI-EN-VG-CA.png",
+    "bytes": 250275,
+    "sha256": "a8c367864cb6e8534b299c73b46d9e760d17b6e5261e71c6e839dc1b0d39480a",
+    "dimensions": [
+      385,
+      385
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.346256+00:00"
+  },
+  {
+    "name": "Clock Token",
+    "nativeCodes": [
+      21830680
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Clock_Token",
+    "fileName": "ClockToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//3/31/ClockToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "b6b253856b4a9def0d3511771ec426b0e8aec901a98330ce5fd4245e34b0df11",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/ClockToken-MADU-EN-VG-artwork.png",
+    "bytes": 481938,
+    "sha256": "22ddaa90ad2ded2f212ae5253568dd408442797e71c06100e29c8c36cc876fe8",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.392125+00:00"
+  },
+  {
+    "name": "Bomb Token",
+    "nativeCodes": [
+      22411610
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Bomb_Token",
+    "fileName": "BombToken-OP26-EN-SR-UE.png",
+    "url": "https://ms.yugipedia.com//7/71/BombToken-OP26-EN-SR-UE.png",
+    "candidateKind": "printed-scan",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "c3036a1ad4b00552309082f92d8e4186e190e0878e5e895a89e926d4f5ea2fa8",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/BombToken-OP26-EN-SR-UE.png",
+    "bytes": 1492954,
+    "sha256": "638743d787d422cf63b8c1489bb4818151945c0a2982e98c68707202c17f9f81",
+    "dimensions": [
+      754,
+      1099
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.530396+00:00"
+  },
+  {
+    "name": "Paralyzing Token",
+    "nativeCodes": [
+      22712878
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Paralyzing_Token",
+    "fileName": "ParalyzingToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//7/7c/ParalyzingToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "ea77ceb54df109f22c5e79d38fad18a04ff4eb2a5e3acb0818c6eed578cb3f71",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/ParalyzingToken-MADU-EN-VG-artwork.png",
+    "bytes": 567916,
+    "sha256": "03914643a4c58646fdde12a951aa9f8a4c5269906df7bed044308b5809de1f9b",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.523613+00:00"
+  },
+  {
+    "name": "Bellcat Token",
+    "nativeCodes": [
+      22953212
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Bellcat_Token",
+    "fileName": "BellcatToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//3/3a/BellcatToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "cd07375e57aabaae249195fbbd99d52bc46c649457158f09c4d81250545f3f90",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/BellcatToken-MADU-EN-VG-artwork.png",
+    "bytes": 310042,
+    "sha256": "0b4a2414901ace80fbbdd58d5e93538590095511c44e7a6cb8aee1f77834721e",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.451445+00:00"
+  },
+  {
+    "name": "Fireball Token",
+    "nativeCodes": [
+      23116809
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Fireball_Token",
+    "fileName": "FireballToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//0/06/FireballToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "46ea9cfdac67d9bbf6c5b3032695dd9d6b27ef4559b477ac1fe28a2d1a148daa",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/FireballToken-MADU-EN-VG-artwork.png",
+    "bytes": 234517,
+    "sha256": "7692d4e8ec39de2363af5c4d7d132e106b368d88f268d334bab2fd94e5f05897",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.510994+00:00"
+  },
+  {
+    "name": "Ogdoadic Token",
+    "nativeCodes": [
+      23837055
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Ogdoadic_Token",
+    "fileName": "OgdoadicToken-OP18-EN-SR-UE.png",
+    "url": "https://ms.yugipedia.com//8/89/OgdoadicToken-OP18-EN-SR-UE.png",
+    "candidateKind": "printed-scan",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "8be07fbadc9fae9edbab0fc170647bb42706bfa4b254dc60cb2f63cf20d4c0a2",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/OgdoadicToken-OP18-EN-SR-UE.png",
+    "bytes": 661609,
+    "sha256": "aab0e2dcf14f532722d26f76ce4d66ad0d66778e45ecfd05d68b76e327ea6bf5",
+    "dimensions": [
+      478,
+      701
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.486202+00:00"
+  },
+  {
+    "name": "Dinomorphia Token",
+    "nativeCodes": [
+      25419324
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Dinomorphia_Token",
+    "fileName": "DinomorphiaToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//a/a3/DinomorphiaToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "5a378ede53c6d0622205d12d8ab02d5c8f85f47e23091f5128b578a902355718",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/DinomorphiaToken-MADU-EN-VG-artwork.png",
+    "bytes": 482366,
+    "sha256": "d47fc7f1f0f0322ed4710cb3883ee036cc188aa1d53b0c8677046198d7539bcd",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.496525+00:00"
+  },
+  {
+    "name": "Shiranui Token",
+    "nativeCodes": [
+      26326542
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Shiranui_Token",
+    "fileName": "ShiranuiToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//4/47/ShiranuiToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "a98f7551c20fb8131f1f57689dd01b4ad55cbe18bf19b185ef4a1ce7484e08dc",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/ShiranuiToken-MADU-EN-VG-artwork.png",
+    "bytes": 481339,
+    "sha256": "23850a36a8e7cf5d6ae47dbe5c88a0491677911f638f10a2c230ee9b2bee7e31",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.539650+00:00"
+  },
+  {
+    "name": "Primal Being Token",
+    "nativeCodes": [
+      27204312
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Primal_Being_Token",
+    "fileName": "PrimalBeingToken-OP12-EN-SR-UE.png",
+    "url": "https://ms.yugipedia.com//5/5e/PrimalBeingToken-OP12-EN-SR-UE.png",
+    "candidateKind": "printed-scan",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "c29d08f4291a1141b20e2ee1330629ea90b594aefdf8ae5978ae1be7a4fb563b",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/PrimalBeingToken-OP12-EN-SR-UE.png",
+    "bytes": 1355732,
+    "sha256": "a5b064b9c6f512bdada2d245028d59d6f4c04585bdd97264af515284b2cafdda",
+    "dimensions": [
+      680,
+      1000
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.635627+00:00"
+  },
+  {
+    "name": "Vilepawn Salmon Token",
+    "nativeCodes": [
+      27882994
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Vilepawn_Salmon_Token",
+    "fileName": "VilepawnSalmonToken-DULI-EN-VG-CA.png",
+    "url": "https://ms.yugipedia.com//d/d3/VilepawnSalmonToken-DULI-EN-VG-CA.png",
+    "candidateKind": "duel-links-card",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "f652ba391f2ed901a6486c1cc93b7bfb1e72b54df89c3b93c05daad529580158",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/VilepawnSalmonToken-DULI-EN-VG-CA.png",
+    "bytes": 274574,
+    "sha256": "1a52576a2507bc88b421ee86e1234935203a560619108c1fc5336a17595d6c0c",
+    "dimensions": [
+      384,
+      384
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.610978+00:00"
+  },
+  {
+    "name": "Dark Beast Token",
+    "nativeCodes": [
+      30327675
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Dark_Beast_Token",
+    "fileName": "DarkBeastToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//9/90/DarkBeastToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "53ada7f03c458b04d502d23d8b73f295235052d022572fe0343d48ffa2106a28",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/DarkBeastToken-MADU-EN-VG-artwork.png",
+    "bytes": 492812,
+    "sha256": "312a41bf128cf8671253b632f85a94461e1cb796e45b7bf7240a651ab17ad528",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.601779+00:00"
+  },
+  {
+    "name": "Light Beast Token",
+    "nativeCodes": [
+      30327676
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Light_Beast_Token",
+    "fileName": "LightBeastToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//3/3f/LightBeastToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "8524b1eb6213d21274396cf489c664e166c05688eb6b6f7f40a1526c9cd4681b",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/LightBeastToken-MADU-EN-VG-artwork.png",
+    "bytes": 492812,
+    "sha256": "312a41bf128cf8671253b632f85a94461e1cb796e45b7bf7240a651ab17ad528",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.633768+00:00"
+  },
+  {
+    "name": "Vendread Token",
+    "nativeCodes": [
+      30650148
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Vendread_Token",
+    "fileName": "VendreadToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//2/24/VendreadToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "544341f1bc32a0ca224f5a372240cc1888350614c8bfd400decc63ff7cc67d93",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/VendreadToken-MADU-EN-VG-artwork.png",
+    "bytes": 395058,
+    "sha256": "a2fd59f52d9002ef8279e780b535377c40708f5c3ca4f879d185c7b0ac50e821",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.639846+00:00"
+  },
+  {
+    "name": "Hundred Apples Token",
+    "nativeCodes": [
+      30765616
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Hundred_Apples_Token",
+    "fileName": "HundredApplesToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//2/22/HundredApplesToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "57d3c7ff551b874a29b9cd7dbba872148e908ee848caf5989188a627171eafd2",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/HundredApplesToken-MADU-EN-VG-artwork.png",
+    "bytes": 519205,
+    "sha256": "02e31f82de9a32abb41c3daa7025d7f1ad3bf8a37d7f84722ef4e6cb5b346371",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.647067+00:00"
+  },
+  {
+    "name": "Baby Mantis Token",
+    "nativeCodes": [
+      31600514
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Baby_Mantis_Token",
+    "fileName": "BabyMantisToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//e/ee/BabyMantisToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "01df23011e2a18c87331075f80911eb646798eb3a7804cfa8ef0f9614f407d13",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/BabyMantisToken-MADU-EN-VG-artwork.png",
+    "bytes": 529300,
+    "sha256": "7488d3cac976ac42e95643168d8395870d997ecab59b716a098c4354eaca4e33",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.692461+00:00"
+  },
+  {
+    "name": "Haunted Token",
+    "nativeCodes": [
+      32335698
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Haunted_Token",
+    "fileName": "HauntedToken-DULI-EN-VG-CA.png",
+    "url": "https://ms.yugipedia.com//f/fe/HauntedToken-DULI-EN-VG-CA.png",
+    "candidateKind": "duel-links-card",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "86bf5d8f8b82a6d089d20d806e4bdc9b13adc64172102d6fcfdc69e8ac4daf07",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/HauntedToken-DULI-EN-VG-CA.png",
+    "bytes": 241477,
+    "sha256": "93c7733ac4d6af3fda9deee261150880994ac025d1e66195b360e946bea5c5ed",
+    "dimensions": [
+      383,
+      383
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.706580+00:00"
+  },
+  {
+    "name": "Manipulator Token",
+    "nativeCodes": [
+      32446631
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Manipulator_Token",
+    "fileName": "ManipulatorToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//a/a0/ManipulatorToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "e9c7540d18d9774c4b56e64ee9c391d87f795705f092d1d3e5233dee1ae76bf0",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/ManipulatorToken-MADU-EN-VG-artwork.png",
+    "bytes": 397365,
+    "sha256": "51a9e7ebdd48a77f65642e3de2c3f9e15d8407fe89993e710c818763e47777e9",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.736075+00:00"
+  },
+  {
+    "name": "Escapegoat Token",
+    "nativeCodes": [
+      33676147
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Escapegoat_Token",
+    "fileName": "EscapegoatToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//f/f2/EscapegoatToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "d40f57589f50ab46185662d3dd7e0626d27da50592a762d3ef0af4a43b26a318",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/EscapegoatToken-MADU-EN-VG-artwork.png",
+    "bytes": 401327,
+    "sha256": "be6efab3f445f4c6fbbfb5e0629fd5b84cdbb8ec0bbbbe44c020b056d9b7e682",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.032296+00:00"
+  },
+  {
+    "name": "Alligator Token",
+    "nativeCodes": [
+      34479659
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Alligator_Token",
+    "fileName": "AlligatorToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//4/4f/AlligatorToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "c4149b7b29cba07dc8767981f8e642733f0bf1d0b38e3a41996eb108b7bf5fbe",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/AlligatorToken-MADU-EN-VG-artwork.png",
+    "bytes": 327201,
+    "sha256": "11cf109895c64588efdf1370fd52c32226d03858e37947d17a74105249ee4571",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.794831+00:00"
+  },
+  {
+    "name": "Cynet Token",
+    "nativeCodes": [
+      34767866
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Cynet_Token",
+    "fileName": "CynetToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//a/a0/CynetToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "4b354c357c9e1a60a24680cf99d28197c7912800dd370f7a682aab77c7ae7d4e",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/CynetToken-MADU-EN-VG-artwork.png",
+    "bytes": 430953,
+    "sha256": "608078752dc11067e1316bb2a2bada35e2283d11b6f9019dc1433efb69ead8e3",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.024450+00:00"
+  },
+  {
+    "name": "Surprise Token",
+    "nativeCodes": [
+      35167376
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Surprise_Token",
+    "fileName": "SurpriseToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//c/cd/SurpriseToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "984bbe0deb9d27d7bde39b09061266ec7e1539f7286231607dfc2af471b611c1",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/SurpriseToken-MADU-EN-VG-artwork.png",
+    "bytes": 460316,
+    "sha256": "0a83bf1f95c2639c143b99d10d5e78faa53f827fa7c78f73c2f1450b78455f7a",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:48.780263+00:00"
+  },
+  {
+    "name": "Snack Token",
+    "nativeCodes": [
+      35263181
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Snack_Token",
+    "fileName": "SnackToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//2/27/SnackToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "78d4a34b59ae48b8720caedc43103def9d70999e5d1ce534cf20ecb16137838b",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/SnackToken-MADU-EN-VG-artwork.png",
+    "bytes": 661306,
+    "sha256": "3450d612027cfe3b791851a99d3254bf85f190669b2372b58686babbaab8c22c",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.042638+00:00"
+  },
+  {
+    "name": "Fiendsmith Token",
+    "nativeCodes": [
+      35552986
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Fiendsmith_Token",
+    "fileName": "FiendsmithToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//1/18/FiendsmithToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "f8e18bcd36f57d156c397240d35bed724e1a609a7b63123525c21e00ef11dae5",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/FiendsmithToken-MADU-EN-VG-artwork.png",
+    "bytes": 591807,
+    "sha256": "6f5b5f19dbb990ebdab5d3360d1567d6d16b52e07cddc70cb4ac68fcee9a11fc",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.055851+00:00"
+  },
+  {
+    "name": "Lamp Token",
+    "nativeCodes": [
+      35834120
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Lamp_Token",
+    "fileName": "LampToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//7/75/LampToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "abe6bc1b9985779b6307f88fda8e855469afee2f8a3014f40e7b0ce7958b21c2",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/LampToken-MADU-EN-VG-artwork.png",
+    "bytes": 574839,
+    "sha256": "4ebd72f200f258413b06cb13bd4107bcca33ebe19e1b20bf8b6ac9bfb19aafdd",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.075100+00:00"
+  },
+  {
+    "name": "White Fluff Token",
+    "nativeCodes": [
+      36629636
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/White_Fluff_Token",
+    "fileName": "WhiteFluffToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//c/ce/WhiteFluffToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "e95563ee15e9a8d8c853a78341ec1d07256ba6446d06e417319fd97521852c87",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/WhiteFluffToken-MADU-EN-VG-artwork.png",
+    "bytes": 578063,
+    "sha256": "e7558586b78cd46b84d6299162dd8468848d9e49d5b735bb82ca8f31e9416ae3",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.066703+00:00"
+  },
+  {
+    "name": "Tenyi Spirit Token",
+    "nativeCodes": [
+      38030233
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Tenyi_Spirit_Token",
+    "fileName": "TenyiSpiritToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//6/6d/TenyiSpiritToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "f84a58b0d7b3a7e00fc166a41c7fae6f6a3d50ba08b9dc5fef5d62ee82f16e7b",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/TenyiSpiritToken-MADU-EN-VG-artwork.png",
+    "bytes": 453275,
+    "sha256": "44d3adbd9d32bad93a23c887aecc1ea2a831f2793bfa44ed38b2205755716a0c",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.112438+00:00"
+  },
+  {
+    "name": "Generaider Token",
+    "nativeCodes": [
+      38053382
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Generaider_Token",
+    "fileName": "GeneraiderToken-OP13-EN-SR-UE.png",
+    "url": "https://ms.yugipedia.com//5/53/GeneraiderToken-OP13-EN-SR-UE.png",
+    "candidateKind": "printed-scan",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "a4945eab74c5865dfdf3dea7bb55d2480174d31dd497b6d24c0da2cc5c965e26",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/GeneraiderToken-OP13-EN-SR-UE.png",
+    "bytes": 819970,
+    "sha256": "b32150437c3ecd8fb7cf60628661824304753b839bbcd48561ebc2dee6bfa414",
+    "dimensions": [
+      479,
+      698
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.122081+00:00"
+  },
+  {
+    "name": "Nouvelles Token",
+    "nativeCodes": [
+      40551411
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Nouvelles_Token",
+    "fileName": "NouvellesToken-DULI-EN-VG-CA.png",
+    "url": "https://ms.yugipedia.com//5/50/NouvellesToken-DULI-EN-VG-CA.png",
+    "candidateKind": "duel-links-card",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "96be21dae342c48b2fc4948285627725e551373dcf468d6a3cc9fb1fde9b4381",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/NouvellesToken-DULI-EN-VG-CA.png",
+    "bytes": 173518,
+    "sha256": "17211a7c20ba7ebf551f83712c5283781d83be1c060a6da0edf5c40b3b98f80e",
+    "dimensions": [
+      383,
+      383
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.130878+00:00"
+  },
+  {
+    "name": "Machine Token",
+    "nativeCodes": [
+      42427231
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Machine_Token",
+    "fileName": "MachineToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//c/c9/MachineToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "c2fb0e1efbdec8b4b806744f2e549971433c4c69a5cdba83c15718b072233a1d",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/MachineToken-MADU-EN-VG-artwork.png",
+    "bytes": 567916,
+    "sha256": "ab91ec78d97dc5adf6b96d37a2164ad8149c09c51dd0773508467ff89c9e0049",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.156728+00:00"
+  },
+  {
+    "name": "Prank-Kids Token",
+    "nativeCodes": [
+      43664495
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Prank-Kids_Token",
+    "fileName": "PrankKidsToken-TK05-JP-R.png",
+    "url": "https://ms.yugipedia.com//6/64/PrankKidsToken-TK05-JP-R.png",
+    "candidateKind": "printed-scan",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "8195c3c26608bcc753860f337a65b670fd33cbebf9473f7a5946dea35c362b60",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/PrankKidsToken-TK05-JP-R.png",
+    "bytes": 4150441,
+    "sha256": "08bc61dfc92ce0e021b2f4bae9731e49f8fc615029a7abe39f6d1d83342c3178",
+    "dimensions": [
+      1056,
+      1552
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.334968+00:00"
+  },
+  {
+    "name": "Parasomnia Token",
+    "nativeCodes": [
+      44092305
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Parasomnia_Token",
+    "fileName": "ParasomniaToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//2/2c/ParasomniaToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "971071eebf691c06d8549bf7544dd6c93ac8aeb82f298e73e1a2fe94e39b963b",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/ParasomniaToken-MADU-EN-VG-artwork.png",
+    "bytes": 484045,
+    "sha256": "3b1191421bd34df668223a88a93dc7f957ff94a473fcdd6588e3ee293e2fcf64",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.180908+00:00"
+  },
+  {
+    "name": "Ice Barrier Token",
+    "nativeCodes": [
+      44308318
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Ice_Barrier_Token",
+    "fileName": "IceBarrierToken-OP17-EN-SR-UE.png",
+    "url": "https://ms.yugipedia.com//6/63/IceBarrierToken-OP17-EN-SR-UE.png",
+    "candidateKind": "printed-scan",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "9c84a64fed2e662c858004c71e21f4f3047292509a250815884f256162371e66",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/IceBarrierToken-OP17-EN-SR-UE.png",
+    "bytes": 795058,
+    "sha256": "ee6f546906df320356a86141d93a1e4e46c55d00c45ab0847c34e51feba22a60",
+    "dimensions": [
+      479,
+      700
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.225044+00:00"
+  },
+  {
+    "name": "Link Token",
+    "nativeCodes": [
+      48068379,
+      85243785
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Link_Token",
+    "fileName": "LinkToken-DULI-EN-VG-CA.png",
+    "url": "https://ms.yugipedia.com//6/6d/LinkToken-DULI-EN-VG-CA.png",
+    "candidateKind": "duel-links-card",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "692f01246943d7a866666f403d1d0dc88a10340521f024e0e704cdc0014ccb20",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/LinkToken-DULI-EN-VG-CA.png",
+    "bytes": 283030,
+    "sha256": "df8ba73762ba4a40eb73309f58e56975c9ad5a309434e05232763523fa6f4372",
+    "dimensions": [
+      385,
+      385
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.252129+00:00"
+  },
+  {
+    "name": "Pyrite Token",
+    "nativeCodes": [
+      48228391
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Pyrite_Token",
+    "fileName": "PyriteToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//3/3d/PyriteToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "c8bb5f4e6413b20e86875c3c3a200cad85654ce5adf39ed62645f39a29d70113",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/PyriteToken-MADU-EN-VG-artwork.png",
+    "bytes": 675604,
+    "sha256": "059a2bcb93f042da56f29312f0a9a9ec23e9a801f00e2249169e0a302339ba61",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.232081+00:00"
+  },
+  {
+    "name": "Trickstar Token",
+    "nativeCodes": [
+      51208047
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Trickstar_Token",
+    "fileName": "TrickstarToken-OP10-EN-SR-UE.png",
+    "url": "https://ms.yugipedia.com//9/95/TrickstarToken-OP10-EN-SR-UE.png",
+    "candidateKind": "printed-scan",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "c71bb32c4fabd8cca34a7083bd9ec62050bef5a8eeb7a898c4e5fe88829fec2c",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/TrickstarToken-OP10-EN-SR-UE.png",
+    "bytes": 761647,
+    "sha256": "25dbb171a7f6accb0b0a289944ae13a353afa2ffbc904b3c7818d73899789941",
+    "dimensions": [
+      482,
+      700
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.291432+00:00"
+  },
+  {
+    "name": "Epigonos Token",
+    "nativeCodes": [
+      51611042
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Epigonos_Token",
+    "fileName": "EpigonosToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//d/d7/EpigonosToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "5db45fc7171b3ff6b205a3e8e59fcab6905a57e4f8a5fca53b0c20824b5a577a",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/EpigonosToken-MADU-EN-VG-artwork.png",
+    "bytes": 425106,
+    "sha256": "32220c7a78e83ca8f0f690486fc2c7d3f5a3f8ba9381f95240a3ac8fc23fb930",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.300704+00:00"
+  },
+  {
+    "name": "Diagram Token",
+    "nativeCodes": [
+      52782440
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Diagram_Token",
+    "fileName": "DiagramToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//4/4e/DiagramToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "0471d52aacec1d521a78c16175414886bf82bf3cefb54856cf308b972fe3532e",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/DiagramToken-MADU-EN-VG-artwork.png",
+    "bytes": 570458,
+    "sha256": "80f3be0af0f7adcaa64511e50a482f40b366f93cec7f19fe61c415b53c59e08f",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.330086+00:00"
+  },
+  {
+    "name": "Support Token",
+    "nativeCodes": [
+      53545927
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Support_Token",
+    "fileName": "SupportToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//d/db/SupportToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "e4f0e48f1a11618f498eccbf85976622c45909207e1bec1edcf0222b928255a9",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/SupportToken-MADU-EN-VG-artwork.png",
+    "bytes": 492093,
+    "sha256": "32f3d6feb30c6fa5c40d9074a329d905ad0dd0516acce3c047b4d0fac52c0e66",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.309674+00:00"
+  },
+  {
+    "name": "Armament Reincarnation Token",
+    "nativeCodes": [
+      53770667
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Armament_Reincarnation_Token",
+    "fileName": "ArmamentReincarnationToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//b/bb/ArmamentReincarnationToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "d8e05d31b0ed01fa70405d2616d7503db51e49aa59175bb82858e91d4181fe52",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/ArmamentReincarnationToken-MADU-EN-VG-artwork.png",
+    "bytes": 562414,
+    "sha256": "60e0b6879b2ae8cb388cdb555691c0377b52bd8610ac83104cd12c054fa919da",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.383771+00:00"
+  },
+  {
+    "name": "Crystal Beast Token",
+    "nativeCodes": [
+      58371672
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Crystal_Beast_Token",
+    "fileName": "CrystalBeastToken-SDCB-EN-C-1E.png",
+    "url": "https://ms.yugipedia.com//b/b2/CrystalBeastToken-SDCB-EN-C-1E.png",
+    "candidateKind": "printed-scan",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "ac123377221b876f74b35a322a1c33d695893beed0953eafdc54b36ebca3eac2",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/CrystalBeastToken-SDCB-EN-C-1E.png",
+    "bytes": 459745,
+    "sha256": "de76502ebc93b32ca7569849a8c56e28745930058dcd97179533ec5baa8bd3d7",
+    "dimensions": [
+      472,
+      693
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.411466+00:00"
+  },
+  {
+    "name": "Elfnote Seraphim Token",
+    "nativeCodes": [
+      58809686
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Elfnote_Seraphim_Token",
+    "fileName": "ElfnoteSeraphimToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//c/cd/ElfnoteSeraphimToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "044e9c002555ebb0ddd0ae3959e4bac08f7104cd00e0c231331920d94df9a731",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/ElfnoteSeraphimToken-MADU-EN-VG-artwork.png",
+    "bytes": 603863,
+    "sha256": "189e0016503ca4198e08f631e949bf34bf651931e893f0dacb5ea360b69dedce",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.395676+00:00"
+  },
+  {
+    "name": "Nytro Token",
+    "nativeCodes": [
+      59900656
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Nytro_Token",
+    "fileName": "NytroToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//1/1c/NytroToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "ab0fb8348415723a284bde87ee8066f0027ae24efaa94f6b1e1759b7a2c73163",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/NytroToken-MADU-EN-VG-artwork.png",
+    "bytes": 551419,
+    "sha256": "d2bc94a5a684a2dc422a53f02bfa98be3b4a31dd823007239030db389d7c8db6",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.429794+00:00"
+  },
+  {
+    "name": "Duel Dragon Token",
+    "nativeCodes": [
+      60025884
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Duel_Dragon_Token",
+    "fileName": "DuelDragonToken-OP11-EN-SR-UE.png",
+    "url": "https://ms.yugipedia.com//8/80/DuelDragonToken-OP11-EN-SR-UE.png",
+    "candidateKind": "printed-scan",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "1fb5797953435fa9af506e85f2e10d9c050f80162b83abb54d65a538110c0f77",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/DuelDragonToken-OP11-EN-SR-UE.png",
+    "bytes": 771791,
+    "sha256": "1c840067c66fab6a0d7b2fc3b96202d363cc70141520d27972583073f69709a6",
+    "dimensions": [
+      479,
+      700
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.425281+00:00"
+  },
+  {
+    "name": "Gold Pride Token",
+    "nativeCodes": [
+      60203671
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Gold_Pride_Token",
+    "fileName": "GoldPrideToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//7/76/GoldPrideToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "52bd484544cabe3b4ab9243bcae9b7c917d243fdbad372e8f5fe2df200c712a4",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/GoldPrideToken-MADU-EN-VG-artwork.png",
+    "bytes": 558721,
+    "sha256": "07282e8b29558a95e3cc8fe9496af3f08acfcdb6e177df2b76710856f15ff44a",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.439144+00:00"
+  },
+  {
+    "name": "Mask Token",
+    "nativeCodes": [
+      60514626
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Mask_Token",
+    "fileName": "MaskToken-OP19-EN-SR-UE.png",
+    "url": "https://ms.yugipedia.com//6/6b/MaskToken-OP19-EN-SR-UE.png",
+    "candidateKind": "printed-scan",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "710c3f2b51b3572b4f1f4ccd287bd13879b93e4bba3fd57ab744e2c8e52c5bb2",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/MaskToken-OP19-EN-SR-UE.png",
+    "bytes": 1020284,
+    "sha256": "f374ad3e3cad5e9c4e2abce098f3a022e3842455e7310e7cea760ee66b84433a",
+    "dimensions": [
+      570,
+      826
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.474515+00:00"
+  },
+  {
+    "name": "Stardust Token",
+    "nativeCodes": [
+      63184228
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Stardust_Token",
+    "fileName": "StardustToken-DULI-EN-VG-CA.png",
+    "url": "https://ms.yugipedia.com//3/3f/StardustToken-DULI-EN-VG-CA.png",
+    "candidateKind": "duel-links-card",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "33f087643f35f2d85671cfc9246f7228bb0b8f573d60444e9013bad636a829a9",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/StardustToken-DULI-EN-VG-CA.png",
+    "bytes": 180093,
+    "sha256": "63be04f9f6537dc4afa685fc22dea5834c8477aaf573c1e00099713254acc601",
+    "dimensions": [
+      384,
+      384
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.489010+00:00"
+  },
+  {
+    "name": "Beetrooper Token",
+    "nativeCodes": [
+      64213018
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Beetrooper_Token",
+    "fileName": "BeetrooperToken-DULI-EN-VG-CA.png",
+    "url": "https://ms.yugipedia.com//2/24/BeetrooperToken-DULI-EN-VG-CA.png",
+    "candidateKind": "duel-links-card",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "173d60ab3ce9b2a883a778d1039a4b916318cad153a99a77edac19c8e1e02bf6",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/BeetrooperToken-DULI-EN-VG-CA.png",
+    "bytes": 243290,
+    "sha256": "4957e9bc39e80adb3e7d9aef525bdfa2c98592b6b857509a06cdf938649424b3",
+    "dimensions": [
+      383,
+      383
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.498018+00:00"
+  },
+  {
+    "name": "Dragon Token",
+    "nativeCodes": [
+      64583601
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Dragon_Token",
+    "fileName": "DragonToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//1/16/DragonToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "06832631f138d3714242dcd799fe4ec6109dc1e35e17aaa010707266e002ca83",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/DragonToken-MADU-EN-VG-artwork.png",
+    "bytes": 472599,
+    "sha256": "f2997252d4d9198be2a863c6a7a72a3b10e45563486b7248cd9c3b3d49570a1f",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.528805+00:00"
+  },
+  {
+    "name": "Squid Ink Token",
+    "nativeCodes": [
+      65500516
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Squid_Ink_Token",
+    "fileName": "SquidInkToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//f/f0/SquidInkToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "e96867b1eb8e78ee1b3d939de9f1a36200b8c35d13be4f11eb6852b151b2b6a5",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/SquidInkToken-MADU-EN-VG-artwork.png",
+    "bytes": 346410,
+    "sha256": "2cc1a3c0efc56ea7cb7cccdf30e281da1c1caf27042e8f21b0c19a39dfb16f70",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.515934+00:00"
+  },
+  {
+    "name": "Speedroid Token",
+    "nativeCodes": [
+      69550260
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Speedroid_Token",
+    "fileName": "SpeedroidToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//f/f4/SpeedroidToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "f3b84bb47b04ed40e43194b5b2d6e52907d0b2e38f41195f1d736349948833fb",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/SpeedroidToken-MADU-EN-VG-artwork.png",
+    "bytes": 380884,
+    "sha256": "6ae95e9abb131331de34a8e63c155df7c932051582c3ff443265cc7f91b88b98",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.543605+00:00"
+  },
+  {
+    "name": "World Legacy Token",
+    "nativeCodes": [
+      69811711
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/World_Legacy_Token",
+    "fileName": "WorldLegacyToken-OP15-EN-SR-UE.png",
+    "url": "https://ms.yugipedia.com//3/38/WorldLegacyToken-OP15-EN-SR-UE.png",
+    "candidateKind": "printed-scan",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "0ea5715427fbeaffdfd30c2d1db92132f8730859cadc4684631d6b8dfd1b10e2",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/WorldLegacyToken-OP15-EN-SR-UE.png",
+    "bytes": 2474714,
+    "sha256": "da3faff513f17ec7748550260010ecb6f7515a1eee0a69edca392ae526d542c9",
+    "dimensions": [
+      823,
+      1200
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.634738+00:00"
+  },
+  {
+    "name": "Phantom Glimmer Token",
+    "nativeCodes": [
+      70465811
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Phantom_Glimmer_Token",
+    "fileName": "PhantomGlimmerToken-DULI-EN-VG-CA.png",
+    "url": "https://ms.yugipedia.com//2/27/PhantomGlimmerToken-DULI-EN-VG-CA.png",
+    "candidateKind": "duel-links-card",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "a88dc4934a92cfc4d51d1818661f48df2c28fb6671986770fd89933247a06353",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/PhantomGlimmerToken-DULI-EN-VG-CA.png",
+    "bytes": 222490,
+    "sha256": "e106b14150530953be69380b0112e0af792dd1122e36fb140ff29ebebebbce45",
+    "dimensions": [
+      383,
+      383
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.567985+00:00"
+  },
+  {
+    "name": "Stag Token",
+    "nativeCodes": [
+      70950699
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Stag_Token",
+    "fileName": "StagToken-DULI-EN-VG-CA.png",
+    "url": "https://ms.yugipedia.com//0/00/StagToken-DULI-EN-VG-CA.png",
+    "candidateKind": "duel-links-card",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "921316a15894798801105193065a8fe338bf7dcfa9c15c94df8c91eac6573c9e",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/StagToken-DULI-EN-VG-CA.png",
+    "bytes": 216998,
+    "sha256": "04c4d5c7eefc892b617176ad8b3360388500b52a056d54eea30a8e1e6d8dbc1a",
+    "dimensions": [
+      424,
+      424
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.583635+00:00"
+  },
+  {
+    "name": "Sacrificial Offering Token",
+    "nativeCodes": [
+      71771005
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Sacrificial_Offering_Token",
+    "fileName": "SacrificialOfferingToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//3/31/SacrificialOfferingToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "583bde5ea40ee0e81a5197710f6858cde20208c067b6d142bd051ae7e4c7d8ae",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/SacrificialOfferingToken-MADU-EN-VG-artwork.png",
+    "bytes": 501972,
+    "sha256": "324e44997a7b7a66749622f7e9a4561527240b556d54cfba5d975c427d2fd122",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.598768+00:00"
+  },
+  {
+    "name": "Doppelganger Token",
+    "nativeCodes": [
+      71939276
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Doppelganger_Token",
+    "fileName": "DoppelgangerToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//d/dd/DoppelgangerToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "73ff38b235502a0d7c164695b09db2c7e2fce4238480c3953eed8474b94f4c35",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/DoppelgangerToken-MADU-EN-VG-artwork.png",
+    "bytes": 532147,
+    "sha256": "93ede80000754af9838600b83120ebc79f92f01ec9b6c79624654179c3c147d1",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.619316+00:00"
+  },
+  {
+    "name": "T.G. Token",
+    "nativeCodes": [
+      74627017
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/T.G._Token",
+    "fileName": "TGToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//a/a5/TGToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "4e682417d9182c47d4f34cdd37391fddc72b6a92274651166f801f2f400af429",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/TGToken-MADU-EN-VG-artwork.png",
+    "bytes": 455695,
+    "sha256": "f5a3797a59e313b209e16a350730490a01bc6a036361c42a2a73b9e174e0232c",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.642230+00:00"
+  },
+  {
+    "name": "Runick Token",
+    "nativeCodes": [
+      74659583
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Runick_Token",
+    "fileName": "RunickToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//a/ae/RunickToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "a72ae7c3687aba736216593ea9d08235f0a9d5ed61656b08952f9e16ae3744c5",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/RunickToken-MADU-EN-VG-artwork.png",
+    "bytes": 575346,
+    "sha256": "4b8888c848f008beaad02af4553fd9b3bb0dde551b3e6415b0231d721096a665",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.675919+00:00"
+  },
+  {
+    "name": "Overflow Token",
+    "nativeCodes": [
+      76589547
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Overflow_Token",
+    "fileName": "OverflowToken-DULI-EN-VG-CA.png",
+    "url": "https://ms.yugipedia.com//b/b2/OverflowToken-DULI-EN-VG-CA.png",
+    "candidateKind": "duel-links-card",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "0778a7d6c23ce99e52a645c6f456f6f2bd7845460c3d5eb7dcfe26bc99b206aa",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/OverflowToken-DULI-EN-VG-CA.png",
+    "bytes": 262652,
+    "sha256": "85335c5d7d6df37b02f183026a31c75073585c20db8921f16a78b2fc4885bd64",
+    "dimensions": [
+      426,
+      426
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.680755+00:00"
+  },
+  {
+    "name": "Iceblade Token",
+    "nativeCodes": [
+      81767889
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Iceblade_Token",
+    "fileName": "IcebladeToken-DULI-EN-VG-CA.png",
+    "url": "https://ms.yugipedia.com//6/61/IcebladeToken-DULI-EN-VG-CA.png",
+    "candidateKind": "duel-links-card",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "abf00e1b3695fac4bd704058efed87e189ecda1fe268a1e4ff4ecfd805cd1464",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/IcebladeToken-DULI-EN-VG-CA.png",
+    "bytes": 206758,
+    "sha256": "69270ab3f537784a6332651a5442cb335e26168706bc74b70822f8b2e10077ff",
+    "dimensions": [
+      383,
+      383
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.722272+00:00"
+  },
+  {
+    "name": "Ancient Warriors Token",
+    "nativeCodes": [
+      82255873
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Ancient_Warriors_Token",
+    "fileName": "AncientWarriorsToken-DULI-EN-VG-CA.png",
+    "url": "https://ms.yugipedia.com//6/6e/AncientWarriorsToken-DULI-EN-VG-CA.png",
+    "candidateKind": "duel-links-card",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "c2a9c08168a5beb082483e2c1d619f6a71721dd02a0f5883b856be469dc98f0b",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/AncientWarriorsToken-DULI-EN-VG-CA.png",
+    "bytes": 342638,
+    "sha256": "26e015866fb113bc89a5203bb29c936813f2ae6249a32ad8f440b02baeec6e88",
+    "dimensions": [
+      383,
+      383
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.692005+00:00"
+  },
+  {
+    "name": "Darklord Token",
+    "nativeCodes": [
+      84031360
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Darklord_Token",
+    "fileName": "DarklordToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//a/af/DarklordToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "197f1182eb8106c5db8c7e4e2e9bdae4b9280a581bcf27204b99139d10585d49",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/DarklordToken-MADU-EN-VG-artwork.png",
+    "bytes": 584559,
+    "sha256": "e1e5fad23af78d3bff99554870897144097b2d1fb673578e94913a38e5da67ff",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.745429+00:00"
+  },
+  {
+    "name": "Plunder Patroll Token",
+    "nativeCodes": [
+      85969518
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Plunder_Patroll_Token",
+    "fileName": "PlunderPatrollToken-MADU-EN-VG-artwork.png",
+    "url": "https://ms.yugipedia.com//f/f9/PlunderPatrollToken-MADU-EN-VG-artwork.png",
+    "candidateKind": "master-duel-art",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "28ab7b1ff268a4fb4fa925177fd0a1c4357ada219fc8a40ef93d153d6408eccc",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/PlunderPatrollToken-MADU-EN-VG-artwork.png",
+    "bytes": 368056,
+    "sha256": "c16b6f961a49e0038f83481c6f60d134e5e838495d07f941c85fffd53e5168a1",
+    "dimensions": [
+      512,
+      512
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.717323+00:00"
+  },
+  {
+    "name": "Dual Avatar Spirit Token",
+    "nativeCodes": [
+      87669905
+    ],
+    "sourcePage": "https://yugipedia.com/wiki/Dual_Avatar_Spirit_Token",
+    "fileName": "DualAvatarSpiritToken-OP14-EN-SR-UE.png",
+    "url": "https://ms.yugipedia.com//8/89/DualAvatarSpiritToken-OP14-EN-SR-UE.png",
+    "candidateKind": "printed-scan",
+    "identityStatus": "candidate-name-match-needs-art-and-generator-review",
+    "sourcePageSha256": "642b433abb12a522b93c6329188262ea2ab62dad98c46e6ac839bf3b25fd93d7",
+    "status": 200,
+    "curlExitCode": 0,
+    "statusMeasuredBy": "curl GET --write-out %{http_code}",
+    "responseContentType": "image/png",
+    "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/DualAvatarSpiritToken-OP14-EN-SR-UE.png",
+    "bytes": 1782285,
+    "sha256": "628fb1d708211158f3daf664b7719225650c49b5efe17bf32be72fbde11c2c62",
+    "dimensions": [
+      684,
+      1000
+    ],
+    "format": "PNG",
+    "fetchedAtUtc": "2026-10-13T11:09:49.840466+00:00"
+  }
+]

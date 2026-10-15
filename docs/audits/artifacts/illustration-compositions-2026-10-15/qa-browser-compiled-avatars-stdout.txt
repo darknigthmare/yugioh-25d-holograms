@@ -1,0 +1,15 @@
+{"stage": "studio-all-192", "completed": 0, "total": 192}
+{"stage": "studio-all-192", "completed": 24, "total": 192, "lastAvatarId": "rebecca", "elapsedSeconds": 26.0, "estimatedRemainingSeconds": 181.8}
+{"stage": "studio-all-192", "completed": 48, "total": 192, "lastAvatarId": "camula", "elapsedSeconds": 49.1, "estimatedRemainingSeconds": 147.4}
+{"stage": "studio-all-192", "completed": 72, "total": 192, "lastAvatarId": "antinomy", "elapsedSeconds": 72.5, "estimatedRemainingSeconds": 120.9}
+{"stage": "studio-all-192", "completed": 96, "total": 192, "lastAvatarId": "dr-faker", "elapsedSeconds": 95.4, "estimatedRemainingSeconds": 95.4}
+{"stage": "studio-all-192", "completed": 120, "total": 192, "lastAvatarId": "yoko", "elapsedSeconds": 119.7, "estimatedRemainingSeconds": 71.8}
+{"stage": "studio-all-192", "completed": 144, "total": 192, "lastAvatarId": "naoki", "elapsedSeconds": 142.5, "estimatedRemainingSeconds": 47.5}
+{"stage": "studio-all-192", "completed": 168, "total": 192, "lastAvatarId": "yuo", "elapsedSeconds": 165.3, "estimatedRemainingSeconds": 23.6}
+{"stage": "studio-all-192", "completed": 192, "total": 192, "lastAvatarId": "kuadul", "elapsedSeconds": 188.1, "estimatedRemainingSeconds": 0.0}
+{"stage": "studio-pause-resume", "width": 1280, "ok": true}
+{"stage": "completed-browser-path", "width": 1280, "pathCount": 1}
+{"stage": "studio-pause-resume", "width": 390, "ok": true}
+{"stage": "completed-browser-path", "width": 390, "pathCount": 2}
+{"ok": true, "paths": 8, "captures": 52, "findings": [[], [], [], [], [], [], [], []]}
+{"ok": true, "scope": "avatars", "paths": 8, "captures": 52, "retainedDriversUnchanged": true}

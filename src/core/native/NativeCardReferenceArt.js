@@ -1,9 +1,13 @@
 // Exact downloaded source JPEGs; runtime names and types never select another illustration.
 import { POPULAR_GOD_REFERENCE_ART } from '../../ui/PopularGodReferenceArt.js';
 import { POPULAR_STAPLE_REFERENCE_ART } from '../../ui/PopularStapleReferenceArt.js';
+import { TOKEN_CARD_REFERENCE_ART } from './TokenCardReferenceArt.js';
+import { TOKEN_DUEL_CARD_REFERENCE_ART } from './TokenDuelCardReferenceArt.js';
 const references = {
   ...POPULAR_GOD_REFERENCE_ART,
   ...Object.fromEntries(POPULAR_STAPLE_REFERENCE_ART.map(entry => [entry.cardId, entry])),
+  ...TOKEN_CARD_REFERENCE_ART,
+  ...TOKEN_DUEL_CARD_REFERENCE_ART,
   "26905245": {
     "cardId": "26905245",
     "full": {
@@ -61,4 +65,7 @@ const references = {
 };
 for (const entry of Object.values(references)) { Object.freeze(entry.full); Object.freeze(entry.cropped); Object.freeze(entry.small); Object.freeze(entry); }
 export const NATIVE_CARD_REFERENCE_ART = Object.freeze(references);
-export function getNativeCardReferenceArt(code) { return NATIVE_CARD_REFERENCE_ART[String(code).replace(/^0+(?=\d)/, "")] ?? null; }
+export function getNativeCardReferenceArt(code) {
+  const key = String(code).replace(/^0+(?=\d)/, "");
+  return Object.hasOwn(NATIVE_CARD_REFERENCE_ART, key) ? NATIVE_CARD_REFERENCE_ART[key] : null;
+}

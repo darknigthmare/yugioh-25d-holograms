@@ -1,0 +1,17 @@
+{
+  "scope": "Avatar geometry authoring and targeted CPU verification, independent of compiled browser QA and publication.",
+  "files": {
+    "docs/audits/artifacts/duelist-avatar-fidelity-2026-10-11/cpu-audit.json": {
+      "bytes": 111442,
+      "sha256": "f5db783b239dd49faab957b48907dfaf30f2e5b9daefe81fe95e01b80e1b1b17"
+    },
+    "docs/audits/artifacts/duelist-avatar-fidelity-2026-10-11/targeted-tests.txt": {
+      "bytes": 3024,
+      "sha256": "b27a6e5b0dab412b823d0e71dbfc78acde1ed940f59163e5fba4c5ccb60078e1"
+    },
+    "docs/audits/duelist-avatar-fidelity-2026-10-11.md": {
+      "bytes": 6841,
+      "sha256": "477257c529e3fbf582bbb042a2039f11b0baf41e553d5746d003b506c542228a"
+    }
+  }
+}

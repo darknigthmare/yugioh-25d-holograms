@@ -1,0 +1,86 @@
+import hashlib
+import json
+from pathlib import Path
+from playwright.sync_api import sync_playwright
+
+ROOT = Path('/workspace/yugioh-25d-holograms')
+OUT = Path('/workspace/yugioh-illustration-effects-webgl-2026-10-15')
+OUT.mkdir(exist_ok=True)
+HTML = '<!doctype html><html><meta charset="utf-8"><link rel="icon" href="data:,"><body style="margin:0;background:#0d1826"><canvas></canvas></body></html>'
+JS = r'''async () => {
+  const T = await import('/node_modules/.vite/deps/three.js');
+  const { createTokenIllustrationEffects, TOKEN_ILLUSTRATION_EFFECT_REFERENCES } = await import('/src/ui/TokenIllustrationEffects.js');
+  const renderer = new T.WebGLRenderer({ canvas: document.querySelector('canvas'), antialias: true, preserveDrawingBuffer: true });
+  renderer.setPixelRatio(1); renderer.setSize(1000, 1000);
+  renderer.outputColorSpace = T.SRGBColorSpace; renderer.localClippingEnabled = true;
+  const camera = new T.OrthographicCamera(-2.3, 2.3, 4.4, -.2, .1, 30);
+  camera.position.set(0, 0, 8); camera.updateMatrixWorld();
+  const gl = renderer.getContext(), snapshots = [], paths = [];
+  renderer.setScissorTest(true);
+  const planes = [new T.Plane(new T.Vector3(1,0,0),2.1),new T.Plane(new T.Vector3(-1,0,0),2.1),new T.Plane(new T.Vector3(0,1,0),0),new T.Plane(new T.Vector3(0,-1,0),4.2)];
+  for (const [index, id] of Object.keys(TOKEN_ILLUSTRATION_EFFECT_REFERENCES).entries()) {
+    const scene = new T.Scene(); scene.background = new T.Color('#0d1826');
+    const effect = createTokenIllustrationEffects(id, { reducedMotion: false, frameSize:4.2 }); scene.add(effect.group);
+    let triangles = 0;
+    effect.group.traverse(object => {
+      if (!object.isMesh) return;
+      object.material.clippingPlanes = planes;
+      triangles += object.geometry.index.count / 3;
+      for (const [name, attribute] of Object.entries(object.geometry.attributes)) snapshots.push({ geometry: object.geometry, name, attribute, array: attribute.array, version: attribute.version, bytes: new Uint8Array(attribute.array.buffer).slice() });
+    });
+    const viewport = [(index%2)*500, index < 2 ? 500 : 0, 500, 500];
+    renderer.setViewport(...viewport); renderer.setScissor(...viewport);
+    effect.reset(); renderer.render(scene, camera); gl.finish();
+    const before = new Uint8Array(500*500*4); gl.readPixels(viewport[0], viewport[1], 500, 500, gl.RGBA, gl.UNSIGNED_BYTE, before);
+    let nonBackgroundPixels = 0; for (let pixel=0;pixel<before.length;pixel+=4) if (Math.abs(before[pixel]-13)+Math.abs(before[pixel+1]-24)+Math.abs(before[pixel+2]-38)>8) nonBackgroundPixels++;
+    for (let time=0;time<400;time++) effect.update(time/60);
+    effect.reset(); renderer.render(scene,camera); gl.finish();
+    const after = new Uint8Array(before.length); gl.readPixels(viewport[0],viewport[1],500,500,gl.RGBA,gl.UNSIGNED_BYTE,after);
+    const stablePixels = before.every((byte,index)=>byte===after[index]);
+    paths.push({ id, triangles, drawCalls: renderer.info.render.calls, nonBackgroundPixels, stablePixels, clippingPlaneCount: planes.length, frameSize: effect.group.userData.frameSize });
+    paths[index].allocated = { ...renderer.info.memory };
+    window['effect'+index] = effect;
+  }
+  const stableAttributes = snapshots.every(snapshot => snapshot.geometry.attributes[snapshot.name]===snapshot.attribute && snapshot.attribute.array===snapshot.array && snapshot.attribute.version===snapshot.version && new Uint8Array(snapshot.array.buffer).every((byte,index)=>byte===snapshot.bytes[index]));
+  const memoryBefore = { ...renderer.info.memory, programs: renderer.info.programs.length };
+  window.verifyClipping = () => {
+    const scene = new T.Scene(); scene.background = new T.Color('#0d1826');
+    const effect = createTokenIllustrationEffects('commemorative:LDK2-ENT02', { reducedMotion:true,frameSize:4.2,chargePosition:[2.6,2.2,0] });
+    effect.group.children[0].visible=false;scene.add(effect.group);
+    const clippingCamera=new T.OrthographicCamera(-3,3,4.2,-.2,.1,30);clippingCamera.position.set(0,0,8);clippingCamera.updateMatrixWorld();
+    renderer.setViewport(0,0,1000,1000);renderer.setScissor(0,0,1000,1000);
+    function count(){renderer.render(scene,clippingCamera);gl.finish();const bytes=new Uint8Array(1000*1000*4);gl.readPixels(0,0,1000,1000,gl.RGBA,gl.UNSIGNED_BYTE,bytes);let changed=0;for(let p=0;p<bytes.length;p+=4)if(Math.abs(bytes[p]-13)+Math.abs(bytes[p+1]-24)+Math.abs(bytes[p+2]-38)>8)changed++;return changed;}
+    const unclippedPixels=count();effect.group.children[1].material.clippingPlanes=planes;effect.group.children[1].material.needsUpdate=true;
+    const clippedPixels=count();effect.dispose();return {unclippedPixels,clippedPixels,chargePosition:[2.6,2.2,0],rightPlaneX:2.1};
+  };
+  window.releaseEffects = () => {
+    for(let index=0;index<4;index++){window['effect'+index].dispose();delete window['effect'+index];}
+    const afterDispose={ ...renderer.info.memory,programs:renderer.info.programs.length };
+    renderer.dispose(); renderer.forceContextLoss();
+    return afterDispose;
+  };
+  return { paths, stableAttributes, memoryBefore, glVersion: gl.getParameter(gl.VERSION), glError:gl.getError() };
+}'''
+with sync_playwright() as playwright:
+    browser = playwright.chromium.launch(executable_path='/usr/bin/chromium', headless=True, args=['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader'])
+    page = browser.new_page(viewport={'width':1000,'height':1000}, device_scale_factor=1)
+    errors = []; failed_responses = []
+    page.route('**/favicon.ico', lambda route: route.fulfill(status=204))
+    page.on('response', lambda response: failed_responses.append({'url':response.url,'status':response.status}) if response.status>=400 else None)
+    page.on('pageerror',lambda error: errors.append(str(error)))
+    page.on('console',lambda message: errors.append(message.text) if message.type=='error' else None)
+    page.goto('http://127.0.0.1:5189/package.json')
+    page.set_content(HTML)
+    report=page.evaluate(JS)
+    page.screenshot(path=str(OUT/'four-illustrated-effects.png'))
+    report['clippingControl']=page.evaluate('window.verifyClipping()')
+    report['afterDispose']=page.evaluate('window.releaseEffects()')
+    report['errors']=errors
+    report['failedResponses']=failed_responses
+    browser.close()
+report['source']={'path':'src/ui/TokenIllustrationEffects.js','bytes':(ROOT/'src/ui/TokenIllustrationEffects.js').stat().st_size,'sha256':hashlib.sha256((ROOT/'src/ui/TokenIllustrationEffects.js').read_bytes()).hexdigest()}
+report['driver']={'path':str(Path(__file__)),'sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+report['ok']=not errors and not failed_responses and report['glError']==0 and report['stableAttributes'] and all(path['nonBackgroundPixels']>1000 and path['stablePixels'] and path['drawCalls']<=2 for path in report['paths']) and report['clippingControl']['unclippedPixels']>1000 and report['clippingControl']['clippedPixels']==0 and report['afterDispose']['geometries']==0 and report['afterDispose']['textures']==0
+(OUT/'report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+print(json.dumps(report,ensure_ascii=False))
+assert report['ok']

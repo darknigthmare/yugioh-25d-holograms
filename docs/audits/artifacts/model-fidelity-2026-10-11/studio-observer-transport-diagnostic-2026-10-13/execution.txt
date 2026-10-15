@@ -1,0 +1,9 @@
+{"width": 1280, "trial": 0, "historicalWindowPythonDeliveryDelta": 0, "historicalWindowBrowserClearDelta": 0, "confirmedFalsePythonDeliveryDelta": 0, "clearCountAfterObserverFalse": 0, "strictZeroDraws": true}
+{"width": 1280, "trial": 1, "historicalWindowPythonDeliveryDelta": 0, "historicalWindowBrowserClearDelta": 0, "confirmedFalsePythonDeliveryDelta": 0, "clearCountAfterObserverFalse": 0, "strictZeroDraws": true}
+{"width": 1280, "trial": 2, "historicalWindowPythonDeliveryDelta": 0, "historicalWindowBrowserClearDelta": 0, "confirmedFalsePythonDeliveryDelta": 0, "clearCountAfterObserverFalse": 0, "strictZeroDraws": true}
+{"width": 1280, "trial": 3, "historicalWindowPythonDeliveryDelta": 0, "historicalWindowBrowserClearDelta": 0, "confirmedFalsePythonDeliveryDelta": 0, "clearCountAfterObserverFalse": 0, "strictZeroDraws": true}
+{"width": 390, "trial": 0, "historicalWindowPythonDeliveryDelta": 0, "historicalWindowBrowserClearDelta": 0, "confirmedFalsePythonDeliveryDelta": 0, "clearCountAfterObserverFalse": 0, "strictZeroDraws": true}
+{"width": 390, "trial": 1, "historicalWindowPythonDeliveryDelta": 0, "historicalWindowBrowserClearDelta": 0, "confirmedFalsePythonDeliveryDelta": 0, "clearCountAfterObserverFalse": 0, "strictZeroDraws": true}
+{"width": 390, "trial": 2, "historicalWindowPythonDeliveryDelta": 0, "historicalWindowBrowserClearDelta": 0, "confirmedFalsePythonDeliveryDelta": 0, "clearCountAfterObserverFalse": 0, "strictZeroDraws": true}
+{"width": 390, "trial": 3, "historicalWindowPythonDeliveryDelta": 0, "historicalWindowBrowserClearDelta": 0, "confirmedFalsePythonDeliveryDelta": 0, "clearCountAfterObserverFalse": 0, "strictZeroDraws": true}
+{"ok": true, "paths": 2, "trials": 8}

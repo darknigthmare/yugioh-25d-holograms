@@ -1,0 +1,142 @@
+#!/usr/bin/env python3
+"""Verify preserved multireference CI observations; never starts or reruns CI."""
+import argparse
+import hashlib
+import json
+import re
+from datetime import datetime, timezone
+from pathlib import Path
+
+
+def pin(path):
+    b = Path(path).read_bytes()
+    return {"path": str(path), "bytes": len(b), "sha256": hashlib.sha256(b).hexdigest()}
+
+
+def validate(data, log_path, output_path):
+    expected = data["expected"]
+    for field in ["headSha", "sourceTree", "localCommit", "localFreezeSha256"]:
+        value = expected[field]
+        required_length = 64 if field == "localFreezeSha256" else 40
+        if not isinstance(value, str) or not re.fullmatch(r"[0-9a-f]{" + str(required_length) + r"}", value):
+            raise ValueError("Unfilled or invalid expected field: " + field)
+    for field in ["tests", "modulesTransformed"]:
+        if not isinstance(expected[field], int) or isinstance(expected[field], bool) or expected[field] <= 0:
+            raise ValueError("Unfilled expected count: " + field)
+    if expected["masterSha"] != "025f8ebd928cd8881c0e5e0d626dda63c933bf31":
+        raise ValueError("Wrong sealed master baseline")
+    if expected["branch"] != "codex/duel-fidelity-2026-10-01":
+        raise ValueError("Wrong delivery branch")
+    if not isinstance(expected["entry"], str) or not re.fullmatch(r"assets/index-[A-Za-z0-9_-]+\.js", expected["entry"]):
+        raise ValueError("Unfilled compiled entry filename")
+    for field in ["localFreezePath", "sourceReceiptPath"]:
+        if not isinstance(expected[field], str) or not expected[field].startswith("/workspace/yugioh-multireference-"):
+            raise ValueError("New wave must use its own proof path: " + field)
+    output = Path(output_path)
+    if not str(output).startswith("/workspace/yugioh-multireference-ci-") or output.exists():
+        raise ValueError("Refusing another wave's output or overwriting an existing CI proof")
+    if not str(log_path).startswith("/workspace/yugioh-multireference-ci-"):
+        raise ValueError("Refusing another wave's logs")
+    run, jobs, pr = data["run"], data["jobs"], data["pr"]
+    raw = Path(log_path).read_bytes().decode("utf-8")
+    plain = re.sub(r"\x1b\[[0-9;]*m", "", raw)
+    failures = []
+    def check(condition, message):
+        if not condition:
+            failures.append(message)
+    freeze_path = Path(expected["localFreezePath"])
+    source_receipt_path = Path(expected["sourceReceiptPath"])
+    freeze = json.loads(freeze_path.read_text())
+    source_receipt = json.loads(source_receipt_path.read_text())
+    check(pin(freeze_path)["sha256"] == expected["localFreezeSha256"], "Local freeze changed")
+    frozen_entry = freeze["compiled"][expected["entry"]]
+    local_entry_path = Path("/workspace/yugioh-25d-holograms/dist") / expected["entry"]
+    local_entry_pin = pin(local_entry_path)
+    check(frozen_entry == {"bytes": local_entry_pin["bytes"], "sha256": local_entry_pin["sha256"]}, "Live local compiled entry differs from frozen entry")
+    check(frozen_entry["bytes"] == expected["localCompiledEntry"]["bytes"] and frozen_entry["sha256"] == expected["localCompiledEntry"]["sha256"], "Local provenance differs from reviewed entry")
+    check(source_receipt["remoteCommit"] == expected["headSha"] and source_receipt["sourceTree"] == expected["sourceTree"] and source_receipt["localCommit"] == expected["localCommit"], "Source receipt differs")
+    workflow = data["workflow"]
+    check(hashlib.sha256(workflow["content"].encode("utf-8")).hexdigest() == workflow["contentSha256"], "Observed workflow content pin differs")
+    check(workflow["content"] == Path("/workspace/yugioh-25d-holograms/.github/workflows/ci.yml").read_text(), "Remote workflow differs from local workflow")
+    check(run["head_sha"] == expected["headSha"], "Workflow head differs from published commit")
+    check(run["event"] == "pull_request", "Workflow is not pull-request triggered")
+    check(run["status"] == "completed" and run["conclusion"] == "success", "Workflow did not complete successfully")
+    check(run["head_branch"] == expected["branch"], "Workflow branch differs")
+    check(pr["head"]["sha"] == expected["headSha"], "Observed PR head differs")
+    check(pr["number"] == 3 and pr["draft"] and not pr["merged"], "PR no longer matches draft delivery")
+    check(pr["base"]["ref"] == "master", "Observed PR base differs")
+    check(pr["base"]["sha"] == expected["masterSha"], "Master changed since sealed delivery")
+    for job in jobs:
+        check(job["run_id"] == run["id"], "Job belongs to another run")
+        check(job["status"] == "completed" and job["conclusion"] == "success", "A job did not complete successfully")
+    verify = next((j for j in jobs if j["name"] == "verify"), None)
+    check(verify is not None, "Missing verify job")
+    steps = {} if verify is None else {s["name"]: s for s in verify["steps"]}
+    for name in ["Checkout", "Setup Node", "Install dependencies", "Audit dependency advisories", "Test and build"]:
+        check(name in steps and steps[name]["status"] == "completed" and steps[name]["conclusion"] == "success", "Step failed or absent: " + name)
+    merge_shas = re.findall(r"origin \+([0-9a-f]{40}):refs/remotes/pull/3/merge", plain)
+    check(len(set(merge_shas)) == 1, "Cannot identify one actual merge checkout from logs")
+    merge_sha = merge_shas[0] if merge_shas else None
+    actual_checkout_shas = re.findall(r"git log -1 --format=%H\r?\n[^\r\n]*? ([0-9a-f]{40})(?:\r?\n|$)", plain)
+    check(len(set(actual_checkout_shas)) == 1 and actual_checkout_shas[0] == merge_sha, "Actual checkout HEAD differs from fetched merge ref")
+    check("git checkout --progress --force refs/remotes/pull/3/merge" in plain, "No checkout of pull-request merge ref observed")
+    check(data["mergeCommit"]["sha"] == merge_sha, "Fetched merge commit differs from actual checkout")
+    check(data["headCommit"]["sha"] == expected["headSha"], "Fetched head commit differs")
+    head_tree = data["headCommit"]["tree"]["sha"]
+    merge_tree = data["mergeCommit"]["tree"]["sha"]
+    check(head_tree == merge_tree == expected["sourceTree"], "Merge checkout tree differs from reviewed source")
+    merge_parents = [p["sha"] for p in data["mergeCommit"]["parents"]]
+    check(merge_parents == [expected["masterSha"], expected["headSha"]], "Merge checkout parents differ from sealed master and published head")
+    metrics = {}
+    for key in ["tests", "pass", "fail", "cancelled", "skipped", "todo", "duration_ms"]:
+        vals = re.findall(r"(?m)(?:ℹ|#)\s+" + key + r"\s+(\d+(?:\.\d+)?)\s*$", plain)
+        check(len(vals) == 1, "Missing or ambiguous final test metric: " + key)
+        metrics[key] = float(vals[0]) if key == "duration_ms" and vals else int(vals[0]) if vals else None
+    check(metrics["tests"] == metrics["pass"] == expected["tests"], "CI test count differs from frozen local check")
+    for key in ["fail", "cancelled", "skipped", "todo"]:
+        check(metrics[key] == 0, "Nonzero test metric: " + key)
+    modules = re.findall(r"(\d+) modules transformed\.", plain)
+    check(len(modules) == 1 and int(modules[0]) == expected["modulesTransformed"], "Vite module count differs")
+    entry_lines = [line for line in plain.splitlines() if "dist/" + expected["entry"] in line]
+    check(len(entry_lines) == 1, "Missing or ambiguous expected compiled entry")
+    rounded = re.search(re.escape("dist/" + expected["entry"]) + r"\s+(\d+(?:\.\d+)?) kB", entry_lines[0]) if entry_lines else None
+    check(rounded is not None, "No literal rounded Vite size in entry log")
+    observed_rounded_kb = rounded.group(1) if rounded else None
+    if expected.get("entryRoundedKb") is not None:
+        check(observed_rounded_kb == expected["entryRoundedKb"], "Rounded size differs from supplied literal CI expectation")
+    audit_start = plain.find("Run npm run audit:security")
+    audit_end = plain.find("Run npm run check", max(0, audit_start))
+    audit_section = plain[audit_start:audit_end] if audit_start >= 0 and audit_end > audit_start else ""
+    check("found 0 vulnerabilities" in audit_section, "No zero-vulnerability observation in actual security audit section")
+    node = re.search(r"node: v([^\s]+)", plain)
+    npm = re.search(r"npm: ([^\s]+)", plain)
+    check(node is not None and node.group(1).startswith("24."), "Node is not version 24")
+    evidence = [line for line in plain.splitlines() if any(v in line for v in ["refs/remotes/pull/3/merge", merge_sha or "NO_CHECKOUT_SHA", "git log -1 --format=%H", "node: v", "npm: ", "Run npm ci", "Run npm run audit:security", "Run npm run check", "found 0 vulnerabilities", "ℹ tests ", "ℹ pass ", "ℹ fail ", "ℹ cancelled ", "ℹ skipped ", "ℹ todo ", "ℹ duration_ms ", "modules transformed.", "dist/" + expected["entry"], "✓ built in"]) ]
+    proof = {
+        "wave": "multireference-2026-10-13", "asOf": "2026-10-13",
+        "observedAtUtc": datetime.now(timezone.utc).isoformat(),
+        "status": "PASS" if not failures else "FAIL", "failures": failures,
+        "repository": "darknigthmare/yugioh-25d-holograms", "expected": expected,
+        "remoteRun": run, "jobs": jobs,
+        "prSnapshot": {k: pr.get(k) for k in ["number", "html_url", "state", "draft", "merged", "merge_commit_sha", "head", "base"]},
+        "checkout": {"actualMergeSha": merge_sha, "actualHeadObservedByGitLog": actual_checkout_shas[0] if actual_checkout_shas else None, "actualCheckoutConfirmed": len(set(actual_checkout_shas)) == 1 and actual_checkout_shas[0] == merge_sha, "mergeTree": merge_tree, "headTree": head_tree, "expectedSourceTree": expected["sourceTree"], "exactTreeEqual": head_tree == merge_tree == expected["sourceTree"], "mergeParents": merge_parents},
+        "ciMetrics": {"nodeVersion": node.group(1) if node else None, "npmVersion": npm.group(1) if npm else None, "tests": metrics, "modulesTransformed": int(modules[0]) if modules else None, "vulnerabilitiesObserved": 0 if "found 0 vulnerabilities" in audit_section else None, "auditEvidenceLines": audit_section.splitlines(), "entry": {"path": expected["entry"], "roundedKb": observed_rounded_kb, "logLine": entry_lines[0] if entry_lines else None, "exactRemoteByteLengthObserved": False, "remoteSha256Observed": False}, "evidenceLines": evidence},
+        "decodedLogs": {**pin(log_path), "sourceTool": "github_fetch_workflow_job_logs", "encoding": "UTF-8", "exactDecodedContentsPreserved": True, "characters": len(raw)},
+        "workflow": data.get("workflow"), "remoteArtifacts": data.get("artifacts", []),
+        "localProvenance": {"freeze": pin(freeze_path), "sourceReceipt": pin(source_receipt_path), "compiledEntry": local_entry_pin, "role": "Local binary provenance only; not a CI binary hash claim"},
+        "permissions": {"githubReadsOnly": True, "repoFilesChanged": False, "testsOrBuildOrBrowserRerun": False, "publicationOrPrMutation": False, "olderRunUsedAsEvidence": False},
+        "limitation": "The workflow logs provide filenames and rounded sizes. No CI binary byte count or SHA-256 is inferred."
+    }
+    with output.open("x", encoding="utf-8") as target:
+        target.write(json.dumps(proof, ensure_ascii=False, indent=2) + "\n")
+    print(json.dumps({"status": proof["status"], "failures": failures, "proof": pin(output_path), "logs": pin(log_path)}, ensure_ascii=False))
+    return not failures
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("observations")
+    parser.add_argument("logs")
+    parser.add_argument("output")
+    args = parser.parse_args()
+    raise SystemExit(0 if validate(json.loads(Path(args.observations).read_text()), args.logs, args.output) else 1)

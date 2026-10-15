@@ -1,0 +1,20 @@
+✔ the printed actors reject a mismatched character, unknown edition and inherited-object keys (2.172514ms)
+✔ modern Yami has an actual uncovered forehead, modern collar and printed black or blue clothing (266.777838ms)
+✔ the raised-card and crossed-hand positions exist in skin vertices, not only named markers (102.416764ms)
+✔ Joey wears the blue printed school jacket while his selectable green jacket stays unchanged (66.332541ms)
+✔ YGLD-ENTKN: printed portrait foreshortening preserves the face, actual hand anchors and reset behaviour (64.650955ms)
+✔ YGLD-ENTKN: static original-budget geometry has finite unit normals and independently owned disposable buffers (75.994675ms)
+✔ LDK2-ENT01: printed portrait foreshortening preserves the face, actual hand anchors and reset behaviour (64.916103ms)
+✔ LDK2-ENT01: static original-budget geometry has finite unit normals and independently owned disposable buffers (102.407323ms)
+✔ LDK2-ENT02: printed portrait foreshortening preserves the face, actual hand anchors and reset behaviour (69.09068ms)
+✔ LDK2-ENT02: static original-budget geometry has finite unit normals and independently owned disposable buffers (91.010145ms)
+✔ LDK2-ENT03: printed portrait foreshortening preserves the face, actual hand anchors and reset behaviour (86.182358ms)
+✔ LDK2-ENT03: static original-budget geometry has finite unit normals and independently owned disposable buffers (54.60267ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1228.597197

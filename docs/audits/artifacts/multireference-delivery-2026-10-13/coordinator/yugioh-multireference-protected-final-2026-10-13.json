@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-13",
+  "baseline": {
+    "path": "/workspace/yugioh-multiref-protected-baseline-2026-10-13.json",
+    "bytes": 1311263,
+    "sha256": "d0990366dcc94101768748c3edb8044867e6261a94ef7d7f4c1b04a0b4badeaf"
+  },
+  "count": 4013,
+  "bytes": 823295108,
+  "pass": true,
+  "mismatches": []
+}

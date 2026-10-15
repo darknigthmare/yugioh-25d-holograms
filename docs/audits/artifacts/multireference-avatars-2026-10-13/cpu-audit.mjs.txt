@@ -1,0 +1,84 @@
+import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
+import { readFileSync, writeFileSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
+
+const [repo, baselineRoot, destination] = process.argv.slice(2);
+assert.ok(repo && baselineRoot && destination, 'Pass repository, saved baseline root and output JSON.');
+const current = await import(pathToFileURL(`${repo}/src/ui/DuelistAvatarModels.js`));
+const before = await import(pathToFileURL(`${baselineRoot}/src/ui/DuelistAvatarModels.js`));
+const { DUELIST_AVATARS } = await import(pathToFileURL(`${repo}/src/content/DuelistAvatarCatalog.js`));
+const original = JSON.parse(readFileSync(`${repo}/test/fixtures/duelist-avatar-triangle-baseline-2026-10-11.json`)).triangles;
+const sha = bytes => createHash('sha256').update(bytes).digest('hex');
+function measure(factory, id) {
+  const model = factory(id), hash = createHash('sha256');
+  const geometries = new Set(), materials = new Set();
+  let triangles = 0, bufferBytes = 0, maxNormalError = 0;
+  model.group.traverse(mesh => {
+    if (!mesh.geometry) return;
+    geometries.add(mesh.geometry);
+    for (const material of Array.isArray(mesh.material) ? mesh.material : [mesh.material]) materials.add(material);
+    const { position, normal, skinIndex, skinWeight } = mesh.geometry.attributes;
+    triangles += mesh.geometry.index ? mesh.geometry.index.count / 3 : position.count / 3;
+    for (const [key, attribute] of Object.entries(mesh.geometry.attributes)) {
+      hash.update(key);
+      hash.update(Buffer.from(attribute.array.buffer, attribute.array.byteOffset, attribute.array.byteLength));
+      bufferBytes += attribute.array.byteLength;
+    }
+    if (mesh.geometry.index) bufferBytes += mesh.geometry.index.array.byteLength;
+    for (let index = 0; index < position.count; index += 1) {
+      assert.ok(Number.isFinite(position.getX(index)) && Number.isFinite(position.getY(index)) && Number.isFinite(position.getZ(index)), `${id}: finite positions`);
+      const error = Math.abs(Math.hypot(normal.getX(index), normal.getY(index), normal.getZ(index)) - 1);
+      assert.ok(error < 1e-5, `${id}: unit normals`);
+      maxNormalError = Math.max(error, maxNormalError);
+      if (mesh.isSkinnedMesh) {
+        assert.ok(Number.isInteger(skinIndex.getX(index)) && skinIndex.getX(index) >= 0 && skinIndex.getX(index) <= 7);
+        assert.equal(skinWeight.getX(index), 1);
+        assert.equal(skinWeight.getY(index) + skinWeight.getZ(index) + skinWeight.getW(index), 0);
+      }
+    }
+  });
+  const signature = hash.digest('hex');
+  assert.equal(triangles, model.group.userData.triangles);
+  assert.ok(model.group.userData.drawCalls <= 9, `${id}: draw batch ceiling`);
+  assert.ok(triangles <= original[id] * 5, `${id}: original Oct 11 individual ceiling`);
+  const attributes = [...geometries].flatMap(geometry => Object.values(geometry.attributes));
+  const arrays = attributes.map(attribute => attribute.array);
+  const beforeBytes = arrays.map(array => new Uint8Array(array.buffer, array.byteOffset, array.byteLength).slice());
+  const versions = attributes.map(attribute => attribute.version);
+  model.update(0);
+  model.playGesture('attack', { strength: 1 });
+  model.update(0.4);
+  const afterAttributes = [...geometries].flatMap(geometry => Object.values(geometry.attributes));
+  assert.equal(afterAttributes.length, attributes.length);
+  for (let index = 0; index < arrays.length; index += 1) {
+    assert.equal(afterAttributes[index], attributes[index], `${id}: attribute identity`);
+    assert.equal(afterAttributes[index].array, arrays[index], `${id}: buffer identity`);
+    assert.equal(afterAttributes[index].version, versions[index], `${id}: attribute version`);
+    assert.deepEqual(new Uint8Array(arrays[index].buffer, arrays[index].byteOffset, arrays[index].byteLength), beforeBytes[index], `${id}: bytes unchanged by attack gesture`);
+  }
+  let released = 0;
+  for (const resource of [...geometries, ...materials]) resource.addEventListener('dispose', () => released += 1);
+  const calls = model.group.userData.drawCalls;
+  model.dispose(); model.dispose();
+  assert.equal(released, geometries.size + materials.size, `${id}: exact disposal`);
+  return { triangles, drawCalls: calls, bufferBytes, maxNormalError, signature, disposalResources: released };
+}
+const results = [];
+for (const avatar of DUELIST_AVATARS) {
+  const old = measure(before.createDuelistAvatarModel, avatar.id);
+  const next = measure(current.createDuelistAvatarModel, avatar.id);
+  results.push({ id: avatar.id, before: old, after: next, originalOct11Triangles: original[avatar.id], ratioToOriginal: next.triangles / original[avatar.id], changedGeometryOrColor: old.signature !== next.signature });
+}
+const files = ['src/ui/DuelistAvatarModels.js', 'src/content/DuelistAvatarCatalog.js', 'src/ui/DuelistAvatarGestures.js', 'test/fixtures/duelist-avatar-triangle-baseline-2026-10-11.json', 'test/duelist-avatar-multireference-2026-10-13.test.js'];
+const sources = Object.fromEntries(files.map(path => { const bytes = readFileSync(`${repo}/${path}`); return [path, { bytes: bytes.length, sha256: sha(bytes) }]; }));
+const report = {
+  executedAt: new Date().toISOString(), method: 'Actual Three.js factories, every catalogue model; previous delivered source independently copied before edits; ceiling from original Oct 11 fixture, not the last wave.',
+  count: results.length, changedGeometryOrColorCount: results.filter(row => row.changedGeometryOrColor).length,
+  maxTriangles: Math.max(...results.map(row => row.after.triangles)), minTriangles: Math.min(...results.map(row => row.after.triangles)),
+  maxRatioToOriginal: Math.max(...results.map(row => row.ratioToOriginal)), maxDrawCalls: Math.max(...results.map(row => row.after.drawCalls)),
+  maxBufferBytes: Math.max(...results.map(row => row.after.bufferBytes)), sources, results,
+  limits: ['CPU geometry checks do not measure browser frame rate.', 'Geometry counts and normal direction cannot certify 1:1 likeness. Independent controlled image comparisons are required.']
+};
+writeFileSync(destination, `${JSON.stringify(report, null, 2)}\n`);
+console.log(JSON.stringify({ count: report.count, changed: report.changedGeometryOrColorCount, maxTriangles: report.maxTriangles, maxRatioToOriginal: report.maxRatioToOriginal, maxDrawCalls: report.maxDrawCalls }));

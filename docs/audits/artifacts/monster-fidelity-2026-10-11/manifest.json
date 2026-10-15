@@ -1,0 +1,81 @@
+{
+  "baselineCommit": "1371c5ba679d336f5df478720e6f9c4265d08e9d",
+  "checkedModels": 36,
+  "posesPerModel": 2,
+  "targetedTests": 61,
+  "maxGpuColorBatches": 5,
+  "maxTriangles": 12932,
+  "maxRatio": 4.030560271646859,
+  "sourcePins": {
+    "src/ui/HologramMonsterModels.js": {
+      "bytes": 30218,
+      "sha256": "435a75e5959957f86b1080406257c9735a6e1c082e82a587813ce58fad0d7fb1"
+    },
+    "src/ui/HologramPopularGodModels.js": {
+      "bytes": 21108,
+      "sha256": "82c3a292f17ed79efcd932f6055e05f6ce18599945fe6566a2fae3244f247d71"
+    },
+    "src/ui/HologramPopularStapleModels.js": {
+      "bytes": 30693,
+      "sha256": "3154d090e8688479b597db285027188773bf03251e9802cde4df6c551071330d"
+    },
+    "src/ui/HologramReferenceAnatomy.js": {
+      "bytes": 69851,
+      "sha256": "0f5d19540ac428cbb7975c7a55158fd19f2c52591ed117e13666ed97b5babaff"
+    },
+    "test/hologram-model-fidelity-2026-10-11.test.js": {
+      "bytes": 6380,
+      "sha256": "badf9e6eb3950e32e19443295392326aa895d3bafae845b5f07bfd3205f6e841"
+    },
+    "test/hologram-reference-anatomy.test.js": {
+      "bytes": 14783,
+      "sha256": "9c8fce93ddc496215edb19179bac04b1475f5e55bc7b7e323bec10679efa9a5b"
+    },
+    "test/popular-gods-models-2026-10-08.test.js": {
+      "bytes": 6823,
+      "sha256": "c9a241cd3830dad4daf63982c937c6adcb465a83318d725bc8f921323e0f481b"
+    },
+    "test/popular-staples-models-2026-10-08.test.js": {
+      "bytes": 7477,
+      "sha256": "970b20e947be0fc5d6b97aeac47f74b602fdf213e7ed41e6f1908f02cab89943"
+    },
+    "test/fixtures/hologram-triangle-budgets-2026-10-11.js": {
+      "bytes": 2897,
+      "sha256": "b8c782f7b8bb1858d96002d89f653eaf59232e76076d4a5042b4e22a44f7844e"
+    }
+  },
+  "artifactPins": {
+    "targeted-tests.txt": {
+      "bytes": 8142,
+      "sha256": "6d3d72938217f492fbf39d1fe939cd98964f3b8a53b35685e7d61550cc231af8"
+    },
+    "HologramPopularStapleModels.js.before.txt": {
+      "bytes": 23103,
+      "sha256": "66784a7c5903a5005064833dead704a9d2a7bad4152a71d8d7cc024ccd610c35"
+    },
+    "HologramMonsterModels.js.before.txt": {
+      "bytes": 23749,
+      "sha256": "cab0dc32b2323af3dee14f861b83925ab46f27092b7e5c8ba0ded0afb7e5f41a"
+    },
+    "HologramReferenceAnatomy.js.before.txt": {
+      "bytes": 63114,
+      "sha256": "e10d0ad431c4c3f00f12c259e76bb83e68ae320315a768ce2e606544fec778d5"
+    },
+    "HologramPopularGodModels.js.before.txt": {
+      "bytes": 16210,
+      "sha256": "7e095ad4bab594756d846b6794add8afb540f962494b7168589d0bc80851f121"
+    },
+    "refined-models.json": {
+      "bytes": 38311,
+      "sha256": "2d5444f9f3c30e37bb31bc725620cdfaaf77d1a35350e06cb8f23c10440a2322"
+    },
+    "baseline-models.json": {
+      "bytes": 16866,
+      "sha256": "db4ce7a50cc0be92ee0e9766b71106e49f011bfe1955152de17d43b1baf122a0"
+    }
+  },
+  "limitations": [
+    "Source-only geometry/unit checks; browser comparisons recorded separately.",
+    "Single illustration depth and unseen backs are interpreted; spatial 1:1 is not certified."
+  ]
+}

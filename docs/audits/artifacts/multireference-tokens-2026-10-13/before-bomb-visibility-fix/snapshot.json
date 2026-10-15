@@ -1,0 +1,33 @@
+{
+  "scope": "Exact previous proof files preserved before the visual Bomb crust occlusion correction. Unchanged original reference assets remain in their original parent paths. The previous manifest is a historical snapshot of that parent artifact root, not a final manifest for this subfolder.",
+  "files": {
+    "audit-before-fix.md": {
+      "bytes": 10129,
+      "sha256": "c7440431bdd9d4b984cf8032ecf95862a88035fc34321663fe6de081c834bf80"
+    },
+    "hologram-token-multireference.test.js.txt": {
+      "bytes": 4059,
+      "sha256": "d744102bd96eca7fd195b913ff491bcb59358491a9b9969d9ad5c59c9db38657"
+    },
+    "manifest.json": {
+      "bytes": 25954,
+      "sha256": "37ae916d06302cf093467a3691448231b750a4cf511af5ae9436ca00cf0f66e2"
+    },
+    "geometry-before-after-240-two-poses.json": {
+      "bytes": 866592,
+      "sha256": "21cdb001299bfa12f66b239750ab5d269a8856adb0853e92216173f5806fdcf2"
+    },
+    "geometry-final-summary.txt": {
+      "bytes": 553,
+      "sha256": "38ea21d7a7e4c86a452370c666fdd0443daceb0f79b8b41fe1c624354d5645ca"
+    },
+    "targeted-tests-final.txt": {
+      "bytes": 2681,
+      "sha256": "d589d92aab5032378764cb233844f89ba5d9f237fa1c237f34b5fb9e33661639"
+    },
+    "after/sources/HologramTokenConstructModels.js.txt": {
+      "bytes": 65547,
+      "sha256": "0191278cbf991a39e4f74a7a770ebedd1fed74c6408630acd41e271a96397771"
+    }
+  }
+}

@@ -34,6 +34,10 @@
         <div><strong>CATALOGUE DES TERRAINS</strong><p>Comparez l’illustration originale, le décor 3D et les règles intégrées.</p></div>
         <button type="button" id="btn-open-field-atlas" class="btn">EXPLORER LES TERRAINS</button>
       </div>
+      <div class="campaign-entry token-atlas-entry">
+        <div><strong>ATLAS DES JETONS</strong><p>Explorez les Jetons et leurs modèles 3D, puis retrouvez-les dans le Duel.</p></div>
+        <button type="button" id="btn-open-token-atlas" class="btn">EXPLORER LES JETONS</button>
+      </div>
       <h3 class="free-duel-heading">DUEL LIBRE</h3>
       <div class="duel-config-grid">
         <fieldset class="config-group">
@@ -156,6 +160,7 @@
   </div>
 
   <div id="duelist-avatar-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="duelist-avatar-title" data-dismissible="true"></div>
+  <div id="token-atlas-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="token-atlas-title" data-dismissible="true"></div>
 
   <div id="field-atlas-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="field-atlas-title" data-dismissible="true">
     <div class="modal-content field-atlas-content" tabindex="-1">
@@ -544,6 +549,7 @@
       <div class="modal-content" tabindex="-1">
         <h2 id="settings-modal-title" class="modal-title">OPTIONS DE PERSONNALISATION</h2>
         <button type="button" id="btn-settings-avatars" class="btn">CHOISIR MON AVATAR</button>
+        <button type="button" id="btn-settings-token-atlas" class="btn">EXPLORER LES JETONS</button>
         <div class="settings-form">
           <label for="input-card-back">DOS DE CARTE PERSONNALISÉ (URL) :</label>
           <input type="url" id="input-card-back" class="search-input settings-url-input" placeholder="https://example.com/cardback.png" aria-describedby="card-back-help">

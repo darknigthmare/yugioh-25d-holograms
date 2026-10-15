@@ -294,8 +294,11 @@ test('native generated tokens use native stats and a bundled presentation image'
     const tokens = game.playerMonsters.filter(Boolean);
     assert.equal(tokens.length, 4);
     assert.ok(tokens.every(card => card.isToken && card.getAtk() === 0 && card.getLevel() === 1));
-    assert.ok(tokens.every(card => card.image_url === '/cards/native-unknown.png'));
-    assert.ok(tokens.every(card => card.image_url_cropped === '/cards/native-unknown.png'));
+    assert.deepEqual(tokens.map(card => String(card.id)).sort(), ['73915052', '73915053', '73915054', '73915055']);
+    for (const card of tokens) {
+      assert.equal(card.image_url, `/tokens/cards/${card.id}.jpg`);
+      assert.equal(card.image_url_cropped, `/tokens/reference/${card.id}.jpg`);
+    }
     assert.ok(tokens.every(card => card.summonType === 'special'));
     assert.deepEqual(game.runtime.errors, []);
   } finally { game.dispose(); }

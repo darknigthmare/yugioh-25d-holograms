@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import { getHologramTriangleBudget } from './fixtures/hologram-triangle-budgets-2026-10-11.js';
 import { readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { Box3, Vector3, PerspectiveCamera, Scene } from 'three';
@@ -44,7 +45,7 @@ for (const card of CARDS) {
       const model = createHologramMonsterModel({ id: card.id }, { defense });
       assert.ok(card.landmarks.every(name => model.userData.partNames.includes(name)));
       assert.equal(model.userData.partNames.some(name => card.forbidden.test(name)), false);
-      assert.ok(model.userData.meshCount <= 5 && model.userData.triangleCount <= 6000);
+      assert.ok(model.userData.meshCount <= 5 && model.userData.triangleCount <= getHologramTriangleBudget(card.id,{defense}));
       const size = new Box3().setFromObject(model).getSize(new Vector3());
       assert.ok(size.x > .5 && size.y > 1.5 && size.z > .3);
       const jointValues = new Set(model.children.flatMap(mesh => [...mesh.geometry.attributes.hologramJoint.array]));

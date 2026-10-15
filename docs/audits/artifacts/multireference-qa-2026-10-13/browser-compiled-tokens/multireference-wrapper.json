@@ -1,0 +1,39 @@
+{
+  "scope": "tokens",
+  "phase": "compiled",
+  "executedAtUtc": "2026-10-13T12:13:27.567373+00:00",
+  "multiReferenceWrapper": {
+    "path": "scripts/audit-multireference-browser-2026-10-13.py",
+    "bytes": 3108,
+    "sha256": "9d71044082fa7b8f58308f41c62e167ace92e86b0726b7724479fa9315d6b24a"
+  },
+  "retainedRecipe": {
+    "path": "scripts/audit-model-fidelity-browser-2026-10-11.py",
+    "before": {
+      "bytes": 13710,
+      "sha256": "eacbb58338b5b654f3ea0d396dd175cf4c6c8a8787cb7ac2ffce1083567e42e8"
+    },
+    "after": {
+      "bytes": 13710,
+      "sha256": "eacbb58338b5b654f3ea0d396dd175cf4c6c8a8787cb7ac2ffce1083567e42e8"
+    },
+    "unchanged": true
+  },
+  "freeze": {
+    "path": "/workspace/yugioh-multireference-build-freeze-2026-10-13.json",
+    "bytes": 262420,
+    "sha256": "a6b09fd0912636c84243b3b3136fac5f5db217020c148adeb8bd316f73ac735a"
+  },
+  "expectedEntrySha256": "7921ecd5d82732d65f780fc7f43bf2ecd0544c15f7552228ce9135618ccd8e34",
+  "ok": true,
+  "retainedRecipeReport": {
+    "bytes": 20417,
+    "sha256": "1acb7d150b5c61b192bfc3639c913bf83fff7ef9c405d46a765fd6ef201a3a30"
+  },
+  "browserReport": {
+    "bytes": 1454663,
+    "sha256": "3e4113071eecd7428306735c3a02c24c1f26c010aaec6a30f8c96a1a49cd4fc0"
+  },
+  "browserPathCount": 9,
+  "captureCount": 50
+}

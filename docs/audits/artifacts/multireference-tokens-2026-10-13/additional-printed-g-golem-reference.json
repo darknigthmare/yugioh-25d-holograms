@@ -1,0 +1,55 @@
+{
+  "name": "G Golem Token",
+  "nativeCodes": [
+    98875864
+  ],
+  "sourcePage": "https://yugipedia.com/wiki/G_Golem_Token",
+  "status": 200,
+  "title": "G Golem Token - Yugipedia",
+  "mainImages": [
+    {
+      "alt": "GGolemToken-MAMA-EN-UR-1E.png",
+      "src": "https://ms.yugipedia.com//thumb/2/25/GGolemToken-MAMA-EN-UR-1E.png/300px-GGolemToken-MAMA-EN-UR-1E.png",
+      "width": "300",
+      "height": "440",
+      "data-file-width": "509",
+      "data-file-height": "746"
+    }
+  ],
+  "pageBytes": 130056,
+  "pageSha256": "f19720f536c387975689577592ce3ccbcabdd039ae1170a0945446d073e40a1b",
+  "classification": "direct-printed-token-scan",
+  "url": "https://ms.yugipedia.com//2/25/GGolemToken-MAMA-EN-UR-1E.png",
+  "path": "docs/audits/artifacts/multireference-tokens-2026-10-13/references/missing-direct/GGolemToken-MAMA-EN-UR-1E.png",
+  "statusMeasuredBy": "curl GET --write-out %{http_code}",
+  "responseContentType": "image/png",
+  "bytes": 613925,
+  "sha256": "379edc4b81128d99a3df462692dce9c9efb266070399ec8c43effc9c893c06d0",
+  "dimensions": [
+    509,
+    746
+  ],
+  "fetchedAtUtc": "2026-10-13T11:30:28.763108+00:00",
+  "identityStatus": "printed-token-name-type-level-stats-match-native-definition",
+  "nativeCode": 98875864,
+  "nativeName": "G Golem Token",
+  "fileName": "GGolemToken-MAMA-EN-UR-1E.png",
+  "nativeDefinition": {
+    "race": "Cyberse",
+    "attribute": "EARTH",
+    "level": 1,
+    "atk": 0,
+    "def": 0
+  },
+  "generatorCodes": [
+    98875863
+  ],
+  "generatorNames": [
+    "G Golem Rock Hammer"
+  ],
+  "generatorEvidence": "docs/audits/artifacts/token-monster-inventory-2026-10-11/lua-token-generators.json",
+  "version": "MAMA",
+  "independentAngles": 1,
+  "multiViewStatus": "One printed Token composition only; scan/reprints do not establish rear geometry.",
+  "sourceAttribution": "Original Konami printed Token card, scan hosted by secondary catalogue Yugipedia. The archived scan is unmodified."
+}

@@ -1,0 +1,36 @@
+✔ every denser avatar retains finite unit normals and valid rigid skinning (3047.19744ms)
+✔ human faces have tapered jaw geometry and outlined sclera while animal adaptations keep their muzzle (1933.393804ms)
+✔ reference-backed hero shapes preserve their identifying clothing, hair and ornaments (132.94292ms)
+✔ Yuma wears one Duel Gazer at eye level and retains an unobstructed second eye (9.800189ms)
+✔ Playmaker hand signals remain attached to their wrist joints through attack gestures (11.085211ms)
+✔ neutral skinning preserves the actual original coordinates and shared geometry budget (228.54866ms)
+✔ shoulder, elbow, wrist and disk use anatomical pivots with rigid attachments (35.076658ms)
+✔ seven public gestures articulate distinct poses and return to idle after their duration (114.141905ms)
+✔ gesture replacement and cancellation have stable identifiers and cannot leave a stale pose (49.308435ms)
+✔ clock origins and backwards clocks never finish a new gesture instantly or rewind it (15.797804ms)
+✔ terminal held poses apply synchronously without RAF, survive updates and clear cleanly (58.403804ms)
+✔ reduced motion omits transients and holds gentle static results in both preference directions (11.318864ms)
+✔ only allowlisted public gesture fields are used and excessive strength is bounded (17.685761ms)
+✔ repeated gestures reuse mesh buffers and release the skeleton texture exactly once (24.660793ms)
+✔ the entire curated roster renders within the geometry budget without colour-only duplicates (2969.577026ms)
+✔ iconic duelists have distinct complete silhouettes with finite bounded geometry (404.270774ms)
+✔ recognizable signature parts are present for the established iconic looks (80.899398ms)
+✔ idle updates animate the rig without allocating or modifying geometry (14.539931ms)
+✔ disposal releases each owned GPU resource once, detaches the avatar and is idempotent (13.539826ms)
+✔ appearance resolution uses the catalogue without inspecting supplied private metadata (19.58237ms)
+✔ Scene3D retains pre-mount choices, swaps only changed avatars and disposes replaced models (32.869937ms)
+✔ actual avatars request idle RAF while reduced motion and visibility stop their movement (37.777478ms)
+✔ reference-corrected Yuga and Romin render shorts, canonical gloves and leggings in both representations (108.079764ms)
+✔ Playmaker VR and Yudias keep their separate helmet, hair and cape palettes (40.262142ms)
+✔ Nyandestar and Bochi are recognizable animal adaptations with no human haircut or necklace (32.156994ms)
+✔ Zuwijo has blond upper locks and purple tips in both representations (38.155622ms)
+✔ the once-colliding tall duelists retain distinct canonical clothing instead of numerical jitter (32.787764ms)
+✔ canonical optional visual fields cannot be replaced by supplied species, headgear or private state (17.200456ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5268.073073

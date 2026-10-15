@@ -1,0 +1,577 @@
+{
+  "createdAt": "2026-10-11T17:00:57.666Z",
+  "scope": "Isolated construction geometry, not full-duel integration.",
+  "before": {
+    "src/ui/HologramTokenBotanicalModels.js": "550b8ae6973ff405c3abaf2898f74c281a942a3c939c30197d5d1326d0beb2b9",
+    "src/ui/HologramTokenGeometry.js": "fdae5fa328bfb60e633d2f70ef32964f39e8f9198130be322baa0039977af4d1",
+    "src/ui/TokenMonsterModelProfiles.js": "d4ed40be0ff5922ba854bbef5c906c358ef144d677f1ee04130d69308f4097ac",
+    "src/ui/CombatVisualProfiles.js": "6bcb6e829ba5018762b6ae39cfef3d8b65286c4a4f915f71623f4cb5358cd846",
+    "test/hologram-token-botanical-models.test.js": "8be1baf39bb40b151b48573bd9ce04852889891d83a2b8cc7e0c33cbac94055c"
+  },
+  "after": {
+    "src/ui/HologramTokenBotanicalModels.js": "550b8ae6973ff405c3abaf2898f74c281a942a3c939c30197d5d1326d0beb2b9",
+    "src/ui/HologramTokenGeometry.js": "fdae5fa328bfb60e633d2f70ef32964f39e8f9198130be322baa0039977af4d1",
+    "src/ui/TokenMonsterModelProfiles.js": "d4ed40be0ff5922ba854bbef5c906c358ef144d677f1ee04130d69308f4097ac",
+    "src/ui/CombatVisualProfiles.js": "6bcb6e829ba5018762b6ae39cfef3d8b65286c4a4f915f71623f4cb5358cd846",
+    "test/hologram-token-botanical-models.test.js": "8be1baf39bb40b151b48573bd9ce04852889891d83a2b8cc7e0c33cbac94055c"
+  },
+  "unchanged": true,
+  "covered": 23,
+  "maxTriangles": 5234,
+  "maxBatches": 4,
+  "allBounded": true,
+  "records": [
+    {
+      "code": "1799465",
+      "anatomy": "beetle",
+      "variant": "moult",
+      "visualBasis": "native-definition",
+      "triangles": 2068,
+      "batches": 4,
+      "parts": 33,
+      "bounds": {
+        "min": [
+          -1.0595084428787231,
+          0.619106113910675,
+          -0.49552491307258606
+        ],
+        "max": [
+          1.0595084428787231,
+          2.0741848945617676,
+          0.6642410159111023
+        ]
+      },
+      "finitePosition": true,
+      "finiteNormal": true,
+      "geometrySha256": "ee876a0103a725ad81d1a84b45603e9096d9d8864b6dfd0a532512143186e19d"
+    },
+    {
+      "code": "12965762",
+      "anatomy": "ivy",
+      "variant": "wicked-plant",
+      "visualBasis": "token-art",
+      "triangles": 2544,
+      "batches": 2,
+      "parts": 21,
+      "bounds": {
+        "min": [
+          -0.9540901780128479,
+          0.037906963378190994,
+          -0.03999999910593033
+        ],
+        "max": [
+          0.9540901780128479,
+          2.9519450664520264,
+          0.11462867259979248
+        ]
+      },
+      "finitePosition": true,
+      "finiteNormal": true,
+      "geometrySha256": "88d4d6a6c5279a680ce1e1be6519f05cb9478d65fd3478989c5a910e07947230"
+    },
+    {
+      "code": "15341822",
+      "anatomy": "flower",
+      "variant": "fluff-angry",
+      "visualBasis": "token-art",
+      "triangles": 1624,
+      "batches": 4,
+      "parts": 63,
+      "bounds": {
+        "min": [
+          -0.7388783693313599,
+          0.17382241785526276,
+          -0.63932865858078
+        ],
+        "max": [
+          0.7430918216705322,
+          2.7614285945892334,
+          0.657611608505249
+        ]
+      },
+      "finitePosition": true,
+      "finiteNormal": true,
+      "geometrySha256": "f72593f222db9b7dddadaeddd7712bcec79800d8d358c247128e4cdbf09ba25c"
+    },
+    {
+      "code": "15341823",
+      "anatomy": "flower",
+      "variant": "fluff-smile",
+      "visualBasis": "token-art",
+      "triangles": 1560,
+      "batches": 4,
+      "parts": 61,
+      "bounds": {
+        "min": [
+          -0.7388783693313599,
+          0.17382241785526276,
+          -0.63932865858078
+        ],
+        "max": [
+          0.7430918216705322,
+          2.7614285945892334,
+          0.657611608505249
+        ]
+      },
+      "finitePosition": true,
+      "finiteNormal": true,
+      "geometrySha256": "f40b8971584498ca9005510a31728057fc1f6b62c40566f69f1feab3db52e6ec"
+    },
+    {
+      "code": "22493812",
+      "anatomy": "ant",
+      "variant": "army-ant",
+      "visualBasis": "token-art",
+      "triangles": 1640,
+      "batches": 4,
+      "parts": 29,
+      "bounds": {
+        "min": [
+          -1.37448251247406,
+          0.15121541917324066,
+          -0.9701274037361145
+        ],
+        "max": [
+          1.37448251247406,
+          2.1530001163482666,
+          0.8928012251853943
+        ]
+      },
+      "finitePosition": true,
+      "finiteNormal": true,
+      "geometrySha256": "443ec367416147bb9862e09b43949cc39310b5ba08ef046729125b94f4ab7f98"
+    },
+    {
+      "code": "28062326",
+      "anatomy": "flower",
+      "variant": "plant",
+      "visualBasis": "token-art",
+      "triangles": 2766,
+      "batches": 4,
+      "parts": 38,
+      "bounds": {
+        "min": [
+          -0.9807419180870056,
+          0.09000000357627869,
+          -0.7088788747787476
+        ],
+        "max": [
+          0.8904480934143066,
+          2.8324124813079834,
+          0.49000000953674316
+        ]
+      },
+      "finitePosition": true,
+      "finiteNormal": true,
+      "geometrySha256": "720314a0a7633f9b47d9230000fb1cabc1361e59160dd5171ddcfd136cb9bd97"
+    },
+    {
+      "code": "30069399",
+      "anatomy": "ivy",
+      "variant": "ivy",
+      "visualBasis": "token-art",
+      "triangles": 1344,
+      "batches": 3,
+      "parts": 29,
+      "bounds": {
+        "min": [
+          -0.7591426372528076,
+          0.05135759711265564,
+          -0.06126588210463524
+        ],
+        "max": [
+          0.7129039764404297,
+          2.4798340797424316,
+          0.1367548704147339
+        ]
+      },
+      "finitePosition": true,
+      "finiteNormal": true,
+      "geometrySha256": "1144062c8b687de3d3a84bb29fa5b0ed0f19f448318f34d0d58b02bb75852a39"
+    },
+    {
+      "code": "31600514",
+      "anatomy": "mantis",
+      "variant": "baby-mantis",
+      "visualBasis": "native-definition",
+      "triangles": 1224,
+      "batches": 4,
+      "parts": 29,
+      "bounds": {
+        "min": [
+          -0.8622936010360718,
+          0.16565580666065216,
+          -0.3954750597476959
+        ],
+        "max": [
+          0.8622936010360718,
+          2.956449270248413,
+          0.45500001311302185
+        ]
+      },
+      "finitePosition": true,
+      "finiteNormal": true,
+      "geometrySha256": "1c529480d0505dd492b1cee0f2e578b41c57f5262e97aa64337a014096506a06"
+    },
+    {
+      "code": "31986289",
+      "anatomy": "flower",
+      "variant": "regenerating-rose",
+      "visualBasis": "token-art",
+      "triangles": 5234,
+      "batches": 3,
+      "parts": 78,
+      "bounds": {
+        "min": [
+          -0.9345589876174927,
+          0.05135759711265564,
+          -0.3499999940395355
+        ],
+        "max": [
+          0.7994922995567322,
+          2.7319846153259277,
+          0.5618675351142883
+        ]
+      },
+      "finitePosition": true,
+      "finiteNormal": true,
+      "geometrySha256": "fc2dd11bd2df2e7213f7614cadc1c7bf101265ffb0fa325b7b276d67ae2305c5"
+    },
+    {
+      "code": "35263181",
+      "anatomy": "seed",
+      "variant": "snack",
+      "visualBasis": "native-definition",
+      "triangles": 2510,
+      "batches": 2,
+      "parts": 46,
+      "bounds": {
+        "min": [
+          -1.2287952899932861,
+          0.6437804698944092,
+          -0.3385629653930664
+        ],
+        "max": [
+          1.2287952899932861,
+          2.5926461219787598,
+          0.37290090322494507
+        ]
+      },
+      "finitePosition": true,
+      "finiteNormal": true,
+      "geometrySha256": "9ab80cb370a8e659adcce9e121a6491cbd741d0e19362ed2714ddba41fb3828d"
+    },
+    {
+      "code": "36629636",
+      "anatomy": "flower",
+      "variant": "white-fluff",
+      "visualBasis": "native-definition",
+      "triangles": 1560,
+      "batches": 4,
+      "parts": 61,
+      "bounds": {
+        "min": [
+          -0.7388783693313599,
+          0.17382241785526276,
+          -0.63932865858078
+        ],
+        "max": [
+          0.7430918216705322,
+          2.7614285945892334,
+          0.657611608505249
+        ]
+      },
+      "finitePosition": true,
+      "finiteNormal": true,
+      "geometrySha256": "f40b8971584498ca9005510a31728057fc1f6b62c40566f69f1feab3db52e6ec"
+    },
+    {
+      "code": "38041941",
+      "anatomy": "seed",
+      "variant": "seed",
+      "visualBasis": "token-art",
+      "triangles": 2306,
+      "batches": 3,
+      "parts": 40,
+      "bounds": {
+        "min": [
+          -1.2287952899932861,
+          0.6437804698944092,
+          -0.3385629653930664
+        ],
+        "max": [
+          1.2287952899932861,
+          2.9000000953674316,
+          0.37290090322494507
+        ]
+      },
+      "finitePosition": true,
+      "finiteNormal": true,
+      "geometrySha256": "6745df7cd60f30e1ebd9b4c94ba2a7366ebc2064dde909aa1a23d53788250aa0"
+    },
+    {
+      "code": "43140792",
+      "anatomy": "worm",
+      "variant": "skull-grub",
+      "visualBasis": "token-art",
+      "triangles": 3392,
+      "batches": 3,
+      "parts": 40,
+      "bounds": {
+        "min": [
+          -0.760926365852356,
+          0.5099999904632568,
+          -0.3100000023841858
+        ],
+        "max": [
+          0.760926365852356,
+          2.8187074661254883,
+          0.3709999918937683
+        ]
+      },
+      "finitePosition": true,
+      "finiteNormal": true,
+      "geometrySha256": "210c1a064a57f69421574aa78571c792c95c7a821aa6e59cde437f926e6d48b4"
+    },
+    {
+      "code": "56051649",
+      "anatomy": "spider",
+      "variant": "spider",
+      "visualBasis": "token-art",
+      "triangles": 3420,
+      "batches": 4,
+      "parts": 52,
+      "bounds": {
+        "min": [
+          -1.5357307195663452,
+          0.11000002920627594,
+          -0.9079999923706055
+        ],
+        "max": [
+          1.5357307195663452,
+          2.7300000190734863,
+          0.8309999704360962
+        ]
+      },
+      "finitePosition": true,
+      "finiteNormal": true,
+      "geometrySha256": "bed5469d944feb4f7c9f03d267d36585accbf8ba91819d1f1d2b20132a221c15"
+    },
+    {
+      "code": "58809686",
+      "anatomy": "flower",
+      "variant": "elfnote-seraphim",
+      "visualBasis": "native-definition",
+      "triangles": 1744,
+      "batches": 2,
+      "parts": 44,
+      "bounds": {
+        "min": [
+          -1.078488826751709,
+          0.05135759711265564,
+          -0.14249999821186066
+        ],
+        "max": [
+          1.078488826751709,
+          2.950000047683716,
+          0.24650345742702484
+        ]
+      },
+      "finitePosition": true,
+      "finiteNormal": true,
+      "geometrySha256": "413c7a27b0eb0706ec8924dd2e0c65a4ce6a971ee847f4109610035b79efa3b7"
+    },
+    {
+      "code": "60406592",
+      "anatomy": "seed",
+      "variant": "sinister-seed",
+      "visualBasis": "token-art",
+      "triangles": 2264,
+      "batches": 2,
+      "parts": 63,
+      "bounds": {
+        "min": [
+          -1.0231679677963257,
+          0.05135759711265564,
+          -0.06126588210463524
+        ],
+        "max": [
+          1.0231679677963257,
+          2.839184045791626,
+          0.23000000417232513
+        ]
+      },
+      "finitePosition": true,
+      "finiteNormal": true,
+      "geometrySha256": "546d0a5cedbb47098f7c1ad11148c21714886133a2978d32099a397f4a16ab8d"
+    },
+    {
+      "code": "62543394",
+      "anatomy": "flower",
+      "variant": "lekunga",
+      "visualBasis": "token-art",
+      "triangles": 2956,
+      "batches": 4,
+      "parts": 53,
+      "bounds": {
+        "min": [
+          -1.193375825881958,
+          0.559208333492279,
+          -0.42115581035614014
+        ],
+        "max": [
+          1.1244319677352905,
+          2.859999895095825,
+          0.5260000228881836
+        ]
+      },
+      "finitePosition": true,
+      "finiteNormal": true,
+      "geometrySha256": "c3482a236ed2670f0587931b4c1e6c8661c4604da8f604a83af0d78d1ab68ecf"
+    },
+    {
+      "code": "64213018",
+      "anatomy": "beetle",
+      "variant": "beetrooper",
+      "visualBasis": "native-definition",
+      "triangles": 2108,
+      "batches": 4,
+      "parts": 33,
+      "bounds": {
+        "min": [
+          -1.0595084428787231,
+          0.619106113910675,
+          -0.4523898661136627
+        ],
+        "max": [
+          1.0595084428787231,
+          2.136246919631958,
+          0.7369614839553833
+        ]
+      },
+      "finitePosition": true,
+      "finiteNormal": true,
+      "geometrySha256": "b5ce90c3db70a1c5854320945baac3e3464355b3eb46a22bae2b8acee7fdc82f"
+    },
+    {
+      "code": "71645243",
+      "anatomy": "flower",
+      "variant": "rose",
+      "visualBasis": "token-art",
+      "triangles": 5052,
+      "batches": 3,
+      "parts": 77,
+      "bounds": {
+        "min": [
+          -0.9258129000663757,
+          0.05135759711265564,
+          -0.3499999940395355
+        ],
+        "max": [
+          0.9258129000663757,
+          2.7319846153259277,
+          0.5618675351142883
+        ]
+      },
+      "finitePosition": true,
+      "finiteNormal": true,
+      "geometrySha256": "00f6104c77c21d979aa67dddccbf026e81f0d95b9e446ca6e8517dff702b6bdd"
+    },
+    {
+      "code": "74440056",
+      "anatomy": "seed",
+      "variant": "needle",
+      "visualBasis": "token-art",
+      "triangles": 396,
+      "batches": 2,
+      "parts": 9,
+      "bounds": {
+        "min": [
+          -0.40292325615882874,
+          0.15000000596046448,
+          -0.07800000160932541
+        ],
+        "max": [
+          0.5680000185966492,
+          2.619999885559082,
+          0.06599999964237213
+        ]
+      },
+      "finitePosition": true,
+      "finiteNormal": true,
+      "geometrySha256": "09b0182fbc67e7d10051d197d4133024371909944d872f7ae92c2078e319c166"
+    },
+    {
+      "code": "74983882",
+      "anatomy": "maize",
+      "variant": "maize",
+      "visualBasis": "token-art",
+      "triangles": 4308,
+      "batches": 3,
+      "parts": 123,
+      "bounds": {
+        "min": [
+          -1.3221428394317627,
+          0.15000000596046448,
+          -0.39180031418800354
+        ],
+        "max": [
+          1.3221428394317627,
+          3.0466372966766357,
+          0.46000000834465027
+        ]
+      },
+      "finitePosition": true,
+      "finiteNormal": true,
+      "geometrySha256": "99c56cec6cdd48a95a00d4bc0389344f5ba97c951df65f3bb7c936d9307287eb"
+    },
+    {
+      "code": "82994510",
+      "anatomy": "flower",
+      "variant": "horseytail",
+      "visualBasis": "token-art",
+      "triangles": 2076,
+      "batches": 4,
+      "parts": 32,
+      "bounds": {
+        "min": [
+          -1.3961564302444458,
+          0.17237579822540283,
+          -0.25999999046325684
+        ],
+        "max": [
+          1.3961564302444458,
+          2.950744390487671,
+          0.29099541902542114
+        ]
+      },
+      "finitePosition": true,
+      "finiteNormal": true,
+      "geometrySha256": "d54042ea31ceea7a81d92c93198b9bd77ec9f1aca56feba0ea57b6b00d72afe4"
+    },
+    {
+      "code": "91512836",
+      "anatomy": "beetle",
+      "variant": "insect-monster",
+      "visualBasis": "token-art",
+      "triangles": 3124,
+      "batches": 4,
+      "parts": 48,
+      "bounds": {
+        "min": [
+          -1.0595084428787231,
+          0.1599999964237213,
+          -0.699999988079071
+        ],
+        "max": [
+          1.0595084428787231,
+          2.714975118637085,
+          0.699999988079071
+        ]
+      },
+      "finitePosition": true,
+      "finiteNormal": true,
+      "geometrySha256": "7fb0011c4e8248ea680fc0d751a0001a812e1481e8805c9ce17d799b4703902b"
+    }
+  ]
+}

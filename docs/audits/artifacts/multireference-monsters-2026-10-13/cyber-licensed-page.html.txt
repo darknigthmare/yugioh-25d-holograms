@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!--[googleAnalytics]-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-55135407-6', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<!-- Global site tag (gtag.js) - Google Ads: 752608159 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-752608159"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-752608159');
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V6MPVL57WG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-V6MPVL57WG');
+</script><style>#items .box_shopping .notice {display: none;}</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+<title>サイバー・ドラゴン 塗装済み完成品ビックサイズフィギュア｜その他｜海洋堂</title>
+<meta name="description" itemprop="description" content="サイバー・ドラゴン 塗装済み完成品ビックサイズフィギュアの詳細ページです。商品のスペックや販売価格、関連商品をご紹介しています。" />
+<meta name="keywords" itemprop="keywords" content=",その他,others,海洋堂,フィギュア,映画,漫画,アニメ,キャラクター" />
+<meta property="og:title" content="サイバー・ドラゴン 塗装済み完成品ビックサイズフィギュア｜その他｜フィギュアの造形企画製作、販売を行う株式会社海洋堂" />
+<meta property="og:description" content="サイバー・ドラゴン 塗装済み完成品ビックサイズフィギュアの詳細ページです。商品のスペックや販売価格、関連商品をご紹介しています。" />
+<meta name="twitter:card" content="summary">
+<meta property="og:url" content="https://kaiyodo.co.jp/items/others/kd107/" />
+<meta property="og:type" content="article" />
+
+<meta property="og:image" content="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/IC1.jpg" />
+<link rel="icon" href="https://kaiyodo.co.jp//img/common/kaiyodo.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="https://kaiyodo.co.jp//img/common/kaiyodo.ico" type="image/x-icon" />
+
+
+<link rel="stylesheet" href="https://kaiyodo.co.jp//lib/css/common.css" type="text/css" />
+	<link rel="stylesheet" href="https://kaiyodo.co.jp//lib/css/style.pc.css" type="text/css" />
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+
+
+
+
+
+ 
+<meta name='robots' content='max-image-preview:large' />
+<script type="text/javascript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/kaiyodo.co.jp\/items\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.3.13"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+</script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+			
+	<link rel='stylesheet' id='sbi_styles-css' href='https://kaiyodo.co.jp/items/wp-content/plugins/instagram-feed/css/sbi-styles.min.css?ver=6.2.4' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css' href='https://kaiyodo.co.jp/items/wp-includes/css/dist/block-library/style.min.css?ver=6.3.13' type='text/css' media='all' />
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='fancybox-css' href='https://kaiyodo.co.jp/items/wp-content/plugins/easy-fancybox/css/jquery.fancybox.1.3.23.min.css' type='text/css' media='screen' />
+<link rel='stylesheet' id='wp-paginate-css' href='https://kaiyodo.co.jp/items/wp-content/plugins/wp-paginate/css/wp-paginate.css?ver=2.2.6' type='text/css' media='screen' />
+<script type='text/javascript' src='https://kaiyodo.co.jp/items/wp-includes/js/jquery/jquery.min.js?ver=3.7.0' id='jquery-core-js'></script>
+<script type='text/javascript' src='https://kaiyodo.co.jp/items/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1' id='jquery-migrate-js'></script>
+<link rel="https://api.w.org/" href="https://kaiyodo.co.jp/items/wp-json/" /><link rel="alternate" type="application/json" href="https://kaiyodo.co.jp/items/wp-json/wp/v2/posts/36625" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://kaiyodo.co.jp/items/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 6.3.13" />
+<link rel="canonical" href="https://kaiyodo.co.jp/items/others/kd107/" />
+<link rel='shortlink' href='https://kaiyodo.co.jp/items/?p=36625' />
+<link rel="alternate" type="application/json+oembed" href="https://kaiyodo.co.jp/items/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fkaiyodo.co.jp%2Fitems%2Fothers%2Fkd107%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://kaiyodo.co.jp/items/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fkaiyodo.co.jp%2Fitems%2Fothers%2Fkd107%2F&#038;format=xml" />
+<script type="text/javascript">
+	window._se_plugin_version = '8.1.9';
+</script>
+<script type="text/javascript">
+	window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://kaiyodo.co.jp/items/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.5.4';
+	window._wp_rp_post_id = '36625';
+	window._wp_rp_num_rel_posts = '5';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = '%E3%82%B5%E3%82%A4%E3%83%90%E3%83%BC%E3%83%BB%E3%83%89%E3%83%A9%E3%82%B4%E3%83%B3+%E5%A1%97%E8%A3%85%E6%B8%88%E3%81%BF%E5%AE%8C%E6%88%90%E5%93%81%E3%83%93%E3%83%83%E3%82%AF%E3%82%B5%E3%82%A4%E3%82%BA%E3%83%95%E3%82%A3%E3%82%AE%E3%83%A5%E3%82%A2';
+	window._wp_rp_post_tags = ['%E3%81%9D%E3%81%AE%E4%BB%96'];
+	window._wp_rp_promoted_content = true;
+</script>
+<script type="text/javascript" src="https://wprp.zemanta.com/static/js/loader.js?version=3.5.4" async></script>
+<!-- BEGIN: WP Social Bookmarking Light -->
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>   
+<style type="text/css">
+.wp_social_bookmarking_light{
+    border: 0 !important;
+    padding: 10px 0 20px 0 !important;
+    margin: 0 !important;
+}
+.wp_social_bookmarking_light div{
+    float: left !important;
+    border: 0 !important;
+    padding: 0 !important;
+    margin: 0 5px 0px 0 !important;
+    min-height: 30px !important;
+    line-height: 18px !important;
+    text-indent: 0 !important;
+}
+.wp_social_bookmarking_light img{
+    border: 0 !important;
+    padding: 0;
+    margin: 0;
+    vertical-align: top !important;
+}
+.wp_social_bookmarking_light_clear{
+    clear: both !important;
+}
+#fb-root{
+    display: none;
+}
+.wsbl_twitter{
+    width: 100px;
+}
+.wsbl_facebook_like iframe{
+    max-width: none !important;
+}</style>
+<!-- END: WP Social Bookmarking Light -->
+
+
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1596983097270325');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1596983097270325&ev=PageView&noscript=1"
+/></noscript>
+<!-- DO NOT MODIFY -->
+<!-- End Facebook Pixel Code -->
+
+<script src="/lib/js/jquery.easing.1.3.js"></script>
+<script src="/lib/js/jquery.bxslider.min.js"></script>
+<script src="/lib/js/slick.min.js"></script>
+	<script>
+<!--
+$(function(){
+	$("#taglist-content").load("/items/taglist/", function(data) {
+		if(data == null){
+			$("#taglist-content").append(""); 
+		}
+	});
+	
+	$("#brandlist-content").load("/items/brandlist/", function(data) {
+		if(data == null){
+			$("#brandlist-content").append(""); 
+		}
+	});
+	
+	$("#archivelist-content").load("/items/archivelist/", function(data) {
+		if(data == null){
+			$("#archivelist-content").append(""); 
+		}
+	});
+	
+	$("#archivebtn-content").load("/items/archivebtn/", function(data) {
+		if(data == null){
+			$("#archivebtn-content").append(""); 
+		}
+	});
+	$("#slider-content").load("/topslider/public", function(data) {
+		if(data == null){
+			$("#slider-content").append(""); 
+		}
+	});
+		
+	
+});
+jQuery(function ($) {
+    $('#g1 .head').hover(function () {
+        $(this).find('.body').stop(true, true).slideDown()
+    }, function () {
+        $(this).find('.body').stop(true, true).slideUp()
+    }).find('.body').hide()
+
+})
+
+// -->
+</script>
+	<script type="text/javascript" src="/lib/js/common.js"></script>
+	<script type="text/javascript" src="/lib/js/jquery.rollover.js"></script>
+	
+		
+	<script type="text/javascript">
+new function(){
+function heightLine(){
+this.className="heightLine";
+this.parentClassName="heightLineParent"
+reg = new RegExp(this.className+"-([a-zA-Z0-9-_]+)", "i");
+objCN =new Array();
+var objAll = document.getElementsByTagName ? document.getElementsByTagName("*") : document.all;
+for(var i = 0; i < objAll.length; i++) {
+var eltClass = objAll[i].className.split(/\s+/);
+for(var j = 0; j < eltClass.length; j++) {
+if(eltClass[j] == this.className) {
+if(!objCN["main CN"]) objCN["main CN"] = new Array();
+objCN["main CN"].push(objAll[i]);
+break;}else if(eltClass[j] == this.parentClassName){
+if(!objCN["parent CN"]) objCN["parent CN"] = new Array();
+objCN["parent CN"].push(objAll[i]);
+break;}else if(eltClass[j].match(reg)){
+var OCN = eltClass[j].match(reg)
+if(!objCN[OCN]) objCN[OCN]=new Array();
+objCN[OCN].push(objAll[i]);
+break;}}}
+var e = document.createElement("div");
+var s = document.createTextNode("S");
+e.appendChild(s);
+e.style.visibility="hidden"
+e.style.position="absolute"
+e.style.top="0"
+document.body.appendChild(e);
+var defHeight = e.offsetHeight;
+
+changeBoxSize = function(){
+for(var key in objCN){
+if (objCN.hasOwnProperty(key)) {
+//parent type
+if(key == "parent CN"){
+for(var i=0 ; i<objCN[key].length ; i++){
+var max_height=0;
+var CCN = objCN[key][i].childNodes;
+for(var j=0 ; j<CCN.length ; j++){
+if(CCN[j] && CCN[j].nodeType == 1){
+CCN[j].style.height="auto";
+max_height = max_height>CCN[j].offsetHeight?max_height:CCN[j].offsetHeight;}}
+for(var j=0 ; j<CCN.length ; j++){
+if(CCN[j].style){
+var stylea = CCN[j].currentStyle || document.defaultView.getComputedStyle(CCN[j], '');
+var newheight = max_height;
+if(stylea.paddingTop)newheight -= stylea.paddingTop.replace("px","");
+if(stylea.paddingBottom)newheight -= stylea.paddingBottom.replace("px","");
+if(stylea.borderTopWidth && stylea.borderTopWidth != "medium")newheight-= stylea.borderTopWidth.replace("px","");
+if(stylea.borderBottomWidth && stylea.borderBottomWidth != "medium")newheight-= stylea.borderBottomWidth.replace("px","");
+CCN[j].style.height =newheight+"px";}}}}else{
+var max_height=0;
+for(var i=0 ; i<objCN[key].length ; i++){
+objCN[key][i].style.height="auto";
+max_height = max_height>objCN[key][i].offsetHeight?max_height:objCN[key][i].offsetHeight;}
+for(var i=0 ; i<objCN[key].length ; i++){
+if(objCN[key][i].style){
+var stylea = objCN[key][i].currentStyle || document.defaultView.getComputedStyle(objCN[key][i], '');
+var newheight = max_height;
+if(stylea.paddingTop)newheight-= stylea.paddingTop.replace("px","");
+if(stylea.paddingBottom)newheight-= stylea.paddingBottom.replace("px","");
+if(stylea.borderTopWidth && stylea.borderTopWidth != "medium")newheight-= stylea.borderTopWidth.replace("px","")
+if(stylea.borderBottomWidth && stylea.borderBottomWidth != "medium")newheight-= stylea.borderBottomWidth.replace("px","");
+objCN[key][i].style.height =newheight+"px";}}}}}}
+checkBoxSize = function(){
+if(defHeight != e.offsetHeight){
+changeBoxSize();
+defHeight= e.offsetHeight;}}
+changeBoxSize();
+setInterval(checkBoxSize,1000)
+window.onresize=changeBoxSize;}
+
+function addEvent(elm,listener,fn){
+try{
+elm.addEventListener(listener,fn,false);}catch(e){
+elm.attachEvent("on"+listener,fn);}}
+addEvent(window,"load",heightLine);}
+	</script>
+	<!--
+	<script type="text/javascript" src="/lib/js/heightLine.js"></script>
+	<script src="/lib/js/jquery.flatheights.js"></script>-->
+<link rel="stylesheet" href="https://kaiyodo.co.jp/items/wp-content/themes/theme_items/style.css" />
+
+<!-- カプセルダンボー 将棋ver. 40駒コンプリートセット -->
+</head>
+<body id="items">
+	<div class="bg_blue">
+    <div class="header-search accordion">
+        <div class="head">
+            <div class="wrapper">
+                <p class="btn-search"><span>商品検索</span></p>
+            </div>
+        </div>
+        <div class="body">
+            <div class="wrapper clearfix">
+        <form role="search" method="get" id="searchform2" class="searchform2" action="https://kaiyodo.co.jp//items/">
+                <input type="text" value="" name="s" id="s2" placeholder="アイテムを探す"  onfocus="this.placeholder=''" onblur="this.placeholder='アイテムを探す'" />
+                <input type="submit" id="searchsubmit2" value="" />
+        </form><!--<span class="search_txt">作品名・キャラクター名・商品番号などで検索できます</span>-->
+
+<span class="search_keyword">
+  <a href="https://kaiyodo.co.jp/items/revoltech/nr148/">テッカマンブレード</a>
+  <a href="https://kaiyodo.co.jp/items/others/kd122/">初音ミク　青龍Ver. </a>
+  <br class=""/>
+  <a href="https://kaiyodo.co.jp/items/revoltech/nr147/">シンビオート・スパイダーマン（2027年再販）</a>
+  <a href="https://kaiyodo.co.jp/items/revoltech/nr140/">モエ</a>
+</span>
+            </div>
+        </div>
+	</div>
+    </div>
+
+	
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.3";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+
+<div id="all-second">
+
+<div id="header">
+<header>
+
+
+<!-- #headerPC -->
+
+<div class="wrapper clearfix">
+  <div class="header-logo"><a href="/"><img src="/img/common/logo.svg" alt="海洋堂 KAIYODO" /></a></div>
+  <div class="header-right">
+<div class="header-txt">
+        <p class="txt1">フィギュアの造形企画製作</p>
+        <p class="txt2">販売を行う株式会社海洋堂</p>
+</div>
+
+  </div>
+</div>
+
+
+<!-- //#headerPC -->
+
+
+
+</header>
+</div><!-- //#header -->
+
+
+<div id="container">
+
+<div class="path">
+    <div class="wrapper">
+        <ul class="clearfix">
+        <li class="path_home"><a href="/">トップページ</a></li>
+        <li><a href="/items/">商品一覧</a></li>
+        <li><a href="https://kaiyodo.co.jp/items/others/" rel="category tag">その他</a></li>
+        <li> &raquo; サイバー・ドラゴン 塗装済み完成品ビックサイズフィギュア</li>
+        </ul>
+    </div>
+</div>
+<div class="page_title">
+    <div class="wrapper">
+        <h1><span>サイバー・ドラゴン 塗装済み完成品ビックサイズフィギュア</span></h1>
+    </div>
+</div>
+
+<div class="wrapper clearfix">
+
+
+<div class="box_summary clearfix">
+<table border="0" cellpadding="0" cellspacing="0">
+<tr valign="top">
+<td><div class="boxL entry_mv">
+<img class="first-img" alt="IC1" width="600px" src="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/IC1.jpg" />	
+	</div>
+</td>
+<td><div class="boxR">
+    <ul class="entry_head clearfix">
+    <!--<li class="entry_date">案内日：2024.10.18</li>-->
+    <li class="entry_tags"><div class="tags">
+       
+    </div>
+    </li>
+    <li class="entry_title"><h2>サイバー・ドラゴン 塗装済み完成品ビックサイズフィギュア</h2></li>
+    <li class="entry_sns"><div class='wp_social_bookmarking_light'><div class="wsbl_hatena_button"><a href="http://b.hatena.ne.jp/entry/https://kaiyodo.co.jp/items/others/kd107/" class="hatena-bookmark-button" data-hatena-bookmark-title="サイバー・ドラゴン 塗装済み完成品ビックサイズフィギュア" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"> <img src="//b.hatena.ne.jp/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="//b.hatena.ne.jp/js/bookmark_button.js" charset="utf-8" async="async"></script></div><div class="wsbl_facebook_like"><div id="fb-root"></div><fb:like href="https://kaiyodo.co.jp/items/others/kd107/" layout="button_count" action="like" width="100" share="false" show_faces="false" ></fb:like></div><div class="wsbl_twitter"><iframe allowtransparency="true" frameborder="0" scrolling="no" src="//platform.twitter.com/widgets/tweet_button.html?url=https%3A%2F%2Fkaiyodo.co.jp%2Fitems%2Fothers%2Fkd107%2F&amp;text=%E3%82%B5%E3%82%A4%E3%83%90%E3%83%BC%E3%83%BB%E3%83%89%E3%83%A9%E3%82%B4%E3%83%B3%20%E5%A1%97%E8%A3%85%E6%B8%88%E3%81%BF%E5%AE%8C%E6%88%90%E5%93%81%E3%83%93%E3%83%83%E3%82%AF%E3%82%B5%E3%82%A4%E3%82%BA%E3%83%95%E3%82%A3%E3%82%AE%E3%83%A5%E3%82%A2&amp;lang=en&amp;count=horizontal" style="width:130px; height:20px;"></iframe></div></div><br class='wp_social_bookmarking_light_clear' /></li>
+    <li class="entry_content">
+<p><strong>サイバー流デッキのエースモンスター召喚!!</strong></p>
+<p><strong>うねる巨体をスタチューに！</strong></p>
+<p>&nbsp;</p>
+<p>アニメ『遊☆戯☆王デュエルモンスターズGX』において「デュエルアカデミアのカイザー」こと丸藤亮がサイバーデッキのエースとして使用した、機械族モンスター「サイバードラゴン」。</p>
+<p>&nbsp;</p>
+<p>現実のオフィシャルカードゲームでも高い人気を誇ったこのモンスターを、海洋堂が立体化!!　劇中の存在感にふさわしい巨大感に、メタリック塗装もまばゆいスタチューとしてのリリースです！</p>
+<p>&nbsp;</p>
+<p>敵を威嚇するように鎌首をもたげた姿。機械族らしいシルバーに輝く全身は、青みがかったシャドー塗装によりディテールのメリハリが強調されています。</p>
+<p>&nbsp;</p>
+<p>リボルテックシリーズで発売中の遊城十代やE・HERO ネオスと並べてお楽しみください!!</p>
+<p>&nbsp;</p>
+<p>©スタジオ・ダイス／集英社・テレビ東京・KONAMI</p>
+    </li>
+			<li><p style="margin-top: 1em;">※掲載の画像は開発時サンプルの為、実際の商品とは多少異なる場合があります。予めご了承ください。</p></li>
+	    </ul>
+</div></td>
+</tr>
+</table>
+</div>
+<!-- カプセルダンボー 将棋ver. 40駒コンプリートセット以外 -->
+
+
+
+
+
+
+
+
+
+<div class="box_wrap clearfix">
+	<div class="box_spec clearfix">
+		<h3 class="box_title"><img src="/img/items/title_spec.png" alt="商品スペック"></h3>
+		<div class="boxL">
+		<p>■サイズ<br />
+全高約220㎜</p>
+<p>■素材表示<br />
+PVC・ABS</p>
+		</div>
+		<div class="boxR">
+			■JAN<br />
+4537807070777			<div>■原型制作<br>大上竹彦<br />
+■彩色<br />
+BOME</div>
+			<div></div>
+		</div>
+	</div>
+	<div class="box_shopping clearfix">
+		<h3 class="box_title"><img src="/img/items/title_shopping.png" alt="購入について"></h3>
+								<div class="price">
+							希望小売価格						<br>
+			税込価格：<span class="pricetxt">22,000円</span><br>			税抜価格：20,000円<br>			<span class="onsale">発売時期：2025年7月発売予定</span>					</div>
+
+				<p class="btns">
+		
+							<a href="https://www.kyd-store.jp/c/genre/other-display-model_g_d/kd107?utm_source=officialsite&utm_medium=itemdetail_btn&utm_campaign=itemdetail" target="_blank"><img class="btn_online rollover" src="/img/items/btn_online.png" alt="海洋堂オンラインストアで購入する"></a>													</p>
+		<!-- カプセルＱ以外で表示 -->
+				<p class="notice">※商品の在庫状況によってはご予約・お買い上げいただけない場合がございます。<br>予めご了承の程、お願い申し上げます。</p>
+		
+					</div>
+</div>
+<!-- カプセルダンボー 将棋ver. 40駒コンプリートセット以外 -->
+<div class="box_gallery clearfix">
+<!--<h3>ギャラリー</h3>-->
+
+		<style type="text/css">
+			#gallery-1 {
+				margin: auto;
+			}
+			#gallery-1 .gallery-item {
+				float: left;
+				margin-top: 10px;
+				text-align: center;
+				width: 12%;
+			}
+			#gallery-1 img {
+				border: 2px solid #cfcfcf;
+			}
+			#gallery-1 .gallery-caption {
+				margin-left: 0;
+			}
+			/* see gallery_shortcode() in wp-includes/media.php */
+		</style>
+		<div id='gallery-1' class='gallery galleryid-36625 gallery-columns-8 gallery-size-thumbnail'><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/IC1.jpg'><img width="220" height="220" src="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/IC1-220x220.jpg" class="attachment-thumbnail size-thumbnail" alt="" decoding="async" /></a>
+			</dt></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/IC2.jpg'><img width="220" height="220" src="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/IC2-220x220.jpg" class="attachment-thumbnail size-thumbnail" alt="" decoding="async" /></a>
+			</dt></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/IC3.jpg'><img width="220" height="220" src="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/IC3-220x220.jpg" class="attachment-thumbnail size-thumbnail" alt="" decoding="async" /></a>
+			</dt></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/IC4.jpg'><img width="220" height="220" src="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/IC4-220x220.jpg" class="attachment-thumbnail size-thumbnail" alt="" decoding="async" loading="lazy" /></a>
+			</dt></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/IC5.jpg'><img width="220" height="220" src="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/IC5-220x220.jpg" class="attachment-thumbnail size-thumbnail" alt="" decoding="async" loading="lazy" /></a>
+			</dt></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/bbb264c3628fdf5b5f749b3f8e727e54.jpg'><img width="220" height="220" src="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/bbb264c3628fdf5b5f749b3f8e727e54-220x220.jpg" class="attachment-thumbnail size-thumbnail" alt="" decoding="async" loading="lazy" /></a>
+			</dt></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC1.jpg'><img width="220" height="220" src="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC1-220x220.jpg" class="attachment-thumbnail size-thumbnail" alt="" decoding="async" loading="lazy" srcset="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC1-220x220.jpg 220w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC1-300x300.jpg 300w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC1-1024x1024.jpg 1024w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC1-768x768.jpg 768w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC1.jpg 1200w" sizes="(max-width: 220px) 100vw, 220px" /></a>
+			</dt></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC2.jpg'><img width="220" height="220" src="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC2-220x220.jpg" class="attachment-thumbnail size-thumbnail" alt="" decoding="async" loading="lazy" srcset="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC2-220x220.jpg 220w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC2-300x300.jpg 300w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC2-1024x1024.jpg 1024w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC2-768x768.jpg 768w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC2.jpg 1200w" sizes="(max-width: 220px) 100vw, 220px" /></a>
+			</dt></dl><br style="clear: both" /><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC3.jpg'><img width="220" height="220" src="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC3-220x220.jpg" class="attachment-thumbnail size-thumbnail" alt="" decoding="async" loading="lazy" srcset="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC3-220x220.jpg 220w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC3-300x300.jpg 300w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC3-1024x1024.jpg 1024w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC3-768x768.jpg 768w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC3.jpg 1200w" sizes="(max-width: 220px) 100vw, 220px" /></a>
+			</dt></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC4.jpg'><img width="220" height="220" src="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC4-220x220.jpg" class="attachment-thumbnail size-thumbnail" alt="" decoding="async" loading="lazy" srcset="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC4-220x220.jpg 220w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC4-300x300.jpg 300w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC4-1024x1024.jpg 1024w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC4-768x768.jpg 768w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC4.jpg 1200w" sizes="(max-width: 220px) 100vw, 220px" /></a>
+			</dt></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC5.jpg'><img width="220" height="220" src="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC5-220x220.jpg" class="attachment-thumbnail size-thumbnail" alt="" decoding="async" loading="lazy" srcset="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC5-220x220.jpg 220w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC5-300x300.jpg 300w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC5-1024x1024.jpg 1024w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC5-768x768.jpg 768w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC5.jpg 1200w" sizes="(max-width: 220px) 100vw, 220px" /></a>
+			</dt></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC6.jpg'><img width="220" height="220" src="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC6-220x220.jpg" class="attachment-thumbnail size-thumbnail" alt="" decoding="async" loading="lazy" srcset="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC6-220x220.jpg 220w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC6-300x300.jpg 300w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC6-1024x1024.jpg 1024w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC6-768x768.jpg 768w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC6.jpg 1200w" sizes="(max-width: 220px) 100vw, 220px" /></a>
+			</dt></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC7.jpg'><img width="220" height="220" src="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC7-220x220.jpg" class="attachment-thumbnail size-thumbnail" alt="" decoding="async" loading="lazy" srcset="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC7-220x220.jpg 220w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC7-300x300.jpg 300w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC7-1024x1024.jpg 1024w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC7-768x768.jpg 768w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC7.jpg 1200w" sizes="(max-width: 220px) 100vw, 220px" /></a>
+			</dt></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC8.jpg'><img width="220" height="220" src="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC8-220x220.jpg" class="attachment-thumbnail size-thumbnail" alt="" decoding="async" loading="lazy" srcset="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC8-220x220.jpg 220w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC8-300x300.jpg 300w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC8-1024x1024.jpg 1024w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC8-768x768.jpg 768w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC8.jpg 1200w" sizes="(max-width: 220px) 100vw, 220px" /></a>
+			</dt></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC9.jpg'><img width="220" height="220" src="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC9-220x220.jpg" class="attachment-thumbnail size-thumbnail" alt="" decoding="async" loading="lazy" srcset="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC9-220x220.jpg 220w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC9-300x300.jpg 300w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC9-1024x1024.jpg 1024w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC9-768x768.jpg 768w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC9.jpg 1200w" sizes="(max-width: 220px) 100vw, 220px" /></a>
+			</dt></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC10.jpg'><img width="220" height="220" src="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC10-220x220.jpg" class="attachment-thumbnail size-thumbnail" alt="" decoding="async" loading="lazy" srcset="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC10-220x220.jpg 220w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC10-300x300.jpg 300w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC10-1024x1024.jpg 1024w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC10-768x768.jpg 768w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC10.jpg 1200w" sizes="(max-width: 220px) 100vw, 220px" /></a>
+			</dt></dl><br style="clear: both" /><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC11.jpg'><img width="220" height="220" src="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC11-220x220.jpg" class="attachment-thumbnail size-thumbnail" alt="" decoding="async" loading="lazy" /></a>
+			</dt></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC12.jpg'><img width="220" height="220" src="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC12-220x220.jpg" class="attachment-thumbnail size-thumbnail" alt="" decoding="async" loading="lazy" /></a>
+			</dt></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC13.jpg'><img width="220" height="220" src="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/CC13-220x220.jpg" class="attachment-thumbnail size-thumbnail" alt="" decoding="async" loading="lazy" /></a>
+			</dt></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/cb7993225095422e6a6ce82f6c593ae5.jpg'><img width="220" height="220" src="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/cb7993225095422e6a6ce82f6c593ae5-220x220.jpg" class="attachment-thumbnail size-thumbnail" alt="" decoding="async" loading="lazy" srcset="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/cb7993225095422e6a6ce82f6c593ae5-220x220.jpg 220w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/cb7993225095422e6a6ce82f6c593ae5-300x300.jpg 300w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/cb7993225095422e6a6ce82f6c593ae5-1024x1024.jpg 1024w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/cb7993225095422e6a6ce82f6c593ae5-768x768.jpg 768w, https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2024/10/cb7993225095422e6a6ce82f6c593ae5.jpg 1200w" sizes="(max-width: 220px) 100vw, 220px" /></a>
+			</dt></dl>
+			<br style='clear: both' />
+		</div>
+</div>
+
+<!--<div class="box_relate clearfix">
+<h3 class="box_title"><img src="/img/items/title_relate.png" alt="関連商品ラインナップ"></h3>
+<div class="lists5 clearfix">
+</div>
+</div>-->
+
+</div>
+
+<!-- カプセルダンボー 将棋ver. 40駒コンプリートセット -->
+
+
+	<div class="boxItems_wrapper">
+		<div class="box_relate clearfix">
+			<h3 class="box_title"><img src="/img/items/title_relate.png" alt="関連商品ラインナップ"></h3>
+			<div style="margin-top:-18px; margin-bottom:50px; line-height:130%; font-size:75%;" class="lists5 clearfix">
+				
+<div class="wp_rp_wrap  wp_rp_vertical" id="wp_rp_first"><div class="wp_rp_content"><ul class="related_post wp_rp"><li data-position="0" data-poid="in-21869" data-post-type="none" ><a href="https://kaiyodo.co.jp/items/capsule/cqm134/" class="wp_rp_thumbnail"><img src="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2021/03/comer_dp_screen2-180x220.png" alt="カプセルQミュージアム　ワンダーカマーvol.1 全5種/1回400円" width="180" height="220" /></a><small class="wp_rp_publish_date">2021年3月</small> <a href="https://kaiyodo.co.jp/items/capsule/cqm134/" class="wp_rp_title">カプセルQミュージアム　ワンダーカマーvol.1 全5種/1回400円</a></li><li data-position="1" data-poid="in-10466" data-post-type="none" ><a href="https://kaiyodo.co.jp/items/revoltech/assembleborg-nexus/abr005/" class="wp_rp_thumbnail"><img src="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2018/02/02eye-180x220.jpg" alt="リコンビナント 飛行機型(黄)：TYPE.5 ミネルヴァ(MINERVA)" width="180" height="220" /></a><small class="wp_rp_publish_date">2018年2月</small> <a href="https://kaiyodo.co.jp/items/revoltech/assembleborg-nexus/abr005/" class="wp_rp_title">リコンビナント 飛行機型(黄)：TYPE.5 ミネルヴァ(MINERVA)</a></li><li data-position="2" data-poid="in-39512" data-post-type="none" ><a href="https://kaiyodo.co.jp/items/plasticmodel/ap060/" class="wp_rp_thumbnail"><img src="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2026/04/01-1-180x220.jpg" alt="ARTPLA 太陽の塔（2026年再販）" width="180" height="220" /></a><small class="wp_rp_publish_date">2026年4月</small> <a href="https://kaiyodo.co.jp/items/plasticmodel/ap060/" class="wp_rp_title">ARTPLA 太陽の塔（2026年再販）</a></li><li data-position="3" data-poid="in-39560" data-post-type="none" ><a href="https://kaiyodo.co.jp/items/revoltech/nr119/" class="wp_rp_thumbnail"><img src="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2026/05/1-180x220.jpg" alt="リボルテック　クレア" width="180" height="220" /></a><small class="wp_rp_publish_date">2026年5月</small> <a href="https://kaiyodo.co.jp/items/revoltech/nr119/" class="wp_rp_title">リボルテック　クレア</a></li><li data-position="4" data-poid="in-39810" data-post-type="none" ><a href="https://kaiyodo.co.jp/items/others/kd120b/" class="wp_rp_thumbnail"><img src="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2026/07/f84a7682180b641ac308c8a9a96e642a-180x220.jpg" alt="アニメ「遊☆戯☆王」シリーズ　立体モンスターコレクション　第1弾（6入りBOX）（2027年再販）" width="180" height="220" /></a><small class="wp_rp_publish_date">2026年8月</small> <a href="https://kaiyodo.co.jp/items/others/kd120b/" class="wp_rp_title">アニメ「遊☆戯☆王」シリーズ　立体モンスターコレクション　第1弾（6入りBOX）（2027年再販）</a></li></ul></div></div>
+			</div>
+		</div>
+	</div>
+
+<div class="wrapper">
+
+<div class="box_tags clearfix">
+<h3 class="box_title"><img src="/img/items/title_tag.png" alt="おすすめタグ"></h3>
+     <div class="tags"><ul>
+    <li><a href="https://kaiyodo.co.jp/items/tag/%e3%83%aa%e3%83%9c%e3%83%ab%e3%83%86%e3%83%83%e3%82%af/">リボルテック (141)</a></li><li><a href="https://kaiyodo.co.jp/items/tag/%e5%b1%b1%e5%8f%a3%e5%8b%9d%e4%b9%85/">山口勝久 (139)</a></li><li><a href="https://kaiyodo.co.jp/items/tag/%e3%82%ab%e3%83%97%e3%82%bb%e3%83%ab/">カプセル (121)</a></li><li><a href="https://kaiyodo.co.jp/items/tag/%e6%9d%be%e6%9d%91%e3%81%97%e3%81%ae%e3%81%b6/">松村しのぶ (118)</a></li><li><a href="https://kaiyodo.co.jp/items/tag/%e3%82%a2%e3%83%8b%e3%83%a1/">アニメ (110)</a></li><li><a href="https://kaiyodo.co.jp/items/tag/%e3%82%ab%e3%83%97%e3%82%bb%e3%83%abq%e3%83%9f%e3%83%a5%e3%83%bc%e3%82%b8%e3%82%a2%e3%83%a0/">カプセルQミュージアム (95)</a></li><li><a href="https://kaiyodo.co.jp/items/tag/%e6%98%a0%e7%94%bb/">映画 (80)</a></li><li><a href="https://kaiyodo.co.jp/items/tag/evangelion/">EVANGELION (58)</a></li><li><a href="https://kaiyodo.co.jp/items/tag/%e7%ab%b9%e8%b0%b7%e9%9a%86%e4%b9%8b%e3%83%bb%e5%b1%b1%e5%8f%a3%e9%9a%86/">竹谷隆之・山口隆 (56)</a></li><li><a href="https://kaiyodo.co.jp/items/tag/%e6%9c%a8%e4%b8%8b%e9%9a%86%e5%bf%97/">木下隆志 (54)</a></li><li><a href="https://kaiyodo.co.jp/items/tag/%e5%8b%95%e7%89%a9/">動物 (53)</a></li><li><a href="https://kaiyodo.co.jp/items/tag/%e3%82%ab%e3%83%97%e3%82%bb%e3%83%abq/">カプセルQ (50)</a></li><li><a href="https://kaiyodo.co.jp/items/tag/%e6%bc%ab%e7%94%bb/">漫画 (49)</a></li><li><a href="https://kaiyodo.co.jp/items/tag/amazingyamaguchi/">AmazingYamaguchi (48)</a></li><li><a href="https://kaiyodo.co.jp/items/tag/%e3%82%bf%e3%82%b1%e3%83%a4%e5%bc%8f%e8%87%aa%e5%9c%a8%e7%bd%ae%e7%89%a9/">タケヤ式自在置物 (48)</a></li><li><a href="https://kaiyodo.co.jp/items/tag/%e3%83%87%e3%82%b8%e3%82%bf%e3%83%ab%e3%82%ac%e3%83%ac%e3%83%bc%e3%82%b8%e3%82%ad%e3%83%83%e3%83%88/">デジタルガレージキット (47)</a></li><li><a href="https://kaiyodo.co.jp/items/tag/%e3%82%a2%e3%83%a1%e3%82%a4%e3%82%b8%e3%83%b3%e3%82%b0%e3%83%a4%e3%83%9e%e3%82%b0%e3%83%81/">アメイジングヤマグチ (46)</a></li><li><a href="https://kaiyodo.co.jp/items/tag/%e5%86%86%e8%b0%b7%e3%83%97%e3%83%ad/">円谷プロ (46)</a></li><li><a href="https://kaiyodo.co.jp/items/tag/marvel/">Marvel (36)</a></li><li><a href="https://kaiyodo.co.jp/items/tag/%e5%a4%a7%e6%b4%a5%e6%95%a6%e5%93%89/">大津敦哉 (36)</a></li>    </ul></div>
+    
+</div>
+
+
+
+
+<!--<div class="navigation2 clearfix">
+  <ol>
+    <li class="nav_prev"><span class="prev"><a href="https://kaiyodo.co.jp/items/revoltech/nr068/" rel="prev">前の記事へ</a></span><p class="prev">&laquo;<a href="https://kaiyodo.co.jp/items/revoltech/nr068/" rel="prev">リボルテック　アメイジング・ヤマグチ　女型の巨人</a></p></li>
+    <li class="nav_next"><span class="next"><a href="https://kaiyodo.co.jp/items/revoltech/nr069/" rel="next">次の記事へ</a></span><p class="next"><a href="https://kaiyodo.co.jp/items/revoltech/nr069/" rel="next">リボルテック　アメイジング・ヤマグチ　鎧の巨人</a>&raquo;</p></li>
+  </ol>
+</div>-->
+
+
+
+
+</div>
+
+
+
+</div>
+
+	
+
+
+<div class="wrapper clearfix">
+<p class="pagetop"><a href="#container" onclick="jumpToPageTop(event);return false;"><img src="/img/common/pagetop.png" alt="ページの先頭へもどる" /></a></p>
+</div>
+<div id="footer">
+<footer>
+
+
+
+
+
+
+<div class="wrapper clearfix">
+
+
+	<ul id="fNav" class="clearfix">
+		<li><a href="/information/"><span>最新情報</span></a></li>
+		<li><a href="/items/"><span>商品一覧</span></a></li>
+		<li><a href="/event/"><span>イベント・特集</span></a></li>
+		<li><a href="/news/"><span>お知らせ</span></a></li>
+		<li><a href="/company/"><span>海洋堂とは</span></a></li>
+		<!--<li><a href="/support/"><span>お客様サポート</span></a></li>-->
+		<li><a href="/company/#gaiyou"><span>会社概要</span></a></li>
+		<li><a href="/site-map/"><span>サイトマップ</span></a></li>
+		<li><a href="/partner/"><span>パートナー</span></a></li>
+		<li><a href="/recruit/"><span>採用情報</span></a></li>
+		<li><a href="/contact/"><span>お問い合わせ</span></a></li>
+	</ul>
+
+
+</div>
+
+
+
+<div class="wrapper snsBox clearfix">
+
+<div class="snsL">
+<!--//Facebook ST-->
+<div class="fb-page" data-href="https://www.facebook.com/KAIYODO1964" data-width="500" data-height="360" data-small-header="false" data-adapt-container-width="false" data-hide-cover="true" data-show-facepile="true" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/KAIYODO1964"><a href="https://www.facebook.com/KAIYODO1964">株式会社　海洋堂</a></blockquote></div></div>
+<!--Facebook END//-->
+</div>
+
+<div class="snsR">
+<!--//Twitter ST-->
+<!-- <a class="twitter-timeline" width="500" height="360" href="https://twitter.com/kaiyodo_PR" data-widget-id="650833360277794817">@kaiyodo_PRさんのツイート</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> -->
+<a class="twitter-timeline" data-width="500" data-height="360" href="https://twitter.com/kaiyodo_PR?ref_src=twsrc%5Etfw">Tweets by kaiyodo_PR</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<!--Twitter END//-->
+</div>
+</div>
+
+
+<div class="bnr_recruit">
+<!--<p><a href="/recruit/"><img src="/images/bnr/bnr_recruit.gif" alt="採用情報 RECRUITMENT" /></a></p>-->
+</div>
+<div class="copyright">
+<p>Copyright(c) KAIYODO Co.,Ltd. All Rights Reserved.</p>
+</div>
+
+
+
+
+
+
+
+</footer>
+</div>
+<!-- /#footer -->
+
+<div style=" position:absolute;top:0; left:0; width:100%">
+<div style="position:relative; z-index:106; width:1180px; margin: 0 auto;">
+<ul id="gNav" class="gNav clearfix">
+		<li id="g1" class=""><a class="head" href="/items/"><img src="/img/common/g1.png" alt="商品一覧" /></a>
+            <div class="body">
+            <div class="itemListBox">
+            <dl>
+              <dt>ブランドから探す <a href="/items/">商品ブランド一覧を見る&raquo;</a></dt>
+              <dd class="itemBrandListBox clearfix">
+                <ul>
+                  <li class="bold"><a href="/items/revoltech/">リボルテック</a></li>
+                  <li class="bold"><a href="/items/evangelion-evolution/">Evangelion Evolution</a></li>
+                  <li class="bold"><a href="/items/amazingyamaguchi/">AmazingYamaguchi</a></li>
+                  <li class="bold"><a href="/items/capsule/">カプセルフィギュア</a></li>
+                  <li class="bold"><a href="/items/kt-project/">KT Project</a></li>
+                  <li class="bold"><a href="/items/revogeo/">RevoGeo</a></li>
+                  <li class="bold"><a href="/items/digitalgaragekit/">DGK</a></li>
+                </ul>
+                <ul>
+                  <li class="bold"><a href="/items/maschinenkrieger/">Maschinen Krieger</a></li>
+                  <li class="bold"><a href="/items/miniq/">MiniQ</a></li>
+                  <li class="bold"><a href="/items/movie-revo/">Movie Revo</a></li>
+                  <li class="bold"><a href="/items/okamototaro/">岡本太郎</a></li>
+                  <li class="bold"><a href="/items/artist-collaboration/">Artist Collaboration</a></li>
+                  <li class="bold"><a href="/items/artmaster3d/">Artmaster 3D</a></li>
+                  <li class="bold"><a href="/items/characterclassics/">Character Classics</a></li>
+                </ul>
+                <ul>
+                  <li class="bold"><a href="/items/assembleborg-nexus/">Assemble Borg Nexus</a></li>
+                  <li class="bold"><a href="/items/limited-item/">イベント限定</a></li>
+                  <li class="bold"><a href="/items/sofubitoybox/">ソフビトイボックス</a></li>
+                  <li class="bold"><a href="/items/nature/">ネイチャー</a></li>
+                  <li class="bold"><a href="/items/wonderfestival">ワンダーフェスティバル</a></li>
+                  <li class="bold"><a href="/items/yotuba/">よつばと</a></li>
+                  <li class="bold"><a href="/items/mega-sofubi-advance">メガソフビ・アドバンス</a></li>
+                </ul>
+                <ul>
+                  <li class="bold"><a href="/items/senmu/">センムの部屋</a></li>
+                  <li class="bold"><a href="/items/shimantofactory/">高知四万十ファクトリー</a></li>
+                  <li class="bold"><a href="/items/goods/">GOODS</a></li>
+                  <li class="bold"><a href="/items/booksmusic/">BOOKS&MUSIC</a></li>
+                  <li class="bold"><a href="/items/others/">その他</a></li>
+                </ul>
+                </dd>
+              <dt>月別で探す</dt>
+              <dd class="itemArcListBox clearfix">
+				<div id="archivelist-content"></div>
+				</dd>
+            </dl>
+            </div>
+            </div>
+        </li>
+		<!--<li id="g2"><a href="/event/"><img src="/img/common/g2.png" alt="イベント・特集" /></a></li>-->
+		<!--<li id="g3"><a href="/news/"><img src="/img/common/g3.png" alt="お知らせ" /></a></li>-->
+		<li id="g6"><a href="/information/"><img src="/img/common/g6.png" alt="最新情報" /></a></li>
+		<!--<li id="g7"><a href="/staff/"><img src="/img/common/g7.png" alt="スタッフ" /></a></li>-->
+		<li id="g4"><a href="/company/"><img src="/img/common/g4.png" alt="海洋堂とは" /></a></li>
+		<!--<li id="g5"><a href="/support/"><img src="/img/common/g5.png" alt="お客様サポート" class="rollover" /></a></li>-->
+    <li id="g8"><a href="/k-blog/"><img src="/img/common/g8.png" alt="海洋堂広報ブログ" /></a></li>
+    <li id="g8"><a href="https://www.kyd-store.jp/?utm_source=officialsite&utm_medium=pc_gnavi&utm_campaign=top" target="blank"><img src="/img/common/g9.png" alt="オンラインストア" /></a></li>
+	</ul>
+</div>
+</div>
+</div>
+<!-- /#all-second -->
+
+
+<!-- Instagram Feed JS -->
+<script type="text/javascript">
+var sbiajaxurl = "https://kaiyodo.co.jp/items/wp-admin/admin-ajax.php";
+</script>
+<!-- BEGIN: WP Social Bookmarking Light -->
+<!-- END: WP Social Bookmarking Light -->
+<script type='text/javascript' src='https://kaiyodo.co.jp/items/wp-content/plugins/easy-fancybox/js/jquery.fancybox.1.3.23.min.js' id='jquery-fancybox-js'></script>
+<script id="jquery-fancybox-js-after" type="text/javascript">
+var fb_timeout, fb_opts={'overlayShow':true,'hideOnOverlayClick':true,'showCloseButton':true,'margin':20,'centerOnScroll':false,'enableEscapeButton':true,'autoScale':true };
+if(typeof easy_fancybox_handler==='undefined'){
+var easy_fancybox_handler=function(){
+jQuery('.nofancybox,a.wp-block-file__button,a.pin-it-button,a[href*="pinterest.com/pin/create"],a[href*="facebook.com/share"],a[href*="twitter.com/share"]').addClass('nolightbox');
+/* IMG */
+var fb_IMG_select='a[href*=".jpg"]:not(.nolightbox,li.nolightbox>a),area[href*=".jpg"]:not(.nolightbox),a[href*=".jpeg"]:not(.nolightbox,li.nolightbox>a),area[href*=".jpeg"]:not(.nolightbox),a[href*=".png"]:not(.nolightbox,li.nolightbox>a),area[href*=".png"]:not(.nolightbox),a[href*=".webp"]:not(.nolightbox,li.nolightbox>a),area[href*=".webp"]:not(.nolightbox)';
+jQuery(fb_IMG_select).addClass('fancybox image');
+var fb_IMG_sections=jQuery('.gallery,.wp-block-gallery,.tiled-gallery');
+fb_IMG_sections.each(function(){jQuery(this).find(fb_IMG_select).attr('rel','gallery-'+fb_IMG_sections.index(this));});
+jQuery('a.fancybox,area.fancybox,li.fancybox a').each(function(){jQuery(this).fancybox(jQuery.extend({},fb_opts,{'transitionIn':'elastic','easingIn':'easeOutBack','transitionOut':'elastic','easingOut':'easeInBack','opacity':false,'hideOnContentClick':false,'titleShow':true,'titlePosition':'over','titleFromAlt':true,'showNavArrows':true,'enableKeyboardNav':true,'cyclic':false}))});};
+jQuery('a.fancybox-close').on('click',function(e){e.preventDefault();jQuery.fancybox.close()});
+};
+var easy_fancybox_auto=function(){setTimeout(function(){jQuery('#fancybox-auto').trigger('click')},1000);};
+jQuery(easy_fancybox_handler);jQuery(document).on('post-load',easy_fancybox_handler);
+jQuery(easy_fancybox_auto);
+</script>
+<script type='text/javascript' src='https://kaiyodo.co.jp/items/wp-content/plugins/easy-fancybox/js/jquery.easing.1.4.1.min.js' id='jquery-easing-js'></script>
+<script type='text/javascript' src='https://kaiyodo.co.jp/items/wp-content/plugins/easy-fancybox/js/jquery.mousewheel.3.1.13.min.js' id='jquery-mousewheel-js'></script>
+
+</body>
+</html>

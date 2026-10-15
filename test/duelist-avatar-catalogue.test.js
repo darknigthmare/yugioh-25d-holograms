@@ -66,7 +66,8 @@ test('emblematic characters retain intentional hair, costume, accessory and stat
   assert.equal(getDuelistAvatar('duke').visual.hairStyle, 'ponytail');
   assert.equal(getDuelistAvatar('astral').visual.hairStyle, 'bald');
   assert.equal(getDuelistAvatar('astral').visual.outfitStyle, 'mechanical');
-  for (const id of ['tea', 'alexis', 'tori', 'zuzu', 'lulu', 'romin']) assert.equal(getDuelistAvatar(id).visual.outfitStyle, 'dress');
+  for (const id of ['tea', 'alexis', 'tori', 'zuzu', 'lulu']) assert.equal(getDuelistAvatar(id).visual.outfitStyle, 'dress');
+  assert.equal(getDuelistAvatar('romin').visual.bottomStyle, 'shorts');
 });
 
 test('all unlocks use attainable counters and actual campaign missions', () => {

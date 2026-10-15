@@ -1,0 +1,424 @@
+{
+  "date": "2026-10-13",
+  "method": "Actual bytes pinned after stable avatar source and targeted tests. Immutable prior proofs are not modified. This does not assert global check, compiled browser QA, remote publication or 1:1 certification.",
+  "sources": {
+    "src/ui/DuelistAvatarModels.js": {
+      "bytes": 74654,
+      "sha256": "6691f802933a2d285a44abe664ea514e07c00b679f9536d15a700625b7aaa3ac"
+    },
+    "src/content/DuelistAvatarCatalog.js": {
+      "bytes": 49379,
+      "sha256": "1c9cfbd86ba8895d80601a8a36015809149dd147f5bc188ebd986734d068f08c"
+    },
+    "test/duelist-avatar-multireference-2026-10-13.test.js": {
+      "bytes": 4679,
+      "sha256": "8e8eaeff4f7f9cc9b0fda379d8002bba506af3ddee82a026b1389bab83e103e9"
+    },
+    "docs/audits/multireference-avatars-2026-10-13.md": {
+      "bytes": 8567,
+      "sha256": "c9d4a2abb5108800c0bbb6582c8117c614300465ad98aaf67f8fc25e01a78cb6"
+    }
+  },
+  "files": {
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/cpu-audit.json": {
+      "bytes": 138468,
+      "sha256": "193368cd9380431a2e5094898d6a653a6355f2eab7b235a9851d588007c0bbf1"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/cpu-audit.mjs.txt": {
+      "bytes": 6355,
+      "sha256": "3b1114a4c01ea86a2d5f6d5b7635b884820e59139df324440a6a67e671f344d8"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/joey-episode-contact-sheet.jpg": {
+      "bytes": 60588,
+      "sha256": "9afce07a460ec656fc3af3220f603e02874771fc8c0581a3fe6fbfddd07947e4"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/licensed-contact-sheet.jpg": {
+      "bytes": 618439,
+      "sha256": "31778084262a26c16ac41051764e9bf7f17a067eaed87ca4f1523c26a1fd2414"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/pharaoh-vrains-contact-sheet.jpg": {
+      "bytes": 202447,
+      "sha256": "0e7a419b37068e3556814fd3d718e5c04826a6e2d1749ffa8d96db81d49d2d2e"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/reference-inventory.json": {
+      "bytes": 109217,
+      "sha256": "3608544e9d856b0749b4ab4521b074221cd76931f46ef08d51fed309dfbb400d"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/atem-f4f-1.jpg": {
+      "bytes": 102555,
+      "sha256": "939cf232a7af70c4911809ffeb49e5017fb4b054bd125417180f605088ccfb96"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/atem-f4f-10.jpg": {
+      "bytes": 95784,
+      "sha256": "93a91ee69cdc260c7d2e739363a5ff50315b3c937992e6b52ada318c8b02abce"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/atem-f4f-11.jpg": {
+      "bytes": 81604,
+      "sha256": "84659237337f966e091ed61675e737bacfe7de19048d6337699ad5ee2f471060"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/atem-f4f-12.jpg": {
+      "bytes": 81505,
+      "sha256": "cdd98dceda1c2be6e1d4f749b3202cf5592d75d9fcdcb20af1bb948660ca6c86"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/atem-f4f-13.jpg": {
+      "bytes": 105281,
+      "sha256": "915578e4e5b85da29e721c20c823a016dc3687037a2cfef351a779911ff0aae9"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/atem-f4f-2.jpg": {
+      "bytes": 91881,
+      "sha256": "bd6719d2e54067f17b94e68344b127a63be99c6bb49e9e75465e0d403266d5bc"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/atem-f4f-3.jpg": {
+      "bytes": 91416,
+      "sha256": "04b44fc0a9b093eb6c6d30a435ca330f92510b2a3a614fabe1518025c2b23432"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/atem-f4f-4.jpg": {
+      "bytes": 87491,
+      "sha256": "5c5265da0fd25aa0b2eda17a0a3b65b1a272d808988f20c4e5f5f68183539b46"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/atem-f4f-5.jpg": {
+      "bytes": 87082,
+      "sha256": "3747098099776acfb8ad8d0061544c29b696b8b0d9dda1664a708afac6eafad4"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/atem-f4f-6.jpg": {
+      "bytes": 90569,
+      "sha256": "9e0cde4badc3b0d56c66b6b4be97829d2309303e2bf99beb7602f1e80c081b8c"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/atem-f4f-7.jpg": {
+      "bytes": 87127,
+      "sha256": "b0b950c002034ed34a8109e06b07c134e1bb519f0315dfb81763bb6169af0a59"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/atem-f4f-8.jpg": {
+      "bytes": 92595,
+      "sha256": "b9bf1bae7310f914d25fba076ce7d0d6df7f72676be6ea333e6d5851d1f0ff67"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/atem-f4f-9.jpg": {
+      "bytes": 90860,
+      "sha256": "363959c68235c5ea969f41405f6f76b23448825bc1a8a02c73711953d16aca84"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/atem-konami.png": {
+      "bytes": 145629,
+      "sha256": "2b059ef91b12f306f343d6b01c225f1ed568d8e860d9002b5fa03b42f70620d7"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/jaden-amakuni-1.jpg": {
+      "bytes": 151771,
+      "sha256": "6ec432186ba60f0864501c18b3719ed07b0ea6ecd9d34b10eed428c8035e8586"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/jaden-amakuni-2.jpg": {
+      "bytes": 154275,
+      "sha256": "b84525ad2750ebf6b3bd80aebda367b768856e2de1412c539d11d6dabf5e9b3a"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/jaden-amakuni-3.jpg": {
+      "bytes": 221797,
+      "sha256": "04da3a701d63f8fbad10b269bf7b5054759820b1ee1039e71d3719c1c6a7878a"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/jaden-amakuni-4.jpg": {
+      "bytes": 152508,
+      "sha256": "35034e73ef61d3e4defa57cb858a06a683d5bce5a7b4e5830569ec9ce02c9c42"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/jaden-amakuni-5.jpg": {
+      "bytes": 192206,
+      "sha256": "22c09b96e78db04c984d26a881e6f38d790781f2eda39c74f2f643994e69df0d"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/jaden-amakuni-6.jpg": {
+      "bytes": 215194,
+      "sha256": "a072bc3cda80c17e41311facebcbec8ff379d5b47faec25acece72ee6a403c43"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/jaden-amakuni-7.jpg": {
+      "bytes": 195637,
+      "sha256": "9eff344ff63466b752ac665da1b518be69086bf864a99bf63fc44648f7224504"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/jaden-amakuni-8.jpg": {
+      "bytes": 154616,
+      "sha256": "3189f9ccc4562b6f689ecc7fb344fa51374e515d507696e2a89f6d414c066a07"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/jaden-konami.png": {
+      "bytes": 116736,
+      "sha256": "a64d110b06c95a17fc0fa565cee023f95cc6893e99b33eb02c63f891baba59a7"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/joey-first-duel.jpg": {
+      "bytes": 15577,
+      "sha256": "c64d56e459af9cf525a0b6c403b0aae7dc0e4753c2345c35864eec08a17968e5"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/joey-kingdom-journey.jpg": {
+      "bytes": 14622,
+      "sha256": "6949dde9b3f6fdf61ff5aed52220e2f592b6661362a26a4eddbee5c88da2fe1b"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/joey-konami.png": {
+      "bytes": 119215,
+      "sha256": "ee7ab244d64c85fe44a7d823cc103ed088b989536b82d02f592206e909a3274b"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/joey-kotobukiya-1.jpg": {
+      "bytes": 119972,
+      "sha256": "d36f2bff4df47dc21e652b2baef7418c85344e1a1640551951f6199f59a777ba"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/joey-kotobukiya-10.jpg": {
+      "bytes": 117304,
+      "sha256": "b8bd36c7e88405b1358f8d671703a0d1d665422d706f46c101aed46286ce9712"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/joey-kotobukiya-11.jpg": {
+      "bytes": 127220,
+      "sha256": "ee5928d0539fca29640ced90a9399de7053188cee7aa99f3037fe8f2849ad1d3"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/joey-kotobukiya-12.jpg": {
+      "bytes": 108789,
+      "sha256": "97cd1c4787a3027783b68b3b85ffd88ad84358c16328f99615e5cb49daafcac3"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/joey-kotobukiya-13.jpg": {
+      "bytes": 114827,
+      "sha256": "622b254d411d6149525eff37d62ccbd00882787f215bdcf83207498bec19c7c0"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/joey-kotobukiya-2.jpg": {
+      "bytes": 105135,
+      "sha256": "cfc280a9254968ecdd13cd4578a3fee5d8362d09ba33f180278801ca83c7b4de"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/joey-kotobukiya-3.jpg": {
+      "bytes": 98335,
+      "sha256": "22564e26904ff6be67827fd0156383624d167f21be58a65f4950f5f4385e1c05"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/joey-kotobukiya-4.jpg": {
+      "bytes": 101146,
+      "sha256": "38ad0db436276e4480f230fba4642c6dc4473407a9729429a245a5c5039ffe78"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/joey-kotobukiya-5.jpg": {
+      "bytes": 101276,
+      "sha256": "4bb5d97045b7c27a892426438b171b61f45421f5e056401191c190a31b2d49b1"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/joey-kotobukiya-6.jpg": {
+      "bytes": 107262,
+      "sha256": "7b22df273448b84a6581328bfbc83d28bc5555112612acbd815780e569b8150a"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/joey-kotobukiya-7.jpg": {
+      "bytes": 120887,
+      "sha256": "a5a00dc76347175a1cc99e4ed980d2e412da158c630bf9597060c857ff9ed3f5"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/joey-kotobukiya-8.jpg": {
+      "bytes": 90313,
+      "sha256": "ad66bd5778fe92b9d74e1c6878b27e428415ce3d195a35989f3bd798a9bc9c11"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/joey-kotobukiya-9.jpg": {
+      "bytes": 95703,
+      "sha256": "88ef8488d021613d9401b400622e24106c4d781e7b4f55215632b9c6a520b209"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/joey-relative.jpg": {
+      "bytes": 14419,
+      "sha256": "6e1a733bb2d4d628ec3b55c0cc68a88c1303a227bd35af0cf5551790e6c52e16"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/joey-yugioh-com.png": {
+      "bytes": 225178,
+      "sha256": "15f0cf200c8ba6b58665c9ef80bcc7b23eb618cd90c68f875911c18ec1ceea87"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/kaiba-konami.png": {
+      "bytes": 133633,
+      "sha256": "cf0a78381947da176c46d7aeb6bf788690db9f03d279f9fd6b0338af20932144"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/kaiba-kotobukiya-1.jpg": {
+      "bytes": 103455,
+      "sha256": "e5edaa46b99716d4c6a2366da4f6799b5cdb1ad105bdd194bd6583abf446aee4"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/kaiba-kotobukiya-10.jpg": {
+      "bytes": 93909,
+      "sha256": "69e6cae5fdec55214b7643663fea76d29a0299324cf32db9c157127afa03f286"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/kaiba-kotobukiya-11.jpg": {
+      "bytes": 93606,
+      "sha256": "26a95752bce6a60da0f8e6bdf296accb0d0679cc3fccb4171784b4d83ebe169e"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/kaiba-kotobukiya-12.jpg": {
+      "bytes": 83261,
+      "sha256": "70cd659102f0ad7ec0797613754d1ee5530e114d12be1c8b5b15f2f4e8b3198b"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/kaiba-kotobukiya-13.jpg": {
+      "bytes": 97183,
+      "sha256": "6e5e22cc68ad6c695a1393b9e2e484e9bbd04c88f6ca2781d995228115acc00a"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/kaiba-kotobukiya-2.jpg": {
+      "bytes": 103918,
+      "sha256": "b04d5627fd087f1ac89fd9229b588d81d9460926fde212bd8409ccd8cafe1abb"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/kaiba-kotobukiya-3.jpg": {
+      "bytes": 105153,
+      "sha256": "58d22405488a32fd253b622584317e97bc7617f8d09b35883802d74f1039cc13"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/kaiba-kotobukiya-4.jpg": {
+      "bytes": 103749,
+      "sha256": "728f8a051ca2214c28483a74a96dc997ddfa96d2ccdbb223701b483e3ac50597"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/kaiba-kotobukiya-5.jpg": {
+      "bytes": 86681,
+      "sha256": "71a1fa15f0eefc3c33e25fbb22950cadf6b22e94831bc84bc26e3086d2c44e70"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/kaiba-kotobukiya-6.jpg": {
+      "bytes": 105165,
+      "sha256": "7069db1c9e9d739c0ab6b7ddaeeefd1a2190ce1c3951f34f242335987eec03c0"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/kaiba-kotobukiya-7.jpg": {
+      "bytes": 126651,
+      "sha256": "c1f97a4f0c152b075a31d85369bff2ed6e7a8c32d335b46d30b62f231b0a8f61"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/kaiba-kotobukiya-8.jpg": {
+      "bytes": 170411,
+      "sha256": "135976217dc3616b9256a9cf238be361f56ac408d7458185035f091fb0050b73"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/kaiba-kotobukiya-9.jpg": {
+      "bytes": 167762,
+      "sha256": "39eb7016f6f8d76b72bc5f4b87554e958502627e9bb94264a86e87035b42e0b1"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/kaiba-yugioh-com.png": {
+      "bytes": 220241,
+      "sha256": "29d52869d3848767eb9bb7da7f21fb801788b82173d0c2873084cf83a42c05b7"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/playmaker-konami.png": {
+      "bytes": 109894,
+      "sha256": "58dec7d46169366ca96f4c02f6e4ed6b40d0c3c9bfe2c7203f9c99334cd4742d"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/vrains-tvtokyo-1.png": {
+      "bytes": 99640,
+      "sha256": "822901e447b75ac7fc2f725d00474a604f14039bfbc154dfb3366db382d9fb5d"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/vrains-tvtokyo-2.png": {
+      "bytes": 99253,
+      "sha256": "090f7903b4780f99f38c4a2b9e81c28ff8abf5793b01302377c5c6f83429f175"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/vrains-tvtokyo-3.png": {
+      "bytes": 96191,
+      "sha256": "2135c0b1f01ee456fc26748fda495cbda9bf62f549459c9102536b948d3da069"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yugi-konami.png": {
+      "bytes": 109196,
+      "sha256": "6f7ad9a858cc85ebc00e9c1610e731e0e503e6b12bbdf77db3aae40e72eaf88a"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yugi-kotobukiya-1.jpg": {
+      "bytes": 137150,
+      "sha256": "10ee50822a49f6987c2bdd06d58601cbc6893435ad9278f8d99f8526a4888a3a"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yugi-kotobukiya-10.jpg": {
+      "bytes": 91809,
+      "sha256": "e16a4b774a5f753b9ac64b0d0a7ca60360f7a875362fb55b02835a339b1570c2"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yugi-kotobukiya-11.jpg": {
+      "bytes": 168008,
+      "sha256": "3db8d435a4291f85426dc73352d7de44a5bf4a8cd908b100085f69d816a256a4"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yugi-kotobukiya-12.jpg": {
+      "bytes": 123583,
+      "sha256": "d121310055d919c0cb429ee4e18b62670e660b63f9bce76098fb6d6d671665b0"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yugi-kotobukiya-13.jpg": {
+      "bytes": 108008,
+      "sha256": "35f5a892a8210b6da9291bb927a7134dd1805c17fb1e5e235f317cde3c2eed7a"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yugi-kotobukiya-14.jpg": {
+      "bytes": 106252,
+      "sha256": "b080325d3c10ab6083f47354ddc79b305d840d85b29fee89d4bd634884f7ad83"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yugi-kotobukiya-15.jpg": {
+      "bytes": 92193,
+      "sha256": "e4775dec131c403fab41c35d79809e0b8f62accb4c11cd1c2fedbe1acd0f11a0"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yugi-kotobukiya-16.jpg": {
+      "bytes": 89302,
+      "sha256": "1db2f818cb267f06cd310fffe493e439ddc722e253353e76d9de178b35c7d589"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yugi-kotobukiya-17.jpg": {
+      "bytes": 91741,
+      "sha256": "cb7a53b625f4ffb7658056c3f6acae6ae1238ba3bf6d94d0175d8857da304c47"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yugi-kotobukiya-18.jpg": {
+      "bytes": 120101,
+      "sha256": "0faf65ee3db68d575d0fbb6d620b4f9b63da4c849a3bb5691922f6d20288d96d"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yugi-kotobukiya-19.jpg": {
+      "bytes": 145168,
+      "sha256": "9569fd0432dfb8972f19b4a9e4cf4e0ad26f50ee8ce996751a0a1eefb0ae92bc"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yugi-kotobukiya-2.jpg": {
+      "bytes": 102824,
+      "sha256": "e0da80a0374f4cdb80d348186eef8a6744131dfb74a95ae849fd8dfffbb3dfb5"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yugi-kotobukiya-3.jpg": {
+      "bytes": 103517,
+      "sha256": "37c1d99fed66e2bbd8f42be3534a49e6d9ec18dae62e542e8caec0bb168ab14e"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yugi-kotobukiya-4.jpg": {
+      "bytes": 143522,
+      "sha256": "31c9d7f7d860f2467280ae409bbd291c574ed8362398e253906f28b41c4a4951"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yugi-kotobukiya-5.jpg": {
+      "bytes": 138320,
+      "sha256": "512caaf9feb0d73ef235445efaab6c986a886b07c2428444e01982adc2a1a841"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yugi-kotobukiya-6.jpg": {
+      "bytes": 130372,
+      "sha256": "bb1e86de6792c5e12efb5b55599bea79f29c7b0b11d8b147a9c605185355e394"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yugi-kotobukiya-7.jpg": {
+      "bytes": 123066,
+      "sha256": "e067c73a15ac5821f48ca606e93f069c93102039fa8e97d0ef305ecde6a51153"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yugi-kotobukiya-8.jpg": {
+      "bytes": 124783,
+      "sha256": "2152e8989b33437b700932580ed1ef0b58d6daf80c1963d65a31308ff5408219"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yugi-kotobukiya-9.jpg": {
+      "bytes": 104051,
+      "sha256": "c46efc31d136a8309f9dd06bd6dda1971a0039293517b4fdb20f397fd76836c4"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yugi-yugioh-com.png": {
+      "bytes": 158038,
+      "sha256": "f1212b34548ee4d0f87e008be01070e4965912b73003671f2364731d9c5b90d7"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yusei-amakuni-1.jpg": {
+      "bytes": 333558,
+      "sha256": "7884c4d60701bb5d9db38615663e9e9d93c07cab8bd78f62ab7b36b9bfc99fca"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yusei-amakuni-2.jpg": {
+      "bytes": 323786,
+      "sha256": "6aaa11e8c58be2a7e2fa9200980353b3c95029f788ab3210f0f60146ab21871e"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yusei-amakuni-3.jpg": {
+      "bytes": 305275,
+      "sha256": "b28d6021bb519b2a2d899e14ca4fd01aa83a2d771c6a1ebf6398ec1dee3fbd71"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yusei-amakuni-4.jpg": {
+      "bytes": 310023,
+      "sha256": "fcf8452a35b05d23dd6786c38246f90beaf301152f566e5ab4a8a5126106010c"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yusei-amakuni-5.jpg": {
+      "bytes": 293254,
+      "sha256": "73bfd4cc8f81dc05e339860655245a1fc4befa302f3c4e6d72e8f1e38a8d4dcb"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yusei-amakuni-6.jpg": {
+      "bytes": 282169,
+      "sha256": "318b92edba2be5659761b9928012a8fdf80a258f8b9f2d0826bd4483d0b537a5"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yusei-amakuni-7.jpg": {
+      "bytes": 301143,
+      "sha256": "5d4a09999fd709e010d100744e1a0625a9e8d7e24d068df87ddb646ed596e9cf"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yusei-amakuni-8.jpg": {
+      "bytes": 294399,
+      "sha256": "2ff0ec15390a72264fa51942c2a156a597421f8a62b9bad37d7caeaf8663f452"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yusei-konami.png": {
+      "bytes": 109430,
+      "sha256": "1f5ceeadc8455a303a9cf618d3a98eac2a94569323e87ca23da9c6894b447e1c"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yuya-konami.png": {
+      "bytes": 155790,
+      "sha256": "e8cac0a70cc640d376d7b33ac6682bff6ca6f07b41a146c1026a0b027d94dfa2"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/references/yuya-tvtokyo.png": {
+      "bytes": 140449,
+      "sha256": "faa99693b5c887ffc44a7918e623f3dba4aa57ea8d39eab6a5d8ad9a0545b25b"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/research-contact-sheet.jpg": {
+      "bytes": 338109,
+      "sha256": "718b53d4a34fea0d4281a67b1d19c339f7ef114123fa5cfd87eded30776b7a6b"
+    },
+    "docs/audits/artifacts/multireference-avatars-2026-10-13/targeted-tests.txt": {
+      "bytes": 3483,
+      "sha256": "75c9f8d1f8dcad2dfcc4e2fa73a91b2d46f16c41ee912b23145f611635097325"
+    }
+  }
+}

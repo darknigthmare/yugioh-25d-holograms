@@ -1,0 +1,5 @@
+{"phase": "before", "width": 1280, "triangles": 73736, "calls": 72, "medianMs": 0.8999999985098839, "afterDispose": {"geometries": 0, "textures": 0, "programs": 4}}
+{"phase": "before", "width": 390, "triangles": 73736, "calls": 68, "medianMs": 0.9499999992549419, "afterDispose": {"geometries": 0, "textures": 0, "programs": 4}}
+{"phase": "after", "width": 1280, "triangles": 218576, "calls": 72, "medianMs": 0.8999999985098839, "afterDispose": {"geometries": 0, "textures": 0, "programs": 4}}
+{"phase": "after", "width": 390, "triangles": 218576, "calls": 68, "medianMs": 0.7000000011175871, "afterDispose": {"geometries": 0, "textures": 0, "programs": 4}}
+{"ok": true, "errors": [], "triangleRatios": {"1280": 2.9643050884235653, "390": 2.9643050884235653}}

@@ -1,0 +1,152 @@
+[
+  {
+    "id": 73915052,
+    "name": "Sheep Token",
+    "race": "16384",
+    "attribute": 1
+  },
+  {
+    "id": 60764582,
+    "name": "Lamb Token",
+    "race": "16384",
+    "attribute": 1
+  },
+  {
+    "id": 11050416,
+    "name": "Hippo Token",
+    "race": "16384",
+    "attribute": 1
+  },
+  {
+    "id": 29843092,
+    "name": "Ojama Token",
+    "race": "16384",
+    "attribute": 16
+  },
+  {
+    "id": 40703223,
+    "name": "Kuriboh Token",
+    "race": "8",
+    "attribute": 32
+  },
+  {
+    "id": 15341822,
+    "name": "Fluff Token",
+    "race": "1024",
+    "attribute": 8
+  },
+  {
+    "id": 71645243,
+    "name": "Rose Token",
+    "race": "1024",
+    "attribute": 32
+  },
+  {
+    "id": 22493812,
+    "name": "Army Ant Token",
+    "race": "2048",
+    "attribute": 1
+  },
+  {
+    "id": 31600514,
+    "name": "Baby Mantis Token",
+    "race": "2048",
+    "attribute": 8
+  },
+  {
+    "id": 56051649,
+    "name": "Spider Token",
+    "race": "2048",
+    "attribute": 1
+  },
+  {
+    "id": 64213018,
+    "name": "Beetrooper Token",
+    "race": "2048",
+    "attribute": 1
+  },
+  {
+    "id": 904186,
+    "name": "Mecha Phantom Beast Token",
+    "race": "32",
+    "attribute": 8
+  },
+  {
+    "id": 8025951,
+    "name": "Gadget Box Token",
+    "race": "32",
+    "attribute": 1
+  },
+  {
+    "id": 44052075,
+    "name": "Ancient Gear Token",
+    "race": "32",
+    "attribute": 1
+  },
+  {
+    "id": 23331401,
+    "name": "Data Token",
+    "race": "16777216",
+    "attribute": 16
+  },
+  {
+    "id": 21830680,
+    "name": "Clock Token",
+    "race": "16777216",
+    "attribute": 8
+  },
+  {
+    "id": 53855410,
+    "name": "Doppel Token",
+    "race": "1",
+    "attribute": 32
+  },
+  {
+    "id": 44330099,
+    "name": "Emissary of Darkness Token",
+    "race": "4",
+    "attribute": 16
+  },
+  {
+    "id": 21179144,
+    "name": "Reptilianne Token",
+    "race": "524288",
+    "attribute": 1
+  },
+  {
+    "id": 2819436,
+    "name": "Phantasm Spiral Token",
+    "race": "8388608",
+    "attribute": 2
+  },
+  {
+    "id": 65500516,
+    "name": "Squid Ink Token",
+    "race": "64",
+    "attribute": 2
+  },
+  {
+    "id": 21770261,
+    "name": "Slime Token",
+    "race": "64",
+    "attribute": 2
+  },
+  {
+    "id": 66661679,
+    "name": "Ice Coffin Token",
+    "race": "64",
+    "attribute": 2
+  },
+  {
+    "id": 27204312,
+    "name": "Primal Being Token",
+    "race": "256",
+    "attribute": 16
+  },
+  {
+    "id": 23116809,
+    "name": "Fireball Token",
+    "race": "128",
+    "attribute": 4
+  }
+]

@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-11",
+  "description": "Exact final full-check, security, source/build freeze and historical conservation evidence. Browser, native and geometry reports are separate.",
+  "files": {
+    "build-freeze.json": {
+      "bytes": 174490,
+      "sha256": "15bad48d4715d73e05a2b0777e6c8e9b2e3a21c12208aa1cc521f3bf4406c6c5",
+      "originalPath": "/workspace/yugioh-token-build-freeze-2026-10-11.json"
+    },
+    "check-final.txt": {
+      "bytes": 272965,
+      "sha256": "cad4604531e72a88933d5e5fe928bab602e4aa3330f95f333d6210266ee69368",
+      "originalPath": "/workspace/yugioh-token-check-final-2026-10-11.txt"
+    },
+    "security-final.txt": {
+      "bytes": 521,
+      "sha256": "ce10d89592b5b2d55cb4bdaf4b098f6da78eb23609d6da2dde83e6ade53be768",
+      "originalPath": "/workspace/yugioh-token-security-final-2026-10-11.txt"
+    },
+    "historical-before.json": {
+      "bytes": 373286,
+      "sha256": "4aa2ccd2a21202aae2803a486933b52856d493b2e245d9cbbf674f58e5cc12a2",
+      "originalPath": "/workspace/yugioh-token-history-before-2026-10-11.json"
+    },
+    "historical-after.json": {
+      "bytes": 496,
+      "sha256": "a44d733323fb749ab05fdfed0159abd3101e5ad092c584a1b97140dba5fb3494",
+      "originalPath": "/workspace/yugioh-token-history-after-2026-10-11.json"
+    }
+  }
+}

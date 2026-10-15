@@ -1,0 +1,14 @@
+✔ all registered botanical and insect Tokens have finite bounded geometry within five batches and 6000 triangles (139.821038ms)
+✔ flowers are separate wool, rose, leafy, cyclopean and long-stem silhouettes (23.456972ms)
+✔ reference ant and spider have six and eight legs; mantis has folding forelegs and four walking legs (6.935753ms)
+✔ insect-monster emerges from an open spotted shell while pure eggs remain delegated (6.911126ms)
+✔ maize, needle, sinister seed and skull-grub retain their reference details (12.907859ms)
+✔ unknown anatomy produces no parts and construction is deterministic without reading duel state (10.003704ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 307.153141

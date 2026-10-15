@@ -1,0 +1,396 @@
+{
+  "originalRoot": "/workspace/yugioh-token-models-2026-10-11",
+  "deliveredRoot": "docs/audits/artifacts/token-monster-models-2026-10-11",
+  "copiedFiles": [
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/before/CombatVisualProfiles.js.txt",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/before/CombatVisualProfiles.js.txt",
+      "sha256": "f5c5aff6a712ed97bbe1d9e4064cd5a3b13620539a2311833ca865f1230d9204",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/before/HologramMonsterModels.js.txt",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/before/HologramMonsterModels.js.txt",
+      "sha256": "e1d187cb29a6ea139b16d26b7154a92c77160c34941a37b13023cfcfe0f2f278",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/before/cards.json",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/before/cards.json",
+      "sha256": "361d579e7466be0f3e1c47e7fd10e14d3829a5cfb33d98bca71e24221dd1c2a0",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/before/before-gallery.png",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/before/before-gallery.png",
+      "sha256": "736841f178895b808fb271cdcfbf2d8d5b84639e8c07bca80a24c12c04a32e65",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/before/before-gallery.json",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/before/before-gallery.json",
+      "sha256": "0171e6a0c6e29b1d408203b82d76844bcc0e568d4600ee5f398d57522b2e8ea5",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/before/before-gallery-pins.json",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/before/before-gallery-pins.json",
+      "sha256": "d93238c6ff513494fc2921be923204f8d861b0c694abf6425c14af8824af80de",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/final/all-tokens-09.png",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/final/all-tokens-09.png",
+      "sha256": "8051bb0704994f038db841000b0dc5306624e1ad4fe57466a6d0ed7804f13eb4",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/final/anatomies-02.png",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/final/anatomies-02.png",
+      "sha256": "8bb1df816b8b43fd0a1a0035bf59f1991f19384a4b993df0aea5487bfe2e3c37",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/final/non-token-regression.json",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/final/non-token-regression.json",
+      "sha256": "58adf29a153d08c3be9bbaa575215336e8079a4ab991ab84bd5c89f59fe8c4a8",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/final/all-tokens-01.png",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/final/all-tokens-01.png",
+      "sha256": "199b2740730b0bdcb70345f2072f27d4c2c79ce601a4198b5b546bd2355fb679",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/final/construction-audit.json",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/final/construction-audit.json",
+      "sha256": "b132dfd4f597605acbd8d8ad95c32c5e84c6e393bd2ea0dcef811c6b7395ef01",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/final/all-tokens-07.png",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/final/all-tokens-07.png",
+      "sha256": "fb91af1879cc8c704309604b8d85270898e0bb4556e9357ad1f71e385e09c968",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/final/anatomies-01.png",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/final/anatomies-01.png",
+      "sha256": "d747bbf30a2dc928550a3d4b56832011675bbc4c5d933f20772a900614f62622",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/final/all-tokens-06.png",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/final/all-tokens-06.png",
+      "sha256": "e13b648a9f4ba931c957c03cd33ecc3e4144cb426e6f12c18c1818f7d04d3b72",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/final/cards.json",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/final/cards.json",
+      "sha256": "0b4962234ef390fe76c1f7e6560e9542a33e5010a04d2fde58593f02ca8e44db",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/final/webgl-run.txt",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/final/webgl-run.txt",
+      "sha256": "513b7c22d0e319affc7ae83b6325350ca037d987a25ee6c3d948ebb7b6d2d31e",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/final/all-tokens-02.png",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/final/all-tokens-02.png",
+      "sha256": "782c3e2569c09f0830c06d97eaf0d69f40d3ef0d941e3f962e53951b39beab3e",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/final/after-gallery.png",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/final/after-gallery.png",
+      "sha256": "c2ae692caad869c550bd4aff2a2df10719a2a5b2abadf15c6f8f60a1f8cd3fcd",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/final/non-token-regression-run.txt",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/final/non-token-regression-run.txt",
+      "sha256": "c09bc580bbfbfc2f7875f325e2d94e39762dc420f660bde1691dd5b80e4c7958",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/final/all-tokens-08.png",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/final/all-tokens-08.png",
+      "sha256": "736361b059d3ae7ed7a40f90bf0cd2077c44d3cb59c51a74efd6bca5fcbb2807",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/final/all-tokens-04.png",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/final/all-tokens-04.png",
+      "sha256": "4307461f69252d4f4b3b74a9126a41f84cc5d17b6b86891ce3e03d1ae6ec385c",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/final/all-tokens-05.png",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/final/all-tokens-05.png",
+      "sha256": "592a8cb950ea0bbe66b227f23d84004ad2142925c5b0320b2a5b38dacc3faae8",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/final/construction-run.txt",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/final/construction-run.txt",
+      "sha256": "2e33a80069d3a5d188ec8970458a32dbbd298c67a1326d8379b6ca42ac1f1b5f",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/final/tests.txt",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/final/tests.txt",
+      "sha256": "2f78ef7aad537ff87a5a7951d123526b0eb8ba76bf1d5ddd94141d22b1b07143",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/final/webgl-audit.json",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/final/webgl-audit.json",
+      "sha256": "b6eebc397c373f6902c5f32b22c9b3c450974b1af014db4fafcf50444415d4b3",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/final/all-tokens-10.png",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/final/all-tokens-10.png",
+      "sha256": "3823df8faacaa2bb29c3a7e4bbd0801a2538df3f7e221e51775c40cb56e53592",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/final/all-tokens-03.png",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/final/all-tokens-03.png",
+      "sha256": "ec1594a8bf19b269e8f22626a011a6e4a8079e76ef25f38d9f8c211ea87673a6",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/references/contact-inventory.json",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/references/contact-inventory.json",
+      "sha256": "b10739645786ff5fe5a3d73bea48d9392f03e1fbd01809769e8e519390f3553c",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/references/api-contact-1.jpg",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/references/api-contact-1.jpg",
+      "sha256": "b96d85e9b55646fdf8348ea0accd8638487cda294d6e7a2b935519f620f78ab5",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/references/api-contact-3.jpg",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/references/api-contact-3.jpg",
+      "sha256": "33c739d4b59cc0e140c16fd651561cbc9609f08be190df6f343fd5b9f4d1e63d",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/references/api-contact-2.jpg",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/references/api-contact-2.jpg",
+      "sha256": "74e19291b11461c86db70e86041f9e0f040ec7505ed0de74595e31a42cf304a6",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/references/api-contact-4.jpg",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/references/api-contact-4.jpg",
+      "sha256": "f77fe4898450456e231ecdc24bed99359c8482591742113d9d970cfd5bd433a1",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/botanical/construction-audit.json",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/botanical/construction-audit.json",
+      "sha256": "bacd31d18cae50c88f4b698a08273e1f12129d417d49c00b9a0aa5d22b41193a",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/botanical/manifest.json",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/botanical/manifest.json",
+      "sha256": "f7f9266bb02cd117e20ff0c34a33a1dba0b5788042c70ac481c83f275619d1d7",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/botanical/render-gallery.py",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/botanical/render-gallery.py",
+      "sha256": "456aedd40318bafaaf133d934b349ac979fbd54a13405e750a5f46fa2c27e22a",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/botanical/construction-audit.mjs",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/botanical/construction-audit.mjs",
+      "sha256": "b67793f1ce28524f45c23d6df1bb63d7bb231d10c5c3dcd0708802fcb6a03cc0",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/botanical/reference-model-gallery.png",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/botanical/reference-model-gallery.png",
+      "sha256": "7ac49818d7995a96f1c07dbe97ace62369d6cd97a722ee5d5bead835da4a9b68",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/botanical/reference-model-gallery.json",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/botanical/reference-model-gallery.json",
+      "sha256": "95a99ca89cca2bb0710e406fa5e2649b05b61fa9c05bec4701c23722a1f26f9f",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/botanical/test-output.txt",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/botanical/test-output.txt",
+      "sha256": "fe7e85122c3043eb80660f2aa56fdd8669a929749180ae4383508c3cde8fc722",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/botanical/README.md",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/botanical/README.md",
+      "sha256": "79a30fc325bb9d490055803cb37c6ec86cdca897266c6fb79e118f442a4f6d3d",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/illustrated-exceptions/construction-audit.json",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/illustrated-exceptions/construction-audit.json",
+      "sha256": "d4037b5856aefa21197adc92e96c12045a53d7cf8f6afb85f207125571b18cf5",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/illustrated-exceptions/illustrated-exceptions.test.mjs",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/illustrated-exceptions/illustrated-exceptions.test.mjs.txt",
+      "sha256": "943ba4c17bc9fa1997885a39297be1e7b4363f5a6a780b0fedbc508225205f41",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/illustrated-exceptions/manifest.json",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/illustrated-exceptions/manifest.original-2026-10-11.json.txt",
+      "sha256": "821940222ff1959bbf723a488aa188398b343a14b436e1c629123688d3205bc2",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/illustrated-exceptions/render-gallery.py",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/illustrated-exceptions/render-gallery.py",
+      "sha256": "efbfd75550bf9c1ad37aa8e65fc41d4eda823545be4d630008b19fbf1c9f4e2b",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/illustrated-exceptions/construction-audit.mjs",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/illustrated-exceptions/construction-audit.mjs",
+      "sha256": "a6589a8ebfc5e25e35e90e86e55d60249c0008093f94be457fa7173082a4adf3",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/illustrated-exceptions/reference-model-gallery.png",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/illustrated-exceptions/reference-model-gallery.png",
+      "sha256": "b947aab57839515f8580750151cfb2f32543422af7dcb9c18227850afd3f4ba2",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/illustrated-exceptions/reference-model-gallery.json",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/illustrated-exceptions/reference-model-gallery.json",
+      "sha256": "1666134beb91e0682f295eceba05b177ad9c7c6dab5fe6fa4ca74bf70de45d9e",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/illustrated-exceptions/test-output.txt",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/illustrated-exceptions/test-output.txt",
+      "sha256": "00ba20206efdbd3b0dc35b3a44bc3c92e277df6fbb89ad251cfb77c625772ccd",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/illustrated-exceptions/README.md",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/illustrated-exceptions/README.original-2026-10-11.md.txt",
+      "sha256": "cf8bfcc994d70555e14a4b31cf9060523dd2d55bc4bf631506079ee405e3c11c",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/baseline-imports/CombatVisualProfiles.mjs",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/baseline-imports/CombatVisualProfiles.mjs",
+      "sha256": "01a3d14b29e8d8a5380a6b9aede7704580e788d536af744c5f4bad3acba64ee7",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/baseline-imports/HologramMonsterModels.mjs",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/baseline-imports/HologramMonsterModels.mjs",
+      "sha256": "d78236f231fa99349d53a52a5f1fa264e35f243e56b9e84c4d9c8648476720de",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/before-gallery.py",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/before-gallery.py",
+      "sha256": "ab6e3813afbe466f5f9593781c276ad5042836587ddacaeac4dc632af4dfd0d7",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/final-gallery.py",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/final-gallery.py",
+      "sha256": "c055b5a514c8c9613a41907a389075ad3ea493c1f2028b28b90b257a78302a07",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/audit-final-models.mjs",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/audit-final-models.mjs",
+      "sha256": "b47df6ec42d9523246f8ed7ff3779f18d926f237788bf8544bdc59661576b728",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/compare-existing-models.mjs",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/compare-existing-models.mjs",
+      "sha256": "daf71a68b925fbfb520305282d414d54b56ebe187e1a8555f25357f6757ec86c",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/construct-refinement/construct-final-gallery.png",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/construct-refinement/construct-final-gallery.png",
+      "sha256": "d4da239fc0c7e7331bde6ef0be98e4098a35322d295a8cd4d95efae5f03e0a8f",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/construct-refinement/construct-final-gallery.json",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/construct-refinement/construct-final-gallery.json",
+      "sha256": "54a5997ca7967d20ab2951e8da23e7eee1e4e9d0c1e68ba4c9e76dc54c3dfe01",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/construct-refinement/construct-final-gallery-pins.json",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/construct-refinement/construct-final-gallery-pins.json",
+      "sha256": "fa8c20eace4a800ab6e268d3fe867b4499451ef8f5db9f48c790b5066120414c",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/construct-refinement/final-cards.json",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/construct-refinement/final-cards.json",
+      "sha256": "4241f455ac0b0d4d1ed60a936abc8f417e4c618d876dc97e221fa0ad12c4d435",
+      "byteIdentical": true
+    },
+    {
+      "originalExecutedPath": "/workspace/yugioh-token-models-2026-10-11/construct-refinement/final-gallery.py",
+      "deliveredPath": "docs/audits/artifacts/token-monster-models-2026-10-11/construct-refinement/final-gallery.py",
+      "sha256": "84ccf1de105dcfc3b8cfe5abbf78ee8758f5e287c46576ed893526e3bbc2bbdd",
+      "byteIdentical": true
+    }
+  ],
+  "newDeliveryFiles": [
+    "README.md",
+    "delivery-index.json",
+    "manifest.json",
+    "illustrated-exceptions/README.md",
+    "illustrated-exceptions/manifest.json",
+    "ci-portability-tests.txt"
+  ],
+  "note": "Historical source proofs, scripts and renamed archives remain byte-for-byte identical to their executed originals. Active README/manifest metadata amended for CI are distinct derived delivery files; absolute original paths are preserved.",
+  "deliveryAmendment": {
+    "reason": "Prevent automatic execution of environment-specific archived test while restoring live portable coverage.",
+    "priorIndexSha256": "4554f8cc08ab4c8671cbfd3724eb36b9cd95a423b1b4b5e96118b31068b58ae7",
+    "priorGlobalManifestSha256": "1bb22a3d453e9676d2a5d9d7260a50bdb23a39a70220fcc58d37d5ea54f0a267",
+    "backupRoot": "/workspace/yugioh-token-models-2026-10-11/delivery-before-ci-fix-ec8cae1",
+    "renamedArchives": {
+      "illustrated-exceptions/illustrated-exceptions.test.mjs": "illustrated-exceptions/illustrated-exceptions.test.mjs.txt",
+      "illustrated-exceptions/README.md": "illustrated-exceptions/README.original-2026-10-11.md.txt",
+      "illustrated-exceptions/manifest.json": "illustrated-exceptions/manifest.original-2026-10-11.json.txt"
+    },
+    "derivedMetadata": [
+      "README.md",
+      "manifest.json",
+      "delivery-index.json",
+      "illustrated-exceptions/README.md",
+      "illustrated-exceptions/manifest.json"
+    ],
+    "liveTestPath": "tests/token-illustrated-exceptions.test.mjs",
+    "liveTestSha256": "c25ed906fdfce0c350bedc8f1aa6c6caa00eceb289046109834f9508d7d734d8",
+    "targetedTestsPassed": 4
+  }
+}

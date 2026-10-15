@@ -733,6 +733,10 @@ export class NativeDuelGame {
     if (!intent) return null;
     let response = null;
     if (prompt.type === M.SELECT_PLACE && prompt.count === 1 && intent.place) {
+      // A click specifies only this command's first placement. Consume even a
+      // rejected location before asking for its replacement, so later effects
+      // cannot reuse the original wish after that location becomes available.
+      this._intent = { ...intent, place: null };
       response = { type: R.SELECT_PLACE, places: [intent.place] };
     } else if (prompt.type === M.SELECT_POSITION && intent.position) {
       const position = intent.position === 'defense' ? P.FACEUP_DEFENSE : P.FACEUP_ATTACK;

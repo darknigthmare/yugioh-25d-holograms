@@ -4,11 +4,342 @@ import * as THREE from 'three';
 export function buildReferenceMonsterAnatomy(profile, build) {
   const { part, sphere, box, cone, ring, rod, membrane } = build;
   const compactRing = (name, material, position, radius, rotation = [Math.PI / 2, 0, 0], tint, scale = [1, 1, 1]) =>
-    part(name, new THREE.TorusGeometry(radius, 0.024, 4, 16), material, position, scale, rotation, tint);
+    part(name, new THREE.TorusGeometry(radius, 0.024, 6, 24), material, position, scale, rotation, tint);
   const ribbon = (name, material, points, width, tint) => {
     const curve = new THREE.CatmullRomCurve3(points.map(point => new THREE.Vector3(...point)));
-    part(name, new THREE.TubeGeometry(curve, 12, width, 5, false), material, [0, 0, 0], undefined, undefined, tint);
+    const segments=Math.max(16,Math.min(32,points.length*2)),radial=8,stride=radial+1;
+    const geometry=new THREE.TubeGeometry(curve,segments,width,radial,false);
+    for(const [label,row,sign] of [['start',0,-1],['end',segments,1]]) {
+      const t=row/segments,center=curve.getPointAt(t),normal=curve.getTangentAt(t).multiplyScalar(sign);
+      const positions=center.toArray(),normals=normal.toArray(),uv=[.5,.5],indices=[];
+      for(let i=0;i<=radial;i++) {
+        const offset=(row*stride+i)*3;positions.push(...geometry.attributes.position.array.slice(offset,offset+3));
+        normals.push(...normal.toArray());uv.push(.5+.5*Math.cos(i*Math.PI*2/radial),.5+.5*Math.sin(i*Math.PI*2/radial));
+        if(i<radial) indices.push(...(sign<0?[0,i+1,i+2]:[0,i+2,i+1]));
+      }
+      const cap=new THREE.BufferGeometry();cap.setAttribute('position',new THREE.Float32BufferAttribute(positions,3));cap.setAttribute('normal',new THREE.Float32BufferAttribute(normals,3));cap.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));cap.setIndex(indices);
+      part(`${name}-${label}-closed-cap`,cap,material,[0,0,0],undefined,undefined,tint);
+    }
+    part(name, geometry, material, [0, 0, 0], undefined, undefined, tint);
   };
+
+  // Closed varying cross-sections narrow the long illustrated snout in both
+  // width and height, rather than extruding a constant-width sagittal outline.
+  const skullLoft=(sections,radial=12)=> {
+    const positions=[],uv=[],indices=[],stride=radial+1;
+    for(let row=0;row<sections.length;row++) {
+      const [z,y,width,height]=sections[row];
+      for(let col=0;col<=radial;col++) {
+        const a=col*Math.PI*2/radial;positions.push(Math.cos(a)*width,y+Math.sin(a)*height,z);uv.push(col/radial,row/(sections.length-1));
+        if(row<sections.length-1&&col<radial) {
+          const a=row*stride+col,b=a+stride;indices.push(a,a+1,b,a+1,b+1,b);
+        }
+      }
+    }
+    for(const [row,sign] of [[0,-1],[sections.length-1,1]]) {
+      const [z,y]=sections[row],center=positions.length/3;positions.push(0,y,z);uv.push(.5,.5);
+      for(let col=0;col<radial;col++) {
+        const a=row*stride+col,b=a+1;indices.push(...(sign<0?[center,b,a]:[center,a,b]));
+      }
+    }
+    const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(positions,3));geometry.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));geometry.setIndex(indices);geometry.computeVertexNormals();
+    const normals=geometry.attributes.normal;
+    for(let row=0;row<sections.length;row++) {
+      const a=row*stride,b=a+radial,n=new THREE.Vector3().fromBufferAttribute(normals,a).add(new THREE.Vector3().fromBufferAttribute(normals,b)).normalize();normals.setXYZ(a,n.x,n.y,n.z);normals.setXYZ(b,n.x,n.y,n.z);
+    }
+    return geometry;
+  };
+  const sculptedPlate=(name,material,vertices,position,depth=.045,tint,rotation)=> {
+    const shape=new THREE.Shape();vertices.forEach(([x,y],i)=>i?shape.lineTo(x,y):shape.moveTo(x,y));shape.closePath();
+    const geometry=new THREE.ExtrudeGeometry(shape,{depth,bevelEnabled:true,bevelSize:.012,bevelThickness:.009,bevelSegments:2,steps:1});
+    geometry.translate(0,0,-depth/2);part(name,geometry,material,position,undefined,rotation,tint);
+  };
+
+  if (profile.id === 'stone-soldier') {
+    const stone='#82969a',edge='#b8c5c3',shadow='#43545b';
+    box('stone-broad-carved-block-torso','body',[0,1.97,0],[1.09,1.08,.56],undefined,stone);
+    box('stone-heavy-angular-waist','body',[0,1.29,0],[.91,.35,.55],undefined,shadow);
+    sculptedPlate('stone-angular-helmet-shell','body',[[-.235,-.2],[-.275,.11],[-.19,.37],[.18,.37],[.26,.11],[.22,-.2]],[0,2.737,.09],.33,stone);
+    box('stone-recessed-dark-face-visor','dark',[0,2.803,.292],[.35,.091,.045],undefined,'#142427');
+    sculptedPlate('stone-carved-lower-jaw-guard','body',[[-.19,.08],[.19,.08],[.14,-.085],[-.135,-.085]],[0,2.643,.284],.067,edge);
+    box('stone-helmet-central-forehead-block','body',[0,3.016,.248],[.24,.186,.17],undefined,edge);
+    for(const side of [-1,1]) {
+      sculptedPlate(`stone-large-angular-shoulder-${side}`,'body',[[side*-.2,-.26],[side*-.34,.22],[side*.08,.34],[side*.39,.2],[side*.37,-.28]],[side*.75,2.281,0],.48,stone,[0,side*.1,side*-.07]);
+      rod(`stone-long-hollow-neck-cylinder-${side}`,'body',[side*.33,2.53,.06],[side*.58,3.18,.035],.15,.155,stone);
+      sphere(`stone-dark-cylinder-opening-${side}`,'dark',[side*.349,2.58,.118],[.116,.126,.025],0,shadow);
+      box(`upper-arm-${side}-stone-segment`,'body',[side*.801,1.931,.1],[.38,.53,.34],[0,0,side*.18],stone);
+      box(`gauntlet-${side}-stone-heavy-forearm`,'body',[side*.776,1.504,.267],[.36,.5,.36],[.05,0,side*-.1],edge);
+      box(`hand-${side}-stone-large-closed-fist`,'body',[side*.738,1.2,.312],[.32,.27,.31],undefined,stone);
+      for(let finger=0;finger<3;finger++)box(`hand-${side}-stone-carved-finger-seam-${finger}`,'dark',[side*.737,1.158+finger*.065,.472],[.27,.012,.008],undefined,shadow);
+      box(`stone-large-block-thigh-${side}`,'body',[side*.298,.981,.014],[.37,.49,.39],[0,0,side*-.05],stone);
+      box(`stone-angular-armored-shin-${side}`,'body',[side*.348,.532,.035],[.41,.43,.4],undefined,edge);
+      box(`stone-broad-square-foot-${side}`,'body',[side*.358,.201,.182],[.42,.19,.57],undefined,stone);
+      for(let crack=0;crack<3;crack++)rod(`stone-fixed-chest-weathering-${side}-${crack}`,'dark',[side*(.105+crack*.127),2.239-crack*.09,.291],[side*(.092+crack*.14),2.061-crack*.07,.291],.007,.002,shadow);
+    }
+    rod('sword-stone-carved-grip','body',[.738,1.05,.405],[.738,1.58,.405],.068,.068,stone);
+    box('sword-stone-broad-crossguard','body',[.738,1.545,.405],[.56,.096,.15],undefined,edge);
+    sculptedPlate('sword-stone-long-chiseled-blade','body',[[-.11,0],[-.115,1.16],[0,1.47],[.12,1.16],[.11,0]],[.738,1.589,.405],.12,edge,[0,0,-.16]);
+    return true;
+  }
+
+  if (profile.id === 'celtic-guardian') {
+    const green='#448c5a',ivory='#d7dbca',skin='#e6c5a0',hair='#c4ce73',brown='#70422d';
+    sphere('celtic-brown-tunic-torso','dark',[0,1.997,0],[.373,.52,.25],2,brown);
+    sculptedPlate('celtic-angular-green-breastplate','body',[[-.32,.23],[-.36,-.03],[-.23,-.29],[0,-.39],[.23,-.29],[.36,-.03],[.32,.23],[0,.15]],[0,2.063,.239],.082,green);
+    sphere('celtic-adult-elf-face','body',[0,2.919,.06],[.213,.293,.186],2,skin);
+    sphere('celtic-long-blond-hair-cap','dark',[0,3.079,-.019],[.227,.22,.208],1,hair);
+    sculptedPlate('celtic-green-pointed-helmet','body',[[-.27,-.09],[-.25,.14],[-.155,.25],[0,.53],[.155,.25],[.25,.14],[.27,-.09],[0,.025]],[0,3.1,.041],.34,green);
+    sphere('celtic-red-oval-helmet-jewel','eye',[0,3.29,.244],[.052,.072,.03],1,'#a92b35');
+    sphere('celtic-small-angular-nose','body',[0,2.859,.261],[.024,.049,.031],0,skin);
+    rod('celtic-serious-mouth-line','dark',[-.048,2.774,.228],[.04,2.772,.228],.006,.005,'#77554c');
+    for(const side of [-1,1]) {
+      sculptedPlate(`celtic-long-pointed-ear-${side}`,'body',[[0,.083],[side*.34,.125],[side*.19,-.011],[side*-.03,-.075]],[side*.175,2.962,.03],.075,skin);
+      rod(`celtic-ear-fold-${side}`,'dark',[side*.226,3.018,.077],[side*.403,3.054,.075],.008,.002,'#9c795e');
+      sphere(`celtic-white-almond-eye-${side}`,'eye',[side*.081,2.956,.228],[.052,.033,.015],1,'#f1eece');
+      sphere(`celtic-small-gold-iris-${side}`,'eye',[side*.086,2.956,.243],[.021,.028,.008],1,'#9a9641');
+      sculptedPlate(`celtic-blue-triangular-cheek-mark-${side}`,'dark',[[side*-.036,.055],[side*.036,.055],[side*.019,-.076]],[side*.098,2.849,.22],.012,'#273965');
+      sculptedPlate(`celtic-curved-ivory-helmet-horn-${side}`,'body',[[0,0],[side*.14,.1],[side*.23,.33],[side*.36,.45],[side*.19,.43],[side*.09,.31],[side*-.035,.18]],[side*.195,3.278,-.009],.065,ivory);
+      for(let strand=0;strand<4;strand++) rod(`celtic-long-blond-side-lock-${side}-${strand}`,'dark',[side*(.15+strand*.027),3.02,.022-strand*.023],[side*(.22+strand*.035),2.534,-.08-strand*.036],.036,.026,hair);
+      sculptedPlate(`pauldron-${side}-celtic-green-shell`,'body',[[side*-.19,-.14],[side*-.24,.18],[side*.01,.28],[side*.39,.3],[side*.26,-.12]],[side*.5,2.385,-.02],.225,green);
+      ribbon(`pauldron-${side}-celtic-ivory-rim`,'body',[[side*.272,2.32,.142],[side*.39,2.577,.142],[side*.856,2.615,.142]],.045,ivory);
+      rod(`upper-arm-${side}-celtic-brown-sleeve`,'dark',[side*.565,2.28,.02],[side*.77,1.932,.141],.126,.111,brown);
+      rod(`gauntlet-${side}-celtic-ivory-bracer`,'body',[side*.776,1.945,.145],[side*.798,1.589,.27],.14,.11,ivory);
+      sphere(`hand-${side}-celtic-skin-glove`,'body',[side*.8,1.45,.29],[.125,.15,.107],1,skin);
+      rod(`celtic-brown-thigh-${side}`,'dark',[side*.18,1.49,.012],[side*.284,.881,.035],.168,.137,brown);
+      rod(`celtic-green-shin-guard-${side}`,'body',[side*.284,.837,.078],[side*.332,.268,.111],.139,.098,green);
+      sphere(`celtic-green-pointed-boot-${side}`,'body',[side*.332,.195,.229],[.162,.163,.296],1,green);
+      sculptedPlate(`celtic-long-blue-rear-cloak-${side}`,'dark',[[side*-.08,.18],[side*.48,.07],[side*.7,-1.89],[side*.3,-2.02],[side*-.09,-1.72]],[side*.115,2.585,-.299],.045,'#293961',[0,side*.12,0]);
+      for(let rivet=0;rivet<3;rivet++)sphere(`pauldron-${side}-celtic-ivory-rivet-${rivet}`,'body',[side*(.36+rivet*.17),2.443,.202],[.023,.023,.016],0,ivory);
+    }
+    rod('celtic-leather-waist-belt','dark',[-.3,1.604,.246],[.3,1.604,.246],.052,.052,'#a96d41');
+    sphere('celtic-round-ivory-belt-clasp','body',[0,1.604,.287],[.075,.067,.025],1,ivory);
+    rod('sword-grip','dark',[.8,1.23,.329],[.8,1.81,.329],.048,.048,brown);
+    box('sword-celtic-ivory-guard','body',[.8,1.783,.329],[.38,.065,.082],undefined,ivory);
+    sculptedPlate('sword-blade','body',[[-.075,0],[-.075,1.09],[0,1.33],[.075,1.09],[.075,0]],[.8,1.83,.329],.057,ivory,[0,0,-.09]);
+    return true;
+  }
+
+  if (profile.id === 'magician-of-faith') {
+    const skin='#ebcfb5',red='#ad343f',violet='#665791',hair='#a54186',gold='#cfb660';
+    part('faith-closed-long-red-robe',new THREE.CylinderGeometry(.235,.49,1.35,24,3),'body',[0,1.096,0],[1,1,.72],undefined,red);
+    sphere('faith-red-robed-torso','body',[0,2.004,0],[.31,.43,.22],2,red);
+    sphere('faith-adult-serious-face','body',[0,2.764,.069],[.212,.287,.184],2,skin);
+    sphere('faith-purple-hair-crown','dark',[0,2.998,-.045],[.234,.17,.193],2,hair);
+    sphere('faith-small-sculpted-nose','body',[0,2.705,.259],[.023,.046,.029],0,skin);
+    rod('faith-serious-mouth-line','dark',[-.034,2.614,.225],[.034,2.615,.225],.006,.004,'#885f68');
+    sculptedPlate('faith-deep-blue-forehead-mark','dark',[[-.019,.06],[.013,.065],[.028,.025],[.018,-.035],[-.014,-.024]],[0,2.891,.252],.008,'#373774');
+    for(const side of [-1,1]) {
+      sphere(`faith-pale-eye-${side}`,'eye',[side*.079,2.796,.238],[.045,.031,.011],1,'#eeead8');
+      sphere(`faith-violet-iris-${side}`,'eye',[side*.085,2.796,.249],[.022,.026,.007],1,'#7472bc');
+      sculptedPlate(`faith-long-pointed-ear-${side}`,'body',[[0,.055],[side*.2,.123],[side*.116,-.016],[side*-.024,-.036]],[side*.169,2.828,.017],.047,skin);
+      ribbon(`faith-magenta-face-fringe-${side}`,'dark',[[side*.037,3.073,.098],[side*.197,2.962,.228],[side*.258,2.734,.209],[side*.304,2.615,.08]],.044,hair);
+      rod(`mage-arm-${side}-faith-red-sleeve`,'body',[side*.27,2.206,.016],[side*.535,1.95,.13],.122,.107,red);
+      rod(`mage-glove-${side}-faith-wide-red-sleeve`,'body',[side*.535,1.95,.13],[side*.676,1.664,.253],.156,.119,red);
+      sphere(`mage-hand-${side}-faith-bare-hand`,'body',[side*.684,1.577,.275],[.095,.126,.09],1,skin);
+      sculptedPlate(`faith-violet-high-collar-${side}`,'dark',[[side*-.042,-.22],[side*-.079,.15],[side*.154,.237],[side*.29,-.1]],[side*.164,2.365,-.055],.077,violet);
+      sculptedPlate(`faith-long-violet-cape-panel-${side}`,'dark',[[side*-.07,.21],[side*.36,.059],[side*.55,-.67],[side*.45,-.94],[side*.16,-1.069],[side*-.044,-.72]],[side*.087,2.45,-.265],.056,violet,[0,side*.13,0]);
+      ribbon(`faith-magenta-ponytail-streamer-${side}`,'dark',[[side*.079,3.068,-.105],[side*.278,3.176,-.289],[side*.624,3.097,-.425],[side*.876,2.993,-.549]],.08,hair);
+      sphere(`faith-red-boot-${side}`,'body',[side*.168,.27,.114],[.112,.164,.231],1,red);
+    }
+    compactRing('faith-gold-rope-waist-belt','accent',[0,1.763,.001],.283,undefined,gold,[1,1,.72]);
+    rod('staff','accent',[.69,.34,.287],[.69,2.813,.287],.034,.034,'#978542');
+    sculptedPlate('staff-crown','accent',[[-.13,-.24],[-.22,-.12],[-.245,.065],[-.13,.245],[.083,.274],[.198,.214],[.025,.188],[-.068,.119],[-.085,-.011],[-.019,-.126],[.177,-.185],[.085,-.25]],[.69,3.02,.287],.064,gold);
+    sphere('staff-crystal','accent',[.702,3.037,.287],[.088,.088,.08],1,'#c4b656');
+    return true;
+  }
+
+  if (profile.id === 'lanphorhynchus') {
+    const silver='#d7dee6',dark='#353948';
+    const path=[[.83,.28,-.38],[1.01,.69,-.26],[.48,1.059,-.11],[-.176,1.15,-.02],[-.457,1.58,.0],[-.329,2.009,.031],[0,2.237,.094],[0,2.65,.167],[0,2.91,.283]];
+    ribbon('lan-continuous-dark-cyber-serpent','dark',path,.185,dark);
+    const curve=new THREE.CatmullRomCurve3(path.map(point=>new THREE.Vector3(...point)));
+    for(let band=0;band<7;band++) {
+      const t=.29+band*.085,p=curve.getPointAt(t),q=new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0,0,1),curve.getTangentAt(t));
+      part(`lan-segmented-silver-cyber-collar-${band}`,new THREE.TorusGeometry(.192,.022,5,18),'body',p.toArray(),undefined,new THREE.Euler().setFromQuaternion(q).toArray().slice(0,3),silver);
+    }
+    part('lan-long-angular-pterosaur-skull',skullLoft([[.14,2.997,.201,.159],[.341,3.016,.205,.125],[.571,2.965,.132,.075],[1.015,2.79,.017,.014]]),'body',[0,0,0],undefined,undefined,silver);
+    part('jaw-lan-pointed-dark-beak-gap',skullLoft([[.29,2.856,.145,.053],[.61,2.832,.115,.045],[.966,2.759,.014,.012]]),'dark',[0,0,0],undefined,undefined,dark);
+    for(const side of [-1,1]) {
+      sphere(`lan-small-recessed-red-eye-${side}`,'eye',[side*.174,2.996,.365],[.012,.02,.045],1,'#b92537');
+      sculptedPlate(`lan-angular-cheek-silver-panel-${side}`,'body',[[side*-.031,.067],[side*.113,.095],[side*.177,-.061],[side*.035,-.077]],[side*.143,2.925,.288],.036,silver,[0,side*.45,0]);
+      const shoulder=[side*.28,2.25,-.2],elbow=[side*.93,3.227,-.2],tip=[side*2.15,3.744,-.2];
+      rod(`wing-${side}-lan-long-silver-upper-spar`,'body',shoulder,elbow,.111,.077,silver);
+      rod(`wing-${side}-lan-long-outer-finger`,'body',elbow,tip,.076,.018,silver);
+      membrane(`wing-${side}-lan-dark-cyber-membrane`,'dark',[[shoulder[0],shoulder[1]],[elbow[0],elbow[1]],[tip[0],tip[1]],[side*1.79,2.55],[side*1.195,1.96],[side*.39,1.656]],dark);
+      for(const [index,x,y]of [[0,1.79,2.55],[1,1.195,1.96]])rod(`wing-${side}-lan-silver-finger-${index}`,'body',elbow,[side*x,y,-.101],.044,.016,silver);
+      for(let tab=0;tab<3;tab++) sculptedPlate(`wing-${side}-lan-outer-silver-edge-tab-${tab}`,'body',[[0,.055],[side*.25,.1],[side*.38,.025],[side*.22,-.067],[side*-.024,-.055]],[side*(1.4+tab*.183),2.477+tab*.324,-.104],.043,silver);
+      sphere(`wing-${side}-lan-round-shoulder-hinge`,'body',[side*.282,2.258,-.058],[.169,.148,.089],1,silver);
+      compactRing(`wing-${side}-lan-hinge-inset-ring`,'dark',[side*.282,2.258,.021],.087,[0,0,0],'#798d9a');
+    }
+    return true;
+  }
+
+  if (profile.id === 'time-wizard') {
+    const red='#d65e59',gold='#dfc16a',blue='#344681',violet='#8c5597',white='#e8edf0';
+    sphere('clock-shell','body',[0,1.624,0],[.739,.765,.218],2,red);
+    part('clock-blue-face-upper-disc',new THREE.CircleGeometry(.596,40),'dark',[0,1.64,.218],undefined,undefined,blue);
+    sculptedPlate('clock-yellow-smiling-lower-face','accent',[[-.51,.05],[-.43,-.23],[-.22,-.425],[0,-.464],[.22,-.425],[.43,-.23],[.51,.05],[.33,.095],[.11,-.058],[-.11,-.058],[-.33,.095]],[0,1.626,.228],.025,'#e5d65d');
+    part('clock-red-rounded-bezel',new THREE.TorusGeometry(.633,.066,8,40),'body',[0,1.64,.25],undefined,undefined,red);
+    rod('clock-minute','accent',[0,1.54,.272],[-.235,1.342,.274],.029,.029,'#82b477');
+    rod('clock-hour','accent',[0,1.54,.281],[.223,1.379,.281],.034,.034,'#82b477');
+    for(const [name,side]of [['clock-minute-arrow',-1],['clock-hour-arrow',1]])sculptedPlate(name,'accent',[[side*-.095,.004],[side*.037,-.006],[side*.035,-.1]],[side*.213,1.383,.3],.022,'#82b477');
+    sphere('clock-small-red-nose','body',[0,1.57,.292],[.051,.051,.036],1,red);
+    function gear(name,position,radius=.27) {
+      part(name,new THREE.CylinderGeometry(radius,radius,.119,20),'accent',position,undefined,undefined,gold);
+      for(let tooth=0;tooth<12;tooth++) {const angle=tooth*Math.PI/6;box(`${name}-tooth-${tooth}`,'accent',[position[0]+Math.cos(angle)*radius,position[1],position[2]+Math.sin(angle)*radius],[.088,.12,.088],[0,-angle,0],gold);}
+    }
+    gear('clock-large-top-golden-cog',[0,2.488,.0],.396);
+    part('clock-flat-topped-red-cylinder-hat',new THREE.CylinderGeometry(.227,.236,.366,24),'body',[0,2.74,0],undefined,undefined,red);
+    for(const side of [-1,1]) {
+      sphere(`clock-large-white-eye-${side}`,'body',[side*.224,1.906,.244],[.143,.149,.045],2,white);
+      sphere(`clock-blue-round-iris-${side}`,'eye',[side*.224,1.916,.287],[.093,.102,.026],1,'#2b81b6');
+      sphere(`clock-round-black-pupil-${side}`,'dark',[side*.211,1.928,.31],[.052,.068,.016],1,'#13273e');
+      gear(`clock-gold-shoulder-cog-${side}`,[side*.652,2.3,.019],.261);
+      rod(`upper-arm-${side}-clock-red-arm`,'body',[side*.649,2.21,.033],[side*.768,1.764,.038],.07,.056,red);
+      sphere(`hand-${side}-clock-white-glove`,'body',[side*.802,1.57,.128],[.156,.207,.14],1,white);
+      part(`clock-white-glove-cuff-${side}`,new THREE.TorusGeometry(.11,.034,6,20),'body',[side*.789,1.79,.087],undefined,[Math.PI/2,0,side*-.12],white);
+      gear(`clock-gold-hip-cog-${side}`,[side*.367,.857,.016],.255);
+      sphere(`clock-large-purple-curled-shoe-${side}`,'dark',[side*.434,.603,.097],[.333,.173,.323],2,'#745591');
+      sculptedPlate(`clock-purple-long-rear-cape-${side}`,'dark',[[side*-.046,.13],[side*.437,.024],[side*.796,-.655],[side*.54,-.559],[side*-.065,-.151]],[side*.139,2.412,-.225],.042,violet);
+      sphere(`clock-hat-black-dot-${side}`,'dark',[side*.063,2.752,.228],[.014,.021,.005],0,'#273334');
+    }
+    rod('sword-clock-blue-time-roulette-staff','dark',[.8,.833,.2],[.8,2.428,.2],.037,.037,blue);
+    part('sword-clock-gold-roulette-dial',new THREE.CylinderGeometry(.189,.189,.07,24),'accent',[.8,2.374,.207],undefined,[Math.PI/2,0,0],gold);
+    part('sword-clock-blue-roulette-face',new THREE.CircleGeometry(.147,24),'dark',[.8,2.374,.249],undefined,undefined,blue);
+    sphere('sword-clock-red-roulette-hub','body',[.8,2.374,.267],[.045,.045,.02],1,red);
+    return true;
+  }
+
+  if (profile.id === 'summoned-skull') {
+    const bone='#d4c7bb',pale='#e3dfd3',muscle='#76377d',wing='#313e8c';
+    sphere('skull-purple-muscular-torso','dark',[0,2.002,-.033],[.437,.658,.309],2,muscle);
+    sphere('skull-purple-muscular-pelvis','dark',[0,1.28,-.024],[.352,.331,.273],2,muscle);
+    rod('spinal-column','body',[0,1.185,.29],[0,2.596,.313],.069,.085,bone);
+    for(let rib=0;rib<5;rib++) {
+      const y=1.719+rib*.177,width=.36+rib*.035;
+      ribbon(`rib-${rib}`,'body',[[-width,y+.155,.18],[-width*.74,y-.055,.348],[0,y-.147,.406],[width*.74,y-.055,.348],[width,y+.155,.18]],.047+rib*.004,bone);
+    }
+    sphere('skull-small-angular-cranium','body',[0,2.913,.075],[.204,.247,.188],2,pale);
+    sculptedPlate('skull-pointed-nasal-mask','body',[[-.099,.135],[0,.179],[.099,.135],[.084,-.069],[0,-.157],[-.084,-.069]],[0,2.914,.181],.074,pale);
+    sphere('skull-dark-grinning-mouth','dark',[0,2.805,.251],[.127,.067,.026],1,'#27232a');
+    for(let tooth=0;tooth<7;tooth++)box(`skull-visible-small-tooth-${tooth}`,'body',[-.102+tooth*.034,2.811,.276],[.022,.05,.015],undefined,pale);
+    for(const side of [-1,1]) {
+      sphere(`skull-small-fierce-green-eye-${side}`,'eye',[side*.075,2.983,.245],[.039,.021,.009],1,'#4e994e');
+      sculptedPlate(`skull-high-pointed-cranial-fin-${side}`,'body',[[side*-.03,0],[side*-.08,.262],[side*.049,.313],[side*.153,.056]],[side*.081,3.047,-.012],.099,bone);
+      ribbon(`skull-long-curved-ram-horn-${side}`,'body',[[side*.153,3.16,-.03],[side*.348,3.216,-.071],[side*.597,3.168,-.035],[side*.722,3.017,.037],[side*.68,2.85,.117]],.104,bone);
+      for(let ridge=0;ridge<6;ridge++) rod(`skull-ram-horn-raised-ridge-${side}-${ridge}`,'body',[side*(.23+ridge*.079),3.264-ridge*.022,-.027],[side*(.219+ridge*.077),3.079-ridge*.017,.023],.011,.011,'#a4aaa5');
+      sphere(`skull-massive-bone-shoulder-shell-${side}`,'body',[side*.66,2.392,-.026],[.36,.326,.296],2,pale);
+      rod(`upper-arm-${side}-skull-purple-bicep`,'dark',[side*.663,2.321,.009],[side*.829,1.962,.063],.14,.126,muscle);
+      sphere(`gauntlet-${side}-skull-ivory-elbow`,'body',[side*.834,1.897,.083],[.167,.158,.153],1,bone);
+      sculptedPlate(`gauntlet-${side}-skull-long-skeletal-shell`,'body',[[side*-.13,.26],[side*-.19,.059],[side*-.11,-.41],[side*.076,-.51],[side*.148,-.239],[side*.104,.197]],[side*.873,1.73,.171],.207,pale);
+      for(let claw=0;claw<3;claw++) rod(`hand-${side}-skull-long-dark-claw-${claw}`,'dark',[side*.873+(claw-1)*.092,1.216,.226],[side*.889+(claw-1)*.124,.948,.307],.036,.003,'#394248');
+      rod(`skull-purple-thigh-${side}`,'dark',[side*.219,1.25,-.011],[side*.318,.823,.03],.178,.151,muscle);
+      sculptedPlate(`skull-long-ivory-shin-armor-${side}`,'body',[[side*-.143,.29],[side*.113,.23],[side*.183,-.22],[side*.126,-.36],[side*-.073,-.31],[side*-.156,.05]],[side*.356,.564,.12],.15,pale);
+      sphere(`skull-long-bone-foot-${side}`,'body',[side*.377,.173,.261],[.201,.124,.294],1,bone);
+      for(let claw=0;claw<3;claw++)rod(`skull-dark-foot-claw-${side}-${claw}`,'dark',[side*.377+(claw-1)*.126,.183,.42],[side*.396+(claw-1)*.144,.104,.619],.048,.003,'#394248');
+      const shoulder=[side*.28,2.13,-.2],hinge=[side*.675,3.148,-.236],tip=[side*1.086,3.695,-.232];
+      rod(`wing-${side}-skull-long-blue-spar`,'dark',shoulder,hinge,.073,.048,wing);
+      rod(`wing-${side}-skull-upward-blue-tip`,'dark',hinge,tip,.045,.008,wing);
+      membrane(`wing-${side}-skull-solid-blue-membrane`,'dark',[[shoulder[0],shoulder[1]],[hinge[0],hinge[1]],[tip[0],tip[1]],[side*1.32,2.71],[side*1.38,1.581],[side*.801,2.136]],wing);
+      cone(`wing-${side}-skull-upper-ivory-wing-hook`,'body',[side*1.049,3.646,-.232],[.075,.233,.075],[0,0,side*-.37],bone);
+      sculptedPlate(`skull-ivory-pelvic-edge-${side}`,'body',[[side*-.047,.061],[side*.25,.106],[side*.14,-.064],[side*.027,-.113]],[side*.091,1.381,.234],.05,bone);
+    }
+    return true;
+  }
+
+  // The original and alternate illustrations agree on three long armored
+  // heads. They do not support three spherical heads on featureless poles.
+  if (profile.id === 'blue-eyes-ultimate') {
+    const silver='#dbe8ef', seam='#8ea9bb', ivory='#edf4f3';
+    sphere('ultimate-broad-armored-breast','body',[0,1.64,-.11],[.6,.76,.43],2,silver);
+    sphere('ultimate-heavy-pelvic-armor','body',[0,1.04,-.17],[.56,.46,.46],2,silver);
+    for(let row=0;row<6;row++) {
+      const width=.31-Math.abs(row-2.5)*.022;
+      sculptedPlate(`ultimate-overlapping-ventral-plate-${row}`,'body',[[-width,.075],[-width*.8,-.043],[0,-.09],[width*.8,-.043],[width,.075],[0,.035]],[0,1.1+row*.18,.328],.058,row%2?silver:'#bfd3e1');
+    }
+    for(let head=0;head<3;head++) {
+      // A neutral level jaw line keeps all three mandibles on the measured
+      // common rig axis; illustration-specific head tilts are not baked in.
+      const x=(head-1)*.69, y=0, z=0;
+      const neck=[[x*.37,2.02,-.16],[x*.72,2.43,-.04],[x,2.8,.08],[x,3.02+y,.25]];
+      ribbon(`ultimate-continuous-armored-neck-${head}`,'body',neck,.205,silver);
+      for(let ringIndex=0;ringIndex<5;ringIndex++) {
+        const f=ringIndex/4,yy=2.15+f*(.84+y),xx=x*(.5+f*.5);
+        compactRing(`ultimate-neck-segment-${head}-${ringIndex}`,'body',[xx,yy,-.1+f*.32],.215,[Math.PI/2+.13,0,0],ringIndex%2?seam:silver);
+      }
+      part(`dragon-head-${head}`,skullLoft([[.18,3.08+y,.235,.19],[.39,3.13+y,.257,.184],[.69,3.07+y,.2,.13],[1.04,2.985+y,.112,.07],[1.16,2.945+y,.062,.047]]),'body',[x,0,z],undefined,undefined,silver);
+      part(`jaw-${head}`,skullLoft([[.37,2.89+y,.135,.077],[.66,2.832+y,.17,.085],[1.04,2.842+y,.099,.066],[1.11,2.867+y,.055,.031]]),'body',[x,0,z],undefined,undefined,'#a7c3d5');
+      for(const side of [-1,1]) {
+        sphere(`ultimate-eye-${head}-${side}`,'eye',[x+side*.229,3.185+y,.49+z],[.021,.025,.073],1,profile.eye);
+        rod(`ultimate-eye-swept-brow-${head}-${side}`,'body',[x+side*.19,3.232+y,.35+z],[x+side*.25,3.212+y,.663+z],.031,.019,silver);
+        sculptedPlate(`ultimate-long-swept-head-fin-${head}-${side}`,'body',[[0,.1],[side*.21,.19],[side*.57,.23],[side*.23,-.02],[side*.035,-.15]],[x+side*.18,3.123+y,.045+z],.09,silver,[0,side*.32,0]);
+        rod(`ultimate-long-rear-crown-${head}-${side}`,'body',[x+side*.12,3.268+y,.11+z],[x+side*.24,3.519+y,-.48+z],.063,.004,silver);
+        for(let tooth=0;tooth<5;tooth++) cone(`ultimate-upper-fang-${head}-${side}-${tooth}`,'body',[x+side*(.15-tooth*.012),2.98+y,.54+tooth*.106+z],[.02,.085,.023],[Math.PI,0,0],ivory);
+      }
+    }
+    for(const side of [-1,1]) {
+      sphere(`ultimate-wide-shoulder-${side}`,'body',[side*.54,1.92,.05],[.26,.31,.28],2,silver);
+      rod(`foreleg-${side}-ultimate-arm`,'body',[side*.49,1.94,.13],[side*.78,1.45,.52],.13,.11,silver);
+      sphere(`foreleg-${side}-ultimate-round-knuckle`,'body',[side*.78,1.42,.55],[.16,.16,.16],1,silver);
+      rod(`ultimate-short-wrist-${side}`,'body',[side*.78,1.4,.56],[side*.62,1.14,.8],.105,.083,silver);
+      sphere(`ultimate-large-haunch-${side}`,'body',[side*.48,.91,-.035],[.36,.47,.4],2,silver);
+      rod(`ultimate-bent-hindleg-${side}`,'body',[side*.48,.8,.025],[side*.6,.29,.4],.205,.13,silver);
+      sphere(`ultimate-large-foot-${side}`,'body',[side*.6,.22,.57],[.3,.16,.38],1,silver);
+      for(let claw=0;claw<3;claw++) {
+        rod(`ultimate-front-claw-${side}-${claw}`,'body',[side*.62+(claw-1)*.12,1.14,.8],[side*.65+(claw-1)*.15,.98,1.12],.045,.004,ivory);
+        rod(`ultimate-foot-claw-${side}-${claw}`,'body',[side*.6+(claw-1)*.17,.24,.79],[side*.63+(claw-1)*.18,.14,1.08],.055,.004,ivory);
+      }
+      const shoulder=[side*.28,2.25,-.2],elbow=[side*.95,3.38,-.37],tip=[side*2.1,3.91,-.35];
+      rod(`wing-${side}-ultimate-upper-arm`,'body',shoulder,elbow,.11,.065,silver);
+      rod(`wing-${side}-ultimate-long-tip`,'body',elbow,tip,.065,.008,silver);
+      membrane(`wing-${side}-ultimate-closed-membrane`,'dark',[[shoulder[0],shoulder[1]],[elbow[0],elbow[1]],[tip[0],tip[1]],[side*1.74,2.41],[side*1.52,2.56],[side*1.07,1.83],[side*.84,2.05],[side*.38,1.62]],'#6a89ad');
+      for(const [i,x,y]of [[0,1.74,2.41],[1,1.07,1.83],[2,.38,1.62]])rod(`wing-${side}-ultimate-spreading-rib-${i}`,'body',elbow,[side*x,y,-.115],.03,.012,silver);
+      ribbon(`wing-${side}-ultimate-rounded-scallop-border`,'body',[[side*.38,1.62,-.1],[side*.73,1.82,-.1],[side*1.07,1.83,-.1],[side*1.4,2.47,-.1],[side*1.74,2.41,-.1]],.02,silver);
+    }
+    const tail=[[0,1.07,-.43],[.3,.69,-.97],[.89,.42,-1.3],[1.39,.64,-1.64],[1.63,.84,-1.74]];
+    for(let segment=1;segment<tail.length;segment++)rod(`ultimate-tapered-tail-${segment}`,'body',tail[segment-1],tail[segment],.23/segment,.15/segment,silver);
+    return true;
+  }
+
+  // Stardust's pale plated chest, violet shoulder jewels, swept crest and
+  // many long narrow wing vanes are present in both card illustrations.
+  if (profile.id === 'stardust-dragon') {
+    const silver='#c9e1e4',pale='#e2eef1',violet='#5b468c';
+    sphere('stardust-tapered-armored-breast','body',[0,1.78,0],[.39,.67,.31],2,silver);
+    sphere('stardust-narrow-pelvic-core','body',[0,1.15,-.02],[.32,.33,.28],2,silver);
+    for(let row=0;row<5;row++)sculptedPlate(`stardust-chevron-belly-armor-${row}`,'body',[[-.22,.11],[-.19,-.02],[0,-.12],[.19,-.02],[.22,.11],[0,.04]],[0,1.22+row*.18,.266],.044,row%2?pale:silver);
+    ribbon('stardust-long-bent-armored-neck','body',[[0,2.05,-.06],[0,2.41,-.14],[0,2.79,-.055],[0,3.045,.14]],.163,silver);
+    part('stardust-narrow-long-dragon-skull',skullLoft([[.065,3.08,.178,.19],[.25,3.163,.211,.17],[.47,3.127,.18,.12],[.76,3.035,.112,.067],[.95,3.03,.055,.03]]),'body',[0,0,0],undefined,undefined,pale);
+    part('jaw-stardust-slender-lower-mandible',skullLoft([[.2,2.962,.108,.071],[.55,2.952,.12,.065],[.88,2.979,.04,.031]]),'body',[0,0,0],undefined,undefined,silver);
+    sculptedPlate('stardust-long-central-swept-crest','body',[[-.055,0],[-.09,.48],[.035,.95],[.09,.62],[.04,.04]],[0,3.19,-.07],.08,pale,[0,Math.PI/2,0]);
+    for(const side of [-1,1]) {
+      sphere(`stardust-recessed-blue-eye-${side}`,'eye',[side*.184,3.19,.355],[.014,.024,.057],1,'#2869a4');
+      sculptedPlate(`stardust-long-swept-cheek-fin-${side}`,'body',[[0,.1],[side*.22,.3],[side*.39,.56],[side*.26,.04],[side*.03,-.11]],[side*.125,3.09,-.055],.06,pale,[0,side*.23,0]);
+      sculptedPlate(`stardust-long-crown-blade-${side}`,'body',[[0,0],[side*.07,.65],[side*.16,.82],[side*.14,.18]],[side*.12,3.276,-.035],.055,pale);
+      sphere(`stardust-violet-shoulder-jewel-rim-${side}`,'body',[side*.42,2.336,.16],[.237,.239,.116],2,pale);
+      sphere(`stardust-violet-shoulder-jewel-${side}`,'dark',[side*.425,2.338,.259],[.15,.164,.042],2,violet);
+      rod(`foreleg-${side}-stardust-slender-upper-arm`,'body',[side*.36,2.28,.02],[side*.74,1.93,.22],.094,.076,silver);
+      rod(`foreleg-${side}-stardust-bent-forearm`,'body',[side*.74,1.93,.22],[side*.81,1.58,.57],.085,.063,pale);
+      for(let claw=0;claw<3;claw++)rod(`stardust-front-long-claw-${side}-${claw}`,'body',[side*.81+(claw-1)*.071,1.58,.57],[side*.84+(claw-1)*.096,1.47,.87],.03,.004,pale);
+      sphere(`stardust-armored-haunch-${side}`,'body',[side*.32,1.02,-.035],[.23,.35,.29],2,silver);
+      rod(`stardust-bent-shin-${side}`,'body',[side*.34,.88,.03],[side*.52,.37,.23],.13,.085,pale);
+      sphere(`stardust-pointed-foot-${side}`,'body',[side*.52,.23,.4],[.19,.13,.3],1,pale);
+      for(let claw=0;claw<3;claw++)rod(`stardust-foot-claw-${side}-${claw}`,'body',[side*.52+(claw-1)*.11,.24,.55],[side*.54+(claw-1)*.12,.13,.84],.04,.003,pale);
+      const wing=`wing-${side}-stardust`,shoulder=[side*.32,2.27,-.17],hinge=[side*.92,3.28,-.23];
+      rod(`${wing}-long-upper-spar`,'body',shoulder,hinge,.08,.056,pale);
+      rod(`${wing}-upper-outer-tip`,'body',hinge,[side*2.2,3.64,-.23],.056,.004,pale);
+      for(let vane=0;vane<9;vane++) {
+        const t=vane/8,x=.88+t*1.22,y=3.25+t*.35,length=1.29+.52*Math.sin(t*Math.PI);
+        const points=[[0,0],[side*.145,.065],[side*.145,-length*.58],[side*.06,-length],[side*-.05,-length*.79],[side*-.065,-.16]];
+        sculptedPlate(`${wing}-long-layered-silver-vane-${vane}`,'body',points,[side*x,y,-.255-vane*.008],.032,vane%2?pale:silver,[0,side*.04,side*-.19]);
+        rod(`${wing}-raised-vane-ridge-${vane}`,'body',[side*(x+.042),y-.05,-.193-vane*.008],[side*(x+.042+.19*length),y-length*.86,-.193-vane*.008],.011,.005,'#9fbfc7');
+      }
+      sculptedPlate(`stardust-thigh-swept-armor-fin-${side}`,'body',[[0,.2],[side*.19,.14],[side*.29,-.22],[side*.06,-.38],[side*-.06,-.04]],[side*.27,1.1,.15],.04,pale);
+    }
+    const tail=[[0,1.06,-.22],[.18,.7,-.72],[.64,.42,-1.07],[1.12,.55,-1.31],[1.47,.72,-1.45]];
+    for(let i=1;i<tail.length;i++)rod(`stardust-tapered-tail-${i}`,'body',tail[i-1],tail[i],.14/i,.09/i,silver);
+    return true;
+  }
 
   if (profile.anatomy === 'armored-blue-dragon' || profile.anatomy === 'spiked-black-dragon') {
     const black = profile.anatomy === 'spiked-black-dragon';
@@ -17,28 +348,26 @@ export function buildReferenceMonsterAnatomy(profile, build) {
     sphere('dragon-breast', 'body', [0, 1.55, -0.09], [0.48, 0.76, 0.43]);
     sphere('dragon-pelvic-armor', 'body', [0, 0.99, -0.17], [0.49, 0.43, 0.43]);
     sphere('dragon-belly', 'accent', [0, 1.54, 0.31], [0.31, 0.63, 0.12]);
-    for (let i = 0; i < 5; i += 1) box(`belly-scale-${i}`, 'accent', [0, 1.14 + i * 0.2, 0.39], [0.46 - Math.abs(2 - i) * 0.04, 0.115, 0.08], [0.05, 0, 0], plate);
+    for (let i = 0; i < 5; i += 1) {
+      const half=(.46-Math.abs(2-i)*.04)/2;
+      sculptedPlate(`belly-scale-${i}`,'accent',[[-half,.052],[-half*.8,-.04],[0,-.071],[half*.8,-.04],[half,.052],[0,.028]],[0,1.14+i*.2,.393],.045,plate,[.05,0,0]);
+    }
     const neck = [[0, 1.91, -0.04], [0, 2.25, -0.03], [0, 2.6, 0.02], [0, 2.9, 0.16], [0, 3.11, 0.3]];
     for (let i = 1; i < neck.length; i += 1) {
       rod(`neck-${i - 1}`, 'body', neck[i - 1], neck[i], 0.21 - i * 0.013, 0.2 - i * 0.013);
       compactRing(`neck-collar-${i}`, 'accent', [0, neck[i][1] - 0.08, neck[i][2]], 0.19 - i * 0.008, [Math.PI / 2 + i * 0.055, 0, 0], plate);
     }
-    const outline = new THREE.Shape();
-    const points = black
-      ? [[-0.29, 0.07], [-0.05, 0.3], [0.43, 0.16], [0.9, -0.07], [1.06, -0.29], [0.58, -0.12], [0.02, -0.18]]
-      : [[-0.27, 0.04], [-0.1, 0.3], [0.39, 0.24], [0.79, 0.02], [0.79, -0.16], [0.16, -0.12]];
-    points.forEach(([x, y], index) => index ? outline.lineTo(x, y) : outline.moveTo(x, y));
-    outline.closePath();
-    part('dragon-head-0', new THREE.ExtrudeGeometry(outline, { depth: 0.44, bevelEnabled: true, bevelThickness: 0.025, bevelSize: 0.025, bevelSegments: 1, steps: 1 }), 'body', [0.22, 3.1, 0.23], undefined, [0, -Math.PI / 2, 0]);
-    sphere('dragon-muzzle-0', 'body', [0, 3.03, black ? 0.98 : 0.82], [0.21, 0.12, 0.24]);
-    box('jaw-0', 'dark', [0, 2.86, 0.77], [0.34, 0.1, black ? 0.72 : 0.48], [-0.1, 0, 0], black ? '#392738' : '#457084');
+    const end=black?1.24:1.13;
+    part('dragon-head-0',skullLoft([[.135,3.117,.226,.19],[.39,3.171,.267,.191],[.7,3.155,.22,.139],[end-.12,3.063,.145,.082],[end,3.014,.103,.061]]),'body',[0,0,0]);
+    sphere('dragon-muzzle-0', 'body', [0, 3.035, end-.036], [.112,.061,.092]);
+    part('jaw-0',skullLoft([[.375,2.945,.135,.094],[.59,2.941,.183,.13],[.91,2.904,.149,.118],[end-.03,2.934,.075,.074]]),'dark',[0,0,0],undefined,undefined,black?'#231b2b':'#244857');
     for (const side of [-1, 1]) {
-      sphere(`dragon-eye-0-${side}`, 'eye', [side * 0.235, 3.23, 0.54], [0.038, black ? 0.024 : 0.055, 0.075]);
+      sphere(`dragon-eye-0-${side}`, 'eye', [side * 0.236, 3.235, 0.55], [0.025, black ? 0.023 : 0.037, 0.085]);
       sphere(`dragon-eye-pupil-${side}`, 'dark', [side * 0.264, 3.232, 0.555], [0.015, 0.04, 0.025], 0, '#071b2b');
       for (let toothIndex = 0; toothIndex < 5; toothIndex += 1) {
-        cone(`fang-0-${side}-${toothIndex}`, 'accent', [side * 0.16, 2.88, 0.5 + toothIndex * 0.103], [0.025, 0.105, 0.026], [Math.PI, 0, 0], tooth);
+        cone(`fang-0-${side}-${toothIndex}`, 'accent', [side * 0.15, 3.015, 0.56 + toothIndex * 0.105], [0.025, 0.105, 0.026], [Math.PI, 0, 0], tooth);
       }
-      rod(`dragon-horn-0-${side}`, 'accent', [side * 0.14, 3.31, 0.15], [side * 0.31, black ? 3.89 : 3.72, -0.38], 0.1, 0.015, plate);
+      sculptedPlate(`dragon-horn-0-${side}`, 'body', [[0,0],[side*.09,.14],[side*.25,black?.53:.37],[side*.215,.02],[side*.055,-.085]],[side*.13,3.282,-.13],.07,plate,[0,side*.24,0]);
       for (let fin = 0; fin < (black ? 3 : 2); fin += 1) rod(`dragon-cheek-fin-${side}-${fin}`, 'body', [side * 0.2, 3.06 + fin * 0.13, 0.19], [side * (0.51 + fin * 0.08), 3.12 + fin * 0.18, -0.42], 0.07, 0.006);
       sphere(`dragon-shoulder-armor-${side}`, 'body', [side * 0.5, 1.92, 0.02], [0.24, 0.32, 0.28]);
       rod(`foreleg-${side}`, 'body', [side * 0.47, 1.89, 0.15], [side * 0.73, 1.45, 0.59], 0.12, 0.105);
@@ -54,13 +383,35 @@ export function buildReferenceMonsterAnatomy(profile, build) {
       const tip = [side * 2.17, black ? 4.06 : 3.81, -0.14];
       rod(`wing-${side}-arm`, 'body', shoulder, elbow, 0.13, 0.07);
       rod(`wing-${side}-tip`, 'accent', elbow, tip, 0.07, 0.015, plate);
-      membrane(`wing-${side}-membrane`, 'dark', [[shoulder[0], shoulder[1]], [elbow[0], elbow[1]], [tip[0], tip[1]], [side * 1.75, 2.41], [side * 1.53, 2.63], [side * 1.08, 1.84], [side * 0.85, 2.01], [side * 0.34, 1.55]], profile.membrane);
+      const wingOutline=new THREE.Shape();wingOutline.moveTo(shoulder[0],shoulder[1]);wingOutline.lineTo(elbow[0],elbow[1]);wingOutline.lineTo(tip[0],tip[1]);
+      wingOutline.quadraticCurveTo(side*1.8,3.18,side*1.75,2.41);wingOutline.quadraticCurveTo(side*1.47,2.86,side*1.08,1.84);wingOutline.quadraticCurveTo(side*.77,2.21,side*.34,1.55);wingOutline.closePath();
+      part(`wing-${side}-membrane`,new THREE.ExtrudeGeometry(wingOutline,{depth:.045,bevelEnabled:false,curveSegments:10,steps:1}),'dark',[0,0,-.16],undefined,undefined,profile.membrane);
       for (const [index, x, y] of [[0, 1.75, 2.41], [1, 1.08, 1.84], [2, 0.34, 1.55]]) rod(`wing-${side}-rib-${index}`, 'accent', elbow, [side * x, y, -0.12], 0.035, 0.018, plate);
       if (black) for (let spike = 0; spike < 3; spike += 1) rod(`wing-${side}-edge-spike-${spike}`, 'body', [side * (0.87 + spike * 0.3), 3.51 + spike * 0.13, -0.14], [side * (1.09 + spike * 0.3), 3.96 + spike * 0.17, -0.17], 0.07, 0.006);
     }
     const tail = [[0, 1, -0.39], [0.22, 0.6, -0.93], [0.63, 0.34, -1.44], [1.09, 0.43, -1.74], [1.37, black ? 0.94 : 0.69, -1.82]];
     for (let i = 1; i < tail.length; i += 1) rod(`tail-${i}`, 'body', tail[i - 1], tail[i], 0.2 / i, 0.14 / i);
     for (let i = 0; i < (black ? 8 : 5); i += 1) rod(`spine-${i}`, 'accent', [0, 2.77 - i * 0.2, -0.17 - i * 0.04], [0, 2.93 - i * 0.2, -0.5 - i * 0.07], 0.08, 0.006, plate);
+    for(const side of [-1,1]) {
+      // The source skull has a recessed almond eye, a swept brow and narrow
+      // nasal armor, unlike the round-faced generic dragon silhouette.
+      rod(`dragon-swept-eye-brow-${side}`,'body',[side*.221,3.297,.421],[side*.243,3.291,.679],.04,.029);
+      sculptedPlate(`dragon-tapered-cheek-armor-${side}`,'body',[[0,.14],[side*.17,.08],[side*.13,-.13],[side*-.04,-.19]],[side*.19,3.051,.415],.058,black?'#3c4354':'#d4e8ef',[0,side*.43,0]);
+      rod(`jaw-dragon-long-lower-mandible-${side}`,'body',[side*.184,2.837,.433],[side*.185,2.865,black?.99:.895],.038,.065);
+      for(let i=0;i<4;i++) {
+        const y=1.177+i*.205;
+        sculptedPlate(`dragon-lateral-overlapping-armor-${side}-${i}`,'body',[[side*-.08,.1],[side*.115,.055],[side*.09,-.095],[side*-.08,-.05]],[side*.426,y,.247],.055,black?'#41495c':'#cde5ee',[0,side*.44,side*-.06]);
+      }
+      ribbon(`wing-${side}-curved-lower-border`,'body',[[side*.34,1.55,-.087],[side*.65,1.75,-.087],[side*1.08,1.84,-.087],[side*1.35,2.47,-.087],[side*1.75,2.41,-.087]],.024,plate);
+      sphere(`dragon-sculpted-nostril-${side}`,'dark',[side*.084,3.065,black?1.227:1.106],[.023,.018,.009],0,'#203849');
+      rod(`dragon-rounded-claw-knuckle-${side}`,'body',[side*.496,1.156,.889],[side*.715,1.156,.889],.027,.027);
+      // Both the printed profiles and the licensed front/rear views show
+      // broad swept skull fins, not upright mammalian horns.
+      sculptedPlate(`dragon-long-swept-occipital-fin-${side}`,'body',[[0,.13],[side*.14,.22],[side*.58,.235],[side*.4,.05],[side*.1,-.11]],[side*.17,3.202,-.05],.065,plate,[0,side*.43,0]);
+      for(let scale=0;scale<3;scale++) sculptedPlate(`dragon-rear-neck-overlapping-scale-${side}-${scale}`,'body',[[0,.1],[side*.135,.06],[side*.2,-.05],[side*.08,-.12],[side*-.03,-.02]],[side*.13,2.42+scale*.18,-.18],.06,black?'#3b4052':'#b6d5e2',[0,side*.68,0]);
+      if(black) for(let toothIndex=0;toothIndex<4;toothIndex++) cone(`jaw-red-eyes-raised-lower-fang-${side}-${toothIndex}`,'accent',[side*(.125-toothIndex*.007),2.836,.56+toothIndex*.13],[.019,.087,.022],undefined,tooth);
+    }
+    sculptedPlate('dragon-long-ridged-nasal-armor','accent',[[-.055,.025],[0,.09],[.055,.025],[.035,-.065],[-.035,-.065]],[0,3.292,.647],black?.54:.44,plate,[-.08,0,0]);
     return true;
   }
 
@@ -68,8 +419,17 @@ export function buildReferenceMonsterAnatomy(profile, build) {
     const girl = profile.anatomy === 'dark-magician-girl';
     const skin = profile.skin;
     sphere('mage-torso', 'body', [0, 2.13, 0], [0.39, 0.5, 0.27]);
-    sphere('mage-face', 'body', [0, 2.91, 0.07], [0.235, 0.29, 0.225], 1, skin);
-    sphere('mage-nose', 'body', [0, 2.86, 0.295], [0.037, 0.057, 0.05], 0, skin);
+    const face=new THREE.SphereGeometry(1,16,12);
+    if(!girl) {
+      const a=face.attributes.position;for(let i=0;i<a.count;i++)if(a.getY(i)<0)a.setX(i,a.getX(i)*(.76+.24*(1+a.getY(i))));
+      face.computeVertexNormals();
+      const n=face.attributes.normal;for(let row=0;row<=12;row++) {
+        const first=row*17,last=first+16,v=new THREE.Vector3().fromBufferAttribute(n,first).add(new THREE.Vector3().fromBufferAttribute(n,last)).normalize();
+        n.setXYZ(first,v.x,v.y,v.z);n.setXYZ(last,v.x,v.y,v.z);
+      }
+    }
+    part('mage-face',face,'body',[0,2.91,.07],[girl?.235:.214,.29,girl?.225:.197],undefined,skin);
+    sphere('mage-nose', 'body', [0, 2.86, 0.295], [girl?.03:.026,.049,.036], 0, skin);
     box('mage-mouth', 'dark', [0, 2.76, 0.279], [0.076, 0.019, 0.017], undefined, '#764851');
     for (const side of [-1, 1]) {
       sphere(`eye-${side}`, 'eye', [side * 0.096, 2.95, 0.277], [girl ? 0.061 : 0.036, girl ? 0.072 : 0.027, 0.024]);
@@ -88,7 +448,7 @@ export function buildReferenceMonsterAnatomy(profile, build) {
         ribbon(`hair-long-lock-${side}`, 'dark', [[side * 0.23, 3.1, 0.09], [side * 0.31, 2.78, 0.03], [side * 0.48, 2.49, -0.16], [side * 0.71, 2.36, -0.51]], 0.095, profile.hair);
         ribbon(`hair-front-lock-${side}`, 'dark', [[side * 0.11, 3.17, 0.21], [side * 0.21, 2.89, 0.2], [side * 0.25, 2.57, 0.13]], 0.057, profile.hair);
       } else {
-        membrane(`helmet-cheekguard-${side}`, 'body', [[side * 0.19, 3.1], [side * 0.31, 2.82], [side * 0.16, 2.66], [side * 0.12, 2.79]]);
+        sculptedPlate(`helmet-cheekguard-${side}`, 'body', [[side * 0.18, 3.12], [side * 0.3, 2.84], [side * 0.155, 2.665], [side * 0.117, 2.795]],[0,0,.16],.075,undefined,[0,side*.1,0]);
       }
     }
     // The armor is segmented rather than a single featureless cone.
@@ -106,7 +466,7 @@ export function buildReferenceMonsterAnatomy(profile, build) {
       sphere('hair-crown', 'dark', [0, 3.11, -0.04], [0.26, 0.18, 0.24], 1, profile.hair);
     } else {
       for (const side of [-1, 1]) {
-        membrane(`layered-skirt-plate-${side}`, 'body', [[side * 0.14, 1.77], [side * 0.65, 1.48], [side * 0.58, 0.72], [side * 0.19, 0.79]]);
+        sculptedPlate(`layered-skirt-plate-${side}`, 'body', [[side * 0.14, 1.77], [side * 0.65, 1.48], [side * 0.58, 0.63], [side * 0.19, 0.79]],[0,0,.225],.065,undefined,[0,side*-.12,0]);
         const curl = [];
         for (let i = 0; i <= 18; i += 1) {
           const angle = i / 18 * Math.PI * 3;
@@ -133,6 +493,29 @@ export function buildReferenceMonsterAnatomy(profile, build) {
       sphere('staff-crown', 'body', [0.91, 3.36, 0.49], [0.18, 0.35, 0.105], 1, profile.staffColor);
       compactRing('staff-crown-border', 'accent', [0.91, 3.36, 0.58], 0.21, [0, 0, 0], '#b1e7b6', [0.74, 1.38, 1]);
       sphere('staff-crystal', 'eye', [0.91, 3.35, 0.595], [0.085, 0.095, 0.045], 1, '#c5e767');
+    }
+    for(const side of [-1,1]) {
+      sphere(`mage-sculpted-cheek-${side}`,'body',[side*.14,2.816,.243],[.052,.046,.029],1,skin);
+      rod(`mage-curved-upper-eyelid-${side}`,'dark',[side*.053,2.982,.302],[side*.126,2.99,.282],.009,.006,girl?'#8c674d':'#54364b');
+      rod(`mage-lower-lip-${side}`,'body',[side*.026,2.744,.289],[side*.008,2.736,.293],.005,.006,'#cf968c');
+      for(let finger=0;finger<3;finger++) rod(`mage-hand-${side}-sculpted-finger-${finger}`,'body',[side*.89+(finger-1)*.034,1.663,.562],[side*.89+(finger-1)*.041,1.6,.533],.013,.01,skin);
+      if(girl) {
+        ribbon(`hair-swept-gold-outer-lock-${side}`,'dark',[[side*.17,3.15,.11],[side*.33,2.91,.075],[side*.62,2.748,-.18],[side*.91,2.75,-.39]],.047,profile.hair);
+        ribbon(`hair-narrow-gold-face-strand-${side}`,'dark',[[side*.151,3.17,.238],[side*.214,2.99,.268],[side*.238,2.684,.189]],.027,'#f3d079');
+        sculptedPlate(`mage-pink-folded-neckline-${side}`,'accent',[[side*-.015,.085],[side*.32,.23],[side*.25,.05],[side*.018,-.02]],[0,2.322,.237],.03,profile.accent);
+      } else {
+        // Curled chest/pauldron embossing and flared armor skirt are visible
+        // features of the original purple armor, independent of the wand.
+        ribbon(`pauldron-${side}-engraved-spiral`,'accent',[[side*.52,2.497,.256],[side*.59,2.487,.265],[side*.63,2.414,.269],[side*.576,2.367,.282],[side*.524,2.41,.284]],.014);
+        sculptedPlate(`mage-angular-breastplate-${side}`,'body',[[side*-.018,.15],[side*.215,.06],[side*.2,-.27],[side*.035,-.41]],[0,2.306,.262],.048,'#5c4085');
+        rod(`mage-breastplate-curved-trim-${side}`,'accent',[side*.052,2.424,.307],[side*.249,2.315,.325],.018,.021);
+        ribbon(`mage-glove-${side}-spiral-trim`,'accent',[[side*.773,1.962,.386],[side*.848,1.912,.46],[side*.903,1.807,.477]],.016);
+        sculptedPlate(`pauldron-${side}-high-flared-armored-shell`,'body',[[side*-.19,-.035],[side*-.25,.21],[side*.035,.38],[side*.38,.36],[side*.28,.11],[side*.075,-.12]],[side*.49,2.39,-.012],.12,'#49356f',[0,side*.12,side*-.07]);
+        ribbon(`pauldron-${side}-swept-upper-rose-rim`,'accent',[[side*.27,2.6,.087],[side*.49,2.739,.088],[side*.87,2.681,.077]],.02);
+        sculptedPlate(`mage-long-rear-split-armor-tail-${side}`,'body',[[0,.17],[side*.2,.09],[side*.35,-1.22],[side*.18,-1.08],[side*-.04,-.23]],[side*.14,1.77,-.28],.055,'#49356f',[0,side*.3,side*-.06]);
+        sculptedPlate(`mage-angular-upper-helmet-brow-${side}`,'body',[[side*-.015,.11],[side*.175,.15],[side*.15,.005],[side*-.007,-.055]],[0,3.046,.184],.065,'#49356f');
+        rod(`mage-adult-slanted-brow-${side}`,'dark',[side*.046,2.99,.298],[side*.134,3.011,.253],.008,.006,'#54364b');
+      }
     }
     return true;
   }

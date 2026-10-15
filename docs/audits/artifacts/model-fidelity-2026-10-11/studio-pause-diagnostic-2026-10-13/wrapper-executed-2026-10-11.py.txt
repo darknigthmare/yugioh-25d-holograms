@@ -1,0 +1,72 @@
+#!/usr/bin/env python3
+"""Run preserved public-browser recipes on the coordinator's new frozen build.
+
+The original drivers are imported unchanged. Only the historical avatar
+driver's declared static asset list is supplied from this build's freeze; all
+its original strict source/HTTP/CSP/native checks remain active. No build,
+application object, QA hook or post-bootstrap Game mutation is introduced.
+"""
+import argparse
+import hashlib
+import importlib.util
+import json
+from pathlib import Path
+import sys
+from datetime import datetime, timezone
+
+ROOT=Path(__file__).resolve().parents[1]
+DEPENDENCIES=[
+ 'scripts/audit-token-models-browser.py',
+ 'scripts/audit-duelist-avatar-motion-browser.py',
+ 'scripts/audit-native-duel-ui.py',
+ 'scripts/audit-continuation-models-ui.py',
+ 'scripts/audit-native-duel-views.py']
+
+def pin(path):
+ return {'bytes':path.stat().st_size,'sha256':hashlib.sha256(path.read_bytes()).hexdigest()}
+
+def fingerprints():
+ return {name:pin(ROOT/name)for name in DEPENDENCIES}
+
+def main():
+ parser=argparse.ArgumentParser(description=__doc__)
+ parser.add_argument('--scope',choices=['tokens','avatars'],required=True)
+ parser.add_argument('--dist',type=Path,default=ROOT/'dist')
+ parser.add_argument('--freeze',type=Path,required=True)
+ parser.add_argument('--expected-entry-sha256',required=True)
+ parser.add_argument('--output',type=Path,required=True)
+ args=parser.parse_args()
+ freeze=json.loads(args.freeze.read_text());assert freeze['source'] and freeze['compiled']
+ args.output.mkdir(parents=True,exist_ok=True)
+ before=fingerprints()
+ recipe='scripts/audit-token-models-browser.py' if args.scope=='tokens' else 'scripts/audit-duelist-avatar-motion-browser.py'
+ spec=importlib.util.spec_from_file_location('fidelity_'+args.scope,ROOT/recipe)
+ driver=importlib.util.module_from_spec(spec);spec.loader.exec_module(driver)
+ adaptation=None
+ if args.scope=='avatars':
+  adaptation={'name':'ADDITIONAL_STATIC_ASSETS','historical':driver.ADDITIONAL_STATIC_ASSETS,'current':sorted(freeze.get('additionalStaticAssets',{})),
+   'purpose':'Include this build\'s entire frozen static pool in the unchanged strict before/after local and HTTP fingerprint checks.'}
+  driver.ADDITIONAL_STATIC_ASSETS=adaptation['current']
+ report={'scope':args.scope,'executedAtUtc':datetime.now(timezone.utc).isoformat(),
+  'wrapper':{'path':str(Path(__file__)),**pin(Path(__file__))},'originalDriver':{'path':recipe,**before[recipe]},
+  'freeze':{'path':str(args.freeze),**pin(args.freeze)},'expectedEntrySha256':args.expected_entry_sha256,
+  'driverDependenciesBefore':before,'declaredRecipeAdaptation':adaptation,'ok':False}
+ saved_argv=sys.argv
+ sys.argv=[str(ROOT/recipe),'--phase','compiled','--stage','full','--dist',str(args.dist),'--freeze',str(args.freeze),'--expected-entry-sha256',args.expected_entry_sha256,'--output',str(args.output)]
+ failure=None
+ try:
+  driver.main()
+  actual=json.loads((args.output/'report.json').read_text());assert actual['ok'],actual.get('error')
+  report.update(ok=True,originalReport=pin(args.output/'report.json'),browserPathCount=len(actual['paths']),captureCount=len(list(args.output.glob('*.png'))))
+ except BaseException as error:
+  failure=error;report['failure']={'type':type(error).__name__,'message':str(error)[:1200]}
+ finally:
+  sys.argv=saved_argv;report['driverDependenciesAfter']=fingerprints()
+  report['preservedHistoricalDrivers']=before==report['driverDependenciesAfter']
+  report['ok']=report['ok'] and report['preservedHistoricalDrivers']
+  (args.output/'fidelity-wrapper.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+ if failure:raise failure
+ assert report['ok']
+ print(json.dumps({'scope':args.scope,'ok':report['ok'],'paths':report['browserPathCount'],'captures':report['captureCount'],'historicalDriversUnchanged':report['preservedHistoricalDrivers']}),flush=True)
+
+if __name__=='__main__':main()

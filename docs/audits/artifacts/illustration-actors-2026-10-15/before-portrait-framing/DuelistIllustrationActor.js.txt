@@ -1,0 +1,368 @@
+import * as THREE from 'three';
+import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+import { createDuelistAvatarModel } from './DuelistAvatarModels.js';
+
+// These are public printed compositions, not player choices or progression
+// variants. In particular, modern Yami's clothes must never replace Pharaoh
+// Atem's selectable ancient costume, nor Joey's selectable green jacket.
+const EDITIONS = Object.freeze({
+  'commemorative:YGLD-ENTKN': Object.freeze({ avatarId: 'atem', costume: 'yami-shoulder-jacket', pose: 'card-draw' }),
+  'commemorative:LDK2-ENT01': Object.freeze({ avatarId: 'atem', costume: 'yami-school-jacket', pose: 'raised-two-finger-card' }),
+  'commemorative:LDK2-ENT02': Object.freeze({ avatarId: 'kaiba', costume: 'kaiba-white-coat', pose: 'horizontal-card-fan' }),
+  'commemorative:LDK2-ENT03': Object.freeze({ avatarId: 'joey', costume: 'joey-blue-school-jacket', pose: 'crossed-card-hands' })
+});
+const UP = new THREE.Vector3(0, 1, 0);
+const MODERN_SKIN = '#f4c5a9';
+
+function sameColor(attribute, index, color) {
+  return Math.abs(attribute.getX(index) - color.r) < 1e-6
+    && Math.abs(attribute.getY(index) - color.g) < 1e-6
+    && Math.abs(attribute.getZ(index) - color.b) < 1e-6;
+}
+
+/** Copy only owned head buffers; the original avatar and its skeleton are disposed. */
+function createIllustrationHead(avatarId, modernYami) {
+  const source = createDuelistAvatarModel(avatarId, { reducedMotion: true });
+  const head = source.group.getObjectByName('duelist-gaze-rig').clone(true);
+  const materials = new Map();
+  const gold = new THREE.Color('#eec35d');
+  const diademEye = new THREE.Color('#74442c');
+  const oldSkin = new THREE.Color('#c78d66');
+  const oldShadow = oldSkin.clone().multiplyScalar(.8);
+  const skin = new THREE.Color(MODERN_SKIN);
+  const shadow = skin.clone().multiplyScalar(.8);
+  const removed = [];
+  head.traverse(object => {
+    if (!object.isMesh) return;
+    if (modernYami && object.name === 'duelist-head-metal') {
+      // This entire head batch is the Pharaoh's gold diadem and its wings.
+      // Modern Yami has neither a diadem nor ceremonial gold earrings.
+      removed.push(object);
+      return;
+    }
+    const original = object.geometry;
+    let geometry;
+    if (modernYami && object.name === 'duelist-head-matte') {
+      const color = original.attributes.color;
+      const retained = [];
+      for (let index = 0; index < color.count; index += 3) {
+        const ceremonial = sameColor(color, index, gold) || sameColor(color, index, diademEye);
+        if (!ceremonial) retained.push(index, index + 1, index + 2);
+      }
+      geometry = new THREE.BufferGeometry();
+      for (const [name, attribute] of Object.entries(original.attributes)) {
+        const values = new attribute.array.constructor(retained.length * attribute.itemSize);
+        retained.forEach((from, to) => {
+          for (let component = 0; component < attribute.itemSize; component += 1) {
+            values[to * attribute.itemSize + component] = attribute.array[from * attribute.itemSize + component];
+          }
+        });
+        geometry.setAttribute(name, new THREE.BufferAttribute(values, attribute.itemSize, attribute.normalized));
+      }
+      const colors = geometry.attributes.color;
+      for (let index = 0; index < colors.count; index += 1) {
+        const replacement = sameColor(colors, index, oldSkin) ? skin
+          : sameColor(colors, index, oldShadow) ? shadow : null;
+        if (replacement) colors.setXYZ(index, replacement.r, replacement.g, replacement.b);
+      }
+      geometry.computeBoundingBox();
+      geometry.computeBoundingSphere();
+    } else geometry = original.clone();
+    object.geometry = geometry;
+    if (!materials.has(object.material)) materials.set(object.material, object.material.clone());
+    object.material = materials.get(object.material);
+  });
+  removed.forEach(object => object.removeFromParent());
+  source.dispose();
+  return head;
+}
+
+/**
+ * A static, complete duelist actor in the pose printed on one verified Token.
+ * Feet are at y=0 and the Yami hair crown is y≈6.35 before scene placement.
+ * This factory accepts only the four trusted editions and their actual avatar
+ * identities. It receives no duel, engine, card, unlock or private-state data.
+ */
+export function createDuelistIllustrationActor(avatarId, { presentationId, edition } = {}) {
+  const requested = presentationId || (typeof edition === 'string' && !edition.startsWith('commemorative:')
+    ? `commemorative:${edition}` : edition);
+  const spec = typeof requested === 'string' && Object.hasOwn(EDITIONS, requested) ? EDITIONS[requested] : null;
+  if (!spec || avatarId !== spec.avatarId) throw new Error('Unverified duelist illustration actor');
+  const yami = avatarId === 'atem';
+  const kaiba = avatarId === 'kaiba';
+  const shoulderJacket = spec.costume === 'yami-shoulder-jacket';
+  const skin = MODERN_SKIN;
+  const blue = kaiba ? '#e8edf4' : yami ? '#283866' : '#283268';
+  const dark = '#171b2a';
+  const metal = '#c8d9e4';
+  const group = new THREE.Group();
+  group.name = `duelist-illustration-${requested.split(':')[1]}`;
+  const body = new THREE.Group();
+  body.name = 'illustration-body';
+  group.add(body);
+  const head = createIllustrationHead(avatarId, yami);
+  group.add(head);
+  head.rotation.set(kaiba ? .035 : 0, 0, avatarId === 'joey' ? -.055 : -.025);
+  const headRotation = head.rotation.clone();
+  const batches = new Map();
+  const partNames = [];
+  const materials = {
+    matte: new THREE.MeshStandardMaterial({ color: '#ffffff', vertexColors: true, roughness: .73, metalness: .025 }),
+    metal: new THREE.MeshStandardMaterial({ color: '#ffffff', vertexColors: true, roughness: .35, metalness: .5 })
+  };
+  function add(name, original, tint, position = [0, 0, 0], scale = [1, 1, 1], rotation = [0, 0, 0], material = 'matte') {
+    const transform = new THREE.Object3D();
+    transform.position.set(...position);
+    transform.scale.set(...scale);
+    transform.rotation.set(...rotation);
+    transform.updateMatrix();
+    original.applyMatrix4(transform.matrix);
+    let geometry = original;
+    if (original.index) { geometry = original.toNonIndexed(); original.dispose(); }
+    if (!geometry.attributes.normal) geometry.computeVertexNormals();
+    if (!geometry.attributes.uv) geometry.setAttribute('uv', new THREE.BufferAttribute(new Float32Array(geometry.attributes.position.count * 2), 2));
+    const color = new THREE.Color(tint);
+    const values = new Float32Array(geometry.attributes.position.count * 3);
+    for (let index = 0; index < values.length; index += 3) { values[index] = color.r; values[index + 1] = color.g; values[index + 2] = color.b; }
+    geometry.setAttribute('color', new THREE.BufferAttribute(values, 3));
+    if (!batches.has(material)) batches.set(material, []);
+    batches.get(material).push(geometry);
+    partNames.push(name);
+  }
+  const box = (name, tint, position, scale, rotation, material) => add(name, new THREE.BoxGeometry(1, 1, 1), tint, position, scale, rotation, material);
+  const sphere = (name, tint, position, scale, material) => add(name, new THREE.SphereGeometry(1, 16, 10), tint, position, scale, undefined, material);
+  function rod(name, tint, from, to, radius, endRadius = radius, material = 'matte') {
+    const start = new THREE.Vector3(...from), end = new THREE.Vector3(...to);
+    const direction = end.clone().sub(start);
+    const geometry = new THREE.CylinderGeometry(endRadius, radius, direction.length(), radius < .05 ? 8 : 16);
+    geometry.applyQuaternion(new THREE.Quaternion().setFromUnitVectors(UP, direction.clone().normalize()));
+    add(name, geometry, tint, start.add(end).multiplyScalar(.5).toArray(), undefined, undefined, material);
+  }
+  function stroke(name, tint, points, radius = .02, material = 'matte') {
+    add(name, new THREE.TubeGeometry(new THREE.CatmullRomCurve3(points.map(point => new THREE.Vector3(...point))), 14, radius, 6, false), tint, undefined, undefined, undefined, material);
+  }
+  function panel(name, tint, points, depth = .065, material = 'matte') {
+    const shape = new THREE.Shape();
+    points.forEach(([x, y], index) => index ? shape.lineTo(x, y) : shape.moveTo(x, y));
+    shape.closePath();
+    const geometry = new THREE.ExtrudeGeometry(shape, { depth, bevelEnabled: true, bevelSegments: 1, steps: 1, bevelSize: .018, bevelThickness: .012, curveSegments: 1 });
+    add(name, geometry, tint, [0, 0, points[0][2] || 0], undefined, undefined, material);
+  }
+  function marker(name, point) {
+    const anchor = new THREE.Group();
+    anchor.name = `illustration-${name}`;
+    anchor.position.set(...point);
+    body.add(anchor);
+  }
+  // A complete body remains available when the user rotates the illustration.
+  // Its unseen back is an inferred continuation, not a certified turnaround.
+  for (const side of [-1, 1]) {
+    rod(`trouser-leg-${side}`, yami ? blue : dark, [side * .25, 2.63, 0], [side * .32, .32, .04], .2, .17);
+    sphere(`shoe-${side}`, dark, [side * .32, .18, .2], [.22, .16, .38]);
+    box(`shoe-sole-${side}`, '#343845', [side * .32, .06, .17], [.44, .08, .7]);
+    stroke(`trouser-crease-${side}`, yami ? '#172341' : '#30343e', [[side * .24, 2.55, .18], [side * .28, 1.44, .18], [side * .31, .45, .2]], .012);
+  }
+  sphere('pelvis', dark, [0, 2.65, 0], [.43, .32, .29]);
+  sphere('fitted-shirt', yami || kaiba ? dark : '#f4eee5', [0, 3.47, .025], [.49, .73, .29]);
+  rod('neck', skin, [0, 4.02, 0], [0, 4.45, 0], .17);
+  box('black-waist-belt', dark, [0, 2.79, .015], [.9, .14, .61]);
+  box('waist-belt-square-buckle', metal, [0, 2.79, .34], [.21, .16, .065], undefined, 'metal');
+  if (yami) {
+    for (const side of [-1, 1]) {
+      stroke(`sleeveless-shirt-neckline-${side}`, '#4a5064', [[side * .22, 4.13, .17], [side * .27, 3.99, .3], [0, 3.91, .322]], .014);
+      stroke(`silver-puzzle-chain-${side}`, metal, [[side * .17, 4.22, .17], [side * .22, 3.82, .34], [side * .07, 3.22, .43]], .022, 'metal');
+      for (let stud = 0; stud < 4; stud += 1) sphere(`belt-stud-${side}-${stud}`, metal, [side * (.14 + stud * .075), 2.79, .337], [.023, .025, .013], 'metal');
+    }
+    add('millennium-puzzle-pendant', new THREE.ConeGeometry(.29, .43, 4), '#eec35d', [0, 3.07, .46], [1, 1, .8], [Math.PI, Math.PI / 4, 0], 'metal');
+    stroke('puzzle-eye', '#704820', [[-.11, 3.12, .593], [0, 3.16, .62], [.11, 3.12, .593], [0, 3.08, .62], [-.11, 3.12, .593]], .012);
+    sphere('puzzle-eye-pupil', '#704820', [0, 3.12, .628], [.018, .024, .008]);
+    // The modern collar is black with a square silver buckle, not Pharaoh's gold pectoral.
+    box('modern-black-neck-collar', dark, [0, 4.21, .12], [.44, .13, .35]);
+    box('modern-collar-silver-buckle', metal, [0, 4.21, .314], [.2, .125, .035], undefined, 'metal');
+    box('modern-collar-buckle-hole', dark, [0, 4.21, .337], [.12, .066, .018]);
+  }
+  for (const side of [-1, 1]) {
+    const z = shoulderJacket ? -.26 : .24;
+    if (shoulderJacket) {
+      // YGLD: the jacket hangs from the shoulders, exposing both upper arms.
+      panel(`draped-uniform-jacket-${side}`, blue, [[side * .36, 4.2, -.3], [side * .88, 4.08], [side * 1.39, 3.35], [side * .78, 3.07], [side * .48, 3.56]], .085);
+      panel(`draped-jacket-sleeve-${side}`, '#374977', [[side * .58, 4.12, -.2], [side * 1.17, 4.01], [side * 1.37, 4.19], [side * .79, 4.35]], .09);
+    } else {
+      panel(`open-jacket-front-${side}`, blue, [[side * .17, 4.15, .2], [side * .57, 4.11], [side * .5, 3.19], [side * .42, 2.82], [side * .25, 2.89]], .13);
+      panel(`open-jacket-back-tail-${side}`, blue, [[side * .12, 4.05, -.35], [side * .54, 4.08], [side * (kaiba ? 1 : .67), kaiba ? 1.12 : 2.58], [side * .3, kaiba ? 1.04 : 2.64]], .07);
+    }
+    panel(`raised-uniform-collar-${side}`, blue, [[side * .2, 4.06, z], [side * .33, 4.58], [side * .5, 4.52], [side * .46, 4.08]], .07);
+    stroke(`collar-light-edge-${side}`, kaiba ? '#bccbdc' : '#b3bfd7', [[side * .2, 4.07, z + .085], [side * .33, 4.58, z + .085], [side * .5, 4.52, z + .085]], .018);
+    if (kaiba) {
+      panel(`kaiba-coat-red-lining-${side}`, '#923441', [[side * .19, 4.01, .35], [side * .33, 4.12], [side * .35, 3.4], [side * .26, 3.17]], .035);
+      for (let button = 0; button < 3; button += 1) sphere(`kaiba-coat-button-${side}-${button}`, '#91a7bc', [side * .45, 3.94 - button * .22, .39], [.044, .044, .026], 'metal');
+    }
+  }
+
+  const pose = shoulderJacket ? {
+    left: { shoulder: [-.53, 4.05, 0], elbow: [-1.12, 4.3, .2], wrist: [-.36, 3.47, .86], fingers: [.25, -.45, .03] },
+    right: { shoulder: [.53, 4.05, 0], elbow: [1, 3.43, .25], wrist: [.12, 3.13, .95], fingers: [-.46, -.02, .03] }
+  } : requested.endsWith('ENT01') ? {
+    left: { shoulder: [-.53, 4.05, 0], elbow: [-.96, 3.71, .18], wrist: [-.86, 4.28, .94], fingers: [.02, .4, .025] },
+    right: { shoulder: [.53, 4.05, 0], elbow: [.95, 3.08, .19], wrist: [-.05, 3.58, 1.04], fingers: [-.44, .19, .025] }
+  } : requested.endsWith('ENT02') ? {
+    left: { shoulder: [-.58, 4.05, 0], elbow: [-.97, 3.38, .18], wrist: [-.66, 3.29, 1.01], fingers: [-.43, -.02, .025] },
+    right: { shoulder: [.58, 4.05, 0], elbow: [.97, 3.51, .17], wrist: [.04, 3.43, 1.12], fingers: [-.47, -.05, .025] }
+  } : {
+    left: { shoulder: [-.55, 4.05, 0], elbow: [-1.02, 3.58, .19], wrist: [-.43, 3.52, .91], fingers: [.4, -.12, .025] },
+    right: { shoulder: [.55, 4.05, 0], elbow: [.9, 3.08, .16], wrist: [.06, 3.16, 1.1], fingers: [-.41, .13, .025] }
+  };
+  function hand(side, data) {
+    const { wrist, fingers } = data;
+    marker(`${side}-wrist`, wrist);
+    const direction = new THREE.Vector3(...fingers);
+    const lateral = new THREE.Vector3(-direction.y, direction.x, 0).normalize();
+    const palmEnd = new THREE.Vector3(...wrist).addScaledVector(direction, .38);
+    rod(`${side}-hand-palm`, skin, wrist, palmEnd.toArray(), .13, .12);
+    for (let finger = 0; finger < 4; finger += 1) {
+      const start = palmEnd.clone().addScaledVector(lateral, (finger - 1.5) * .065);
+      const raisedTwo = requested.endsWith('ENT01');
+      const length = raisedTwo && finger > 1 ? .28 : finger === 0 || finger === 3 ? .78 : 1;
+      const end = start.clone().addScaledVector(direction, length);
+      if (raisedTwo && finger > 1) { end.x += .09; end.y -= .12; end.z += .055; }
+      rod(`${side}-finger-${finger}`, skin, start.toArray(), end.toArray(), .033, .026);
+      const tip = end.clone().addScaledVector(direction, .16);
+      tip.z -= .015;
+      rod(`${side}-finger-tip-${finger}`, skin, end.toArray(), tip.toArray(), .026, .018);
+    }
+    const thumbStart = new THREE.Vector3(...wrist).addScaledVector(lateral, -.12);
+    const thumbEnd = thumbStart.clone().addScaledVector(direction, .5).addScaledVector(lateral, -.08);
+    rod(`${side}-thumb`, skin, thumbStart.toArray(), thumbEnd.toArray(), .055, .04);
+  }
+  for (const [side, data] of Object.entries(pose)) {
+    marker(`${side}-shoulder`, data.shoulder);
+    marker(`${side}-elbow`, data.elbow);
+    sphere(`${side}-shoulder-volume`, shoulderJacket ? skin : blue, data.shoulder, [.25, .24, .24]);
+    rod(`${side}-upper-arm`, shoulderJacket ? skin : blue, data.shoulder, data.elbow, .2, .19);
+    sphere(`${side}-elbow-volume`, shoulderJacket ? skin : blue, data.elbow, [.19, .19, .19]);
+    rod(`${side}-forearm`, shoulderJacket ? skin : blue, data.elbow, data.wrist, .17, .135);
+    if (shoulderJacket) {
+      const cuffPosition = new THREE.Vector3(...data.elbow).lerp(new THREE.Vector3(...data.wrist), .78);
+      sphere(`${side}-black-studded-wristband`, dark, cuffPosition.toArray(), [.2, .16, .16]);
+      for (let stud = 0; stud < 3; stud += 1) sphere(`${side}-wristband-stud-${stud}`, metal, [cuffPosition.x + (stud - 1) * .09, cuffPosition.y, cuffPosition.z + .15], [.033, .038, .025], 'metal');
+    }
+    hand(side, data);
+  }
+  // The disk follows the illustrated left forearm on screen-right. Its slots
+  // and printed-card backs are decoration; they never contain a duel's cards.
+  const diskWrist = pose.right.wrist;
+  const diskCenter = new THREE.Vector3(...diskWrist).lerp(new THREE.Vector3(...pose.right.elbow), .38);
+  marker('duel-disk-anchor', diskCenter.toArray());
+  const diskAngle = shoulderJacket ? .16 : requested.endsWith('ENT01') ? -.65 : requested.endsWith('ENT02') ? -.09 : -.26;
+  const disk = new THREE.Group();
+  disk.name = 'illustration-duel-disk';
+  disk.position.copy(diskCenter);
+  disk.position.z += .13;
+  disk.rotation.z = diskAngle;
+  body.add(disk);
+  // Disk vertices are merged in the body batches using the fixed matrix once.
+  disk.updateMatrix();
+  function diskBox(name, tint, position, scale, material = 'metal') {
+    const geometry = new THREE.BoxGeometry(...scale);
+    geometry.translate(...position).applyMatrix4(disk.matrix);
+    add(name, geometry, tint, undefined, undefined, undefined, material);
+  }
+  diskBox('illustration-disk-cuff', '#b6c8d7', [0, 0, -.03], [.48, .3, .28]);
+  const wingOutline = new THREE.Shape();
+  [[-.25, .11], [.25, -.31], [1.48, -.31], [1.66, -.17], [1.59, .045], [.1, .19]]
+    .forEach(([x, y], index) => index ? wingOutline.lineTo(x, y) : wingOutline.moveTo(x, y));
+  wingOutline.closePath();
+  const wing = new THREE.ExtrudeGeometry(wingOutline, { depth: .18, bevelEnabled: false, curveSegments: 1 });
+  wing.translate(0, 0, .01).applyMatrix4(disk.matrix);
+  add('illustration-disk-angular-wing', wing, metal, undefined, undefined, undefined, 'metal');
+  diskBox('illustration-disk-blue-inlay', '#4f9dc3', [.62, -.13, .205], [1.51, .21, .035]);
+  for (let slot = 0; slot < 5; slot += 1) {
+    diskBox(`illustration-disk-slot-${slot}`, '#9ad4e8', [.03 + slot * .295, -.13, .234], [.25, .18, .027]);
+    const triangle = new THREE.Shape();
+    triangle.moveTo(-.035, .025); triangle.lineTo(.035, .025); triangle.lineTo(0, -.025); triangle.closePath();
+    const geometry = new THREE.ShapeGeometry(triangle);
+    geometry.translate(.03 + slot * .295, -.13, .251).applyMatrix4(disk.matrix);
+    add(`illustration-disk-red-triangle-${slot}`, geometry, '#a93f4b');
+  }
+  sphere('illustration-disk-hub', metal, [disk.position.x, disk.position.y + .055, disk.position.z + .1], [.26, .2, .12], 'metal');
+  function cardBack(name, position, angle, scale = 1) {
+    box(`${name}-border`, '#ae7637', position, [.36 * scale, .52 * scale, .025], [0, 0, angle]);
+    box(`${name}-brown-back`, '#4a261e', [position[0], position[1], position[2] + .018], [.31 * scale, .47 * scale, .015], [0, 0, angle]);
+    // A neutral oval on a physical back, with no native identity or card face.
+    const geometry = new THREE.TorusGeometry(.1 * scale, .009 * scale, 5, 18);
+    add(`${name}-back-oval`, geometry, '#a86d32', [position[0], position[1], position[2] + .033], [1, 1.6, 1], [0, 0, angle]);
+  }
+  if (requested.endsWith('ENT01')) {
+    cardBack('raised-display-card', [-.84, 4.69, .94], -.035);
+    cardBack('crossed-display-card', [-.48, 3.84, 1.06], -.83);
+  } else if (requested.endsWith('ENT02')) {
+    for (let card = 0; card < 4; card += 1) cardBack(`display-card-fan-${card}`, [-1.14 + card * .1, 3.2 + card * .04, 1.06 + card * .025], -.78 + card * .16);
+  } else cardBack('lower-display-card', [shoulderJacket ? -.16 : -.08, shoulderJacket ? 3.09 : 3.28, 1.04], shoulderJacket ? .12 : -.38, 1.1);
+
+  for (const [material, pieces] of batches) {
+    const geometry = mergeGeometries(pieces, false);
+    pieces.forEach(piece => piece.dispose());
+    if (!geometry) throw new Error('Cannot merge illustration actor');
+    geometry.computeBoundingBox(); geometry.computeBoundingSphere();
+    const mesh = new THREE.Mesh(geometry, materials[material]);
+    mesh.name = `illustration-body-${material}`;
+    mesh.castShadow = material !== 'unlit';
+    mesh.receiveShadow = true;
+    body.add(mesh);
+  }
+  // Only materials actually used by a merged batch are retained.
+  for (const [name, material] of Object.entries(materials)) if (!batches.has(name)) material.dispose();
+  const geometries = new Set();
+  const ownedMaterials = new Set();
+  let triangles = 0;
+  group.traverse(object => {
+    if (!object.geometry) return;
+    geometries.add(object.geometry); ownedMaterials.add(object.material);
+    triangles += (object.geometry.index?.count || object.geometry.attributes.position.count) / 3;
+  });
+  group.userData.avatarId = avatarId;
+  group.userData.presentationId = requested;
+  group.userData.costume = spec.costume;
+  group.userData.illustrationPose = spec.pose;
+  group.userData.poseBasis = 'retained-printed-token-scan';
+  group.userData.unseenBack = 'inferred';
+  group.userData.partNames = Object.freeze(partNames);
+  group.userData.triangles = triangles;
+  group.userData.drawCalls = geometries.size;
+  group.updateMatrixWorld(true);
+  const facePoint = head.localToWorld(new THREE.Vector3(0, 4.962 - 4.86, .442));
+  const topPoint = new THREE.Vector3(0, -Infinity, 0);
+  const sample = new THREE.Vector3();
+  head.traverse(object => {
+    if (!object.geometry) return;
+    const position = object.geometry.attributes.position;
+    for (let index = 0; index < position.count; index += 1) {
+      sample.fromBufferAttribute(position, index).applyMatrix4(object.matrixWorld);
+      if (sample.y > topPoint.y) topPoint.copy(sample);
+    }
+  });
+  group.userData.illustrationLandmarks = Object.freeze({
+    head: Object.freeze(facePoint.toArray()), top: Object.freeze(topPoint.toArray()),
+    leftWrist: Object.freeze([...pose.left.wrist]), rightWrist: Object.freeze([...pose.right.wrist])
+  });
+  let disposed = false;
+  function resetPose() {
+    if (disposed) return false;
+    head.rotation.copy(headRotation);
+    body.position.set(0, 0, 0); body.rotation.set(0, 0, 0); body.scale.set(1, 1, 1);
+    return true;
+  }
+  function update() { return false; }
+  function dispose() {
+    if (disposed) return false;
+    group.removeFromParent();
+    geometries.forEach(geometry => geometry.dispose());
+    ownedMaterials.forEach(material => material.dispose());
+    group.clear(); disposed = true;
+    return true;
+  }
+  return { group, avatarId, presentationId: requested, resetPose, update, dispose, get disposed() { return disposed; } };
+}
+
+export const createTokenIllustrationActor = createDuelistIllustrationActor;
+export default createDuelistIllustrationActor;

@@ -1,0 +1,12 @@
+✔ four exact exceptions build distinct finite bounded anatomy within 5200 triangles and five shared materials (59.045073ms)
+✔ illustrated features remain explicit and DarkSoul has a floating lower silhouette without human legs (22.642771ms)
+✔ Grinder real hook is mapped to left pincer and its opposite drill arm follows the weapon rig (1.003668ms)
+✔ unrelated codes and variant-only impostors delegate without geometry; no duel state is read (6.400089ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 204.919215

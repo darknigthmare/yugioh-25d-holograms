@@ -1,0 +1,73 @@
+{
+  "scope": "tokens",
+  "executedAtUtc": "2026-10-11T21:22:28.238654+00:00",
+  "wrapper": {
+    "path": "/workspace/yugioh-25d-holograms/scripts/audit-model-fidelity-browser-2026-10-11.py",
+    "bytes": 3889,
+    "sha256": "7860d0ffe559c06b55f97b7deaa5bffb66d87f78da815e4d3ecd9e9febde10f8"
+  },
+  "originalDriver": {
+    "path": "scripts/audit-token-models-browser.py",
+    "bytes": 71910,
+    "sha256": "7941755771e8745ad4ea17f5d8df2cb86d81cc8e5904a860f7b8f9dd258159ca"
+  },
+  "freeze": {
+    "path": "/workspace/yugioh-model-fidelity-build-freeze-2026-10-11.json",
+    "bytes": 204546,
+    "sha256": "0d0185238360efbf149d1bcd59a8b4b7e9e56484be27f9627adae0367a97ffb7"
+  },
+  "expectedEntrySha256": "babab1743ff62c83971d835b94a3b169faf94f1f8108158ed2694ca3737a9a16",
+  "driverDependenciesBefore": {
+    "scripts/audit-token-models-browser.py": {
+      "bytes": 71910,
+      "sha256": "7941755771e8745ad4ea17f5d8df2cb86d81cc8e5904a860f7b8f9dd258159ca"
+    },
+    "scripts/audit-duelist-avatar-motion-browser.py": {
+      "bytes": 64829,
+      "sha256": "5f9f5dd25cbb51edaadbed3ea965091dadc1ed2073309fde043f4b62a417c49c"
+    },
+    "scripts/audit-native-duel-ui.py": {
+      "bytes": 28175,
+      "sha256": "0dd4443ef82f496fb398587b9be06c99d953f57c4a48e48cd470fdacbb311c18"
+    },
+    "scripts/audit-continuation-models-ui.py": {
+      "bytes": 33677,
+      "sha256": "7f6f4a1d54be8f4bfc6befa4d697a30755c0887c116a60ed124eb8a376951f49"
+    },
+    "scripts/audit-native-duel-views.py": {
+      "bytes": 23978,
+      "sha256": "f3f9b64c03273baba856886c4f67df9f371624bb759435887ba9b7f9e49f826c"
+    }
+  },
+  "declaredRecipeAdaptation": null,
+  "ok": true,
+  "originalReport": {
+    "bytes": 1444484,
+    "sha256": "6e95ca705669f0572dd74a895e3fdb43cc369b8421816b115b498378c352c674"
+  },
+  "browserPathCount": 9,
+  "captureCount": 50,
+  "driverDependenciesAfter": {
+    "scripts/audit-token-models-browser.py": {
+      "bytes": 71910,
+      "sha256": "7941755771e8745ad4ea17f5d8df2cb86d81cc8e5904a860f7b8f9dd258159ca"
+    },
+    "scripts/audit-duelist-avatar-motion-browser.py": {
+      "bytes": 64829,
+      "sha256": "5f9f5dd25cbb51edaadbed3ea965091dadc1ed2073309fde043f4b62a417c49c"
+    },
+    "scripts/audit-native-duel-ui.py": {
+      "bytes": 28175,
+      "sha256": "0dd4443ef82f496fb398587b9be06c99d953f57c4a48e48cd470fdacbb311c18"
+    },
+    "scripts/audit-continuation-models-ui.py": {
+      "bytes": 33677,
+      "sha256": "7f6f4a1d54be8f4bfc6befa4d697a30755c0887c116a60ed124eb8a376951f49"
+    },
+    "scripts/audit-native-duel-views.py": {
+      "bytes": 23978,
+      "sha256": "f3f9b64c03273baba856886c4f67df9f371624bb759435887ba9b7f9e49f826c"
+    }
+  },
+  "preservedHistoricalDrivers": true
+}

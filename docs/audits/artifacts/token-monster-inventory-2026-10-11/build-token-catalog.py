@@ -1,0 +1,75 @@
+from pathlib import Path
+import json,re,hashlib,collections
+root=Path(__file__).resolve().parents[4];proof=Path(__file__).resolve().parent
+rows=json.loads((root/'public/native/card-data.json').read_text())['rows'];bycode={r[0]:r for r in rows}
+tokens=[r for r in rows if r[4]&0x4000 and r[4]&1];sentinels=[r for r in rows if r[4]&0x4000 and not r[4]&1]
+art=json.loads((proof/'token-reference-art.json').read_text());images={i['imageId']:i for i in art['images']}
+api=json.loads((proof/'ygoprodeck-token-api-2026-10-11.json').read_text())['data'];apiimages={i['id']:c for c in api for i in c['card_images']}
+generator_images={i['cardCode']:i for i in json.loads((proof/'token-generator-reference-art.json').read_text())['images']}
+lua=json.loads((proof/'lua-token-generators.json').read_text());direct={t['nativeCard']['code']:t['creationSites'] for t in lua['tokenCodeSources']}
+without={t['code']:t for t in lua['tokenMonsterRowsWithoutDirectCreation']}
+races={1:'Warrior',2:'Spellcaster',4:'Fairy',8:'Fiend',16:'Zombie',32:'Machine',64:'Aqua',128:'Pyro',256:'Rock',512:'Winged Beast',1024:'Plant',2048:'Insect',4096:'Thunder',8192:'Dragon',16384:'Beast',32768:'Beast-Warrior',65536:'Dinosaur',131072:'Fish',262144:'Sea Serpent',524288:'Reptile',1048576:'Psychic',2097152:'Divine-Beast',4194304:'Creator-God',8388608:'Wyrm',16777216:'Cyberse',33554432:'Illusion'}
+attributes={1:'EARTH',2:'WATER',4:'FIRE',8:'WIND',16:'LIGHT',32:'DARK',64:'DIVINE'}
+def default_anatomy(row):
+ race=int(row[8]);name=row[11].lower()
+ return {1:'warrior',2:'spirit',4:'fairy',8:'fiend',16:'zombie',32:'gadget',64:'slime',128:'flame',256:'rock',512:'avian',1024:'flower',2048:'beetle',4096:'spirit',8192:'dragon',16384:'beast',32768:'beast',65536:'serpent',131072:'fish',262144:'serpent',524288:'serpent',1048576:'spirit',8388608:'dragon',16777216:'cyber-polyhedron'}.get(race,'unknown-echo')
+# Explicit offline anatomical assignments: names are never parsed at render time.
+name_anatomies={
+ 'Sheep Token':'sheep','Scapegoat Token':'sheep','Escapegoat Token':'sheep','Black Sheep Token':'sheep','Lamb Token':'lamb','Hippo Token':'hippo','Ojama Token':'ojama','Kuriboh Token':'kuriboh','Kagemusha Raccoon Token':'raccoon',
+ 'Fluff Token':'flower','White Fluff Token':'flower','Rose Token':'flower','Regenerating Rose Token':'flower','Ivy Token':'ivy','Sinister Seed Token':'seed','Seed Token':'seed','Snack Token':'seed','Maize Token':'maize','Data Acorn Token':'seed','Wicked Plant Token':'ivy','Horseytail Token':'flower','Plant Token':'flower','Needle Token':'seed',
+ 'Army Ant Token':'ant','Baby Mantis Token':'mantis','Spider Token':'spider','Worm Token':'worm','Moult Token':'beetle','Beetrooper Token':'beetle','Insect Monster Token':'beetle',
+ 'Mecha Phantom Beast Token':'aircraft','Battle Eagle Token':'aircraft','DOG Fighter Token':'aircraft','Thunder Option Token':'aircraft','Option Token':'aircraft','Ancient Gear Token':'gear','Gadget Token':'gadget','Gadget Box Token':'gadget','Batteryman Token':'gadget','Engine Token':'tank','Synchron Token':'tank','Arc Token':'tank','Clock Token':'clock','Link Token':'network','Cynet Token':'network','Congester Token':'network','Spool Token':'network','Data Token':'gadget',
+ 'Ice Coffin Token':'ice','Ice Pillar Token':'ice','Crystron Token':'ice','Icejade Token':'ice','Ice Barrier Token':'ice','Swordsoul Token':'dragon','Divine Dragon Token':'dragon','Phantasm Spiral Token':'dragon','Dragon Lord Token':'dragon','Wyvern Token':'dragon','Dragon Token':'dragon','Overflow Token':'dragon','Duel Dragon Token':'dragon','Iceblade Token':'dragon','Dark Creator Token':'fiend',
+ 'Slime Token':'slime','Squid Ink Token':'slime','Cloudian Token':'cloud','Steam Token':'cloud','Photon Token':'cyber-orb','Synthetic Seraphim Token':'cyber-orb','Vassal Token':'warrior','Einherjar Token':'warrior','Double Dude Token':'warrior','Doppel Token':'warrior','Doppelganger Token':'warrior','Adventurer Token':'warrior','Sky Striker Ace Token':'warrior','Dual Avatar Spirit Token':'warrior','Noble Knight Token':'warrior','Ancient Warriors Token':'warrior','Armament Reincarnation Token':'warrior','Pyrite Token':'warrior',
+ 'Emissary of Darkness Token':'fairy','Generaider Token':'fairy','Asmo Token':'fairy','Deus Token':'fairy','Waltz Token':'fairy','Ebisu Token':'fairy','Shinsen Token':'slime','Primal Being Token':'primal-being','Block Token':'block','Jurraegg Token':'egg','Spinos Token':'serpent','Jurrac Token':'flame','Wild Fire Token':'flame','Fireball Token':'flame','Fire Token':'flame','Laval Token':'flame','Bomb Token':'flame','Nytro Token':'flame','Centur-Ion Token':'flame',
+ 'Ghost Token':'spirit','Torment Token':'spirit','Soul Token':'spirit','Phantom Token':'spirit','Phantasmal Martyr Token':'fiend','Umbral Horror Mirage Token':'cyber-polyhedron','Tindangle Token':'cyber-polyhedron','Utchatzimime Token':'cyber-orb','Compass Token':'cyber-orb','Ceremonial Token':'rock','Koa\'ki Meiru Token':'rock','Rockstone Token':'rock','Clone Token':'dragon','Epigonos Token':'unknown-echo','Crystal Beast Token':'beast','Mirage Token':'warrior','Oyster Token':'fish','Ogdoadic Token':'serpent','Reptilianne Token':'serpent','Poisonous Snake Token':'serpent','Alligator Token':'serpent','Metal Fiend Token':'fiend','Grinder Token':'fiend','Gift Fiend Token':'fiend','Infernoid Token':'fiend','Evil Token':'fiend','Radian Token':'fiend'
+}
+variant_overrides={73915052:'sheep-blue',73915053:'sheep-orange',73915054:'sheep-yellow',73915055:'sheep-pink',60764582:'lamb-pink',60764583:'lamb-white',14470846:'ojama-red',14470847:'ojama-blue',29843092:'ojama-green',29843093:'ojama-yellow',29843094:'ojama-black',11050416:'hippo-pink',11050417:'hippo-orange',11050418:'hippo-yellow',11050419:'hippo-cyan',15341822:'fluff-angry',15341823:'fluff-smile',67284108:'black-sheep-shadow',67284109:'black-sheep-shadow',67284110:'black-sheep-shadow',67284111:'black-sheep-shadow'}
+palettes={73915052:('#8C9CD3','#BF9D65'),73915053:('#F0963F','#BF9D65'),73915054:('#EBC141','#BF9D65'),73915055:('#DA8A9B','#BF9D65'),60764582:('#D99AA1','#B09060'),60764583:('#EBEAEC','#B09060'),14470846:('#AD343A','#E4B777'),14470847:('#3B88BD','#385267'),29843092:('#4ABC87','#DAA2C7'),29843093:('#F2DC78','#DC8894'),29843094:('#72859B','#C0C9D5'),11050416:('#EA9EBB','#864346'),11050417:('#E19153','#E8CA73'),11050418:('#EDDD7D','#599CAE'),11050419:('#86CCDB','#EA87C1')}
+styles=json.loads((proof/'inspected-token-style-overrides.json').read_text())['profiles']
+models=[];profiles=[]
+for r in tokens:
+ code=r[0];reference=images.get(code) or images.get(r[2]);imageid=reference['imageId'] if reference else None
+ anatomy=name_anatomies.get(r[11],default_anatomy(r));variant=variant_overrides.get(code,re.sub('[^a-z0-9]+','-',r[11].lower()).strip('-').removesuffix('-token'))
+ visual={'variant':variant,'referenceImageId':str(imageid) if imageid else None,'visualBasis':'token-art' if reference else 'native-definition'}
+ model={'tokenCode':str(code),'tokenAnatomy':anatomy,'tokenVisual':visual}
+ if code in palettes:model.update(body=palettes[code][0],accent=palettes[code][1])
+ style=styles.get(str(code)) or styles.get(str(imageid)) or {}
+ if 'tokenAnatomy' in style:model['tokenAnatomy']=style['tokenAnatomy']
+ if 'variant' in style:model['tokenVisual']['variant']=style['variant']
+ model['tokenVisual'].update(style.get('tokenVisual',{}))
+ for prop in ('body','accent','hair','eye'):
+  if prop in style:model[prop]=style[prop]
+ models.append(model)
+ sites=direct.get(code,[]) or without.get(code,{}).get('aliasGenerators',[])
+ generator_codes=sorted({s['generatorCode'] for s in sites})
+ p={'presentationId':f'duel:{code}','cardId':str(code),'code':code,'nativeCode':code,'tokenCode':str(code),'name':r[11],'kind':'duel','tokenKind':'duel','type':'Token Monster','nativeTypeCode':r[4],'nativeAliasCode':r[2],'race':races.get(int(r[8])),'nativeRaceCode':int(r[8]),'attribute':attributes.get(r[9]),'nativeAttributeCode':r[9],'level':r[7]&255,'atk':r[5],'def':r[6],'ot':r[1],'sourceDatabase':r[14],'description':r[12],'generatorCodes':generator_codes,'generatorNames':[bycode[c][11] for c in generator_codes],'directlyCreatedByArchivedScripts':code in direct,'modelAvailable':True,'referenceArtPath':f'/tokens/reference/{imageid}.jpg' if imageid else None,'referenceArtUrl':reference['url'] if reference else None,'referenceKind':'token' if reference else 'unavailable','referenceAliasSourceCode':imageid if imageid and imageid!=code else None,'sourceUrl':'https://github.com/ProjectIgnis/BabelCDB'}
+ if not reference and generator_codes:
+  generator_reference=generator_images.get(generator_codes[0])
+  if generator_reference:
+   p.update(referenceArtPath=f"/tokens/generators/{generator_reference['cardCode']}.jpg",referenceArtUrl=generator_reference['url'],referenceKind='generator',referenceSourceCardCode=generator_reference['cardCode'],referenceDescription='Artwork of the card that creates this Token; not a Token illustration.')
+ profiles.append(p)
+placeholder=[]
+for r in sentinels:
+ placeholder.append({'presentationId':f'placeholder:{r[0]}','cardId':str(r[0]),'code':r[0],'nativeCode':r[0],'tokenCode':str(r[0]),'name':r[11],'kind':'placeholder','tokenKind':'placeholder','type':'Internal Token Marker','nativeTypeCode':r[4],'nativeAliasCode':r[2],'race':None,'nativeRaceCode':0,'attribute':None,'nativeAttributeCode':0,'level':r[7]&255,'atk':r[5],'def':r[6],'ot':r[1],'sourceDatabase':r[14],'description':r[12],'generatorCodes':[],'generatorNames':[],'modelAvailable':False,'tokenAnatomy':None,'tokenVisual':None,'referenceArtPath':None,'referenceArtUrl':None,'referenceKind':'unavailable','sourceUrl':'https://github.com/ProjectIgnis/BabelCDB'})
+printed=[]
+for imageid,card in sorted(apiimages.items()):
+ native=next(p for p in profiles if p['code']==imageid)
+ printed.append({**native,'presentationId':f'printed:{imageid}','kind':'decorative','tokenKind':'decorative','type':'Printed Token Marker','imageId':imageid,'name':card['name'],'printedSourceCardCode':card['id'],'description':card['desc'],'printedSets':[{'name':s['set_name'],'code':s['set_code']} for s in card.get('card_sets',[])],'sourceUrl':'https://db.ygoprodeck.com/api/v7/cardinfo.php?type=Token'})
+commemorative=json.loads((proof/'verified-commemorative-token-presentations.json').read_text())['presentations']
+# The rich catalog is lazy UI data. It never registers a duel card or supplies rules.
+header='''/** Pinned presentation data only. Native Lua/CDB/WASM remain authoritative. */\nconst deepFreeze = value => {\n  if (value && typeof value === 'object' && !Object.isFrozen(value)) {\n    Object.values(value).forEach(deepFreeze); Object.freeze(value);\n  }\n  return value;\n};\n'''
+compact=header+'\nexport const TOKEN_MONSTER_MODEL_PROFILES = deepFreeze({\n'+',\n'.join('  '+json.dumps(m['tokenCode'])+': '+json.dumps(m,ensure_ascii=False,separators=(',',':')) for m in models)+'\n});\n'
+compact+='''\nexport const TOKEN_MODEL_ANATOMIES = Object.freeze([...new Set(Object.values(TOKEN_MONSTER_MODEL_PROFILES).map(profile => profile.tokenAnatomy))].sort());\n\n/** Exact printed/native code lookup; aliases keep their own visual identity. */\nexport function getTokenMonsterModelProfile(cardOrCode) {\n  const code = cardOrCode && typeof cardOrCode === 'object'\n    ? cardOrCode.tokenCode ?? cardOrCode.cardId ?? cardOrCode.id ?? cardOrCode.code\n    : cardOrCode;\n  if (typeof code !== 'number' && typeof code !== 'string') return null;\n  if (!/^[0-9]+$/.test(String(code))) return null;\n  return TOKEN_MONSTER_MODEL_PROFILES[String(Number(code))] ?? null;\n}\n'''
+(root/'src/ui/TokenMonsterModelProfiles.js').write_text(compact)
+rich="import { getTokenMonsterModelProfile } from './TokenMonsterModelProfiles.js';\n"+header+'\nconst nativeRows = '+json.dumps(profiles,ensure_ascii=False,separators=(',',':'))+';\nconst placeholders = '+json.dumps(placeholder,ensure_ascii=False,separators=(',',':'))+';\nconst printedRows = '+json.dumps(printed,ensure_ascii=False,separators=(',',':'))+';\n'
+rich+='\nconst commemorativeRows = '+json.dumps(commemorative,ensure_ascii=False,separators=(',',':'))+';\n'
+rich+='''\nconst withModel = entry => ({ ...entry, ...(entry.modelAvailable ? getTokenMonsterModelProfile(entry.cardId) : {}) });\nexport const TOKEN_MONSTER_PROFILES = deepFreeze(nativeRows.map(withModel));\nexport const NATIVE_TOKEN_RECORDS = deepFreeze([...TOKEN_MONSTER_PROFILES, ...placeholders]);\nexport const PRINTED_TOKEN_PRESENTATIONS = deepFreeze(printedRows.map(withModel));\nexport const COMMEMORATIVE_TOKEN_PRESENTATIONS = deepFreeze(commemorativeRows);
+export const TOKEN_PRESENTATION_CATALOG = deepFreeze([...TOKEN_MONSTER_PROFILES, ...PRINTED_TOKEN_PRESENTATIONS, ...COMMEMORATIVE_TOKEN_PRESENTATIONS, ...placeholders]);\nexport const TOKEN_PRESENTATION_COVERAGE = deepFreeze({\n  asOf: '2026-10-11', nativeTokenBitRecords: 243, nativeTokenMonsters: 240,\n  nativeTokenMonsterNames: 198, internalPlaceholders: 3, archivedScriptCreatedCodes: 223,\n  apiTokenCards: 106, apiTokenIllustrations: 120, commemorativePresentations: 4,
+  secondaryGenericGalleryEntries: 438, secondaryGenericGalleryImages: 383,
+  otherOfficiallyConfirmedPhysicalArtVariants: 10,\n  description: '240 native duel identities and 120 API artwork presentations overlap; they are not 360 different Token species. The API is not a census of every commemorative physical Token printing.'\n});\nconst nativeIndex = new Map(TOKEN_MONSTER_PROFILES.map(entry => [entry.cardId, entry]));\nconst presentationIndex = new Map(TOKEN_PRESENTATION_CATALOG.map(entry => [entry.presentationId, entry]));\nexport function getTokenMonsterProfile(cardOrCode) {\n  const model = getTokenMonsterModelProfile(cardOrCode);\n  return model ? nativeIndex.get(model.tokenCode) ?? null : null;\n}\nexport function getTokenPresentationProfile(presentationId) {\n  return typeof presentationId === 'string' ? presentationIndex.get(presentationId) ?? null : null;\n}\n'''
+(root/'src/ui/TokenMonsterProfiles.js').write_text(rich)
+# Human/machine review data, separate from executable models.
+proofdata={'asOf':'2026-10-11','baseline':'82d8ef5bffb6eef01d197ea00a8cb2694e2e2870','nativeCardDataSha256':hashlib.sha256((root/'public/native/card-data.json').read_bytes()).hexdigest(),'luaInventorySha256':hashlib.sha256((proof/'lua-token-generators.json').read_bytes()).hexdigest(),'nativeTokenBitRecords':243,'nativeTokenMonsters':240,'nativeTokenNames':198,'apiTokenCards':106,'apiImages':120,'anatomyCounts':dict(collections.Counter(m['tokenAnatomy'] for m in models)),'models':models,'nativeProfiles':profiles,'placeholders':placeholder,'printedPresentations':printed,'commemorativePresentations':commemorative}
+(proof/'token-profile-inventory.json').write_text(json.dumps(proofdata,ensure_ascii=False,indent=2)+'\n')
+print(json.dumps({'nativeModels':len(models),'printedPresentations':len(printed),'placeholders':len(placeholder),'anatomyCounts':proofdata['anatomyCounts'],'compactBytes':len(compact.encode()),'richBytes':len(rich.encode())},indent=2))

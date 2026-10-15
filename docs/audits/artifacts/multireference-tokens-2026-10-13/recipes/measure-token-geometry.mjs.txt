@@ -1,0 +1,40 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { createHash } from 'node:crypto';
+import { pathToFileURL } from 'node:url';
+import { Box3 } from '/workspace/yugioh-25d-holograms/node_modules/three/build/three.module.js';
+const root='/workspace/yugioh-25d-holograms';
+const before='/workspace/yugioh-multiref-qa-baseline-2026-10-13';
+const output=path.join(root,'docs/audits/artifacts/multireference-tokens-2026-10-13');
+const oldFactory=(await import(pathToFileURL(path.join(before,'src/ui/HologramMonsterModels.js')))).createHologramMonsterModel;
+const newFactory=(await import(pathToFileURL(path.join(root,'src/ui/HologramMonsterModels.js')))).createHologramMonsterModel;
+const baseline=JSON.parse(fs.readFileSync(path.join(root,'test/fixtures/token-model-baseline-2026-10-11.json')));
+function pin(file){const data=fs.readFileSync(file);return{bytes:data.length,sha256:createHash('sha256').update(data).digest('hex')};}
+function inspect(factory,id,defense){
+ const model=factory({id,type:'Token Monster',isToken:true},{defense});
+ const geometryHash=createHash('sha256'),fullHash=createHash('sha256');
+ let bufferBytes=0;const attributes=new Set();
+ for(const mesh of model.children){
+  for(const [name,attribute]of Object.entries(mesh.geometry.attributes)){
+   if(!attribute.array.every(Number.isFinite))throw Error(`${id}: nonfinite ${name}`);
+   bufferBytes+=attribute.array.byteLength;attributes.add(name);
+  }
+  if(mesh.geometry.index){const indexBytes=Buffer.from(mesh.geometry.index.array.buffer);bufferBytes+=indexBytes.byteLength;geometryHash.update(indexBytes);fullHash.update(indexBytes);}
+  for(const name of ['position','normal','hologramJoint']){const data=Buffer.from(mesh.geometry.attributes[name].array.buffer);geometryHash.update(data);fullHash.update(data);}
+  fullHash.update(Buffer.from(mesh.geometry.attributes.color.array.buffer));
+ }
+ const bounds=new Box3().setFromObject(model);
+ const result={triangles:model.userData.triangleCount,batches:model.children.length,geometrySha256:geometryHash.digest('hex'),geometryAndPaletteSha256:fullHash.digest('hex'),bufferBytes,bounds:{min:bounds.min.toArray(),max:bounds.max.toArray()},attributeNames:[...attributes].sort(),fidelity:model.userData.fidelity};
+ model.traverse(mesh=>{mesh.geometry?.dispose();mesh.material?.dispose();});return result;
+}
+const records=[];
+for(const code of baseline.codes)for(const defense of[false,true]){
+ const previous=inspect(oldFactory,code.id,defense),current=inspect(newFactory,code.id,defense),originalTriangles=defense?code.defenseTriangles:code.attackTriangles;
+ const limit=Math.min(29450,originalTriangles*5);
+ if(current.triangles>limit||current.batches>5)throw Error(`${code.id}: budget`);
+ records.push({id:code.id,pose:defense?'DEF':'ATK',originalTriangles,fivefoldLimit:limit,ratioToOriginal:current.triangles/originalTriangles,previous,current,geometryChanged:previous.geometrySha256!==current.geometrySha256,paletteOrGeometryChanged:previous.geometryAndPaletteSha256!==current.geometryAndPaletteSha256});
+}
+const sourceFiles=['src/ui/HologramTokenCreatureModels.js','src/ui/HologramTokenConstructModels.js','src/ui/HologramTokenSpiritModels.js','src/ui/HologramTokenGeometry.js','src/ui/HologramTokenModels.js','src/ui/HologramMonsterModels.js','src/ui/CombatVisualProfiles.js','src/ui/TokenMonsterModelProfiles.js','test/fixtures/token-model-baseline-2026-10-11.json'];
+const sources=Object.fromEntries(sourceFiles.map(file=>[file,pin(path.join(root,file))]));
+const result={asOf:'2026-10-13',scope:'Geometry measurements for all240 public native Token codes in ATK and DEF, compared to immutable source at Git baabe9f and to original Oct11 triangle fixtures. This is not a browser, native-rule, performance or1:1certification proof.',beforeSourceHead:'baabe9f94863159053e4ad37be4c038104da5e23',beforeSourceTree:'8d4bf15626abcf2c721ee6b2ba3b59fd301880f4',originalFixtureHead:baseline.sourceHead,sources,summary:{codes:baseline.codes.length,poseRecords:records.length,geometryChangedCodes:[...new Set(records.filter(r=>r.geometryChanged).map(r=>r.id))],paletteOrGeometryChangedCodes:[...new Set(records.filter(r=>r.paletteOrGeometryChanged).map(r=>r.id))],allWithinOriginalFivefoldBudget:true,maxBatches:Math.max(...records.map(r=>r.current.batches)),maxTriangles:Math.max(...records.map(r=>r.current.triangles)),maxRatioToOriginal:Math.max(...records.map(r=>r.ratioToOriginal))},records};
+fs.writeFileSync(path.join(output,'geometry-before-after-240-two-poses.json'),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result.summary));

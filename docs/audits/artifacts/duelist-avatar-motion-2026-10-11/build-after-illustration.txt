@@ -1,0 +1,41 @@
+
+> yugioh-25d-holograms@1.1.0 build
+> vite build
+
+vite v8.1.5 building client environment for production...
+[2Ktransforming...
+new URL("ocgcore.sync.wasm",import.meta.url) doesn't exist at build time, it will remain unchanged to be resolved at runtime. If this is intended, you can use the /* @vite-ignore */ comment to suppress this warning.
+✓ 131 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                      36.35 kB │ gzip:   9.04 kB
+dist/assets/index-B0neSjOl.css                       97.91 kB │ gzip:  20.17 kB
+dist/assets/FieldGeometryThree-DWg1RG58.js            0.45 kB │ gzip:   0.30 kB
+dist/assets/preload-helper-Czpn1I53.js                1.19 kB │ gzip:   0.67 kB
+dist/assets/FieldSpellAtlasPreview-BshVSt4I.js        2.86 kB │ gzip:   1.24 kB
+dist/assets/DuelistAvatarPreview3D-DCkK30OY.js        7.83 kB │ gzip:   2.75 kB
+dist/assets/FieldSpellAtlas-DfvquptQ.js              19.43 kB │ gzip:   5.59 kB
+dist/assets/ocgcore.sync-MMMSWPBB-2LWfD6lX.js        20.71 kB │ gzip:   8.34 kB
+dist/assets/FieldSpellRules-DLBFReUe.js              20.91 kB │ gzip:   8.22 kB
+dist/assets/DuelistAvatarModels-CHmj9_dA.js          27.50 kB │ gzip:  10.59 kB
+dist/assets/ocgcore-DWqJvtmv.js                      46.50 kB │ gzip:  13.76 kB
+dist/assets/NativeDuelGame-BQQeoq5F.js               96.48 kB │ gzip:  31.99 kB
+dist/assets/FieldSpellCardDataSnapshot-DzxkUNrK.js  169.82 kB │ gzip:  38.70 kB
+dist/assets/RealDuelView-7MP8yL6o.js                210.45 kB │ gzip:  65.29 kB
+dist/assets/three.module-C11-qB7T.js                539.32 kB │ gzip: 136.62 kB
+dist/assets/FieldEnvironmentRegistry-CW5zbHcP.js    622.01 kB │ gzip: 226.79 kB
+dist/assets/index-BdRAqqlF.js                       762.92 kB │ gzip: 191.31 kB
+
+[33m[INEFFECTIVE_DYNAMIC_IMPORT] [0msrc/core/native/NativeCardCatalogue.js is dynamically imported by main.js but also statically imported by main.js, src/core/native/NativeDuelGame.js, dynamic import will not move module into another chunk.
+
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 755ms
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice

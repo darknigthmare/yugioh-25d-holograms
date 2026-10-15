@@ -1,0 +1,25 @@
+import json,subprocess,hashlib,datetime
+from pathlib import Path
+from concurrent.futures import ThreadPoolExecutor
+from PIL import Image
+root=Path('/workspace/yugioh-25d-holograms');dest=root/'docs/audits/artifacts/multireference-tokens-2026-10-13';(dest/'references').mkdir(parents=True,exist_ok=True)
+api=json.loads(Path('/tmp/yugioh-token-multiview-api.json').read_text());(dest/'ygoprodeck-related-api-2026-10-13.json').write_text(json.dumps(api,ensure_ascii=False,indent=2)+'\n')
+ids={40640057,40703222,73915051,60764581,14470845,29843091,71645242}
+records=[]
+for c in api['data']:
+ if c['id'] not in ids:continue
+ for im in c['card_images']:
+  records.append({'name':c['name'],'cardCode':c['id'],'imageId':im['id'],'kind':'related-card-art','sourcePage':c['ygoprodeck_url'],'url':im['image_url_cropped'],'fileName':str(im['id'])+'.jpg','deduplication':'The full card and its crop count as one illustration, not separate angles.'})
+for path in ['3/38/WorldLegacyToken-OP15-EN-SR-UE.png','c/c3/WorldLegacyToken-TK03-JP-R.png','d/df/WorldLegacyToken-TK05-JP-R.png','8/8b/WorldLegacyToken-LOD2-JP-VG-artwork.jpg','4/43/WorldLegacyToken-20TP-JP-OP.png']:
+ records.append({'name':'World Legacy Token','kind':'printed-scan-or-game-capture','sourcePage':'https://yugipedia.com/wiki/Card_Gallery:World_Legacy_Token','url':'https://ms.yugipedia.com/'+path,'fileName':path.split('/')[-1],'deduplication':'Compare composition: multilingual/reprint scans of the same illustration count as one view.'})
+def fetch(r):
+ p=dest/'references'/r['fileName'];h=Path('/tmp/yugioh-token-ref-'+r['fileName']+'.headers')
+ s=subprocess.run(['curl','-sS','-L','--max-time','35','-A','Mozilla/5.0','-D',str(h),r['url'],'-o',str(p),'-w','%{http_code}'],capture_output=True)
+ r['curlExitCode']=s.returncode; r['status']=int(s.stdout.decode().strip() or '0'); r['statusMeasuredBy']='curl GET --write-out %{http_code}';
+ headers=h.read_text().replace('\r','').split('\n'); r['responseContentType']=next((line.split(':',1)[1].strip() for line in reversed(headers) if line.lower().startswith('content-type:')),None)
+ try:
+  b=p.read_bytes();im=Image.open(p);r.update({'path':str(p.relative_to(root)),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest(),'dimensions':list(im.size),'format':im.format,'fetchedAtUtc':datetime.datetime.now(datetime.UTC).isoformat()}); print(r['fileName'],r['dimensions'],len(b))
+ except Exception as ex:
+  r.update({'status':'unavailable','error':str(ex)});print('FAILED',r['fileName'],str(ex));p.unlink(missing_ok=True)
+ return r
+records=list(ThreadPoolExecutor(max_workers=4).map(fetch,records));(dest/'download-records.json').write_text(json.dumps(records,ensure_ascii=False,indent=2)+'\n')

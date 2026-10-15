@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-13",
+  "pass": true,
+  "sourcePins": 736,
+  "compiledFiles": 24,
+  "staticFiles": 561,
+  "protectedFiles": 3652,
+  "sourceUnchanged": true,
+  "compiledUnchanged": true,
+  "staticUnchanged": true,
+  "protectedUnchanged": true,
+  "checkLogUnchanged": true,
+  "entry": "/assets/index-C2yg8uvD.js",
+  "entryPin": {
+    "bytes": 974597,
+    "sha256": "babab1743ff62c83971d835b94a3b169faf94f1f8108158ed2694ca3737a9a16"
+  },
+  "baselineCommit": "1371c5ba679d336f5df478720e6f9c4265d08e9d"
+}

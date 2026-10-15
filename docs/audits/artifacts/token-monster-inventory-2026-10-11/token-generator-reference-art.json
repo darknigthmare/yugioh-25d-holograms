@@ -1,0 +1,1641 @@
+{
+  "asOf": "2026-10-11",
+  "fetchedAtUtc": "2026-10-11T16:53:19.947001+00:00",
+  "sourceSnapshot": "ygoprodeck-token-generator-api-2026-10-11.json",
+  "sourceSha256": "2d996143e03c7aeaa5f0bdd6dbca38d9c76b700f3171c39efd4cd7cadf9f31f7",
+  "images": [
+    {
+      "cardCode": 645087,
+      "name": "Cyberse Gadget",
+      "imageId": 645087,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/645087.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 132429,
+      "sha256": "95eda3c753e60910680be38568e79b3b7382ea5863d4ba627086dcb20ccf8998",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/645087.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 904185,
+      "name": "Vertical Landing",
+      "imageId": 904185,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/904185.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 108018,
+      "sha256": "6ad0c1055766028f5e49f42cc3b2f7a8f847745238a2a6b4bd0a76f827ea4a4e",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/904185.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 1799464,
+      "name": "Transcicada",
+      "imageId": 1799464,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/1799464.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 148980,
+      "sha256": "b6a3ad20be3d01cee2983608795df7c879d942e5a6da62c5dc2e2c21ffa95e79",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/1799464.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 2625939,
+      "name": "Spool Code",
+      "imageId": 2625939,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/2625939.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 126830,
+      "sha256": "8696ed5d536727310238e9dd5c64d920a8dd2bac815885719e2bca193d0c42a2",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/2625939.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 3129133,
+      "name": "Delta of Invitation",
+      "imageId": 3129133,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/3129133.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 165106,
+      "sha256": "fb82180e1b2ab9e95d8b22f697642157e78f4d791c98426772a12b029c92a4d5",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/3129133.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 3129527,
+      "name": "Sleepy Scapegoats",
+      "imageId": 3129527,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/3129527.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 388321,
+      "sha256": "49ef5ec1b0acc6082e094f70cc4cd4c15957b8de9f3e6b0f32b735c903cc06ce",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/3129527.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 3285551,
+      "name": "Rite of Aramesir",
+      "imageId": 3285551,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/3285551.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 192506,
+      "sha256": "6c1e26d167acf09b9ec804cf4e1f1294c439deb9175d0304cb97cefc579988a1",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/3285551.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 7610394,
+      "name": "Evil Eye Reemergence",
+      "imageId": 7610394,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/7610394.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 129555,
+      "sha256": "8d4be082a16f15de6a8474e101f827ae2764385feb7598a000942c94ac3d2af0",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/7610394.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 8025950,
+      "name": "Gadget Box",
+      "imageId": 8025950,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/8025950.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 190473,
+      "sha256": "1fe6985135b9afd3925b39d2592699e9f495ea216b8854effded98c233688897",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/8025950.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 9396662,
+      "name": "Mirror Mage of the Ice Barrier",
+      "imageId": 9396662,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/9396662.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 228464,
+      "sha256": "f76b49a83b7bc8a3886c8a9a0b527d8acd0b434fad2e906d70a125ec29aa857c",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/9396662.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 11654067,
+      "name": "Fire Ejection",
+      "imageId": 11654067,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/11654067.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 192121,
+      "sha256": "e9cb6af59c2abccf3cf82d9fd444cbcf95ba57d79181d794765e732d9f6f8827",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/11654067.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 11738489,
+      "name": "The Arrival Cyberse @Ignister",
+      "imageId": 11738489,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/11738489.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 175884,
+      "sha256": "19469dd4570c487e2be98794ec9881c71cf32668b29a92f992f1a4aca091c8a9",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/11738489.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 13764602,
+      "name": "Perfect Sync - A-Un",
+      "imageId": 13764602,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/13764602.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 172774,
+      "sha256": "1af28373d8d8816491c6323ce48fb048d7e3ca631d8de785fe580aa4b2e62f70",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/13764602.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 13935001,
+      "name": "Lunalight Serenade Dance",
+      "imageId": 13935001,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/13935001.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 96323,
+      "sha256": "e0b06a8f08b42b8e8c9590608dfdb85dd09f30beeca12fd5c4fba1e547984ecb",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/13935001.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 14821890,
+      "name": "Swordsoul Blackout",
+      "imageId": 14821890,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/14821890.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 190406,
+      "sha256": "b97063c97e14e509085c1c29e0dc9beaf4581d4b225ef562dc8753d687813b2c",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/14821890.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 14957440,
+      "name": "Otoshidamashi",
+      "imageId": 14957440,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/14957440.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 84276,
+      "sha256": "48020c96f2587ceed5c1348cf148047e911a743dd32ee5a503e937318520b6dc",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/14957440.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 15590355,
+      "name": "Libromancer Realized",
+      "imageId": 15590355,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/15590355.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 258923,
+      "sha256": "8937bdb28afc97fbda861949b4924d35d2366dc441e5ada942833a9e04c0a6fa",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/15590355.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 17228908,
+      "name": "Lost World",
+      "imageId": 17228908,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/17228908.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 129458,
+      "sha256": "9ac15ee7cda59b7195cecb4a85d42681b0c139fd4c5ba942215d92075af37f5a",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/17228908.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 18494511,
+      "name": "Icejade Ran Aegirine",
+      "imageId": 18494511,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/18494511.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 202889,
+      "sha256": "14b55ac72db407987ec1d3be94da16b5c362b794d8f664b196cb0d8e2a59cbfb",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/18494511.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 18905769,
+      "name": "Guivre",
+      "imageId": 18905769,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/18905769.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 146627,
+      "sha256": "12354296345532782d1a2d0d25e03f8b8572abc1d01b3ce469c305df9a904597",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/18905769.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 19280589,
+      "name": "Tellus the Little Angel",
+      "imageId": 19280589,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/19280589.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 110913,
+      "sha256": "7bf5546bca5ad566b7aaac0e9b7775ec9c0209abe2831532099e586d5324ccc9",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/19280589.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 20368763,
+      "name": "Mecha Phantom Beast Harrliard",
+      "imageId": 20368763,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/20368763.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 108708,
+      "sha256": "f9edd336776a33f4bdfd57d3bb16c54d392a84325cb2ca3b9745532a212a4d1d",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/20368763.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 21830679,
+      "name": "Clock Wyvern",
+      "imageId": 21830679,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/21830679.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 171777,
+      "sha256": "cfccfcb0a2a25383cb04226e5fda7a1fb47b2289364195b922585108033409e7",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/21830679.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 22110647,
+      "name": "Mecha Phantom Beast Dracossack",
+      "imageId": 22110647,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/22110647.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 107353,
+      "sha256": "0805bc116dcbde66da19698fbba86316f93b7512aa3ce88da2eb13ebfc2c59f3",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/22110647.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 22712877,
+      "name": "Paralyzing Mushroom",
+      "imageId": 22712877,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/22712877.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 229736,
+      "sha256": "e7aa833c90943e2c64c8a9b46c470c65f8c7e3259a2495459dcf3ff174198db8",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/22712877.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 22953211,
+      "name": "Bellcat Fighter",
+      "imageId": 22953211,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/22953211.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 82627,
+      "sha256": "a8d3a20926139e06ad32431cb9053db9c77a20cad7350204334a6a29a6958992",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/22953211.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 23116808,
+      "name": "Goka, the Pyre of Malice",
+      "imageId": 23116808,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/23116808.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 106593,
+      "sha256": "cb81f20d949f18c38a51a5ebca442e69b0014effc748d563d0735f5bfd8ff163",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/23116808.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 23837054,
+      "name": "Ogdoadic Calling",
+      "imageId": 23837054,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/23837054.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 129380,
+      "sha256": "6b600df8f7e1cb37593b987a3194e46414145629508106bb47506c3a7c7a47e1",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/23837054.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 25419323,
+      "name": "Dinomorphia Shell",
+      "imageId": 25419323,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/25419323.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 242944,
+      "sha256": "64fec9fa2375bb06f7e4ca4dfd961ac788238436d826cda492e581bb10d6b62a",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/25419323.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 26326541,
+      "name": "Shiranui Swordsaga",
+      "imageId": 26326541,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/26326541.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 119362,
+      "sha256": "8440a9970caf0909b467d2b689e009116576f593b6d9325f643fc9531e26999a",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/26326541.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 26364381,
+      "name": "Demiurge Ema",
+      "imageId": 26364381,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/26364381.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 108106,
+      "sha256": "884c65dd4721d6977be2b14d311db6b70100a821e7e864915bdff462218040c7",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/26364381.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 27204311,
+      "name": "Nibiru, the Primal Being",
+      "imageId": 27204311,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/27204311.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 113417,
+      "sha256": "76d6833ffdd20e73576bb4ed632efa7a90efc1f8a6fec52cb359f54a275860a1",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/27204311.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 27882993,
+      "name": "Infernalqueen Salmon",
+      "imageId": 27882993,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/27882993.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 219893,
+      "sha256": "bce8e6fa8dec76dc1d33911bb98f671ed83c0baf015b0c5d8bdcd3b5147c3332",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/27882993.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 30327674,
+      "name": "Chaos Witch",
+      "imageId": 30327674,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/30327674.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 185863,
+      "sha256": "7ca99cc5f0d4efa2beea153e7627985875ce977457d31af7fed4c60e1eb17d35",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/30327674.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 30650147,
+      "name": "Vendread Reorigin",
+      "imageId": 30650147,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/30650147.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 122120,
+      "sha256": "d5f48a28d270fcf49be1945f105a0f075ed0335e8c0d59215188d23a99708490",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/30650147.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 30765615,
+      "name": "Ringowurm, the Dragon Guarding the Hundred Apples",
+      "imageId": 30765615,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/30765615.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 200090,
+      "sha256": "c1f764e54d14e333ccf1749a3e1e7e028ef882b547c0f8d322317f9fe6ca78f4",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/30765615.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 31600513,
+      "name": "Praying Mantis",
+      "imageId": 31600513,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/31600513.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 190290,
+      "sha256": "ddcd13b9ddfa72135c4d34ba26901ae31d1d1d73376df074e76e409054fdd66e",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/31600513.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 32335697,
+      "name": "Haunted Zombies",
+      "imageId": 32335697,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/32335697.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 231319,
+      "sha256": "1f8b42edee7da885f8b828ef091e4b8601edba46178a26aa9ef37c7f9e01b5be",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/32335697.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 32446630,
+      "name": "Number C43: High Manipulator of Chaos",
+      "imageId": 32446630,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/32446630.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 150495,
+      "sha256": "fa95276b1f5fb218b5f027268ecb8544d240d5727870742103ee84dda37ab235",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/32446630.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 33676146,
+      "name": "Escapegoat",
+      "imageId": 33676146,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/33676146.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 127253,
+      "sha256": "926d3cd1f911c088c633314056e946966d25694be167070118788325892b2ec2",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/33676146.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 34479658,
+      "name": "Dark Alligator",
+      "imageId": 34479658,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/34479658.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 92782,
+      "sha256": "4357355bb1f79c4d1b469899554d99e4ec7cce798541dd6a38d2067b6f481545",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/34479658.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 34767865,
+      "name": "Cynet Ritual",
+      "imageId": 34767865,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/34767865.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 139561,
+      "sha256": "9c35300d23e5a428acf05156e66ac8ec39c142915cec17f375c46ef6c16eba78",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/34767865.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 35167375,
+      "name": "Surprise Fusion",
+      "imageId": 35167375,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/35167375.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 148311,
+      "sha256": "dfeb3ca52cc6eaa7d3c5b637622aa2eba9ddf4d837ec1f61c50485b4e78e1127",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/35167375.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 35263180,
+      "name": "Seed-Spitting Saplings",
+      "imageId": 35263180,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/35263180.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 251176,
+      "sha256": "cc9acf021db2a20a4984d80b08fc688efde1b22a0b99b48ad61287695a465550",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/35263180.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 35552985,
+      "name": "Fiendsmith's Sanct",
+      "imageId": 35552985,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/35552985.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 132436,
+      "sha256": "47aa0ec9793ad19d8154af18b1ea5a4dd167a57c01f2f53c8865fab9168eb18d",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/35552985.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 35834119,
+      "name": "Fish Lamp",
+      "imageId": 35834119,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/35834119.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 173257,
+      "sha256": "84929b6058207236d80ce5964be7d5154bb2b1459b8bd504cffeb9e862f675b4",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/35834119.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 36629635,
+      "name": "Dandy Whitelion",
+      "imageId": 36629635,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/36629635.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 165758,
+      "sha256": "c122eb7187c0bacb1a3adae49120b523902393d9947ab65b51cf06ebc8b13450",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/36629635.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 37654623,
+      "name": "Hideout in the Sky, Coulomb",
+      "imageId": 37654623,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/37654623.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 127708,
+      "sha256": "2df20f9d7cad8034116c8cc08dcc2d29bb0561bc833cab05e8f5bb36122639b2",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/37654623.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 38030232,
+      "name": "Tenyi Spirit - Sahasrara",
+      "imageId": 38030232,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/38030232.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 135872,
+      "sha256": "16230efac4bd82d7c9340581ea10ed005dd7940dcfa59352f3f0b384e7f61bee",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/38030232.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 38053381,
+      "name": "Generaider Boss Stage",
+      "imageId": 38053381,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/38053381.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 146267,
+      "sha256": "70af7a992677273d6b96ec807c0c9ad1b18a4d441d061967de94c4633f9c4cc0",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/38053381.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 40551410,
+      "name": "Recette de Personnel (Staff Recipe)",
+      "imageId": 40551410,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/40551410.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 148745,
+      "sha256": "a760c9c9a5e3d37f007158d5741cb282b4283f8dd2a3a8462863c64a3dae91db",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/40551410.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 40633084,
+      "name": "Beetrooper Squad",
+      "imageId": 40633084,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/40633084.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 159081,
+      "sha256": "a48ddcb5ec3f3d53ee4b37aaa484730135694b1cf7df9e4f5de157e426765f04",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/40633084.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 41458361,
+      "name": "Adamancipator Luminous",
+      "imageId": 41458361,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/41458361.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 198403,
+      "sha256": "3d577e77df315d6fcf4df2d100f872fb56767a4aea6d35eb55957b2523acefb8",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/41458361.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 42427230,
+      "name": "Division",
+      "imageId": 42427230,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/42427230.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 150447,
+      "sha256": "f8a9b32a064d5fbf54e0ff183210a53347a219f919401ada0a9c7b7373204892",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/42427230.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 43664494,
+      "name": "Prank-Kids Pranks",
+      "imageId": 43664494,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/43664494.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 186903,
+      "sha256": "1c5f3c40711afeb23ddeba44f9f19792afe7573706f816740aaf1effb1798823",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/43664494.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 44092304,
+      "name": "Parasomnia Pillow",
+      "imageId": 44092304,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/44092304.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 141613,
+      "sha256": "0d44fa91fcd24603f4e2904b9b1369bca24ebdbc35b88329b0949ee4977aca8d",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/44092304.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 44097050,
+      "name": "Mecha Phantom Beast Auroradon",
+      "imageId": 44097050,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/44097050.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 95441,
+      "sha256": "52b6c803ac4b62c86791ffd3c3d398885a2b171044d481ba64b69482194d7405",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/44097050.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 48068378,
+      "name": "Link Devotee",
+      "imageId": 48068378,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/48068378.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 154483,
+      "sha256": "0b32327cb2808ee0db348da83455c283fe395317e7e175caee744790081b0791",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/48068378.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 48228390,
+      "name": "Pyrite Knight",
+      "imageId": 48228390,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/48228390.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 212007,
+      "sha256": "f9cadb423a3d10ba208fa5863b33a1b57d5e94e8fa55441f60095e1561731c07",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/48228390.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 51208046,
+      "name": "Trickstar Live Stage",
+      "imageId": 51208046,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/51208046.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 128257,
+      "sha256": "ff6a4800fa5ac5c68cf8a3fe754421bc8de4e3261c447ec4d1620a22871cb2c7",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/51208046.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 51611041,
+      "name": "Epigonen, the Impersonation Invader",
+      "imageId": 51611041,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/51611041.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 206140,
+      "sha256": "6ef3098d134deb8e520f5888390ff47808b074327fc85fbe691bd3a06ee06469",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/51611041.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 52768390,
+      "name": "Dark Creator",
+      "imageId": 52768390,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/52768390.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 342092,
+      "sha256": "9af97edc115c59e7fa89d82e1740c9c01ad8edbaf03994c01d97b17f2443c34e",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/52768390.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 52782439,
+      "name": "Exceptional Schedule",
+      "imageId": 52782439,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/52782439.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 260458,
+      "sha256": "c05991d2090dbd663acd5e48d940edac18582b94e7a3991b050e94266ac9b863",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/52782439.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 53545926,
+      "name": "Token Support",
+      "imageId": 53545926,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/53545926.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 150686,
+      "sha256": "012918e85668e647317317df3bee32ea9e2be8fe7ea68e5c749013c6b990dfc5",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/53545926.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 53770666,
+      "name": "Armament Reincarnation",
+      "imageId": 53770666,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/53770666.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 167823,
+      "sha256": "922ec0c805e8d0d2a04324f569e00064150e181cbffd0f7b603a850dcdcaf169",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/53770666.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 54577949,
+      "name": "Witness of the Ancient",
+      "imageId": 54577949,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/54577949.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 589054,
+      "sha256": "202abbe0f5f81ecbc3204148db8278a0ed45f902233a9dc797dd57521d219c37",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/54577949.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 58371671,
+      "name": "Crystal Aegis",
+      "imageId": 58371671,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/58371671.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 194425,
+      "sha256": "ee6380a707bada7df95b672322bfc258f95d9c3139e989f5b1779e9a61072b1b",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/58371671.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 58809685,
+      "name": "Elfnotes: Quatrain of Succession",
+      "imageId": 58809685,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/58809685.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 443170,
+      "sha256": "da61341d750d96e8aea017b3d7c152119cbdb53650e8674d5cf140b36ce3f416",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/58809685.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 59900655,
+      "name": "Gold Pride - Nytro Head",
+      "imageId": 59900655,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/59900655.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 210069,
+      "sha256": "6c8565150651b0a365d4975a014ba8161007797e64fd49f4e81d073eb226830b",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/59900655.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 60025883,
+      "name": "Duel Link Dragon, the Duel Dragon",
+      "imageId": 60025883,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/60025883.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 155445,
+      "sha256": "dca9de2864a9ddbaf4e792ad9110e1e66b2ef2743866002a252052c625debc14",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/60025883.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 60203670,
+      "name": "Gold Pride - Eliminator",
+      "imageId": 60203670,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/60203670.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 229525,
+      "sha256": "de4c105a98bbdedc8db8b1a9640264bda877756e07d2809d438fcc4bc9452504",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/60203670.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 60514625,
+      "name": "Ecole de Zone",
+      "imageId": 60514625,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/60514625.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 217653,
+      "sha256": "76139cd240e0a2a305e242f48aee9a7337b6508fa91f895b86ebda1f20b053e4",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/60514625.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 63184227,
+      "name": "Stardust Trail",
+      "imageId": 63184227,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/63184227.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 179636,
+      "sha256": "b2fc64b51a69aea73b264a91265be8943607d69055086fe358d32173562971c0",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/63184227.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 64583600,
+      "name": "Wish Dragon",
+      "imageId": 64583600,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/64583600.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 183685,
+      "sha256": "0c9f857dcec0a768926600a6396c2c6bda964370ef735c8e25a45594bea4d77d",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/64583600.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 65500515,
+      "name": "Squirt Squid",
+      "imageId": 65500515,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/65500515.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 108310,
+      "sha256": "679a897e262ab80a91514e519793d9904c84cfa12e41d935ec7374c23464c1f7",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/65500515.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 67922702,
+      "name": "Mecha Phantom Beast Tetherwolf",
+      "imageId": 67922702,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/67922702.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 93745,
+      "sha256": "29babdb6b2f88ae6e7b1d2cc652543819fa2e0fd73bb1d35e96635e7c0456446",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/67922702.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 69550259,
+      "name": "Speedroid Block-n-Roll",
+      "imageId": 69550259,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/69550259.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 132807,
+      "sha256": "d02809074928fad3e31707302a1c48b2b4717ea3d0c430a5775899b348bffe25",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/69550259.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 70465810,
+      "name": "Blackwing - Sudri the Phantom Glimmer",
+      "imageId": 70465810,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/70465810.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 178096,
+      "sha256": "20f6c9dd18778200a29433fb027ac0db1736e7d4fe664796ac32796c71d9ab5e",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/70465810.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 70950698,
+      "name": "Boot Staggered",
+      "imageId": 70950698,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/70950698.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 144614,
+      "sha256": "b5ce8f7b4b5a63bf42c9720a151a040a9cc76761948a8816bc6ea03e0489e282",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/70950698.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 71771004,
+      "name": "Readying of Rites",
+      "imageId": 71771004,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/71771004.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 108991,
+      "sha256": "c4d2bf3dd7a3e8291c8c39e4e878321e3923b620bfd60436f9f9d5e3c64eb94d",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/71771004.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 71939275,
+      "name": "Spirit Illusion",
+      "imageId": 71939275,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/71939275.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 77458,
+      "sha256": "f408fbce53a6501157410b5fa1995e477e6a89033590783ffdfa9240ac614eaf",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/71939275.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 74627016,
+      "name": "T.G. Tank Grub",
+      "imageId": 74627016,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/74627016.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 124053,
+      "sha256": "aec3c9452a135156dea7c366fe80665795c994baafdc1e6b3ea1920e0cc3e5b2",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/74627016.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 74659582,
+      "name": "Sleipnir the Runick Mane",
+      "imageId": 74659582,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/74659582.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 226155,
+      "sha256": "e6a17fa1189422d3c16bec024671d0c4e851314ba173a3ff5d570885ad8b6914",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/74659582.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 76589546,
+      "name": "Overflow Dragon",
+      "imageId": 76589546,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/76589546.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 153667,
+      "sha256": "ba1e842707bccf06cee3c8c332be0d82f338bed88ad91461b4ed01bf1dbb4a4c",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/76589546.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 77435268,
+      "name": "Checkker",
+      "imageId": 77435268,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/77435268.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 394865,
+      "sha256": "eb148f69269f49e6817037826e1f05c1839ee275a45402dc9eedb30eb6bae9cd",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/77435268.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 81767888,
+      "name": "Branded Sword",
+      "imageId": 81767888,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/81767888.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 257065,
+      "sha256": "b740de8818e69846679edded79b1dea2f55271478178643951a73ac1aac12606",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/81767888.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 82255872,
+      "name": "Ancient Warriors Saga - Chivalrous Path",
+      "imageId": 82255872,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/82255872.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 113737,
+      "sha256": "65e54c93c6733eccba6232d6f2103e53746135661167896b8ba7c5d558516d88",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/82255872.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 84031359,
+      "name": "Darklord Gulgolet",
+      "imageId": 84031359,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/84031359.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 162540,
+      "sha256": "3dbb60177142dc41d538fdfbed1ec2fecaf3e049ee800d3ff805cc26dd24888b",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/84031359.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 85969517,
+      "name": "Plunder Patrollship Jord",
+      "imageId": 85969517,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/85969517.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 162372,
+      "sha256": "e99f2bc71be6b1f39679d6d361661ba5e545cb8da54702bd5b9fb2387406396f",
+      "dimensions": [
+        712,
+        908
+      ],
+      "path": "public/tokens/generators/85969517.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 88477149,
+      "name": "Twin Pillars of Ice",
+      "imageId": 88477149,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/88477149.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 169683,
+      "sha256": "5ab69faf7379e53d65b84c1a8f93fd91fae6ac37957f919377248ea6abaa46ca",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/88477149.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 88923963,
+      "name": "Noble Knight Iyvanne",
+      "imageId": 88923963,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/88923963.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 111525,
+      "sha256": "6b17986c65b28e38359943160e41a25bed0e58c5b77516b806d623a0c57e6671",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/88923963.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 89027418,
+      "name": "Imposter Shift",
+      "imageId": 89027418,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/89027418.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 103181,
+      "sha256": "9d071366d60312e9b3d6e86069c759fd77a0cd1c571c59fc85fa37bc2f590c61",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/89027418.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 92907248,
+      "name": "Wake Up Centur-Ion!",
+      "imageId": 92907248,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/92907248.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 258249,
+      "sha256": "49524524de5f85458fe200cbe00b0af8dd8cb7370850ad222581d1ce65ad2629",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/92907248.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 94384774,
+      "name": "Ebisu Shinsen Matsuri",
+      "imageId": 94384774,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/94384774.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 172919,
+      "sha256": "161f421894ffdd37dbebb66d80ad9c33b3c1d3e9f5e05ab9bd46cd09e9c3b29f",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/94384774.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 94703021,
+      "name": "Cluster Congester",
+      "imageId": 94703021,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/94703021.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 118903,
+      "sha256": "add462716ac6c243fd27633bb4b45807723e5fbfc5a54607fbc4e7e365c58de7",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/94703021.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    },
+    {
+      "cardCode": 98875863,
+      "name": "G Golem Rock Hammer",
+      "imageId": 98875863,
+      "url": "https://images.ygoprodeck.com/images/cards_cropped/98875863.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 209870,
+      "sha256": "036b76a345760cb3c93bcaf5bf743adc40e73ce2d388a7a002765e34b1262854",
+      "dimensions": [
+        624,
+        624
+      ],
+      "path": "public/tokens/generators/98875863.jpg",
+      "referenceKind": "generator",
+      "note": "Artwork of the verified card that creates the Token. This is not an illustration of the Token itself."
+    }
+  ],
+  "sourceUrl": "https://db.ygoprodeck.com/api/v7/cardinfo.php?id=645087,904185,1799464,2625939,3129133,3129527,3285551,4417407,7610394,8025950,9396662,11654067,11738489,13764602,13935001,14821890,14957440,15590355,16943770,17228908,18494511,18905769,19280589,20001443,20368763,21830679,22110647,22411609,22712877,22953211,23116808,23837054,25419323,26326541,26364381,27204311,27882993,30327674,30650147,30765615,30811116,31480215,31533704,31600513,32056070,32335697,32446630,33676146,34479658,34690953,34767865,35167375,35263180,35552985,35834119,36629635,37654623,38030232,38053381,40551410,40633084,41329458,41458361,42427230,43664494,44026393,44092304,44097050,44308317,48068378,48228390,49752795,51208046,51611041,52768390,52782439,53545926,53770666,54577949,56495147,58371671,58809685,59900655,60025883,60203670,60514625,62481203,63184227,64213017,64583600,65500515,66200210,67489919,67922702,69550259,70465810,70875955,70950698,71771004,71939275,72291078,74627016,74659582,76589546,77435268,78789356,78836195,81767888,82255872,84031359,85243784,85969517,87240371,87669904,88477149,88923963,89027418,92907248,93490856,94384774,94703021,94973028,98596596,98875863,99137266"
+}

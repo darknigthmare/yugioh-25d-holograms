@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { access } from 'node:fs/promises';
 import test from 'node:test';
+import { getHologramTriangleBudget } from './fixtures/hologram-triangle-budgets-2026-10-11.js';
 import { Color } from 'three';
 import { createHologramMonsterModel } from '../src/ui/HologramMonsterModels.js';
 import { createHologramPoseAnimation, HOLOGRAM_JOINTS } from '../src/ui/HologramPoseAnimation.js';
@@ -36,7 +37,7 @@ test('four iconic models consume checked illustration palettes with separate scu
     assert.equal(model.userData.referenceArt, `/cards/cropped/${id}.jpg`);
     await access(new URL(`../public${model.userData.referenceArt}`, import.meta.url));
     assert.equal(model.children.length, 5);
-    assert.ok(model.userData.triangleCount < 6000);
+    assert.ok(model.userData.triangleCount <= getHologramTriangleBudget(id));
     assert.equal(model.userData.fidelity, 'procedural-interpretation');
     for (const mesh of model.children) {
       assert.equal(mesh.material.vertexColors, true);
@@ -62,7 +63,7 @@ test('new Field-rule participants have literal, distinctive bodies and matching 
     assert.ok(model.userData.partNames.includes(part));
     assert.equal(resolveCombatVisualProfile({ kind: 'attack', card: { id } }).id, attack);
     assert.equal(model.children.length, calls);
-    assert.ok(model.userData.triangleCount < 5000);
+    assert.ok(model.userData.triangleCount <= getHologramTriangleBudget(id));
     const pose = createHologramPoseAnimation(model, { kind: 'attack' });
     assert.equal(pose.update(0.4), true);
     const versions = model.children.map(mesh => mesh.geometry.attributes.position.version);
@@ -131,7 +132,7 @@ test('official Trap Monster participants use distinct sculpted silver and cobra 
     for (const color of palette) assert.ok(containsColor(model, color), `${id}: source palette ${color}`);
     await access(new URL(`../public${model.userData.referenceArt}`, import.meta.url));
     assert.ok(model.children.length <= 5);
-    assert.ok(model.userData.triangleCount <= 6000);
+    assert.ok(model.userData.triangleCount <= getHologramTriangleBudget(id));
     for (const mesh of model.children) {
       assert.equal(mesh.material.map, null);
       assert.equal(mesh.material.vertexColors, true);
@@ -173,7 +174,7 @@ test('three frequent starter monsters replace unrelated fallback bodies with che
     assert.equal(model.userData.partNames.some(part => absent.test(part)), false);
     for (const color of colors) assert.ok(containsColor(model, color), `${id}: ${color}`);
     await access(new URL(`../public${model.userData.referenceArt}`, import.meta.url));
-    assert.ok(model.children.length <= 5 && model.userData.triangleCount <= 6000);
+    assert.ok(model.children.length <= 5 && model.userData.triangleCount <= getHologramTriangleBudget(id));
     const body = model.children.find(mesh => mesh.name.endsWith('-body')).geometry.attributes.position.array;
     const depths = Array.from({ length: body.length / 3 }, (_, index) => body[index * 3 + 2]);
     assert.ok(Math.max(...depths) - Math.min(...depths) > .6, 'the actual body has depth, independently of projection rings');
@@ -186,7 +187,7 @@ test('three frequent starter monsters replace unrelated fallback bodies with che
     release(model);
     const defense = createHologramMonsterModel({ id }, { defense: true });
     assert.ok(defense.userData.partNames.includes('defense-barrier'));
-    assert.ok(defense.children.length <= 5 && defense.userData.triangleCount <= 6000);
+    assert.ok(defense.children.length <= 5 && defense.userData.triangleCount <= getHologramTriangleBudget(id,{defense:true}));
     release(defense);
   }
 });

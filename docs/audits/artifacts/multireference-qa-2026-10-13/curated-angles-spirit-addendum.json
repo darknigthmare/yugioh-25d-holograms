@@ -1,0 +1,26 @@
+{
+  "entries": [
+    {
+      "kind": "token",
+      "id": 38053382
+    },
+    {
+      "kind": "token",
+      "id": 51208047
+    },
+    {
+      "kind": "token",
+      "id": 60514626
+    },
+    {
+      "kind": "token",
+      "id": 87669905
+    }
+  ],
+  "references": [],
+  "notes": [
+    "Printed artwork identity newly obtained; compare each exact native token code against immutable delivered model.",
+    "The four reference scans and their provenance are retained by the token editor; this addendum initially captures model geometry and cameras only.",
+    "Absent angles in 2D printed scans remain reconstructed, not officially certified."
+  ]
+}
