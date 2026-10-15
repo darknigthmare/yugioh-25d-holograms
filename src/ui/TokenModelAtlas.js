@@ -7,6 +7,16 @@ const KIND_LABELS = Object.freeze({ duel: 'Jeton de Duel', decorative: 'Carte Je
 const RACE_LABELS = Object.freeze({ Warrior: 'Guerrier', Spellcaster: 'Magicien', Fairy: 'Elfe', Fiend: 'Démon', Zombie: 'Zombie', Machine: 'Machine', Aqua: 'Aqua', Pyro: 'Pyro', Rock: 'Rocher', 'Winged Beast': 'Bête Ailée', Plant: 'Plante', Insect: 'Insecte', Thunder: 'Tonnerre', Dragon: 'Dragon', Beast: 'Bête', 'Beast-Warrior': 'Bête-Guerrier', Dinosaur: 'Dinosaure', Fish: 'Poisson', 'Sea Serpent': 'Serpent de Mer', Reptile: 'Reptile', Psychic: 'Psychique', 'Divine-Beast': 'Bête Divine', 'Creator God': 'Dieu Créateur', Wyrm: 'Wyrm', Cyberse: 'Cyberse', Illusion: 'Illusion' });
 const ATTRIBUTE_LABELS = Object.freeze({ EARTH: 'TERRE', WATER: 'EAU', FIRE: 'FEU', WIND: 'VENT', LIGHT: 'LUMIÈRE', DARK: 'TÉNÈBRES', DIVINE: 'DIVIN' });
 const ANATOMY_SEARCH_TERMS = Object.freeze({ sheep: 'mouton', lamb: 'agneau', hippo: 'hippopotame', avian: 'oiseau', flower: 'fleur', ant: 'fourmi', beetle: 'scarabée', spider: 'araignée', raccoon: 'raton laveur', egg: 'œuf', fish: 'poisson', aircraft: 'avion', gear: 'engrenage', maize: 'maïs' });
+const ILLUSTRATED_CHARACTER_LABELS = Object.freeze({
+  'Yami Yugi': 'Yami Yugi', 'Dark Magician': 'Magicien Sombre', 'Seto Kaiba': 'Seto Kaiba',
+  'Blue-Eyes White Dragon': 'Dragon Blanc aux Yeux Bleus', 'Joey Wheeler': 'Joey Wheeler',
+  'Red-Eyes Black Dragon': 'Dragon Noir aux Yeux Rouges'
+});
+const illustratedCharacterNames = profile => (profile.illustratedCharacters || []).map(name => ILLUSTRATED_CHARACTER_LABELS[name] || name);
+const GROUP_ILLUSTRATION_DESCRIPTIONS = Object.freeze({
+  '43664495': 'La scène Farce-Gamins reprend les grands personnages, les petites silhouettes de la rue et leurs effets de mouvement.',
+  '58371672': 'Les sept gemmes de Cristal reprennent leurs formes, leurs positions et les éclats de l’illustration.'
+});
 
 export function normalizeTokenAtlasSearch(value) {
   return String(value ?? '').normalize('NFD').replace(/\p{Diacritic}/gu, '').toLocaleLowerCase('fr').trim();
@@ -24,7 +34,8 @@ export function filterTokenAtlasProfiles({ query = '', kind = 'all', race = 'all
     if (race !== 'all' && profile.race !== race) return false;
     if (attribute !== 'all' && profile.attribute !== attribute) return false;
     const text = normalizeTokenAtlasSearch([profile.name, ...(profile.aliases || []), profile.cardId, profile.presentationId,
-      profile.race, RACE_LABELS[profile.race], profile.attribute, ATTRIBUTE_LABELS[profile.attribute], KIND_LABELS[profile.kind], ANATOMY_SEARCH_TERMS[profile.tokenAnatomy]].join(' '));
+      profile.race, RACE_LABELS[profile.race], profile.attribute, ATTRIBUTE_LABELS[profile.attribute], KIND_LABELS[profile.kind], ANATOMY_SEARCH_TERMS[profile.tokenAnatomy],
+      ...(profile.illustratedCharacters || []), ...illustratedCharacterNames(profile)].join(' '));
     return terms.every(term => text.includes(term));
   });
 }
@@ -41,7 +52,7 @@ function referenceHref(value) {
 
 function kindDescription(profile) {
   if (profile.kind === 'placeholder') return 'Repère technique de la base native. Cette entrée ne représente pas un monstre officiel et ne possède pas de modèle de monstre.';
-  if (profile.modelKind === 'duelist-avatar') return 'Carte Jeton commémorative imprimée. Elle sert de repère visuel sans caractéristiques propres de monstre. L’aperçu représente uniquement le duelliste illustré.';
+  if (profile.modelKind === 'duelist-avatar') return 'Carte Jeton commémorative imprimée. Elle sert de repère visuel sans caractéristiques propres de monstre. L’aperçu reprend les personnages et la composition de cette édition.';
   if (profile.kind === 'decorative') return 'Présentation d’une carte Jeton imprimée. Son illustration sert de repère ; elle ne crée pas de monstre et ne s’ajoute pas à un Deck.';
   return 'Jeton créé sur le Terrain par un effet de carte. Un Jeton ne s’ajoute pas à un Deck et cesse d’exister lorsqu’il quitte le Terrain.';
 }
@@ -147,7 +158,7 @@ export class TokenModelAtlas {
     this.dialogElement.querySelector('#token-atlas-prev').disabled = this.page === 0;
     this.dialogElement.querySelector('#token-atlas-next').disabled = this.page === pages - 1;
     this.dialogElement.querySelector('#token-atlas-empty').hidden = profiles.length > 0;
-    this.dialogElement.querySelector('#token-atlas-list').innerHTML = visible.map(profile => `<button class="token-atlas-card" type="button" data-token-presentation-id="${escapeHtml(profile.presentationId)}" data-token-card-id="${escapeHtml(profile.cardId || '')}" aria-pressed="${this.selectedId === profile.presentationId}"><span class="token-atlas-card-icon" aria-hidden="true">◇</span><span class="token-atlas-card-copy"><strong>${escapeHtml(profile.name)}</strong><span>${escapeHtml(KIND_LABELS[profile.kind] || '')}</span><span>${escapeHtml([RACE_LABELS[profile.race] || profile.race, ATTRIBUTE_LABELS[profile.attribute] || profile.attribute].filter(Boolean).join(' · '))}</span></span><span class="token-atlas-card-model">${profile.modelAvailable ? profile.modelKind === 'duelist-avatar' ? 'Duelliste 3D' : '3D' : 'Repère'}</span></button>`).join('');
+    this.dialogElement.querySelector('#token-atlas-list').innerHTML = visible.map(profile => `<button class="token-atlas-card" type="button" data-token-presentation-id="${escapeHtml(profile.presentationId)}" data-token-card-id="${escapeHtml(profile.cardId || '')}" aria-pressed="${this.selectedId === profile.presentationId}"><span class="token-atlas-card-icon" aria-hidden="true">◇</span><span class="token-atlas-card-copy"><strong>${escapeHtml(profile.name)}</strong><span>${escapeHtml(KIND_LABELS[profile.kind] || '')}</span><span>${escapeHtml([RACE_LABELS[profile.race] || profile.race, ATTRIBUTE_LABELS[profile.attribute] || profile.attribute].filter(Boolean).join(' · '))}</span></span><span class="token-atlas-card-model">${profile.modelAvailable ? profile.modelKind === 'duelist-avatar' ? 'Scène 3D' : '3D' : 'Repère'}</span></button>`).join('');
     const detail = this.dialogElement.querySelector('#token-atlas-detail');
     const profile = getTokenPresentationProfile(this.selectedId);
     detail.hidden = !profile;
@@ -162,7 +173,15 @@ export class TokenModelAtlas {
     detail.dataset.tokenPresentationId = profile.presentationId;
     detail.dataset.tokenCardId = profile.cardId || '';
     const commemorative = profile.modelKind === 'duelist-avatar';
-    this.previewHost.setAttribute('aria-label', commemorative ? 'Faire tourner la silhouette du duelliste' : 'Faire tourner le modèle du Jeton');
+    const groupDescription = Object.hasOwn(GROUP_ILLUSTRATION_DESCRIPTIONS, profile.cardId) ? GROUP_ILLUSTRATION_DESCRIPTIONS[profile.cardId] : '';
+    const illustrated = commemorative || !!groupDescription;
+    this.previewHost.setAttribute('aria-label', commemorative ? `Faire tourner la scène illustrée : ${illustratedCharacterNames(profile).join(' et ')}` : 'Faire tourner le modèle du Jeton');
+    const recenter = this.dialogElement.querySelector('#token-atlas-recenter');
+    recenter.textContent = illustrated ? 'Vue illustration' : 'Recentrer';
+    recenter.setAttribute('aria-label', illustrated ? 'Retrouver le cadrage et les poses de l’illustration' : 'Recentrer le modèle');
+    this.dialogElement.querySelector('#token-atlas-rotation-help').textContent = illustrated
+      ? 'Tournez la scène pour l’examiner. Vue illustration retrouve sa composition. Au clavier : flèches gauche/droite ; Début pour revenir à l’illustration.'
+      : 'Glissez horizontalement pour tourner. Au clavier : flèches gauche/droite ; Début pour recentrer.';
     this.dialogElement.querySelector('#token-atlas-kind-label').textContent = commemorative ? 'Carte Jeton commémorative' : KIND_LABELS[profile.kind] || '';
     this.previewHost.hidden = !profile.modelAvailable;
     const noModel = this.dialogElement.querySelector('#token-atlas-no-model');
@@ -171,7 +190,7 @@ export class TokenModelAtlas {
     const art = localReferencePath(profile.referenceArtPath);
     const link = referenceHref(profile.referenceArtUrl);
     const referenceLabel = profile.referenceKind === 'generator' ? 'Carte génératrice — illustration du Jeton indisponible' : commemorative ? 'Carte Jeton commémorative imprimée' : profile.referenceSet ? `Carte Jeton imprimée — ${profile.referenceSet}` : 'Illustration de référence du Jeton';
-    this.dialogElement.querySelector('#token-atlas-info').innerHTML = `<p class="token-atlas-eyebrow">${escapeHtml(KIND_LABELS[profile.kind] || '')}</p><h3>${escapeHtml(profile.name)}</h3><p class="token-atlas-kind-description">${escapeHtml(kindDescription(profile))}</p>${commemorative ? `<p class="token-atlas-model-description">${escapeHtml(profile.modelDescription || 'Silhouette stylisée du duelliste imprimé.')}</p>` : ''}${profile.kind !== 'placeholder' && !commemorative ? `<dl class="token-atlas-stats"><div><dt>Type</dt><dd>${escapeHtml(RACE_LABELS[profile.race] || profile.race || '—')}</dd></div><div><dt>Attribut</dt><dd>${escapeHtml(ATTRIBUTE_LABELS[profile.attribute] || profile.attribute || '—')}</dd></div><div><dt>Niveau</dt><dd>${escapeHtml(formatTokenAtlasStat(profile.level))}</dd></div><div><dt>ATK</dt><dd>${escapeHtml(formatTokenAtlasStat(profile.atk))}</dd></div><div><dt>DEF</dt><dd>${escapeHtml(formatTokenAtlasStat(profile.def))}</dd></div></dl>` : ''}<p class="token-atlas-code">${profile.cardId ? `Code de référence : ${escapeHtml(profile.cardId)}` : profile.physicalSetCode ? `Référence imprimée : ${escapeHtml(profile.physicalSetCode)}` : 'Présentation imprimée sans entrée de monstre native.'}</p><div class="token-atlas-reference">${art ? `<figure><img id="token-atlas-reference-image" src="${escapeHtml(art)}" alt="${escapeHtml(referenceLabel + ' : ' + profile.name)}" loading="lazy"><figcaption>${escapeHtml(referenceLabel)}</figcaption></figure>` : '<p>Illustration de référence indisponible dans cette collection.</p>'}${link ? `<a id="token-atlas-reference-link" href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer">Voir la référence de cette présentation ↗</a>` : ''}</div>`;
+    this.dialogElement.querySelector('#token-atlas-info').innerHTML = `<p class="token-atlas-eyebrow">${escapeHtml(KIND_LABELS[profile.kind] || '')}</p><h3>${escapeHtml(profile.name)}</h3><p class="token-atlas-kind-description">${escapeHtml(kindDescription(profile))}</p>${commemorative ? `<p class="token-atlas-model-description">Scène 3D composée d’après cette édition.</p><p class="token-atlas-subjects"><span>Personnages de l’illustration</span><strong>${escapeHtml(illustratedCharacterNames(profile).join(' · '))}</strong></p>` : groupDescription ? `<p class="token-atlas-model-description">${escapeHtml(groupDescription)}</p>` : ''}${profile.kind !== 'placeholder' && !commemorative ? `<dl class="token-atlas-stats"><div><dt>Type</dt><dd>${escapeHtml(RACE_LABELS[profile.race] || profile.race || '—')}</dd></div><div><dt>Attribut</dt><dd>${escapeHtml(ATTRIBUTE_LABELS[profile.attribute] || profile.attribute || '—')}</dd></div><div><dt>Niveau</dt><dd>${escapeHtml(formatTokenAtlasStat(profile.level))}</dd></div><div><dt>ATK</dt><dd>${escapeHtml(formatTokenAtlasStat(profile.atk))}</dd></div><div><dt>DEF</dt><dd>${escapeHtml(formatTokenAtlasStat(profile.def))}</dd></div></dl>` : ''}<p class="token-atlas-code">${profile.cardId ? `Code de référence : ${escapeHtml(profile.cardId)}` : profile.physicalSetCode ? `Référence imprimée : ${escapeHtml(profile.physicalSetCode)}` : 'Présentation imprimée sans entrée de monstre native.'}</p><div class="token-atlas-reference">${art ? `<figure><img id="token-atlas-reference-image" src="${escapeHtml(art)}" alt="${escapeHtml(referenceLabel + ' : ' + profile.name)}" loading="lazy"><figcaption>${escapeHtml(referenceLabel)}</figcaption></figure>` : '<p>Illustration de référence indisponible dans cette collection.</p>'}${link ? `<a id="token-atlas-reference-link" href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer">Voir la référence de cette présentation ↗</a>` : ''}</div>`;
     if (changed) this.dialogElement.querySelector('#token-atlas-retry').hidden = true;
     this.dialogElement.querySelector('.token-atlas-poses').hidden = commemorative;
     this.dialogElement.querySelectorAll('button[data-token-pose]').forEach(button => { button.setAttribute('aria-pressed', String(button.dataset.tokenPose === this.pose)); button.disabled = !profile.modelAvailable || commemorative; });

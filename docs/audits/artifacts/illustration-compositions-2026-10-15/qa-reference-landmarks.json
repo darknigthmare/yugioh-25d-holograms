@@ -1,0 +1,150 @@
+{
+  "coordinateSystem": "u horizontal from left, v vertical from top of artwork rectangle, approximate independently inspected visible landmarks; not a photogrammetric or 1:1 certificate",
+  "entries": [
+    {
+      "id": "YGLD-ENTKN",
+      "reference": "/tokens/commemorative/YGLD-ENTKN.png",
+      "crop": [
+        123,
+        267,
+        882,
+        1025
+      ],
+      "landmarks": [
+        {
+          "name": "Visage Yami",
+          "u": 0.513,
+          "v": 0.373
+        },
+        {
+          "name": "Cartes",
+          "u": 0.44,
+          "v": 0.693
+        },
+        {
+          "name": "Disque de Duel",
+          "u": 0.768,
+          "v": 0.723
+        }
+      ]
+    },
+    {
+      "id": "LDK2-ENT01",
+      "reference": "/tokens/commemorative/LDK2-ENT01.png",
+      "crop": [
+        52,
+        122,
+        426,
+        497
+      ],
+      "landmarks": [
+        {
+          "name": "Visage Yami premier plan",
+          "u": 0.695,
+          "v": 0.488
+        },
+        {
+          "name": "Visage Magicien arrière gauche",
+          "u": 0.171,
+          "v": 0.408
+        },
+        {
+          "name": "Carte dressée",
+          "u": 0.457,
+          "v": 0.344
+        },
+        {
+          "name": "Disque de Duel",
+          "u": 0.703,
+          "v": 0.803
+        }
+      ]
+    },
+    {
+      "id": "LDK2-ENT02",
+      "reference": "/tokens/commemorative/LDK2-ENT02.png",
+      "crop": [
+        52,
+        122,
+        426,
+        497
+      ],
+      "landmarks": [
+        {
+          "name": "Visage Kaiba",
+          "u": 0.604,
+          "v": 0.368
+        },
+        {
+          "name": "Tête Dragon blanc arrière gauche",
+          "u": 0.179,
+          "v": 0.269
+        },
+        {
+          "name": "Foyer souffle cyan",
+          "u": 0.174,
+          "v": 0.523
+        },
+        {
+          "name": "Disque de Duel",
+          "u": 0.652,
+          "v": 0.795
+        }
+      ]
+    },
+    {
+      "id": "LDK2-ENT03",
+      "reference": "/tokens/commemorative/LDK2-ENT03.png",
+      "crop": [
+        52,
+        122,
+        426,
+        497
+      ],
+      "landmarks": [
+        {
+          "name": "Visage Joey",
+          "u": 0.644,
+          "v": 0.403
+        },
+        {
+          "name": "Tête Dragon noir arrière gauche",
+          "u": 0.275,
+          "v": 0.373
+        },
+        {
+          "name": "Foyer lumineux dragon",
+          "u": 0.254,
+          "v": 0.475
+        },
+        {
+          "name": "Disque de Duel",
+          "u": 0.837,
+          "v": 0.828
+        }
+      ]
+    },
+    {
+      "id": "prank",
+      "reference": "/tokens/reviewed/43664495.png",
+      "crop": [
+        120,
+        285,
+        937,
+        1094
+      ],
+      "landmarks": []
+    },
+    {
+      "id": "crystal",
+      "reference": "/tokens/reviewed/58371672.png",
+      "crop": [
+        54,
+        121,
+        421,
+        490
+      ],
+      "landmarks": []
+    }
+  ]
+}

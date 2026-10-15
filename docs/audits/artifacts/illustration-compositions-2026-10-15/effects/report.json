@@ -1,0 +1,91 @@
+{
+  "paths": [
+    {
+      "id": "commemorative:YGLD-ENTKN",
+      "triangles": 240,
+      "drawCalls": 1,
+      "nonBackgroundPixels": 45470,
+      "stablePixels": true,
+      "clippingPlaneCount": 4,
+      "frameSize": 4.2,
+      "allocated": {
+        "geometries": 1,
+        "textures": 0
+      }
+    },
+    {
+      "id": "commemorative:LDK2-ENT01",
+      "triangles": 616,
+      "drawCalls": 1,
+      "nonBackgroundPixels": 39644,
+      "stablePixels": true,
+      "clippingPlaneCount": 4,
+      "frameSize": 4.2,
+      "allocated": {
+        "geometries": 2,
+        "textures": 0
+      }
+    },
+    {
+      "id": "commemorative:LDK2-ENT02",
+      "triangles": 840,
+      "drawCalls": 2,
+      "nonBackgroundPixels": 31115,
+      "stablePixels": true,
+      "clippingPlaneCount": 4,
+      "frameSize": 4.2,
+      "allocated": {
+        "geometries": 4,
+        "textures": 0
+      }
+    },
+    {
+      "id": "commemorative:LDK2-ENT03",
+      "triangles": 1264,
+      "drawCalls": 2,
+      "nonBackgroundPixels": 50400,
+      "stablePixels": true,
+      "clippingPlaneCount": 4,
+      "frameSize": 4.2,
+      "allocated": {
+        "geometries": 6,
+        "textures": 0
+      }
+    }
+  ],
+  "stableAttributes": true,
+  "memoryBefore": {
+    "geometries": 6,
+    "textures": 0,
+    "programs": 1
+  },
+  "glVersion": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+  "glError": 0,
+  "clippingControl": {
+    "unclippedPixels": 23620,
+    "clippedPixels": 0,
+    "chargePosition": [
+      2.6,
+      2.2,
+      0
+    ],
+    "rightPlaneX": 2.1
+  },
+  "afterDispose": {
+    "geometries": 0,
+    "textures": 0,
+    "programs": 0
+  },
+  "errors": [],
+  "failedResponses": [],
+  "source": {
+    "path": "src/ui/TokenIllustrationEffects.js",
+    "bytes": 12019,
+    "sha256": "5afe84755f0572c2a02794e39917317d5665dbfc89cd6b2e9e010a625b09c559"
+  },
+  "driver": {
+    "path": "/workspace/yugioh-illustration-effects-webgl-2026-10-15.py",
+    "sha256": "8e12e5ae0178638ffd76c1849bd36844b1d3111cad367fc2fc25cb22f931d26d"
+  },
+  "ok": true
+}

@@ -4,6 +4,7 @@ import { buildTokenCreatureAnatomy } from './HologramTokenCreatureModels.js';
 import { buildTokenConstructAnatomy } from './HologramTokenConstructModels.js';
 import { buildTokenSpiritAnatomy } from './HologramTokenSpiritModels.js';
 import { buildTokenIllustratedExceptions } from './HologramTokenIllustratedExceptions.js';
+import { buildTokenIllustratedGroups } from './HologramTokenIllustratedGroups.js';
 
 /** Anatomies accepted by the dedicated Token renderer, independent of duel state. */
 export const TOKEN_RENDER_ANATOMIES = Object.freeze([
@@ -22,7 +23,8 @@ export const TOKEN_RENDER_ANATOMIES = Object.freeze([
  */
 export function buildTokenMonsterAnatomy(profile, helpers) {
   if (profile?.family !== 'token') return false;
-  if (buildTokenBotanicalAnatomy(profile, helpers)
+  if (buildTokenIllustratedGroups(profile, helpers)
+      || buildTokenBotanicalAnatomy(profile, helpers)
       || buildTokenCreatureAnatomy(profile, helpers)
       || buildTokenIllustratedExceptions(profile, helpers)
       || buildTokenSpiritAnatomy(profile, helpers)

@@ -52,6 +52,17 @@ test('search handles French accents and human race/attribute labels without alte
   assert.equal(formatTokenAtlasStat(1234), '1234');
 });
 
+test('illustrated companions are searchable in French and in the printed names', () => {
+  for (const [query, id] of [
+    ['Yugi Magicien Sombre', 'commemorative:LDK2-ENT01'],
+    ['Yugi Dark Magician', 'commemorative:LDK2-ENT01'],
+    ['Kaiba Dragon Blanc Yeux Bleus', 'commemorative:LDK2-ENT02'],
+    ['Joey Dragon Noir Yeux Rouges', 'commemorative:LDK2-ENT03']
+  ]) {
+    assert.ok(filterTokenAtlasProfiles({ query }).some(entry => entry.presentationId === id), query);
+  }
+});
+
 test('actual Token preview rejects unknown or placeholder identities while preserving its current model', () => {
   const { preview } = previewFixture();
   const profile = TOKEN_PRESENTATION_CATALOG.find(entry => entry.kind === 'duel' && entry.modelAvailable);
@@ -110,7 +121,7 @@ test('shared group resources are released once even when referenced by multiple 
   assert.equal(model.children.length, 0);
 });
 
-test('verified commemoratives use their exact duellist and release its skeleton when returning to a Token', async () => {
+test('verified commemoratives render every illustrated subject and release the whole scene when returning to a Token', async () => {
   const expected = new Map([['commemorative:YGLD-ENTKN', 'atem'], ['commemorative:LDK2-ENT01', 'atem'], ['commemorative:LDK2-ENT02', 'kaiba'], ['commemorative:LDK2-ENT03', 'joey']]);
   const { preview, host } = previewFixture();
   const renderer = preview.renderer;
@@ -119,25 +130,34 @@ test('verified commemoratives use their exact duellist and release its skeleton 
     assert.equal(profile.cardId, null);
     assert.equal(profile.tokenAnatomy, null);
     for (const key of ['atk', 'def', 'level', 'race', 'attribute']) assert.equal(profile[key], null);
-    const previous = preview.avatarModel;
+    const previous = preview.compositionModel;
     preview.setAvatar(id);
     if (previous) assert.equal(previous.disposed, true);
-    assert.equal(preview.avatarModel.avatarId, avatarId);
+    assert.equal(preview.compositionModel.avatarId, avatarId);
     assert.equal(preview.model.userData.avatarId, avatarId);
+    assert.deepEqual(preview.compositionModel.subjects.map(subject => subject.name), profile.illustratedCharacters);
+    assert.equal(preview.compositionModel.subjects.length, id.endsWith('YGLD-ENTKN') ? 1 : 2);
+    for (const subject of preview.compositionModel.subjects) {
+      assert.ok(subject.group.isObject3D);
+      let vertices = 0;
+      subject.group.traverse(object => { vertices += object.geometry?.attributes.position.count || 0; });
+      assert.ok(vertices > 0, `${subject.name} must have actual 3D geometry`);
+    }
     assert.equal(host.dataset.tokenCardId, '');
     assert.equal(host.dataset.tokenAvatarId, avatarId);
-    assert.equal(host.dataset.tokenModelKind, 'duelist-avatar');
-    assert.equal(host.dataset.tokenPose, 'portrait');
+    assert.equal(host.dataset.tokenModelKind, 'illustration-composition');
+    assert.equal(host.dataset.tokenPose, 'illustration');
+    assert.equal(host.dataset.tokenSubjectCount, String(profile.illustratedCharacters.length));
     assert.equal(preview.renderer, renderer);
     assert.equal(preview.setPose('defense'), false);
     preview.rotateBy(.5);
     assert.equal(preview.angle, .5);
   }
-  const avatar = preview.avatarModel;
+  const composition = preview.compositionModel;
   const token = TOKEN_PRESENTATION_CATALOG.find(profile => profile.kind === 'duel' && profile.modelAvailable);
   preview.setAvatar(token.presentationId);
-  assert.equal(avatar.disposed, true);
-  assert.equal(preview.avatarModel, null);
+  assert.equal(composition.disposed, true);
+  assert.equal(preview.compositionModel, null);
   assert.equal(host.dataset.tokenAvatarId, '');
   assert.equal(host.dataset.tokenModelKind, 'token-monster');
   assert.equal(host.dataset.tokenCardId, token.cardId);

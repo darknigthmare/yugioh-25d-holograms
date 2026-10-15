@@ -1,0 +1,16 @@
+✔ the printed actors reject a mismatched character, unknown edition and inherited-object keys (1.49784ms)
+✔ modern Yami has an actual uncovered forehead, modern collar and printed black or blue clothing (133.353133ms)
+✔ the raised-card and crossed-hand positions exist in skin vertices, not only named markers (77.370687ms)
+✔ Joey wears the blue printed school jacket while his selectable green jacket stays unchanged (45.056906ms)
+✔ YGLD-ENTKN: static original-budget geometry has finite unit normals and independently owned disposable buffers (69.27316ms)
+✔ LDK2-ENT01: static original-budget geometry has finite unit normals and independently owned disposable buffers (67.748189ms)
+✔ LDK2-ENT02: static original-budget geometry has finite unit normals and independently owned disposable buffers (43.979437ms)
+✔ LDK2-ENT03: static original-budget geometry has finite unit normals and independently owned disposable buffers (47.574139ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 585.29038

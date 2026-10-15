@@ -1,0 +1,18 @@
+{"progress": "atlas-real-draws", "presentations": 24, "total": 367, "elapsedSeconds": 23.6, "estimatedRemainingSeconds": 336.6}
+{"progress": "atlas-real-draws", "presentations": 48, "total": 367, "elapsedSeconds": 44.0, "estimatedRemainingSeconds": 292.1}
+{"progress": "atlas-real-draws", "presentations": 72, "total": 367, "elapsedSeconds": 63.2, "estimatedRemainingSeconds": 258.9}
+{"progress": "atlas-real-draws", "presentations": 96, "total": 367, "elapsedSeconds": 82.7, "estimatedRemainingSeconds": 233.3}
+{"progress": "atlas-real-draws", "presentations": 120, "total": 367, "elapsedSeconds": 104.2, "estimatedRemainingSeconds": 214.5}
+{"progress": "atlas-real-draws", "presentations": 144, "total": 367, "elapsedSeconds": 123.5, "estimatedRemainingSeconds": 191.2}
+{"progress": "atlas-real-draws", "presentations": 168, "total": 367, "elapsedSeconds": 142.2, "estimatedRemainingSeconds": 168.5}
+{"progress": "atlas-real-draws", "presentations": 192, "total": 367, "elapsedSeconds": 162.1, "estimatedRemainingSeconds": 147.8}
+{"progress": "atlas-real-draws", "presentations": 216, "total": 367, "elapsedSeconds": 181.7, "estimatedRemainingSeconds": 127.0}
+{"progress": "atlas-real-draws", "presentations": 240, "total": 367, "elapsedSeconds": 200.8, "estimatedRemainingSeconds": 106.2}
+{"progress": "atlas-real-draws", "presentations": 264, "total": 367, "elapsedSeconds": 223.7, "estimatedRemainingSeconds": 87.3}
+{"progress": "atlas-real-draws", "presentations": 288, "total": 367, "elapsedSeconds": 250.7, "estimatedRemainingSeconds": 68.8}
+{"progress": "atlas-real-draws", "presentations": 312, "total": 367, "elapsedSeconds": 275.9, "estimatedRemainingSeconds": 48.6}
+{"progress": "atlas-real-draws", "presentations": 336, "total": 367, "elapsedSeconds": 299.3, "estimatedRemainingSeconds": 27.6}
+{"progress": "atlas-real-draws", "presentations": 360, "total": 367, "elapsedSeconds": 324.1, "estimatedRemainingSeconds": 6.3}
+{"progress": "atlas-real-draws", "presentations": 367, "total": 367, "elapsedSeconds": 331.8, "estimatedRemainingSeconds": 0.0}
+{"ok": true, "paths": 9, "captures": 98}
+{"ok": true, "scope": "tokens", "paths": 9, "captures": 98, "retainedDriversUnchanged": true}

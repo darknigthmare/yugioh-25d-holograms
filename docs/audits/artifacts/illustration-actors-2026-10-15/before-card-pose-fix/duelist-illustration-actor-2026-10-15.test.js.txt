@@ -1,0 +1,174 @@
+import assert from 'node:assert/strict';
+import test from 'node:test';
+import { createHash } from 'node:crypto';
+import { readFileSync } from 'node:fs';
+import * as THREE from 'three';
+import { createDuelistAvatarModel } from '../src/ui/DuelistAvatarModels.js';
+import { createDuelistIllustrationActor } from '../src/ui/DuelistIllustrationActor.js';
+
+const BASELINE = JSON.parse(readFileSync(new URL('./fixtures/duelist-avatar-triangle-baseline-2026-10-11.json', import.meta.url)));
+const EDITIONS = [['atem', 'YGLD-ENTKN'], ['atem', 'LDK2-ENT01'], ['kaiba', 'LDK2-ENT02'], ['joey', 'LDK2-ENT03']];
+const hash = bytes => createHash('sha256').update(bytes).digest('hex');
+function buffers(group) {
+  const rows = [];
+  group.traverse(object => {
+    if (!object.geometry) return;
+    for (const [name, attribute] of Object.entries(object.geometry.attributes)) {
+      rows.push({ object: object.name, name, attribute, array: attribute.array, version: attribute.version,
+        hash: hash(new Uint8Array(attribute.array.buffer, attribute.array.byteOffset, attribute.array.byteLength)) });
+    }
+  });
+  return rows;
+}
+function fingerprint(model) {
+  return buffers(model.group).map(({ object, name, hash: digest }) => ({ object, name, digest }));
+}
+function tintedPoints(mesh, tint) {
+  const color = new THREE.Color(tint), points = [];
+  const { position, color: colors } = mesh.geometry.attributes;
+  for (let index = 0; index < position.count; index += 1) {
+    if (Math.abs(colors.getX(index) - color.r) < 1e-6 && Math.abs(colors.getY(index) - color.g) < 1e-6
+      && Math.abs(colors.getZ(index) - color.b) < 1e-6) {
+      points.push(new THREE.Vector3().fromBufferAttribute(position, index));
+    }
+  }
+  return points;
+}
+
+test('the printed actors reject a mismatched character, unknown edition and inherited-object keys', () => {
+  for (const [avatarId, edition] of [['yugi', 'LDK2-ENT01'], ['atem', 'LDK2-ENT02'], ['kaiba', 'new-print'], ['atem', '__proto__']]) {
+    assert.throws(() => createDuelistIllustrationActor(avatarId, { edition }), /Unverified/);
+  }
+  assert.throws(() => createDuelistIllustrationActor('atem'), /Unverified/);
+});
+
+test('modern Yami has an actual uncovered forehead, modern collar and printed black or blue clothing', () => {
+  for (const edition of ['YGLD-ENTKN', 'LDK2-ENT01']) {
+    const actor = createDuelistIllustrationActor('atem', { edition });
+    assert.equal(actor.group.getObjectByName('duelist-head-metal'), undefined, 'no Pharaoh diadem geometry');
+    const head = actor.group.getObjectByName('duelist-head-matte');
+    assert.equal(tintedPoints(head, '#eec35d').length, 0, 'ceremonial gold earrings are physically absent');
+    assert.equal(tintedPoints(head, '#74442c').length, 0, 'the diadem eye is physically absent');
+    assert.ok(tintedPoints(head, '#f4c5a9').length > 0, 'modern skin is actual face geometry');
+    const body = actor.group.getObjectByName('illustration-body-matte');
+    const shirt = tintedPoints(body, '#171b2a').filter(point => Math.abs(point.x) < .35 && point.y > 3.3 && point.y < 3.85 && point.z > .2);
+    assert.ok(shirt.length > 40, 'a real black undershirt occupies the torso');
+    assert.equal(tintedPoints(body, '#f1e8da').length, 0, 'no ancient white tunic');
+    assert.ok(actor.group.userData.partNames.includes('modern-collar-silver-buckle'));
+    const blue = tintedPoints(body, '#283866');
+    assert.ok(blue.length > 0);
+    if (edition === 'YGLD-ENTKN') {
+      assert.ok(blue.some(point => Math.abs(point.x) > 1.2 && point.y > 3.2), 'hanging shoulder jacket flares sideways');
+      assert.ok(tintedPoints(body, '#f4c5a9').some(point => point.x < -.85 && point.y > 4.05), 'raised upper arm is bare');
+    }
+    actor.dispose();
+  }
+});
+
+test('the raised-card and crossed-hand positions exist in skin vertices, not only named markers', () => {
+  const raised = createDuelistIllustrationActor('atem', { edition: 'LDK2-ENT01' });
+  const drawing = createDuelistIllustrationActor('atem', { edition: 'YGLD-ENTKN' });
+  const raisedSkin = tintedPoints(raised.group.getObjectByName('illustration-body-matte'), '#f4c5a9');
+  const drawingSkin = tintedPoints(drawing.group.getObjectByName('illustration-body-matte'), '#f4c5a9');
+  assert.ok(raisedSkin.filter(point => point.x < -.65 && point.y > 4.65 && point.z > .9).length > 20,
+    'LDK2 has raised finger volumes next to the face');
+  assert.equal(drawingSkin.filter(point => point.y > 4.65).length, 0, 'YGLD retains its different lower draw pose');
+  for (const actor of [raised, drawing]) {
+    const mesh = actor.group.getObjectByName('illustration-body-matte');
+    const skin = tintedPoints(mesh, '#f4c5a9');
+    assert.ok(skin.some(point => point.x < 0 && point.z > 1), 'crossed hand reaches across the front of the torso');
+    const left = actor.group.getObjectByName('illustration-left-wrist').position;
+    const right = actor.group.getObjectByName('illustration-right-wrist').position;
+    assert.ok(skin.some(point => point.distanceTo(left) < .14));
+    assert.ok(skin.some(point => point.distanceTo(right) < .14));
+    actor.dispose();
+  }
+});
+
+test('Joey wears the blue printed school jacket while his selectable green jacket stays unchanged', () => {
+  const before = createDuelistAvatarModel('joey');
+  const original = fingerprint(before);
+  const actor = createDuelistIllustrationActor('joey', { edition: 'LDK2-ENT03' });
+  const body = actor.group.getObjectByName('illustration-body-matte');
+  assert.ok(tintedPoints(body, '#283268').length > 100, 'blue jacket has geometry');
+  assert.ok(tintedPoints(body, '#f4eee5').some(point => point.y > 3.3 && point.z > .2), 'visible white T-shirt');
+  assert.deepEqual(fingerprint(before), original, 'the already-live avatar buffers were not mutated');
+  actor.dispose();
+  const after = createDuelistAvatarModel('joey');
+  assert.deepEqual(fingerprint(after), original, 'the factory still builds the original selectable avatar');
+  before.dispose(); after.dispose();
+});
+
+for (const [avatarId, edition] of EDITIONS) {
+  test(`${edition}: printed portrait foreshortening preserves the face, actual hand anchors and reset behaviour`, () => {
+    const full = createDuelistIllustrationActor(avatarId, { edition });
+    const actor = createDuelistIllustrationActor(avatarId, { edition, framing: 'printed-portrait' });
+    assert.deepEqual(fingerprint(actor), fingerprint(full), 'framing never rewrites geometry attributes');
+    assert.deepEqual(actor.group.userData.illustrationLandmarks.head, full.group.userData.illustrationLandmarks.head);
+    const body = actor.group.getObjectByName('illustration-body');
+    const compression = actor.group.userData.portraitBodyCompression;
+    assert.ok(compression > 0 && compression < 1);
+    actor.group.updateMatrixWorld(true);
+    for (const side of ['left', 'right']) {
+      const anchor = actor.group.getObjectByName(`illustration-${side}-wrist`).getWorldPosition(new THREE.Vector3());
+      assert.deepEqual(anchor.toArray(), actor.group.userData.illustrationLandmarks[`${side}Wrist`]);
+      const mesh = actor.group.getObjectByName('illustration-body-matte');
+      const skin = tintedPoints(mesh, '#f4c5a9').map(point => point.applyMatrix4(mesh.matrixWorld));
+      assert.ok(skin.some(point => point.distanceTo(anchor) < .14), 'the framed hand remains on its actual anchor');
+    }
+    actor.group.position.set(1, -2, 3);
+    body.position.set(0, 0, 0); body.scale.y = 1;
+    actor.resetPose();
+    assert.equal(body.scale.y, compression);
+    assert.equal(body.position.y, 4.3 * (1 - compression));
+    assert.deepEqual(actor.group.position.toArray(), [1, -2, 3], 'scene placement is owned by the composer');
+    if (avatarId !== 'atem') {
+      assert.ok(actor.group.userData.illustrationLandmarks.top[1] > 6, 'the printed swept crown has actual upper volume');
+    }
+    full.dispose(); actor.dispose();
+  });
+  test(`${edition}: static original-budget geometry has finite unit normals and independently owned disposable buffers`, () => {
+    const actor = createDuelistIllustrationActor(avatarId, { presentationId: `commemorative:${edition}` });
+    const original = buffers(actor.group);
+    const geometry = new Set(), materials = new Set();
+    let triangles = 0, draws = 0;
+    actor.group.traverse(object => {
+      if (!object.geometry) return;
+      geometry.add(object.geometry); materials.add(object.material); draws += 1;
+      triangles += (object.geometry.index?.count || object.geometry.attributes.position.count) / 3;
+      const { position, normal } = object.geometry.attributes;
+      for (let index = 0; index < position.count; index += 1) {
+        assert.ok(Number.isFinite(position.getX(index)) && Number.isFinite(position.getY(index)) && Number.isFinite(position.getZ(index)));
+        assert.ok(Math.abs(Math.hypot(normal.getX(index), normal.getY(index), normal.getZ(index)) - 1) < .0002);
+      }
+    });
+    assert.equal(triangles, actor.group.userData.triangles);
+    assert.ok(triangles <= BASELINE.triangles[avatarId] * 5, 'ceiling uses the immutable 11 October original');
+    assert.ok(draws <= 9);
+    for (let frame = 0; frame < 600; frame += 1) assert.equal(actor.update(frame / 60, { reducedMotion: frame % 2 === 0 }), false);
+    actor.resetPose();
+    const after = buffers(actor.group);
+    assert.equal(after.length, original.length);
+    after.forEach((row, index) => {
+      assert.equal(row.attribute, original[index].attribute);
+      assert.equal(row.array, original[index].array);
+      assert.equal(row.version, original[index].version);
+      assert.equal(row.hash, original[index].hash);
+    });
+    const second = createDuelistIllustrationActor(avatarId, { edition });
+    second.group.traverse(object => { if (object.geometry) assert.equal(geometry.has(object.geometry), false); });
+    const disposedGeometry = new Map(), disposedMaterials = new Map();
+    geometry.forEach(value => value.addEventListener('dispose', () => disposedGeometry.set(value, (disposedGeometry.get(value) || 0) + 1)));
+    materials.forEach(value => value.addEventListener('dispose', () => disposedMaterials.set(value, (disposedMaterials.get(value) || 0) + 1)));
+    assert.equal(actor.dispose(), true);
+    assert.equal(actor.dispose(), false);
+    assert.equal(actor.resetPose(), false);
+    assert.equal(actor.update(100), false);
+    assert.equal(actor.group.children.length, 0);
+    assert.equal(disposedGeometry.size, geometry.size);
+    assert.equal(disposedMaterials.size, materials.size);
+    assert.ok([...disposedGeometry.values(), ...disposedMaterials.values()].every(count => count === 1));
+    assert.deepEqual(fingerprint(second), original.map(({ object, name, hash: digest }) => ({ object, name, digest })), 'disposing one actor leaves the other intact');
+    second.dispose();
+  });
+}

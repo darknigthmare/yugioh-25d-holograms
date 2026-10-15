@@ -1,0 +1,36 @@
+from pathlib import Path
+import hashlib,json,shutil
+from datetime import datetime,timezone
+ROOT=Path('/workspace/yugioh-25d-holograms');WORK=Path('/workspace/yugioh-illustration-qa-2026-10-15');OUT=ROOT/'docs/audits/artifacts/illustration-compositions-2026-10-15'
+def pin(p):return {'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
+def cp(p,q):
+ q.parent.mkdir(parents=True,exist_ok=True);assert not q.exists(),str(q);shutil.copyfile(p,q)
+# Read only completed, successful reports. No assertion or raw report is rewritten.
+reports={};wrappers={}
+for scope in ('tokens','avatars'):
+ d=WORK/('browser-compiled-'+scope);r=json.loads((d/'report.json').read_text());w=json.loads((d/'illustration-wrapper.json').read_text());assert r['ok']and w['ok'];reports[scope]=r;wrappers[scope]=w
+for scope in ('tokens','avatars'):
+ d=WORK/('browser-compiled-'+scope);dest=OUT/('browser-compiled-'+scope)
+ for name in ('report.json','illustration-wrapper.json'):cp(d/name,dest/name)
+ names=[]
+ if scope=='tokens':
+  names=[p.name for p in d.glob('illustration-*-front-*.png')]
+  for pattern in ('tokens-native-four-sheep-*.png','tokens-native-link-spider-token-material.png','tokens-native-creature-swap-opponent-token.png','tokens-native-adventurer-created.png'):
+   found=sorted(d.glob(pattern));assert found,pattern;names.append(found[0].name)
+  names += [p.name for p in d.glob('*webgl-unavailable*.png')][:1]
+ else:
+  for pattern in ('avatar-roster-desktop-mobile-1280.png','avatar-studio-atem-1280.png','avatar-studio-reduced-static-a-1280.png','avatar-studio-reduced-static-b-1280.png','avatar-studio-reduced-static-a-390.png','avatar-studio-reduced-static-b-390.png','*webgl-unavailable*.png'):
+   names += [p.name for p in d.glob(pattern)][:1]
+ for name in sorted(set(names)):cp(d/name,dest/name)
+for stem in ('qa-before','qa-after','full-models-before','full-models-after','browser-compiled-tokens','browser-compiled-avatars'):
+ p=Path('/workspace/yugioh-illustration-'+stem+'-2026-10-15.txt')
+ if p.exists():cp(p,OUT/('qa-'+stem+'-stdout.txt'))
+freeze=Path('/workspace/yugioh-illustration-build-freeze-2026-10-15.json');a=json.loads((WORK/'after/report.json').read_text());b=json.loads((WORK/'before/report.json').read_text());models=json.loads((WORK/'full-models-after/report.json').read_text());assert a['ok']and b['ok']and models['ok'];f=json.loads(freeze.read_text());assert all(v==f['source'][k]for k,v in a['sourcePinsAfter'].items())
+# Resolve report field names explicitly for the retained driver version.
+for scope,r in reports.items():
+ print(scope,sorted(r.keys()))
+summary={'executedAtUtc':datetime.now(timezone.utc).isoformat(),'scope':'Independent source WebGL, printed-scan comparisons, exact frozen compiled public UI and native Duel paths. Not a 1:1 art certificate.','freeze':{'path':str(freeze),**pin(freeze)},'entry':f['entry'],'sourceScenes':{'beforeReport':pin(WORK/'before/report.json'),'afterReport':pin(WORK/'after/report.json'),'scenes':len(a['models']),'viewsPerPhase':24,'subjectAndEffectIsolations':sum(len(m['isolations'])for m in a['models']),'geometryChanged':sum(x['geometryChanged']for x in a['comparisons']),'sourceFilesExactFreeze':len(a['sourcePinsAfter']),'untexturedBodyAndEffectMeshes':all(not x['map']and not x['alphaMap']for m in a['models']for mesh in m['views'][0]['meshes']for x in mesh['material']),'allMeshBuffersStable':all(v['bufferStable']for m in a['models']for v in m['views']),'allResourcesDisposed':all(m['afterDispose']['geometries']==0 and m['afterDispose']['textures']==0 for m in a['models'])},'fullModels':{'count':468,'counts':models['counts'],'changed':[k for k,v in models['budgetRatios'].items()if v['geometryChanged']],'unitNormals':models['unitNormals'],'maximumOriginalBudgetRatio':max(v['ratio']for v in models['originalBudgetRatios'].values()),'report':pin(WORK/'full-models-after/report.json')},'compiled':{scope:{'report':pin(WORK/('browser-compiled-'+scope)/'report.json'),'wrapper':pin(WORK/('browser-compiled-'+scope)/'illustration-wrapper.json'),'pathCount':len(r['paths']),'captureCount':len(r['captures']),'expectedEntrySha256':wrappers[scope]['expectedEntrySha256']}for scope,r in reports.items()},'limitations':['The before and after views show the public Atlas camera; the new scenes intentionally adopt a printed-illustration crop and orthographic framing. They are not pixel comparisons under an identical old camera.','Faces, hair, anatomy, cloth and tiny crowd figures remain procedural and stylized.','Normalized reference points are independently inspected approximations, not a photogrammetric measurement or an image-similarity certification.','Profiles, backs and hidden surfaces of a single printed view remain inferred.','Prank-Kids background inventory is an interpretation of partially occluded tiny subjects, not a canonical count.','The source driver was expanded after the initial before capture to resolve exact per-server Vite dependency URLs and add subject isolations/compiled audits. Both recipe versions and raw reports are retained.','SwiftShader timings are not physical desktop or phone frame-rate guarantees.'],'ok':True}
+cp(Path('/tmp/archive-illustration-qa-2026-10-15.py'),OUT/'qa-archive-recipe.py.txt')
+summary['retainedExternalFiles']={str(p.relative_to(WORK)):pin(p)for p in sorted(WORK.rglob('*'))if p.is_file()}
+summary['archivedFiles']={str(p.relative_to(ROOT)):pin(p)for p in sorted(OUT.rglob('*'))if p.is_file()}
+p=OUT/'qa-final-proof-manifest.json';assert not p.exists();p.write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n');print(json.dumps({'manifest':str(p),'pin':pin(p),'archivedFiles':len(summary['archivedFiles']),'externalFiles':len(summary['retainedExternalFiles'])}))

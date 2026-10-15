@@ -1,0 +1,424 @@
+{
+  "executedAtUtc": "2026-10-15T08:00:11.588457+00:00",
+  "scope": "avatars",
+  "phase": "compiled",
+  "driver": {
+    "bytes": 32679,
+    "sha256": "049abb282af9cadad266d4b75a673953ff2ec6025aa5856007256674718f0aec"
+  },
+  "retainedStrictRecipe": {
+    "path": "scripts/audit-model-fidelity-browser-2026-10-11.py",
+    "before": {
+      "bytes": 13710,
+      "sha256": "eacbb58338b5b654f3ea0d396dd175cf4c6c8a8787cb7ac2ffce1083567e42e8"
+    },
+    "after": {
+      "bytes": 13710,
+      "sha256": "eacbb58338b5b654f3ea0d396dd175cf4c6c8a8787cb7ac2ffce1083567e42e8"
+    }
+  },
+  "freeze": {
+    "path": "/workspace/yugioh-illustration-build-freeze-2026-10-15.json",
+    "bytes": 450829,
+    "sha256": "4f8afb0b592df16365c41b5e68b6b0730b1a603550a4dd15aa79554185ad2dca"
+  },
+  "expectedEntrySha256": "784f6b5967c04d18d8ea01239741004a3594bc16ebed7c0fc598808d1fabeed1",
+  "historicalDriversBefore": {
+    "scripts/audit-token-models-browser.py": {
+      "bytes": 71910,
+      "sha256": "7941755771e8745ad4ea17f5d8df2cb86d81cc8e5904a860f7b8f9dd258159ca"
+    },
+    "scripts/audit-duelist-avatar-motion-browser.py": {
+      "bytes": 64829,
+      "sha256": "5f9f5dd25cbb51edaadbed3ea965091dadc1ed2073309fde043f4b62a417c49c"
+    },
+    "scripts/audit-native-duel-ui.py": {
+      "bytes": 28175,
+      "sha256": "0dd4443ef82f496fb398587b9be06c99d953f57c4a48e48cd470fdacbb311c18"
+    },
+    "scripts/audit-continuation-models-ui.py": {
+      "bytes": 33677,
+      "sha256": "7f6f4a1d54be8f4bfc6befa4d697a30755c0887c116a60ed124eb8a376951f49"
+    },
+    "scripts/audit-native-duel-views.py": {
+      "bytes": 23978,
+      "sha256": "f3f9b64c03273baba856886c4f67df9f371624bb759435887ba9b7f9e49f826c"
+    }
+  },
+  "historicalAvatarFailureBefore": {
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-jaden-selected-1280.png": {
+      "bytes": 295565,
+      "sha256": "91cf74befe839d8c67fdd06ec9afbf82551f9cf649315a936f9a82ca852ea2c1"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-locked-atem-1280.png": {
+      "bytes": 288974,
+      "sha256": "229acaf49803a8a39d6a356be0a4483ba0c1971055442ff22505f5ef1a1b53b0"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-roster-desktop-mobile-1280.png": {
+      "bytes": 410160,
+      "sha256": "4370649e5b42717ba243f6075e1fd43b8f1f490ea9a30319102a364192269ef6"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-atem-1280.png": {
+      "bytes": 279307,
+      "sha256": "71403ad03c94ec2d57016b78646198568c39fd17c581eea1e24cd06bee509031"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-jaden-1280.png": {
+      "bytes": 273830,
+      "sha256": "4541a24e0059a8ab626d339892dc286718abc59ff4a89f77e410d1f93b06ab0e"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-kaiba-1280.png": {
+      "bytes": 274160,
+      "sha256": "104e376cd8bc18650029a6744df2262378679b6aa947862ab49b6a6ac453f8e2"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-playmaker-1280.png": {
+      "bytes": 275555,
+      "sha256": "9a05efb5b6943bc9cd64bba436f0cb457f8907a300af7519161eb1c2ab0a41d3"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-reduced-static-a-1280.png": {
+      "bytes": 19306,
+      "sha256": "4f197b68da7a23b2de06c18b4d86554e342197f39cc95ba72fe7bdedda79f87b"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-yudias-1280.png": {
+      "bytes": 278586,
+      "sha256": "75c945d3bd478654f49f81cfa80353af5a08e4cce5002a57949aaf6f1ed16df9"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-yuga-1280.png": {
+      "bytes": 275646,
+      "sha256": "a5ee47e907c44f4a27dc52385fbe0f969646bc7497c8acd806eede9ab2a48290"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-yugi-1280.png": {
+      "bytes": 297188,
+      "sha256": "5a3c7373d972acaf470505637369487cacc3489c0b7d2d721a028197770f5d03"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-yuma-1280.png": {
+      "bytes": 274499,
+      "sha256": "cd4a76254fa85190b1a8f90bda3ce6ea843cabdc5e5ed6d6516f19af6b0925ff"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-yusei-1280.png": {
+      "bytes": 271040,
+      "sha256": "f59e3488725430dec840c2f138127fc4d2e3c891a62c1a93bd3b6455d5b8c6b2"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-yuya-1280.png": {
+      "bytes": 274328,
+      "sha256": "11119868e2f9a1211187903f58588b77f0f3187c0829f7e6f494df1402f5bfec"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/failure-public-dom-1280.png": {
+      "bytes": 402961,
+      "sha256": "fcfcd22199112c2f9c7f229a67052b6787a2a1ade33cac57af28bb505a511e98"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/fidelity-wrapper.json": {
+      "bytes": 23613,
+      "sha256": "24a75fcd2bfa6e5ce2479327bbf7264cc6681b9a9daa5874c4104130541292f5"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/progress.json": {
+      "bytes": 145,
+      "sha256": "c75eebd55541a8fed21d95954e10e0c86922e93a4074fb7638476dd8eb7d6a4c"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/report.json": {
+      "bytes": 576706,
+      "sha256": "c8ce9590ea536c30ddbf5d8be335e29ade024e581d09f7f88e34353c8682f17d"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-jaden-selected-1280.png": {
+      "bytes": 295565,
+      "sha256": "91cf74befe839d8c67fdd06ec9afbf82551f9cf649315a936f9a82ca852ea2c1"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-locked-atem-1280.png": {
+      "bytes": 288974,
+      "sha256": "229acaf49803a8a39d6a356be0a4483ba0c1971055442ff22505f5ef1a1b53b0"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-roster-desktop-mobile-1280.png": {
+      "bytes": 410160,
+      "sha256": "bbce28931fb1fb64c15d7e772663815f9093170f039604f5e77f046f058ed136"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-atem-1280.png": {
+      "bytes": 279372,
+      "sha256": "56ed6952bcb4f8bff3e6388fe20510a8cab82881937639326dde564bf7a1d774"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-jaden-1280.png": {
+      "bytes": 273806,
+      "sha256": "63277ba74f690b8d9f913a9ddf987ec8fef1debe3d854b695c2cc99cc832984c"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-kaiba-1280.png": {
+      "bytes": 274182,
+      "sha256": "3660101990af96da7530549c2cc01e016ca6ae7773992646fbb7f360f9f2c96e"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-playmaker-1280.png": {
+      "bytes": 275520,
+      "sha256": "3b790a80ccb0ba50b95f34504dd2fcbecc7e80c48b97aad61a4a3f9dbb7a7d53"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-reduced-static-a-1280.png": {
+      "bytes": 19306,
+      "sha256": "4f197b68da7a23b2de06c18b4d86554e342197f39cc95ba72fe7bdedda79f87b"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-reduced-static-b-1280.png": {
+      "bytes": 19306,
+      "sha256": "4f197b68da7a23b2de06c18b4d86554e342197f39cc95ba72fe7bdedda79f87b"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-yudias-1280.png": {
+      "bytes": 278679,
+      "sha256": "07e64273a2a5d07d636e6803ef672dbb39c2b7249f4ab60cfb2b9403870850cd"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-yuga-1280.png": {
+      "bytes": 275392,
+      "sha256": "5290bf94d89d65c05a2fbe0846930bf47e9b0214cd0da159d3990daedde95972"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-yugi-1280.png": {
+      "bytes": 297194,
+      "sha256": "9500cbe6bfec401095326e9ce6eb842a0f5256525ff7906c2a9374982bc62328"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-yuma-1280.png": {
+      "bytes": 274515,
+      "sha256": "0a9d2c59418b50b22dfe59a223a32691f9b671d4ee0c8785694cb4fe964eafbf"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-yusei-1280.png": {
+      "bytes": 271097,
+      "sha256": "b95dc6cb1038b710f250e13c0db48b2a10b9c505d3bb0e5165712781b5160ea9"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-yuya-1280.png": {
+      "bytes": 274320,
+      "sha256": "32a6ab0f36e787c4f96a1898f9deaf047fd5919e12d0134330e98ab8f89ae4c2"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/execution.txt": {
+      "bytes": 2475,
+      "sha256": "088e4e31f7551cf4ad4998b3410cee952c7c992dd712f47416e9f92b544931d7"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/failure-public-dom-1280.png": {
+      "bytes": 72484,
+      "sha256": "571b5825e26918f47181dd45abaa96b16ead0429427f2fbe123bcd4d8b647e04"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/fidelity-wrapper.json": {
+      "bytes": 32925,
+      "sha256": "67b22501cf2b79073f626bf5edbd64b6966d85fec5f77f7e285bec84159613ef"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/progress.json": {
+      "bytes": 145,
+      "sha256": "c93a1739ae8c81c8d7e61d2613fb3216065d24f9f747587414ab669dc70eaace"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/report.json": {
+      "bytes": 576445,
+      "sha256": "533761250032f38da0919ef22cc9dfc6a476775953e93a0674ab1753f2bafb61"
+    }
+  },
+  "ok": true,
+  "strictStudioObservers": {
+    "name": "pre-bootstrap public studio observations",
+    "historicalInitScriptSha256": "1e8610c76c06e09a267ee8223c9be07d1410a4896b81ab0858daca9818d248f8",
+    "currentInitScriptSha256": "37fa7bf777289ce077ab6e379edc2598c93fca27e776d6c092ee1cc288cdcdf0",
+    "scope": "Only the public studio canvas clear calls and public stage intersection/resize entries are recorded. Observer callbacks delegate the original this, complete arguments and return; WebGL clear delegates the original this, arguments and return. No callback or draw is suppressed.",
+    "counterAuthority": "Synchronous browser-side clear array length; transported Python console messages remain evidence, not the idle-window counter."
+  },
+  "strictStudioPause": {
+    "name": "studio_motion_checks",
+    "historicalSourceSha256": "41653dded5ca43207684e9c39527ef2ca066c1939b233c486918870decc6e9e4",
+    "currentSourceSha256": "1bd8e766169d99ba51a355a4e52e9d61da5c8444960d89d8576bea30cc8e37d4",
+    "purpose": "Observe an idle pause after the screenshot input has settled. The old failure is preserved; the short diagnostic did not reproduce its extra redraw, so no exact observer cause is claimed.",
+    "changes": [
+      "Take the initial stage capture before fixing the idle draw count.",
+      "Allow a fixed 350 ms for initial capture observer work.",
+      "Require exactly zero synchronous browser clear calls over the next fixed 350 ms.",
+      "Keep exact PNG bytes equal and the resume/visible-again assertions.",
+      "Add a strict zero-clear assertion following the second capture; no numerical tolerance.",
+      "Replace the offscreen 300 ms timer with a fresh native IntersectionObserver false entry and a public offscreen bounding box; then observe a strict 350 ms zero-draw window.",
+      "Reject every clear whose browser timestamp follows that false event.",
+      "Preserve the complete original Python console observations as separate evidence."
+    ],
+    "diagnostics": {
+      "docs/audits/artifacts/model-fidelity-2026-10-11/studio-pause-diagnostic-2026-10-13/report.json": {
+        "bytes": 346831,
+        "sha256": "921ba65caf407fa7a2492e7d3e379c3f46e64be4eb027e67ddad87dc76fd7c79"
+      },
+      "docs/audits/artifacts/model-fidelity-2026-10-11/studio-offscreen-diagnostic-retry-2026-10-13/report.json": {
+        "bytes": 559850,
+        "sha256": "e2f4aa35b8115ef57b081d9010236cdbc293da3fb6f16d7d331e235e90cfb3c5"
+      },
+      "docs/audits/artifacts/model-fidelity-2026-10-11/studio-observer-transport-diagnostic-2026-10-13/report.json": {
+        "bytes": 978273,
+        "sha256": "6f70344ffc439b1e5617c751abe4fecd0ad3637f61f3050e6165a5f4fa84ada4"
+      }
+    }
+  },
+  "browserReport": {
+    "bytes": 1558871,
+    "sha256": "4e0965b5812ffc1b3cc28224dbd7406bdca1a87163ad17e85833a9ccd47fc058"
+  },
+  "pathCount": 8,
+  "captureCount": 52,
+  "historicalDriversAfter": {
+    "scripts/audit-token-models-browser.py": {
+      "bytes": 71910,
+      "sha256": "7941755771e8745ad4ea17f5d8df2cb86d81cc8e5904a860f7b8f9dd258159ca"
+    },
+    "scripts/audit-duelist-avatar-motion-browser.py": {
+      "bytes": 64829,
+      "sha256": "5f9f5dd25cbb51edaadbed3ea965091dadc1ed2073309fde043f4b62a417c49c"
+    },
+    "scripts/audit-native-duel-ui.py": {
+      "bytes": 28175,
+      "sha256": "0dd4443ef82f496fb398587b9be06c99d953f57c4a48e48cd470fdacbb311c18"
+    },
+    "scripts/audit-continuation-models-ui.py": {
+      "bytes": 33677,
+      "sha256": "7f6f4a1d54be8f4bfc6befa4d697a30755c0887c116a60ed124eb8a376951f49"
+    },
+    "scripts/audit-native-duel-views.py": {
+      "bytes": 23978,
+      "sha256": "f3f9b64c03273baba856886c4f67df9f371624bb759435887ba9b7f9e49f826c"
+    }
+  },
+  "historicalAvatarFailureAfter": {
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-jaden-selected-1280.png": {
+      "bytes": 295565,
+      "sha256": "91cf74befe839d8c67fdd06ec9afbf82551f9cf649315a936f9a82ca852ea2c1"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-locked-atem-1280.png": {
+      "bytes": 288974,
+      "sha256": "229acaf49803a8a39d6a356be0a4483ba0c1971055442ff22505f5ef1a1b53b0"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-roster-desktop-mobile-1280.png": {
+      "bytes": 410160,
+      "sha256": "4370649e5b42717ba243f6075e1fd43b8f1f490ea9a30319102a364192269ef6"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-atem-1280.png": {
+      "bytes": 279307,
+      "sha256": "71403ad03c94ec2d57016b78646198568c39fd17c581eea1e24cd06bee509031"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-jaden-1280.png": {
+      "bytes": 273830,
+      "sha256": "4541a24e0059a8ab626d339892dc286718abc59ff4a89f77e410d1f93b06ab0e"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-kaiba-1280.png": {
+      "bytes": 274160,
+      "sha256": "104e376cd8bc18650029a6744df2262378679b6aa947862ab49b6a6ac453f8e2"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-playmaker-1280.png": {
+      "bytes": 275555,
+      "sha256": "9a05efb5b6943bc9cd64bba436f0cb457f8907a300af7519161eb1c2ab0a41d3"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-reduced-static-a-1280.png": {
+      "bytes": 19306,
+      "sha256": "4f197b68da7a23b2de06c18b4d86554e342197f39cc95ba72fe7bdedda79f87b"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-yudias-1280.png": {
+      "bytes": 278586,
+      "sha256": "75c945d3bd478654f49f81cfa80353af5a08e4cce5002a57949aaf6f1ed16df9"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-yuga-1280.png": {
+      "bytes": 275646,
+      "sha256": "a5ee47e907c44f4a27dc52385fbe0f969646bc7497c8acd806eede9ab2a48290"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-yugi-1280.png": {
+      "bytes": 297188,
+      "sha256": "5a3c7373d972acaf470505637369487cacc3489c0b7d2d721a028197770f5d03"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-yuma-1280.png": {
+      "bytes": 274499,
+      "sha256": "cd4a76254fa85190b1a8f90bda3ce6ea843cabdc5e5ed6d6516f19af6b0925ff"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-yusei-1280.png": {
+      "bytes": 271040,
+      "sha256": "f59e3488725430dec840c2f138127fc4d2e3c891a62c1a93bd3b6455d5b8c6b2"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/avatar-studio-yuya-1280.png": {
+      "bytes": 274328,
+      "sha256": "11119868e2f9a1211187903f58588b77f0f3187c0829f7e6f494df1402f5bfec"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/failure-public-dom-1280.png": {
+      "bytes": 402961,
+      "sha256": "fcfcd22199112c2f9c7f229a67052b6787a2a1ade33cac57af28bb505a511e98"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/fidelity-wrapper.json": {
+      "bytes": 23613,
+      "sha256": "24a75fcd2bfa6e5ce2479327bbf7264cc6681b9a9daa5874c4104130541292f5"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/progress.json": {
+      "bytes": 145,
+      "sha256": "c75eebd55541a8fed21d95954e10e0c86922e93a4074fb7638476dd8eb7d6a4c"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars/report.json": {
+      "bytes": 576706,
+      "sha256": "c8ce9590ea536c30ddbf5d8be335e29ade024e581d09f7f88e34353c8682f17d"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-jaden-selected-1280.png": {
+      "bytes": 295565,
+      "sha256": "91cf74befe839d8c67fdd06ec9afbf82551f9cf649315a936f9a82ca852ea2c1"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-locked-atem-1280.png": {
+      "bytes": 288974,
+      "sha256": "229acaf49803a8a39d6a356be0a4483ba0c1971055442ff22505f5ef1a1b53b0"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-roster-desktop-mobile-1280.png": {
+      "bytes": 410160,
+      "sha256": "bbce28931fb1fb64c15d7e772663815f9093170f039604f5e77f046f058ed136"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-atem-1280.png": {
+      "bytes": 279372,
+      "sha256": "56ed6952bcb4f8bff3e6388fe20510a8cab82881937639326dde564bf7a1d774"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-jaden-1280.png": {
+      "bytes": 273806,
+      "sha256": "63277ba74f690b8d9f913a9ddf987ec8fef1debe3d854b695c2cc99cc832984c"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-kaiba-1280.png": {
+      "bytes": 274182,
+      "sha256": "3660101990af96da7530549c2cc01e016ca6ae7773992646fbb7f360f9f2c96e"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-playmaker-1280.png": {
+      "bytes": 275520,
+      "sha256": "3b790a80ccb0ba50b95f34504dd2fcbecc7e80c48b97aad61a4a3f9dbb7a7d53"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-reduced-static-a-1280.png": {
+      "bytes": 19306,
+      "sha256": "4f197b68da7a23b2de06c18b4d86554e342197f39cc95ba72fe7bdedda79f87b"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-reduced-static-b-1280.png": {
+      "bytes": 19306,
+      "sha256": "4f197b68da7a23b2de06c18b4d86554e342197f39cc95ba72fe7bdedda79f87b"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-yudias-1280.png": {
+      "bytes": 278679,
+      "sha256": "07e64273a2a5d07d636e6803ef672dbb39c2b7249f4ab60cfb2b9403870850cd"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-yuga-1280.png": {
+      "bytes": 275392,
+      "sha256": "5290bf94d89d65c05a2fbe0846930bf47e9b0214cd0da159d3990daedde95972"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-yugi-1280.png": {
+      "bytes": 297194,
+      "sha256": "9500cbe6bfec401095326e9ce6eb842a0f5256525ff7906c2a9374982bc62328"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-yuma-1280.png": {
+      "bytes": 274515,
+      "sha256": "0a9d2c59418b50b22dfe59a223a32691f9b671d4ee0c8785694cb4fe964eafbf"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-yusei-1280.png": {
+      "bytes": 271097,
+      "sha256": "b95dc6cb1038b710f250e13c0db48b2a10b9c505d3bb0e5165712781b5160ea9"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/avatar-studio-yuya-1280.png": {
+      "bytes": 274320,
+      "sha256": "32a6ab0f36e787c4f96a1898f9deaf047fd5919e12d0134330e98ab8f89ae4c2"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/execution.txt": {
+      "bytes": 2475,
+      "sha256": "088e4e31f7551cf4ad4998b3410cee952c7c992dd712f47416e9f92b544931d7"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/failure-public-dom-1280.png": {
+      "bytes": 72484,
+      "sha256": "571b5825e26918f47181dd45abaa96b16ead0429427f2fbe123bcd4d8b647e04"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/fidelity-wrapper.json": {
+      "bytes": 32925,
+      "sha256": "67b22501cf2b79073f626bf5edbd64b6966d85fec5f77f7e285bec84159613ef"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/progress.json": {
+      "bytes": 145,
+      "sha256": "c93a1739ae8c81c8d7e61d2613fb3216065d24f9f747587414ab669dc70eaace"
+    },
+    "docs/audits/artifacts/model-fidelity-2026-10-11/browser-compiled-avatars-retry-2026-10-13/report.json": {
+      "bytes": 576445,
+      "sha256": "533761250032f38da0919ef22cc9dfc6a476775953e93a0674ab1753f2bafb61"
+    }
+  },
+  "historicalDriversUnchanged": true,
+  "historicalAvatarFailureUnchanged": true
+}

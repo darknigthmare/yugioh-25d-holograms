@@ -1,0 +1,32 @@
+✔ 240 native Tokens keep the measured fivefold limit in attack and defense without increasing GPU batches (2965.117914ms)
+✔ tapered organic surfaces change their radius and join their smooth normals at the radial seam (0.478088ms)
+✔ leaf and feather surfaces gain curved depth while retaining finite geometry and smooth normals (0.654112ms)
+✔ Crystal Beast uses seven separate solid jewels in the printed relative positions, with no invented beast body (27.566361ms)
+✔ jewel facet normals face outwards and crown surfaces keep distinct reflected colours (4.186415ms)
+✔ Prank-Kids retains five foreground subjects with their source left-right order, asymmetric depth and poses (99.945875ms)
+✔ the crowd has individually placed geometry in the roof, wall, floor and distant planes (62.849137ms)
+✔ illustrated groups retain the original October 11 ×5 geometry limit and five batches in ATK and DEF (111.847204ms)
+✔ source effects use real white star and steam geometry in the same model batches (32.869682ms)
+✔ group attacks preserve every geometry buffer and release owned resources once (46.116528ms)
+✔ non-group identities fall through without requesting geometry or private duel data (0.180881ms)
+✔ the Atlas-only artwork frame uses the factory scale and handles unsupported keys safely (0.424548ms)
+✔ all 240 native monster Tokens resolve their exact public identity and bounded dedicated anatomy (2462.089556ms)
+✔ documented shared illustrations retain the same anatomy and palette while preserving each native code (103.663538ms)
+✔ illustrated species keep their defining anatomy instead of receiving the former goat mannequin (188.082963ms)
+✔ unknown Tokens use a neutral echo independent of private identity and unsupported builders do nothing (22.989569ms)
+✔ wing, weapon and both Metal Fiend hooks have their shared shader joints and stable buffers during actions (38.34166ms)
+✔ all Token geometry, visible materials and owned depth/distance materials are released once (47.384139ms)
+✔ the printed drone, liquid snake and impact meteor do not regress to the known false humanoid and horned-dragon silhouettes (115.008546ms)
+✔ printed Lamb and Sheep anatomy differs independently of colour, and Kuriboh retains separate visible hand and foot claws (66.305926ms)
+✔ new printed anatomies animate with immutable buffers and release visible and shadow GPU resources once (57.131063ms)
+✔ Bomb crust panels and the brighter gaps remain externally visible from front and three-quarter views (192.895487ms)
+ℹ {"view":"front","sampledRays":225,"visibleCrust":132,"visibleCrustFacetNormals":6,"visibleGap":82}
+ℹ {"view":"three-quarter","sampledRays":225,"visibleCrust":125,"visibleCrustFacetNormals":8,"visibleGap":75}
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3097.367664

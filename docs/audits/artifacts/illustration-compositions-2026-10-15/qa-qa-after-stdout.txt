@@ -1,0 +1,7 @@
+{"phase": "after", "id": "commemorative:YGLD-ENTKN", "triangles": 17773, "remaining": {"geometries": 0, "textures": 0, "programs": 0}}
+{"phase": "after", "id": "commemorative:LDK2-ENT01", "triangles": 28893, "remaining": {"geometries": 0, "textures": 0, "programs": 0}}
+{"phase": "after", "id": "commemorative:LDK2-ENT02", "triangles": 25881, "remaining": {"geometries": 0, "textures": 0, "programs": 0}}
+{"phase": "after", "id": "commemorative:LDK2-ENT03", "triangles": 23925, "remaining": {"geometries": 0, "textures": 0, "programs": 0}}
+{"phase": "after", "id": "duel:43664495", "triangles": 10308, "remaining": {"geometries": 0, "textures": 0, "programs": 0}}
+{"phase": "after", "id": "duel:58371672", "triangles": 1698, "remaining": {"geometries": 0, "textures": 0, "programs": 0}}
+{"ok": true, "views": 24, "errors": [], "httpErrors": [], "report": "/workspace/yugioh-illustration-qa-2026-10-15/after/report.json"}

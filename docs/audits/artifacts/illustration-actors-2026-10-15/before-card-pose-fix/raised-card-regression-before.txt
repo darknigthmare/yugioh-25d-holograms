@@ -1,0 +1,27 @@
+✖ LDK2-ENT01: the actual raised-card vertices project above the eyes at the independently inspected scan position (126.298004ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 258.974836
+
+✖ failing tests:
+
+test at test/duelist-illustration-actor-2026-10-15.test.js:104:1
+✖ LDK2-ENT01: the actual raised-card vertices project above the eyes at the independently inspected scan position (126.298004ms)
+  AssertionError [ERR_ASSERTION]: real card centre [0.4342107907811993,0.6325377446344904] must match the inspected printed position
+      at TestContext.<anonymous> (file:///workspace/yugioh-25d-holograms/test/duelist-illustration-actor-2026-10-15.test.js:115:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

@@ -1,0 +1,355 @@
+{
+  "date": "2026-10-15",
+  "scope": "Actual public actor factory; source-only WebGL, no duel or private state",
+  "framing": "full-body",
+  "rows": [
+    {
+      "edition": "YGLD-ENTKN",
+      "avatarId": "atem",
+      "framing": "full-body",
+      "triangles": 17533,
+      "drawCalls": 5,
+      "normals": 52599,
+      "nonUnitNormals": 0,
+      "nonFinitePositions": 0,
+      "stableBuffers": true,
+      "unexpectedlyAnimated": 0,
+      "landmarks": {
+        "head": [
+          0.0025497343833006435,
+          4.961968126660121,
+          0.442
+        ],
+        "top": [
+          0.09722736680725003,
+          6.348034445891163,
+          -0.3400000035762787
+        ],
+        "leftWrist": [
+          -0.36,
+          3.47,
+          0.86
+        ],
+        "rightWrist": [
+          0.12,
+          3.13,
+          0.95
+        ]
+      },
+      "costume": "yami-shoulder-jacket",
+      "pose": "card-draw",
+      "memoryBeforeDispose": {
+        "geometries": 5,
+        "textures": 0
+      },
+      "views": [
+        {
+          "angle": 0,
+          "drawCalls": 5,
+          "triangles": 17533
+        },
+        {
+          "angle": 0.62,
+          "drawCalls": 5,
+          "triangles": 17533
+        },
+        {
+          "angle": 3.141592653589793,
+          "drawCalls": 5,
+          "triangles": 17533
+        }
+      ],
+      "disposeReturned": true,
+      "secondDisposeReturned": false,
+      "memoryAfterDispose": {
+        "geometries": 0,
+        "textures": 0
+      },
+      "cachedProgramsBeforeRendererDispose": 0,
+      "geometryCount": 5,
+      "materialCount": 4,
+      "disposedGeometryCount": 5,
+      "disposedMaterialCount": 4,
+      "exactlyOnce": true,
+      "originalTriangles": 6694,
+      "originalBudgetRatio": 2.6192112339408427
+    },
+    {
+      "edition": "LDK2-ENT01",
+      "avatarId": "atem",
+      "framing": "full-body",
+      "triangles": 15433,
+      "drawCalls": 5,
+      "normals": 46299,
+      "nonUnitNormals": 0,
+      "nonFinitePositions": 0,
+      "stableBuffers": true,
+      "unexpectedlyAnimated": 0,
+      "landmarks": {
+        "head": [
+          0.0025497343833006435,
+          4.961968126660121,
+          0.442
+        ],
+        "top": [
+          0.09722736680725003,
+          6.348034445891163,
+          -0.3400000035762787
+        ],
+        "leftWrist": [
+          -0.7864,
+          5.0172,
+          0.94
+        ],
+        "rightWrist": [
+          -0.05,
+          3.58,
+          1.04
+        ]
+      },
+      "costume": "yami-school-jacket",
+      "pose": "raised-two-finger-card",
+      "memoryBeforeDispose": {
+        "geometries": 5,
+        "textures": 0
+      },
+      "views": [
+        {
+          "angle": 0,
+          "drawCalls": 5,
+          "triangles": 15433
+        },
+        {
+          "angle": 0.62,
+          "drawCalls": 5,
+          "triangles": 15433
+        },
+        {
+          "angle": 3.141592653589793,
+          "drawCalls": 5,
+          "triangles": 15433
+        }
+      ],
+      "disposeReturned": true,
+      "secondDisposeReturned": false,
+      "memoryAfterDispose": {
+        "geometries": 0,
+        "textures": 0
+      },
+      "cachedProgramsBeforeRendererDispose": 0,
+      "geometryCount": 5,
+      "materialCount": 4,
+      "disposedGeometryCount": 5,
+      "disposedMaterialCount": 4,
+      "exactlyOnce": true,
+      "originalTriangles": 6694,
+      "originalBudgetRatio": 2.3054974604123095
+    },
+    {
+      "edition": "LDK2-ENT02",
+      "avatarId": "kaiba",
+      "framing": "full-body",
+      "triangles": 15141,
+      "drawCalls": 5,
+      "normals": 45423,
+      "nonUnitNormals": 0,
+      "nonFinitePositions": 0,
+      "stableBuffers": true,
+      "unexpectedlyAnimated": 0,
+      "landmarks": {
+        "head": [
+          0.002549734383300644,
+          4.946438835822828,
+          0.4452974584658761
+        ],
+        "top": [
+          0.03004687043778984,
+          6.0615883537421436,
+          0.022060517691582918
+        ],
+        "leftWrist": [
+          -0.66,
+          3.29,
+          1.01
+        ],
+        "rightWrist": [
+          0.04,
+          3.43,
+          1.12
+        ]
+      },
+      "costume": "kaiba-white-coat",
+      "pose": "horizontal-card-fan",
+      "memoryBeforeDispose": {
+        "geometries": 5,
+        "textures": 0
+      },
+      "views": [
+        {
+          "angle": 0,
+          "drawCalls": 5,
+          "triangles": 15141
+        },
+        {
+          "angle": 0.62,
+          "drawCalls": 5,
+          "triangles": 15141
+        },
+        {
+          "angle": 3.141592653589793,
+          "drawCalls": 5,
+          "triangles": 15141
+        }
+      ],
+      "disposeReturned": true,
+      "secondDisposeReturned": false,
+      "memoryAfterDispose": {
+        "geometries": 0,
+        "textures": 0
+      },
+      "cachedProgramsBeforeRendererDispose": 0,
+      "geometryCount": 5,
+      "materialCount": 4,
+      "disposedGeometryCount": 5,
+      "disposedMaterialCount": 4,
+      "exactlyOnce": true,
+      "originalTriangles": 9166,
+      "originalBudgetRatio": 1.6518655902247437
+    },
+    {
+      "edition": "LDK2-ENT03",
+      "avatarId": "joey",
+      "framing": "full-body",
+      "triangles": 11737,
+      "drawCalls": 5,
+      "normals": 35211,
+      "nonUnitNormals": 0,
+      "nonFinitePositions": 0,
+      "stableBuffers": true,
+      "unexpectedlyAnimated": 0,
+      "landmarks": {
+        "head": [
+          0.005607172052760878,
+          4.9618457638862346,
+          0.442
+        ],
+        "top": [
+          0.0660766757883253,
+          6.060182455148936,
+          -0.019999999552965164
+        ],
+        "leftWrist": [
+          -0.43,
+          3.52,
+          0.91
+        ],
+        "rightWrist": [
+          0.06,
+          3.16,
+          1.1
+        ]
+      },
+      "costume": "joey-blue-school-jacket",
+      "pose": "crossed-card-hands",
+      "memoryBeforeDispose": {
+        "geometries": 5,
+        "textures": 0
+      },
+      "views": [
+        {
+          "angle": 0,
+          "drawCalls": 5,
+          "triangles": 11737
+        },
+        {
+          "angle": 0.62,
+          "drawCalls": 5,
+          "triangles": 11737
+        },
+        {
+          "angle": 3.141592653589793,
+          "drawCalls": 5,
+          "triangles": 11737
+        }
+      ],
+      "disposeReturned": true,
+      "secondDisposeReturned": false,
+      "memoryAfterDispose": {
+        "geometries": 0,
+        "textures": 0
+      },
+      "cachedProgramsBeforeRendererDispose": 0,
+      "geometryCount": 5,
+      "materialCount": 4,
+      "disposedGeometryCount": 5,
+      "disposedMaterialCount": 4,
+      "exactlyOnce": true,
+      "originalTriangles": 7144,
+      "originalBudgetRatio": 1.6429171332586787
+    }
+  ],
+  "pageErrors": [],
+  "inputs": {
+    "scripts/audit-duelist-illustration-actors-2026-10-15.py": {
+      "bytes": 8613,
+      "sha256": "d528519989cf149308932bf44e951d7c2279b31d1575d6e078842d8bdbf41146"
+    },
+    "src/ui/DuelistIllustrationActor.js": {
+      "bytes": 24428,
+      "sha256": "d2dae37a6482993840058e333d9f8d9490f594e013cce6d6761be80c1bb23e2e"
+    },
+    "src/ui/DuelistAvatarModels.js": {
+      "bytes": 74654,
+      "sha256": "6691f802933a2d285a44abe664ea514e07c00b679f9536d15a700625b7aaa3ac"
+    },
+    "src/content/DuelistAvatarCatalog.js": {
+      "bytes": 49379,
+      "sha256": "1c9cfbd86ba8895d80601a8a36015809149dd147f5bc188ebd986734d068f08c"
+    },
+    "test/fixtures/duelist-avatar-triangle-baseline-2026-10-11.json": {
+      "bytes": 4162,
+      "sha256": "ae0123439e8ac8db18508496f5f995e80cc29850bfbcdb190279c577b9aba333"
+    },
+    "test/duelist-illustration-actor-2026-10-15.test.js": {
+      "bytes": 13363,
+      "sha256": "1136418fa4e96a58d451c307d007084b58f6a03cafec9c1238c17c38e0890bf8"
+    },
+    "public/tokens/commemorative/YGLD-ENTKN.png": {
+      "bytes": 3346931,
+      "sha256": "de2d93b4f9fb1bc4f2da75204fd539d871d8778aa101030f37e27f076d744743"
+    },
+    "public/tokens/commemorative/LDK2-ENT01.png": {
+      "bytes": 835221,
+      "sha256": "ec48b7462ba36801436740575d050acf2c983c0fede82ccab43f55647fb6e7a1"
+    },
+    "public/tokens/commemorative/LDK2-ENT02.png": {
+      "bytes": 844534,
+      "sha256": "48afa4dccb8a5a61001e179585748d0666fc6f8c99779bee32461e2b6d9e8a28"
+    },
+    "public/tokens/commemorative/LDK2-ENT03.png": {
+      "bytes": 840074,
+      "sha256": "e1c658f9b192a202b940e391ae9339e182b56d77326cb1813e3eb27d183a15ef"
+    }
+  },
+  "screenshots": {
+    "back.png": {
+      "bytes": 132305,
+      "sha256": "d40a558e3b38e566bfa6b92543cf532732c7ce780b12c9f02660acd0dcf3f4a7"
+    },
+    "front.png": {
+      "bytes": 178767,
+      "sha256": "208f7fbe583a59fb49d4a8802edc3f0478eab46e8ae4e8c43c21c7f8a02bd3e6"
+    },
+    "three-quarter.png": {
+      "bytes": 167937,
+      "sha256": "d78f391bc8d195ab33e5ff0cf7094f49f605ab2b7c83c6e7717b56d6fd01fb1d"
+    }
+  },
+  "limitations": [
+    "Procedural stylised geometry, not a claim of complete 1:1 anatomy.",
+    "Only the printed front pose and visible costume are evidenced; unseen backs are inferred.",
+    "Software WebGL measurements do not predict physical mobile-device performance.",
+    "Shader programs remain cached until renderer.dispose(); geometry and texture memory are measured separately."
+  ],
+  "ok": true
+}

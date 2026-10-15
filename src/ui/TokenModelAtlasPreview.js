@@ -2,18 +2,14 @@ import * as THREE from 'three';
 import { createHologramMonsterModel } from './HologramMonsterModels.js';
 import { getTokenPresentationProfile } from './TokenMonsterProfiles.js';
 import { normalizeAvatarPreviewAngle, getAvatarPreviewDragRotation, getAvatarPreviewKeyAction } from './DuelistAvatarPreviewLifecycle.js';
+import { createTokenIllustrationComposition, getTokenIllustrationCompositionDefinition, removeAtlasTokenIllustrationPedestal } from './TokenIllustrationComposition.js';
+import { getTokenIllustrationFrame, ILLUSTRATED_TOKEN_GROUPS } from './HologramTokenIllustratedGroups.js';
 
-const COMMEMORATIVE_AVATARS = Object.freeze({
-  'commemorative:YGLD-ENTKN': 'atem', 'commemorative:LDK2-ENT01': 'atem',
-  'commemorative:LDK2-ENT02': 'kaiba', 'commemorative:LDK2-ENT03': 'joey'
-});
 let avatarResources = null;
 let avatarResourcesLoading = null;
 
 function commemorativeAvatar(profile) {
-  const avatarId = COMMEMORATIVE_AVATARS[profile?.presentationId];
-  return avatarId && profile.kind === 'decorative' && profile.modelKind === 'duelist-avatar'
-    && profile.avatarId === avatarId && profile.cardId == null && profile.tokenAnatomy == null ? avatarId : null;
+  return getTokenIllustrationCompositionDefinition(profile)?.avatarId || null;
 }
 
 /** Duel Token browsing never loads the separate human-character model builder. */
@@ -22,7 +18,7 @@ export async function prepareTokenAtlasPresentation(presentationId) {
   if (!profile?.modelAvailable) throw new Error('Token presentation has no model');
   if (profile.modelKind !== 'duelist-avatar') return profile;
   if (!commemorativeAvatar(profile)) throw new Error('Unverified commemorative character presentation');
-  avatarResourcesLoading ||= Promise.all([import('./DuelistAvatarModels.js'), import('../content/DuelistAvatarCatalog.js')])
+  avatarResourcesLoading ||= Promise.all([import('./DuelistIllustrationActor.js'), import('../content/DuelistAvatarCatalog.js')])
     .then(([models, catalogue]) => { avatarResources = { ...models, getDuelistAvatar: catalogue.getDuelistAvatar }; return avatarResources; })
     .catch(error => { avatarResourcesLoading = null; throw error; });
   await avatarResourcesLoading;
@@ -71,6 +67,7 @@ export class TokenModelAtlasPreview {
       this.renderer.outputColorSpace = THREE.SRGBColorSpace;
       this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
       this.renderer.toneMappingExposure = 1;
+      this.renderer.localClippingEnabled = true;
       this.renderer.domElement.setAttribute('role', 'img');
       this.renderer.domElement.setAttribute('data-token-atlas-canvas', '');
       host.append(this.renderer.domElement);
@@ -144,9 +141,10 @@ export class TokenModelAtlasPreview {
   _canRender() { return !this.disposed && !this.contextLost && this.visible && this.intersecting && this.host.isConnected && !this.document.hidden; }
 
   _disposeCurrentModel() {
-    if (this.avatarModel) this.avatarModel.dispose();
+    if (this.compositionModel) this.compositionModel.dispose();
     else disposeTokenAtlasModel(this.model);
-    this.avatarModel = null;
+    this.compositionModel = null;
+    this.illustrationFrame = null;
     this.model = null;
   }
 
@@ -162,12 +160,26 @@ export class TokenModelAtlasPreview {
     this.profile = profile;
     this.presentationId = profile.presentationId;
     if (avatarId) {
-      this.avatarModel = avatarResources.createDuelistAvatarModel(avatarId, { reducedMotion: true });
-      this.model = this.avatarModel.group;
+      this.compositionModel = createTokenIllustrationComposition(profile, { ...avatarResources, reducedMotion: true });
+      this.model = this.compositionModel.group;
     } else this.model = createHologramMonsterModel({
       id: profile.cardId, code: profile.code, name: profile.name, type: 'Token Monster', isToken: true,
       race: profile.race, attribute: profile.attribute, level: profile.level, atk: profile.atk, def: profile.def
     }, { defense: this.defense, tokenPresentationId: profile.presentationId });
+    this.illustrationFrame = this.compositionModel?.framing || getTokenIllustrationFrame(profile.cardId || profile.code);
+    if (this.illustrationFrame && !this.compositionModel) {
+      removeAtlasTokenIllustrationPedestal(this.model);
+      const frame = this.illustrationFrame;
+      const clippingPlanes = [
+        new THREE.Plane(new THREE.Vector3(1, 0, 0), -frame.left),
+        new THREE.Plane(new THREE.Vector3(-1, 0, 0), frame.right),
+        new THREE.Plane(new THREE.Vector3(0, 1, 0), -frame.bottom),
+        new THREE.Plane(new THREE.Vector3(0, -1, 0), frame.top)
+      ];
+      this.model.traverse(object => {
+        for (const material of Array.isArray(object.material) ? object.material : [object.material]) if (material) material.clippingPlanes = clippingPlanes;
+      });
+    }
     this.scene.add(this.model);
     this.model.updateMatrixWorld(true);
     const bounds = new THREE.Box3().setFromObject(this.model);
@@ -177,22 +189,34 @@ export class TokenModelAtlasPreview {
       size.y / 2, Math.max(Math.abs(bounds.min.z), Math.abs(bounds.max.z))));
     this.floor.position.y = bounds.min.y - .025;
     this.floor.scale.setScalar(Math.max(.38, Math.min(1, size.x / 2.8)));
-    this.renderer.domElement.setAttribute('aria-label', `${avatarId ? 'Silhouette 3D du duelliste' : 'Modèle 3D du Jeton'} : ${profile.name}`);
+    this.floor.visible = !this.illustrationFrame;
+    this.camera = this.illustrationFrame ? new THREE.OrthographicCamera(-2.2, 2.2, 4.3, -.1, .1, 100)
+      : new THREE.PerspectiveCamera(37, 1, .1, 80);
+    this.renderer.domElement.setAttribute('aria-label', this.compositionModel
+      ? `Composition 3D de l’illustration : ${this.compositionModel.subjects.map(subject => subject.name).join(' et ')}`
+      : `Modèle 3D du Jeton : ${profile.name}`);
     this.renderer.domElement.dataset.tokenPresentationId = profile.presentationId;
     this.renderer.domElement.dataset.tokenCardId = profile.cardId || '';
     this.renderer.domElement.dataset.tokenAvatarId = avatarId || '';
-    this.renderer.domElement.dataset.tokenModelKind = avatarId ? 'duelist-avatar' : 'token-monster';
+    this.renderer.domElement.dataset.tokenModelKind = avatarId ? 'illustration-composition' : 'token-monster';
+    const groupCode = profile.cardId || profile.code;
+    const illustratedGroup = Object.hasOwn(ILLUSTRATED_TOKEN_GROUPS, groupCode) ? ILLUSTRATED_TOKEN_GROUPS[groupCode] : null;
+    const subjectCount = this.compositionModel?.subjects.length || illustratedGroup?.subjects.length || 1;
+    this.renderer.domElement.dataset.tokenSubjectCount = String(subjectCount);
+    this.renderer.domElement.dataset.tokenIllustrationFrame = String(!!this.illustrationFrame);
     this.host.dataset.tokenPresentationId = profile.presentationId;
     this.host.dataset.tokenCardId = profile.cardId || '';
     this.host.dataset.tokenAvatarId = avatarId || '';
-    this.host.dataset.tokenModelKind = avatarId ? 'duelist-avatar' : 'token-monster';
-    this.host.dataset.tokenPose = avatarId ? 'portrait' : this.defense ? 'defense' : 'attack';
+    this.host.dataset.tokenModelKind = avatarId ? 'illustration-composition' : 'token-monster';
+    this.host.dataset.tokenSubjectCount = String(subjectCount);
+    this.host.dataset.tokenIllustrationFrame = String(!!this.illustrationFrame);
+    this.host.dataset.tokenPose = avatarId ? 'illustration' : this.defense ? 'defense' : 'attack';
     this.recenter();
     return true;
   }
 
   setPose(pose) {
-    if (this.disposed || this.avatarModel || !['attack', 'defense'].includes(pose)) return false;
+    if (this.disposed || this.compositionModel || !['attack', 'defense'].includes(pose)) return false;
     const defense = pose === 'defense';
     if (this.defense === defense) return true;
     const angle = this.angle;
@@ -207,20 +231,35 @@ export class TokenModelAtlasPreview {
 
   setVisible(visible) { if (!this.disposed) { this.visible = visible === true; if (this.visible) this.render(); } }
   rotateBy(delta) { if (!this.disposed && typeof delta === 'number' && Number.isFinite(delta)) { this.angle = normalizeAvatarPreviewAngle(this.angle + delta); this.render(); } }
-  recenter() { if (!this.disposed) { this.angle = 0; this.avatarModel?.resetPose(); this.model?.userData?.poseRig?.reset(); this.render(); } }
+  recenter() { if (!this.disposed) { this.angle = 0; this.compositionModel?.resetPose(); this.model?.userData?.poseRig?.reset(); this.render(); } }
 
   render() {
     if (!this._canRender() || !this.renderer || !this.model) return;
     const width = Math.max(1, this.host.clientWidth);
     const height = Math.max(1, this.host.clientHeight);
     if (width !== this.lastWidth || height !== this.lastHeight) { this.renderer.setSize(width, height, false); this.lastWidth = width; this.lastHeight = height; }
-    this.camera.aspect = width / height;
-    const vertical = THREE.MathUtils.degToRad(this.camera.fov / 2);
-    const horizontal = Math.atan(Math.tan(vertical) * this.camera.aspect);
-    const distance = this.radius * 1.13 / Math.sin(Math.min(vertical, horizontal));
-    this.camera.position.set(0, this.target.y + distance * .075, distance);
-    this.camera.far = distance + this.radius + 15;
-    this.camera.lookAt(this.target);
+    if (this.illustrationFrame) {
+      const frame = this.illustrationFrame;
+      const aspect = width / height;
+      const halfHeight = Math.max((frame.top - frame.bottom) / 2, (frame.right - frame.left) / (2 * aspect)) * 1.05;
+      const halfWidth = halfHeight * aspect;
+      this.camera.left = -halfWidth;
+      this.camera.right = halfWidth;
+      this.camera.top = halfHeight;
+      this.camera.bottom = -halfHeight;
+      const centerY = (frame.bottom + frame.top) / 2;
+      const centerX = (frame.left + frame.right) / 2;
+      this.camera.position.set(centerX, centerY, 15);
+      this.camera.lookAt(centerX, centerY, 0);
+    } else {
+      this.camera.aspect = width / height;
+      const vertical = THREE.MathUtils.degToRad(this.camera.fov / 2);
+      const horizontal = Math.atan(Math.tan(vertical) * this.camera.aspect);
+      const distance = this.radius * 1.13 / Math.sin(Math.min(vertical, horizontal));
+      this.camera.position.set(0, this.target.y + distance * .075, distance);
+      this.camera.far = distance + this.radius + 15;
+      this.camera.lookAt(this.target);
+    }
     this.camera.updateProjectionMatrix();
     this.model.rotation.y = this.angle;
     this.model.updateMatrixWorld(true);
@@ -241,6 +280,6 @@ export class TokenModelAtlasPreview {
     this.floor?.material.dispose();
     this.scene?.clear();
     if (this.renderer) { this.renderer.dispose(); this.renderer.forceContextLoss(); this.renderer.domElement.remove(); this.renderer = null; }
-    for (const key of ['tokenPresentationId', 'tokenCardId', 'tokenAvatarId', 'tokenModelKind', 'tokenPose', 'tokenAtlasAngle']) delete this.host.dataset[key];
+    for (const key of ['tokenPresentationId', 'tokenCardId', 'tokenAvatarId', 'tokenModelKind', 'tokenSubjectCount', 'tokenIllustrationFrame', 'tokenPose', 'tokenAtlasAngle']) delete this.host.dataset[key];
   }
 }

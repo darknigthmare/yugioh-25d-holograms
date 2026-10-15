@@ -1,0 +1,216 @@
+{
+  "date": "2026-10-15",
+  "scope": "Four trusted printed-Token duelist actors, full-body and printed-portrait framing; corrected ENT01 raised-card position",
+  "targetedTests": {
+    "pass": 13,
+    "fail": 0
+  },
+  "raisedCardRegression": {
+    "actualVertices": 36,
+    "independentPrintedCentre": [
+      0.457,
+      0.344
+    ],
+    "tolerance": 0.01,
+    "previousActualCentre": [
+      0.4342107907811993,
+      0.6325377446344904
+    ],
+    "faceUnchanged": [
+      0.695,
+      0.488
+    ],
+    "beforeFailAfterPass": true
+  },
+  "logicalActors": 4,
+  "browserInstances": 8,
+  "actualViews": 24,
+  "unitNormalsPerFraming": 179532,
+  "maximumOriginalTriangleRatio": 2.6192112339408427,
+  "maximumDrawCalls": 5,
+  "allSourcePinsMatch": true,
+  "allReportsOk": true,
+  "allInstanceResourcesExactlyOnce": true,
+  "allPostDisposeGeometryAndTexturesZero": true,
+  "files": {
+    "src/ui/DuelistIllustrationActor.js": {
+      "bytes": 24428,
+      "sha256": "d2dae37a6482993840058e333d9f8d9490f594e013cce6d6761be80c1bb23e2e"
+    },
+    "test/duelist-illustration-actor-2026-10-15.test.js": {
+      "bytes": 13363,
+      "sha256": "1136418fa4e96a58d451c307d007084b58f6a03cafec9c1238c17c38e0890bf8"
+    },
+    "scripts/audit-duelist-illustration-actors-2026-10-15.py": {
+      "bytes": 8613,
+      "sha256": "d528519989cf149308932bf44e951d7c2279b31d1575d6e078842d8bdbf41146"
+    },
+    "docs/audits/illustration-actors-2026-10-15.md": {
+      "bytes": 6491,
+      "sha256": "87d1d5ee99ffd9014a7203bb6f0a564e50ebc9fcfdf46651608c634f7d623b23"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/back.png": {
+      "bytes": 132305,
+      "sha256": "d40a558e3b38e566bfa6b92543cf532732c7ce780b12c9f02660acd0dcf3f4a7"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/before-card-pose-fix/DuelistIllustrationActor.js.txt": {
+      "bytes": 23949,
+      "sha256": "af43970cda36fbf640cb8f27b26a185170f95c5222a26daf63927772d721c81f"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/before-card-pose-fix/actor-proof-manifest.json": {
+      "bytes": 6625,
+      "sha256": "745fd93e85842490e181517280c65096ed3de88ba06dc6e2e055178f22513542"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/before-card-pose-fix/audit-duelist-illustration-actors-2026-10-15.py.txt": {
+      "bytes": 8613,
+      "sha256": "d528519989cf149308932bf44e951d7c2279b31d1575d6e078842d8bdbf41146"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/before-card-pose-fix/back.png": {
+      "bytes": 132579,
+      "sha256": "8d7635ff76405803cc74a911f7f4ed70987de9a4a6b5a3bc4ce45fab9dbfbc2a"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/before-card-pose-fix/duelist-illustration-actor-2026-10-15.test.js.txt": {
+      "bytes": 10783,
+      "sha256": "771d325f52c47c3009d20d9dd1e571f01f9ab9a42cf7ed97db99cda8c8c8c339"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/before-card-pose-fix/front.png": {
+      "bytes": 177879,
+      "sha256": "0da29ae73a5b3755fc2227a10dd2269cca4c405988587e94a9d48768b191fc4a"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/before-card-pose-fix/illustration-actors-2026-10-15.md.txt": {
+      "bytes": 5562,
+      "sha256": "774c8a6709a1f8dcd592fcf6e91dd4c50e9598e41eeab2b8307ada578eccc3d3"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/before-card-pose-fix/printed-portrait/back.png": {
+      "bytes": 126148,
+      "sha256": "b8d38a88c467b4089009c800c5e96e0cb3fcd632f7cff774ee26454d29948b47"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/before-card-pose-fix/printed-portrait/front.png": {
+      "bytes": 161908,
+      "sha256": "36dd5c770664189bf43b17659f10b4dd8152e3806a2a92c78dce70cc38dceb54"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/before-card-pose-fix/printed-portrait/report.json": {
+      "bytes": 9308,
+      "sha256": "9a705e729c61eb6b6ee88f3ccfa5001228f0a7859ae8f440871dba16d0d8b379"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/before-card-pose-fix/printed-portrait/three-quarter.png": {
+      "bytes": 153250,
+      "sha256": "1e474011676e105dfa3c5b69caaf92b668b36ee3b571ac92f13afac07eae049c"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/before-card-pose-fix/raised-card-regression-before.txt": {
+      "bytes": 1123,
+      "sha256": "20adc4c66f427d174a14ae3a8f2ebaca1b090a5782c409e46389bda086478949"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/before-card-pose-fix/report.json": {
+      "bytes": 9267,
+      "sha256": "ee333ada8c2c3305c2ca4bc3fd92af75f05f8d4c18da851254d0977dfd8f85fc"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/before-card-pose-fix/targeted-tests.txt": {
+      "bytes": 1563,
+      "sha256": "398a0cbe555a4f5737944b48436396392fb658e51db49d2d3862c96dcdbefa25"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/before-card-pose-fix/three-quarter.png": {
+      "bytes": 165742,
+      "sha256": "3e7a3de02ae75165b7d894002baa48bf8b3756f753022059dc9ee12ffa693103"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/before-isolated-browser-harness/audit-duelist-illustration-actors-2026-10-15.py.txt": {
+      "bytes": 8203,
+      "sha256": "712e7df9e787987291bd0ea7ef42cb464f4083958526364efedfcadd6e9ffeef"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/before-isolated-browser-harness/back.png": {
+      "bytes": 132579,
+      "sha256": "8d7635ff76405803cc74a911f7f4ed70987de9a4a6b5a3bc4ce45fab9dbfbc2a"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/before-isolated-browser-harness/front.png": {
+      "bytes": 177879,
+      "sha256": "0da29ae73a5b3755fc2227a10dd2269cca4c405988587e94a9d48768b191fc4a"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/before-isolated-browser-harness/portrait-attempt-failure.txt": {
+      "bytes": 455,
+      "sha256": "6c0c210d0c66991480c6620bf9412014b1f474b7e814b9a1a890d67c7b2df174"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/before-isolated-browser-harness/report.json": {
+      "bytes": 9267,
+      "sha256": "2ccc9bfdf691e86191ba3b4180e583e1c201caad87db6767324c60ab6af92721"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/before-isolated-browser-harness/three-quarter.png": {
+      "bytes": 165742,
+      "sha256": "3e7a3de02ae75165b7d894002baa48bf8b3756f753022059dc9ee12ffa693103"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/before-portrait-framing/DuelistIllustrationActor.js.txt": {
+      "bytes": 22225,
+      "sha256": "6862f5c920fb83f1b6a80c3cfd2cd8e8a5b84d2d17e1ab29d7ae46234420e4bf"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/before-portrait-framing/audit-before-framing.md.txt": {
+      "bytes": 4210,
+      "sha256": "b983124cfff4e51d6a5f22606720e500c9be6e9511a2cdf366c52f701b662ce8"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/before-portrait-framing/audit-duelist-illustration-actors-2026-10-15.py.txt": {
+      "bytes": 8042,
+      "sha256": "8b9f5979d0cfea13c227ce58aea37ed63a1ab23a2698b0e1ac247febe3dab88a"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/before-portrait-framing/back.png": {
+      "bytes": 128776,
+      "sha256": "dbd70d58bb579f22ac0e160104a5ab2e063477b775d8b8b7b9de1a75430facd0"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/before-portrait-framing/duelist-illustration-actor-2026-10-15.test.js.txt": {
+      "bytes": 8938,
+      "sha256": "de9e84f3adb2e2b02fc63abeeeea7b66f90697316b27904a2d62e0d5a75c2065"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/before-portrait-framing/front.png": {
+      "bytes": 170618,
+      "sha256": "c57ccc4524fb7d4827f05df1dc6a1a012302a71c93786655f65043cd87b2542c"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/before-portrait-framing/report.json": {
+      "bytes": 9121,
+      "sha256": "ec59e39cfef1edf473a522a140bd0146960563aa724d0cefff34fb4d7950dcc9"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/before-portrait-framing/targeted-tests.txt": {
+      "bytes": 1069,
+      "sha256": "5d664e03f135793a6bb549b9921c7837edfb7f755866516026daac535ec467fd"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/before-portrait-framing/three-quarter.png": {
+      "bytes": 159068,
+      "sha256": "235015773cd15e460ec37bea1e850c634b6bc78af4169bdbe20ee8a6d5f98d27"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/front.png": {
+      "bytes": 178767,
+      "sha256": "208f7fbe583a59fb49d4a8802edc3f0478eab46e8ae4e8c43c21c7f8a02bd3e6"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/printed-portrait/back.png": {
+      "bytes": 127528,
+      "sha256": "15f3fa510445848597d111111a3d96c485d5a60365251d278b8bbffdc493b0aa"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/printed-portrait/front.png": {
+      "bytes": 164541,
+      "sha256": "a7a25d8e5e2e885c0b1bf2c93f65552365cd3edbb1fb17014a5fa69829e61426"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/printed-portrait/report.json": {
+      "bytes": 9312,
+      "sha256": "24d504648fde42e4dadb17f155723d05844c6bdd31c6d60ba88064ed52287205"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/printed-portrait/three-quarter.png": {
+      "bytes": 156863,
+      "sha256": "84cc50d3ea8625ab101d690540c2731f925813d40ef905b84866c21203521a6b"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/report.json": {
+      "bytes": 9271,
+      "sha256": "34c2ae1a2c30165a1616adbba52a6950adea820cdd07fd2509416d416c076cb7"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/targeted-tests.txt": {
+      "bytes": 1690,
+      "sha256": "f01b5b05da23d58cc1a9375a92a52b81904742362099306f07cda39842ac4a76"
+    },
+    "docs/audits/artifacts/illustration-actors-2026-10-15/three-quarter.png": {
+      "bytes": 167937,
+      "sha256": "d78f391bc8d195ab33e5ff0cf7094f49f605ab2b7c83c6e7717b56d6fd01fb1d"
+    }
+  },
+  "fileCount": 43,
+  "limitations": [
+    "Procedural stylised actors; only printed front costume and pose are evidenced.",
+    "Unseen backs and portrait foreshortening remain interpreted.",
+    "Original selectable 192-avatar catalogue, avatar factory and native rows unchanged."
+  ],
+  "ok": true
+}
