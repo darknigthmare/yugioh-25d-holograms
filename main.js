@@ -54,6 +54,8 @@ import {
 } from './src/cards.js';
 import { escapeHtml, safeImageUrl } from './src/security.js';
 import { PublicCardConfirmation } from './src/ui/PublicCardConfirmation.js';
+import { DuelBoardDecisionController } from './src/ui/DuelBoardDecisionController.js';
+import { nativeBoardReference } from './src/ui/NativeDuelBoardInteractionModel.js';
 import { getDuelistAvatar, DEFAULT_DUELIST_AVATAR_ID } from './src/content/DuelistAvatarCatalog.js';
 import {
   validateDuelistAvatarProfile, collectDuelistAvatarUnlocks,
@@ -243,9 +245,12 @@ function openDialog(dialog, preferredFocus = null) {
     ? document.activeElement
     : null;
   dialog.classList.remove('hidden');
-  document.body.classList.add('modal-open');
+  // Playing a card stays next to the field, with no scrim over the duel.
+  const boardAction = dialog.id === 'action-modal';
+  document.body.classList.toggle('modal-open', !boardAction);
+  document.body.classList.toggle('board-action-active', boardAction);
   const appContainer = document.querySelector('.app-container');
-  if (appContainer && !appContainer.contains(dialog)) appContainer.setAttribute('inert', '');
+  if (!boardAction && appContainer && !appContainer.contains(dialog)) appContainer.setAttribute('inert', '');
   else appContainer?.removeAttribute('inert');
   activeDialog = dialog;
 
@@ -270,6 +275,7 @@ function closeDialog(dialog, { restoreFocus = true } = {}) {
     dialogNavigationRevision += 1;
     activeDialog = null;
     document.body.classList.remove('modal-open');
+    document.body.classList.remove('board-action-active');
     document.querySelector('.app-container')?.removeAttribute('inert');
     if (restoreFocus && dialogReturnFocus?.isConnected) {
       dialogReturnFocus.focus();
@@ -321,7 +327,7 @@ document.addEventListener('keydown', event => {
     return;
   }
 
-  if (event.key !== 'Tab') return;
+  if (event.key !== 'Tab' || activeDialog.id === 'action-modal') return;
   const focusable = getDialogFocusableElements(activeDialog);
   if (focusable.length === 0) {
     event.preventDefault();
@@ -939,26 +945,72 @@ const decisionDescription = document.getElementById('decision-modal-description'
 const decisionOptions = document.getElementById('decision-options');
 const decisionCancelBtn = document.getElementById('btn-decision-cancel');
 let pendingDecisionResolver = null;
+const boardDecision = new DuelBoardDecisionController({
+  documentRef: document,
+  hostElement: document.getElementById('board-decision-prompt'),
+  getGameState: () => game,
+  onFinish: value => finishDecision(value),
+  onFallback: request => requestUiDecision(request, { forceModal: true, reuseResolver: true }),
+  announce: announceStatus
+});
 
 function finishDecision(value) {
   const resolver = pendingDecisionResolver;
   pendingDecisionResolver = null;
+  boardDecision.clear();
   closeDialog(decisionModal);
+  syncPendingDecisionControls();
   resolver?.(value);
 }
 
-function requestUiDecision(request) {
+function syncPendingDecisionControls() {
+  const pending = Boolean(pendingDecisionResolver);
+  document.body.classList.toggle('duel-decision-pending', pending);
+  for (const id of ['btn-next-phase', 'btn-end-turn', 'btn-native-actions', 'btn-pendulum-summon']) {
+    const button = document.getElementById(id);
+    if (!button) continue;
+    if (pending && !button.disabled) {
+      button.dataset.decisionSuspended = 'true';
+      button.disabled = true;
+      button.setAttribute('aria-disabled', 'true');
+    } else if (!pending && button.dataset.decisionSuspended === 'true') {
+      delete button.dataset.decisionSuspended;
+      const actions = game?.getAvailableActions?.('player') || {};
+      const ready = game?.currentTurn === 'player' && !game.isResolvingAction
+        && !game.isDiscarding && !game.pendingSummon && !game.pendingExtraSummon;
+      const native = typeof game?.activateNativeAction === 'function';
+      const allowed = id === 'btn-native-actions' ? actions.nativeActions?.length > 0
+        : id === 'btn-pendulum-summon' ? Boolean(ready && actions.canPendulumSummon)
+          : id === 'btn-end-turn' ? ready && (native ? actions.canEndPhase
+            : ['main1', 'battle', 'main2'].includes(game.currentPhase))
+            : ready && (native ? actions.canBattlePhase || actions.canMainPhase2
+              || (game.currentPhase === 'main2' && actions.canEndPhase)
+              : (game.currentPhase === 'main1' && game.turnCount > 1)
+                || ['battle', 'main2'].includes(game.currentPhase));
+      button.disabled = !allowed;
+      button.setAttribute('aria-disabled', allowed ? 'false' : 'true');
+    }
+  }
+}
+
+function requestUiDecision(request, { forceModal = false, reuseResolver = false } = {}) {
   if (request?.side === 'opponent') {
     const choice = chooseAIResponseTarget(game, request);
     if (choice !== undefined) return choice;
   }
   if (!request || request.side !== 'player' || !decisionModal) return undefined;
 
-  return new Promise(resolve => {
-    if (pendingDecisionResolver) {
-      pendingDecisionResolver(null);
+  const renderDecision = resolve => {
+    if (!reuseResolver) {
+      if (pendingDecisionResolver) finishDecision(null);
+      pendingDecisionResolver = resolve;
     }
-    pendingDecisionResolver = resolve;
+    boardDecision.clear({ restoreFocus: false });
+    if (!forceModal && game && request.type !== 'select-first-player' && boardDecision.show(request)) {
+      closeDialog(decisionModal, { restoreFocus: false });
+      syncPendingDecisionControls();
+      return;
+    }
     decisionOptions.innerHTML = '';
 
     if ([
@@ -1211,17 +1263,35 @@ function requestUiDecision(request) {
         : 'UTILISER LE CHOIX CONSEILLÉ';
       decisionCancelBtn.classList.toggle('hidden', request.required === true);
     } else {
-      pendingDecisionResolver = null;
-      resolve(undefined);
+      finishDecision(undefined);
       return;
     }
 
     decisionModal.dataset.dismissible = request.required === true ? 'false' : 'true';
     openDialog(decisionModal, decisionOptions.querySelector('input[type="search"], button'));
-  });
+    syncPendingDecisionControls();
+  };
+  if (reuseResolver) {
+    renderDecision(() => {});
+    return;
+  }
+  return new Promise(renderDecision);
 }
 
 decisionCancelBtn?.addEventListener('click', () => finishDecision(null));
+
+// A placement choice must finish before another board command is started.
+function blockPendingPlacementCommand(event) {
+  if (activeDialog?.id !== 'action-modal' || activeDialog.contains(event.target)) return;
+  if (!event.target.closest?.('.card-zone, #player-hand, .extra-deck-zone, .graveyard-zone, .banished-zone, .command-actions')) return;
+  if (event.type === 'keydown' && !['Enter', ' ', 'r', 'R'].includes(event.key)) return;
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  announceStatus('Choisissez l’action de la carte ou annulez pour revenir au terrain.');
+}
+for (const eventType of ['click', 'contextmenu', 'dragstart', 'drop', 'keydown']) {
+  document.addEventListener(eventType, blockPendingPlacementCommand, true);
+}
 
 function requestUiChainOpportunity(request) {
   if (request?.side === 'opponent') return chooseAIChainResponse(game, request);
@@ -1360,7 +1430,7 @@ pendulumSummonBtn?.addEventListener('click', async () => {
   }
 });
 nextPhaseBtn.addEventListener('click', () => {
-  if (!game || game.currentTurn !== 'player' || game.isResolvingAction) return;
+  if (!game || activeDialog || pendingDecisionResolver || game.currentTurn !== 'player' || game.isResolvingAction) return;
 
   if (game.currentPhase === 'main1') {
     if (game.turnCount === 1) {
@@ -1377,6 +1447,8 @@ nextPhaseBtn.addEventListener('click', () => {
 endTurnBtn?.addEventListener('click', () => {
   if (
     !game
+    || activeDialog
+    || pendingDecisionResolver
     || game.currentTurn !== 'player'
     || game.isResolvingAction
     || game.pendingSummon
@@ -2516,8 +2588,16 @@ async function openNativeActionMenu(cardUid = null) {
   if (!actions.length) { announceStatus('Aucun effet ou invocation disponible actuellement.'); return; }
   const selected = await requestUiDecision({
     side: 'player', type: 'native-available-actions', title: 'EFFETS ET INVOCATIONS',
-    description: 'Les coûts, cibles et autres choix vous seront demandés après cette sélection.',
-    choices: actions.map(action => ({ value: action.id, label: action.label }))
+    anchorUid: cardUid,
+    description: cardUid ? 'Choisissez l’action de cette carte.'
+      : 'Sélectionnez une carte sur le terrain ou dans votre Main pour choisir son action.',
+    choices: actions.map(action => ({ value: action.id, label: action.label,
+      cardUid: action.cardUid,
+      boardRef: nativeBoardReference(action.nativeRef, {
+        choosingPlayer: actionGame.controllerForSide?.('player'), side: 'player',
+        sideForPlayer: player => actionGame.sideForPlayer?.(player)
+      })
+    }))
   });
   if (selected != null && game === actionGame) await actionGame.activateNativeAction(selected);
 }
@@ -2527,7 +2607,10 @@ function updateUI(gameState) {
   const nativeActions = gameState.getAvailableActions?.('player')?.nativeActions || [];
   const nativeButton = document.getElementById('btn-native-actions');
   nativeButton?.classList.toggle('hidden', !nativeActions.length);
-  if (nativeButton) nativeButton.disabled = !nativeActions.length;
+  if (nativeButton) {
+    nativeButton.disabled = !nativeActions.length;
+    nativeButton.setAttribute('aria-disabled', nativeActions.length ? 'false' : 'true');
+  }
   campaignTracker?.observeState(gameState);
   const campaignMission = getMission(activeCampaignMissionId);
   const campaignStatus = document.getElementById('campaign-duel-status');
@@ -2764,6 +2847,8 @@ function updateUI(gameState) {
     });
   }
   updateBoardZoneAccessibility();
+  boardDecision.refresh();
+  syncPendingDecisionControls();
   duelViewController?.update(gameState);
 }
 
@@ -2851,6 +2936,10 @@ function renderHand(handCards) {
   const focusedIndex = Number(focusedHandCard?.dataset.handIndex);
   const availableActions = game?.getAvailableActions?.('player') || {};
   const legalNormalSummons = new Set([...(availableActions.normalSummonCardUids || []), ...(availableActions.normalSetCardUids || [])].map(String));
+  const handNativeActions = new Set((availableActions.nativeActions || []).map(action => String(action.cardUid)));
+  const handEffectActions = new Set((availableActions.nativeActions || [])
+    .filter(action => ['SELECT_SPECIAL_SUMMON', 'SELECT_ACTIVATE'].includes(action.kind))
+    .map(action => String(action.cardUid)));
   const canUseHand = Boolean(
     game
     && game.currentTurn === 'player'
@@ -2876,7 +2965,8 @@ function renderHand(handCards) {
       || (
         canUseHand
         && (
-          (card.card_type === 'monster' && (legalNormalSummons.has(String(card.uid))
+          handNativeActions.has(String(card.uid))
+          || (card.card_type === 'monster' && (legalNormalSummons.has(String(card.uid))
             || canActivateHandPendulumScale(card)))
           || (
             card.card_type !== 'monster'
@@ -2941,6 +3031,14 @@ function renderHand(handCards) {
         return;
       }
 
+      // Hand effects and special procedures are available on the card itself.
+      if (card.card_type === 'monster' && handNativeActions.has(String(card.uid))
+        && !legalNormalSummons.has(String(card.uid)) && !canActivateHandPendulumScale(card)) {
+        clearSelectedHandCard();
+        openNativeActionMenu(card.uid);
+        return;
+      }
+
       selectedHandUid = selectedHandUid === card.uid ? null : card.uid;
       document.querySelectorAll('#player-hand .card-entity').forEach(element => {
         const isSelected = element.dataset.uid === selectedHandUid;
@@ -2962,6 +3060,19 @@ function renderHand(handCards) {
     });
 
     wrapper.appendChild(cardEl);
+    if (canUseHand && handEffectActions.has(String(card.uid))) {
+      const actionButton = document.createElement('button');
+      actionButton.type = 'button';
+      actionButton.className = 'hand-card-actions';
+      actionButton.textContent = 'ACTIONS';
+      actionButton.setAttribute('aria-label', `${card.name} : effets et Invocations Spéciales disponibles`);
+      actionButton.addEventListener('click', () => {
+        if (pendingDecisionResolver || activeDialog || game?.isResolvingAction) return;
+        clearSelectedHandCard();
+        openNativeActionMenu(card.uid);
+      });
+      wrapper.appendChild(actionButton);
+    }
     handContainer.appendChild(wrapper);
   });
 
@@ -3069,6 +3180,7 @@ async function openMonsterActionMenu(zoneReference) {
   const choice = await requestUiDecision({
     type: 'monster-field-action',
     side: 'player',
+    anchorUid: card.uid,
     title: card.name,
     description: 'Choisissez une action disponible pour ce monstre.',
     choices
@@ -3106,7 +3218,7 @@ async function openSetCardActionMenu(zoneType, zoneIndex) {
   }
   const sourceInstance = card.runtimeInstanceId;
   const choice = await requestUiDecision({
-    type: 'set-card-field-action', side: 'player', title: card.name,
+    type: 'set-card-field-action', side: 'player', title: card.name, anchorUid: card.uid,
     description: 'L’adversaire pourra répondre à l’activation.',
     choices: [{ value: 'activate', label: 'ACTIVER FACE RECTO' }]
   });
@@ -3325,8 +3437,10 @@ document.querySelectorAll('.card-zone').forEach(zone => {
       && selectedAttackerIndex !== null
       && zone.classList.contains('can-target')
     ) {
-      // Attack target monster
-      game.executeAttack(selectedAttackerIndex, monsterReference);
+      // An empty highlighted zone represents a direct attack, not a missing
+      // defender. The native core still decides whether that attack is legal.
+      const defender = game.getMonsterEntry?.('opponent', monsterReference);
+      game.executeAttack(selectedAttackerIndex, defender ? monsterReference : null);
       selectedAttackerIndex = null;
       document.querySelectorAll('.player-m-zone, .extra-m-zone.player-controlled')
         .forEach(z => z.classList.remove('attacker-active'));
@@ -3336,6 +3450,7 @@ document.querySelectorAll('.card-zone').forEach(zone => {
   // Right click handler to change battle position (Attack/Defense) or Flip Summon
   zone.addEventListener('contextmenu', (e) => {
     e.preventDefault();
+    if (activeDialog || pendingDecisionResolver) return;
     if (!game || game.currentTurn !== 'player' || !game.currentPhase.startsWith('main') || game.isResolvingAction || game.pendingSummon || game.pendingExtraSummon) return;
 
     const zoneType = zone.dataset.zoneType;
@@ -3361,6 +3476,7 @@ document.querySelectorAll('.card-zone').forEach(zone => {
       zone.click();
     } else if (event.key.toLowerCase() === 'r') {
       event.preventDefault();
+      if (activeDialog || pendingDecisionResolver) return;
       const zoneType = zone.dataset.zoneType;
       const side = zone.dataset.side;
       const index = parseInt(zone.dataset.index);
@@ -3376,13 +3492,17 @@ document.querySelectorAll('.card-zone').forEach(zone => {
 
 // Some browsers flatten nested CSS-3D hit testing to the board plane. If a
 // visible legal zone is inside the pointer coordinates but the compositor
-// reports the board itself, forward the activation to that exact DOM zone.
-// The synthetic zone click then follows the normal shared placement handler.
-document.getElementById('duel-board')?.addEventListener('click', event => {
+// reports the board or its shadow wrapper, forward to the unique legal zone.
+// Listen on the field: a flattened click on the wrapper never reaches its child
+// board, and the immersive view moves the same board into its CSS3D layer.
+document.getElementById('parallax-container')?.addEventListener('click', event => {
   if (event.target.closest?.('.card-zone')) return;
+  if (event.target.closest?.('button, input, select, textarea, a, [role="dialog"], #board-decision-prompt')) return;
+  if (!Number.isFinite(event.clientX) || !Number.isFinite(event.clientY)
+    || (event.clientX === 0 && event.clientY === 0)) return;
 
-  const matchingZone = [...document.querySelectorAll('.card-zone.active-zone')]
-    .find(zone => {
+  const matchingZones = [...document.querySelectorAll('.card-zone.active-zone, .card-zone.can-target')]
+    .filter(zone => {
       const bounds = zone.getBoundingClientRect();
       return (
         event.clientX >= bounds.left
@@ -3392,10 +3512,10 @@ document.getElementById('duel-board')?.addEventListener('click', event => {
       );
     });
 
-  if (!matchingZone) return;
+  if (matchingZones.length !== 1) return;
   event.preventDefault();
   event.stopPropagation();
-  matchingZone.click();
+  matchingZones[0].click();
 });
 
 // Click outside board zones cancels attacker select, tribute summon or synchro summon

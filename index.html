@@ -456,7 +456,7 @@
           <li><strong>Tribut :</strong> Niv. 5-6 requiert 1 sacrifice, Niv. 7+ en requiert 2.</li>
           <li><strong>Magie/Piège :</strong> Placez-la dans une zone dédiée ; les pièges réagissent à leur timing.</li>
           <li><strong>Combat :</strong> Passez en Battle Phase, cliquez sur votre monstre puis sur une cible rouge.</li>
-          <li><strong>Fin du tour :</strong> Le bouton dédié permet de sauter la Battle Phase depuis Main 1.</li>
+          <li><strong>Fin du tour :</strong> Le bouton dédié permet de sauter la Battle Phase depuis Main 1. Touchez ensuite une carte surlignée pour répondre ou passez la priorité.</li>
           <li><strong>Effet/position :</strong> Cliquez ou touchez votre monstre puis choisissez l’action ; R change directement sa position.</li>
           <li><strong>Extra Deck :</strong> Fusion, Synchro, Xyz et Lien utilisent les matériels légaux et les Zones Monstre Extra.</li>
           <li><strong>Pendule :</strong> Activez deux Échelles aux extrémités, puis utilisez le bouton dédié quand il apparaît.</li>
@@ -490,7 +490,7 @@
           <span class="phase-step" id="phase-end" title="End Phase" data-phase-label="End Phase" aria-hidden="true">EP</span>
         </div>
         <div class="command-actions">
-          <button type="button" id="btn-native-actions" class="btn hidden">EFFETS ET INVOCATIONS</button>
+          <button type="button" id="btn-native-actions" class="btn hidden">ACTIONS DES CARTES</button>
           <button type="button" id="btn-pendulum-summon" class="btn btn-magenta hidden" aria-describedby="pendulum-status">INVOCATION PENDULE</button>
           <button type="button" id="btn-next-phase" class="btn">PHASE SUIVANTE</button>
           <button type="button" id="btn-end-turn" class="btn btn-cancel">FIN DU TOUR</button>
@@ -521,8 +521,11 @@
       </div>
     </div>
 
-    <!-- Action Choice Modal (Face Up / Face Down) -->
-    <div id="action-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="action-modal-title" aria-describedby="action-modal-description" data-dismissible="true">
+    <!-- Nonmodal field prompt; cards and zones remain visible and reachable. -->
+    <section id="board-decision-prompt" class="board-decision-prompt hidden" role="region" aria-label="Choix sur le terrain" tabindex="-1"></section>
+
+    <!-- Card placement actions stay alongside the field. -->
+    <div id="action-modal" class="modal-overlay board-action-prompt hidden" role="dialog" aria-modal="false" aria-labelledby="action-modal-title" aria-describedby="action-modal-description" data-dismissible="true">
       <div class="modal-content" tabindex="-1">
         <h3 id="action-modal-title" class="modal-title">ACTION SUR LE TERRAIN</h3>
         <p id="action-modal-description" class="modal-text">Choisissez l’action autorisée pour cette carte et cette zone.</p>

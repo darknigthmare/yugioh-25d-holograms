@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
+import { PerspectiveCamera } from 'three';
 import {
   DEFAULT_FIELD_ENVIRONMENT_ID,
   FALLBACK_FIELD_ENVIRONMENT_ID,
@@ -386,6 +387,62 @@ test('entering and re-entering Real view clears mobile pan before WebGL and CSS3
     view.deactivate();
   }
   assert.equal(resizes.length, 4);
+  view.dispose();
+});
+
+test('Real view reprojects both scenic fade layers on camera motion and uses the renderer viewport after resize', async () => {
+  const fixture = createDomFixture();
+  const hand = fixture.documentRef.createElement('div');
+  fixture.app.appendChild(hand);
+  let bounds = { width: 1440.4, height: 800.3 };
+  fixture.field.getBoundingClientRect = () => bounds;
+  const camera = new PerspectiveCamera(36, 1440 / 800, 0.1, 120);
+  camera.position.set(0, 15, 25);
+  camera.lookAt(0, 0, 0);
+  let cameraUpdate;
+  let renders = 0;
+  const scene = {
+    webglAvailable: true,
+    mount() {}, getCamera: () => camera,
+    setCameraUpdateCallback(callback) { cameraUpdate = callback; },
+    async activate() { return true; },
+    resize(width, height) {
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+    }
+  };
+  const adapter = {
+    mount() {}, activate() {}, resize() {}, render() { renders += 1; }
+  };
+  const view = new RealDuelView({
+    documentRef: fixture.documentRef, fieldElement: fixture.field,
+    boardElement: fixture.board, handElement: hand, enable3D: true,
+    sceneFactory: () => scene, domAdapterFactory: () => adapter
+  });
+  const layer = await view.activate({ playerHand: [], opponentHand: [] });
+  assert.equal(layer.dataset.backdropProjection, 'world');
+  const before = view.backdropLayers.map(backdrop => backdrop.style.transform);
+  for (const backdrop of view.backdropLayers) {
+    assert.equal(backdrop.dataset.projected, 'true');
+    assert.equal(backdrop.style.width, '1440px');
+    assert.equal(backdrop.style.height, '800px');
+  }
+  camera.position.set(-12.5, 15.5, 25);
+  camera.lookAt(0, 0.8, -0.5);
+  camera.fov = 39;
+  camera.updateProjectionMatrix();
+  const priorRenders = renders;
+  cameraUpdate();
+  assert.equal(renders, priorRenders + 1, 'the board and scenery share one camera update');
+  view.backdropLayers.forEach((backdrop, index) => assert.notEqual(backdrop.style.transform, before[index]));
+  bounds = { width: 390.2, height: 660.4 };
+  view._resize3D();
+  cameraUpdate();
+  for (const backdrop of view.backdropLayers) {
+    assert.equal(backdrop.style.width, '390px');
+    assert.equal(backdrop.style.height, '660px');
+  }
+  assert.equal(fixture.existingCard.parentNode, fixture.existingZone);
   view.dispose();
 });
 

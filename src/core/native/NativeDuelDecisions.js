@@ -1,6 +1,7 @@
 import { nativeCandidateContext, nativeCandidateLabel, nativeCandidateSource,
   nativeEffectStringReference } from '../../ui/NativeDuelPresentationModel.js';
 import { nativeChainDecisionInfo } from './NativeChainDecisionInfo.js';
+import { nativeBoardReference } from '../../ui/NativeDuelBoardInteractionModel.js';
 
 /**
  * Translate core-owned decisions into the existing decision modal contract.
@@ -92,7 +93,9 @@ function cardCandidate(ref, index, prompt, options) {
   const name = known ? card?.name ?? `Carte ${ref.code}` : 'Carte face verso';
   const effectText = known && ref.description != null ? descriptionLabel(ref.description, options, ref.code) : '';
   return { uid: String(index), name, label: nativeCandidateLabel(name, effectText, ref, prompt.player),
-    source: nativeCandidateSource(ref) };
+    source: nativeCandidateSource(ref), boardRef: nativeBoardReference(ref, {
+      choosingPlayer: prompt.player, side: options.side, sideForPlayer: options.sideForPlayer
+    }) };
 }
 function descriptionLabel(description, options, code) {
   const text = options.resolveDescription?.(description, code);
@@ -324,8 +327,10 @@ export function translateNativePrompt(prompt, inputOptions = {}) {
       const info = nativeChainDecisionInfo(prompt);
       request.required = Boolean(prompt.forced);
       request.description = info.description;
-      choices(prompt.selects ?? [], (ref, index) => ({ value: index,
-        label: cardCandidate(ref, index, prompt, options).label }), info.title);
+      choices(prompt.selects ?? [], (ref, index) => {
+        const candidate = cardCandidate(ref, index, prompt, options);
+        return { value: index, label: candidate.label, boardRef: candidate.boardRef };
+      }, info.title);
       if (!prompt.forced) request.choices.push({ value: null, label: 'PASSER LA PRIORITÉ' });
       convert = index => ({ type, index });
       break;
@@ -388,8 +393,11 @@ export function translateNativePrompt(prompt, inputOptions = {}) {
     }
     case 'SELECT_UNSELECT_CARD':
       request.required = !prompt.can_finish && !prompt.can_cancel;
-      choices([...(prompt.select_cards ?? []), ...(prompt.unselect_cards ?? [])], (ref, index) => ({ value: index,
-        label: `${index < prompt.select_cards.length ? 'AJOUTER' : 'RETIRER'} — ${cardCandidate(ref, index, prompt, options).label}` }), 'CHOISIR LES MATÉRIELS');
+      choices([...(prompt.select_cards ?? []), ...(prompt.unselect_cards ?? [])], (ref, index) => {
+        const candidate = cardCandidate(ref, index, prompt, options);
+        return { value: index, boardRef: candidate.boardRef,
+          label: `${index < prompt.select_cards.length ? 'AJOUTER' : 'RETIRER'} — ${candidate.label}` };
+      }, 'CHOISIR LES MATÉRIELS');
       if (prompt.can_finish || prompt.can_cancel) request.choices.push({ value: null, label: prompt.can_finish ? 'CONFIRMER LES MATÉRIELS' : 'ANNULER' });
       convert = index => ({ type, index });
       break;
@@ -403,7 +411,10 @@ export function translateNativePrompt(prompt, inputOptions = {}) {
       request.multiple = true;
       request.minimum = prompt.count;
       request.maximum = prompt.count;
-      request.candidates = places.map((place, index) => ({ uid: String(index), name: placeLabel(place, prompt), label: placeLabel(place, prompt) }));
+      request.candidates = places.map((place, index) => ({ uid: String(index), name: placeLabel(place, prompt),
+        label: placeLabel(place, prompt), boardRef: nativeBoardReference({ controller: place.player,
+          location: place.location, sequence: place.sequence }, { choosingPlayer: prompt.player,
+          side: options.side, sideForPlayer: options.sideForPlayer }) }));
       convert = choice => {
         const indices = selectionToIndices(choice, places.length);
         return indices ? { type, places: indices.map(index => places[index]) } : null;
@@ -581,6 +592,7 @@ export async function resolveNativeDuelPrompt({ prompt, runtime, side, metadata,
       const maximum = Math.min(prompt.cards[index].count, remaining);
       if (minimum > maximum) return null;
       const answer = await ask({ ...translated.request, sequence: undefined, candidates: undefined,
+        boardRef: translated.request.candidates[index].boardRef,
         title: 'RETIRER LES COMPTEURS', description: `${translated.request.candidates[index].label} — ${remaining} compteur(s) restant(s).`,
         choices: Array.from({ length: maximum - minimum + 1 }, (_, offset) => ({ value: minimum + offset, label: String(minimum + offset) })) });
       if (!integer(answer, minimum, maximum)) return null;
@@ -597,7 +609,8 @@ export async function resolveNativeDuelPrompt({ prompt, runtime, side, metadata,
         description: kind === 'SORT_CHAIN'
           ? `Choisissez l’effet pour le Maillon ${chosen.length + 1}. Le dernier Maillon sera résolu en premier.`
           : `Choisissez la carte en position ${chosen.length + 1}.`, required: true,
-        choices: available.map(index => ({ value: index, label: translated.request.candidates[index].label })) });
+        choices: available.map(index => ({ value: index, label: translated.request.candidates[index].label,
+          boardRef: translated.request.candidates[index].boardRef })) });
       if (!available.includes(answer)) return null;
       chosen.push(answer); available.splice(available.indexOf(answer), 1);
     }

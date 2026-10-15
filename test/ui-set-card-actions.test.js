@@ -374,31 +374,154 @@ for (const zoneType of ['spell', 'field']) {
   });
 }
 
-test('a required single-target choice hides cancellation and resolves the chosen identity', async () => {
-  const options = [];
-  const hidden = new Set();
-  let context;
-  context = vm.createContext({
-    pendingDecisionResolver: null,
-    decisionModal: { dataset: {} }, decisionTitle: {}, decisionDescription: {},
-    decisionOptions: { innerHTML: '', appendChild: button => options.push(button), querySelector: () => options[0] },
-    decisionCancelBtn: { classList: {
-      add: name => hidden.add(name), remove: name => hidden.delete(name),
-      toggle: (name, enabled) => enabled ? hidden.add(name) : hidden.delete(name)
-    } },
-    document: { createElement: () => {
-      const button = {};
-      button.addEventListener = (name, listener) => { if (name === 'click') button.click = listener; };
-      return button;
-    } },
-    openDialog: () => {},
-    finishDecision: value => context.pendingDecisionResolver(value)
+function decisionUiFixture({ spatial = false } = {}) {
+  const element = (tagName = 'div') => {
+    const attributes = new Map(), classes = new Set(), listeners = new Map();
+    return {
+      tagName, dataset: {}, children: [], disabled: false,
+      classList: {
+        add: name => classes.add(name), remove: name => classes.delete(name),
+        contains: name => classes.has(name),
+        toggle: (name, enabled = !classes.has(name)) => enabled ? classes.add(name) : classes.delete(name)
+      },
+      setAttribute: (name, value) => attributes.set(name, value),
+      getAttribute: name => attributes.get(name),
+      set innerHTML(value) { this.children = []; },
+      appendChild(child) { this.children.push(child); return child; },
+      replaceChildren(...children) { this.children = children; },
+      querySelector() {
+        for (const child of this.children) {
+          if (child.tagName === 'button' || child.tagName === 'input') return child;
+          const nested = child.querySelector?.();
+          if (nested) return nested;
+        }
+        return null;
+      },
+      addEventListener: (name, listener) => listeners.set(name, listener),
+      click: () => listeners.get('click')?.({ stopPropagation() {} })
+    };
+  };
+  const buttons = new Map(['btn-next-phase', 'btn-end-turn', 'btn-native-actions', 'btn-pendulum-summon']
+    .map(id => [id, element('button')]));
+  buttons.get('btn-pendulum-summon').disabled = true;
+  const actions = { nativeActions: [{ id: 'core-offered-action' }], canBattlePhase: true,
+    canMainPhase2: false, canEndPhase: true, canPendulumSummon: false };
+  const game = { currentTurn: 'player', currentPhase: 'main1', turnCount: 2,
+    isResolvingAction: false, activateNativeAction() {}, getAvailableActions: () => actions };
+  const body = element('body');
+  const board = { active: false, shown: [], clears: 0,
+    show(request) { this.shown.push(request); this.active = spatial; return spatial; },
+    clear() { this.active = false; this.clears += 1; } };
+  const opened = [], closed = [];
+  const context = vm.createContext({ game, boardDecision: board, pendingDecisionResolver: null,
+    decisionModal: element(), decisionTitle: element(), decisionDescription: element(),
+    decisionOptions: element(), decisionCancelBtn: element('button'),
+    document: { body, getElementById: id => buttons.get(id), createElement: element },
+    openDialog: dialog => opened.push(dialog), closeDialog: dialog => closed.push(dialog),
+    announceStatus() {}
   });
-  vm.runInContext(productionFunction('requestUiDecision'), context);
+  for (const name of ['syncPendingDecisionControls', 'finishDecision', 'requestUiDecision']) {
+    vm.runInContext(productionFunction(name), context);
+  }
+  return { context, board, body, buttons, actions, game, opened, closed };
+}
+
+test('a required single-target fallback hides cancellation and resolves the chosen identity', async () => {
+  const { context, board, body, buttons } = decisionUiFixture();
   const choice = context.requestUiDecision({ side: 'player', type: 'select-required-target',
     required: true, candidates: [{ uid: 'selected-target', name: 'Cible publique' }] });
-  assert.equal(hidden.has('hidden'), true);
+  assert.equal(board.active, false);
+  assert.equal(context.decisionCancelBtn.classList.contains('hidden'), true);
   assert.equal(context.decisionModal.dataset.dismissible, 'false');
-  options[0].click();
+  assert.equal(body.classList.contains('duel-decision-pending'), true);
+  assert.equal(buttons.get('btn-end-turn').disabled, true);
+  context.decisionOptions.children[0].click();
   assert.equal(await choice, 'selected-target');
+  assert.equal(context.pendingDecisionResolver, null);
+  assert.equal(body.classList.contains('duel-decision-pending'), false);
+  assert.equal(buttons.get('btn-end-turn').disabled, false);
+});
+
+test('switching a required board choice to its complete picker preserves the original awaiting resolver', async () => {
+  const { context, board, body, opened } = decisionUiFixture({ spatial: true });
+  const request = { side: 'player', type: 'select-required-target', required: true,
+    candidates: [{ uid: 'core-index-2', name: 'Cible publique' }] };
+  let settled = false;
+  const choice = context.requestUiDecision(request);
+  choice.then(() => { settled = true; });
+  const originalResolver = context.pendingDecisionResolver;
+  assert.equal(board.active, true);
+  assert.equal(opened.length, 0);
+  const migration = context.requestUiDecision(request, { forceModal: true, reuseResolver: true });
+  assert.equal(migration, undefined);
+  assert.equal(context.pendingDecisionResolver, originalResolver);
+  assert.equal(board.active, false);
+  assert.equal(opened.length, 1);
+  assert.equal(context.decisionModal.dataset.dismissible, 'false');
+  assert.equal(context.decisionCancelBtn.classList.contains('hidden'), true);
+  assert.equal(body.classList.contains('duel-decision-pending'), true);
+  await Promise.resolve();
+  assert.equal(settled, false);
+  context.decisionOptions.children[0].click();
+  assert.equal(await choice, 'core-index-2');
+  assert.equal(context.pendingDecisionResolver, null);
+});
+
+test('a now-empty board fallback releases the original waiter and suspended phase controls', async () => {
+  const { context, body, buttons } = decisionUiFixture({ spatial: true });
+  const choice = context.requestUiDecision({ side: 'player', type: 'select-required-target', required: true,
+    candidates: [{ uid: '0', name: 'Cible publique' }] });
+  assert.equal(buttons.get('btn-next-phase').disabled, true);
+  assert.equal(buttons.get('btn-end-turn').disabled, true);
+  context.requestUiDecision({ side: 'player', type: 'select-required-target', required: true },
+    { forceModal: true, reuseResolver: true });
+  assert.equal(await choice, undefined);
+  assert.equal(context.pendingDecisionResolver, null);
+  assert.equal(body.classList.contains('duel-decision-pending'), false);
+  assert.equal(buttons.get('btn-next-phase').disabled, false);
+  assert.equal(buttons.get('btn-end-turn').disabled, false);
+});
+
+test('finishing a pending choice rechecks current phase authority instead of blindly enabling old commands', async () => {
+  const { context, buttons, actions } = decisionUiFixture({ spatial: true });
+  const choice = context.requestUiDecision({ side: 'player', type: 'select-required-target', required: true,
+    candidates: [{ uid: '0', name: 'Cible publique' }] });
+  actions.canBattlePhase = false;
+  actions.canMainPhase2 = false;
+  actions.canEndPhase = false;
+  actions.nativeActions = [];
+  context.finishDecision('0');
+  assert.equal(await choice, '0');
+  for (const id of ['btn-next-phase', 'btn-end-turn', 'btn-native-actions']) {
+    assert.equal(buttons.get(id).disabled, true, `${id} has no current core authority`);
+    assert.equal(buttons.get(id).getAttribute('aria-disabled'), 'true');
+    assert.equal(buttons.get(id).dataset.decisionSuspended, undefined);
+  }
+});
+
+test('nonmodal card placement blocks pointer, drag and position shortcuts until it finishes', () => {
+  const dialog = { id: 'action-modal', contains: () => false };
+  const announcements = [];
+  const context = vm.createContext({ activeDialog: dialog, announceStatus: text => announcements.push(text) });
+  vm.runInContext(productionFunction('blockPendingPlacementCommand'), context);
+  const event = (type, key) => ({ type, key, target: { closest: () => ({}) }, prevented: false, stopped: false,
+    preventDefault() { this.prevented = true; }, stopImmediatePropagation() { this.stopped = true; } });
+  for (const [type, key] of [['click'], ['contextmenu'], ['dragstart'], ['drop'],
+    ['keydown', 'r'], ['keydown', 'R'], ['keydown', 'Enter'], ['keydown', ' ']]) {
+    const command = event(type, key);
+    context.blockPendingPlacementCommand(command);
+    assert.equal(command.prevented && command.stopped, true, `${type} ${key ?? ''}`);
+  }
+  assert.equal(announcements.length, 8);
+  const tab = event('keydown', 'Tab');
+  context.blockPendingPlacementCommand(tab);
+  assert.equal(tab.prevented, false);
+  dialog.contains = () => true;
+  const insideDialog = event('click');
+  context.blockPendingPlacementCommand(insideDialog);
+  assert.equal(insideDialog.prevented, false);
+  context.activeDialog = null;
+  const ordinaryCommand = event('contextmenu');
+  context.blockPendingPlacementCommand(ordinaryCommand);
+  assert.equal(ordinaryCommand.prevented, false);
 });
