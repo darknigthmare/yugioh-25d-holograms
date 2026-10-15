@@ -127,7 +127,7 @@ body.modal-open {
 /* App Layout */
 .app-container {
   display: grid;
-  grid-template-columns: 320px 1fr 340px;
+  grid-template-columns: 320px minmax(0, 1fr) 340px;
   grid-template-rows: 80px 1fr 180px;
   width: 100%;
   height: 100%;
@@ -4468,6 +4468,159 @@ body.duel-ended .app-container.real-duel-view-active .bottom-bar::after {
 /* Search results use public names when an original card image is unavailable. */
 .builder-card-name { display: block; position: absolute; inset: 15% 4% auto; padding: .35rem; color: #f0f5ff; background: #081426e8; font-size: .72rem; text-align: center; overflow-wrap: anywhere; }
 .decision-choice-list { display: flex; flex-wrap: wrap; gap: .65rem; }
+
+/* Duel decisions stay beside the cards instead of covering the playmat. */
+.board-decision-prompt,
+#action-modal.board-action-prompt {
+  position: fixed;
+  inset: auto auto calc(180px + env(safe-area-inset-bottom, 0px)) 50%;
+  transform: translateX(-50%);
+  z-index: 90;
+  width: min(720px, calc(100vw - 36px));
+  max-height: min(240px, 38vh);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 12px 16px;
+  border: 1px solid rgba(0, 255, 255, .65);
+  border-radius: 12px;
+  background: rgba(5, 13, 28, .96);
+  color: var(--text-main);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, .45), 0 0 18px rgba(0, 255, 255, .12);
+  backdrop-filter: blur(8px);
+  pointer-events: auto;
+}
+.board-decision-heading,
+#action-modal.board-action-prompt .modal-title {
+  margin: 0 0 5px;
+  font-family: var(--font-display);
+  font-size: .82rem;
+  color: var(--neon-cyan);
+  text-align: left;
+}
+.board-decision-description,
+.board-decision-status,
+#action-modal.board-action-prompt .modal-text {
+  margin: 4px 0;
+  font-size: .76rem;
+  line-height: 1.4;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+.board-decision-status { color: var(--neon-gold); }
+.hand-card-wrapper { position: relative; }
+.hand-card-actions {
+  position: absolute;
+  z-index: 5;
+  top: -26px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 64px;
+  min-height: 44px;
+  padding: 4px 8px;
+  border: 1px solid var(--neon-cyan);
+  border-radius: 6px;
+  background: #061627;
+  color: var(--neon-cyan);
+  font-family: var(--font-display);
+  font-size: .56rem;
+  cursor: pointer;
+}
+.hand-card-actions:focus-visible { outline: 3px solid var(--neon-gold); outline-offset: 3px; }
+.board-decision-active .hand-card-actions { visibility: hidden; }
+.board-decision-actions,
+#action-modal.board-action-prompt .modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0 0;
+}
+.board-decision-actions .btn,
+#action-modal.board-action-prompt .btn {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 8px 12px;
+  font-size: .68rem;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.board-decision-actions .board-decision-fallback {
+  margin-left: auto;
+  color: var(--text-dim);
+  border-color: rgba(180, 200, 225, .4);
+  background: transparent;
+}
+#action-modal.board-action-prompt { display: block; }
+#action-modal.board-action-prompt.hidden { display: none; }
+#action-modal.board-action-prompt .modal-content {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+#action-modal.board-action-prompt .modal-title {
+  -webkit-text-fill-color: var(--neon-cyan);
+}
+#action-modal.board-action-prompt #btn-action-cancel {
+  margin-top: 8px;
+  width: auto;
+}
+.board-decision-target {
+  cursor: pointer !important;
+  outline: 3px solid var(--neon-cyan) !important;
+  outline-offset: 3px;
+  box-shadow: 0 0 22px rgba(0, 255, 255, .6) !important;
+}
+.board-decision-target:focus-visible,
+.board-decision-target:hover {
+  outline-color: #fff !important;
+  box-shadow: 0 0 28px rgba(0, 255, 255, .85) !important;
+}
+.board-decision-selected {
+  outline-color: var(--neon-gold) !important;
+  box-shadow: 0 0 25px rgba(255, 215, 0, .7) !important;
+}
+.board-decision-selected::after {
+  content: '✓';
+  position: absolute;
+  z-index: 25;
+  top: -10px;
+  right: -10px;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  color: #081321;
+  background: var(--neon-gold);
+  font-weight: bold;
+  transform: translateZ(8px);
+  pointer-events: none;
+}
+.app-container.real-duel-view-active .board-decision-prompt,
+.app-container.real-duel-view-active #action-modal.board-action-prompt {
+  top: calc(var(--real-header-height, 80px) + 64px);
+  bottom: auto;
+  max-height: 190px;
+}
+@media (max-width: 1050px) {
+  .board-decision-prompt,
+  #action-modal.board-action-prompt,
+  .app-container.real-duel-view-active .board-decision-prompt,
+  .app-container.real-duel-view-active #action-modal.board-action-prompt {
+    top: auto;
+    bottom: max(8px, env(safe-area-inset-bottom, 0px));
+    left: 8px;
+    transform: none;
+    width: calc(100vw - 16px);
+    max-height: 210px;
+    padding: 10px;
+  }
+  body.board-decision-active,
+  body.board-action-active { padding-bottom: 220px; }
+}
 .decision-choice-list .btn { min-height: 44px; min-width: 44px; max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
 #builder-card-search, #builder-card-filter, #decision-options input[type="search"] { max-width: 100%; padding: .5rem; color: #e9f6ff; background: #0c1a2c; border: 1px solid #396278; border-radius: .35rem; }
 
@@ -4622,4 +4775,19 @@ body.duel-ended .app-container.real-duel-view-active .bottom-bar::after {
   .duelist-avatar-detail[data-preview-mode="3d"] .duelist-avatar-detail-art { height: 330px; min-height: 330px; }
   .duelist-avatar-rotation-buttons .duelist-avatar-button { flex: 1; }
   .duelist-avatar-backup-actions .duelist-avatar-button { flex: 1 1 135px; }
+}
+
+/* Scenic art shares the live duel camera instead of following the screen. */
+.real-duel-view-layer[data-backdrop-projection="world"] {
+  background: radial-gradient(ellipse at 50% 40%, var(--real-environment-tint, #243c35), var(--real-environment-fog, #101624) 78%);
+  filter: none;
+}
+
+.real-duel-environment-backdrop[data-projected="true"] {
+  inset: auto;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  backface-visibility: hidden;
+  will-change: opacity, transform;
 }
