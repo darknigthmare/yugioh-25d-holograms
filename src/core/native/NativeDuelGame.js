@@ -910,7 +910,7 @@ export class NativeDuelGame {
       this.isResolvingAction = true;
       const generation = this._duelGeneration;
       const choice = await this.callbacks.onDecision({ type: 'native-action-effect', side,
-        title: card.name, description: 'Choisissez l’effet à activer.', required: false,
+        title: card.name, anchorUid: card.uid, description: 'Choisissez l’effet à activer.', required: false,
         choices: indices.map((value, offset) => ({ value,
           label: this._effectDescription(candidates[value], `Effet ${offset + 1}`) })) });
       if (!this.isDuelGenerationCurrent(generation) || prompt !== this._prompt) return false;

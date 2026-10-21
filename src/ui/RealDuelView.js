@@ -4,6 +4,7 @@ import {
 } from './FieldEnvironmentRegistry.js';
 import { RealDuelScene3D } from './RealDuelScene3D.js';
 import { RealDuelDOM3DAdapter } from './RealDuelDOM3DAdapter.js';
+import { createRealDuelBackdropProjection } from './RealDuelBackdropProjection.js';
 import { Vector3 } from 'three';
 import { getDuelistAvatar } from '../content/DuelistAvatarCatalog.js';
 import {
@@ -172,6 +173,7 @@ export class RealDuelView {
     this._backdropRequestToken = 0;
     this._backdropPreload = null;
     this._decodedBackdropUrls = new Set();
+    this._backdropViewport = null;
     this.scene3D = null;
     this.dom3DAdapter = null;
     this.cameraPreset = normalizeRealDuelCameraPreset(options.cameraPreset);
@@ -357,6 +359,7 @@ export class RealDuelView {
       this.dom3DAdapter = domAdapter;
       scene3D.setCameraUpdateCallback?.(() => {
         this.dom3DAdapter?.render?.();
+        this._syncBackdropProjection();
       });
       scene3D.setCameraPreset?.(this.cameraPreset, { immediate: true });
       this._ensureCameraControls();
@@ -512,7 +515,35 @@ export class RealDuelView {
     this.scene3D.resize?.(width, height);
     this.dom3DAdapter.resize?.(width, height);
     this.dom3DAdapter.render?.();
+    this._syncBackdropProjection(width, height);
     return true;
+  }
+
+  _syncBackdropProjection(width, height) {
+    if (!this.enable3D || !this.layerElement || !this.scene3D) return false;
+    const bounds = this.fieldElement?.getBoundingClientRect?.();
+    const viewportWidth = Math.max(1, Math.round(Number(width)
+      || this._backdropViewport?.width || Number(bounds?.width)
+      || this.fieldElement?.clientWidth || 1));
+    const viewportHeight = Math.max(1, Math.round(Number(height)
+      || this._backdropViewport?.height || Number(bounds?.height)
+      || this.fieldElement?.clientHeight || 1));
+    this._backdropViewport = { width: viewportWidth, height: viewportHeight };
+    const camera = this.scene3D.getCamera?.();
+    let projected = false;
+    for (const backdropLayer of this.backdropLayers) {
+      const projection = createRealDuelBackdropProjection(
+        camera, viewportWidth, viewportHeight, backdropLayer.dataset.backdropFit
+      );
+      if (!projection) continue;
+      backdropLayer.dataset.projected = 'true';
+      backdropLayer.style.width = `${projection.width}px`;
+      backdropLayer.style.height = `${projection.height}px`;
+      backdropLayer.style.transform = projection.transform;
+      projected = true;
+    }
+    if (projected) this.layerElement.dataset.backdropProjection = 'world';
+    return projected;
   }
 
   _attachVisibilityListener() {
@@ -563,6 +594,7 @@ export class RealDuelView {
     delete layer.dataset.environmentId;
     delete layer.dataset.environmentFallback;
     delete layer.dataset.transitionDuration;
+    delete layer.dataset.backdropProjection;
     layer.setAttribute('aria-hidden', 'true');
     layer.setAttribute('role', 'presentation');
     layer.tabIndex = -1;
@@ -599,12 +631,17 @@ export class RealDuelView {
       backdropLayer.dataset.realDuelBackdropLayer = 'true';
       backdropLayer.dataset.backdropSlot = String(index);
       backdropLayer.dataset.active = 'false';
+      delete backdropLayer.dataset.projected;
+      delete backdropLayer.dataset.backdropFit;
       backdropLayer.setAttribute?.('aria-hidden', 'true');
       backdropLayer.setAttribute?.('role', 'presentation');
       backdropLayer.inert = true;
       if (backdropLayer.style) {
         backdropLayer.style.backgroundImage = '';
         backdropLayer.style.filter = 'none';
+        backdropLayer.style.width = '';
+        backdropLayer.style.height = '';
+        backdropLayer.style.transform = '';
       }
       if (backdropLayer.parentNode !== layer) layer.appendChild?.(backdropLayer);
       layers.push(backdropLayer);
@@ -640,6 +677,8 @@ export class RealDuelView {
     nextLayer.style.backgroundImage = backgroundImage;
     nextLayer.style.filter = backdropFilter;
     nextLayer.style.backgroundSize = backdropFit === 'contain' ? 'contain' : 'cover, cover';
+    nextLayer.dataset.backdropFit = backdropFit;
+    this._syncBackdropProjection();
     nextLayer.dataset.active = 'true';
     for (const [index, backdropLayer] of this.backdropLayers.entries()) {
       if (index !== nextIndex) backdropLayer.dataset.active = 'false';
